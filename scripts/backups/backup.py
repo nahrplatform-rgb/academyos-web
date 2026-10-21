@@ -83,7 +83,20 @@ def command(args, env=None, timeout=900):
     # failure, never raw subprocess output. Exit status still fails the workflow.
     result = subprocess.run(args, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
     if result.returncode:
-        raise BackupError(f"{Path(args[0]).name} failed (exit {result.returncode}); inspect privately")
+        stderr = result.stderr.decode(errors="replace").lower()
+        categories = {
+            "password authentication failed": "database credential rejected",
+            "tenant or user not found": "database tenant/user rejected",
+            "certificate verify failed": "TLS certificate verification failed",
+            "server certificate": "TLS server certificate rejected",
+            "unsupported startup parameter": "pooler rejected a startup parameter",
+            "permission denied": "database permission denied",
+            "could not translate host": "database DNS resolution failed",
+            "connection refused": "database connection refused",
+            "timeout": "database connection or statement timed out",
+        }
+        category = next((safe for phrase, safe in categories.items() if phrase in stderr), "operation failed")
+        raise BackupError(f"{Path(args[0]).name}: {category} (exit {result.returncode})")
     return result.stdout
 
 

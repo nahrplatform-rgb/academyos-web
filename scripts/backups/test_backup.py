@@ -35,7 +35,7 @@ class BackupSafetyTests(unittest.TestCase):
     def test_failed_command_does_not_disclose_stderr(self):
         import subprocess
         with patch.object(backup.subprocess, "run", return_value=subprocess.CompletedProcess([], 1, b"", b"password=private row=data")):
-            with self.assertRaisesRegex(backup.BackupError, "pg_dump failed") as error:
+            with self.assertRaisesRegex(backup.BackupError, "pg_dump: operation failed") as error:
                 backup.command(["pg_dump"])
         self.assertNotIn("password=private", str(error.exception))
         self.assertNotIn("row=data", str(error.exception))
