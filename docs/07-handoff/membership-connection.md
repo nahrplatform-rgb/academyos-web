@@ -32,3 +32,7 @@ Hosted SQL permission tests passed under simulated authenticated/anonymous roles
 Removed unnecessary PUBLIC/anon/authenticated execution on the existing automatic-RLS event-trigger function. Its automatic table protection remains intact. Security advisor now reports three informational RLS-with-no-policy notices (intentional private-table denial) and two warnings for authenticated SECURITY DEFINER RPCs (intentional narrow caller-scoped boundary). No zero-finding security claim. Advisor reference: https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable
 
 Vercel connector returned 403 for academy-os2; explicit-scope CLI fallback also failed. Vercel environment values and actual deployed end-to-end bootstrap remain pending user configuration. No service-role credential requested or used.
+
+## Deployment identity update — 21 October 2026
+
+Vercel blocked recent commits because they were authored by the separate moamenghareeb GitHub identity. Owner completed GitHub CLI browser authentication as nahrplatform-rgb. Verified authenticated GitHub user ID 345505218 and ADMIN access to this repository. Repository-local author identity now uses nahrplatform-rgb with its ID-based GitHub noreply address; global Git author configuration and existing commits were not changed. A new owner-account commit retries the deployment; successful hosted build and actual signed-in Supabase bootstrap still require verification.
