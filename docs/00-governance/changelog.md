@@ -47,3 +47,7 @@ User authorized implementation, commit and push. Added deployable EN/AR Next.js 
 ## Membership connection slice — 21 October 2026
 
 Added staging-only server Supabase client, caller-derived identity bootstrap, active-membership lookup over private tables, explicit unavailable/empty UI states, and isolated PostgreSQL authorization tests. See membership-connection.md for verification and pending hosted access. No hosted schema applied or membership granted.
+
+## Hosted staging membership baseline — 21 October 2026
+
+Verified correct Supabase project, applied and checked three migrations, ran rollback-only SQL authorization tests and advisor review. Aligned source migration timestamps with provider history. Hosted data remains empty; Vercel configuration and actual Clerk-token integration test remain pending.

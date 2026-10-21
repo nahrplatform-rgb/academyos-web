@@ -22,3 +22,13 @@ The connected Supabase tool account lists only Shift projects and cannot current
 Invitation-led vs self-service onboarding, delegated roles and privileged initial provisioning require accepted policies. Signing up alone grants no academy access. Operational workflows and automated membership grants are not enabled.
 
 Database test replay: on an empty disposable PostgreSQL database run psql with ON_ERROR_STOP=1 and the files `supabase/tests/harness.sql`, both migration files in timestamp order, then `supabase/tests/membership_boundary.sql`. Tests roll back synthetic records. The harness supplies claims and is not a JWT verification substitute.
+
+## Hosted update — 21 October 2026
+
+Supabase connection restored and target verified: only academyos-staging / snpphkenmvmhpjstbeul, eu-west-1, PostgreSQL 17.11. Baseline was empty except provider automatic-RLS trigger. Applied identity_baseline, membership_reads and restrict_auto_rls_trigger. Local filenames aligned to actual provider migration versions 20261021165259, 20261021165332 and 20261021165645 to avoid duplicate replay.
+
+Hosted SQL permission tests passed under simulated authenticated/anonymous roles inside a rollback-only transaction. Verified RLS enabled, direct authenticated SELECT/INSERT absent, and synthetic records rolled back to zero rows. These SQL tests do not prove JWT signature verification or actual Clerk token acceptance at the Data API.
+
+Removed unnecessary PUBLIC/anon/authenticated execution on the existing automatic-RLS event-trigger function. Its automatic table protection remains intact. Security advisor now reports three informational RLS-with-no-policy notices (intentional private-table denial) and two warnings for authenticated SECURITY DEFINER RPCs (intentional narrow caller-scoped boundary). No zero-finding security claim. Advisor reference: https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable
+
+Vercel connector returned 403 for academy-os2; explicit-scope CLI fallback also failed. Vercel environment values and actual deployed end-to-end bootstrap remain pending user configuration. No service-role credential requested or used.
