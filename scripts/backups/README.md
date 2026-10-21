@@ -44,6 +44,8 @@ The workflow runs daily at 02:17 UTC and can be started manually on main. This i
 
 The export refuses unexpected source hosts/projects, transaction-pooler connections, public/unreviewed Storage buckets, changed inventories or more than 2 GiB of payload. These are hard failures, never silent partial backups. New schemas/buckets or larger data require a reviewed coverage/limit update.
 
+Before exporting, it also calls the Storage bucket-list API using the dedicated key and checks all four private buckets. This verifies API credential use even when there are no objects; object-download coverage remains separate.
+
 Local dependencies: PostgreSQL 17 client tools, age, Python 3.12+, and the pinned requirements in a private virtual environment. Run the adversarial checks with `python3 -m unittest discover -s scripts/backups -v`.
 
 ## Recovery rehearsal

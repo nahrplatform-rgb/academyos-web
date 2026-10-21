@@ -17,6 +17,7 @@ import tarfile
 import tempfile
 from datetime import datetime, timezone
 from urllib.parse import quote, unquote, urlparse
+from urllib.error import HTTPError
 from urllib.request import Request, HTTPRedirectHandler, build_opener
 import uuid
 
@@ -115,6 +116,21 @@ def inventory(env):
     return result
 
 
+def verify_storage_api(storage_key):
+    # Validate the actual API credential even when there are no files to copy.
+    request = Request(f"{SUPABASE_URL}/storage/v1/bucket", headers={"apikey": storage_key})
+    try:
+        with build_opener(NoRedirect()).open(request, timeout=30) as response:
+            data = response.read(1024 * 1024 + 1)
+            if len(data) > 1024 * 1024:
+                raise BackupError("Storage API bucket response exceeds staging limit")
+            buckets = json.loads(data)
+    except HTTPError as error:
+        raise BackupError(f"Storage credential check failed (HTTP {error.code})") from None
+    if not isinstance(buckets, list) or {b["id"] for b in buckets} != STORAGE_BUCKETS or any(b["public"] for b in buckets):
+        raise BackupError("Storage API credential cannot see the reviewed private buckets")
+
+
 def file_record(path, root):
     return {"path": path.relative_to(root).as_posix(), "bytes": path.stat().st_size, "sha256": sha256(path)}
 
@@ -199,7 +215,7 @@ def publish(ciphertext, manifest):
         raise BackupError("R2 download verification failed; no success receipt written")
     receipt = {"format": 1, "project": PROJECT, "key": key, "sha256": digest, "bytes": size,
                "object_count": manifest["objects"], "verified_at": datetime.now(timezone.utc).isoformat(),
-               "status": "encrypted_upload_download_verified", "restore_tested": False}
+               "status": "encrypted_upload_download_verified", "storage_api_credential_verified": True, "restore_tested": False}
     receipt_bytes = json.dumps(receipt, sort_keys=True).encode()
     client.put_object(Bucket=BUCKET, Key=key.removesuffix("backup.tar.age") + "receipt.json", Body=receipt_bytes, ContentType="application/json")
     return receipt
@@ -264,6 +280,7 @@ def main():
             storage_key = required("BACKUP_SUPABASE_SECRET_KEY")
             if not storage_key.startswith("sb_secret_"):
                 raise BackupError("Use a dedicated Supabase secret API key for backups")
+            verify_storage_api(storage_key)
             root = tmp / "payload"
             root.mkdir()
             archive, manifest = make_archive(root, env, storage_key, str(uuid.uuid4()))

@@ -12,6 +12,25 @@ import backup
 
 
 class BackupSafetyTests(unittest.TestCase):
+    def test_storage_credential_check_rejects_incomplete_or_public_bucket_access(self):
+        import io
+        class Transport:
+            def __init__(self, buckets):
+                self.buckets = buckets
+            def open(self, request, timeout):
+                self_url = request.full_url
+                if self_url != backup.SUPABASE_URL + '/storage/v1/bucket':
+                    raise AssertionError('Wrong Storage target')
+                return io.BytesIO(json.dumps(self.buckets).encode())
+        good = [{"id": name, "public": False} for name in backup.STORAGE_BUCKETS]
+        for buckets in [good, good[:-1], [{"id": b["id"], "public": True} for b in good]]:
+            with patch.object(backup, "build_opener", return_value=Transport(buckets)):
+                if buckets == good:
+                    backup.verify_storage_api('sb_secret_synthetic')
+                else:
+                    with self.assertRaises(backup.BackupError):
+                        backup.verify_storage_api('sb_secret_synthetic')
+
     def test_connection_rejects_other_project_and_transaction_pooler(self):
         urls = [
             "postgresql://postgres:private@db.other.supabase.co:5432/postgres",
