@@ -2,7 +2,7 @@
 
 ## Scope
 
-Owner authorized continuation of the service setup and will retain credentials in their secure vault. This work targets only `academyos-web` under Vercel `academy-os2`, Supabase `snpphkenmvmhpjstbeul`, Redis `fond-mudfish-179090`, QStash EU, Sentry `academyos/academyos-staging`, and Resend `notify.academy.nahr.dev`. Vercel's Production environment serves AcademyOS staging. No production tenant infrastructure, paid upgrades or business records are introduced.
+Owner authorized continuation of the service setup and will retain credentials in their secure vault. This work targets only `academyos-web` under Vercel `academy-os2`, Supabase `snpphkenmvmhpjstbeul`, Redis `fond-mudfish-179090`, QStash EU, Sentry `academyos/academyos-staging`, and Resend `notify.academy.nahr.dev`. Vercel's Production environment serves AcademyOS staging. No production tenant infrastructure or business records are introduced. The owner separately activated Cloudflare R2 billing/terms before the private EU backup bucket was created; no other paid upgrade was made.
 
 ## Implemented source
 
@@ -21,7 +21,7 @@ Security advisor still reports the pre-existing three private tables without cli
 
 ## Credential custody
 
-Only names and public configuration belong here. Owner has reported saving the Upstash token/signing keys, Sentry build token and Vercel callback bypass key in their vault and Vercel Secret variables. Verify deployed use without exposing values. No credentials are copied into Git or local .env files.
+Only names and public configuration belong here. Owner has reported saving the Upstash token/signing keys, Sentry build token and Vercel callback bypass key in their vault and Vercel Secret variables. Verify deployed use without exposing values. No provider credentials are copied into Git or local .env files. Backup credentials are stored separately as GitHub environment secrets; the age recovery key is held locally with mode 0600 and the owner confirmed a vault copy.
 
 The Vercel connector returns 403 for the AcademyOS scope; the signed-in Chrome dashboard is the available management path. The Upstash connector sees no databases in its authorized account; do not provision a duplicate. Use existing application credentials against the verified staging resource.
 
@@ -37,3 +37,19 @@ Still separate: actual email inbox delivery; tenant-aware Storage object tests; 
 - https://supabase.com/docs/guides/storage/buckets/creating-buckets
 - https://resend.com/docs/dashboard/emails/idempotency-keys
 - Installed pinned Upstash SDKs and their plugin guides for signature verification and rate-limit timeout behavior.
+
+## Rollout receipt
+
+- Source commit `33ad085be1ecc2f7ea9d8d774a98f1fb20864d11` pushed to main under verified `nahrplatform-rgb` identity. GitHub verification check succeeded.
+- Local build/typecheck/lint, 15 unit tests and 3 browser tests passed. Production dependency audit reports no known advisories; five pre-existing development dependency advisories remain as documented in the foundation handoff. This is not a comprehensive security audit.
+- Initial Vercel deployment `66fB5SzQx5cVavZgPLxqFhNVjoUc` Ready on the exact commit. A subsequent exact-source redeploy `DfqwwZUQAe6TN9ZY6ACyFxZkkncc` includes the temporary setup flag and approved one-mailbox allowlist. Runtime checks completed below.
+- Owner explicitly approved one setup email to `nahr.platform@gmail.com` and reported saving the domain-scoped sending key. No email is sent by the generic service-check button; the separate email action requires a deliberate request.
+- Authenticated deployed check returned HTTP 200: Redis PING and actual allow/allow/deny throttling passed. QStash published the synthetic test and the callback receipt was subsequently read as `received=true` for `0c0f4dc7-41b8-46db-a3b4-c9357df44b28`.
+- Server Sentry event `01db5aaa2115411e9622188c64c2803f` and browser event `23bfbd0790f04b2b9eb3ed4fd40861a2` flushed. Sentry UI independently confirms both issues (`155300875`, `155300876`) in the correct project, with mapped application source locations.
+- Email API returned accepted receipt `01a16075-681d-7c27-bfff-e443f75b56c3`; Resend UI independently shows `Delivered` to the approved mailbox with the fixed staging subject. This proves recipient-server delivery, not inbox placement or message reading.
+- Owner activated R2 and a private Standard EU bucket `academyos-staging-backups` was created. Public access/development URL/custom domains remain disabled. No destructive lifecycle rule or bucket lock was added. The provider default aborts incomplete multipart uploads after seven days.
+- Owner saved the recovery key in their vault. R2 account-token credentials scoped to this bucket and dedicated Supabase backup credentials are present as four GitHub `staging-backups` environment secret names. This environment permits only the `main` branch. The verified session pooler host is `aws-0-eu-west-1.pooler.supabase.com`.
+- Backup source and recovery instructions are in [scripts/backups](../../scripts/backups/README.md). Daily 02:17 UTC/manual export is staging-only, encrypted before upload, checks the complete downloaded ciphertext, and distinguishes publication from restoration. No deletion/retirement is automated. Initial hosted publication/restoration receipt is still pending.
+- Six adversarial backup tests passed. A local synthetic database/file roundtrip using real PostgreSQL 17 and age passed encryption/decryption, file checksums, restoration and the membership boundary suite. Run `9f716de5-d25b-4946-9a03-4e2a49b02232` is synthetic only; it contacted neither Supabase nor R2.
+- Sentry project IP prevention/default scrubbers are enabled. Additional sensitive fields and advanced rule `[Remove] [Anything] from [$user.geo.**]` are saved. Fresh browser event `3c8b72df783c4091b4b91b03000593af` was independently inspected: no user/geolocation/request context appears, while mapped application source is retained. Historical events are unaffected.
+- `SERVICE_SETUP_ENABLED=false` is saved and independently revealed in Vercel. It requires a new deployment; authenticated route closure remains to be checked after rollout.

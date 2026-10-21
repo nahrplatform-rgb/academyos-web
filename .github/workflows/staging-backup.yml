@@ -1,0 +1,58 @@
+name: Encrypted staging backup
+on:
+  workflow_dispatch:
+    inputs:
+      export_encrypted_rehearsal:
+        description: 'Keep an encrypted-only recovery package for one day for a local restore test'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17 2 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: staging-backup
+  cancel-in-progress: false
+jobs:
+  backup:
+    if: github.ref == 'refs/heads/main' && github.repository == 'nahrplatform-rgb/academyos-web'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment: staging-backups
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install backup tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y age postgresql-client-17
+          python3 -m venv "$RUNNER_TEMP/backup-tools"
+          "$RUNNER_TEMP/backup-tools/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
+      - name: Export, encrypt and verify independent copy
+        env:
+          BACKUP_DATABASE_PASSWORD: ${{ secrets.BACKUP_DATABASE_PASSWORD }}
+          BACKUP_DATABASE_HOST: ${{ vars.BACKUP_DATABASE_HOST }}
+          BACKUP_SUPABASE_SECRET_KEY: ${{ secrets.BACKUP_SUPABASE_SECRET_KEY }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          EXPORT_REHEARSAL: ${{ inputs.export_encrypted_rehearsal }}
+        run: |
+          export PATH="/usr/lib/postgresql/17/bin:$PATH"
+          if [ "$EXPORT_REHEARSAL" = true ]; then
+            "$RUNNER_TEMP/backup-tools/bin/python" scripts/backups/backup.py create --receipt "$RUNNER_TEMP/backup-receipt.json" --recovery-package "$RUNNER_TEMP/encrypted-rehearsal"
+          else
+            "$RUNNER_TEMP/backup-tools/bin/python" scripts/backups/backup.py create --receipt "$RUNNER_TEMP/backup-receipt.json"
+          fi
+      - name: Record non-sensitive result
+        run: |
+          printf 'Encrypted staging backup uploaded and downloaded with matching SHA-256. A restore rehearsal is a separate check.\n' >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/backup-receipt.json" >> "$GITHUB_STEP_SUMMARY"
+      - name: Temporary encrypted-only rehearsal package
+        if: inputs.export_encrypted_rehearsal
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: encrypted-staging-rehearsal
+          path: ${{ runner.temp }}/encrypted-rehearsal/
+          retention-days: 1
+          if-no-files-found: error

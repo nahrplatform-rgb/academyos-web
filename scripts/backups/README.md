@@ -1,0 +1,60 @@
+# Independent staging backups
+
+This workflow is for **Supabase snpphkenmvmhpjstbeul only**. It is not a production recovery service. `staging-backups` is a separate GitHub environment restricted to the `main` branch. It has no application runtime or PR access. Anyone allowed to change main/workflow code can access these credentials during a run; repository administration is part of the trust boundary.
+
+## What is copied
+
+- A PostgreSQL 17 custom-format logical dump of `academy`, `public` and `supabase_migrations`, including data, functions, policies, grants and constraints. Ownership is deliberately remapped during restore.
+- All rows of the current Storage buckets/object inventory, plus the actual bytes of every object in the four reviewed private buckets. File names and metadata remain inside the encrypted archive.
+- A separate schema-only Storage dump preserves its functions, policies and grants for review/recovery. It is not automatically applied to a managed service.
+- A manifest with SHA-256 for every payload file and the source project/time window.
+
+Provider-managed Auth, other managed schemas, account configuration, Clerk sessions/passwords, Redis, provider queues and secrets are **not** exported. Clerk is the identity authority; its configuration and recovery remain separate. Storage metadata is archived for reference, not written directly back into managed Storage tables. Use the Storage API to re-upload recovered objects when restoring to an isolated Supabase service.
+
+`pg_dump` takes a transaction-consistent database snapshot. Storage is checked before and after copying; a changed inventory fails the run. This does not provide a single atomic snapshot across SQL and object storage. Stop writes for the initial recovery rehearsal and before any strict cross-system recovery boundary. Add write/version coordination when application writes are implemented.
+
+## Encryption and destination
+
+The only committed encryption key is the public age recipient. The private recovery key stays in the owner's vault and a local file with mode 0600. It must never be a GitHub or Vercel secret. Archive encryption happens on the runner before uploading to the private EU R2 bucket `academyos-staging-backups`. Public access and custom domains are disabled.
+
+Every run uses a new UUID object prefix. It reads the uploaded ciphertext back and checks its exact size and SHA-256 before publishing a receipt. It does not mirror source deletions or delete backups. The R2 Object Read & Write permission also permits object deletion at provider level; the script never requests deletion. A bucket lock and retention/retirement policy remain separate decisions.
+
+Plaintext lives only in a permission-restricted temporary directory and is cleaned up on exit. No plaintext, credentials or decrypted object manifests are GitHub Actions artifacts. The job summary contains only a non-sensitive encrypted-copy receipt. A manual run can explicitly export an encrypted-only recovery package and its receipt as a private GitHub artifact retained for one day; scheduled runs do not. Recovery plaintext likewise needs private local storage and cleanup after rehearsal.
+
+## Credentials — owner saves directly
+
+Add these as **Environment secrets** under GitHub repository Settings → Environments → `staging-backups`:
+
+| Name | Value |
+|---|---|
+| `BACKUP_DATABASE_PASSWORD` | This staging project's existing database password from the owner's vault. Never reset it just to configure a backup. No connection string or URL encoding is needed. |
+| `BACKUP_SUPABASE_SECRET_KEY` | A dedicated `sb_secret_…` API key named `academyos_staging_backups` in this project's API Keys settings. Server-only; bypasses RLS. |
+| `R2_ACCESS_KEY_ID` | Account token Access Key ID, Object Read & Write, scoped only to this backup bucket. |
+| `R2_SECRET_ACCESS_KEY` | Matching R2 Secret Access Key. |
+
+These credentials are privileged. The database connection can access the project even though the export subprocess is forced read-only. The dedicated Supabase key can read/write project data although this script only downloads. Do not put them in Vercel, source code, chat, build output, PR checks or broad organization secrets. Rotating them is a separate controlled task; no existing credential is reset by the workflow.
+
+The non-secret GitHub environment variable `BACKUP_DATABASE_HOST` records the verified eu-west-1 session pooler host from this project's Connect dialog. The script fixes the project-specific username, database and port 5432, safely encodes the supplied password and validates the target. No connection URL is logged or passed as a command-line argument. Transaction pooler port 6543 is never used.
+
+## Execution and receipts
+
+The workflow runs daily at 02:17 UTC and can be started manually on main. This initial staging cadence does **not** meet the proposed one-hour production RPO. GitHub failure status/notifications must be monitored by the owner; notification delivery, overdue-run detection and whole-service recovery objectives are not established by a green workflow.
+
+The export refuses unexpected source hosts/projects, transaction-pooler connections, public/unreviewed Storage buckets, changed inventories or more than 2 GiB of payload. These are hard failures, never silent partial backups. New schemas/buckets or larger data require a reviewed coverage/limit update.
+
+Local dependencies: PostgreSQL 17 client tools, age, Python 3.12+, and the pinned requirements in a private virtual environment. Run the adversarial checks with `python3 -m unittest discover -s scripts/backups -v`.
+
+## Recovery rehearsal
+
+1. Retrieve the run's `receipt.json` and compare its digest to the trusted successful GitHub job summary at the reviewed source commit before executing restored SQL. A receipt retrieved only from writable R2 storage does not authenticate the publisher. Treat it as a pointer, not proof of restoration.
+2. In a private shell with the R2 credentials supplied securely, run `backup.py recover --receipt <receipt-file> --identity <vault-recovery-key-file> --destination <new-private-directory>`. It downloads the named encrypted backup, verifies the ciphertext, decrypts, rejects unsafe archive paths/links and verifies every payload checksum. It never connects to a restore database.
+3. Restore `database.dump` with `rehearse_local.py <recovered-directory>`. It creates a new PostgreSQL 17 cluster reachable only through a private local socket, supplies the expected Supabase roles/auth baseline, restores with errors treated as failures, runs the membership tests and stops/deletes the disposable cluster. It preserves initdb's default public schema ACL baseline while applying explicit archived grants. It accepts no remote target. Never run `supabase/tests/harness.sql` against hosted data.
+4. Check migration inventory, row counts, constraints, RLS/grants and the existing membership boundary suite. Preserve evidence separately from source and never print restored identity data in logs.
+5. Verify all file checksums. With nonempty files, re-upload into a separate isolated service using the Storage API and test authorized downloads; local checksum verification alone is not this service test.
+6. Record actual run ID, counts, duration and what was not restored. An empty Storage inventory proves only empty-inventory coverage. No green backup claim replaces the full launch recovery rehearsal.
+
+Independent backup publication, local database restoration and full hosted service restoration are separate evidence layers. Do not reconnect recovery targets to email, payments or jobs without a reviewed side-effect reconciliation.
+
+For the temporary GitHub package, `backup.py recover` also accepts `--ciphertext <downloaded-backup.tar.age>` so R2 secrets need not be copied to the operator computer. The ciphertext digest is still checked against the reviewed receipt. Its recovery key remains local.
+
+`synthetic_roundtrip.py --identity <private-key-file>` is a separate local test: a disposable PostgreSQL source, one fixed non-personal file through a mocked HTTP transport, real dumps/encryption/decryption and a second isolated database restore. It proves the local pipeline and key pairing; it does not contact Supabase or R2.
