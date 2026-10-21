@@ -26,7 +26,12 @@ jobs:
       - name: Install backup tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y age postgresql-client-17
+          sudo apt-get install -y age curl ca-certificates
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl --fail --silent --show-error -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
+          sudo apt-get update -qq
+          sudo apt-get install -y postgresql-client-17
           python3 -m venv "$RUNNER_TEMP/backup-tools"
           "$RUNNER_TEMP/backup-tools/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
       - name: Export, encrypt and verify independent copy
