@@ -36,6 +36,8 @@ These credentials are privileged. The database connection can access the project
 
 The non-secret GitHub environment variable `BACKUP_DATABASE_HOST` records the verified eu-west-1 session pooler host from this project's Connect dialog. The script fixes the project-specific username, database and port 5432, safely encodes the supplied password and validates the target. No connection URL is logged or passed as a command-line argument. Transaction pooler port 6543 is never used.
 
+TLS remains `verify-full`, using the Supabase Root 2021 CA from the staging project's Database Settings → Download certificate link. Its checked-in PEM is public trust material, not a credential. File SHA-256 is pinned in the script; certificate fingerprint is `80:70:25:AD:50:D4:ED:21:9D:2C:9C:7D:29:9C:00:4F:82:4E:B0:0C:F7:F6:5A:FE:F6:07:D0:7B:72:E6:CA:FA`, valid through 26 April 2031. Rotation requires a reviewed update. Source: https://supabase-downloads.s3-ap-southeast-1.amazonaws.com/prod/ssl/prod-ca-2021.crt and https://supabase.com/docs/guides/platform/ssl-enforcement
+
 ## Execution and receipts
 
 The workflow runs daily at 02:17 UTC and can be started manually on main. This initial staging cadence does **not** meet the proposed one-hour production RPO. GitHub failure status/notifications must be monitored by the owner; notification delivery, overdue-run detection and whole-service recovery objectives are not established by a green workflow.

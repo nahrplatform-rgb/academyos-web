@@ -74,7 +74,10 @@ def database_env(url):
     env.update(PGHOST=host, PGPORT="5432", PGUSER=user, PGPASSWORD=unquote(p.password),
                PGDATABASE="postgres", PGSSLMODE="verify-full", PGCONNECT_TIMEOUT="15",
                PGOPTIONS="-c default_transaction_read_only=on -c statement_timeout=600000")
-    env["PGSSLROOTCERT"] = "/etc/ssl/certs/ca-certificates.crt" if sys.platform == "linux" else "/etc/ssl/cert.pem"
+    certificate = Path(__file__).with_name("supabase-prod-ca-2021.crt")
+    if sha256(certificate) != "700723581420dd1ac98fd7e9ac529f0ef210eadcaf87fc868a3ad7d114c2f3b7":
+        raise BackupError("Supabase trust certificate differs from the reviewed copy")
+    env["PGSSLROOTCERT"] = str(certificate.resolve())
     return env
 
 
