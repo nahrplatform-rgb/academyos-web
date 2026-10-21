@@ -1,0 +1,21 @@
+{
+  "name": "academyos",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web"
+  ],
+  "packageManager": "npm@11.19.1",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @academyos/web",
+    "build": "npm run build --workspace @academyos/web",
+    "start": "npm run start --workspace @academyos/web",
+    "typecheck": "npm run typecheck --workspace @academyos/web",
+    "lint": "npm run lint --workspace @academyos/web",
+    "test": "npm run test --workspace @academyos/web",
+    "test:e2e": "npm run test:e2e --workspace @academyos/web"
+  }
+}

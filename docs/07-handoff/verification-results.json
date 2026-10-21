@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-21T05:22:41.704591+00:00",
+  "scope": "Documentation only; no application/provider acceptance",
+  "result": "pass",
+  "markdown_documents": 52,
+  "markdown_word_count": 36647,
+  "csv_registers": 2,
+  "local_links_checked": 94,
+  "markdown_tables_checked": 36,
+  "requirements": 160,
+  "acceptance_scenarios": 160,
+  "audit_findings_mapped": 89,
+  "unique_requirements_linked_from_audit": 95,
+  "screens": 50,
+  "scope_domains": 21,
+  "all_requirement_statuses": "Planned / Not executed; no evidence claimed",
+  "credential_pattern_scan": "No matches",
+  "visual_archive_bytes": 62331,
+  "visual_archive_sha256": "330f49ad07ad6e25eaef72b2af6f845c03ce6b1f67c62c39b1ef3e9da48931bc",
+  "visual_archive_matches_original": true,
+  "errors": [],
+  "limitations": [
+    "External account configuration not inspected",
+    "No application tests run",
+    "Credential scan is pattern-based and limited",
+    "Shared ChatGPT conversation remains unread",
+    "Provider guidance must be rechecked at execution"
+  ]
+}

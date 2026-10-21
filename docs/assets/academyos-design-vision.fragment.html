@@ -1,0 +1,419 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;650;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+#aos-vision { width:100%; }
+#aos-vision .aos-stage { min-height:850px; }
+#aos-vision .aos-product {
+  --aos-bg:light-dark(#f5f7f7,#141a1c); --aos-surface:light-dark(#ffffff,#1b2326); --aos-sidebar:light-dark(#eef2f1,#172022);
+  --aos-ink:light-dark(#1c3034,#edf3f1); --aos-secondary:light-dark(#52676d,#a8b9bd); --aos-line:light-dark(#dfe7e6,#344347);
+  --aos-accent:light-dark(#146b61,#9bddc9); --aos-on-accent:light-dark(#ffffff,#143c33); --aos-soft:light-dark(#e5f1eb,#243d36);
+  --aos-warn:light-dark(#925a17,#f0c887); --aos-warn-bg:light-dark(#fff4e3,#3e3222); --aos-muted:light-dark(#f1f4f3,#242e31);
+  --aos-radius:16px; --aos-shadow:light-dark(#173a3010,#00000020);
+  font-family:'DM Sans','Noto Sans Arabic',sans-serif; color:var(--aos-ink); background:var(--aos-bg); border:1px solid var(--aos-line); border-radius:18px; min-height:850px; overflow:clip; position:relative; font-size:13px; line-height:1.5; text-align:start;
+}
+#aos-vision .aos-product[dir="rtl"] { font-family:'Noto Sans Arabic','DM Sans',sans-serif; }
+#aos-vision .aos-product *, #aos-vision .aos-product *::before, #aos-vision .aos-product *::after { box-sizing:border-box; }
+#aos-vision .aos-product button, #aos-vision .aos-product input, #aos-vision .aos-product select { font:inherit; color:inherit; }
+#aos-vision .aos-product button { -webkit-tap-highlight-color:transparent; }
+#aos-vision .aos-product h1, #aos-vision .aos-product h2, #aos-vision .aos-product h3, #aos-vision .aos-product p { margin:0; }
+#aos-vision .aos-product h1 { font-size:30px; line-height:1.16; letter-spacing:-1.05px; font-weight:600; }
+#aos-vision .aos-product h2 { font-size:16px; line-height:1.35; letter-spacing:-.25px; font-weight:650; }
+#aos-vision .aos-product h3 { font-size:14px; font-weight:600; }
+#aos-vision .aos-product [dir="ltr"], #aos-vision .aos-num { font-variant-numeric:tabular-nums; }
+#aos-vision .aos-product svg.lucide { width:17px; height:17px; stroke-width:1.7; flex-shrink:0; }
+#aos-vision .aos-workspace { display:grid; grid-template-columns:184px minmax(0,1fr); }
+#aos-vision .aos-sidebar { background:var(--aos-sidebar); border-inline-end:1px solid var(--aos-line); display:flex; flex-direction:column; padding:25px 15px 18px; gap:24px; }
+#aos-vision .aos-brand { display:flex; align-items:center; gap:9px; font-size:18px; font-weight:700; letter-spacing:-.5px; white-space:nowrap; }
+#aos-vision .aos-brandmark { width:31px; height:31px; display:grid; place-items:center; border-radius:10px; background:var(--aos-accent); color:var(--aos-on-accent); font-size:19px; line-height:1; font-weight:500; }
+#aos-vision .aos-brand small { font-size:10px; display:block; letter-spacing:1.7px; font-weight:600; color:var(--aos-secondary); margin-top:0; }
+#aos-vision .aos-academy { padding:12px 9px; border:1px solid var(--aos-line); background:var(--aos-surface); border-radius:12px; }
+#aos-vision .aos-academy strong { display:block; font-size:12px; font-weight:600; }
+#aos-vision .aos-sub { color:var(--aos-secondary); font-size:12px; }
+#aos-vision .aos-nav { display:flex; flex-direction:column; gap:5px; }
+#aos-vision .aos-nav button { display:flex; align-items:center; gap:10px; padding:10px 12px; min-height:42px; background:transparent; border:0; border-radius:9px; text-align:start; color:var(--aos-secondary); font-size:13px; }
+#aos-vision .aos-nav button[aria-current="page"] { background:var(--aos-surface); color:var(--aos-ink); box-shadow:0 2px 7px var(--aos-shadow); font-weight:600; }
+#aos-vision .aos-nav button[aria-current="page"] svg { color:var(--aos-accent); }
+#aos-vision .aos-nav button:hover { background:var(--aos-surface); }
+#aos-vision .aos-sidebottom { margin-top:auto; padding-top:50px; }
+#aos-vision .aos-rolelabel { display:block; font-size:11px; color:var(--aos-secondary); margin:0 0 7px 3px; }
+#aos-vision .aos-role { width:100%; background:var(--aos-surface); border:1px solid var(--aos-line); border-radius:10px; padding:10px 7px; min-height:44px; font-size:12px; }
+#aos-vision .aos-user { display:flex; align-items:center; gap:8px; padding:15px 2px 0; }
+#aos-vision .aos-avatar { display:grid; place-items:center; flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--aos-soft); color:var(--aos-accent); font-size:11px; font-weight:650; }
+#aos-vision .aos-user strong { display:block; font-weight:600; font-size:12px; }
+#aos-vision .aos-main { min-width:0; }
+#aos-vision .aos-topbar { min-height:76px; border-bottom:1px solid var(--aos-line); display:flex; align-items:center; justify-content:space-between; gap:12px; padding:17px 27px; }
+#aos-vision .aos-breadcrumb { font-size:12px; color:var(--aos-secondary); display:flex; gap:10px; align-items:center; }
+#aos-vision .aos-breadcrumb b { font-weight:500; color:var(--aos-ink); }
+#aos-vision .aos-topactions { display:flex; align-items:center; gap:9px; }
+#aos-vision .aos-iconbutton { min-width:38px; min-height:38px; border:1px solid var(--aos-line); border-radius:10px; background:var(--aos-surface); display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:7px 9px; }
+#aos-vision .aos-language { font-size:12px; }
+#aos-vision .aos-content { padding:28px 27px 18px; }
+#aos-vision .aos-eyebrow { text-transform:uppercase; font-size:10px; font-weight:600; letter-spacing:1.6px; color:var(--aos-accent); margin-bottom:10px; }
+#aos-vision .aos-titleline { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:24px; }
+#aos-vision .aos-intro { color:var(--aos-secondary); margin-top:10px!important; font-size:13px; }
+#aos-vision .aos-button { min-height:39px; border:1px solid var(--aos-line); background:var(--aos-surface); border-radius:10px; padding:9px 13px; display:inline-flex; align-items:center; justify-content:center; gap:7px; font-size:12px; font-weight:500; line-height:1.3; }
+#aos-vision .aos-primary { background:var(--aos-accent); color:var(--aos-on-accent)!important; border-color:var(--aos-accent); }
+#aos-vision .aos-button:hover, #aos-vision .aos-iconbutton:hover { filter:brightness(.96); }
+#aos-vision .aos-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-bottom:22px; }
+#aos-vision .aos-stat { background:var(--aos-surface); border:1px solid var(--aos-line); border-radius:var(--aos-radius); padding:17px 18px 15px; }
+#aos-vision .aos-statlabel { display:flex; align-items:center; justify-content:space-between; gap:8px; color:var(--aos-secondary); font-size:12px; }
+#aos-vision .aos-statvalue { font-size:29px; font-weight:600; line-height:1.2; letter-spacing:-.9px; margin-top:12px; font-variant-numeric:tabular-nums; }
+#aos-vision .aos-statvalue small { font-size:12px; font-weight:400; letter-spacing:0; color:var(--aos-secondary); }
+#aos-vision .aos-statfoot { margin-top:6px; font-size:11px; color:var(--aos-secondary); }
+#aos-vision .aos-positive { color:var(--aos-accent); }
+#aos-vision .aos-grid { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(225px,1fr); gap:16px; align-items:start; }
+#aos-vision .aos-stack { display:grid; gap:16px; min-width:0; }
+#aos-vision .aos-panel { background:var(--aos-surface); border:1px solid var(--aos-line); border-radius:var(--aos-radius); padding:19px; min-width:0; }
+#aos-vision .aos-panelhead { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:17px; }
+#aos-vision .aos-link { border:0; padding:4px 0; min-height:30px; display:inline-flex; align-items:center; gap:5px; background:transparent; color:var(--aos-accent)!important; font-size:11px; font-weight:600; }
+#aos-vision .aos-badge { display:inline-flex; align-items:center; gap:4px; border-radius:6px; background:var(--aos-soft); color:var(--aos-accent); font-size:10px; line-height:1.3; padding:5px 7px; white-space:nowrap; }
+#aos-vision .aos-warn { color:var(--aos-warn); background:var(--aos-warn-bg); }
+#aos-vision .aos-neutral { color:var(--aos-secondary); background:var(--aos-muted); }
+#aos-vision .aos-session { display:flex; align-items:start; gap:12px; width:100%; text-align:start; padding:16px 0; border:0; border-top:1px solid var(--aos-line); background:transparent; }
+#aos-vision .aos-session:first-of-type { border-top:0; padding-top:0; }
+#aos-vision .aos-session:hover .aos-sessionname { color:var(--aos-accent); }
+#aos-vision .aos-time { min-width:43px; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+#aos-vision .aos-time small { display:block; font-weight:400; font-size:10px; color:var(--aos-secondary); margin-top:2px; }
+#aos-vision .aos-sessionbody { min-width:0; flex:1; border-inline-start:2px solid var(--aos-line); padding-inline-start:12px; }
+#aos-vision .aos-sessionname { font-size:13px; font-weight:600; }
+#aos-vision .aos-sessionmeta { font-size:11px; color:var(--aos-secondary); margin-top:4px; }
+#aos-vision .aos-sessionstatus { display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-top:10px; }
+#aos-vision .aos-attention { display:flex; align-items:start; gap:10px; padding:13px 0; border-top:1px solid var(--aos-line); }
+#aos-vision .aos-attention:first-of-type { border-top:0; padding-top:0; }
+#aos-vision .aos-attentionicon { width:29px; height:29px; flex-shrink:0; display:grid; place-items:center; background:var(--aos-warn-bg); color:var(--aos-warn); border-radius:8px; }
+#aos-vision .aos-attention strong { font-weight:500; font-size:12px; }
+#aos-vision .aos-attention p { font-size:11px; margin-top:3px; color:var(--aos-secondary); }
+#aos-vision .aos-attention .aos-link { margin-top:3px; }
+#aos-vision .aos-chartsummary { display:flex; align-items:baseline; gap:8px; margin-top:-3px; }
+#aos-vision .aos-chartsummary strong { font-size:25px; line-height:1.2; font-weight:600; letter-spacing:-.7px; }
+#aos-vision .aos-bars { display:flex; gap:8px; height:91px; margin-top:18px; align-items:end; }
+#aos-vision .aos-baritem { display:flex; flex-direction:column; align-items:center; height:100%; justify-content:end; flex:1; min-width:0; gap:7px; }
+#aos-vision .aos-bar { width:100%; max-width:26px; border-radius:4px 4px 1px 1px; background:var(--aos-soft); }
+#aos-vision .aos-baritem:last-child .aos-bar { background:var(--aos-accent); }
+#aos-vision .aos-baritem span { font-size:10px; color:var(--aos-secondary); }
+#aos-vision .aos-bottomnote { display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; color:var(--aos-secondary); font-size:10px; padding-top:23px; }
+#aos-vision .aos-dot { width:5px; height:5px; display:inline-block; background:var(--aos-accent); border-radius:50%; margin-inline-end:5px; }
+#aos-vision .aos-masthead { padding:20px 27px; display:flex; align-items:center; justify-content:space-between; gap:18px; background:var(--aos-surface); border-bottom:1px solid var(--aos-line); }
+#aos-vision .aos-masthead .aos-role { width:154px; }
+#aos-vision .aos-brief .aos-topbar { min-height:60px; padding-block:8px; }
+#aos-vision .aos-brief .aos-nav { flex-direction:row; flex-wrap:wrap; gap:6px; }
+#aos-vision .aos-brief .aos-nav button { padding:8px 13px; min-height:38px; }
+#aos-vision .aos-brief .aos-content { padding:29px 36px 24px; }
+#aos-vision .aos-brief .aos-titleline { padding-bottom:23px; border-bottom:1px solid var(--aos-line); }
+#aos-vision .aos-brief h1 { font-size:39px; letter-spacing:-1.6px; max-width:530px; }
+#aos-vision .aos-brief .aos-stats { gap:0; margin-bottom:29px; }
+#aos-vision .aos-brief .aos-stat { background:transparent; border:0; border-radius:0; border-inline-end:1px solid var(--aos-line); padding:0 22px; }
+#aos-vision .aos-brief .aos-stat:first-child { padding-inline-start:0; }
+#aos-vision .aos-brief .aos-stat:last-child { border-inline-end:0; }
+#aos-vision .aos-brief .aos-statvalue { font-size:32px; }
+#aos-vision .aos-brief .aos-grid { grid-template-columns:minmax(0,1.7fr) minmax(250px,1fr); gap:24px; }
+#aos-vision .aos-brief .aos-session { background:var(--aos-bg); padding:17px 14px; margin-top:9px; border:0; border-radius:10px; }
+#aos-vision .aos-brief .aos-sessionbody { border-inline-start:0; padding-inline-start:5px; }
+#aos-vision .aos-brief .aos-time { color:var(--aos-accent); }
+#aos-vision .aos-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+#aos-vision .aos-chip { min-height:36px; padding:7px 12px; border:1px solid var(--aos-line); border-radius:8px; background:var(--aos-surface); font-size:12px; }
+#aos-vision .aos-chip[aria-pressed="true"] { background:var(--aos-soft); color:var(--aos-accent); border-color:var(--aos-accent); }
+#aos-vision .aos-field { display:flex; align-items:center; gap:8px; border:1px solid var(--aos-line); border-radius:9px; padding:0 11px; background:var(--aos-surface); margin-inline-start:auto; min-width:170px; flex:1; max-width:320px; }
+#aos-vision .aos-field input { min-width:0; width:100%; border:0; background:transparent; padding:10px 0; font-size:16px; }
+#aos-vision .aos-person { display:flex; align-items:center; gap:11px; padding:15px 0; border-top:1px solid var(--aos-line); }
+#aos-vision .aos-person:first-child { border-top:0; padding-top:0; }
+#aos-vision .aos-persontext { flex:1; min-width:0; }
+#aos-vision .aos-persontext strong { font-size:13px; font-weight:600; display:block; }
+#aos-vision .aos-persontext small { font-size:11px; color:var(--aos-secondary); }
+#aos-vision .aos-data-row { display:flex; justify-content:space-between; gap:16px; border-top:1px solid var(--aos-line); padding:13px 0; }
+#aos-vision .aos-data-row strong { font-size:13px; font-weight:500; }
+#aos-vision .aos-data-row .aos-sub { display:block; font-size:11px; margin-top:3px; }
+#aos-vision .aos-data-row:last-child { padding-bottom:0; }
+#aos-vision .aos-sessionhero { background:var(--aos-soft); border:1px solid var(--aos-line); padding:23px; border-radius:var(--aos-radius); margin-bottom:18px; display:flex; gap:18px; justify-content:space-between; align-items:center; }
+#aos-vision .aos-sessionhero h2 { font-size:23px; letter-spacing:-.7px; margin:6px 0 8px; }
+#aos-vision .aos-sessionhero .aos-sub { font-size:12px; }
+#aos-vision .aos-progress { height:6px; background:var(--aos-muted); border-radius:5px; margin-top:10px; overflow:hidden; }
+#aos-vision .aos-progress span { height:100%; display:block; background:var(--aos-accent); border-radius:5px; }
+#aos-vision .aos-attend { min-width:80px; font-size:11px; padding:7px 9px; min-height:36px; border:1px solid var(--aos-line); border-radius:8px; background:var(--aos-surface); }
+#aos-vision .aos-attend[data-value="present"] { background:var(--aos-soft); color:var(--aos-accent); border-color:var(--aos-soft); }
+#aos-vision .aos-attend[data-value="absent"] { background:var(--aos-warn-bg); color:var(--aos-warn); }
+#aos-vision .aos-saveline { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; border-top:1px solid var(--aos-line); padding-top:15px; margin-top:10px; }
+#aos-vision .aos-childtabs { display:flex; gap:8px; margin-bottom:21px; flex-wrap:wrap; }
+#aos-vision .aos-childtabs button { display:flex; align-items:center; gap:9px; min-height:45px; border:1px solid var(--aos-line); border-radius:25px; padding:5px 15px 5px 6px; background:var(--aos-surface); }
+#aos-vision .aos-childtabs button[aria-pressed="true"] { border-color:var(--aos-accent); color:var(--aos-accent); background:var(--aos-soft); }
+#aos-vision .aos-childtabs .aos-avatar { width:28px; height:28px; background:var(--aos-surface); }
+#aos-vision .aos-coachnote { color:var(--aos-secondary); font-size:13px; line-height:1.7; margin:13px 0 18px!important; }
+#aos-vision .aos-score { display:grid; grid-template-columns:1fr auto; gap:8px; margin-top:16px; font-size:12px; }
+#aos-vision .aos-score .aos-progress { grid-column:1/-1; margin:0; }
+#aos-vision .aos-dialoglayer { position:absolute; inset:0; background:light-dark(#1b33373d,#00000085); display:flex; align-items:start; justify-content:center; padding:80px 24px 24px; z-index:20; backdrop-filter:blur(4px); }
+#aos-vision .aos-dialog { width:100%; max-width:450px; background:var(--aos-surface); border:1px solid var(--aos-line); border-radius:20px; padding:25px; box-shadow:0 20px 70px var(--aos-shadow); }
+#aos-vision .aos-dialog h2 { font-size:23px; margin-bottom:8px; }
+#aos-vision .aos-dialog .aos-panelhead { align-items:start; }
+#aos-vision .aos-dialog .aos-button { margin-top:20px; width:100%; }
+#aos-vision .aos-dialoghint { font-size:11px; line-height:1.6; color:var(--aos-secondary); margin-top:14px!important; }
+#aos-vision .aos-notice { background:var(--aos-soft); color:var(--aos-accent); padding:13px 15px; border-radius:9px; margin:0 0 15px; font-size:12px; }
+#aos-vision .aos-empty { text-align:center; color:var(--aos-secondary); padding:35px 15px; }
+#aos-vision .aos-phone { padding:24px 0; }
+#aos-vision .aos-phone .aos-product { max-width:400px; margin:auto; }
+#aos-vision .aos-mobile-shell .aos-sidebar { display:none; }
+#aos-vision .aos-mobile-shell { display:block; min-height:850px; }
+#aos-vision .aos-mobilechrome { display:none; }
+#aos-vision .aos-mobile-shell .aos-mobilechrome { display:flex; }
+#aos-vision .aos-mobile-shell .aos-topbar { flex-wrap:wrap; padding:12px 18px; min-height:62px; }
+#aos-vision .aos-mobile-shell .aos-breadcrumb { display:none; }
+#aos-vision .aos-mobile-shell .aos-content { padding:24px 18px 20px; }
+#aos-vision .aos-mobile-shell .aos-titleline { flex-wrap:wrap; gap:14px; }
+#aos-vision .aos-mobile-shell h1 { font-size:28px; letter-spacing:-.8px; }
+#aos-vision .aos-mobile-shell .aos-stats { gap:8px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+#aos-vision .aos-mobile-shell .aos-stat { padding:12px 10px; }
+#aos-vision .aos-mobile-shell .aos-statlabel { font-size:10px; min-height:30px; align-items:start; }
+#aos-vision .aos-mobile-shell .aos-statlabel svg { display:none; }
+#aos-vision .aos-mobile-shell .aos-statvalue { font-size:24px; margin-top:8px; }
+#aos-vision .aos-mobile-shell .aos-statfoot { font-size:10px; }
+#aos-vision .aos-mobile-shell .aos-grid { grid-template-columns:1fr; gap:15px; }
+#aos-vision .aos-mobile-shell .aos-panel { padding:17px; }
+#aos-vision .aos-mobile-shell .aos-sessionhero { align-items:start; flex-direction:column; padding:20px; }
+#aos-vision .aos-mobile-shell .aos-masthead { padding:17px; flex-wrap:wrap; }
+#aos-vision .aos-mobile-shell .aos-masthead .aos-role { width:130px; }
+#aos-vision .aos-mobile-shell .aos-nav { display:flex; flex-direction:row; width:100%; justify-content:space-between; gap:2px; }
+#aos-vision .aos-mobile-shell .aos-nav button { flex:1; font-size:10px; padding:8px 3px; justify-content:center; flex-direction:column; gap:5px; min-height:50px; }
+#aos-vision .aos-mobile-shell .aos-mobilechrome { justify-content:space-between; align-items:center; gap:10px; padding:16px 18px; background:var(--aos-surface); }
+#aos-vision .aos-mobile-shell .aos-mobilechrome .aos-brand { font-size:17px; }
+#aos-vision .aos-mobile-shell .aos-mobilechrome .aos-role { width:125px; font-size:11px; }
+#aos-vision .aos-mobile-shell .aos-topactions { width:100%; justify-content:space-between; }
+#aos-vision .aos-mobile-shell .aos-topactions .aos-sub { display:inline; }
+#aos-vision .aos-topactions .aos-sub { display:none; }
+#aos-vision .aos-mobile-shell .aos-dialoglayer { padding:40px 12px 20px; }
+#aos-vision .aos-mobile-shell .aos-dialog { padding:20px; }
+#aos-vision .aos-mobile-shell .aos-field { max-width:none; flex-basis:100%; }
+#aos-vision .aos-product[dir="rtl"] h1 { letter-spacing:-.3px; line-height:1.5; }
+#aos-vision .aos-product[dir="rtl"] .aos-eyebrow { letter-spacing:0; }
+@media (max-width:760px) { #aos-vision .aos-stage { min-height:900px; } }
+@media (prefers-reduced-motion:no-preference) { #aos-vision .aos-button, #aos-vision .aos-nav button { transition:background .15s ease,color .15s ease; } }
+@media (pointer:coarse) { #aos-vision .aos-product button, #aos-vision .aos-product select { min-height:44px; } }
+</style>
+<div id="aos-vision" aria-label="AcademyOS design vision">
+  <div class="viz-carousel" aria-label="AcademyOS interface directions">
+    <section data-variant="Workspace" aria-label="Workspace design">
+      <div class="aos-stage"><div id="aos-workspace" class="aos-product aos-workspace" aria-label="AcademyOS Workspace"></div></div>
+    </section>
+    <section data-variant="Daily brief" aria-label="Daily brief design" hidden>
+      <div class="aos-stage"><div id="aos-brief" class="aos-product aos-brief" aria-label="AcademyOS Daily brief"></div></div>
+    </section>
+  </div>
+</div>
+<script>
+(() => {
+  'use strict';
+  const root = document.getElementById('aos-vision');
+  const settings = { appearance:'system', preview:'responsive', corners:16, language:'en' };
+  const freshState = () => ({ role:'owner', page:'overview', filter:'all', query:'', child:0, modal:null, attendance:['present','present','unmarked','unmarked'], saved:false, notice:'' });
+  const states = { workspace:freshState(), brief:freshState() };
+  const products = { workspace:document.getElementById('aos-workspace'), brief:document.getElementById('aos-brief') };
+  let narrow = root.getBoundingClientRect().width < 761;
+  const t = (en,ar) => settings.language === 'ar' ? ar : en;
+  const icon = name => `<i data-lucide="${name}" aria-hidden="true"></i>`;
+  const button = (label,action,primary=false,extra='') => `<button type="button" class="aos-button ${primary?'aos-primary':''} cursor-interaction" data-action="${action}" ${extra}>${label}</button>`;
+  const badge = (label,kind='') => `<span class="aos-badge ${kind==='warn'?'aos-warn':kind==='neutral'?'aos-neutral':''}">${label}</span>`;
+  const people = [
+    { en:'Omar Hassan', ar:'عمر حسن', initials:'OH', program:'football', age:11 },
+    { en:'Lina Ahmed', ar:'لينا أحمد', initials:'LA', program:'swimming', age:10 },
+    { en:'Adam Ali', ar:'آدم علي', initials:'AA', program:'football', age:12 },
+    { en:'Youssef Samir', ar:'يوسف سمير', initials:'YS', program:'football', age:11 }
+  ];
+  const sessions = [
+    { id:0, time:'16:00', end:'17:15', en:'Football · U12', ar:'كرة القدم · تحت ١٢', place:['Pitch A · East branch','ملعب أ · الفرع الشرقي'], coach:['Karim Mansour','كريم منصور'], count:16, cap:18, sport:'football' },
+    { id:1, time:'17:00', end:'18:00', en:'Swimming · Level 2', ar:'السباحة · المستوى الثاني', place:['Pool 1 · East branch','مسبح ١ · الفرع الشرقي'], coach:['Salma Adel','سلمى عادل'], count:10, cap:12, sport:'swimming' },
+    { id:2, time:'18:00', end:'19:15', en:'Football · U16', ar:'كرة القدم · تحت ١٦', place:['Pitch B · West branch','ملعب ب · الفرع الغربي'], coach:['Trainer needed','مطلوب مدرب'], count:18, cap:20, sport:'football' }
+  ];
+  const sportName = sport => sport === 'football' ? t('Football','كرة القدم') : t('Swimming','السباحة');
+  const titleFor = page => ({overview:t('Overview','نظرة عامة'),schedule:t('Schedule','الجدول'),people:t('Players','اللاعبون'),finance:t('Finance','المالية'),attendance:t('Attendance','الحضور'),progress:t('Progress','التطور'),payments:t('Payments','المدفوعات'),earnings:t('Earnings','مستحقاتي')})[page] || '';
+  const roleName = role => ({owner:t('Academy owner','مالك الأكاديمية'),trainer:t('Trainer','المدرب'),guardian:t('Guardian','ولي الأمر')})[role];
+  const nameOf = person => t(person.en,person.ar);
+  function save() {
+    const details = Object.fromEntries(Object.entries(states).map(([k,s]) => [k,{...s,modal:null,notice:''}]));
+    if (window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{concept:'AcademyOS',language:settings.language,appearance:settings.appearance,preview:settings.preview,workspaces:Object.fromEntries(Object.entries(states).map(([k,s])=>[k,{role:s.role,page:s.page}]))},privateContent:{version:1,settings:{...settings},states:details}}).catch(()=>{});
+  }
+  function restore(snapshot) {
+    const p=snapshot?.privateContent;
+    if (!p || p.version!==1) return;
+    if (['system','light','dark'].includes(p.settings?.appearance)) settings.appearance=p.settings.appearance;
+    if (['responsive','phone'].includes(p.settings?.preview)) settings.preview=p.settings.preview;
+    if (['en','ar'].includes(p.settings?.language)) settings.language=p.settings.language;
+    if (Number.isFinite(p.settings?.corners)) settings.corners=Math.max(8,Math.min(24,p.settings.corners));
+    for (const k of Object.keys(states)) {
+      const s=p.states?.[k]; if (!s) continue;
+      if (['owner','trainer','guardian'].includes(s.role)) states[k].role=s.role;
+      if (['overview','schedule','people','finance','attendance','progress','payments','earnings'].includes(s.page)) states[k].page=s.page;
+      if (['all','football','swimming'].includes(s.filter)) states[k].filter=s.filter;
+      states[k].child=s.child===1?1:0;
+      if (Array.isArray(s.attendance)&&s.attendance.length===4&&s.attendance.every(v=>['present','absent','unmarked'].includes(v))) states[k].attendance=s.attendance;
+      states[k].saved=s.saved===true;
+    }
+  }
+  restore(window.openai?.widgetState);
+  const brand = () => `<div class="aos-brand"><span class="aos-brandmark" aria-hidden="true">a</span><span>AcademyOS<small>BY NAHR</small></span></div>`;
+  const rolePicker = (s,k) => `<label class="aos-rolelabel" for="aos-role-${k}">${t('Your workspace','مساحة العمل')}</label><select id="aos-role-${k}" class="aos-role cursor-interaction" data-control="role" aria-label="${t('Choose workspace role','اختر دورك')}">${['owner','trainer','guardian'].map(r=>`<option value="${r}" ${r===s.role?'selected':''}>${roleName(r)}</option>`).join('')}</select>`;
+  const navItems = s => s.role==='owner' ? [['overview','layout-dashboard'],['schedule','calendar-days'],['people','users-round'],['finance','wallet']] : s.role==='trainer' ? [['overview','house'],['attendance','clipboard-check'],['progress','chart-no-axes-combined'],['earnings','wallet']] : [['overview','house'],['schedule','calendar-days'],['progress','chart-no-axes-combined'],['payments','wallet']];
+  const nav = s => `<nav class="aos-nav" aria-label="${t('Main navigation','التنقل الرئيسي')}">${navItems(s).map(([p,i])=>`<button type="button" class="cursor-interaction" data-page="${p}" ${s.page===p?'aria-current="page"':''}>${icon(i)}<span>${titleFor(p)}</span></button>`).join('')}</nav>`;
+  function shell(s,k,content) {
+    const user=s.role==='owner'?t('Moamen Ghareeb','مؤمن غريب'):s.role==='trainer'?t('Karim Mansour','كريم منصور'):t('Nour Hassan','نور حسن');
+    const topActions=`<div class="aos-topactions"><span class="aos-sub">${t('River Sports Academy','أكاديمية ريفر الرياضية')}</span><button type="button" class="aos-iconbutton aos-language cursor-interaction" data-action="language" aria-label="${t('Switch to Arabic','Switch to English')}">${settings.language==='en'?'العربية':'English'}</button></div>`;
+    const mobile = settings.preview==='phone'||narrow;
+    const header=k==='workspace'?`${mobile?`<div class="aos-mobilechrome">${brand()}<div>${rolePicker(s,k)}</div></div>`:''}<header class="aos-topbar"><div class="aos-breadcrumb">${t('Workspace','مساحة العمل')}<span>/</span><b>${titleFor(s.page)}</b></div>${topActions}${mobile?nav(s):''}</header>`:`<header class="aos-masthead">${brand()}<div>${rolePicker(s,k)}</div></header><div class="aos-topbar">${nav(s)}${topActions}</div>`;
+    const side=k==='workspace'&&!mobile?`<aside class="aos-sidebar">${brand()}<div class="aos-academy"><strong>${t('River Sports Academy','أكاديمية ريفر الرياضية')}</strong><span class="aos-sub">${t('2 branches · Cairo','فرعان · القاهرة')}</span></div>${nav(s)}<div class="aos-sidebottom">${rolePicker(s,k)}<div class="aos-user"><span class="aos-avatar">${s.role==='owner'?'MG':s.role==='trainer'?'KM':'NH'}</span><span><strong>${user}</strong><span class="aos-sub">${roleName(s.role)}</span></span></div></div></aside>`:'';
+    return `${side}<div class="aos-main">${header}<main class="aos-content">${s.notice?`<div class="aos-notice" role="status">${s.notice}</div>`:''}${content}<footer class="aos-bottomnote"><span><span class="aos-dot"></span>${t('Design concept · Sample data','تصور تصميمي · بيانات تجريبية')}</span><span>${t('AcademyOS by NAHR','AcademyOS من NAHR')}</span></footer></main></div>${s.modal?dialog(s):''}`;
+  }
+  function heading(eyebrow,title,description,action='') { return `<div class="aos-titleline"><div><div class="aos-eyebrow">${eyebrow}</div><h1>${title}</h1><p class="aos-intro">${description}</p></div>${action}</div>`; }
+  function stat(label,value,foot,i) {return `<div class="aos-stat"><div class="aos-statlabel"><span>${label}</span>${icon(i)}</div><div class="aos-statvalue">${value}</div><div class="aos-statfoot">${foot}</div></div>`;}
+  function sessionRow(x) {return `<button type="button" class="aos-session cursor-interaction" data-session="${x.id}" data-sessionday="${x.day||'today'}" aria-label="${t('View','عرض')} ${t(x.en,x.ar)}"><span class="aos-time" dir="ltr">${x.time}<small>${x.end}</small></span><span class="aos-sessionbody"><span class="aos-sessionname">${t(x.en,x.ar)}</span><span class="aos-sessionmeta" style="display:block">${t(...x.place)}</span><span class="aos-sessionstatus">${badge(x.id===2?t('Needs trainer','بحاجة إلى مدرب'):t(`${x.count}/${x.cap} players`,`${x.count}/${x.cap} لاعبًا`),x.id===2?'warn':'neutral')}<span class="aos-sub">${x.id===2?'':t(...x.coach)}</span></span></span>${icon('chevron-right')}</button>`;}
+  function attendanceChart() {
+    const values=[88,91,86,94,90,96,94], days=t(['W','T','F','S','S','M','T'],['أ','خ','ج','س','ح','ن','ث']);
+    return `<section class="aos-panel"><div class="aos-panelhead"><h2>${t('Attendance','الحضور')}</h2><span class="aos-sub">${t('Last 7 days','آخر ٧ أيام')}</span></div><div class="aos-chartsummary"><strong>94<small style="font-size:17px">%</small></strong><span class="aos-sub">${t('today · +4 pts this week','اليوم · تحسن ٤ نقاط')}</span></div><div class="aos-bars" role="img" aria-label="${t('Attendance over seven days: 88, 91, 86, 94, 90, 96, 94 percent','نسب الحضور لسبعة أيام: ٨٨، ٩١، ٨٦، ٩٤، ٩٠، ٩٦، ٩٤ بالمئة')}">${values.map((v,i)=>`<div class="aos-baritem"><div class="aos-bar" style="height:${v*.65}px" data-tooltip="${v}%"></div><span>${days[i]}</span></div>`).join('')}</div></section>`;
+  }
+  function ownerHome(k) {
+    return heading(t('Tuesday, 20 October 2026','الثلاثاء، ٢٠ أكتوبر ٢٠٢٦'),k==='workspace'?t('Your academy, in focus.','أكاديميتك، بوضوح.'):t('A clear view of today.','رؤية واضحة ليومك.'),t('Two branches. One connected day.','فرعان. ويوم واحد متصل.'),button(icon('calendar-days')+t('View schedule','عرض الجدول'),'schedule'))+
+    `<div class="aos-stats">${stat(t('Active players','اللاعبون النشطون'),'248',t('Across 12 programs','في ١٢ برنامجًا'),'users-round')}${stat(t('Sessions today','جلسات اليوم'),'8',t('5 complete · 3 upcoming','٥ مكتملة · ٣ قادمة'),'calendar-days')}${stat(t('October collections','تحصيلات أكتوبر'),'184k <small>EGP</small>',t('92% of EGP 200,000 billed','٩٢٪ من فواتير بقيمة ٢٠٠٬٠٠٠ جنيه'),'wallet')}</div>`+
+    `<div class="aos-grid"><div class="aos-stack"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Next up today','القادم اليوم')}</h2><span class="aos-sub">${t('3 sessions','٣ جلسات')}</span></div>${sessions.map(sessionRow).join('')}</section><section class="aos-panel"><div class="aos-panelhead"><h2>${t('This month, moving forward','تقدم هذا الشهر')}</h2>${icon('sprout')}</div><div class="aos-data-row"><span>${t('New enrollments','اشتراكات جديدة')}</span><strong>18 <span class="aos-sub" style="display:inline">${t('players','لاعبًا')}</span></strong></div><div class="aos-data-row"><span>${t('Evaluations shared','تقييمات تمت مشاركتها')}</span><strong>42 <span class="aos-sub" style="display:inline">${t('with families','مع العائلات')}</span></strong></div></section></div><div class="aos-stack"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Needs your attention','يحتاج انتباهك')}</h2>${badge('2','warn')}</div><div class="aos-attention"><span class="aos-attentionicon">${icon('user-round')}</span><div><strong>${t('A trainer is needed','جلسة تحتاج إلى مدرب')}</strong><p>${t('U16 football · Today, 18:00','كرة القدم تحت ١٦ · اليوم ١٨:٠٠')}</p><button type="button" class="aos-link cursor-interaction" data-session="2">${t('Review session','مراجعة الجلسة')}${icon('arrow-up-right')}</button></div></div><div class="aos-attention"><span class="aos-attentionicon">${icon('receipt-text')}</span><div><strong>${t('6 invoices overdue','٦ فواتير متأخرة')}</strong><p>${t('EGP 9,600 across 5 families','٩٬٦٠٠ جنيه لدى ٥ عائلات')}</p><button type="button" class="aos-link cursor-interaction" data-page="finance">${t('View balances','عرض الأرصدة')}${icon('arrow-up-right')}</button></div></div></section>${attendanceChart()}</div></div>`;
+  }
+  function filters(s,search=false) {
+    return `<div class="aos-toolbar">${['all','football','swimming'].map(f=>`<button type="button" class="aos-chip cursor-interaction" data-filter="${f}" aria-pressed="${s.filter===f}">${f==='all'?t('All sports','كل الرياضات'):sportName(f)}</button>`).join('')}${search?`<label class="aos-field">${icon('search')}<input type="search" data-control="search" aria-label="${t('Search players','البحث عن لاعب')}" placeholder="${t('Search players','البحث عن لاعب')}"></label>`:''}</div>`;
+  }
+  function schedulePage(s) {
+    const guardian=s.role==='guardian';
+    const chosen=guardian?[sessions[s.child]]:sessions.filter(x=>s.filter==='all'||s.filter===x.sport);
+    return heading(t('Your week, organized','أسبوعك، بتنظيم'),t('Schedule','الجدول'),t('Tuesday, 20 October · Cairo time','الثلاثاء، ٢٠ أكتوبر · بتوقيت القاهرة'))+
+      (guardian?children(s):filters(s))+
+      `<section class="aos-panel"><div class="aos-panelhead"><h2>${t('Today','اليوم')}</h2>${badge(t(`${chosen.length} upcoming`,`${chosen.length} قادمة`),'neutral')}</div>${chosen.map(sessionRow).join('')}</section>`+
+      `<section class="aos-panel" style="margin-top:16px"><div class="aos-panelhead"><h2>${t('Thursday, 22 October','الخميس، ٢٢ أكتوبر')}</h2><span class="aos-sub">${t('Next training day','يوم التدريب القادم')}</span></div>${chosen.filter(x=>x.id!==2).map(x=>sessionRow({...x,day:'thursday'})).join('')||`<p class="aos-sub">${t('No sessions scheduled.','لا توجد جلسات مجدولة.')}</p>`}</section>`;
+  }
+  function playerRows(s) {
+    const chosen=people.filter(p=>(s.filter==='all'||p.program===s.filter)&&(!s.query||`${p.en} ${p.ar}`.toLowerCase().includes(s.query.toLowerCase())));
+    return chosen.map(p=>`<div class="aos-person"><span class="aos-avatar">${p.initials}</span><div class="aos-persontext"><strong>${nameOf(p)}</strong><small>${sportName(p.program)} · ${t(`Age ${p.age}`,`${p.age} عامًا`)}</small></div>${badge(t('Active','نشط'))}<button type="button" class="aos-iconbutton cursor-interaction" data-person="${people.indexOf(p)}" aria-label="${t('View','عرض')} ${nameOf(p)}">${icon('chevron-right')}</button></div>`).join('')||`<div class="aos-empty">${t('No players match this search.','لا يوجد لاعبون يطابقون هذا البحث.')}</div>`;
+  }
+  function peoplePage(s) {
+    return heading(t('People at the center','اللاعبون في القلب'),t('Your players','لاعبوك'),t('One profile for every player and their family.','ملف واحد لكل لاعب وعائلته.'))+filters(s,true)+`<section class="aos-panel"><div class="aos-panelhead"><h2>${t('Player directory','دليل اللاعبين')}</h2><span class="aos-sub">${t('4 sample profiles','٤ ملفات تجريبية')}</span></div><div data-player-list>${playerRows(s)}</div></section>`;
+  }
+  function financePage() {
+    return heading(t('Academy finances','مالية الأكاديمية'),t('Every payment, clear.','كل دفعة، بوضوح.'),t('October 2026 · Family billing','أكتوبر ٢٠٢٦ · فواتير العائلات'))+
+    `<div class="aos-stats">${stat(t('Collected','تم تحصيله'),'184k <small>EGP</small>',t('92% of billed amount','٩٢٪ من إجمالي الفواتير'),'wallet')}${stat(t('Outstanding','المتبقي'),'16k <small>EGP</small>',t('12 open invoices','١٢ فاتورة مفتوحة'),'receipt-text')}${stat(t('Overdue','المتأخر'),'9.6k <small>EGP</small>',t('Included in outstanding','ضمن المبلغ المتبقي'),'clock-3')}</div>`+
+    `<div class="aos-grid"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Recent family invoices','آخر فواتير العائلات')}</h2><span class="aos-sub">EGP</span></div>${[['Hassan family','عائلة حسن','1,600','Due 25 Oct','تستحق ٢٥ أكتوبر'],['Ahmed family','عائلة أحمد','1,200','Paid 18 Oct','مدفوعة ١٨ أكتوبر'],['Ali family','عائلة علي','1,600','Overdue · 5 days','متأخرة · ٥ أيام']].map((r,i)=>`<div class="aos-data-row"><div><strong>${t(r[0],r[1])}</strong><span class="aos-sub">${t(r[3],r[4])}</span></div><div style="text-align:end"><strong class="aos-num">${r[2]}</strong><button type="button" class="aos-link cursor-interaction" style="display:flex" data-invoice="${i}">${t('View invoice','عرض الفاتورة')}</button></div></div>`).join('')}</section><div class="aos-stack"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Collection progress','تقدم التحصيل')}</h2><strong>92%</strong></div><div class="aos-progress" role="progressbar" aria-label="${t('Collection progress','تقدم التحصيل')}" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"><span style="width:92%"></span></div><p class="aos-sub" style="margin-top:12px">${t('EGP 184,000 of EGP 200,000','١٨٤٬٠٠٠ من ٢٠٠٬٠٠٠ جنيه')}</p></section><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Trainer compensation','مستحقات المدربين')}</h2>${icon('briefcase-business')}</div><div class="aos-statvalue">32,400 <small>EGP</small></div><p class="aos-sub" style="margin-top:8px">${t('Approved for the October pay run','معتمدة لدورة صرف أكتوبر')}</p><button type="button" class="aos-link cursor-interaction" data-action="compensation">${t('View pay summary','عرض ملخص المستحقات')}${icon('arrow-up-right')}</button></section></div></div>`;
+  }
+  function trainerHome(s) {
+    return heading(t('Tuesday, 20 October','الثلاثاء، ٢٠ أكتوبر'),t('Ready for a great session?','جاهز لتدريب مميز؟'),t('Good afternoon, Karim. Here is your day.','مساء الخير يا كريم. هذا جدول يومك.'))+
+    `<div class="aos-sessionhero"><div><span class="aos-eyebrow">${t('Your next session','جلستك القادمة')}</span><h2>${t('Football · U12','كرة القدم · تحت ١٢')}</h2><p class="aos-sub">${t('16:00–17:15 · Pitch A · East branch','١٦:٠٠–١٧:١٥ · ملعب أ · الفرع الشرقي')}</p><div style="margin-top:13px">${badge(t('16 players on the roster','١٦ لاعبًا في القائمة'))}</div></div>${button(icon('clipboard-check')+t('Take attendance','تسجيل الحضور'),'attendance',true)}</div>`+
+    `<div class="aos-grid"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Session focus','هدف الجلسة')}</h2>${icon('target')}</div><h3>${t('First touch & passing','اللمسة الأولى والتمرير')}</h3><p class="aos-coachnote">${t('Build confidence receiving under pressure, then move into small-sided games.','بناء الثقة في استلام الكرة تحت الضغط، ثم الانتقال إلى مباريات مصغرة.')}</p>${[['15 min','١٥ دقيقة','Warm-up & movement','الإحماء والحركة'],['30 min','٣٠ دقيقة','Passing in pairs','تمرير ثنائي'],['30 min','٣٠ دقيقة','Small-sided games','مباريات مصغرة']].map(a=>`<div class="aos-data-row"><span>${t(a[2],a[3])}</span><span class="aos-sub">${t(a[0],a[1])}</span></div>`).join('')}</section><div class="aos-stack"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Player development','تطور اللاعبين')}</h2>${icon('chart-no-axes-combined')}</div><p class="aos-sub">${t('2 evaluations ready to review','تقييمان جاهزان للمراجعة')}</p><button type="button" class="aos-link cursor-interaction" data-page="progress">${t('Open evaluations','فتح التقييمات')}${icon('arrow-up-right')}</button></section><section class="aos-panel"><div class="aos-panelhead"><h2>${t('October earnings','مستحقات أكتوبر')}</h2>${icon('wallet')}</div><div class="aos-statvalue">6,400 <small>EGP</small></div><p class="aos-sub" style="margin-top:7px">${t('16 approved sessions','١٦ جلسة معتمدة')}</p><button type="button" class="aos-link cursor-interaction" data-page="earnings">${t('View breakdown','عرض التفاصيل')}${icon('arrow-up-right')}</button></section></div></div>`;
+  }
+  function attendancePage(s) {
+    const marked=s.attendance.filter(v=>v!=='unmarked').length;
+    const roster=[people[0],people[2],people[3],{en:'Malik Ibrahim',ar:'مالك إبراهيم',initials:'MI'}];
+    return heading(t('Football · U12','كرة القدم · تحت ١٢'),t('A good start is showing up.','البداية الجيدة هي الحضور.'),t('Today, 16:00 · Four-player sample roster','اليوم، ١٦:٠٠ · قائمة تجريبية من ٤ لاعبين'))+
+    `<section class="aos-panel"><div class="aos-panelhead"><h2>${t('Attendance register','سجل الحضور')}</h2>${badge(t(`${marked} of 4 marked`,`${marked} من ٤ مسجلين`),'neutral')}</div>${roster.map((p,i)=>`<div class="aos-person"><span class="aos-avatar">${p.initials}</span><div class="aos-persontext"><strong>${nameOf(p)}</strong><small>${t('U12 · East branch','تحت ١٢ · الفرع الشرقي')}</small></div><select class="aos-attend cursor-interaction" data-control="attendance" data-player="${i}" data-value="${s.attendance[i]}" aria-label="${t('Attendance for','حضور')} ${nameOf(p)}">${[['unmarked','Not marked','غير مسجل'],['present','Present','حاضر'],['absent','Absent','غائب']].map(([v,en,ar])=>`<option value="${v}" ${v===s.attendance[i]?'selected':''}>${t(en,ar)}</option>`).join('')}</select></div>`).join('')}<div class="aos-saveline"><span class="aos-sub" role="status">${s.saved?t('Saved in this preview','تم الحفظ داخل المعاينة'):t('Changes stay in this preview','التغييرات داخل هذه المعاينة فقط')}</span>${button(icon('check')+t('Save attendance','حفظ الحضور'),'save-attendance',true)}</div></section>`;
+  }
+  function children(s) {return `<div class="aos-childtabs" aria-label="${t('Choose your child','اختر ابنك')}">${people.slice(0,2).map((p,i)=>`<button type="button" class="cursor-interaction" data-child="${i}" aria-pressed="${s.child===i}"><span class="aos-avatar">${p.initials}</span>${t(p.en.split(' ')[0],p.ar.split(' ')[0])}</button>`).join('')}</div>`;}
+  function guardianHome(s) {
+    const p=people[s.child], x=sessions[s.child];
+    return heading(t('Your family’s academy','أكاديمية عائلتك'),t('Small steps. Real progress.','خطوات صغيرة. تقدم حقيقي.'),t('Everything you need for their next chapter.','كل ما تحتاجه لخطوتهم القادمة.'))+children(s)+
+      `<div class="aos-sessionhero"><div><span class="aos-eyebrow">${t('Next up for','القادم لـ')} ${t(p.en.split(' ')[0],p.ar.split(' ')[0])}</span><h2>${t(x.en,x.ar)}</h2><p class="aos-sub">${t('Today','اليوم')} · <span dir="ltr">${x.time}–${x.end}</span></p><p class="aos-sub" style="margin-top:5px">${t(...x.place)}</p></div>${button(icon('calendar-days')+t('Session details','تفاصيل الجلسة'),'child-session',true)}</div>`+
+      `<div class="aos-grid"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('A note from the trainer','رسالة من المدرب')}</h2>${icon('message-circle')}</div><div class="aos-user" style="padding-top:0"><span class="aos-avatar">${s.child===0?'KM':'SA'}</span><span><strong>${t(...x.coach)}</strong><span class="aos-sub">${t('October progress review','مراجعة تطور أكتوبر')}</span></span></div><p class="aos-coachnote">${s.child===0?t('“Omar is finding space more confidently and making thoughtful passes. This month, we’re building his first touch.”','«عمر يتحرك بثقة أكبر ويختار تمريراته بوعي. هذا الشهر، نركز على تطوير اللمسة الأولى.»'):t('“Lina’s confidence in the water is growing. Her breathing rhythm is more consistent, and she’s ready for longer distances.”','«ثقة لينا في الماء تتحسن. إيقاع التنفس أكثر انتظامًا، وهي مستعدة لمسافات أطول.»')}</p><button type="button" class="aos-link cursor-interaction" data-page="progress">${t('View full progress','عرض التطور بالكامل')}${icon('arrow-up-right')}</button></section><div class="aos-stack"><section class="aos-panel"><div class="aos-panelhead"><h2>${t('This month’s attendance','حضور هذا الشهر')}</h2>${icon('clipboard-check')}</div><div class="aos-statvalue">${s.child===0?'7':'8'} <small>/ 8 ${t('sessions','جلسات')}</small></div><div class="aos-progress"><span style="width:${s.child===0?87.5:100}%"></span></div></section><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Family payments','مدفوعات العائلة')}</h2>${badge(t('Upcoming','قادمة'),'neutral')}</div><div class="aos-statvalue">1,600 <small>EGP</small></div><p class="aos-sub" style="margin-top:7px">${t('Next invoice due 25 October','الفاتورة القادمة تستحق ٢٥ أكتوبر')}</p><button type="button" class="aos-link cursor-interaction" data-page="payments">${t('View invoice','عرض الفاتورة')}${icon('arrow-up-right')}</button></section></div></div>`;
+  }
+  function progressPage(s) {
+    const trainer=s.role==='trainer', p=people[s.child];
+    const areas=s.child===0?[['First touch','اللمسة الأولى',72],['Passing','التمرير',85],['Teamwork','العمل الجماعي',90]]:[['Water confidence','الثقة في الماء',90],['Breathing','التنفس',78],['Stroke technique','أسلوب السباحة',75]];
+    return heading(t('Development over time','تطور مستمر'),trainer?t('Help every player grow.','ساعد كل لاعب على التطور.'):t('Progress you can see.','تطور يمكنك رؤيته.'),t('October 2026 · Trainer observations','أكتوبر ٢٠٢٦ · ملاحظات المدرب'))+(trainer?'':children(s))+
+      `<div class="aos-grid"><section class="aos-panel"><div class="aos-panelhead"><h2>${nameOf(p)}</h2>${badge(t('Shared with family','تمت مشاركته مع العائلة'))}</div><p class="aos-sub">${sportName(p.program)} · ${t('Monthly review','مراجعة شهرية')}</p>${areas.map(([en,ar,v])=>`<div class="aos-score"><span>${t(en,ar)}</span><span class="aos-num">${v}/100</span><div class="aos-progress" role="progressbar" aria-label="${t(en,ar)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${v}"><span style="width:${v}%"></span></div></div>`).join('')}<p class="aos-dialoghint">${t('Sample trainer ratings for this design preview.','تقييمات تجريبية من المدرب لهذا التصور التصميمي.')}</p></section><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Next development goal','هدف التطور القادم')}</h2>${icon('target')}</div><h3>${s.child===0?t('Receive, look, then pass','استلم، انظر، ثم مرر'):t('A steady breathing rhythm','إيقاع تنفس ثابت')}</h3><p class="aos-coachnote">${s.child===0?t('Practice receiving with both feet and looking up before the next pass. Keep it playful: ten minutes, three times a week.','التدرب على الاستلام بالقدمين ورفع الرأس قبل التمريرة التالية. عشر دقائق ممتعة، ثلاث مرات أسبوعيًا.'):t('Practice a relaxed exhale in the water with trainer supervision, keeping the same rhythm each length.','التدرب على الزفير بهدوء في الماء بإشراف المدرب، والحفاظ على إيقاع منتظم.')}</p><div class="aos-data-row"><span>${t('Next review','المراجعة القادمة')}</span><strong>${t('3 November','٣ نوفمبر')}</strong></div></section></div>`;
+  }
+  function paymentsPage() {
+    return heading(t('Family billing','فواتير العائلة'),t('Your payments, together.','مدفوعاتك، في مكان واحد.'),t('Invoices and receipts for Omar and Lina.','الفواتير والإيصالات الخاصة بعمر ولينا.'))+
+    `<div class="aos-sessionhero"><div><span class="aos-eyebrow">${t('Upcoming invoice','الفاتورة القادمة')}</span><h2>1,600 <small style="font-size:15px">EGP</small></h2><p class="aos-sub">${t('Omar · Football U12 · Due 25 October','عمر · كرة القدم تحت ١٢ · تستحق ٢٥ أكتوبر')}</p></div>${button(icon('receipt-text')+t('View invoice','عرض الفاتورة'),'family-invoice',true)}</div><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Payment history','سجل المدفوعات')}</h2><span class="aos-sub">EGP</span></div>${[['18 Oct 2026','١٨ أكتوبر ٢٠٢٦','Lina · Swimming','لينا · السباحة','1,200'],['25 Sep 2026','٢٥ سبتمبر ٢٠٢٦','Omar · Football','عمر · كرة القدم','1,600']].map(r=>`<div class="aos-data-row"><div><strong>${t(r[2],r[3])}</strong><span class="aos-sub">${t(r[0],r[1])}</span></div><div style="text-align:end"><strong>${r[4]}</strong><div>${badge(t('Paid','مدفوعة'))}</div></div></div>`).join('')}</section>`;
+  }
+  function earningsPage() {
+    return heading(t('October 2026','أكتوبر ٢٠٢٦'),t('Your work, accounted for.','جهدك، محسوب.'),t('Session earnings and payment status.','مستحقات الجلسات وحالة الدفع.'))+
+    `<div class="aos-stats">${stat(t('Approved','معتمدة'),'6,400 <small>EGP</small>',t('16 sessions × EGP 400','١٦ جلسة × ٤٠٠ جنيه'),'badge-check')}${stat(t('Pending review','قيد المراجعة'),'800 <small>EGP</small>',t('2 completed sessions','جلستان مكتملتان'),'clock-3')}${stat(t('Next payment','الدفعة القادمة'),'31 <small>'+t('Oct','أكتوبر')+'</small>',t('Scheduled pay date','موعد الصرف المجدول'),'calendar-days')}</div><section class="aos-panel"><div class="aos-panelhead"><h2>${t('Recent session earnings','آخر مستحقات الجلسات')}</h2><span class="aos-sub">EGP</span></div>${[['19 Oct','١٩ أكتوبر','Football U12','كرة القدم تحت ١٢'],['17 Oct','١٧ أكتوبر','Football U12','كرة القدم تحت ١٢'],['15 Oct','١٥ أكتوبر','Football U16','كرة القدم تحت ١٦']].map(r=>`<div class="aos-data-row"><div><strong>${t(r[2],r[3])}</strong><span class="aos-sub">${t(r[0],r[1])} · ${t('75 minutes','٧٥ دقيقة')}</span></div><div style="text-align:end"><strong>400</strong><div>${badge(t('Approved','معتمدة'))}</div></div></div>`).join('')}</section>`;
+  }
+  function dialog(s) {
+    let title='',sub='',body='';
+    if(s.modal.type==='session') {
+      const x=sessions[s.modal.id]; title=t(x.en,x.ar); sub=s.modal.day==='thursday'?t('Thursday, 22 October · Session details','الخميس، ٢٢ أكتوبر · تفاصيل الجلسة'):t('Tuesday, 20 October · Session details','الثلاثاء، ٢٠ أكتوبر · تفاصيل الجلسة');
+      body=`<div class="aos-data-row"><span>${t('Time','الوقت')}</span><strong dir="ltr">${x.time}–${x.end}</strong></div><div class="aos-data-row"><span>${t('Location','المكان')}</span><strong>${t(...x.place)}</strong></div><div class="aos-data-row"><span>${t('Trainer','المدرب')}</span><strong>${t(...x.coach)}</strong></div><div class="aos-data-row"><span>${t('Roster','القائمة')}</span><strong>${x.count} / ${x.cap}</strong></div>${x.id===2?`<p class="aos-dialoghint">${t('In the full product, a manager would select an available trainer here.','في المنتج الكامل، يختار المدير مدربًا متاحًا من هنا.')}</p>`:''}`;
+    } else if(s.modal.type==='person') {
+      const p=people[s.modal.id]; title=nameOf(p); sub=t('Player profile','ملف اللاعب');
+      body=`<div class="aos-data-row"><span>${t('Program','البرنامج')}</span><strong>${sportName(p.program)}</strong></div><div class="aos-data-row"><span>${t('Age','العمر')}</span><strong>${p.age}</strong></div><div class="aos-data-row"><span>${t('Membership','العضوية')}</span>${badge(t('Active','نشطة'))}</div><div class="aos-data-row"><span>${t('Guardian account','حساب ولي الأمر')}</span><strong>${t('Connected','متصل')}</strong></div>`;
+    } else if(s.modal.type==='compensation') {
+      title=t('October pay summary','ملخص مستحقات أكتوبر');sub=t('Academy → Trainers','الأكاديمية ← المدربون');
+      body=`<div class="aos-data-row"><span>${t('Approved earnings','المستحقات المعتمدة')}</span><strong>EGP 32,400</strong></div><div class="aos-data-row"><span>${t('Trainers','المدربون')}</span><strong>8</strong></div><div class="aos-data-row"><span>${t('Planned payment','موعد الدفع')}</span><strong>${t('31 October','٣١ أكتوبر')}</strong></div>`;
+    } else {
+      const i=s.modal.id||0; title=t('Invoice details','تفاصيل الفاتورة');sub=`INV-2026-10-${['042','039','031'][i]}`;
+      body=`<div class="aos-data-row"><span>${t('Family','العائلة')}</span><strong>${t(['Hassan','Ahmed','Ali'][i],['حسن','أحمد','علي'][i])}</strong></div><div class="aos-data-row"><span>${t('Program','البرنامج')}</span><strong>${i===1?t('Swimming · Level 2','السباحة · المستوى الثاني'):t('Football · U12','كرة القدم · تحت ١٢')}</strong></div><div class="aos-data-row"><span>${t('Total','الإجمالي')}</span><strong>${i===1?'1,200':'1,600'} EGP</strong></div><div class="aos-data-row"><span>${t('Status','الحالة')}</span>${badge(i===1?t('Paid','مدفوعة'):i===2?t('Overdue','متأخرة'):t('Due 25 October','تستحق ٢٥ أكتوبر'),i===2?'warn':i===1?'':'neutral')}</div><p class="aos-dialoghint">${t('Payment actions will connect to the academy’s approved provider in the working product.','ستتصل إجراءات الدفع بمزود الدفع المعتمد للأكاديمية في المنتج الفعلي.')}</p>`;
+    }
+    return `<div class="aos-dialoglayer" data-overlay><section class="aos-dialog" role="dialog" aria-modal="true" aria-label="${title}"><div class="aos-panelhead"><div><h2>${title}</h2><p class="aos-sub">${sub}</p></div><button type="button" class="aos-iconbutton cursor-interaction" data-action="close" aria-label="${t('Close details','إغلاق التفاصيل')}">${icon('x')}</button></div>${body}${button(t('Close preview','إغلاق المعاينة'),'close')}</section></div>`;
+  }
+  function render(k) {
+    const s=states[k], p=products[k];
+    if(!navItems(s).some(([page])=>page===s.page)) s.page='overview';
+    let content='';
+    if(s.page==='overview') content=s.role==='owner'?ownerHome(k):s.role==='trainer'?trainerHome(s):guardianHome(s);
+    else if(s.page==='schedule') content=schedulePage(s);
+    else if(s.page==='people') content=peoplePage(s);
+    else if(s.page==='finance') content=financePage();
+    else if(s.page==='attendance') content=attendancePage(s);
+    else if(s.page==='progress') content=progressPage(s);
+    else if(s.page==='payments') content=paymentsPage();
+    else if(s.page==='earnings') content=earningsPage();
+    p.classList.toggle('aos-mobile-shell',settings.preview==='phone'||narrow);
+    p.style.colorScheme=settings.appearance==='system'?'inherit':settings.appearance;
+    p.style.setProperty('--aos-radius',settings.corners+'px');
+    p.setAttribute('dir',settings.language==='ar'?'rtl':'ltr'); p.setAttribute('lang',settings.language);
+    p.parentElement.classList.toggle('aos-phone',settings.preview==='phone');
+    p.parentElement.classList.toggle('viz-dotted-background',settings.preview==='phone');
+    p.innerHTML=shell(s,k,content);
+    if(s.page==='people') p.querySelector('[data-control="search"]').value=s.query;
+    if(globalThis.lucide) lucide.createIcons({attrs:{width:16,height:16}});
+  }
+  function renderAll() { Object.keys(products).forEach(render); }
+  function refreshFocus(k,selector) {render(k);const target=selector&&products[k].querySelector(selector);if(target)target.focus({preventScroll:true});save();}
+  for (const [k,p] of Object.entries(products)) {
+    let returnFocus='';
+    p.addEventListener('click',event=>{
+      const s=states[k], b=event.target.closest('button');
+      if(event.target.hasAttribute('data-overlay')) {s.modal=null;refreshFocus(k,returnFocus);return;}
+      if(!b) return;
+      let focus='';
+      s.notice='';
+      if(b.dataset.page) {s.page=b.dataset.page;s.filter='all';focus=`button[data-page="${s.page}"]`;}
+      else if(b.dataset.session!==undefined) {s.modal={type:'session',id:Number(b.dataset.session),day:b.dataset.sessionday||'today'};returnFocus=`button[data-session="${b.dataset.session}"][data-sessionday="${b.dataset.sessionday||'today'}"]`;focus='button[data-action="close"]';}
+      else if(b.dataset.person!==undefined) {s.modal={type:'person',id:Number(b.dataset.person)};returnFocus=`button[data-person="${b.dataset.person}"]`;focus='button[data-action="close"]';}
+      else if(b.dataset.invoice!==undefined) {s.modal={type:'invoice',id:Number(b.dataset.invoice)};returnFocus=`button[data-invoice="${b.dataset.invoice}"]`;focus='button[data-action="close"]';}
+      else if(b.dataset.filter) {s.filter=b.dataset.filter;focus=`button[data-filter="${s.filter}"]`;}
+      else if(b.dataset.child!==undefined) {s.child=Number(b.dataset.child);focus=`button[data-child="${s.child}"]`;}
+      else if(b.dataset.action) {
+        const a=b.dataset.action;
+        if(a==='language') {settings.language=settings.language==='en'?'ar':'en';renderAll();p.querySelector('[data-action="language"]').focus({preventScroll:true});save();return;}
+        if(a==='schedule'||a==='attendance') {s.page=a;focus=`button[data-page="${a}"]`;}
+        if(a==='save-attendance') {s.saved=true;focus='button[data-action="save-attendance"]';}
+        if(a==='family-invoice') {s.modal={type:'invoice',id:0};returnFocus='button[data-action="family-invoice"]';focus='button[data-action="close"]';}
+        if(a==='child-session') {s.modal={type:'session',id:s.child};returnFocus='button[data-action="child-session"]';focus='button[data-action="close"]';}
+        if(a==='compensation') {s.modal={type:'compensation'};returnFocus='button[data-action="compensation"]';focus='button[data-action="close"]';}
+        if(a==='close') {s.modal=null;focus=returnFocus;}
+      }
+      refreshFocus(k,focus);
+    });
+    p.addEventListener('change',event=>{
+      const el=event.target,s=states[k];
+      if(el.dataset.control==='role') {s.role=el.value;s.page='overview';s.modal=null;s.notice='';s.filter='all';refreshFocus(k,'[data-control="role"]');}
+      if(el.dataset.control==='attendance') {s.attendance[Number(el.dataset.player)]=el.value;s.saved=false;refreshFocus(k,`[data-player="${el.dataset.player}"]`);}
+    });
+    p.addEventListener('input',event=>{
+      if(event.target.dataset.control==='search') {states[k].query=event.target.value;p.querySelector('[data-player-list]').innerHTML=playerRows(states[k]);if(globalThis.lucide)lucide.createIcons({attrs:{width:16,height:16}});}
+    });
+    p.addEventListener('keydown',event=>{
+      if(!states[k].modal)return;
+      if(event.key==='Escape') {event.preventDefault();states[k].modal=null;refreshFocus(k,returnFocus);}
+      if(event.key==='Tab') {const controls=p.querySelectorAll('.aos-dialog button');const first=controls[0],last=controls[controls.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
+    });
+  }
+  renderAll();
+  new ResizeObserver(entries=>{const next=entries[0].contentRect.width<761;if(next!==narrow){narrow=next;renderAll();}}).observe(root);
+  window.addEventListener('openai:set_globals',event=>{if(event.detail?.globals?.widgetState){restore(event.detail.globals.widgetState);renderAll();}});
+  if(globalThis.Tweak) {
+    const tweak=new Tweak({container:root,onChange:()=>{renderAll();save();}});
+    tweak.addSelect(settings,'appearance',{label:'Appearance',options:[{label:'Follow system',value:'system'},{label:'Light',value:'light'},{label:'Dark',value:'dark'}]});
+    tweak.addSelect(settings,'preview',{label:'Screen',options:[{label:'Responsive workspace',value:'responsive'},{label:'Phone',value:'phone'}]});
+    tweak.addSlider(settings,'corners',{label:'Corner radius',min:8,max:24,step:2,unit:'px',reference:'--aos-radius'});
+  }
+})();
+</script>
