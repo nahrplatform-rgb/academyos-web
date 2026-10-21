@@ -43,3 +43,7 @@ Open decisions D-001–D-022 remain unresolved until recorded acceptance. No req
 ## Initial application foundation — 21 October 2026
 
 User authorized implementation, commit and push. Added deployable EN/AR Next.js workspace, optional Clerk sign-in wiring, closed unconfigured workspace, process health, staging assertions, source-only deny-by-default database baseline, CI and meaningful local checks. See foundation implementation evidence for tests and remaining integrations. No hosted migration applied, no deployment verified and no business module acceptance claimed.
+
+## Membership connection slice — 21 October 2026
+
+Added staging-only server Supabase client, caller-derived identity bootstrap, active-membership lookup over private tables, explicit unavailable/empty UI states, and isolated PostgreSQL authorization tests. See membership-connection.md for verification and pending hosted access. No hosted schema applied or membership granted.
