@@ -14,6 +14,12 @@ test("staging rejects production and wrong service bindings", () => {
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_live_fixture",
     },
     { APP_ENV: "staging", CLERK_SECRET_KEY: "sk_test_fixture" },
+    { APP_ENV: "staging", NEXT_PUBLIC_APP_URL: "https://wrong.example" },
+    {
+      APP_ENV: "staging",
+      VERCEL_ENV: "production",
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+    },
   ])
     assert.throws(() => validateStaging(env));
 });

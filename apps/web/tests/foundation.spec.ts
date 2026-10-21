@@ -36,4 +36,7 @@ test("unconfigured workspace fails closed and health is process only", async ({
     scope: "process-only",
   });
   expect((await request.get("/fr")).status()).toBe(404);
+  expect((await request.post("/api/setup/verify")).status()).toBe(404);
+  expect((await request.post("/api/setup/email")).status()).toBe(404);
+  expect((await request.post("/api/jobs/setup")).status()).toBe(404);
 });

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { authenticationConfigured, validateStaging } from "@/lib/config";
+import { authenticationConfigured, validateStaging, STAGING_ORIGIN } from "@/lib/config";
 import "./globals.css";
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? STAGING_ORIGIN),
   title: "AcademyOS · Staging",
   description: "Your academy, connected.",
   robots: { index: false, follow: false },
