@@ -64,3 +64,8 @@ Remaining security gates: multi-persona authenticated HTTP/browser two-academy/w
 
 
 Final postcheck after measurements: one academy, one active owner membership, setup version 9/completion true/Cairo timezone, one invitation delivery attempt, exactly two authorized revocation-test audit events, and no manual 40001 exception remaining in M1 functions. The canonical staging alias was verified against `dpl_HvqWcKskiiBpkGjCAsWoiTKfU1N7`; project SSO protection remained enabled for all deployments. A restored-access screenshot stays in the restricted local evidence directory. CSV references/statuses now point to these scoped results; all 180 requirement IDs and original acceptance scenarios were retained.
+
+
+## Further HTTP checks and role-test preparation
+
+Read [authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) for seven staged origin/input/unknown-resource/worker denial cases and normal-refresh recovery, plus the concrete lower-role test plan awaiting separate authorization. These add focused HTTP evidence without closing populated-tenant isolation, additional-role, billing-meter or independent-review gates.

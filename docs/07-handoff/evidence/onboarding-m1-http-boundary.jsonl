@@ -1,0 +1,7 @@
+{"id":"HTTP-M1-01","expected":403,"status":403,"privateViewCleared":true,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-02","expected":403,"status":403,"privateViewCleared":true,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-03","expected":422,"status":422,"privateViewCleared":false,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-04","expected":413,"status":413,"privateViewCleared":false,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-05","expected":422,"status":422,"privateViewCleared":false,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-06","expected":403,"status":403,"privateViewCleared":true,"recovered":true,"cacheControl":"no-store","referrerPolicy":"no-referrer"}
+{"id":"HTTP-M1-07","expected":401,"status":401,"privateViewCleared":false,"recovered":true,"cacheControl":"public, max-age=0, must-revalidate","referrerPolicy":"strict-origin-when-cross-origin"}
