@@ -18,7 +18,7 @@ Updated 22 October 2026. Current configuration and proof are distinct. [Executio
 | QStash | EU `https://qstash-eu-central-1.upstash.io` | Signed synthetic callback delivered; no business outbox/jobs implemented |
 | Application email | Resend, `notify.academy.nahr.dev`, eu-west-1 | Domain verified; sender `notifications@notify.academy.nahr.dev`, reply `support@nahr.dev`, test allowlist `nahr.platform@gmail.com`; recipient-server delivery passed |
 | Sentry errors | org `academyos`, project `academyos-staging` (`4512294699728976`), EU project | Browser/server events and source maps verified; strict source/provider privacy filtering; no replay/traces/logs/metrics |
-| Sentry uptime | monitor `2491612`, GET `/api/health`, environment staging | Manual test passed; scheduled status/alert delivery to refresh. Check data may be outside EU |
+| Sentry uptime | monitor `2491612`, GET `/api/health`, environment staging | Scheduled check-ins verified: HTTP 200, displayed 100% uptime; alert routing/delivery is being tightened. Check data may be outside EU |
 | Sentry project alert | `1400964`, Send a notification for high priority issues | Existence verified; recipient/action delivery to refresh |
 | Independent backup | private Standard EU R2 `academyos-staging-backups` | Encrypted upload/download, actual local database restoration and first scheduled run passed; no hosted object restoration proof |
 | Backup endpoint | `https://3fda84919501e78157a07d5225d61299.eu.r2.cloudflarestorage.com` | Exact EU endpoint; private bucket, no public URL/custom domain |
@@ -28,7 +28,7 @@ Updated 22 October 2026. Current configuration and proof are distinct. [Executio
 
 - Vercel Authentication covers All Deployments; source maps protected. Callback/monitor automation uses the owner's saved bypass key. That bypass does not create a Clerk session or academy membership.
 - Supabase automatic table exposure is off; auto-RLS protection is on. Private academy tables have RLS without direct client policies. Only narrow caller-derived RPCs are intentionally callable by authenticated roles. Advisor rationale is recorded, not dismissed as a full audit pass.
-- Server-side database SSL enforcement was observed off at the previous stop. Backup clients already use verify-full and a pinned dashboard-issued provider CA. Enabling enforcement and verifying its restart are remaining actions.
+- Server-side database SSL enforcement was enabled on 22 October; the provider completed its restart and the dashboard switch was verified on. Backup clients retain verify-full and the pinned provider CA. A post-change encrypted backup is being verified.
 - The four Storage buckets are private. No tenant client upload/download policies exist yet; this is deliberate until permission implementation.
 - `SERVICE_SETUP_ENABLED=false`; temporary verification routes are closed after proof. Process health is only process liveness.
 - Public app Data API calls use the publishable key/current Clerk token. Privileged backup credentials are not app runtime credentials.

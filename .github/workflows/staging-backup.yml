@@ -6,6 +6,10 @@ on:
         description: 'Keep an encrypted-only recovery package for one day for a local restore test'
         type: boolean
         default: false
+      exercise_monitor_failure:
+        description: 'Send one synthetic failure before the real backup to verify operator alerts and recovery'
+        type: boolean
+        default: false
   schedule:
     - cron: '17 2 * * *'
 permissions:
@@ -23,6 +27,11 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Controlled monitor failure rehearsal
+        if: inputs.exercise_monitor_failure
+        run: |
+          python3 scripts/backups/monitor.py in_progress --controlled-probe
+          python3 scripts/backups/monitor.py error --controlled-probe
       - name: Start independent backup monitoring
         id: monitor_start
         continue-on-error: true

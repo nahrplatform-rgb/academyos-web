@@ -83,3 +83,5 @@ Source: https://docs.sentry.io/product/monitors-and-alerts/monitors/crons/gettin
 The new restore path is isolated from the source object but remains in the same staging service. This is actual hosted object transport/re-upload proof, not disaster recovery to an independent Supabase project or tenant authorization acceptance. A separate production whole-service rehearsal remains required. Source and restored fixtures are disposable technical test data; no personal/academy records are involved.
 
 Sources: https://supabase.com/docs/guides/storage/uploads/standard-uploads and https://supabase.com/docs/guides/getting-started/api-keys
+
+For an explicit operator alert rehearsal, a manual backup can set `exercise_monitor_failure=true`. It sends start/error on a separate, clearly marked synthetic check-in ID derived from that actual workflow run, then performs the real backup normally. Its successful verified-copy check-in provides recovery. This changes monitor telemetry only; it never simulates a failed backup receipt. Leave the option false for routine/scheduled runs.

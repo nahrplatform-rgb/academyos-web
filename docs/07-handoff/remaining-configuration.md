@@ -6,9 +6,9 @@ Owner authorized continuation on 22 October 2026. This board separates infrastru
 
 | Order | Work | Current state | Required completion evidence |
 |---|---|---|---|
-| 1 | Consolidate historical/current setup records and navigation | In progress in this revision | Ordered history/register/index; old status headers marked historical; relative links checked; Git commit/push |
-| 2 | Verify uptime's scheduled check and operator alert | Manual test passed; high-priority project alert exists | Actual scheduled healthy check; explicit recipient/action review; controlled alert test with received/delivered evidence |
-| 3 | Enforce SSL on incoming staging database connections | Provider setting recorded off; clients already verify TLS | Enable on exact staging project, complete provider restart, healthy app/database and subsequent encrypted backup |
+| 1 | Consolidate historical/current setup records and navigation | Done: `78c3f71` pushed, 134 relative links checked | Ordered history/register/index; old status headers marked historical; relative links checked; Git commit/push |
+| 2 | Verify uptime's scheduled check and operator alert | Scheduled HTTP 200 check-ins and displayed 100% uptime verified; explicit routing/test in progress | Actual scheduled healthy check; explicit recipient/action review; controlled alert test with received/delivered evidence |
+| 3 | Enforce SSL on incoming staging database connections | Enabled and dashboard verified on after restart; post-change backup in progress | Enable on exact staging project, complete provider restart, healthy app/database and subsequent encrypted backup |
 | 4 | Monitor backup failures and missed daily runs | First scheduled backup succeeded; independent overdue alert not established | Independent schedule-aware monitor; failure and recovery check-ins; safe notification delivery; delayed GitHub dispatch handled |
 | 5 | Set staging backup retention/immutability | No automatic deletion/lock policy approved yet | Concrete duration/cost/custody proposal approved; scoped rules verified; no broad accidental deletion |
 | 6 | Exercise hosted file recovery with a synthetic object | Empty current buckets; local mocked-HTTP file roundtrip passed | Private non-personal fixture, actual API download, encrypted independent copy, isolated restore/download/checksum; no tenant/client permission grants added just for the test |

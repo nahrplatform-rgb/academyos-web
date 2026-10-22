@@ -35,10 +35,13 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('status', choices=['in_progress', 'ok', 'error'])
     p.add_argument('--receipt', type=Path)
+    p.add_argument('--controlled-probe', action='store_true', help='Separate synthetic failure check-in within the actual workflow run')
     a = p.parse_args()
     run = os.environ.get('GITHUB_RUN_ID', '') + '/' + os.environ.get('GITHUB_RUN_ATTEMPT', '')
     if not all(part.isdigit() for part in run.split('/')):
         raise BackupError('Monitor requires a GitHub run identity')
+    if a.controlled_probe:
+        run += '/controlled-probe'
     receipt = json.loads(a.receipt.read_text()) if a.receipt else None
     request = Request(ENDPOINT, data=json.dumps(payload(a.status, run, receipt)).encode(),
                       headers={'Content-Type': 'application/json'}, method='POST')
