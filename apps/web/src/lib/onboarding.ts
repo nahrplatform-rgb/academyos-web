@@ -31,7 +31,7 @@ export function verifiedEmails(user: { emailAddresses: { emailAddress: string; v
 export type OnboardingError = "denied" | "invalid" | "conflict" | "unavailable" | "limited";
 export function databaseError(code?: string): OnboardingError {
   if (code === "42501") return "denied";
-  if (["40001", "23505"].includes(code ?? "")) return "conflict";
+  if (["PT409", "40001", "23505"].includes(code ?? "")) return "conflict";
   if (["22023", "22P02", "23514"].includes(code ?? "")) return "invalid";
   return "unavailable";
 }

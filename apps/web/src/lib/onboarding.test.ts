@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { invitationToken, tokenHash, signProof, verifiedEmails, onboardingKey } from "./onboarding";
+import { invitationToken, tokenHash, signProof, verifiedEmails, onboardingKey, databaseError } from "./onboarding";
 import { sealInvitation, openInvitation } from "./invitation-cookie";
 const key = "a".repeat(64), id = "00000000-0000-4000-8000-000000000001";
 test('invitation secrets are reproducible per generation, opaque and hashed at rest', () => {
@@ -12,4 +12,10 @@ test('only current verified addresses enter subject and target bound proof', () 
 });
 test('invitation handoff cookie conceals secret, rejects tampering and expires', () => {
   const token = invitationToken(id, 1, key), cookie = sealInvitation(id, token, key, 100); assert.ok(!cookie.includes(token)); assert.deepEqual(openInvitation(cookie, key, 1000), { invitation: id, token }); assert.throws(() => openInvitation(cookie, key, 1000000)); assert.throws(() => openInvitation('x' + cookie.slice(1), key)); assert.throws(() => openInvitation(cookie, 'b'.repeat(64)));
+});
+
+test('business version conflicts remain conflicts across the HTTP boundary', () => {
+  assert.equal(databaseError('PT409'), 'conflict');
+  assert.equal(databaseError('23505'), 'conflict');
+  assert.equal(databaseError('42501'), 'denied');
 });

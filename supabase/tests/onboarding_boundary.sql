@@ -34,7 +34,7 @@ do $$ declare a uuid:=(select (result->>'academy_id')::uuid from m1_fixtures whe
  begin perform public.m1_save_setup_v1(a,gen_random_uuid(),0,'complete','{}');raise exception 'Incomplete setup completed';exception when invalid_parameter_value then null;end;
  r:=public.m1_save_setup_v1(a,gen_random_uuid(),0,'branch','{"name":"M1 synthetic branch","timezone":"Africa/Cairo"}');
  if (r->>'version')::integer<>1 then raise exception 'Branch not persisted';end if;
- begin perform public.m1_save_setup_v1(a,gen_random_uuid(),0,'branch','{"name":"stale","timezone":"Africa/Cairo"}');raise exception 'Stale edit allowed';exception when serialization_failure then null;end;
+ begin perform public.m1_save_setup_v1(a,gen_random_uuid(),0,'branch','{"name":"stale","timezone":"Africa/Cairo"}');raise exception 'Stale edit allowed';exception when sqlstate 'PT409' then null;end;
  r:=public.m1_save_setup_v1(a,gen_random_uuid(),1,'sport','{"label_en":"Synthetic sport","label_ar":"رياضة اختبار"}');
  r:=public.m1_save_setup_v1(a,gen_random_uuid(),2,'complete','{}');
  if not (r->>'complete')::boolean then raise exception 'Completion missing';end if;

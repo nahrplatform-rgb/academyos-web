@@ -33,7 +33,7 @@ class Boundary(unittest.TestCase):
         subprocess.run([str(BIN/'pg_ctl'),'-D',cls.tmp+'/db','-l',cls.tmp+'/log','-o',f'-p 55441 -h 127.0.0.1 -k {cls.tmp}','start'],check=True,stdout=subprocess.DEVNULL)
         cls.base=[str(BIN/'psql'),'-X','-qAt','-v','ON_ERROR_STOP=1','-h','127.0.0.1','-p','55441','postgres']
         # Storage migration does not belong to this plain PG authorization harness.
-        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/tests/membership_boundary.sql']:
+        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql','supabase/tests/membership_boundary.sql']:
             subprocess.run(cls.base+['-f',str(ROOT/f)],check=True,stdout=subprocess.DEVNULL)
         cls.sql("insert into academy.m1_secrets values('onboarding',"+literal(KEY)+"); insert into academy.platform_grants(subject,granted_by,reason) values('user_platform','test-harness','synthetic fixture only');")
 
