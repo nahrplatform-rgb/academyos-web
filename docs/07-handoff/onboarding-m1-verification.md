@@ -18,11 +18,49 @@ Full accepted workload remains two small academies/one skewed tenant, 30 members
 
 ## Results
 
-Pending execution. Preserve successful/failed counts and unavailable layers separately; no budget may be marked met from an insufficient sample or a direct-SQL-only result.
+Executed scoped results are below. Preserve successful/failed counts and unavailable layers separately; no budget may be marked met from an insufficient sample or a direct-SQL-only result.
 
 
-## Prepared access-revocation check — authorization pending
+## Access-revocation procedure — authorized and executed
 
 M1-T03 can be checked using the already confirmed account and its one existing owner membership in **AcademyOS M1 Synthetic Academy**, without another account or owner appointment. Prepared permission-restricted operator transactions under the owner configuration directory: `test-membership-suspend.sql` changes only that exact membership active→suspended after subject/academy/role/status guards; `test-membership-restore.sql` requires the matching suspension audit and restores suspended→active with the same guards. Both record operator/reason/before/after and a shared test reference. No role, academy data, platform grant, invitation or other membership changes.
 
-Procedure after explicit authorization: open existing setup view; suspend; verify the next read/write is denied and private setup projection is cleared; run restoration even if the browser assertion fails; verify the original one-owner state and saved setup intact. Restore files are prepared before suspension. Any unexpected target state stops for review. Restoring active owner access is why the user's privileged-grant restriction requires separate authorization. These transactions have not executed.
+Procedure after explicit authorization: open existing setup view; suspend; verify the next read/write is denied and private setup projection is cleared; run restoration even if the browser assertion fails; verify the original one-owner state and saved setup intact. Restore files are prepared before suspension. Any unexpected target state stops for review. Restoring active owner access is why the user's privileged-grant restriction requires separate authorization. Execution is recorded below; do not rerun this one-time suspension without a new scoped instruction.
+
+
+## Authorized revocation result
+
+Moamen explicitly authorized the prepared suspension/restoration on 22 October 2026. Exact existing synthetic owner membership changed active→suspended with operator/reason audit. The already-open signed-in setup view's next refresh returned HTTP 403. Browser assertions found zero private branch labels and zero edit controls after denial. Restoration ran immediately after the assertion and returned the same membership to active/owner; both `test.membership.suspend` and `test.membership.restore` receipts were confirmed. The next signed-in refresh again displayed Initial setup saved. No account, platform grant, role or new membership was added. Postcheck: setup version 9, completion true and Cairo timezone. This closes the focused hosted open-page read revocation case; it does not prove every concurrent write/revocation or multi-persona boundary.
+
+The timing build is deployed as commit `549de6d3227cac653fb5106a170f6ff85f507add`, READY `dpl_HvqWcKskiiBpkGjCAsWoiTKfU1N7`. Local lint/build and all four production-build browser tests passed, including unchanged denial and no-store assertions plus the numeric timing header. The browser received the deployed phase header during the actual 403 revocation request (server total 243.4 ms, operation phase 158.5 ms). No full performance conclusion follows from this single request.
+
+Early browser instrumentation attempts could not access the required paint APIs; a longer collection call hit the tool deadline and reset its session. Those attempts yield no usable statistical dataset. The supported collector now persists each numeric-only network sample immediately and uses smaller bounded batches. Wall-clock UI refresh observations include automation overhead and are upper bounds, not exact local feedback/first-paint measurements.
+
+
+## Reproducible numeric evidence and budget disposition
+
+Source build: `549de6d3227cac653fb5106a170f6ff85f507add`. Both GitHub checks passed: [39799396612](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39799396612) and [39799408454](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39799408454). Protected staging remained protected. The browser received Server-Timing from this release; no new metric collector/service was added.
+
+Samples: [100 setup-read observations](evidence/onboarding-m1-timing-samples.jsonl), [20 offline recovery observations](evidence/onboarding-m1-read-recovery.jsonl), and [aggregate results with source hashes](evidence/onboarding-m1-measurement-summary.json). The JSONL files were validated to contain only fixed profile labels, numeric durations/status/transfer counts and recovery booleans. They contain no cookies, subjects, academy IDs, response bodies, tokens or raw URLs. A sample consists of a real signed-in click on Refresh saved state, waiting for the saved heading, then matching the single onboarding response and finished-transfer event by request reference. Request references were used in memory only and are not in these files. Percentiles use the nearest-rank method.
+
+| Setup refresh profile | Successful samples / failures | p95 server total | p95 operation phase | p95 response wire bytes |
+|---|---|---|---|---|
+| EN desktop, unthrottled (viewport caveat below) | 50 / 0 | 658.9 ms | 574.4 ms | 532 |
+| AR phone, 390×844, 150 ms RTT / 1.6 Mbps down / 750 Kbps up / 4× CPU | 50 / 0 | 492.4 ms | 409.4 ms | 526 |
+
+The desktop viewport was requested at 1440×900 before the collector session reset and was not re-observed in each retained sample. Treat exact desktop-dimension comparison as unverified. The phone viewport was explicitly observed at width 390 with no horizontal overflow after its configuration.
+
+Both measured **warm setup read** profiles meet p95 server handling <800 ms on the current small synthetic academy. This is not all routes/profiles, a cold-navigation result, database-only execution time or production capacity evidence. The phone figure being lower does not establish that throttling improves performance: server timings exclude the browser's imposed latency/CPU, and the sets were sequential with changing server/database warmth. Per-phase p95s do not add to the total p95 because their slow samples differ.
+
+Each successful sample had exactly **one app request**. Response wire-byte measurements include transport/header encoding and vary; they are not uncompressed JSON-size or total-page-transfer budgets. The app path has one bounded RPC and one rate-limiter call; actual billable Redis command count, provider metering/cost and abandonment cost were not independently measured. No message was sent by this benchmark. No zero-cost/monthly-cost claim.
+
+A separate hosted `EXPLAIN (ANALYZE, BUFFERS)` of the setup RPC under simulated current-subject claims took **5.652 ms**, one result row, no physical shared-block reads. It proves one small-fixture function execution, not nested-query plans or a skewed/large tenant. Current warm timing data do not justify speculative schema/index changes.
+
+All **20/20** Arabic phone-profile offline-refresh cycles showed an explicit read error, retained the previously saved setup rather than presenting empty data, and recovered after reconnection. No save request was issued by this fault test. It does not prove offline authorization, offline writes, physical airplane-mode behavior or commit/provider-outcome recovery. Browser network/CPU/viewport overrides were cleared afterward.
+
+Actual render-ready wall-clock observations include browser-automation overhead (p75 upper bounds 2830 ms desktop and 2786 ms phone); do **not** use them as exact first-useful-task, local feedback, LCP or INP metrics. The browser interface does not expose the required paint APIs to this collector, and raw new-document instrumentation was unsupported. First-useful task ≤3 s, feedback ≤200 ms, CLS ≤0.1, Core Web Vitals and cold/warm full navigation budgets remain **unverified**. The full Chrome DevTools audit and physical devices remain unavailable layers, not passes.
+
+Remaining security gates: multi-persona authenticated HTTP/browser two-academy/wrong-role coverage, revocation/write races, recipient/expiry/reissue/provider-failure layers, and independent review. Existing local/rollback SQL checks stay valid at their stated layers; this packet does not promote them to browser evidence or full milestone acceptance. Additional durable privileged personas still require exact owner authorization. Current owner access was restored and audited before completion of this packet.
+
+
+Final postcheck after measurements: one academy, one active owner membership, setup version 9/completion true/Cairo timezone, one invitation delivery attempt, exactly two authorized revocation-test audit events, and no manual 40001 exception remaining in M1 functions. The canonical staging alias was verified against `dpl_HvqWcKskiiBpkGjCAsWoiTKfU1N7`; project SSO protection remained enabled for all deployments. A restored-access screenshot stays in the restricted local evidence directory. CSV references/statuses now point to these scoped results; all 180 requirement IDs and original acceptance scenarios were retained.

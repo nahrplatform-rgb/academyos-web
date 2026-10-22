@@ -35,3 +35,6 @@ The application currently has one verified identity and no academy/membership re
 ## M1 controlled onboarding continuation
 
 See [M1 staging execution](onboarding-m1-staging.md) for the restore-tested backup, six applied migrations, private proof-key configuration, separately authorized platform grant and synthetic owner invitation, deployed setup journey, timezone selector and conflict-recovery results. Owner wording/usability acceptance, remaining independent security/performance checks and full milestone acceptance are recorded separately. No real academy admission or production launch follows from this receipt.
+
+
+For scoped M1 measurements and the authorized owner-access revocation/restoration check, read [M1 verification results](onboarding-m1-verification.md). Full security/performance and owner milestone acceptance remain separate from these passing subcases.

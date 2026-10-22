@@ -85,3 +85,8 @@ Final postcheck: exactly one synthetic academy and one active owner membership; 
 The updated rollback-only SQL packet passed on hosted staging with no durable fixture changes. Local lint/build, nineteen unit cases, the thirteen PostgreSQL groups and updated actual-React synthetic UI runner passed. Four existing production-build browser tests passed during the selector change; both final-commit GitHub verify runs passed: [39788848161](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39788848161), [39788854951](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39788854951). Changed-document local links and Git whitespace checks passed.
 
 **Status:** implemented and deployed; authorized synthetic happy path, database persistence, inbox receipt, reload resume and focused conflict recovery verified. Moamen accepted wording/usability and the timezone concern was addressed; no subsequent owner review of the selector or full milestone acceptance is inferred. Independent security review, multi-persona authenticated HTTP/browser isolation/revocation/expiry layers, complete performance/load/cost budgets, physical devices/screen readers, key vault custody and existing dependency advisory remain open. No production or real academy/customer onboarding occurred.
+
+
+### Verification continuation
+
+See [M1 measured verification and revocation results](onboarding-m1-verification.md) for the timing-header release `549de6d`, fifty successful setup reads per measured profile, twenty offline read-recovery cycles and the separately authorized/audited membership suspension/restoration. This continuation closes those focused subcases and preserves the remaining independent security, full navigation/performance and real-device gates.
