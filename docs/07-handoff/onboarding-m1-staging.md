@@ -25,3 +25,17 @@ Advisor result after apply: eleven informational RLS-with-no-policy notices (int
 The updated source passed local lint/build, 18 unit cases, four production-build browser checks and the actual-React synthetic UI runner. A self-account reference is displayed on the context chooser so the owner can confirm the correct identity before provisioning; it does not grant authority.
 
 Release commit, deployment ID, protected staging runtime observations and acceptance are recorded below as executed. Until those receipts exist, do not infer app deployment from database apply. Initial Platform Owner provisioning still requires explicit confirmation of the exact currently authenticated Clerk subject and the scoped grant; no durable platform/tenant access or invitation send has been executed by this checkpoint. Real-device/Arabic usability, actual provider delivery, hosted authenticated isolation and measured latency/cost remain open.
+
+### Additional real gateway checks
+
+Using only the browser-safe publishable key, actual staging Data API requests returned HTTP 401 / SQLSTATE 42501 for anonymous `m1_context_v1` and unsigned `m1_delivery_v1`. A forged unsigned Clerk-shaped JWT was rejected with HTTP 401 / PGRST301. No record was written. The first local Python attempt failed before any response because its default CA store was unavailable; using the system CA bundle retained TLS verification and all three denial assertions passed. These are real negative gateway checks, still not positive authenticated-user or tenant/browser proof.
+
+Staging release requested for exact source commit `686e6d16e314d2a3ab1c58f4c437256aabaf0d32`, deployment `dpl_5VjnKzrHok6Ek54TK9K4kjYw2NE4`, target Vercel Production / AcademyOS staging. No production customer environment exists or was launched. Ready/alias/runtime confirmation is required before treating the request as deployed.
+
+### Protected staging app release confirmed
+
+Deployment `dpl_5VjnKzrHok6Ek54TK9K4kjYw2NE4` reached READY for exact commit `686e6d16e314d2a3ab1c58f4c437256aabaf0d32`. Its aliases include `staging.academy.nahr.dev` and `academyos-web.vercel.app`. Vercel Production here is the pre-existing AcademyOS **staging** target, not a customer production launch. Existing SSO protection applies to all deployments; it was not disabled.
+
+Authenticated Vercel fetches against the canonical staging host returned HTTP 200 for `/api/health` (process-only JSON), `/en` (expected English entry content) and `/ar` (expected Arabic entry content). These are deployed route/configuration checks, not a signed-in Clerk user journey. The current local suite remains green; the commit's GitHub checks were still running at this runtime check and must be recorded separately when complete.
+
+The app displays a self-account reference on the membership chooser. The initial platform bootstrap is prepared in a local permission-restricted operator file, not committed with a target identity. Moamen was asked to compare the displayed current reference and explicitly authorize the exact staging-only capability. Until that response, no durable grant, owner invitation or academy membership is executed. Matching proof-key custody is in a mode-0600 local file under the owner configuration directory and still needs owner vault confirmation; never paste its value into chat or commit it.
