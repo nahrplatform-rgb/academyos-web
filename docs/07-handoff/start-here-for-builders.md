@@ -4,7 +4,7 @@ AcademyOS is an implemented EN/AR staging foundation with a preserved product/de
 
 ## Current first-milestone packet — 22 October 2026
 
-Read [M1 assessment, decision/design and security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and its [connected synthetic prototype](../assets/onboarding-m1-prototype.html). Moamen accepted the bounded M1 D-002/D-003 choices and connected design on 22 October 2026. Read the [implementation evidence and staging continuation](onboarding-m1-implementation.md): source/local tests are separate from unapplied migration, missing staging proof-key configuration, privileged provisioning and hosted acceptance. Preserve the existing staging foundation.
+Read [M1 assessment, decision/design and security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and its [connected synthetic prototype](../assets/onboarding-m1-prototype.html). Moamen accepted the bounded M1 D-002/D-003 choices and connected design on 22 October 2026. Read the [current staging execution receipt](onboarding-m1-staging.md) and [implementation history](onboarding-m1-implementation.md): migration, staging deployment, explicitly authorized platform provisioning and the synthetic happy path have progressed; remaining hosted security/performance checks and the timezone follow-up stay separate from acceptance. Preserve the existing staging foundation.
 
 ## Authority and scope
 

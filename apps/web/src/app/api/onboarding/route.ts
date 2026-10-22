@@ -10,6 +10,7 @@ function response(data: unknown, status = 200) { return NextResponse.json(data, 
 function id(x: unknown) { if (typeof x !== "string" || !uuidPattern.test(x)) throw new JourneyError("invalid", 422); return x.toLowerCase(); }
 function text(x: unknown, max = 160) { if (typeof x !== "string" || !x.trim() || x.trim().length > max) throw new JourneyError("invalid", 422); return x.trim(); }
 export async function POST(req: NextRequest) {
+  let phase = "request";
   try {
     const origin = req.headers.get("origin");
     if (!origin || !STAGING_AUTH_ORIGINS.includes(origin) || origin !== req.nextUrl.origin || req.headers.get("content-type")?.split(";")[0] !== "application/json") throw new JourneyError("denied", 403);
@@ -24,10 +25,13 @@ export async function POST(req: NextRequest) {
       res.cookies.set("m1_invitation", value, { httpOnly: true, secure: req.nextUrl.protocol === "https:", sameSite: "strict", path: "/api/onboarding", maxAge: 900 });
       return res;
     }
+    phase = "session";
     const { subject, client } = await onboardingSession();
+    phase = "rate-limit";
     const mutating = ["create", "accept", "save", "revoke", "reissue", "retry"].includes(b.action);
     const limit = await stagingLimiter(stagingRedis(), mutating ? "onboarding-write" : "onboarding-read", mutating ? 10 : 60).limit(rateLimitSubject(subject));
     if (!rateLimitAllowed(limit)) throw new JourneyError("limited", 429);
+    phase = "operation";
     let data: unknown;
     switch (b.action) {
       case "context": data = await rpc(client, "m1_context_v1", { after_id: b.after ? id(b.after) : null }); break;
@@ -64,5 +68,5 @@ export async function POST(req: NextRequest) {
       default: throw new JourneyError("invalid", 422);
     }
     return response({ data });
-  } catch (e) { if (e instanceof JourneyError) return response({ error: e.code }, e.http); if (e instanceof SyntaxError) return response({ error: "invalid" }, 422); return response({ error: "unavailable" }, 503); }
+  } catch (e) { if (e instanceof JourneyError) return response({ error: e.code }, e.http); if (e instanceof SyntaxError) return response({ error: "invalid" }, 422); console.error("onboarding.unavailable", { phase }); return response({ error: "unavailable" }, 503); }
 }

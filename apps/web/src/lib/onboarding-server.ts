@@ -25,7 +25,12 @@ export async function onboardingSession() {
 }
 export async function rpc(client: ReturnType<typeof onboardingDatabase>, name: string, args: Record<string, unknown> = {}) {
   const { data, error } = await client.rpc(name, args);
-  if (error) { const code = databaseError(error.code); throw new JourneyError(code, code === "denied" ? 403 : code === "conflict" ? 409 : code === "invalid" ? 422 : 503); }
+  if (error) {
+    const code = databaseError(error.code);
+    // Codes only: never log provider messages, claims, tokens or input fields.
+    if (code === "unavailable") console.error("onboarding.rpc_unavailable", { code: /^[A-Z0-9]{5,10}$/.test(error.code ?? "") ? error.code : "unknown" });
+    throw new JourneyError(code, code === "denied" ? 403 : code === "conflict" ? 409 : code === "invalid" ? 422 : 503);
+  }
   if (data === null || Buffer.byteLength(JSON.stringify(data), "utf8") > 32768) throw new JourneyError("unavailable");
   return data;
 }

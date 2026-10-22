@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import TimezoneSelect from "./timezone-select";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
 
@@ -202,8 +203,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
               <form onSubmit={e => save(e, 'branch')}>
                 <label htmlFor="branch">{t('Branch name', 'اسم الفرع')}</label>
                 <input id="branch" required maxLength={160} value={branch} onChange={e => setBranch(e.target.value)} />
-                <label htmlFor="timezone">{t('Academy timezone (IANA)', 'المنطقة الزمنية للأكاديمية (IANA)')}</label>
-                <input id="timezone" required maxLength={160} dir="ltr" placeholder="Area/City" value={timezone} onChange={e => setTimezone(e.target.value)} />
+                <TimezoneSelect value={timezone} onChange={setTimezone} arabic={ar} />
                 <div className="journey-actions">
                   <button disabled={disabled} className="button" type="submit">{t('Save branch', 'حفظ الفرع')}</button>
                   <button type="button" onClick={() => setEditing(null)}>{t('Discard unsaved draft', 'تجاهل المسودة غير المحفوظة')}</button>
