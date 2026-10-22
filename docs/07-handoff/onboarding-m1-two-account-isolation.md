@@ -1,6 +1,6 @@
 # M1 two-account isolation — prepared hosted check
 
-Status: prepared; additional recipient and scoped owner authorization pending. No second academy, invitation, account or membership has been created by this packet.
+Status: owner supplied a second controlled mailbox in response to the scoped invitation authorization request. Execution is in progress; provider delivery, recipient acceptance and isolation results will be recorded separately. Exact destination and temporary configuration recovery details remain in restricted local operator records.
 
 Scope: J01-A01, J03-A01/A02, J04-A01–A03; M1-T01/T04/T09; AO-003/004/005/008/169/175/178. Continue the [accepted M1 contract](../06-delivery/onboarding-m1-decision-design-packet.md). Existing one-account role tests and unknown-resource denials are preserved; they do not substitute for this check.
 
@@ -22,3 +22,15 @@ Retain B and its audit history as labeled synthetic evidence; no destructive cle
 6. Confirm both original owner relationships, saved values, invitation attempt counts and business/audit aggregates. Any cross-tenant result or unexpected mutation stops further probes for investigation. Reconcile original request outcomes; do not hide an unexpected write by overwriting/deleting it.
 
 Record expected/actual statuses and safe clearing/recovery booleans only. Private response data, subjects, session headers/cookies, mailboxes and tokens remain outside committed evidence. Browser screenshots may show only synthetic workspace content. Passing this packet would not close expiry/reissue/provider-unknown failures, full navigation/load/cost budgets, physical devices, key custody, independent review or full milestone acceptance.
+
+## Executed admission and email recovery — 22 October 2026
+
+Moamen supplied the second controlled mailbox in response to the explicit scoped authorization request. Using the existing signed-in Platform Owner UI, created exactly one **AcademyOS M1 Isolation Academy B** and its initial-owner invitation. No account or membership was fabricated, and no additional platform grant was made.
+
+The single approved staging recipient was temporarily replaced for this invitation only; sender, authentication, delivery signature, idempotency, rate limits and one-recipient guard were preserved. Source `4200f92c04c7528523c615882080c5200e99c5c0` had both GitHub verify checks passed before deployment: [39830021812](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39830021812) and [39830030823](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39830030823). Temporary deployment `dpl_VrRWSDnT5rFtCFw5FkF4kekZBhRE` was READY at the canonical alias before creation. Database delivery state was `accepted`, attempts one, provider receipt present. This establishes provider acceptance, **not inbox receipt or recipient acceptance**.
+
+Immediately restored the original `EMAIL_ALLOWED_RECIPIENTS` value and deployed the same source as `dpl_4Se1EXkoc7a2ohRz27YuxxvhNReA`, READY. The canonical `staging.academy.nahr.dev` alias was independently confirmed pointing to that restored deployment; the environment readback confirmed the original single recipient and Production target (this project's protected staging). Project SSO protection remained enabled for all deployments. No app implementation, schema, public access or customer-production environment changed. The older temporary deployment is historical and retains its immutable configuration; it is not the canonical staging target. Its one-recipient guard and deployment protection remain in effect.
+
+Postcheck: A remains version 9/completed/Cairo, one existing membership and one invitation attempt. B is version 0/incomplete/no timezone, zero memberships and one invitation attempt. A's existing platform grant and owner access were not changed. A private screenshot shows the two labeled synthetic academy cards after clearing the recipient field.
+
+**Next dependent step:** recipient opens the emailed invitation in a separate browser profile/private window, signs in with the second mailbox as a distinct account and reviews/accepts B. Passwords, verification codes and raw invitation links must not be posted here. Recipient acceptance, distinct-subject validation, populated-B setup and both directions of authenticated tenant isolation remain pending; no pass is inferred from admission or email-provider acceptance.

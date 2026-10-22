@@ -90,3 +90,8 @@ The updated rollback-only SQL packet passed on hosted staging with no durable fi
 ### Verification continuation
 
 See [M1 measured verification and revocation results](onboarding-m1-verification.md) for the timing-header release `549de6d`, fifty successful setup reads per measured profile, twenty offline read-recovery cycles and the separately authorized/audited membership suspension/restoration. This continuation closes those focused subcases and preserves the remaining independent security, full navigation/performance and real-device gates.
+
+
+### Second synthetic academy preparation
+
+The [two-account isolation receipt](onboarding-m1-two-account-isolation.md) records owner-authorized Academy B admission and one provider-accepted invitation to the second controlled mailbox. The original single approved email destination was restored and canonical staging now points to READY `dpl_4Se1EXkoc7a2ohRz27YuxxvhNReA`, source `4200f92c04c7528523c615882080c5200e99c5c0`. B has no owner membership or saved setup yet; recipient acceptance and two-account isolation remain pending. Academy A remains completed at version 9/Cairo. These results supersede older deployment references for the current canonical target only; historical test results retain their original build provenance.
