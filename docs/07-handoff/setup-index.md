@@ -31,3 +31,7 @@ The application currently has one verified identity and no academy/membership re
 ## Platform administration planning extension
 
 [Platform Owner — Services & Operations](../03-design/platform-owner-services-and-operations.md) records the accepted owner-facing direction and proposed detailed design. This is planned application work, separate from completed provider configuration.
+
+## M1 controlled onboarding continuation
+
+See [M1 staging execution](onboarding-m1-staging.md) for the fresh restore-tested backup, applied fifth migration, private proof-key configuration and rollback-only hosted SQL results. Privileged account provisioning, app release/runtime proof and working-journey acceptance remain separate gates. No real academy admission or production launch follows from this receipt.

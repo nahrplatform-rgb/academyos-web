@@ -33,7 +33,7 @@ class Boundary(unittest.TestCase):
         subprocess.run([str(BIN/'pg_ctl'),'-D',cls.tmp+'/db','-l',cls.tmp+'/log','-o',f'-p 55441 -h 127.0.0.1 -k {cls.tmp}','start'],check=True,stdout=subprocess.DEVNULL)
         cls.base=[str(BIN/'psql'),'-X','-qAt','-v','ON_ERROR_STOP=1','-h','127.0.0.1','-p','55441','postgres']
         # Storage migration does not belong to this plain PG authorization harness.
-        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022111911_controlled_onboarding_m1.sql','supabase/tests/membership_boundary.sql']:
+        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/tests/membership_boundary.sql']:
             subprocess.run(cls.base+['-f',str(ROOT/f)],check=True,stdout=subprocess.DEVNULL)
         cls.sql("insert into academy.m1_secrets values('onboarding',"+literal(KEY)+"); insert into academy.platform_grants(subject,granted_by,reason) values('user_platform','test-harness','synthetic fixture only');")
 
@@ -112,6 +112,8 @@ class Boundary(unittest.TestCase):
         b=json.loads(self.save(a,0,'branch',{'name':'Synthetic branch','timezone':'Africa/Cairo'}));self.assertEqual(b['version'],1)
         self.save(a,0,'branch',{'name':'stale','timezone':'Africa/Cairo'},ok=False)
         self.save(a,1,'branch',{'name':'bad timezone','timezone':'invented/zone'},ok=False)
+        self.save(a,1,'branch',{'name':{'forged':'object'},'timezone':'Africa/Cairo'},ok=False)
+        self.save(a,1,'sport',{'label_en':['bad type'],'label_ar':'رياضة'},ok=False)
         self.save(a,1,'sport',{'label_en':'Synthetic Sport','label_ar':'رياضة اختبار'})
         result=json.loads(self.save(a,2,'complete',{}));self.assertTrue(result['complete'])
         self.assertEqual(json.loads(self.sql(f"select public.m1_setup_v1('{a}')",'user_owner')),result)

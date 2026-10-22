@@ -14,11 +14,15 @@ import tempfile
 from backup import command, BackupError, PROJECT
 
 
-def rehearse(payload):
+def rehearse(payload, migration=None):
     manifest = json.loads((payload / "manifest.json").read_text())
     if manifest["project"] != PROJECT:
         raise BackupError("Wrong recovery project")
     repo = Path(__file__).resolve().parents[2]
+    if migration is not None:
+        migration = migration.resolve()
+        if migration.parent != (repo / "supabase/migrations").resolve() or migration.suffix != ".sql" or not migration.is_file():
+            raise BackupError("Migration must be a reviewed repository migration")
     os.umask(0o077)
     with tempfile.TemporaryDirectory(prefix="academyos-restore-") as tmp:
         root = Path(tmp)
@@ -27,7 +31,7 @@ def rehearse(payload):
         sockets.mkdir(mode=0o700)
         env = {k: v for k, v in os.environ.items() if not k.startswith("PG")}
         env.update(PGHOST=str(sockets), PGPORT="55440", PGUSER="postgres", PGDATABASE="postgres")
-        command(["initdb", "-D", str(data), "-U", "postgres", "-A", "trust", "--no-locale"])
+        command(["initdb", "-D", str(data), "-U", "postgres", "-A", "trust", "--no-locale", "--encoding=UTF8"])
         command(["pg_ctl", "-D", str(data), "-l", str(root / "postgres.log"), "-o",
                  f"-p 55440 -k {sockets} -c listen_addresses='' -c unix_socket_permissions=0700", "-w", "start"])
         try:
@@ -50,6 +54,8 @@ def rehearse(payload):
             restore_list = root / "restore.list"
             restore_list.write_text("\n".join(line for line in toc.splitlines() if not re.match(r"^\d+; \d+ \d+ SCHEMA - public ", line)) + "\n")
             command(["pg_restore", "--exit-on-error", "--no-owner", "--use-list", str(restore_list), "--dbname=postgres", str(payload / "database.dump")], env)
+            if migration is not None:
+                command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "--single-transaction", "-f", str(migration)], env)
             # Fixed synthetic transaction rolls back. Restored identity values
             # and the SQL dump are never printed to the console.
             command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "-f", str(repo / "supabase/tests/membership_boundary.sql")], env)
@@ -61,7 +67,7 @@ def rehearse(payload):
               'private_tables_with_rls', (select count(*) from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='academy' and c.relkind='r' and c.relrowsecurity));
             """], env))
             return {"project": PROJECT, "run_id": manifest["run_id"], "database_restore_passed": True,
-                    "membership_boundary_passed": True, "counts": result,
+                    "membership_boundary_passed": True, "migration_rehearsed": migration.name if migration else None, "counts": result,
                     "hosted_storage_restore_tested": False}
         finally:
             command(["pg_ctl", "-D", str(data), "-m", "fast", "-w", "stop"])
@@ -70,9 +76,10 @@ def rehearse(payload):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("payload", type=Path)
+    parser.add_argument("--migration", type=Path, help="Replay one reviewed repository migration inside the disposable restore only")
     args = parser.parse_args()
     try:
-        print(json.dumps(rehearse(args.payload)))
+        print(json.dumps(rehearse(args.payload,args.migration)))
     except Exception as error:
         print(f"Restore rehearsal failed: {error if isinstance(error, BackupError) else type(error).__name__}")
         raise SystemExit(1)
