@@ -89,3 +89,7 @@ Final local outcomes: thirteen database test groups, including new-schema dump/r
 Source implementation committed as `2378dc1` and pushed in [draft PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1). The draft is intentionally unmerged; protected AcademyOS staging has not received M1. CI is tracked on the PR and is distinct from local SQL evidence.
 
 On push, GitHub reported existing [Dependabot alert #1](https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1). Read-only API inspection confirmed open/high `GHSA-vfj7-8cjw-p6xm`, development dependency `braces`, `package-lock.json`, stack-exhaustion denial of service through deeply nested patterns; no first patched version was listed. The lockfile was unchanged by M1. Keep this existing tooling risk visible and restrict untrusted pattern input; no zero-finding/full-security claim. Remediation requires a reviewed available upgrade or affected-tool replacement; do not force an unverified override or weaken checks merely to remove the warning.
+
+## Usage-reset checkpoint
+
+See [the M1 resume checkpoint](onboarding-m1-resume.md). Supabase/Vercel AcademyOS connector access was restored and checked read-only; both CI runs on implementation head `3e46cc8` passed. No staging migration, proof-key configuration, privileged grant or invitation send was executed before the user-requested wrap-up.
