@@ -85,3 +85,13 @@ The new restore path is isolated from the source object but remains in the same 
 Sources: https://supabase.com/docs/guides/storage/uploads/standard-uploads and https://supabase.com/docs/guides/getting-started/api-keys
 
 For an explicit operator alert rehearsal, a manual backup can set `exercise_monitor_failure=true`. It sends start/error on a separate, clearly marked synthetic check-in ID derived from that actual workflow run, then performs the real backup normally. Its successful verified-copy check-in provides recovery. This changes monitor telemetry only; it never simulates a failed backup receipt. Leave the option false for routine/scheduled runs.
+
+## Active staging retention and lock — 22 October 2026
+
+The private EU bucket now has `staging-backup-lock-7d` on prefix `staging/`: seven days of overwrite/deletion protection. It also has owner-approved `staging-backups-expire-30d` on that same prefix: delete uploaded objects after 30 days. The default incomplete-multipart abort after seven days remains. No Infrequent Access transition or public URL is enabled. Lifecycle deletion is asynchronous, not a guarantee of deletion at an exact minute.
+
+The lock is a provider-enforced bucket rule, not an irreversible compliance hold: an administrator with bucket-configuration permissions can remove it. The main backup credential is only Object Read & Write and cannot change bucket rules. No automatic source deletion mirroring exists. Production/customer retention remains a separate policy decision.
+
+Manual `verify_bucket_protection=true` writes one new fixed 49-byte non-personal probe under `staging/protection-checks/<uuid>/`. It verifies overwrite and deletion are rejected, then checks unchanged read-back. It never targets an actual backup. The probe remains until the approved 30-day lifecycle removes it after its seven-day lock; routine backups do not create probes.
+
+Sources: https://developers.cloudflare.com/r2/buckets/bucket-locks/ and https://developers.cloudflare.com/r2/buckets/object-lifecycles/

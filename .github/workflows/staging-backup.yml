@@ -10,6 +10,10 @@ on:
         description: 'Send one synthetic failure before the real backup to verify operator alerts and recovery'
         type: boolean
         default: false
+      verify_bucket_protection:
+        description: 'Verify the configured R2 overwrite/deletion lock using one new non-personal probe object'
+        type: boolean
+        default: false
   schedule:
     - cron: '17 2 * * *'
 permissions:
@@ -62,6 +66,12 @@ jobs:
           else
             "$RUNNER_TEMP/backup-tools/bin/python" scripts/backups/backup.py create --receipt "$RUNNER_TEMP/backup-receipt.json"
           fi
+      - name: Verify R2 deletion and overwrite protection
+        if: inputs.verify_bucket_protection
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: '"$RUNNER_TEMP/backup-tools/bin/python" scripts/backups/verify_r2_protection.py >> "$GITHUB_STEP_SUMMARY"'
       - name: Record non-sensitive result
         run: |
           printf 'Encrypted staging backup uploaded and downloaded with matching SHA-256. A restore rehearsal is a separate check.\n' >> "$GITHUB_STEP_SUMMARY"
