@@ -16,7 +16,7 @@ The pre-apply review also corrected JSON field-type validation and aligned invit
 
 ## Private key and provider boundary
 
-`ONBOARDING_PROOF_KEY` is configured as a Secret for this existing project's Vercel **Production target, which is AcademyOS staging**. The matching value exists only in private `academy.m1_secrets` and a restricted local custody file. No value is in source, docs, PR text or application logs. No Preview or unrelated project credential was added, and no new platform grant was created. Owner vault custody confirmation remains a handoff task.
+`ONBOARDING_PROOF_KEY` is configured as a Secret for this existing project's Vercel **Production target, which is AcademyOS staging**. The matching value exists only in private `academy.m1_secrets` and a restricted local custody file. No value is in source, docs, PR text or application logs. No Preview or unrelated project credential was added, and no platform grant was created during key configuration. The separately authorized bootstrap is recorded below. Owner vault custody confirmation remains a handoff task.
 
 Advisor result after apply: eleven informational RLS-with-no-policy notices (intentional direct-table denial); eleven authenticated SECURITY DEFINER warnings (including the two baseline functions); one anonymous SECURITY DEFINER warning for the HMAC-proof-gated delivery worker. These are deliberate sensitive boundaries requiring negative verification, not a clean/full-security result. References: [private-table notice](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy), [authenticated function warning](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable), [anonymous worker warning](https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable).
 
@@ -39,3 +39,14 @@ Deployment `dpl_5VjnKzrHok6Ek54TK9K4kjYw2NE4` reached READY for exact commit `68
 Authenticated Vercel fetches against the canonical staging host returned HTTP 200 for `/api/health` (process-only JSON), `/en` (expected English entry content) and `/ar` (expected Arabic entry content). These are deployed route/configuration checks, not a signed-in Clerk user journey. The current local suite remains green; the commit's GitHub checks were still running at this runtime check and must be recorded separately when complete.
 
 The app displays a self-account reference on the membership chooser. The initial platform bootstrap is prepared in a local permission-restricted operator file, not committed with a target identity. Moamen was asked to compare the displayed current reference and explicitly authorize the exact staging-only capability. Until that response, no durable grant, owner invitation or academy membership is executed. Matching proof-key custody is in a mode-0600 local file under the owner configuration directory and still needs owner vault confirmation; never paste its value into chat or commit it.
+
+
+### Initial Platform Owner bootstrap executed
+
+Moamen confirmed that the signed-in staging account reference matched the prepared target and explicitly authorized the staging-only Platform Owner grant. Executed the prepared transaction against `snpphkenmvmhpjstbeul`, with the operator identity, reason, advisory lock and state-change guards. The mandatory audit trigger ran in the same transaction.
+
+A separate post-commit read confirmed exactly one active platform grant and one `platform.grant` audit event, with zero academies and zero tenant memberships. This enables platform academy admission/invitation management; it adds no Academy Owner membership or private tenant-content access. The target account reference remains in the restricted operator file rather than this receipt. Positive signed-in browser verification remains open; the owner should refresh the staging workspace to expose the platform entry.
+
+Both current PR checks passed: [verify 39785510213](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39785510213) and [verify 39785518068](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39785518068). The deployed app source remains `686e6d16e314d2a3ab1c58f4c437256aabaf0d32`; subsequent receipt-only commits do not change that runtime.
+
+The next hosted journey requires a named synthetic academy and explicitly approved owner recipient. No invitation was sent as part of this bootstrap. Actual delivery, recipient acceptance, restricted workspace entry, resumable setup, hosted authenticated isolation, measured performance/cost and working-journey owner acceptance remain open. Policy/design approval and this privileged grant authorization do not close those evidence gates.
