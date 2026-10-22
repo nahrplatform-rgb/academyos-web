@@ -2,7 +2,13 @@
 
 Version 1.0 · 21 October 2026
 
-## What exists
+## Current implementation update — 22 October 2026
+
+The private staging app, hosted identity boundary, service adapters, private buckets and encrypted independent backups now exist. Current truth is consolidated in [the setup index](../07-handoff/setup-index.md), [actual configuration register](../07-handoff/configuration-status.md) and [remaining-work board](../07-handoff/remaining-configuration.md). These supersede the pre-implementation status table below. Original observations are retained for traceability; they are not commands to recreate resources.
+
+Production and operational feature acceptance are still open. No actual academy is provisioned by signup. Refer to the current receipts before changing provider state.
+
+## Historical planning baseline — what existed before implementation
 
 The AcademyOS workspace was empty before this task. It now contains the documentation package and a preserved visual-reference fragment. The local UI concept uses invented academy, player and financial data. It provides no real authentication, database, payment, email or offline delivery capability.
 

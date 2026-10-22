@@ -1,5 +1,7 @@
 # Monitoring, logging and uptime configuration
 
+> Current execution status (22 October 2026): Sentry error/source-map/privacy integration and an uptime manual test passed. See [the actual register](../07-handoff/configuration-status.md) and [remaining verification](../07-handoff/remaining-configuration.md). Performance/replay remain disabled; older proposals below are not enabled settings.
+
 Proposed baseline: Sentry for application errors/performance, Vercel/Supabase/Upstash provider metrics, and Checkly or an equivalent external monitor. Monitoring receives minimum necessary technical metadata, not a copy of business records.
 
 ## Sentry setup

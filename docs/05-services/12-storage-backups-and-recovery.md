@@ -1,5 +1,7 @@
 # Storage, backups and recovery configuration
 
+> Current execution status (22 October 2026): private EU R2 is selected and active; encrypted backup/database restoration and the first scheduled backup passed. See [actual backup procedures](../../scripts/backups/README.md), [receipts](../07-handoff/service-setup.md) and [remaining recovery gates](../07-handoff/remaining-configuration.md). The general design/production targets below remain distinct from those staging proofs.
+
 Decisions: D-015 retention, D-016 recovery objectives and D-019 region. Proposed targets are 99.9% availability, database RPO of one hour and whole-service RTO of four hours, pending cost/architecture approval and restore proof. Object RPO must be decided separately; database recovery does not restore file bytes.
 
 ## Recovery inventory

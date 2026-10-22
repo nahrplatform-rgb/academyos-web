@@ -1,5 +1,7 @@
 # Environment, credential-reference and DNS registers
 
+> Current execution status (22 October 2026): actual resource bindings and credential names are consolidated in [the current configuration register](../07-handoff/configuration-status.md). The dated observations below are preserved history; claims such as no deployment/unapplied integrations are superseded by the [execution record](../07-handoff/setup-history.md).
+
 Actual IDs/values remain **unfilled and unverified** except for the dated records below. This document contains no secret credential values. Fill account-specific metadata during authorized setup and put secret values only in the vault/provider secret store.
 
 ## Setup evidence — 21 October 2026

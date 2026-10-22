@@ -1,6 +1,6 @@
 # Start here for builders
 
-AcademyOS is a fresh NAHR product. This folder currently contains documentation and an archived design reference, not an implemented application. Read the [main index](../../README.md), [decision register](../00-governance/decisions-and-open-questions.md) and [pre-development gates](../06-delivery/pre-development-checklist.md) first.
+AcademyOS is an implemented EN/AR staging foundation with a preserved product/design handbook. Start with [the current ordered setup index](setup-index.md), then the [main index](../../README.md), [decision register](../00-governance/decisions-and-open-questions.md) and [delivery gates](../06-delivery/pre-development-checklist.md). Foundation/provider proofs are recorded; operational modules and production acceptance remain open.
 
 ## Authority and scope
 
@@ -10,7 +10,7 @@ Selected: Next.js/React/TypeScript, Vercel, Clerk identity, Supabase business da
 
 ## Start with one complete foundation slice
 
-After Gate A decisions and authorized setup, create the reproducible repository/environment foundation. Implement identity bootstrap, academy membership selection, two-tenant permission checks, Workspace shell and one audited idempotent operation. Verify real staging Clerk-to-Supabase integration before building many feature pages. Then follow the roadmap dependency order.
+The reproducible repository, identity bootstrap and initial membership-read boundary already exist. Continue from their recorded evidence rather than rebuilding them. For the next authorized slice, resolve the relevant Gate A decisions, then implement controlled academy onboarding, membership selection, branch/role permissions and one audited idempotent operation in the Workspace shell. Extend the existing caller-boundary checks through the deployed API and UI before building many feature pages. Then follow the roadmap dependency order.
 
 Do not fabricate account IDs, DNS targets, API keys, provider approvals, fee formulas, age thresholds, retention periods or financial thresholds. Obtain account-specific values during setup; resolve policy choices before their dependent module. Configuration templates are examples inside documents, not preinstalled application files.
 

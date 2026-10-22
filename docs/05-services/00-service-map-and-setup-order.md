@@ -1,5 +1,7 @@
 # Service directory and setup order
 
+> Current execution status (22 October 2026): see [the ordered setup index](../07-handoff/setup-index.md) and [actual configuration register](../07-handoff/configuration-status.md). The runbook/proposals below were prepared before implementation; they are not a current completion dashboard.
+
 Prepared and public guidance checked 21 October 2026. **All setup steps are instructions for future execution, not changes made by this task.** Account names, IDs, regions, DNS targets and credentials must be obtained from the actual account. Proposed choices are subject to the decision register.
 
 ## Services and their purpose

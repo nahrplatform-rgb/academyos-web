@@ -1,5 +1,7 @@
 # Foundation implementation — 21 October 2026
 
+> Historical receipt for the initial source-only slice. Subsequent migrations, authentication, deployments and provider integrations are documented in [the current setup index](setup-index.md); the pending statements below describe this earlier slice only.
+
 User authorized start, commit and push. This is the first incremental foundation, not completion of F0 or acceptance of unresolved business policies.
 
 Implemented: npm workspace with Next.js App Router/TypeScript, EN/AR entry pages and RTL content, light workspace/18px cards, optional Clerk provider and sign-in route, protected workspace with no default membership, process-only health route, staging configuration assertions, and an unapplied private-schema identity/academy/membership migration with RLS and no client grants.

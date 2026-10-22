@@ -51,3 +51,7 @@ Added staging-only server Supabase client, caller-derived identity bootstrap, ac
 ## Hosted staging membership baseline — 21 October 2026
 
 Verified correct Supabase project, applied and checked three migrations, ran rollback-only SQL authorization tests and advisor review. Aligned source migration timestamps with provider history. Hosted data remains empty; Vercel configuration and actual Clerk-token integration test remain pending.
+
+## Ordered service setup consolidation — 22 October 2026
+
+Owner authorized detailed chronological documentation and completion of remaining staging configuration. Added the setup index, 21-step execution history, actual resource/credential-name register and ordered remaining-work board. Corrected README/builder current status and marked older planning/foundation/provider claims as historical. Preserved original receipts, product decisions and evidence limitations. First daily scheduled backup independently confirmed successful (39712985982). Provider finishing checks continue; this entry is not production acceptance.

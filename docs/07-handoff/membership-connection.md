@@ -1,5 +1,7 @@
 # Membership connection — 21 October 2026
 
+> Historical and incremental receipts follow in date order. For current deployed integration, backup proof and remaining work use [the setup index](setup-index.md). Earlier connector/configuration blockers below were subsequently resolved as recorded.
+
 Implemented a server-only Supabase client that sends the current Clerk session token with a publishable key. No elevated application credential is used. The client accepts only the exact staging project URL, disables caching/session persistence, bounds request time, and returns an unavailable state on errors.
 
 Two narrow RPCs operate over the private academy schema. Bootstrap derives the identity only from the authenticated JWT, is idempotent, and never creates memberships or roles. Membership lookup returns only active memberships for that identity. Both reject a wrong staging issuer and missing/invalid subject/role. No identity or academy argument is accepted. SECURITY DEFINER is intentional for these bounded operations: fixed empty search paths, fully qualified objects, revoked PUBLIC/anon execution, no direct table grants. Existing RLS remains enabled with no direct client policies. Platform-admin provisioning and tenant write operations are not implemented.

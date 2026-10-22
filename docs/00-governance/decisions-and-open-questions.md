@@ -17,7 +17,9 @@ Version 1.0 · 21 October 2026
 | ADR-009 | Web first; React Native/Expo for later iOS/Android evaluation; Tauri remains an optional desktop path. | Blueprint |
 | ADR-010 | Apple-inspired restraint and clarity; Workspace, Light, 18px card corners are the latest visual preferences. | Blueprint plus preview feedback |
 | ADR-011 | PYSA is a reference for workflows and audit lessons, not a code/schema/navigation template. | User brief |
-| ADR-012 | This task creates documentation and configuration plans before development. | Latest user request |
+| ADR-012 | Historical initial task created documentation/configuration plans before development; subsequent owner instructions authorized implementation, commit/push, staging setup and its completion. | Initial brief, superseded in execution scope by later owner instructions |
+| ADR-013 | Reuse the existing private staging resources; Vercel Production for academyos-web remains AcademyOS staging. | Owner setup instructions / verified execution |
+| ADR-014 | Private EU Cloudflare R2 is the independent encrypted staging backup destination; owner activated billing and retains the age recovery key in the vault. | Owner activation/custody confirmation and backup/restore proof |
 
 ## Proposed technical defaults
 

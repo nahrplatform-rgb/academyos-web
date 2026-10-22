@@ -1,12 +1,14 @@
 # AcademyOS application foundation
 
-An English/Arabic Next.js staging starter lives in `apps/web`. Service accounts are prepared; operational workflows and provider runtime integrations are still in development.
+Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Operational modules and production launch are still to be built and accepted.
 
-Use Node 24 LTS and npm 11.19.1. Run `npm ci`, then `npm run dev`. For verification run `npm run lint`, `npm run build`, `npm run typecheck`, `npm test`, and `npm run test:e2e` (install Playwright Chromium first).
+**Current setup documentation starts at [the ordered setup index](docs/07-handoff/setup-index.md).** It links the execution history, actual configuration/credential-name register, evidence and remaining work. Older handbook/onboarding statements below are historical and must not override current receipts.
 
-For Vercel use **Next.js**, root directory **apps/web**, Node **24.x**, and default build/output settings. The starter builds without credentials; sign-in remains unavailable until both Clerk test keys are privately configured. Never commit secrets or use live data in this staging application.
+Verified staging integrations include Redis throttling, signed QStash test delivery, controlled Resend delivery, Sentry source maps/privacy filtering, private Storage buckets and encrypted R2 backup/database restoration. The first daily scheduled backup succeeded. Uptime and the remaining infrastructure finishing checks are tracked separately in the current board.
 
-See [implementation status and deployment steps](docs/07-handoff/foundation-implementation.md). The SQL migration is unapplied and denies client access by default. No operational module or hosted integration is accepted as complete.
+Use Node 24 LTS and npm 11.19.1. Run `npm ci`, then `npm run dev`. Verification: `npm run lint`, `npm run build`, `npm run typecheck`, `npm test`, `npm run test:e2e`; backup safety: `python3 -m unittest discover -s scripts/backups -v`. Never commit credentials or real customer/child data.
+
+Vercel: Next.js, root `apps/web`, Node 24.x. The project's Vercel Production environment is AcademyOS **staging**, with `APP_ENV=staging`. The four staging migration files have been applied; [membership receipts](docs/07-handoff/membership-connection.md) explain their private/caller-scoped boundary. Production remains a separate launch gate.
 
 ---
 
