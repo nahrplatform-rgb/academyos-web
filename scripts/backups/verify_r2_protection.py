@@ -22,11 +22,13 @@ def verify():
                 client.delete_object(Bucket=BUCKET, Key=key)
         except ClientError as error:
             code = error.response.get('Error', {}).get('Code')
-            if code != 'ObjectLockedByBucketPolicy' or error.response.get('ResponseMetadata', {}).get('HTTPStatusCode') != 403:
+            if code != 'ObjectLockedByBucketPolicy' or error.response.get('ResponseMetadata', {}).get('HTTPStatusCode') not in {403, 409}:
                 status = error.response.get('ResponseMetadata', {}).get('HTTPStatusCode')
                 safe_code = code if isinstance(code, str) and code.isalnum() and len(code) < 64 else 'unknown'
                 raise BackupError(f'Unexpected R2 protection response: {operation}, HTTP {status}, code {safe_code}') from None
             results[operation + '_denied'] = True
+            results[operation + '_http_status'] = error.response['ResponseMetadata']['HTTPStatusCode']
+            results[operation + '_code'] = code
         else:
             raise BackupError('R2 protection probe was not blocked; investigate the scoped lock')
     response = client.get_object(Bucket=BUCKET, Key=key)

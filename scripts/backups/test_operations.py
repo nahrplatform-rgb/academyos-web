@@ -33,22 +33,23 @@ class OperationSafetyTests(unittest.TestCase):
         # archive key can be selected by this verifier.
         from botocore.exceptions import ClientError
         class Client:
-            def __init__(self, code):
+            def __init__(self, code, status):
                 self.code = code
+                self.status = status
                 self.calls = []
             def put_object(self, **kw):
                 self.calls.append(('put', kw['Key']))
                 if len(self.calls) > 1:
-                    raise ClientError({'Error': {'Code': self.code}, 'ResponseMetadata': {'HTTPStatusCode': 403}}, 'PutObject')
+                    raise ClientError({'Error': {'Code': self.code}, 'ResponseMetadata': {'HTTPStatusCode': self.status}}, 'PutObject')
                 self.body = kw['Body']
             def delete_object(self, **kw):
                 self.calls.append(('delete', kw['Key']))
-                raise ClientError({'Error': {'Code': self.code}, 'ResponseMetadata': {'HTTPStatusCode': 403}}, 'DeleteObject')
+                raise ClientError({'Error': {'Code': self.code}, 'ResponseMetadata': {'HTTPStatusCode': self.status}}, 'DeleteObject')
             def get_object(self, **kw):
                 self.calls.append(('get', kw['Key']))
                 return {'Body': io.BytesIO(self.body)}
-        for code in ['ObjectLockedByBucketPolicy', 'AccessDenied']:
-            client = Client(code)
+        for code, status in [('ObjectLockedByBucketPolicy', 403), ('ObjectLockedByBucketPolicy', 409), ('AccessDenied', 403)]:
+            client = Client(code, status)
             with patch.object(verify_r2_protection, 'r2_client', return_value=client):
                 if code == 'AccessDenied':
                     with self.assertRaises(BackupError):
