@@ -40,4 +40,4 @@ See [M1 staging execution](onboarding-m1-staging.md) for the restore-tested back
 For scoped M1 measurements and the authorized owner-access revocation/restoration check, read [M1 verification results](onboarding-m1-verification.md). Full security/performance and owner milestone acceptance remain separate from these passing subcases.
 
 
-[Authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) record seven further staged denial/recovery cases and the rehearsed lower-role test plan. No lower-role test or owner restoration from that plan is authorized merely by this index.
+[Authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) record seven staged denial/recovery cases and four separately authorized lower-role read/save denials. Owner was restored after each role; eight audited transitions and unchanged setup were confirmed. These same-account role-state checks do not establish two-populated-tenant isolation or independent security approval.
