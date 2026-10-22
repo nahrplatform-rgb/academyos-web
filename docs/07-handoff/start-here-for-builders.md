@@ -2,6 +2,10 @@
 
 AcademyOS is an implemented EN/AR staging foundation with a preserved product/design handbook. Start with [the current ordered setup index](setup-index.md), then the [main index](../../README.md), [decision register](../00-governance/decisions-and-open-questions.md) and [delivery gates](../06-delivery/pre-development-checklist.md). Foundation/provider proofs are recorded; operational modules and production acceptance remain open.
 
+## Current first-milestone packet — 22 October 2026
+
+Read [M1 assessment, decision/design and security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and its [connected synthetic prototype](../assets/onboarding-m1-prototype.html). Moamen accepted the bounded M1 D-002/D-003 choices and connected design on 22 October 2026. Read the [implementation evidence and staging continuation](onboarding-m1-implementation.md): source/local tests are separate from unapplied migration, missing staging proof-key configuration, privileged provisioning and hosted acceptance. Preserve the existing staging foundation.
+
 ## Authority and scope
 
 Follow explicit user decisions first, then the selected AcademyOS blueprint and accepted decisions. PYSA descriptions/source/audit are read-only reference evidence. Do not copy its schema, navigation or security assumptions. The shared ChatGPT link remained unread; do not claim it supplied requirements beyond the material actually available.

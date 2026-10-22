@@ -4,6 +4,8 @@ The objective is a fully working, accepted web application against an agreed rel
 
 ## Delivery approach
 
+Current M1 work item: [repository assessment and first decision/design packet](onboarding-m1-decision-design-packet.md), with a connected synthetic prototype. Policy/design accepted by Moamen on 22 October 2026; [M1 implementation evidence](../07-handoff/onboarding-m1-implementation.md) records source/local progress and pending staging configuration, privileged provisioning, hosted verification and journey acceptance.
+
 Build vertical slices that include screen, permission, database operation, audit, recovery and tests. Do not finish a large collection of disconnected screens and then add the business rules. Resolve the policy for the next slice before its implementation; unrelated unresolved future choices do not stop safe foundation work.
 
 | Stage / work package | Deliverable | Dependencies | Exit evidence |

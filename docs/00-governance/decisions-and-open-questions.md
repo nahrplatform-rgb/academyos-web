@@ -71,8 +71,14 @@ Owner for product/business decisions: Moamen. Technical lead supplies consequenc
 
 ## How to close a decision
 
+The [M1 decision/design packet](../06-delivery/onboarding-m1-decision-design-packet.md) supplies concrete D-002/D-003 recommendations, invitation/setup choices and a connected prototype for review. The M1 selections were accepted by Moamen on 22 October 2026 as recorded below; broader later policy remains open. Design approval does not itself authorize a privileged Platform Owner grant.
+
 Record ID, selected alternative, rationale, accepted-by/date, effective date, affected requirements and any migration/recovery consequence. Do not mark a policy accepted because a mockup shows a number. If a decision blocks only finance, continue permitted work on identity, design or scheduling that does not depend on that policy.
 
 ## Operating blueprint and decision packets
 
 The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) expands lifecycle, ownership recovery, identity/guardian/payer separation, subscription restrictions, data lifecycle, support, tenant fairness and pilot scenarios. Its recommendations remain proposed. Resolve D-002/D-003 first for onboarding, then D-004/D-015 for relationships and the dependent domain policies before their modules; detailed examples do not close decisions without recorded owner acceptance.
+
+## M1 bounded acceptance — 22 October 2026
+
+Moamen explicitly accepted the proposed [M1 policy packet](../06-delivery/onboarding-m1-decision-design-packet.md) and approved its connected design for implementation in this chat. D-002 invite-led synthetic admission and D-003 fixed roles/explicit branch scope, one initial owner and audited separate platform provisioning are accepted for M1. Invitation expiry is 72 hours, with verified-recipient acceptance; first branch/sport/timezone saves complete initial setup only. Other roles have no M1 setup writes. Public admission, custom delegation, multi-owner/transfer/recovery automation and operational/commercial activation remain later decisions. This does not authorize executing the initial privileged grant.

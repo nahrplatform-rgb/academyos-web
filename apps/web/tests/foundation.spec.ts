@@ -40,3 +40,13 @@ test("unconfigured workspace fails closed and health is process only", async ({
   expect((await request.post("/api/setup/email")).status()).toBe(404);
   expect((await request.post("/api/jobs/setup")).status()).toBe(404);
 });
+
+test("onboarding fails closed without identity and rejects forged callbacks", async ({request}) => {
+  for(const path of ["/en/platform","/ar/platform","/en/workspace/00000000-0000-4000-8000-000000000001"])
+    expect((await request.get(path)).status()).toBe(503);
+  expect((await request.post("/api/onboarding",{data:{action:"create"}})).status()).toBe(403);
+  expect((await request.post("/api/jobs/invitations",{data:{invitation:"00000000-0000-4000-8000-000000000001",generation:1}})).status()).toBe(401);
+  const invitation=await request.get("/en/invitation");
+  expect(invitation.status()).toBe(200);
+  expect(invitation.headers()["referrer-policy"]).toBe("no-referrer");
+});
