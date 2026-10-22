@@ -70,3 +70,7 @@ The first proposed build milestone is Platform Owner creates a synthetic academy
 ## Experience and performance design pass — 22 October 2026
 
 Before the first feature slice, expand its [screen/data matrix](../03-design/screen-data-loading-matrix.csv) contracts and prototype role-prioritized loading/recovery. Follow the [five-dimension plan](../03-design/experience-performance-and-data-loading.md): usability, speed, correctness, cost and recovery. Measure the first synthetic academy-onboarding slice, then the trainer/guardian operational chain. Revise proposed budgets from evidence; do not build a speculative platform-wide cache or treat prototype speed as runtime evidence.
+
+## SaaS operating readiness
+
+Use the [operating blueprint](../01-product/saas-operating-blueprint.md) with each slice. Detail academy state transitions, authority/ownership recovery and the first pilot chain before onboarding implementation. Exercise difficult scenarios OPS-01–OPS-10 as their modules enter scope. Real academy admission, irreversible data actions and production launch retain their explicit gates; this planning document is not rollout approval.

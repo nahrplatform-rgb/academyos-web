@@ -138,3 +138,7 @@ Use separate status fields for design, implementation, verification and owner ac
 ## Experience and retrieval contract
 
 The [experience/performance plan](experience-performance-and-data-loading.md) and [screen/data matrix](screen-data-loading-matrix.csv) add five mandatory questions to every action: usability, speed, correctness, cost and recovery. Before coding, declare critical/deferred data, retrieval bounds, freshness/authority, invalidation, pending/failure states, workload and measurement budget. Design approval does not establish measured performance.
+
+## Business lifecycle and difficult scenarios
+
+The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) supplies academy admission/suspension/closure, ownership recovery, relationship/consent/payer separation and difficult scenarios. Design these as connected user journeys with explicit reason-specific restrictions and recovery. Business policy remains governed by the open decisions; a proposed state diagram or prototype cannot settle it.

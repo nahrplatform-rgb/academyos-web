@@ -38,3 +38,7 @@ Before implementing a feature, read the [experience blueprint](../03-design/expe
 ## Experience/performance build readiness
 
 Read the [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and expand the relevant [screen/data matrix rows](../03-design/screen-data-loading-matrix.csv) before coding. Each slice needs five quality dimensions, data/freshness/authority bounds, failure prototypes, workload/budgets and privacy-safe measurement. Existing tracing/replay/log privacy settings remain unchanged; this planning work does not authorize new telemetry or a provider upgrade.
+
+## SaaS operation contract
+
+Read the [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) before the first onboarding slice. Resolve required admission/authority rules and prepare ownership-recovery and failure examples. Separate account identity, academy membership, child relationship, payer authority and consent. Do not turn recommended defaults into accepted policy, infer real-academy rollout authority, or re-run completed setup as a prerequisite.

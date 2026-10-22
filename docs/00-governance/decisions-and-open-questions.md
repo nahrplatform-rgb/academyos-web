@@ -72,3 +72,7 @@ Owner for product/business decisions: Moamen. Technical lead supplies consequenc
 ## How to close a decision
 
 Record ID, selected alternative, rationale, accepted-by/date, effective date, affected requirements and any migration/recovery consequence. Do not mark a policy accepted because a mockup shows a number. If a decision blocks only finance, continue permitted work on identity, design or scheduling that does not depend on that policy.
+
+## Operating blueprint and decision packets
+
+The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) expands lifecycle, ownership recovery, identity/guardian/payer separation, subscription restrictions, data lifecycle, support, tenant fairness and pilot scenarios. Its recommendations remain proposed. Resolve D-002/D-003 first for onboarding, then D-004/D-015 for relationships and the dependent domain policies before their modules; detailed examples do not close decisions without recorded owner acceptance.

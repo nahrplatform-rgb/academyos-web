@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## SaaS operating blueprint — 22 October 2026
+
+Added a proposed business operating framework connecting academy admission/activation/restriction/closure, authority and ownership recovery, identity/guardian/payer/consent boundaries, effective rules and financial history, plans/limits, data lifecycle, support, tenant fairness, releases and the first operational pilot. Ten difficult scenarios link back to journey families and existing decision IDs. Linked governance, roadmap, experience blueprint and builder handoff; no open business policy marked accepted and no application/provider change made.
+
 ## Experience, performance and retrieval planning — 22 October 2026
 
 Added the AcademyOS-specific experience/performance plan and 18-row proposed screen/data loading matrix. Required usability, speed, correctness, cost and recovery as separate journey gates; documented role priorities, progressive loading, bounded queries, freshness/cache authority, safe saves, retry/partial failures, proposed performance budgets, privacy-safe measurement and workload/cost scenarios. Added planned AO-169–176/AT-169–176 and linked design, architecture, roadmap, operations and handoff. No application, schema, telemetry setting, provider subscription or runtime performance result changed.
