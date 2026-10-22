@@ -44,6 +44,16 @@ create table academy.audit_events (
  id bigint generated always as identity primary key, actor text not null, academy_id uuid references academy.academies,
  action text not null, operation_id uuid not null, details jsonb not null default '{}', created_at timestamptz not null default now()
 );
+-- Operator-only grants/revocations have an inseparable audit entry; never delete grant history.
+create function academy.audit_platform_grant() returns trigger language plpgsql security invoker set search_path='' as $$
+declare operator text:=current_setting('academy.operator_subject',true);begin
+ if tg_op='DELETE' then raise exception 'Revoke grants; preserve history' using errcode='42501';end if;
+ if coalesce(length(trim(operator)),0) not between 1 and 160 or coalesce(length(trim(new.reason)),0)=0 then raise exception 'Named operator and reason required' using errcode='22023';end if;
+ insert into academy.audit_events(actor,action,operation_id,details) values(operator,case when new.active then 'platform.grant' else 'platform.revoke' end,gen_random_uuid(),jsonb_build_object('subject',new.subject,'active',new.active,'reason',new.reason));
+ return new;
+end $$;
+create trigger audit_platform_grant after insert or update or delete on academy.platform_grants for each row execute function academy.audit_platform_grant();
+
 -- Private tables remain inaccessible through the Data API, including secret and delivery records.
 do $$ declare t text; begin
  foreach t in array array['m1_secrets','platform_grants','branches','sports','initial_setup','owner_invitations','operations','audit_events'] loop

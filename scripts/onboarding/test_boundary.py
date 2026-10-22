@@ -47,6 +47,7 @@ class Boundary(unittest.TestCase):
         if subject:
             claims=json.dumps(dict(iss=ISS,sub=subject,role='authenticated'))
             query=f"begin;set local role {role};set local request.jwt.claims={literal(claims)};"+query+';commit;'
+        if not subject:query="set academy.operator_subject='synthetic_test_operator';"+query
         r=subprocess.run(cls.base,input=query,text=True,capture_output=True)
         if ok and r.returncode: raise AssertionError(r.stderr)
         if not ok and not r.returncode:raise AssertionError('Expected denial: '+query)
@@ -200,5 +201,12 @@ class Boundary(unittest.TestCase):
         self.assertIn(results,[['accepted','denied'],['denied','revoked']])
         record=json.loads(self.sql(f"select json_build_object('revoked',revoked,'accepted',redeemed_by is not null) from academy.owner_invitations where id='{inv}'"))
         self.assertNotEqual(record['revoked'],record['accepted'])
+
+    def test_13_platform_provisioning_requires_audited_operator(self):
+        self.sql("set academy.operator_subject='';insert into academy.platform_grants(subject,granted_by,reason) values('user_missing_operator','test','fixture')",ok=False)
+        self.assertEqual(self.sql("select count(*) from academy.platform_grants where subject='user_missing_operator'"),'0')
+        self.sql("insert into academy.platform_grants(subject,granted_by,reason) values('user_provisioning_case','synthetic_test_operator','fixture only');update academy.platform_grants set active=false,reason='fixture revocation' where subject='user_provisioning_case'")
+        self.assertEqual(self.sql("select count(*) from academy.audit_events where details->>'subject'='user_provisioning_case' and actor='synthetic_test_operator'"),'2')
+        self.sql("delete from academy.platform_grants where subject='user_provisioning_case'",ok=False)
 
 if __name__=='__main__':unittest.main(verbosity=2)
