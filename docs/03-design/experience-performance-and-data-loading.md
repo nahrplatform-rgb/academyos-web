@@ -163,3 +163,7 @@ Privacy/retention; limitations; regressions; reviewer; acceptance status:
 ```
 
 No checklist or document proves universal speed, zero defects or production capacity. Use the first measured slice to establish a sustainable AcademyOS pattern and revise budgets openly rather than weakening acceptance to match an attractive demonstration.
+
+## Engineering and security accountability
+
+The [engineering charter](../00-governance/engineering-charter.md) and [journey security gates](../04-engineering/journey-security-review.md) govern implementation of this plan. Caching, prefetch, exports, query optimization and telemetry changes require relevant isolation/revocation/field/privacy checks. Faster loading or cheaper retrieval cannot compensate for a failed security boundary.

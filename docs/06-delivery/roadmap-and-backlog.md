@@ -74,3 +74,7 @@ Before the first feature slice, expand its [screen/data matrix](../03-design/scr
 ## SaaS operating readiness
 
 Use the [operating blueprint](../01-product/saas-operating-blueprint.md) with each slice. Detail academy state transitions, authority/ownership recovery and the first pilot chain before onboarding implementation. Exercise difficult scenarios OPS-01–OPS-10 as their modules enter scope. Real academy admission, irreversible data actions and production launch retain their explicit gates; this planning document is not rollout approval.
+
+## Engineering charter and continuous security
+
+Apply the [engineering charter](../00-governance/engineering-charter.md) at every work package. The [security milestone matrix](../04-engineering/journey-security-review.md) adds design/build/verification/staging/acceptance/release and post-change gates; expand [journey security coverage](../04-engineering/journey-security-matrix.csv) to action-level cases. Documentation/PR review is a process gate; existing CI checks only its actual suites. Do not claim required branch protections or full security enforcement without verifying configuration.

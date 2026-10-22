@@ -142,3 +142,7 @@ The [experience/performance plan](experience-performance-and-data-loading.md) an
 ## Business lifecycle and difficult scenarios
 
 The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) supplies academy admission/suspension/closure, ownership recovery, relationship/consent/payer separation and difficult scenarios. Design these as connected user journeys with explicit reason-specific restrictions and recovery. Business policy remains governed by the open decisions; a proposed state diagram or prototype cannot settle it.
+
+## Security packet in every action contract
+
+Add a [security review packet](../04-engineering/journey-security-review.md) to each upcoming action specification. Identify assets/trust crossings, misuse, prevention/detection/containment/recovery and negative evidence. Use the [family coverage matrix](../04-engineering/journey-security-matrix.csv) to avoid omissions. Security/privacy is an independent gate alongside usability, speed, correctness, cost and recovery, never an averaged score.

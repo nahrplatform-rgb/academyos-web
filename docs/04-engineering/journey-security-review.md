@@ -1,0 +1,73 @@
+# Journey security review and delivery gates
+
+Updated 22 October 2026. Required process under the [engineering charter](../00-governance/engineering-charter.md). This is a review framework and planned coverage, not an executed security audit. Use the [security architecture](security-and-privacy.md), [journey register](../03-design/journey-register.csv) and [security coverage matrix](journey-security-matrix.csv).
+
+## Defense contract
+
+For every journey identify what can go wrong, prevention, detection, containment, recovery and proof. Map actual trust crossings: browser/session, academy/branch/role, API/database/RLS, privileged worker, private storage/signed URL, external callback, shared cache, offline device, export and support operator. Record sensitive fields and who can see them, not just which page contains them.
+
+A hidden button is UX, not authorization. A provider token proves identity only within its reviewed purpose. An admin key bypasses some database protections and requires constrained actor/resource validation. RLS does not replace application/field/transaction rules. Backups do not prevent unauthorized reads or duplicate payments. Rate limits do not grant permission. Logs and alerts require safe redaction and operational ownership.
+
+## Review packet template
+
+```text
+Packet ID SEC-Jxx-action/version; journey/action; requirements; screens:
+Change/commit and environment; reviewer and date:
+Actors and current authority; data classes; entry points and trust crossings:
+Assets and invariants; misuse/abuse cases:
+Prevention: identity, capability/tenant/resource/field checks, validation,
+  transaction/idempotency, cache/storage/job boundaries and rate/size limits:
+Detection: redacted event/reference, signal, route/operator and test:
+Containment: bounded scope, pause/revoke behavior and safe failure mode:
+Recovery: operation reconciliation, credential/access correction,
+  data restore or compensating action; authority and limitations:
+Cases: positive, cross-tenant, wrong branch/role/field, revoked/stale,
+  direct API/file/function, concurrency/replay and applicable failures:
+Evidence: expected/actual, layer, fixture, build, actual result and limitations:
+Open risks/policy blockers; owner and required remediation:
+Design review / implementation / verification / acceptance status:
+```
+
+For narrow changes mark irrelevant controls N/A with a reason and review affected existing invariants. Do not mark every cell N/A because no new endpoint was added: UI, caching, exports and dependency changes can expose existing endpoints differently.
+
+## Milestone gate matrix
+
+| Gate | Required security work | Evidence and stop condition |
+|---|---|---|
+| Design ready | Identify assets, trust crossings, misuse, authority and policy dependencies; propose prevention/detection/containment/recovery | Reviewed packet and applicable negative cases; unresolved ownership/child/financial authority blocks dependent design approval |
+| Build ready | Specify server/data enforcement, scoped cache/file/job behavior, idempotency and test fixtures | Implementable contract, not a security-labelled UI mock |
+| Implementation verified | Run meaningful relevant checks and inspect final diff; compare actual policy to intended contract | Layer-specific results; missing hosted/provider evidence stays pending |
+| Staging demonstration | Use two academies and wrong-role/branch/revoked personas; test direct access as applicable plus recovery and redacted signals | Runtime proof on named build; no secrets/real child records in artifacts |
+| Journey acceptance | Reconcile actual UI/API/actions against packet and tests; review unresolved risks and role outcome | Owner acceptance separate from test execution; no critical boundary failure waived by visual approval |
+| Pilot/production release | Revisit combined cross-module boundaries, effective permissions, privacy/retention, recovery, provider modes and incident readiness | Production-specific evidence and explicit launch decision; staging success is insufficient |
+| After changes/incidents | Reassess affected packets after new roles, fields, dependencies, routes, cache, migration, provider or policy changes | Regression cases and updated evidence; old green status is not inherited automatically |
+
+Security is reviewed alongside the five journey dimensions: usability must not conceal authority; speed/cache must preserve isolation; correctness includes current permissions; cost controls cannot bypass validation; recovery cannot resurrect revoked access or erased records. Keep failed controls visible individually.
+
+## Minimum adversarial checks by boundary
+
+- Identity/context: wrong issuer/audience as applicable, wrong account, expired session, tenant ID swapping, stale role/guardian link and late response after context switch.
+- Read/export: minimal fields, wrong branch, unpublished/private notes, complete pagination scope, access revoked during export and private artifact expiry.
+- Mutation: direct API/function access, forged actor/resource, repeated idempotency key with changed payload, concurrent approvals/capacity and lost response after commit.
+- Files: foreign object reference, mismatched content/type/size, pending upload ownership, expired signed URL, unauthorized originals/derivatives and spreadsheet injection on export.
+- Jobs/providers: invalid or modified signature, replay, duplicate/out-of-order event, stale authorization/lease, exhausted retry, unsafe redirect/destination and receiver outage.
+- Browser/offline: unsafe content rendering, cross-origin mutations, private cache leakage, shared-device logout/reopen, obsolete queue/schema and revoked offline authority.
+- Operations: secret/log/build exposure, unnecessary privileges, environment confusion, abusive expensive queries, per-tenant resource starvation and tested safe recovery.
+
+These are check categories, not proof of implemented mitigations. The actual case must name inputs, expected state/denial, persisted outcome and evidence layer. Inspect query/response bodies safely without storing private data in telemetry.
+
+## Detection, containment and recovery ownership
+
+Each sensitive action needs an attributable audit event with original actor and safe operation ID, an actionable signal for important failures/abuse, named operational owner and a bounded response. Avoid collecting raw request bodies to make investigation convenient. Determine alert threshold and retention before enabling new telemetry; current privacy settings are not changed by this plan.
+
+Containment may revoke a capability, expire an invitation, pause a scoped job or restrict an affected academy under approved policy. Do not use broad silent deletion or disable authentication as an incident workaround. Recovery must distinguish rollback, compensating adjustment, reconciliation and backup restoration. Each has different authority and historical effects.
+
+## Findings and residual risk
+
+Track finding ID, journey/action, severity with rationale, reproduction, affected environments, evidence, owner, remediation, re-test and closure. Separate source suspicion, synthetic reproduction and demonstrated hosted impact. Proposed fix is not closure. Known tenant isolation, child privacy, unauthorized access or financial-integrity failures block the affected release. Other residual risks require explicit owner decision, containment/workaround, scope and expiry; no automatic risk acceptance because a deadline is near.
+
+## Coverage maintenance
+
+The coverage matrix has one planned entry per current journey family J01–J28. Before a family enters implementation, split it into action-level packets and link exact requirement/case IDs and evidence. One family row does not prove every action reviewed. Current entries are **Planned / Not executed / Not accepted**. Existing foundation checks and provider proof do not close unrelated rows.
+
+At each milestone compare the journey register, actual rendered actions, server operations, database/file grants and jobs with these packets. Newly exposed paths must not be missed because they lack a sidebar item. Reconcile this review with the difficult scenarios OPS-01–OPS-10 in the [operating blueprint](../01-product/saas-operating-blueprint.md).

@@ -46,3 +46,7 @@ Keep health/safety notes minimal and operationally necessary. Avoid analytics or
 Review dependencies, secret exposure, application authorization, database policies/grants, private storage, provider signatures, offline leakage and recovery. Automated dependency scanning is one layer; a zero-finding scan is not a full security review. Run a focused independent review before commercial launch if staffing/budget permits, and track findings with owner, severity, reproduction, fix and retest evidence.
 
 Record accepted residual risks explicitly with owner and expiry. Do not mark a concern accepted merely because it was hard to reproduce locally. Keep production exploitability, source concerns and synthetic reproductions separate. An unresolved tenant-isolation, payment-integrity or child-privacy defect blocks the relevant launch scope.
+
+## Continuous journey and milestone review
+
+Apply the [journey security gates](journey-security-review.md) and [coverage matrix](journey-security-matrix.csv) under the [engineering charter](../00-governance/engineering-charter.md). Every affected action specifies prevention, detection, containment, recovery and proof; review design, implementation, staging, acceptance and subsequent changes. Family coverage is planned and must be expanded before build; no comprehensive audit is claimed.

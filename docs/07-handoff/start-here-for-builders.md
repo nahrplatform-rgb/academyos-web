@@ -42,3 +42,7 @@ Read the [experience/performance plan](../03-design/experience-performance-and-d
 ## SaaS operation contract
 
 Read the [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) before the first onboarding slice. Resolve required admission/authority rules and prepare ownership-recovery and failure examples. Separate account identity, academy membership, child relationship, payer authority and consent. Do not turn recommended defaults into accepted policy, infer real-academy rollout authority, or re-run completed setup as a prerequisite.
+
+## Mandatory engineering and security gates
+
+Follow the root [agent instructions](../../AGENTS.md) and [engineering charter](../00-governance/engineering-charter.md). Before implementation, expand each relevant [security coverage row](../04-engineering/journey-security-matrix.csv) into the [journey security review packet](../04-engineering/journey-security-review.md). Keep five quality dimensions and security/privacy gates separate; passing foundation CI is not complete journey/security evidence.

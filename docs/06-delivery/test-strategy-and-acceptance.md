@@ -1,6 +1,6 @@
 # Test strategy, evidence and formal acceptance
 
-The [requirements matrix](requirements-traceability.csv) defines 176 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
+The [requirements matrix](requirements-traceability.csv) defines 180 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
 
 ## Evidence layers
 
@@ -63,3 +63,7 @@ Include Platform Owner, Academy Owner, Manager, Trainer, Guardian and eligible P
 ## Five-dimension journey acceptance
 
 For each upcoming slice, answer usability, speed, correctness, cost and recovery independently using the [experience/performance plan](../03-design/experience-performance-and-data-loading.md). Verify critical/deferred retrieval and bounds, cold/warm first useful time, declared sample sizes/percentiles, server versus network/rendering time, bytes and query work, revocation/cache isolation, lost responses and partial dependency failure. Declare device/network/dataset/concurrency; physical offline evidence remains separate. A fast skeleton, simulated network result, small fixture or aggregate score cannot establish full journey acceptance. New AO-169–176/AT-169–176 cases remain planned until executed.
+
+## Security evidence and engineering discipline
+
+Follow the [engineering charter](../00-governance/engineering-charter.md), [journey security review](../04-engineering/journey-security-review.md) and [coverage matrix](../04-engineering/journey-security-matrix.csv). Require named negative cases and detection/containment/recovery proof at the appropriate layers. Action-level security verification and owner acceptance remain separate from family planning coverage and passing foundation CI. Planned AO-177–180/AT-177–180 track this obligation; documentation presence is not an executed runtime test.

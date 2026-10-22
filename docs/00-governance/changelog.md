@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Engineering charter and continuous security — 22 October 2026
+
+Owner explicitly requested disciplined engineering and journey/milestone security gates. Added engineering charter, root AGENTS.md, PR review template, journey security packet and 28-family planned coverage matrix; linked design/performance, architecture security, delivery, tests and handoff. Added planned AO-177–180/AT-177–180. Distinguished process/instruction enforcement from existing CI, unverified branch protections and independent review. No runtime security control, provider setting, account access or production release changed.
+
 ## SaaS operating blueprint — 22 October 2026
 
 Added a proposed business operating framework connecting academy admission/activation/restriction/closure, authority and ownership recovery, identity/guardian/payer/consent boundaries, effective rules and financial history, plans/limits, data lifecycle, support, tenant fairness, releases and the first operational pilot. Ten difficult scenarios link back to journey families and existing decision IDs. Linked governance, roadmap, experience blueprint and builder handoff; no open business policy marked accepted and no application/provider change made.
