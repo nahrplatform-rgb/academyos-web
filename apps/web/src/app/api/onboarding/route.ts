@@ -10,7 +10,19 @@ function response(data: unknown, status = 200) { return NextResponse.json(data, 
 function id(x: unknown) { if (typeof x !== "string" || !uuidPattern.test(x)) throw new JourneyError("invalid", 422); return x.toLowerCase(); }
 function text(x: unknown, max = 160) { if (typeof x !== "string" || !x.trim() || x.trim().length > max) throw new JourneyError("invalid", 422); return x.trim(); }
 export async function POST(req: NextRequest) {
-  let phase = "request";
+  const started = performance.now();
+  let phase = "request", phaseStarted = started;
+  const timings: string[] = [];
+  function enterPhase(next: string) {
+    const now = performance.now();
+    timings.push(`${phase};dur=${(now - phaseStarted).toFixed(1)}`);
+    phase = next; phaseStarted = now;
+  }
+  function finish(data: unknown, status = 200) {
+    const now = performance.now(), res = response(data, status);
+    res.headers.set("Server-Timing", [...timings, `${phase};dur=${(now - phaseStarted).toFixed(1)}`, `total;dur=${(now - started).toFixed(1)}`].join(", "));
+    return res;
+  }
   try {
     const origin = req.headers.get("origin");
     if (!origin || !STAGING_AUTH_ORIGINS.includes(origin) || origin !== req.nextUrl.origin || req.headers.get("content-type")?.split(";")[0] !== "application/json") throw new JourneyError("denied", 403);
@@ -21,17 +33,17 @@ export async function POST(req: NextRequest) {
     const b = JSON.parse(raw); if (!b || typeof b !== "object" || Array.isArray(b)) throw new JourneyError("invalid", 422);
     if (b.action === "exchange") {
       const value = sealInvitation(id(b.invitation), text(b.token, 64), onboardingKey());
-      const res = response({ data: { exchanged: true } });
+      const res = finish({ data: { exchanged: true } });
       res.cookies.set("m1_invitation", value, { httpOnly: true, secure: req.nextUrl.protocol === "https:", sameSite: "strict", path: "/api/onboarding", maxAge: 900 });
       return res;
     }
-    phase = "session";
+    enterPhase("session");
     const { subject, client } = await onboardingSession();
-    phase = "rate-limit";
+    enterPhase("rate-limit");
     const mutating = ["create", "accept", "save", "revoke", "reissue", "retry"].includes(b.action);
     const limit = await stagingLimiter(stagingRedis(), mutating ? "onboarding-write" : "onboarding-read", mutating ? 10 : 60).limit(rateLimitSubject(subject));
     if (!rateLimitAllowed(limit)) throw new JourneyError("limited", 429);
-    phase = "operation";
+    enterPhase("operation");
     let data: unknown;
     switch (b.action) {
       case "context": data = await rpc(client, "m1_context_v1", { after_id: b.after ? id(b.after) : null }); break;
@@ -67,6 +79,6 @@ export async function POST(req: NextRequest) {
       }
       default: throw new JourneyError("invalid", 422);
     }
-    return response({ data });
-  } catch (e) { if (e instanceof JourneyError) return response({ error: e.code }, e.http); if (e instanceof SyntaxError) return response({ error: "invalid" }, 422); console.error("onboarding.unavailable", { phase }); return response({ error: "unavailable" }, 503); }
+    return finish({ data });
+  } catch (e) { if (e instanceof JourneyError) return finish({ error: e.code }, e.http); if (e instanceof SyntaxError) return finish({ error: "invalid" }, 422); console.error("onboarding.unavailable", { phase }); return finish({ error: "unavailable" }, 503); }
 }

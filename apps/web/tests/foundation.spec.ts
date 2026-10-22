@@ -44,7 +44,12 @@ test("unconfigured workspace fails closed and health is process only", async ({
 test("onboarding fails closed without identity and rejects forged callbacks", async ({request}) => {
   for(const path of ["/en/platform","/ar/platform","/en/workspace/00000000-0000-4000-8000-000000000001"])
     expect((await request.get(path)).status()).toBe(503);
-  expect((await request.post("/api/onboarding",{data:{action:"create"}})).status()).toBe(403);
+  const denied = await request.post("/api/onboarding",{data:{action:"create"}});
+  expect(denied.status()).toBe(403);
+  expect(denied.headers()["cache-control"]).toBe("no-store");
+  const timing = denied.headers()["server-timing"];
+  expect(timing).toMatch(/^request;dur=\d+\.\d, total;dur=\d+\.\d$/);
+  expect(timing.length).toBeLessThan(256);
   expect((await request.post("/api/jobs/invitations",{data:{invitation:"00000000-0000-4000-8000-000000000001",generation:1}})).status()).toBe(401);
   const invitation=await request.get("/en/invitation");
   expect(invitation.status()).toBe(200);
