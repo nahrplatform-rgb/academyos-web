@@ -60,3 +60,9 @@ If scope changes, update the release map, requirement row, affected tests, provi
 ## Added platform operations workstream — 22 October 2026
 
 Deliver the [Platform Owner Services & Operations vision](../03-design/platform-owner-services-and-operations.md) after explicit platform authorization: read-only inventory/health/freshness and dependency impact first; usage/limit/cost observations next; incidents/recovery evidence next; approved audited actions last. Build alongside onboarding, then require production evidence at commercial hardening. Do not buy plans, grant platform access or fabricate provider data as a shortcut.
+
+## Experience design gates — 22 October 2026
+
+The [experience blueprint](../03-design/experience-blueprint-and-journey-governance.md) and [journey register](../03-design/journey-register.csv) are the companion product matrix. Map responsibilities, global navigation and cross-role journeys now; detail each upcoming slice before coding. Each cycle includes actor/policy review → action contract and connected prototype → owner design review → complete implementation → failure/accessibility/isolation checks → staging role demonstration → explicit acceptance. Do not count prototype approval as deployed acceptance.
+
+The first proposed build milestone is Platform Owner creates a synthetic academy → appoints Academy Owner → invitation acceptance → restricted workspace and resumable branch/sport setup. D-002/D-003 must be resolved for this slice. Existing provider/identity setup is preserved; initial backlog items already implemented must be assessed against current evidence rather than repeated automatically. A clickable prototype is required work, not delivered by the planning document.

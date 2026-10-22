@@ -1,6 +1,6 @@
 # Test strategy, evidence and formal acceptance
 
-The [requirements matrix](requirements-traceability.csv) defines 160 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
+The [requirements matrix](requirements-traceability.csv) defines 168 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
 
 ## Evidence layers
 
@@ -53,3 +53,9 @@ Release blockers include tenant/privacy leakage, unauthorized financial approval
 Record requirement/test ID; source commit; migration fingerprint; environment/project; provider mode; device/browser; fixture; steps; expected/actual result; result status; redacted artifact location; tester; date; limitations; and acceptance owner. Keep hosted screenshots free of secrets and unnecessary personal data. A live deployment, Git push and owner acceptance each receive separate evidence.
 
 The documentation verification report checks this pack's structure and traceability only. It is not application test evidence.
+
+## Journey acceptance and coverage
+
+Use the [experience blueprint](../03-design/experience-blueprint-and-journey-governance.md) and [journey register](../03-design/journey-register.csv) alongside requirements. Before coding, require the action contract, handoffs and applicable state matrix. Before milestone completion, reconcile actual UI/API/deep-link actions with individually specified journeys and tests. Family rows alone do not prove every action is covered.
+
+Include Platform Owner, Academy Owner, Manager, Trainer, Guardian and eligible Player tasks; first-use/returning and dual-role/revoked personas; EN/AR/RTL, keyboard/screen reader and phone/desktop. Record completion without coaching, wrong turns, context mistakes, saved-state uncertainty and recovery success. Proxy walkthroughs are distinct from real participant usability research. Design review, implementation, deployed verification and owner acceptance each retain separate status and evidence.

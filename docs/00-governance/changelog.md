@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Experience blueprint expansion — 22 October 2026
+
+Expanded the owner-requested role-aware UI/UX direction into a shared experience blueprint, action-contract template, cross-person handoffs, recovery/state patterns, worked player/guardian example and staged design/build/acceptance gates. Added 28 journey families across the full scope; these are planned coverage entries requiring detailed action expansion, not a claim every action is specified or implemented. Linked design system, screen catalog, role narratives, roadmap, builder handoff and acceptance strategy. Preserved unresolved admission, authority, age/consent and financial policies. No application, database, provider setting or actual role grant changed.
+
 ## Setup evidence update — 21 October 2026
 
 Resend screenshot confirms `notify.academy.nahr.dev` and all three DNS records Verified; sending enabled, receiving disabled. Domain verification is complete at the provider-dashboard evidence layer; application integration and test delivery remain pending.

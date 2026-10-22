@@ -25,12 +25,13 @@ This is the starting point for building AcademyOS. It brings the product vision,
 1. [Vision and success](docs/01-product/vision-and-success.md): the product and the experience it should deliver.
 2. [Full scope and release map](docs/01-product/scope-and-release-map.md): everything retained, with proposed delivery stages.
 3. [Decisions and open questions](docs/00-governance/decisions-and-open-questions.md): agreed direction, proposed defaults and decisions needed before particular modules.
-4. [Platform Owner Services & Operations vision](docs/03-design/platform-owner-services-and-operations.md).
-5. [UI/UX design system](docs/03-design/ui-ux-design-system.md) and [screen catalog](docs/03-design/screen-and-navigation-catalog.md).
-6. [Service map and setup order](docs/05-services/00-service-map-and-setup-order.md): what to configure before development and what needs a working foundation first.
-7. [Pre-development checklist](docs/06-delivery/pre-development-checklist.md): the practical starting gate.
-8. [Architecture](docs/04-engineering/architecture.md), [data dictionary](docs/04-engineering/data-model-and-dictionary.md), and [API contracts](docs/04-engineering/api-and-integration-contracts.md).
-9. [Delivery roadmap](docs/06-delivery/roadmap-and-backlog.md), [acceptance strategy](docs/06-delivery/test-strategy-and-acceptance.md), and [builder handoff](docs/07-handoff/start-here-for-builders.md).
+4. [Experience blueprint and journey governance](docs/03-design/experience-blueprint-and-journey-governance.md), [role journeys](docs/03-design/role-journeys-and-content.md) and [journey register](docs/03-design/journey-register.csv).
+5. [Platform Owner Services & Operations vision](docs/03-design/platform-owner-services-and-operations.md).
+6. [UI/UX design system](docs/03-design/ui-ux-design-system.md) and [screen catalog](docs/03-design/screen-and-navigation-catalog.md).
+7. [Service map and setup order](docs/05-services/00-service-map-and-setup-order.md): what to configure before development and what needs a working foundation first.
+8. [Pre-development checklist](docs/06-delivery/pre-development-checklist.md): the practical starting gate.
+9. [Architecture](docs/04-engineering/architecture.md), [data dictionary](docs/04-engineering/data-model-and-dictionary.md), and [API contracts](docs/04-engineering/api-and-integration-contracts.md).
+10. [Delivery roadmap](docs/06-delivery/roadmap-and-backlog.md), [acceptance strategy](docs/06-delivery/test-strategy-and-acceptance.md), and [builder handoff](docs/07-handoff/start-here-for-builders.md).
 
 ## Documentation map
 

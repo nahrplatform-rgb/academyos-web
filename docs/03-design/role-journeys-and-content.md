@@ -49,3 +49,7 @@ Arabic examples are draft product copy and need native-language review in contex
 ## Usability acceptance
 
 Run moderated task checks with an owner, manager, trainer and guardian using synthetic accounts. Observe time to first useful action, wrong-academy mistakes, uncertainty about saved state and recovery without assistance. Proposed targets: trainer reaches today's roster within two primary navigation actions; guardian identifies next session without opening a menu; financial operators can explain receipt status from the detail page. Record failures and revise the interaction before calling the design accepted.
+
+## Connected experience blueprint
+
+Use the [experience blueprint](experience-blueprint-and-journey-governance.md) and [journey register](journey-register.csv) to turn these role narratives into action contracts, handoffs, exceptional states and acceptance cases. The register is a planning index, not runtime or usability evidence. Platform Owner is Moamen’s platform authority, separate from Academy Owner. Other delegated staff are capability-scoped personas, not an automatically added role.

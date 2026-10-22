@@ -91,3 +91,7 @@ Use short functional transitions, proposed 120–180 ms. Respect reduced motion;
 ## Design acceptance
 
 Approve representative owner, trainer, guardian, player and platform-admin journeys in EN/AR, light/dark and phone/desktop. Test long academy names, many roles, missing avatars, long money values, empty calendars and validation errors. Save component screenshots and accessibility evidence with the implementation version. A polished static mock is not acceptance of permissions, real data, latency or recovery.
+
+## Journey-first application of the design system
+
+Apply these components through the [experience blueprint](experience-blueprint-and-journey-governance.md). Consistent colors and spacing are only one layer: navigation, inputs, confirmation, pending results, recovery and cross-person handoffs must also be consistent. Before building a journey, review its connected screens and states in EN/AR and phone/desktop contexts. Components and prototypes remain unverified until exercised in their actual task context.

@@ -30,3 +30,7 @@ No source implementation, local test, deployment or Git push alone establishes f
 ## Keep the pack current
 
 Update the relevant workflow and requirement row with implementation changes. Add decisions rather than silently overriding selected behavior. Record provider settings in the registers without secrets. Archive evidence by commit/environment/date. Re-run documentation validation after link/ID changes and recheck official provider guidance before executing old setup instructions.
+
+## Experience blueprint handoff
+
+Before implementing a feature, read the [experience blueprint](../03-design/experience-blueprint-and-journey-governance.md) and expand the relevant [journey family](../03-design/journey-register.csv) into specific action contracts. The first proposed slice is controlled academy creation through owner acceptance and initial setup, subject to D-002/D-003. Prepare the connected prototype and exceptional states before coding; no app implementation or account grant is authorized merely by this document.

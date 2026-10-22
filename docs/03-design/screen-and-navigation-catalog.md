@@ -83,3 +83,7 @@ Before building each screen, attach its workflow, capability set, query fields, 
 ## Platform Services & Operations extension — planned
 
 See the [detailed Platform Owner vision](platform-owner-services-and-operations.md). Add S51 Services overview, S52 Service detail, S53 Health & quality, S54 Usage & limits, S55 Costs & plans, S56 Capability impact map, S57 Backups & recovery and S58 Incidents & changes under the separate platform context. All routes remain proposals; no live page is claimed. Moamen is Platform Owner; academy administrators receive no provider credentials/cost visibility by default.
+
+## Action and navigation coverage
+
+The [journey register](journey-register.csv) connects role outcomes to screen families. Follow the [action contract](experience-blueprint-and-journey-governance.md) before implementation. Each visible action, notification/deep link and handoff needs a specific journey/action ID and acceptance case. A catalog entry alone does not establish complete workflow coverage; split family rows into detailed actions as they enter delivery.
