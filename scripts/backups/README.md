@@ -62,3 +62,24 @@ Independent backup publication, local database restoration and full hosted servi
 For the temporary GitHub package, `backup.py recover` also accepts `--ciphertext <downloaded-backup.tar.age>` so R2 secrets need not be copied to the operator computer. The ciphertext digest is still checked against the reviewed receipt. Its recovery key remains local.
 
 `synthetic_roundtrip.py --identity <private-key-file>` is a separate local test: a disposable PostgreSQL source, one fixed non-personal file through a mocked HTTP transport, real dumps/encryption/decryption and a second isolated database restore. It proves the local pipeline and key pairing; it does not contact Supabase or R2.
+
+## Independent failure / missed-run monitoring
+
+The workflow sends Sentry Cron check-ins to the existing EU project: start before installation, success only after a valid encrypted-copy receipt, and error on a failed job. Schedule `17 2 * * *`, timezone UTC, 90-minute dispatch grace, 30-minute runtime, one failure to open an issue and one success to recover. Sentry watches missed check-ins independently of GitHub, including a workflow that never starts. A monitor transport failure does not stop the backup export; it still makes the final workflow status fail for investigation.
+
+Only status, staging environment, a derived run identifier and schedule configuration are transmitted. No row values, object inventory, passwords, private keys or backup payloads enter Sentry. Its public DSN/check-ins are observability telemetry, not cryptographic proof of backup authenticity; use the trusted workflow receipt and R2 verification for that. Operator email routing and provider acceptance of this monitor must have a runtime receipt before claiming notification coverage.
+
+Source: https://docs.sentry.io/product/monitors-and-alerts/monitors/crons/getting-started/http/
+
+## Narrow hosted file rehearsal
+
+`Private staging file recovery rehearsal` is a main-only manual operator workflow. It accepts only a fixed 50-byte non-personal CSV, the private `exports` bucket, and a canonical UUID4 rehearsal prefix. It cannot change buckets/policies, upload arbitrary data, or overwrite existing paths. Operations:
+
+1. `create`: upload `__setup_recovery__/<uuid>/source.csv`, download with the privileged key and compare exact bytes; reject public readability.
+2. Run the encrypted backup with the temporary encrypted-only package enabled, compare the trusted job receipt, then recover locally with the vault key. Find the source object in the decrypted inventory and verify its payload/hash.
+3. `restore`: supply base64 of those recovered CSV bytes as `recovered_fixture_base64`, re-upload as `restored.csv`, then verify authenticated download and denied public access.
+4. `cleanup`: inspect both exact paths, refuse any content that differs from the fixed fixture, and remove only matching test objects. Verify both are absent. No backup copy is deleted.
+
+The new restore path is isolated from the source object but remains in the same staging service. This is actual hosted object transport/re-upload proof, not disaster recovery to an independent Supabase project or tenant authorization acceptance. A separate production whole-service rehearsal remains required. Source and restored fixtures are disposable technical test data; no personal/academy records are involved.
+
+Sources: https://supabase.com/docs/guides/storage/uploads/standard-uploads and https://supabase.com/docs/guides/getting-started/api-keys

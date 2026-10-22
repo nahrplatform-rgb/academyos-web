@@ -23,6 +23,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Start independent backup monitoring
+        id: monitor_start
+        continue-on-error: true
+        run: python3 scripts/backups/monitor.py in_progress
       - name: Install backup tools
         run: |
           sudo apt-get update -qq
@@ -61,3 +65,17 @@ jobs:
           path: ${{ runner.temp }}/encrypted-rehearsal/
           retention-days: 1
           if-no-files-found: error
+      - name: Finish independent backup monitoring
+        if: always()
+        env:
+          BACKUP_JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ "$BACKUP_JOB_STATUS" = success ]; then
+            python3 scripts/backups/monitor.py ok --receipt "$RUNNER_TEMP/backup-receipt.json"
+          else
+            python3 scripts/backups/monitor.py error
+          fi
+          if [ "${{ steps.monitor_start.outcome }}" != success ]; then
+            printf 'Backup export was attempted, but monitor start failed; inspect both receipts.\n' >&2
+            exit 1
+          fi

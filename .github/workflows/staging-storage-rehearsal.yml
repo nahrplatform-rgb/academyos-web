@@ -1,0 +1,39 @@
+name: Private staging file recovery rehearsal
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: 'Operator test: create fixed synthetic CSV, restore recovered bytes, or clean up only matching test objects'
+        required: true
+        type: choice
+        options: [create, restore, cleanup]
+      rehearsal_id:
+        description: 'Canonical UUID4 identifying this synthetic rehearsal'
+        required: true
+        type: string
+      recovered_fixture_base64:
+        description: 'Restore only: exact non-personal CSV bytes recovered from the encrypted backup, base64 encoded'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: staging-backup
+  cancel-in-progress: false
+jobs:
+  rehearsal:
+    if: github.ref == 'refs/heads/main' && github.repository == 'nahrplatform-rgb/academyos-web'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    environment: staging-backups
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify the exact private test object
+        env:
+          BACKUP_SUPABASE_SECRET_KEY: ${{ secrets.BACKUP_SUPABASE_SECRET_KEY }}
+          REHEARSAL_OPERATION: ${{ inputs.operation }}
+          REHEARSAL_ID: ${{ inputs.rehearsal_id }}
+          RECOVERED_FIXTURE_BASE64: ${{ inputs.recovered_fixture_base64 }}
+        run: python3 scripts/backups/storage_rehearsal.py "$REHEARSAL_OPERATION" --run-id "$REHEARSAL_ID" | tee -a "$GITHUB_STEP_SUMMARY"
