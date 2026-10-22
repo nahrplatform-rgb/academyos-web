@@ -69,3 +69,6 @@ Final postcheck after measurements: one academy, one active owner membership, se
 ## Further HTTP checks and authorized role results
 
 Read [authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) for seven staged origin/input/unknown-resource/worker denial cases and normal-refresh recovery, plus four separately authorized same-account lower-role read/save denials and audited owner restorations. These add focused HTTP evidence without closing populated-tenant isolation, separate-persona context, billing-meter or independent-review gates.
+
+
+For deterministic local save-versus-suspension ordering in both directions, read [write/revocation results](onboarding-m1-write-revocation.md). All 14 database groups passed; the hosted concurrent HTTP layer remains open.

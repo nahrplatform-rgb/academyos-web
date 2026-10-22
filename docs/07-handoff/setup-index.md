@@ -41,3 +41,6 @@ For scoped M1 measurements and the authorized owner-access revocation/restoratio
 
 
 [Authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) record seven staged denial/recovery cases and four separately authorized lower-role read/save denials. Owner was restored after each role; eight audited transitions and unchanged setup were confirmed. These same-account role-state checks do not establish two-populated-tenant isolation or independent security approval.
+
+
+[Write/revocation ordering](onboarding-m1-write-revocation.md) records deterministic local lock-order tests and revoked replay denial. [Two-account isolation preparation](onboarding-m1-two-account-isolation.md) defines the next hosted checks and the additional recipient/owner authorization required. Neither packet implies full security approval.

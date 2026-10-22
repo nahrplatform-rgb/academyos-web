@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import select
 import subprocess
 import tempfile
 import time
@@ -210,5 +211,80 @@ class Boundary(unittest.TestCase):
         self.sql("insert into academy.platform_grants(subject,granted_by,reason) values('user_provisioning_case','synthetic_test_operator','fixture only');update academy.platform_grants set active=false,reason='fixture revocation' where subject='user_provisioning_case'")
         self.assertEqual(self.sql("select count(*) from academy.audit_events where details->>'subject'='user_provisioning_case' and actor='synthetic_test_operator'"),'2')
         self.sql("delete from academy.platform_grants where subject='user_provisioning_case'",ok=False)
+
+    def test_14_write_revocation_serializes_both_lock_orders(self):
+        # Hold a real transaction open, not a timed sleep. Observe the second
+        # connection blocked by this exact backend before releasing the first.
+        for first_action in ['save', 'suspend']:
+            with self.subTest(first_action=first_action):
+                r, _, inv, token, _ = self.create()
+                a = r['academy_id']
+                self.accept(inv, token)
+                op = str(uuid.uuid4())
+                claims = literal(json.dumps(dict(iss=ISS, sub='user_owner', role='authenticated')))
+                save = f"select public.m1_save_setup_v1('{a}','{op}',0,'branch','{{\"name\":\"Race branch\",\"timezone\":\"Africa/Cairo\"}}')"
+                suspend = f"update academy.memberships set status='suspended' where academy_id='{a}' and role='owner'"
+                caller = f"set local role authenticated;set local request.jwt.claims={claims};"
+                holder = subprocess.Popen(self.base, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                          stderr=subprocess.PIPE, text=True, bufsize=1)
+                waiter = None
+                try:
+                    first = caller + save if first_action == 'save' else suspend
+                    holder.stdin.write("\\o /dev/null\nbegin;set local statement_timeout='10s';" + first + ";\n\\o\nselect pg_backend_pid();\n")
+                    holder.stdin.flush()
+                    # Suppress the first result so only the held backend PID is read.
+                    deadline = time.monotonic() + 10
+                    pid = None
+                    while time.monotonic() < deadline:
+                        ready, _, _ = select.select([holder.stdout], [], [], 0.1)
+                        if ready:
+                            line = holder.stdout.readline().strip()
+                            if line.isdigit():
+                                pid = int(line)
+                                break
+                    self.assertIsNotNone(pid, 'First transaction did not reach its held-lock boundary')
+                    name = 'm1_race_' + uuid.uuid4().hex
+                    second = suspend if first_action == 'save' else caller + save
+                    waiter = subprocess.Popen(self.base + ['--set=VERBOSITY=verbose'], stdin=subprocess.PIPE,
+                                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                    waiter.stdin.write(f"begin;set local statement_timeout='10s';set local application_name='{name}';" + second + ";commit;\n")
+                    waiter.stdin.flush()
+                    blocked = False
+                    deadline = time.monotonic() + 5
+                    while time.monotonic() < deadline:
+                        blocked = self.sql(f"select exists(select from pg_stat_activity where application_name='{name}' and {pid}=any(pg_blocking_pids(pid)))") == 't'
+                        if blocked:
+                            break
+                        self.assertIsNone(waiter.poll(), 'Second transaction ended instead of waiting')
+                        time.sleep(0.02)
+                    self.assertTrue(blocked, 'Expected membership-row lock dependency was not observed')
+                    holder.stdin.write('commit;\n')
+                    holder.stdin.flush()
+                    _, first_error = holder.communicate(timeout=10)
+                    self.assertEqual(holder.returncode, 0, first_error)
+                    _, second_error = waiter.communicate(timeout=10)
+                    if first_action == 'save':
+                        self.assertEqual(waiter.returncode, 0, second_error)
+                        expected = '1'
+                    else:
+                        self.assertNotEqual(waiter.returncode, 0)
+                        self.assertIn('42501', second_error)
+                        self.assertIn('Access denied', second_error)
+                        expected = '0'
+                    self.assertEqual(self.sql(f"select setup_version from academy.academies where id='{a}'"), expected)
+                    self.assertEqual(self.sql(f"select count(*) from academy.branches where academy_id='{a}'"), expected)
+                    self.assertEqual(self.sql(f"select count(*) from academy.operations where id='{op}'"), expected)
+                    self.assertEqual(self.sql(f"select count(*) from academy.audit_events where operation_id='{op}'"), expected)
+                    self.assertEqual(self.sql(f"select status from academy.memberships where academy_id='{a}' and role='owner'"), 'suspended')
+                    self.sql(f"select public.m1_setup_v1('{a}')", 'user_owner', ok=False)
+                    # Previously successful receipts must not bypass current authority.
+                    self.sql(save, 'user_owner', ok=False)
+                    self.save(a, int(expected), 'branch', {'name':'Denied after revoke', 'timezone':'Africa/Cairo'}, ok=False)
+                    self.assertEqual(self.sql(f"select count(*) from academy.operations where academy_id='{a}' and action='setup.branch'"), expected)
+                finally:
+                    for session in [holder, waiter]:
+                        if session is not None and session.poll() is None:
+                            session.kill()
+                            session.communicate(timeout=5)
 
 if __name__=='__main__':unittest.main(verbosity=2)
