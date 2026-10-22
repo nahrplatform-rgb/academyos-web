@@ -6,15 +6,19 @@ Owner authorized continuation on 22 October 2026. This board separates infrastru
 
 | Order | Work | Current state | Required completion evidence |
 |---|---|---|---|
-| 1 | Consolidate historical/current setup records and navigation | Done: `78c3f71` pushed, 134 relative links checked | Ordered history/register/index; old status headers marked historical; relative links checked; Git commit/push |
-| 2 | Verify uptime's scheduled check and operator alert | Scheduled HTTP 200 check-ins and displayed 100% uptime verified; explicit routing/test in progress | Actual scheduled healthy check; explicit recipient/action review; controlled alert test with received/delivered evidence |
-| 3 | Enforce SSL on incoming staging database connections | Enabled and dashboard verified on after restart; post-change backup in progress | Enable on exact staging project, complete provider restart, healthy app/database and subsequent encrypted backup |
-| 4 | Monitor backup failures and missed daily runs | First scheduled backup succeeded; independent overdue alert not established | Independent schedule-aware monitor; failure and recovery check-ins; safe notification delivery; delayed GitHub dispatch handled |
-| 5 | Set staging backup retention/immutability | No automatic deletion/lock policy approved yet | Concrete duration/cost/custody proposal approved; scoped rules verified; no broad accidental deletion |
-| 6 | Exercise hosted file recovery with a synthetic object | Empty current buckets; local mocked-HTTP file roundtrip passed | Private non-personal fixture, actual API download, encrypted independent copy, isolated restore/download/checksum; no tenant/client permission grants added just for the test |
-| 7 | Verify custody, provider quotas/notifications and final handoff | Secrets stored; individual runtime proofs recorded | Names-only inventory, clear operator actions/rotation/recovery limits, remaining gates, all changes committed/pushed and provider state rechecked |
+| 1 | Consolidate historical/current setup records and navigation | Complete; initial consolidation `78c3f71` pushed; final receipts/operator guide added | Ordered history/register/index; old status headers historical; links validated and source synchronized |
+| 2 | Verify uptime's scheduled check and operator alert | Complete for current process monitor | Scheduled 200 checks, displayed 100% uptime; named-owner staging alert 1403422; test/recovery emails observed in approved mailbox |
+| 3 | Enforce SSL on incoming staging database connections | Complete | Exact-project switch on after restart; subsequent verify-full DB export and encrypted independent backups succeeded |
+| 4 | Monitor backup failures and missed daily runs | Configured and controlled failure/recovery verified | Monitor 2492943; UTC 02:17, 90-minute dispatch grace/30-minute runtime; real start/error/ok check-ins and recovery email. Deliberately waiting through a missed daily run was not performed |
+| 5 | Set staging backup retention/immutability | Complete for accepted staging scope | Seven-day scoped lock; owner explicitly approved 30-day expiry; enabled rules reviewed. Actual overwrite/delete rejected with ObjectLockedByBucketPolicy and unchanged read-back in 39746661788; admin can remove rules |
+| 6 | Exercise hosted file recovery with a synthetic object | Complete within the same staging service | Real private fixture → encrypted R2 copy → local recovery → separate private restore path → matching download/hash and public denial; exact test objects removed. Independent hosted-project disaster recovery remains a launch gate |
+| 7 | Verify custody, provider quotas/notifications and final handoff | Verified operator setup; Sentry tier transition pending | Names-only stores checked; owner-confirmed recovery-key vault copy; operator runbook; actual Cloudflare $0.00/default $10 warning reviewed, no paid upgrade. Sentry post-trial review and production budget remain owner gates |
 
 Use already authorized technical defaults where reversible and within staging. Ask only for missing owner policy, new credentials/access, billing/terms or browser-required final actions. Any approval should name the concrete prepared change and its consequence.
+
+## Next action: build the controlled onboarding/permissions slice
+
+No missing staging secret or unfinished account connection is currently blocking feature development. Before its dependent implementation, resolve D-002/D-003 (academy admission and authority), then build controlled platform administration/onboarding. Resolve the provider-blocked Sentry free-tier transition and verify quotas before expiry; no paid conversion or future reminder is authorized by this record. The current setup is not approval to add real academies.
 
 ## B. Configure with the corresponding application feature
 
@@ -38,3 +42,9 @@ These cannot be completed by adding more account variables alone. They require r
 ## Resume/stop history
 
 The owner previously stopped after uptime creation, preserving local documentation. That stop is superseded by the current instruction to organize the records and proceed. No Codex reminder or autonomous follow-up task was requested; application provider schedules operate independently.
+
+## Sentry free-tier request — 22 October 2026
+
+Owner requested the free Developer tier. The live subscription still shows Business Trial, 13 days left, with no billing details/payment method on file. The documented cancellation route returns “Your plan is not eligible to be cancelled.” No plan change or payment was submitted. Immediate downgrade is provider-blocked; the requested target is free Developer, and the exact post-trial effective plan/monitor behavior must be verified rather than assumed. Support contact has not been authorized/sent. Existing monitoring remains active.
+
+Trial-end monitoring caveat: Sentry’s official Crons guidance says that, without pay-as-you-go budget, having more than one active Cron monitor at trial end disables Cron monitors. AcademyOS currently has one backup Cron monitor; the separate uptime monitor is a different product. This does not verify the Business trial’s automatic plan transition or uptime entitlement. Keep the free-tier target and verify effective plan, active monitors, privacy settings and alert delivery at transition. Source: https://www.sentry.help/en/articles/13963929-do-my-cron-monitors-stay-active-after-my-crons-trial-ends .

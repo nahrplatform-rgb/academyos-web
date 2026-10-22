@@ -86,6 +86,26 @@ Commit `ecec2f5`, 02:00: daily/manual application-schema and Storage inventory/o
 
 Owner requested a stop after the uptime save; no further manual work was started in that session. Local evidence/checkpoint files were preserved. Owner has now authorized this documentation consolidation and remaining staging configuration. Read-only refresh on 22 October found the first **scheduled** backup [39712985982](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39712985982) succeeded on `6ca2b25`. GitHub dispatched it at 02:43 UTC rather than precisely 02:17; this is evidence of schedule delay, not a one-hour recovery guarantee.
 
+## 22. Verify scheduled uptime and tighten operational routing
+
+Scheduled process-health checks returned 200 and Sentry displayed 100% uptime. The old general high-priority alert uses suggested/recently active recipients, so a separate staging-only alert `1403422` was saved for uptime and backup monitors, targeting the named owner. A Sentry Test Issue and a resolved-Cron email were observed in `nahr.platform@gmail.com`. General error alerts were retained; no customer invitations were sent.
+
+## 23. Enforce encrypted database connections
+
+Enabled “Enforce SSL on incoming connections” on the exact staging project. The provider's brief database restart completed and the on state was verified. Later hosted exports still used the pinned CA and verify-full and succeeded. No database credential reset or app/tenant permission expansion occurred.
+
+## 24. Prove nonempty file recovery and independent backup monitoring
+
+Source `e3a900a` added a main-only fixed-file operator rehearsal and Sentry start/final check-ins. Actual 50-byte private CSV upload/download passed; backup `39738592313` copied/encrypted/read back the file and actual database. Local decryption/checksums/database restoration passed. The recovered file bytes were re-uploaded to a separate private path in the same staging service and verified; public access was denied. Both exact fixtures were then removed (`39740625009`), and local decrypted payloads were cleaned up. A controlled monitor failure and following real backup recovery passed in `39741893733`; Sentry monitor `2492943` has 90-minute scheduling grace and a 30-minute runtime. The owner mailbox received its resolved alert. This is not an independent hosted-project recovery rehearsal.
+
+## 25. Apply and verify staging backup protection/retention
+
+Added reversible seven-day lock `staging-backup-lock-7d` scoped to R2 `staging/`. Prepared 30-day lifecycle `staging-backups-expire-30d`; owner explicitly approved permanent expiry of that prefix after 30 days before it was saved. Both rules were verified enabled; public access remains disabled. Initial protection probes rejected an unexpected provider-specific response and failed closed after the backup itself had succeeded. The verifier was corrected to require the precise ObjectLockedByBucketPolicy denial, observed as HTTP 409, rather than accepting generic permission failures. Final `39746661788` passed overwrite/deletion rejection plus unchanged read-back on a new harmless probe only. No real backup was targeted for deletion; the tiny probes expire under the accepted rule. Bucket administrators can remove the lock, so it is not a compliance WORM hold.
+
+## 26. Confirm spending boundaries and operator handoff
+
+No subscription was purchased or plan upgraded by the assistant. R2's earlier usage-based activation was performed by the owner. Cloudflare currently labels it R2 Paid but showed $0.00 and all usage within included limits; its pre-existing $10 budget warning was inspected and left unchanged. This warning does not cap spend. Sentry had an existing Business trial and no billing details on file; no paid conversion was performed. Added the operator/custody guide and refreshed current status/remaining gates. Fresh production dependency audit has zero known advisories; the existing development-only braces/ESLint advisory remains recorded. Foundation CI passed on `31d6ed2`, including 11 backup guards and existing app/browser checks. Production and business-feature acceptance remain separate.
+
 ## What this history does not establish
 
 No platform administrator provisioning, academy onboarding, branch role scopes, real tenant file access, business jobs/email dispatch, financial module, native/offline app, separate production infrastructure or production acceptance is complete. Product decisions remain explicit. Current work is listed in [remaining configuration](remaining-configuration.md).

@@ -7,7 +7,7 @@ Updated 22 October 2026. Current configuration and proof are distinct. [Executio
 | Layer | Actual binding | Current evidence / limit |
 |---|---|---|
 | Workspace | `/Users/moamenghareeb/AcademyOS`; web source `apps/web` | Canonical local repository; private GitHub origin |
-| GitHub | `nahrplatform-rgb/academyos-web`, main | Correct owner CLI/commit identity; checks passing at latest recorded source `6ca2b25` |
+| GitHub | `nahrplatform-rgb/academyos-web`, main | Correct owner CLI/commit identity; checks passing at verified source `31d6ed2` |
 | Vercel | team `academy-os2`, project `academyos-web`, Hobby | Deployed private staging; Vercel Production is AcademyOS staging; commercial launch plan still a gate |
 | Staging origin | `https://staging.academy.nahr.dev` | Valid DNS/TLS and browser health; EN/AR entry routes |
 | Original hostname | `https://academyos-web.vercel.app` | Protected; page GET/HEAD redirect to canonical staging; API routes keep canonical validation |
@@ -18,9 +18,11 @@ Updated 22 October 2026. Current configuration and proof are distinct. [Executio
 | QStash | EU `https://qstash-eu-central-1.upstash.io` | Signed synthetic callback delivered; no business outbox/jobs implemented |
 | Application email | Resend, `notify.academy.nahr.dev`, eu-west-1 | Domain verified; sender `notifications@notify.academy.nahr.dev`, reply `support@nahr.dev`, test allowlist `nahr.platform@gmail.com`; recipient-server delivery passed |
 | Sentry errors | org `academyos`, project `academyos-staging` (`4512294699728976`), EU project | Browser/server events and source maps verified; strict source/provider privacy filtering; no replay/traces/logs/metrics |
-| Sentry uptime | monitor `2491612`, GET `/api/health`, environment staging | Scheduled check-ins verified: HTTP 200, displayed 100% uptime; alert routing/delivery is being tightened. Check data may be outside EU |
-| Sentry project alert | `1400964`, Send a notification for high priority issues | Existence verified; recipient/action delivery to refresh |
-| Independent backup | private Standard EU R2 `academyos-staging-backups` | Encrypted upload/download, actual local database restoration and first scheduled run passed; no hosted object restoration proof |
+| Sentry uptime | monitor `2491612`, GET `/api/health`, environment staging | Scheduled check-ins verified: HTTP 200, displayed 100% uptime; explicit operator alert and mailbox receipt verified. Check data may be outside EU |
+| Sentry backup Cron | monitor `2492943`, `academyos-staging-backup` | Daily 02:17 UTC, 90-minute grace, 30-minute runtime; actual start/error/success and recovery email verified |
+| Sentry operator alert | `1403422`, Notify Moamen Ghareeb | Staging only, uptime + backup, named owner; test/recovery receipt in approved mailbox |
+| Sentry project alert | `1400964`, Send a notification for high priority issues | Retained general high-priority fallback; explicit operational routing is handled by 1403422 |
+| Independent backup | private Standard EU R2 `academyos-staging-backups` | Encrypted upload/download, actual local database restoration and first scheduled run passed; actual nonempty hosted file re-upload passed at an isolated path in the same staging project; independent hosted-project recovery remains open |
 | Backup endpoint | `https://3fda84919501e78157a07d5225d61299.eu.r2.cloudflarestorage.com` | Exact EU endpoint; private bucket, no public URL/custom domain |
 | Payments | Disabled | No gateway or live merchant credentials configured; provider/entity/money-flow decisions remain |
 
@@ -28,7 +30,7 @@ Updated 22 October 2026. Current configuration and proof are distinct. [Executio
 
 - Vercel Authentication covers All Deployments; source maps protected. Callback/monitor automation uses the owner's saved bypass key. That bypass does not create a Clerk session or academy membership.
 - Supabase automatic table exposure is off; auto-RLS protection is on. Private academy tables have RLS without direct client policies. Only narrow caller-derived RPCs are intentionally callable by authenticated roles. Advisor rationale is recorded, not dismissed as a full audit pass.
-- Server-side database SSL enforcement was enabled on 22 October; the provider completed its restart and the dashboard switch was verified on. Backup clients retain verify-full and the pinned provider CA. A post-change encrypted backup is being verified.
+- Server-side database SSL enforcement was enabled on 22 October; the provider completed its restart and the dashboard switch was verified on. Backup clients retain verify-full and the pinned provider CA. Post-change encrypted backups succeeded, including actual Storage file download.
 - The four Storage buckets are private. No tenant client upload/download policies exist yet; this is deliberate until permission implementation.
 - `SERVICE_SETUP_ENABLED=false`; temporary verification routes are closed after proof. Process health is only process liveness.
 - Public app Data API calls use the publishable key/current Clerk token. Privileged backup credentials are not app runtime credentials.
@@ -65,4 +67,12 @@ No provider token, password, private key, bypass value, browser session or resto
 
 Backup workflow: daily 02:17 UTC, currently 05:17 Cairo on 22 October. Cairo daylight-saving changes affect local display, not the UTC schedule. GitHub can delay dispatch; first scheduled run started around 02:43 UTC. This is an initial daily staging cadence, not the proposed one-hour production RPO.
 
-No application backup deletions/retention rule or bucket lock was applied at the previous stop. Only the provider's default incomplete-multipart-abort rule exists. R2 billing was activated by the owner; no other paid plan upgrade is recorded. Production regions/plans/retention/cost caps must be explicitly reviewed before customer data. Refer to [remaining work](remaining-configuration.md).
+Active prefix `staging/`: `staging-backup-lock-7d` rejects overwrite/deletion for seven days; owner-approved `staging-backups-expire-30d` expires objects after 30 days. The default seven-day incomplete-multipart abort remains. Bucket administrators can remove lock rules; this is not an irreversible compliance hold. R2 billing was activated by the owner; no other paid plan upgrade is recorded. Production regions/plans/retention/cost caps must be explicitly reviewed before customer data. Refer to [remaining work](remaining-configuration.md).
+
+Current Cloudflare billable usage was $0.00 on 22 October. Its pre-existing $10 account-wide budget email warning was inspected and left unchanged; it is not a spending cap. Sentry remains an existing Business trial, no billing details on file, with no assistant-performed paid conversion. See [operator/custody guide](operations-and-custody.md) for review and limitations.
+
+## Sentry free-tier request — 22 October 2026
+
+Owner requested the free Developer tier. The live subscription still shows Business Trial, 13 days left, with no billing details/payment method on file. The documented cancellation route returns “Your plan is not eligible to be cancelled.” No plan change or payment was submitted. Immediate downgrade is provider-blocked; the requested target is free Developer, and the exact post-trial effective plan/monitor behavior must be verified rather than assumed. Support contact has not been authorized/sent. Existing monitoring remains active.
+
+Trial-end monitoring caveat: Sentry’s official Crons guidance says that, without pay-as-you-go budget, having more than one active Cron monitor at trial end disables Cron monitors. AcademyOS currently has one backup Cron monitor; the separate uptime monitor is a different product. This does not verify the Business trial’s automatic plan transition or uptime entitlement. Keep the free-tier target and verify effective plan, active monitors, privacy settings and alert delivery at transition. Source: https://www.sentry.help/en/articles/13963929-do-my-cron-monitors-stay-active-after-my-crons-trial-ends .

@@ -79,3 +79,7 @@ Owner: Workspace; People; Training; Finance; Development; Media; Reports; Suppor
 Use task names users understand. Keep platform billing out of family payment navigation. Hide modules outside the active release/entitlement without pretending they are implemented. Where a future feature is previewed, label it clearly and offer no dead primary action.
 
 Before building each screen, attach its workflow, capability set, query fields, mutations, empty/error/conflict states, mobile/RTL layout and acceptance cases. The catalog is the coverage inventory; it is not a substitute for those contracts.
+
+## Platform Services & Operations extension — planned
+
+See the [detailed Platform Owner vision](platform-owner-services-and-operations.md). Add S51 Services overview, S52 Service detail, S53 Health & quality, S54 Usage & limits, S55 Costs & plans, S56 Capability impact map, S57 Backups & recovery and S58 Incidents & changes under the separate platform context. All routes remain proposals; no live page is claimed. Moamen is Platform Owner; academy administrators receive no provider credentials/cost visibility by default.

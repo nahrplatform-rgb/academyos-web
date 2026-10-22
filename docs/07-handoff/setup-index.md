@@ -10,11 +10,12 @@ Updated 22 October 2026. Owner: Moamen Ghareeb / NAHR. This index describes the 
 4. [Detailed service receipts](service-setup.md): deployment, callback, monitoring, email and backup identifiers.
 5. [Membership/security receipts](membership-connection.md): database migrations, caller scope and test limitations.
 6. [Backup operation and recovery procedure](../../scripts/backups/README.md): coverage, encryption, schedule, credentials and exact recovery commands.
-7. [Product and policy decisions](../00-governance/decisions-and-open-questions.md): requirements that must be settled before dependent app features.
+7. [Operator actions, custody and cost boundaries](operations-and-custody.md): failures, recovery, rotation and provider-plan limits.
+8. [Product and policy decisions](../00-governance/decisions-and-open-questions.md): requirements that must be settled before dependent app features.
 
 ## Current outcome
 
-The private EN/AR staging application is deployed. Authentication and the initial database boundary work. Redis, a signed QStash test callback, controlled Resend delivery, Sentry errors/source maps and encrypted independent backup/database restoration have runtime proof. The uptime monitor's manual test passed. The first daily scheduled backup also succeeded: [39712985982](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39712985982).
+The private EN/AR staging application is deployed. Authentication and the initial database boundary work. Redis, a signed QStash test callback, controlled Resend delivery, Sentry errors/source maps and encrypted independent backup/database restoration have runtime proof. Scheduled uptime checks, an explicit operator alert and a controlled backup failure/recovery notification now have proof. Database SSL is enforced. Actual nonempty file transport/recovery/re-upload passed within the staging service. The private R2 bucket has a seven-day lock and owner-approved 30-day expiry. The first daily scheduled backup also succeeded: [39712985982](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39712985982).
 
 The application currently has one verified identity and no academy/membership records in the last restored snapshot. Signing up grants no academy authority. No operational module, tenant upload/download permission, live payment integration or production launch is accepted as complete.
 
@@ -26,3 +27,7 @@ The application currently has one verified identity and no academy/membership re
 - Backup publication, database restoration and hosted file/service restoration are separate checks.
 - Keep credentials and private payloads in the vault/provider secret stores. This record contains names and non-secret resource metadata only.
 - Existing history is retained below current-status notices. Never execute an older pending checklist without checking this index first.
+
+## Platform administration planning extension
+
+[Platform Owner — Services & Operations](../03-design/platform-owner-services-and-operations.md) records the accepted owner-facing direction and proposed detailed design. This is planned application work, separate from completed provider configuration.

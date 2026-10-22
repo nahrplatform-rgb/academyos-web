@@ -41,3 +41,7 @@ Every task has a named primary and backup operator; a checklist without ownershi
 ## Exit/portability
 
 Maintain versioned migrations, domain/API contracts, exportable business data, private object manifests and provider ID mappings. An exit plan identifies data export formats, auth migration constraints, secret rotation, DNS cutover and deletion confirmation. Do not assume passwords or provider-managed credentials can be exported. Rehearse portability for critical data before it becomes an emergency.
+
+## Owner-facing control plane
+
+The [Services & Operations vision](../03-design/platform-owner-services-and-operations.md) is the planned Platform Owner interface for this contract: actual versus estimated cost, shared-account allocation, multiple meters, versioned quota consequences, capability impact and freshness. Provider invoices remain authoritative; budget warnings are not spending caps. All current operational proof remains in the [configuration register](../07-handoff/configuration-status.md).

@@ -56,3 +56,7 @@ Re-estimate after stages 2 and 6 using observed delivery and defect/recovery wor
 The critical path is identity/tenant authority → people/relationships → dated schedule → attendance → finance/evaluation/reporting → recovery and acceptance. Cross-cutting design, CI, observability and privacy start in foundation. Native work depends on stable API/versioning and offline contracts, not merely a finished website screenshot.
 
 If scope changes, update the release map, requirement row, affected tests, provider needs and estimates together. A requirement is complete only when its declared evidence passes and the appropriate owner accepts it. “Source implemented,” “deployed,” and “accepted” remain separate milestones.
+
+## Added platform operations workstream — 22 October 2026
+
+Deliver the [Platform Owner Services & Operations vision](../03-design/platform-owner-services-and-operations.md) after explicit platform authorization: read-only inventory/health/freshness and dependency impact first; usage/limit/cost observations next; incidents/recovery evidence next; approved audited actions last. Build alongside onboarding, then require production evidence at commercial hardening. Do not buy plans, grant platform access or fabricate provider data as a shortcut.

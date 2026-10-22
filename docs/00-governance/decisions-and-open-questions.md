@@ -21,6 +21,8 @@ Version 1.0 · 21 October 2026
 | ADR-013 | Reuse the existing private staging resources; Vercel Production for academyos-web remains AcademyOS staging. | Owner setup instructions / verified execution |
 | ADR-014 | Private EU Cloudflare R2 is the independent encrypted staging backup destination; owner activated billing and retains the age recovery key in the vault. | Owner activation/custody confirmation and backup/restore proof |
 
+| ADR-015 | Staging backup prefix `staging/` uses a reversible seven-day overwrite/deletion lock and owner-approved 30-day object expiry. This does not accept production/customer data retention or a legal hold. | Owner explicitly approved 30-day cleanup on 22 October 2026; configured rules and actual lock-denial test verified |
+
 ## Proposed technical defaults
 
 These are reviewable recommendations. They are not claims that accounts are already configured.

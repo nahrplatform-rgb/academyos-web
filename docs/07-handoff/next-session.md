@@ -1,5 +1,13 @@
-# Current continuation checkpoint — 22 October 2026
+# Current checkpoint — 22 October 2026
 
-Owner has resumed and authorized documentation consolidation plus remaining staging configuration. The earlier stop request is superseded. Start at [the ordered setup index](setup-index.md), then the [remaining configuration board](remaining-configuration.md).
+Start at [the ordered setup index](setup-index.md), [completed 26-step history](setup-history.md), [current register](configuration-status.md), [operator guide](operations-and-custody.md) and [remaining gates](remaining-configuration.md).
 
-Detailed original provider/test receipts are preserved in [service-setup.md](service-setup.md); source through `6ca2b25` was pushed before this revision. Current documentation work corrects stale historical status and is being validated before commit/push. Current user instructions authorize that continuation; no production launch or real academy records are implied.
+Staging finishing configuration now includes database SSL enforcement, scheduled uptime, independent daily backup failure/missed-run monitoring, explicit operator alerts, real nonempty private file recovery/re-upload, a seven-day R2 lock and owner-approved 30-day expiry. Exact receipts and limitations are in [service-setup.md](service-setup.md). Latest implementation source `31d6ed2` has passing CI; protection run `39746661788` succeeded. Documentation changes record these results separately.
+
+Owner asked whether the assistant purchased or upgraded subscriptions: it did not. R2 was activated by the owner earlier and is usage billed; current Cloudflare usage showed $0.00. Existing $10 email warning is not a hard cap. Sentry's existing trial needs its post-trial quota/plan review before expiry; no paid conversion was performed.
+
+Next authorized development should resolve the admission/authority decisions for controlled onboarding (D-002/D-003), then implement that complete slice. No real academies or permissions have been created. Production isolation, business-role Storage permissions, financial providers, whole-service recovery and launch acceptance remain explicit future gates. Do not restart completed provider onboarding or treat a green setup as full app completion.
+
+## Sentry free-tier request — 22 October 2026
+
+Owner requested the free Developer tier. The live subscription still shows Business Trial, 13 days left, with no billing details/payment method on file. The documented cancellation route returns “Your plan is not eligible to be cancelled.” No plan change or payment was submitted. Immediate downgrade is provider-blocked; the requested target is free Developer, and the exact post-trial effective plan/monitor behavior must be verified rather than assumed. Support contact has not been authorized/sent. Existing monitoring remains active.

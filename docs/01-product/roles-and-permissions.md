@@ -66,3 +66,7 @@ Read, insert, update, delete, RPC, export, storage-link issuance, background exe
 - A platform support user cannot create a tenant-owner membership through an account-management helper.
 
 Evidence must include positive and negative tests with two academies, two branches, multiple simultaneous roles, suspended memberships and stale sessions.
+
+## Platform Owner clarification
+
+Moamen is the accountable **Platform Owner**, distinct from an Academy Owner. This is the owner tier of platform administration, not a seventh tenant role or an implemented permission grant. The [Services & Operations vision](../03-design/platform-owner-services-and-operations.md) defines its planned operational/billing visibility, controlled actions and acceptance boundaries. Explicit audited provisioning and server/database authorization are required; signup grants no platform authority.

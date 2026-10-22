@@ -17,7 +17,7 @@ Provider-managed Auth, other managed schemas, account configuration, Clerk sessi
 
 The only committed encryption key is the public age recipient. The private recovery key stays in the owner's vault and a local file with mode 0600. It must never be a GitHub or Vercel secret. Archive encryption happens on the runner before uploading to the private EU R2 bucket `academyos-staging-backups`. Public access and custom domains are disabled.
 
-Every run uses a new UUID object prefix. It reads the uploaded ciphertext back and checks its exact size and SHA-256 before publishing a receipt. It does not mirror source deletions or delete backups. The R2 Object Read & Write permission also permits object deletion at provider level; the script never requests deletion. A bucket lock and retention/retirement policy remain separate decisions.
+Every run uses a new UUID object prefix. It reads the uploaded ciphertext back and checks its exact size and SHA-256 before publishing a receipt. It does not mirror source deletions or delete backups. The R2 Object Read & Write permission also permits object deletion at provider level; the script never requests deletion. The active staging lock/expiry rules are recorded below; production retirement policy remains a separate decision.
 
 Plaintext lives only in a permission-restricted temporary directory and is cleaned up on exit. No plaintext, credentials or decrypted object manifests are GitHub Actions artifacts. The job summary contains only a non-sensitive encrypted-copy receipt. A manual run can explicitly export an encrypted-only recovery package and its receipt as a private GitHub artifact retained for one day; scheduled runs do not. Recovery plaintext likewise needs private local storage and cleanup after rehearsal.
 
@@ -32,7 +32,7 @@ Add these as **Environment secrets** under GitHub repository Settings → Enviro
 | `R2_ACCESS_KEY_ID` | Account token Access Key ID, Object Read & Write, scoped only to this backup bucket. |
 | `R2_SECRET_ACCESS_KEY` | Matching R2 Secret Access Key. |
 
-These credentials are privileged. The database connection can access the project even though the export subprocess is forced read-only. The dedicated Supabase key can read/write project data although this script only downloads. Do not put them in Vercel, source code, chat, build output, PR checks or broad organization secrets. Rotating them is a separate controlled task; no existing credential is reset by the workflow.
+These credentials are privileged. The database connection can access the project even though the export subprocess is forced read-only. The dedicated Supabase key can read/write project data although the export script only downloads; the separately dispatched operator rehearsal can write/remove only its fixed synthetic fixtures. Do not put them in Vercel, source code, chat, build output, PR checks or broad organization secrets. Rotating them is a separate controlled task; no existing credential is reset by the workflow.
 
 The non-secret GitHub environment variable `BACKUP_DATABASE_HOST` records the verified eu-west-1 session pooler host from this project's Connect dialog. The script fixes the project-specific username, database and port 5432, safely encodes the supplied password and validates the target. No connection URL is logged or passed as a command-line argument. Transaction pooler port 6543 is never used.
 
@@ -40,7 +40,7 @@ TLS remains `verify-full`, using the Supabase Root 2021 CA from the staging proj
 
 ## Execution and receipts
 
-The workflow runs daily at 02:17 UTC and can be started manually on main. This initial staging cadence does **not** meet the proposed one-hour production RPO. GitHub failure status/notifications must be monitored by the owner; notification delivery, overdue-run detection and whole-service recovery objectives are not established by a green workflow.
+The workflow runs daily at 02:17 UTC and can be started manually on main. This initial staging cadence does **not** meet the proposed one-hour production RPO. The independent Sentry schedule monitor and named-owner alert now cover failed/missed check-ins, with controlled failure/recovery and mailbox proof. The owner must still investigate GitHub failure status and validate encrypted-copy receipts; a green workflow does not establish whole-service recovery objectives.
 
 The export refuses unexpected source hosts/projects, transaction-pooler connections, public/unreviewed Storage buckets, changed inventories or more than 2 GiB of payload. These are hard failures, never silent partial backups. New schemas/buckets or larger data require a reviewed coverage/limit update.
 
