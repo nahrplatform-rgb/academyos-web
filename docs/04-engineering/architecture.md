@@ -52,3 +52,7 @@ Version APIs and support a declared client compatibility window. Server migratio
 ## Engineering quality constraints
 
 Every module needs reproducible migrations, seed fixtures, positive/negative authorization tests, typed contracts, observable operation IDs and documented recovery. No real academy data in development. No production credentials needed to run ordinary tests. No dashboard-only schema edits without a corresponding reviewed migration. Hosted database policy/function definitions must be compared with the migration baseline before release.
+
+## Data delivery and performance contracts
+
+Apply the [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and [screen/data matrix](../03-design/screen-data-loading-matrix.csv) before module implementation. Use bounded authorized projections, avoid serial waterfalls and per-row query fan-out, and inspect representative database work. Cache rules distinguish action authority, operational reads, derived summaries, reference data and provider observations. Shared Redis business caching and realtime subscriptions need measured justification and reviewed scope; current provider configuration is not implementation proof.

@@ -134,3 +134,7 @@ Observe task success without assistance, wrong turns, abandoned work, wrong-acad
 The journey register is the coverage index. Every visible action, deep link, notification action and scheduled user-facing handoff must eventually map to an action specification, requirement, screen and test. At milestone review, compare actual UI actions and API operations with the register to find omissions. A family row is not enough to claim every action covered.
 
 Use separate status fields for design, implementation, verification and owner acceptance. New work begins as Planned/Not executed. Keep blocked policy, inaccessible provider evidence and untested states visible. Additions or removals update navigation, journeys, requirements, tests and delivery together. Acceptance of this planning direction does not approve every default, create an account, grant a role, launch production or retire future scope.
+
+## Experience and retrieval contract
+
+The [experience/performance plan](experience-performance-and-data-loading.md) and [screen/data matrix](screen-data-loading-matrix.csv) add five mandatory questions to every action: usability, speed, correctness, cost and recovery. Before coding, declare critical/deferred data, retrieval bounds, freshness/authority, invalidation, pending/failure states, workload and measurement budget. Design approval does not establish measured performance.

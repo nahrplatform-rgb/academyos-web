@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Experience, performance and retrieval planning — 22 October 2026
+
+Added the AcademyOS-specific experience/performance plan and 18-row proposed screen/data loading matrix. Required usability, speed, correctness, cost and recovery as separate journey gates; documented role priorities, progressive loading, bounded queries, freshness/cache authority, safe saves, retry/partial failures, proposed performance budgets, privacy-safe measurement and workload/cost scenarios. Added planned AO-169–176/AT-169–176 and linked design, architecture, roadmap, operations and handoff. No application, schema, telemetry setting, provider subscription or runtime performance result changed.
+
 ## Experience blueprint expansion — 22 October 2026
 
 Expanded the owner-requested role-aware UI/UX direction into a shared experience blueprint, action-contract template, cross-person handoffs, recovery/state patterns, worked player/guardian example and staged design/build/acceptance gates. Added 28 journey families across the full scope; these are planned coverage entries requiring detailed action expansion, not a claim every action is specified or implemented. Linked design system, screen catalog, role narratives, roadmap, builder handoff and acceptance strategy. Preserved unresolved admission, authority, age/consent and financial policies. No application, database, provider setting or actual role grant changed.

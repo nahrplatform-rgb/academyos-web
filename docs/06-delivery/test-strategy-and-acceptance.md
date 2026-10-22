@@ -1,6 +1,6 @@
 # Test strategy, evidence and formal acceptance
 
-The [requirements matrix](requirements-traceability.csv) defines 168 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
+The [requirements matrix](requirements-traceability.csv) defines 176 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
 
 ## Evidence layers
 
@@ -59,3 +59,7 @@ The documentation verification report checks this pack's structure and traceabil
 Use the [experience blueprint](../03-design/experience-blueprint-and-journey-governance.md) and [journey register](../03-design/journey-register.csv) alongside requirements. Before coding, require the action contract, handoffs and applicable state matrix. Before milestone completion, reconcile actual UI/API/deep-link actions with individually specified journeys and tests. Family rows alone do not prove every action is covered.
 
 Include Platform Owner, Academy Owner, Manager, Trainer, Guardian and eligible Player tasks; first-use/returning and dual-role/revoked personas; EN/AR/RTL, keyboard/screen reader and phone/desktop. Record completion without coaching, wrong turns, context mistakes, saved-state uncertainty and recovery success. Proxy walkthroughs are distinct from real participant usability research. Design review, implementation, deployed verification and owner acceptance each retain separate status and evidence.
+
+## Five-dimension journey acceptance
+
+For each upcoming slice, answer usability, speed, correctness, cost and recovery independently using the [experience/performance plan](../03-design/experience-performance-and-data-loading.md). Verify critical/deferred retrieval and bounds, cold/warm first useful time, declared sample sizes/percentiles, server versus network/rendering time, bytes and query work, revocation/cache isolation, lost responses and partial dependency failure. Declare device/network/dataset/concurrency; physical offline evidence remains separate. A fast skeleton, simulated network result, small fixture or aggregate score cannot establish full journey acceptance. New AO-169–176/AT-169–176 cases remain planned until executed.

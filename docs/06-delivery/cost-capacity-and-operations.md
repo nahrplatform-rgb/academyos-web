@@ -1,6 +1,6 @@
 # Cost, capacity and routine operations
 
-No account billing has been inspected and no fixed current-price quote is made. Record current provider prices/limits at purchase and review after pilot load measurements. D-022 sets the actual budget; D-016 sets affordable recovery targets.
+This is a planning cost model, not a live billing statement. Selected staging billing observations are recorded separately in the configuration register; no fixed current-price quote is made here. Record current provider prices/limits at purchase and review after pilot load measurements. D-022 sets the actual budget; D-016 sets affordable recovery targets.
 
 ## Cost model
 
@@ -45,3 +45,7 @@ Maintain versioned migrations, domain/API contracts, exportable business data, p
 ## Owner-facing control plane
 
 The [Services & Operations vision](../03-design/platform-owner-services-and-operations.md) is the planned Platform Owner interface for this contract: actual versus estimated cost, shared-account allocation, multiple meters, versioned quota consequences, capability impact and freshness. Provider invoices remain authoritative; budget warnings are not spending caps. All current operational proof remains in the [configuration register](../07-handoff/configuration-status.md).
+
+## Journey-level retrieval and cost measurement
+
+The [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and [screen/data matrix](../03-design/screen-data-loading-matrix.csv) connect task demand to query work, requests, bytes, cache commands, job/retry amplification and provider meters. Model pilot, expected scale and busy-day scenarios using declared inputs; include abandoned visits, synchronized session starts, tenant size skew and both staging/production overhead. Keep dated rate assumptions, actual charges, allocated costs and marginal task estimates separate. A lower request count or higher cache hit rate alone is not proof of lower cost.

@@ -34,3 +34,7 @@ Update the relevant workflow and requirement row with implementation changes. Ad
 ## Experience blueprint handoff
 
 Before implementing a feature, read the [experience blueprint](../03-design/experience-blueprint-and-journey-governance.md) and expand the relevant [journey family](../03-design/journey-register.csv) into specific action contracts. The first proposed slice is controlled academy creation through owner acceptance and initial setup, subject to D-002/D-003. Prepare the connected prototype and exceptional states before coding; no app implementation or account grant is authorized merely by this document.
+
+## Experience/performance build readiness
+
+Read the [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and expand the relevant [screen/data matrix rows](../03-design/screen-data-loading-matrix.csv) before coding. Each slice needs five quality dimensions, data/freshness/authority bounds, failure prototypes, workload/budgets and privacy-safe measurement. Existing tracing/replay/log privacy settings remain unchanged; this planning work does not authorize new telemetry or a provider upgrade.

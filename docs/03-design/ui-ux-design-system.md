@@ -95,3 +95,7 @@ Approve representative owner, trainer, guardian, player and platform-admin journ
 ## Journey-first application of the design system
 
 Apply these components through the [experience blueprint](experience-blueprint-and-journey-governance.md). Consistent colors and spacing are only one layer: navigation, inputs, confirmation, pending results, recovery and cross-person handoffs must also be consistent. Before building a journey, review its connected screens and states in EN/AR and phone/desktop contexts. Components and prototypes remain unverified until exercised in their actual task context.
+
+## Loading is part of interaction design
+
+Use the [experience/performance plan](experience-performance-and-data-loading.md) for stable progressive regions, role-first task priority, safe save feedback and clear pending/partial/stale states. A skeleton is not a useful view; visual acknowledgement is not a committed business action. Validate loading alongside keyboard focus, Arabic RTL, mobile layouts and interruption recovery.
