@@ -52,3 +52,11 @@ Do not copy OTP-bearing subjects, payloads or provider dashboard screenshots int
 
 
 Owner subsequently authorized the [verification-email delivery repair](clerk-verification-delivery.md). Its code, signing/recipient negative checks and saved staging-template switch are recorded separately; requesting/receiving/verifying a fresh code remains a dependent live step before B acceptance.
+
+## Verified appointment and populated B — 23 October 2026
+
+After reporting successful verification, Moamen reported completion of appointment/setup. A bounded hosted database read independently confirmed B's invitation redemption at 10:51:29 UTC, a distinct owner subject from A, exactly one active Owner membership matching the redeemed account, setup version 3/completed, persisted `Africa/Cairo`, one branch and one sport. B has three setup audit events, five business operations, one invitation delivery attempt and no active Platform Owner grant. Each owner has exactly one active academy membership. A remains version 9/completed/Cairo with its existing single membership, one branch/sport, nine setup audits, eleven operations, one invitation attempt and existing platform grant. This proves durable appointment/setup, not full product or security acceptance.
+
+Under the existing actual A browser session, direct navigation to populated B's valid setup URL displayed the access-unavailable state with no academy name, branch, sport or timezone. Returning to A's setup recovered its original saved summary. This is a UI read-boundary/recovery observation; no HTTP status, cross-tenant save/receipt denial or reverse-direction result is inferred. Safe synthetic-only screenshots remain in restricted operator evidence; the user-supplied mail screenshot contains a verification code and unrelated private mail, so it was not copied into repository evidence.
+
+The separate Safari session could not be inspected because native screen capture failed. No session credentials were extracted or copied and no account switch was invented. B-to-A and B-to-platform actual-session checks, both directions of save/receipt probes and delayed-context races remain open. No cross-tenant write or configuration change was attempted in this follow-up.
