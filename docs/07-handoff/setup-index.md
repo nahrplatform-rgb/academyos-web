@@ -52,3 +52,5 @@ Current staging entry policy (23 October): [direct AcademyOS access](staging-dir
 [Clerk verification-email repair](clerk-verification-delivery.md) records the owner-authorized self-delivery integration after iCloud rejected the development sender. Fresh email delivery and owner receipt were observed; the distinct B account subsequently accepted and completed setup, as recorded in the [two-account checks](onboarding-m1-two-account-isolation.md). Preview protection and direct staging access remain under ADR-016.
 
 [Invitation account-entry follow-up](onboarding-m1-auth-entry.md) records explicit EN/AR Create account/Sign in guidance, return-to-invitation handling and delayed-identity UI checks. Local results, staging rollout and actual provider completion are separate.
+
+[Invitation handoff recovery](onboarding-m1-handoff-recovery.md) records a reproduced identity-resolution race, the bounded route/identity lifetime fix and production/development React regression evidence. Independent security and hosted provider timing remain separate gates.

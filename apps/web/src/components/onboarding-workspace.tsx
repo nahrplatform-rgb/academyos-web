@@ -16,14 +16,34 @@ async function request(body: Payload) {
   const value = await res.json(); if (!res.ok) throw new RequestError(value.error ?? 'unavailable'); return value.data;
 }
 type WorkspaceProps = { locale: string; mode: 'context' | 'platform' | 'setup' | 'invitation'; academy?: string };
+type HandoffState = 'pending' | 'ready' | 'failed';
 export default function OnboardingWorkspace(props: WorkspaceProps) {
-  const session = useUser();
-  return <JourneyWorkspace key={`${session.user?.id ?? 'signed-out'}:${props.mode}:${props.academy ?? ''}:${props.locale}`} {...props} isLoaded={session.isLoaded} isSignedIn={Boolean(session.isSignedIn)} subject={session.user?.id} />;
+  return <WorkspaceHandoff key={`${props.mode}:${props.academy ?? ''}:${props.locale}`} {...props} />;
 }
-function JourneyWorkspace({ locale, mode, academy, isLoaded, isSignedIn, subject }: WorkspaceProps & { isLoaded: boolean; isSignedIn: boolean; subject?: string }) {
+function WorkspaceHandoff(props: WorkspaceProps) {
+  const session = useUser();
+  const [handoff, setHandoff] = useState<HandoffState>(props.mode === 'invitation' ? 'pending' : 'ready');
+  const exchangeRequest = useRef<Promise<unknown> | null>(null);
+  useEffect(() => {
+    let live = true;
+    if (props.mode === 'invitation') {
+      if (!exchangeRequest.current) {
+        const fragment = window.location.hash.slice(1); window.history.replaceState(null, '', window.location.pathname);
+        const [invitation, token] = fragment.split('.');
+        exchangeRequest.current = fragment ? request({ action: 'exchange', invitation, token }) : Promise.resolve();
+      }
+      exchangeRequest.current.then(() => { if (live) setHandoff('ready'); }).catch(() => { if (live) setHandoff('failed'); });
+    }
+    return () => { live = false; };
+  }, [props.mode]);
+  // Handoff lifetime follows the route; private projections still reset with identity.
+  return <JourneyWorkspace key={session.user?.id ?? 'signed-out'} {...props} handoff={handoff} isLoaded={session.isLoaded} isSignedIn={Boolean(session.isSignedIn)} subject={session.user?.id} />;
+}
+function JourneyWorkspace({ locale, mode, academy, handoff, isLoaded, isSignedIn, subject }: WorkspaceProps & { handoff: HandoffState; isLoaded: boolean; isSignedIn: boolean; subject?: string }) {
   const ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
   const [context, setContext] = useState<Context | null>(null), [items, setItems] = useState<Academy[]>([]), [more, setMore] = useState(false), [setup, setSetup] = useState<Setup | null>(null), [invite, setInvite] = useState<Invitation | null>(null);
-  const [busy, setBusy] = useState(false), [loading, setLoading] = useState(true), [error, setError] = useState(''), [notice, setNotice] = useState(''), [exchanged, setExchanged] = useState(false);
+  const [busy, setBusy] = useState(false), [loading, setLoading] = useState(true), [requestError, setError] = useState(''), [notice, setNotice] = useState('');
+  const exchanged = handoff === 'ready', error = handoff === 'failed' ? 'invalid' : requestError;
   const [review, setReview] = useState<Payload | null>(null), [pending, setPending] = useState<Payload | null>(null), [uncertain, setUncertain] = useState(false);
   const [name, setName] = useState(''), [email, setEmail] = useState(''), [branch, setBranch] = useState(''), [timezone, setTimezone] = useState(''), [sportEn, setSportEn] = useState(''), [sportAr, setSportAr] = useState('');
   const storageKey = `academyos:staging:m1-operation:${subject ?? 'none'}:${mode}:${academy ?? 'none'}`;
@@ -55,11 +75,6 @@ function JourneyWorkspace({ locale, mode, academy, isLoaded, isSignedIn, subject
   useEffect(() => {
     let live = true; alive.current = true;
     if (subject) { try { const stored = JSON.parse(sessionStorage.getItem(storageKey) ?? 'null'); if (stored && typeof stored.op === 'string' && /^[a-f0-9-]{36}$/i.test(stored.op)) void Promise.resolve().then(() => { if (live) { setPending({ action: 'recovered', op: stored.op }); setUncertain(true); } }); } catch { } }
-    if (mode === 'invitation') {
-      const fragment = window.location.hash.slice(1); window.history.replaceState(null, '', window.location.pathname);
-      if (fragment) { const [invitation, token] = fragment.split('.'); request({ action: 'exchange', invitation, token }).then(() => { if (live) setExchanged(true); }).catch(() => { if (live) { setError('invalid'); setLoading(false); } }); }
-      else void Promise.resolve().then(() => { if (live) setExchanged(true); });
-    } else void Promise.resolve().then(() => { if (live) setExchanged(true); });
     return () => { live = false; alive.current = false; };
     // Opaque receipt storage is bound to the keyed subject/context, never authority.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -134,7 +149,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
             </SignInButton>
           </div>
         </section>}
-        {((loading && isSignedIn) || !isLoaded) && <section className="journey-card" aria-busy="true">
+        {handoff !== 'failed' && ((loading && isSignedIn) || !isLoaded) && <section className="journey-card" aria-busy="true">
           <h2>{t('Checking access and saved progress', 'جارٍ التحقق من الصلاحيات والتقدم المحفوظ')}</h2>
           <p role="status">{t('Please wait. A failed lookup will not appear as an empty workspace.', 'يرجى الانتظار. لن يظهر فشل التحميل كمساحة فارغة.')}</p>
         </section>}

@@ -7,6 +7,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 const root=resolve(import.meta.dirname,'../..');
+const reactMode=process.env.UI_REACT_MODE==='development'?'development':'production';
 const adapter=`import React from 'react';
 let subject=new URLSearchParams(location.search).has('signedOut')?null:'user_synthetic';
 const listeners=new Set();window.addEventListener('synthetic-session',e=>{subject=e.detail;listeners.forEach(fn=>fn());});
@@ -14,7 +15,7 @@ export function useUser(){const id=React.useSyncExternalStore(fn=>{listeners.add
 export function UserButton(){return <button>Test account</button>;}
 export function SignInButton({children,forceRedirectUrl,signUpForceRedirectUrl}){return <span data-auth="sign-in" data-return={forceRedirectUrl} data-transfer-return={signUpForceRedirectUrl}>{children}</span>;}
 export function SignUpButton({children,forceRedirectUrl,signInForceRedirectUrl}){return <span data-auth="sign-up" data-return={forceRedirectUrl} data-transfer-return={signInForceRedirectUrl}>{children}</span>;}`;
-const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Workspace from '${root}/apps/web/src/components/onboarding-workspace.tsx';const p=new URLSearchParams(location.search);createRoot(document.getElementById('root')).render(<Workspace locale={p.get('locale')||'en'} mode={p.get('mode')||'context'} academy={p.get('academy')||undefined}/>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'test-only-adapters',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':'"production"'}});
+const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Workspace from '${root}/apps/web/src/components/onboarding-workspace.tsx';const p=new URLSearchParams(location.search);createRoot(document.getElementById('root')).render(<React.StrictMode><Workspace locale={p.get('locale')||'en'} mode={p.get('mode')||'context'} academy={p.get('academy')||undefined}/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'test-only-adapters',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':JSON.stringify(reactMode)}});
 const css=await readFile(root+'/apps/web/src/app/globals.css','utf8');
 const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/bundle.js'?'text/javascript':'text/html');res.end(req.url==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div id="root"></div><script src="/bundle.js"></script></html>`);});
 await new Promise(r=>server.listen(3194,'127.0.0.1',r));
@@ -23,6 +24,7 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,revoked=false;
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
+let exchangeCommitted=true,reviewBeforeExchange=0,reviewCalls=0,exchangeCalls=0;
 let holdSetup=false,releaseSetup,setupEntered,switched=false;
 const a='00000000-0000-4000-8000-000000000001',iv='00000000-0000-4000-8000-000000000002';
 let setup={academy_id:a,name:'Synthetic Academy A',version:0,complete:false,timezone:null,branch:null,sport:null};
@@ -35,10 +37,14 @@ await page.route('**/api/onboarding',async route=>{
  case'platform':data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:false};break;
  case'create':admitted=true;data={academy_id:a,invitation_id:iv,generation:1};break;
  case'exchange':
+  exchangeCalls++;
   if(holdExchange){heldExchange=true;await new Promise(r=>{releaseExchange=r;});}
   if(failExchange){await route.fulfill({status:422,json:{error:'invalid'}});return;}
-  data={exchanged:true};break;
- case'review':data={academy_id:a,name:setup.name,accepted};break;
+  exchangeCommitted=true;data={exchanged:true};break;
+ case'review':
+  reviewCalls++;
+  if(!exchangeCommitted){reviewBeforeExchange++;await route.fulfill({status:422,json:{error:'invalid'}});return;}
+  data={academy_id:a,name:setup.name,accepted};break;
  case'accept':accepted=true;data={academy_id:a,name:setup.name,accepted:true};break;
  case'setup':
   data=structuredClone(switched?{...setup,name:'Synthetic Academy B',branch:{id:iv,name:'Branch B'},sport:{id:iv,label_en:'Sport B',label_ar:'رياضة ب'}}:setup);
@@ -58,6 +64,29 @@ await page.route('**/api/onboarding',async route=>{
  await route.fulfill({json:{data}});
 });
 try{
+ // Identity resolution cannot outrun the outstanding encrypted-cookie exchange.
+ holdExchange=true;exchangeCommitted=false;
+ const handoffStarted=page.waitForRequest(r=>r.url().endsWith('/api/onboarding')&&r.postDataJSON().action==='exchange');
+ await page.goto(`http://127.0.0.1:3194/?mode=invitation&signedOut=1#${iv}.${'b'.repeat(64)}`);
+ await handoffStarted;await page.getByRole('button',{name:'Create account',exact:true}).waitFor();
+ await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_synthetic_b'})));
+ await page.getByRole('button',{name:'Test account',exact:true}).waitFor();
+ await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+ const earlyReviews=reviewBeforeExchange;
+ const exchangeFinished=page.waitForResponse(r=>r.url().endsWith('/api/onboarding')&&r.request().postDataJSON().action==='exchange');
+ holdExchange=false;releaseExchange();await (await exchangeFinished).finished();
+ assert.equal(earlyReviews,0,'Invitation review must wait for cookie exchange across identity resolution');
+ await page.getByRole('button',{name:'Accept owner appointment',exact:true}).waitFor();
+ assert.equal(reviewCalls,1);assert.equal(exchangeCalls,1);assert.equal(new URL(page.url()).hash,'');
+ // A failed handoff stays failed after identity resolution, without review or grant.
+ holdExchange=true;exchangeCommitted=false;failExchange=true;reviewCalls=0;
+ const failedHandoffStarted=page.waitForRequest(r=>r.url().endsWith('/api/onboarding')&&r.postDataJSON().action==='exchange');
+ await page.goto(`http://127.0.0.1:3194/?mode=invitation&signedOut=1#${iv}.${'b'.repeat(64)}`);
+ await failedHandoffStarted;await page.getByRole('button',{name:'Create account',exact:true}).waitFor();
+ await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_synthetic_b'})));
+ await page.getByRole('button',{name:'Test account',exact:true}).waitFor();holdExchange=false;releaseExchange();
+ await page.getByRole('alert').waitFor();assert.equal(reviewCalls,0);assert.equal(await page.getByRole('button',{name:'Accept owner appointment',exact:true}).count(),0);
+ failExchange=false;exchangeCommitted=true;
  for(const locale of ['en','ar']){
   await page.setViewportSize({width:360,height:780});
   holdExchange=true;heldExchange=false;failExchange=false;
@@ -107,5 +136,5 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- console.log(JSON.stringify({ui:'passed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'}));
+ console.log(JSON.stringify({ui:'passed',reactMode,handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'}));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

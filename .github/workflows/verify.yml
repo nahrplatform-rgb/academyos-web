@@ -24,5 +24,7 @@ jobs:
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
       - name: Verify synthetic onboarding UI interaction and recovery
-        run: node scripts/onboarding/test_ui.mjs
+        run: |
+          node scripts/onboarding/test_ui.mjs
+          UI_REACT_MODE=development node scripts/onboarding/test_ui.mjs
       - run: npm run test:e2e
