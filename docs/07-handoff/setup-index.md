@@ -58,3 +58,5 @@ Current staging entry policy (23 October): [direct AcademyOS access](staging-dir
 [Independent M1 security review handoff](../04-engineering/onboarding-m1-independent-review.md) defines the whole-PR review target, boundaries, available evidence and unclosed cases. A separate reviewer and review result are pending; engineering self-review is not independent approval.
 
 [Fresh M1 engineering security review](../04-engineering/onboarding-m1-engineering-security-review.md) records the owner-requested review, restored function execution-limit configuration, fifteen local database groups, live metadata/runtime checks and the open direct-RPC abuse-budget gap. Independent approval and full acceptance remain open.
+
+M1 security continuation: [direct API abuse-control packet](../04-engineering/onboarding-m1-abuse-control.md) — local implementation/tests, ordered app/database rollout and residual review gates.

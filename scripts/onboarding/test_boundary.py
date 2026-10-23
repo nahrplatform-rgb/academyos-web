@@ -7,6 +7,7 @@ import hashlib
 import hmac
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import select
@@ -34,7 +35,7 @@ class Boundary(unittest.TestCase):
         subprocess.run([str(BIN/'pg_ctl'),'-D',cls.tmp+'/db','-l',cls.tmp+'/log','-o',f'-p 55441 -h 127.0.0.1 -k {cls.tmp}','start'],check=True,stdout=subprocess.DEVNULL)
         cls.base=[str(BIN/'psql'),'-X','-qAt','-v','ON_ERROR_STOP=1','-h','127.0.0.1','-p','55441','postgres']
         # Storage migration does not belong to this plain PG authorization harness.
-        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql','supabase/migrations/20261023114520_m1_restore_function_execution_limits.sql','supabase/tests/membership_boundary.sql']:
+        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql','supabase/migrations/20261023114520_m1_restore_function_execution_limits.sql','supabase/tests/membership_boundary.sql','supabase/migrations/20261023125542_m1_require_throttled_gateway.sql']:
             subprocess.run(cls.base+['-f',str(ROOT/f)],check=True,stdout=subprocess.DEVNULL)
         cls.sql("insert into academy.m1_secrets values('onboarding',"+literal(KEY)+"); insert into academy.platform_grants(subject,granted_by,reason) values('user_platform','test-harness','synthetic fixture only');")
 
@@ -44,10 +45,21 @@ class Boundary(unittest.TestCase):
         shutil.rmtree(cls.tmp)
 
     @classmethod
+    def caller(cls, subject, path='/rpc/m1_setup_v1', method='POST', proof_subject=None, delta=0, purpose='gateway', proof_path=None):
+        claims=json.dumps(dict(iss=ISS,sub=subject,role='authenticated'))
+        issued=int(time.time())+delta
+        target=method+':'+(proof_path or path)
+        values=[purpose,target,proof_subject or subject,str(issued),'']
+        proof=dict(purpose=purpose,target=target,subject=proof_subject or subject,issued=issued,emails='',signature=hmac.new(KEY.encode(),'\n'.join(values).encode(),hashlib.sha256).hexdigest())
+        headers=json.dumps({'x-academyos-gateway':json.dumps(proof)})
+        return f"set local role authenticated;set local request.jwt.claims={literal(claims)};set local request.path={literal(path)};set local request.method={literal(method)};set local request.headers={literal(headers)};"
+
+    @classmethod
     def sql(cls,query,subject=None,role='authenticated',ok=True):
         if subject:
-            claims=json.dumps(dict(iss=ISS,sub=subject,role='authenticated'))
-            query=f"begin;set local role {role};set local request.jwt.claims={literal(claims)};"+query+';commit;'
+            match=re.search(r'public\.([a-z0-9_]+)\(',query)
+            path='/rpc/'+(match.group(1) if match else 'm1_setup_v1')
+            query="begin;"+cls.caller(subject,path)+f"set local role {role};"+query+';commit;'
         if not subject:query="set academy.operator_subject='synthetic_test_operator';"+query
         r=subprocess.run(cls.base,input=query,text=True,capture_output=True)
         if ok and r.returncode: raise AssertionError(r.stderr)
@@ -147,7 +159,7 @@ class Boundary(unittest.TestCase):
 
     def test_07_aborted_operation_rolls_back(self):
         r,_,inv,token,_=self.create();a=r['academy_id'];self.accept(inv,token)
-        self.sql(f"begin;set local role authenticated;set local request.jwt.claims={literal(json.dumps(dict(iss=ISS,sub='user_owner',role='authenticated')))};select public.m1_save_setup_v1('{a}','{uuid.uuid4()}',0,'branch','{{\"name\":\"Interrupted\",\"timezone\":\"Africa/Cairo\"}}');rollback;")
+        self.sql("begin;"+self.caller("user_owner","/rpc/m1_save_setup_v1")+f"select public.m1_save_setup_v1('{a}','{uuid.uuid4()}',0,'branch','{{\"name\":\"Interrupted\",\"timezone\":\"Africa/Cairo\"}}');rollback;")
         result=json.loads(self.sql(f"select public.m1_setup_v1('{a}')",'user_owner'));self.assertEqual(result['version'],0);self.assertIsNone(result['branch'])
 
     def test_08_lease_proof_and_unknown_delivery(self):
@@ -212,6 +224,29 @@ class Boundary(unittest.TestCase):
         self.assertEqual(self.sql("select count(*) from academy.audit_events where details->>'subject'='user_provisioning_case' and actor='synthetic_test_operator'"),'2')
         self.sql("delete from academy.platform_grants where subject='user_provisioning_case'",ok=False)
 
+    def test_16_gateway_required_on_every_authenticated_entry_point(self):
+        def denied(query):
+            result=subprocess.run(self.base+['--set=VERBOSITY=verbose'],input=query,text=True,capture_output=True)
+            self.assertNotEqual(result.returncode,0)
+            self.assertIn('42501',result.stderr)
+        # Even an otherwise valid JWT cannot enter any public caller function.
+        signatures=json.loads(self.sql("select json_agg(p.proname) from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and has_function_privilege('authenticated',p.oid,'execute') and p.prosecdef"))
+        expected={'bootstrap_identity_v1','my_academy_memberships_v1','m1_context_v1','m1_platform_list_v1','m1_setup_v1','m1_operation_v1','m1_create_v1','m1_save_setup_v1','m1_manage_invitation_v1','m1_invitation_v1'}
+        # Delivery is separately worker-signed, including when reached with a user JWT.
+        self.assertEqual(set(signatures),expected | {'m1_delivery_v1'})
+        # Context/legacy bootstrap and each owner/platform route traverse the gate.
+        calls=["bootstrap_identity_v1()","my_academy_memberships_v1()","m1_context_v1()","m1_platform_list_v1()", "m1_setup_v1(gen_random_uuid())", "m1_operation_v1(gen_random_uuid())", "m1_create_v1(gen_random_uuid(),gen_random_uuid(),'X','x@academy.example',repeat('a',64))", "m1_save_setup_v1(gen_random_uuid(),gen_random_uuid(),0,'complete','{}')", "m1_manage_invitation_v1(gen_random_uuid(),gen_random_uuid(),1,'revoke',null)", "m1_invitation_v1(gen_random_uuid(),repeat('a',64),'{}',null)"]
+        for call in calls:
+            prefix=self.caller('user_platform','/rpc/'+call.split('(')[0])+"set local request.headers='{}';"
+            denied('begin;'+prefix+'select public.'+call+';commit;')
+        call="select public.m1_context_v1()"
+        path='/rpc/m1_context_v1'
+        for kwargs in [dict(proof_subject='user_other'),dict(delta=-40),dict(delta=60),dict(purpose='recipient'),dict(proof_path='/rpc/m1_setup_v1'),dict(method='GET')]:
+            denied('begin;'+self.caller('user_platform',path,**kwargs)+call+';commit;')
+        for suffix in ["set local request.headers='broken';", "set local request.headers='{}';", "set local request.headers='{}';set local request.path='';", "set local request.headers="+literal(json.dumps({'x-academyos-gateway':json.dumps(dict(purpose='gateway',target='POST:'+path,subject='user_platform',issued=int(time.time()),emails='',signature='0'*64))}))+";"]:
+            denied('begin;'+self.caller('user_platform',path)+suffix+call+';commit;')
+        self.assertTrue(json.loads(self.sql(call,'user_platform'))['platform'])
+
     def test_15_exposed_m1_operations_keep_execution_budgets(self):
         # Replacing a PostgreSQL function can silently discard per-function SET
         # limits. Check deployed-definition metadata after every forward migration.
@@ -228,10 +263,9 @@ class Boundary(unittest.TestCase):
                 a = r['academy_id']
                 self.accept(inv, token)
                 op = str(uuid.uuid4())
-                claims = literal(json.dumps(dict(iss=ISS, sub='user_owner', role='authenticated')))
                 save = f"select public.m1_save_setup_v1('{a}','{op}',0,'branch','{{\"name\":\"Race branch\",\"timezone\":\"Africa/Cairo\"}}')"
                 suspend = f"update academy.memberships set status='suspended' where academy_id='{a}' and role='owner'"
-                caller = f"set local role authenticated;set local request.jwt.claims={claims};"
+                caller = self.caller("user_owner","/rpc/m1_save_setup_v1")
                 holder = subprocess.Popen(self.base, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                           stderr=subprocess.PIPE, text=True, bufsize=1)
                 waiter = None

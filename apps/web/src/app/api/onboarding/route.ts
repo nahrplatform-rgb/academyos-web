@@ -2,8 +2,9 @@ import { sealInvitation, openInvitation } from "@/lib/invitation-cookie";
 import { NextRequest, NextResponse } from "next/server";
 import { onboardingSession, recipientProof, rpc, JourneyError } from "@/lib/onboarding-server";
 import { invitationToken, onboardingKey, tokenHash, uuidPattern } from "@/lib/onboarding";
-import { rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis } from "@/lib/rate-limit";
+import { rateLimitAllowed, stagingLimiter, stagingRedis } from "@/lib/rate-limit";
 import { dispatchInvitation } from "@/lib/onboarding-delivery";
+import { GatewayError, exchangeNetworkKey } from "@/lib/onboarding-gateway";
 import { STAGING_AUTH_ORIGINS } from "@/lib/config";
 export const dynamic = "force-dynamic";
 function response(data: unknown, status = 200) { return NextResponse.json(data, { status, headers: { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" } }); }
@@ -32,6 +33,11 @@ export async function POST(req: NextRequest) {
     while (true) { const { done, value } = await reader.read(); if (done) break; bytes += value.byteLength; if (bytes > 16384) { await reader.cancel(); throw new JourneyError("invalid", 413); } raw += decoder.decode(value, { stream: true }); }
     const b = JSON.parse(raw); if (!b || typeof b !== "object" || Array.isArray(b)) throw new JourneyError("invalid", 422);
     if (b.action === "exchange") {
+      enterPhase("rate-limit");
+      const key = onboardingKey(), redis = stagingRedis();
+      const network = exchangeNetworkKey(req.headers, key, process.env.VERCEL === "1");
+      if (!rateLimitAllowed(await stagingLimiter(redis, "exchange-network", 30).limit(network)) ||
+          !rateLimitAllowed(await stagingLimiter(redis, "exchange-global", 300).limit("staging"))) throw new JourneyError("limited", 429);
       const value = sealInvitation(id(b.invitation), text(b.token, 64), onboardingKey());
       const res = finish({ data: { exchanged: true } });
       res.cookies.set("m1_invitation", value, { httpOnly: true, secure: req.nextUrl.protocol === "https:", sameSite: "strict", path: "/api/onboarding", maxAge: 900 });
@@ -39,10 +45,6 @@ export async function POST(req: NextRequest) {
     }
     enterPhase("session");
     const { subject, client } = await onboardingSession();
-    enterPhase("rate-limit");
-    const mutating = ["create", "accept", "save", "revoke", "reissue", "retry"].includes(b.action);
-    const limit = await stagingLimiter(stagingRedis(), mutating ? "onboarding-write" : "onboarding-read", mutating ? 10 : 60).limit(rateLimitSubject(subject));
-    if (!rateLimitAllowed(limit)) throw new JourneyError("limited", 429);
     enterPhase("operation");
     let data: unknown;
     switch (b.action) {
@@ -80,5 +82,5 @@ export async function POST(req: NextRequest) {
       default: throw new JourneyError("invalid", 422);
     }
     return finish({ data });
-  } catch (e) { if (e instanceof JourneyError) return finish({ error: e.code }, e.http); if (e instanceof SyntaxError) return finish({ error: "invalid" }, 422); console.error("onboarding.unavailable", { phase }); return finish({ error: "unavailable" }, 503); }
+  } catch (e) { if (e instanceof JourneyError || e instanceof GatewayError) return finish({ error: e.code }, e.http); if (e instanceof SyntaxError) return finish({ error: "invalid" }, 422); console.error("onboarding.unavailable", { phase }); return finish({ error: "unavailable" }, 503); }
 }

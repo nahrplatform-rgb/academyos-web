@@ -10,6 +10,8 @@ Review the complete M1 change in draft [PR #1](https://github.com/nahrplatform-r
 
 Accepted scope: J01–J05 bounded synthetic academy creation, intended-recipient invitation, explicit owner acceptance and resumable setup. Relevant AO-002–009/011/012/019 and security/privacy AO-169–180 remain scoped, not whole-family completion claims. Policy/design approval, separately authorized grants/test memberships, implementation, hosted tests, deployment and Product Owner acceptance are distinct. Read the [accepted action/security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and [current execution receipt](../07-handoff/onboarding-m1-staging.md).
 
+Abuse-control follow-up: inspect the [gateway change packet](onboarding-m1-abuse-control.md), including its proof replay window, transport limiter, current JWT/role checks, legacy entry points, trusted network header, failure behavior and app-before-database rollout. Local verification does not close the hosted finding or this independent review gate.
+
 ## Material boundaries to inspect
 
 - Clerk issuer/session/authorized-origin validation, current verified-recipient proof and identity versus academy membership. Signup, link possession, Platform Owner capability and cached UI state must not confer tenant authority.

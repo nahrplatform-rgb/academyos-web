@@ -15,7 +15,7 @@ export function invitationToken(id: string, generation: number, key: string) {
 export function tokenHash(token: string) {
   return createHash("sha256").update(token).digest("hex");
 }
-export function signProof(purpose: "recipient" | "delivery", target: string, subject: string, emails: string[], key: string, issued = Math.floor(Date.now() / 1000)) {
+export function signProof(purpose: "recipient" | "delivery" | "gateway", target: string, subject: string, emails: string[], key: string, issued = Math.floor(Date.now() / 1000)) {
   if (!/^user_[a-zA-Z0-9_]+$/.test(subject) || [purpose, target, subject, ...emails].some(v => /[\n\r,]/.test(v)))
     throw new Error("Invalid proof fields");
   const values = [...new Set(emails.map(x => x.toLowerCase()))].sort().join(",");

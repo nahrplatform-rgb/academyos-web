@@ -1,0 +1,41 @@
+import { createHmac } from "node:crypto";
+import { isIP } from "node:net";
+import { signProof } from "./onboarding";
+
+export const DATABASE_ORIGIN = "https://snpphkenmvmhpjstbeul.supabase.co";
+const reads = new Set(["m1_context_v1", "m1_platform_list_v1", "m1_setup_v1", "m1_operation_v1", "my_academy_memberships_v1"]);
+const writes = new Set(["m1_create_v1", "m1_save_setup_v1", "m1_manage_invitation_v1", "bootstrap_identity_v1"]);
+export class GatewayError extends Error {
+  constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }
+}
+export function gatewayRequest(input: string | URL | Request, init?: RequestInit) {
+  const url = new URL(typeof input === "string" || input instanceof URL ? input : input.url);
+  const method = init?.method?.toUpperCase() ?? (input instanceof Request ? input.method : "GET");
+  if (url.origin !== DATABASE_ORIGIN || url.search || method !== "POST" || !url.pathname.startsWith("/rest/v1/rpc/")) throw new GatewayError("denied", 403);
+  const name = url.pathname.slice("/rest/v1/rpc/".length);
+  let mutating = writes.has(name);
+  if (name === "m1_invitation_v1") {
+    if (typeof init?.body !== "string") throw new GatewayError("denied", 403);
+    const args = JSON.parse(init.body);
+    mutating = args.accept_op !== null && args.accept_op !== undefined;
+  } else if (!mutating && !reads.has(name)) throw new GatewayError("denied", 403);
+  return { target: `${method}:/rpc/${name}`, mutating };
+}
+
+// Server-only caller supplies the key getter and shared external limiter. No
+// proof is minted when the limiter denies, times out or throws.
+export function gatewayFetch(subject: string, key: () => string, allowed: (mutating: boolean) => Promise<boolean>, send: typeof fetch = fetch): typeof fetch {
+  return async (input, init) => {
+    const { target, mutating } = gatewayRequest(input, init);
+    if (!await allowed(mutating)) throw new GatewayError("limited", 429);
+    const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
+    headers.set("x-academyos-gateway", JSON.stringify(signProof("gateway", target, subject, [], key())));
+    return send(input, { ...init, headers, cache: "no-store", redirect: "error", signal: AbortSignal.timeout(10000) });
+  };
+}
+
+export function exchangeNetworkKey(headers: Headers, key: string, hosted: boolean) {
+  const ip = hosted ? headers.get("x-vercel-forwarded-for") : "local-development";
+  if (!ip || (hosted && !isIP(ip))) throw new GatewayError("unavailable", 503);
+  return createHmac("sha256", key).update(`exchange-network:v1:${ip.toLowerCase()}`).digest("hex");
+}

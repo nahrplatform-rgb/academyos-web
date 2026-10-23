@@ -3,17 +3,25 @@ import { auth, clerkClient } from "@clerk/nextjs/server";
 import { createClient } from "@supabase/supabase-js";
 import { databaseError, onboardingKey, signProof, tokenHash, verifiedEmails } from "./onboarding";
 
+import { gatewayFetch, GatewayError } from "./onboarding-gateway";
+import { rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis } from "./rate-limit";
+
 export class JourneyError extends Error {
   constructor(public code: string, public http = 503) { super(code); }
 }
-export function onboardingDatabase(token?: string) {
+export function onboardingDatabase(token?: string, subject?: string) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   if (url !== "https://snpphkenmvmhpjstbeul.supabase.co" || !key) throw new JourneyError("unavailable");
+  if (Boolean(token) !== Boolean(subject)) throw new JourneyError("denied", 403);
+  const transport = subject ? gatewayFetch(subject, onboardingKey, async (mutating) => {
+    const result = await stagingLimiter(stagingRedis(), mutating ? "onboarding-write" : "onboarding-read", mutating ? 10 : 60).limit(rateLimitSubject(subject));
+    return rateLimitAllowed(result);
+  }) : fetch;
   return createClient(url, key, {
 accessToken: token ? async () => token : undefined,
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
-    global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store", signal: AbortSignal.timeout(10000) }) }
+    global: { fetch: (input, init) => transport(input, { ...init, cache: "no-store", signal: AbortSignal.timeout(10000) }) }
 });
 }
 export async function onboardingSession() {
@@ -21,10 +29,15 @@ export async function onboardingSession() {
   if (!session.userId) throw new JourneyError("denied", 401);
   const token = await session.getToken();
   if (!token) throw new JourneyError("denied", 401);
-  return { subject: session.userId, client: onboardingDatabase(token) };
+  return { subject: session.userId, client: onboardingDatabase(token, session.userId) };
 }
 export async function rpc(client: ReturnType<typeof onboardingDatabase>, name: string, args: Record<string, unknown> = {}) {
-  const { data, error } = await client.rpc(name, args);
+  let data: unknown, error: { code?: string } | undefined;
+  try { ({ data } = await client.rpc(name, args).throwOnError()); }
+  catch (cause) {
+    if (cause instanceof GatewayError) throw cause;
+    error = cause && typeof cause === "object" && "code" in cause && typeof cause.code === "string" ? { code: cause.code } : {};
+  }
   if (error) {
     const code = databaseError(error.code);
     // Codes only: never log provider messages, claims, tokens or input fields.
