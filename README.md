@@ -67,3 +67,5 @@ This is the starting point for building AcademyOS. It brings the product vision,
 Every implementation slice should name its requirement IDs, affected workflows, permission checks and acceptance cases. Record evidence against the actual commit, migration state, environment and provider mode. Keep proposed configurations separate from actual settings. Never store passwords, API keys, recovery codes, real child records or authenticated browser state in these documents.
 
 The pack is detailed enough to plan and review implementation. Open decisions, account-specific identifiers, provider eligibility and unexecuted acceptance checks remain explicit. It does not certify a working or production-ready application.
+
+Staging sign-in: [staging.academy.nahr.dev](https://staging.academy.nahr.dev/en/sign-in) now opens directly under owner-approved Vercel Standard Protection. AcademyOS still enforces identity and academy permissions; preview/generated deployment URLs remain protected. See [current access evidence](docs/07-handoff/staging-direct-access.md).

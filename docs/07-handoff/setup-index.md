@@ -44,3 +44,6 @@ For scoped M1 measurements and the authorized owner-access revocation/restoratio
 
 
 [Write/revocation ordering](onboarding-m1-write-revocation.md) records deterministic local lock-order tests and revoked replay denial. [Two-account isolation preparation](onboarding-m1-two-account-isolation.md) records the separately authorized B admission/provider acceptance, restored email configuration/deployment, and pending distinct-account acceptance/isolation checks. Neither packet implies full security approval.
+
+
+Current staging entry policy (23 October): [direct AcademyOS access](staging-direct-access.md), explicitly approved and applied as Vercel Standard Protection. The canonical staging domain reaches AcademyOS directly; preview/generated deployments remain Vercel-protected. Earlier all-URLs-protected receipts describe historical settings. Clerk and tenant/role checks remain enforced.

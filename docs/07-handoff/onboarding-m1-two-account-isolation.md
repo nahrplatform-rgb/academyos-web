@@ -34,3 +34,10 @@ Immediately restored the original `EMAIL_ALLOWED_RECIPIENTS` value and deployed 
 Postcheck: A remains version 9/completed/Cairo, one existing membership and one invitation attempt. B is version 0/incomplete/no timezone, zero memberships and one invitation attempt. A's existing platform grant and owner access were not changed. A private screenshot shows the two labeled synthetic academy cards after clearing the recipient field.
 
 **Next dependent step:** recipient opens the emailed invitation in a separate browser profile/private window, signs in with the second mailbox as a distinct account and reviews/accepts B. Passwords, verification codes and raw invitation links must not be posted here. Recipient acceptance, distinct-subject validation, populated-B setup and both directions of authenticated tenant isolation remain pending; no pass is inferred from admission or email-provider acceptance.
+
+
+## Recipient delivery/access follow-up — 23 October 2026
+
+Moamen found the original invitation in Junk. Resend's matching email event was independently observed as Delivered, with receiving-server SMTP `250 2.0.0 Ok`; this establishes mail-server acceptance. The owner report establishes that the email was found in Junk, not the primary inbox. No duplicate send or reissue was made.
+
+The separate-browser screenshot showed Vercel's deployment gate before AcademyOS; it was not a Clerk or intended-recipient denial. Moamen then explicitly approved direct staging sign-in. [Current access configuration and checks](staging-direct-access.md) record the applied Vercel Standard Protection scope. The recipient can reopen the same original invitation and sign into AcademyOS using the distinct iCloud account without a Vercel account. Recipient acceptance and populated-tenant isolation still require their own observed results.

@@ -23,6 +23,8 @@ Version 1.0 · 21 October 2026
 
 | ADR-015 | Staging backup prefix `staging/` uses a reversible seven-day overwrite/deletion lock and owner-approved 30-day object expiry. This does not accept production/customer data retention or a legal hold. | Owner explicitly approved 30-day cleanup on 22 October 2026; configured rules and actual lock-denial test verified |
 
+| ADR-016 | Direct AcademyOS sign-in at the canonical staging domain; Vercel Standard Protection keeps preview/generated deployment URLs protected. Clerk identity, server/data authorization and synthetic-only staging scope remain enforced. This replaces the earlier all-URLs Vercel gate; it is not a customer-production launch. | Moamen explicitly approved on 23 October 2026; [applied configuration and verification](../07-handoff/staging-direct-access.md) |
+
 ## Proposed technical defaults
 
 These are reviewable recommendations. They are not claims that accounts are already configured.
