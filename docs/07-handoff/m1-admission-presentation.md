@@ -23,3 +23,17 @@ Supported Node24 production build (including TypeScript) and lint pass. Producti
 Initial new-test failures were fixture synchronization: navigation occurred before the synthetic reissue confirmation (correctly showing recovered-operation UI), and a focus wait accepted BODY text before the return-focus frame. Tests now wait for the confirmed operation and the exact focused row. No authority/business assertion was removed. Screenshot review also prompted hiding the creation form while phone details are active. The harness now sets HTML direction from its locale URL, matching actual route semantics; the earlier partial AR capture without that wrapper is not retained as final evidence.
 
 No API/schema/provider/grant/data change. Current checks are synthetic rendering/interaction evidence, not hosted reissue/access proof. Git/CI/staging/runtime and owner acceptance receipts will follow. I2 policy proposal is separate and remains unaccepted until the owner answers.
+
+## Source and staging release checkpoint
+
+Committed/pushed `b57dfdb841d68f3984efc8fac5fdc6c5b20fe2ae`. All five local foundation E2E tests pass. The complete [PR workflow40037619752](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40037619752) passed before staging release; the duplicate push workflow was still running and is tracked separately.
+
+Requested `dpl_7XgyhKgQC3UApx1ZSBn26BhqMNjk` for that exact source in existing AcademyOS project/team, Vercel Production target = synthetic staging. Canonical alias before request was the approved-blue `dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb` rollback target. No environment/protection/configuration changes. READY/alias and actual-session runtime receipts still need confirmation.
+
+## Hosted I1 presentation verified
+
+`dpl_7XgyhKgQC3UApx1ZSBn26BhqMNjk` is READY for exact `b57dfdb841d68f3984efc8fac5fdc6c5b20fe2ae`; an independent alias read confirms canonical staging points to it in the intended project. Actual existing Platform Owner session sees the two current synthetic academies in the new table. Opening B shows only the existing platform projection, owner-accepted/setup-complete and provider-accepted/inbox-unverified states; no pending-invitation action appears for this redeemed record. Detail heading focus was observed. [Desktop](evidence/m1-admission-i1-staging-2026-10-24/platform-detail-en.png) and [Arabic phone](evidence/m1-admission-i1-staging-2026-10-24/platform-detail-ar-phone.png) show hosted rendering.
+
+At observed360px CSS width, Arabic detail has no horizontal overflow and hides the creation form/list while open. Back restores the creation form/list and focus to B's row button. Temporary viewport override reset. No create, invitation change, retry, setup save, account/grant/provider change was executed on staging. This verifies current-session rendering/navigation only, not every historical denial/concurrency/provider case. Synthetic tests establish the zero-added-read and exact mutation-payload assertions; no hosted mutation was performed to repeat them.
+
+Implementation, source/PR CI and scoped staging presentation are verified; owner approval of this I1 iteration and broader M1 security/performance/cost/recovery/physical-device acceptance remain separate. I2a is the next proposed bounded business slice and still requires its named policy decision.

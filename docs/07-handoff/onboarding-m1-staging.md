@@ -2,6 +2,10 @@
 
 Current execution receipt; supersedes earlier source-only/apply-pending statements in the [implementation history](onboarding-m1-implementation.md) and [usage-reset checkpoint](onboarding-m1-resume.md). Policy/design accepted; working-journey acceptance remains open.
 
+## I1 admission list and inspection — 24 October 2026
+
+Source `b57dfdb841d68f3984efc8fac5fdc6c5b20fe2ae` is READY on canonical staging as `dpl_7XgyhKgQC3UApx1ZSBn26BhqMNjk`. [I1 receipt](m1-admission-presentation.md) records semantic list/detail presentation, keyboard/phone behavior, exact-source PR CI and actual-session EN/AR read-only checks. No API/schema/provider/grant or business-data mutation. Earlier release references are historical; broader gates and this iteration's owner acceptance remain separate.
+
 ## Compact blue presentation release — 24 October 2026
 
 Owner-approved compact blue M1 source `b209acb050c66e41f6a0e76119b827e79ede05ac` is deployed READY as `dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb`; canonical alias and unchanged protection independently confirmed. [Release and runtime receipt](compact-blue-staging-release.md) records both passing CI workflows and actual-session chooser/admission/saved setup/EN/AR phone evidence. No schema, grant, provider setting or business mutation is part of this presentation rollout. Broader performance/device/cost/recovery/independent security and full M1 acceptance remain open. Earlier app release references below are historical.
