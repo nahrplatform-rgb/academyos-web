@@ -1,6 +1,6 @@
 # M1 two-account isolation — prepared hosted check
 
-Status: owner supplied a second controlled mailbox in response to the scoped invitation authorization request. Execution is in progress; provider delivery, recipient acceptance and isolation results will be recorded separately. Exact destination and temporary configuration recovery details remain in restricted local operator records.
+Current status, 23 October: both distinct synthetic owners accepted and completed setup. Focused actual-session setup read/save-replay and actor-scoped receipt checks passed in both directions, with B also denied platform listing/admission. Owner-operated UI denials are separate evidence. Hosted account-transition/write-revocation races, remaining invitation/provider failures and independent security/full milestone acceptance remain open. Earlier sections preserve execution history; exact destinations and operator recovery details remain restricted.
 
 Scope: J01-A01, J03-A01/A02, J04-A01–A03; M1-T01/T04/T09; AO-003/004/005/008/169/175/178. Continue the [accepted M1 contract](../06-delivery/onboarding-m1-decision-design-packet.md). Existing one-account role tests and unknown-resource denials are preserved; they do not substitute for this check.
 
@@ -76,3 +76,13 @@ A save replay against B using B's existing completed-setup operation, original v
 The [account-entry follow-up](onboarding-m1-auth-entry.md) adds a local actual-React delayed-response/account-transition case. It does not close the hosted delayed-context race or independent security gate.
 
 [Sanitized HTTP observations](evidence/onboarding-m1-two-account-api.jsonl) contain fixed outcomes and pre/post aggregates only, without subjects, recipients, credentials or foreign result payloads.
+
+## Retried B-to-A actual-session HTTP checks — 23 October 2026
+
+Moamen explicitly requested retrying Safari and continuing the remaining checks. Raising the already inspected Safari window allowed native controls to proceed. The existing B session's context returned 200, exactly one B membership and `platform=false`. Same-origin requests were entered in the browser's developer console; no session credential was read/copied, and no account or grant was created. Canonical alias lookup confirmed deployed source `f5e8e29133cbd50498172fce882d20f17c35cfee` / `dpl_4uf1e3PeKSKo6fw7dzodC53DmWXy`.
+
+Five checks passed: A setup read 403 `{error:"denied"}`; A's known completed-setup receipt 200 with exactly `{data:{found:false}}`; save replay against A using its original completed-operation id/version/step/fields 403; platform list 403; platform create guard 403. All were no-store with no foreign result. The admission probe reused B's own already committed operation id and an existing invitation id, with a synthetic `.example` address; it expected the platform guard to reject before operation execution. Reusing a committed key also prevented a new creation if execution unexpectedly advanced to its conflicting payload. No new operation id, recipient invitation or email was generated. Probes stopped on any unexpected result; none occurred.
+
+Before/after database checks were identical: A version 9/completed, eleven operations, twenty-two total audit events, one active membership; B version 3/completed, five operations, six total audit events, one active membership. Both original invitation attempt counts remained one after this and the bounded bursts below. These totals include earlier membership test audits; they are not the setup-only audit totals in historical sections. After closing the temporary inspector, B's normal Refresh saved state recovered its saved branch/timezone/sport summary. Safe screenshots remain restricted; [sanitized reverse observations](evidence/onboarding-m1-reverse-api.jsonl) contain only outcomes and aggregates.
+
+This closes these bounded reverse HTTP cases, not every cross-tenant action or race. The earlier A-session probes retain their preceding-source provenance. [B-session load/replay observations](onboarding-m1-verification.md#b-session-bounded-burst-continuation--23-october-2026) are separately scoped; no new application/schema/configuration/deployment change was made for this follow-up.

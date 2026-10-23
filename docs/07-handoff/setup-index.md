@@ -54,3 +54,5 @@ Current staging entry policy (23 October): [direct AcademyOS access](staging-dir
 [Invitation account-entry follow-up](onboarding-m1-auth-entry.md) records explicit EN/AR Create account/Sign in guidance, return-to-invitation handling and delayed-identity UI checks. Local results, staging rollout and actual provider completion are separate.
 
 [Invitation handoff recovery](onboarding-m1-handoff-recovery.md) records a reproduced identity-resolution race, the bounded route/identity lifetime fix and production/development React regression evidence. Independent security and hosted provider timing remain separate gates.
+
+[Independent M1 security review handoff](../04-engineering/onboarding-m1-independent-review.md) defines the whole-PR review target, boundaries, available evidence and unclosed cases. A separate reviewer and review result are pending; engineering self-review is not independent approval.

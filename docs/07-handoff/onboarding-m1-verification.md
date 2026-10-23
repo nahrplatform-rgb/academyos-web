@@ -72,3 +72,22 @@ Read [authenticated HTTP boundary checks](onboarding-m1-http-boundary.md) for se
 
 
 For deterministic local save-versus-suspension ordering in both directions, read [write/revocation results](onboarding-m1-write-revocation.md). All 14 database groups passed; the hosted concurrent HTTP layer remains open.
+
+## B-session bounded burst continuation — 23 October 2026
+
+Plan before execution: J04-A01–A03/M1-T06/T08/T12, within the existing small synthetic B academy and its verified current Owner session. Execute one burst of 20 own-setup reads, then ten concurrent replays of B's already committed completion operation using its exact original version/step/fields/key. The operation's stored request was read and confirmed before replay. Do not generate replacement operations or change any saved field, role, membership, provider setting or rate limit. Reconcile B's existing operation and pre/post version/operation/audit/membership counts. Stop on an unexpected payload/authority/state result; retain throttled, failed and unknown outcomes honestly.
+
+Collect only status, current-authority/shape checks, response JSON byte count and numeric server/wall timings; no body, subject, credentials or provider content. Native Safari console tests make same-origin requests in B's existing session without extracting credentials. Do not call this multiple-persona throughput, a conflicting/new-write benchmark or a full navigation/device/performance pass. Existing budgets remain p95 server read <800 ms and ordinary transaction <=1 second; these small sample/replay observations cannot close the full 50-sample/profile and skewed-dataset workload. Return the inspector/UI to the own saved workspace after testing. No application implementation/deployment is required for this measurement.
+
+Executed on canonical staging source `f5e8e29133cbd50498172fce882d20f17c35cfee`, deployment `dpl_4uf1e3PeKSKo6fw7dzodC53DmWXy`, in the existing native Safari desktop B session. No network/CPU/viewport emulation was applied. Exact viewport, connection RTT/bandwidth, cache warmth, browser user-agent version and physical-device performance characteristics were not captured; the visible own workspace was already loaded. This is a small-fixture concurrent API observation, not the declared repeatable full-navigation profile.
+
+| Burst | Valid / total; statuses | Timing samples | p95 server total | p95 browser request wall time | Maximum JSON bytes |
+|---|---|---|---|---|---|
+| Own setup reads, launched concurrently | 20/20; HTTP 200 x20 | 20 | 555.2 ms | 2923 ms | 334 |
+| Exact committed completion replay, launched concurrently | 10/10; HTTP 200 x10 | 10 | 527.5 ms | 994 ms | 334 |
+
+All responses were no-store and matched B's own academy/version 3/completed state. No timeout, rate-limit, network or invalid-shape result occurred. Percentiles use nearest rank; for ten samples p95 is the maximum. Server time is the existing numeric Server-Timing total, including identity/rate limiting/operation, not database-only execution. Browser wall time includes connection scheduling/queuing/network and response parsing. JSON bytes are decoded response-body bytes measured with TextEncoder, not total transport/page bytes. Only aggregates were retained, so raw samples/per-phase distributions cannot be independently recomputed from these artifacts. [Numeric aggregate evidence](evidence/onboarding-m1-burst-summary.jsonl) preserves the observed counts and results.
+
+The server read p95 is below the 800 ms target in this one 20-request burst. The ten calls are replays, so their timing does not validate the ordinary new-transaction budget. Neither dataset satisfies the required 50 successful samples per route/profile or the larger/skewed/multi-actor workload. Browser wall time must not be promoted to first useful task, LCP, INP or local-feedback measurements.
+
+Database postchecks confirmed no change to either academy's version/completion, operation/audit totals or active membership; each original invitation still has one delivery attempt. B's ordinary UI refresh displayed its saved branch/timezone/sport after the inspector was closed. Thirty app API calls were issued by these bursts; no notification send or new business operation resulted. Actual billable Redis commands, provider usage meters and cost were not measured; no zero-cost or capacity claim. Full navigation, real devices, new/conflicting-write performance, hosted write/revocation/context races and independent security/full acceptance remain open.
