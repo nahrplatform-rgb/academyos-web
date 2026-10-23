@@ -6,7 +6,7 @@ Moamen subsequently requested Codex perform the review. The resulting [engineeri
 
 ## Review target and authority
 
-Review the complete M1 change in draft [PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1), not only the latest UI patch. Current deployed implementation: `f5e8e29133cbd50498172fce882d20f17c35cfee`, existing AcademyOS staging, deployment `dpl_4uf1e3PeKSKo6fw7dzodC53DmWXy`. Later documentation-only commits preserve test provenance. Confirm the final PR head/diff and current canonical alias when beginning the review.
+Review the complete M1 change in draft [PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1), not only the latest UI patch. Current deployed implementation: `e32f7dba85e4506cf37666dff1ae7f56ea3de9fb`, existing AcademyOS staging, deployment `dpl_4MKTn8zR8Bs8yq86kC2syXiNWFnD`. Later documentation-only commits preserve test provenance. Confirm the final PR head/diff and current canonical alias when beginning the review.
 
 Accepted scope: J01–J05 bounded synthetic academy creation, intended-recipient invitation, explicit owner acceptance and resumable setup. Relevant AO-002–009/011/012/019 and security/privacy AO-169–180 remain scoped, not whole-family completion claims. Policy/design approval, separately authorized grants/test memberships, implementation, hosted tests, deployment and Product Owner acceptance are distinct. Read the [accepted action/security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and [current execution receipt](../07-handoff/onboarding-m1-staging.md).
 
@@ -34,6 +34,8 @@ Abuse-control follow-up: inspect the [gateway change packet](onboarding-m1-abuse
 | Performance/abuse/cost | [Scoped measurements](../07-handoff/onboarding-m1-verification.md): historical warm reads, offline read recovery, current B 20-read/10-committed-replay bursts | Full navigation, skewed/multi-actor/new-write load, billable provider meters, physical devices/accessibility and full performance budgets remain open |
 
 Known dependency carry-forward: development-only high-severity braces advisory recorded in PR; unchanged lockfile is not remediation. Refresh actual advisory applicability/fix availability before deciding its handling. No claim of a complete supply-chain audit.
+
+Verification continuation: [local scale and keyboard evidence](../07-handoff/onboarding-m1-scale-and-keyboard.md) adds a skewed synthetic database fixture, paging/read/write assertions and eight React-mode/locale/viewport keyboard profiles. These do not close independent review, hosted load, native popup/screen-reader/device or provider-cost gates. Review the benchmark/adapter scope and retained hashes rather than treating local timings as a hosted SLA.
 
 ## Review completion record
 

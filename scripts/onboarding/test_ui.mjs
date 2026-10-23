@@ -3,7 +3,8 @@
 import { build } from 'esbuild';
 import { chromium } from '@playwright/test';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 const root=resolve(import.meta.dirname,'../..');
@@ -26,6 +27,7 @@ let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,re
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
 let exchangeCommitted=true,reviewBeforeExchange=0,reviewCalls=0,exchangeCalls=0;
 let holdSetup=false,releaseSetup,setupEntered,switched=false;
+let holdSave=false,releaseSave,saveCalls=0;
 const a='00000000-0000-4000-8000-000000000001',iv='00000000-0000-4000-8000-000000000002';
 let setup={academy_id:a,name:'Synthetic Academy A',version:0,complete:false,timezone:null,branch:null,sport:null};
 const receipts=new Map();
@@ -51,6 +53,7 @@ await page.route('**/api/onboarding',async route=>{
   if(holdSetup){holdSetup=false;await new Promise(r=>{releaseSetup=r;setupEntered();});}
   break;
  case'save':
+  saveCalls++;if(holdSave)await new Promise(resolve=>{releaseSave=resolve;});
   if(conflict){conflict=false;await route.fulfill({status:409,json:{error:'conflict'}});return;}
   if(b.step==='branch'){setup.branch={id:iv,name:b.fields.name};setup.timezone=b.fields.timezone;setup.complete=false;}
   if(b.step==='sport'){setup.sport={id:iv,...b.fields};setup.complete=false;}
@@ -116,6 +119,59 @@ try{
  conflict=true;await page.getByRole('button',{name:'Save sport',exact:true}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByLabel('Sport label — English',{exact:true}).inputValue(),'Synthetic Sport');await page.getByRole('button',{name:'Refresh saved state',exact:true}).click();await page.getByRole('button',{name:'Save sport',exact:true}).click();
  await page.getByRole('button',{name:'Complete initial setup',exact:true}).click();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();assert.equal(setup.version,3);
  await page.reload();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();
+ // Keyboard-only form traversal/activation on the real shared components.
+ // Synthetic adapters control save timing; no product or auth bypass is added.
+ const keyboardProfiles=[];
+ async function tabTo(target){
+  for(let count=0;count<40;count++){
+   if(await target.evaluate(element=>element===document.activeElement))return;
+   await page.keyboard.press('Tab');
+  }
+  assert.fail('Keyboard traversal did not reach the named target');
+ }
+ for(const locale of ['en','ar'])for(const width of [360,1440]){
+  const ar=locale==='ar',label=(en,arabic)=>ar?arabic:en;
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}&locale=${locale}`);
+  const edit=page.getByRole('button',{name:label('Edit branch and timezone','تعديل الفرع والمنطقة الزمنية'),exact:true});await edit.waitFor();
+  await tabTo(edit);await page.keyboard.press('Enter');
+  const branch=page.getByLabel(label('Branch name','اسم الفرع'),{exact:true});await branch.waitFor();await tabTo(branch);
+  const callsBefore=saveCalls,versionBefore=setup.version;
+  await page.keyboard.press('ControlOrMeta+A');await page.keyboard.press('Backspace');await page.keyboard.press('Enter');
+  assert.equal(await branch.evaluate(element=>element===document.activeElement&&element.matches(':invalid')),true);
+  assert.equal(saveCalls,callsBefore,'Native invalid branch must not dispatch a save');
+  assert.equal(await branch.evaluate(element=>parseFloat(getComputedStyle(element).outlineWidth)>=2),true,'Keyboard field focus must remain visible');
+  await page.keyboard.type('Branch A');
+  const search=page.getByLabel(label('Find a timezone or city','البحث عن منطقة زمنية أو مدينة'),{exact:true});await tabTo(search);await page.keyboard.type('No such timezone');
+  await page.getByText(label('No matching timezone. Your selection has not changed.','لا توجد نتائج مطابقة. لم يتغير اختيارك.'),{exact:true}).waitFor();
+  const timezone=page.getByLabel(label('Academy timezone (IANA)','المنطقة الزمنية للأكاديمية (IANA)'),{exact:true});
+  assert.equal(await timezone.inputValue(),'Africa/Cairo');await tabTo(timezone);
+  // Arrange the native select value with the supported driver. Popup keyboard
+  // operation is a separate real-browser/device check, not claimed here.
+  await timezone.selectOption('');
+  assert.equal(await timezone.inputValue(),'');
+  const save=page.getByRole('button',{name:label('Save branch','حفظ الفرع'),exact:true});await tabTo(save);await page.keyboard.press('Enter');
+  assert.equal(await timezone.evaluate(element=>element===document.activeElement&&element.matches(':invalid')),true);
+  assert.equal(saveCalls,callsBefore,'Native invalid timezone must not dispatch a save');
+  await tabTo(search);await page.keyboard.press('ControlOrMeta+A');await page.keyboard.press('Backspace');await page.keyboard.type('Cairo');
+  await timezone.selectOption('Africa/Cairo');assert.equal(await timezone.inputValue(),'Africa/Cairo');
+  assert.equal(await timezone.evaluate(element=>!!document.getElementById(element.getAttribute('aria-describedby'))?.textContent.trim()),true);
+  for(const control of await page.locator('.journey-card form input,.journey-card form select,.journey-card form button').all()){
+   const size=await control.boundingBox();assert.ok(size&&size.height>=44&&size.width>=44,'Form target must meet the product 44px target');
+  }
+  await tabTo(save);holdSave=true;await page.keyboard.press('Enter');
+  await page.getByText(label('Saving… waiting for confirmation.','جارٍ الحفظ… بانتظار التأكيد.'),{exact:true}).waitFor();
+  assert.equal(await save.isDisabled(),true);assert.equal(setup.version,versionBefore,'Pending save is not committed success');
+  await page.keyboard.press('Enter');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  assert.equal(saveCalls,callsBefore+1,'Repeated Enter while pending must not create a second submission');
+  holdSave=false;releaseSave();await page.getByText(label('Operation confirmed. Saved progress is shown below.','تم تأكيد العملية. يظهر التقدم المحفوظ أدناه.'),{exact:true}).waitFor();
+  const title=page.getByRole('heading',{level:1});await page.waitForFunction(()=>document.activeElement?.tagName==='H1');
+  assert.equal(await title.evaluate(element=>element===document.activeElement),true);assert.equal(setup.version,versionBefore+1);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  keyboardProfiles.push({locale,width,invalidSubmissions:0,pendingSubmissions:1,confirmedVersionIncrement:1});
+ }
+ // Leave the fixture complete via its normal action for later recovery cases.
+ await page.getByRole('button',{name:'إكمال الإعداد الأولي',exact:true}).click();await page.getByRole('heading',{name:'حُفظ الإعداد الأولي',exact:true}).waitFor();
  for(const locale of ['en','ar']){
   await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}&locale=${locale}`);await page.getByRole('button',{name:locale==='ar'?'تعديل الرياضة':'Edit sport',exact:true}).waitFor();
   await page.evaluate(ar=>{document.documentElement.dir=ar?'rtl':'ltr';},locale==='ar');
@@ -136,5 +192,7 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- console.log(JSON.stringify({ui:'passed',reactMode,handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'}));
+ const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/timezone-select.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, 44px form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
+ if(process.env.UI_EVIDENCE_PATH)await writeFile(process.env.UI_EVIDENCE_PATH,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+ console.log(JSON.stringify(report));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

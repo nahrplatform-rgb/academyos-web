@@ -2,6 +2,12 @@
 
 Scope: J01-A01, J02-A01, J03-A01/A02 and J04-A01–A03; AO-002–009/011/019 and relevant AO-117–130; M1-T06/T08/T10/T12/T13. Continue the [accepted packet](../06-delivery/onboarding-m1-decision-design-packet.md) and [current staging receipt](onboarding-m1-staging.md). No new admission, role, ownership, timezone or commercial policy.
 
+## Current scale and keyboard continuation — 23 October 2026
+
+[Local scale/keyboard results](onboarding-m1-scale-and-keyboard.md) add 250 database-only observations across five fixtures/projections, a 30-membership/60-branch/60-sport skew fixture, bounded chooser/platform pages, 20 concurrent read connections and ten competing writes (one commit/nine conflicts). Extended actual React production/development tests pass EN/AR keyboard/form cases at 360/1440px. These are local fixtures/emulated viewports, not new hosted or real-device measurements. Provider meter reads were unavailable and do not prove zero cost. App source/deployment is unchanged. Full navigation/device/cost/independent review gates stay open; earlier measurements below retain their original source/layer.
+
+The current authenticated app path includes separate API-entry and transport limiter checks, as recorded in the abuse-control packet. The older one-limiter footprint below belongs to its historical source, not the current release.
+
 ## Measurement change before implementation
 
 The existing request deadline and code-only failure logs do not distinguish identity lookup, rate limiting and database operation time. Add bounded request-local `Server-Timing` durations for request validation, session resolution, rate limiter, operation and total. Names are fixed; values are numeric milliseconds; no subject, academy ID, request fields, secret, provider message or new telemetry collector. Responses remain no-store. Timing headers measure server phases, not database-only execution. Database query plans and browser transfer/paint/task timing are separate evidence. No permissions, grants, SQL operations, retries or caching change.

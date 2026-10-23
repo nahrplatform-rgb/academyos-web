@@ -60,3 +60,5 @@ Current staging entry policy (23 October): [direct AcademyOS access](staging-dir
 [Fresh M1 engineering security review](../04-engineering/onboarding-m1-engineering-security-review.md) records the owner-requested review, restored function execution-limit configuration, fifteen local database groups, live metadata/runtime checks and the open direct-RPC abuse-budget gap. Independent approval and full acceptance remain open.
 
 M1 security continuation: [direct API abuse-control packet](../04-engineering/onboarding-m1-abuse-control.md) — local implementation/tests, ordered app/database rollout and residual review gates.
+
+[Local M1 scale and keyboard verification](onboarding-m1-scale-and-keyboard.md): reproducible synthetic database measurements and real-component keyboard checks; hosted/device/cost/reviewer gates remain separate.
