@@ -74,3 +74,5 @@ The existing staging browser session's context response confirmed platform capab
 A save replay against B using B's existing completed-setup operation, original version/complete step and empty fields returned 403 `{error:"denied"}`. All responses were no-store. Before/after bounded database reads confirmed A version 9/completed, eleven operations/nine setup audits and B version 3/completed, five operations/three setup audits. No replacement operation or data change was created. These HTTP checks exercised the existing deployed release, before the account-entry follow-up rollout. Reverse B-to-A HTTP writes/receipts and B-to-platform HTTP operations remain unverified; owner-operated UI denials are separate evidence.
 
 The [account-entry follow-up](onboarding-m1-auth-entry.md) adds a local actual-React delayed-response/account-transition case. It does not close the hosted delayed-context race or independent security gate.
+
+[Sanitized HTTP observations](evidence/onboarding-m1-two-account-api.jsonl) contain fixed outcomes and pre/post aggregates only, without subjects, recipients, credentials or foreign result payloads.

@@ -2,6 +2,12 @@
 
 Current execution receipt; supersedes earlier source-only/apply-pending statements in the [implementation history](onboarding-m1-implementation.md) and [usage-reset checkpoint](onboarding-m1-resume.md). Policy/design accepted; working-journey acceptance remains open.
 
+## Current continuation — 23 October 2026
+
+Canonical staging is READY `dpl_3DNv7Tmfruvq8zYw4bahCnHi7izr`, source `2aae63a280481bea8314fb034661e988deeb054f`; the alias was independently confirmed. The [account-entry receipt](onboarding-m1-auth-entry.md) records new EN/AR Create account/Sign in guidance, return-to-invitation handling, local recovery/identity-response tests and six anonymous post-release checks. The full source-push workflow passed; its duplicate PR workflow was still installing its browser dependency at rollout. Signed-in A's own setup remains accessible at version 9/completed. No configuration, database or grant change in this UI release.
+
+Both distinct synthetic owners have now accepted and completed setup: A version 9, B version 3. [Two-account evidence](onboarding-m1-two-account-isolation.md) distinguishes owner-operated reverse UI denials, A-session HTTP read/save denial and actor-scoped foreign receipt absence from still-pending reverse HTTP and hosted race cases. [Verification-email delivery](clerk-verification-delivery.md) was repaired and fresh receipt observed. [Direct staging entry](staging-direct-access.md) is explicitly authorized under retained Vercel Standard Protection; older all-URLs-protected settings and pending-B statements below are historical. Full M1 acceptance, new guidance acceptance, independent security and remaining performance/cost/device checks remain open.
+
 ## Database and recovery evidence
 
 Fresh encrypted pre-apply backup [39784097969](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39784097969) succeeded. Downloaded encrypted package SHA-256 `010e7c8fb92a162e41f67610d20a84a193059ff8c63d08cd76ad91262230d2fe`, 153832 bytes, matched the trusted workflow log/receipt. Local recovery validated all manifest checksums; Storage object count was zero for this snapshot. Recovery key and recovered payload stayed in permission-restricted local storage.
