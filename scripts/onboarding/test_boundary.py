@@ -34,7 +34,7 @@ class Boundary(unittest.TestCase):
         subprocess.run([str(BIN/'pg_ctl'),'-D',cls.tmp+'/db','-l',cls.tmp+'/log','-o',f'-p 55441 -h 127.0.0.1 -k {cls.tmp}','start'],check=True,stdout=subprocess.DEVNULL)
         cls.base=[str(BIN/'psql'),'-X','-qAt','-v','ON_ERROR_STOP=1','-h','127.0.0.1','-p','55441','postgres']
         # Storage migration does not belong to this plain PG authorization harness.
-        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql','supabase/tests/membership_boundary.sql']:
+        for f in ['supabase/tests/harness.sql','supabase/migrations/20261021165259_identity_baseline.sql','supabase/migrations/20261021165332_membership_reads.sql','supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql','supabase/migrations/20261022130955_controlled_onboarding_m1.sql','supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql','supabase/migrations/20261023114520_m1_restore_function_execution_limits.sql','supabase/tests/membership_boundary.sql']:
             subprocess.run(cls.base+['-f',str(ROOT/f)],check=True,stdout=subprocess.DEVNULL)
         cls.sql("insert into academy.m1_secrets values('onboarding',"+literal(KEY)+"); insert into academy.platform_grants(subject,granted_by,reason) values('user_platform','test-harness','synthetic fixture only');")
 
@@ -211,6 +211,13 @@ class Boundary(unittest.TestCase):
         self.sql("insert into academy.platform_grants(subject,granted_by,reason) values('user_provisioning_case','synthetic_test_operator','fixture only');update academy.platform_grants set active=false,reason='fixture revocation' where subject='user_provisioning_case'")
         self.assertEqual(self.sql("select count(*) from academy.audit_events where details->>'subject'='user_provisioning_case' and actor='synthetic_test_operator'"),'2')
         self.sql("delete from academy.platform_grants where subject='user_provisioning_case'",ok=False)
+
+    def test_15_exposed_m1_operations_keep_execution_budgets(self):
+        # Replacing a PostgreSQL function can silently discard per-function SET
+        # limits. Check deployed-definition metadata after every forward migration.
+        result = json.loads(self.sql("select json_agg(json_build_object('name',p.proname,'bounded',coalesce(p.proconfig @> array['search_path=\"\"','statement_timeout=3s','lock_timeout=2s'],false))) from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname like 'm1_%'"))
+        self.assertEqual(len(result), 9)
+        self.assertEqual([r['name'] for r in result if not r['bounded']], [])
 
     def test_14_write_revocation_serializes_both_lock_orders(self):
         # Hold a real transaction open, not a timed sleep. Observe the second

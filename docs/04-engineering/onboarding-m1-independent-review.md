@@ -2,6 +2,8 @@
 
 Status: prepared for a separately named reviewer; review/approval not executed. This packet does not authorize repository disclosure, contact with a third party, account grants, new services, production rollout or acceptance of residual risks. Moamen requested security/privacy as an independent gate. The [charter](../00-governance/engineering-charter.md) states: “An AI reviewing its own output is not an independent human/security audit.” Engineering self-review and green CI do not satisfy that gate.
 
+Moamen subsequently requested Codex perform the review. The resulting [engineering review](onboarding-m1-engineering-security-review.md) records a verified execution-limit regression and its bounded staging repair, an open abuse-control gap, advisor dispositions and residual cases. It is explicitly the implementing assistant's review; no independent human reviewer, acceptance or waiver is inferred.
+
 ## Review target and authority
 
 Review the complete M1 change in draft [PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1), not only the latest UI patch. Current deployed implementation: `f5e8e29133cbd50498172fce882d20f17c35cfee`, existing AcademyOS staging, deployment `dpl_4uf1e3PeKSKo6fw7dzodC53DmWXy`. Later documentation-only commits preserve test provenance. Confirm the final PR head/diff and current canonical alias when beginning the review.
