@@ -2,13 +2,13 @@
 import Link from "next/link";
 import TimezoneSelect from "./timezone-select";
 import WorkspaceShell from "./workspace-shell";
+import AdmissionDirectory, { type Academy } from "./admission-directory";
 import { Button, Input } from "./ui/controls";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
 
 type Membership = { membership_id: string; academy_id: string; academy_name: string; role: string };
 type Setup = { academy_id: string; name: string; version: number; complete: boolean; timezone: string | null; branch: { id: string; name: string } | null; sport: { id: string; label_en: string; label_ar: string } | null };
-type Academy = { id: string; name: string; setup_complete: boolean; invitation_id: string; generation: number; expires_at: string; revoked: boolean; redeemed_at: string | null; delivery: string; attempts: number };
 type Context = { platform: boolean; memberships: Membership[]; more: boolean };
 type Invitation = { academy_id: string; name: string; accepted: boolean; expires_at?: string };
 type Payload = Record<string, unknown>;
@@ -51,7 +51,8 @@ function JourneyWorkspace({ locale, mode, academy, handoff, isLoaded, isSignedIn
   const storageKey = `academyos:staging:m1-operation:${subject ?? 'none'}:${mode}:${academy ?? 'none'}`;
   const [editing, setEditing] = useState<'branch' | 'sport' | null>(null);
   const alive = useRef(true);
-  const epoch = useRef(0), heading = useRef<HTMLHeadingElement>(null);
+  const epoch = useRef(0), heading = useRef<HTMLHeadingElement>(null), invitationReviewHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { if (review && review.action !== 'create') invitationReviewHeading.current?.focus(); }, [review]);
 
   function guardNavigation(e: MouseEvent<HTMLAnchorElement>) { if (editing && !window.confirm(t('Discard the unsaved draft and leave this page?', 'هل تريد تجاهل المسودة غير المحفوظة ومغادرة الصفحة؟'))) e.preventDefault(); }
   function forgetOperation() { try { sessionStorage.removeItem(storageKey); } catch { } }
@@ -156,7 +157,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
               <li key={m.membership_id}>
                 <strong>{m.academy_name}</strong> · {({ owner: t('Academy Owner', 'مالك الأكاديمية'), manager: t('Manager', 'مدير'), trainer: t('Trainer', 'مدرب'), guardian: t('Guardian', 'ولي أمر'), player: t('Player', 'لاعب') } as Record<string, string>)[m.role] ?? m.role} {m.role === 'owner' ? <Link href={`/${locale}/workspace/${m.academy_id}`}>{t('Continue setup', 'متابعة الإعداد')}</Link> : <span>{t('Operational workspace is not available yet.', 'المساحة التشغيلية غير متاحة بعد.')}</span>}</li>)}</ul>{context.more && <Button onClick={() => void load(true)}>{t('More memberships', 'المزيد من العضويات')}</Button>}</>}
           {mode === 'platform' && error !== 'denied' && <>
-            <section className="journey-card">
+            <section className="journey-card admission-create">
               <h2>{t('Create a synthetic academy', 'إنشاء أكاديمية اختبار')}</h2>
               <p>{t('Appoint one initial owner. They will verify their email and accept before entering setup. No commercial activation is implied.', 'عيّن مالكاً أولاً واحداً. سيتحقق من بريده ويقبل الدعوة قبل الإعداد. لا يعني ذلك التفعيل التجاري.')}</p>
               {(!review || review.action !== 'create') ? <form onSubmit={e => { e.preventDefault(); setReview({ action: 'create', name: name.trim(), email: email.trim().toLowerCase(), invitation: crypto.randomUUID(), op: crypto.randomUUID() }); }}>
@@ -176,18 +177,13 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
                 </div>
               </div>}
             </section>
-            <section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')}>{items.length === 0 && !error && <p>{t('No academies on this page.', 'لا توجد أكاديميات في هذه الصفحة.')}</p>}{items.map(a =>
-              <article className="journey-card" key={a.id}>
-                <h2>{a.name}</h2>
-                <p>{a.redeemed_at ? t('Owner accepted', 'قبل المالك الدعوة') : a.revoked ? t('Invitation revoked', 'أُلغيت الدعوة') : t('Owner acceptance pending', 'بانتظار قبول المالك')}</p>
-                <p>{t('Invitation expiry: ', 'انتهاء الدعوة: ')}{new Intl.DateTimeFormat(ar ? 'ar' : 'en', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(a.expires_at))}</p>
-                <p>{t('Email delivery: ', 'حالة البريد: ')}{({ queued: t('Queued; dispatch may need retry', 'في الانتظار؛ قد يلزم إعادة الإرسال'), sending: t('Sending', 'جارٍ الإرسال'), accepted: t('Provider accepted; inbox unverified', 'قبل المزود الرسالة؛ الوصول غير مؤكد'), failed: t('Failed', 'تعذر الإرسال'), unknown: t('Unknown; review before replacement', 'غير مؤكدة؛ راجعها قبل الاستبدال'), blocked: t('Blocked by staging recipient/configuration boundary', 'محظور بقيود المستلم أو الإعداد التجريبي') } as Record<string, string>)[a.delivery] ?? a.delivery}</p>
-                <p>{a.setup_complete ? t('Initial setup complete; operational activation pending', 'اكتمل الإعداد الأولي؛ بانتظار التفعيل التشغيلي') : t('Initial setup incomplete', 'الإعداد الأولي غير مكتمل')}</p>{!a.redeemed_at && <div className="journey-actions">{!a.revoked && <Button disabled={disabled} onClick={() => setReview({ action: 'revoke', invitation: a.invitation_id, generation: a.generation, name: a.name })}>{t('Review withdrawal', 'مراجعة إلغاء الدعوة')}</Button>}<Button disabled={disabled} onClick={() => setReview({ action: 'reissue', invitation: a.invitation_id, generation: a.generation, name: a.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>{!a.revoked && ['queued', 'failed', 'blocked', 'sending'].includes(a.delivery) && <Button disabled={disabled} onClick={() => void mutate({ action: 'retry', invitation: a.invitation_id, generation: a.generation })}>{t('Retry pending delivery', 'إعادة محاولة الإرسال المعلق')}</Button>}</div>}</article>)}</section>
+            <AdmissionDirectory items={items} arabic={ar} disabled={disabled} hasError={Boolean(error)}
+              onReview={setReview} onRetry={body => void mutate(body)} />
             {review && review.action !== 'create' && <section className="journey-card" role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
-              <h2>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
+              <h2 tabIndex={-1} ref={invitationReviewHeading}>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
               <p>{String(review.name)} · {review.action === 'revoke' ? t('Withdraw this pending invitation. It will no longer grant access.', 'إلغاء هذه الدعوة المعلقة. لن تعود صالحة لمنح الصلاحية.') : t('Invalidate the old invitation and issue a new 72-hour invitation to the same recipient.', 'إبطال الدعوة القديمة وإصدار دعوة جديدة لمدة ٧٢ ساعة للمستلم نفسه.')}</p>
               <Button disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
-              <Button disabled={disabled} onClick={() => setReview(null)}>{t('Cancel', 'إلغاء')}</Button>
+              <Button disabled={disabled} onClick={() => { setReview(null); requestAnimationFrame(() => document.getElementById('admission-detail-heading')?.focus()); }}>{t('Cancel', 'إلغاء')}</Button>
             </section>}
             {more && <Button disabled={disabled} onClick={() => void load(true)}>{t('More academies', 'المزيد من الأكاديميات')}</Button>}
           </>}

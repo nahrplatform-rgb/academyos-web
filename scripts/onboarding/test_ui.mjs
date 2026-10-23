@@ -18,7 +18,7 @@ export function SignInButton({children,forceRedirectUrl,signUpForceRedirectUrl})
 export function SignUpButton({children,forceRedirectUrl,signInForceRedirectUrl}){return <span data-auth="sign-up" data-return={forceRedirectUrl} data-transfer-return={signInForceRedirectUrl}>{children}</span>;}`;
 const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Workspace from '${root}/apps/web/src/components/onboarding-workspace.tsx';const p=new URLSearchParams(location.search);createRoot(document.getElementById('root')).render(<React.StrictMode><Workspace locale={p.get('locale')||'en'} mode={p.get('mode')||'context'} academy={p.get('academy')||undefined}/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'test-only-adapters',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':JSON.stringify(reactMode)}});
 const css=await readFile(root+'/apps/web/src/app/globals.css','utf8');
-const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/bundle.js'?'text/javascript':'text/html');res.end(req.url==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div id="root"></div><script src="/bundle.js"></script></html>`);});
+const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/bundle.js'?'text/javascript':'text/html');res.end(req.url==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html lang="${new URL(req.url,'http://localhost').searchParams.get('locale')==='ar'?'ar':'en'}" dir="${new URL(req.url,'http://localhost').searchParams.get('locale')==='ar'?'rtl':'ltr'}"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div id="root"></div><script src="/bundle.js"></script></html>`);});
 await new Promise(r=>server.listen(3194,'127.0.0.1',r));
 const browser=await chromium.launch();
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
@@ -33,6 +33,8 @@ async function captureReview(name,title,description){
  reviewFrames.push({name,title,description});
 }
 let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,revoked=false;
+let extraAcademy=false,secondRevoked=false,platformDenied=false,platformReads=0;const invitationChanges=[];
+const secondId='00000000-0000-4000-8000-000000000003';
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
 let exchangeCommitted=true,reviewBeforeExchange=0,reviewCalls=0,exchangeCalls=0;
 let holdSetup=false,releaseSetup,setupEntered,switched=false;
@@ -42,10 +44,12 @@ let setup={academy_id:a,name:'Synthetic Academy A',version:0,complete:false,time
 const receipts=new Map();
 await page.route('**/api/onboarding',async route=>{
  const b=route.request().postDataJSON();let data;
+ if(platformDenied&&b.action==='platform'){await route.fulfill({status:403,json:{error:'denied'}});return;}
  if(revoked&&['setup','save','operation'].includes(b.action)){await route.fulfill({status:403,json:{error:'denied'}});return;}
  switch(b.action){
  case'context':data={platform:true,memberships:accepted?[{membership_id:iv,academy_id:a,academy_name:setup.name,role:'owner'}]:[],more:false};break;
- case'platform':data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:false};break;
+ case'platform':platformReads++;data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:false};break;
+ case'reissue':invitationChanges.push(structuredClone(b));data={reissued:true};break;
  case'create':admitted=true;data={academy_id:a,invitation_id:iv,generation:1};break;
  case'exchange':
   exchangeCalls++;
@@ -71,6 +75,7 @@ await page.route('**/api/onboarding',async route=>{
  case'operation':data={found:receipts.has(b.op),result:receipts.get(b.op)};break;
  default:await route.fulfill({status:422,json:{error:'invalid'}});return;
  }
+ if(b.action==='platform'&&extraAcademy)data.items.push({id:secondId,name:'Synthetic Academy B',setup_complete:false,invitation_id:secondId,generation:7,expires_at:'2026-10-25T12:00:00Z',revoked:secondRevoked,redeemed_at:null,delivery:'unknown',attempts:0});
  if(b.op)receipts.set(b.op,structuredClone(data));
  if(lost&&b.action==='save'){lost=false;await route.abort();return;}
  await route.fulfill({json:{data}});
@@ -121,6 +126,55 @@ try{
  await page.goto('http://127.0.0.1:3194/?mode=platform');
  await captureReview('01-admission','1. Platform Owner — academy admission','The real admission form, before creating the synthetic academy.');
  await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await captureReview('02-appointment-review','2. Review the owner appointment','Confirm the academy and intended recipient before creation.');await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();await page.getByText('Owner acceptance pending',{exact:true}).waitFor();await captureReview('03-invitation-pending','3. Invitation pending','Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation.');
+ // I1 inspection must not fetch or dispatch an invitation change by itself.
+ extraAcademy=true;
+ await page.reload();await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).waitFor();
+ const readsBeforeInspection=platformReads;
+ const rowB=page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true});
+ await rowB.focus();await page.keyboard.press('Enter');
+ await page.locator('#admission-detail-heading').waitFor();
+ assert.equal(await page.locator('#admission-detail-heading').evaluate(el=>el===document.activeElement),true);
+ await captureReview('16-admission-desktop','16. Desktop — loaded list and academy details','Explicit row inspection adds zero retrieval and keeps invitation changes in the named academy context.');
+ assert.equal(platformReads,readsBeforeInspection,'Inspection adds zero data reads');
+ assert.equal(invitationChanges.length,0,'Inspection is not an invitation mutation');
+ const detail=page.getByRole('complementary',{name:'Synthetic Academy B',exact:true});
+ await detail.getByText('Unknown; review before replacement',{exact:true}).waitFor();
+ assert.equal(await detail.getByRole('button',{name:'Retry pending delivery',exact:true}).count(),0,'Unknown outcome cannot offer blind delivery retry');
+ await detail.getByRole('button',{name:'Review new invitation',exact:true}).click();
+ await page.getByRole('region',{name:'Invitation change review',exact:true}).getByText(/Synthetic Academy B/).waitFor();
+ assert.equal(await page.getByRole('heading',{name:'Confirm invitation change',exact:true}).evaluate(el=>el===document.activeElement),true,'Invitation review receives keyboard focus');
+ assert.equal(invitationChanges.length,0,'Review alone never commits');
+ await page.getByRole('button',{name:'Confirm change',exact:true}).click();
+ await page.getByText('Operation confirmed. Saved progress is shown below.',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).waitFor();
+ assert.equal(invitationChanges.length,1);assert.equal(invitationChanges[0].invitation,secondId);assert.equal(invitationChanges[0].generation,7);
+ for(const locale of ['en','ar']){
+  const ar=locale==='ar';secondRevoked=true;
+  await page.setViewportSize({width:360,height:900});
+  await page.goto(`http://127.0.0.1:3194/?mode=platform&locale=${locale}`);
+  const row=page.getByRole('button',{name:ar?'Synthetic Academy B — عرض التفاصيل':'Synthetic Academy B — view details',exact:true});await row.waitFor();
+  await row.focus();await page.keyboard.press('Enter');
+  const panel=page.getByRole('complementary',{name:'Synthetic Academy B',exact:true});await panel.waitFor();
+  assert.equal(await page.locator('.admission-create').isVisible(),false,'Phone inspection is one task; create draft remains mounted but hidden');
+  assert.equal(await panel.getByRole('button',{name:ar?'مراجعة إلغاء الدعوة':'Review withdrawal',exact:true}).count(),0,'Revoked invitation does not offer withdrawal');
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await captureReview(ar?'15-admission-ar-phone':'14-admission-en-phone',ar?'15. Arabic phone — academy details':'14. English phone — academy details','Actual I1 details use only the current loaded projection. Revoked/unknown states do not offer blind retry.');
+  await panel.getByRole('button',{name:ar?'العودة إلى قائمة الأكاديميات':'Back to academy list',exact:true}).click();
+  await page.waitForFunction(()=>document.activeElement?.classList.contains('admission-open')&&document.activeElement.textContent.includes('Synthetic Academy B'));
+  assert.equal(await row.evaluate(el=>el===document.activeElement),true,'Back returns keyboard focus to the inspected row');
+  assert.equal(await page.locator('.admission-create').isVisible(),true,'Back restores creation form');
+ }
+ // Current denial must clear the selected platform projection too.
+ await page.getByRole('button',{name:'Synthetic Academy B — عرض التفاصيل',exact:true}).click();
+ platformDenied=true;await page.getByRole('button',{name:'تحديث الحالة المحفوظة',exact:true}).click();await page.getByRole('alert').waitFor();
+ assert.equal(await page.locator('#admission-details').count(),0);assert.equal(await page.getByRole('button',{name:/Synthetic Academy B/}).count(),0);
+ platformDenied=false;accepted=true;
+ await page.goto('http://127.0.0.1:3194/?mode=platform');
+ await page.getByRole('button',{name:'Synthetic Academy A — view details',exact:true}).click();
+ const redeemed=page.getByRole('complementary',{name:'Synthetic Academy A',exact:true});await redeemed.waitFor();
+ assert.equal(await redeemed.getByRole('button',{name:/Review withdrawal|Review new invitation|Retry pending delivery/}).count(),0,'Redeemed invitations have no pending-invitation actions');
+ accepted=false;extraAcademy=false;secondRevoked=false;
+ await page.setViewportSize({width:1440,height:1000});
  await page.goto('http://127.0.0.1:3194/?mode=invitation#'+iv+'.'+'b'.repeat(64));await page.getByRole('button',{name:'Accept owner appointment',exact:true}).waitFor();await captureReview('04-owner-invitation','4. Invited Academy Owner — review invitation','The real invitation view after simulated identity and handoff. Actual Clerk sign-up and email verification are not represented by this adapter.');await page.getByRole('button',{name:'Accept owner appointment',exact:true}).click();await page.getByRole('link',{name:'Enter setup workspace',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'');
  await page.goto('http://127.0.0.1:3194/?mode=context');await page.getByRole('link',{name:'Continue setup',exact:true}).waitFor();await captureReview('05-workspace','5. Choose the academy workspace','The synthetic test identity has both platform and owner capabilities; real accounts only see their authorized contexts.');
  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}`);
@@ -218,9 +272,10 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, compact desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
+ const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, compact desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
  if(process.env.UI_EVIDENCE_PATH)await writeFile(process.env.UI_EVIDENCE_PATH,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
  if(reviewDir){
+  reviewFrames.sort((a,b)=>a.name.localeCompare(b.name));
   const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
   const nav=reviewFrames.map(frame=>`<a href="#${frame.name}">${escape(frame.title)}</a>`).join('');
   const frames=reviewFrames.map(frame=>`<section id="${frame.name}"><h2>${escape(frame.title)}</h2><p>${escape(frame.description)}</p><a href="${frame.name}.png" target="_blank"><img src="${frame.name}.png" alt="${escape(frame.title)}" loading="lazy"></a><a href="#top">Back to steps</a></section>`).join('');

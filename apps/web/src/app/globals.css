@@ -105,3 +105,34 @@ h1[tabindex]:focus { outline: none; }
   .section-heading { flex-wrap: wrap; }.notice { font-size: 12px; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior: auto !important; } }
+
+/* M1's current authorized page and its explicit secondary inspection. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.admission-layout { display: grid; gap: 16px; margin-block: 20px; align-items: start; }
+.admission-layout.has-detail { grid-template-columns: minmax(0,1fr) minmax(240px,320px); }
+.admission-directory { min-width: 0; }
+.admission-directory h2 { margin-bottom: 6px; }
+.admission-hint { font-size: 11px; color: var(--muted); }
+.admission-table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 12px; }
+.admission-table th,.admission-table td { text-align: start; vertical-align: top; padding: 12px 8px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.admission-table thead { background: var(--subtle); font-size: 11px; color: var(--muted); }
+.admission-table th:first-child { width: 40%; }
+.admission-table .inspected { background: var(--accent-soft); }
+.admission-open { border: 0; padding: 0; min-height: 31px; color: var(--accent); background: transparent; text-align: start; justify-content: start; white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
+.admission-detail { background: var(--subtle); border: 1px solid var(--line); border-radius: var(--radius-panel); padding: 16px; min-width: 0; }
+.admission-detail h2 { margin-block: 18px 12px; overflow-wrap: anywhere; }
+.admission-properties { margin: 0; }
+.admission-properties>div { padding-block: 10px; border-bottom: 1px solid var(--line); }
+.admission-properties dt { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.admission-properties dd { margin: 0; overflow-wrap: anywhere; }
+@media(max-width:1000px) { .admission-layout.has-detail { grid-template-columns: minmax(0,1fr); } }
+@media(max-width:720px) {
+  .admission-layout.has-detail .admission-directory { display: none; }
+  .admission-wide { display: none; }
+  .admission-table th:first-child { width: 58%; }
+  .admission-table th,.admission-table td { padding: 10px 6px; }
+  .admission-open { min-height: 44px; }
+  .admission-detail { padding: 15px; }
+}
+
+@media(max-width:720px) { .main:has(.admission-layout.has-detail) .admission-create { display: none; } }
