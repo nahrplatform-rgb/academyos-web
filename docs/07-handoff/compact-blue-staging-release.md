@@ -14,4 +14,22 @@ Security review is proportional to presentation boundaries: native labels/requir
 
 ## Executed results
 
-Pending final source/check/deployment/runtime receipts. No release success is inferred from this packet.
+Release source committed/pushed as `b209acb050c66e41f6a0e76119b827e79ede05ac`. Supported Node24 build/typecheck/lint and31 unit tests pass. Both production/development synthetic M1 interaction suites and all five local foundation E2E tests pass. All reviewed application hashes match the retained receipt. Existing npm allow-scripts and color-environment warnings did not fail checks.
+
+[Pull-request workflow40035702379](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40035702379) passed for this exact commit. [Push workflow40035698343](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40035698343) is still installing its browser dependency at this checkpoint; its result and release/runtime receipts will follow. No deployment success is inferred from the source push.
+
+Before release, the actual existing staging session resolved to its authorized A/platform chooser with one academy membership. No login, invitation, grant or mutation was needed.
+
+Deployment requested for exact source `b209acb050c66e41f6a0e76119b827e79ede05ac`: `dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb`, generated `academyos-hjm3o2p3x-academy-os2.vercel.app`, existing AcademyOS staging project's Production target. The complete PR workflow passed, including browser/recovery cases; the duplicate push workflow remained stalled installing Chromium. This environment-install delay is kept visible rather than changing checks or claiming its success. READY, canonical alias and runtime still require confirmation.
+
+## Deployment and authenticated runtime confirmed
+
+`dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb` reached READY for exact source `b209acb050c66e41f6a0e76119b827e79ede05ac`. Independent canonical-alias lookup confirms `staging.academy.nahr.dev` points to this deployment in the intended project. Post-release project read confirms Standard Protection unchanged. The delayed [push workflow](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40035698343) subsequently passed too; both complete workflows are now successful. The earlier install-pending statements above describe rollout chronology, not the final status.
+
+Using the existing actual A session, observed the authorized chooser (one owner membership plus Platform capability), platform admission with the two existing synthetic academies both owner-accepted/setup-complete, and A's saved branch/timezone/sport. [English platform](evidence/compact-blue-staging-2026-10-24/platform-en.png), [English setup](evidence/compact-blue-staging-2026-10-24/setup-en.png), [English phone](evidence/compact-blue-staging-2026-10-24/setup-en-phone.png), [Arabic phone](evidence/compact-blue-staging-2026-10-24/setup-ar-phone.png) and [Arabic timezone draft](evidence/compact-blue-staging-2026-10-24/timezone-ar-phone.png) capture actual hosted rendering. Screenshots contain only the authorized synthetic academy fields; no open account menu or credentials.
+
+At an observed360px CSS viewport, Arabic setup has no horizontal overflow, exactly one main landmark and zero macOS-dot elements. The actual required native SELECT is44px high and displays the existing `Africa/Cairo` value. Opened the existing branch edit view and discarded it without entering or saving changes, then navigated back to English. Viewport override reset. No create/invite/accept/save/role/provider operation was executed. These are current-session reads and presentation checks, not a rerun of all historical two-account/security/concurrency tests or database-count reconciliation.
+
+Verified-TLS anonymous requests return200 for health/EN/AR and401 for the unauthenticated context operation. Process health is not dependency health. No bypass or credential export was used.
+
+Status: approved visual source implemented, committed and pushed; local/CI checks passed; exact build deployed to staging; scoped actual-session EN/AR M1 presentation verified. Owner design approval is recorded; post-deployment role acceptance and full M1 performance/device/cost/recovery/independent human security gates remain separate. No production customer launch or merge occurred. Broader design/prototype/planning edits remain in the working tree for continued coordination.

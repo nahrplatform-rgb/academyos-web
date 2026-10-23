@@ -2,6 +2,10 @@
 
 Current execution receipt; supersedes earlier source-only/apply-pending statements in the [implementation history](onboarding-m1-implementation.md) and [usage-reset checkpoint](onboarding-m1-resume.md). Policy/design accepted; working-journey acceptance remains open.
 
+## Compact blue presentation release — 24 October 2026
+
+Owner-approved compact blue M1 source `b209acb050c66e41f6a0e76119b827e79ede05ac` is deployed READY as `dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb`; canonical alias and unchanged protection independently confirmed. [Release and runtime receipt](compact-blue-staging-release.md) records both passing CI workflows and actual-session chooser/admission/saved setup/EN/AR phone evidence. No schema, grant, provider setting or business mutation is part of this presentation rollout. Broader performance/device/cost/recovery/independent security and full M1 acceptance remain open. Earlier app release references below are historical.
+
 ## Current continuation — 23 October 2026
 
 Verification-only follow-up: [scale and keyboard checks](onboarding-m1-scale-and-keyboard.md) add local database concurrency/paging/projection measurements and extended EN/AR React keyboard/validation/pending/focus checks. Staging application source remains `e32f7db`, with no schema/provider/grant/business change. These local results do not close full hosted/device/cost or independent human review gates.
