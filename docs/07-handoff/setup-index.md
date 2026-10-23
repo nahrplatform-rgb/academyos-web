@@ -47,3 +47,6 @@ For scoped M1 measurements and the authorized owner-access revocation/restoratio
 
 
 Current staging entry policy (23 October): [direct AcademyOS access](staging-direct-access.md), explicitly approved and applied as Vercel Standard Protection. The canonical staging domain reaches AcademyOS directly; preview/generated deployments remain Vercel-protected. Earlier all-URLs-protected receipts describe historical settings. Clerk and tenant/role checks remain enforced.
+
+
+[Clerk verification-email repair](clerk-verification-delivery.md) records the owner-authorized self-delivery integration after iCloud rejected the development sender. The dedicated staging handler is deployed and the verification-code template is switched; live delivery/verification remains pending until observed. Preview protection and direct staging access remain under ADR-016.
