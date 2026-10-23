@@ -10,7 +10,7 @@ Review the complete M1 change in draft [PR #1](https://github.com/nahrplatform-r
 
 Accepted scope: J01–J05 bounded synthetic academy creation, intended-recipient invitation, explicit owner acceptance and resumable setup. Relevant AO-002–009/011/012/019 and security/privacy AO-169–180 remain scoped, not whole-family completion claims. Policy/design approval, separately authorized grants/test memberships, implementation, hosted tests, deployment and Product Owner acceptance are distinct. Read the [accepted action/security packet](../06-delivery/onboarding-m1-decision-design-packet.md) and [current execution receipt](../07-handoff/onboarding-m1-staging.md).
 
-Abuse-control follow-up: inspect the [gateway change packet](onboarding-m1-abuse-control.md), including its proof replay window, transport limiter, current JWT/role checks, legacy entry points, trusted network header, failure behavior and app-before-database rollout. Local verification does not close the hosted finding or this independent review gate.
+Abuse-control follow-up: inspect the [gateway change packet](onboarding-m1-abuse-control.md), including its proof replay window, transport limiter, current JWT/role checks, legacy entry points, trusted network header, failure behavior and app-before-database rollout. The shared caller gate and provider-entry budget are deployed and scoped actual A/B-session REST/app and limiter checks are recorded. This does not close the independent review gate or broader network/billing cases.
 
 ## Material boundaries to inspect
 
@@ -26,7 +26,7 @@ Abuse-control follow-up: inspect the [gateway change packet](onboarding-m1-abuse
 
 | Area | Available evidence | Still separate/open |
 |---|---|---|
-| Authoritative data | [Implementation](../07-handoff/onboarding-m1-implementation.md), 14 isolated PostgreSQL groups including concurrency/revocation ordering | Local/simulated claims do not prove every hosted caller/provider path |
+| Authoritative data | [Implementation](../07-handoff/onboarding-m1-implementation.md), 16 isolated PostgreSQL groups including concurrency/revocation ordering | Local/simulated claims do not prove every hosted caller/provider path |
 | Two populated academies | [Two-account packet](../07-handoff/onboarding-m1-two-account-isolation.md): actual A and B HTTP setup/read/save-replay/receipt boundaries; B platform list/create guard; unchanged pre/post aggregates; UI recovery | A and B cases have explicit differing source provenance; fresh/conflicting writes, live account-transition races and every later domain action are not covered |
 | Roles/revocation | [HTTP boundary](../07-handoff/onboarding-m1-http-boundary.md), [verification](../07-handoff/onboarding-m1-verification.md), [write/revocation](../07-handoff/onboarding-m1-write-revocation.md) | Same-account role changes are not separate persona sessions; concurrent hosted write/revocation remains open |
 | Invitation/provider recovery | [Email repair](../07-handoff/clerk-verification-delivery.md), signed negatives, fresh recipient receipt and distinct B acceptance | Hosted expiry/reissue, unknown/exhausted delivery and all live provider retry orderings remain incomplete |
