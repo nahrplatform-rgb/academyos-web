@@ -55,3 +55,11 @@ test("onboarding fails closed without identity and rejects forged callbacks", as
   expect(invitation.status()).toBe(200);
   expect(invitation.headers()["referrer-policy"]).toBe("no-referrer");
 });
+
+test("Clerk email callback denies unsigned requests without exposing payload or caching", async ({request}) => {
+  const r=await request.post('/api/webhooks/clerk-email',{data:{type:'email.created',data:{otp_code:'synthetic-not-a-code'}}});
+  expect(r.status()).toBe(401);
+  expect(await r.json()).toEqual({outcome:'denied'});
+  expect(r.headers()['cache-control']).toBe('no-store');
+  expect(r.headers()['referrer-policy']).toBe('no-referrer');
+});
