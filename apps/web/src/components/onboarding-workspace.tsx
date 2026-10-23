@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import TimezoneSelect from "./timezone-select";
-import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
 
 type Membership = { membership_id: string; academy_id: string; academy_name: string; role: string };
@@ -96,6 +96,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
     limited: t('Too many requests. Wait a minute before checking again.', 'طلبات كثيرة. انتظر دقيقة قبل المحاولة مجدداً.')
 };
   const disabled = busy || loading || uncertain || pending !== null || error === 'denied';
+  const authReturn = `/${locale}/${mode === 'invitation' ? 'invitation' : 'workspace'}`;
   return <div className="shell">
     <aside>
       <Link onClick={guardNavigation} className="brand" href={`/${locale}/workspace`}>
@@ -122,10 +123,16 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
         {pending && !uncertain && !busy && (pending.action === 'recovered' ? <p className="notice">{t('The previous receipt was not found. Return to the saved workspace to review the result. The previous form was not restored; do not recreate an academy until its status is resolved.', 'لم يُعثر على النتيجة السابقة. ارجع إلى الحالة المحفوظة لمراجعة النتيجة. لم تُستعد الاستمارة السابقة؛ لا تُعد إنشاء الأكاديمية حتى تتضح حالتها.')} <button onClick={() => { forgetOperation(); setPending(null); setError(''); }}>{t('I reviewed saved state; continue', 'راجعت الحالة المحفوظة؛ متابعة')}</button>
         </p> : <button onClick={() => void mutate(pending)}>{t('Retry original request', 'إعادة إرسال الطلب الأصلي')}</button>)}
         {isLoaded && !isSignedIn && <section className="journey-card">
-          <p>{t('Sign in to verify your current access. Signing in alone grants no academy authority.', 'سجّل الدخول للتحقق من الصلاحيات الحالية. تسجيل الدخول وحده لا يمنح صلاحية الأكاديمية.')}</p>
-          <SignInButton mode="redirect" forceRedirectUrl={`/${locale}/${mode === 'invitation' ? 'invitation' : 'workspace'}`}>
-            <button>{t('Sign in', 'تسجيل الدخول')}</button>
-          </SignInButton>
+          <p>{mode === 'invitation' ? t('New to AcademyOS? Create an account using the email that received this invitation. Already have an account? Sign in with that email.', 'هل تستخدم AcademyOS لأول مرة؟ أنشئ حساباً بالبريد الذي استلم هذه الدعوة. لديك حساب بالفعل؟ سجّل الدخول بهذا البريد.') : t('Sign in to verify your current access. Signing in alone grants no academy authority.', 'سجّل الدخول للتحقق من الصلاحيات الحالية. تسجيل الدخول وحده لا يمنح صلاحية الأكاديمية.')}</p>
+          {mode === 'invitation' && <p>{t('After verifying your email, return here to review and accept the owner appointment. Creating an account alone does not grant academy access.', 'بعد التحقق من بريدك، ستعود إلى هنا لمراجعة تعيينك مالكاً وقبوله. إنشاء الحساب وحده لا يمنح صلاحية الأكاديمية.')}</p>}
+          <div className="journey-actions">
+            {mode === 'invitation' && <SignUpButton mode="redirect" forceRedirectUrl={authReturn} signInForceRedirectUrl={authReturn}>
+              <button disabled={!exchanged}>{t('Create account', 'إنشاء حساب')}</button>
+            </SignUpButton>}
+            <SignInButton mode="redirect" forceRedirectUrl={authReturn} signUpForceRedirectUrl={authReturn}>
+              <button disabled={mode === 'invitation' && !exchanged}>{t('Sign in', 'تسجيل الدخول')}</button>
+            </SignInButton>
+          </div>
         </section>}
         {((loading && isSignedIn) || !isLoaded) && <section className="journey-card" aria-busy="true">
           <h2>{t('Checking access and saved progress', 'جارٍ التحقق من الصلاحيات والتقدم المحفوظ')}</h2>

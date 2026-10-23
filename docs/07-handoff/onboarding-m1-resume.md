@@ -1,5 +1,7 @@
 # Resume M1 after usage reset
 
+Current continuation, 23 October: the sections below preserve the original 22 October checkpoint and are historical. Hosted rollout, authorized grants, both synthetic owners and saved setups have progressed. Start with [staging execution](onboarding-m1-staging.md), [two-account isolation evidence](onboarding-m1-two-account-isolation.md), [verification-email repair](clerk-verification-delivery.md) and [account-entry follow-up](onboarding-m1-auth-entry.md). Do not repeat the historical apply/provisioning steps. Independent security review, remaining hosted failure/isolation cases and full performance/cost/device/owner acceptance remain open.
+
 Checkpoint: 22 October 2026. User requested a wrap-up with 2% usage remaining. Resume in the same chat when convenient; no automatic follow-up was scheduled.
 
 ## Saved work and evidence
