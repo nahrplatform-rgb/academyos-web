@@ -2,7 +2,7 @@ import { sealInvitation, openInvitation } from "@/lib/invitation-cookie";
 import { NextRequest, NextResponse } from "next/server";
 import { onboardingSession, recipientProof, rpc, JourneyError } from "@/lib/onboarding-server";
 import { invitationToken, onboardingKey, tokenHash, uuidPattern } from "@/lib/onboarding";
-import { rateLimitAllowed, stagingLimiter, stagingRedis } from "@/lib/rate-limit";
+import { rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis } from "@/lib/rate-limit";
 import { dispatchInvitation } from "@/lib/onboarding-delivery";
 import { GatewayError, exchangeNetworkKey } from "@/lib/onboarding-gateway";
 import { STAGING_AUTH_ORIGINS } from "@/lib/config";
@@ -45,6 +45,11 @@ export async function POST(req: NextRequest) {
     }
     enterPhase("session");
     const { subject, client } = await onboardingSession();
+    // Bound provider lookups as well as database traffic. The separate transport
+    // budget also covers callers outside this route (legacy membership reads).
+    enterPhase("rate-limit");
+    const mutating = ["create", "accept", "save", "revoke", "reissue", "retry"].includes(b.action);
+    if (!rateLimitAllowed(await stagingLimiter(stagingRedis(), mutating ? "onboarding-entry-write" : "onboarding-entry-read", mutating ? 10 : 60).limit(rateLimitSubject(subject)))) throw new JourneyError("limited", 429);
     enterPhase("operation");
     let data: unknown;
     switch (b.action) {

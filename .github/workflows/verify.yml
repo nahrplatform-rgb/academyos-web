@@ -23,6 +23,8 @@ jobs:
           "$RUNNER_TEMP/backup-tests/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
+      - name: Verify onboarding API budgets before provider calls
+        run: node scripts/onboarding/test_api_budget.mjs
       - name: Verify synthetic onboarding UI interaction and recovery
         run: |
           node scripts/onboarding/test_ui.mjs
