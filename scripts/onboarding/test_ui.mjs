@@ -3,7 +3,7 @@
 import { build } from 'esbuild';
 import { chromium } from '@playwright/test';
 import { createServer } from 'node:http';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
@@ -23,6 +23,15 @@ await new Promise(r=>server.listen(3194,'127.0.0.1',r));
 const browser=await chromium.launch();
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
+// Optional review artifacts use only this harness's fixed synthetic fixture.
+const reviewDir=process.env.UI_REVIEW_DIR?resolve(process.env.UI_REVIEW_DIR):null;
+const reviewFrames=[];
+if(reviewDir)await mkdir(reviewDir,{recursive:true});
+async function captureReview(name,title,description){
+ if(!reviewDir)return;
+ await page.screenshot({path:resolve(reviewDir,name+'.png'),fullPage:true});
+ reviewFrames.push({name,title,description});
+}
 let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,revoked=false;
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
 let exchangeCommitted=true,reviewBeforeExchange=0,reviewCalls=0,exchangeCalls=0;
@@ -110,15 +119,17 @@ try{
  await page.getByRole('button',{name:'Sign in',exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Create account',exact:true}).count(),0);
  await page.setViewportSize({width:1440,height:1000});
  await page.goto('http://127.0.0.1:3194/?mode=platform');
- await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();await page.getByText('Owner acceptance pending',{exact:true}).waitFor();
- await page.goto('http://127.0.0.1:3194/?mode=invitation#'+iv+'.'+'b'.repeat(64));await page.getByRole('button',{name:'Accept owner appointment',exact:true}).click();await page.getByRole('link',{name:'Enter setup workspace',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'');
+ await captureReview('01-admission','1. Platform Owner — academy admission','The real admission form, before creating the synthetic academy.');
+ await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await captureReview('02-appointment-review','2. Review the owner appointment','Confirm the academy and intended recipient before creation.');await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();await page.getByText('Owner acceptance pending',{exact:true}).waitFor();await captureReview('03-invitation-pending','3. Invitation pending','Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation.');
+ await page.goto('http://127.0.0.1:3194/?mode=invitation#'+iv+'.'+'b'.repeat(64));await page.getByRole('button',{name:'Accept owner appointment',exact:true}).waitFor();await captureReview('04-owner-invitation','4. Invited Academy Owner — review invitation','The real invitation view after simulated identity and handoff. Actual Clerk sign-up and email verification are not represented by this adapter.');await page.getByRole('button',{name:'Accept owner appointment',exact:true}).click();await page.getByRole('link',{name:'Enter setup workspace',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'');
+ await page.goto('http://127.0.0.1:3194/?mode=context');await page.getByRole('link',{name:'Continue setup',exact:true}).waitFor();await captureReview('05-workspace','5. Choose the academy workspace','The synthetic test identity has both platform and owner capabilities; real accounts only see their authorized contexts.');
  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}`);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();await page.getByLabel('Branch name',{exact:true}).fill('Branch A');await page.getByLabel('Find a timezone or city',{exact:true}).fill('Cairo');await page.getByLabel('Academy timezone (IANA)',{exact:true}).selectOption('Africa/Cairo');await page.getByLabel('Find a timezone or city',{exact:true}).fill('No such timezone');await page.getByText('No matching timezone. Your selection has not changed.',{exact:true}).waitFor();assert.equal(await page.getByLabel('Academy timezone (IANA)',{exact:true}).inputValue(),'Africa/Cairo');
- lost=true;await page.getByRole('button',{name:'Save branch',exact:true}).click();await page.getByRole('button',{name:'Check status',exact:true}).click();await page.getByText('The original operation was committed once.',{exact:true}).waitFor();assert.equal(setup.version,1);assert.equal(setup.timezone,'Africa/Cairo');
+ await captureReview('06-branch-timezone','6. Branch and timezone draft','A real native timezone selector, with the chosen IANA value retained even when the search has no matches.');lost=true;await page.getByRole('button',{name:'Save branch',exact:true}).click();await page.getByRole('button',{name:'Check status',exact:true}).waitFor();await captureReview('07-unknown','7. Interrupted response — reconcile first','The test transport drops the response after committing its synthetic operation. The screen offers a status check before another save.');await page.getByRole('button',{name:'Check status',exact:true}).click();await page.getByText('The original operation was committed once.',{exact:true}).waitFor();assert.equal(setup.version,1);assert.equal(setup.timezone,'Africa/Cairo');
  await page.getByRole('button',{name:'Edit sport',exact:true}).click();await page.getByLabel('Sport label — English',{exact:true}).fill('Synthetic Sport');await page.getByLabel('Sport label — Arabic',{exact:true}).fill('رياضة اختبار');
- conflict=true;await page.getByRole('button',{name:'Save sport',exact:true}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByLabel('Sport label — English',{exact:true}).inputValue(),'Synthetic Sport');await page.getByRole('button',{name:'Refresh saved state',exact:true}).click();await page.getByRole('button',{name:'Save sport',exact:true}).click();
- await page.getByRole('button',{name:'Complete initial setup',exact:true}).click();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();assert.equal(setup.version,3);
- await page.reload();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();
+ await captureReview('08-sport','8. Sport draft — English and Arabic','Review both sport labels before saving.');conflict=true;await page.getByRole('button',{name:'Save sport',exact:true}).click();await page.getByRole('alert').waitFor();await captureReview('09-conflict','9. Version conflict — preserve the draft','The test returns a conflict. The draft remains available while the saved state can be refreshed.');assert.equal(await page.getByLabel('Sport label — English',{exact:true}).inputValue(),'Synthetic Sport');await page.getByRole('button',{name:'Refresh saved state',exact:true}).click();await page.getByRole('button',{name:'Save sport',exact:true}).click();
+ await page.getByRole('button',{name:'Complete initial setup',exact:true}).waitFor();await captureReview('10-complete-review','10. Confirm initial setup','Review the branch, bilingual sport and timezone before completing setup.');await page.getByRole('button',{name:'Complete initial setup',exact:true}).click();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();assert.equal(setup.version,3);
+ await page.reload();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();await captureReview('11-saved','11. Initial setup saved','The real confirmation view after reload. In this harness the saved fixture exists only in the running test process. Operational activation remains pending.');
  // Keyboard-only form traversal/activation on the real shared components.
  // Synthetic adapters control save timing; no product or auth bypass is added.
  const keyboardProfiles=[];
@@ -134,6 +145,12 @@ try{
   await page.setViewportSize({width,height:900});
   await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}&locale=${locale}`);
   const edit=page.getByRole('button',{name:label('Edit branch and timezone','تعديل الفرع والمنطقة الزمنية'),exact:true});await edit.waitFor();
+  assert.equal(await page.getByRole('main').count(),1,'Shared shell must expose exactly one main landmark');
+  assert.equal(await page.getByRole('link',{name:label('Skip to content','انتقل إلى المحتوى'),exact:true}).getAttribute('href'),'#main');
+  assert.equal(await page.getByRole('navigation',{name:label('Workspace navigation','التنقل في مساحة العمل'),exact:true}).count(),1);
+  if(width<=720)for(const target of await page.locator('.toolbar-actions>a,.brand,.workspace-sidebar nav a').all()){
+   const size=await target.boundingBox();assert.ok(size&&size.height>=44&&size.width>=44,'Phone shell links must retain 44px touch targets');
+  }
   await tabTo(edit);await page.keyboard.press('Enter');
   const branch=page.getByLabel(label('Branch name','اسم الفرع'),{exact:true});await branch.waitFor();await tabTo(branch);
   const callsBefore=saveCalls,versionBefore=setup.version;
@@ -157,7 +174,14 @@ try{
   await timezone.selectOption('Africa/Cairo');assert.equal(await timezone.inputValue(),'Africa/Cairo');
   assert.equal(await timezone.evaluate(element=>!!document.getElementById(element.getAttribute('aria-describedby'))?.textContent.trim()),true);
   for(const control of await page.locator('.journey-card form input,.journey-card form select,.journey-card form button').all()){
-   const size=await control.boundingBox();assert.ok(size&&size.height>=44&&size.width>=44,'Form target must meet the product 44px target');
+   const size=await control.boundingBox();
+   if(width<=720){
+    assert.ok(size&&size.height>=44&&size.width>=44,'Phone form target must retain the 44px touch target');
+   }else{
+    const tag=await control.evaluate(element=>element.tagName);
+    const minimum=tag==='BUTTON'?31:34;
+    assert.ok(size&&size.height>=minimum&&size.height<=36&&size.width>=31,'Desktop controls must match the owner-selected compact density');
+   }
   }
   await tabTo(save);holdSave=true;await page.keyboard.press('Enter');
   await page.getByText(label('Saving… waiting for confirmation.','جارٍ الحفظ… بانتظار التأكيد.'),{exact:true}).waitFor();
@@ -177,7 +201,9 @@ try{
   await page.evaluate(ar=>{document.documentElement.dir=ar?'rtl':'ltr';},locale==='ar');
   await page.setViewportSize({width:360,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
+ await captureReview('12-ar-phone','12. Arabic phone — completed setup','The same setup confirmation in Arabic/RTL at a 360px CSS viewport.');
  revoked=true;await page.getByRole('button',{name:'تحديث الحالة المحفوظة',exact:true}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);
+ await captureReview('13-access-denied','13. Access removed — private content cleared','A simulated permission denial clears the previously displayed branch/sport.');
  revoked=false;switched=false;
  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}`);
  await page.getByRole('listitem').filter({hasText:'Branch A'}).waitFor();
@@ -192,7 +218,14 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/timezone-select.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, 44px form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
+ const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, compact desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
  if(process.env.UI_EVIDENCE_PATH)await writeFile(process.env.UI_EVIDENCE_PATH,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+ if(reviewDir){
+  const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+  const nav=reviewFrames.map(frame=>`<a href="#${frame.name}">${escape(frame.title)}</a>`).join('');
+  const frames=reviewFrames.map(frame=>`<section id="${frame.name}"><h2>${escape(frame.title)}</h2><p>${escape(frame.description)}</p><a href="${frame.name}.png" target="_blank"><img src="${frame.name}.png" alt="${escape(frame.title)}" loading="lazy"></a><a href="#top">Back to steps</a></section>`).join('');
+  await writeFile(resolve(reviewDir,'index.html'),`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcademyOS M1 — actual component review</title><style>body{margin:0;background:#eff3f9;color:#172941;font:16px/1.5 system-ui}main{max-width:1180px;margin:auto;padding:24px}header,section{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:20px;margin-bottom:24px}nav{display:grid;gap:8px}a{color:#075bea}section{scroll-margin-top:16px}img{display:block;max-width:100%;height:auto;border:1px solid #cbd5e1;margin:16px 0}aside{border-inline-start:4px solid #075bea;padding:12px;background:#e8f0ff}</style><main><header id="top"><h1>AcademyOS M1: create → invite → accept → set up</h1><aside>Read-only review of actual app components in the compact blue design. Screenshots use fixed synthetic identity/transport adapters. This is not staging and does not send email, create real accounts or persist hosted records.</aside><p>Follow the steps below. Click an image for its full resolution. This gallery has no product actions. Review of this visual source is separate from hosted verification and full M1 acceptance.</p><nav aria-label="Journey review steps">${nav}</nav></header>${frames}</main></html>`,{flag:'wx'});
+  await writeFile(resolve(reviewDir,'source-and-test-receipt.json'),JSON.stringify({...report,reviewFrames},null,2)+'\n',{flag:'wx'});
+ }
  console.log(JSON.stringify(report));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

@@ -17,7 +17,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         {authenticationConfigured(process.env) ? (
-          <ClerkProvider>{children}</ClerkProvider>
+          <ClerkProvider appearance={{ variables: {
+            colorPrimary: "#075bea", borderRadius: "6px",
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Tahoma, sans-serif',
+            fontSize: "13px",
+          } }}>{children}</ClerkProvider>
         ) : (
           children
         )}
