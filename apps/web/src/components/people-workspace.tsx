@@ -92,7 +92,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
             controllers.current.delete(controller);
         }
     }
-    async function loadDirectory(after?: string) { const ticket = ++directoryTicket.current; setBusy(true); setError(''); try {
+    async function loadDirectory(after?: string) { const ticket = ++directoryTicket.current; controllers.current.forEach(c => c.abort()); setBusy(true); setError(''); try {
         const q = search.normalize('NFKC').trim();
         if (q.length === 1) {
             setPlayers([]);
@@ -286,7 +286,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         void loadDirectory();
     else
         void reviewCandidates(); }}>{t('Refresh saved state', 'تحديث الحالة المحفوظة')}</Button>
-      <p className="notice">{context ? `${context.academy_name} · ${context.branch_name}` : t('Loading authorized workspace…', 'جارٍ تحميل مساحة العمل المصرح بها…')}</p>
+      {context && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
       {error && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {notice && <p className="notice" role="status">{notice}</p>}
       {busy && stage !== 'saving' && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
@@ -299,8 +299,9 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         {stage === 'directory' && <section className="journey-card">
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input id="player-search" maxLength={160} value={search} onChange={event => setSearch(event.target.value)} disabled={busy}/>
-          {!busy && !players.length && <p>{t('No matching players.', 'لا يوجد لاعبون مطابقون.')}</p>}
+          <Input id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
+          {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
+          {!busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{t('No matching players.', 'لا يوجد لاعبون مطابقون.')}</p>}
           <ul className="journey-list">{!busy && players.map(player => <li key={player.id}><Button disabled={busy} onClick={() => { void openProfile(player.id); }}>{player.name}</Button> · {player.branch}</li>)}</ul>
           <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void loadDirectory(players.at(-1)?.id)}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}

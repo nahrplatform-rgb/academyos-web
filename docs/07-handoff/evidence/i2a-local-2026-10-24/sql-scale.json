@@ -6,19 +6,19 @@
     {
       "operation": "i2_people_v1",
       "observations": 50,
-      "serverExecutionP95Ms": 3.68,
-      "responseBytes": 5645
+      "serverExecutionP95Ms": 3.647,
+      "responseBytes": 5641
     },
     {
       "operation": "i2_people_v1",
       "observations": 50,
-      "serverExecutionP95Ms": 3.652,
+      "serverExecutionP95Ms": 3.77,
       "responseBytes": 5629
     },
     {
       "operation": "i2_candidates_v1",
       "observations": 50,
-      "serverExecutionP95Ms": 3.637,
+      "serverExecutionP95Ms": 3.702,
       "responseBytes": 4142
     }
   ]

@@ -14,7 +14,7 @@ class PeopleBoundary(Boundary):
  @classmethod
  def setUpClass(cls):
   super().setUpClass()
-  cls.sql((ROOT/'supabase/migrations/20261024095215_i2a_synthetic_player_registration.sql').read_text())
+  cls.sql((ROOT/'supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql').read_text())
  def academy(self,subject='user_owner'):
   r,_,iv,tk,_=self.create();a=r['academy_id'];self.accept(iv,tk,subject=subject)
   self.save(a,0,'branch',{'name':'Synthetic branch','timezone':'Africa/Cairo'},subject=subject)

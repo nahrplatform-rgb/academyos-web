@@ -18,7 +18,7 @@ type Props = {
 /** Presentation only: navigation never resolves membership or grants authority. */
 export default function WorkspaceShell({ locale, context, title, homeHref, languageHref, navigation, onNavigate, account, children }: Props) {
   const ar = locale === "ar";
-  return <div className="app-scene">
+  return <div className="app-scene" lang={locale} dir={ar ? "rtl" : "ltr"}>
     <a className="skip-link" href="#main">{ar ? "انتقل إلى المحتوى" : "Skip to content"}</a>
     <div className="workspace-window">
       <header className="window-toolbar">

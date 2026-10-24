@@ -1,6 +1,6 @@
 # I2a fictional registration — connected design review
 
-Policy accepted 24 October 2026. Design review pending; no business functionality implemented by this artifact.
+Policy accepted 24 October 2026. Moamen approved the connected design for implementation on 24 October 2026. This artifact remains a simulation; see the [working implementation receipt](../../docs/07-handoff/i2a-registration-implementation.md).
 
 Build with `node scripts/design/build_i2a_review.mjs`, then serve this folder on localhost. The preview reuses actual WorkspaceShell/Button/Input/Select and CSS, with a local link adapter and clearly labelled fictional in-memory model. It has no fetch, authentication, API, database, localStorage/sessionStorage, invitation, grant or outbound asset. Refresh resets drafts and records.
 
@@ -12,4 +12,4 @@ See [policy](../../docs/06-delivery/i2-people-first-slice-decisions.md) and [dat
 
 [Browser check receipt](evidence/browser-review.json) records the manually checked simulated paths. Screenshots: [form](evidence/registration-form-en.png), [review](evidence/registration-review-en.png), [Arabic phone review](evidence/registration-review-ar-phone.png), [uncertain save](evidence/uncertain-save-en.png), [Arabic save failure](evidence/save-failure-ar-phone.png).
 
-Prototype TypeScript and source-manifest hashes passed on 24 October 2026. The phone viewport request was 360px but the observed in-app DOM width was 400px, without horizontal overflow; exact 360px, physical devices and screen readers remain open. These checks do not validate real persistence, security, concurrency or performance budgets. The product source and database were unchanged.
+Prototype TypeScript and source-manifest hashes passed at design creation on 24 October 2026. The manifest records that original snapshot; subsequent product shell changes are tracked in the implementation receipt. The phone viewport request was 360px but the observed in-app DOM width was 400px, without horizontal overflow; exact 360px, physical devices and screen readers remain open. These checks do not validate real persistence, security, concurrency or performance budgets. The product source and database were unchanged.
