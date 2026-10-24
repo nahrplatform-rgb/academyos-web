@@ -22,3 +22,7 @@ Accepting this recommendation settles only the limited I2a policy so its connect
 ## Engineering work after policy acceptance
 
 Prepare the connected EN/AR phone/desktop registration → duplicate review → saved profile prototype, exact fields, bounded cursor/candidate queries, operation/version/audit/outbox contract as applicable, denial/isolation/concurrency/unknown-outcome cases and measurable budgets. Inspect/reuse existing M1 identity/gateway/operation patterns and shared compact controls, rather than using prototype state. No implementation or accepted-policy status is established by this proposal.
+
+## Owner policy decision — 24 October 2026
+
+After asking for plain-language clarification, Moamen answered “yes” to the explained first flow: Academy Owner enters a fictional player name, reviews possible duplicates in that academy, opens an existing player or confirms a different person, then saves and views the profile. Optional parent email remains contact information only, with no invitation or access. Fictional data only. This accepts the narrow I2a policy; broader guardian verification, child login, manager authority, real personal data and retention remain unresolved. The technical design and connected preview below still need their own review; no new grant or hosted operation follows from this decision record.
