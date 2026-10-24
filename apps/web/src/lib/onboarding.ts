@@ -28,8 +28,10 @@ export function verifiedEmails(user: { emailAddresses: { emailAddress: string; v
   return user.emailAddresses.filter(e => e.verification?.status === "verified")
     .map(e => e.emailAddress.toLowerCase()).filter(e => /^[^\s,@]+@[^\s,@]+\.[^\s,@]+$/.test(e)).slice(0, 10);
 }
-export type OnboardingError = "denied" | "invalid" | "conflict" | "unavailable" | "limited";
+export type OnboardingError = "denied" | "invalid" | "conflict" | "unavailable" | "limited" | "review_required" | "setup_required";
 export function databaseError(code?: string): OnboardingError {
+  if (code === "PT412") return "review_required";
+  if (code === "PT428") return "setup_required";
   if (code === "42501") return "denied";
   if (["PT409", "40001", "23505"].includes(code ?? "")) return "conflict";
   if (["22023", "22P02", "23514"].includes(code ?? "")) return "invalid";

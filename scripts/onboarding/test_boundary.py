@@ -232,10 +232,12 @@ class Boundary(unittest.TestCase):
         # Even an otherwise valid JWT cannot enter any public caller function.
         signatures=json.loads(self.sql("select json_agg(p.proname) from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and has_function_privilege('authenticated',p.oid,'execute') and p.prosecdef"))
         expected={'bootstrap_identity_v1','my_academy_memberships_v1','m1_context_v1','m1_platform_list_v1','m1_setup_v1','m1_operation_v1','m1_create_v1','m1_save_setup_v1','m1_manage_invitation_v1','m1_invitation_v1'}
+        expected |= set(getattr(self,'extra_authenticated_calls',{}))
         # Delivery is separately worker-signed, including when reached with a user JWT.
         self.assertEqual(set(signatures),expected | {'m1_delivery_v1'})
         # Context/legacy bootstrap and each owner/platform route traverse the gate.
         calls=["bootstrap_identity_v1()","my_academy_memberships_v1()","m1_context_v1()","m1_platform_list_v1()", "m1_setup_v1(gen_random_uuid())", "m1_operation_v1(gen_random_uuid())", "m1_create_v1(gen_random_uuid(),gen_random_uuid(),'X','x@academy.example',repeat('a',64))", "m1_save_setup_v1(gen_random_uuid(),gen_random_uuid(),0,'complete','{}')", "m1_manage_invitation_v1(gen_random_uuid(),gen_random_uuid(),1,'revoke',null)", "m1_invitation_v1(gen_random_uuid(),repeat('a',64),'{}',null)"]
+        calls += list(getattr(self,'extra_authenticated_calls',{}).values())
         for call in calls:
             prefix=self.caller('user_platform','/rpc/'+call.split('(')[0])+"set local request.headers='{}';"
             denied('begin;'+prefix+'select public.'+call+';commit;')

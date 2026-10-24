@@ -1,6 +1,6 @@
 # I2a registration: design, data and security contract
 
-24 October 2026. Policy accepted in [the decision packet](i2-people-first-slice-decisions.md); dependent design review pending. J06-A01, S16–S18, AO-013/016 and scoped AO-118/120/121/122/124/127/149–160; L05/L06, SEC-J06. These are scoped joins, not whole-family completion.
+24 October 2026. Policy accepted in [the decision packet](i2-people-first-slice-decisions.md); connected design approved by Moamen on 24 October 2026. J06-A01, S16–S18, AO-013/016 and scoped AO-118/120/121/122/124/127/149–160; L05/L06, SEC-J06. These are scoped joins, not whole-family completion.
 
 ## Connected action
 
@@ -58,8 +58,10 @@ Detect through safe correlated operation IDs and redacted denied/conflict/limite
 
 ## Review and implementation sequence
 
-Owner policy is accepted. Connected design review remains pending. After review: implement private schema and exact operations locally; test real SQL/HTTP/React boundaries; rehearsal/backup before hosted schema apply; stage app/RPC compatibility so no unsigned direct-write window opens; verify synthetic two-academy runtime without new grants or outbound invites. Production, real data, guardian access, financial/retention/deletion policy remain excluded. Record design, source, local checks, hosted apply/deploy/runtime and owner acceptance separately.
+Owner policy is accepted. Moamen approved the connected design for implementation on 24 October 2026. After review: implement private schema and exact operations locally; test real SQL/HTTP/React boundaries; rehearsal/backup before hosted schema apply; stage app/RPC compatibility so no unsigned direct-write window opens; verify synthetic two-academy runtime without new grants or outbound invites. Production, real data, guardian access, financial/retention/deletion policy remain excluded. Record design, source, local checks, hosted apply/deploy/runtime and owner acceptance separately.
 
 ## Design evidence — 24 October 2026
 
 The [connected preview](../../design/i2a-registration-review/README.md) reuses the current app shell and controls with fictional in-memory state. Its [browser receipt](../../design/i2a-registration-review/evidence/browser-review.json) distinguishes simulated recovery from database proof. Required fields, duplicate confirmation, existing profile, pending/unknown/failure recovery, draft clearing and EN/AR preservation were manually checked. Prototype TypeScript and source hashes passed; phone DOM measured 400px despite a 360px viewport request. Exact 360px, physical-device and screen-reader checks remain open. No app/database/provider mutation was made. This packet is ready for connected design review, not accepted implementation.
+
+Implementation refinement: people receipts use a separate private table, so M1 generic receipt lookup cannot expose player references. Missing-operation reconciliation writes an audited cancellation fence under the original operation lock, preventing a delayed original create after replacement. Recovery therefore consumes a write budget.

@@ -1,0 +1,17 @@
+# I2a registration security review
+
+24 October 2026. J06-A01, S16–S18, L05/L06, SEC-J06. Policy and connected design approved; implementation evidence is separate. This is the implementing engineer's review, not an independent human audit. See [the contract](../06-delivery/i2a-registration-design-contract.md) and [delivery receipt](../07-handoff/i2a-registration-implementation.md).
+
+| Boundary / threat | Enforcement | Evidence / remaining gate |
+|---|---|---|
+| Identity or direct JWT bypass | Existing Clerk issuer/subject/role verification; exact new RPC allowlist; signed path/subject gateway proof minted only after shared external limiter permits | Local forged/missing/expired proof tests and full exposed-function inventory; hosted runtime separate |
+| Foreign academy/player/branch | Current active Owner, explicit academy/initial branch, setup prerequisite, compound branch FK; no authority from platform grant | Real SQL two-academy, platform-only and all four wrong-role checks |
+| Revocation versus commit/replay | Membership row share lock; current owner checked before operation replay and reconciliation; setup/branch rows locked | Real SQL tests observe blocking dependencies in both save/suspension orderings; previous receipt denied after suspension |
+| Duplicate/concurrent name | Canonical NFKC/whitespace/case key, bounded candidates, name revision under transaction advisory lock, explicit different-person choice | Same-name races yield one initial winner; stale review rejected; 28-candidate pagination; no unique-name merge |
+| Duplicate/late request after uncertainty | Actor+operation transaction lock; hashed canonical intent; separate private receipts; audited missing-operation cancellation fence | Eight exact concurrent retries create one effect; cancellation rejects delayed original; commit/rollback cases |
+| Contact exposure or false relationship | Optional fictional `@example.invalid` only; profile-only projection; no relationship/account/job/email; no raw intent in audit/receipt | SQL projections/redaction; API unexpected-field checks; UI removes contact on account change/denial |
+| Stale client work | Actor/academy keyed remount, abort outstanding requests, late-response ticket guards, refresh on focus/re-entry, private no-store | Actual React tests in production/development; physical devices remain separate |
+| Abuse / cost | Shared 60-read/10-write per-minute gateway budget; separate entry limit; recovery charged as write; streamed body ≤4096 bytes, page25+sentinel, response32KiB, function3s/lock2s | Route fail-closed limiter tests; local 1000-player skew workload. Hosted latency/provider-meter evidence pending |
+| Privileged functions / schema | Private tables without direct grants, RLS deny by default; fixed empty search path; explicit function ACLs; no secret/service key in browser | SQL ACL/inventory assertions; staging advisor review required after apply. Expected narrow authenticated definer warnings are reviewed, not a clean-audit claim |
+
+Containment: disable the five new RPC EXECUTE grants and roll app back to the previous staging source if a foreign/contact leak appears. Keep private player/revision/receipt/audit records; do not drop data or restore an old database over concurrent writes. Correct forward under a reviewed migration. Production, real data, independent human security approval, guardian authority, retention/deletion and physical-device acceptance remain outside this receipt.

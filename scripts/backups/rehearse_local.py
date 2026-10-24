@@ -41,6 +41,10 @@ def rehearse(payload, migration=None):
             create role supabase_storage_admin; create role authenticator;
             create role dashboard_user; create role pgbouncer;
             create role supabase_read_only_user; create role supabase_realtime_admin;
+            -- pg_dump is deliberately scoped to business schemas. Recreate this
+            -- pinned baseline dependency used by the restored signing functions.
+            create schema if not exists extensions;
+            create extension if not exists pgcrypto with schema extensions;
             create schema auth;
             create function auth.jwt() returns jsonb language sql stable as $$
               select coalesce(nullif(current_setting('request.jwt.claims',true),''),'{}')::jsonb

@@ -42,7 +42,7 @@ export async function rpc(client: ReturnType<typeof onboardingDatabase>, name: s
     const code = databaseError(error.code);
     // Codes only: never log provider messages, claims, tokens or input fields.
     if (code === "unavailable") console.error("onboarding.rpc_unavailable", { code: /^[A-Z0-9]{5,10}$/.test(error.code ?? "") ? error.code : "unknown" });
-    throw new JourneyError(code, code === "denied" ? 403 : code === "conflict" ? 409 : code === "invalid" ? 422 : 503);
+    throw new JourneyError(code, code === "denied" ? 403 : ["conflict", "review_required"].includes(code) ? 409 : code === "setup_required" ? 428 : code === "invalid" ? 422 : 503);
   }
   if (data === null || Buffer.byteLength(JSON.stringify(data), "utf8") > 32768) throw new JourneyError("unavailable");
   return data;

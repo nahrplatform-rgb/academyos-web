@@ -1,4 +1,4 @@
-# I2 first people slice — recommendation awaiting owner decision
+# I2 first people slice — narrow policy accepted
 
 24 October 2026. Next after I1 in the accepted implementation sequence. This is a proposed narrow I2a, not approval of the whole people/relationship chain. Source: canonical people/onboarding workflow, roles, requirements AO-013/016 and design-local J06-A01; S16–S18; L05/L06; SEC-J06. Existing prototype is not policy.
 
@@ -26,3 +26,7 @@ Prepare the connected EN/AR phone/desktop registration → duplicate review → 
 ## Owner policy decision — 24 October 2026
 
 After asking for plain-language clarification, Moamen answered “yes” to the explained first flow: Academy Owner enters a fictional player name, reviews possible duplicates in that academy, opens an existing player or confirms a different person, then saves and views the profile. Optional parent email remains contact information only, with no invitation or access. Fictional data only. This accepts the narrow I2a policy; broader guardian verification, child login, manager authority, real personal data and retention remain unresolved. The technical design and connected preview below still need their own review; no new grant or hosted operation follows from this decision record.
+
+## Connected design approval — 24 October 2026
+
+Moamen selected “Approve registration design for implementation” after reviewing the connected fictional player/duplicate/confirmation/profile preview. This authorizes the narrow I2a implementation described in the [contract](i2a-registration-design-contract.md). It does not establish acceptance of a deployed registration feature or approve later people/guardian scope.

@@ -1,0 +1,17 @@
+{
+  "reactMode": "development",
+  "cases": [
+    "duplicate distinction",
+    "existing profile no create",
+    "stale duplicate review",
+    "pending submission disabled",
+    "lost-response reconciliation",
+    "actor switch clears state",
+    "revoked profile cleared",
+    "EN/AR draft preservation",
+    "360px no overflow"
+  ],
+  "creates": 1,
+  "errors": [],
+  "scope": "Actual React component; synthetic session and HTTP responses. Database tested separately."
+}

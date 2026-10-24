@@ -3,8 +3,8 @@ import { isIP } from "node:net";
 import { signProof } from "./onboarding";
 
 export const DATABASE_ORIGIN = "https://snpphkenmvmhpjstbeul.supabase.co";
-const reads = new Set(["m1_context_v1", "m1_platform_list_v1", "m1_setup_v1", "m1_operation_v1", "my_academy_memberships_v1"]);
-const writes = new Set(["m1_create_v1", "m1_save_setup_v1", "m1_manage_invitation_v1", "bootstrap_identity_v1"]);
+const reads = new Set(["m1_context_v1", "m1_platform_list_v1", "m1_setup_v1", "m1_operation_v1", "my_academy_memberships_v1", "i2_people_v1", "i2_candidates_v1", "i2_profile_v1"]);
+const writes = new Set(["m1_create_v1", "m1_save_setup_v1", "m1_manage_invitation_v1", "bootstrap_identity_v1", "i2_register_v1", "i2_operation_v1"]);
 export class GatewayError extends Error {
   constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }
 }

@@ -208,6 +208,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
                 <li>{t('Sport: ', 'الرياضة: ')}{(ar ? setup.sport?.label_ar : setup.sport?.label_en) ?? t('Not saved', 'لم تُحفظ')}</li>
               </ol>
               <div className="journey-actions">
+                {setup.complete && <a className="button" href={`/${locale}/workspace/${academy}/players`}>{t('Open players','فتح اللاعبين')}</a>}
                 <Button disabled={disabled} onClick={() => { setBranch(setup.branch?.name ?? ''); setTimezone(setup.timezone ?? ''); setEditing('branch'); }}>{t('Edit branch and timezone', 'تعديل الفرع والمنطقة الزمنية')}</Button>
                 <Button disabled={disabled} onClick={() => { setSportEn(setup.sport?.label_en ?? ''); setSportAr(setup.sport?.label_ar ?? ''); setEditing('sport'); }}>{t('Edit sport', 'تعديل الرياضة')}</Button>
               </div>

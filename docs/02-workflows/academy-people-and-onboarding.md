@@ -53,3 +53,7 @@ Staff QR credentials are opaque, revocable identifiers. They are not passwords, 
 Registration uses labeled fields, clear required markers, an error summary linked to invalid inputs, keyboard-accessible selectors, visible save status and a cancel path that handles drafts. Do not rely on clickable decorative cards or color alone. Arabic labels, phone formatting and mixed-direction IDs are tested.
 
 Acceptance cases include duplicate registration, unauthorized branch, archived player, default-branch creation failure, incomplete staff provisioning, repeated transfer, last-owner protection, unverified guardian invitation and immediate access loss after unlinking. Search and export must work across all eligible people, not just the first loaded page. An empty result means a successful query with no matches; a failed query shows a retryable error.
+
+## Accepted synthetic I2a implementation boundary — 24 October 2026
+
+The broad workflow above remains a requirements map. Moamen approved only the [narrow player registration policy and connected design](../06-delivery/i2-people-first-slice-decisions.md): existing Owners, explicit initial branch after setup, fictional display name and optional unverified contact, scoped duplicate review without automatic merge. No guardian access, child login, real data, enrollment or activation. [Implementation and evidence](../07-handoff/i2a-registration-implementation.md) and [scoped traceability](../06-delivery/i2a-registration-traceability.csv) record actual status separately from this wider workflow.

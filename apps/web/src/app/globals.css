@@ -136,3 +136,5 @@ h1[tabindex]:focus { outline: none; }
 }
 
 @media(max-width:720px) { .main:has(.admission-layout.has-detail) .admission-create { display: none; } }
+
+.people-check{display:flex;align-items:center;gap:10px;min-height:44px}.people-check input{width:22px;min-width:22px;min-height:22px;height:22px}

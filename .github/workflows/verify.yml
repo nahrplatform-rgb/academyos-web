@@ -29,4 +29,10 @@ jobs:
         run: |
           node scripts/onboarding/test_ui.mjs
           UI_REACT_MODE=development node scripts/onboarding/test_ui.mjs
+      - name: Verify scoped player API validation and fail-closed budgets
+        run: node scripts/people/test_api.mjs
+      - name: Verify player registration UI and interrupted-save recovery
+        run: |
+          node scripts/people/test_ui.mjs
+          UI_REACT_MODE=development node scripts/people/test_ui.mjs
       - run: npm run test:e2e

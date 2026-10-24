@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "c982b823-53f1-407e-8160-b8b7dd95ba82", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261024095215_i2a_synthetic_player_registration.sql", "counts": {"identities": 2, "academies": 2, "memberships": 2, "private_tables_with_rls": 14}, "hosted_storage_restore_tested": false}
