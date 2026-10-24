@@ -36,6 +36,14 @@ export default function PeopleWorkspace(props: {
     academy: string;
 }) {
     const session = useUser();
+    const [initializationExpired, setInitializationExpired] = useState(false);
+    useEffect(() => {
+        if (session.isLoaded) return;
+        const timer = setTimeout(() => setInitializationExpired(true), 15000);
+        return () => clearTimeout(timer);
+    }, [session.isLoaded]);
+    if (!session.isLoaded && initializationExpired)
+        return <main className="auth" lang={props.locale} dir={props.locale === 'ar' ? 'rtl' : 'ltr'}><section className="journey-card"><h1>{props.locale === 'ar' ? 'تعذر تحميل تسجيل الدخول' : 'Could not load sign-in'}</h1><p role="alert">{props.locale === 'ar' ? 'لم تُحمّل بيانات اللاعبين. أعد تحميل الصفحة للمحاولة مجدداً.' : 'No player data was loaded. Reload the page to try again.'}</p><Button onClick={() => window.location.reload()}>{props.locale === 'ar' ? 'إعادة تحميل الصفحة' : 'Retry loading page'}</Button></section></main>;
     if (!session.isLoaded)
         return <p role="status">{props.locale === 'ar' ? 'جارٍ التحميل…' : 'Loading…'}</p>;
     if (!session.user)

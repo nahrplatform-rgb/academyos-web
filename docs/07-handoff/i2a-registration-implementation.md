@@ -36,3 +36,9 @@ Owner A's session was denied at academy B's player route with no player/contact 
 Current remaining gates: independent human security approval, physical devices/screen readers, hosted workload/provider-meter evidence and owner acceptance of the implemented feature. The broader M1/I2 journey families are not declared complete by this slice.
 
 Follow-up verification also covers literal rendering of XSS-shaped names, two-character search guidance and debounce behavior. Old directory responses are invalidated immediately when search changes; superseded reads are aborted before the next lookup. The shared shell now enforces its own locale/direction beneath an opposite-direction route wrapper. Actual staging anonymous `/api/people` read returned HTTP401. No bearer token or session credential was exported for these checks.
+
+### Follow-up findings and recovery
+
+Source `5f2d9545e5e4653af6f9178460df87c633093228` reached READY as `dpl_3eyzKCk3Cbu1iDeg9jY3qiQS6w8w`. Live language switch beneath the English route measured computed shell direction `rtl`. One browser load failed to initialize Clerk JS (`failed_to_load_clerk_js`); a fresh reload recovered the authenticated directory without any provider/configuration change. Added a15-second sign-in initialization deadline with an EN/AR retry action and no private-data calls while unresolved. Actual React tests exercise that deadline with a controlled clock; this does not claim the external provider failure cannot recur.
+
+CI40085404646 failed because the older foundation `[dir]` selector now matched both locale wrapper and shell. The assertion was narrowed to `.app-scene`, with additional language and computed-direction assertions; no expected business result or visibility assertion was removed. All five local foundation E2E cases pass after that correction. The final deployment/CI receipt follows below.

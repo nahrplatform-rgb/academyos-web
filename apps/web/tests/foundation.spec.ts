@@ -9,8 +9,10 @@ test("English and Arabic starter pages truthfully show pending setup", async ({
     await page.goto(`/${locale}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
     await expect(
-      page.locator(`[dir="${locale === "ar" ? "rtl" : "ltr"}"]`),
+      page.locator(`.app-scene[dir="${locale === "ar" ? "rtl" : "ltr"}"]`),
     ).toBeVisible();
+    await expect(page.locator('.app-scene')).toHaveAttribute('lang', locale);
+    await expect(page.locator('.app-scene')).toHaveCSS('direction', locale === 'ar' ? 'rtl' : 'ltr');
     await expect(page.locator("article")).toHaveCount(4);
   }
 });

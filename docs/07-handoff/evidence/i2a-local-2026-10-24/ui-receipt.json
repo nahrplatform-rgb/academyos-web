@@ -11,7 +11,8 @@
     "EN/AR draft preservation",
     "360px no overflow",
     "XSS-shaped name is literal text",
-    "short search explains minimum; debounce fetches valid query"
+    "short search explains minimum; debounce fetches valid query",
+    "auth initialization timeout offers retry with zero private calls"
   ],
   "creates": 1,
   "errors": [],
