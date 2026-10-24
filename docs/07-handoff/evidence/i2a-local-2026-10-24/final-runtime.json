@@ -1,0 +1,26 @@
+{
+  "source": "e84d51bb96b44964033bc493b65bcb8862f18752",
+  "deployment": "dpl_G9dwFFNUejopeCMBnaAWTaWxWFq4",
+  "ready": true,
+  "canonicalAlias": "https://staging.academy.nahr.dev",
+  "ciPassed": [
+    40085968853,
+    40085964368
+  ],
+  "migration": "20261024100827",
+  "finalBrowser": [
+    "authorized directory reload",
+    "persisted profile in EN/AR",
+    "computed Arabic shell direction rtl"
+  ],
+  "database": {
+    "players": 1,
+    "registrationReceipts": 1,
+    "registrationAudits": 1,
+    "memberships": 2,
+    "invitations": 2
+  },
+  "featureOwnerAcceptance": "pending",
+  "independentHumanSecurityReview": "pending",
+  "fullHostedRaceLoadDeviceCostVerification": "pending"
+}
