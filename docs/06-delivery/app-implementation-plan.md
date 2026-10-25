@@ -104,3 +104,5 @@ Later Owner handoff confirms the corrected foundation and supersedes earlier pen
 ## Working workflow correction — 25 October 2026
 
 Owner reported the deployed reference refinement disorganized/unintuitive with alignment/spacing issues. This is not accepted working presentation. [Corrective implementation and evidence](../07-handoff/workflow-clarity-correction.md) covers directory-first appointment entry, task/header alignment, compact content-adjacent actions and medium-width task reflow across the same implemented journeys. Prior business/functional approvals retain their scopes. No I3 expansion.
+
+Owner subsequently approved the deployed workflow clarity correction on25 October2026. [Acceptance scope and exact source/deployment](../07-handoff/workflow-clarity-correction.md) supersede the preceding pending working-presentation status for these implemented journeys. Broader verification/security gates and future policy/design decisions remain open.

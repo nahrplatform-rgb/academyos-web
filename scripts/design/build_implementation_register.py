@@ -126,11 +126,11 @@ for row in action_rows:
           implementation_status=canonical['implementation_status'] + '; reference presentation refinement implemented; broader action retained',
           verification_status=canonical['verification_status'] + '; reference refinement local browser/build checks passed; hosted status in reference-refinement-implementation.md',
           deployment_status='Existing bounded functional slice deployed; reference refinement rollout recorded separately in reference-refinement-implementation.md',
-          owner_approval_status=canonical['acceptance_status'] + '; owner confirmed corrected foundation, working refinement acceptance pending',
+          owner_approval_status=canonical['acceptance_status'] + '; Owner accepted deployed workflow clarity correction25Oct2026; broader acceptance gates retained',
           design_status='Corrected original-reference foundation confirmed by owner implementation handoff 2026-10-25',
           evidence_reference=f'docs/07-handoff/{receipt}.md',
           domain_components=f'{component}; WorkspaceShell; WorkspacePanes; native controls',
-          next_gate='Working reference refinement owner review; broader direct API/device/performance/independent-security gates retained')
+          next_gate='Accepted working presentation; broader direct API/device/performance/independent-security gates retained')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -165,7 +165,7 @@ for row in screen_rows:
           verification_status='Per-slice canonical receipt and current refinement tests are separate; no whole-screen/security acceptance',
           deployment_status='Existing bounded slice deployed; reference refinement rollout recorded in reference-refinement-implementation.md',
           design_status='Owner confirmed original-reference foundation 2026-10-25',
-          owner_approval_status='Prior per-slice functional approvals preserved; current working refinement acceptance pending')
+          owner_approval_status='Prior per-slice functional approvals preserved; deployed workflow clarity presentation accepted25Oct2026; broader screen acceptance open')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []
