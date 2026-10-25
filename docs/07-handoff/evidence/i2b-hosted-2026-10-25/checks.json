@@ -24,5 +24,26 @@
     "independent human security review",
     "full hosted workload/provider meters",
     "physical device/screen reader"
-  ]
+  ],
+  "latest_source": "d68faa8ce0e0758710ef561a79b569962cf66323",
+  "latest_deployment": {
+    "id": "dpl_9UAU5MdQPh6VjSeLt4174GYxkwiT",
+    "state": "READY",
+    "canonical_alias": "staging.academy.nahr.dev"
+  },
+  "intermediate_ci": {
+    "40189111213": "success",
+    "40189107751": "success"
+  },
+  "latest_ci": {
+    "40190277910": "pending",
+    "40190273493": "pending"
+  },
+  "public_invitation": {
+    "http": 200,
+    "referrer_policy": "no-referrer",
+    "cache": "private/no-store"
+  },
+  "postfix_signed_in_browser": "Unavailable: local browser use disabled in Work settings",
+  "actual_recipient_authorization": "pending; no send/grant"
 }
