@@ -20,7 +20,13 @@
     "memberships": 2,
     "invitations": 2
   },
-  "featureOwnerAcceptance": "pending",
+  "featureOwnerAcceptance": "wording/usability accepted 2026-10-25",
   "independentHumanSecurityReview": "pending",
-  "fullHostedRaceLoadDeviceCostVerification": "pending"
+  "fullHostedRaceLoadDeviceCostVerification": "pending",
+  "ownerAcceptance": {
+    "by": "Moamen Ghareeb",
+    "date": "2026-10-25",
+    "response": "Accept the working registration flow",
+    "scope": "Working narrow I2a EN/AR wording and usability only"
+  }
 }
