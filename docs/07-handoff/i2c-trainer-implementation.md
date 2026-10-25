@@ -47,3 +47,7 @@ Status supersedes the earlier pre-rollout line: implemented, locally tested and 
 ## Prepared single hosted lifecycle check — authorization pending
 
 Proposed: current Owner A appoints fictional “Casey Demo” in AcademyOS M1 Synthetic Academy's existing branch, intended recipient `moamen_ghareeb@icloud.com`. Temporarily permit only this destination for Trainer delivery and existing email configuration, use current Owner UI and audited operations, restore closed Trainer gate and original email destination after one send. Recipient verifies/signs in and explicitly accepts in their separate browser; verify own name/Trainer role/branch only, no player or Owner powers. Owner ends this appointment and verify the next request denies it. No restoration, additional role, academy B change, real staff data or replacement invitation. Prior Guardian test authorization is not reused. Current state contains zero Trainer records.
+
+## Single separately authorized test initiated
+
+Moamen authorized one Casey Demo Trainer invitation to the approved iCloud account and ending test. Original Owner UI appointment persisted; provider accepted first attempt. Original email destination restored, Trainer gate empty/closed, and restoration deployment `dpl_AmNBMVa5viivJnXyjLQW1s5n7kAv` READY at product source `1e8a6e4`. Recipient acceptance and ending/denial remain pending. [Execution receipt](i2c-trainer-hosted-test.md). No further grants or restoration authorized.

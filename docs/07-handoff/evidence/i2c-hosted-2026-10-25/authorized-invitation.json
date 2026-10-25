@@ -1,0 +1,15 @@
+{
+  "invitation": "29d99cd2-5a51-4754-986c-42b4b9c52a0a",
+  "fictionalStaff": "Casey Demo",
+  "source": "1e8a6e48e7c2819d8f07f68444067eab8fd20838",
+  "providerState": "accepted",
+  "attempts": 1,
+  "invitationState": "pending",
+  "version": 1,
+  "restorationDeployment": "dpl_AmNBMVa5viivJnXyjLQW1s5n7kAv",
+  "restorationState": "READY",
+  "originalEmailDestinationRestoredVerified": true,
+  "trainerRecipientGateClosedVerified": true,
+  "recipientAcceptance": "pending",
+  "endingAndNextRead": "pending"
+}
