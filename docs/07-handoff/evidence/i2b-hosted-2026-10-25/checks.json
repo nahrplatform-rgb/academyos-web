@@ -45,7 +45,7 @@
     "cache": "private/no-store"
   },
   "postfix_signed_in_browser": "Unavailable: local browser use disabled in Work settings",
-  "actual_recipient_authorization": "pending; no send/grant",
+  "actual_recipient_authorization": "Authorized 2026-10-25: exact iCloud recipient, named synthetic player, narrow read and ending test; no send/grant yet",
   "final_counts": {
     "players": 4,
     "memberships": 2,
