@@ -117,7 +117,7 @@ class GuardianBoundary(PeopleBoundary):
    msg='\n'.join(['delivery',target,'user_delivery_worker',str(stamp),''])
    proof=dict(purpose='delivery',target=target,subject='user_delivery_worker',issued=stamp,emails='',signature=hmac.new(('a'*64).encode(),msg.encode(),hashlib.sha256).hexdigest() if valid else '0'*64)
    q=f"select public.g3_delivery_v1('{iv}',{literal(json.dumps(proof))}::jsonb,{literal(lease)+'::uuid' if lease else 'null'},{literal(outcome) if outcome else 'null'})"
-   return json.loads(self.sql(q,ok=valid)) if valid else self.sql(q,ok=False)
+   return json.loads(self.sql('set role anon;'+q,ok=valid)) if valid else self.sql('set role anon;'+q,ok=False)
   deliver(valid=False);claim=deliver();self.assertTrue(claim['send']);self.assertTrue(deliver()['retry'])
   deliver(claim['lease'],'failed');self.assertTrue(deliver()['send'])
   lease=self.sql(f"select lease_id from academy.guardian_invitations where id='{iv}'");deliver(lease,'unknown');self.assertFalse(deliver()['send'])

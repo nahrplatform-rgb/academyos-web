@@ -54,5 +54,13 @@
     "hosted performance and provider meters",
     "independent human security approval",
     "working-feature acceptance"
-  ]
+  ],
+  "deployment": {
+    "id": "dpl_3Ce1wV8Ko3Q1JpFahNG7tUyW9bV4",
+    "source": "9c6e3ae001048ddbb1bf0376e7e99335a82efce8",
+    "ready": true,
+    "environment": "existing synthetic staging project",
+    "canonical_alias": "staging.academy.nahr.dev"
+  },
+  "anonymous_worker_role_test": "passed with actual anon role; no hosted mail"
 }

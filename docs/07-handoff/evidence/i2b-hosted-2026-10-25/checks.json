@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-25",
+  "source": "9c6e3ae001048ddbb1bf0376e7e99335a82efce8",
+  "deployment": "dpl_3Ce1wV8Ko3Q1JpFahNG7tUyW9bV4",
+  "ci": {
+    "40188329771": "success",
+    "40188326750": "success"
+  },
+  "owner_player_to_appointment_read": "passed",
+  "recipient_gate_configured": false,
+  "unauthorized_recipient_rejected": true,
+  "after_denial": {
+    "guardian_people": 0,
+    "guardian_invitations": 0,
+    "guardian_links": 0,
+    "guardian_operations": 0,
+    "memberships": 2,
+    "players": 4
+  },
+  "live_arabic_draft_switch": "discard-confirmation defect found; correction under verification",
+  "not_proven": [
+    "hosted guardian acceptance,field isolation and ending access",
+    "working EN/AR acceptance",
+    "independent human security review",
+    "full hosted workload/provider meters",
+    "physical device/screen reader"
+  ]
+}

@@ -241,16 +241,14 @@ function GuardianJourney({ locale: initialLocale, mode, academy, player: playerI
     } }
     function prepare(e: FormEvent) { e.preventDefault(); if (!confirmed || !email.trim() || !person)
         return; setNotice(''); setReview({ action: 'appoint', player: playerId, invitation: crypto.randomUUID(), email: email.trim().toLowerCase(), confirmed: true }); }
-    function navigate(e: MouseEvent<HTMLAnchorElement>) { if (busy || unknown) {
-        e.preventDefault();
-        return;
-    } if ((email || reason || review) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) {
-        e.preventDefault();
-        return;
-    } if (e.currentTarget.href === new URL(`/${ar ? 'en' : 'ar'}/${mode === 'invitation' ? 'guardian-invitation' : `workspace/${academy}/${mode === 'guardian' ? 'guardian' : `players/${playerId}/guardians`}`}`, window.location.origin).href) {
-        e.preventDefault();
-        setLocale(ar ? 'en' : 'ar');
-    } }
+    function navigate(e: MouseEvent<HTMLAnchorElement>) {
+        if (busy || unknown) { e.preventDefault(); return; }
+        const languageTarget = new URL(`/${ar ? 'en' : 'ar'}/${mode === 'invitation' ? 'guardian-invitation' : `workspace/${academy}/${mode === 'guardian' ? 'guardian' : `players/${playerId}/guardians`}`}`, window.location.origin).href;
+        if (e.currentTarget.href === languageTarget) {
+            e.preventDefault(); setLocale(ar ? 'en' : 'ar'); return;
+        }
+        if ((email || reason || review) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) e.preventDefault();
+    }
     const errorText: Record<string, string> = { denied: t('Access unavailable. Check your account and workspace.', 'الصلاحية غير متاحة. تحقق من حسابك ومساحة العمل.'), invalid: t('Check the invitation link and required fields.', 'تحقق من رابط الدعوة والحقول المطلوبة.'), recipient_not_authorized: t('This recipient has not been separately authorized for the synthetic staging test. No invitation was created.', 'لم يُعتمد هذا المستلم بشكل منفصل لاختبار البيئة التجريبية. لم تُنشأ دعوة.'), conflict: t('The appointment changed. Refresh and review its current state before trying again.', 'تغيرت الدعوة. حدّث الحالة وراجعها قبل المحاولة.'), limited: t('Too many requests. Wait and try again.', 'طلبات كثيرة. انتظر وحاول مجدداً.'), unavailable: t('Could not load current access. Retry.', 'تعذر تحميل الصلاحية الحالية. أعد المحاولة.'), unknown: t('The result is not confirmed. Check the original operation before starting another.', 'النتيجة غير مؤكدة. تحقق من العملية الأصلية قبل بدء أخرى.'), setup_required: t('Complete initial academy setup first.', 'أكمل الإعداد الأولي أولاً.') };
     const title = mode === 'owner' ? t('Guardian appointments', 'دعوات أولياء الأمور') : mode === 'invitation' ? t('Your guardian invitation', 'دعوة ولي الأمر') : t('Your linked players', 'اللاعبون المرتبطون بك');
     const scope = t('Read-only: this player’s name and branch only. No sibling, contact, payment or consent access.', 'للقراءة فقط: اسم وفرع هذا اللاعب فقط. لا صلاحية للأشقاء أو الاتصال أو الدفع أو الموافقات.');

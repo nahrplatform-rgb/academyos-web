@@ -6,6 +6,7 @@
   "errors": [],
   "cases": [
     "explicit Owner confirmation",
+    "language switch preserves draft without discard dialog",
     "pending submit disabled",
     "commit response loss and recovery",
     "pre-send cancellation fence",

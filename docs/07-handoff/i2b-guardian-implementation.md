@@ -35,3 +35,15 @@ Security advisors show18 informational deny-by-default RLS/no-policy tables, two
 ## Rollout and remaining gates
 
 App source/CI/deployment/runtime results are appended after verification. No production launch or merge. Independent human security review; hosted two-account/other-child/field/revocation/recovery and workload/provider-meter checks; physical-device/screen-reader and working EN/AR owner acceptance remain open. Containment revokes only new RPC execution and entry/delivery capabilities, preserves private records/audits and repairs forward. Do not restore an older backup over later writes.
+
+### App rollout — 25 October 2026
+
+Source `9c6e3ae001048ddbb1bf0376e7e99335a82efce8` committed and pushed to the existing draft PR. Existing synthetic staging deployment `dpl_3Ce1wV8Ko3Q1JpFahNG7tUyW9bV4` reached READY and includes `staging.academy.nahr.dev` alias. Vercel target `production` belongs to this existing synthetic staging project; no customer production launch. Exact-source CI runs40188329771/40188326750 both passed.
+
+The post-commit anonymous worker-role database check also passed with valid and forged proofs, lease retry, failed/unknown outcomes and send-stop behavior. Deployment code is unchanged by that test improvement.
+
+### Hosted initial checks and language correction
+
+The existing Owner opened player `Synthetic Registration Demo` → Guardian appointments. Current read and empty state succeeded. Vercel environment metadata confirmed no guardian recipient configuration. Submitting `guardian@example.invalid` was refused with “No invitation was created”; database recheck confirmed zero guardian people/invitations/links/operations, two memberships and four players. [Hosted screenshot](evidence/i2b-hosted-2026-10-25/recipient-gate-en.png). No provider call or access grant.
+
+The live draft language switch exposed an unnecessary discard confirmation. The follow-up moves language handling before the leave-page discard guard. The new regression reproduced the problem before the correction, and requires preserving email and explicit confirmation with no dialog. Ordinary leaving still guards unsaved drafts; pending/unknown operations still block navigation. Build/lint and actual React production/development checks cover the correction. The temporary browser tab's confirmation could not be dismissed through browser controls; that limits this initial live Arabic check. Follow-up source/deployment and fresh-tab results are recorded separately.
