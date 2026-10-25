@@ -1,0 +1,160 @@
+{
+  "recorded_date": "2026-10-23",
+  "timezone": "Africa/Cairo",
+  "source_directory": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete",
+  "preserved_directory": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference",
+  "authority": "Owner-selected visual reference only; all sample behavior and values are unapproved evidence",
+  "copy_method": "Byte-identical copy2; no source editing; .DS_Store excluded",
+  "file_count": 12,
+  "all_byte_identical": true,
+  "assets": [
+    {
+      "relative_path": "AcademyOS_MacOS_Reference_Matched.html",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/AcademyOS_MacOS_Reference_Matched.html",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/AcademyOS_MacOS_Reference_Matched.html",
+      "bytes": 172155,
+      "source_sha256": "6941598aa7ecfe25b8f44e5b81ba20ee4fc4acaf119626a3c92e93f08d68ccb9",
+      "preserved_sha256": "6941598aa7ecfe25b8f44e5b81ba20ee4fc4acaf119626a3c92e93f08d68ccb9",
+      "byte_identical": true
+    },
+    {
+      "relative_path": "AcademyOS_MacOS_Refined_Showcase.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/AcademyOS_MacOS_Refined_Showcase.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/AcademyOS_MacOS_Refined_Showcase.png",
+      "bytes": 735483,
+      "source_sha256": "40767b5a4094a3583f5129ef207cd5c72ae29c6f58b6fc8b9a19b45073e5deb7",
+      "preserved_sha256": "40767b5a4094a3583f5129ef207cd5c72ae29c6f58b6fc8b9a19b45073e5deb7",
+      "image_dimensions": [
+        1880,
+        1290
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "README.txt",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/README.txt",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/README.txt",
+      "bytes": 1124,
+      "source_sha256": "1d138b8379a2fb71d3a5c8f640800f6d19763b066b34a073f48f642f8f9d121f",
+      "preserved_sha256": "1d138b8379a2fb71d3a5c8f640800f6d19763b066b34a073f48f642f8f9d121f",
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Academies.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Academies.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Academies.png",
+      "bytes": 272010,
+      "source_sha256": "1a63ac53edd33ec66aa644b009a55b8b9ae2d1bc7b350a67a63c47222bffabfc",
+      "preserved_sha256": "1a63ac53edd33ec66aa644b009a55b8b9ae2d1bc7b350a67a63c47222bffabfc",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Arabic_RTL.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Arabic_RTL.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Arabic_RTL.png",
+      "bytes": 284846,
+      "source_sha256": "39b3fac71f4c009bb05ac6860275e0ee313ca306528b351ec287994c6818b8d2",
+      "preserved_sha256": "39b3fac71f4c009bb05ac6860275e0ee313ca306528b351ec287994c6818b8d2",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Players.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Players.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Players.png",
+      "bytes": 291916,
+      "source_sha256": "995ee1d087a914a7fed276672fd75ed9865e823cad0f63359a295eae9c549502",
+      "preserved_sha256": "995ee1d087a914a7fed276672fd75ed9865e823cad0f63359a295eae9c549502",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Requests_Dark.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Requests_Dark.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Requests_Dark.png",
+      "bytes": 326931,
+      "source_sha256": "8acbfb40f8970bad95ff7f7afd5e8aa8415e79e43ca2e4350e15ab79ea604b68",
+      "preserved_sha256": "8acbfb40f8970bad95ff7f7afd5e8aa8415e79e43ca2e4350e15ab79ea604b68",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Requests_Light.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Requests_Light.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Requests_Light.png",
+      "bytes": 329937,
+      "source_sha256": "e5f6aad306bdb91a966e2f0ef2e5b7ac120192271184427c0b3d09903bef1225",
+      "preserved_sha256": "e5f6aad306bdb91a966e2f0ef2e5b7ac120192271184427c0b3d09903bef1225",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Schedule.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Schedule.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Schedule.png",
+      "bytes": 263943,
+      "source_sha256": "b3c64657467330796be8af0ae4335b5df59f5d5af11ccfd0a21b247f926c04d1",
+      "preserved_sha256": "b3c64657467330796be8af0ae4335b5df59f5d5af11ccfd0a21b247f926c04d1",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Services.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Services.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Services.png",
+      "bytes": 308504,
+      "source_sha256": "bf2fc2bda247acbb1e9b34b8e648888c9c7aaa1bd96cad7dcd2321f4900227ce",
+      "preserved_sha256": "bf2fc2bda247acbb1e9b34b8e648888c9c7aaa1bd96cad7dcd2321f4900227ce",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Setup.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Setup.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Setup.png",
+      "bytes": 256714,
+      "source_sha256": "f06ce10e23f75b224e9adb015548f5caad41a65347f33198ea3e16ffaba5fa9b",
+      "preserved_sha256": "f06ce10e23f75b224e9adb015548f5caad41a65347f33198ea3e16ffaba5fa9b",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    },
+    {
+      "relative_path": "Screenshots/Subscriptions.png",
+      "source_path": "/Users/moamenghareeb/Downloads/AcademyOS_MacOS_Refined_Complete/Screenshots/Subscriptions.png",
+      "preserved_path": "/Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/Screenshots/Subscriptions.png",
+      "bytes": 283958,
+      "source_sha256": "ad42f96a35d29ebf3a4ac0b253a7ae7aa746c9efe61eb1f6996b3f8d17de4528",
+      "preserved_sha256": "ad42f96a35d29ebf3a4ac0b253a7ae7aa746c9efe61eb1f6996b3f8d17de4528",
+      "image_dimensions": [
+        1536,
+        950
+      ],
+      "byte_identical": true
+    }
+  ]
+}

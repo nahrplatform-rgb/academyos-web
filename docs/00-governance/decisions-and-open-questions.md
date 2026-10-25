@@ -84,3 +84,19 @@ The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) expand
 ## M1 bounded acceptance — 22 October 2026
 
 Moamen explicitly accepted the proposed [M1 policy packet](../06-delivery/onboarding-m1-decision-design-packet.md) and approved its connected design for implementation in this chat. D-002 invite-led synthetic admission and D-003 fixed roles/explicit branch scope, one initial owner and audited separate platform provisioning are accepted for M1. Invitation expiry is 72 hours, with verified-recipient acceptance; first branch/sport/timezone saves complete initial setup only. Other roles have no M1 setup writes. Public admission, custom delegation, multi-owner/transfer/recovery automation and operational/commercial activation remain later decisions. This does not authorize executing the initial privileged grant.
+
+## Compact blue visual replacement — 24 October 2026
+
+The owner explicitly selected the supplied compact blue HTML reference and subsequently instructed replacement of the old functional-app visual design using a shared component library. This supersedes ADR-010's teal/18px visual defaults for new application work. Preserve its historical wording. Blue/neutral compact desktop styling and dedicated phone touch targets are now the implementation direction; business policy, permission and real-operation contracts remain unchanged. Source progress and unexecuted review gates are recorded in the [first application design-foundation receipt](../07-handoff/compact-blue-design-foundation.md). This is not deployment or blanket screen/owner/security acceptance.
+
+## Web toolbar correction — 24 October 2026
+
+The owner likes the compact blue M1 direction but explicitly excludes the red/yellow/green macOS close/minimize/window controls from the web app. Remove those decorative dots from the shared app shell and active design prototype. Keep the compact blue system and actual web navigation/account controls. Historical reference assets and prior screenshots remain unchanged as evidence; their window controls are not the current visual requirement. This is scoped visual direction, not full M1 acceptance or deployment.
+
+## Compact blue M1 design accepted — 24 October 2026
+
+Moamen explicitly approved the compact blue M1 design after removal of the macOS window controls. [Approval receipt and reviewed source](../07-handoff/compact-blue-integration-verification.md) cover the shared foundation and shown M1 journey only. Broader prototype domains, authenticated staging verification, full M1 acceptance and independent security review retain their own gates.
+
+## I2a synthetic player registration policy accepted — 24 October 2026
+
+Moamen accepted the explained [first player-registration flow](../06-delivery/i2-people-first-slice-decisions.md): existing Academy Owner, fictional player name, academy-scoped duplicate review without automatic merging, explicit different-person confirmation or existing profile, saved profile; optional unverified parent contact grants no access and sends no invitation. Initial branch context remains explicit. This is the narrow synthetic I2a policy only. D-003 manager capabilities, D-004 guardian/player-access evidence and D-015 real-data retention/privacy remain open for their dependent slices. Design, implementation, staging verification and acceptance are separate.

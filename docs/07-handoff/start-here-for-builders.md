@@ -1,5 +1,9 @@
 # Start here for builders
 
+Current implementation tracking: [one app build plan and registers](../06-delivery/app-implementation-plan.md). Start with current-source verification, then the dependency-ordered people/training/attendance chain. Prototype actions are design references, not implemented business operations.
+
+Current visual implementation: [compact blue shared foundation](compact-blue-design-foundation.md),24 October2026. Owner-authorized replacement supersedes historical teal/18px visual preferences. Source is implemented; browser review/deployment/owner acceptance are separate.
+
 AcademyOS is an implemented EN/AR staging foundation with a preserved product/design handbook. Start with [the current ordered setup index](setup-index.md), then the [main index](../../README.md), [decision register](../00-governance/decisions-and-open-questions.md) and [delivery gates](../06-delivery/pre-development-checklist.md). Foundation/provider proofs are recorded; operational modules and production acceptance remain open.
 
 ## Current first-milestone packet — 22 October 2026

@@ -1,0 +1,52 @@
+{
+  "ui": "passed",
+  "reactMode": "development",
+  "browserVersion": "156.0.8078.4",
+  "harnessSha256": "ac061fb155c539add6e031fcfac5a022cdb65f9252d5bd81dab6e646280866af",
+  "implementationSha256": {
+    "src/components/onboarding-workspace.tsx": "7406fcc436c9d3e3cde15e1d362f4773842148053700a2ce6b7cdda6108c82c0",
+    "src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+    "src/components/workspace-shell.tsx": "83f7c04b2926e7cf3d4cadc764b6bf9e223f111f9d3a31821c4539733418f498",
+    "src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "src/app/globals.css": "cea2dd58bd63d997a381a910e277db0dbce9f88e832e6ceef8c611b6fe19a3e0",
+    "src/lib/timezones.json": "3f4d86e1bb7e60b749260489dd7cd0665550b291562e442bbf2ee922301d9e6d"
+  },
+  "handoffRace": "zero early reviews; one exchange across identity resolution; failed exchange stays failed",
+  "path": "create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh",
+  "authEntry": "EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery",
+  "phone": "EN/AR 360px no overflow",
+  "keyboardProfiles": [
+    {
+      "locale": "en",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    }
+  ],
+  "keyboardScope": "Tab/Enter, required focus, visible outline, labeled timezone values via driver, compact desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified",
+  "revocation": "private setup removed after denial",
+  "identityRace": "delayed A response and unsaved A draft excluded after B identity change",
+  "scope": "synthetic transport/identity; not hosted security evidence"
+}

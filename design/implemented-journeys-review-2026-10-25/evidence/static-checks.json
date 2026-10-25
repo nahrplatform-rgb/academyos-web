@@ -1,0 +1,21 @@
+{
+  "csv_rows": {
+    "acceptance.csv": 21,
+    "findings.csv": 13,
+    "journey-overlay.csv": 8
+  },
+  "prototype_routes": 36,
+  "existing_files_verified_unchanged": 543,
+  "authorized_append_only_design_docs": [
+    "docs/06-delivery/app-implementation-plan.md",
+    "docs/07-handoff/compact-blue-design-foundation.md"
+  ],
+  "pre_existing_changed_files": [
+    "docs/06-delivery/app-implementation-plan.md",
+    "docs/07-handoff/compact-blue-design-foundation.md"
+  ],
+  "source_head_before": "309ef695274263b4835e5366e6b7a23c4a7d9ee8",
+  "source_head_after": "309ef695274263b4835e5366e6b7a23c4a7d9ee8",
+  "errors": [],
+  "scope": "Artifact/static validation only; not functional, security, hosted or Owner acceptance"
+}

@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import WorkspacePanes from "./workspace-panes";
 import { Button } from "./ui/controls";
 
 export type Academy = { id: string; name: string; setup_complete: boolean; invitation_id: string; generation: number; expires_at: string; revoked: boolean; redeemed_at: string | null; delivery: string; attempts: number };
 type Props = {
+  creation: ReactNode; changeReview: ReactNode; creating: boolean; onCreate: () => void; onClose: () => void;
   items: Academy[];
   arabic: boolean;
   disabled: boolean;
@@ -13,7 +15,7 @@ type Props = {
 };
 
 /** Inspection uses only the current authorized page; it never fetches or grants. */
-export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry }: Props) {
+export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry, creation, changeReview, creating, onCreate, onClose }: Props) {
   const t = (en: string, ar: string) => arabic ? ar : en;
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = items.find(item => item.id === selectedId);
@@ -31,11 +33,27 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
     blocked: t('Blocked by staging recipient/configuration boundary', 'محظور بقيود المستلم أو الإعداد التجريبي'),
   } as Record<string, string>)[item.delivery] ?? item.delivery;
   function closeDetails() {
-    setSelectedId(null);
+    setSelectedId(null); onClose();
     requestAnimationFrame(() => opener.current?.focus());
   }
-  return <section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className={`admission-layout${selected ? ' has-detail' : ''}`}>
+  const inspector = <>{creating ? creation : <>    {selected && <aside id="admission-details" className="admission-detail" aria-labelledby="admission-detail-heading">
+      <Button onClick={closeDetails}>{t('Back to academy list', 'العودة إلى قائمة الأكاديميات')}</Button>
+      <h2 id="admission-detail-heading" tabIndex={-1} ref={detailHeading}>{selected.name}</h2>
+      <dl className="admission-properties">
+        <div><dt>{t('Owner invitation', 'دعوة المالك')}</dt><dd>{ownerStatus(selected)}</dd></div>
+        <div><dt>{t('Invitation expiry', 'انتهاء الدعوة')}</dt><dd>{new Intl.DateTimeFormat(arabic ? 'ar' : 'en', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }).format(new Date(selected.expires_at))} UTC</dd></div>
+        <div><dt>{t('Email delivery', 'حالة البريد')}</dt><dd>{deliveryStatus(selected)}</dd></div>
+        <div><dt>{t('Setup', 'الإعداد')}</dt><dd>{setupStatus(selected)}</dd></div>
+      </dl>
+      {!selected.redeemed_at && <div className="journey-actions">
+        {!selected.revoked && <Button disabled={disabled} onClick={() => onReview({ action: 'revoke', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review withdrawal', 'مراجعة إلغاء الدعوة')}</Button>}
+        <Button disabled={disabled} onClick={() => onReview({ action: 'reissue', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>
+        {!selected.revoked && ['queued', 'failed', 'blocked', 'sending'].includes(selected.delivery) && <Button disabled={disabled} onClick={() => onRetry({ action: 'retry', invitation: selected.invitation_id, generation: selected.generation })}>{t('Retry pending delivery', 'إعادة محاولة الإرسال المعلق')}</Button>}
+      </div>}
+    </aside>}{changeReview}</>}</>;
+  return <WorkspacePanes arabic={arabic} title={creating ? t("New academy", "أكاديمية جديدة") : t("Academy details", "تفاصيل الأكاديمية")} inspector={inspector} selected={Boolean(selected || creating)} onBack={closeDetails} blocked={disabled}><section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className="admission-layout">
     <div className="admission-directory">
+      <Button className="button" disabled={disabled} onClick={() => {setSelectedId(null);onCreate();}}>{t('Create a synthetic academy','إنشاء أكاديمية اختبار')}</Button>
       <h2>{t('Admitted academies', 'الأكاديميات المقبولة')}</h2>
       <p className="admission-hint">{t('Open an academy to inspect its invitation and setup status.', 'افتح أكاديمية لمراجعة حالة الدعوة والإعداد.')}</p>
       {items.length === 0 && !hasError && <p>{t('No academies on this page.', 'لا توجد أكاديميات في هذه الصفحة.')}</p>}
@@ -51,20 +69,6 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
         </tr>)}</tbody>
       </table>}
     </div>
-    {selected && <aside id="admission-details" className="admission-detail" aria-labelledby="admission-detail-heading">
-      <Button onClick={closeDetails}>{t('Back to academy list', 'العودة إلى قائمة الأكاديميات')}</Button>
-      <h2 id="admission-detail-heading" tabIndex={-1} ref={detailHeading}>{selected.name}</h2>
-      <dl className="admission-properties">
-        <div><dt>{t('Owner invitation', 'دعوة المالك')}</dt><dd>{ownerStatus(selected)}</dd></div>
-        <div><dt>{t('Invitation expiry', 'انتهاء الدعوة')}</dt><dd>{new Intl.DateTimeFormat(arabic ? 'ar' : 'en', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(selected.expires_at))}</dd></div>
-        <div><dt>{t('Email delivery', 'حالة البريد')}</dt><dd>{deliveryStatus(selected)}</dd></div>
-        <div><dt>{t('Setup', 'الإعداد')}</dt><dd>{setupStatus(selected)}</dd></div>
-      </dl>
-      {!selected.redeemed_at && <div className="journey-actions">
-        {!selected.revoked && <Button disabled={disabled} onClick={() => onReview({ action: 'revoke', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review withdrawal', 'مراجعة إلغاء الدعوة')}</Button>}
-        <Button disabled={disabled} onClick={() => onReview({ action: 'reissue', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>
-        {!selected.revoked && ['queued', 'failed', 'blocked', 'sending'].includes(selected.delivery) && <Button disabled={disabled} onClick={() => onRetry({ action: 'retry', invitation: selected.invitation_id, generation: selected.generation })}>{t('Retry pending delivery', 'إعادة محاولة الإرسال المعلق')}</Button>}
-      </div>}
-    </aside>}
-  </section>;
+
+  </section></WorkspacePanes>;
 }

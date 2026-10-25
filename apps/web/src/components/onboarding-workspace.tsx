@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import TimezoneSelect from "./timezone-select";
+import WorkspacePanes from "./workspace-panes";
 import WorkspaceShell from "./workspace-shell";
 import AdmissionDirectory, { type Academy } from "./admission-directory";
 import { Button, Input } from "./ui/controls";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
-import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
+import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from "react";
 
 type Membership = { membership_id: string; academy_id: string; academy_name: string; role: string };
 type Setup = { academy_id: string; name: string; version: number; complete: boolean; timezone: string | null; branch: { id: string; name: string } | null; sport: { id: string; label_en: string; label_ar: string } | null };
@@ -49,16 +50,17 @@ function JourneyWorkspace({ locale, mode, academy, handoff, isLoaded, isSignedIn
   const [review, setReview] = useState<Payload | null>(null), [pending, setPending] = useState<Payload | null>(null), [uncertain, setUncertain] = useState(false);
   const [name, setName] = useState(''), [email, setEmail] = useState(''), [branch, setBranch] = useState(''), [timezone, setTimezone] = useState(''), [sportEn, setSportEn] = useState(''), [sportAr, setSportAr] = useState('');
   const storageKey = `academyos:staging:m1-operation:${subject ?? 'none'}:${mode}:${academy ?? 'none'}`;
+  const [createOpen, setCreateOpen] = useState(false);
   const [editing, setEditing] = useState<'branch' | 'sport' | null>(null);
-  const alive = useRef(true);
+  const alive = useRef(true), readInFlight = useRef(false);
   const epoch = useRef(0), heading = useRef<HTMLHeadingElement>(null), invitationReviewHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (review && review.action !== 'create') invitationReviewHeading.current?.focus(); }, [review]);
 
-  function guardNavigation(e: MouseEvent<HTMLAnchorElement>) { if (editing && !window.confirm(t('Discard the unsaved draft and leave this page?', 'هل تريد تجاهل المسودة غير المحفوظة ومغادرة الصفحة؟'))) e.preventDefault(); }
+  function guardNavigation(e: MouseEvent<HTMLAnchorElement>) { if (busy || uncertain || pending) { e.preventDefault(); return; } if ((editing || name || email || review) && !window.confirm(t('Discard the unsaved draft and leave this page?', 'هل تريد تجاهل المسودة غير المحفوظة ومغادرة الصفحة؟'))) e.preventDefault(); }
   function forgetOperation() { try { sessionStorage.removeItem(storageKey); } catch { } }
   function wipe() { setContext(null); setItems([]); setSetup(null); setInvite(null); setPending(null); setReview(null); setBranch(''); setTimezone(''); setSportEn(''); setSportAr(''); setName(''); setEmail(''); setEditing(null); }
   async function load(next = false, initial = false) {
-    const ticket = ++epoch.current;
+    const ticket = ++epoch.current; readInFlight.current = true;
     if (!initial) { setLoading(true); setError(''); }
     try {
       if (mode === 'context') {
@@ -72,8 +74,8 @@ function JourneyWorkspace({ locale, mode, academy, handoff, isLoaded, isSignedIn
       } else {
         const data = await request({ action: 'review' }) as Invitation; if (!alive.current || ticket !== epoch.current) return; setInvite(data);
       }
-    } catch (e) { if (alive.current && ticket === epoch.current) { const code = e instanceof RequestError ? e.code : 'unavailable'; setError(code); if (code === 'denied') { wipe(); } } }
-    finally { if (alive.current && ticket === epoch.current) setLoading(false); }
+    } catch (e) { if (alive.current && ticket === epoch.current) { const code = e instanceof RequestError ? e.code : 'unavailable'; setError(code); if (code === 'denied') { wipe(); } else {setContext(null);setItems([]);setSetup(null);setInvite(null);} } }
+    finally { if (alive.current && ticket === epoch.current) {readInFlight.current = false;setLoading(false);} }
   }
   useEffect(() => {
     let live = true; alive.current = true;
@@ -88,10 +90,12 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
     // Each identity/context change starts a fresh request generation; old results are discarded.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subject, isLoaded, isSignedIn, exchanged, mode, academy]);
-  useEffect(() => {
-function resume() { if (document.visibilityState === 'visible' && isSignedIn && exchanged && !busy && !uncertain) { void load(); } } document.addEventListener('visibilitychange', resume); return () => document.removeEventListener('visibilitychange', resume);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSignedIn, exchanged, busy, uncertain]);
+  const resume = useEffectEvent(() => {
+    if (document.visibilityState !== 'visible' || !isSignedIn || !exchanged || busy || loading || readInFlight.current || uncertain || pending) return;
+    if (editing || review || name || email) { setReview(null); setNotice(t('Draft retained. Recheck current state before confirming.', 'حُفظت المسودة في الذاكرة. أعد التحقق من الحالة قبل التأكيد.')); return; }
+    void load();
+  });
+  useEffect(() => { let queued = false; const refresh = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; resume(); }); }; document.addEventListener('visibilitychange', refresh); window.addEventListener('focus', refresh); return () => { document.removeEventListener('visibilitychange', refresh); window.removeEventListener('focus', refresh); }; }, []);
   useEffect(() => { if (!editing) return; const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [editing]);
   async function mutate(body: Payload) {
     const ticket = epoch.current; const original = { ...body, op: body.op ?? crypto.randomUUID() }; try { sessionStorage.setItem(storageKey, JSON.stringify({ op: original.op, started: Date.now() })); } catch { } setPending(original); setBusy(true); setError(''); setNotice('');
@@ -115,6 +119,39 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
 };
   const disabled = busy || loading || uncertain || pending !== null || error === 'denied';
   const authReturn = `/${locale}/${mode === 'invitation' ? 'invitation' : 'workspace'}`;
+  const createPanel = <>            <section className="journey-card admission-create">
+              <h2>{t('Create a synthetic academy', 'إنشاء أكاديمية اختبار')}</h2>
+              <p>{t('Appoint one initial owner. They will verify their email and accept before entering setup. No commercial activation is implied.', 'عيّن مالكاً أولاً واحداً. سيتحقق من بريده ويقبل الدعوة قبل الإعداد. لا يعني ذلك التفعيل التجاري.')}</p>
+              {(!review || review.action !== 'create') ? <form onSubmit={e => { e.preventDefault(); setReview({ action: 'create', name: name.trim(), email: email.trim().toLowerCase(), invitation: crypto.randomUUID(), op: crypto.randomUUID() }); }}>
+                <label htmlFor="academy-name">{t('Academy name', 'اسم الأكاديمية')}</label>
+                <Input id="academy-name" required maxLength={160} value={name} onChange={e => setName(e.target.value)} />
+                <label htmlFor="owner-email">{t('Intended owner email', 'بريد المالك المقصود')}</label>
+                <Input id="owner-email" required maxLength={254} type="email" dir="ltr" value={email} onChange={e => setEmail(e.target.value)} />
+                <small>{t('Delivery is limited to the separately approved staging mailbox.', 'الإرسال مقصور على البريد التجريبي المعتمد بشكل منفصل.')}</small>
+                <Button disabled={disabled} type="submit">{t('Review appointment', 'مراجعة التعيين')}</Button>
+              </form> : <div>
+                <h3>{String(review.name)}</h3>
+                <bdi dir="ltr">{String(review.email)}</bdi>
+                <p>{t('Academy Owner · academy-wide setup · invitation valid for 72 hours.', 'مالك الأكاديمية · إعداد جميع الفروع · صلاحية الدعوة ٧٢ ساعة.')}</p>
+                <div className="journey-actions">
+                  <Button disabled={disabled} onClick={() => setReview(null)}>{t('Edit', 'تعديل')}</Button>
+                  <Button className="button" disabled={disabled} onClick={() => void mutate(review)}>{t('Create and invite owner', 'إنشاء ودعوة المالك')}</Button>
+                </div>
+              </div>}
+            </section>
+</>;
+  const changePanel = <>            {review && review.action !== 'create' && <section className="journey-card" role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
+              <h2 tabIndex={-1} ref={invitationReviewHeading}>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
+              <p>{String(review.name)} · {review.action === 'revoke' ? t('Withdraw this pending invitation. It will no longer grant access.', 'إلغاء هذه الدعوة المعلقة. لن تعود صالحة لمنح الصلاحية.') : t('Invalidate the old invitation and issue a new 72-hour invitation to the same recipient.', 'إبطال الدعوة القديمة وإصدار دعوة جديدة لمدة ٧٢ ساعة للمستلم نفسه.')}</p>
+              <Button disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
+              <Button disabled={disabled} onClick={() => { setReview(null); requestAnimationFrame(() => document.getElementById('admission-detail-heading')?.focus()); }}>{t('Cancel', 'إلغاء')}</Button>
+            </section>}
+</>;
+  const contextPanel = <>
+    {mode === 'setup' && setup && <><h3>{setup.name}</h3><p>{t('Academy Owner · initial setup', 'مالك الأكاديمية · الإعداد الأولي')}</p><dl className="admission-properties"><div><dt>{t('Branch','الفرع')}</dt><dd>{setup.branch?.name ?? t('Not saved','لم يُحفظ')}</dd></div><div><dt>{t('Timezone','المنطقة الزمنية')}</dt><dd><bdi>{setup.timezone ?? t('Not saved','لم تُحفظ')}</bdi></dd></div><div><dt>{t('Sport','الرياضة')}</dt><dd>{(ar ? setup.sport?.label_ar : setup.sport?.label_en) ?? t('Not saved','لم تُحفظ')}</dd></div></dl><p>{editing ? t('Draft changes are not saved. Branch/timezone and sport are saved separately.','تغييرات المسودة غير محفوظة. يُحفظ الفرع والمنطقة الزمنية والرياضة بشكل منفصل.') : t('Initial setup does not activate scheduling or billing.','الإعداد الأولي لا يفعل الجدولة أو الفوترة.')}</p></>}
+    {mode === 'context' && <p>{t('Choose an existing academy and role. Each workspace checks its current access.','اختر أكاديمية ودوراً حاليين. تتحقق كل مساحة من الصلاحية الحالية.')}</p>}
+    {mode === 'invitation' && <p>{t('Verify the intended email and review before accepting. Signing in alone grants no academy authority.','وثّق البريد المقصود وراجع قبل القبول. تسجيل الدخول وحده لا يمنح صلاحية الأكاديمية.')}</p>}
+  </>;
   return <WorkspaceShell locale={locale}
     context={mode === 'platform' ? t('Platform workspace', 'مساحة المنصة') : t('Academy workspace', 'مساحة الأكاديمية')}
     title={mode === 'platform' ? t('Academy admission', 'قبول الأكاديمية') : mode === 'invitation' ? t('Owner invitation', 'دعوة المالك') : mode === 'setup' ? t('Initial setup', 'الإعداد الأولي') : t('Your workspaces', 'مساحاتك')}
@@ -123,6 +160,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
     onNavigate={guardNavigation}
     navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك'), current: mode === 'context' }, ...(mode === 'platform' ? [{ href: `/${locale}/platform`, label: t('Academy admission', 'قبول الأكاديمية'), current: true }] : [])]}
     account={isSignedIn ? <UserButton /> : null}>
+        <WorkspacePanes arabic={ar} title={t('Workspace context','سياق مساحة العمل')} inspector={contextPanel} plain={mode === 'platform'}>
         <h1 tabIndex={-1} ref={heading}>{mode === 'platform' ? t('Academy admission', 'قبول الأكاديمية') : mode === 'invitation' ? t('Your owner invitation', 'دعوتك بصفة مالك الأكاديمية') : mode === 'setup' ? t('Initial academy setup', 'الإعداد الأولي للأكاديمية') : t('Choose your workspace', 'اختر مساحتك')}</h1>
         {error && <div className="journey-error" role="alert">{messages[error] ?? messages.unavailable}</div>}
         {notice && <p className="notice" role="status">{notice}</p>}
@@ -130,7 +168,7 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
         {uncertain && <section className="journey-card">
           <h2>{t('Check the original operation', 'التحقق من العملية الأصلية')}</h2>
           <p>{t('Do not create a replacement. Your request keeps its original reference.', 'لا تنشئ طلباً بديلاً. يحتفظ الطلب بمرجعه الأصلي.')}</p>
-          <Button disabled={busy} onClick={() => void reconcile()}>{t('Check status', 'التحقق من الحالة')}</Button>
+          <Button disabled={busy} onClick={() => void reconcile()}>{t('Check original operation', 'التحقق من العملية الأصلية')}</Button>
         </section>}
         {pending && !uncertain && !busy && (pending.action === 'recovered' ? <p className="notice">{t('The previous receipt was not found. Return to the saved workspace to review the result. The previous form was not restored; do not recreate an academy until its status is resolved.', 'لم يُعثر على النتيجة السابقة. ارجع إلى الحالة المحفوظة لمراجعة النتيجة. لم تُستعد الاستمارة السابقة؛ لا تُعد إنشاء الأكاديمية حتى تتضح حالتها.')} <Button onClick={() => { forgetOperation(); setPending(null); setError(''); }}>{t('I reviewed saved state; continue', 'راجعت الحالة المحفوظة؛ متابعة')}</Button>
         </p> : <Button onClick={() => void mutate(pending)}>{t('Retry original request', 'إعادة إرسال الطلب الأصلي')}</Button>)}
@@ -151,40 +189,14 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
           <p role="status">{t('Please wait. A failed lookup will not appear as an empty workspace.', 'يرجى الانتظار. لن يظهر فشل التحميل كمساحة فارغة.')}</p>
         </section>}
         {isSignedIn && !loading && !uncertain && <>
-          <Button disabled={busy} onClick={() => void load()}>{t('Refresh saved state', 'تحديث الحالة المحفوظة')}</Button>
+          <Button disabled={busy} onClick={() => void load()}>{t(error ? 'Retry current read' : editing || review ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : editing || review ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button>
           {mode === 'context' && context && <>
-            <p>{t('Select the academy and role for this visit.', 'اختر الأكاديمية والدور لهذه الزيارة.')}</p><p className="notice">{t('Your account reference: ', 'مرجع حسابك: ')}<bdi dir="ltr">{subject}</bdi></p>{context.platform && <Link className="button" href={`/${locale}/platform`}>{t('Open Platform workspace', 'فتح مساحة المنصة')}</Link>}{context.memberships.length === 0 && <p className="notice">{t('No active academy membership. Use a valid invitation from your academy administrator.', 'لا توجد عضوية أكاديمية نشطة. استخدم دعوة صالحة من مسؤول الأكاديمية.')}</p>}<ul className="journey-list">{context.memberships.map(m =>
+            <p>{t('Select the academy and role for this visit.', 'اختر الأكاديمية والدور لهذه الزيارة.')}</p><details className="support-reference"><summary>{t('Account reference for support', 'مرجع الحساب للدعم')}</summary><bdi dir="ltr">{subject}</bdi></details>{context.platform && <Link className="button" href={`/${locale}/platform`}>{t('Open Platform workspace', 'فتح مساحة المنصة')}</Link>}{context.memberships.length === 0 && <p className="notice">{t('No active academy membership. Use a valid invitation from your academy administrator.', 'لا توجد عضوية أكاديمية نشطة. استخدم دعوة صالحة من مسؤول الأكاديمية.')}</p>}<ul className="journey-list">{context.memberships.map(m =>
               <li key={m.membership_id}>
-                <strong>{m.academy_name}</strong> · {({ owner: t('Academy Owner', 'مالك الأكاديمية'), manager: t('Manager', 'مدير'), trainer: t('Trainer', 'مدرب'), guardian: t('Guardian', 'ولي أمر'), player: t('Player', 'لاعب') } as Record<string, string>)[m.role] ?? m.role} {m.role === 'owner' ? <Link href={`/${locale}/workspace/${m.academy_id}`}>{t('Continue setup', 'متابعة الإعداد')}</Link> : m.role === 'guardian' ? <Link href={`/${locale}/workspace/${m.academy_id}/guardian`}>{t('Open linked players', 'فتح اللاعبين المرتبطين')}</Link> : m.role === 'trainer' ? <Link href={`/${locale}/workspace/${m.academy_id}/trainer`}>{t('Open staff profile', 'فتح الملف الوظيفي')}</Link> : <span>{t('Operational workspace is not available yet.', 'المساحة التشغيلية غير متاحة بعد.')}</span>}</li>)}</ul>{context.more && <Button onClick={() => void load(true)}>{t('More memberships', 'المزيد من العضويات')}</Button>}</>}
+                <strong>{m.academy_name}</strong> · {({ owner: t('Academy Owner', 'مالك الأكاديمية'), manager: t('Manager', 'مدير'), trainer: t('Trainer', 'مدرب'), guardian: t('Guardian', 'ولي أمر'), player: t('Player', 'لاعب') } as Record<string, string>)[m.role] ?? m.role} {m.role === 'owner' ? <Link href={`/${locale}/workspace/${m.academy_id}`}>{t('Open academy', 'فتح الأكاديمية')}</Link> : m.role === 'guardian' ? <Link href={`/${locale}/workspace/${m.academy_id}/guardian`}>{t('Open linked players', 'فتح اللاعبين المرتبطين')}</Link> : m.role === 'trainer' ? <Link href={`/${locale}/workspace/${m.academy_id}/trainer`}>{t('Open staff profile', 'فتح الملف الوظيفي')}</Link> : <span>{t('Operational workspace is not available yet.', 'المساحة التشغيلية غير متاحة بعد.')}</span>}</li>)}</ul>{context.more && <Button onClick={() => void load(true)}>{t('More memberships', 'المزيد من العضويات')}</Button>}</>}
           {mode === 'platform' && error !== 'denied' && <>
-            <section className="journey-card admission-create">
-              <h2>{t('Create a synthetic academy', 'إنشاء أكاديمية اختبار')}</h2>
-              <p>{t('Appoint one initial owner. They will verify their email and accept before entering setup. No commercial activation is implied.', 'عيّن مالكاً أولاً واحداً. سيتحقق من بريده ويقبل الدعوة قبل الإعداد. لا يعني ذلك التفعيل التجاري.')}</p>
-              {(!review || review.action !== 'create') ? <form onSubmit={e => { e.preventDefault(); setReview({ action: 'create', name: name.trim(), email: email.trim().toLowerCase(), invitation: crypto.randomUUID(), op: crypto.randomUUID() }); }}>
-                <label htmlFor="academy-name">{t('Academy name', 'اسم الأكاديمية')}</label>
-                <Input id="academy-name" required maxLength={160} value={name} onChange={e => setName(e.target.value)} />
-                <label htmlFor="owner-email">{t('Intended owner email', 'بريد المالك المقصود')}</label>
-                <Input id="owner-email" required maxLength={254} type="email" dir="ltr" value={email} onChange={e => setEmail(e.target.value)} />
-                <small>{t('Delivery is limited to the separately approved staging mailbox.', 'الإرسال مقصور على البريد التجريبي المعتمد بشكل منفصل.')}</small>
-                <Button disabled={disabled} type="submit">{t('Review appointment', 'مراجعة التعيين')}</Button>
-              </form> : <div>
-                <h3>{String(review.name)}</h3>
-                <bdi dir="ltr">{String(review.email)}</bdi>
-                <p>{t('Academy Owner · academy-wide setup · invitation valid for 72 hours.', 'مالك الأكاديمية · إعداد جميع الفروع · صلاحية الدعوة ٧٢ ساعة.')}</p>
-                <div className="journey-actions">
-                  <Button disabled={disabled} onClick={() => setReview(null)}>{t('Edit', 'تعديل')}</Button>
-                  <Button className="button" disabled={disabled} onClick={() => void mutate(review)}>{t('Create and invite owner', 'إنشاء ودعوة المالك')}</Button>
-                </div>
-              </div>}
-            </section>
             <AdmissionDirectory items={items} arabic={ar} disabled={disabled} hasError={Boolean(error)}
-              onReview={setReview} onRetry={body => void mutate(body)} />
-            {review && review.action !== 'create' && <section className="journey-card" role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
-              <h2 tabIndex={-1} ref={invitationReviewHeading}>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
-              <p>{String(review.name)} · {review.action === 'revoke' ? t('Withdraw this pending invitation. It will no longer grant access.', 'إلغاء هذه الدعوة المعلقة. لن تعود صالحة لمنح الصلاحية.') : t('Invalidate the old invitation and issue a new 72-hour invitation to the same recipient.', 'إبطال الدعوة القديمة وإصدار دعوة جديدة لمدة ٧٢ ساعة للمستلم نفسه.')}</p>
-              <Button disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
-              <Button disabled={disabled} onClick={() => { setReview(null); requestAnimationFrame(() => document.getElementById('admission-detail-heading')?.focus()); }}>{t('Cancel', 'إلغاء')}</Button>
-            </section>}
+              onReview={setReview} onRetry={body => void mutate(body)} creation={createPanel} changeReview={changePanel} creating={createOpen} onCreate={() => setCreateOpen(true)} onClose={() => {setCreateOpen(false);setReview(null);}} />
             {more && <Button disabled={disabled} onClick={() => void load(true)}>{t('More academies', 'المزيد من الأكاديميات')}</Button>}
           </>}
           {mode === 'invitation' && invite && <section className="journey-card">
@@ -245,8 +257,8 @@ function resume() { if (document.visibilityState === 'visible' && isSignedIn && 
               <p>{t('Confirm this sport for the branch. This completes initial setup only.', 'أكد هذه الرياضة للفرع. سيكتمل الإعداد الأولي فقط.')}</p>
               <Button disabled={disabled} className="button" onClick={() => void mutate({ action: 'save', academy, version: setup.version, step: 'complete', fields: {} })}>{t('Complete initial setup', 'إكمال الإعداد الأولي')}</Button>
             </section>}
-            <p className="notice">{t('Scheduling, billing and staff invitations await later implementation and activation decisions. Your saved setup can be resumed after signing in again.', 'الجداول والفوترة ودعوات الموظفين بانتظار التنفيذ وقرارات التفعيل اللاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
+            <p className="notice">{t('Manage players and Trainer appointments. Dated training and billing are future work. Your saved setup can be resumed after signing in again.', 'يمكنك إدارة اللاعبين وتعيينات المدربين. التدريب المؤرخ والفوترة في مراحل لاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
           </>}
         </>}
-  </WorkspaceShell>;
+  </WorkspacePanes></WorkspaceShell>;
 }

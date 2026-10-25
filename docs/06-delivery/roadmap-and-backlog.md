@@ -1,5 +1,9 @@
 # Delivery roadmap and dependency-ordered backlog
 
+## Current tracked implementation plan — 24 October 2026
+
+Use [the unified app implementation plan](app-implementation-plan.md), [screen register](app-implementation-screen-matrix.csv), [action register](app-implementation-action-matrix.csv) and [requirement joins](app-implementation-requirement-links.csv) for the next slices. These connect the compact-blue design to actual source/evidence, preserve all scope and keep design, implementation, verification, deployment and owner approval separate. The older proposed backlog below remains historical planning; assess existing M1 work before repeating it.
+
 The objective is a fully working, accepted web application against an agreed release scope, followed by the retained expansion/native vision. “100% working” means every in-scope workflow has accepted behavior, evidence and recovery; it cannot honestly mean a guarantee of zero future defects.
 
 ## Delivery approach

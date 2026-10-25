@@ -1,5 +1,7 @@
 # AcademyOS application foundation
 
+Current design-to-build tracking: [the application implementation plan](docs/06-delivery/app-implementation-plan.md) connects the selected compact-blue design, existing source, shared components and per-action acceptance gates. Its screen/action/requirement registers preserve separate implementation, verification, deployment and owner-approval status.
+
 Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Operational modules and production launch are still to be built and accepted.
 
 **Current setup documentation starts at [the ordered setup index](docs/07-handoff/setup-index.md).** It links the execution history, actual configuration/credential-name register, evidence and remaining work. Older handbook/onboarding statements below are historical and must not override current receipts.

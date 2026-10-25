@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-23",
+  "source_syntax_files": [
+    "app.js",
+    "commercial.js",
+    "content.js",
+    "expansion.js",
+    "identity.js",
+    "model.js",
+    "onboarding.js",
+    "operations.js",
+    "platform.js",
+    "primitives.js",
+    "services.js",
+    "studio.js",
+    "training.js"
+  ],
+  "result": "passed",
+  "scope": "Local standalone design prototype only",
+  "rendered_review": "Unavailable: current tool confirms local browser use disabled in Work settings",
+  "owner_approval": "Pending"
+}

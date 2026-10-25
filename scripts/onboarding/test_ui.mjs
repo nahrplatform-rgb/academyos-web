@@ -125,6 +125,7 @@ try{
  await page.setViewportSize({width:1440,height:1000});
  await page.goto('http://127.0.0.1:3194/?mode=platform');
  await captureReview('01-admission','1. Platform Owner — academy admission','The real admission form, before creating the synthetic academy.');
+ await page.getByRole('button',{name:'Create a synthetic academy',exact:true}).click();
  await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await captureReview('02-appointment-review','2. Review the owner appointment','Confirm the academy and intended recipient before creation.');await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();await page.getByText('Owner acceptance pending',{exact:true}).waitFor();await captureReview('03-invitation-pending','3. Invitation pending','Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation.');
  // I1 inspection must not fetch or dispatch an invitation change by itself.
  extraAcademy=true;
@@ -162,11 +163,11 @@ try{
   await panel.getByRole('button',{name:ar?'العودة إلى قائمة الأكاديميات':'Back to academy list',exact:true}).click();
   await page.waitForFunction(()=>document.activeElement?.classList.contains('admission-open')&&document.activeElement.textContent.includes('Synthetic Academy B'));
   assert.equal(await row.evaluate(el=>el===document.activeElement),true,'Back returns keyboard focus to the inspected row');
-  assert.equal(await page.locator('.admission-create').isVisible(),true,'Back restores creation form');
+  assert.equal(await page.getByRole('button',{name:ar?'إنشاء أكاديمية اختبار':'Create a synthetic academy',exact:true}).isVisible(),true,'Back restores directory creation action');
  }
  // Current denial must clear the selected platform projection too.
  await page.getByRole('button',{name:'Synthetic Academy B — عرض التفاصيل',exact:true}).click();
- platformDenied=true;await page.getByRole('button',{name:'تحديث الحالة المحفوظة',exact:true}).click();await page.getByRole('alert').waitFor();
+ platformDenied=true;await page.getByRole('button',{name:/^(تحديث العرض|إعادة محاولة قراءة الحالة|إعادة التحقق من الحالة)$/}).click();await page.getByRole('alert').waitFor();
  assert.equal(await page.locator('#admission-details').count(),0);assert.equal(await page.getByRole('button',{name:/Synthetic Academy B/}).count(),0);
  platformDenied=false;accepted=true;
  await page.goto('http://127.0.0.1:3194/?mode=platform');
@@ -176,12 +177,12 @@ try{
  accepted=false;extraAcademy=false;secondRevoked=false;
  await page.setViewportSize({width:1440,height:1000});
  await page.goto('http://127.0.0.1:3194/?mode=invitation#'+iv+'.'+'b'.repeat(64));await page.getByRole('button',{name:'Accept owner appointment',exact:true}).waitFor();await captureReview('04-owner-invitation','4. Invited Academy Owner — review invitation','The real invitation view after simulated identity and handoff. Actual Clerk sign-up and email verification are not represented by this adapter.');await page.getByRole('button',{name:'Accept owner appointment',exact:true}).click();await page.getByRole('link',{name:'Enter setup workspace',exact:true}).waitFor();assert.equal(new URL(page.url()).hash,'');
- await page.goto('http://127.0.0.1:3194/?mode=context');await page.getByRole('link',{name:'Continue setup',exact:true}).waitFor();await captureReview('05-workspace','5. Choose the academy workspace','The synthetic test identity has both platform and owner capabilities; real accounts only see their authorized contexts.');
+ await page.goto('http://127.0.0.1:3194/?mode=context');await page.getByRole('link',{name:'Open academy',exact:true}).waitFor();await captureReview('05-workspace','5. Choose the academy workspace','The synthetic test identity has both platform and owner capabilities; real accounts only see their authorized contexts.');
  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}`);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();await page.getByLabel('Branch name',{exact:true}).fill('Branch A');await page.getByLabel('Find a timezone or city',{exact:true}).fill('Cairo');await page.getByLabel('Academy timezone (IANA)',{exact:true}).selectOption('Africa/Cairo');await page.getByLabel('Find a timezone or city',{exact:true}).fill('No such timezone');await page.getByText('No matching timezone. Your selection has not changed.',{exact:true}).waitFor();assert.equal(await page.getByLabel('Academy timezone (IANA)',{exact:true}).inputValue(),'Africa/Cairo');
- await captureReview('06-branch-timezone','6. Branch and timezone draft','A real native timezone selector, with the chosen IANA value retained even when the search has no matches.');lost=true;await page.getByRole('button',{name:'Save branch',exact:true}).click();await page.getByRole('button',{name:'Check status',exact:true}).waitFor();await captureReview('07-unknown','7. Interrupted response — reconcile first','The test transport drops the response after committing its synthetic operation. The screen offers a status check before another save.');await page.getByRole('button',{name:'Check status',exact:true}).click();await page.getByText('The original operation was committed once.',{exact:true}).waitFor();assert.equal(setup.version,1);assert.equal(setup.timezone,'Africa/Cairo');
+ await captureReview('06-branch-timezone','6. Branch and timezone draft','A real native timezone selector, with the chosen IANA value retained even when the search has no matches.');lost=true;await page.getByRole('button',{name:'Save branch',exact:true}).click();await page.getByRole('button',{name:'Check original operation',exact:true}).waitFor();await captureReview('07-unknown','7. Interrupted response — reconcile first','The test transport drops the response after committing its synthetic operation. The screen offers a status check before another save.');await page.getByRole('button',{name:'Check original operation',exact:true}).click();await page.getByText('The original operation was committed once.',{exact:true}).waitFor();assert.equal(setup.version,1);assert.equal(setup.timezone,'Africa/Cairo');
  await page.getByRole('button',{name:'Edit sport',exact:true}).click();await page.getByLabel('Sport label — English',{exact:true}).fill('Synthetic Sport');await page.getByLabel('Sport label — Arabic',{exact:true}).fill('رياضة اختبار');
- await captureReview('08-sport','8. Sport draft — English and Arabic','Review both sport labels before saving.');conflict=true;await page.getByRole('button',{name:'Save sport',exact:true}).click();await page.getByRole('alert').waitFor();await captureReview('09-conflict','9. Version conflict — preserve the draft','The test returns a conflict. The draft remains available while the saved state can be refreshed.');assert.equal(await page.getByLabel('Sport label — English',{exact:true}).inputValue(),'Synthetic Sport');await page.getByRole('button',{name:'Refresh saved state',exact:true}).click();await page.getByRole('button',{name:'Save sport',exact:true}).click();
+ await captureReview('08-sport','8. Sport draft — English and Arabic','Review both sport labels before saving.');conflict=true;await page.getByRole('button',{name:'Save sport',exact:true}).click();await page.getByRole('alert').waitFor();await captureReview('09-conflict','9. Version conflict — preserve the draft','The test returns a conflict. The draft remains available while the saved state can be refreshed.');assert.equal(await page.getByLabel('Sport label — English',{exact:true}).inputValue(),'Synthetic Sport');await page.getByRole('button',{name:/^(Refresh view|Retry current read|Recheck current state)$/}).click();await page.getByRole('button',{name:'Save sport',exact:true}).click();
  await page.getByRole('button',{name:'Complete initial setup',exact:true}).waitFor();await captureReview('10-complete-review','10. Confirm initial setup','Review the branch, bilingual sport and timezone before completing setup.');await page.getByRole('button',{name:'Complete initial setup',exact:true}).click();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();assert.equal(setup.version,3);
  await page.reload();await page.getByRole('heading',{name:'Initial setup saved',exact:true}).waitFor();await captureReview('11-saved','11. Initial setup saved','The real confirmation view after reload. In this harness the saved fixture exists only in the running test process. Operational activation remains pending.');
  // Keyboard-only form traversal/activation on the real shared components.
@@ -202,7 +203,7 @@ try{
   assert.equal(await page.getByRole('main').count(),1,'Shared shell must expose exactly one main landmark');
   assert.equal(await page.getByRole('link',{name:label('Skip to content','انتقل إلى المحتوى'),exact:true}).getAttribute('href'),'#main');
   assert.equal(await page.getByRole('navigation',{name:label('Workspace navigation','التنقل في مساحة العمل'),exact:true}).count(),1);
-  if(width<=720)for(const target of await page.locator('.toolbar-actions>a,.brand,.workspace-sidebar nav a').all()){
+  if(width<=720)for(const target of await page.locator('.toolbar-actions>a:visible,.brand:visible,.workspace-sidebar nav a:visible').all()){
    const size=await target.boundingBox();assert.ok(size&&size.height>=44&&size.width>=44,'Phone shell links must retain 44px touch targets');
   }
   await tabTo(edit);await page.keyboard.press('Enter');
@@ -256,14 +257,14 @@ try{
   await page.setViewportSize({width:360,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  await captureReview('12-ar-phone','12. Arabic phone — completed setup','The same setup confirmation in Arabic/RTL at a 360px CSS viewport.');
- revoked=true;await page.getByRole('button',{name:'تحديث الحالة المحفوظة',exact:true}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);
+ revoked=true;await page.getByRole('button',{name:/^(تحديث العرض|إعادة محاولة قراءة الحالة|إعادة التحقق من الحالة)$/}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);
  await captureReview('13-access-denied','13. Access removed — private content cleared','A simulated permission denial clears the previously displayed branch/sport.');
  revoked=false;switched=false;
  await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}`);
  await page.getByRole('listitem').filter({hasText:'Branch A'}).waitFor();
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();await page.getByLabel('Branch name',{exact:true}).fill('Unsaved private A draft');
  holdSetup=true;const entered=new Promise(r=>{setupEntered=r;});
- await page.getByRole('button',{name:'Refresh saved state',exact:true}).click();
+ await page.getByRole('button',{name:/^(Refresh view|Retry current read|Recheck current state)$/}).click();
  await entered;
  switched=true;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_synthetic_b'})));
  await page.getByRole('listitem').filter({hasText:'Branch B'}).waitFor();

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from 'react';
 import { UserButton, useUser } from '@clerk/nextjs';
-import WorkspaceShell from './workspace-shell';
+import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
+import WorkspacePanes from './workspace-panes';
 import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
@@ -44,11 +45,11 @@ export default function PeopleWorkspace(props: {
         return () => clearTimeout(timer);
     }, [session.isLoaded]);
     if (!session.isLoaded && initializationExpired)
-        return <main className="auth" lang={props.locale} dir={props.locale === 'ar' ? 'rtl' : 'ltr'}><section className="journey-card"><h1>{props.locale === 'ar' ? 'تعذر تحميل تسجيل الدخول' : 'Could not load sign-in'}</h1><p role="alert">{props.locale === 'ar' ? 'لم تُحمّل بيانات اللاعبين. أعد تحميل الصفحة للمحاولة مجدداً.' : 'No player data was loaded. Reload the page to try again.'}</p><Button onClick={() => window.location.reload()}>{props.locale === 'ar' ? 'إعادة تحميل الصفحة' : 'Retry loading page'}</Button></section></main>;
+        return <PublicWorkspace locale={props.locale} title={props.locale === 'ar' ? 'تسجيل الدخول والصلاحية' : 'Sign-in and access'}><section className="journey-card"><h1>{props.locale === 'ar' ? 'تعذر تحميل تسجيل الدخول' : 'Could not load sign-in'}</h1><p role="alert">{props.locale === 'ar' ? 'لم تُحمّل بيانات اللاعبين. أعد تحميل الصفحة للمحاولة مجدداً.' : 'No player data was loaded. Reload the page to try again.'}</p><Button onClick={() => window.location.reload()}>{props.locale === 'ar' ? 'إعادة تحميل الصفحة' : 'Retry loading page'}</Button></section></PublicWorkspace>;
     if (!session.isLoaded)
-        return <p role="status">{props.locale === 'ar' ? 'جارٍ التحميل…' : 'Loading…'}</p>;
+        return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale === 'ar' ? 'جارٍ التحميل…' : 'Loading…'}</p></PublicWorkspace>;
     if (!session.user)
-        return <p>{props.locale === 'ar' ? 'سجّل الدخول للمتابعة.' : 'Sign in to continue.'}</p>;
+        return <PublicWorkspace locale={props.locale} title="AcademyOS"><p>{props.locale === 'ar' ? 'سجّل الدخول للمتابعة.' : 'Sign in to continue.'}</p></PublicWorkspace>;
     return <PeopleJourney key={`${session.user.id}:${props.academy}`} {...props} subject={session.user.id}/>;
 }
 function PeopleJourney({ locale: initialLocale, academy, subject }: {
@@ -64,6 +65,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [blocked, setBlocked] = useState(false);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
+    const profileOpener = useRef<HTMLButtonElement | null>(null);
     const lastSearch = useRef(''), lifecycleTicket = useRef(0), profileTicket = useRef(0);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
@@ -267,18 +269,42 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         void loadDirectory();
     else if (stage === 'profile' && profileId)
         void openProfile(profileId);
-    else if (['duplicates', 'review'].includes(stage))
-        void reviewCandidates(); });
+    else if (['duplicates', 'review'].includes(stage)) { setDifferent(false); setStage('form'); setNotice(t('Draft retained. Recheck matching records before confirming.', 'حُفظت المسودة في الذاكرة. أعد مراجعة السجلات المطابقة قبل التأكيد.')); } });
     useEffect(() => { active.current = true; const ticket = ++lifecycleTicket.current; const currentControllers = controllers.current; void Promise.resolve().then(() => { if (active.current && ticket === lifecycleTicket.current)
         initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
     useEffect(() => { if (search === lastSearch.current)
         return; lastSearch.current = search; const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search]);
-    useEffect(() => { const refresh = () => refreshVisible(); window.addEventListener('focus', refresh); document.addEventListener('visibilitychange', refresh); return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh); }; }, []);
+    useEffect(() => { let queued = false; const refresh = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; refreshVisible(); }); }; window.addEventListener('focus', refresh); document.addEventListener('visibilitychange', refresh); return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh); }; }, []);
     useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
     useEffect(() => { heading.current?.focus(); }, [stage]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
         return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
-    const title = stage === 'profile' ? t('Player profile', 'ملف اللاعب') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
+    function closeProfile() { if (busy || stage === 'unknown' || stage === 'saving') return; if (stage === 'review') { go('form'); return; } go('directory'); if (saved) void loadDirectory(); requestAnimationFrame(() => profileOpener.current?.focus()); }
+    const inspector = <>
+      {stage === 'profile' && <div className="read-toolbar"><Button disabled={busy} onClick={() => void openProfile(profileId, saved)}>{t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
+
+      {['profile','review','saving','unknown'].includes(stage) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {['profile','review','saving','unknown'].includes(stage) && notice && <p className="notice" role="status">{notice}</p>}
+        {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
+          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجل لاعب واحداً وجهة اتصال غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
+          <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
+        </section>}
+        {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Pending is not saved success. Repeated submission is disabled.', 'الانتظار ليس نجاحاً مؤكداً. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
+        {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('Keep the original operation reference. Check its status before creating a replacement.', 'احتفظ بمرجع العملية الأصلي. تحقق من حالتها قبل إنشاء بديل.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original operation', 'التحقق من العملية الأصلية')}</Button></section>}
+
+        {stage === 'profile' && saved && !selected && !busy && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
+        {stage === 'profile' && !selected && !busy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
+        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
+          <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
+          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd><bdi dir="ltr">{selected.contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
+          <div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link><Button onClick={() => { closeProfile(); }}>{t('Back to players', 'العودة للاعبين')}</Button>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
+        </section>}
+
+      {!['profile','review','saving','unknown'].includes(stage) && <><h3>{t('Registration scope','نطاق التسجيل')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
+    </>;
+    const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
     return <>
     <WorkspaceShell locale={locale} context={context?.academy_name ?? t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك') }, { href: `/${locale}/workspace/${academy}`, label: t('Academy setup', 'إعداد الأكاديمية') }, { href: '#directory', label: t('Players', 'اللاعبون'), current: true }]} onNavigate={event => { if (event.currentTarget.hash === '#language') {
         event.preventDefault();
@@ -288,18 +314,12 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         guard(event);
     else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
         event.preventDefault(); }} account={<UserButton />}>
+      <WorkspacePanes arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={['profile','review','saving','unknown'].includes(stage)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile}>
       <h1 ref={heading} tabIndex={-1}>{title}</h1>
-      <Button disabled={busy} onClick={() => { if (stage === 'unknown')
-        void reconcile();
-    else if (stage === 'profile' && profileId)
-        void openProfile(profileId);
-    else if (stage === 'directory' || stage === 'form')
-        void loadDirectory();
-    else
-        void reviewCandidates(); }}>{t('Refresh saved state', 'تحديث الحالة المحفوظة')}</Button>
+      {stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}
       {context && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
-      {error && <p className="journey-error" role="alert">{errorText(error)}</p>}
-      {notice && <p className="notice" role="status">{notice}</p>}
+      {!['profile','review','saving','unknown'].includes(stage) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {!['profile','review','saving','unknown'].includes(stage) && notice && <p className="notice" role="status">{notice}</p>}
       {busy && stage !== 'saving' && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
       {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
       {unavailable ? <section className="journey-card">
@@ -307,13 +327,13 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         <p>{error === 'denied' ? t('No player or contact information is shown after access is removed.', 'لا تُعرض بيانات اللاعبين أو جهات الاتصال بعد سحب الصلاحية.') : t('A failed lookup is not an empty directory.', 'فشل التحميل لا يعني أن القائمة فارغة.')}</p>
         <Button onClick={() => void loadDirectory()}>{t('Retry access', 'إعادة محاولة الوصول')}</Button>
       </section> : <>
-        {stage === 'directory' && <section className="journey-card">
+        {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
           <Input id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
           {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {!busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{t('No matching players.', 'لا يوجد لاعبون مطابقون.')}</p>}
-          <ul className="journey-list">{!busy && players.map(player => <li key={player.id}><Button disabled={busy} onClick={() => { void openProfile(player.id); }}>{player.name}</Button> · {player.branch}</li>)}</ul>
+          <table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!busy && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button disabled={busy} onClick={event => { profileOpener.current=event.currentTarget; void openProfile(player.id); }}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
           <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void loadDirectory(players.at(-1)?.id)}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}
         {stage === 'form' && <section className="journey-card"><h2>{t('New player draft', 'مسودة لاعب جديد')}</h2>
@@ -334,25 +354,11 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         </section>}
         {stage === 'duplicates' && <section className="journey-card"><h2>{t('Review possible duplicates', 'مراجعة السجلات المتشابهة')}</h2>
           <p>{t('Matching names do not establish identity. Open an existing record, or explicitly confirm a different person. No automatic merge.', 'تشابه الاسم لا يثبت الهوية. افتح سجلاً موجوداً أو أكد أنه شخص مختلف. لا دمج تلقائياً.')}</p>
-          <ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={() => { void openProfile(player.id); }}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul>
+          <ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={event => { profileOpener.current = event.currentTarget; void openProfile(player.id); }}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul>
           {candidateMore && <Button disabled={busy} onClick={() => void reviewCandidates(candidates.at(-1)?.id)}>{t('Next matching page (up to 25)', 'الصفحة المطابقة التالية (حتى 25)')}</Button>}<label className="people-check"><input type="checkbox" checked={different} onChange={event => setDifferent(event.target.checked)}/>{t('I reviewed these records. This is a different fictional person.', 'راجعت هذه السجلات. هذا شخص خيالي مختلف.')}</label>
           <div className="journey-actions"><Button disabled={!different || busy || candidateMore} className="button" onClick={() => go('review')}>{t('Review new registration', 'مراجعة التسجيل الجديد')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
         </section>}
-        {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
-          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
-          <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجل لاعب واحداً وجهة اتصال غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
-          <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
-        </section>}
-        {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Pending is not saved success. Repeated submission is disabled.', 'الانتظار ليس نجاحاً مؤكداً. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
-        {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('Keep the original operation reference. Check its status before creating a replacement.', 'احتفظ بمرجع العملية الأصلي. تحقق من حالتها قبل إنشاء بديل.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original save', 'التحقق من الحفظ الأصلي')}</Button></section>}
-        {stage === 'profile' && !selected && !busy && <Button onClick={() => void openProfile(profileId)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
-        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
-          <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
-          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd><bdi dir="ltr">{selected.contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
-          <p className="notice">{t('This contact has no child-view, payer or consent authority. No invitation was sent.', 'جهة الاتصال لا تملك صلاحية الاطلاع على الطفل أو الدفع أو الموافقة. لم تُرسل دعوة.')}</p>
-          <div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link><Button onClick={() => { go('directory'); void loadDirectory(); }}>{t('Back to players', 'العودة للاعبين')}</Button>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
-        </section>}
       </>}
-    </WorkspaceShell>
+    </WorkspacePanes></WorkspaceShell>
   </>;
 }

@@ -1,0 +1,5186 @@
+[
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 238.55035400390625
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 1059.4444580078125
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 820.8941650390625,
+      "x": 380.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 217.9947967529297,
+      "x": 1201.44970703125
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 1440
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 200.5555725097656
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 701.8923950195312
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 20.55555725097656
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 501.3368225097656,
+      "x": 322.5520935058594
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 301.9965515136719,
+      "x": 20.55555725097656
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 180.00001525878906,
+      "x": 823.888916015625
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 1024
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 308.00347900390625,
+      "x": 51.99652862548828
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 360.0000305175781,
+      "x": 0
+    },
+    "locale": "en",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 360
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "admissions",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admission",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "admit",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "admit-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "revoke-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "reissue-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "owner-invitation",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "workspaces",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "setup",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "setup-branch",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "setup-sport",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "setup-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "ready",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "players",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "register",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "duplicates",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "player-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "player",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "guardian-appointments",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "guardian-draft",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-invitation",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "guardian-view",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "guardian-end",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-end-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "guardian-ended",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "trainers",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "trainer-draft",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-invitation",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "trainer-view",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": true,
+      "width": 268.00347900390625,
+      "x": 0
+    },
+    "focused": "workspace-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": true,
+      "width": 51.99652862548828,
+      "x": 268.00347900390625
+    },
+    "overflow": false,
+    "route": "trainer-end",
+    "selected": false,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-end-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "selected": true,
+    "width": 320
+  },
+  {
+    "center": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "focused": "inspector-heading",
+    "h1Count": 1,
+    "inspector": {
+      "visible": true,
+      "width": 320,
+      "x": 0
+    },
+    "locale": "ar",
+    "nav": {
+      "visible": false,
+      "width": 0,
+      "x": 0
+    },
+    "overflow": false,
+    "route": "trainer-ended",
+    "selected": true,
+    "width": 320
+  }
+]
