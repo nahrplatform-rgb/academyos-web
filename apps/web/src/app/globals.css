@@ -209,7 +209,7 @@ button.primary { background:var(--accent);border-color:var(--accent);color:white
 .workspace-panes fieldset > p { color:var(--muted);font-size:12px;line-height:1.6; }
 .workspace-panes .checkbox-row { margin-block:16px;align-items:start;font-weight:400; }
 .checkbox-row input { flex-shrink:0; }
-.main > main > h1,.main > main > .journey-error,.main > main > .notice,.main > main > .journey-card { margin:22px 24px; }
+.main:has(.workspace-panes) > main > h1,.main:has(.workspace-panes) > main > .journey-error,.main:has(.workspace-panes) > main > .notice,.main:has(.workspace-panes) > main > .journey-card { margin:22px 24px; }
 .app-scene[lang="ar"] { font-family:Tahoma,Arial,sans-serif;font-size:14px;line-height:1.7; }
 .app-scene[lang="ar"] .workspace-sidebar nav a,.app-scene[lang="ar"] button,.app-scene[lang="ar"] .button { font-size:13px; }
 .app-scene[lang="ar"] h1 { line-height:1.5; }
@@ -234,3 +234,4 @@ input[dir="ltr"] { text-align:left; }
 
 .inspector-read { display:none; }
 @media(max-width:1100px) { .pane-selected .inspector-read { display:flex;margin:0; } }
+.scope-line { display:flex;gap:8px 16px;flex-wrap:wrap;margin-block:-8px 16px;color:var(--muted); }.scope-line strong { color:var(--ink); }

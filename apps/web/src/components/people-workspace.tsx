@@ -65,7 +65,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [blocked, setBlocked] = useState(false);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
-    const profileOpener = useRef<HTMLButtonElement | null>(null);
+    const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
     const lastSearch = useRef(''), lifecycleTicket = useRef(0), profileTicket = useRef(0);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
@@ -276,10 +276,10 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         return; lastSearch.current = search; const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search]);
     useEffect(() => { let queued = false; const refresh = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; refreshVisible(); }); }; window.addEventListener('focus', refresh); document.addEventListener('visibilitychange', refresh); return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh); }; }, []);
     useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
-    useEffect(() => { heading.current?.focus(); }, [stage]);
+    useEffect(() => { if (!['profile','review','saving','unknown'].includes(stage)) heading.current?.focus(); }, [stage]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
         return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
-    function closeProfile() { if (busy || stage === 'unknown' || stage === 'saving') return; if (stage === 'review') { go('form'); return; } go('directory'); if (saved) void loadDirectory(); requestAnimationFrame(() => profileOpener.current?.focus()); }
+    function closeProfile() { if (busy || stage === 'unknown' || stage === 'saving') return; if (stage === 'review') { go('form'); return; } go('directory'); const restoreFocus = () => requestAnimationFrame(() => (profileOpeners.current.get(profileId) ?? searchInput.current)?.focus()); if (saved) void loadDirectory().then(restoreFocus); else restoreFocus(); }
     const inspector = <>
       {stage === 'profile' && <div className="read-toolbar"><Button disabled={busy} onClick={() => void openProfile(profileId, saved)}>{t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
 
@@ -330,10 +330,10 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
+          <Input ref={searchInput} id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
           {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {!busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{t('No matching players.', 'لا يوجد لاعبون مطابقون.')}</p>}
-          <table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!busy && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button disabled={busy} onClick={event => { profileOpener.current=event.currentTarget; void openProfile(player.id); }}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          <table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!busy && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy} onClick={() => void openProfile(player.id)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
           <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void loadDirectory(players.at(-1)?.id)}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}
         {stage === 'form' && <section className="journey-card"><h2>{t('New player draft', 'مسودة لاعب جديد')}</h2>
@@ -354,7 +354,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         </section>}
         {stage === 'duplicates' && <section className="journey-card"><h2>{t('Review possible duplicates', 'مراجعة السجلات المتشابهة')}</h2>
           <p>{t('Matching names do not establish identity. Open an existing record, or explicitly confirm a different person. No automatic merge.', 'تشابه الاسم لا يثبت الهوية. افتح سجلاً موجوداً أو أكد أنه شخص مختلف. لا دمج تلقائياً.')}</p>
-          <ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={event => { profileOpener.current = event.currentTarget; void openProfile(player.id); }}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul>
+          <ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={() => void openProfile(player.id)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul>
           {candidateMore && <Button disabled={busy} onClick={() => void reviewCandidates(candidates.at(-1)?.id)}>{t('Next matching page (up to 25)', 'الصفحة المطابقة التالية (حتى 25)')}</Button>}<label className="people-check"><input type="checkbox" checked={different} onChange={event => setDifferent(event.target.checked)}/>{t('I reviewed these records. This is a different fictional person.', 'راجعت هذه السجلات. هذا شخص خيالي مختلف.')}</label>
           <div className="journey-actions"><Button disabled={!different || busy || candidateMore} className="button" onClick={() => go('review')}>{t('Review new registration', 'مراجعة التسجيل الجديد')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
         </section>}
