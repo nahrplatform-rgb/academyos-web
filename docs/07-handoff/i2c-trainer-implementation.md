@@ -51,3 +51,7 @@ Proposed: current Owner A appoints fictional “Casey Demo” in AcademyOS M1 Sy
 ## Single separately authorized test initiated
 
 Moamen authorized one Casey Demo Trainer invitation to the approved iCloud account and ending test. Original Owner UI appointment persisted; provider accepted first attempt. Original email destination restored, Trainer gate empty/closed, and restoration deployment `dpl_AmNBMVa5viivJnXyjLQW1s5n7kAv` READY at product source `1e8a6e4`. Recipient acceptance and ending/denial remain pending. [Execution receipt](i2c-trainer-hosted-test.md). No further grants or restoration authorized.
+
+## Single authorized hosted lifecycle completed
+
+Recipient accepted and live EN/AR staff profile was observed. Owner ended the exact appointment through reason/review/confirmation; next recipient refresh denied and removed the profile. Database confirms ended Trainer membership/assignment, one appoint/accept/end audit each, other Owner/Guardian roles active. [Execution and limitations](i2c-trainer-hosted-test.md). Working Trainer usability acceptance and broader hosted/security/device/performance gates remain pending.

@@ -4,12 +4,24 @@
   "source": "1e8a6e48e7c2819d8f07f68444067eab8fd20838",
   "providerState": "accepted",
   "attempts": 1,
-  "invitationState": "pending",
-  "version": 1,
+  "invitationState": "accepted",
+  "version": 3,
   "restorationDeployment": "dpl_AmNBMVa5viivJnXyjLQW1s5n7kAv",
   "restorationState": "READY",
   "originalEmailDestinationRestoredVerified": true,
   "trainerRecipientGateClosedVerified": true,
-  "recipientAcceptance": "pending",
-  "endingAndNextRead": "pending"
+  "recipientAcceptance": "verified in database; user screenshots and live Safari profile",
+  "endingAndNextRead": "Owner ended through reviewed UI; next recipient refresh denied and removed profile",
+  "trainerMembership": "ended",
+  "branchAssignment": "ended",
+  "otherRolesPreserved": [
+    "active Owner in B",
+    "active Guardian in A with no player links"
+  ],
+  "audits": {
+    "trainer.appoint": 1,
+    "trainer.accept": 1,
+    "trainer.end": 1
+  },
+  "workingAcceptance": "pending"
 }
