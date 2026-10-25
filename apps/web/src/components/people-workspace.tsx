@@ -126,12 +126,13 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         if (active.current && ticket === directoryTicket.current)
             setBusy(false);
     } }
-    async function reviewCandidates(after?: string) { setBusy(true); setError(''); try {
+    async function reviewCandidates(after?: string) { setBusy(true); setError(''); setNotice(''); try {
         const result = await request<Page>({ action: 'candidates', name, ...(after ? { after } : {}) });
         if (after && result.revision !== revision) {
-            setNotice(t('Matching records changed. Review again from the first page.', 'تغيرت السجلات المطابقة. راجع من الصفحة الأولى.'));
             setDifferent(false);
-            return await reviewCandidates();
+            await reviewCandidates();
+            setNotice(t('Matching records changed. Review again from the first page.', 'تغيرت السجلات المطابقة. راجع من الصفحة الأولى.'));
+            return;
         }
         setCandidates(result.items.map(playerRow));
         setCandidateMore(result.more);
@@ -146,7 +147,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         if (active.current)
             setBusy(false);
     } }
-    async function openProfile(id: string, wasSaved = false) { const ticket = ++profileTicket.current; setSaved(wasSaved); setProfileId(id); setSelected(null); setStage('profile'); setBusy(true); setError(''); try {
+    async function openProfile(id: string, wasSaved = false) { const ticket = ++profileTicket.current; setSaved(wasSaved); setProfileId(id); setSelected(null); setStage('profile'); setBusy(true); setError(''); setNotice(''); try {
         const p = await request<Row>({ action: 'profile', player: id });
         if (ticket !== profileTicket.current)
             return;
@@ -179,6 +180,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         setBusy(true);
         setStage('saving');
         setError('');
+        setNotice('');
         const op = crypto.randomUUID();
         operation.current = op;
         try {
@@ -222,7 +224,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         }
     }
     async function reconcile() { if (locked.current || !operation.current)
-        return; locked.current = true; setBusy(true); setError(''); try {
+        return; locked.current = true; setBusy(true); setError(''); setNotice(''); try {
         const r = await request<{
             player_id?: string;
             cancelled?: boolean;

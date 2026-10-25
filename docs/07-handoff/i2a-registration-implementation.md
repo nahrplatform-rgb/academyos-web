@@ -54,3 +54,7 @@ Final-source browser reload loaded the authorized directory and existing profile
 ## Owner acceptance — 25 October 2026
 
 Moamen selected **“Accept the working registration flow”** in response to the deployed EN/AR wording/usability review. This records acceptance of the working narrow I2a registration flow: fictional name, scoped duplicate review, save and reopening the profile. It does not approve real data, guardian authority, production launch, new privileged access or independent security/device/load/cost gates. Remaining hosted reverse-account HTTP, concurrency/response-drop/revocation and workload cases remain open as recorded above.
+
+## Hosted continuation — 25 October 2026
+
+[Two-form conflict and interrupted/lost-response verification](i2a-hosted-verification-2026-10-25.md) adds actual hosted evidence and records a stale operation-notice defect with its bounded repair. Prior source/deployment/count snapshots above remain historical. Remaining independent/hosted/device/cost gates are retained.

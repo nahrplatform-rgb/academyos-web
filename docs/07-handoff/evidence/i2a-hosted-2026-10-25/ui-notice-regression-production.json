@@ -1,0 +1,21 @@
+{
+  "reactMode": "production",
+  "cases": [
+    "duplicate distinction",
+    "existing profile no create",
+    "stale duplicate review",
+    "pending submission disabled",
+    "lost-response reconciliation",
+    "old cancellation notice cleared for later intent",
+    "actor switch clears state",
+    "revoked profile cleared",
+    "EN/AR draft preservation",
+    "360px no overflow",
+    "XSS-shaped name is literal text",
+    "short search explains minimum; debounce fetches valid query",
+    "auth initialization timeout offers retry with zero private calls"
+  ],
+  "creates": 2,
+  "errors": [],
+  "scope": "Actual React component; synthetic session and HTTP responses. Database tested separately."
+}
