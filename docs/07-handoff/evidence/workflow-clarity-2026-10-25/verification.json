@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-25",
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": "passed, zero warnings",
+    "unit": "39 passed",
+    "foundation_e2e": "7 passed",
+    "component_ui": "M1, People, Guardian and Trainer each production/development passed"
+  },
+  "new_regressions": [
+    "Admission title is inside padded task header at 1440/926/360px",
+    "926px directory has full width before selection",
+    "No unsolicited Guardian/Trainer form at entry",
+    "Closing 926px appointment draft focuses live Invite control after refresh",
+    "Reopening retains exact draft",
+    "Original-operation and confirmed-write/read-failure behavior retained"
+  ],
+  "source_sha256": {
+    "apps/web/src/app/globals.css": "722419c401c70dd1efec31c0d61c77bb23434e6bc76706e6b0491dab57dcc7dc",
+    "apps/web/src/components/workspace-panes.tsx": "897063f088ac7713ccad420affbc759a608c387750b692e4e54e221c3ee3c6b3",
+    "apps/web/src/components/onboarding-workspace.tsx": "bb6106b4e3c801cee161809e164e4e7db33e8a406dd4df905684582ea9335d5d",
+    "apps/web/src/components/people-workspace.tsx": "28ae8ca09fa210586d2aade67bc9050c7f924a6b4e2caf51fc8e951ecf91bbcd",
+    "apps/web/src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "apps/web/src/components/trainer-workspace.tsx": "daefbc9e358a1f2001e3dcb1a32e5ce4b63c246598b553aaa948cf29c9b61bd3",
+    "apps/web/src/components/guardian-workspace.tsx": "9ca7c17d9c246fb418e5e07f4d004e76447992a38c26961116b2026468ceb779",
+    "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
+    "scripts/onboarding/test_ui.mjs": "d2c7e542913ec13ca54344ed54a57f3c4611ea6fa45204fd4bfba84dcc481808",
+    "scripts/people/test_ui.mjs": "428359a8a60919376d0e7f54f9faac63ad4caa991bf7a417fb10f5c90f60ca67",
+    "scripts/guardians/test_ui.mjs": "ff7f9b99c5392ab2f2170e8ffcfe22c6860253ef4907edc77958884f118a63f7",
+    "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
+  },
+  "scope": "Actual React components with synthetic identity and HTTP adapters. No fresh hosted grants, SQL or security audit."
+}

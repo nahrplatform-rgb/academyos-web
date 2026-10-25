@@ -33,10 +33,10 @@ await page.route('**/api/trainers',async route=>{const b=route.request().postDat
  if(lost&&['appoint','accept','end'].includes(b.action)){lost=false;await route.abort('failed');return;}
  await route.fulfill({json:{data}});
 });
-const evidence=resolve(root,`docs/07-handoff/evidence/reference-refinement-2026-10-25/trainers/${mode}`);await mkdir(evidence,{recursive:true});
+const evidence=resolve(root,`docs/07-handoff/evidence/workflow-clarity-2026-10-25/trainers/${mode}`);await mkdir(evidence,{recursive:true});
 const button=name=>page.getByRole('button',{name:name==='Refresh saved state'?/^(Refresh view|Retry current read)$/:name==='تحديث الحالة المحفوظة'?/^(تحديث العرض|إعادة محاولة قراءة الحالة)$/:name,exact:true});
 try{
- await page.goto(url);await expect(page.getByRole('heading',{name:'Invite a fictional trainer',exact:true})).toBeVisible();
+ await page.goto(url);await expect(button('Invite trainer')).toBeVisible();assert.equal(await page.getByLabel('Fictional staff name',{exact:true}).count(),0,'Directory first; no unsolicited form');await button('Invite trainer').click();await expect(page.getByRole('heading',{name:'Invite a fictional trainer',exact:true})).toBeVisible();
  await page.getByLabel('Fictional staff name',{exact:true}).fill('Casey Demo');await page.getByLabel('Intended test recipient email',{exact:true}).fill('trainer@example.invalid');
  await expect(button('Review appointment')).toBeDisabled();await page.getByLabel('I explicitly approve this fictional Trainer appointment in this branch.',{exact:true}).check();await button('Review appointment').click();
  await expect(page.getByRole('heading',{name:'Review the exact access',exact:true})).toBeVisible();await expect(page.getByText('Casey Demo · Main Demo Branch',{exact:true})).toBeVisible();await page.screenshot({path:resolve(evidence,'owner-review-en.png'),fullPage:true});
@@ -57,13 +57,18 @@ try{
  active=true;await button('Refresh saved state').click();await expect(page.getByRole('heading',{name:'Casey Demo',exact:true})).toBeVisible();denied=true;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_B'})));await expect(page.getByRole('alert')).toBeVisible();assert.equal(await page.getByText('Casey Demo',{exact:true}).count(),0);
  assert.equal((await page.evaluate(()=>Object.values(sessionStorage))).some(x=>/trainer@|Casey|Fictional/.test(x)),false);assert.deepEqual(errors,[]);
 
- denied=false;await page.setViewportSize({width:1440,height:1000});await page.goto(url);
+ denied=false;await page.setViewportSize({width:1440,height:1000});await page.goto(url);await button('Invite trainer').click();
  await page.getByLabel('Intended test recipient email',{exact:true}).fill('draft@example.invalid');
  const readsBefore=calls.filter(b=>b.action==='owner-list').length;
  await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));});
  await expect(page.getByLabel('Intended test recipient email',{exact:true})).toHaveValue('draft@example.invalid');
  assert.equal(calls.filter(b=>b.action==='owner-list').length,readsBefore,'Returning to draft preserves intent without duplicate reads');
  assert.equal(await page.locator('.workspace-panes').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'Desktop central workspace and inspector remain separate');
+
+ await page.setViewportSize({width:926,height:900});await expect(page.getByLabel('Intended test recipient email',{exact:true})).toBeVisible();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await button('Back').click();await expect(button('Invite trainer')).toBeFocused();assert.equal(await page.getByLabel('Intended test recipient email',{exact:true}).count(),0);
+ await button('Invite trainer').click();await expect(page.getByLabel('Intended test recipient email',{exact:true})).toHaveValue('draft@example.invalid');
+ await page.screenshot({path:resolve(evidence,'draft-tablet-926.png'),fullPage:true});
  const receipt={reactMode:mode,creates,accepts,ends,errors,cases:['required name/email/explicit branch scope approval','exact review','pending disabled','lost result original reconciliation','exact private recipient inspection','fragment removed once in StrictMode','explicit recipient acceptance','own staff projection without email','EN/AR360 no overflow','read failure hides profile','denial clears profile','end denies next read','identity switch clears private projection','opaque operation-only recovery storage'],scope:'Actual component and shared controls; synthetic session and HTTP adapters. SQL tests separately enforce real data boundary.'};
  await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify({trainerUi:'passed',...receipt}));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

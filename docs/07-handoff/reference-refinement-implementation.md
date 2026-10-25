@@ -37,3 +37,7 @@ Source commit `2cbc4adc3d210928e36d91efbe18ae7a06a0f5f0` pushed on existing `cod
 [Connected actual-component gallery](evidence/reference-refinement-2026-10-25/index.html) is also served locally at `http://127.0.0.1:3205/`. Screens are actual compiled application components with fictional test adapters; not the in-memory design prototype and not hosted persistence proof. Working staging review begins at `https://staging.academy.nahr.dev/en/workspace`. Working visual acceptance remains pending.
 
 GitHub push reported an existing default-branch dependency alert. Read-only inspection identifies alert #1 as an open withdrawn braces advisory (transitive development dependency, no patched-version recommendation); this is not a new source dependency or a security-clearance claim. Independent security gates remain open.
+
+## Owner feedback and correction
+
+Owner subsequently reported workflow organization, intuitiveness, alignment and spacing faults. The working visual refinement is not accepted. Continue from the [workflow clarity correction](workflow-clarity-correction.md); earlier source/test/deployment records remain historical evidence, not proof of usability.

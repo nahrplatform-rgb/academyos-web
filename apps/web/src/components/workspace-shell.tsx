@@ -38,7 +38,7 @@ export default function WorkspaceShell({ locale, context, title, homeHref, langu
           <Link onClick={onNavigate} className="brand" href={homeHref}><span className="mark" aria-hidden="true">A</span>AcademyOS</Link>
           <p className="sidebar-context">{context}</p>
           <nav aria-label={ar ? "التنقل في مساحة العمل" : "Workspace navigation"}>
-            {navigation.map(item => <Link key={item.href} onClick={onNavigate} href={item.href} aria-label={item.label} className={item.current ? "selected" : undefined} aria-current={item.current ? "page" : undefined}><NavIcon href={item.href}/><span>{item.label}</span></Link>)}
+            {navigation.map(item => <Link key={item.href} onClick={onNavigate} href={item.href} aria-label={item.label} title={item.label} className={item.current ? "selected" : undefined} aria-current={item.current ? "page" : undefined}><NavIcon href={item.href}/><span>{item.label}</span></Link>)}
           </nav>
           <p className="sidebar-note">{ar ? "بيئة اختبار · بيانات اصطناعية فقط" : "Staging · Synthetic data only"}</p>
         </aside>

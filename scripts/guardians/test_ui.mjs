@@ -33,11 +33,11 @@ await page.route('**/api/guardians',async route=>{const b=route.request().postDa
  if(lost&&['appoint','accept','end'].includes(b.action)){lost=false;await route.abort('failed');return;}
  await route.fulfill({json:{data}});
 });
-const evidence=resolve(root,`docs/07-handoff/evidence/reference-refinement-2026-10-25/guardians/${mode}`);await mkdir(evidence,{recursive:true});
+const evidence=resolve(root,`docs/07-handoff/evidence/workflow-clarity-2026-10-25/guardians/${mode}`);await mkdir(evidence,{recursive:true});
 const button=name=>page.getByRole('button',{name:name==='Refresh saved state'?/^(Refresh view|Retry current read)$/:name==='تحديث الحالة المحفوظة'?/^(تحديث العرض|إعادة محاولة قراءة الحالة)$/:name,exact:true});
-async function prepare(){await page.getByLabel('Intended test recipient email',{exact:true}).fill('guardian@example.invalid');await expect(button('Review appointment')).toBeDisabled();await page.getByRole('checkbox').check();await button('Review appointment').click();await expect(button('Confirm appointment')).toBeVisible();}
+async function prepare(){if(!await page.getByLabel('Intended test recipient email',{exact:true}).isVisible())await button('Invite guardian').click();await page.getByLabel('Intended test recipient email',{exact:true}).fill('guardian@example.invalid');await expect(button('Review appointment')).toBeDisabled();await page.getByRole('checkbox').check();await button('Review appointment').click();await expect(button('Confirm appointment')).toBeVisible();}
 try{
- await page.goto(url);await expect(button('Review appointment')).toBeDisabled();
+ await page.goto(url);await expect(button('Invite guardian')).toBeVisible();assert.equal(await page.getByLabel('Intended test recipient email',{exact:true}).count(),0,'Directory first; no unsolicited form');await button('Invite guardian').click();await expect(button('Review appointment')).toBeDisabled();
  await page.getByLabel('Intended test recipient email',{exact:true}).fill('guardian@example.invalid');await page.getByRole('checkbox').check();
  const dialogs=[];page.on('dialog',async dialog=>{dialogs.push(dialog.message());await dialog.dismiss();});
  await page.getByRole('link',{name:'العربية',exact:true}).click();await expect(page.getByRole('heading',{name:'دعوات أولياء الأمور',exact:true})).toBeVisible();assert.equal(await page.getByLabel('بريد مستلم الاختبار المقصود',{exact:true}).inputValue(),'guardian@example.invalid');assert.equal(await page.getByRole('checkbox').isChecked(),true);assert.deepEqual(dialogs,[]);
@@ -58,7 +58,7 @@ try{
  assert.equal((await page.evaluate(()=>Object.values(sessionStorage))).some(x=>/guardian@|Alex|Synthetic/.test(x)),false);
  assert.deepEqual(errors,[]);
 
- denied=false;await page.setViewportSize({width:1440,height:1000});await page.goto(url);
+ denied=false;await page.setViewportSize({width:1440,height:1000});await page.goto(url);await button('Invite guardian').click();
  await page.getByLabel('Intended test recipient email',{exact:true}).fill('draft@example.invalid');
  await page.getByLabel('Intended test recipient email',{exact:true}).fill('');const cleanReads=calls.filter(b=>b.action==='owner-list').length;await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));});await expect.poll(()=>calls.filter(b=>b.action==='owner-list').length).toBe(cleanReads+1);await expect(button('Refresh saved state')).toBeEnabled();await page.getByLabel('Intended test recipient email',{exact:true}).fill('draft@example.invalid');
  const readsBefore=calls.filter(b=>b.action==='owner-list').length;
@@ -66,6 +66,11 @@ try{
  await expect(page.getByLabel('Intended test recipient email',{exact:true})).toHaveValue('draft@example.invalid');
  assert.equal(calls.filter(b=>b.action==='owner-list').length,readsBefore,'Returning to draft preserves intent without duplicate reads');
  assert.equal(await page.locator('.workspace-panes').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'Desktop central workspace and inspector remain separate');
+
+ await page.setViewportSize({width:926,height:900});await expect(page.getByLabel('Intended test recipient email',{exact:true})).toBeVisible();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await button('Back').click();await expect(button('Invite guardian')).toBeFocused();assert.equal(await page.getByLabel('Intended test recipient email',{exact:true}).count(),0);
+ await button('Invite guardian').click();await expect(page.getByLabel('Intended test recipient email',{exact:true})).toHaveValue('draft@example.invalid');
+ await page.screenshot({path:resolve(evidence,'draft-tablet-926.png'),fullPage:true});
  await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode:mode,creates,accepts,ends,errors,cases:['explicit Owner confirmation','language switch preserves draft without discard dialog','pending submit disabled','commit response loss and recovery','pre-send cancellation fence','stale cancellation notice reset','explicit exact-recipient inspection','fragment removed once in StrictMode','recipient acceptance','minimal guardian projection','EN/AR320/360px no overflow; 720px reflow','coalesced clean return and draft retention','end access empty state','unavailable read never implies empty family','denial clears player','identity switch clears private projection','opaque operation-only session storage'],scope:'Actual React/shared controls; synthetic session and transport. Separate SQL tests enforce actual policy.'},null,2)+'\n');
  console.log(JSON.stringify({guardianUi:'passed',reactMode:mode,creates,accepts,ends,errors}));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

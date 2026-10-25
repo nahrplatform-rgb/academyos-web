@@ -5,7 +5,7 @@ import { Button } from "./ui/controls";
 
 export type Academy = { id: string; name: string; setup_complete: boolean; invitation_id: string; generation: number; expires_at: string; revoked: boolean; redeemed_at: string | null; delivery: string; attempts: number };
 type Props = {
-  creation: ReactNode; changeReview: ReactNode; creating: boolean; onCreate: () => void; onClose: () => void;
+  heading: ReactNode; toolbar: ReactNode; footer: ReactNode; creation: ReactNode; changeReview: ReactNode; creating: boolean; onCreate: () => void; onClose: () => void;
   items: Academy[];
   arabic: boolean;
   disabled: boolean;
@@ -15,7 +15,7 @@ type Props = {
 };
 
 /** Inspection uses only the current authorized page; it never fetches or grants. */
-export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry, creation, changeReview, creating, onCreate, onClose }: Props) {
+export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry, creation, changeReview, creating, onCreate, onClose, heading, toolbar, footer }: Props) {
   const t = (en: string, ar: string) => arabic ? ar : en;
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = items.find(item => item.id === selectedId);
@@ -36,8 +36,8 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
     setSelectedId(null); onClose();
     requestAnimationFrame(() => opener.current?.focus());
   }
-  const inspector = <>{creating ? creation : <>    {selected && <aside id="admission-details" className="admission-detail" aria-labelledby="admission-detail-heading">
-      <Button onClick={closeDetails}>{t('Back to academy list', 'العودة إلى قائمة الأكاديميات')}</Button>
+  const inspector = <><div className="read-toolbar inspector-read">{toolbar}</div>{creating ? creation : <>    {selected && <aside id="admission-details" className="admission-detail" aria-labelledby="admission-detail-heading">
+
       <h2 id="admission-detail-heading" tabIndex={-1} ref={detailHeading}>{selected.name}</h2>
       <dl className="admission-properties">
         <div><dt>{t('Owner invitation', 'دعوة المالك')}</dt><dd>{ownerStatus(selected)}</dd></div>
@@ -50,11 +50,10 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
         <Button disabled={disabled} onClick={() => onReview({ action: 'reissue', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>
         {!selected.revoked && ['queued', 'failed', 'blocked', 'sending'].includes(selected.delivery) && <Button disabled={disabled} onClick={() => onRetry({ action: 'retry', invitation: selected.invitation_id, generation: selected.generation })}>{t('Retry pending delivery', 'إعادة محاولة الإرسال المعلق')}</Button>}
       </div>}
-    </aside>}{changeReview}</>}</>;
-  return <WorkspacePanes arabic={arabic} title={creating ? t("New academy", "أكاديمية جديدة") : t("Academy details", "تفاصيل الأكاديمية")} inspector={inspector} selected={Boolean(selected || creating)} onBack={closeDetails} blocked={disabled}><section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className="admission-layout">
+    </aside>}{changeReview}{!selected && <div className="inspector-empty"><h3>{t('Select an academy','اختر أكاديمية')}</h3><p>{t('Open a row to view the owner invitation, delivery and setup. To admit another academy, choose Create a synthetic academy.','افتح صفاً لعرض دعوة المالك وحالة البريد والإعداد. لإضافة أكاديمية، اختر إنشاء أكاديمية اختبار.')}</p></div>}</>}</>;
+  return <WorkspacePanes arabic={arabic} title={creating ? t("New academy", "أكاديمية جديدة") : t("Academy details", "تفاصيل الأكاديمية")} inspector={inspector} selected={Boolean(selected || creating)} selectionKey={selectedId ?? (creating ? 'create' : '')} backLabel={t('Back to academy list','العودة إلى قائمة الأكاديميات')} onBack={closeDetails} blocked={disabled}><header className="task-header">{heading}<div className="read-toolbar">{toolbar}</div></header><section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className="admission-layout">
     <div className="admission-directory">
-      <Button className="button" disabled={disabled} onClick={() => {setSelectedId(null);onCreate();}}>{t('Create a synthetic academy','إنشاء أكاديمية اختبار')}</Button>
-      <h2>{t('Admitted academies', 'الأكاديميات المقبولة')}</h2>
+      <div className="section-heading"><h2>{t('Admitted academies', 'الأكاديميات المقبولة')}</h2><Button className="button" disabled={disabled} onClick={() => {setSelectedId(null);onCreate();}}>{t('Create a synthetic academy','إنشاء أكاديمية اختبار')}</Button></div>
       <p className="admission-hint">{t('Open an academy to inspect its invitation and setup status.', 'افتح أكاديمية لمراجعة حالة الدعوة والإعداد.')}</p>
       {items.length === 0 && !hasError && <p>{t('No academies on this page.', 'لا توجد أكاديميات في هذه الصفحة.')}</p>}
       {items.length > 0 && <table className="admission-table">
@@ -70,5 +69,5 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
       </table>}
     </div>
 
-  </section></WorkspacePanes>;
+  </section>{footer}</WorkspacePanes>;
 }

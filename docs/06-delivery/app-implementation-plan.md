@@ -100,3 +100,7 @@ Corrected design: [reference foundation contract](../../design/implemented-journ
 ## Original-reference implementation refinement — 25 October 2026
 
 Later Owner handoff confirms the corrected foundation and supersedes earlier pending visual-direction wording. Shared sidebar/central task/contextual inspector is implemented across bounded M1/I1, I2a, I2b and I2c, with RTL and phone list/detail navigation. Quiet current reads, draft-preserving return and distinct original-operation recovery retain existing server contracts. No I3 or new authority/data projections. [Current source, test and rollout receipt](../07-handoff/reference-refinement-implementation.md) is authoritative for this refinement; prior per-slice functional approvals remain separate from new working visual acceptance. Imported design artifacts remain design evidence, including historical superseded assets. Action/screen matrices link actual bounded source and preserve all wider requirements.
+
+## Working workflow correction — 25 October 2026
+
+Owner reported the deployed reference refinement disorganized/unintuitive with alignment/spacing issues. This is not accepted working presentation. [Corrective implementation and evidence](../07-handoff/workflow-clarity-correction.md) covers directory-first appointment entry, task/header alignment, compact content-adjacent actions and medium-width task reflow across the same implemented journeys. Prior business/functional approvals retain their scopes. No I3 expansion.

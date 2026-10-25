@@ -130,6 +130,15 @@ try{
  // I1 inspection must not fetch or dispatch an invitation change by itself.
  extraAcademy=true;
  await page.reload();await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).waitFor();
+ // Regression for the reported detached title/refresh and cramped tablet columns.
+ for (const width of [1440,926,360]) {
+  await page.setViewportSize({width,height:900});
+  const layout=await page.locator('.workspace-center').evaluate(el=>{const center=el.getBoundingClientRect(),h=el.querySelector('h1').getBoundingClientRect(),bar=el.querySelector('.task-header').getBoundingClientRect();return{padding:h.top-center.top,headerOwnsTitle:h.top>=bar.top&&h.bottom<=bar.bottom,overflow:document.documentElement.scrollWidth>innerWidth};});
+  assert.ok(layout.padding>=16,'Title belongs inside padded workspace');assert.equal(layout.headerOwnsTitle,true);assert.equal(layout.overflow,false);
+  if(width===926)assert.equal(await page.locator('.workspace-inspector').isVisible(),false,'Tablet directory gets full task width before selection');
+  await captureReview('clarity-admission-'+width,'Admission at '+width+'px','Aligned task title/refresh and directory-first layout.');
+ }
+ await page.setViewportSize({width:1440,height:1000});
  const readsBeforeInspection=platformReads;
  const rowB=page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true});
  await rowB.focus();await page.keyboard.press('Enter');
@@ -160,7 +169,7 @@ try{
   assert.equal(await panel.getByRole('button',{name:ar?'مراجعة إلغاء الدعوة':'Review withdrawal',exact:true}).count(),0,'Revoked invitation does not offer withdrawal');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await captureReview(ar?'15-admission-ar-phone':'14-admission-en-phone',ar?'15. Arabic phone — academy details':'14. English phone — academy details','Actual I1 details use only the current loaded projection. Revoked/unknown states do not offer blind retry.');
-  await panel.getByRole('button',{name:ar?'العودة إلى قائمة الأكاديميات':'Back to academy list',exact:true}).click();
+  await page.getByRole('button',{name:ar?'العودة إلى قائمة الأكاديميات':'Back to academy list',exact:true}).click();
   await page.waitForFunction(()=>document.activeElement?.classList.contains('admission-open')&&document.activeElement.textContent.includes('Synthetic Academy B'));
   assert.equal(await row.evaluate(el=>el===document.activeElement),true,'Back returns keyboard focus to the inspected row');
   assert.equal(await page.getByRole('button',{name:ar?'إنشاء أكاديمية اختبار':'Create a synthetic academy',exact:true}).isVisible(),true,'Back restores directory creation action');

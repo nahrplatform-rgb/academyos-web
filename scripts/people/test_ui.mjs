@@ -27,7 +27,7 @@ await page.route('**/api/people',async route=>{const b=route.request().postDataJ
 });
 async function visible(name){await page.getByRole('heading',{name,exact:true}).waitFor();}
 async function freshForm(name='Alex Demo'){await page.getByRole('button',{name:'Register player',exact:true}).click();await page.getByLabel('Player display name (required)',{exact:true}).fill(name);}
-const evidence=process.env.PEOPLE_REVIEW_DIR?resolve(process.env.PEOPLE_REVIEW_DIR):resolve(root,'docs/07-handoff/evidence/reference-refinement-2026-10-25/people');await mkdir(evidence,{recursive:true});
+const evidence=process.env.PEOPLE_REVIEW_DIR?resolve(process.env.PEOPLE_REVIEW_DIR):resolve(root,'docs/07-handoff/evidence/workflow-clarity-2026-10-25/people');await mkdir(evidence,{recursive:true});
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}`);await page.getByRole('button',{name:'Register player',exact:true}).waitFor();await page.getByRole('button',{name:'Register player',exact:true}).isEnabled();
  await page.getByLabel('Find a player by name',{exact:true}).fill('a');await page.getByText('Enter at least two characters to search.',{exact:true}).waitFor();await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeEnabled();assert.equal(calls.some(c=>c.action==='list'&&c.query==='a'),false);await page.getByLabel('Find a player by name',{exact:true}).fill('Alex');await expect(page.getByRole('button',{name:'Alex Demo',exact:true})).toBeVisible();await page.getByLabel('Find a player by name',{exact:true}).fill('');await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeEnabled();
