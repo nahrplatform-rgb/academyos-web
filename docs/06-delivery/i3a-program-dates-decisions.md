@@ -1,6 +1,6 @@
 # I3a — program and dated-session drafts: recommendation
 
-25 October 2026. Prepared after Owner approved the corrected implemented workflow presentation and requested continuation. **Recommendations only; no new scheduling policy accepted yet.** I3a is the first bounded outcome in I3, followed by assignment/enrollment and actual Trainer Today, then I4 attendance. Existing People/authority gates remain open; this does not retire them.
+25 October 2026. Prepared after Owner approved the corrected implemented workflow presentation and requested continuation. **Moamen accepted this bounded draft-program policy for design preparation on25 October2026.** I3a is the first bounded outcome in I3, followed by assignment/enrollment and actual Trainer Today, then I4 attendance. Existing People/authority gates remain open; this does not retire them.
 
 ## Plain-language outcome
 
@@ -8,7 +8,7 @@ The current Academy Owner names a fictional training program in the academy's al
 
 The next connected I3 slice will add deliberately reviewed Trainer assignment and player enrollment/capacity, then the Trainer's real upcoming sessions. This slice establishes actual dated records and safe generation rather than a decorative calendar. It does not mark the broad scheduling requirements complete.
 
-## Recommended rules needing Owner acceptance
+## Accepted bounded rules for design preparation
 
 | Question | Recommendation for this bounded slice | Reason / remaining scope |
 |---|---|---|
@@ -30,4 +30,8 @@ Acceptance for I3a: completed setup/current Owner only; correct branch/sport/tim
 
 ## Status
 
-Assessment and recommendation prepared. Policy decision pending; connected design review pending; product source/schema/provider changes not started. After policy decision, prepare and demonstrate the connected draft → date preview → exact review → save → reopen/recovery prototype before dependent implementation. No actual invitations or grants are needed for this draft-only slice.
+Policy accepted for design preparation; connected design review pending; product source/schema/provider changes not started. Prepare and demonstrate the connected draft → date preview → exact review → save → reopen/recovery prototype before dependent implementation. No actual invitations or grants are needed for this draft-only slice.
+
+## Owner policy decision
+
+Moamen selected “Accept this draft-program policy”: current Academy Owner only, saved initial branch/sport, explicit weekdays/times and complete preview, 28-day/20-session initial bound, reject overnight/ambiguous or nonexistent local times, atomic draft save/read only and no Trainer/family visibility until later reviewed assignment/enrollment/publication. This authorizes the connected design prototype only. Implementation approval, actual hosted effects, broader scheduling rules and independent security gates remain separate.

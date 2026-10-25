@@ -135,10 +135,10 @@ for row in action_rows:
 for row in action_rows:
     if row['work_item_id'] == 'IMP-J09-A01':
         row.update(actor_context='Proposed current Academy Owner; synthetic initial branch/sport only',
-          policy_status='I3a draft-only recurrence/timezone/range recommendation prepared; Owner policy decision pending; wider scheduling policies remain open',
-          design_status='Existing broad prototype remains reference only; I3a connected design requires policy decision then separate review',
+          policy_status='I3a bounded draft-program policy accepted for design preparation25Oct2026; wider scheduling policies remain open',
+          design_status='I3a connected EN/AR design prepared in design/i3a-program-dates-review; Owner design review pending; broad prototype remains reference only',
           evidence_reference='docs/06-delivery/i3a-program-dates-decisions.md',
-          next_gate='Accept or revise I3a policy; connected design review; then bounded implementation with SEC-J09 and L07 contract')
+          next_gate='Owner connected I3a design review; then bounded implementation with SEC-J09 and L07 contract')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

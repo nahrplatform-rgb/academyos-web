@@ -1,6 +1,6 @@
 # I3a draft program generation — engineering preparation
 
-25 October 2026. Prepared contract, not accepted policy, source implementation, migration or executed security evidence. Depends on [the I3a policy recommendation](../06-delivery/i3a-program-dates-decisions.md) and subsequent connected design approval. Canonical scheduling workflow remains broader. No provider changes.
+25 October 2026. Prepared contract, not source implementation, migration or executed security evidence. Owner accepted the narrow policy for design preparation; separate connected design approval remains required. Depends on [the I3a policy recommendation](../06-delivery/i3a-program-dates-decisions.md) and subsequent connected design approval. Canonical scheduling workflow remains broader. No provider changes.
 
 ## Inspected source and reuse
 
@@ -29,3 +29,7 @@ Required tests: two tenants/foreign initial branch and sport, Platform-only/Mana
 ## Design to prepare after policy acceptance
 
 Directory (empty/current/failed/restricted) → New program with visible branch/sport/timezone → edit date range/weekdays/times → complete date preview including exceptions → exact draft-only confirmation → pending → saved detail/reopen. Back preserves input and invalidates preview if changed. Phone single-task view, desktop central directory+contextual details; one primary action at each step. Explicit scenarios: invalid range/no generated dates, DST date rejected, changed context/review stale, service unavailable, duplicate submit disabled, unknown Check original operation, confirmed/read unavailable and retry read. Design controls remain outside product UI and prominently identify simulation. No pretend Trainer roster/attendance/calendar publication.
+
+## Connected design prepared — 25 October2026
+
+[Local review source, instructions and bounded test evidence](../../design/i3a-program-dates-review/README.md) now implement the accepted policy as a clearly labelled in-memory design simulation using the current corrected shared shell/panes/native controls. No product/provider/database code changed. Date-preview model checks include actual runtime DST repeated/missing times; these are not a production conversion guarantee. Product enforcement, data isolation, version/atomic operation/cancellation races, hosted measurement and independent human security gates remain unexecuted for I3a. Owner connected-design decision pending.
