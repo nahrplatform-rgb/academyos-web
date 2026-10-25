@@ -55,3 +55,7 @@ Moamen authorized one Casey Demo Trainer invitation to the approved iCloud accou
 ## Single authorized hosted lifecycle completed
 
 Recipient accepted and live EN/AR staff profile was observed. Owner ended the exact appointment through reason/review/confirmation; next recipient refresh denied and removed the profile. Database confirms ended Trainer membership/assignment, one appoint/accept/end audit each, other Owner/Guardian roles active. [Execution and limitations](i2c-trainer-hosted-test.md). Working Trainer usability acceptance and broader hosted/security/device/performance gates remain pending.
+
+## Working-feature owner acceptance — 25 October 2026
+
+Moamen selected “Accept the working Trainer journey”: invitation → review/accept → own name/Trainer role/branch → Owner ends appointment → next refresh removes access. EN/AR wording/usability accepted. This supersedes earlier pending working-feedback status only. Broader direct-API/race/recovery, performance/cost, physical-device/accessibility and independent human security gates remain open. No Trainer restoration, new invitation or further grant follows from this acceptance.

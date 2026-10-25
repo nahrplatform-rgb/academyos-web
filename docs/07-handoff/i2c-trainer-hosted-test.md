@@ -19,3 +19,7 @@ Existing Owner session selected this exact appointment, entered synthetic reason
 Evidence: [active EN](evidence/i2c-hosted-2026-10-25/recipient-active-en.png), [active AR](evidence/i2c-hosted-2026-10-25/recipient-active-ar.png), [Owner ended](evidence/i2c-hosted-2026-10-25/owner-ended.png), [next-refresh denied AR](evidence/i2c-hosted-2026-10-25/recipient-ended-denied-ar.png), [safe receipt](evidence/i2c-hosted-2026-10-25/authorized-invitation.json). Earlier pending statuses describe the prior sequence; this section supersedes them.
 
 Single authorized hosted lifecycle check complete. Working-feature wording/usability acceptance remains pending; broader direct-API, race/recovery, workload/cost, physical-device/accessibility and independent human security gates remain open. Prior local SQL negative/race cases are not promoted to hosted proof. Delivery gate remains closed on restored deployment; no provider settings were changed during ending.
+
+## Working-feature owner acceptance — 25 October 2026
+
+Moamen selected “Accept the working Trainer journey”: invitation → review/accept → own name/Trainer role/branch → Owner ends appointment → next refresh removes access. EN/AR wording/usability accepted. This supersedes earlier pending working-feedback status only. Broader direct-API/race/recovery, performance/cost, physical-device/accessibility and independent human security gates remain open. No Trainer restoration, new invitation or further grant follows from this acceptance.
