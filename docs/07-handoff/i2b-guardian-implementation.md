@@ -54,7 +54,7 @@ A separate UI regression reproduced an unavailable guardian read also displaying
 
 ### Latest staging source and verification limit
 
-`d68faa8ce0e0758710ef561a79b569962cf66323` is READY as `dpl_9UAU5MdQPh6VjSeLt4174GYxkwiT`, canonical synthetic staging alias verified. It includes the draft-language correction and unavailable-read correction. Intermediate source7d51168 passed CI40189111213/40189107751. Latest exact-source CI40190277910/40190273493 is recorded separately when complete.
+`d68faa8ce0e0758710ef561a79b569962cf66323` is READY as `dpl_9UAU5MdQPh6VjSeLt4174GYxkwiT`, canonical synthetic staging alias verified. It includes the draft-language correction and unavailable-read correction. Intermediate source7d51168 passed CI40189111213/40189107751. Latest exact-source CI40190277910/40190273493 both succeeded, including the new route/worker/UI recovery and six foundation E2E checks.
 
 Final production/development React checks and build/typecheck/lint passed. Public hosted invitation returned HTTP200 with `no-referrer` and private/no-store caching. Signed-in post-fix visual verification remains open: local browser use became disabled in Work settings. The earlier stuck confirmation could not be dismissed with available controls; no claim that it was cleared. No browser security settings were changed.
 

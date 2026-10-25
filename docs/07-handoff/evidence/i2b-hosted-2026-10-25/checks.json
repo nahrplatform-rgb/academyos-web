@@ -36,8 +36,8 @@
     "40189107751": "success"
   },
   "latest_ci": {
-    "40190277910": "pending",
-    "40190273493": "pending"
+    "40190277910": "success",
+    "40190273493": "success"
   },
   "public_invitation": {
     "http": 200,
@@ -45,5 +45,13 @@
     "cache": "private/no-store"
   },
   "postfix_signed_in_browser": "Unavailable: local browser use disabled in Work settings",
-  "actual_recipient_authorization": "pending; no send/grant"
+  "actual_recipient_authorization": "pending; no send/grant",
+  "final_counts": {
+    "players": 4,
+    "memberships": 2,
+    "guardian_links": 0,
+    "guardian_people": 0,
+    "guardian_operations": 0,
+    "guardian_invitations": 0
+  }
 }
