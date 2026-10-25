@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-25",
+  "scope": "Local tests plus empty hosted schema; no guardian invitation/link/membership created",
+  "sql": {
+    "groups": 34,
+    "passed": true,
+    "includes": "16 M1,9 player,9 guardian",
+    "concurrency": "Observed lock dependencies: read/end both orders,accept/revoke both orders; same operation concurrent acceptance"
+  },
+  "unit": {
+    "passed": 36
+  },
+  "api": {
+    "budget_failure_cases": 30,
+    "default_recipient_gate": "closed"
+  },
+  "worker": "Synthetic adapters passed; no mail",
+  "react": {
+    "production": "passed",
+    "development": "passed",
+    "viewport_width": 360,
+    "errors": []
+  },
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "backup_safety": {
+    "passed": 11
+  },
+  "foundation_e2e": {
+    "passed": 6,
+    "includes": "unconfigured invitation fallback,guardian route/callback denial,no-referrer"
+  },
+  "hosted_schema": {
+    "migration": "20261025111253",
+    "academies": 2,
+    "memberships": 2,
+    "players": 4,
+    "guardian_people": 0,
+    "guardian_invitations": 0,
+    "guardian_links": 0,
+    "tables_rls": 4,
+    "direct_client_table_select": false
+  },
+  "security_advisors": {
+    "rls_no_policy_info": 18,
+    "anon_definer_warnings": 2,
+    "authenticated_definer_warnings": 21,
+    "interpretation": "Documented private tables/narrow APIs; not waived, not an independent audit"
+  },
+  "not_proven": [
+    "hosted guardian acceptance/revocation and two-account access",
+    "physical device/screen reader",
+    "hosted performance and provider meters",
+    "independent human security approval",
+    "working-feature acceptance"
+  ]
+}

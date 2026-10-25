@@ -1,0 +1,18 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "run_id": "c7320f59-22f7-451b-bc1b-7d99cf7cb086",
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "migration_rehearsed": "20261025105819_i2b_synthetic_guardian_appointments.sql",
+  "counts": {
+    "identities": 2,
+    "academies": 2,
+    "memberships": 2,
+    "private_tables_with_rls": 18
+  },
+  "hosted_storage_restore_tested": false,
+  "backup_workflow_run": "40187626852",
+  "ciphertext_matches_trusted_run": true,
+  "applied_migration": "20261025111253_i2b_synthetic_guardian_appointments.sql",
+  "filename_note": "Rehearsal filename retained above; identical SQL renamed to provider-recorded migration version."
+}

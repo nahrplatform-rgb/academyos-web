@@ -1,6 +1,6 @@
 # I2b fictional guardian appointment — connected design review
 
-25 October 2026. Policy accepted for narrow synthetic design; connected design review pending. This preview is a **simulation**: no API, authentication, email, database, storage, membership or relationship grant. Refresh resets all in-memory state. Actor, verification and failure controls are explicitly simulation-only.
+25 October 2026. Policy accepted for narrow synthetic design; connected design approved for implementation by Moamen on 25 October 2026. This preview is a **simulation**: no API, authentication, email, database, storage, membership or relationship grant. Refresh resets all in-memory state. Actor, verification and failure controls are explicitly simulation-only.
 
 Build: `node scripts/design/build_i2b_review.mjs`. Serve this folder locally. Uses current actual WorkspaceShell/native Button/Input/Select and app CSS with a local link adapter; [manifest](source-manifest.json) records source hashes. No new dependency or external asset.
 

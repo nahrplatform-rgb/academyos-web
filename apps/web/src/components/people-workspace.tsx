@@ -2,6 +2,7 @@
 import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from 'react';
 import { UserButton, useUser } from '@clerk/nextjs';
 import WorkspaceShell from './workspace-shell';
+import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 type Player = {
@@ -349,7 +350,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
           <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
           <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd><bdi dir="ltr">{selected.contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
           <p className="notice">{t('This contact has no child-view, payer or consent authority. No invitation was sent.', 'جهة الاتصال لا تملك صلاحية الاطلاع على الطفل أو الدفع أو الموافقة. لم تُرسل دعوة.')}</p>
-          <div className="journey-actions"><Button onClick={() => { go('directory'); void loadDirectory(); }}>{t('Back to players', 'العودة للاعبين')}</Button>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
+          <div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link><Button onClick={() => { go('directory'); void loadDirectory(); }}>{t('Back to players', 'العودة للاعبين')}</Button>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
         </section>}
       </>}
     </WorkspaceShell>

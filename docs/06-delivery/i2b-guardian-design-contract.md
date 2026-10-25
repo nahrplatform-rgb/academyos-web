@@ -1,6 +1,6 @@
 # I2b guardian appointment — connected design and boundary contract
 
-25 October 2026. [Narrow policy accepted](i2b-guardian-access-decisions.md) for **design preparation only**. J07-A01/A02 proposed subdivisions, S19 and minimal linked-player view; AO-014/015/016, AT-014/015/016, L06/SEC-J07. Broader J15 daily-use, real relationship evidence, D-004 age/consent and D-015 real-data retention remain unresolved. The [connected prototype](../../design/i2b-guardian-review/README.md) is an in-memory simulation, not a policy engine, real email flow or access grant. Connected design approval is pending.
+25 October 2026. [Narrow policy accepted](i2b-guardian-access-decisions.md) for **design preparation only**. J07-A01/A02 proposed subdivisions, S19 and minimal linked-player view; AO-014/015/016, AT-014/015/016, L06/SEC-J07. Broader J15 daily-use, real relationship evidence, D-004 age/consent and D-015 real-data retention remain unresolved. The [connected prototype](../../design/i2b-guardian-review/README.md) is an in-memory simulation, not a policy engine, real email flow or access grant. Moamen approved this connected design for implementation on 25 October 2026.
 
 ## Connected journey and reviewed projections
 
@@ -45,4 +45,4 @@ Contain leaks by disabling new entry capabilities/RPCs and stopping related deli
 
 ## Review status
 
-Policy: accepted for narrow synthetic design. Connected design: prepared, review pending. Actual guardian implementation/tests/deployment/access grants: not performed by this packet. Physical-device, independent security and full performance/cost acceptance: pending. Prototype usability evidence is recorded in its README, separately from these required real operations.
+Policy: accepted for narrow synthetic design. Connected design: approved by Moamen on 25 October 2026 (“Approve this design for implementation”). Implementation and local checks: see [implementation receipt](../07-handoff/i2b-guardian-implementation.md). Hosted app verification and actual access grants remain separate. Physical-device, independent security and full performance/cost acceptance: pending. Prototype usability evidence is recorded in its README, separately from these required real operations.

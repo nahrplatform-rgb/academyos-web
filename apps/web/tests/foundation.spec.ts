@@ -65,3 +65,12 @@ test("Clerk email callback denies unsigned requests without exposing payload or 
   expect(r.headers()['cache-control']).toBe('no-store');
   expect(r.headers()['referrer-policy']).toBe('no-referrer');
 });
+test('guardian entry fails closed and unsigned delivery cannot send',async({request})=>{
+ const result=await request.post('/api/guardians',{data:{action:'appoint'}});
+ expect(result.status()).toBe(403);
+ expect(result.headers()['cache-control']).toBe('no-store');
+ expect((await request.post('/api/jobs/guardians',{data:{invitation:'00000000-0000-4000-8000-000000000001'}})).status()).toBe(401);
+ const invitation=await request.get('/en/guardian-invitation');
+ expect(invitation.status()).toBe(200);
+ expect(invitation.headers()['referrer-policy']).toBe('no-referrer');
+});

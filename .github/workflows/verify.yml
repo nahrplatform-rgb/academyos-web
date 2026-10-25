@@ -35,4 +35,12 @@ jobs:
         run: |
           node scripts/people/test_ui.mjs
           UI_REACT_MODE=development node scripts/people/test_ui.mjs
+      - name: Verify guardian validation, recipient gate and fail-closed budgets
+        run: |
+          node scripts/guardians/test_api.mjs
+          node scripts/guardians/test_delivery.mjs
+      - name: Verify guardian appointment UI and recovery
+        run: |
+          node scripts/guardians/test_ui.mjs
+          UI_REACT_MODE=development node scripts/guardians/test_ui.mjs
       - run: npm run test:e2e

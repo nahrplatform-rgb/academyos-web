@@ -37,3 +37,7 @@ Security is an independent gate: this proposal and the implementing agent's revi
 ## Owner decision — 25 October 2026
 
 Moamen selected **“Accept this narrow guardian policy for design”**: current Academy Owner explicitly approves one fictional guardian–player link; the named recipient verifies their email and accepts; the guardian can see only the linked player’s name and branch; ending the link denies the next request. No sibling access, contact details, money, consent, child login or real-family evidence. This accepts the recommended narrow synthetic policy for connected design preparation only. No invitation or actual account/relationship grant is authorized by this record.
+
+## Connected design approval — 25 October 2026
+
+Moamen selected “Approve this design for implementation” for the connected Owner appointment → verified-recipient acceptance → minimal player view → ending/denial preview. Implementation is authorized within this narrow synthetic scope. Actual recipient invitations and account/link grants retain their separate authorization gate.

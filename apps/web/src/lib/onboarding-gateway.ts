@@ -3,8 +3,8 @@ import { isIP } from "node:net";
 import { signProof } from "./onboarding";
 
 export const DATABASE_ORIGIN = "https://snpphkenmvmhpjstbeul.supabase.co";
-const reads = new Set(["m1_context_v1", "m1_platform_list_v1", "m1_setup_v1", "m1_operation_v1", "my_academy_memberships_v1", "i2_people_v1", "i2_candidates_v1", "i2_profile_v1"]);
-const writes = new Set(["m1_create_v1", "m1_save_setup_v1", "m1_manage_invitation_v1", "bootstrap_identity_v1", "i2_register_v1", "i2_operation_v1"]);
+const reads = new Set(["m1_context_v1", "m1_platform_list_v1", "m1_setup_v1", "m1_operation_v1", "my_academy_memberships_v1", "i2_people_v1", "i2_candidates_v1", "i2_profile_v1", "g3_owner_list_v1", "g3_links_v1"]);
+const writes = new Set(["m1_create_v1", "m1_save_setup_v1", "m1_manage_invitation_v1", "bootstrap_identity_v1", "i2_register_v1", "i2_operation_v1", "g3_command_v1", "g3_operation_v1"]);
 export class GatewayError extends Error {
   constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }
 }
@@ -14,10 +14,10 @@ export function gatewayRequest(input: string | URL | Request, init?: RequestInit
   if (url.origin !== DATABASE_ORIGIN || url.search || method !== "POST" || !url.pathname.startsWith("/rest/v1/rpc/")) throw new GatewayError("denied", 403);
   const name = url.pathname.slice("/rest/v1/rpc/".length);
   let mutating = writes.has(name);
-  if (name === "m1_invitation_v1") {
+  if (name === "m1_invitation_v1" || name === "g3_invitation_v1") {
     if (typeof init?.body !== "string") throw new GatewayError("denied", 403);
     const args = JSON.parse(init.body);
-    mutating = args.accept_op !== null && args.accept_op !== undefined;
+    mutating = name === "g3_invitation_v1" ? args.act !== "review" : args.accept_op !== null && args.accept_op !== undefined;
   } else if (!mutating && !reads.has(name)) throw new GatewayError("denied", 403);
   return { target: `${method}:/rpc/${name}`, mutating };
 }
