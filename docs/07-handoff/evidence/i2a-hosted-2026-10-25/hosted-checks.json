@@ -46,7 +46,7 @@
     "localRegressionFailedBeforeFix": true,
     "repair": "Clear previous operation notices at candidate review, save, reconcile and profile loading; preserve fresh pagination-conflict notice",
     "productionAndDevelopmentRegressionPassedAfterFix": true,
-    "repairDeploymentVerification": "pending"
+    "repairDeploymentVerification": "passed new-intent candidate lookup and confirmation; zero old cancellation notices"
   },
   "afterTests": {
     "players": 4,
@@ -60,5 +60,17 @@
     "Full hosted performance/cost workload",
     "Physical devices and screen readers"
   ],
-  "privacy": "Fictional names only; no contact entered; no token/cookie/request header export; no new account or membership grant"
+  "privacy": "Fictional names only; no contact entered; no token/cookie/request header export; no new account or membership grant",
+  "repair": {
+    "source": "623d415d3d58478909cd6422b2c82c1e0d269235",
+    "deployment": "dpl_ZQuAi2sCpr1yNtRQKdPEaobGmzAr",
+    "ciPassed": [
+      40185570597,
+      40185567326
+    ],
+    "postRepairExtraPlayerCreated": false,
+    "postRepairCancellationReceipts": 2,
+    "finalPlayerCount": 4,
+    "unsubmittedNewIntentPlayers": 0
+  }
 }

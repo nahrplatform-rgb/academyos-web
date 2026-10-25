@@ -1,6 +1,6 @@
-# I2b guardian access — policy proposal for owner decision
+# I2b guardian access — narrow synthetic policy accepted
 
-25 October 2026. Proposed next bounded slice in I2, after accepted I2a player registration. J07-A01/A02 (design action subdivisions), S19 plus a minimal linked-player view; AO-014/015/016, AT-014/015/016, L06, SEC-J07. Broader J15 family daily use remains dependent on dated training/attendance. This packet creates no relationship, invitation, membership or access grant. Proposed choices below are **not accepted**.
+25 October 2026. Proposed next bounded slice in I2, after accepted I2a player registration. J07-A01/A02 (design action subdivisions), S19 plus a minimal linked-player view; AO-014/015/016, AT-014/015/016, L06, SEC-J07. Broader J15 family daily use remains dependent on dated training/attendance. This packet creates no relationship, invitation, membership or access grant. Moamen accepted the narrow synthetic policy for connected design preparation on 25 October 2026; implementation/design approval and each actual recipient grant remain separate.
 
 ## What this would let the owner and guardian do
 
@@ -34,6 +34,6 @@ Bound the guardian selector and link lists (up to25 plus sentinel initially), fe
 
 Security is an independent gate: this proposal and the implementing agent's review cannot supply the independent human approval still outstanding. A synthetic staging demonstration must retain declared limits; no production or real-data rollout follows from approving this policy. The actual implementation, hosted tests, review findings and Owner usability acceptance will be reported separately.
 
-## Owner decision
+## Owner decision — 25 October 2026
 
-Pending. Accepting the recommendation approves this narrow policy for connected design preparation only. The next request will be review of a concrete connected design, not a new account grant.
+Moamen selected **“Accept this narrow guardian policy for design”**: current Academy Owner explicitly approves one fictional guardian–player link; the named recipient verifies their email and accepts; the guardian can see only the linked player’s name and branch; ending the link denies the next request. No sibling access, contact details, money, consent, child login or real-family evidence. This accepts the recommended narrow synthetic policy for connected design preparation only. No invitation or actual account/relationship grant is authorized by this record.

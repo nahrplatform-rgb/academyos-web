@@ -25,3 +25,11 @@ Added a real-component regression: interrupted/cancelled attempt → edit into a
 Still open: independent human security approval, reverse-account direct HTTP cases, I2a hosted membership suspension/reinstatement, full hosted latency/provider-meter workload, physical devices and screen readers. Prior local SQL coverage remains evidence, not a claim these hosted cases ran.
 
 The [I2b guardian-access proposal](../06-delivery/i2b-guardian-access-decisions.md) is ready for owner policy decision. It would add an explicitly approved fictional guardian–player link and narrow name/branch projection; existing contact data does not authorize access. No policy acceptance, guardian invite or new grant is inferred from “proceed”.
+
+## Repair rollout and post-repair evidence
+
+Repair source **`623d415d3d58478909cd6422b2c82c1e0d269235`** reached READY as **`dpl_ZQuAi2sCpr1yNtRQKdPEaobGmzAr`** at canonical synthetic staging. Exact-source CI [40185570597](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40185570597) and [40185567326](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40185567326) passed. Locally: both React-mode regressions, build, typecheck, lint,33 unit tests and5 foundation E2E passed. No database/schema/provider/auth permission change was needed.
+
+On this deployed source, repeated an interrupted-before-send operation and reconciled its cancellation, then edited into a new fictional intent. Both the pending candidate lookup and the final confirmation cleared the old cancellation notice; exact DOM matching found zero old notices. [New review after cancellation](evidence/i2a-hosted-2026-10-25/notice-repair-new-review.png). That new reviewed draft was not submitted; it created no player. Network emulation and request interception were cleared/restored.
+
+Owner accepted the narrow [guardian policy](../06-delivery/i2b-guardian-access-decisions.md) for design preparation during this continuation. Its [connected design contract](../06-delivery/i2b-guardian-design-contract.md) and simulation remain separate from guardian implementation, actual invitations/grants and design approval.
