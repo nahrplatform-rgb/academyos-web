@@ -1,6 +1,6 @@
 # I2c trainer entry — accepted narrow policy for design
 
-25 October 2026. Moamen accepted the narrow trainer policy for design preparation on 25 October 2026. Connected design approval remains separate. Next bounded People slice after accepted I2a player registration and I2b guardian usability. J08-A01 (proposed subdivision), J03 invitation lifecycle and J05 authority lifecycle; S20/S21, L03/L05; AO-002/003/004/005/006/007/008/009/016/019 are scoped references, not claims of full completion. Confirm exact requirement joins in the action contract before build.
+25 October 2026. Moamen accepted the narrow trainer policy for design preparation on 25 October 2026. Connected design approved for implementation on 25 October 2026. Next bounded People slice after accepted I2a player registration and I2b guardian usability. J08-A01 (proposed subdivision), J03 invitation lifecycle and J05 authority lifecycle; S20/S21, L03/L05; AO-002/003/004/005/006/007/008/009/016/019 are scoped references, not claims of full completion. Confirm exact requirement joins in the action contract before build.
 
 ## Plain-language outcome
 
@@ -33,7 +33,7 @@ Prepare a connected EN/AR phone/desktop prototype: Owner draft → role/branch/a
 
 Reuse shared shell/native controls and existing signed transport, bounded private projections, operation fingerprints, audit, cancellation fences and durable delivery patterns. Inspect their actual interfaces before adding new domain functions; no copy of simulation actor toggles into real authority. Complete an action-level security/data/performance packet and verify cross-role receipt isolation.
 
-Status: policy accepted for design preparation; connected design review pending. No trainer source, schema, provider changes, invitation or grant performed by this document.
+Status: policy accepted for design preparation; connected design approved for implementation on 25 October 2026. No trainer source, schema, provider changes, invitation or grant performed by this document.
 
 ## Owner policy decision
 

@@ -1,6 +1,6 @@
 # I2c trainer entry — connected action and boundary contract
 
-25 October2026. [Policy accepted for design preparation](i2c-trainer-entry-decisions.md); connected design review pending. J08-A01 proposed subdivision, with J03/J05 invitation/authority cases; S20/S21 and minimal own-Trainer profile; L03/L05; SEC-J03/J05/J08. AO-002/003/004/005/006/007/008/009/016/019 are scoped authority/invitation/projection joins. AO-017 transfer remains deferred. This is not broad staff management or Trainer Today implementation.
+25 October2026. [Policy accepted for design preparation](i2c-trainer-entry-decisions.md); connected design approved for implementation on 25 October 2026. J08-A01 proposed subdivision, with J03/J05 invitation/authority cases; S20/S21 and minimal own-Trainer profile; L03/L05; SEC-J03/J05/J08. AO-002/003/004/005/006/007/008/009/016/019 are scoped authority/invitation/projection joins. AO-017 transfer remains deferred. This is not broad staff management or Trainer Today implementation.
 
 ## Journey and commit boundaries
 
@@ -37,4 +37,4 @@ Two academies and wrong branch; Owner/Manager/Trainer/Guardian/Player/platform-o
 
 Contain by disabling only new entry/RPC/delivery capabilities; preserve staff/audit history and repair forward. Backup/restore rehearsal, advisors and compatible gateway rollout precede a hosted migration. No seed accounts/roles/recipients. Each hosted invitation or restoration needs separate explicit authorization. Independent human review remains separate from implementing-agent checks. No production/real staff rollout follows from this design.
 
-Status: policy accepted; design prepared for review; product implementation, database migration, hosted trainer invitation/grant and working acceptance not performed.
+Status: policy accepted; design approved for implementation; source implementation/local checks complete; hosted migration, Trainer journey verification and working acceptance pending. See [implementation evidence](../07-handoff/i2c-trainer-implementation.md).

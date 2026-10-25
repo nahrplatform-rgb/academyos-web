@@ -14,6 +14,7 @@ const config: NextConfig = {
       },
       { source: "/api/webhooks/clerk-email", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
       { source: "/:locale/invitation", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
+      ...["/:locale/trainer-invitation", "/:locale/workspace/:academy/staff", "/:locale/workspace/:academy/trainer"].map(source => ({ source, headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] })),
       { source: "/:locale/guardian-invitation", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
       { source: "/:locale/workspace/:academy/guardian", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
       { source: "/:locale/workspace/:academy/players/:player/guardians", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },

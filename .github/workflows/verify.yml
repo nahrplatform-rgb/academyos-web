@@ -43,4 +43,12 @@ jobs:
         run: |
           node scripts/guardians/test_ui.mjs
           UI_REACT_MODE=development node scripts/guardians/test_ui.mjs
+      - name: Verify trainer validation, delivery and fail-closed budgets
+        run: |
+          node scripts/trainers/test_api.mjs
+          node scripts/trainers/test_delivery.mjs
+      - name: Verify trainer appointment UI and recovery
+        run: |
+          node scripts/trainers/test_ui.mjs
+          UI_REACT_MODE=development node scripts/trainers/test_ui.mjs
       - run: npm run test:e2e
