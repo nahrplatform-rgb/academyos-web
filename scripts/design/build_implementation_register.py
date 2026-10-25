@@ -131,6 +131,14 @@ for row in action_rows:
           evidence_reference=f'docs/07-handoff/{receipt}.md',
           domain_components=f'{component}; WorkspaceShell; WorkspacePanes; native controls',
           next_gate='Accepted working presentation; broader direct API/device/performance/independent-security gates retained')
+# I3a is preparation only. Do not inherit policy/design approval from the visual foundation.
+for row in action_rows:
+    if row['work_item_id'] == 'IMP-J09-A01':
+        row.update(actor_context='Proposed current Academy Owner; synthetic initial branch/sport only',
+          policy_status='I3a draft-only recurrence/timezone/range recommendation prepared; Owner policy decision pending; wider scheduling policies remain open',
+          design_status='Existing broad prototype remains reference only; I3a connected design requires policy decision then separate review',
+          evidence_reference='docs/06-delivery/i3a-program-dates-decisions.md',
+          next_gate='Accept or revise I3a policy; connected design review; then bounded implementation with SEC-J09 and L07 contract')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

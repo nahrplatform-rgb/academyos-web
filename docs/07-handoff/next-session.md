@@ -1,3 +1,11 @@
+# Current implementation checkpoint — 25 October 2026
+
+Canonical workspace: `/Users/moamenghareeb/AcademyOS`. Inspect current checkout and uncommitted files first. [App implementation plan](../06-delivery/app-implementation-plan.md) is current; the dated22Oct foundation checkpoint below is historical. M1/I1 and bounded I2a registration, I2b Guardian and I2c Trainer journeys are implemented/deployed with separately scoped working-feature approvals. Original-reference workflow clarity correction app source `cb725ea` is deployed to existing synthetic staging; Owner approved its working presentation, recorded in `42d7ff5` and [the correction receipt](workflow-clarity-correction.md). Prior tests/hosted/acceptance layers remain separate. No active Guardian link/Trainer appointment is restored by this checkpoint.
+
+Current next action: Owner requested plan continuation; [I3a program/dates policy recommendation](../06-delivery/i3a-program-dates-decisions.md) and [engineering preparation](../04-engineering/i3a-program-dates-preparation.md) prepared. Policy answer pending, then connected EN/AR phone/desktop design review before dependent implementation. No program/session product source or migration started. Wider People direct-API/revocation/race/performance/provider/native-device/independent-human-security gates remain on their existing closure board and slice packets. No new access grants, production launch, real data or paid services authorized.
+
+---
+
 # Current checkpoint — 22 October 2026
 
 Start at [the ordered setup index](setup-index.md), [completed 26-step history](setup-history.md), [current register](configuration-status.md), [operator guide](operations-and-custody.md) and [remaining gates](remaining-configuration.md).
