@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-25",
+  "commit": "cb725ea609eb4252041d23b69e5d529b50dd3c82",
+  "deployment": "dpl_8vAgPNezmD3hJHQ7AZ7UkTDetoRq",
+  "state": "READY",
+  "alias": "staging.academy.nahr.dev",
+  "environment": "Existing synthetic staging project; provider production target, no customer production launch",
+  "hosted_checks": [
+    {
+      "case": "AR admission 926px list/detail/Back",
+      "result": "Passed on base f8919bc; return focuses same academy, no overflow"
+    },
+    {
+      "case": "EN desktop1440",
+      "result": "Passed on base f8919bc: 820px center and 360px inspector; no overflow"
+    },
+    {
+      "case": "Owner Guardian directory on final source",
+      "result": "Player and branch visible; existing ended link shown; explicit draft entry and AR360 Back focuses Invite guardian; no overflow"
+    },
+    {
+      "case": "Player AR360 on final source",
+      "result": "Selected inspector heading focused, current permitted profile visible, Back focuses Synthetic Registration Demo row, no overflow"
+    },
+    {
+      "case": "Owner Trainer EN926 on final source",
+      "result": "Branch scoped directory; existing ended Casey Demo appointment; draft entry and Back focuses Invite trainer, no overflow"
+    }
+  ],
+  "writes_executed": [],
+  "grant_changes": [],
+  "recipient_views": "No new active recipient grant; final recipient layout verified only in synthetic component suites, previous access-ended state preserved.",
+  "capture_notes": "Hosted screenshot API returns JPEG; extensions corrected without altering bytes. Before image was native754px after window resize; original initial observation/measurement was926px. Do not present them as a same-size before/after benchmark.",
+  "acceptance": "Pending Owner working visual/usability review; no blanket UX/security acceptance",
+  "ci": [
+    {
+      "run": 40215976832,
+      "conclusion": "success"
+    },
+    {
+      "run": 40215971433,
+      "conclusion": "success"
+    }
+  ]
+}
