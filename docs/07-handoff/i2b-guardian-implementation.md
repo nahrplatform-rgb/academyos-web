@@ -1,6 +1,6 @@
 # I2b guardian appointment — implementation receipt
 
-25 October 2026. J07-A01/A02; AO-014/015/016 and AT-014/015/016; S19/minimal guardian view, L06. [Narrow policy](../06-delivery/i2b-guardian-access-decisions.md) and [connected design](../06-delivery/i2b-guardian-design-contract.md) accepted by Moamen for implementation. [Security packet](../04-engineering/i2b-guardian-security-review.md). Working-feature acceptance and independent human security approval are pending.
+25 October 2026. J07-A01/A02; AO-014/015/016 and AT-014/015/016; S19/minimal guardian view, L06. [Narrow policy](../06-delivery/i2b-guardian-access-decisions.md) and [connected design](../06-delivery/i2b-guardian-design-contract.md) accepted by Moamen for implementation. [Security packet](../04-engineering/i2b-guardian-security-review.md). Moamen accepted working wording/usability on25 October2026 after the authorized hosted demonstration; independent human security approval and remaining cases are pending.
 
 ## Implemented scope
 
@@ -59,3 +59,7 @@ A separate UI regression reproduced an unavailable guardian read also displaying
 Final production/development React checks and build/typecheck/lint passed. Public hosted invitation returned HTTP200 with `no-referrer` and private/no-store caching. Signed-in post-fix visual verification remains open: local browser use became disabled in Work settings. The earlier stuck confirmation could not be dismissed with available controls; no claim that it was cleared. No browser security settings were changed.
 
 Moamen authorized one exact iCloud guardian invitation to the existing fictional player, narrow name/branch access and ending the test link; [execution plan](i2b-guardian-hosted-test.md). Browser restoration is pending before execution. No recipient setting, send or access grant has been performed. Continue from this receipt; do not infer authorization from design acceptance or generic “proceed”.
+
+### Authorized hosted journey completed and usability accepted
+
+Browser access recovered after desktop restart. The authorized single invitation→recipient acceptance→minimal EN/AR view→Owner end→next-refresh removal journey completed. Moamen accepted working wording/usability on25 October2026. Original email destination restored and new guardian appointments disabled; restoration deployment `dpl_8bWgT5xGcZiDvAoqseCYx7ZZbe3X` is READY at source d68faa8. [Exact execution/evidence and remaining gates](i2b-guardian-hosted-test.md). No production launch, restored link or additional invitation.
