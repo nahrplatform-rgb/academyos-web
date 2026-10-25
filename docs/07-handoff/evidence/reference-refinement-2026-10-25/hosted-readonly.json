@@ -1,0 +1,69 @@
+{
+  "deployment": "dpl_4nPk2T2gD1BS4AiLzhYcmJYFfpaS",
+  "commit": "2cbc4adc3d210928e36d91efbe18ae7a06a0f5f0",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 64,
+      "elapsed_ms": 1025,
+      "clerk_entry": false,
+      "body_kind": "health"
+    },
+    {
+      "path": "/en/workspace",
+      "status": 404,
+      "bytes": 11987,
+      "elapsed_ms": 1139,
+      "clerk_entry": true,
+      "body_kind": "unauthenticated page only",
+      "interpretation": "Clerk auth.protect rewrite for signed-out client without development-browser cookie; x-clerk-auth-reason protect-rewrite, dev-browser-missing. Not authenticated route-rendering evidence."
+    },
+    {
+      "path": "/ar/platform",
+      "status": 404,
+      "bytes": 11988,
+      "elapsed_ms": 498,
+      "clerk_entry": true,
+      "body_kind": "unauthenticated page only",
+      "interpretation": "Clerk auth.protect rewrite for signed-out client without development-browser cookie; x-clerk-auth-reason protect-rewrite, dev-browser-missing. Not authenticated route-rendering evidence."
+    },
+    {
+      "path": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+      "status": 404,
+      "bytes": 12039,
+      "elapsed_ms": 405,
+      "clerk_entry": true,
+      "body_kind": "unauthenticated page only",
+      "interpretation": "Clerk auth.protect rewrite for signed-out client without development-browser cookie; x-clerk-auth-reason protect-rewrite, dev-browser-missing. Not authenticated route-rendering evidence."
+    },
+    {
+      "path": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff",
+      "status": 404,
+      "bytes": 12039,
+      "elapsed_ms": 467,
+      "clerk_entry": true,
+      "body_kind": "unauthenticated page only",
+      "interpretation": "Clerk auth.protect rewrite for signed-out client without development-browser cookie; x-clerk-auth-reason protect-rewrite, dev-browser-missing. Not authenticated route-rendering evidence."
+    },
+    {
+      "api_people_unauthenticated": 403,
+      "response": {
+        "error": "denied"
+      }
+    }
+  ],
+  "scope": "No authenticated session/private data used. Serial single samples are not a latency benchmark.",
+  "browser": "Local browser use disabled reported on retry after Owner enabled; fresh connection also refused. Signed-in hosted visual checks unavailable.",
+  "ci": [
+    {
+      "run": 40213536265,
+      "conclusion": "success"
+    },
+    {
+      "run": 40213532080,
+      "conclusion": "success"
+    }
+  ],
+  "deployment_state": "READY; staging.academy.nahr.dev alias assigned by Vercel"
+}
