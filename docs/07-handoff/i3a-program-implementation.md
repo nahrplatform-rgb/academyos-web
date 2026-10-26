@@ -1,6 +1,6 @@
 # I3a Owner-only draft programs — implementation receipt
 
-26 October 2026. **Implemented and deployed to synthetic staging; local checks and the hosted 40-date pause/reload/resume journey passed. Working-feature acceptance and wider verification gates remain pending.** The completed connected design was explicitly approved on 26 October; that approval is not working-feature acceptance.
+26 October 2026. **Implemented and deployed to synthetic staging; local checks and the hosted 40-date pause/reload/resume journey passed. Owner working-feature wording/usability accepted; wider verification gates remain pending.** The completed connected design was explicitly approved on 26 October; that approval is not working-feature acceptance.
 
 ## Authorized scope and traceability
 
@@ -46,7 +46,7 @@ The fresh encrypted [backup run](https://github.com/nahrplatform-rgb/academyos-w
 | Product source and database migration | Implemented;38 SQL groups,43 unit tests and scoped route/React suites pass |
 | Local SQL/API/React/build evidence | 38 SQL groups;43 unit tests; API budget and production/development React pass; build/typecheck/lint and8 foundation E2E pass |
 | Hosted schema/deployment/runtime | Applied and deployed; actual Owner 40-date journey, pause/reload/resume and persisted results verified; see hosted receipt below |
-| Owner working-feature acceptance | Pending actual staging review |
+| Owner working-feature acceptance | Moamen explicitly accepted the working draft-program wording/usability after staging review |
 | Independent human security, physical devices, hosted load/cost | Open; no approval inferred from AI review or local tests |
 
 No whole scheduling module or broader AO requirement is marked complete. [Security review](../04-engineering/i3a-program-security-review.md) records the scoped boundaries and residual gates.
@@ -71,3 +71,8 @@ Follow-up source `43c5457ec826c9ec1a582b3960676529721e47f0` renders retained con
 Deployment `dpl_4bveybUBb6ekYBvNrT9EqXQDJNZk` rebuilt that source in38s and is Ready on the existing staging domain. The existing40-date program reopened, later saved windows loaded, and the Arabic Draft dates next-window occurrence opened program window2. EN/AR desktop1440 and phone360 screenshots were inspected; document width equaled viewport width. These browser viewport checks are not physical-device or screen-reader proof. [Follow-up receipt](evidence/i3a-local-2026-10-26/hosted-followup.json), [EN desktop](evidence/i3a-local-2026-10-26/staging-ready-en-1440.png), [AR desktop](evidence/i3a-local-2026-10-26/staging-ready-ar-1440.png), [AR phone](evidence/i3a-local-2026-10-26/staging-ready-ar-360.png), [EN phone](evidence/i3a-local-2026-10-26/staging-ready-en-360.png). The post-save notice-switch regression is local; no second hosted program was created to repeat that presentation-only case.
 
 Git push also reported default-branch Dependabot alert1. Read-only provider inspection identifies its title as a withdrawn `braces` advisory; the alert remains open and no dependency/security closure is claimed. It is distinct from this slice's tests and independent review gate.
+
+
+## Owner working-feature acceptance
+
+Moamen explicitly answered “Accept the working draft-program flow” to the staging review request for the deployed Owner-only journey: full-period program, independent weekday times, authoritative date review, saved draft and pause/reopen/resume. This records working-feature wording/usability acceptance separately from earlier policy/design approval and implementation/deployment evidence. Independent human security review, broader hosted direct-API/race/load/cost and physical-device/accessibility gates remain open. It does not accept assignments, enrollment, publication or the full scheduling module.

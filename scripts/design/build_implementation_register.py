@@ -141,9 +141,9 @@ for row in action_rows:
           implementation_source='apps/web/src/components/program-workspace.tsx',
           verification_status='Local SQL/API/product React and backup rehearsal pass; hosted40-date pause/reload/resume/finalize verified; wider negative/race/load/device gates open',
           deployment_status='Hosted migration applied and synthetic staging deployment/runtime verified26Oct2026; see current receipt',
-          owner_approval_status='Policy and completed connected design approved; working-feature acceptance pending',
+          owner_approval_status='Policy/design approved; Moamen explicitly accepted working draft-program wording/usability after staging review; wider gates remain open',
           evidence_reference='docs/07-handoff/i3a-program-implementation.md',
-          next_gate='Working-feature acceptance and remaining hosted cases; retain independent security/device/load/cost gates')
+          next_gate='Remaining hosted direct-API/race cases; retain independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

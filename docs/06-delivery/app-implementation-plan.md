@@ -117,3 +117,6 @@ I3a policy subsequently accepted for design preparation25 October2026. [Connecte
 ### I3a implementation update — 26 October2026
 
 The subsequent full-period, independent-weekday-time and resumable preparation design was Owner-approved. The bounded Owner-only draft slice is now implemented and deployed to synthetic staging. Actual Owner creation, all-window review, pause at12/40, reload/reopen, resume and40-date finalization passed with persisted/audit evidence. [Current implementation receipt](../07-handoff/i3a-program-implementation.md) supersedes the earlier preparation-only status above. Working-feature acceptance, independent review and broader hosted/device/load gates remain open. Assignment, enrollment and publication are still unimplemented; no whole scheduling requirement is closed.
+
+
+I3a working-feature update: Moamen subsequently explicitly accepted the deployed draft-program wording/usability. This acceptance covers the narrow Owner draft flow only. Current evidence and open security/device/load gates remain in the [implementation receipt](../07-handoff/i3a-program-implementation.md); assignments, enrollment and publication still require their own connected slices.
