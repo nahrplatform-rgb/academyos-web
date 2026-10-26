@@ -14,7 +14,7 @@ class ProgramBoundary(PeopleBoundary):
  'p5_step_v1':"p5_step_v1(gen_random_uuid(),gen_random_uuid(),1,'prepare')",'p5_operation_v1':'p5_operation_v1(gen_random_uuid(),gen_random_uuid())'}
  @classmethod
  def setUpClass(cls):
-  super().setUpClass();cls.sql((ROOT/'supabase/migrations/20261026145710_i3a_draft_programs.sql').read_text())
+  super().setUpClass();cls.sql((ROOT/'supabase/migrations/20261026181240_i3a_draft_programs.sql').read_text())
  def definition(self):return {'name':'Synthetic program','from':'2026-11-01','to':'2027-01-31','rules':[{'day':0,'start':'17:00','end':'18:00'},{'day':2,'start':'19:00','end':'20:00'},{'day':4,'start':'18:00','end':'19:00'}]}
  def review(self,a,d,subject='user_owner'):
   receipt=None

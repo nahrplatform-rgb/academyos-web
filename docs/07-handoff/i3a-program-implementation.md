@@ -1,6 +1,6 @@
 # I3a Owner-only draft programs — implementation receipt
 
-26 October 2026. **Source implemented; local verification passed, with final release checks underway; hosted apply/deployment and working-feature acceptance pending.** The completed connected design was explicitly approved on 26 October; that approval is not working-feature acceptance.
+26 October 2026. **Implemented and deployed to synthetic staging; local checks and the hosted 40-date pause/reload/resume journey passed. Working-feature acceptance and wider verification gates remain pending.** The completed connected design was explicitly approved on 26 October; that approval is not working-feature acceptance.
 
 ## Authorized scope and traceability
 
@@ -12,7 +12,7 @@ Keep the accepted [policy](../06-delivery/i3a-program-dates-decisions.md), [conn
 
 - [Program workspace](../../apps/web/src/components/program-workspace.tsx): shared shell/panes/native controls, Programs and bounded Draft dates, EN/AR, desktop contextual detail and phone Back. The saved setup links to Training. Existing identity changes remount private state; denial wipes it. Failed reads differ from empty results.
 - [Input/action contract](../../apps/web/src/lib/programs.ts) and [API route](../../apps/web/src/app/api/programs/route.ts): seven named RPCs; exact fields, 8 KiB streamed body cap, same-origin and synthetic-staging checks, existing authenticated entry budget plus signed gateway budget. Recovery is charged as a write. No privileged key stands in for caller authority.
-- [Migration](../../supabase/migrations/20261026145710_i3a_draft_programs.sql): three private RLS tables, revoked direct client privileges, tenant-bound foreign keys/date index and current Owner/setup locks. Public entry functions have empty search paths, 3 s statement and 2 s lock limits. Private helpers have no client execution grants.
+- [Migration](../../supabase/migrations/20261026181240_i3a_draft_programs.sql): three private RLS tables, revoked direct client privileges, tenant-bound foreign keys/date index and current Owner/setup locks. Public entry functions have empty search paths, 3 s statement and 2 s lock limits. Private helpers have no client execution grants.
 
 `list` returns 25 headers plus a cursor sentinel. `preview` validates one 28-calendar-day window (at most 28 occurrences), derives UTC separately for each local start/end and rejects gaps/folds. It returns a fixed-size signed review-chain receipt: actor, academy, immutable definition, branch/sport/timezone/context and the complete ordered UTC prefix are bound cryptographically. The next window cannot be skipped; previous windows can be revisited without advancing the receipt. A receipt attests authoritative validation, not human attention or legal consent.
 
@@ -45,8 +45,20 @@ The fresh encrypted [backup run](https://github.com/nahrplatform-rgb/academyos-w
 | Policy and connected design | Owner accepted for this narrow slice |
 | Product source and database migration | Implemented;38 SQL groups,43 unit tests and scoped route/React suites pass |
 | Local SQL/API/React/build evidence | 38 SQL groups;43 unit tests; API budget and production/development React pass; build/typecheck/lint and8 foundation E2E pass |
-| Hosted schema/deployment/runtime | Pending; exact AcademyOS browser targets reached |
+| Hosted schema/deployment/runtime | Applied and deployed; actual Owner 40-date journey, pause/reload/resume and persisted results verified; see hosted receipt below |
 | Owner working-feature acceptance | Pending actual staging review |
 | Independent human security, physical devices, hosted load/cost | Open; no approval inferred from AI review or local tests |
 
 No whole scheduling module or broader AO requirement is marked complete. [Security review](../04-engineering/i3a-program-security-review.md) records the scoped boundaries and residual gates.
+
+## Hosted result — 26 October 2026
+
+Reviewed commit `db430c487cefbd8b12b4e64b818423435a87bcad` passed both [Foundation checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40346640494) and [PR Foundation checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40346631036). The existing AcademyOS staging project rebuilt it in deployment `dpl_7uGMWpU8eqDitjDwujgxhvTq1oFa`, Ready after47s, serving the existing staging domain. Vercel calls this project's serving slot “Production”; the application environment and synthetic staging domain remain staging. No customer production launch or access change occurred. A subsequent presentation-only language correction is tracked separately from this initial hosted journey.
+
+Supabase AcademyOS-staging `snpphkenmvmhpjstbeul` applied the reviewed migration as version `20261026181240`. The repository filename was aligned to the provider-assigned version; the earlier local/rehearsal filename was `20261026145710_i3a_draft_programs.sql`. Both have identical SQL SHA256 `29ebeb88e048106e09574df4d344c37acc129dccd677cd8445e5478edc48db2a`. Historical local/rehearsal receipts retain their actual filenames. [Hosted schema/ACL receipt](evidence/i3a-local-2026-10-26/hosted-schema.json) confirms private tables and the seven bounded public entries. No seed account or membership was added.
+
+The existing signed-in Academy Owner created “Synthetic I3a Full-period Demo” in AcademyOS M1 Synthetic Academy:1 November2026–31 January2027; Sunday17–18, Tuesday19–20, Thursday18–19 in Africa/Cairo. The Owner reviewed all four windows, saved, paused after12/40 dates and reloaded. The same program `5c1d13f7-83f4-4637-a9fe-2081938b1ab7` reopened at the saved cursor. Draft dates excluded its incomplete rows. Resuming prepared the remaining windows and finalized40 unique dates; reviewed/prepared digests match. UTC examples15:00 Sunday/17:00 Tuesday/16:00 Thursday correspond to the saved local times. Audits record one create, four preparation chunks, one pause, one resume and one finalize. Memberships remain4. [Paused state](evidence/i3a-local-2026-10-26/hosted-paused.json), [ready state](evidence/i3a-local-2026-10-26/hosted-ready.json).
+
+Hosted advisors are evidence, not a zero-finding security certificate: [security](evidence/i3a-local-2026-10-26/hosted-security-advisors.json) reports intentional private deny-all RLS and existing signed-callback/authenticated security-definer warnings; [performance](evidence/i3a-local-2026-10-26/hosted-performance-advisors.json) includes foreign-key indexing INFO, including five new child references. Current requests use indexed bounded reads; parent mutation/aggregate scale and index coverage still need assessment before expansion. Fresh unused-index suggestions do not justify dropping safeguards. The staging build retained existing cache/install-script/Sentry instrumentation warnings. No authentication, direct-table restrictions or request budgets were weakened.
+
+This hosted single-account journey does not replace the local negative-access/race evidence or establish hosted multi-account direct-API, sustained load/cost, physical-device accessibility or independent human security approval. Owner working-feature acceptance remains separate from accepted policy/design.

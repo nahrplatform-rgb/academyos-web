@@ -10,6 +10,7 @@
     "full period and weekday times",
     "4 authoritative preview windows",
     "4 preparation chunks and separate finalization",
+    "confirmation follows current language after save",
     "confirmed ready with failed read never becomes unknown",
     "429 stops before another chunk",
     "ready date read",
