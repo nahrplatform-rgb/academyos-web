@@ -137,13 +137,13 @@ for row in action_rows:
         row.update(as_of='2026-10-26',actor_context='Current Academy Owner; synthetic initial branch/sport only',
           policy_status='Owner-only draft policy accepted25Oct; weekday times requested and longer-period/window separation agreed; wider scheduling policies remain open',
           design_status='Completed I3a connected EN/AR full-period/weekday-time/preparation/recovery design explicitly approved26Oct2026',
-          implementation_status='Owner-only draft subset implemented locally; broader scheduling/publish action remains open',
+          implementation_status='Owner-only draft subset implemented and staging deployed; broader scheduling/publish action remains open',
           implementation_source='apps/web/src/components/program-workspace.tsx',
-          verification_status='Local SQL/API/product React and backup rehearsal evidence; see current receipt for final results and limits',
-          deployment_status='Hosted apply and deployment pending',
+          verification_status='Local SQL/API/product React and backup rehearsal pass; hosted40-date pause/reload/resume/finalize verified; wider negative/race/load/device gates open',
+          deployment_status='Hosted migration applied and synthetic staging deployment/runtime verified26Oct2026; see current receipt',
           owner_approval_status='Policy and completed connected design approved; working-feature acceptance pending',
           evidence_reference='docs/07-handoff/i3a-program-implementation.md',
-          next_gate='Finish scoped local/hosted verification and working-feature acceptance; retain independent security/device/load/cost gates')
+          next_gate='Working-feature acceptance and remaining hosted cases; retain independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
