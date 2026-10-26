@@ -131,14 +131,19 @@ for row in action_rows:
           evidence_reference=f'docs/07-handoff/{receipt}.md',
           domain_components=f'{component}; WorkspaceShell; WorkspacePanes; native controls',
           next_gate='Accepted working presentation; broader direct API/device/performance/independent-security gates retained')
-# I3a is preparation only. Do not inherit policy/design approval from the visual foundation.
+# I3a is a bounded Owner-only subset; broader action/requirement acceptance remains separate.
 for row in action_rows:
     if row['work_item_id'] == 'IMP-J09-A01':
-        row.update(actor_context='Proposed current Academy Owner; synthetic initial branch/sport only',
-          policy_status='I3a bounded draft-program policy accepted for design preparation25Oct2026; wider scheduling policies remain open',
-          design_status='I3a connected EN/AR design prepared in design/i3a-program-dates-review; Owner design review pending; broad prototype remains reference only',
-          evidence_reference='docs/06-delivery/i3a-program-dates-decisions.md',
-          next_gate='Owner connected I3a design review; then bounded implementation with SEC-J09 and L07 contract')
+        row.update(as_of='2026-10-26',actor_context='Current Academy Owner; synthetic initial branch/sport only',
+          policy_status='Owner-only draft policy accepted25Oct; weekday times requested and longer-period/window separation agreed; wider scheduling policies remain open',
+          design_status='Completed I3a connected EN/AR full-period/weekday-time/preparation/recovery design explicitly approved26Oct2026',
+          implementation_status='Owner-only draft subset implemented locally; broader scheduling/publish action remains open',
+          implementation_source='apps/web/src/components/program-workspace.tsx',
+          verification_status='Local SQL/API/product React and backup rehearsal evidence; see current receipt for final results and limits',
+          deployment_status='Hosted apply and deployment pending',
+          owner_approval_status='Policy and completed connected design approved; working-feature acceptance pending',
+          evidence_reference='docs/07-handoff/i3a-program-implementation.md',
+          next_gate='Finish scoped local/hosted verification and working-feature acceptance; retain independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

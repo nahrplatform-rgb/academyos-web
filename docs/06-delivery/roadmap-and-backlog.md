@@ -1,5 +1,9 @@
 # Delivery roadmap and dependency-ordered backlog
 
+## Current bounded slice — 26 October 2026
+
+The approved Owner-only I3a full-period/weekday-time draft-program implementation is locally verified. [Current source/evidence and separate rollout/acceptance status](../07-handoff/i3a-program-implementation.md). Assignments, enrollment/capacity, publication and attendance remain later steps; no whole scheduling requirement is closed.
+
 ## Current tracked implementation plan — 24 October 2026
 
 Use [the unified app implementation plan](app-implementation-plan.md), [screen register](app-implementation-screen-matrix.csv), [action register](app-implementation-action-matrix.csv) and [requirement joins](app-implementation-requirement-links.csv) for the next slices. These connect the compact-blue design to actual source/evidence, preserve all scope and keep design, implementation, verification, deployment and owner approval separate. The older proposed backlog below remains historical planning; assess existing M1 work before repeating it.

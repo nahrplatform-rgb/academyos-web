@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "Disposable PG17 function execution only; excludes HTTP, Clerk, limiter, cold starts, devices and hosted cost",
+  "programHeaders": 1002,
+  "readyDates": 92,
+  "targetServerExecutionP95Ms": 150,
+  "responseBudgetBytes": 32768,
+  "measurements": [
+    {
+      "operation": "/rpc/p5_list_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 4.657,
+      "targetP95Ms": 100,
+      "responseBytes": 16670,
+      "responseBudgetBytes": 32768,
+      "writeRolledBack": false
+    },
+    {
+      "operation": "/rpc/p5_preview_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 11.132,
+      "targetP95Ms": 150,
+      "responseBytes": 3821,
+      "responseBudgetBytes": 24576,
+      "writeRolledBack": false
+    },
+    {
+      "operation": "/rpc/p5_read_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 7.286,
+      "targetP95Ms": 100,
+      "responseBytes": 4917,
+      "responseBudgetBytes": 24576,
+      "writeRolledBack": false
+    },
+    {
+      "operation": "/rpc/p5_dates_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 7.2,
+      "targetP95Ms": 100,
+      "responseBytes": 4617,
+      "responseBudgetBytes": 32768,
+      "writeRolledBack": false
+    },
+    {
+      "operation": "/rpc/p5_step_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 11.388,
+      "targetP95Ms": 300,
+      "responseBytes": 650,
+      "responseBudgetBytes": 24576,
+      "writeRolledBack": true
+    }
+  ]
+}

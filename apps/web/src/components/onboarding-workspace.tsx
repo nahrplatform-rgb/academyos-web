@@ -158,7 +158,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
     homeHref={`/${locale}/workspace`}
     languageHref={`/${ar ? 'en' : 'ar'}/${mode === 'platform' ? 'platform' : mode === 'invitation' ? 'invitation' : mode === 'setup' ? `workspace/${academy}` : 'workspace'}`}
     onNavigate={guardNavigation}
-    navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك'), current: mode === 'context' }, ...(mode === 'platform' ? [{ href: `/${locale}/platform`, label: t('Academy admission', 'قبول الأكاديمية'), current: true }] : []), ...(mode === 'setup' && setup ? [{href:`/${locale}/workspace/${academy}`,label:t('Initial setup','الإعداد الأولي'),current:true}, ...(setup.complete ? [{href:`/${locale}/workspace/${academy}/players`,label:t('Players','اللاعبون')},{href:`/${locale}/workspace/${academy}/staff`,label:t('Trainer appointments','تعيينات المدربين')}] : [])] : [])]}
+    navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك'), current: mode === 'context' }, ...(mode === 'platform' ? [{ href: `/${locale}/platform`, label: t('Academy admission', 'قبول الأكاديمية'), current: true }] : []), ...(mode === 'setup' && setup ? [{href:`/${locale}/workspace/${academy}`,label:t('Initial setup','الإعداد الأولي'),current:true}, ...(setup.complete ? [{href:`/${locale}/workspace/${academy}/players`,label:t('Players','اللاعبون')},{href:`/${locale}/workspace/${academy}/staff`,label:t('Trainer appointments','تعيينات المدربين')},{href:`/${locale}/workspace/${academy}/programs`,label:t('Training','التدريب')}] : [])] : [])]}
     account={isSignedIn ? <UserButton /> : null}>
         <WorkspacePanes arabic={ar} title={t('Workspace context','سياق مساحة العمل')} inspector={contextPanel} contextLabel={mode === 'setup' ? t('Saved setup summary','ملخص الإعداد المحفوظ') : undefined} plain={mode === 'platform'}>
         {(mode !== 'platform' || loading || !isSignedIn || uncertain || error === 'denied') && <h1 tabIndex={-1} ref={heading}>{mode === 'platform' ? t('Academy admission', 'قبول الأكاديمية') : mode === 'invitation' ? t('Your owner invitation', 'دعوتك بصفة مالك الأكاديمية') : mode === 'setup' ? t('Initial academy setup', 'الإعداد الأولي للأكاديمية') : t('Choose your workspace', 'اختر مساحتك')}</h1>}
@@ -219,7 +219,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
                 <li>{t('Sport: ', 'الرياضة: ')}{(ar ? setup.sport?.label_ar : setup.sport?.label_en) ?? t('Not saved', 'لم تُحفظ')}</li>
               </ol>
               <div className="journey-actions">
-                {setup.complete && <div className="journey-actions"><a className="button" href={`/${locale}/workspace/${academy}/players`}>{t('Open players','فتح اللاعبين')}</a><Link className="button" href={`/${locale}/workspace/${academy}/staff`}>{t('Trainer appointments','تعيينات المدربين')}</Link></div>}
+                {setup.complete && <div className="journey-actions"><a className="button" href={`/${locale}/workspace/${academy}/players`}>{t('Open players','فتح اللاعبين')}</a><Link className="button" href={`/${locale}/workspace/${academy}/staff`}>{t('Trainer appointments','تعيينات المدربين')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/programs`}>{t('Draft programs','مسودات البرامج')}</Link></div>}
                 <Button disabled={disabled} onClick={() => { setBranch(setup.branch?.name ?? ''); setTimezone(setup.timezone ?? ''); setEditing('branch'); }}>{t('Edit branch and timezone', 'تعديل الفرع والمنطقة الزمنية')}</Button>
                 <Button disabled={disabled} onClick={() => { setSportEn(setup.sport?.label_en ?? ''); setSportAr(setup.sport?.label_ar ?? ''); setEditing('sport'); }}>{t('Edit sport', 'تعديل الرياضة')}</Button>
               </div>
@@ -256,7 +256,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
               <p>{t('Confirm this sport for the branch. This completes initial setup only.', 'أكد هذه الرياضة للفرع. سيكتمل الإعداد الأولي فقط.')}</p>
               <Button disabled={disabled} className="button" onClick={() => void mutate({ action: 'save', academy, version: setup.version, step: 'complete', fields: {} })}>{t('Complete initial setup', 'إكمال الإعداد الأولي')}</Button>
             </section>}
-            <p className="notice">{t('Manage players and Trainer appointments. Dated training and billing are future work. Your saved setup can be resumed after signing in again.', 'يمكنك إدارة اللاعبين وتعيينات المدربين. التدريب المؤرخ والفوترة في مراحل لاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
+            <p className="notice">{t('Manage players and Trainer appointments. Draft training programs are available; assignment, publication and billing follow later. Your saved setup can be resumed after signing in again.', 'يمكنك إدارة اللاعبين وتعيينات المدربين. مسودات برامج التدريب متاحة؛ التعيينات والنشر والفوترة في مراحل لاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
           </>}
         </>}
   </WorkspacePanes></WorkspaceShell>;

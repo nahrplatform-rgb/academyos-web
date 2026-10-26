@@ -51,4 +51,9 @@ jobs:
         run: |
           node scripts/trainers/test_ui.mjs
           UI_REACT_MODE=development node scripts/trainers/test_ui.mjs
+      - name: Verify draft program API boundaries and interrupted preparation
+        run: |
+          node scripts/programs/test_api.mjs
+          node scripts/programs/test_ui.mjs
+          UI_REACT_MODE=development node scripts/programs/test_ui.mjs
       - run: npm run test:e2e

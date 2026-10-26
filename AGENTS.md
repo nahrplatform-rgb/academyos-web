@@ -8,6 +8,7 @@ Apply these instructions to this repository. Explicit current owner instructions
 - Name the authorized outcome, journey/action IDs, requirements, affected trust boundaries and acceptance cases. Keep unresolved policy visible; do not invent fees, ages, roles, consent, ownership or retention rules.
 - Inspect existing components, services and contracts before adding equivalents. Reuse stable UI/interaction patterns while preserving role-specific journeys. Avoid speculative abstractions, unrelated rewrites and unnecessary dependencies.
 - Use the journey action contract, screen/data loading matrix and security review packet. A proposed design or generated example is not a settled business rule.
+- For each new or substantially revised journey, inspect the relevant PYSA workflow descriptions, source and audit evidence under `/Users/moamenghareeb/Pro Youth Football Academy` before designing or implementing AcademyOS. Owner requested this ongoing reference practice on 25 October 2026. Record useful patterns, known defects and evidence limits in the journey packet; if no relevant reference is available, say so. PYSA remains read-only reference: accepted AcademyOS decisions govern, and this instruction does not authorize copying credentials, private data, schema or permission assumptions, changing PYSA, or claiming source behavior is hosted verification. Start scheduling work with [the PYSA scheduling review](docs/03-design/pysa-scheduling-reference-review.md).
 
 ## Implementation boundaries
 

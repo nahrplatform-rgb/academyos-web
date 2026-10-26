@@ -1,0 +1,45 @@
+{
+  "checked_at_utc": "2026-10-26T13:15:05.376978+00:00",
+  "scope": "Local preview serving and existing IAB tab only; no database or hosted product proof",
+  "assets": {
+    "app.css?v=894056230bff": {
+      "matches_disk": true,
+      "sha256": "496a7a485c2d748377ba4a2640c5472d3959ef682e19f0741ffe559abe270c3d",
+      "cache_control": "no-store, max-age=0"
+    },
+    "review.js?v=894056230bff": {
+      "matches_disk": true,
+      "sha256": "2c0e22f36dcbe94ad5854a8649c0719c8c73cfcd7026c07ee09257f0a928ac98",
+      "cache_control": "no-store, max-age=0"
+    }
+  },
+  "original_test": {
+    "from": "2026-11-01",
+    "to": "2027-01-31",
+    "weekdays": [
+      "Sunday",
+      "Tuesday",
+      "Thursday"
+    ],
+    "dates": 40,
+    "windows": 4
+  },
+  "current_user_tab": {
+    "from": "2026-11-01",
+    "to": "2027-02-01",
+    "weekdays": [
+      "Sunday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "dates": 66,
+    "windows_checked": 4,
+    "final_window_rows": 6,
+    "review_visible": true,
+    "saved": false
+  },
+  "finding": "Existing IAB tab displayed superseded 28-day error before reload. Local listener was stopped on inspection; restarted. Cache versus already-loaded document not conclusively distinguished. Added versioned asset URLs and no-store serving.",
+  "limitation": "IAB native date setValue and blur committed input; locator fill did not reliably update React state in this browser. Local Chromium suite is distinct evidence."
+}

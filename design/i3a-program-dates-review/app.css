@@ -243,3 +243,53 @@ input[dir="ltr"] { text-align:left; }
 .detail-dates-phone{display:none}@media(max-width:1100px){.detail-dates-phone{display:block}}
 
 @media(max-width:720px){.dates-table caption{display:block;width:100%;text-align:start;font-size:14px;line-height:1.6;padding-block:12px}}
+
+/* Scheduling reference refinement; scoped to the local design preview. */
+.training-intro { max-width:680px;color:var(--muted);line-height:1.7;margin-block:0 24px; }
+.training-empty { border:1px dashed #b9c9e2;border-radius:10px;background:#f8faff;padding:28px;margin-top:22px;max-width:740px; }
+.training-empty h3 { margin-block:16px 10px;font-size:20px;line-height:1.45; }
+.training-empty p { max-width:560px;font-size:13px;line-height:1.8; }
+.training-steps { list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px 22px;margin-block:0 26px; }
+.training-steps li { display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted); }
+.training-steps li span { display:inline-flex;justify-content:center;align-items:center;border:1px solid var(--line);border-radius:50%;width:25px;height:25px; }
+.training-steps li[aria-current] { color:var(--accent);font-weight:700; }
+.training-steps li[aria-current] span { background:var(--accent);border-color:var(--accent);color:white; }
+.recurrence-summary { padding:18px;border:1px solid #d4e0f6;background:#f2f6ff;border-radius:10px;margin-block:2px 20px;overflow-wrap:anywhere; }
+.recurrence-summary h3 { font-size:13px;color:var(--accent);margin-bottom:16px; }
+.recurrence-summary p { margin-block:8px;font-size:12px;line-height:1.8; }
+.recurrence-summary .recurrence-name { font-size:16px;font-weight:700;color:var(--ink); }
+.recurrence-summary .date-count { border-top:1px solid #d4e0f6;padding-top:14px;margin-top:14px;font-weight:700;font-size:18px;color:var(--accent); }
+.inline-summary { display:none; }
+.training-view { display:flex;gap:6px;margin-block:20px; }
+.training-view button[aria-pressed="true"] { background:var(--accent-soft);color:var(--accent);border-color:var(--accent); }
+.draft-agenda { display:grid;gap:10px; }
+.draft-agenda article { display:grid;grid-template-columns:minmax(170px,.8fr) minmax(0,1fr);gap:16px;padding:16px;border-inline-start:3px solid var(--accent); }
+.draft-agenda button { max-width:100%;white-space:normal;text-align:start;justify-content:start; }
+.draft-agenda article strong { font-size:13px; }
+.draft-agenda article p { font-size:12px;line-height:1.7; }
+.saved-recurrence { color:var(--muted);line-height:1.8;font-size:13px; }
+@media(max-width:1100px) { .inline-summary{display:block;border:1px solid var(--line);border-radius:8px;margin-block:0 24px;padding:12px}.inline-summary>summary{cursor:pointer;font-weight:650;font-size:13px;min-height:24px}.inline-summary .recurrence-summary{margin:14px 0 0}.training-empty{padding:20px} }
+@media(max-width:720px) { .draft-agenda article{grid-template-columns:minmax(0,1fr);gap:8px}.training-steps{gap:10px;margin-block:0 20px}.training-steps li{font-size:11px}.training-empty h3{font-size:18px}.training-empty{padding:18px}.inline-summary>summary{min-height:32px;line-height:1.8}.training-view button{flex:1}.training-intro{font-size:13px} }
+
+.weekdays{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 12px}.weekdays .checkbox-row{margin:4px 0!important;min-height:44px;font-size:12px}@media(max-width:720px){.weekdays{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px}}
+.weekday-summary { list-style:none;padding:0;margin:10px 0 16px; }
+.weekday-summary li { display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;padding-block:7px;border-bottom:1px solid #d4e0f6;font-size:12px;line-height:1.7; }
+.weekday-times { margin-block:22px; }
+.weekday-times>h3 { margin-bottom:6px;font-size:15px; }
+.weekday-times>p { font-size:12px;line-height:1.8;color:var(--muted); }
+.workspace-panes fieldset.weekday-time-row { margin-block:14px;padding:14px 16px 16px;border:1px solid var(--line);border-radius:8px; }
+.weekday-time-row legend { padding-inline:6px;font-weight:700;font-size:13px; }
+.journey-card .weekday-time-row label { margin-top:0; }
+@media(max-width:720px) { .weekday-time-row .form-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.weekday-time-row .ui-input{padding-inline:5px;font-size:14px}.weekday-time-row label{min-height:40px;line-height:1.7}.workspace-panes fieldset.weekday-time-row{padding:12px 10px} }
+.date-window-nav { border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-block:16px;background:var(--subtle); }
+.date-window-nav p { font-size:12px;line-height:1.8;margin-block:4px; }
+.date-window-nav .journey-actions { margin-top:10px; }
+.preparation-panel { padding-block:8px; }
+.preparation-panel>h2 { margin-block:18px 12px; }
+.preparation-panel label { display:block;font-size:13px;line-height:1.7;margin-block:18px 8px; }
+.preparation-panel progress { width:100%;height:14px;accent-color:var(--accent); }
+.preparation-panel details { font-size:12px;margin-top:16px;overflow-wrap:anywhere; }
+.program-definition { max-width:650px; }
+.program-definition h2 { font-size:22px;line-height:1.5;margin-block:12px 16px; }
+.program-definition h3 { font-size:14px;margin-top:24px; }
+.program-definition .weekday-summary { max-width:460px; }

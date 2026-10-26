@@ -84,3 +84,11 @@ test('trainer entry fails closed and unsigned delivery cannot send',async({reque
  expect(invitation.status()).toBe(200);
  expect(invitation.headers()['referrer-policy']).toBe('no-referrer');
 });
+
+test('draft program entry denies untrusted requests and an unconfigured page fails closed', async ({ request }) => {
+  const response = await request.post('/api/programs', { data: { action: 'list', academy: '00000000-0000-4000-8000-000000000001' } });
+  expect(response.status()).toBe(403);
+  expect(response.headers()['cache-control']).toBe('no-store');
+  expect(await response.json()).toEqual({ error: 'denied' });
+  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs')).status()).toBe(503);
+});
