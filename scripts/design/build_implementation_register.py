@@ -154,7 +154,7 @@ for row in action_rows:
           implementation_source='apps/web/src/components/date-planning-workspace.tsx',
           verification_status='49 local SQL groups, scoped API/React and CI pass; hosted unassigned Owner save/reload/counts pass; wider gates pending',
           deployment_status='Staging migration20261027004132 and corrected functional403176a deployed; Owner unassigned save/reopen verified',
-          owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
+          owner_approval_status='I3b policy/design approved; working review requests whole-program planning; acceptance pending',
           evidence_reference='docs/07-handoff/i3b-planning-implementation.md',
           next_gate='Working-feature acceptance; retain eligible-Trainer hosted case, negatives/races and independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
