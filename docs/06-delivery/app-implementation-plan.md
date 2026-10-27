@@ -120,3 +120,8 @@ The subsequent full-period, independent-weekday-time and resumable preparation d
 
 
 I3a working-feature update: Moamen subsequently explicitly accepted the deployed draft-program wording/usability. This acceptance covers the narrow Owner draft flow only. Current evidence and open security/device/load gates remain in the [implementation receipt](../07-handoff/i3a-program-implementation.md); assignments, enrollment and publication still require their own connected slices.
+
+
+## I3b next-step preparation — 27 October2026
+
+After I3a working-flow acceptance, Owner requested continuation. [Proposed draft session-planning policy](i3b-draft-session-planning-decisions.md) connects a saved draft date to an explicit capacity, eligible Trainer and fictional roster. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md) records PYSA source/audit lessons, current contracts, bounded retrieval, atomicity, security and measurable budgets. Policy and separate connected-design review are pending; no I3b implementation/deployment or Trainer/family visibility is inferred. Full-period bulk/recurring enrollment and publication retain separate rules and review.

@@ -1,0 +1,35 @@
+# I3b preparation — draft date, Trainer, roster and capacity
+
+27 October2026. Proposed engineering contract pending [Owner policy decision](../06-delivery/i3b-draft-session-planning-decisions.md) and separate connected-design review. No implementation or security approval is claimed.
+
+## Traceability and affected boundaries
+
+J10/J11; existing grouped IMP-J10-A01 (J10-A01/J11-A01); S23/S24/S26; L07; SEC-J10/SEC-J11. Scoped AO-023/024/027/028/031 and AT counterparts; AO-025 recurring capacity and AO-034 financial consequences explicitly remain deferred. AO-027/028/031 are partial associations: draft dated assignment is not Trainer schedule discovery, overnight program creation or all replacement workflows. Cross-cutting AO-151/152/153 current authority/atomicity/idempotency remain required. Add proposed action subdivisions only in the reviewed design contract, without renumbering existing IDs.
+
+Assets: private synthetic players, staff branch membership, dated assignment/roster, capacity, expected version and operation receipt/audit. Trust crossings: signed-in browser → same-origin staging API → existing signed budgeted gateway → fresh current Owner/setup/branch and target-date locks → private tenant-scoped data. Trainer and guardian endpoints must remain unable to read this private planning projection. No new provider/job/cache/storage or email boundary is needed for one-date atomic saves.
+
+## Connected design to prepare after policy acceptance
+
+Programs/Draft dates retain selected period/page → dated detail identifies program, local date/time, timezone and private-draft status → planning shows explicit capacity, assigned Trainer/unassigned and paginated roster → eligible Trainer/player search on demand → review old/new Trainer, capacity, additions/removals and conflicts → save → confirmed saved date. Desktop uses center work list and contextual inspector; phone uses date list → full detail/editor → review → saved detail → Back retaining context. EN/AR, logical RTL and isolated times/IDs follow the corrected reference foundation. No decorative unavailable operational tabs.
+
+Required prototype states: initial loading; empty roster; no eligible Trainer; no matching player; search read failure distinct from empty; pending save; stale date/version; changed/ended appointment; capacity exceeded; same-academy Trainer/player conflict; failed conflict lookup blocks save; duplicate submission; committed reply lost; no-commit cancellation fence; confirmed save with failed reread; permission revoked while open; foreign academy/date; delayed response after account/academy switch. Retain unsaved choices on recoverable failure, clear private state on authority loss and never silently reset capacity or drop roster selections.
+
+## Proposed bounded data/freshness contract
+
+- Current selected-date critical projection only: immutable date context, planning version/capacity/Trainer and roster count. Roster display25 plus sentinel; disclose that a partial page is not the complete roster. No whole-academy preload or one network call per player/date.
+- Eligible Trainer and player search25 plus cursor sentinel, branch-bound, on demand; no recipient email, unverified contact, guardian relation, salary or other staff fields. Bound search input/body and set explicit server deadlines before implementation.
+- Review additions/removals as deltas against the current date version. Current authority, staff branch eligibility, player scope, exact roster count and UTC conflicts are authoritative at commit, even after a successful preview. A displayed place count never reserves capacity.
+- Mutation one selected date: proposed request cap8KiB and at most25 roster changes per reviewed command. This is a per-request engineering limit, not a maximum roster size; larger rosters use later deliberate reviewed changes. If workload evidence requires a different bound, document it before implementation rather than treating this proposal as accepted policy.
+- Private no-store responses; cancel/ignore late context requests; coalesced reread after confirmed local changes and on focus. Unknown outcome keeps the original actor/academy operation identity and explicit reconciliation before replacement. No polling fan-out.
+
+## Atomicity, races and recovery to implement after approval
+
+A date-planning version covers Trainer/capacity/roster. Save locks the date and relevant staff eligibility and Trainer/player conflict keys in deterministic order, rechecks current scope/eligibility, applies assignment replacement and roster delta/count together, then writes audit and original-operation result. Old valid assignment remains if replacement fails. Same operation/different payload conflicts; replay after current permission revocation denies. A no-commit fence serializes with create/write intent. Ending a staff appointment and saving against it require a documented shared lifecycle lock order; stale appointment data cannot produce fresh coverage. No future publication can treat an ended appointment as eligible merely because a planning row survives.
+
+Required tests: two academies/branches/date substitution; wrong roles including Platform-only and current Trainer; direct table/helper denial; expired/revoked/pending/ended staff; registered player scope and duplicate; simultaneous last-place additions; capacity reduction against current full count; concurrent replacements and stale versions; adjacent/overlapping UTC intervals; failed conflict dependency; injected failure between replacement/removal/addition/audit; before/after-commit response loss and replay; account switch with delayed private response; inherited I3a and I2 lifecycle regressions. Hosted actual-account tests remain distinct from local models and may require separately authorized temporary synthetic fixture access; never silently grant/restore an appointment to make a test pass.
+
+## Budgets and gates
+
+Retain declared-network targets: useful selected-date view p95≤2.5s, scoped read/search/review≤1s, write acknowledgement≤1.5s; local SQL read≤100ms and one planning mutation≤300ms. Critical projection≤24KiB,25-row directory≤32KiB. Measure explicit data cardinalities, network/device, provider calls, row scans, encoded bytes and concurrency; do not promote SQL timing to hosted latency/cost. Establish overlap-query indexes and statement/lock deadlines from the actual schema/plan before deployment. Large/full rosters must not be expanded into unbounded response JSON just to prove a count.
+
+Five dimensions: usability (clear per-date scope and diff), speed (critical date first), correctness (capacity/current eligibility/atomic replacement), cost (bounded lists and indexed overlap), recovery (original-operation reconciliation). Security/privacy is an independent gate under [journey security review](journey-security-review.md), not an average score. Independent human review, physical-device/screen-reader checks and wider hosted load/privacy cases remain explicitly open until evidenced. No product source, schema, migration, provider, access grant or deployment changed in this preparation.
