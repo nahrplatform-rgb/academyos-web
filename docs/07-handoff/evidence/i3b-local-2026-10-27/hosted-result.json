@@ -31,5 +31,18 @@
     "hosted direct API negatives/races, network/load/cost and physical-device/a11y gates remain open",
     "independent human security review and working-feature Owner acceptance remain pending",
     "screenshots reflect functional d48b106 before subsequent copy-only refinement"
+  ],
+  "final_source": "403176ade783d9ca2680d05b23a5c23a1dd6f8fd",
+  "final_deployment": "dpl_7ieeiJqsoKxG7R5wduwms9Pc1Hdx",
+  "final_ci": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40429222295",
+  "final_checks": [
+    "native date-link activation reopens inspector after phone Back and refresh",
+    "saved capacity2/unassigned/roster1 remains after source rollout",
+    "final EN and AR phone screenshots360x800",
+    "post-recheck counts remain1plan/1roster/1operation/1audited save,4memberships,58dates",
+    "final hosted1440 desktop capture and no document overflow"
+  ],
+  "capture_limits": [
+    "initial hosted-ar-phone.png captured during viewport transition; use hosted-ar-phone-final.png for actual phone visual evidence"
   ]
 }
