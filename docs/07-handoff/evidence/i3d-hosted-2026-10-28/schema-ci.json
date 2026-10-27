@@ -25,7 +25,7 @@
   "preview_deployment": "dpl_9c7dCQ8hCsuNe1DgvhMbh9cgeCHk",
   "app_staging_promotion": "Ready; functional smoke at b2606cb followed by copy-only rollout12d33f1",
   "trainer_grant_executed": true,
-  "working_acceptance": "pending",
+  "working_acceptance": "Moamen explicitly accepted scoped working wording/usability28Oct2026; broader quality/security gates remain open",
   "independent_security": "pending",
   "advisor_counts": {
     "rls_private_no_policy": 38,
@@ -67,5 +67,6 @@
   "final_copy_ci_conclusions": [
     "success",
     "success"
-  ]
+  ],
+  "working_acceptance_date": "2026-10-28"
 }

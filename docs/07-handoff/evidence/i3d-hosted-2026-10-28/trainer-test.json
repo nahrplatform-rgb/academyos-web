@@ -19,7 +19,7 @@
   "plans": 41,
   "rosters": 40,
   "trainer_actual_browser": "Safari native AX, authenticated separate account",
-  "working_acceptance": "pending",
+  "working_acceptance": "Moamen explicitly accepted scoped working wording/usability28Oct2026; broader quality/security gates remain open",
   "independent_security": "pending",
   "unverified": [
     "interrupted Trainer-to-Owner browser case",
@@ -28,5 +28,6 @@
     "sustained declared-network/load/cost/WAL/fairness",
     "1000-date300ms target missed in prior local run"
   ],
-  "operator_end_fallback_executed": false
+  "operator_end_fallback_executed": false,
+  "working_acceptance_date": "2026-10-28"
 }
