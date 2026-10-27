@@ -54,3 +54,7 @@ Read the [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) b
 ## Mandatory engineering and security gates
 
 Follow the root [agent instructions](../../AGENTS.md) and [engineering charter](../00-governance/engineering-charter.md). Before implementation, expand each relevant [security coverage row](../04-engineering/journey-security-matrix.csv) into the [journey security review packet](../04-engineering/journey-security-review.md). Keep five quality dimensions and security/privacy gates separate; passing foundation CI is not complete journey/security evidence.
+
+## I3d continuation —28 October2026
+
+Publication/assigned Trainer schedule policy and design approved; real implementation/local verification and additive staging migration are recorded in [I3d implementation](i3d-publication-implementation.md). App deployment, authenticated hosted checks, working acceptance and independent/security/device/load gates must be read separately. Do not restore an ended Trainer appointment without the separately required explicit authorization.

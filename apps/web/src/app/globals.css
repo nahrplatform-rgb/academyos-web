@@ -262,3 +262,8 @@ input[dir="ltr"] { text-align:left; }
 .program-planning-layout .ui-button { margin-inline-end:8px;margin-block:4px; }
 .program-planning-layout li { margin-block:8px; }
 .program-planning-layout details { padding-block:12px;border-top:1px solid var(--line); }
+
+/* Publication review keeps bounded dated work and its contextual inspector connected. */
+.publication-layout .workspace-panes{grid-template-columns:minmax(230px,.8fr) minmax(0,1.8fr)}
+.publication-scope{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:925px){.publication-layout .workspace-panes{display:block}.publication-scope{grid-template-columns:1fr}.publication-layout .workspace-table caption{display:block;width:100%}}

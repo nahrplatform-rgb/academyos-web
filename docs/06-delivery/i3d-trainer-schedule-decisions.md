@@ -41,3 +41,7 @@ No dependent implementation, schema change, deployment, invitation or access gra
 ## Policy decision —27 October2026
 
 Moamen explicitly selected “Accept this publication and Trainer-visibility policy for design”. Accepted scope includes all selected future dates published together, current assigned active Trainer seeing minimal dated context and fictional player names, withdrawal before edits, and next-request access removal after withdrawal/appointment ending. No family visibility, attendance, fee or notification is included. No invitation, restored appointment, actual account access or dependent implementation is authorized by this design-preparation decision.
+
+## Connected-design approval —27 October2026
+
+Moamen explicitly selected “Approve this connected design for implementation”. Dependent implementation is authorized within the accepted fictional-data policy. No actual Trainer invitation/restoration/account grant or wider publication/attendance/family authority is included. Implementation, local tests, hosted rollout, working acceptance and independent review remain separately evidenced.

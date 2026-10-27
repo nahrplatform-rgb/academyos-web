@@ -1,0 +1,21 @@
+/** Exact public command shapes; identity/authority and publication snapshots are server derived. */
+export class PublicationInputError extends Error{}
+const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
+function id(v:unknown){if(typeof v!=='string'||!uuid.test(v))throw new PublicationInputError();return v.toLowerCase();}
+function date(v:unknown){if(typeof v!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(v)||v.startsWith('0000')||!Number.isFinite(Date.parse(v+'T00:00:00Z'))||new Date(v+'T00:00:00Z').toISOString().slice(0,10)!==v)throw new PublicationInputError();return v;}
+export function publicationRequest(v:unknown){if(!v||typeof v!=='object'||Array.isArray(v))throw new PublicationInputError();const b=v as Record<string,unknown>,a=id(b.academy);let keys:string[],rpc:string,args:Record<string,unknown>,mutating=false;
+ if(b.action==='context'){keys=['action','academy','program'];rpc='p5_read_v1';args={a,program:id(b.program),idx:0};}
+ else if(b.action==='dates'){keys=['action','academy','program','after_day'];rpc='s8_owner_dates_v1';args={a,p:id(b.program),after_day:b.after_day==null?null:date(b.after_day)};}
+ else if(b.action==='jobs'){keys=['action','academy','program','after'];rpc='s8_jobs_v1';args={a,p:id(b.program),after_id:b.after==null?null:id(b.after)};}
+ else if(b.action==='create'){keys=['action','academy','program','op','kind','from','to','weekdays'];rpc='s8_create_v1';mutating=true;if(!['publish','withdraw'].includes(String(b.kind))||!Array.isArray(b.weekdays)||b.weekdays.length<1||b.weekdays.length>7||b.weekdays.some(d=>!Number.isInteger(d)||d<0||d>6)||new Set(b.weekdays).size!==b.weekdays.length)throw new PublicationInputError();const first=date(b.from),last=date(b.to);if(first>last)throw new PublicationInputError();args={a,p:id(b.program),op:id(b.op),kind:b.kind,first_date:first,last_date:last,weekdays:[...b.weekdays].sort()};}
+ else if(b.action==='read'){keys=['action','academy','job','after_day'];rpc='s8_read_v1';args={a,j:id(b.job),after_day:b.after_day==null?null:date(b.after_day)};}
+ else if(b.action==='change'){keys=['action','academy','job','op','version','act'];rpc='s8_change_v1';mutating=true;if(!Number.isSafeInteger(b.version)||(b.version as number)<1||!['prepare','activate','cancel'].includes(String(b.act)))throw new PublicationInputError();args={a,j:id(b.job),op:id(b.op),expected_version:b.version,act:b.act};}
+ else if(b.action==='reconcile'){keys=['action','academy','op'];rpc='s8_operation_v1';mutating=true;args={a,op:id(b.op)};}
+ else if(b.action==='schedule'){keys=['action','academy','from','after_at','after_program'];rpc='s8_schedule_v1';if((b.after_at==null)!==(b.after_program==null))throw new PublicationInputError();if(b.after_at!=null&&(typeof b.after_at!=='string'||b.after_at.length>40||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(b.after_at)||!Number.isFinite(Date.parse(b.after_at))))throw new PublicationInputError();args={a,first_date:b.from==null?null:date(b.from),after_at:b.after_at??null,after_program:b.after_program==null?null:id(b.after_program)};}
+ else if(b.action==='roster'){keys=['action','academy','event','after'];rpc='s8_roster_v1';args={a,event:id(b.event),after_id:b.after==null?null:id(b.after)};}
+ else throw new PublicationInputError();if(Object.keys(b).some(k=>!keys.includes(k)))throw new PublicationInputError();return{rpc,args,mutating};
+}
+export type PublicationDate={day:string;start:string;finish:string;version:number|null;capacity:number|null;roster_count:number|null;published:boolean;trainer:string|null;eligible:boolean};
+export type PublicationJob={job:string;program:string;kind:'publish'|'withdraw';version:number;state:'preparing'|'ready'|'committed'|'cancelled';from:string;to:string;weekdays:number[];total:number;changes:number;prepared:number;blocked:number;items:(PublicationDate&{changing:boolean;prepared:boolean;problem:string|null;plan_version:number})[];more:boolean};
+export type PublishedHeader={id:string;program:string;day:string;starts_at:string;ends_at:string;capacity:number;roster_count:number;projection:{name:string;branch:string;sport:string;sport_ar:string;timezone:string}};
+export type PublishedRoster=PublishedHeader&{count:number;players:{id:string;name:string}[];more:boolean};

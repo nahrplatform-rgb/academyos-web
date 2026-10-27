@@ -1,6 +1,6 @@
 # I3d — publication and assigned-Trainer schedule preparation
 
-27 October2026. **Policy accepted for design preparation27 October2026; connected design/implementation not approved.** [Decision packet](../06-delivery/i3d-trainer-schedule-decisions.md). This preparation changes no authority or current product behavior. I3c acceptance does not close its outstanding independent verification gates.
+27 October2026. **Policy accepted for design preparation27 October2026; connected design approved27 October2026; implementation and local verification recorded separately.** [Decision packet](../06-delivery/i3d-trainer-schedule-decisions.md). This preparation changes no authority or current product behavior. I3c acceptance does not close its outstanding independent verification gates.
 
 ## Trust crossings and minimal data
 
@@ -26,3 +26,7 @@ Required integrity/recovery: duplicate/payload-changed operations, failure befor
 Independent human security review, physical device/screen-reader, sustained hosted load and remaining I3c actual-account/direct-API/race cases stay open. No active Trainer provisioning is authorized by this plan; present truthful missing prerequisites until separately authorized. No new provider, paid service or real data is needed for design preparation.
 
 Connected local design is now prepared: [action/state contract](../06-delivery/i3d-trainer-schedule-design-contract.md). Simulation/type/layout checks are design evidence only; no expanded real Trainer access or product/schema/provider changes.
+
+## Connected-design approval —27 October2026
+
+Moamen explicitly selected “Approve this connected design for implementation”. Dependent implementation is authorized within the accepted fictional-data policy. No actual Trainer invitation/restoration/account grant or wider publication/attendance/family authority is included. Implementation, local tests, hosted rollout, working acceptance and independent review remain separately evidenced.

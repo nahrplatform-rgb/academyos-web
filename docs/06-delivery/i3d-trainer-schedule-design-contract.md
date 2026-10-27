@@ -1,6 +1,6 @@
 # I3d — connected publication and assigned-Trainer design contract
 
-27 October2026. **Policy accepted for design preparation; connected design awaits Owner review.** [Policy and PYSA source/audit reference](i3d-trainer-schedule-decisions.md), [local review instructions](../../design/i3d-trainer-schedule/README.md). Design is fictional local simulation. No dependent app/schema/provider work or account grant is included.
+27 October2026. **Policy accepted for design preparation; connected design explicitly approved27 October2026.** [Policy and PYSA source/audit reference](i3d-trainer-schedule-decisions.md), [local review instructions](../../design/i3d-trainer-schedule/README.md). Design is fictional local simulation. No dependent app/schema/provider work or account grant is included.
 
 ## Scope and traceability
 
@@ -39,4 +39,8 @@ Acceptance includes complete-set invalid/stale/conflict rejection; dated-only di
 
 ## Evidence and status
 
-Local simulation interaction checks and TypeScript passed. [Checks](../../design/i3d-trainer-schedule/evidence/checks.json) record exact cases/limits, [manifest](../../design/i3d-trainer-schedule/source-manifest.json) source hashes. Actual in-app browser also reviewed preparation and dated-only restricted roster; screenshots linked in README. No real database/API/RLS/identity/provider/hosted atomicity or performance evidence is claimed. Policy accepted; design prepared; design acceptance pending; product implementation/deployment/working acceptance not started for I3d. Prior accepted journeys and outstanding independent gates remain preserved.
+Local simulation interaction checks and TypeScript passed. [Checks](../../design/i3d-trainer-schedule/evidence/checks.json) record exact cases/limits, [manifest](../../design/i3d-trainer-schedule/source-manifest.json) source hashes. Actual in-app browser also reviewed preparation and dated-only restricted roster; screenshots linked in README. No real database/API/RLS/identity/provider/hosted atomicity or performance evidence is claimed. Policy accepted; design prepared; design accepted; implementation/local verification progressed as recorded in the implementation receipt; hosted deployment/working acceptance remain separate. Prior accepted journeys and outstanding independent gates remain preserved.
+
+## Connected-design approval —27 October2026
+
+Moamen explicitly selected “Approve this connected design for implementation”. Dependent implementation is authorized within the accepted fictional-data policy. No actual Trainer invitation/restoration/account grant or wider publication/attendance/family authority is included. Implementation, local tests, hosted rollout, working acceptance and independent review remain separately evidenced.

@@ -104,3 +104,10 @@ test('atomic program planning denies untrusted entry and unconfigured protected 
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/plan')).status()).toBe(503);
 });
+
+
+test('publication and Trainer schedule reject untrusted entry and unconfigured access',async({request})=>{
+ const response=await request.post('/api/publication',{data:{action:'create',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ for(const suffix of ['programs/00000000-0000-4000-8000-000000000002/publish','trainer/schedule'])expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/'+suffix)).status()).toBe(503);
+});

@@ -157,6 +157,16 @@ for row in action_rows:
           owner_approval_status='I3b/I3c policy/design approved; Moamen explicitly accepted working whole-program planning wording/usability EN/AR27Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i3c-program-planning-implementation.md',
           next_gate='Remaining hosted direct-API/race checks and independent security/device/load/cost gates')
+# I3d adds only bounded publication/assigned Trainer visibility; broader actions remain open.
+for row in action_rows:
+    if row['work_item_id'] in ('IMP-J10-A01','IMP-J11-A01'):
+        row.update(as_of='2026-10-28',
+          implementation_status=row['implementation_status']+'; I3d publication and assigned Trainer read-only schedule implemented locally',
+          verification_status=row['verification_status']+'; I3d67 disposable SQL tests, API/React checks and backup restore pass;1000-date300ms target missed; hosted and independent gates open',
+          deployment_status='I3c remains serving staging; I3d rollout not yet verified',
+          owner_approval_status=row['owner_approval_status']+'; I3d policy/design approved27Oct; working acceptance pending',
+          evidence_reference='docs/07-handoff/i3d-publication-implementation.md',
+          next_gate='I3d staging rollout, separately authorized positive Trainer appointment; hosted/API/security/device/performance/working acceptance')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
