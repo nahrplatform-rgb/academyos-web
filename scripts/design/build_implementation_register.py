@@ -150,7 +150,7 @@ for row in action_rows:
         row.update(as_of='2026-10-27',actor_context='Current Academy Owner; private synthetic dated planning only',
           policy_status='I3b one-date capacity/Trainer/fictional roster policy accepted27Oct; publication/recurring enrollment/fees remain separate',
           design_status='Connected I3b EN/AR date planning and recovery design explicitly approved27Oct2026',
-          implementation_status='Private one-date planning deployed; approved all-or-none program planning implemented locally; broader group open',
+          implementation_status='Private individual-date and all-or-none program planning implemented and deployed; broader group open',
           implementation_source='apps/web/src/components/date-planning-workspace.tsx',
           verification_status='I3b hosted path preserved; I3c full58 local SQL groups plus focused cases, API/React/build pass; I3c staging schema/ACL and Owner prepare/resume/commit/reopen plus foreign-academy denial passed',
           deployment_status='I3c migration20261027022133 and sourceef9a87e deployed to existing synthetic staging; dpl_2sUyztivHesF4Tu9GR4mnh71697n Ready',
