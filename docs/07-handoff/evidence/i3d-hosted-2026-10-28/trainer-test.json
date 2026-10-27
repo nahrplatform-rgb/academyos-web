@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-10-28 Africa/Cairo",
+  "source": "b2606cbd503703ddbf1d88b1c264561afe294c0d",
+  "serving_deployment": "dpl_88rSyJKGijSTAWw6AVZyVvqiWfRr",
+  "authorization": "Explicit temporary Trainer restoration, single fictional date publication/withdrawal and ending",
+  "restore_operation": "7c555c84-2e07-4fde-a159-70188b3a75b4",
+  "publish_job": "63fb98ba-654d-4305-8a21-cc75053c3c72",
+  "publish_event": "22866dd5-3213-4a6b-add6-3196b68a3ede",
+  "withdraw_job": "0987d4b9-5e34-4640-9bd0-110bd575681c",
+  "end_operation": "ddd5cac0-b183-46ae-a464-d0f22e771d17",
+  "membership_final": "ended",
+  "assignment_final": "ended",
+  "invitation_version": 5,
+  "other_memberships_fingerprint_before_after": "04a4b4e4c4fc602cc532c505d1026627",
+  "current_published": 0,
+  "immutable_events": 2,
+  "immutable_roster_names": 1,
+  "memberships": 4,
+  "plans": 41,
+  "rosters": 40,
+  "trainer_actual_browser": "Safari native AX, authenticated separate account",
+  "working_acceptance": "pending",
+  "independent_security": "pending",
+  "unverified": [
+    "interrupted Trainer-to-Owner browser case",
+    "hosted direct API/races/failures/revoked/suspended/multiple Trainers",
+    "physical-device/screen-reader",
+    "sustained declared-network/load/cost/WAL/fairness",
+    "1000-date300ms target missed in prior local run"
+  ],
+  "operator_end_fallback_executed": false
+}

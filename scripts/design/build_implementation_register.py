@@ -163,10 +163,10 @@ for row in action_rows:
         row.update(as_of='2026-10-28',
           implementation_status=row['implementation_status']+'; I3d publication and assigned Trainer read-only schedule implemented locally',
           verification_status=row['verification_status']+'; I3d67 disposable SQL tests, API/React checks and backup restore pass;1000-date300ms target missed; hosted and independent gates open',
-          deployment_status='I3d migration20261027210954 and sourceb2606cb serving existing staging at dpl_88rSyJKGijSTAWw6AVZyVvqiWfRr; hosted Owner blocked preparation/reload and foreign-academy denial passed; positive Trainer test pending separate grant',
+          deployment_status='I3d migration20261027210954 and sourceb2606cb serving existing staging at dpl_88rSyJKGijSTAWw6AVZyVvqiWfRr; hosted Owner and authorized single-date publish/Trainer roster/withdraw/end smoke passed; appointment ended; broader gates open',
           owner_approval_status=row['owner_approval_status']+'; I3d policy/design approved27Oct; working acceptance pending',
           evidence_reference='docs/07-handoff/i3d-publication-implementation.md',
-          next_gate='I3d staging rollout, separately authorized positive Trainer appointment; hosted/API/security/device/performance/working acceptance')
+          next_gate='I3d remaining hosted direct-API/races and independent security/device/performance/working acceptance')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

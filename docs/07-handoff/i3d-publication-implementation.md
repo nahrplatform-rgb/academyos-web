@@ -51,3 +51,9 @@ Existing signed-in Owner used the real publication UI to create private preparat
 A separately scoped temporary restoration/ending test has been requested for the exact existing Casey Demo appointment. Until explicit authorization, membership/assignment remain ended. Working I3d acceptance and independent/security/device/load gates remain open.
 
 The current Owner identity opening Trainer schedule was denied; Owner status does not inherit Trainer projection. [Role denial](evidence/i3d-hosted-2026-10-28/owner-not-trainer-denied.png). Returned the review tab to the correct Owner publication workspace.
+
+## Authorized positive Trainer test —28 October2026
+
+The separate temporary restoration and ending were explicitly authorized and executed. [Exact execution receipt and limitations](i3d-hosted-trainer-test.md). Actual Owner one-date save→publish, separate Safari Trainer dated discovery/ENAR minimal roster, published edit lock, Owner withdrawal→open-roster denial/clearing→empty authorized schedule, unlocked private edit and canonical Owner ending→fresh Trainer denial all observed. Final access is ended, zero dates currently published, immutable history retained. Working-feature acceptance remains pending; positive smoke does not close independent or broader security/race/device/load gates.
+
+During this test the appointment component still described I2c profile-only access. A narrow EN/AR copy correction now explains own staff profile plus explicitly assigned published sessions and fictional display names, and explicitly excludes player profiles/contact details, other staff, salary and Owner controls. This changes wording only; no new permission, account or dataset. Affected component UI regression and rollout recorded separately.
