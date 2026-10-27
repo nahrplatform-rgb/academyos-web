@@ -1,6 +1,6 @@
 # I3b — draft dated-session planning recommendation
 
-27 October 2026. **Proposed; not accepted.** Owner requested continuation after accepting I3a working wording/usability. That continuation authorizes assessment and a concrete decision/design packet; it does not settle new scheduling rules. Current implementation remains [I3a](../07-handoff/i3a-program-implementation.md).
+27 October 2026. **Owner accepted this narrow policy for design preparation on27 October2026.** Owner requested continuation after accepting I3a working wording/usability. That continuation authorizes assessment and a concrete decision/design packet; it does not settle new scheduling rules. Current implementation remains [I3a](../07-handoff/i3a-program-implementation.md).
 
 ## Proposed useful outcome
 
@@ -8,7 +8,7 @@ Owner opens a saved program → selects one saved draft date → sets an explici
 
 This is the next bounded end-to-end step connecting the existing people and program work. Follow-on publication will make approved dated work useful to Trainers and families under a separately accepted visibility contract. This packet does not claim the whole scheduling product is complete.
 
-## Choices recommended for Owner decision
+## Accepted narrow choices
 
 | Choice | Recommendation | Consequence / alternative |
 |---|---|---|
@@ -37,4 +37,9 @@ Actual source updates a program then clears Trainer assignments before inserting
 
 ## Status
 
-Policy pending Owner decision. Connected prototype pending policy and separate review. Product implementation, migration, hosted verification, deployment and working-feature acceptance: **not started for I3b**. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md). D-003 broader role authority, D-006 cancellations/credits and D-012 attendance remain open; this recommendation settles none of those broader domains.
+Policy explicitly accepted by Moamen: “Accept this draft-planning policy”. Connected prototype requires separate design review before implementation. Product implementation, migration, hosted verification, deployment and working-feature acceptance: **not started for I3b**. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md). D-003 broader role authority, D-006 cancellations/credits and D-012 attendance remain open; this recommendation settles none of those broader domains.
+
+
+## Policy acceptance record
+
+Moamen explicitly selected “Accept this draft-planning policy” on27 October2026: current Owner, one saved draft date per save, explicit capacity, up to one active same-branch Trainer, fictional player additions/removals, rejection of excess capacity/duplicates/same-academy overlaps, Owner-only visibility and no fees/notifications. Different dates may have different Trainers/rosters. This approves design preparation only; actual invitations, access grants, dependent implementation and wider publication/financial rules are not authorized by this policy approval.

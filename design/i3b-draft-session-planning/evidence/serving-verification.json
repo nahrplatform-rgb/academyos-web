@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "scope": "Loopback artifact readback only; separate from actual-tab/browser and product integration evidence",
+  "url": "http://127.0.0.1:3209/",
+  "html_sha256": "ea0126d3cfa1518e7b1e2278b41ac627de9a9de0bdffa892e2ad0173035539b5",
+  "assets": {
+    "app.css?v=7d36bf0fe6f6": "d571e74e82f8883947bcb23f1489bf425f79f0356ca527a7dfdc50dc2f0e24fc",
+    "review.js?v=7d36bf0fe6f6": "1c3d98c6506ae7b55d9ec84f5c8bfe59a55dd42f3a0fef3d942a19974ec76355"
+  }
+}

@@ -125,3 +125,6 @@ I3a working-feature update: Moamen subsequently explicitly accepted the deployed
 ## I3b next-step preparation — 27 October2026
 
 After I3a working-flow acceptance, Owner requested continuation. [Proposed draft session-planning policy](i3b-draft-session-planning-decisions.md) connects a saved draft date to an explicit capacity, eligible Trainer and fictional roster. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md) records PYSA source/audit lessons, current contracts, bounded retrieval, atomicity, security and measurable budgets. Policy and separate connected-design review are pending; no I3b implementation/deployment or Trainer/family visibility is inferred. Full-period bulk/recurring enrollment and publication retain separate rules and review.
+
+
+I3b policy subsequently accepted27 October2026. The [connected design contract](i3b-draft-session-planning-design-contract.md) and [local interactive preview](../../design/i3b-draft-session-planning/README.md) cover one dated plan, explicit capacity, eligible Trainer, fictional roster, exact review and recovery in EN/AR. Separate design approval is pending. No dependent I3b product/schema/provider implementation or access grant has occurred.
