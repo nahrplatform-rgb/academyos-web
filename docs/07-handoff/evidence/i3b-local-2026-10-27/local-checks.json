@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-27",
+  "local_sql_groups": 49,
+  "planning_groups": 11,
+  "inherited_groups": 38,
+  "sql_elapsed_seconds": 42.586,
+  "api_budget_failure_cases": 18,
+  "unit_tests": 46,
+  "product_react": [
+    "production passed",
+    "development passed"
+  ],
+  "foundation_e2e": 9,
+  "scope": "Local synthetic/disposable evidence; not hosted/physical/independent acceptance",
+  "source_sha256": {
+    "supabase/migrations/20261027001751_i3b_draft_session_planning.sql": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
+    "apps/web/src/components/date-planning-workspace.tsx": "d38c8e44f0d433f2c5c85902c4599df29026b751a2745f3c947fd0cd80d68765",
+    "apps/web/src/components/program-workspace.tsx": "76a8b6340c2958619689df0c98d07eee498f5fc1d74d0a43e9a9c9aa25620610",
+    "apps/web/src/lib/planning.ts": "78d211695149d05c1cb739f03d9765d347480602271d09521fc57064a3a12030",
+    "apps/web/src/lib/onboarding-gateway.ts": "573b73616abed035e938ee6a700f118d7b4e89aec412af55a32bd13adf5f5ee6",
+    "apps/web/src/app/api/planning/route.ts": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7"
+  },
+  "notes": [
+    "Full SQL run passed with test pipe ResourceWarnings; focused cleanup retest recorded separately",
+    "Historical I2a/I3a scale files restored to original bytes"
+  ],
+  "focused_lock_retest": {
+    "tests": 2,
+    "seconds": 3.978,
+    "status": "passed without pipe ResourceWarnings after cleanup fix"
+  }
+}

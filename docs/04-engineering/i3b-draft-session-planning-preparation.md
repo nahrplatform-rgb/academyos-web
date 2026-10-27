@@ -1,6 +1,6 @@
 # I3b preparation — draft date, Trainer, roster and capacity
 
-27 October2026. Proposed engineering contract following [Owner policy acceptance](../06-delivery/i3b-draft-session-planning-decisions.md) ; separate connected-design review remains pending. No implementation or security approval is claimed.
+27 October2026. Proposed engineering contract following [Owner policy acceptance](../06-delivery/i3b-draft-session-planning-decisions.md) ; connected design separately approved27 October2026. No implementation or security approval is claimed.
 
 ## Traceability and affected boundaries
 

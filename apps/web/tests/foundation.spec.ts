@@ -92,3 +92,9 @@ test('draft program entry denies untrusted requests and an unconfigured page fai
   expect(await response.json()).toEqual({ error: 'denied' });
   expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs')).status()).toBe(503);
 });
+
+test('private dated planning rejects an untrusted caller and unconfigured access fails closed',async({request})=>{
+ const response=await request.post('/api/planning',{data:{action:'save',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/2026-11-01')).status()).toBe(503);
+});

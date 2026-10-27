@@ -37,7 +37,7 @@ Actual source updates a program then clears Trainer assignments before inserting
 
 ## Status
 
-Policy explicitly accepted by Moamen: “Accept this draft-planning policy”. Connected prototype requires separate design review before implementation. Product implementation, migration, hosted verification, deployment and working-feature acceptance: **not started for I3b**. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md). D-003 broader role authority, D-006 cancellations/credits and D-012 attendance remain open; this recommendation settles none of those broader domains.
+Policy explicitly accepted by Moamen: “Accept this draft-planning policy”. Connected prototype separately approved by Moamen for implementation on27 October2026. Product implementation is underway; hosted apply/verification, deployment and working-feature acceptance remain pending. [Engineering/design preparation](../04-engineering/i3b-draft-session-planning-preparation.md). D-003 broader role authority, D-006 cancellations/credits and D-012 attendance remain open; this recommendation settles none of those broader domains.
 
 
 ## Policy acceptance record

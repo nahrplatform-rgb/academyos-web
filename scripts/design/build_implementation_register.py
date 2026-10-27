@@ -144,6 +144,19 @@ for row in action_rows:
           owner_approval_status='Policy/design approved; Moamen explicitly accepted working draft-program wording/usability after staging review; wider gates remain open',
           evidence_reference='docs/07-handoff/i3a-program-implementation.md',
           next_gate='Remaining hosted direct-API/race cases; retain independent security/device/load/cost gates')
+# I3b retains broader enrollment/publication requirements and unverified gates.
+for row in action_rows:
+    if row['work_item_id']=='IMP-J10-A01':
+        row.update(as_of='2026-10-27',actor_context='Current Academy Owner; private synthetic dated planning only',
+          policy_status='I3b one-date capacity/Trainer/fictional roster policy accepted27Oct; publication/recurring enrollment/fees remain separate',
+          design_status='Connected I3b EN/AR date planning and recovery design explicitly approved27Oct2026',
+          implementation_status='Private one-date planning source implemented locally; broader action group remains open',
+          implementation_source='apps/web/src/components/date-planning-workspace.tsx',
+          verification_status='49 local SQL groups and scoped API/product React/build checks pass; hosted and wider security/device/load gates pending',
+          deployment_status='Hosted apply/deployment pending; existing I3a remains separate',
+          owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
+          evidence_reference='docs/07-handoff/i3b-planning-implementation.md',
+          next_gate='Complete scoped hosted rollout/verification and working acceptance; retain independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

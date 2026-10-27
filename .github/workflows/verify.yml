@@ -56,4 +56,9 @@ jobs:
           node scripts/programs/test_api.mjs
           node scripts/programs/test_ui.mjs
           UI_REACT_MODE=development node scripts/programs/test_ui.mjs
+      - name: Verify private dated planning API and recovery
+        run: |
+          node scripts/planning/test_api.mjs
+          node scripts/planning/test_ui.mjs
+          UI_REACT_MODE=development node scripts/planning/test_ui.mjs
       - run: npm run test:e2e

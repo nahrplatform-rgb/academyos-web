@@ -1,6 +1,6 @@
 # I3b connected draft-date planning design contract
 
-27 October2026. [Policy accepted](i3b-draft-session-planning-decisions.md); **connected design awaiting Owner review**. [Preview](../../design/i3b-draft-session-planning/README.md) at http://127.0.0.1:3209/ . This is an in-memory local simulation, separate from the deployed I3a program journey. No product/API/database/provider/account changes.
+27 October2026. [Policy accepted](i3b-draft-session-planning-decisions.md); **connected design explicitly approved by Moamen for implementation on27 October2026**. [Preview](../../design/i3b-draft-session-planning/README.md) at http://127.0.0.1:3209/ . This is an in-memory local simulation, separate from the deployed I3a program journey. No product/API/database/provider/account changes.
 
 ## One connected outcome
 
@@ -43,3 +43,8 @@ The local fixture has3 dates,2 eligible Trainers and4 fictional players, includi
 [Local browser receipt](../../design/i3b-draft-session-planning/evidence/verification.json) records actual status, runtime and tested cases; source hashes bind the built artifact. Standalone TypeScript and link/register integrity checks accompany the design. First local build rejected a CSS input/output filename collision; importing the stylesheet was removed because the builder already concatenates scoped CSS. An initial test tried selecting a nonexistent Trainer in the intentionally empty-Trainer scenario; the fixture helper was corrected to select explicit Unassigned, retaining the empty-state assertion. Final receipts supersede those failed attempts; neither was counted as pass.
 
 Owner review must cover the connected happy path plus EN/AR, phone/desktop and failure scenarios before dependent product implementation. Working-feature acceptance, actual server/database authorization, concurrency/recovery, hosted verification, physical-device accessibility, performance/cost and independent security approval remain separate. Existing accepted AcademyOS rules and the read-only PYSA review govern; the design simulation does not supply new permissions or business defaults.
+
+
+## Connected-design approval
+
+Moamen selected “Approve this design for implementation” on27 October2026 after reviewing the connected local preview. This authorizes the narrow real Owner-only dated planning slice, with private draft visibility, explicit capacity, eligible Trainer, fictional roster, current checks and atomic/recoverable saves. It does not authorize new invitations, appointment restoration, broader access or publication. Current product progress and evidence: [implementation receipt](../07-handoff/i3b-planning-implementation.md).
