@@ -23,7 +23,7 @@
   "ci_run": 40584686531,
   "ci_conclusion": "success",
   "preview_deployment": "dpl_9c7dCQ8hCsuNe1DgvhMbh9cgeCHk",
-  "app_staging_promotion": "paused for Vercel account reauthentication",
+  "app_staging_promotion": "Ready; authenticated Owner publication path verified",
   "trainer_grant_executed": false,
   "working_acceptance": "pending",
   "independent_security": "pending",
@@ -31,5 +31,26 @@
     "rls_private_no_policy": 38,
     "anonymous_definer_callbacks": 3,
     "authenticated_definer_rpcs": 51
-  }
+  },
+  "serving_deployment": "dpl_88rSyJKGijSTAWw6AVZyVvqiWfRr",
+  "serving_source": "b2606cbd503703ddbf1d88b1c264561afe294c0d",
+  "build_seconds": 65,
+  "build_warnings": 3,
+  "publication_preparation": {
+    "id": "924b3fef-eaef-4c1d-93be-e1c73fc2ec40",
+    "version": 3,
+    "state": "ready",
+    "prepared": 40,
+    "blocked": 40,
+    "publication_heads": 0
+  },
+  "hosted_checks": [
+    "Owner real API context/dates/jobs",
+    "25+15 preparation and review",
+    "reload/reopen same job",
+    "all40 unassigned targets blocked; activation disabled",
+    "foreign-academy program denial",
+    "Arabic phone360 documentWidth360",
+    "Owner identity denied Trainer schedule; no role inheritance"
+  ]
 }
