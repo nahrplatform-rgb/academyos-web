@@ -23,8 +23,8 @@
   "ci_run": 40584686531,
   "ci_conclusion": "success",
   "preview_deployment": "dpl_9c7dCQ8hCsuNe1DgvhMbh9cgeCHk",
-  "app_staging_promotion": "Ready; authenticated Owner publication path verified",
-  "trainer_grant_executed": false,
+  "app_staging_promotion": "Ready; functional smoke at b2606cb followed by copy-only rollout12d33f1",
+  "trainer_grant_executed": true,
   "working_acceptance": "pending",
   "independent_security": "pending",
   "advisor_counts": {
@@ -32,8 +32,8 @@
     "anonymous_definer_callbacks": 3,
     "authenticated_definer_rpcs": 51
   },
-  "serving_deployment": "dpl_88rSyJKGijSTAWw6AVZyVvqiWfRr",
-  "serving_source": "b2606cbd503703ddbf1d88b1c264561afe294c0d",
+  "serving_deployment": "dpl_3qNbqJgUMz1tA92cKLcbZPhvhAV6",
+  "serving_source": "12d33f107e2fef024f7cf9a2599812f825106975",
   "build_seconds": 65,
   "build_warnings": 3,
   "publication_preparation": {
@@ -52,5 +52,20 @@
     "foreign-academy program denial",
     "Arabic phone360 documentWidth360",
     "Owner identity denied Trainer schedule; no role inheritance"
+  ],
+  "authorized_trainer_test": {
+    "receipt": "trainer-test.json",
+    "restored_once": true,
+    "ended_again": true,
+    "current_published": 0
+  },
+  "final_copy_build_seconds": 62,
+  "final_copy_ci_runs": [
+    40597864126,
+    40597870132
+  ],
+  "final_copy_ci_conclusions": [
+    "success",
+    "success"
   ]
 }
