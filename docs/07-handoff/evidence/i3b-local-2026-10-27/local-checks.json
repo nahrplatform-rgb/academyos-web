@@ -28,5 +28,10 @@
     "tests": 2,
     "seconds": 3.978,
     "status": "passed without pipe ResourceWarnings after cleanup fix"
+  },
+  "subsequent_source_sha256": {
+    "apps/web/src/components/date-planning-workspace.tsx": "9da8cea72b13682f170f9039cdf532d94b9f52ba3100bd7f2c1a2cd29ecc8ce7",
+    "apps/web/src/components/program-workspace.tsx": "8b72334670faa2b56f875946381faf548f0b752029cced0ca7d2d22c90d3209d",
+    "scripts/planning/test_ui.mjs": "f9970d8496483d3694526e5cbab22bc1e2c787710e633baafb23c0949a0b2845"
   }
 }

@@ -3,9 +3,10 @@
   "reactMode": "development",
   "scope": "Actual product React component; synthetic identity/HTTP adapters, not SQL/provider/hosted proof",
   "saves": 5,
-  "apiCalls": 38,
+  "apiCalls": 40,
   "cases": [
     "StrictMode coalesced critical read and independent dated list",
+    "phone Back and same-date pointer reopen with current-authority reread",
     "scoped candidate failure retains intent",
     "review save and roster removal",
     "capacity conflict blocks confirmation",

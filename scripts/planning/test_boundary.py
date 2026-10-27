@@ -11,7 +11,7 @@ class PlanningBoundary(ProgramBoundary):
  @classmethod
  def setUpClass(cls):
   super().setUpClass()
-  for f in ['20261025111253_i2b_synthetic_guardian_appointments.sql','20261025123233_i2c_synthetic_trainer_appointments.sql','20261027001751_i3b_draft_session_planning.sql']:cls.sql((ROOT/'supabase/migrations'/f).read_text())
+  for f in ['20261025111253_i2b_synthetic_guardian_appointments.sql','20261025123233_i2c_synthetic_trainer_appointments.sql','20261027004132_i3b_draft_session_planning.sql']:cls.sql((ROOT/'supabase/migrations'/f).read_text())
  def ready(self,a,definition=None):
   p=json.loads(self.command(a,definition=definition))
   for _ in range(p['windows']):p=json.loads(self.step(a,p))

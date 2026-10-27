@@ -1,0 +1,35 @@
+{
+  "observed_on": "2026-10-27",
+  "functional_commit": "d48b10644ef028f28141b13758deb7d493720bc5",
+  "deployment": "dpl_9VwPyTPNZKb8Ay1fzXF9XdXFLT9B",
+  "domain": "https://staging.academy.nahr.dev",
+  "migration": "20261027004132",
+  "migration_sha256": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
+  "source_ci": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40427991393",
+  "ui_observations": [
+    "existing Owner opened saved program and Nov1 date",
+    "reviewed capacity2 and one existing fictional player, Trainer unassigned",
+    "confirmed save, reloaded and reopened saved result",
+    "EN/AR at1440 desktop and360 phone without horizontal document overflow",
+    "phone Back returns dated list, Enter reopens original plan"
+  ],
+  "database": {
+    "memberships": 4,
+    "training_dates": 58,
+    "plans": 1,
+    "rosters": 1,
+    "operations": 1,
+    "audited_saves": 1,
+    "capacity": 2,
+    "version": 1,
+    "unassigned": true,
+    "stored_count": 1,
+    "actual_roster_rows": 1
+  },
+  "limits": [
+    "Trainer positive assignment not exercised hosted: appointments remain ended; no grants restored",
+    "hosted direct API negatives/races, network/load/cost and physical-device/a11y gates remain open",
+    "independent human security review and working-feature Owner acceptance remain pending",
+    "screenshots reflect functional d48b106 before subsequent copy-only refinement"
+  ]
+}
