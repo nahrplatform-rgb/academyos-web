@@ -1,6 +1,6 @@
 # I3d — publication and assigned-Trainer schedule preparation
 
-27 October2026. **Policy proposed; design/implementation not approved.** [Decision packet](../06-delivery/i3d-trainer-schedule-decisions.md). This preparation changes no authority or current product behavior. I3c acceptance does not close its outstanding independent verification gates.
+27 October2026. **Policy accepted for design preparation27 October2026; connected design/implementation not approved.** [Decision packet](../06-delivery/i3d-trainer-schedule-decisions.md). This preparation changes no authority or current product behavior. I3c acceptance does not close its outstanding independent verification gates.
 
 ## Trust crossings and minimal data
 
@@ -24,3 +24,5 @@ Required negatives: two academies, same branch but another Trainer, dated-only a
 Required integrity/recovery: duplicate/payload-changed operations, failure before/after first/middle/last activation/audit write, publish versus single-date save/program apply/withdraw/staff ending in both orders, interrupted preparation, lost final response, confirmed result/read failure and cancellation fence. Never delete assignment/roster first and recreate it as a recovery strategy. Published edit guards must cover direct RPCs and all existing callers.
 
 Independent human security review, physical device/screen-reader, sustained hosted load and remaining I3c actual-account/direct-API/race cases stay open. No active Trainer provisioning is authorized by this plan; present truthful missing prerequisites until separately authorized. No new provider, paid service or real data is needed for design preparation.
+
+Connected local design is now prepared: [action/state contract](../06-delivery/i3d-trainer-schedule-design-contract.md). Simulation/type/layout checks are design evidence only; no expanded real Trainer access or product/schema/provider changes.

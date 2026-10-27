@@ -1,6 +1,6 @@
 # I3d — publish planned dates to their assigned Trainer
 
-27 October2026. **Recommendation awaiting Owner policy decision.** I3c working EN/AR wording/usability was explicitly accepted; its separate security/device/load gates remain open. This packet proposes the next useful I3 outcome, not attendance or the full scheduling product. No new visibility is accepted merely by requesting continuation.
+27 October2026. **Owner accepted this publication and Trainer-visibility policy for design on27 October2026.** I3c working EN/AR wording/usability was explicitly accepted; its separate security/device/load gates remain open. This packet proposes the next useful I3 outcome, not attendance or the full scheduling product. The explicit policy reply approves design preparation only; connected-design approval and actual account grants remain separate.
 
 ## Connected outcome
 
@@ -29,7 +29,7 @@ PYSA inspected read-only at37d8901c under `/Users/moamenghareeb/Pro Youth Footba
 
 ## Traceability and next gates
 
-J09/J10/J11; scoped IMP-J10-A01/J11-A01 associations; S23/S24/S26/S27 and Trainer Today; L04/L07; SEC-J10/SEC-J11. AO-023/024/027/029 and AT equivalents are scoped associations, not full requirement closure. D-003 Trainer field/access expansion is proposed here; D-006 financial cancellation and D-012 attendance remain open.
+J09/J10/J11; scoped IMP-J10-A01/J11-A01 associations; S23/S24/S26/S27 and Trainer Today; L04/L07; SEC-J10/SEC-J11. AO-023/024/027/029 and AT equivalents are scoped associations, not full requirement closure. D-003 Trainer field/access expansion is accepted for this design preparation only; D-006 financial cancellation and D-012 attendance remain open.
 
 1. Owner policy decision for design preparation.
 2. Connected EN/AR desktop/phone design: Owner selection/review/publication/withdrawal and Trainer Today/list/detail, including prerequisites, empty/loading, stale/denied, conflict and recovery states.
@@ -37,3 +37,7 @@ J09/J10/J11; scoped IMP-J10-A01/J11-A01 associations; S23/S24/S26/S27 and Traine
 4. Local/database/API/UI/security/performance verification; separately authorized synthetic active Trainer test; staging deployment and working-feature acceptance.
 
 No dependent implementation, schema change, deployment, invitation or access grant in this packet.
+
+## Policy decision —27 October2026
+
+Moamen explicitly selected “Accept this publication and Trainer-visibility policy for design”. Accepted scope includes all selected future dates published together, current assigned active Trainer seeing minimal dated context and fictional player names, withdrawal before edits, and next-request access removal after withdrawal/appointment ending. No family visibility, attendance, fee or notification is included. No invitation, restored appointment, actual account access or dependent implementation is authorized by this design-preparation decision.
