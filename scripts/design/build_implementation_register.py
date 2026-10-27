@@ -152,11 +152,11 @@ for row in action_rows:
           design_status='Connected I3b EN/AR date planning and recovery design explicitly approved27Oct2026',
           implementation_status='Private one-date planning deployed; approved all-or-none program planning implemented locally; broader group open',
           implementation_source='apps/web/src/components/date-planning-workspace.tsx',
-          verification_status='I3b hosted path preserved; I3c full58 local SQL groups plus focused cases, API/React/build pass; I3c staging schema/ACL verified; actual app-session pending',
-          deployment_status='I3b functional403176a serving; additive I3c migration20261027022133 applied; I3c preview built, alias promotion pending',
+          verification_status='I3b hosted path preserved; I3c full58 local SQL groups plus focused cases, API/React/build pass; I3c staging schema/ACL and Owner prepare/resume/commit/reopen plus foreign-academy denial passed',
+          deployment_status='I3c migration20261027022133 and sourceef9a87e deployed to existing synthetic staging; dpl_2sUyztivHesF4Tu9GR4mnh71697n Ready',
           owner_approval_status='I3b policy/design approved; working review requests whole-program planning; acceptance pending',
           evidence_reference='docs/07-handoff/i3c-program-planning-implementation.md',
-          next_gate='I3c corrected CI and app promotion/runtime; working acceptance and independent security/device/load/cost gates')
+          next_gate='I3c working acceptance; remaining hosted direct-API/race checks and independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
