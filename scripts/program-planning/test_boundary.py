@@ -5,7 +5,7 @@ m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'planning/test_boundary
 class ProgramPlanningBoundary(PlanningBoundary):
  extra_authenticated_calls={**PlanningBoundary.extra_authenticated_calls,'r7_create_v1':"r7_create_v1(gen_random_uuid(),gen_random_uuid(),gen_random_uuid(),'2026-11-01','2026-11-02','{}')",'r7_list_v1':'r7_list_v1(gen_random_uuid(),gen_random_uuid())','r7_read_v1':'r7_read_v1(gen_random_uuid(),gen_random_uuid())','r7_change_v1':"r7_change_v1(gen_random_uuid(),gen_random_uuid(),gen_random_uuid(),1,'cancel')",'r7_operation_v1':'r7_operation_v1(gen_random_uuid(),gen_random_uuid())'}
  @classmethod
- def setUpClass(cls):super().setUpClass();cls.sql((ROOT/'supabase/migrations/20261027020000_i3c_atomic_program_planning.sql').read_text())
+ def setUpClass(cls):super().setUpClass();cls.sql((ROOT/'supabase/migrations/20261027022133_i3c_atomic_program_planning.sql').read_text())
  def rules(self,trainer=None):return {str(d):{'capacity':2,'trainer':trainer}for d in [0,2,4]}
  def proposal(self,a,p,rules=None,op=None,subject='user_owner',ok=True):return json.loads(self.sql(f"select public.r7_create_v1('{a}','{p['id']}','{op or uuid.uuid4()}','2026-11-01','2027-01-31',{literal(json.dumps(rules or self.rules()))}::jsonb)",subject,ok=ok))
  def mutation(self,a,j,act='prepare',op=None,weekday=None,add=None,remove=None,subject='user_owner',ok=True):
