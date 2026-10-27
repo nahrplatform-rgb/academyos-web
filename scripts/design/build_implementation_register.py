@@ -150,13 +150,13 @@ for row in action_rows:
         row.update(as_of='2026-10-27',actor_context='Current Academy Owner; private synthetic dated planning only',
           policy_status='I3b one-date capacity/Trainer/fictional roster policy accepted27Oct; publication/recurring enrollment/fees remain separate',
           design_status='Connected I3b EN/AR date planning and recovery design explicitly approved27Oct2026',
-          implementation_status='Private one-date planning implemented; broader action group remains open',
+          implementation_status='Private one-date planning deployed; approved all-or-none program planning implemented locally; broader group open',
           implementation_source='apps/web/src/components/date-planning-workspace.tsx',
-          verification_status='49 local SQL groups, scoped API/React and CI pass; hosted unassigned Owner save/reload/counts pass; wider gates pending',
+          verification_status='I3b hosted path preserved; I3c full58 local SQL groups plus focused cases, API/React/build pass; I3c hosted pending',
           deployment_status='Staging migration20261027004132 and corrected functional403176a deployed; Owner unassigned save/reopen verified',
           owner_approval_status='I3b policy/design approved; working review requests whole-program planning; acceptance pending',
-          evidence_reference='docs/07-handoff/i3b-planning-implementation.md',
-          next_gate='Working-feature acceptance; retain eligible-Trainer hosted case, negatives/races and independent security/device/load/cost gates')
+          evidence_reference='docs/07-handoff/i3c-program-planning-implementation.md',
+          next_gate='I3c exact-source CI and staging apply/rollout/runtime; working acceptance and independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

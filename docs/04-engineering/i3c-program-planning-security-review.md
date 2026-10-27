@@ -1,0 +1,17 @@
+# SEC-J10 / SEC-J11 — I3c atomic program planning implementation packet
+
+27 October2026. Implementing agent assessment, not independent human approval. Owner approved the [all-or-none policy/design](../06-delivery/i3c-program-planning-design-contract.md). J10/J11/IMP-J10-A01; S23/S24/S26, L07; scoped AO-023/024/027/028/031 remain partial.
+
+Current Owner/session → same-origin staging API and existing shared limiter → fixed signed gateway RPC → current Owner/setup/ready program → private proposal/roster/target/operation records → atomic activation into existing dated plans and roster/audit. No client table/helper grants, new role, email, service or generic privileged proxy. Shared components and existing individual-date API/semantics remain intact.
+
+Private staged rules, roster selection and target snapshots are non-effective. Their preparation can resume; final activation must serialize on existing academy Trainer lifecycle lock, recheck current Owner/branch/program/date versions and all players/Trainer/conflicts, then insert all intended plans/rosters and final operation/audit in one transaction. Any failure rolls back every target; no partial result or compensating delete loop. Existing plans are preserved; creation of an intervening date plan forces fresh review rather than overwrite. Player capacity/duplicates/foreign scope and UTC half-open overlaps remain authoritative. Pending/ended Trainer cannot be restored by selecting them.
+
+Proposal commands carry actor-scoped operation IDs and expected revisions; changed fingerprints conflict. Unknown command outcomes reconcile/fence the original identity. Cancellation and activation share canonical serialization; cancelled means no effective changes, committed means all targets. Reads remain names-only and bounded25+sentinel; staged player edits25 per request, no total roster or program-duration cap inferred. No private payload in logs/audit. Actor/academy/program/proposal keys and abort guards clear late/private views on context or authority change.
+
+Before hosted apply: prove full rollback after first/middle/last child/audit failure; duplicate/replay/changed payload; overlapping program and single-date races, cancellation and staff ending both orders, wrong academy/branch/role/revoked membership, ACL/proof tamper, large proposal/roster query plans and transaction timeouts. Measure actual atomic feasibility rather than claiming a prototype proves it. Rehearse migration with fresh restored backup; no production or unapproved timeout/service upgrade. Existing independent human, hosted account/device/load/cost gates remain open until evidence is recorded.
+
+Implementation/local/hosted/deployment/Owner acceptance statuses are pending at packet creation and must be updated with actual results.
+
+## Local implementation evidence
+
+[Implementation receipt](../07-handoff/i3c-program-planning-implementation.md) records private staging, one transaction into existing dated tables, current-authority/lifecycle lock order, original-operation fences, scoped projection, full58-group run and focused child/audit rollback/race/large-roster evidence. This is not independent approval. Hosted apply/runtime, wider direct-API and device/load/cost gates remain pending.

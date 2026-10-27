@@ -47,3 +47,7 @@ I3b policy/design and implementation remain as recorded; latest working-feature 
 ## Local connected prototype — 27 October2026
 
 [Interactive preview and checks](../../design/i3c-program-planning/README.md), loopback http://127.0.0.1:3211/. Uses shared app shell/panes/native controls and fictional in-memory data only. Demonstrates40 dates,1 preserved existing date,39 proposed changes, shared/weekday-specific choices, program and individual-date paths, all-or-none conflict gating, interrupted preparation with0 saved, cancellation, final stale/ended failure and original-operation all/none reconciliation. Automated Chromium checks passed in EN/AR320/360/926/1440 without horizontal document overflow, page errors or external requests; standalone TypeScript passed. These prove local design behavior only, not actual database transaction feasibility or persistence. Connected design approval is requested; dependent product/schema work remains gated.
+
+## Connected-design approval —27 October2026
+
+Moamen explicitly selected “Approve this all-or-nothing design for implementation”. This authorizes dependent implementation of the reviewed private Owner program/date planning slice, including shared/weekday choices, preserved existing date plans and one all-or-none live save. Design simulation checks are not database/hosted evidence. No new role/access grant, publication, real data or production scope is included.

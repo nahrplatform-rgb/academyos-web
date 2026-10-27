@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-27",
+  "scope": "Local actual source/disposable PG17 and synthetic identity/HTTP adapters; not hosted or independent approval",
+  "full_sql_groups": 58,
+  "full_sql_seconds": 79.72,
+  "new_program_groups_in_full_run": 9,
+  "additional_focused_case": "40dates x1001players / audit rollback, passed6.575s; post-reconciliation-audit addition stale/fence+large case passed6.830s",
+  "expanded_child_failure": "first/middle/last child rollback passed2.471s",
+  "unit_tests": 48,
+  "foundation_e2e": 10,
+  "api_budget_rejections": 21,
+  "product_react": [
+    "production passed",
+    "development passed"
+  ],
+  "checks": [
+    "build passed",
+    "typecheck passed",
+    "lint passed",
+    "historical inherited scale receipts restored to original bytes"
+  ],
+  "source_sha256": {
+    "supabase/migrations/20261027020000_i3c_atomic_program_planning.sql": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+    "apps/web/src/components/program-planning-workspace.tsx": "6a5b332dcdd326405d9222aa5cc590ae9c254c208c994e2fa8d2b01bf7c458e6",
+    "apps/web/src/lib/program-planning.ts": "13b41caa1d981c5d1e056e60f8d914209bf01d02c3b2099d22e2d7db2700a988",
+    "apps/web/src/app/api/program-planning/route.ts": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
+    "apps/web/src/lib/onboarding-gateway.ts": "d1f711f42a0bea5ded3aa73fb04e89cfe3bfc56438850252d90bc41118c210e2",
+    "apps/web/src/app/globals.css": "f3c53928f50ce55c0da4f18143451ac3d496c2df0aec0ff705f7eb5edce346fc"
+  },
+  "presentation_followup": "Approved wider review workspace, unsaved-choice navigation guards and committed-operation snapshot wording; actual React suites rerun in both modes."
+}

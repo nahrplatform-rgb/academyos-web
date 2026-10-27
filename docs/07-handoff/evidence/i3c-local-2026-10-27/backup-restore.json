@@ -1,0 +1,29 @@
+{
+  "recover": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "24af609a-10bc-427a-adbf-e4bd0145a715",
+    "checksums_valid": true,
+    "objects": 0,
+    "database_restore_tested": false
+  },
+  "rehearsal": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "24af609a-10bc-427a-adbf-e4bd0145a715",
+    "database_restore_passed": true,
+    "membership_boundary_passed": true,
+    "migration_rehearsed": "20261027020000_i3c_atomic_program_planning.sql",
+    "counts": {
+      "identities": 2,
+      "academies": 2,
+      "memberships": 4,
+      "private_tables_with_rls": 32
+    },
+    "hosted_storage_restore_tested": false
+  },
+  "run_id": 40436743112,
+  "trusted_source": "a475dadda5294510e43c7a64c14f29603bfa8748",
+  "cipher_sha256": "b349eef9573a087048fbf525f4434cb8d58e5069e66d5592527264512cb035e9",
+  "cipher_bytes": 389400,
+  "object_count": 0,
+  "plaintext_removed": true
+}

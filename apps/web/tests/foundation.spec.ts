@@ -98,3 +98,9 @@ test('private dated planning rejects an untrusted caller and unconfigured access
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/2026-11-01')).status()).toBe(503);
 });
+
+test('atomic program planning denies untrusted entry and unconfigured protected access',async({request})=>{
+ const response=await request.post('/api/program-planning',{data:{action:'create',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/plan')).status()).toBe(503);
+});

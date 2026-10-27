@@ -36,3 +36,7 @@ PYSA bulkEnroll loops over members and returns mixed outcomes; its existence is 
 J10/J11, grouped IMP-J10-A01 (partial), S23/S24/S26, L07, SEC-J10/SEC-J11; scoped AO-023/024/027/028/031 associations remain incomplete. Existing [I3b policy](i3b-draft-session-planning-decisions.md), [implementation/evidence](../07-handoff/i3b-planning-implementation.md), and broader scheduling requirements remain intact. This extends private draft planning, not operational enrollment/publication.
 
 Next: connected EN/AR phone/desktop prototype review of this all-or-none direction → data/API implementation with migration/recovery rehearsal → local and hosted checks → separate working-feature acceptance. [Design/engineering contract](i3c-program-planning-design-contract.md). Owner explicitly chose “Require all dates to save together”; no acceptance of the superseded partial-completion proposal is recorded. Other bounded draft assumptions are carried into the preview for review, not broadened access authority.
+
+## Connected-design approval —27 October2026
+
+Moamen explicitly selected “Approve this all-or-nothing design for implementation”. This authorizes dependent implementation of the reviewed private Owner program/date planning slice, including shared/weekday choices, preserved existing date plans and one all-or-none live save. Design simulation checks are not database/hosted evidence. No new role/access grant, publication, real data or production scope is included.
