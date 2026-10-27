@@ -154,9 +154,9 @@ for row in action_rows:
           implementation_source='apps/web/src/components/date-planning-workspace.tsx',
           verification_status='I3b hosted path preserved; I3c full58 local SQL groups plus focused cases, API/React/build pass; I3c staging schema/ACL and Owner prepare/resume/commit/reopen plus foreign-academy denial passed',
           deployment_status='I3c migration20261027022133 and sourceef9a87e deployed to existing synthetic staging; dpl_2sUyztivHesF4Tu9GR4mnh71697n Ready',
-          owner_approval_status='I3b policy/design approved; working review requests whole-program planning; acceptance pending',
+          owner_approval_status='I3b/I3c policy/design approved; Moamen explicitly accepted working whole-program planning wording/usability EN/AR27Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i3c-program-planning-implementation.md',
-          next_gate='I3c working acceptance; remaining hosted direct-API/race checks and independent security/device/load/cost gates')
+          next_gate='Remaining hosted direct-API/race checks and independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []

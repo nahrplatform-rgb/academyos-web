@@ -70,11 +70,15 @@
     "access_changes": "none; no invitations, restored Trainer or account/membership mutations"
   },
   "remaining": [
-    "Owner working-feature acceptance",
     "Reverse actual-account/direct-RPC and hosted whole-operation concurrency/failure cases beyond this smoke",
     "Independent human security review",
     "Physical device/screen-reader",
     "Declared network sustained load, larger roster/date cross-product p95, multi-academy fairness/WAL/memory/cost"
   ],
-  "limits": "Actual UI/API/database persisted result and one audited activation are verified; no claim that a browser smoke independently proves transaction atomicity. Local injected rollback/race evidence is separate."
+  "limits": "Actual UI/API/database persisted result and one audited activation are verified; no claim that a browser smoke independently proves transaction atomicity. Local injected rollback/race evidence is separate.",
+  "owner_working_acceptance": {
+    "date": "2026-10-27",
+    "answer": "Accept the working whole-program planning flow",
+    "scope": "Working wording/usability EN/AR;40 reviewed dates,39 saved together, preserved individual plan and Plan this date connection; no broader security/device/load approval"
+  }
 }
