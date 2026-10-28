@@ -1,0 +1,111 @@
+{
+  "environment": "existing synthetic staging",
+  "serving_source": "fa1fff83e4286a4dc80389741db769951f2a1ae6",
+  "authorization": "Moamen explicitly authorized temporary attendance test and ending; no new account/email/Owner grant",
+  "outcome": {
+    "now": "2026-10-28 05:51:42.054965+00",
+    "marks": [
+      {
+        "day": "2026-10-28",
+        "status": "absent",
+        "version": 2,
+        "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+        "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92"
+      }
+    ],
+    "history": [
+      {
+        "id": "fe61f3a6-030d-4c4f-a723-6f68ae3a417e",
+        "day": "2026-10-28",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "reason": null,
+        "status": "present",
+        "version": 1,
+        "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+        "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "actor_role": "trainer",
+        "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+        "captured_at": "2026-10-28T05:30:41.371+00:00",
+        "received_at": "2026-10-28T05:30:42.500883+00:00",
+        "before_status": null
+      },
+      {
+        "id": "70bcb7e8-6f5c-4713-b1b2-150fc14685f5",
+        "day": "2026-10-28",
+        "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+        "reason": "Authorized synthetic I4a correction test: demonstrate retained Present to Absent history.",
+        "status": "absent",
+        "version": 2,
+        "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+        "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "actor_role": "owner",
+        "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+        "captured_at": "2026-10-28T05:50:58.858+00:00",
+        "received_at": "2026-10-28T05:50:59.736163+00:00",
+        "before_status": "present"
+      }
+    ],
+    "receipts": [
+      {
+        "id": "fe61f3a6-030d-4c4f-a723-6f68ae3a417e",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "result": {
+          "event": "4f204959-b23e-42ac-8b68-858409972036",
+          "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "status": "present",
+          "version": 1
+        }
+      },
+      {
+        "id": "70bcb7e8-6f5c-4713-b1b2-150fc14685f5",
+        "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+        "result": {
+          "event": "4f204959-b23e-42ac-8b68-858409972036",
+          "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "status": "absent",
+          "version": 2
+        }
+      }
+    ],
+    "trainer_membership": "ended",
+    "trainer_assignment": "ended",
+    "invitation_version": 7,
+    "other_memberships": "270bb1a940c741d9947e3d83fe8ebe67",
+    "audit": [
+      {
+        "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+        "action": "attendance.correct",
+        "operation": "70bcb7e8-6f5c-4713-b1b2-150fc14685f5"
+      },
+      {
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "action": "attendance.record",
+        "operation": "fe61f3a6-030d-4c4f-a723-6f68ae3a417e"
+      },
+      {
+        "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+        "action": "operator.i4a.trainer.end",
+        "operation": "842ead83-06aa-44f3-88ce-8550f9d942b7"
+      },
+      {
+        "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+        "action": "operator.i4a.trainer.restore",
+        "operation": "95679236-0a97-4d0d-b244-cad2dc191529"
+      }
+    ]
+  },
+  "browser_limits": "Mac locked after Trainer confirm. Prepared audited ending fallback executed before Owner correction. Post-unlock ended Trainer register denied/cleared; Owner saved reasoned correction and reopened EN/AR history. Active Trainer saved-result/attempted replacement browser case remains unverified; local real React/SQL tests cover it.",
+  "source_followup": {
+    "commit": "f51240f8c94532431b0541249804f2e1dd74a527",
+    "ci": [
+      40638073331,
+      40638077322
+    ],
+    "ci_status": "success",
+    "deployed": false
+  }
+}

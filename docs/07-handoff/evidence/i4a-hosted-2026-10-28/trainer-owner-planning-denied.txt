@@ -1,0 +1,24 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs/ee84fbfd-aedf-49f6-83a5-d100aec89d92/2026-10-28
++					600 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs/ee84fbfd-aedf-49f6-83a5-d100aec89d92/2026-10-28#main
++					601 container
++						602 text Academy workspaceTraining · Draft planning Staging
++						603 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs/ee84fbfd-aedf-49f6-83a5-d100aec89d92/2026-10-28#language
++						604 pop up button Open user menu
++					605 container
++						606 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
++						607 text Academy workspace
++						608 container Workspace navigation
++							609 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
++							610 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
++						611 text Staging · Synthetic data only
++					612 container
++						613 heading Draft dates, Value: 1
++							614 text Draft dates
++						615 text Private Owner planning · no publication, fees or notifications.
++						616 text Access unavailable. Check your account and workspace.
++						617 container Contextual details and actions
++							618 container
++								619 heading Date planning, Value: 2
++									620 text Date planning
++								621 button Back to dates
++							622 text Access unavailable. Check your account and workspace.
