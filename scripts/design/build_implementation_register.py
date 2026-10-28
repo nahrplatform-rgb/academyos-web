@@ -181,6 +181,17 @@ for row in action_rows:
           owner_approval_status='Policy/design and scoped deployed attendance EN/AR wording/usability explicitly accepted28Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
           next_gate='Active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
+# I4b is preparation only until the Owner selects the new visibility policy.
+for row in action_rows:
+    if row['work_item_id']=='IMP-J15-A01':
+        row.update(as_of='2026-10-28',actor_context='Proposed current Guardian and exact active linked player; no Player login or payer authority',
+          policy_status='I4b recommendation pending Owner decision, including earlier-session visibility; I2b name/branch scope remains accepted',
+          design_status='Connected I4b design preparation awaits policy; broad family prototype is reference only',
+          implementation_status='Existing I2b name/branch projection only; I4b schedule/own-attendance projection not implemented',
+          verification_status='PYSA source/workflow/EV-0081 review and data/security preparation only; no I4b runtime proof',
+          deployment_status='No I4b migration, endpoint, rollout or access grant',owner_approval_status='I4b policy/design/working acceptance pending; earlier I2b/I4a approvals preserved',
+          evidence_reference='docs/06-delivery/i4b-guardian-training-decisions.md',
+          next_gate='Select historical/access policy; connected EN/AR design review; then dependent implementation')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -224,6 +235,13 @@ for row in screen_rows:
           verification_status='Per-slice local SQL/API/React/build receipts; no full-screen or independent-security acceptance',
           deployment_status='Staging schema/appefe364a and scoped attendance/correction/revocation verified',
           owner_approval_status='Policy/design and scoped working attendance wording/usability accepted28Oct; full screen remains open',next_gate='Remaining hosted/independent screen/security/device/load gates')
+for row in screen_rows:
+    if row['screen_id']=='S46':
+        row.update(as_of='2026-10-28',design_status='I4b Guardian linked-player training/attendance recommendation prepared; policy/design review pending',
+          implementation_status='Existing I2b minimal linked-player projection is separate; Guardian home training/attendance not implemented',
+          verification_status='PYSA/reference and bounded security/retrieval planning only; no I4b UI/API/data proof',
+          deployment_status='No I4b deployment or grant',owner_approval_status='I4b pending; earlier scoped approvals retained',
+          next_gate='Select proposed I4b policy and review connected design before implementation')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []
