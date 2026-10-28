@@ -59,3 +59,11 @@ Production-build foundation E2E12 passed, including untrusted session-change API
 Implementation source commit72693ea. First inspect working tree/current GitHub checks and provider deployment rather than rerunning accepted policy/design. Existing source branch is `codex/onboarding-decision-design-packet`. Vercel target is AcademyOS team `team_W0PAL8RjzQFCfaVL3JYy6H4g`, project `prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx`, staging.academy.nahr.dev; its provider Production slot is synthetic app staging, not a customer launch. Reuse the Owner's existing signed-in session after browser is enabled. Do not restore Casey or create invitations.
 
 After exact-source CI/build review, complete existing staging app promotion, then verify Owner move/cancel/reopen and effective-date discovery on a clearly fictional unassigned future occurrence. Keep audit/roster/history and confirm no other dates changed. Working EN/AR feedback follows the real walkthrough; security/device/load/cost gates stay distinct. Retain the design preview as a reference, not a substitute for hosted proof.
+
+## Git and build checkpoint
+
+Implementation/evidence commits72693ea and a1ef8f7 pushed to the existing branch. Exact-source [Foundation CI40616768130](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40616768130) passed for a1ef8f7b693195d1098a22a479f049108f17038d. The Vercel Git status also reports success for [build3gzFRnnCfFAE5F7U3SEdUjk7GY5P](https://vercel.com/academy-os2/academyos-web/3gzFRnnCfFAE5F7U3SEdUjk7GY5P). That build status does not prove staging alias promotion or signed-in behavior; both remain pending.
+
+A final test-only follow-up makes the new unknown-operation assertion explicitly select the final notice while a separate loading status may coexist. Same content and saved-count assertions remain; production/development component checks both passed afterward. No application or schema changed in this follow-up.
+
+GitHub push surfaced an open default-branch development dependency alert for braces, GHSA-vfj7-8cjw-p6xm. Read-only GitHub advisory verification identifies it as withdrawn on23 October2026 with no patched version listed. No speculative dependency upgrade or alert dismissal was performed; this is not a complete dependency/security audit.

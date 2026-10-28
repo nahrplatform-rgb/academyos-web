@@ -102,7 +102,7 @@
   "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
   "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx": "362807ca87bbf8f65214db83c0919b52c2bfd7ddacf146d631069db8375c3b02",
   "apps/web/tests/foundation.spec.ts": "7c2480c06031309883e4d660705e3174ac791aa338712a35f8f49d1cae37f5ac",
-  "scripts/session-changes/test_ui.mjs": "483217d15b0db8da7fa189cf59d0234f37316312857a1b158335605c138f833c",
+  "scripts/session-changes/test_ui.mjs": "d549a31d450f121ccf177493552107a74e602b24ba390af9e45a596d5274b526",
   "scripts/session-changes/test_boundary.py": "f6260f40c3a6d65fa2e1213d962202a1f3ecd340a69f800a62006d6f3d1524cf",
   "scripts/session-changes/test_api.mjs": "929c96f22c712c981840c02f74fc4e4e31af212577cf879e9d540ad416d5bb16",
   "supabase/migrations/20261028014046_i3e_effective_date_order.sql": "d02e6134f615f9721e834c630450954c1d471cfe7d75da0ae03991a3be6ae3da",
