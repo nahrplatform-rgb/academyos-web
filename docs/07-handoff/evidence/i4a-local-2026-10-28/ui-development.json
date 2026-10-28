@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "reactMode": "development",
-  "saves": 3,
+  "saves": 4,
   "scope": "Actual product React, synthetic identity/HTTP adapters; not database or hosted proof",
   "cases": [
     "StrictMode one initial read",
@@ -14,6 +14,7 @@
     "not-committed original fence",
     "confirmed write failed read",
     "EN/AR320/360/926/1440 no horizontal overflow",
+    "unexpected successful transport reply requires correlated receipt reconciliation",
     "closed window no capture",
     "denial clears private state",
     "account remount"

@@ -27,6 +27,10 @@ class AttendanceBoundary(Base):
   a,b,p,staff,iv,x,dates,ev=self.attendance_fixture();aa,bb=self.academy('user_other');other=self.person(aa,bb,subject='user_other')
   for who in ['user_other','user_platform','user_guardian','user_unknown']:
    self.roster(a,ev,who,ok=False);self.mark(a,ev,x,who,ok=False)
+  for role in ['manager','guardian','player']:
+   self.sql(f"update academy.memberships set role='{role}'where academy_id='{a}'and role='trainer'");self.roster(a,ev,ok=False);self.mark(a,ev,x,ok=False);self.sql(f"update academy.memberships set role='trainer'where academy_id='{a}'and role='{role}'")
+  branch=self.sql(f"insert into academy.branches(academy_id,name)values('{a}','Synthetic other branch')returning id")
+  self.sql(f"update academy.players set branch_id='{branch}'where id='{x}'");self.mark(a,ev,x,ok=False);self.sql(f"update academy.players set branch_id='{b}'where id='{x}'")
   self.mark(a,ev,other,ok=False);op=str(uuid.uuid4());self.sql(f"select public.a10_operation_v1('{a}','{ev}','{op}')",'user_trainer');self.assertEqual(self.mark(a,ev,x,op=op)['error'],'conflict')
   self.retime(ev,"clock_timestamp()+interval '1 hour'","clock_timestamp()+interval '2 hours'");self.assertFalse(self.roster(a,ev)['open']);self.assertEqual(self.mark(a,ev,x)['error'],'window_closed')
   self.retime(ev,"clock_timestamp()-interval '26 hours'","clock_timestamp()-interval '25 hours'");self.assertEqual(self.mark(a,ev,x)['error'],'window_closed');self.assertEqual(self.roster(a,ev)['saved'],0)

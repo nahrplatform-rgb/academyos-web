@@ -13,3 +13,9 @@ export function attendanceRequest(v:unknown){
 export type AttendancePlayer={id:string;name:string;status:'present'|'absent'|null;version:number};
 export type AttendanceRoster={event:string;program:string;day:string;scheduled_day:string;starts_at:string;ends_at:string;projection:{name:string;branch:string;timezone:string;sport:string;sport_ar:string};owner:boolean;server_now:string;closes_at:string;open:boolean;count:number;saved:number;players:AttendancePlayer[];more:boolean;protected:boolean};
 export type AttendanceHistory={items:{version:number;actor_role:'owner'|'trainer';before_status:string|null;status:string;reason:string|null;captured_at:string;received_at:string}[];more:boolean};
+
+export type AttendanceReceipt={event:string;player:string;status:'present'|'absent';version:number};
+export function isAttendanceReceipt(value:unknown,event:string):value is AttendanceReceipt {
+ if(!value||typeof value!=='object'||Array.isArray(value))return false;const v=value as Record<string,unknown>;
+ return v.event===event&&typeof v.player==='string'&&uuid.test(v.player)&&['present','absent'].includes(String(v.status))&&Number.isSafeInteger(v.version)&&(v.version as number)>0;
+}

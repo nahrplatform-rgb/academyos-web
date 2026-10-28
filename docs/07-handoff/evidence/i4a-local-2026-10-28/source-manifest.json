@@ -1,8 +1,8 @@
 {
   "scope": "Local verified source and additive SQL; delivery/hosted acceptance separate",
   "sha256": {
-    "apps/web/src/components/attendance-workspace.tsx": "e80d2ffdc4b081a83f9bda47b08f2cc111f73b2f6f4dfe647dc1b05ab2b327c8",
-    "apps/web/src/lib/attendance.ts": "a3f58292b949690424358e38732655c146ce6517947c67f4847c24825ae44fdf",
+    "apps/web/src/components/attendance-workspace.tsx": "937a9f0944f7e8c9757e8777da1d1336b3854e8a33c83ccabb2d730855e05313",
+    "apps/web/src/lib/attendance.ts": "b5615402a80638401235e856e91df72c1610cd8f677e8ec8c3e437f7e2344ced",
     "apps/web/src/app/api/attendance/route.ts": "775b5b186b412f63911a5b9bae906f7a2cc26ce933a97884c38fb481f4807b68",
     "supabase/migrations/20261028024556_i4a_online_attendance.sql": "838434b50966fbb80881d7d8dbd4013d4d26ed0915fe09399e7c1be5d28d03f0"
   }

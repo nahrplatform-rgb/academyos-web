@@ -176,7 +176,7 @@ for row in action_rows:
           action_contract='docs/06-delivery/i4a-online-attendance-design-contract.md',
           implementation_source='apps/web/src/components/attendance-workspace.tsx',
           implementation_status='Bounded online manual register and reasoned Owner direct correction implemented locally; wider capture/scan/correction-request family remains open',
-          verification_status='85 actual disposable PG17 cases; API/actual React production-development/54 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted attendance and independent gates open',
+          verification_status='85 actual disposable PG17 cases; API/actual React production-development/55 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted attendance and independent gates open',
           deployment_status='Additive staging migration20261028024556 applied; app rollout and hosted attendance pending',
           owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
