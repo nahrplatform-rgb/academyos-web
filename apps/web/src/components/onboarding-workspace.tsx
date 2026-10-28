@@ -256,7 +256,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
               <p>{t('Confirm this sport for the branch. This completes initial setup only.', 'أكد هذه الرياضة للفرع. سيكتمل الإعداد الأولي فقط.')}</p>
               <Button disabled={disabled} className="button" onClick={() => void mutate({ action: 'save', academy, version: setup.version, step: 'complete', fields: {} })}>{t('Complete initial setup', 'إكمال الإعداد الأولي')}</Button>
             </section>}
-            <p className="notice">{t('Manage players and Trainer appointments. Draft training programs are available; assignment, publication and billing follow later. Your saved setup can be resumed after signing in again.', 'يمكنك إدارة اللاعبين وتعيينات المدربين. مسودات برامج التدريب متاحة؛ التعيينات والنشر والفوترة في مراحل لاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
+            <p className="notice">{t('Manage players and Trainer appointments, plan training dates, publish assigned sessions and record attendance during their recording window. Billing awaits later implementation. Your saved setup can be resumed after signing in again.', 'يمكنك إدارة اللاعبين وتعيينات المدربين، وتخطيط مواعيد التدريب ونشر الجلسات المخصصة وتسجيل الحضور خلال فترة التسجيل. الفوترة في مرحلة لاحقة. يمكنك استئناف الإعداد المحفوظ بعد تسجيل الدخول مجدداً.')}</p>
           </>}
         </>}
   </WorkspacePanes></WorkspaceShell>;
