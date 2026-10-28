@@ -58,3 +58,7 @@ Follow the root [agent instructions](../../AGENTS.md) and [engineering charter](
 ## I3d continuation —28 October2026
 
 Publication/assigned Trainer schedule policy and design approved; real implementation/local verification and additive staging migration are recorded in [I3d implementation](i3d-publication-implementation.md). App deployment, authenticated hosted checks, working acceptance and independent/security/device/load gates must be read separately. Do not restore an ended Trainer appointment without the separately required explicit authorization.
+
+## Ongoing reference preservation —28 October2026
+
+Use the [PYSA behavior preservation ledger](../03-design/pysa-behavior-preservation.md) with each journey packet and meaningful regression tests. I3d working publication wording/usability is accepted; [I3e session-change policy](../06-delivery/i3e-session-changes-decisions.md) is proposed for the next design. Preserve all prior acceptance and keep broader gates open.
