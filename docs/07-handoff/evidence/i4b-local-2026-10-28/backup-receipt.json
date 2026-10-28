@@ -1,0 +1,12 @@
+{
+  "format": 1,
+  "project": "snpphkenmvmhpjstbeul",
+  "key": "staging/2026-10-28/5f59cfc4-cf5b-4634-ab0f-ec44ed143acb/backup.tar.age",
+  "sha256": "c53407de69387ecb8b61a2361c5bf53bfa0989781be2c042208a3834588b13e5",
+  "bytes": 553288,
+  "object_count": 0,
+  "verified_at": "2026-10-28T12:18:37.996313+00:00",
+  "status": "encrypted_upload_download_verified",
+  "storage_api_credential_verified": true,
+  "restore_tested": false
+}

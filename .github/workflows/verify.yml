@@ -81,4 +81,9 @@ jobs:
           node scripts/attendance/test_api.mjs
           node scripts/attendance/test_ui.mjs
           UI_REACT_MODE=development node scripts/attendance/test_ui.mjs
+      - name: Verify Guardian training read boundary and actual UI recovery
+        run: |
+          node scripts/guardian-training/test_api.mjs
+          node scripts/guardian-training/test_ui.mjs
+          UI_REACT_MODE=development node scripts/guardian-training/test_ui.mjs
       - run: npm run test:e2e

@@ -123,3 +123,9 @@ test('session changes deny untrusted writes and unconfigured protected entry',as
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/attendance/00000000-0000-4000-8000-000000000002')).status()).toBe(503);
  });
+
+test('Guardian training denies untrusted reads and unconfigured protected entry',async({request})=>{
+ const response=await request.post('/api/guardian-training',{data:{action:'links',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/guardian/training')).status()).toBe(503);
+});

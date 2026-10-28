@@ -1,6 +1,6 @@
 # I4b — linked-player training and attendance design
 
-28 October2026. Policy accepted for design; **connected-design approval pending**. [Accepted policy/PYSA reference](i4b-guardian-training-decisions.md), [security/retrieval preparation](../04-engineering/i4b-guardian-training-preparation.md), [local preview and evidence](../../design/i4b-guardian-training/README.md).
+28 October2026. Policy accepted for design; **connected design explicitly approved for implementation28October2026**. [Accepted policy/PYSA reference](i4b-guardian-training-decisions.md), [security/retrieval preparation](../04-engineering/i4b-guardian-training-preparation.md), [local preview and evidence](../../design/i4b-guardian-training/README.md).
 
 ## Authorized outcome and boundaries
 

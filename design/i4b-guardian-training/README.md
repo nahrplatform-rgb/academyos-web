@@ -1,6 +1,6 @@
 # I4b — Guardian training and attendance connected preview
 
-[Policy explicitly accepted for design](../../docs/06-delivery/i4b-guardian-training-decisions.md), [design contract](../../docs/06-delivery/i4b-guardian-training-design-contract.md), [security/retrieval preparation](../../docs/04-engineering/i4b-guardian-training-preparation.md). Separate connected-design approval is pending.
+[Policy explicitly accepted for design](../../docs/06-delivery/i4b-guardian-training-decisions.md), [design contract](../../docs/06-delivery/i4b-guardian-training-design-contract.md), [security/retrieval preparation](../../docs/04-engineering/i4b-guardian-training-preparation.md). Moamen explicitly approved the connected design for implementation28October2026. The preview remains a simulation; real implementation/evidence are tracked separately.
 
 Open http://127.0.0.1:3219/. Build `node scripts/design/build_i4b_review.mjs`; serve `python3 scripts/design/serve_i4b_review.py`; check `node scripts/design/test_i4b_review.mjs` using existing Node24 dependencies. Shared AcademyOS shell/panes/controls/styles are bundled; no new dependency.
 

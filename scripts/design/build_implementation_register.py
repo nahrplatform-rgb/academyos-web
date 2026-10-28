@@ -186,12 +186,12 @@ for row in action_rows:
     if row['work_item_id']=='IMP-J15-A01':
         row.update(as_of='2026-10-28',actor_context='Current Guardian and exact active linked player; no Player login or payer authority',
           policy_status='I4b policy explicitly accepted28Oct2026 for design including retained pre-link published sessions; no access grant',
-          design_status='Connected EN/AR I4b local design prepared; separate Owner design review pending',
-          implementation_status='Existing I2b name/branch projection only; I4b schedule/own-attendance projection not implemented',
-          verification_status='PYSA source/workflow/EV-0081 review and data/security preparation only; no I4b runtime proof',
-          deployment_status='No I4b migration, endpoint, rollout or access grant',owner_approval_status='I4b policy accepted for design28Oct2026; design/working acceptance pending; earlier approvals preserved',
-          evidence_reference='docs/06-delivery/i4b-guardian-training-decisions.md',
-          next_gate='Review connected EN/AR design; then dependent implementation')
+          design_status='Connected EN/AR I4b design explicitly approved for implementation28Oct2026',
+          implementation_status='I4b real Guardian schedule/current-own-mark read source implemented; exact-link rollout gate closed; hosted proof pending',
+          verification_status='91 actual disposable SQL/57 units/14 E2E/API and actual React ENAR passed; hosted projection proof separate',
+          deployment_status='Staging migration20261028122658 applied with zero opt-ins and unchanged domain fingerprints; app rollout pending',owner_approval_status='I4b policy/design explicitly accepted28Oct2026; working acceptance pending; earlier approvals preserved',
+          evidence_reference='docs/07-handoff/i4b-guardian-training-implementation.md',
+          next_gate='Finish inherited checks and closed-gate staging rollout; separately authorize hosted exact-link test')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -237,11 +237,11 @@ for row in screen_rows:
           owner_approval_status='Policy/design and scoped working attendance wording/usability accepted28Oct; full screen remains open',next_gate='Remaining hosted/independent screen/security/device/load gates')
 for row in screen_rows:
     if row['screen_id']=='S46':
-        row.update(as_of='2026-10-28',design_status='I4b Guardian policy accepted; connected local EN/AR design prepared; design review pending',
-          implementation_status='Existing I2b minimal linked-player projection is separate; Guardian home training/attendance not implemented',
-          verification_status='PYSA/reference and bounded security/retrieval planning only; no I4b UI/API/data proof',
-          deployment_status='No I4b deployment or grant',owner_approval_status='I4b policy accepted for design; design/working pending; earlier approvals retained',
-          next_gate='Review connected I4b design before implementation')
+        row.update(as_of='2026-10-28',design_status='I4b Guardian policy and connected design explicitly approved28Oct2026',
+          implementation_status='I4b linked-player training/current-own-mark source implemented behind closed exact-link rollout gate',
+          verification_status='Local SQL/API/actual React/scale evidence; hosted authority and working acceptance pending',
+          deployment_status='Staging migration20261028122658; zero exact-link opt-ins; app rollout pending',owner_approval_status='I4b policy/design approved; working pending; earlier approvals retained',
+          next_gate='Finish verification and separately authorized hosted exact-link test')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []
