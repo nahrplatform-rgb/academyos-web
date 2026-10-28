@@ -1,0 +1,19 @@
+{
+  "functional_test_source": "ac7ed0a643842d8a768e779e5a514d7275735288",
+  "functional_test_deployment": "dpl_9zz8dnGPBNaaym8CHvVnXb9MAXFG",
+  "current_source": "4d514c4b4b211f6dbd43d298d9aebb18f1d9d18a",
+  "current_deployment": "dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ",
+  "ready_seconds": 56,
+  "alias": "https://staging.academy.nahr.dev",
+  "environment": "existing synthetic staging; provider slot label Production",
+  "ci": {
+    "push": 40692594972,
+    "pr": 40692601916,
+    "conclusion": "success"
+  },
+  "copy_followup": "EN/AR scope and ending-impact only; actual local Guardian React production/development and lint/typecheck/build passed",
+  "test_link": "ended",
+  "enabled_training_links": 0,
+  "working_acceptance": "pending",
+  "remaining": "Independent human security; hosted direct API/extended races; physical devices/accessibility; network/cold performance/load/cost; earlier I4a replacement case"
+}
