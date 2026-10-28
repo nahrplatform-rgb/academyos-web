@@ -1,6 +1,6 @@
 # I4c — attendance correction request and decision design
 
-28 October 2026. **Policy explicitly accepted for design; connected design prepared, separate approval pending.** [Policy and read-only PYSA inspection](i4c-attendance-correction-decisions.md), [trust/retrieval/security preparation](../04-engineering/i4c-attendance-correction-preparation.md), [preview and local checks](../../design/i4c-attendance-corrections/README.md).
+28 October 2026. **Policy explicitly accepted for design; connected design explicitly approved for implementation on 28 October 2026.** [Policy and read-only PYSA inspection](i4c-attendance-correction-decisions.md), [trust/retrieval/security preparation](../04-engineering/i4c-attendance-correction-preparation.md), [preview and local checks](../../design/i4c-attendance-corrections/README.md).
 
 ## Authorized outcome and boundaries
 
@@ -32,4 +32,4 @@ Real proposed bounds remain one academy/filter queue25 plus sentinel, one Traine
 
 Local automated receipt covers the request/approval/rejection chain, duplicate/Unmarked, no Owner request, self/deadline/changed-authority, stale/other-reviewer, original-operation recovery, paged coverage, dirty-state guard, minimal Guardian and EN/AR320/360/926/1440 overflow checks. Screenshots are local Chromium simulation, not physical devices or a full accessibility audit. Source strict TypeScript checking is separate. No staging/application/database test or account grant occurred for this design.
 
-Next gate: Owner connected-design review. Only after explicit approval implement the bounded request/review slice and actual SQL/HTTP/React isolation, failure/race/window/recovery tests. Hosted access restoration requires a separately scoped approval. Independent human/security, physical-device, accessibility, stable-network/load/cost/WAL and prior active-Trainer replacement gates remain open. Wider QR/manual parity, after-window correction, Manager delegation, late/excused and offline are not retired.
+Next gate: implement the bounded request/review slice and actual SQL/HTTP/React isolation, failure/race/window/recovery tests. Hosted access restoration requires a separately scoped approval. Independent human/security, physical-device, accessibility, stable-network/load/cost/WAL and prior active-Trainer replacement gates remain open. Wider QR/manual parity, after-window correction, Manager delegation, late/excused and offline are not retired.

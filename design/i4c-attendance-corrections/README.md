@@ -1,6 +1,6 @@
 # I4c — attendance correction request and decision preview
 
-[Accepted policy and PYSA evidence](../../docs/06-delivery/i4c-attendance-correction-decisions.md), [connected design contract](../../docs/06-delivery/i4c-attendance-correction-design-contract.md), [engineering/security preparation](../../docs/04-engineering/i4c-attendance-correction-preparation.md). Policy explicitly accepted for design 28 October 2026; **separate connected-design approval pending**.
+[Accepted policy and PYSA evidence](../../docs/06-delivery/i4c-attendance-correction-decisions.md), [connected design contract](../../docs/06-delivery/i4c-attendance-correction-design-contract.md), [engineering/security preparation](../../docs/04-engineering/i4c-attendance-correction-preparation.md). Policy explicitly accepted for design 28 October 2026; **connected design explicitly approved for implementation on 28 October 2026**.
 
 Open http://127.0.0.1:3221/. Build `node scripts/design/build_i4c_review.mjs`; serve `python3 scripts/design/serve_i4c_review.py`; check `node scripts/design/test_i4c_review.mjs` with existing Node24 dependencies. Shared shell, panes, controls and styles; no new dependency.
 

@@ -1,0 +1,76 @@
+
+> academyos@0.1.0 test
+> npm run test --workspace @academyos/web
+
+
+> @academyos/web@0.1.0 test
+> tsx --test src/lib/*.test.ts
+
+✔ attendance fixed command shapes and signed read/write classification (6.127334ms)
+✔ attendance rejects authority injection, invalid intents, windows and cursors (0.939625ms)
+✔ only correlated committed attendance receipts authorize client success (0.17ms)
+✔ valid signed verification event reaches only the approved provider with fixed sender and safe template (8.330084ms)
+✔ missing, tampered, wrong-key and expired signatures never send (5.079416ms)
+✔ signed foreign instance/recipient, invalid code and disabled config fail without sending (3.095208ms)
+✔ unrelated/native templates and stale original events are acknowledged without sends (0.943667ms)
+✔ provider unknown/failure and limiter timeout retain retryable truthful failure; no payload leaks (2.513958ms)
+✔ retry after unknown outcome and concurrent duplicates preserve exact provider key and message (4.348125ms)
+✔ bounded reads reject oversized bodies even without content-length, and reject unsupported media (0.920458ms)
+✔ unconfigured authentication stays unavailable (0.956791ms)
+✔ staging rejects production and wrong service bindings (0.224542ms)
+✔ staging without credentials builds safely (0.088792ms)
+✔ correction fixed commands route through current signed read/write gateway (0.741875ms)
+✔ correction rejects authority injection and malformed or excessive commands (0.726458ms)
+✔ correction transport success requires correlated domain receipt (0.135583ms)
+✔ staging email refuses unrestricted recipients and unapproved senders (0.973708ms)
+✔ retries keep one provider idempotency key and cannot inject recipients (28.053834ms)
+✔ Guardian reads accept only exact bounded scope and allowlisted read RPCs (2.85275ms)
+✔ Guardian query rejects widened payload, malformed dates and partial cursors (0.816833ms)
+✔ guardian commands reject authority injection and require explicit review inputs (0.796083ms)
+✔ actual guardian recipient and token scope is disabled by default and domain separated (0.3025ms)
+✔ guardian gateway charges recovery/accept as writes and review as read (1.156166ms)
+✔ QStash accepts only signed, unexpired, body- and URL-bound deliveries with rotation (20.324667ms)
+✔ the setup callback rejects arbitrary business jobs and extra payloads (0.862458ms)
+✔ bootstrap failure never becomes an empty membership (1.322666ms)
+✔ verified empty membership is distinct from outage (0.317209ms)
+✔ invalid payload and network failures fail closed (0.364167ms)
+✔ gateway exhaust/timeout/unavailable never signs or sends a database call (0.770958ms)
+✔ gateway spends the right actor budget and signs only outbound subject/method/path (47.476542ms)
+✔ gateway refuses alternative origins, query calls, methods and unknown RPCs before budget (0.622917ms)
+✔ exchange network budget uses only the hosted trusted IP; local ignores spoofed headers (16.866584ms)
+✔ actual Supabase transport preserves gateway denial and expected POST path (3.874958ms)
+✔ attendance gateway forwards the exact reviewed target to budget selection (0.151542ms)
+✔ invitation secrets are reproducible per generation, opaque and hashed at rest (0.793042ms)
+✔ only current verified addresses enter subject and target bound proof (0.586709ms)
+✔ invitation handoff cookie conceals secret, rejects tampering and expires (0.490333ms)
+✔ business version conflicts remain conflicts across the HTTP boundary (0.066ms)
+✔ people requests use only named gateways; recovery consumes write budget (1.952667ms)
+✔ people rejects unexpected privilege fields, malformed intents and non-fictional contacts (0.30375ms)
+✔ dated planning canonically binds current version, exact delta and attested action class (2.067834ms)
+✔ planning rejects injected authority, duplicate/intersecting/oversized deltas and invalid count/version (0.286417ms)
+✔ planning rejects invalid date scope, unsupported searches and incomplete cursors (0.1475ms)
+✔ program proposal keeps whole explicit period and weekday rules, canonical players and actor-bound gateway class (5.143041ms)
+✔ program proposal rejects injected authority, invalid scopes and oversized or duplicate staging edits (0.835708ms)
+✔ program definition preserves a full period and different weekday times, canonicalizes rule order (2.512416ms)
+✔ program input rejects malformed dates, duplicate weekdays, overnight and injected authority (0.4145ms)
+✔ all program calls use the existing attested read/write boundary (0.276ms)
+✔ bounded date windows reject impossible dates, missing cursor halves and caller-controlled fields (0.151125ms)
+✔ publication and assigned schedule use fixed signed reads/writes and preserve full scope (5.309667ms)
+✔ publication rejects injected identity/audience, invalid scope and unsafe schedule cursors (0.535875ms)
+✔ a permissive Redis timeout never authorizes writes (0.402834ms)
+✔ rate limit keys do not store raw Clerk subjects (0.168667ms)
+✔ session change derives exact command with retained original identity and no injected authority (1.714917ms)
+✔ monitoring strips identity, request credentials, business payloads and free text (0.548334ms)
+✔ the fixed synthetic check remains identifiable (0.080458ms)
+✔ source-map identifiers survive while private source-map URLs are scrubbed (0.354083ms)
+✔ trainer commands reject authority injection and require explicit review inputs (1.051875ms)
+✔ actual trainer recipient and token scope is disabled by default and domain separated (0.258ms)
+✔ trainer gateway charges recovery/accept as writes and review as read (0.169167ms)
+ℹ tests 60
+ℹ suites 0
+ℹ pass 60
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 322.718416

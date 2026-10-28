@@ -1,9 +1,10 @@
+import {correctionRequest} from './corrections';
 /** I4a exact command contract. Current actor and all authority are server-derived. */
 export class AttendanceInputError extends Error{}
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 function id(v:unknown){if(typeof v!=='string'||!uuid.test(v))throw new AttendanceInputError();return v.toLowerCase();}
 export function attendanceRequest(v:unknown){
- if(!v||typeof v!=='object'||Array.isArray(v))throw new AttendanceInputError();const b=v as Record<string,unknown>,a=id(b.academy),ev=id(b.event);let rpc:string,keys:string[],args:Record<string,unknown>,mutating=false;
+ if(!v||typeof v!=='object'||Array.isArray(v))throw new AttendanceInputError();const b=v as Record<string,unknown>;if(typeof b.action==='string'&&b.action.startsWith('correction_'))return correctionRequest(b);const a=id(b.academy),ev=id(b.event);let rpc:string,keys:string[],args:Record<string,unknown>,mutating=false;
  if(b.action==='roster'){keys=['action','academy','event','after'];rpc='a10_roster_v1';args={a,ev,after_id:b.after==null?null:id(b.after)};}
  else if(b.action==='history'){keys=['action','academy','event','player','before'];rpc='a10_history_v1';if(b.before!=null&&(!Number.isSafeInteger(b.before)||(b.before as number)<1))throw new AttendanceInputError();args={a,ev,player:id(b.player),before_version:b.before??null};}
  else if(b.action==='mark'){keys=['action','academy','event','player','status','version','reason','captured_at','op'];rpc='a10_mark_v1';mutating=true;if(!['present','absent'].includes(String(b.status))||!Number.isSafeInteger(b.version)||(b.version as number)<0||!(b.reason===null||typeof b.reason==='string'&&b.reason.trim().length>0&&b.reason.length<=500)||typeof b.captured_at!=='string'||b.captured_at.length>35||!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,6})?Z$/.test(b.captured_at)||!Number.isFinite(Date.parse(b.captured_at))||new Date(b.captured_at).toISOString().slice(0,19)!==b.captured_at.slice(0,19))throw new AttendanceInputError();args={a,ev,player:id(b.player),new_status:b.status,expected_version:b.version,reason:b.reason,captured_at:b.captured_at,op:id(b.op)};}

@@ -3,6 +3,7 @@ import { STAGING_AUTH_ORIGINS } from '@/lib/config';
 import { onboardingSession, rpc, JourneyError } from '@/lib/onboarding-server';
 import { GatewayError } from '@/lib/onboarding-gateway';
 import { rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis } from '@/lib/rate-limit';
+import {CorrectionInputError} from '@/lib/corrections';
 import { attendanceRequest, AttendanceInputError } from '@/lib/attendance';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 15;
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
     catch (e) {
         if (e instanceof JourneyError || e instanceof GatewayError)
             return respond({ error: e.code }, e.http);
-        if (e instanceof AttendanceInputError || e instanceof SyntaxError)
+        if (e instanceof AttendanceInputError || e instanceof CorrectionInputError || e instanceof SyntaxError)
             return respond({ error: 'invalid' }, 422);
         return respond({ error: 'unavailable' }, 503);
     }

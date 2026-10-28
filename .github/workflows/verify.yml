@@ -86,4 +86,9 @@ jobs:
           node scripts/guardian-training/test_api.mjs
           node scripts/guardian-training/test_ui.mjs
           UI_REACT_MODE=development node scripts/guardian-training/test_ui.mjs
+      - name: Verify correction request and decision API and recovery
+        run: |
+          node scripts/corrections/test_api.mjs
+          node scripts/corrections/test_ui.mjs
+          UI_REACT_MODE=development node scripts/corrections/test_ui.mjs
       - run: npm run test:e2e

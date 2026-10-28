@@ -1,6 +1,6 @@
 # I4c — Trainer attendance correction request and Owner decision
 
-28 October 2026. **Moamen explicitly accepted the correction-request rules for design on 28 October 2026. Connected-design approval remains pending.** [Accepted I4a manual attendance/direct correction](i4a-online-attendance-decisions.md), [accepted working I4b Guardian view](../07-handoff/i4b-guardian-training-implementation.md), [engineering/security preparation](../04-engineering/i4c-attendance-correction-preparation.md). This advances I4 before QR/manual parity and later development/finance; it does not claim the full attendance stage is finished.
+28 October 2026. **Moamen explicitly accepted the correction-request rules for design on 28 October 2026. Connected design explicitly approved for implementation on 28 October 2026.** [Accepted I4a manual attendance/direct correction](i4a-online-attendance-decisions.md), [accepted working I4b Guardian view](../07-handoff/i4b-guardian-training-implementation.md), [engineering/security preparation](../04-engineering/i4c-attendance-correction-preparation.md). This advances I4 before QR/manual parity and later development/finance; it does not claim the full attendance stage is finished.
 
 ## Outcome and current behavior
 
@@ -44,4 +44,4 @@ Source **37d8901ca1cde805c126f6f3ac83d996ece953a0**, `/Users/moamenghareeb/Pro Y
 
 ## Connected review prepared —28 October 2026
 
-[Connected design contract](i4c-attendance-correction-design-contract.md) and [local EN/AR preview](../../design/i4c-attendance-corrections/README.md) cover the accepted rules and interruption states. Design approval, product implementation, database/hosted verification and working acceptance remain separate and pending. No actual account access was restored or expanded.
+[Connected design contract](i4c-attendance-correction-design-contract.md) and [local EN/AR preview](../../design/i4c-attendance-corrections/README.md) cover the accepted rules and interruption states. Connected design was explicitly approved on 28 October 2026. Product implementation, database/hosted verification and working acceptance remain separate. No actual account access was restored or expanded.
