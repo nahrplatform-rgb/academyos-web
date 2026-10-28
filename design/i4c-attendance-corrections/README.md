@@ -1,0 +1,15 @@
+# I4c — attendance correction request and decision preview
+
+[Accepted policy and PYSA evidence](../../docs/06-delivery/i4c-attendance-correction-decisions.md), [connected design contract](../../docs/06-delivery/i4c-attendance-correction-design-contract.md), [engineering/security preparation](../../docs/04-engineering/i4c-attendance-correction-preparation.md). Policy explicitly accepted for design 28 October 2026; **separate connected-design approval pending**.
+
+Open http://127.0.0.1:3221/. Build `node scripts/design/build_i4c_review.mjs`; serve `python3 scripts/design/serve_i4c_review.py`; check `node scripts/design/test_i4c_review.mjs` with existing Node24 dependencies. Shared shell, panes, controls and styles; no new dependency.
+
+This is a fictional local simulation. No login, API, database, email or hosted persistence. Reset/reload clears it. Actor/scenario/response controls above the shell are review tools, not product permissions. Demo time is1 November 2026 19:15 Africa/Cairo; recording closes2 November 20:00. Before-start/expiry scenarios explicitly substitute that clock. Real implementation must use server time.
+
+Try Alex Demo → Request correction → reason → Review exact change → acknowledge → Submit request → Finish simulated response. Attendance stays Present. Switch Review actor to Academy Owner → select Alex → Review decision → required reason → approve or reject → review/acknowledge → Confirm decision → Finish simulated response. Approval changes the mark and history; rejection leaves attendance unchanged. Switch back to Trainer to reopen the result. Guardian sees only Alex's current mark and correction indicator, no reasons or review history.
+
+Scenario controls preserve records while changing the simulated failure: expired/ineligible requests remain terminal even after returning to Normal (reset starts fresh); self-review and before-start block decisions. Stale mark or another reviewer's decision is delivered when finishing the response. Lost replies require Check original operation; not-committed outcomes retain the reason and require review again. Confirmed-save/read-failure has a read-only retry. Loading/failure are distinct from an empty queue; denied hides private content. EN/AR links preserve unsaved draft reasons; Back, record/actor/paging/reset changes guard unsaved work.
+
+Two-row pages exercise complete roster/request paging; real proposed retrieval is 25 plus sentinel, selected history 20 plus sentinel, with 32 KiB byte-aware bounds. These are engineering retrieval bounds, not business record/history limits. The example history is small; network pagination and authorization are not implemented here.
+
+[Local checks](evidence/checks.json) and EN/AR screenshots document simulated presentation only. They do not prove SQL atomicity, real concurrency/idempotency/fences, current server authorization, durable recovery, device/accessibility performance or hosted security. Existing Owner direct correction stays a separate implemented path; no new imitation action is added for it.

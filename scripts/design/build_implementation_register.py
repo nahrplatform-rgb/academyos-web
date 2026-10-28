@@ -181,14 +181,14 @@ for row in action_rows:
           owner_approval_status='Policy/design and scoped deployed attendance EN/AR wording/usability explicitly accepted28Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
           next_gate='Active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
-# I4c request/review is proposed; preserve implemented/accepted I4a direct correction.
+# I4c policy accepted; connected design prepared pending review; preserve implemented/accepted I4a direct correction.
 for row in action_rows:
     if row['work_item_id']=='IMP-J13-A01':
-        row.update(policy_status=row['policy_status']+'; I4c Trainer request/Owner decision recommendation pending explicit policy approval',
-          design_status=row['design_status']+'; I4c connected request/review design not yet prepared or approved',
+        row.update(policy_status=row['policy_status']+'; I4c Trainer request/Owner decision rules explicitly accepted for design28October2026',
+          design_status=row['design_status']+'; I4c connected ENAR request/review simulation prepared; separate design approval pending',
           applicable_states=row['applicable_states']+'; expired; requester-ineligible; unknown/reconciled',
-          next_gate='Decide I4c request/review policy, then connected ENAR design; prior hosted/security/device/load gates retained',
-          evidence_reference='docs/06-delivery/i4c-attendance-correction-decisions.md')
+          next_gate='Review I4c connected ENAR request/review design before implementation; prior hosted/security/device/load gates retained',
+          evidence_reference='docs/06-delivery/i4c-attendance-correction-design-contract.md')
 # I4b policy/design and scoped working wording/usability accepted; broader gates remain open.
 for row in action_rows:
     if row['work_item_id']=='IMP-J15-A01':
@@ -252,12 +252,12 @@ for row in screen_rows:
           next_gate='Remaining direct-API/device/load/security gates')
 for row in screen_rows:
     if row['screen_id']=='S29':
-        row.update(as_of='2026-10-28',design_status='I4a direct-correction design accepted; I4c request/review policy recommendation prepared, connected design pending',
+        row.update(as_of='2026-10-28',design_status='I4a direct-correction design accepted; I4c policy accepted for design; connected ENAR simulation prepared pending review',
           implementation_status='I4a Owner direct correction/history exists; I4c request/decision queue not implemented',
-          verification_status='I4a receipts separate; PYSA source/EV-0024/0071 and I4c preparation only, no I4c runtime proof',
+          verification_status='I4a receipts separate; PYSA source/EV-0024/0071 and local design-simulation receipt only, no I4c runtime proof',
           deployment_status='No I4c migration/app/access change; earlier I4a deployments remain recorded',
-          owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy/design/working acceptance pending',
-          next_gate='Decide I4c policy and review connected ENAR request/review design before implementation')
+          owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy accepted for design; design/working acceptance pending',
+          next_gate='Review I4c connected ENAR request/review design before implementation')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

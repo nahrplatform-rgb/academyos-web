@@ -1,16 +1,16 @@
 # I4c — Trainer attendance correction request and Owner decision
 
-28October2026. **Recommendation awaiting explicit Owner policy decision.** [Accepted I4a manual attendance/direct correction](i4a-online-attendance-decisions.md), [accepted working I4b Guardian view](../07-handoff/i4b-guardian-training-implementation.md), [engineering/security preparation](../04-engineering/i4c-attendance-correction-preparation.md). This advances I4 before QR/manual parity and later development/finance; it does not claim the full attendance stage is finished.
+28 October 2026. **Moamen explicitly accepted the correction-request rules for design on 28 October 2026. Connected-design approval remains pending.** [Accepted I4a manual attendance/direct correction](i4a-online-attendance-decisions.md), [accepted working I4b Guardian view](../07-handoff/i4b-guardian-training-implementation.md), [engineering/security preparation](../04-engineering/i4c-attendance-correction-preparation.md). This advances I4 before QR/manual parity and later development/finance; it does not claim the full attendance stage is finished.
 
 ## Outcome and current behavior
 
 J13-A01/A02/A03 / IMP-J13-A01 / S29 / L08 / SEC-J13; scoped AO-037/038 and AT-037/038. Current assigned Trainer can record an initial Present/Absent mark but cannot replace a saved mark. The current UI directs them to the Owner; the Owner already has a reasoned direct correction during the recording window. There is no implemented correction-request queue, durable review or approval operation. The broad earlier prototype demonstrates an intended pattern, not accepted permission policy or database behavior.
 
-Recommended connected outcome: Trainer opens their actual published session and saved mark → requests the opposite status with a reason → sees a pending request while attendance stays unchanged → Owner sees the before/proposed/current values and reason → explicitly approves or rejects → Trainer can reopen the permitted result → Guardian sees only the current approved attendance through their separately approved active link. No notification or actual grant follows from this packet.
+Accepted outcome for design: Trainer opens their actual published session and saved mark → requests the opposite status with a reason → sees a pending request while attendance stays unchanged → Owner sees the before/proposed/current values and reason → explicitly approves or rejects → Trainer can reopen the permitted result → Guardian sees only the current approved attendance through their separately approved active link. No notification or actual grant follows from this packet.
 
-## Recommended policy — all pending Owner decision
+## Accepted policy — design preparation only
 
-| Choice | Recommendation and consequence |
+| Choice | Accepted rule and consequence |
 |---|---|
 | Who requests? | Only the current active Trainer assigned to that exact published occurrence, for a rostered fictional player with a saved mark. Owner direct correction remains available. No Manager delegation, Guardian correction request, general scan, drop-in or Platform Owner bypass. Resolve the current principal on the final boundary, not a supplied role or old request context. |
 | What changes? | A request proposes Present↔Absent, records the saved mark/version and requires a reason. Unmarked is not an error state and is not converted to Absent; initial recording keeps the existing path. A pending request does not change attendance, history, attendance-protected scheduling or Guardian output. |
@@ -31,7 +31,7 @@ Reuse the shared compact-blue shell, panes, accessible inputs, exact-session con
 
 Policy approval authorizes design preparation only. Separate connected-design approval precedes dependent implementation; any actual hosted Trainer/Guardian account restoration or additional access needs its separately scoped explicit authorization. Existing ended Casey and Guardian test links remain ended.
 
-## PYSA reference inspected — read-only,28October2026
+## PYSA reference inspected — read-only,28 October 2026
 
 Source **37d8901ca1cde805c126f6f3ac83d996ece953a0**, `/Users/moamenghareeb/Pro Youth Football Academy`. No PYSA modification, account/provider access, real data or live behavior test.
 
@@ -41,3 +41,7 @@ Source **37d8901ca1cde805c126f6f3ac83d996ece953a0**, `/Users/moamenghareeb/Pro Y
 - `engineering-audit/03-evidence/database/EV-0024-attendance-correction-consistency.md`: actual action with synthetic SDK/barrier reproduced partial failure, zero-row success and reviewer race. These are in-process source evidence, not actual SQL/hosted race proof. Do not copy its transaction assumptions or claim remediation from a preview.
 - `EV-0071-attendance-helper-authority.md`: supplied helper role could exceed wrapper policy in synthetic cases. Every request/review/reconcile read or write must resolve current authority; helper arguments and old role snapshots grant nothing.
 - `components/attendance/staff-correction-modal.tsx` is a separate staff presence/payroll-related manual correction, not the player's request-review UI. Do not treat its missing-checkin/out/timestamp/late/excused flow as policy for this slice.
+
+## Connected review prepared —28 October 2026
+
+[Connected design contract](i4c-attendance-correction-design-contract.md) and [local EN/AR preview](../../design/i4c-attendance-corrections/README.md) cover the accepted rules and interruption states. Design approval, product implementation, database/hosted verification and working acceptance remain separate and pending. No actual account access was restored or expanded.

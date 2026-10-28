@@ -1,6 +1,6 @@
 # I4c — request/review trust and integrity preparation
 
-28October2026. **Planning only; policy and connected-design approvals pending.** [Recommendation/PYSA evidence](../06-delivery/i4c-attendance-correction-decisions.md), [security gate](journey-security-review.md). J13-A01/A02/A03 / IMP-J13-A01 / S29 / L08 / SEC-J13 / partial AO-037/038 and AT-037/038. No app/schema/provider/access changes from this packet.
+28 October 2026. **Policy explicitly accepted for design 28 October 2026; connected-design review pending. Engineering proposals below are not implementation or runtime proof.** [Recommendation/PYSA evidence](../06-delivery/i4c-attendance-correction-decisions.md), [security gate](journey-security-review.md). J13-A01/A02/A03 / IMP-J13-A01 / S29 / L08 / SEC-J13 / partial AO-037/038 and AT-037/038. No app/schema/provider/access changes from this packet.
 
 ## Current reusable boundaries
 
