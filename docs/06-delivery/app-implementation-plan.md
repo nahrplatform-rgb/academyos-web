@@ -194,3 +194,7 @@ I4b staged Guardian test28October2026: separately authorized restore/view/end co
 I4b wording follow-up4d514c4 deployed and checked EN/AR on staging; exact CI green. The complete authorized test is closed, no enabled training links remain. Working feedback pending; independent/security/device/load gates retained.
 
 I4b Owner working-feature acceptance28October2026: Moamen explicitly accepted the scoped deployed Guardian training EN/AR wording/usability. See the I4b implementation/test receipts. Test link remains ended and no new grant is authorized; independent security, hosted direct-API/extended-race, physical-device/accessibility, performance/load/cost and inherited I4a replacement gates stay open.
+
+## I4c next attendance outcome —28October2026
+
+After accepted working I4b Guardian training, prepare Trainer saved-mark correction request → Owner approve/reject → atomic current-register/history result. [Policy recommendation and PYSA review](i4c-attendance-correction-decisions.md), [engineering/security/retrieval preparation](../04-engineering/i4c-attendance-correction-preparation.md). This fills the existing J13 request/review gap before QR/manual parity and later development/finance, without retiring either. Current request/reviewer/deadline/changed-authority choices await Owner policy approval; connected design review follows before dependent implementation. No app/schema/deployment/access changes; ended test appointments/links remain ended and wider gates remain open.
