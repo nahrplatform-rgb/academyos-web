@@ -206,6 +206,18 @@ for row in action_rows:
           deployment_status='Staging schema20261028122658; serving4d514c4 at dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ; authorized Guardian test ended; opt-ins closed',owner_approval_status='I4b policy/design and scoped deployed ENAR wording/usability explicitly accepted28Oct2026; earlier approvals preserved',
           evidence_reference='docs/07-handoff/i4b-guardian-training-implementation.md',
           next_gate='Remaining independent/security/direct-API/device/load/cost gates')
+# I4d is an approved bounded QR extension; preserve I4a working acceptance separately.
+for row in action_rows:
+    if row['work_item_id']=='IMP-J12-A01':
+        row.update(policy_status='I4a manual and I4d card/window/automatic match rules explicitly accepted; offline/late/excused/Manager remain open',
+          action_contract='docs/06-delivery/i4d-qr-attendance-design-contract.md',
+          implementation_status='I4a retained; I4d real card/windows/camera/automatic scoped capture and recovery implemented',
+          implementation_source='apps/web/src/components/qr-workspace.tsx',
+          verification_status='111 actual PG17 cases;63 units;14 React cases in production/development; encoder-decoder/API and16 foundation E2E passed locally; hosted schema ACL/fingerprints checked; no physical-camera proof',
+          deployment_status='I4d staging migration20261028184008 applied without seeds/access changes; app promotion and authenticated hosted walkthrough tracked in receipt',
+          owner_approval_status='I4a working acceptance retained; I4d policy and connected design approved28Oct2026; I4d working acceptance pending',
+          evidence_reference='docs/07-handoff/i4d-qr-attendance-implementation.md',
+          next_gate='Exact-source CI/app promotion; hosted scanner/device/load and independent security; scoped working acceptance')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -265,6 +277,15 @@ for row in screen_rows:
           owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy/design and scoped working ENAR wording/usability explicitly accepted28Oct2026; broader gates open',
           implementation_source='apps/web/src/components/correction-workspace.tsx',
           next_gate='Remaining independent security, hosted API/race, device/accessibility/load/cost gates')
+for row in screen_rows:
+    if row['screen_id']=='S28':
+        row.update(as_of='2026-10-28',design_status='I4d connected QR design approved28Oct2026',
+          implementation_source='apps/web/src/components/qr-workspace.tsx',
+          implementation_status='Bounded real online scanner, private Owner cards/settings and automatic authorized match implemented; full catalog scope incomplete',
+          verification_status='Local PG17/API/actual React/decoder; hosted schema ACL and unchanged domain fingerprints; no physical camera proof',
+          deployment_status='Staging schema applied; app promotion and authenticated walkthrough tracked in I4d receipt',
+          owner_approval_status='I4d policy/design approved; working acceptance pending; prior per-slice approvals retained',
+          next_gate='Hosted scanner and physical device/load/security gates; working wording/usability acceptance')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

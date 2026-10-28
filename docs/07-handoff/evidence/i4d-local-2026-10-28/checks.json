@@ -1,0 +1,16 @@
+{
+  "scope": "Local exact source checks; no hardware, hosted capture, independent audit or load acceptance",
+  "database_cases": 111,
+  "unit_cases": 63,
+  "react_cases_per_mode": 14,
+  "foundation_e2e_cases": 16,
+  "api_negative_budget_cases": 24,
+  "invalid_api_cases": 3,
+  "cross_origin_denied": true,
+  "lint": "passed",
+  "production_build": "passed",
+  "typecheck": "passed",
+  "register_validation": "68 screens,30 action groups,180 requirements; passed",
+  "physical_camera": "not executed",
+  "hosted_capture": "pending"
+}

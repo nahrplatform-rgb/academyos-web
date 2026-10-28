@@ -1,6 +1,6 @@
 # I4d — revocable player QR and exact-session attendance
 
-28 October2026. **Owner accepted the scanning-window and session-selection direction for design on28October2026 (“good”). Card issuance/validity recommendations remain explicitly proposed for review. Connected-design approval and implementation are pending.** I4a manual attendance, I4b Guardian view and I4c request/review working wording/usability are accepted for their bounded scopes. [I4c receipt](../07-handoff/i4c-attendance-correction-implementation.md). This packet advances the remaining QR/manual parity requirement without retiring offline, wider roles or other roadmap stages.
+28 October2026. **Owner accepted card/settings rules and explicitly approved the connected design for implementation on28October2026.** I4a manual attendance, I4b Guardian view and I4c request/review working wording/usability are accepted for their bounded scopes. [I4c receipt](../07-handoff/i4c-attendance-correction-implementation.md). This packet advances the remaining QR/manual parity requirement without retiring offline, wider roles or other roadmap stages.
 
 ## Outcome and traceability
 
@@ -48,3 +48,7 @@ Owner reviews remaining card/settings choices → connected EN/AR phone/desktop 
 ## Connected review preparation —28October2026
 
 Owner asked to reduce manual actions and handle simultaneous sessions/Trainers. Source review confirmed PYSA auto-submits after detection. Owner then proposed percentage/fixed/configurable windows and session selection; after the recommendation of Owner-configurable30-before/30-after defaults, unique-match automation and visible selection, responded “good”. This records that design direction only. [Connected design](i4d-qr-attendance-design-contract.md) and [local preview](../../design/i4d-qr-attendance/README.md) cover simultaneous sessions, back-to-back ambiguity, settings, credential lifecycle and failure/recovery. Card authority/lifetime recommendations and remaining settings choices are labeled proposed; design review cannot silently turn them into implemented or accepted permissions.
+
+## Explicit implementation authorization —28October2026
+
+Moamen selected “Accept these card and settings rules” and “Approve this connected design for implementation”. Current Owner-only one valid card, revoke/replace invalidation, valid-until-revoked/replaced, integer0–180 margins with30/30 defaults and preserved explicit overrides are accepted. Automatic actor-scoped unique-session Present and ambiguity selection follow the accepted direction. Earlier proposed/pending language above is historical; no hosted grant or independent/physical-camera/working acceptance is inferred.

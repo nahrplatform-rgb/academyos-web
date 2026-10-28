@@ -15,3 +15,5 @@ Try:
 7. Lost-reply/current-state/camera/read-failure scenarios show paused capture, original-operation recovery, no fake success and private denial. Try EN/AR and phone Back.
 
 [evidence/checks.json](evidence/checks.json) records16 local design scenarios. Strict TypeScript passed. Responsive screenshots cover EN/AR ambiguity and settings at360/1440; overflow checks also320/926. These are local Chromium simulations, not physical-camera/device, hosted authority, SQL atomicity, security review or measured performance evidence. Screenshots were visually inspected. No implementation or account grant occurs in this packet.
+
+Current28October2026: Owner explicitly accepted card/settings rules and approved the connected design for implementation. The descriptions above identify the preserved local simulation, not current product capability. Real implementation and evidence are tracked in [the I4d receipt](../../docs/07-handoff/i4d-qr-attendance-implementation.md); hardware/hosted/working acceptance stay separate.

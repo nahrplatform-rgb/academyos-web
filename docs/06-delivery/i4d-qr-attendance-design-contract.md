@@ -1,6 +1,6 @@
 # I4d — connected QR/session-selection design
 
-28October2026. Owner accepted the configurable-window/automatic-session-selection direction for design. **Connected design review pending; card lifecycle policy and numeric settings limits remain proposed.** [Policy/PYSA inspection](i4d-qr-attendance-decisions.md), [security/retrieval preparation](../04-engineering/i4d-qr-attendance-preparation.md), [local preview and evidence](../../design/i4d-qr-attendance/README.md).
+28October2026. Owner accepted the configurable-window/automatic-session-selection direction for design. **Connected design explicitly approved for implementation; card lifecycle and0–180-minute settings rules explicitly accepted28October2026.** [Policy/PYSA inspection](i4d-qr-attendance-decisions.md), [security/retrieval preparation](../04-engineering/i4d-qr-attendance-preparation.md), [local preview and evidence](../../design/i4d-qr-attendance/README.md).
 
 ## Connected review scope
 
@@ -38,3 +38,7 @@ Loading/read failure hide current roster/match and say that retrieval is unavail
 Local checks:16 connected design cases, strict TypeScript check, EN/AR320/360/926/1440 overflow and selected ambiguity/settings screenshots. Cases include unique auto-save; simultaneous Trainers; Trainer scope; overlapping scan margins; exact choice; early QR window; duplicate; Absent protection; academy/session setting inheritance; card replacement/revoke; current-state failures; unknown/confirmed-read recovery; camera/loading/private denial and dirty navigation. Actual browser/device decoder support, keyboard/screen-reader audit, camera scans, latency, burst budgets, data isolation, race and hosted proof remain open. Existing10/min write budget requires realistic burst evaluation before continuous scanner implementation; no unreviewed increase.
 
 Next: Owner resolves remaining card/settings recommendations and reviews this connected preview → bounded implementation → actual data/API/UI/recovery/race/physical-camera checks → staging and separate working acceptance. No design approval alone grants a person access or changes production.
+
+## Accepted implementation checkpoint —28October2026
+
+Moamen explicitly accepted the one-card lifecycle and0–180-minute Owner settings bounds and approved this connected design for implementation. Earlier next-review/proposed language is historical. [Actual source/tests/schema receipt](../07-handoff/i4d-qr-attendance-implementation.md). QR uses the existing60/minute manual-attendance write budget, with card/settings changes under10/minute; no global limit increase. Physical camera, hosted scanner and working acceptance remain separate.

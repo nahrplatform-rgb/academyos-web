@@ -1,0 +1,492 @@
+{
+  "before": [
+    {
+      "tablename": "academies",
+      "rows": 2,
+      "digest": "2b211d877247ec00e9a838f95e402a3b"
+    },
+    {
+      "tablename": "attendance_history",
+      "rows": 3,
+      "digest": "08849206df944e84e8619131b93aec49"
+    },
+    {
+      "tablename": "attendance_marks",
+      "rows": 1,
+      "digest": "9357ba72ed096b315ad351a3384a6d84"
+    },
+    {
+      "tablename": "attendance_operations",
+      "rows": 2,
+      "digest": "b2b0f46399c668a0a9bb3caac3136b60"
+    },
+    {
+      "tablename": "audit_events",
+      "rows": 101,
+      "digest": "a54a2571663f7d4ed2f7717af1da42f0"
+    },
+    {
+      "tablename": "branches",
+      "rows": 2,
+      "digest": "5488d30330030fc9669b278ec7d0da0e"
+    },
+    {
+      "tablename": "correction_history",
+      "rows": 2,
+      "digest": "fef280632bf63ad9db13747db64bbbfa"
+    },
+    {
+      "tablename": "correction_operations",
+      "rows": 2,
+      "digest": "9bba2720f30d6686294caaf7ca27e15a"
+    },
+    {
+      "tablename": "correction_requests",
+      "rows": 1,
+      "digest": "c7e6ed603e8e76d07136ff094acc83c6"
+    },
+    {
+      "tablename": "date_plans",
+      "rows": 43,
+      "digest": "cb881e6fb1fc7b8665642f26ec8eb339"
+    },
+    {
+      "tablename": "date_rosters",
+      "rows": 42,
+      "digest": "6de7ef406c94d3380203f2ce862b29e2"
+    },
+    {
+      "tablename": "guardian_invitations",
+      "rows": 1,
+      "digest": "d3df057aca8a10f9e116400ead3ef18d"
+    },
+    {
+      "tablename": "guardian_links",
+      "rows": 1,
+      "digest": "c81242e03dd956832cf1444cf5b3aa23"
+    },
+    {
+      "tablename": "guardian_operations",
+      "rows": 4,
+      "digest": "8748df10d5e67f3390e8bb8a0c67f5b0"
+    },
+    {
+      "tablename": "guardian_people",
+      "rows": 1,
+      "digest": "13489c5f2d79b63113c8558243b14641"
+    },
+    {
+      "tablename": "guardian_training_access",
+      "rows": 1,
+      "digest": "b9218e6e1a4589e7da38e37e4da74cc6"
+    },
+    {
+      "tablename": "identities",
+      "rows": 2,
+      "digest": "aa0537ada1f1a79b70d8ce3bab637fb7"
+    },
+    {
+      "tablename": "initial_setup",
+      "rows": 2,
+      "digest": "0d8e1fcbd3e5ff4b09fb69961fc8a1b2"
+    },
+    {
+      "tablename": "memberships",
+      "rows": 4,
+      "digest": "e5b25703f6f3723b11928158d4a62c1b"
+    },
+    {
+      "tablename": "operations",
+      "rows": 16,
+      "digest": "159b16b365b1081716311940530cdb5a"
+    },
+    {
+      "tablename": "owner_invitations",
+      "rows": 2,
+      "digest": "73bfcc63607dadeeb99e2af5fe0b7b85"
+    },
+    {
+      "tablename": "people_operations",
+      "rows": 6,
+      "digest": "a8c7e126354697daf5f510bb408f1804"
+    },
+    {
+      "tablename": "planning_operations",
+      "rows": 6,
+      "digest": "35776776ca165dfd55d4e6581ee2df8a"
+    },
+    {
+      "tablename": "platform_grants",
+      "rows": 1,
+      "digest": "a4828cc89d0c46ed1125d5e8487a6042"
+    },
+    {
+      "tablename": "player_name_revisions",
+      "rows": 4,
+      "digest": "0f036854bcb56a2eb3254dea46fe8b09"
+    },
+    {
+      "tablename": "players",
+      "rows": 4,
+      "digest": "e4e9741f83024c2d2aab2a596d445abb"
+    },
+    {
+      "tablename": "program_plan_operations",
+      "rows": 4,
+      "digest": "a8cc468867329cacccf828629374b19b"
+    },
+    {
+      "tablename": "program_plan_players",
+      "rows": 3,
+      "digest": "e5bf9bdfce95ed78bab7705a8bf9b18d"
+    },
+    {
+      "tablename": "program_plan_targets",
+      "rows": 40,
+      "digest": "688b7cbc2ecb1ed05ef3c270b071445f"
+    },
+    {
+      "tablename": "program_plans",
+      "rows": 1,
+      "digest": "ec2be67458b4a5064b3acca69311596d"
+    },
+    {
+      "tablename": "publication_events",
+      "rows": 3,
+      "digest": "e76b867938202392f3693e7113a3fe20"
+    },
+    {
+      "tablename": "publication_heads",
+      "rows": 2,
+      "digest": "470b515f2bee08dfb29ecb0e61d24ef3"
+    },
+    {
+      "tablename": "publication_jobs",
+      "rows": 4,
+      "digest": "e81f3708b4417fedf0e8d823a7447658"
+    },
+    {
+      "tablename": "publication_operations",
+      "rows": 12,
+      "digest": "bcc7d38f1321af7d3f0c058e5b5506dc"
+    },
+    {
+      "tablename": "publication_rosters",
+      "rows": 2,
+      "digest": "38ca8fa4fa51523bdf0992c45750b085"
+    },
+    {
+      "tablename": "publication_targets",
+      "rows": 43,
+      "digest": "dda28f65fba4e5cbe0373eb42abcf67d"
+    },
+    {
+      "tablename": "session_change_operations",
+      "rows": 2,
+      "digest": "3e11c033be301615fe2d708752caf235"
+    },
+    {
+      "tablename": "session_changes",
+      "rows": 2,
+      "digest": "d6ab992276eecf35e850ef67e60211e1"
+    },
+    {
+      "tablename": "sports",
+      "rows": 2,
+      "digest": "451a0d713db7f67cc1a092b0bd0681ac"
+    },
+    {
+      "tablename": "trainer_assignments",
+      "rows": 1,
+      "digest": "9aa2e09cd7c5164490079828bd659790"
+    },
+    {
+      "tablename": "trainer_invitations",
+      "rows": 1,
+      "digest": "c82e02b4e18c9c6ffd7f6a43e2a183bd"
+    },
+    {
+      "tablename": "trainer_operations",
+      "rows": 5,
+      "digest": "dbf2c185124b97ed81a8c68c078d9d7e"
+    },
+    {
+      "tablename": "trainer_people",
+      "rows": 1,
+      "digest": "2112faa1dddf835b07ad3d1737509749"
+    },
+    {
+      "tablename": "training_dates",
+      "rows": 61,
+      "digest": "ecf77423a40063698bb955e1749aab07"
+    },
+    {
+      "tablename": "training_operations",
+      "rows": 4,
+      "digest": "47cc8dc92514cb3aceefcafc5031625e"
+    },
+    {
+      "tablename": "training_programs",
+      "rows": 4,
+      "digest": "5a18a1e67d1f1ac310f978f79ca3a814"
+    }
+  ],
+  "after": [
+    {
+      "tablename": "academies",
+      "rows": 2,
+      "digest": "2b211d877247ec00e9a838f95e402a3b"
+    },
+    {
+      "tablename": "attendance_history",
+      "rows": 3,
+      "digest": "08849206df944e84e8619131b93aec49"
+    },
+    {
+      "tablename": "attendance_marks",
+      "rows": 1,
+      "digest": "9357ba72ed096b315ad351a3384a6d84"
+    },
+    {
+      "tablename": "attendance_operations",
+      "rows": 2,
+      "digest": "b2b0f46399c668a0a9bb3caac3136b60"
+    },
+    {
+      "tablename": "audit_events",
+      "rows": 101,
+      "digest": "a54a2571663f7d4ed2f7717af1da42f0"
+    },
+    {
+      "tablename": "branches",
+      "rows": 2,
+      "digest": "5488d30330030fc9669b278ec7d0da0e"
+    },
+    {
+      "tablename": "correction_history",
+      "rows": 2,
+      "digest": "fef280632bf63ad9db13747db64bbbfa"
+    },
+    {
+      "tablename": "correction_operations",
+      "rows": 2,
+      "digest": "9bba2720f30d6686294caaf7ca27e15a"
+    },
+    {
+      "tablename": "correction_requests",
+      "rows": 1,
+      "digest": "c7e6ed603e8e76d07136ff094acc83c6"
+    },
+    {
+      "tablename": "date_plans",
+      "rows": 43,
+      "digest": "cb881e6fb1fc7b8665642f26ec8eb339"
+    },
+    {
+      "tablename": "date_rosters",
+      "rows": 42,
+      "digest": "6de7ef406c94d3380203f2ce862b29e2"
+    },
+    {
+      "tablename": "guardian_invitations",
+      "rows": 1,
+      "digest": "d3df057aca8a10f9e116400ead3ef18d"
+    },
+    {
+      "tablename": "guardian_links",
+      "rows": 1,
+      "digest": "c81242e03dd956832cf1444cf5b3aa23"
+    },
+    {
+      "tablename": "guardian_operations",
+      "rows": 4,
+      "digest": "8748df10d5e67f3390e8bb8a0c67f5b0"
+    },
+    {
+      "tablename": "guardian_people",
+      "rows": 1,
+      "digest": "13489c5f2d79b63113c8558243b14641"
+    },
+    {
+      "tablename": "guardian_training_access",
+      "rows": 1,
+      "digest": "b9218e6e1a4589e7da38e37e4da74cc6"
+    },
+    {
+      "tablename": "identities",
+      "rows": 2,
+      "digest": "aa0537ada1f1a79b70d8ce3bab637fb7"
+    },
+    {
+      "tablename": "initial_setup",
+      "rows": 2,
+      "digest": "0d8e1fcbd3e5ff4b09fb69961fc8a1b2"
+    },
+    {
+      "tablename": "memberships",
+      "rows": 4,
+      "digest": "e5b25703f6f3723b11928158d4a62c1b"
+    },
+    {
+      "tablename": "operations",
+      "rows": 16,
+      "digest": "159b16b365b1081716311940530cdb5a"
+    },
+    {
+      "tablename": "owner_invitations",
+      "rows": 2,
+      "digest": "73bfcc63607dadeeb99e2af5fe0b7b85"
+    },
+    {
+      "tablename": "people_operations",
+      "rows": 6,
+      "digest": "a8c7e126354697daf5f510bb408f1804"
+    },
+    {
+      "tablename": "planning_operations",
+      "rows": 6,
+      "digest": "35776776ca165dfd55d4e6581ee2df8a"
+    },
+    {
+      "tablename": "platform_grants",
+      "rows": 1,
+      "digest": "a4828cc89d0c46ed1125d5e8487a6042"
+    },
+    {
+      "tablename": "player_name_revisions",
+      "rows": 4,
+      "digest": "0f036854bcb56a2eb3254dea46fe8b09"
+    },
+    {
+      "tablename": "players",
+      "rows": 4,
+      "digest": "e4e9741f83024c2d2aab2a596d445abb"
+    },
+    {
+      "tablename": "program_plan_operations",
+      "rows": 4,
+      "digest": "a8cc468867329cacccf828629374b19b"
+    },
+    {
+      "tablename": "program_plan_players",
+      "rows": 3,
+      "digest": "e5bf9bdfce95ed78bab7705a8bf9b18d"
+    },
+    {
+      "tablename": "program_plan_targets",
+      "rows": 40,
+      "digest": "688b7cbc2ecb1ed05ef3c270b071445f"
+    },
+    {
+      "tablename": "program_plans",
+      "rows": 1,
+      "digest": "ec2be67458b4a5064b3acca69311596d"
+    },
+    {
+      "tablename": "publication_events",
+      "rows": 3,
+      "digest": "e76b867938202392f3693e7113a3fe20"
+    },
+    {
+      "tablename": "publication_heads",
+      "rows": 2,
+      "digest": "470b515f2bee08dfb29ecb0e61d24ef3"
+    },
+    {
+      "tablename": "publication_jobs",
+      "rows": 4,
+      "digest": "e81f3708b4417fedf0e8d823a7447658"
+    },
+    {
+      "tablename": "publication_operations",
+      "rows": 12,
+      "digest": "bcc7d38f1321af7d3f0c058e5b5506dc"
+    },
+    {
+      "tablename": "publication_rosters",
+      "rows": 2,
+      "digest": "38ca8fa4fa51523bdf0992c45750b085"
+    },
+    {
+      "tablename": "publication_targets",
+      "rows": 43,
+      "digest": "dda28f65fba4e5cbe0373eb42abcf67d"
+    },
+    {
+      "tablename": "qr_card_heads",
+      "rows": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "tablename": "qr_cards",
+      "rows": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "tablename": "qr_operations",
+      "rows": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "tablename": "qr_window_overrides",
+      "rows": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "tablename": "qr_window_settings",
+      "rows": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "tablename": "session_change_operations",
+      "rows": 2,
+      "digest": "3e11c033be301615fe2d708752caf235"
+    },
+    {
+      "tablename": "session_changes",
+      "rows": 2,
+      "digest": "d6ab992276eecf35e850ef67e60211e1"
+    },
+    {
+      "tablename": "sports",
+      "rows": 2,
+      "digest": "451a0d713db7f67cc1a092b0bd0681ac"
+    },
+    {
+      "tablename": "trainer_assignments",
+      "rows": 1,
+      "digest": "9aa2e09cd7c5164490079828bd659790"
+    },
+    {
+      "tablename": "trainer_invitations",
+      "rows": 1,
+      "digest": "c82e02b4e18c9c6ffd7f6a43e2a183bd"
+    },
+    {
+      "tablename": "trainer_operations",
+      "rows": 5,
+      "digest": "dbf2c185124b97ed81a8c68c078d9d7e"
+    },
+    {
+      "tablename": "trainer_people",
+      "rows": 1,
+      "digest": "2112faa1dddf835b07ad3d1737509749"
+    },
+    {
+      "tablename": "training_dates",
+      "rows": 61,
+      "digest": "ecf77423a40063698bb955e1749aab07"
+    },
+    {
+      "tablename": "training_operations",
+      "rows": 4,
+      "digest": "47cc8dc92514cb3aceefcafc5031625e"
+    },
+    {
+      "tablename": "training_programs",
+      "rows": 4,
+      "digest": "5a18a1e67d1f1ac310f978f79ca3a814"
+    }
+  ],
+  "changed": []
+}

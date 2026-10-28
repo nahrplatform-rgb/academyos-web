@@ -135,3 +135,9 @@ test('correction requests deny untrusted writes and unconfigured protected queue
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections')).status()).toBe(503);
 });
+
+test('QR capture and card/settings routes deny untrusted or unconfigured entry',async({request})=>{
+ const response=await request.post('/api/qr',{data:{action:'capture',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);
+ for(const path of ['attendance/scan','attendance/settings','players/00000000-0000-4000-8000-000000000002/card'])expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/'+path)).status()).toBe(503);
+});

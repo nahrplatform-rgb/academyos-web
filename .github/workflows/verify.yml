@@ -91,4 +91,10 @@ jobs:
           node scripts/corrections/test_api.mjs
           node scripts/corrections/test_ui.mjs
           UI_REACT_MODE=development node scripts/corrections/test_ui.mjs
+      - name: Verify QR card/windows/automatic capture and local decoder
+        run: |
+          node scripts/qr-attendance/test_api.mjs
+          node scripts/qr-attendance/test_decode.mjs
+          node scripts/qr-attendance/test_ui.mjs
+          UI_REACT_MODE=development node scripts/qr-attendance/test_ui.mjs
       - run: npm run test:e2e
