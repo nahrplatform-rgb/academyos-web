@@ -1,0 +1,69 @@
+{
+  "source": "ac7ed0a643842d8a768e779e5a514d7275735288",
+  "deployment": "dpl_9zz8dnGPBNaaym8CHvVnXb9MAXFG",
+  "ready_seconds": 62,
+  "authorization": "Moamen explicitly authorized temporary exact Guardian-view test and ending on 28 October 2026",
+  "pre": {
+    "fingerprints": {
+      "marks": "906c80b494bb91d44582ff69d1d98e08",
+      "history": "5f625fafeebf1d4201bf77899715a3d1",
+      "memberships": "9bb2da9be0272f4ed25ccacb28dbc5fe",
+      "other_links": null
+    },
+    "link": {
+      "optin": false,
+      "state": "ended",
+      "version": 3,
+      "membership": "active"
+    }
+  },
+  "post": {
+    "fingerprints": {
+      "marks": "906c80b494bb91d44582ff69d1d98e08",
+      "history": "5f625fafeebf1d4201bf77899715a3d1",
+      "memberships": "9bb2da9be0272f4ed25ccacb28dbc5fe",
+      "other_links": null
+    },
+    "link": {
+      "optin": false,
+      "state": "ended",
+      "version": 5,
+      "membership": "active"
+    },
+    "audits": [
+      {
+        "at": "2026-10-28T12:52:03.223323+00:00",
+        "action": "operator.i4b.guardian.enable",
+        "operation": "c92f7199-50bf-45db-8616-9d4b595e1d01"
+      },
+      {
+        "at": "2026-10-28T12:55:33.643816+00:00",
+        "action": "operator.i4b.guardian.end",
+        "operation": "fd0b9083-a6ab-4184-82df-8a88ab041deb"
+      }
+    ]
+  },
+  "canonical_owner_end": {
+    "operation": "dac76d3e-5bdf-4d04-ae11-36bc80ab814b",
+    "at": "2026-10-28T12:55:14.217619Z",
+    "action": "guardian.end"
+  },
+  "closed": true,
+  "verified": [
+    "real separate iCloud Guardian session",
+    "own current corrected Absent/version2 matches canonical mark",
+    "EN/AR session context, Back, week calendar and empty day",
+    "Guardian capture route denied",
+    "other academy Guardian route denied",
+    "canonical Owner ending then exact-link opt-in closed",
+    "next selected-link period request denied and private view cleared",
+    "memberships/marks/history/other-links unchanged"
+  ],
+  "limits": [
+    "No hosted raw signed direct-API exercise",
+    "No before-link-acceptance historical hosted occurrence or multi-player hosted switching workload",
+    "No physical device/screen-reader/network p95/load/cost proof",
+    "Fresh Safari reload follow-up interrupted after user changed window; next-request denial already recorded",
+    "Independent human security and working-feature acceptance remain pending"
+  ]
+}
