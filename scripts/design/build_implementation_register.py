@@ -213,11 +213,11 @@ for row in action_rows:
           action_contract='docs/06-delivery/i4d-qr-attendance-design-contract.md',
           implementation_status='I4a retained; I4d real card/windows/camera/automatic scoped capture and recovery implemented',
           implementation_source='apps/web/src/components/qr-workspace.tsx',
-          verification_status='111 actual PG17 cases;63 units;14 React cases in production/development; encoder-decoder/API and16 foundation E2E passed locally; hosted schema ACL/fingerprints checked; no physical-camera proof',
-          deployment_status='I4d schema20261028184008/app1370d2d serving dpl_7VTqnvB3cNZaRop9hnYDdrQaF1s2; authorized Owner/Trainer typed capture/duplicate/revocation/end verified; access ended',
-          owner_approval_status='I4a working acceptance retained; I4d policy and connected design approved28Oct2026; I4d working acceptance pending',
+          verification_status='111 actual PG17 cases;63 units;15 QR React cases in both modes; encoder-decoder/API and16 foundation E2E; hosted isolation/ACL plus one Mac Chrome physical positive-duplicate and negative-card test; broader gates open',
+          deployment_status='I4d schema20261028184008/app22274f0 serving dpl_GqVX3PRz1z1yrivznxjBoTB6Gpij; typed and Mac Chrome physical proof; test card revoked and Trainer access ended',
+          owner_approval_status='I4a working acceptance retained; I4d policy and connected design approved28Oct2026; I4d scoped working QR ENAR wording/usability explicitly accepted28Oct2026',
           evidence_reference='docs/07-handoff/i4d-qr-attendance-implementation.md',
-          next_gate='Physical-camera/device/load/independent security and remaining hosted cases; scoped working acceptance')
+          next_gate='Broader device/accessibility/load/independent security and remaining hosted cases; Mac Chrome and scoped working acceptance recorded')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -282,10 +282,10 @@ for row in screen_rows:
         row.update(as_of='2026-10-28',design_status='I4d connected QR design approved28Oct2026',
           implementation_source='apps/web/src/components/qr-workspace.tsx',
           implementation_status='Bounded real online scanner, private Owner cards/settings and automatic authorized match implemented; full catalog scope incomplete',
-          verification_status='Local PG17/API/actual React/decoder; hosted schema ACL and unchanged domain fingerprints; no physical camera proof',
-          deployment_status='Staging schema/app1370d2d deployed; scoped actual Owner/Trainer typed capture/card lifecycle/ending verified; no physical camera proof',
-          owner_approval_status='I4d policy/design approved; working acceptance pending; prior per-slice approvals retained',
-          next_gate='Hosted scanner and physical device/load/security gates; working wording/usability acceptance')
+          verification_status='Local PG17/API/actual React/decoder; hosted schema/isolation and one Mac Chrome physical positive-duplicate and negative-card test; broader hardware/accessibility/load/security open',
+          deployment_status='Staging schema/app22274f0 deployed; scoped actual Owner/Trainer typed capture/card lifecycle/ending plus one Mac Chrome physical test; wider devices open',
+          owner_approval_status='I4d policy/design and scoped working QR ENAR wording/usability accepted28Oct2026; prior approvals retained',
+          next_gate='Remaining hosted API/races; wider device/accessibility/load/cost and independent security; scoped working acceptance retained')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

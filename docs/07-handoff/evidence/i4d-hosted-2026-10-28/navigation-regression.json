@@ -6,5 +6,13 @@
   "lint": "passed",
   "build": "passed",
   "typecheck": "passed; see completed command log",
-  "database_change": false
+  "database_change": false,
+  "commit": "22274f073f86d8c0bf448ecc1dac4cb8c26e1fec",
+  "ci": {
+    "push": 40755718931,
+    "pull_request": 40755725636,
+    "conclusion": "both success"
+  },
+  "promotion_created": "dpl_GqVX3PRz1z1yrivznxjBoTB6Gpij",
+  "promotion_status": "Ready; staging.academy.nahr.dev resolves to this deployment"
 }

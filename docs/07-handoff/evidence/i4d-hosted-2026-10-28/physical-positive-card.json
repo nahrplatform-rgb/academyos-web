@@ -1,0 +1,27 @@
+{
+  "scope": "User-performed real Mac FaceTime HD camera in Chrome, actual current Owner account; no frame injection or typed fallback for this positive retry",
+  "userReported": "Synthetic Registration Demo · Present · Already recorded; no new attendance entry. Synthetic I4d QR Attendance Demo",
+  "agentObserved": "Actual Chrome AX displayed the same current player/result, selected event and Camera recording/Camera running. Agent then clicked Stop camera and observed recording end. No frames or usable QR screenshots saved.",
+  "database": {
+    "marks": 1,
+    "history": 1,
+    "checked_at": "2026-10-28T19:50:29.633986+00:00",
+    "active_trainers": 0,
+    "owner_capture_receipts": [
+      {
+        "at": "2026-10-28T19:49:30.862469+00:00",
+        "id": "5333c96f-cff2-4312-9f64-763f0b1456e6",
+        "result": {
+          "kind": "scan",
+          "name": "Synthetic Registration Demo",
+          "event": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+          "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "status": "present",
+          "already": true,
+          "version": 1
+        }
+      }
+    ]
+  },
+  "limits": "One Mac/Chrome physical display-or-print test; exact medium not independently identified. Other devices/browsers, new unmarked physical capture and performance/independent review remain separate."
+}
