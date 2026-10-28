@@ -27,3 +27,5 @@ On mobile, use concise cards and expandable detail. In Arabic, metric labels and
 ## Acceptance and recovery
 
 Test revoked trainer access with a stale page, foreign player IDs, entitlement denial through alternate write paths, concurrent drafts, partial save failure, missing metrics, unpublished guardian access, changed guardian link and amendment history. Verify one publication generates one logical notification per eligible recipient, despite job retries. An export must agree with the published snapshot even if a draft is edited while it runs.
+
+I5a scoped continuation29October2026: [accepted narrative policy](../06-delivery/i5a-development-feedback-decisions.md), [approved connected design](../06-delivery/i5a-development-feedback-design-contract.md) and [implementation checkpoint](../07-handoff/i5a-development-feedback-implementation.md). This adds reviewed session-bound narrative feedback only. Scored metrics/period assessments, Player access, notification/export and broader correction rationale remain pending. Existing Guardian links gain no automatic development fields; hosted verification and working acceptance are separate.

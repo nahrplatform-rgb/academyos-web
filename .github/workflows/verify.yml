@@ -98,3 +98,8 @@ jobs:
           node scripts/qr-attendance/test_ui.mjs
           UI_REACT_MODE=development node scripts/qr-attendance/test_ui.mjs
       - run: npm run test:e2e
+      - name: Development feedback API and actual React recovery contracts
+        run: |
+          node scripts/development/test_api.mjs
+          node scripts/development/test_ui.mjs
+          UI_REACT_MODE=development node scripts/development/test_ui.mjs

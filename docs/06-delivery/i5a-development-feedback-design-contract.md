@@ -1,6 +1,6 @@
 # I5a — connected development feedback design
 
-28 October 2026. [Bounded policy](i5a-development-feedback-decisions.md) explicitly accepted for design. **Connected design pending Owner review.** This is a fictional local React simulation, not an app implementation, database, role grant or hosted proof.
+28 October 2026. [Bounded policy](i5a-development-feedback-decisions.md) explicitly accepted for design. **Moamen explicitly approved this connected design for implementation on28October2026: “Approve this design for implementation.”** This is a fictional local React simulation, not an app implementation, database, role grant or hosted proof.
 
 ## Journey and preserved scope
 

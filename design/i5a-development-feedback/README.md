@@ -1,6 +1,6 @@
 # I5a — development feedback preview
 
-[Accepted policy for design](../../docs/06-delivery/i5a-development-feedback-decisions.md), [connected contract](../../docs/06-delivery/i5a-development-feedback-design-contract.md). **Separate design approval pending.**
+[Accepted policy for design](../../docs/06-delivery/i5a-development-feedback-decisions.md), [connected contract](../../docs/06-delivery/i5a-development-feedback-design-contract.md). **Moamen separately approved this design for implementation on28October2026. The preview remains a simulation.**
 
 Open http://127.0.0.1:3225/. Build with `node scripts/design/build_i5a_review.mjs`, serve with `python3 scripts/design/serve_i5a_review.py`, verify with `node scripts/design/test_i5a_review.mjs` using the existing Node24 dependencies.
 

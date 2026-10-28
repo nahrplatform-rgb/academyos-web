@@ -1,6 +1,6 @@
 # I5a — reviewed development feedback
 
-28 October 2026. **Moamen explicitly accepted this bounded policy for design: “Accept this policy for design.” Connected design review remains pending; no implementation or access grant is inferred.** I4d working QR wording/usability was accepted; wider security, device, accessibility and load/cost gates remain open in the [current receipt](../07-handoff/i4d-qr-attendance-implementation.md).
+28 October 2026. **Moamen explicitly accepted this bounded policy for design: “Accept this policy for design.” Connected design was separately approved for implementation on28October2026; no access grant is inferred.** I4d working QR wording/usability was accepted; wider security, device, accessibility and load/cost gates remain open in the [current receipt](../07-handoff/i4d-qr-attendance-implementation.md).
 
 ## Connected outcome and traceability
 

@@ -141,3 +141,9 @@ test('QR capture and card/settings routes deny untrusted or unconfigured entry',
  expect(response.status()).toBe(403);
  for(const path of ['attendance/scan','attendance/settings','players/00000000-0000-4000-8000-000000000002/card'])expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/'+path)).status()).toBe(503);
 });
+
+test('development feedback rejects untrusted writes and unconfigured staff/family entry',async({request})=>{
+ const response=await request.post('/api/development',{data:{action:'command',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ for(const path of ['development','guardian/development'])expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/'+path)).status()).toBe(503);
+});

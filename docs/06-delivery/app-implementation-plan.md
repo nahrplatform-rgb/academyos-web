@@ -222,3 +222,5 @@ I4d acceptance/follow-up28October2026: working QR journey explicitly accepted af
 I5a preparation28October2026: [reviewed narrative feedback recommendation and engineering bounds](i5a-development-feedback-decisions.md). Policy/design pending; scored metrics, Player access and notification/export remain in I5 scope. This preparation changes no evaluation implementation or access.
 
 I5a policy continuation28October2026: Owner explicitly accepted policy for design. [Connected development-feedback preview](i5a-development-feedback-design-contract.md) is ready for its separate review; no evaluation API/database/deployment or account grant. Prior proposed-policy wording is historical for this bounded subset.
+
+I5a continuation29October2026: policy and connected design explicitly approved; [real source and evidence checkpoint](../07-handoff/i5a-development-feedback-implementation.md). Source/local checks progressed; schema/app rollout, hosted role journey and working acceptance remain separate. No new test access is authorized.
