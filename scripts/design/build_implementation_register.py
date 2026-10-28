@@ -176,11 +176,11 @@ for row in action_rows:
           action_contract='docs/06-delivery/i4a-online-attendance-design-contract.md',
           implementation_source='apps/web/src/components/attendance-workspace.tsx',
           implementation_status='Bounded online manual register and reasoned Owner direct correction implemented locally; wider capture/scan/correction-request family remains open',
-          verification_status='85 actual disposable PG17 cases; API/actual React production-development/55 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted attendance and independent gates open',
-          deployment_status='Additive staging migration20261028024556 and appfa1fff8 deployed; dpl_B6kFNoy4Z5N9cKJ9K6RNF9HXt82p Ready; limited Owner/denied-resource smoke passed; hosted attendance pending',
+          verification_status='85 actual disposable PG17 cases; API/actual React production-development/55 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted Trainer record/Owner correction/history/revocation verified; remaining active-Trainer replacement/direct-API/independent gates open',
+          deployment_status='Staging migration20261028024556; attendance and guidance appefe364a deployed dpl_92imToTLwhL9XqUW8ytvmkwZDwYU Ready; scoped attendance/correction/revocation verified',
           owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
-          next_gate='Separately authorized temporary Trainer hosted attendance test; working acceptance; remaining independent security/device/load/cost gates')
+          next_gate='Working acceptance; active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -222,8 +222,8 @@ for row in screen_rows:
           design_status='Bounded I4a connected register design approved28Oct',
           implementation_status='Manual published-session register and Owner direct correction implemented locally; full Trainer Today/scanning/Manager scope remains open',
           verification_status='Per-slice local SQL/API/React/build receipts; no full-screen or independent-security acceptance',
-          deployment_status='Staging schema and appfa1fff8 deployed; actual attendance verification pending',
-          owner_approval_status='Policy/design approved; working-feature acceptance pending',next_gate='Hosted attendance and broader screen/security/device/load gates')
+          deployment_status='Staging schema/appefe364a and scoped attendance/correction/revocation verified',
+          owner_approval_status='Policy/design approved; working-feature acceptance pending',next_gate='Working acceptance and remaining hosted/independent screen/security/device/load gates')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

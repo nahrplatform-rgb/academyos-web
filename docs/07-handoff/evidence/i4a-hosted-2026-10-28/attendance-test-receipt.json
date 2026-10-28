@@ -100,12 +100,16 @@
   },
   "browser_limits": "Mac locked after Trainer confirm. Prepared audited ending fallback executed before Owner correction. Post-unlock ended Trainer register denied/cleared; Owner saved reasoned correction and reopened EN/AR history. Active Trainer saved-result/attempted replacement browser case remains unverified; local real React/SQL tests cover it.",
   "source_followup": {
-    "commit": "f51240f8c94532431b0541249804f2e1dd74a527",
+    "commit": "efe364a170a71bb85126e4f23acafa77fe5b5d53",
     "ci": [
-      40638073331,
-      40638077322
+      40640668007,
+      40640674802
     ],
     "ci_status": "success",
-    "deployed": false
+    "deployed": true,
+    "deployment": "dpl_92imToTLwhL9XqUW8ytvmkwZDwYU",
+    "domain": "staging.academy.nahr.dev",
+    "ready_seconds": 42,
+    "hosted_recheck": "EN/AR attendance-protected guidance; saved mark/history reopens; fresh ended-Trainer request denies"
   }
 }
