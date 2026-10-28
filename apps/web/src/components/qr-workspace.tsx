@@ -65,7 +65,7 @@ function Journey({ locale: initial, academy, view, player, event, day: initialDa
         code: string;
     } | null>(null), [fresh, setFresh] = useState(false);
     const alive = useRef(false), lock = useRef(false), controllers = useRef(new Set<AbortController>()), code = useRef(''), cardCode = useRef(''), storeKey = `qr:v1:${subject}:${academy}`, uncertain = !!pending, opener = useRef<HTMLButtonElement>(null);
-    const activeSession = sessions?.items.find(s => s.id === target), currentBefore = target === 'academy' ? ctx?.settings.before : activeSession?.window.before, currentAfter = target === 'academy' ? ctx?.settings.after : activeSession?.window.after, dirty = view === 'settings' && (before !== currentBefore || after !== currentAfter), scope = mode === 'auto' ? selected : [mode];
+    const activeSession = sessions?.items.find(s => s.id === target), currentBefore = target === 'academy' ? ctx?.settings.before : activeSession?.window.before, currentAfter = target === 'academy' ? ctx?.settings.after : activeSession?.window.after, dirty = view === 'settings' && !!ctx?.owner && !denied && (before !== currentBefore || after !== currentAfter), scope = mode === 'auto' ? selected : [mode];
     useEffect(() => { alive.current = true; const list = controllers.current; return () => { alive.current = false; list.forEach(c => c.abort()); code.current = ''; cardCode.current = ''; }; }, []);
     async function call<T>(data: Record<string, unknown>): Promise<T> {
         const c = new AbortController();
