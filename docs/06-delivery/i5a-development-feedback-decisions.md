@@ -1,6 +1,6 @@
 # I5a — reviewed development feedback
 
-28 October 2026. **Proposed policy and engineering preparation only. No acceptance, implementation or access grant is inferred.** I4d working QR wording/usability was accepted; wider security, device, accessibility and load/cost gates remain open in the [current receipt](../07-handoff/i4d-qr-attendance-implementation.md).
+28 October 2026. **Moamen explicitly accepted this bounded policy for design: “Accept this policy for design.” Connected design review remains pending; no implementation or access grant is inferred.** I4d working QR wording/usability was accepted; wider security, device, accessibility and load/cost gates remain open in the [current receipt](../07-handoff/i4d-qr-attendance-implementation.md).
 
 ## Connected outcome and traceability
 
@@ -21,7 +21,7 @@ J16-A01–A06 / IMP-J16-A01; S31/S32/S47; L10; SEC-J16; AO-085–092 / AT-085–
 | Published correction | Immutable snapshot. Author proposes a successor through the same Owner review; old publication stays visible until its replacement commits atomically. Owner can withdraw with an internal reason; history remains, withdrawn content is absent from future family reads. Previously seen copies cannot be recalled. |
 | Side effects | Fictional staging only. No email/push, export/download, attachments, automated grading, medical information or real children. AO-092 stays pending. Test access restoration requires separate authorization. |
 
-These are recommendations as a set, not accepted rules imported from PYSA. Policy approval authorizes connected design preparation only; a separate prototype review precedes database work.
+The policy above is accepted for design as a bounded set by the explicit response recorded at the top. Engineering retrieval limits and budgets below remain design proposals. Broader metric/Player/notification/export policy is unresolved. A separate [connected prototype review](i5a-development-feedback-design-contract.md) precedes database work.
 
 ## PYSA reference inspected, read only
 
