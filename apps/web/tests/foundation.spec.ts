@@ -117,3 +117,9 @@ test('session changes deny untrusted writes and unconfigured protected entry',as
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/2026-11-01/change')).status()).toBe(503);
 });
+
+ test('attendance denies untrusted capture and unconfigured protected register',async({request})=>{
+ const response=await request.post('/api/attendance',{data:{action:'mark',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/attendance/00000000-0000-4000-8000-000000000002')).status()).toBe(503);
+ });

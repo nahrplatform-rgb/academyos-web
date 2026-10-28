@@ -76,4 +76,9 @@ jobs:
           node scripts/publication/test_api.mjs
           node scripts/publication/test_ui.mjs
           UI_REACT_MODE=development node scripts/publication/test_ui.mjs
+      - name: Verify attendance API and actual register recovery
+        run: |
+          node scripts/attendance/test_api.mjs
+          node scripts/attendance/test_ui.mjs
+          UI_REACT_MODE=development node scripts/attendance/test_ui.mjs
       - run: npm run test:e2e

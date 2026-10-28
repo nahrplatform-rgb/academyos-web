@@ -45,3 +45,7 @@ Owner policy choice → connected EN/AR phone/desktop design including failure/r
 ## Policy acceptance —28 October2026
 
 Moamen explicitly selected “Accept these attendance rules for design”: assigned Trainer/Owner manual Present/Absent within start through24 hours after effective end; Unmarked never means Absent; Owner-only reasoned correction/history; attendance protects schedule/roster. This settles only the bounded recommendations above for design. QR, late/excused, guardian visibility, offline, delegated Manager authority and broader correction workflows remain pending. No real access grant or implementation approval is inferred.
+
+## Connected-design approval —28 October2026
+
+Moamen explicitly selected “Approve this attendance design for implementation”. The bounded I4a register, manual capture, reasoned Owner correction/history and attendance protection may now be implemented and tested. This is not working-feature acceptance, an account grant, independent security approval or production authorization.

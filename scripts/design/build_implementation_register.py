@@ -167,6 +167,20 @@ for row in action_rows:
           owner_approval_status=row['owner_approval_status']+'; I3d policy/design approved27Oct; Moamen explicitly accepted working publication journey wording/usability28Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i3d-publication-implementation.md',
           next_gate='I3d remaining hosted direct-API/races and independent security/device/performance/load/cost gates')
+# I4a implements manual capture and reasoned Owner direct correction only.
+for row in action_rows:
+    if row['work_item_id'] in ('IMP-J12-A01','IMP-J13-A01'):
+        row.update(as_of='2026-10-28', actor_context='Current Owner or exact active assigned Trainer; Owner-only direct correction; synthetic published occurrence',
+          policy_status='Bounded I4a D-012 rules accepted28Oct; QR/offline/late/excused/family/Manager and request-review policy remain open',
+          design_status='Connected I4a EN/AR phone/desktop design explicitly approved28Oct2026',
+          action_contract='docs/06-delivery/i4a-online-attendance-design-contract.md',
+          implementation_source='apps/web/src/components/attendance-workspace.tsx',
+          implementation_status='Bounded online manual register and reasoned Owner direct correction implemented locally; wider capture/scan/correction-request family remains open',
+          verification_status='85 actual disposable PG17 cases; API/actual React production-development/54 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted attendance and independent gates open',
+          deployment_status='Additive staging migration20261028024556 applied; app rollout and hosted attendance pending',
+          owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
+          evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
+          next_gate='Exact-source app CI/rollout; separately authorized temporary Trainer hosted test; working acceptance; remaining independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -202,6 +216,14 @@ for row in screen_rows:
           deployment_status='Existing bounded slice deployed; reference refinement rollout recorded in reference-refinement-implementation.md',
           design_status='Owner confirmed original-reference foundation 2026-10-25',
           owner_approval_status='Prior per-slice functional approvals preserved; deployed workflow clarity presentation accepted25Oct2026; broader screen acceptance open')
+for row in screen_rows:
+    if row['screen_id']=='S27':
+        row.update(as_of='2026-10-28',implementation_source='apps/web/src/components/attendance-workspace.tsx',
+          design_status='Bounded I4a connected register design approved28Oct',
+          implementation_status='Manual published-session register and Owner direct correction implemented locally; full Trainer Today/scanning/Manager scope remains open',
+          verification_status='Per-slice local SQL/API/React/build receipts; no full-screen or independent-security acceptance',
+          deployment_status='Staging schema applied; app/hosted attendance pending',
+          owner_approval_status='Policy/design approved; working-feature acceptance pending',next_gate='Hosted attendance and broader screen/security/device/load gates')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

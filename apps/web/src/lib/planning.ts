@@ -1,6 +1,6 @@
 // Browser-safe bounded planning contract; identity/authority are always server derived.
 export type PersonChoice={id:string;name:string;enrolled?:boolean;eligible?:boolean};
-export type DatePlan={published?:boolean;scheduled_day?:string;canceled?:boolean;schedule_version?:number;context:{academy_name:string;branch_name:string;branch_id:string};program:string;name:string;day:string;start:string;end:string;timezone:string;version:number;capacity:number|null;trainer:PersonChoice|null;count:number;players:PersonChoice[];more:boolean};
+export type DatePlan={attendance_event?:string|null;attendance_locked?:boolean;published?:boolean;scheduled_day?:string;canceled?:boolean;schedule_version?:number;context:{academy_name:string;branch_name:string;branch_id:string};program:string;name:string;day:string;start:string;end:string;timezone:string;version:number;capacity:number|null;trainer:PersonChoice|null;count:number;players:PersonChoice[];more:boolean};
 export type PlanningDelta={version:number;capacity:number;trainer:string|null;add:string[];remove:string[]};
 export class PlanningInputError extends Error{}
 const pattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;

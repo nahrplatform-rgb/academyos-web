@@ -38,3 +38,7 @@ EN/AR uses shared controls/native fields, RTL mirroring, isolated dates/times, l
 [Preview README](../../design/i4a-online-attendance/README.md), [automated checks](../../design/i4a-online-attendance/evidence/checks.json), [English desktop](../../design/i4a-online-attendance/evidence/review-en-1440.png), [Arabic phone](../../design/i4a-online-attendance/evidence/review-ar-360.png). Tests exercise in-memory transitions and layout at320/360/926/1440 in both languages, not actual current authorization, server clock/window, persisted attendance, atomicity, database races, provider performance or physical-device usability.
 
 Implementation must replace simulation with the full authoritative operation and re-test all affected scheduling writers under the shared attendance guard. Separate Owner connected-design review precedes that work; working-feature acceptance and independent security/device/load/cost gates remain later and separate.
+
+## Owner connected-design approval —28 October2026
+
+Explicitly approved for implementation. Local simulation remains a reference; real implementation/tests/rollout and separate working acceptance are tracked in [the implementation receipt](../07-handoff/i4a-attendance-implementation.md).

@@ -83,3 +83,10 @@ test("actual Supabase transport preserves gateway denial and expected POST path"
   assert.deepEqual((await allowed.rpc("m1_setup_v1", {a:"synthetic"}).throwOnError()).data,{version:3});
   assert.equal(sent,1);
 });
+
+ test("attendance gateway forwards the exact reviewed target to budget selection", async () => {
+ let seen = "";
+ const call = gatewayFetch("user_A", () => "a".repeat(64), async (write, target) => { assert.equal(write,true); seen=target; return false; }, async () => { throw new Error("Must not send"); });
+ await assert.rejects(call("https://snpphkenmvmhpjstbeul.supabase.co/rest/v1/rpc/a10_mark_v1", {method:"POST"}));
+ assert.equal(seen,"POST:/rpc/a10_mark_v1");
+ });

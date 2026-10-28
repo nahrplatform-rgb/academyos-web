@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "saves": 3,
+  "scope": "Actual product React, synthetic identity/HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode one initial read",
+    "complete paged roster",
+    "manual review and acknowledgment",
+    "lost reply reload original reconcile once",
+    "Trainer cannot replace mark",
+    "Owner required reason and retained history",
+    "stale reread",
+    "not-committed original fence",
+    "confirmed write failed read",
+    "EN/AR320/360/926/1440 no horizontal overflow",
+    "closed window no capture",
+    "denial clears private state",
+    "account remount"
+  ],
+  "errors": []
+}
