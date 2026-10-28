@@ -186,14 +186,14 @@ for row in action_rows:
     if row['work_item_id']=='IMP-J13-A01':
         row.update(policy_status='I4a and I4c bounded D-012 rules explicitly accepted; QR/offline/late/excused/Manager/after-window scope remains open',
           action_contract='docs/06-delivery/i4c-attendance-correction-design-contract.md',
-          implementation_status='I4a direct correction retained; I4c request/review source implemented and hosted schema applied; app deployed; live Trainer walkthrough pending',
+          implementation_status='I4a direct correction retained; I4c request/review source implemented and hosted schema applied; app deployed; scoped hosted Trainer request/approval/ending verified',
           implementation_source='apps/web/src/components/correction-workspace.tsx',
           verification_status='102 actual PG17 cases,60 units,15 foundation E2E, API and actual React production/development pass; existing hosted domain fingerprints unchanged; actual ENAR Owner queue and foreign-academy denial; broader gates open',
           deployment_status='I4c staging migration20261028153040 applied; appd26cad1 deployed dpl_8QACCy5gwbjZjBNV2mKui2tfZjTX Ready; I4a receipts retained',
           owner_approval_status='I4a working acceptance retained; I4c policy/design accepted for implementation; working feedback pending',
           design_status=row['design_status']+'; I4c connected ENAR request/review design explicitly approved for implementation28Oct2026',
           applicable_states=row['applicable_states']+'; expired; requester-ineligible; unknown/reconciled',
-          next_gate='Separately authorized hosted Trainer request/review walkthrough; prior security/device/load gates retained',
+          next_gate='Working-feature feedback; prior independent security/device/load gates retained',
           evidence_reference='docs/07-handoff/i4c-attendance-correction-implementation.md')
 # I4b policy/design and scoped working wording/usability accepted; broader gates remain open.
 for row in action_rows:
@@ -259,12 +259,12 @@ for row in screen_rows:
 for row in screen_rows:
     if row['screen_id']=='S29':
         row.update(as_of='2026-10-28',design_status='I4a direct-correction design accepted; I4c policy/design explicitly approved for implementation28Oct2026',
-          implementation_status='I4a direct correction retained; I4c request/review source implemented and hosted schema applied; app deployed; live Trainer walkthrough pending',
-          verification_status='102 actual PG17 cases; API/React production-development/60 units/build/lint/typecheck/15 foundation E2E; hosted schema ACL/fingerprint proof, ENAR Owner queue and foreign-academy denial; live Trainer journey pending',
+          implementation_status='I4a direct correction retained; I4c request/review source implemented and hosted schema applied; app deployed; scoped hosted Trainer request/approval/ending verified',
+          verification_status='102 actual PG17 cases; API/React production-development/60 units/build/lint/typecheck/15 foundation E2E; hosted schema ACL/fingerprint proof, ENAR Owner queue and foreign-academy denial; scoped hosted Trainer request/approval/ending verified',
           deployment_status='I4c migration20261028153040 applied to staging; appd26cad1 deployed Ready; no access grant',
           owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy/design accepted; working acceptance pending',
           implementation_source='apps/web/src/components/correction-workspace.tsx',
-          next_gate='Separately authorized hosted Trainer verification; remaining gates retained')
+          next_gate='Working-feature feedback; remaining independent gates retained')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

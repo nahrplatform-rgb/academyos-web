@@ -84,3 +84,5 @@ I4b Owner working-feature acceptance28October2026: Moamen explicitly accepted th
 ## I4c continuation —28October2026
 
 Correction-request policy and design explicitly approved; bounded implementation,102 SQL tests,60 units,15 foundation E2E, actual React/API checks, backup rehearsal, additive hosted migration and checked staging app rollout are recorded in [the I4c receipt](i4c-attendance-correction-implementation.md). Actual EN/AR Owner queue and cross-academy denial verified. [Prepared hosted Trainer request/review test](i4c-hosted-correction-test.md) still requires fresh temporary access-restoration authorization; prior Casey/Guardian grants remain ended. Working acceptance and independent/security/device/load gates remain separate.
+
+I4c hosted completion28October2026: separately authorized actual Trainer request → distinct Owner approval → Present/version3/history → canonical appointment ending → next-read private denial completed. [Execution/evidence/limits](i4c-hosted-correction-test.md). Casey membership/assignment ended again, zero active Trainers; no ongoing grant. Working acceptance and independent/security/device/load gates remain open.

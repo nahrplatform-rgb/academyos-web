@@ -1,6 +1,6 @@
 # I4c — attendance correction request/review implementation
 
-28 October 2026. Policy and connected EN/AR design explicitly approved for implementation. Source, local verification, hosted migration and staging app deployment are complete for this bounded slice. Hosted Trainer request/review and working-feature acceptance remain pending. No account access is restored by this packet.
+28 October 2026. Policy and connected EN/AR design explicitly approved for implementation. Source, local verification, hosted migration and staging app deployment are complete for this bounded slice. The authorized hosted Trainer request/Owner approval/ending test is complete; working-feature acceptance remains pending. No account access is restored by this packet.
 
 ## Outcome, scope and reusable boundaries
 
@@ -60,3 +60,7 @@ Source `d26cad10aaffb83e2d822b8bb8e9d2041a8d67e8` was pushed. [Push CI4071713359
 Actual existing signed-in Academy A Owner browser verified EN/AR correction queue and empty selection, bounded filter/navigation, and Academy B correction queue denial with no private request content. [Browser screenshots/text and release receipt](evidence/i4c-hosted-2026-10-28/). No correction requests were seeded to populate the queue. This proves these current read/denial states, not a real hosted Trainer submission, approval, rejection, deadline race or revocation.
 
 [The concrete hosted test](i4c-hosted-correction-test.md) is prepared for the existing fictional Casey appointment and existing attendance occurrence. It needs fresh explicit authorization to restore ended Trainer access temporarily. The approved mark/history would remain, and Trainer access would be ended afterward. All earlier completed temporary permissions stay ended. Working-feature acceptance, independent human/security, broader hosted API/race/device/accessibility/load/cost gates remain open.
+
+## Authorized hosted request/approval/end test completed
+
+[Exact execution and receipts](i4c-hosted-correction-test.md): actual distinct-account Trainer submitted a request while Absent/version2 remained unchanged; Owner approved atomically to Present/version3, request/attendance history and receipts agree; EN/AR results reopened; Owner ended Casey again and next Trainer read cleared private data. Zero active Trainers, Guardian training opt-in false, other membership hash unchanged. Temporary authorization is completed. Working-feature feedback and wider gates remain pending. Safari visual evidence and broad fingerprint limits are explicit in the test receipt.
