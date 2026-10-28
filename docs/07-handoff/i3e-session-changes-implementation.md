@@ -2,6 +2,8 @@
 
 28 October2026. Moamen accepted the [policy](../06-delivery/i3e-session-changes-decisions.md) and separately approved the [connected design](../06-delivery/i3e-session-changes-design-contract.md) for implementation. Prior working approvals remain valid for their reviewed scope.
 
+Current checkpoint: source implemented and committed; local declared checks passed; two additive staging migrations applied and checked; application promotion/signed-in walkthrough pending browser restart/provider access. Design approved; working-feature acceptance pending. No Trainer access restored.
+
 ## Implemented behavior and boundaries
 
 Current Academy Owner → Training → inspect a saved occurrence → Move, cancel and history → enter a reason and, for a move, new date/same-day times → authoritative before/after review → explicit confirmation → atomic persisted effective schedule, retained history, audit and operation receipt. The original `(program, occurrence day)` key remains unchanged. Other dates and the recurrence definition stay unchanged; a move outside the original period remains discoverable by effective date. Program occurrence pages retain original-key links; publication scope explicitly identifies original occurrences and shows each current date.
@@ -51,3 +53,9 @@ Final review found date-window filtering used the effective date while sorting s
 Fresh [backup40616083081](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40616083081) produced run68835d8e-98cc-4fc0-a2c1-501742bfc7d5, SHA2560db746e33fd6c54541277fabadb0c375a58b845ba380387d4cdf8dd32c6d1fb7,522552 bytes,0 objects. Trusted receipt/hash comparison, PG17 restore/membership boundary and ordering-migration rehearsal passed before apply. Provider assigned20261028014046; the identical rehearsed preliminary20261028013645 file was renamed accordingly. Post-apply58 dates/41 plans/0 history/4 memberships and ended Casey remain unchanged; effective ordering was confirmed in the authoritative function. Both rehearsals' plaintext payloads were removed.
 
 Production-build foundation E2E12 passed, including untrusted session-change API denial/no-store and unconfigured protected-page fail-closed behavior. The planning UI test's final-outcome status locator was made specific to its notice because the distinct loading status can appear simultaneously; its content assertion and saved-count/retained-intent checks remain unchanged. The corrected affected UI regression passed.
+
+## Resume after Codex restart
+
+Implementation source commit72693ea. First inspect working tree/current GitHub checks and provider deployment rather than rerunning accepted policy/design. Existing source branch is `codex/onboarding-decision-design-packet`. Vercel target is AcademyOS team `team_W0PAL8RjzQFCfaVL3JYy6H4g`, project `prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx`, staging.academy.nahr.dev; its provider Production slot is synthetic app staging, not a customer launch. Reuse the Owner's existing signed-in session after browser is enabled. Do not restore Casey or create invitations.
+
+After exact-source CI/build review, complete existing staging app promotion, then verify Owner move/cancel/reopen and effective-date discovery on a clearly fictional unassigned future occurrence. Keep audit/roster/history and confirm no other dates changed. Working EN/AR feedback follows the real walkthrough; security/device/load/cost gates stay distinct. Retain the design preview as a reference, not a substitute for hosted proof.
