@@ -1,6 +1,6 @@
 # I4b — family training read boundary preparation
 
-28 October 2026. **Planning only; proposed policy awaiting Owner decision.** SEC-J15/I4b, J15/IMP-J15-A01, L09, partial AO-014/015/016. [Decision and PYSA reference packet](../06-delivery/i4b-guardian-training-decisions.md), [security gate](journey-security-review.md), [existing I4a evidence](../07-handoff/i4a-attendance-implementation.md).
+28 October 2026. **Policy accepted for design28October2026; connected-design review pending. No dependent implementation.** SEC-J15/I4b, J15/IMP-J15-A01, L09, partial AO-014/015/016. [Decision and PYSA reference packet](../06-delivery/i4b-guardian-training-decisions.md), [security gate](journey-security-review.md), [existing I4a evidence](../07-handoff/i4a-attendance-implementation.md).
 
 ## Changed trust boundary
 
@@ -11,7 +11,7 @@ Reuse current Clerk/gateway/body validation, private schema/RLS and g3 relations
 ## Retrieval, freshness and recovery proposal
 
 - Active linked-player chooser: at most25 plus sentinel, deterministic cursor, minimal link/player/name/branch. Fetch selected player only; no all-child fan-out.
-- Selected schedule: seven-day query windows, at most25 occurrences plus sentinel per page, stable `(effective start, occurrence/event)` cursor. Browse previous/next windows and all pages; this is a request bound, **not a seven-day program/history limit**. Next-session lookup uses the same scoped source with a minimal limit; past retained periods follow the Owner's selected historical-access rule. Any calendar design must retain every dated occurrence and explicit coverage.
+- Selected schedule: seven-day query windows, at most25 occurrences plus sentinel per page, stable `(effective start, occurrence/event)` cursor. Browse previous/next windows and all pages; this is a request bound, **not a seven-day program/history limit**. Next-session lookup uses the same scoped source with a minimal limit; past retained periods include published sessions before link acceptance, as explicitly accepted. Any calendar design must retain every dated occurrence and explicit coverage.
 - Selected detail: one authorized event and own current mark/version/last-update, no joined full roster/contacts/private history. Keep each response below32KiB uncompressed; byte-aware pages if names require fewer rows. Avoid N+1 child/session queries and undefined all-time aggregates.
 - Private `no-store`; scope client memory by subject/academy/link/player/period/event. Abort superseded reads and discard obsolete results. Clear the previous child immediately on switch; clear all private regions on denial. Independently retry failed period/detail reads without pretending they are empty or replacing a confirmed current mark with cached data.
 - Revalidate on opening, period/child change, focus and reconnect. No routine polling or permanent manual-refresh prerequisite. Re-read current link/publication/mark each request; account sign-out and context changes invalidate state. A revoked view becomes unavailable; no hidden replay of private data through a read receipt.
