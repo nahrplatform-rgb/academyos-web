@@ -158,3 +158,7 @@ I3d policy/design, real implementation, exact-source staging rollout and scoped 
 Next: [I3e one future move/cancel decision packet](i3e-session-changes-decisions.md), [engineering preparation](../04-engineering/i3e-session-changes-preparation.md) and [ongoing PYSA behavior ledger](../03-design/pysa-behavior-preservation.md). Policy recommendation awaits explicit decision; connected-design review precedes implementation. Essential scheduling connects to attendance next; advanced scheduling scope is retained without blocking every later module.
 
 28 October2026 I3e policy accepted for design: Owner explicitly accepted one future occurrence move/cancel, preserved plan/history, withdraw-before-change and no implicit side effects. [Connected preview and design contract](i3e-session-changes-design-contract.md) prepared with local simulation/TypeScript/ENAR responsive checks. Separate connected-design approval remains pending; no dependent product/database/provider or account change.
+
+## I3e implementation continuation —28 October2026
+
+Owner approved the connected session-change design for implementation. [I3e implementation, tests and rollout](../07-handoff/i3e-session-changes-implementation.md) records original/effective date identity, atomic move/cancel/history, scope/version integration and recovery. Working-feature acceptance and hosted/device/security/performance gates remain separate. No production or account grant inferred.

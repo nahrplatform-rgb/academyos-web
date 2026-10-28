@@ -29,7 +29,7 @@ try{
  const send=body=>POST(new NextRequest('https://staging.academy.nahr.dev/api/planning',{method:'POST',headers:{origin:'https://staging.academy.nahr.dev','content-type':'application/json'},body:JSON.stringify(body)}));
  function reset(results){state.results=results;state.budgets=[];state.provider=state.rpc=state.dispatch=0;}
  const academy='00000000-0000-4000-8000-000000000001',op='00000000-0000-4000-8000-000000000002';
- const target={academy,program:op,day:'2026-11-01'},delta={...target,version:0,capacity:1,trainer:null,add:[],remove:[]};
+ const target={academy,program:op,day:'2026-11-01'},delta={...target,schedule_version:1,version:0,capacity:1,trainer:null,add:[],remove:[]};
  const cases=[{action:'dates',academy,from:'2026-11-01'},{action:'read',...target},{action:'candidates',...target,kind:'player',query:''},{action:'review',...delta},{action:'save',...delta,op},{action:'reconcile',academy,op}];
  for(const body of cases)for(const result of [{success:false},{success:true,reason:'timeout'},'unavailable']){
   reset([result]);const r=await send(body);assert.equal(r.status,result==='unavailable'?503:429);assert.equal(state.rpc,0);assert.equal(r.headers.get('cache-control'),'no-store');

@@ -1,0 +1,34 @@
+{
+  "status": "passed outer statement budget and committed counts",
+  "scope": "Actual disposable PG17 public activation, includes connection/process launch; excludes HTTP/identity/provider/hosted/device, one player per date only.300ms SQLp95 target assessed separately, not silently waived.",
+  "metrics": {
+    "20": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 46.86129199399147,
+      "max_ms": 49.213165999390185,
+      "outer_statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "40": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 59.52229099057149,
+      "max_ms": 60.66491598903667,
+      "outer_statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "100": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 97.58450000663288,
+      "max_ms": 98.28045799804386,
+      "outer_statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "1000": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 658.3627499931026,
+      "max_ms": 660.6251670018537,
+      "outer_statement_budget_ms": 3000,
+      "roster_per_date": 1
+    }
+  }
+}

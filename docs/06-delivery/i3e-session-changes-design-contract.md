@@ -1,6 +1,6 @@
 # I3e — connected one-session change design
 
-28 October2026. Owner explicitly accepted the [one-session policy](i3e-session-changes-decisions.md) for design. Separate connected-design approval is pending. [Local preview/review instructions](../../design/i3e-session-changes/README.md). No dependent app/database/provider mutation or actual access grant.
+28 October2026. Owner explicitly accepted the [one-session policy](i3e-session-changes-decisions.md) for design. Connected-design approval was recorded28 October2026; current implementation evidence is linked below. [Local preview/review instructions](../../design/i3e-session-changes/README.md). This is the design-review record; current implementation and rollout are tracked separately below. No actual account grant is inferred.
 
 ## Connected contract
 
@@ -27,3 +27,9 @@ J09/J10/J11; proposed J11-MOVE/CANCEL; S23/S24/S26/S27; L04/L07; SEC-J09/11; sco
 Local actual compiled React simulation passes movement outside sample recurrence, original/retained values and unchanged other occurrence, canceled history/actions, withdraw-before-change, occupied-date/interval and simulated policy failures, stale/unknown all-none/confirmed-read recovery, loading/denied states, EN/AR320/360/926/1440 and discard/reopen/reset. [Exact checks](../../design/i3e-session-changes/evidence/checks.json), [source hashes](../../design/i3e-session-changes/source-manifest.json). Strict TypeScript passed. No product implementation, migration, real conflict/DST verification, account grant, hosted rollout or working-feature acceptance inferred.
 
 The in-app browser attempt reported local browser use disabled. No actual in-app-browser walkthrough is claimed for I3e; local Chromium interaction/layout checks above remain separate evidence. The local review server is available at127.0.0.1:3215 for the Owner to inspect directly.
+
+## Connected-design approval —28 October2026
+
+Moamen explicitly selected “Approve this session-change design for implementation”. The bounded move/cancel slice may now be implemented and verified. No actual account restoration/invitation, real data, fee/makeup/notification or production authority is inferred. Current implementation/tests/rollout/working acceptance remain separate.
+
+Current execution: [I3e implementation receipt](../07-handoff/i3e-session-changes-implementation.md). The earlier simulation-only statements describe the design-review evidence; they do not supersede the separate implementation/test/rollout record.

@@ -45,3 +45,7 @@ Replacing an assignment must not delete the old assignment before knowing the re
 ## Acceptance
 
 Test concurrent last-seat enrollment, recurring capacity, custom extra-session roster, dated-only trainer assignment, overnight conflict, stale edit version, failed conflict query, duplicate reschedule, partial assignment replacement and end-date changes with attended history. Verify the calendar, trainer home, guardian schedule, notifications and audit agree after each committed change. A next-session card must use a valid timestamp and locale formatting; empty, cancelled and invalid-source states are explicit.
+
+## Accepted I3e subset —28 October2026
+
+The [one-session policy](../06-delivery/i3e-session-changes-decisions.md) and connected design are approved. Current Owner may move/cancel one future fictional occurrence after withdrawal, preserving original identity, exact plan/roster and history. A separate effective date supports discovery outside the original period. Canceled dates retain history but cease conflict occupancy and are excluded from newly prepared planning/publication scope. Older captured reviews become stale. No reinstatement, makeup, family notification, fee or attendance authority is inferred. [Current implementation evidence](../07-handoff/i3e-session-changes-implementation.md).

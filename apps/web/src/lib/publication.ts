@@ -15,7 +15,7 @@ export function publicationRequest(v:unknown){if(!v||typeof v!=='object'||Array.
  else if(b.action==='roster'){keys=['action','academy','event','after'];rpc='s8_roster_v1';args={a,event:id(b.event),after_id:b.after==null?null:id(b.after)};}
  else throw new PublicationInputError();if(Object.keys(b).some(k=>!keys.includes(k)))throw new PublicationInputError();return{rpc,args,mutating};
 }
-export type PublicationDate={day:string;start:string;finish:string;version:number|null;capacity:number|null;roster_count:number|null;published:boolean;trainer:string|null;eligible:boolean};
+export type PublicationDate={day:string;scheduled_day?:string;canceled?:boolean;start:string;finish:string;version:number|null;capacity:number|null;roster_count:number|null;published:boolean;trainer:string|null;eligible:boolean};
 export type PublicationJob={job:string;program:string;kind:'publish'|'withdraw';version:number;state:'preparing'|'ready'|'committed'|'cancelled';from:string;to:string;weekdays:number[];total:number;changes:number;prepared:number;blocked:number;items:(PublicationDate&{changing:boolean;prepared:boolean;problem:string|null;plan_version:number})[];more:boolean};
 export type PublishedHeader={id:string;program:string;day:string;starts_at:string;ends_at:string;capacity:number;roster_count:number;projection:{name:string;branch:string;sport:string;sport_ar:string;timezone:string}};
 export type PublishedRoster=PublishedHeader&{count:number;players:{id:string;name:string}[];more:boolean};

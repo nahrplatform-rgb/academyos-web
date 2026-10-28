@@ -1,12 +1,12 @@
 # I3e — one future session change: decision and preservation packet
 
-28 October2026. **Owner accepted this one-session change policy for design28 October2026.** Authorization to continue preparation does not accept the new cancellation/rescheduling rules. Prior I3a–I3d working approvals remain valid. This document changes no app, schema, provider or account.
+28 October2026. **Owner accepted this one-session change policy for design28 October2026.** Connected design was subsequently approved for implementation; see the acceptance record below. Prior I3a–I3d working approvals remain valid. Current implementation and rollout are recorded separately in the linked receipt.
 
 ## Connected outcome
 
 Owner opens an existing dated session from Training → chooses Move this date or Cancel this date → reviews exact before/after time, Trainer, capacity, roster and visibility → confirms one atomic change → reopens the retained record/history. A moved session remains private until the existing explicit publication review. Cancellation is a retained operating state, not deletion. This is the next operational prerequisite before attendance, not a claim that all scheduling is finished.
 
-## Recommended bounded policy
+## Accepted bounded policy
 
 - Current Academy Owner only, existing initial branch/sport, fictional staging data. No Manager/Trainer scheduling authority added.
 - Only a session whose current start is future may move or cancel. New start must also be future. Published sessions must first be withdrawn through the accepted operation. No mutation of started/historical dates.
@@ -37,3 +37,7 @@ Next gate: Owner policy choice → connected EN/AR phone/desktop design and fail
 ## Policy acceptance —28 October2026
 
 Moamen explicitly selected “Accept this one-session change policy for design”. This authorizes the connected local design only; separate design approval precedes dependent implementation. No actual account grant, session mutation, financial or notification effect is authorized by this policy acceptance.
+
+## Connected-design approval —28 October2026
+
+Moamen explicitly selected “Approve this session-change design for implementation”. The bounded move/cancel slice may now be implemented and verified. No actual account restoration/invitation, real data, fee/makeup/notification or production authority is inferred. Current implementation/tests/rollout/working acceptance remain separate.

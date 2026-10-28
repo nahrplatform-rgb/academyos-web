@@ -1,6 +1,6 @@
 // Browser-safe bounded planning contract; identity/authority are always server derived.
 export type PersonChoice={id:string;name:string;enrolled?:boolean;eligible?:boolean};
-export type DatePlan={published?:boolean;context:{academy_name:string;branch_name:string;branch_id:string};program:string;name:string;day:string;start:string;end:string;timezone:string;version:number;capacity:number|null;trainer:PersonChoice|null;count:number;players:PersonChoice[];more:boolean};
+export type DatePlan={published?:boolean;scheduled_day?:string;canceled?:boolean;schedule_version?:number;context:{academy_name:string;branch_name:string;branch_id:string};program:string;name:string;day:string;start:string;end:string;timezone:string;version:number;capacity:number|null;trainer:PersonChoice|null;count:number;players:PersonChoice[];more:boolean};
 export type PlanningDelta={version:number;capacity:number;trainer:string|null;add:string[];remove:string[]};
 export class PlanningInputError extends Error{}
 const pattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
@@ -19,7 +19,7 @@ export function planningRequest(v:unknown){
  case 'read':keys=['action','academy','program','day','after'];rpc='q6_read_v1';args.after_id=b.after==null?null:id(b.after);break;
  case 'candidates':keys=['action','academy','program','day','kind','query','after'];rpc='q6_candidates_v1';if(!['trainer','player'].includes(String(b.kind))||typeof b.query!=='string'||b.query.length>80)throw new PlanningInputError();Object.assign(args,{kind:b.kind,query:b.query,after_id:b.after==null?null:id(b.after)});break;
  case 'review':case 'save':{
- keys=['action','academy','program','day','version','capacity','trainer','add','remove',...(b.action==='save'?['op']:[])];const add=ids(b.add),remove=ids(b.remove);if(add.length+remove.length>25||add.some(x=>remove.includes(x)))throw new PlanningInputError();Object.assign(args,{expected_version:integer(b.version),capacity:integer(b.capacity,1),trainer:b.trainer===null?null:id(b.trainer),add_ids:add,remove_ids:remove});rpc=b.action==='save'?'q6_save_v1':'q6_review_v1';if(b.action==='save'){args.op=id(b.op);mutating=true;}break;}
+ keys=['action','academy','program','day','schedule_version','version','capacity','trainer','add','remove',...(b.action==='save'?['op']:[])];const add=ids(b.add),remove=ids(b.remove);if(add.length+remove.length>25||add.some(x=>remove.includes(x)))throw new PlanningInputError();Object.assign(args,{sv:integer(b.schedule_version,1),expected_version:integer(b.version),capacity:integer(b.capacity,1),trainer:b.trainer===null?null:id(b.trainer),add_ids:add,remove_ids:remove});rpc=b.action==='save'?'q6_save_v2':'q6_review_v2';if(b.action==='save'){args.op=id(b.op);mutating=true;}break;}
  default:throw new PlanningInputError();
  }
  }

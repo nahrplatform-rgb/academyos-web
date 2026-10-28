@@ -1,6 +1,6 @@
 # I3e — session-change engineering preparation
 
-28 October2026. Policy accepted for design28 October2026; connected-design approval pending. [Policy/PYSA packet](../06-delivery/i3e-session-changes-decisions.md). No functional implementation or hosted mutation.
+28 October2026. Policy accepted for design28 October2026; connected design approved for implementation28 October2026. [Policy/PYSA packet](../06-delivery/i3e-session-changes-decisions.md). This preparation is not runtime evidence; current implementation and rollout are linked below.
 
 ## Scope and affected boundary
 
@@ -33,3 +33,17 @@ Additive migration needs fresh trusted backup restore rehearsal and before/after
 ## Policy acceptance —28 October2026
 
 Moamen explicitly selected “Accept this one-session change policy for design”. This authorizes the connected local design only; separate design approval precedes dependent implementation. No actual account grant, session mutation, financial or notification effect is authorized by this policy acceptance.
+
+## Connected-design approval —28 October2026
+
+Moamen explicitly selected “Approve this session-change design for implementation”. The bounded move/cancel slice may now be implemented and verified. No actual account restoration/invitation, real data, fee/makeup/notification or production authority is inferred. Current implementation/tests/rollout/working acceptance remain separate.
+
+Current execution: [I3e implementation receipt](../07-handoff/i3e-session-changes-implementation.md). The earlier simulation-only statements describe the design-review evidence; they do not supersede the separate implementation/test/rollout record.
+
+## Implementation security review —28 October2026
+
+Engineering self-review of the actual additive migration/API/React: current Owner scope through i2_owner/q6_target; lifecycle lock shared with planning/publication/appointment ending; private-table RLS and no client grants; fixed gateway-attested RPCs; staged-only same-origin8192-byte JSON and fail-closed shared request budgets; expected schedule/plan/head; immutable original keys/snapshots; atomic audit/history/receipts; denied clearing and account remount; no new browser authority/privileged key. Negative role/tenant/helper calls, observed competing commit orders, validation/audit rollback, replay/fence and changed-date discovery are exercised locally. New individual-planning v2 RPCs bind the schedule revision even at plan version0; the existing gateway remains mandatory for legacy reconciliation/internal validation paths.
+
+UI/storage holds only the scoped operation ID across reload; reasons/player names are not persisted to browser storage or telemetry. Current selected-session read combines bounded current metadata/25-name roster and25-entry newest-first history in one request. This proportional implementation choice replaces the preparation suggestion of a separate history request; it avoids an extra sequential call, remains bounded and does not fetch every row. No query failure becomes an empty/conflict-free success.
+
+This is the implementing agent's engineering review, not an independent human/security approval. Hosted signed-in/direct-API/race/failure, physical-device/accessibility, controlled performance/load/WAL/cost and wider scheduling cases remain open. No additional account or third-party disclosure is authorized. See the [implementation receipt](../07-handoff/i3e-session-changes-implementation.md) for exact current evidence.

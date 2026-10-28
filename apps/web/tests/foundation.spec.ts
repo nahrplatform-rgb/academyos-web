@@ -111,3 +111,9 @@ test('publication and Trainer schedule reject untrusted entry and unconfigured a
  expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
  for(const suffix of ['programs/00000000-0000-4000-8000-000000000002/publish','trainer/schedule'])expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/'+suffix)).status()).toBe(503);
 });
+
+test('session changes deny untrusted writes and unconfigured protected entry',async({request})=>{
+ const response=await request.post('/api/session-changes',{data:{action:'save',academy:'00000000-0000-4000-8000-000000000001'}});
+ expect(response.status()).toBe(403);expect(response.headers()['cache-control']).toBe('no-store');expect(await response.json()).toEqual({error:'denied'});
+ expect((await request.get('/en/workspace/00000000-0000-4000-8000-000000000001/programs/00000000-0000-4000-8000-000000000002/2026-11-01/change')).status()).toBe(503);
+});

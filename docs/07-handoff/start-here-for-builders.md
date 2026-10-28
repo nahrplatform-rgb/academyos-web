@@ -62,3 +62,7 @@ Publication/assigned Trainer schedule policy and design approved; real implement
 ## Ongoing reference preservation —28 October2026
 
 Use the [PYSA behavior preservation ledger](../03-design/pysa-behavior-preservation.md) with each journey packet and meaningful regression tests. I3d working publication wording/usability is accepted; [I3e session-change policy](../06-delivery/i3e-session-changes-decisions.md) is proposed for the next design. Preserve all prior acceptance and keep broader gates open.
+
+## I3e continuation —28 October2026
+
+Policy and connected design are approved for implementation. Read [current I3e source/test/rollout receipt](i3e-session-changes-implementation.md) before continuing. Preserve original occurrence keys, effective date discovery, canceled occupancy/history, schedule-bound planning and unknown-operation recovery. Browser walkthrough awaits the Owner's Codex restart; no new access grant is authorized.

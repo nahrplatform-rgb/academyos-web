@@ -1,0 +1,16 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "run_id": "4ef0e578-bdec-4bb9-b7fb-c1e04ae4cb07",
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "migration_rehearsed": "20261028012453_i3e_session_changes.sql",
+  "counts": {
+    "identities": 2,
+    "academies": 2,
+    "memberships": 4,
+    "private_tables_with_rls": 40
+  },
+  "hosted_storage_restore_tested": false,
+  "note": "Provider assigned20261028012453; identical SQL bytes were rehearsed under preliminary filename20261028004201_i3e_session_changes.sql",
+  "sha256": "6ccf71443c9184e7586d0ebac9f9467a9f2ee67e5f57266d6fcb302d74e595f4"
+}

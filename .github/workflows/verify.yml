@@ -66,6 +66,11 @@ jobs:
           node scripts/program-planning/test_api.mjs
           node scripts/program-planning/test_ui.mjs
           UI_REACT_MODE=development node scripts/program-planning/test_ui.mjs
+      - name: Verify session-change requests and recovery
+        run: |
+          node scripts/session-changes/test_api.mjs
+          node scripts/session-changes/test_ui.mjs
+          UI_REACT_MODE=development node scripts/session-changes/test_ui.mjs
       - name: Verify publication boundaries and role-specific recovery
         run: |
           node scripts/publication/test_api.mjs

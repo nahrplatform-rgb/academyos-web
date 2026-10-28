@@ -3,7 +3,7 @@ export type ProgramReviewReceipt = { through: number; digest: string; signature:
 export type ProgramRule = { day: number; start: string; end: string };
 export type ProgramDefinition = { name: string; from: string; to: string; rules: ProgramRule[] };
 export type ProgramRecord = { id: string; definition: ProgramDefinition; timezone: string; state: 'preparing' | 'paused' | 'failed' | 'ready'; completed: number; windows: number; prepared: number; total: number; version: number; context_version: number; failure: string | null; failure_date: string | null };
-export type ProgramDate = { date: string; start: string; end: string; utcStart: string; utcEnd: string };
+export type ProgramDate = { date: string; scheduledDate?:string;canceled?:boolean; start: string; end: string; utcStart: string; utcEnd: string };
 export type ProgramContext = { academy_id: string; academy_name: string; branch_id: string; branch_name: string; sport_id: string; sport_name: string; sport_name_ar: string; timezone: string; version: number };
 export class ProgramInputError extends Error {}
 function object(value: unknown): Record<string, unknown> { if (!value || typeof value !== 'object' || Array.isArray(value)) throw new ProgramInputError(); return value as Record<string, unknown>; }
