@@ -162,3 +162,7 @@ Next: [I3e one future move/cancel decision packet](i3e-session-changes-decisions
 ## I3e implementation continuation —28 October2026
 
 Owner approved the connected session-change design for implementation. [I3e implementation, tests and rollout](../07-handoff/i3e-session-changes-implementation.md) records original/effective date identity, atomic move/cancel/history, scope/version integration and recovery. Working-feature acceptance and hosted/device/security/performance gates remain separate. No production or account grant inferred.
+
+I3e hosted follow-up28October: existing staging app now serves7e32557 after passkey reauthentication; actual Owner synthetic move/cancel/history/retained roster and effective-date discovery verified. [Hosted evidence and limits](../07-handoff/i3e-session-changes-implementation.md). Working-feature feedback remains pending; no full scheduling/security/device/load acceptance inferred.
+
+I3e Owner working-feature acceptance28October2026: Moamen explicitly accepted the deployed session-change EN/AR wording/usability. Existing scoped approvals remain valid; independent security, broader hosted recovery/race, physical-device and load/cost gates remain open. See the I3e implementation receipt for exact evidence.

@@ -2,7 +2,7 @@
 
 28 October2026. Moamen accepted the [policy](../06-delivery/i3e-session-changes-decisions.md) and separately approved the [connected design](../06-delivery/i3e-session-changes-design-contract.md) for implementation. Prior working approvals remain valid for their reviewed scope.
 
-Current checkpoint: source implemented and committed; local declared checks passed; two additive staging migrations applied and checked; application promotion/signed-in walkthrough pending browser restart/provider access. Design approved; working-feature acceptance pending. No Trainer access restored.
+Current checkpoint: source implemented/pushed, local checks and exact-source CI passed; two additive staging migrations applied; application promoted and scoped signed-in EN/AR journey verified28 October2026. Design and scoped working-feature wording/usability accepted. No Trainer access restored. See the latest hosted receipt below; earlier pending statements are historical checkpoints.
 
 ## Implemented behavior and boundaries
 
@@ -67,3 +67,21 @@ Implementation/evidence commits72693ea and a1ef8f7 pushed to the existing branch
 A final test-only follow-up makes the new unknown-operation assertion explicitly select the final notice while a separate loading status may coexist. Same content and saved-count assertions remain; production/development component checks both passed afterward. No application or schema changed in this follow-up.
 
 GitHub push surfaced an open default-branch development dependency alert for braces, GHSA-vfj7-8cjw-p6xm. Read-only GitHub advisory verification identifies it as withdrawn on23 October2026 with no patched version listed. No speculative dependency upgrade or alert dismissal was performed; this is not a complete dependency/security audit.
+
+## Hosted rollout and actual Owner journey —28 October2026
+
+Browser access restored. Both [CI40617402838](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40617402838) and [CI40617395884](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40617395884) passed for7e32557ceaecc9ecf9606764fe3303377da81492. Vercel requested routine reauthentication; Chrome completed the existing passkey flow. [Deployment6DzdgUMjxiLWrBeuex8umLd8dYas](https://vercel.com/academy-os2/academyos-web/6DzdgUMjxiLWrBeuex8umLd8dYas) is Ready,55s, exact source7e32557, staging.academy.nahr.dev assigned. This uses the existing provider Production slot for synthetic app staging; no customer production launch or security-protection change. [Deployment proof](evidence/i3e-hosted-2026-10-28/deployment-ready.png).
+
+Through the existing signed-in Owner session, created **Synthetic I3e Change Demo** (8fca9113-2b85-462f-9148-8ab85513a8c4), two Sunday occurrences1/8November2026 19:00–20:00 Africa/Cairo. Saved1November capacity2, no Trainer and exactly one existing fictional player, Synthetic Registration Demo. Actual server review and confirmation moved that occurrence outside the program period to15November19:30–20:30; database UTC is17:30–18:30Z. Original1November identity, capacity and exact roster remained.8November remained unchanged. Owner dated-window selection starting15November found the moved occurrence in chronological order; reopening the plan showed the retained player.
+
+Reviewed cancellation in EN/AR, explicitly confirmed, reopened/reloaded: effective date/time retained, canceled=true, schedule/plan revisions3, same roster row, two history entries, two original-operation receipts and two audit events. Plan/edit/cancel controls are disabled for the canceled result. No publication or implicit makeup/financial effect occurred. The8November occurrence remains available for a later deliberate Owner review. [Actual result and unchanged-data fingerprints](evidence/i3e-hosted-2026-10-28/hosted-result.json). Existing58 dates,41 plans,40 roster rows,4 memberships and1 Trainer assignment match their pre-test fingerprints after excluding this new fixture. Casey remains ended. No new account, invitation, membership or assignment was created.
+
+The actual signed-in Owner opening this session under foreign academyB's ID was denied and the screen contained no program/player/private session projection. [Denial proof](evidence/i3e-hosted-2026-10-28/foreign-academy-denied.png). This is one actual-session tenant denial, not the entire hosted wrong-role/direct-API/race matrix. No membership was changed to obtain evidence.
+
+[Live EN/AR360/1440 viewport checks](evidence/i3e-hosted-2026-10-28/responsive-checks.json) passed visible history/no horizontal overflow, with screenshots saved. Temporary viewport override was reset. These are browser-emulated widths, not physical-device/accessibility acceptance. [One bounded signed-in navigation](evidence/i3e-hosted-2026-10-28/network-read-smoke.json) observed one session-change API request,200/no-store,926ms,874 transferred bytes; no per-date roster fan-out. Network observation was disabled afterward. This ordinary-connection smoke is not controlled-network/cold-provider/p95/load/cost proof. No request bodies, credentials or private headers were persisted.
+
+Implemented/local-tested/deployed/scoped-hosted verified are now recorded separately. Working-feature wording/usability feedback remains pending explicit Owner response; independent human security, broader hosted direct-API/race/interrupted-outcome, physical-device/accessibility and load/WAL/cost gates stay open. No new policy or privileged grant is inferred.
+
+## Owner working-feature acceptance —28 October2026
+
+Moamen explicitly selected **“Accept the working session-change flow”** for the deployed Owner one-date move → exact roster/history retained → cancellation → reopened read-only result in EN/AR. This records working wording/usability separately from prior policy/design approval, deployment and engineering verification. The existing fictional8November occurrence remains available; the tested original1November occurrence is retained as canceled at its effective15November date. No financial/makeup/notification rule, Trainer access restoration, independent audit, physical-device or broader load/cost acceptance is inferred.

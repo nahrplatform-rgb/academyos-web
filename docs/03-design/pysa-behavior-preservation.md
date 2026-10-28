@@ -22,3 +22,7 @@ Append the relevant source/audit paths and limits in its packet; link the accept
 Existing domain receipts provide evidence; broader full-PYSA comparison remains incomplete. No imported real data, credentials, copied schema or live PYSA verification is implied.
 
 I3e current evidence: [implementation receipt](../07-handoff/i3e-session-changes-implementation.md). Stable original identity/effective-date discovery and exact retained roster implement the useful pattern; SQL failure/race tests address the reference partial-write risk. Source/local evidence remains separate from hosted proof and independent review.
+
+I3e hosted28Oct: one actual Owner synthetic move/cancel preserves original identity/exact roster/history, effective-date discovery observed; prior records/access fingerprint unchanged. [Evidence and remaining gates](../07-handoff/i3e-session-changes-implementation.md). Working acceptance remains separate.
+
+I3e Owner working-feature acceptance28October2026: Moamen explicitly accepted the deployed session-change EN/AR wording/usability. Existing scoped approvals remain valid; independent security, broader hosted recovery/race, physical-device and load/cost gates remain open. See the I3e implementation receipt for exact evidence.

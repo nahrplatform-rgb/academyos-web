@@ -66,3 +66,7 @@ Use the [PYSA behavior preservation ledger](../03-design/pysa-behavior-preservat
 ## I3e continuation —28 October2026
 
 Policy and connected design are approved for implementation. Read [current I3e source/test/rollout receipt](i3e-session-changes-implementation.md) before continuing. Preserve original occurrence keys, effective date discovery, canceled occupancy/history, schedule-bound planning and unknown-operation recovery. Browser walkthrough awaits the Owner's Codex restart; no new access grant is authorized.
+
+I3e latest28October: browser restored; exact7e32557 CI passed, app promoted to existing staging, actual Owner move/cancel/retained-roster/history and one tenant denial verified. Read the latest hosted section of the I3e receipt. Working acceptance and remaining independent/security/device/load gates are separate; no new Trainer access is authorized.
+
+I3e Owner working-feature acceptance28October2026: Moamen explicitly accepted the deployed session-change EN/AR wording/usability. Existing scoped approvals remain valid; independent security, broader hosted recovery/race, physical-device and load/cost gates remain open. See the I3e implementation receipt for exact evidence.
