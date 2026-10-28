@@ -1,6 +1,6 @@
 # I4a — connected online attendance recommendation
 
-28 October2026. **Proposed; not accepted.** I3e working session-change wording/usability is accepted separately. This packet starts the next dependency-ordered journey; it does not authorize attendance implementation or account grants.
+28 October2026. **Policy accepted for design; connected design review remains separate.** I3e working session-change wording/usability is accepted separately. This packet starts the next dependency-ordered journey; it does not yet authorize attendance implementation or account grants.
 
 ## Recommended first usable outcome
 
@@ -41,3 +41,7 @@ Useful continuity: schedule → exact occurrence → complete roster → per-per
 ## Next gates
 
 Owner policy choice → connected EN/AR phone/desktop design including failure/recovery → separate design review → dependent implementation and meaningful local/hosted tests → working acceptance. [Engineering preparation](../04-engineering/i4a-online-attendance-preparation.md) records intended retrieval/security/performance cases. This is documentation preparation only; no product/schema/provider/access change or deployment.
+
+## Policy acceptance —28 October2026
+
+Moamen explicitly selected “Accept these attendance rules for design”: assigned Trainer/Owner manual Present/Absent within start through24 hours after effective end; Unmarked never means Absent; Owner-only reasoned correction/history; attendance protects schedule/roster. This settles only the bounded recommendations above for design. QR, late/excused, guardian visibility, offline, delegated Manager authority and broader correction workflows remain pending. No real access grant or implementation approval is inferred.
