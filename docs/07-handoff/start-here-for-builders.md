@@ -70,3 +70,7 @@ Policy and connected design are approved for implementation. Read [current I3e s
 I3e latest28October: browser restored; exact7e32557 CI passed, app promoted to existing staging, actual Owner move/cancel/retained-roster/history and one tenant denial verified. Read the latest hosted section of the I3e receipt. Working acceptance and remaining independent/security/device/load gates are separate; no new Trainer access is authorized.
 
 I3e Owner working-feature acceptance28October2026: Moamen explicitly accepted the deployed session-change EN/AR wording/usability. Existing scoped approvals remain valid; independent security, broader hosted recovery/race, physical-device and load/cost gates remain open. See the I3e implementation receipt for exact evidence.
+
+## I4b continuation —28October2026
+
+Guardian training policy and connected design explicitly approved. [Implementation/local tests/schema/app checkpoint](i4b-guardian-training-implementation.md):91 SQL cases,57 units,14 foundation E2E and actual React/API checks passed; migration20261028122658 applied with zero opt-ins and unchanged domain fingerprints. Sourceac7ed0a preview Ready and exact CI green; staging promotion awaits the Owner's Vercel Touch ID. [Prepared exact-link hosted test](i4b-hosted-guardian-test.md) separately awaits authorization. Existing iCloud link stays ended; do not restore or expand it silently. Working acceptance and independent/security/device/load gates stay separate.
