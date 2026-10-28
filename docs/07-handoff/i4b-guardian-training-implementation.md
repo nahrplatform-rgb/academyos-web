@@ -59,3 +59,10 @@ Source **4d514c4b4b211f6dbd43d298d9aebb18f1d9d18a**, exact push40692594972/PR406
 Reloaded the actual Owner appointment screen, opened the already-ended link and verified revised EN/AR profile wording that training/current-own-attendance requires separate approval. [EN](evidence/i4b-hosted-2026-10-28/deployed-scope-en.png), [AR](evidence/i4b-hosted-2026-10-28/deployed-scope-ar.png). The ending-impact confirmation is covered by actual local Owner React tests; it was not rerun against hosted access after ending, and no second restoration occurred. Current DB confirms zero enabled training links and the test link ended. Scope/permission/canonical attendance behavior is unchanged from the separately recorded hosted ac7ed0a test.
 
 Working-feature feedback is requested and pending. Independent human security, direct signed hosted API/extended races, physical devices/accessibility, stable-network/cold performance/load/cost and earlier I4a active-Trainer replacement case remain open. No claim of full family-stage or security completion.
+
+
+## Owner working-feature acceptance —28October2026
+
+Moamen explicitly stated: “Accept the working Guardian training journey.” This records acceptance of the scoped deployed EN/AR wording/usability: select the actively linked player → published dated sessions and own current attendance → Owner ends the link → next request removes the view. Policy/design approvals, implementation, local checks and hosted evidence retain their separate receipts.
+
+This does not authorize restoring the ended test link or enabling any new training-view opt-in. Independent human security, direct signed hosted API/extended races, physical-device/accessibility, controlled-network/cold performance/load/cost and the earlier I4a active-Trainer replacement case remain open. No full family-stage or security acceptance is inferred.

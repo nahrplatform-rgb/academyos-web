@@ -40,3 +40,10 @@ Final: link ended/version5, opt-in false, Guardian membership still active; all 
 One presentation defect was found during ending: legacy name/branch-only copy understated the possible additional training view. EN/AR follow-up clarifies separately approved training/attendance and that ending removes all access through this link. Scope/permissions remain unchanged; local actual Owner/Guardian React regression tests include the revised ending-impact assertion. Follow-up staging status is in the implementation receipt. Working feedback and independent/security/device/load/cost gates remain separate.
 
 Final copy rollout:4d514c4 CI green; dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ Ready56s on staging. Actual ended-appointment scope copy verified EN/AR. No second temporary restoration or attendance change was needed. Working feedback pending.
+
+
+## Owner working-feature acceptance —28October2026
+
+Moamen explicitly stated: “Accept the working Guardian training journey.” This records acceptance of the scoped deployed EN/AR wording/usability: select the actively linked player → published dated sessions and own current attendance → Owner ends the link → next request removes the view. Policy/design approvals, implementation, local checks and hosted evidence retain their separate receipts.
+
+This does not authorize restoring the ended test link or enabling any new training-view opt-in. Independent human security, direct signed hosted API/extended races, physical-device/accessibility, controlled-network/cold performance/load/cost and the earlier I4a active-Trainer replacement case remain open. No full family-stage or security acceptance is inferred.

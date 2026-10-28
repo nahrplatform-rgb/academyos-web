@@ -14,6 +14,14 @@
   "copy_followup": "EN/AR scope and ending-impact only; actual local Guardian React production/development and lint/typecheck/build passed",
   "test_link": "ended",
   "enabled_training_links": 0,
-  "working_acceptance": "pending",
-  "remaining": "Independent human security; hosted direct API/extended races; physical devices/accessibility; network/cold performance/load/cost; earlier I4a replacement case"
+  "working_acceptance": "accepted: scoped EN/AR wording/usability on28October2026",
+  "remaining": "Independent human security; hosted direct API/extended races; physical devices/accessibility; network/cold performance/load/cost; earlier I4a replacement case",
+  "owner_working_acceptance": {
+    "owner": "Moamen Ghareeb",
+    "date": "2026-10-28",
+    "timezone": "Africa/Cairo",
+    "statement": "Accept the working Guardian training journey",
+    "scope": "Scoped working EN/AR wording and usability; independent security/device/performance and broader gates remain open",
+    "access_authority": "No new restoration or opt-in grant"
+  }
 }

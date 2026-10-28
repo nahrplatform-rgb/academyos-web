@@ -64,6 +64,14 @@
     "No before-link-acceptance historical hosted occurrence or multi-player hosted switching workload",
     "No physical device/screen-reader/network p95/load/cost proof",
     "Fresh Safari reload follow-up interrupted after user changed window; next-request denial already recorded",
-    "Independent human security and working-feature acceptance remain pending"
-  ]
+    "Independent human security remains pending; scoped working-feature acceptance recorded28October2026"
+  ],
+  "owner_working_acceptance": {
+    "owner": "Moamen Ghareeb",
+    "date": "2026-10-28",
+    "timezone": "Africa/Cairo",
+    "statement": "Accept the working Guardian training journey",
+    "scope": "Scoped working EN/AR wording and usability; independent security/device/performance and broader gates remain open",
+    "access_authority": "No new restoration or opt-in grant"
+  }
 }

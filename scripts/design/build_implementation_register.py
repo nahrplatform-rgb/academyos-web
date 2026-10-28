@@ -181,17 +181,17 @@ for row in action_rows:
           owner_approval_status='Policy/design and scoped deployed attendance EN/AR wording/usability explicitly accepted28Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
           next_gate='Active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
-# I4b policy accepted for design; separate connected-design review pending.
+# I4b policy/design and scoped working wording/usability accepted; broader gates remain open.
 for row in action_rows:
     if row['work_item_id']=='IMP-J15-A01':
         row.update(as_of='2026-10-28',actor_context='Current Guardian and exact active linked player; no Player login or payer authority',
           policy_status='I4b policy explicitly accepted28Oct2026 for design including retained pre-link published sessions; no access grant',
           design_status='Connected EN/AR I4b design explicitly approved for implementation28Oct2026',
-          implementation_status='I4b real Guardian schedule/current-own-mark read source implemented; exact-link rollout gate closed; hosted proof pending',
+          implementation_status='I4b Guardian schedule/current-own-mark implemented and scoped hosted view/ending verified; exact-link rollout gate closed',
           verification_status='91 SQL/57 units/14 E2E/API and actual React passed; actual staged Guardian own-mark ENAR/route-denial/ending verified; wider gates open',
-          deployment_status='Staging schema20261028122658; serving4d514c4 at dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ; authorized Guardian test ended; opt-ins closed',owner_approval_status='I4b policy/design explicitly accepted28Oct2026; working acceptance pending; earlier approvals preserved',
+          deployment_status='Staging schema20261028122658; serving4d514c4 at dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ; authorized Guardian test ended; opt-ins closed',owner_approval_status='I4b policy/design and scoped deployed ENAR wording/usability explicitly accepted28Oct2026; earlier approvals preserved',
           evidence_reference='docs/07-handoff/i4b-guardian-training-implementation.md',
-          next_gate='Working-feature acceptance and remaining independent/security/device/load/cost gates')
+          next_gate='Remaining independent/security/direct-API/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -239,9 +239,9 @@ for row in screen_rows:
     if row['screen_id']=='S46':
         row.update(as_of='2026-10-28',design_status='I4b Guardian policy and connected design explicitly approved28Oct2026',
           implementation_status='I4b linked-player training/current-own-mark source implemented behind closed exact-link rollout gate',
-          verification_status='Local SQL/API/actual React/scale; hosted own-mark/route-denial/ending verified; working acceptance pending',
-          deployment_status='Staging schema20261028122658/app4d514c4; authorized Guardian test completed and opt-in closed; ENAR scope copy verified',owner_approval_status='I4b policy/design approved; working pending; earlier approvals retained',
-          next_gate='Working-feature acceptance; remaining direct-API/device/load/security gates')
+          verification_status='Local SQL/API/actual React/scale; hosted own-mark/route-denial/ending verified; scoped working wording/usability accepted',
+          deployment_status='Staging schema20261028122658/app4d514c4; authorized Guardian test completed and opt-in closed; ENAR scope copy verified',owner_approval_status='I4b policy/design and scoped working ENAR wording/usability accepted28Oct2026; earlier approvals retained',
+          next_gate='Remaining direct-API/device/load/security gates')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []

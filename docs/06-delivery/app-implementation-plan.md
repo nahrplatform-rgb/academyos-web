@@ -192,3 +192,5 @@ I4b connected design explicitly approved28October2026. [Real Guardian training/o
 I4b staged Guardian test28October2026: separately authorized restore/view/end completed against servingac7ed0a; actual own corrected mark EN/AR, calendar/Back/empty day, wrong-role/other-academy route denial and real Owner ending/next-request clearing recorded. Test link ended and opt-in closed, unrelated data fingerprints unchanged. Scope wording follow-up does not change permissions. Working acceptance and independent/security/device/load gates stay open.
 
 I4b wording follow-up4d514c4 deployed and checked EN/AR on staging; exact CI green. The complete authorized test is closed, no enabled training links remain. Working feedback pending; independent/security/device/load gates retained.
+
+I4b Owner working-feature acceptance28October2026: Moamen explicitly accepted the scoped deployed Guardian training EN/AR wording/usability. See the I4b implementation/test receipts. Test link remains ended and no new grant is authorized; independent security, hosted direct-API/extended-race, physical-device/accessibility, performance/load/cost and inherited I4a replacement gates stay open.
