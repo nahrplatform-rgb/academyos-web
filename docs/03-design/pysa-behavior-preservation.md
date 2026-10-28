@@ -17,6 +17,8 @@ Started28 October2026 after Owner requested an ongoing comparison/preservation p
 
 ## Rule for each subsequent slice
 
+I5a preparation28October2026: [development feedback recommendation](../06-delivery/i5a-development-feedback-decisions.md) compares PYSA performance actions, metric validation/default seeding, review DAL and EV-0029/0035/0037/0145. Preserve Trainer authoring → review/return → immutable publication → own-player family progress and successor history. Proposed narrative-first scope leaves scored sport metrics, Player access and notification/export requirements open. Avoid stale-claim authority, inconsistent entry-point guards and accepted-but-discarded private fields. Policy/design remain pending; no implementation, hosted evaluation test or new access grant.
+
 Append the relevant source/audit paths and limits in its packet; link the accepted behavior and regression cases, then record any intentional difference. Challenge changed authority, history, side effects or user outcome before implementation. Routine presentation improvements may proceed within the existing contract. A new approval never erases old accepted slices or closes unrelated security/device/performance gates. Update this ledger with actual results, not preview simulations.
 
 Existing domain receipts provide evidence; broader full-PYSA comparison remains incomplete. No imported real data, credentials, copied schema or live PYSA verification is implied.
