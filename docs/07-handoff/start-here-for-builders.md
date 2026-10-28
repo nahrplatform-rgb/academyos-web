@@ -80,3 +80,7 @@ I4b hosted continuation28October2026: Owner authorized the temporary exact-link 
 I4b final follow-up28October2026: serving4d514c4 at dpl_DgZEoKU7ZHe38SzGErJ3HosW3BjZ Ready56s; exact push/PR CI green. EN/AR scope wording verified on the actual ended appointment. Zero training links enabled; temporary authorization is completed, not ongoing restoration authority. Working-feature feedback pending; broader gates remain open.
 
 I4b Owner working-feature acceptance28October2026: Moamen explicitly accepted the scoped deployed Guardian training EN/AR wording/usability. See the I4b implementation/test receipts. Test link remains ended and no new grant is authorized; independent security, hosted direct-API/extended-race, physical-device/accessibility, performance/load/cost and inherited I4a replacement gates stay open.
+
+## I4c continuation —28October2026
+
+Correction-request policy and design explicitly approved; bounded implementation,102 SQL tests,60 units,15 foundation E2E, actual React/API checks, backup rehearsal, additive hosted migration and checked staging app rollout are recorded in [the I4c receipt](i4c-attendance-correction-implementation.md). Actual EN/AR Owner queue and cross-academy denial verified. [Prepared hosted Trainer request/review test](i4c-hosted-correction-test.md) still requires fresh temporary access-restoration authorization; prior Casey/Guardian grants remain ended. Working acceptance and independent/security/device/load gates remain separate.

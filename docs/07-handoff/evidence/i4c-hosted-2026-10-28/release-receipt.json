@@ -1,0 +1,36 @@
+{
+  "id": "dpl_8QACCy5gwbjZjBNV2mKui2tfZjTX",
+  "url": "academyos-2jpnt5zvz-academy-os2.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "createdAt": 1793202032090,
+  "duration": {
+    "startTime": 1793202034262,
+    "endTime": 1793202174185,
+    "endTimeCapped": 1793202174185,
+    "timeToReady": 90481,
+    "timeToContainerExit": 139923,
+    "timeToContainerExitCapped": 139923,
+    "timeForBilling": 180000,
+    "cpuTimeForBilling": 360000
+  },
+  "aliases": [
+    "academyos-web.vercel.app",
+    "staging.academy.nahr.dev",
+    "academyos-web-academy-os2.vercel.app",
+    "academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app"
+  ],
+  "contextName": "academy-os2",
+  "source_commit": "d26cad10aaffb83e2d822b8bb8e9d2041a8d67e8",
+  "source_basis": "Promotion of checked preview; serving rebuild uses existing environment",
+  "ci_runs": [
+    40717133596,
+    40717149233
+  ],
+  "browser_observations": [
+    "Academy A Owner EN/AR empty queue",
+    "Academy B queue denied to current Academy A Owner"
+  ],
+  "hosted_trainer_request": "Pending separate temporary restoration authorization",
+  "owner_working_acceptance": "Pending"
+}

@@ -1,0 +1,31 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - text: Academy workspace /
+  - strong: Attendance corrections
+  - generic: Staging
+  - link "العربية":
+    - /url: "#language"
+  - button "Open user menu":
+    - img "'s logo"
+- complementary:
+  - link "AcademyOS":
+    - /url: /en/workspace
+    - generic: A
+    - text: AcademyOS
+  - paragraph: Academy workspace
+  - navigation "Workspace navigation":
+    - link "Your workspaces":
+      - /url: /en/workspace
+      - generic: Your workspaces
+    - link "Training":
+      - /url: /en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/programs
+      - generic: Training
+    - link "Correction requests":
+      - /url: /en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/attendance/corrections
+      - generic: Correction requests
+  - paragraph: Staging · Synthetic data only
+- main:
+  - heading "My correction requests" [level=1]
+  - alert: Access unavailable. Check your current account and workspace.
+- alert
