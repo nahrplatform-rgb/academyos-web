@@ -1,6 +1,6 @@
 # I3e — session-change engineering preparation
 
-28 October2026. Design preparation only; policy/design approval pending. [Policy/PYSA packet](../06-delivery/i3e-session-changes-decisions.md). No functional implementation or hosted mutation.
+28 October2026. Policy accepted for design28 October2026; connected-design approval pending. [Policy/PYSA packet](../06-delivery/i3e-session-changes-decisions.md). No functional implementation or hosted mutation.
 
 ## Scope and affected boundary
 
@@ -29,3 +29,7 @@ Proposed inherited targets: SQLp95300ms, outer statement3s/lock2s; useful view2.
 - Interrupted/lost-reply/reload/reopen/fence/confirmed-write-read-failure at actual SQL/API/React layers and scoped staging proof. Prior working approvals remain separately valid. No positive hosted Trainer grant without separate authorization.
 
 Additive migration needs fresh trusted backup restore rehearsal and before/after business fingerprints. Keep original snapshots/history; repair forward rather than destructive key rewrite/old backup restore. Independent human security approval, physical-device/accessibility, sustained load/cost and Owner working acceptance remain separate gates. Prior AI/local tests do not satisfy those gates.
+
+## Policy acceptance —28 October2026
+
+Moamen explicitly selected “Accept this one-session change policy for design”. This authorizes the connected local design only; separate design approval precedes dependent implementation. No actual account grant, session mutation, financial or notification effect is authorized by this policy acceptance.

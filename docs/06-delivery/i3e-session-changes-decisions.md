@@ -1,6 +1,6 @@
 # I3e — one future session change: decision and preservation packet
 
-28 October2026. **Recommendation awaiting Owner policy decision.** Authorization to continue preparation does not accept the new cancellation/rescheduling rules. Prior I3a–I3d working approvals remain valid. This document changes no app, schema, provider or account.
+28 October2026. **Owner accepted this one-session change policy for design28 October2026.** Authorization to continue preparation does not accept the new cancellation/rescheduling rules. Prior I3a–I3d working approvals remain valid. This document changes no app, schema, provider or account.
 
 ## Connected outcome
 
@@ -33,3 +33,7 @@ Existing training_dates identity is `(program_id,local_date)`; date plans/roster
 J09/J10/J11; proposed subdivision J11-MOVE/CANCEL (not canonical IDs); S23/S24/S26/S27; L04/L07; SEC-J09/SEC-J11; scoped AO-021/022/027/028/029/030/031/032/033, especially retry-safe change/history/occupancy. No whole AO/AT closure inferred. [Workflow](../02-workflows/scheduling-and-rosters.md), [preservation ledger](../03-design/pysa-behavior-preservation.md), [engineering preparation](../04-engineering/i3e-session-changes-preparation.md).
 
 Next gate: Owner policy choice → connected EN/AR phone/desktop design and failure review → implementation. Extra/custom sessions, program-wide recurrence edits, cancellation restoration, family schedule and attendance follow separately; they are retained scope, not silently removed.
+
+## Policy acceptance —28 October2026
+
+Moamen explicitly selected “Accept this one-session change policy for design”. This authorizes the connected local design only; separate design approval precedes dependent implementation. No actual account grant, session mutation, financial or notification effect is authorized by this policy acceptance.
