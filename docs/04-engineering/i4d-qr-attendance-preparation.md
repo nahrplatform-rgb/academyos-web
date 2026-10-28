@@ -1,0 +1,32 @@
+# I4d — QR attendance engineering/security preparation
+
+28 October2026. **Proposed design constraints; policy/design acceptance and implementation pending.** [Policy/current source/PYSA evidence](../06-delivery/i4d-qr-attendance-decisions.md). J06/J12, AO-018/035/036/042/045; S18/S28; L05/L08; SEC-J06/SEC-J12. Existing accepted attendance and correction behavior is preserved.
+
+## Trust boundaries and data
+
+Owner browser→authenticated credential operation; Trainer camera/code→strict local parser→authenticated exact-session resolution→minimal match→canonical mark commit→private receipt/history. The camera decoder supplies untrusted bytes, never role, tenant, member eligibility or a verified mark. No requests to arbitrary scanned URLs, external image upload or public resolver. Camera frames decode locally and are not retained/transmitted; stop tracks on close, background/navigation/sign-out and denial. No automatic permission prompts on opening a page. Unavailable/denied/unsupported camera and invalid/foreign/revoked card have actionable fallback without fake capture.
+
+Recommend independent cryptographically random opaque versioned credentials, no names/emails/player IDs in payload, no fallback signing secret. Store only a verifier where feasible, ordinary clients cannot enumerate credentials; raw code omitted from logs, audit, URLs, telemetry, persistent browser storage and screenshot fixtures. Card display/lost-reply recovery must be designed before implementation: recovering issuance status does not prove a printable raw code is available. If unrecoverable, reconcile original issuance first, then explicitly replace/invalidate it; no hidden orphan active credential. Treat printed copies as identifying material and explain replacement. Input/token size and strict grammar are fixed before API implementation; decoder/library choice follows compatibility, bundle, license/dependency review.
+
+Keep ordinary tables private/RLS; constrained current-principal operations only. Resolve card only inside an authorized exact-session context and expose at most eligible fictional name, branch, current status/version and opaque credential revision needed for confirmation. Do not disclose whether an arbitrary outside card belongs to another player/academy. Credential possession never substitutes for membership. Recheck card revision/state and canonical target/roster/actor/window under consistent lifecycle locks at final commit. Preserve one mark/version/history/receipt across QR/manual races. Audit issuance/replacement/revocation and capture method with safe IDs, not raw payload.
+
+## Bounded retrieval and freshness
+
+Exact player credential lifecycle: one status and selected operation receipt, no whole academy raw-card list. Existing Owner player directory retains25+sentinel; roster retains50+sentinel/32KiB; selected scan resolution one result under4KiB; mark receipt under4KiB. Body proposed max8KiB shared attendance endpoint, scanned text proposed max256 bytes. History retains20+sentinel/on-demand. Existing read/mutation rate budgets are preserved unless measured evidence justifies an explicitly reviewed change; do not raise them for rapid camera frames. Pause decoding after one candidate; one unresolved write at a time; do not submit every frame.
+
+Current reads are private/no-store; revalidate on opening, focus, reconnect and confirmed lifecycle/write. Final commit checks current state even if preview matched. Identity/academy/session change stops camera, aborts reads, clears match/private data and guards unsaved/unknown operations. Persist only scoped opaque operation references if needed; no QR payload/roster/camera images. Unknown outcomes reconcile/fence before replacement. Offline never reports queued/saved; offer existing manual online path only when server is reachable.
+
+## Required cases and evidence layers
+
+- Owner issue/reopen credential status; strict no-card state; reviewed revoke; reviewed atomic replace and old-code denial; lost issue/revoke/replace responses; unrecoverable printable code; no implicit reactivation.
+- Correct assigned Trainer and Owner same canonical outcome through scan/manual; wrong-role/academy/branch/occurrence, unrostered/missing player, unpublished/withdrawn/canceled session, expired capture window, ended/suspended Trainer and revoked membership deny.
+- QR→Present, repeated frame, repeated new operation, same operation replay, two devices, concurrent manual/QR, existing Present/Absent, card replace/revoke between resolve and save; current-version/history count and correlated receipt checked.
+- Malformed/oversized/unknown-version/untrusted URL, foreign/revoked/replaced code; no public target discovery, credential logs or camera leakage. Synthetic payloads only; do not commit usable hosted card secrets/screenshots.
+- Camera permission decline, no camera, busy camera, decoder load failure, blurry/read failure, switch camera, background/resume, leaving mid-review, sign-out, changed session, failed read, lost reply, committed-write/read failure. EN/AR keyboard/focus and phone/desktop consistent actions.
+- Real printed/displayed fictional QR on declared physical phone/desktop cameras, HTTPS permission and browser support; mock frames, pasted tokens and simulated network faults do not close these hardware gates.
+
+## Proposed measurable budgets
+
+Continue existing attendance budgets; proposed resolution HTTP p95≤1s and scan-confirm commit p95≤1.5s on a declared stable staging network, sample count≥50 with cold/warm separated. Local decode target≤250ms per sampled frame on declared device; UI feedback immediately after candidate/submit, no layout shift from scanner initialization (CLS≤0.1). Lazy-load decoder only after explicit scan action; report actual incremental compressed bundle bytes and choose a justified cap before merge. No new provider/paid service. Capture request count/bytes, decoder CPU/frame rate, write/retry factor and database/WAL deltas on bounded synthetic runs. These are targets, not measurements or guarantees.
+
+Independent security/privacy gate reviews credential randomness/storage/rotation, minimal resolution, direct data access, camera handling, tenant/actor boundaries and abuse controls. Existing broader attendance security/device/load gates stay open. Policy choice and separate connected-design review precede dependent app/schema/provider changes. Hosted privileges and camera prompts retain separate action authorization.
