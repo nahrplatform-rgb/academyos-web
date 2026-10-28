@@ -111,5 +111,11 @@
     "domain": "staging.academy.nahr.dev",
     "ready_seconds": 42,
     "hosted_recheck": "EN/AR attendance-protected guidance; saved mark/history reopens; fresh ended-Trainer request denies"
+  },
+  "owner_working_acceptance": {
+    "date": "2026-10-28",
+    "statement": "Accept the working attendance journey",
+    "scope": "Deployed synthetic attendance wording/usability only; independent and remaining hosted/device/load gates open",
+    "new_access_grant": false
   }
 }

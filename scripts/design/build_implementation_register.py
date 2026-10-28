@@ -178,9 +178,9 @@ for row in action_rows:
           implementation_status='Bounded online manual register and reasoned Owner direct correction implemented locally; wider capture/scan/correction-request family remains open',
           verification_status='85 actual disposable PG17 cases; API/actual React production-development/55 units/build/lint/typecheck and13 foundation E2E pass; scoped SQL scale only; hosted Trainer record/Owner correction/history/revocation verified; remaining active-Trainer replacement/direct-API/independent gates open',
           deployment_status='Staging migration20261028024556; attendance and guidance appefe364a deployed dpl_92imToTLwhL9XqUW8ytvmkwZDwYU Ready; scoped attendance/correction/revocation verified',
-          owner_approval_status='Policy and connected design approved; working-feature acceptance pending',
+          owner_approval_status='Policy/design and scoped deployed attendance EN/AR wording/usability explicitly accepted28Oct2026; broader gates open',
           evidence_reference='docs/07-handoff/i4a-attendance-implementation.md',
-          next_gate='Working acceptance; active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
+          next_gate='Active-Trainer replacement hosted case; remaining independent security/device/load/cost gates')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -223,7 +223,7 @@ for row in screen_rows:
           implementation_status='Manual published-session register and Owner direct correction implemented locally; full Trainer Today/scanning/Manager scope remains open',
           verification_status='Per-slice local SQL/API/React/build receipts; no full-screen or independent-security acceptance',
           deployment_status='Staging schema/appefe364a and scoped attendance/correction/revocation verified',
-          owner_approval_status='Policy/design approved; working-feature acceptance pending',next_gate='Working acceptance and remaining hosted/independent screen/security/device/load gates')
+          owner_approval_status='Policy/design and scoped working attendance wording/usability accepted28Oct; full screen remains open',next_gate='Remaining hosted/independent screen/security/device/load gates')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []
