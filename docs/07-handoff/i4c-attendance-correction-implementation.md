@@ -1,6 +1,6 @@
 # I4c — attendance correction request/review implementation
 
-28 October 2026. Policy and connected EN/AR design explicitly approved for implementation. Source, local verification, hosted migration and staging app deployment are complete for this bounded slice. The authorized hosted Trainer request/Owner approval/ending test is complete; working-feature acceptance remains pending. No account access is restored by this packet.
+28 October 2026. Policy and connected EN/AR design explicitly approved for implementation. Source, local verification, hosted migration and staging app deployment are complete for this bounded slice. The authorized hosted Trainer request/Owner approval/ending test is complete; Moamen explicitly accepted the scoped working EN/AR wording/usability on28October2026. No account access is restored by this packet.
 
 ## Outcome, scope and reusable boundaries
 
@@ -63,4 +63,8 @@ Actual existing signed-in Academy A Owner browser verified EN/AR correction queu
 
 ## Authorized hosted request/approval/end test completed
 
-[Exact execution and receipts](i4c-hosted-correction-test.md): actual distinct-account Trainer submitted a request while Absent/version2 remained unchanged; Owner approved atomically to Present/version3, request/attendance history and receipts agree; EN/AR results reopened; Owner ended Casey again and next Trainer read cleared private data. Zero active Trainers, Guardian training opt-in false, other membership hash unchanged. Temporary authorization is completed. Working-feature feedback and wider gates remain pending. Safari visual evidence and broad fingerprint limits are explicit in the test receipt.
+[Exact execution and receipts](i4c-hosted-correction-test.md): actual distinct-account Trainer submitted a request while Absent/version2 remained unchanged; Owner approved atomically to Present/version3, request/attendance history and receipts agree; EN/AR results reopened; Owner ended Casey again and next Trainer read cleared private data. Zero active Trainers, Guardian training opt-in false, other membership hash unchanged. Temporary authorization is completed. Scoped working wording/usability is now accepted; wider gates remain open. Safari visual evidence and broad fingerprint limits are explicit in the test receipt.
+
+## Owner working-feature acceptance —28 October2026
+
+Moamen explicitly selected “Accept the working correction-request journey” after the hosted request → unchanged Pending mark → distinct Owner approval → retained result → ended-access denial demonstration. This accepts the bounded working EN/AR wording and usability. Prior pending statements above describe earlier checkpoints; this acceptance supersedes that working-feedback status only. Independent human/security, broader hosted API/race, physical-device/accessibility, network/load/WAL/cost and inherited active-Trainer replacement gates stay open. No fresh access restoration or full I4/QR/production acceptance is authorized.

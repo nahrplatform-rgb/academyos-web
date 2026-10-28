@@ -190,10 +190,10 @@ for row in action_rows:
           implementation_source='apps/web/src/components/correction-workspace.tsx',
           verification_status='102 actual PG17 cases,60 units,15 foundation E2E, API and actual React production/development pass; existing hosted domain fingerprints unchanged; actual ENAR Owner queue and foreign-academy denial; broader gates open',
           deployment_status='I4c staging migration20261028153040 applied; appd26cad1 deployed dpl_8QACCy5gwbjZjBNV2mKui2tfZjTX Ready; I4a receipts retained',
-          owner_approval_status='I4a working acceptance retained; I4c policy/design accepted for implementation; working feedback pending',
+          owner_approval_status='I4a working acceptance retained; I4c policy/design and scoped working ENAR wording/usability explicitly accepted28Oct2026; broader gates open',
           design_status=row['design_status']+'; I4c connected ENAR request/review design explicitly approved for implementation28Oct2026',
           applicable_states=row['applicable_states']+'; expired; requester-ineligible; unknown/reconciled',
-          next_gate='Working-feature feedback; prior independent security/device/load gates retained',
+          next_gate='Remaining independent security, hosted API/race, device/accessibility/load/cost gates',
           evidence_reference='docs/07-handoff/i4c-attendance-correction-implementation.md')
 # I4b policy/design and scoped working wording/usability accepted; broader gates remain open.
 for row in action_rows:
@@ -262,9 +262,9 @@ for row in screen_rows:
           implementation_status='I4a direct correction retained; I4c request/review source implemented and hosted schema applied; app deployed; scoped hosted Trainer request/approval/ending verified',
           verification_status='102 actual PG17 cases; API/React production-development/60 units/build/lint/typecheck/15 foundation E2E; hosted schema ACL/fingerprint proof, ENAR Owner queue and foreign-academy denial; scoped hosted Trainer request/approval/ending verified',
           deployment_status='I4c migration20261028153040 applied to staging; appd26cad1 deployed Ready; no access grant',
-          owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy/design accepted; working acceptance pending',
+          owner_approval_status='Earlier I4a scoped acceptance retained; I4c policy/design and scoped working ENAR wording/usability explicitly accepted28Oct2026; broader gates open',
           implementation_source='apps/web/src/components/correction-workspace.tsx',
-          next_gate='Working-feature feedback; remaining independent gates retained')
+          next_gate='Remaining independent security, hosted API/race, device/accessibility/load/cost gates')
 write('app-implementation-screen-matrix.csv', screen_rows)
 
 requirement_rows = []
