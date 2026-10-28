@@ -12,5 +12,12 @@
   "typecheck": "passed",
   "register_validation": "68 screens,30 action groups,180 requirements; passed",
   "physical_camera": "not executed",
-  "hosted_capture": "pending"
+  "hosted_capture": "pending",
+  "ci": {
+    "commit": "1370d2d37e8f850024f139c281df0c12491e896f",
+    "push_run": 40747885009,
+    "pull_request_run": 40747898989,
+    "both_conclusion": "success",
+    "scope": "Foundation workflow includes local units/API/React/decoder/E2E;111 PG17 suite was run locally, not in this workflow"
+  }
 }

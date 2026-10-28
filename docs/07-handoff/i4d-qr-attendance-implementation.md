@@ -1,6 +1,6 @@
 # I4d QR attendance — implementation and rollout
 
-28October2026. Policy and connected-design approval are explicit. **Implemented and locally checked; staging schema applied. App promotion, authenticated hosted verification and working-feature acceptance remain pending at this checkpoint.** No physical-camera, independent security, load or production acceptance claim.
+28October2026. Policy and connected-design approval are explicit. **Implemented, locally checked and deployed to existing staging. Scoped actual Owner/Trainer typed-card capture, duplicate protection, replacement/revocation and access ending verified. Working-feature acceptance and broader gates remain pending.** No physical-camera, independent security, load or production acceptance claim.
 
 ## Authorized outcome and preserved behavior
 
@@ -20,7 +20,7 @@ Migration **20261028184008_i4d_qr_attendance.sql** introduces five private RLS/n
 
 Session pages are25 plus sentinel; responses are trimmed below24KiB. Matching uses the complete explicit selected scope, maximum25: oversized match results require narrowing and never silently become unique. Requests are8KiB maximum. API entry/read budgets are60/minute; capture/reconciliation shares the existing60/minute manual attendance write budget. Owner card/settings mutations retain the general10/minute gateway budget. Dependencies fail closed. No global limit was raised. HTTP has15s timeout and no-store/referrer protection. No background scan polling, saved frames, image upload or added paid service.
 
-Targets: warm SQL reads p95 below300ms; match/commit HTTP p95 below1s on declared stable test network; local decode p95 below50ms at the declared frame size; bounded response below32KiB; no duplicate canonical marks/history. Only local SQL/decoder targets are measured here. [Actual production chunks](evidence/i4d-local-2026-10-28/bundle.json) total62,593 gzip bytes for the two QR-containing lazy chunks, below80KiB. This does not measure total route JS or physical camera startup. HTTP/burst fairness, cost/WAL, real print readability and physical device proof remain open.
+Targets: warm SQL reads p95 below300ms; match/commit HTTP p95 below1s on declared stable test network; local decode p95 below50ms at the declared frame size; bounded response below32KiB; no duplicate canonical marks/history. Only local SQL/decoder targets are measured here. [Actual production chunks](evidence/i4d-local-2026-10-28/bundle.json) total62,619 gzip bytes for the two QR-containing lazy chunks, below80KiB. This does not measure total route JS or physical camera startup. HTTP/burst fairness, cost/WAL, real print readability and physical device proof remain open.
 
 ## Local verification
 
@@ -41,3 +41,27 @@ Migration applied to existing staging project snpphkenmvmhpjstbeul, PostgreSQL17
 App exact-source CI/promotion and actual signed-in Owner/foreign-tenant reads next. A hosted Trainer capture demonstration requires a separately authorized temporary appointment restoration and a new fictional published occurrence within the current scan window; the old attended occurrence cannot be retimed. All previous Trainer/Guardian access stays ended. Prepare restoration/ending and inspect actual current records before requesting that grant.
 
 Keep additive schema if app promotion fails; roll app back to the prior checked source, never delete attendance/card history. Forward-repair defective RPCs with a reviewed migration. Future archive/deletion support must extend both manual and QR shared eligibility before shipping. Independent human/security, hosted direct-API/race breadth, actual physical camera/permission/print/device/accessibility, stable-network performance/burst/WAL/cost and working-feature acceptance remain open.
+
+## Exact-source CI and promotion checkpoint
+
+Commit1370d2d37e8f850024f139c281df0c12491e896f is pushed on codex/onboarding-decision-design-packet. Both [push40747885009](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40747885009) and [PR40747898989](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40747898989) checks succeeded. Preview dpl_6AaMbA4ECYbCK3nr68wuatSgsMGy is Ready; promotion created dpl_7VTqnvB3cNZaRop9hnYDdrQaF1s2, awaiting Ready/alias/runtime proof. This provider production slot is the existing synthetic staging environment, not production launch. [Prepared scoped hosted test](i4d-hosted-qr-test.md).
+
+GitHub push reported a default-branch dependency alert; read-only inspection identified withdrawn braces advisory #1, no patched version listed. Current-branch dependency audit is a separate limited check, not a security audit or permission to dismiss an alert. No dependency assertions or permissions were weakened.
+
+## Hosted execution completed —28October2026 19:05UTC
+
+Exact app1370d2d is Ready at **dpl_7VTqnvB3cNZaRop9hnYDdrQaF1s2**, and inspecting staging.academy.nahr.dev resolves to that deployment. [Authorized test and current receipt](i4d-hosted-qr-test.md) supersede earlier pending promotion/walkthrough statements above. No account reauthentication was needed for this promotion.
+
+Actual Chrome Owner saved29/30, then restored30/30 defaults (version2); issued the private real QR image. After explicit new authorization, guarded audited restoration reactivated only Casey's existing appointment, invitation9→10. Owner created one fictional program **48fc9e2f-c3b6-439d-b868-68f9778eab33**,28October22:10–22:25 Africa/Cairo, capacity1, Casey and Synthetic Registration Demo; saved and published through existing real program/planning/publication UI. Publication event **51af9691-8c61-4847-8b7e-c2cb5c9a64d3**.
+
+Distinct Safari Trainer selected automatic mode over two assigned published occurrences: the old morning event was outside its scan window and the new date was the unique eligible match. Typed-card fallback committed Present/version1 at **19:00:24UTC**, before19:10UTC start but inside accepted QR30/30. Second scan returned Already recorded; two actor-scoped receipts correlate with exactly **one canonical mark and one attendance history**. EN/AR confirmed-result wording observed. This is real browser→API→signed gateway→database proof, **not a physical camera scan**. Native fast text entry initially supplied a partial code; it was rejected without a write; complete paste was checked before submission.
+
+Owner replaced card version1→2; old code then denied in actual Trainer UI. Owner revoked replacement version2→3; its code then denied too. Owner used the normal Trainer ending UI; invitation10→11, membership/assignment ended, **zero active Trainers and zero active cards**. Next read on the still-open Trainer view denied and cleared private session/player context. Original morning attendance remains Present/version3. Other-membership fingerprint unchanged; Guardian opt-in count0. No test grant remains. Attended new publication/history are retained; withdrawal is protected by the accepted attendance rule.
+
+[Data/receipt](evidence/i4d-hosted-2026-10-28/qr-test-receipt.json), [safe audit/settings](evidence/i4d-hosted-2026-10-28/audit-receipt.json), [ended Trainer AX observation](evidence/i4d-hosted-2026-10-28/trainer-ended-denied.txt). Raw codes were kept out of evidence, repository and screenshots, then cleared from tool memory after revocation. Native app screenshots are reduced distorted Stage Manager background thumbnails; they do **not** establish full hosted visual fidelity. The in-app browser bridge reports browser.user unavailable. Local actual React layout screenshots and real hosted AX/data observations remain distinct. Do not call these captures physical-device acceptance.
+
+Working EN/AR wording/usability feedback pending. Physical camera/permission/print/device/accessibility, hosted simultaneous-session ambiguity and direct-API/race breadth, stable-network HTTP/burst/WAL/cost and independent human/security gates remain open. No scope is silently retired.
+
+## Interruption-resume checkpoint —28October2026
+
+Reinspection confirms the same Ready serving deployment and the retained mark/history, zero active test Trainer/cards,30/30 defaults and zero Guardian opt-ins; [fresh cleanup observation](evidence/i4d-hosted-2026-10-28/resume-cleanup-check.json). No access was restored again. Chrome reached the Clerk sign-in page while attempting the additional academy-B settings boundary; that request does not prove authenticated foreign-tenant denial. Keep that hosted case open alongside the existing actual local SQL isolation proof. No credentials, camera permission or new grant requested. Documentation/evidence follow-up contains no product code or schema change.

@@ -214,10 +214,10 @@ for row in action_rows:
           implementation_status='I4a retained; I4d real card/windows/camera/automatic scoped capture and recovery implemented',
           implementation_source='apps/web/src/components/qr-workspace.tsx',
           verification_status='111 actual PG17 cases;63 units;14 React cases in production/development; encoder-decoder/API and16 foundation E2E passed locally; hosted schema ACL/fingerprints checked; no physical-camera proof',
-          deployment_status='I4d staging migration20261028184008 applied without seeds/access changes; app promotion and authenticated hosted walkthrough tracked in receipt',
+          deployment_status='I4d schema20261028184008/app1370d2d serving dpl_7VTqnvB3cNZaRop9hnYDdrQaF1s2; authorized Owner/Trainer typed capture/duplicate/revocation/end verified; access ended',
           owner_approval_status='I4a working acceptance retained; I4d policy and connected design approved28Oct2026; I4d working acceptance pending',
           evidence_reference='docs/07-handoff/i4d-qr-attendance-implementation.md',
-          next_gate='Exact-source CI/app promotion; hosted scanner/device/load and independent security; scoped working acceptance')
+          next_gate='Physical-camera/device/load/independent security and remaining hosted cases; scoped working acceptance')
 write('app-implementation-action-matrix.csv', action_rows)
 
 screen_rows = []
@@ -283,7 +283,7 @@ for row in screen_rows:
           implementation_source='apps/web/src/components/qr-workspace.tsx',
           implementation_status='Bounded real online scanner, private Owner cards/settings and automatic authorized match implemented; full catalog scope incomplete',
           verification_status='Local PG17/API/actual React/decoder; hosted schema ACL and unchanged domain fingerprints; no physical camera proof',
-          deployment_status='Staging schema applied; app promotion and authenticated walkthrough tracked in I4d receipt',
+          deployment_status='Staging schema/app1370d2d deployed; scoped actual Owner/Trainer typed capture/card lifecycle/ending verified; no physical camera proof',
           owner_approval_status='I4d policy/design approved; working acceptance pending; prior per-slice approvals retained',
           next_gate='Hosted scanner and physical device/load/security gates; working wording/usability acceptance')
 write('app-implementation-screen-matrix.csv', screen_rows)
