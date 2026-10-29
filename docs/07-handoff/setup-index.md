@@ -62,3 +62,7 @@ Current staging entry policy (23 October): [direct AcademyOS access](staging-dir
 M1 security continuation: [direct API abuse-control packet](../04-engineering/onboarding-m1-abuse-control.md) — local implementation/tests, ordered app/database rollout and residual review gates.
 
 [Local M1 scale and keyboard verification](onboarding-m1-scale-and-keyboard.md): reproducible synthetic database measurements and real-component keyboard checks; hosted/device/cost/reviewer gates remain separate.
+
+### Current full-experience redesign
+
+The Owner-authorized Charcoal spectrum redesign is in its consolidated-preview review stage. Use the [execution/design packet](../06-delivery/full-experience-redesign.md), [complete proposed preview](../../design/full-experience-preview/AcademyOS-connected-preview.html) and [local verification](../../design/full-experience-preview/verification.md). The factual app review remains separate. Product implementation against this full reference awaits consolidated design approval.

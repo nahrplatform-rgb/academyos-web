@@ -1,0 +1,13 @@
+{
+  "scope": "Proposed connected design simulation only; no app/API/database/deployment/permission changes",
+  "date": "2026-10-29",
+  "views": 30,
+  "sourceInputs": {
+    "src/index.html": "2c9b8cad79f66ec5cdba34c0709a66c7517860ffb1dcc7ab488ae5d0b91f5c34",
+    "src/style.css": "22756c71c4f3b27dd92895a9716083ae0a04557df27f68d00398abdfcb2c65a3",
+    "src/app.js": "1e7cdf4862b6c2b31fd6185696c5dad74ad22938bac10e8e6ea8a4b7d1ddb953"
+  },
+  "registrySha256": "c0d084b1cf2bc5c514a2902c1fb718bb0c509318bcb790b0064d8851045ade58",
+  "htmlSha256": "0831fe5e978f39bb781a926871c97fce06ec3582cde6846fa1c5245940fcc2b0",
+  "bytes": 208844
+}
