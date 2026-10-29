@@ -1,6 +1,6 @@
 {
-  "source": "48cd74de0240c1a2d0eecf552f82cda3bfedbdab",
-  "generatedAt": "2026-10-29T17:57:35.347Z",
+  "source": "92d6fa2d50ab3666fb64e5916db04ee9df5a37e4",
+  "generatedAt": "2026-10-29T18:10:16.948Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -32,7 +32,7 @@
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
     "apps/web/src/app/globals.css": "728ee4eecb97f1058fb2a3cb27d109a8a4a1fe2f6189c1a6f2d96646cb5486b0",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
-    "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
+    "apps/web/src/components/admission-directory.tsx": "127a8b738e6b96456c0cfb56c52b9a003903a7f95f29019d7c2883446181c1f3",
     "apps/web/src/components/attendance-workspace.tsx": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
     "apps/web/src/components/correction-workspace.tsx": "5522ee99a64054c3591d7fb9f01bc8961f25a6e9d9383ae10dc7fc47bd96177c",
     "apps/web/src/components/date-planning-workspace.tsx": "57403a86917b698a657c75689dd8b56f0a22a2b173cc5ca55a7b1080fb6a2b7e",
@@ -53,7 +53,7 @@
     "apps/web/src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
     "apps/web/src/components/trainer-workspace.tsx": "2db7dce04faf030681db762ab900a8945f14141ab8d04b5a37730f8268692c23",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
-    "apps/web/src/components/workspace-panes.tsx": "f768cf49ebe3c6564c9cc4887d8788551cb8e7acb259ceae2d49baf09a4c84b8",
+    "apps/web/src/components/workspace-panes.tsx": "0dbc87fb5fd1c0e262c2ee26fa9b683bbefa69c95fee76c4c2678e8812d67b3d",
     "apps/web/src/components/workspace-shell.tsx": "5daef6300f932741eb1dd393aba10f330b41b914fb11e646233c968d3fd2f6bd",
     "design/app-experience-review/journeys.json": "06cb2993ea59a4e01fdabaa0012b6ca054692fe79efaa36feac4157a37a679e5",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
@@ -73,7 +73,7 @@
     "scripts/experience-review/test.mjs": "a4ddeb23c054327a293a8eebd2a1be46e448ed63474e60f67e4ee04961fc7892",
     "scripts/guardian-training/test_ui.mjs": "d11074e972f5aec8d18adae058373ac7085aa29b3fc1456370db93f43ae5d07c",
     "scripts/guardians/test_ui.mjs": "7cee0da931d315ade9148396affaa7b4e66e815931960b041d3abb7695577a62",
-    "scripts/onboarding/test_ui.mjs": "1153c961fc45f9554a4d6e4a68cc91648c0dcf62c8a5f2e3c3e374fae110cb51",
+    "scripts/onboarding/test_ui.mjs": "e624a2d47898e7dd072186afd8d640ebe52c4ec724145cd983d1a0a1898aec42",
     "scripts/people/test_ui.mjs": "537cb67ba7c86b62c8a847b1c596df016cf0230818dacee13ea0992571d04c75",
     "scripts/planning/test_ui.mjs": "7b799da667f4c72a4e08de2549ecebba6dcfcab71cfae1fb5f37f1121e6d5923",
     "scripts/program-planning/test_ui.mjs": "5c81f03e6ae4bbd068305df3fb846d4a67f1cb27f4091ac379fba4bd8d91024a",
@@ -83,12 +83,12 @@
     "scripts/session-changes/test_ui.mjs": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
     "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
   },
-  "capturePackSha256": "a4523689d35aca517081389a635ba10b8f42b1619da2e7ad55db8d227ef411a7",
-  "htmlSha256": "ba7ce4c6a55af2eafc52b20822916b7176ab258b05b4f6ebc501920e842227c0",
-  "frames": 826,
+  "capturePackSha256": "16e1af0340eef0cb095f17202f2cb8b8407a53168de6bc673b488866940020e8",
+  "htmlSha256": "a6b2476d3b1faaeefede9271f503b878ae694dd0c43bbb35a9118037ecc03558",
+  "frames": 827,
   "transitions": 890,
   "sourceFiles": 53,
-  "sourceLiterals": 6275,
+  "sourceLiterals": 6276,
   "journeys": [
     {
       "id": "entry",
@@ -96,7 +96,7 @@
     },
     {
       "id": "onboarding",
-      "frames": 82
+      "frames": 83
     },
     {
       "id": "people",

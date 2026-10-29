@@ -144,6 +144,13 @@ try{
  await rowB.focus();await page.keyboard.press('Enter');
  await page.locator('#admission-detail-heading').waitFor();
  await expect(page.locator('#admission-detail-heading')).toBeFocused();
+ // Reparenting the selected detail into/out of the responsive dialog must retain its exact heading focus.
+ await page.setViewportSize({width:926,height:900});
+ await expect(page.getByRole('dialog',{name:'Academy details',exact:true})).toBeVisible();
+ await expect(page.locator('#admission-detail-heading')).toBeFocused();
+ await page.setViewportSize({width:1440,height:1000});
+ await expect(page.getByRole('dialog',{name:'Academy details',exact:true})).toHaveCount(0);
+ await expect(page.locator('#admission-detail-heading')).toBeFocused();
  await captureReview('16-admission-desktop','16. Desktop — loaded list and academy details','Explicit row inspection adds zero retrieval and keeps invitation changes in the named academy context.');
  assert.equal(platformReads,readsBeforeInspection,'Inspection adds zero data reads');
  assert.equal(invitationChanges.length,0,'Inspection is not an invitation mutation');
