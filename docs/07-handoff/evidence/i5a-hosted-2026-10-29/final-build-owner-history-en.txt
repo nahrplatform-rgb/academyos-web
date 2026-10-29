@@ -1,0 +1,87 @@
+					19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						20 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development#main
+						21 container
+							22 text Academy Owner workspace Development feedback Staging
+							23 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							24 pop up button Open user menu
+						25 container
+							26 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+							27 text Academy Owner workspace
+							28 container Workspace navigation
+								29 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+								30 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+								31 link Development, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							32 text Staging · Synthetic data only
+						33 container
+							34 heading Player development, Value: 1
+								35 text Player development
+							36 button Refresh view
+							37 text Write after a session, review the exact version, then share published feedback with the approved family.
+							38 button Assessments
+							39 button Session players
+							40 container
+								41 text Review filter
+								42 pop up button Review filter, Value: All retained assessments
+							43 heading Assessments, Value: 2
+								44 text Assessments
+							45 content list
+								46 toggle button Synthetic Registration Demo Withdrawn, Value: 1
+									47 text Synthetic Registration Demo
+									48 text Withdrawn
+							49 button (disabled) Previous page
+							50 button (disabled) Next page
+							51 container Contextual details and actions
+								52 container
+									53 heading Feedback details, Value: 2
+										54 text Feedback details
+									55 button Back
+								56 heading Synthetic Registration Demo, Value: 3
+									57 text Synthetic Registration Demo
+								58 container
+									59 text Synthetic I4d QR Attendance Demo  ·  Synthetic Main Branch  ·  Synthetic Football
+								60 container
+									61 text 10/28/2026, 10:10:00 PM  ·  Africa/Cairo
+								62 container
+									63 text Withdrawn  ·  Revision 2
+								64 container
+									65 text Internal review reason Synthetic test finished; retain history.
+								66 container
+									67 heading Strengths, Value: 3
+										68 text Strengths
+									69 text Synthetic feedback: controlled short passes during the fictional drill.
+								70 container
+									71 heading Improvement focus, Value: 3
+										72 text Improvement focus
+									73 text Synthetic feedback: improve the first touch before passing.
+								74 container
+									75 heading Next steps, Value: 3
+										76 text Next steps
+									77 text Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.
+								78 container
+									79 text Private staff note PRIVATE SYNTHETIC STAFF NOTE — excluded from the Guardian publication.
+								80 button Hide internal history
+								81 content list
+									82 container
+										83 AXListMarker 1. 
+										84 text Withdrawn  ·  Revision 2 10/29/2026, 2:55:08 AM Synthetic test finished; retain history.
+									85 container
+										86 AXListMarker 2. 
+										87 text Published  ·  Revision 2 10/29/2026, 2:53:20 AM
+										88 disclosure triangle Retained exact text
+											89 text Retained exact text
+									90 container
+										91 AXListMarker 3. 
+										92 text Submitted  ·  Revision 2 10/29/2026, 2:53:08 AM
+										93 disclosure triangle Retained exact text
+											94 text Retained exact text
+									95 container
+										96 AXListMarker 4. 
+										97 text Returned for changes  ·  Revision 2 10/29/2026, 2:51:34 AM PRIVATE SYNTHETIC REVIEW: make the next-step practice count explicit.
+									98 container
+										99 AXListMarker 5. 
+										100 text Submitted  ·  Revision 1 10/29/2026, 2:51:00 AM
+										101 disclosure triangle Retained exact text
+											102 text Retained exact text
+									103 container
+										104 AXListMarker 6. 
+										105 text Draft saved  ·  Revision 1 10/29/2026, 2:49:04 AM
