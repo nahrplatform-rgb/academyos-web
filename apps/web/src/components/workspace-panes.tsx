@@ -9,7 +9,7 @@ export default function WorkspacePanes({ children, inspector, title, arabic, sel
   useEffect(() => { if(!modalOnPhone)return; const media=window.matchMedia("(max-width: 1279px)");const update=()=>setPhone(media.matches);update();media.addEventListener("change",update);return()=>media.removeEventListener("change",update); },[modalOnPhone]);
   useEffect(()=>{if(!task&&modalOnPhone&&phone&&(selected||contextOpen))phoneDialog.current?.showModal();else phoneDialog.current?.close();},[task,modalOnPhone,phone,selected,contextOpen]);
   const heading = useRef<HTMLHeadingElement>(null), opener = useRef<HTMLButtonElement>(null);
-  useEffect(() => { if (selected && (!phone || task)) (focusTargetId?document.getElementById(focusTargetId):heading.current)?.focus({preventScroll:true}); }, [selected, selectionKey, phone, focusTargetId, task]);
+  useEffect(() => { if (selected && (!phone || task)) (focusTargetId?document.getElementById(focusTargetId):heading.current)?.focus({preventScroll:!task}); }, [selected, selectionKey, phone, focusTargetId, task]);
   function back() { if (blocked) return; if (contextOpen) { setContextOpen(false); requestAnimationFrame(() => opener.current?.focus()); } else onBack?.(); }
   if (plain) return <>{children}</>;
   const content=<><header className="inspector-heading"><h2 ref={heading} tabIndex={-1}>{title}</h2>{(selected||contextOpen)&&(onBack||contextOpen)&&<Button disabled={blocked} onClick={back}>{backLabel??(arabic?'رجوع':'Back')}</Button>}</header>{inspector}</>;

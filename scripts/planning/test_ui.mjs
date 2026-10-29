@@ -33,7 +33,7 @@ async function choose(){await button('Find Trainer').click();await page.getByLab
 async function review(){await button('Review changes').click();await expect(button('Save draft plan')).toBeDisabled();await page.getByRole('checkbox',{name:'I reviewed this date and these changes.',exact:true}).check();}
 async function save(){await button('Save draft plan').click();}
 async function ready(){await expect(page.getByRole('status').filter({hasText:'Draft plan saved'})).toBeVisible();await expect(button('Plan this date')).toBeVisible();}
-const evidence=resolve(root,'docs/07-handoff/evidence/i3b-local-2026-10-27',reactMode);await mkdir(evidence,{recursive:true});
+const evidence=process.env.UI_EVIDENCE_DIR?resolve(process.env.UI_EVIDENCE_DIR,reactMode):resolve(root,'docs/07-handoff/evidence/i3b-local-2026-10-27',reactMode);await mkdir(evidence,{recursive:true});
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}`);await expect(button('Plan this date')).toBeVisible();assert.equal(calls.filter(x=>x.action==='read').length,1,'StrictMode coalesces read');assert.equal(calls.filter(x=>x.action==='dates').length,1,'bounded independent date list');
  await page.setViewportSize({width:360,height:800});await button('Back to dates').click();await expect(button('Refresh dates')).toBeEnabled();const reopenedReads=calls.filter(x=>x.action==='read').length;await page.getByRole('link',{name:'2026-11-01 · Synthetic Program',exact:true}).click();await expect(button('Plan this date')).toBeVisible();await expect(button('Plan this date')).toBeEnabled();assert.equal(calls.filter(x=>x.action==='read').length,reopenedReads+1,'same-date pointer reopens and revalidates authority');await page.setViewportSize({width:1440,height:1000});
