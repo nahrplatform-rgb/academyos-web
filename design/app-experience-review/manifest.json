@@ -1,6 +1,6 @@
 {
-  "source": "e9b2f93832eaacce0e86d9a859e7d1ae61af3756",
-  "generatedAt": "2026-10-29T15:02:33.608Z",
+  "source": "d9348179988deaf97b448a5daf9ef82d79b5fa57",
+  "generatedAt": "2026-10-29T16:45:14.744Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -30,7 +30,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "6122b0a5ba899aeaa86aaf586d4da316b9926d7bc9b5c87d736b55360d1697e8",
+    "apps/web/src/app/globals.css": "be3a89e0ad22199079522b56d5ac291843851d24ef6b20b7bdbf246f1c931372",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
     "apps/web/src/components/attendance-workspace.tsx": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
@@ -43,7 +43,7 @@
     "apps/web/src/components/people-workspace.tsx": "ea67769f5b36d88a912d1ae7f33eee8d67774f82cf85690c90b4421b5b41144d",
     "apps/web/src/components/program-planning-workspace.tsx": "da12ae2983142e44d404a4bbeef93df2a805a95bdbd068b872e1749744d56118",
     "apps/web/src/components/program-workspace.tsx": "ececc1c34da7fd1e755b358c48f32763a5c9157acdd2dd09f4c503283e3e849f",
-    "apps/web/src/components/publication-workspace.tsx": "1c856c156bcbab0e9969082efb2bcdc7429dfc3117cf981dceeef29a029a135c",
+    "apps/web/src/components/publication-workspace.tsx": "fdf334c93ee88487b02d6daf6721c8f8c22f4008cdf69048e5096424c6f31cec",
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
     "apps/web/src/components/qr-workspace.tsx": "e265e69d8bfd7bfcb0311d8e7c3ae0df7de3200f577ce5a847fa660936797e13",
@@ -52,13 +52,13 @@
     "apps/web/src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
     "apps/web/src/components/trainer-workspace.tsx": "2db7dce04faf030681db762ab900a8945f14141ab8d04b5a37730f8268692c23",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
-    "apps/web/src/components/workspace-panes.tsx": "be2d57c5b7d5f7ef67516f9f0bb22f71a6030eca3235de9a48af6fbfedf99d59",
+    "apps/web/src/components/workspace-panes.tsx": "349f86861020335ac3ea3f03261d52c704d8eeb95edfc8970cf33ba2214371b9",
     "apps/web/src/components/workspace-shell.tsx": "5483ebf649c2bc943642ff21db3c197d9e8a8c132e4f5469656c72c2b0e09a3d",
     "design/app-experience-review/journeys.json": "06cb2993ea59a4e01fdabaa0012b6ca054692fe79efaa36feac4157a37a679e5",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
     "docs/03-design/screen-data-loading-matrix.csv": "e7205c7927ab731f1f35e5291d6b5a992d3d3e033f935cebb8a6c25dbbee9cc4",
     "docs/04-engineering/journey-security-matrix.csv": "e62d7c09f846e0aece6993d0e82aa4c3fe019ba544f3365e380384652d2cbd0c",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "d8d3ac694e2a353d0a8526283fc7180c3d892ca8122cdccc32e843ffdab20dfd",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "2f516ee75897361e2770d26ab752b8e7e54e096511b0df3705cedb98a09cee17",
     "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
     "scripts/attendance/test_ui.mjs": "33094d6fb2fbbb9ddeb8f77d971111bbf4a65200ffe66498ca14797e51ce6eb6",
@@ -77,17 +77,17 @@
     "scripts/planning/test_ui.mjs": "f3c3ac6311bc89789406667198699b4e0f676a96fda4139b054a0cd1d7df2126",
     "scripts/program-planning/test_ui.mjs": "1795dceb7f038682b76e6976948ec73fd95ba2982c3cdddb166486b6493b41eb",
     "scripts/programs/test_ui.mjs": "804e6df5c659a7556324438727ca5a9aa29a1faf60d15ff0ba2667e9088de8ff",
-    "scripts/publication/test_ui.mjs": "3ba9a7ef5940dda750c1027b9e268f2208a85c8136d1e28df91f6d66deb96f0c",
+    "scripts/publication/test_ui.mjs": "fa6a44dace385dfd05e2565645155e21fbce40a3c34ec81bc7560943102bdff0",
     "scripts/qr-attendance/test_ui.mjs": "904851d6b98cdb4001467d7cf7c1e3cdb2e23dc435bca0cf0a00a688c742a1e4",
     "scripts/session-changes/test_ui.mjs": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
     "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
   },
-  "capturePackSha256": "c09d26e428103989d56a76763dc8166572d46f2aa1b249d87f6c346c01e19f2c",
-  "htmlSha256": "1bbb6b86b1d78fd3d959449df8ef8fc5d49d7b1d0c7589d1c3aac6a0615f7ae5",
-  "frames": 838,
-  "transitions": 843,
+  "capturePackSha256": "c558c411fa8ab8a7f431fa821182d421e50a506b0583a7ae087336ad76d58b57",
+  "htmlSha256": "e47cd96cbb852a0d556e0faf7f399cf9be29517f4916288c0cc01ad144557327",
+  "frames": 831,
+  "transitions": 856,
   "sourceFiles": 52,
-  "sourceLiterals": 6188,
+  "sourceLiterals": 6222,
   "journeys": [
     {
       "id": "entry",
@@ -123,7 +123,7 @@
     },
     {
       "id": "publication",
-      "frames": 54
+      "frames": 47
     },
     {
       "id": "session-changes",
