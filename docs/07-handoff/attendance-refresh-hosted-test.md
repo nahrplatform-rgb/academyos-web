@@ -1,8 +1,8 @@
-# Prepared atomic-register hosted test — approval pending
+# Authorized atomic-register hosted test — execution pending
 
 Target: existing `academyos-staging`, academy A “AcademyOS M1 Synthetic Academy”; existing Owner nahr.platform@gmail.com. Current retained sessions have one player with attendance already saved. The new register deliberately cannot overwrite these saved marks, and publication requires an eligible active Trainer. Prior temporary Trainer/Guardian grants are ended; this packet does not restore them.
 
-## Requested temporary authority
+## Authorized temporary authority
 
 Temporarily restore only Casey Demo’s existing Trainer membership/assignment for moamen_ghareeb@icloud.com in academy A’s existing branch, with the same audited compare-and-set operator procedure used in previous separately authorized tests. No new account, email, Owner/Guardian power, cross-academy access or permanent appointment. Capture expected current ended states and prepare ending before restoration. Do not execute until Moamen explicitly authorizes this new test.
 
@@ -16,3 +16,7 @@ Temporarily restore only Casey Demo’s existing Trainer membership/assignment f
 6. Record EN/AR wording/layout and exact deployed source. Ask working-feature acceptance separately. Independent human/security, physical devices/accessibility, direct-API adversarial races and load/WAL/cost remain open.
 
 No Guardian restoration, message, invitation, real data or account grant is included. Interrupted tests prioritize ending the temporary Trainer authority and accurately retain any committed domain/history records. A lost response must reconcile the original operation, not repeat the attendance write. Local tests cover rollback/failure cases independently; they do not substitute for the hosted round trip.
+
+## Owner authorization received — 29 October 2026
+
+Moamen explicitly wrote “Authorize this temporary register test and ending” in this implementation chat. This authorizes the exact temporary restoration, one new synthetic two-player session, canonical batch save and ending described above. Do not ask for the same authorization again. Deployment readiness, prepared ending and current-state checks remain required before restoration. At this checkpoint no restoration or hosted attendance write has run; promotion is building and the visual parity question is being investigated.

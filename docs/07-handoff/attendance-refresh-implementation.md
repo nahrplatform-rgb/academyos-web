@@ -31,3 +31,9 @@ App promotion and signed-in hosted register verification are pending at this che
 ## App rollout checkpoint
 
 Implementation source`2a816876759e48800f4d9f37f8fbcf778cb8a8f9` committed and pushed. Vercel automatic preview`dpl_2tKQvjHnJfxdFx2FfSEKATo2KrLP` is Ready. The reviewed promotion dialog names only existing`staging.academy.nahr.dev` and its standard Vercel alias. Promotion is paused at Vercel passkey reauthentication; Touch ID was handed to the Owner. No deployment completion or signed-in hosted register proof is claimed at this checkpoint. Push/PR CI40816336333/40816338447 are still running. New temporary Trainer-test authorization is separately pending; no restoration executed.
+
+## Continuation — 29 October 2026
+
+Moamen explicitly authorized the prepared temporary register test and ending. No restoration has executed. Current Chrome Vercel page shows production-environment rebuild`dpl_CdXf7SqhctW8sic6Tb32rT1Ahhs1` for checked app source`2a81687` Building; this is the existing staging project, not production launch. Earlier passkey-pending/authorization-pending notes are historical. Both exact implementation CI runs40816336333/40816338447 succeeded. App promotion completion and hosted write verification remain pending.
+
+Visual parity finding: the reviewed standalone HTML uses its own CSS/markup, while the real React register reuses the existing shell and controls. This produced real design differences in typography, toolbar placement, summary semantics, navigation and detail surfaces; it is not explained solely by data, browser zoom or deployment age. Prior local interaction/overflow tests do not establish approved-design visual parity. Verify/fix this explicitly at matching role/state/locale/viewport and compare the same actual component locally and on staging before requesting redesigned working acceptance.
