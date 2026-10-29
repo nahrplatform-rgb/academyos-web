@@ -1,6 +1,6 @@
 {
-  "source": "8e0b667beeb37ac8301ac58df269fbc388fd1735",
-  "generatedAt": "2026-10-29T14:55:09.950Z",
+  "source": "e9b2f93832eaacce0e86d9a859e7d1ae61af3756",
+  "generatedAt": "2026-10-29T15:02:33.608Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -39,7 +39,7 @@
     "apps/web/src/components/development-workspace.tsx": "96a119e7dd81198f53d1caf522ceec9e11204719df1da7efaba311311952605d",
     "apps/web/src/components/guardian-training-workspace.tsx": "3d01fd7967976cddcae4d4e718c5eb33c8383d34919037ef970ed6658f1a6709",
     "apps/web/src/components/guardian-workspace.tsx": "338132a1c2b8dfc0a48edbf192ca4793670520467d39a8e590614cd32ca54cad",
-    "apps/web/src/components/onboarding-workspace.tsx": "dfff975daeb9c0480b2366f230bdb9391ab75e46ca273d0bf8ca29dfa3c9bb4c",
+    "apps/web/src/components/onboarding-workspace.tsx": "d1d45ceebf63dab1f80ac7e9f62b5170582e43e80cfe35f8d6755a0cd5f812b1",
     "apps/web/src/components/people-workspace.tsx": "ea67769f5b36d88a912d1ae7f33eee8d67774f82cf85690c90b4421b5b41144d",
     "apps/web/src/components/program-planning-workspace.tsx": "da12ae2983142e44d404a4bbeef93df2a805a95bdbd068b872e1749744d56118",
     "apps/web/src/components/program-workspace.tsx": "ececc1c34da7fd1e755b358c48f32763a5c9157acdd2dd09f4c503283e3e849f",
@@ -52,7 +52,7 @@
     "apps/web/src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
     "apps/web/src/components/trainer-workspace.tsx": "2db7dce04faf030681db762ab900a8945f14141ab8d04b5a37730f8268692c23",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
-    "apps/web/src/components/workspace-panes.tsx": "364e44dde8493f270e2f7c9fa5a14416093107b31f2cec6132cc0e4c96dfb6cf",
+    "apps/web/src/components/workspace-panes.tsx": "be2d57c5b7d5f7ef67516f9f0bb22f71a6030eca3235de9a48af6fbfedf99d59",
     "apps/web/src/components/workspace-shell.tsx": "5483ebf649c2bc943642ff21db3c197d9e8a8c132e4f5469656c72c2b0e09a3d",
     "design/app-experience-review/journeys.json": "06cb2993ea59a4e01fdabaa0012b6ca054692fe79efaa36feac4157a37a679e5",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
@@ -72,7 +72,7 @@
     "scripts/experience-review/test.mjs": "a4ddeb23c054327a293a8eebd2a1be46e448ed63474e60f67e4ee04961fc7892",
     "scripts/guardian-training/test_ui.mjs": "d11074e972f5aec8d18adae058373ac7085aa29b3fc1456370db93f43ae5d07c",
     "scripts/guardians/test_ui.mjs": "7cee0da931d315ade9148396affaa7b4e66e815931960b041d3abb7695577a62",
-    "scripts/onboarding/test_ui.mjs": "e116d4b53dfd118a65a95adffd022f6078afdbd93995ae7449d0715763508f98",
+    "scripts/onboarding/test_ui.mjs": "1153c961fc45f9554a4d6e4a68cc91648c0dcf62c8a5f2e3c3e374fae110cb51",
     "scripts/people/test_ui.mjs": "537cb67ba7c86b62c8a847b1c596df016cf0230818dacee13ea0992571d04c75",
     "scripts/planning/test_ui.mjs": "f3c3ac6311bc89789406667198699b4e0f676a96fda4139b054a0cd1d7df2126",
     "scripts/program-planning/test_ui.mjs": "1795dceb7f038682b76e6976948ec73fd95ba2982c3cdddb166486b6493b41eb",
@@ -82,12 +82,12 @@
     "scripts/session-changes/test_ui.mjs": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
     "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
   },
-  "capturePackSha256": "b7632bc5ea05640da84d00718b718012d3992160d36cff9f6d32681076f80714",
-  "htmlSha256": "4d987a2d579ec2588ff54b4785971f2b14034f2d62ea565d8450e03d97d2e066",
+  "capturePackSha256": "c09d26e428103989d56a76763dc8166572d46f2aa1b249d87f6c346c01e19f2c",
+  "htmlSha256": "1bbb6b86b1d78fd3d959449df8ef8fc5d49d7b1d0c7589d1c3aac6a0615f7ae5",
   "frames": 838,
   "transitions": 843,
   "sourceFiles": 52,
-  "sourceLiterals": 6186,
+  "sourceLiterals": 6188,
   "journeys": [
     {
       "id": "entry",

@@ -143,7 +143,7 @@ try{
  const rowB=page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true});
  await rowB.focus();await page.keyboard.press('Enter');
  await page.locator('#admission-detail-heading').waitFor();
- assert.equal(await page.locator('#admission-detail-heading').evaluate(el=>el===document.activeElement),true);
+ await expect(page.locator('#admission-detail-heading')).toBeFocused();
  await captureReview('16-admission-desktop','16. Desktop — loaded list and academy details','Explicit row inspection adds zero retrieval and keeps invitation changes in the named academy context.');
  assert.equal(platformReads,readsBeforeInspection,'Inspection adds zero data reads');
  assert.equal(invitationChanges.length,0,'Inspection is not an invitation mutation');
