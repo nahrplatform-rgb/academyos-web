@@ -1,0 +1,13 @@
+# Connected redesign — program and individual planning
+
+## Authorized scope before implementation
+
+The complete8e0b667 proposal is approved. Continue IMP-J10-A01, J10-A01/J11-A01, S24/S26/S27 and retained AO/AT-023/024/025/027/034 through focused central program/date planning. Preserve shared/weekday choices, existing individual exceptions, exact whole-scope counts, all-or-nothing final activation, private saved preparation and individual-date editing. Existing atomic/versioned/idempotent writers and recovery remain canonical. No permission, account access, financial effect, publication, schema or policy change is authorized by this presentation batch.
+
+Current gap: full program editing/review still occupies an inspector while the directory/new-proposal controls remain alongside it; preparation requires repeated25-date clicks. Individual-date planning also puts its main task in the inspector. Translate the approved central-workspace reference and meaningful progress/recovery into these actual domains; keep contextual inspection optional.
+
+Reuse shared shell/panes/controls and each domain's existing transport. Source review inspected `program-planning-workspace.tsx`, `date-planning-workspace.tsx`, r7 command shapes and existing actual-component tests. PYSA reference remains the scheduling review/preservation ledger, shared calendar and checkpoint35: preserve program defaults/dated exceptions and direct roster handoff; avoid mixed-result loops, destructive linked-write replacement (EV-0089) and dated-assignment omissions (EV-0095). Reference is source/audit evidence, not live verification or authority to copy data/permissions.
+
+Required local cases:40 dates/39 changes/1 preserved; shared and weekday choices; bounded candidate and roster search; versioned sequential private checks with pause/resume; complete exceptions without activation; committed/uncommitted lost replies; stale/denied/read failures; distinct atomic final save; unsaved choices and return focus; individual plan/history protections; EN/AR desktop/tablet/phone. Canonical server activation performs the authoritative concurrency/capacity/overlap checks. Local HTTP-adapter checks cannot establish database or hosted proof.
+
+Cost/rollback: each check keeps existing request/response bounds; record actual request counts and leave query/latency/load/WAL evidence open. Revert this client batch and corresponding factual captures without deleting private preparations or effective plans. Existing security packet SEC-J10/SEC-J11 applies. Design is approved; implementation, testing, deployment, hosted verification and new Owner acceptance are not yet claimed.

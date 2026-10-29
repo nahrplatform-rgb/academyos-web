@@ -50,3 +50,5 @@ The full proposed preview is ready for consolidated Owner review. [Local verific
 Moamen explicitly answered “Approve this connected design for implementation.” The approved visual/workflow reference is commit `8e0b667` and its complete proposed HTML. This settles the consolidated design gate for the declared scope. Earlier review-pending checkpoints above are historical; this approval is not hosted working-feature acceptance, security approval, an access grant or production authority.
 
 Implementation batch1: [scope, contracts and evidence](../../docs/07-handoff/full-experience-foundations-implementation.md). Preserve the exact approved proposal while translating its representative fixtures into real scoped data.
+
+Continuation: [publication batch evidence](../07-handoff/full-experience-publication-implementation.md) and [next program/date planning scope](../07-handoff/full-experience-planning-implementation.md). The full redesign remains in progress; the source, staging, hosted verification and acceptance checkpoints in these packets are deliberately separate.
