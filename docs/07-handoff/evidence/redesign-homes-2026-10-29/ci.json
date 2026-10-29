@@ -10,5 +10,12 @@
     40946808613
   ],
   "earlier_failure": "Linux temporary output path; fixed without product or assertion changes",
-  "backup_plaintext_cleanup": "Generated local recovered copy removed; encrypted archive and receipts retained"
+  "backup_plaintext_cleanup": "Generated local recovered copy removed; encrypted archive and receipts retained",
+  "final_source": "52d42a631f74319ae6d25152646e83f398d6e9ef",
+  "final_runs": [
+    40950904575,
+    40950913246
+  ],
+  "final_conclusion": "success",
+  "serving_deployment": "dpl_Czv1k1gaZBsPo5d6Sqw2T4inM43M"
 }
