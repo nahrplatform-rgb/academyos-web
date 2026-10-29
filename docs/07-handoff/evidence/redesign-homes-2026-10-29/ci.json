@@ -1,0 +1,14 @@
+{
+  "source": "2bf342897b88cbbbf60bf248d117814bc62dc8c9",
+  "runs": [
+    40948062353,
+    40948053530
+  ],
+  "conclusion": "success",
+  "earlier_runs": [
+    40946818459,
+    40946808613
+  ],
+  "earlier_failure": "Linux temporary output path; fixed without product or assertion changes",
+  "backup_plaintext_cleanup": "Generated local recovered copy removed; encrypted archive and receipts retained"
+}
