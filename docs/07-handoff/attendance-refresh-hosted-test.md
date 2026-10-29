@@ -20,3 +20,7 @@ No Guardian restoration, message, invitation, real data or account grant is incl
 ## Owner authorization received — 29 October 2026
 
 Moamen explicitly wrote “Authorize this temporary register test and ending” in this implementation chat. This authorizes the exact temporary restoration, one new synthetic two-player session, canonical batch save and ending described above. Do not ask for the same authorization again. Deployment readiness, prepared ending and current-state checks remain required before restoration. At this checkpoint no restoration or hosted attendance write has run; promotion is building and the visual parity question is being investigated.
+
+## Attempt and cleanup — 29 October 2026
+
+Exact authorized Trainer restoration ran with invitation13→14 and audited `attendance.register_test_restore`. Owner account verified as nahr.platform@gmail.com. Program form opened and fictional name entered, but native Chrome focus refresh repeatedly disabled date fields before reliable date entry; current browser DOM control reports unavailable. No program/date/publication or new mark was committed. Audited ending ran: assignment ended, membership ended, invitation14→15. Guardian and other memberships unchanged. This is an incomplete hosted batch test with successful cleanup, not a pass. Original authorization is recorded for this exact test; any continuation must recheck current state and prepare ending before another restoration.
