@@ -118,5 +118,13 @@
     "actions": "IMP-J16-A01",
     "sequence": "Draft → submit → return/revise → publish exact snapshot → Guardian public fields → withdraw/history",
     "reference": "docs/07-handoff/i5a-development-feedback-implementation.md"
+  },
+  {
+    "id": "experience-projections",
+    "title": "15 · Role homes and dated calendars",
+    "roles": "Academy Owner / Trainer / Guardian",
+    "actions": "J07; J08; J09; J10; J11; J12; J13; J15; J16",
+    "sequence": "Current role/link → authoritative home panels → bounded week/month → session details → existing exact task; unavailable and revoked views clear private content",
+    "reference": "docs/07-handoff/full-experience-home-calendar-contract.md"
   }
 ]

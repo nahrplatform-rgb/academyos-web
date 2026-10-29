@@ -192,7 +192,7 @@ button.primary { background:var(--accent);border-color:var(--accent);color:white
 .workspace-panes .checkbox-row { margin-block:16px;align-items:start;font-weight:400; }
 .checkbox-row input { flex-shrink:0; }
 .main:has(.workspace-panes) > main > h1,.main:has(.workspace-panes) > main > .journey-error,.main:has(.workspace-panes) > main > .notice,.main:has(.workspace-panes) > main > .journey-card { margin:22px 24px; }
-.app-scene[lang="ar"] { font-family:Tahoma,Arial,sans-serif;font-size:14px;line-height:1.7; }
+.app-scene[lang="ar"] { font-family:Tahoma,Arial,sans-serif;font-size:15px;line-height:1.7; }
 .app-scene[lang="ar"] .workspace-sidebar nav a,.app-scene[lang="ar"] button,.app-scene[lang="ar"] .button { font-size:13px; }
 .app-scene[lang="ar"] h1 { line-height:1.5; }
 .app-scene[lang="ar"] h2 { line-height:1.6; }
@@ -484,3 +484,25 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 
 .skip-link:not(:focus) {clip-path:inset(50%);width:1px;height:1px;padding:0;overflow:hidden;white-space:nowrap;}
 .skip-link:focus {min-height:44px;clip-path:none;}
+/* Connected role-home and calendar tasks; module colours carry context, never authority. */
+.experience-task-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px;margin:24px 0;}
+.experience-task-card {display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);min-width:0;}
+.experience-task-card>strong {font-size:30px;line-height:1.2;}.experience-task-card>span:last-child{font-size:14px;color:var(--muted);}
+.experience-task-card.module-training {background:color-mix(in srgb,#67b8f6 13%,var(--surface));border-block-start:3px solid #8bc8f5;}
+.experience-task-card.module-attendance {background:color-mix(in srgb,#5bd6c4 12%,var(--surface));border-block-start:3px solid #88ddce;}
+.experience-task-card.module-development {background:color-mix(in srgb,#b49ae9 14%,var(--surface));border-block-start:3px solid #c6b1ed;}
+.experience-task-card.module-people {background:color-mix(in srgb,#d7b665 13%,var(--surface));border-block-start:3px solid #ebcf94;}
+.experience-task-card.module-family {background:color-mix(in srgb,#ec9e91 12%,var(--surface));border-block-start:3px solid #f0b6a9;}
+.experience-sessions {margin-block:24px;}.experience-sessions>header {display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.experience-sessions>label {display:block;margin:16px 0;}.experience-sessions input{display:block;width:100%;margin-top:8px;}
+.experience-session-list {list-style:none;margin:16px 0;padding:0;display:grid;gap:12px;}
+.experience-session {display:flex;width:100%;text-align:start;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line);background:color-mix(in srgb,#67b8f6 9%,var(--surface));border-radius:10px;padding:16px;min-height:88px;}
+.experience-session>span {display:flex;flex-direction:column;gap:8px;min-width:0;}.experience-session strong{overflow-wrap:anywhere;}.experience-session span span{color:var(--muted);font-size:14px;}
+.experience-session[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:2px;}.session-clock{flex:0 0 156px;}.session-state{border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:14px;}
+.state-cancelled{color:var(--red);background:var(--red-bg);}.state-draft{color:var(--muted);}.state-moved{color:var(--warning);background:var(--warning-bg);}.state-published{color:var(--accent);}
+.experience-player-picker label{display:flex;flex-direction:column;gap:8px;}.experience-player-picker{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;}.experience-player-picker select{min-width:min(100%,260px);}
+.calendar-toolbar{margin-block:24px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;}.calendar-toolbar label{display:flex;flex-direction:column;gap:8px;}.calendar-toolbar button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);}
+.experience-freshness{color:var(--muted);font-size:14px;margin-top:24px;}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-block:20px;}.calendar-day{min-height:120px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);}.calendar-day>h3{font-size:14px;margin:0 0 8px;}.calendar-day ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}.calendar-day .experience-session{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:10px;font-size:14px;min-height:48px;}.calendar-day .session-clock{flex:auto;}.calendar-day .session-clock b,.calendar-day .experience-session>span:nth-child(2)>span{display:none;}.calendar-day .session-state{font-size:12px;padding:4px;}
+@media(max-width:1279px){.experience-session{min-height:96px;}.calendar-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:767px){.experience-task-grid{grid-template-columns:1fr 1fr;gap:12px;}.experience-task-card{padding:16px;}.experience-session{align-items:flex-start;flex-wrap:wrap;padding:16px;gap:12px;}.session-clock{flex:1 1 100%;}.experience-session>span:nth-child(2){flex:1 1 65%;}.calendar-toolbar .journey-actions{display:flex;flex-wrap:wrap;}.calendar-toolbar button{min-height:48px;}.calendar-grid{display:block;}.calendar-day{margin-block:12px;min-height:0;}.calendar-day:has(ul:empty){display:none;}.calendar-day .experience-session{display:flex;flex-direction:row;flex-wrap:wrap;}.calendar-day .session-clock{flex:1 1 100%;}.experience-player-picker{display:block;}.experience-player-picker button{margin-top:12px;}}
+@media(max-width:767px){.app-scene[lang="ar"]{font-size:16px;}.app-scene[data-workspace-role="guardian"] .experience-task-grid{grid-template-columns:1fr;}}

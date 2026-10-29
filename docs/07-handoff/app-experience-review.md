@@ -10,8 +10,12 @@ This review tooling changes no app functionality, schema, permissions, access, h
 
 Acceptance, visual findings and redesign approval remain separate. Review-tool verification is linked from its README; app usability/security/performance evidence remains in the relevant journey receipts.
 
-## Verification checkpoint
+## Original tooling checkpoint — historical
 
 15 captured groups: eight welcome/configuration/ENAR/width states plus14 existing real-component workflow checks, all passed with original assertions.811 distinct captured states and832 observed transition records;51 UI source files and5,934 source literals embedded. The68-screen and180-requirement registers remain separate inventory. [Capture receipts](../../design/app-experience-review/evidence/capture-runs.json), [offline review-tool checks](../../design/app-experience-review/evidence/verification.json), [input hashes](../../design/app-experience-review/manifest.json).
 
 Offline file opening, every journey group, an actual recorded-button transition, AR/RTL classification,360px captures, reviewer-note JSON download, source search, retained catalog/requirements,390px review-tool layout and zero HTTP requests/page errors passed. Representative Arabic desktop and phone review-tool screenshots were inspected. Testing caught and corrected a language filter that matched `hreflang`, and scaled-iframe click mapping; assertions were strengthened. The current package does not claim all possible conditional states, physical camera/provider login, hosted permissions or new product visual acceptance.
+
+## Connected-redesign checkpoint —29 October2026
+
+The living factual review now includes the actual role-home/calendar component and existing direct task entry, alongside the prior journeys. Capture counts and source fingerprints are authoritative in the generated manifest; observed states/transitions are not exhaustive acceptance or hosted security proof. The proposed reference stays separate. Current redesign evidence: [home/calendar contract](full-experience-home-calendar-contract.md) and [planning batch](full-experience-planning-implementation.md).

@@ -1,0 +1,7 @@
+{
+  "scope": "Disposable PG17 warm queue SQL only; no HTTP, device, cold start or WAL/cost proof",
+  "assessments": 1001,
+  "samples": 30,
+  "p95_ms": 5.779,
+  "max_ms": 5.822
+}

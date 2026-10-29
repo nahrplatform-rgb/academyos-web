@@ -107,3 +107,8 @@ jobs:
           node scripts/development/test_api.mjs
           node scripts/development/test_ui.mjs
           UI_REACT_MODE=development node scripts/development/test_ui.mjs
+      - name: Verify role-home and calendar read API and UI
+        run: |
+          node scripts/experience-projections/test_api.mjs
+          node scripts/experience-projections/test_ui.mjs
+          UI_REACT_MODE=development node scripts/experience-projections/test_ui.mjs

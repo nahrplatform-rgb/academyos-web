@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "journeyGroups": 15,
+  "journeyGroups": 16,
   "checks": [
     "standalone file URL opens offline",
     "all journey groups have visible captured states",

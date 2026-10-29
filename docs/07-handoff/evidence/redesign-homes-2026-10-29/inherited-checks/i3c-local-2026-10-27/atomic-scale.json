@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "scope": "Disposable actual PG17 transaction with outer3s statement timeout. Includes local process launch, excludes HTTP/identity/provider/cold/hosted/physical proof. Roster1 per date only; larger cross-product remains separate.",
+  "metrics": {
+    "20": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 52.7156250027474,
+      "max_ms": 86.87529199232813,
+      "statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "40": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 47.4253749998752,
+      "max_ms": 48.19062500610016,
+      "statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "100": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 61.466166996979155,
+      "max_ms": 63.55208400054835,
+      "statement_budget_ms": 3000,
+      "roster_per_date": 1
+    },
+    "1000": {
+      "observations": 50,
+      "process_inclusive_p95_ms": 973.6524580075638,
+      "max_ms": 1032.9805410001427,
+      "statement_budget_ms": 3000,
+      "roster_per_date": 1
+    }
+  }
+}
