@@ -51,3 +51,7 @@ One program retains its full explicit inclusive period and weekday-specific rule
 ## Connected-design approval — 26 October 2026
 
 Moamen explicitly selected “Approve completed draft-program design for implementation”: full-period Owner-only drafts, weekday-specific times, bounded reviewed date windows, preparation progress, pause/reopen/resume, failure/reconciliation and ready-only saved dates. This supersedes pending connected-design status above for this bounded slice. It authorizes product implementation, not assignments, publication, access grants, real data or production launch. Working-feature acceptance, hosted verification and independent security review remain separate.
+
+## Approved full-experience review change —29October2026
+
+Moamen approved the full connected Charcoal proposal8e0b667 for implementation. Human page-by-page date inspection is replaced by a recurring weekly summary, complete automatic authoritative checks and mandatory resolution of blocking exceptions. Every date stays inspectable. The client still carries the complete definition/context and each signed predecessor receipt; confirmation requires all windows and the matching full count. Original creation/preparation/finalization, private status, timezone/DST rejection and interrupted-operation policies are unchanged. This supersedes earlier manual-inspection presentation requirements only; broader scheduling/visibility rules remain governed by their later accepted decisions.

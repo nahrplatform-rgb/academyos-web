@@ -1,7 +1,7 @@
 {
   "scope": "Fictional design only; not app/API/DB/security/deployment proof",
   "status": "passed",
-  "htmlSha256": "0831fe5e978f39bb781a926871c97fce06ec3582cde6846fa1c5245940fcc2b0",
+  "htmlSha256": "2dee47394658bd7d23f5ffb81261886c2edb605cde049de4ad88b8ffedc020e2",
   "checks": [
     "30 views × EN/AR ×320/360/390/900/1440: no horizontal overflow; rendered control inventory",
     "Duplicate comparison, deliberate separate record, pending then confirmed registration",

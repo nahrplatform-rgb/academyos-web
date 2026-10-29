@@ -306,7 +306,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
     </>;
     const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
     return <>
-    <WorkspaceShell locale={locale} context={context?.academy_name ?? t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك') }, { href: `/${locale}/workspace/${academy}`, label: t('Academy setup', 'إعداد الأكاديمية') }, { href: '#directory', label: t('Players', 'اللاعبون'), current: true }]} onNavigate={event => { if (event.currentTarget.hash === '#language') {
+    <WorkspaceShell role="owner" module="people" locale={locale} context={context?.academy_name ?? t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك') }, { href: `/${locale}/workspace/${academy}`, label: t('Academy setup', 'إعداد الأكاديمية') }, { href: '#directory', label: t('Players', 'اللاعبون'), current: true }]} onNavigate={event => { if (event.currentTarget.hash === '#language') {
         event.preventDefault();
         setLocale(ar ? 'en' : 'ar');
     }

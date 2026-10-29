@@ -20,7 +20,7 @@ else if(body.action==='card_change'){cardVersion++;cardActive=body.choice!=='rev
 else if(body.action==='window_change'){settings={version:settings.version+1,before:body.before,after:body.after};receipt={kind:'settings',event:body.event,version:settings.version,...settings}}
 else return route.fulfill({status:422,body:'{"error":"invalid"}'});
 writes++;ops.set(body.op,receipt);if(bad){bad=false;return reply({})}if(lost){lost=false;return route.abort()}return reply(receipt)});
-const b=name=>page.getByRole('button',{name,exact:true}),ins=page.locator('.workspace-inspector'),center=page.locator('.workspace-center');
+const b=name=>page.getByRole('button',{name,exact:true}),ins=page.locator(':is(.workspace-inspector,.workspace-detail-dialog,.workspace-task-body)'),center=page.locator('.workspace-center');
 async function reset(view='scan'){owner=true;denied=readFail=lost=drop=bad=false;domain='';current=null;version=0;cardVersion=0;cardId=null;cardActive=false;mode='unique';writes=0;ops.clear();settings={version:0,before:30,after:30};await page.goto(url+'/?view='+view);await page.evaluate(()=>sessionStorage.clear());await page.reload();await expect(view==='card'?b('Issue card'):view==='settings'?b('Review window settings'):b('Open scanner')).toBeVisible()}
 async function scan(){await b('Open scanner').click();await page.getByRole('textbox',{name:'Card code fallback',exact:true}).fill(token);await b('Read card code').click()}
 async function test(name,fn){await reset();await fn();cases.push(name)}

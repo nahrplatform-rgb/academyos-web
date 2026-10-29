@@ -36,3 +36,5 @@ Desktop/phone screenshots and viewport emulation do not prove physical-device be
 The preview demonstrates representative record lifecycles using one main synthetic program and a small adjacent-session scanner specimen. It is not a multi-program concurrency test. The supplied coverage links parent requirement/action families without retiring or claiming complete fulfillment of them. Finance, communication/media, Manager/Player operations and offline work remain visibly future scope.
 
 After consolidated design approval: implement shared foundations and the attendance/training/publication reference journeys, then scoped homes/calendar and remaining journeys. Compare matching role, data state, locale and viewport to this reference; update the factual review and individual implementation/hosted/acceptance receipts after each real batch.
+
+Owner update29October2026: Moamen explicitly approved the connected proposal for implementation. The review-pending design checkpoint above is historical; product implementation/hosted/working acceptance remain separate.

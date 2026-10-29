@@ -1,7 +1,7 @@
 // Real React UI with synthetic transport/identity adapters. No product route or auth bypass.
 // This verifies interaction/reflow/recovery only, never API or database authorization.
 import { build } from 'esbuild';
-import { chromium } from '@playwright/test';
+import { chromium, expect } from '@playwright/test';
 import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -135,7 +135,7 @@ try{
   await page.setViewportSize({width,height:900});
   const layout=await page.locator('.workspace-center').evaluate(el=>{const center=el.getBoundingClientRect(),h=el.querySelector('h1').getBoundingClientRect(),bar=el.querySelector('.task-header').getBoundingClientRect();return{padding:h.top-center.top,headerOwnsTitle:h.top>=bar.top&&h.bottom<=bar.bottom,overflow:document.documentElement.scrollWidth>innerWidth};});
   assert.ok(layout.padding>=16,'Title belongs inside padded workspace');assert.equal(layout.headerOwnsTitle,true);assert.equal(layout.overflow,false);
-  if(width===926)assert.equal(await page.locator('.workspace-inspector').isVisible(),false,'Tablet directory gets full task width before selection');
+  if(width===926)assert.equal(await page.locator(':is(.workspace-inspector,.workspace-detail-dialog,.workspace-task-body)').isVisible(),false,'Tablet directory gets full task width before selection');
   await captureReview('clarity-admission-'+width,'Admission at '+width+'px','Aligned task title/refresh and directory-first layout.');
  }
  await page.setViewportSize({width:1440,height:1000});
@@ -176,7 +176,7 @@ try{
  }
  // Current denial must clear the selected platform projection too.
  await page.getByRole('button',{name:'Synthetic Academy B — عرض التفاصيل',exact:true}).click();
- platformDenied=true;await page.getByRole('button',{name:/^(تحديث العرض|إعادة محاولة قراءة الحالة|إعادة التحقق من الحالة)$/}).click();await page.getByRole('alert').waitFor();
+ platformDenied=true;await page.evaluate(()=>window.dispatchEvent(new Event('focus')));await page.getByRole('alert').waitFor();
  assert.equal(await page.locator('#admission-details').count(),0);assert.equal(await page.getByRole('button',{name:/Synthetic Academy B/}).count(),0);
  platformDenied=false;accepted=true;
  await page.goto('http://127.0.0.1:3194/?mode=platform');
@@ -211,7 +211,9 @@ try{
   const edit=page.getByRole('button',{name:label('Edit branch and timezone','تعديل الفرع والمنطقة الزمنية'),exact:true});await edit.waitFor();
   assert.equal(await page.getByRole('main').count(),1,'Shared shell must expose exactly one main landmark');
   assert.equal(await page.getByRole('link',{name:label('Skip to content','انتقل إلى المحتوى'),exact:true}).getAttribute('href'),'#main');
+  if(width<1280)await page.getByRole('button',{name:label('Menu','القائمة'),exact:true}).click();
   assert.equal(await page.getByRole('navigation',{name:label('Workspace navigation','التنقل في مساحة العمل'),exact:true}).count(),1);
+  if(width<1280){await page.keyboard.press('Escape');await expect(page.getByRole('button',{name:label('Menu','القائمة'),exact:true})).toBeFocused();}
   if(width<=720)for(const target of await page.locator('.toolbar-actions>a:visible,.brand:visible,.workspace-sidebar nav a:visible').all()){
    const size=await target.boundingBox();assert.ok(size&&size.height>=44&&size.width>=44,'Phone shell links must retain 44px touch targets');
   }

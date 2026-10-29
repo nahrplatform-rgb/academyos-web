@@ -1,0 +1,37 @@
+{
+  "scope": "Actual React, synthetic18-player fixture; same role/viewport/selection as approved preview; token/geometry assertions, not pixel or hosted proof",
+  "visual": [
+    {
+      "width": 390,
+      "lang": "en",
+      "heading": "25px",
+      "canvas": "#1a1e27",
+      "sidebar": "224px",
+      "phoneNav": "flex"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "heading": "28px",
+      "canvas": "#1a1e27",
+      "sidebar": "224px",
+      "phoneNav": "none"
+    },
+    {
+      "width": 390,
+      "lang": "ar",
+      "heading": "25px",
+      "canvas": "#1a1e27",
+      "sidebar": "224px",
+      "phoneNav": "flex"
+    },
+    {
+      "width": 1440,
+      "lang": "ar",
+      "heading": "28px",
+      "canvas": "#1a1e27",
+      "sidebar": "224px",
+      "phoneNav": "none"
+    }
+  ]
+}

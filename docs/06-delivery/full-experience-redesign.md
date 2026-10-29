@@ -44,3 +44,9 @@ Rollback: preview artifacts can be removed/reverted without product or database 
 ## Preview delivery receipt
 
 The full proposed preview is ready for consolidated Owner review. [Local verification](../../design/full-experience-preview/verification.md) records 300 layout cases, 309 applicable state cases and 21 journey/state groups; source/HTML/coverage/manifest freshness and the unchanged factual review were checked. [Delivery status](../../design/full-experience-preview/delivery-status.csv) keeps design approval, product implementation, local design testing, deployment, hosted proof and Owner acceptance separate for all destinations. None of the local simulation results close product/backend/security/device/performance gates. No new app, schema, provider, access or hosted deployment change occurred in this batch.
+
+## Consolidated approval —29October2026
+
+Moamen explicitly answered “Approve this connected design for implementation.” The approved visual/workflow reference is commit `8e0b667` and its complete proposed HTML. This settles the consolidated design gate for the declared scope. Earlier review-pending checkpoints above are historical; this approval is not hosted working-feature acceptance, security approval, an access grant or production authority.
+
+Implementation batch1: [scope, contracts and evidence](../../docs/07-handoff/full-experience-foundations-implementation.md). Preserve the exact approved proposal while translating its representative fixtures into real scoped data.
