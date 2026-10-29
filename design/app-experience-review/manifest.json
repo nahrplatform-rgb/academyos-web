@@ -1,0 +1,153 @@
+{
+  "source": "02e0cd6151be9fd89ed9816d4b2a2f40a951a7b2",
+  "generatedAt": "2026-10-29T00:50:16.960Z",
+  "inputs": {
+    "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
+    "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
+    "apps/web/src/app/[locale]/page.tsx": "abfa7fb7bf2480289e242e06c119839c9cbd2f40effc505509eb0f902bb972db",
+    "apps/web/src/app/[locale]/platform/page.tsx": "079627b4b65ee6224a52bbd0fc8affbd21baf9123e2e8aa75c637f862b09509d",
+    "apps/web/src/app/[locale]/service-setup/page.tsx": "98e1ba1d713452610f512bc1a917ab04cf2105b5fbc0851b92057fff4eedda6f",
+    "apps/web/src/app/[locale]/sign-in/[[...sign-in]]/page.tsx": "73bf71aa300db70c2ad09473d36a9d4623be693ff1ce8cd1d8f8462ae611cdb3",
+    "apps/web/src/app/[locale]/trainer-invitation/page.tsx": "df7146a240c6e741ccdd521211391fac3f52d8d990356a2181fb1d6271c80405",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "978688416b697ae1c1e138706282a20b4a3ad1110b495be43e24f6074385af43",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "2c3dab1f05f0fca82fc9e945fce63e84c225729377153cb742226c375b64e22c",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx": "04ea5bff44f27ba3b3ede3c5468db6ab7515b6e3460ca60812726906478fc545",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx": "2d08fc2f98b57d4b722e797c9dffcf3fecd5bff3d3fe7c2b501b22b8a4322963",
+    "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "f03f849d202a6120ad036fb5b7a11347789e7d24ea2c6525f34ff00fa72adafe",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx": "55fc00ac07af0fa85acdb6356465c2898e34c61e110e05fdccf279bee772ec58",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx": "3b7503bdf06937b81b2c7b5111addb0fa44f2f9b7b28a727790aaeb151a6e514",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx": "a236a414731648a2fb74926f0adbeb3d47e510d04be389d07ceb6ff706ac2744",
+    "apps/web/src/app/[locale]/workspace/[academy]/page.tsx": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx": "27cae004bebee14addf1c4c173b4b9dca067288df813f988cfc90df0ee30f83d",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx": "362807ca87bbf8f65214db83c0919b52c2bfd7ddacf146d631069db8375c3b02",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "bc31fba1f41796877bc4a3d5c8c83a33bac4e4d894132ba38a3be3faba035bca",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx": "be268988ccff21b1ecb33027de5488e08a961a6cb7900f45c70afd6873d80910",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/plan/page.tsx": "83b10143b649ca23722ffee3358203bf47fa3723f0c3236497a87291cbcbba94",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx": "fb85cdd2a745983e4183f25cf935da1f4025fc39585b440bb45ccb6061057e99",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx": "d699c679fa9b07784b8e86c860cada9c2900f1873960b14889d9c826611cab73",
+    "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx": "d85668411ab25a19cc3256f3a61db90e19c15a704003e38a3752b9023d5e8694",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
+    "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+    "apps/web/src/app/globals.css": "9f3ccb223e550278f8f9a3c326e12448343da0cbaed221f10f71328cb9ad7c89",
+    "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
+    "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
+    "apps/web/src/components/attendance-workspace.tsx": "939203edf84961ea0f9bf5ff7e4ec8a87ca64375a1ae0637657ef586de5c6479",
+    "apps/web/src/components/correction-workspace.tsx": "38e133619fad8c8e4a6090bdd0b2aa9c0f204d6aa0b86c3a138d1037988e93d3",
+    "apps/web/src/components/date-planning-workspace.tsx": "6f59ef80dfa207350c4a6a40385999987d10c5fda26caaea2ad67233fdc7ae90",
+    "apps/web/src/components/development-workspace.tsx": "4728871ce8472f0eaa7bc046e2b69457daa431a46e536e12695a992552182d62",
+    "apps/web/src/components/guardian-training-workspace.tsx": "2cee99ec40a01b26a91ed90f5784e9b006540563d85dc1e34fa3420d1e7be29b",
+    "apps/web/src/components/guardian-workspace.tsx": "91d5940b222290be1a979db60679f5388a2f118431b918f19b917455f2925ddb",
+    "apps/web/src/components/onboarding-workspace.tsx": "aa105b4eba91c074a894ba6c527250b54ac97491e284002b457199715ffcb475",
+    "apps/web/src/components/people-workspace.tsx": "f6c456d127d9efd033d11af740039104c124bff18860364f69100c55e0a0e8b3",
+    "apps/web/src/components/program-planning-workspace.tsx": "6a5b332dcdd326405d9222aa5cc590ae9c254c208c994e2fa8d2b01bf7c458e6",
+    "apps/web/src/components/program-workspace.tsx": "9dc0cb3f0976ddb5cc1f2572350996c95dace0e9687e6a4c2495d5f5f82f5505",
+    "apps/web/src/components/publication-workspace.tsx": "f77647e2c2453e0ac292831ae45c38c642f692925fff4ad31ef8e298c6f081bc",
+    "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
+    "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
+    "apps/web/src/components/qr-workspace.tsx": "78fa3c9f655f9941a605b4bc12221f9aa5a67531a27abbb577ac12cc6b2120b1",
+    "apps/web/src/components/session-change-workspace.tsx": "0d4d7fef9e70a681898950bb0a04ed61f26ba866779b622c1c4cfd7df4a215b7",
+    "apps/web/src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+    "apps/web/src/components/trainer-workspace.tsx": "629a4aa0b7e7f8546bf74cc8ad8640d3ef3a21ff30f8bcd2d3a8ac9b163fbdaf",
+    "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "apps/web/src/components/workspace-panes.tsx": "897063f088ac7713ccad420affbc759a608c387750b692e4e54e221c3ee3c6b3",
+    "apps/web/src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "design/app-experience-review/journeys.json": "06cb2993ea59a4e01fdabaa0012b6ca054692fe79efaa36feac4157a37a679e5",
+    "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
+    "docs/03-design/screen-data-loading-matrix.csv": "e999169a7322d9001a198b700e191e016005521296d96cc73c1df631d23ff566",
+    "docs/04-engineering/journey-security-matrix.csv": "e62d7c09f846e0aece6993d0e82aa4c3fe019ba544f3365e380384652d2cbd0c",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "cf4e5945801e952930b64711a664810c552fcc29ba947d0facc8d967162be5e0",
+    "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
+    "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
+    "scripts/attendance/test_ui.mjs": "d41833aa9fa8e6a77df4077c75decd4efe0b74683487515ecdf2fffb99b11e2e",
+    "scripts/corrections/test_ui.mjs": "58c453520a5661800804b22368bff6950563f8ea00b285cd9c2d39a3c5896e38",
+    "scripts/development/test_ui.mjs": "26835f82f879701e36f1503d0f35aa900522ba2c1d2deeaf71c4c430111263c8",
+    "scripts/experience-review/build.mjs": "2787b9a72e47223b5a2483ac8ed0e0c25203b2502958bba187e4fa7a6fd0642f",
+    "scripts/experience-review/capture.mjs": "0e7c27139033d56b26a63afa7f07fc81759f792d211bf2dae0ea6fbac729e910",
+    "scripts/experience-review/collect.mjs": "387f42578a877bc1eec5048a6b4a909d998e5387f0818290c7fd9148753b335c",
+    "scripts/experience-review/reviewer.html": "097083fcdabe9c5c5ffdc5c57a178313aa87fbc80409a82784fcee7da5b2754f",
+    "scripts/experience-review/static.mjs": "8617cdbf3db73c191fb295f35ea4c622cb6c0aa2200a8504f543a1eb18a49e4d",
+    "scripts/experience-review/test.mjs": "a4ddeb23c054327a293a8eebd2a1be46e448ed63474e60f67e4ee04961fc7892",
+    "scripts/guardian-training/test_ui.mjs": "92ccb08e1f3ea4bd692dfca7d786b9f9035d7a8fbba660e5dae0ad23f2142ec4",
+    "scripts/guardians/test_ui.mjs": "106918ebe4ff281dcf648aed7c5d7cd97838cb5e4efe4d70dbcec84b1c23415b",
+    "scripts/onboarding/test_ui.mjs": "d2c7e542913ec13ca54344ed54a57f3c4611ea6fa45204fd4bfba84dcc481808",
+    "scripts/people/test_ui.mjs": "2559d722f781a06ee0ba7f7c3bdb241d458aa54b7a8a04d72c269c16749bcae3",
+    "scripts/planning/test_ui.mjs": "f12cdb09a1d3cd0af409c3dc7c91374fcd49c085978ad24344dbb2f26f58283a",
+    "scripts/program-planning/test_ui.mjs": "dc409b0ff20a6bf944f96a11c13a2ce1b9272de110370300220356df314c8586",
+    "scripts/programs/test_ui.mjs": "87a0aec59f79fd18736197b37364413151273fadc0f2e30a08fa1ad68b16a21d",
+    "scripts/publication/test_ui.mjs": "bfb0e31e06d21a327e38fa144844c267d2c2e553a27466b44c026ddcb77e4bf6",
+    "scripts/qr-attendance/test_ui.mjs": "e0d4be491f7d4e39ec7464d89bcca09d72584effe3ca110d26c5597a12ddb914",
+    "scripts/session-changes/test_ui.mjs": "d549a31d450f121ccf177493552107a74e602b24ba390af9e45a596d5274b526",
+    "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
+  },
+  "capturePackSha256": "ca72b45582195f4e8888ac9fe9e9ad4d3152ccda3abcce55b5fb5ad0a3fe8746",
+  "htmlSha256": "f70df8924170b7e28acce35badd5fae21aa0a252ecf0a312d6e272251574428d",
+  "frames": 811,
+  "transitions": 832,
+  "sourceFiles": 51,
+  "sourceLiterals": 5934,
+  "journeys": [
+    {
+      "id": "entry",
+      "frames": 8
+    },
+    {
+      "id": "onboarding",
+      "frames": 81
+    },
+    {
+      "id": "people",
+      "frames": 46
+    },
+    {
+      "id": "guardians",
+      "frames": 44
+    },
+    {
+      "id": "trainers",
+      "frames": 33
+    },
+    {
+      "id": "programs",
+      "frames": 194
+    },
+    {
+      "id": "planning",
+      "frames": 59
+    },
+    {
+      "id": "program-planning",
+      "frames": 59
+    },
+    {
+      "id": "publication",
+      "frames": 53
+    },
+    {
+      "id": "session-changes",
+      "frames": 33
+    },
+    {
+      "id": "attendance",
+      "frames": 32
+    },
+    {
+      "id": "guardian-training",
+      "frames": 16
+    },
+    {
+      "id": "corrections",
+      "frames": 51
+    },
+    {
+      "id": "qr-attendance",
+      "frames": 47
+    },
+    {
+      "id": "development",
+      "frames": 55
+    }
+  ],
+  "captureGaps": []
+}

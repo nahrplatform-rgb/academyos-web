@@ -25,3 +25,7 @@ Apply these instructions to this repository. Explicit current owner instructions
 - Run relevant existing checks and documentation link/CSV validation when those artifacts change. Record skipped, failed or unavailable evidence honestly. Repeat checks when changes or unresolved failures justify it.
 - Report changed behavior, why, evidence, limitations and remaining decisions. Separate design, implementation, local tests, hosted verification, deployment and owner acceptance.
 - Update contracts, traceability and handoff with actual results. No evidence fabrication, unsupported completion claim or silent scope retirement.
+
+## Living whole-app experience review
+
+- Owner requested the single-file [current-experience review](design/app-experience-review/README.md) to stay synchronized with the project. When changing UI, wording, routes or workflow states, regenerate affected real-component captures and the HTML review; retain current-versus-proposed and captured-versus-uncaptured boundaries. Follow its maintenance commands and run the freshness/review-tool checks. Register-only updates may rebuild from the unchanged capture pack. Do not substitute a fictional design for actual source behaviour or claim exhaustive rendering from source-literal extraction.

@@ -71,3 +71,5 @@ Every implementation slice should name its requirement IDs, affected workflows, 
 The pack is detailed enough to plan and review implementation. Open decisions, account-specific identifiers, provider eligibility and unexecuted acceptance checks remain explicit. It does not certify a working or production-ready application.
 
 Staging sign-in: [staging.academy.nahr.dev](https://staging.academy.nahr.dev/en/sign-in) now opens directly under owner-approved Vercel Standard Protection. AcademyOS still enforces identity and academy permissions; preview/generated deployment URLs remain protected. See [current access evidence](docs/07-handoff/staging-direct-access.md).
+
+Whole-app experience review: [one offline HTML baseline](design/app-experience-review/AcademyOS-experience-review.html), [coverage and update instructions](design/app-experience-review/README.md). Actual component captures use fictional local adapters; provider-owned and uncaptured states remain explicit.

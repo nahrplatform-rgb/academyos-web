@@ -17,12 +17,16 @@ jobs:
       - run: npm run build
       - run: npm run typecheck
       - run: npm test
+      - name: Check living experience-review freshness
+        run: node scripts/experience-review/build.mjs --check
       - name: Verify backup safety with pinned runtime dependencies
         run: |
           python3 -m venv "$RUNNER_TEMP/backup-tests"
           "$RUNNER_TEMP/backup-tests/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
+      - name: Verify offline experience-review navigation and boundaries
+        run: node scripts/experience-review/test.mjs
       - name: Verify onboarding API budgets before provider calls
         run: node scripts/onboarding/test_api_budget.mjs
       - name: Verify synthetic onboarding UI interaction and recovery
