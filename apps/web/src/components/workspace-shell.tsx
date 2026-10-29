@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
+import ThemeToggle from "./theme-toggle";
 import { StatusBadge } from "./ui/controls";
 
 function NavIcon({ href }: { href: string }) {
@@ -31,6 +32,7 @@ export default function WorkspaceShell({ locale, context, title, homeHref, langu
         <div className="toolbar-actions">
           <StatusBadge>{ar ? "نسخة تجريبية" : "Staging"}</StatusBadge>
           <Link onClick={onNavigate} href={languageHref} hrefLang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</Link>
+          <ThemeToggle arabic={ar}/>
           {tools}
           {account}
         </div>

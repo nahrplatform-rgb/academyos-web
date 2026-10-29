@@ -37,6 +37,13 @@ try{
  await page.getByRole('button',{name:'Continue to duplicate review'}).click();await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Review new registration',exact:true}).click();await visible('Confirm player registration');
  stale=true;await page.getByRole('button',{name:'Save registration',exact:true}).click();await visible('Review possible duplicates');assert.equal(await page.getByRole('checkbox').isChecked(),false);assert.equal(creates,0);
  await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Review new registration',exact:true}).click();lost=true;hold=true;await page.getByRole('button',{name:'Save registration',exact:true}).click();await visible('Saving… awaiting confirmation');assert.equal(await page.getByRole('button',{name:'Saving…',exact:true}).isEnabled(),false);while(!release)await new Promise(r=>setTimeout(r,10));release();hold=false;await visible('Save outcome is uncertain');await page.getByRole('button',{name:'Check original operation',exact:true}).click();await visible('Player profile');assert.equal(creates,1);assert.equal((await page.evaluate(()=>Object.values(sessionStorage))).some(x=>x.includes('contact@example.invalid')),false);
+ // Shared preference changes presentation without a data request or identity change.
+ const callsBeforeTheme=calls.length;
+ await page.getByRole('button',{name:'Light mode',exact:true}).click();
+ assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).colorScheme),'light');
+ await page.getByRole('button',{name:'Dark mode',exact:true}).click();
+ assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).colorScheme),'dark');
+ assert.equal(calls.length,callsBeforeTheme,'Theme switching must not retrieve or write business data');
  await page.screenshot({path:resolve(evidence,'saved-profile-en.png'),fullPage:true});
  await page.setViewportSize({width:320,height:800});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeVisible();await page.setViewportSize({width:1440,height:1000});
 

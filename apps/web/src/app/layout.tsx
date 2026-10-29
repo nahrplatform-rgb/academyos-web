@@ -18,9 +18,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {authenticationConfigured(process.env) ? (
           <ClerkProvider appearance={{ variables: {
-            colorPrimary: "#075bea", borderRadius: "6px",
+            colorPrimary: "var(--primary)", colorPrimaryForeground: "var(--primary-ink)",
+            colorBackground: "var(--surface)", colorForeground: "var(--ink)",
+            colorInput: "var(--canvas)", colorInputForeground: "var(--ink)",
+            colorMutedForeground: "var(--muted)", colorDanger: "var(--error)", borderRadius: "7px",
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Tahoma, sans-serif',
-            fontSize: "13px",
+            fontSize: "15px",
           } }}>{children}</ClerkProvider>
         ) : (
           children
