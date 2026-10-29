@@ -1,6 +1,6 @@
 {
-  "source": "776255e0e28013d5f182b9d64ff6511bdedbddc8",
-  "generatedAt": "2026-10-29T21:53:54.923Z",
+  "source": "9e64f388a43505f6c1e2e31406c44f45f3626607",
+  "generatedAt": "2026-10-29T23:51:05.947Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -37,7 +37,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "cb71f17483ef6da057b6f32c12c4eb1edae2471b5731841fbe814577c99631b4",
+    "apps/web/src/app/globals.css": "f7516ded725670230cefb7a162378c56f22c12a41a5eb66a0337f93ef549e933",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/components/admission-directory.tsx": "127a8b738e6b96456c0cfb56c52b9a003903a7f95f29019d7c2883446181c1f3",
     "apps/web/src/components/attendance-workspace.tsx": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
@@ -62,7 +62,7 @@
     "apps/web/src/components/trainer-workspace.tsx": "331c97ce40dbcd20c661ec682be3ba287ff37323dbd579a0fdd4a32468a5103f",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
     "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
-    "apps/web/src/components/workspace-panes.tsx": "984d526c83fced15763c6b0c793be7dd8fb50344cfc74e8ef92f49dbb2681a58",
+    "apps/web/src/components/workspace-panes.tsx": "350da2479d4a5930f36a4fc506915d6d5de23dfd188c0f5037bbc10b90e62482",
     "apps/web/src/components/workspace-shell.tsx": "995b2b218bd5e4898424cadc52ecec0dcb48a80b3744f8d37cb861f9fa5befe1",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
@@ -92,14 +92,14 @@
     "scripts/qr-attendance/test_ui.mjs": "904851d6b98cdb4001467d7cf7c1e3cdb2e23dc435bca0cf0a00a688c742a1e4",
     "scripts/session-changes/test_ui.mjs": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
     "scripts/trainers/test_ui.mjs": "ba6b911a94ff89101218a1e5802b8ab1d1bccc03373972c082eac65b5ce0a2c2",
-    "scripts/workspace-layout/test_ui.mjs": "f4a1b95e96cfb1820badd943e8b1b83882ae948d8ce8ce291608a1df2aeed627"
+    "scripts/workspace-layout/test_ui.mjs": "92e89c66ca203b13c39d009b6ecbcbc618901aa5949366c1f9438ffa3ff9a208"
   },
-  "capturePackSha256": "925ff3ea33cb88535345e4b8619a37c18983858d2e888232329cbbf0907b81b7",
-  "htmlSha256": "e456ef7756b51baafc5aaf17642d49a27818ffdc258df4f4c5671edf77bf8690",
-  "frames": 972,
+  "capturePackSha256": "4242e8e7dcedff3b82045abb8dbd1fb2a79b4eaa6cf20c4fd3609dfa2f5088eb",
+  "htmlSha256": "b891c547c4959cd8d6cad169ff3d68757538c502399017740fcbd41c9d3be4be",
+  "frames": 967,
   "transitions": 968,
   "sourceFiles": 62,
-  "sourceLiterals": 6777,
+  "sourceLiterals": 6778,
   "journeys": [
     {
       "id": "entry",
@@ -143,7 +143,7 @@
     },
     {
       "id": "attendance",
-      "frames": 65
+      "frames": 56
     },
     {
       "id": "guardian-training",
@@ -155,7 +155,7 @@
     },
     {
       "id": "qr-attendance",
-      "frames": 49
+      "frames": 47
     },
     {
       "id": "development",
@@ -163,11 +163,11 @@
     },
     {
       "id": "experience-projections",
-      "frames": 54
+      "frames": 59
     },
     {
       "id": "workspace-layout",
-      "frames": 41
+      "frames": 42
     }
   ],
   "captureGaps": []

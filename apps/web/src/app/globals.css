@@ -562,3 +562,4 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 .experience-task-card.is-empty>strong{font-size:18px;color:var(--muted)}
 @media(min-width:1280px){.app-scene .inspector-toggle{position:sticky;top:0;z-index:3;background:var(--surface)}.app-scene .workspace-center{scroll-padding-block-start:80px}}
 @media(min-width:768px){.app-scene .workspace-center,.app-scene .workspace-inspector{overflow-anchor:none}}
+@media(min-width:1280px){.app-scene .pane-controls{position:sticky;top:0;z-index:3;background:var(--canvas)}.app-scene .inspector-toggle{position:static}}
