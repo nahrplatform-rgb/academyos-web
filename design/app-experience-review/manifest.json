@@ -1,6 +1,6 @@
 {
-  "source": "02e0cd6151be9fd89ed9816d4b2a2f40a951a7b2",
-  "generatedAt": "2026-10-29T00:50:16.960Z",
+  "source": "3dd5200894de57312c062f3f09ca84ef0212d880",
+  "generatedAt": "2026-10-29T04:10:17.501Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -30,10 +30,10 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "9f3ccb223e550278f8f9a3c326e12448343da0cbaed221f10f71328cb9ad7c89",
+    "apps/web/src/app/globals.css": "18bb13e0f1d90158d45bff6b293c61f3ae82ac57d31f0b9f3ee47b0643de9b5d",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
-    "apps/web/src/components/attendance-workspace.tsx": "939203edf84961ea0f9bf5ff7e4ec8a87ca64375a1ae0637657ef586de5c6479",
+    "apps/web/src/components/attendance-workspace.tsx": "0eff17817af9b7c611f65fecc50536bebc479817ea710b27b3f3e421d239f4a5",
     "apps/web/src/components/correction-workspace.tsx": "38e133619fad8c8e4a6090bdd0b2aa9c0f204d6aa0b86c3a138d1037988e93d3",
     "apps/web/src/components/date-planning-workspace.tsx": "6f59ef80dfa207350c4a6a40385999987d10c5fda26caaea2ad67233fdc7ae90",
     "apps/web/src/components/development-workspace.tsx": "4728871ce8472f0eaa7bc046e2b69457daa431a46e536e12695a992552182d62",
@@ -57,10 +57,10 @@
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
     "docs/03-design/screen-data-loading-matrix.csv": "e999169a7322d9001a198b700e191e016005521296d96cc73c1df631d23ff566",
     "docs/04-engineering/journey-security-matrix.csv": "e62d7c09f846e0aece6993d0e82aa4c3fe019ba544f3365e380384652d2cbd0c",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "cf4e5945801e952930b64711a664810c552fcc29ba947d0facc8d967162be5e0",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "4fa8d4af4af1d57e101e73b4a6dbfca26ee6bb3f7ba92cab38515d604fd015ac",
     "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
-    "scripts/attendance/test_ui.mjs": "d41833aa9fa8e6a77df4077c75decd4efe0b74683487515ecdf2fffb99b11e2e",
+    "scripts/attendance/test_ui.mjs": "46d26fe89441b6dafb4f5e0cc0e1d5aa2cc411d2c31ad1bbebca7d82b7db189b",
     "scripts/corrections/test_ui.mjs": "58c453520a5661800804b22368bff6950563f8ea00b285cd9c2d39a3c5896e38",
     "scripts/development/test_ui.mjs": "26835f82f879701e36f1503d0f35aa900522ba2c1d2deeaf71c4c430111263c8",
     "scripts/experience-review/build.mjs": "2787b9a72e47223b5a2483ac8ed0e0c25203b2502958bba187e4fa7a6fd0642f",
@@ -81,12 +81,12 @@
     "scripts/session-changes/test_ui.mjs": "d549a31d450f121ccf177493552107a74e602b24ba390af9e45a596d5274b526",
     "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
   },
-  "capturePackSha256": "ca72b45582195f4e8888ac9fe9e9ad4d3152ccda3abcce55b5fb5ad0a3fe8746",
-  "htmlSha256": "f70df8924170b7e28acce35badd5fae21aa0a252ecf0a312d6e272251574428d",
-  "frames": 811,
-  "transitions": 832,
+  "capturePackSha256": "23cd462ca0830fc0ff477f4a281e8d3efc6fbfa5c83068c372717fba97cf2adc",
+  "htmlSha256": "c55d2fcc83d4dad7a172aca2523bf6fb04e68c1d9b148754b0e71528214d4ae7",
+  "frames": 816,
+  "transitions": 830,
   "sourceFiles": 51,
-  "sourceLiterals": 5934,
+  "sourceLiterals": 6024,
   "journeys": [
     {
       "id": "entry",
@@ -130,7 +130,7 @@
     },
     {
       "id": "attendance",
-      "frames": 32
+      "frames": 37
     },
     {
       "id": "guardian-training",

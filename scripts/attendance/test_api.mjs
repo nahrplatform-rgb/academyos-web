@@ -30,15 +30,15 @@ try{
  function reset(results){state.results=results;state.budgets=[];state.provider=state.rpc=state.dispatch=0;}
  const academy='00000000-0000-4000-8000-000000000001',op='00000000-0000-4000-8000-000000000002';
  const change={action:'mark',academy,event:op,player:op,status:'present',version:0,reason:null,captured_at:'2026-10-28T12:00:00.000Z',op};
- const cases=[{action:'roster',academy,event:op},{action:'history',academy,event:op,player:op},change,{action:'reconcile',academy,event:op,op}];
+ const cases=[{action:'roster',academy,event:op},{action:'history',academy,event:op,player:op},change,{action:'register',academy,event:op,op,marks:[{player:op,status:'present',version:0}],captured_at:change.captured_at},{action:'reconcile',academy,event:op,op}];
  for(const body of cases)for(const result of [{success:false},{success:true,reason:'timeout'},'unavailable']){
   reset([result]);const r=await send(body);assert.equal(r.status,result==='unavailable'?503:429);assert.equal(state.rpc,0);assert.equal(r.headers.get('cache-control'),'no-store');
-  const write=['mark','reconcile'].includes(body.action);assert.deepEqual(state.budgets,[{prefix:write?'attendance-entry-write':'onboarding-entry-read',limit:60}]);
+  const write=['mark','register','reconcile'].includes(body.action);assert.deepEqual(state.budgets,[{prefix:write?'attendance-entry-write':'onboarding-entry-read',limit:60}]);
  }
  reset([]);let r=await send(cases[0]);assert.equal(r.status,200);assert.equal(state.rpc,1);
  for(const body of [{...change,role:'owner'},{...change,status:'late'},{...change,unexpected:'x'.repeat(9000)}]){reset([]);r=await send(body);assert.ok([413,422].includes(r.status));assert.equal(state.rpc,0);}
  reset([]);r=await POST(new NextRequest('https://staging.academy.nahr.dev/api/attendance',{method:'POST',headers:{origin:'https://attacker.example','content-type':'application/json'},body:JSON.stringify(cases[0])}));assert.equal(r.status,403);assert.equal(state.rpc,0);
- console.log(JSON.stringify({attendanceApi:'passed',budgetFailures:12,invalidBodies:3,crossOriginDenied:true,scope:'actual route; synthetic limiter/session adapters'}));
+ console.log(JSON.stringify({attendanceApi:'passed',budgetFailures:15,invalidBodies:3,crossOriginDenied:true,scope:'actual route; synthetic limiter/session adapters'}));
 }finally{
  for(const [name,value] of Object.entries(previous))if(value===undefined)delete process.env[name];else process.env[name]=value;
  await rm(temp,{recursive:true,force:true});

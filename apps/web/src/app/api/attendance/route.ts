@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
             return respond({ error: 'denied' }, 403);
         const { subject, client } = await onboardingSession();
         // Bound streamed bytes, including requests without a content-length header.
-        if (Number(req.headers.get('content-length')) > 8192)
+        if (Number(req.headers.get('content-length')) > 131072)
             return respond({ error: 'invalid' }, 413);
         const reader = req.body?.getReader();
         if (!reader)
@@ -27,13 +27,15 @@ export async function POST(req: NextRequest) {
             if (done)
                 break;
             size += value.byteLength;
-            if (size > 8192) {
+            if (size > 131072) {
                 await reader.cancel();
                 return respond({ error: 'invalid' }, 413);
             }
             chunks.push(value);
         }
-        const operation = attendanceRequest(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+        const body=JSON.parse(Buffer.concat(chunks).toString('utf8'));
+        if(body?.action!=='register'&&size>8192)return respond({error:'invalid'},413);
+        const operation = attendanceRequest(body);
         if (!rateLimitAllowed(await stagingLimiter(stagingRedis(), operation.mutating ? 'attendance-entry-write' : 'onboarding-entry-read', 60).limit(rateLimitSubject(subject))))
             return respond({ error: 'limited' }, 429);
         return respond({ data: await rpc(client, operation.rpc, operation.args) });

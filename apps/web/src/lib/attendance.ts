@@ -8,6 +8,14 @@ export function attendanceRequest(v:unknown){
  if(b.action==='roster'){keys=['action','academy','event','after'];rpc='a10_roster_v1';args={a,ev,after_id:b.after==null?null:id(b.after)};}
  else if(b.action==='history'){keys=['action','academy','event','player','before'];rpc='a10_history_v1';if(b.before!=null&&(!Number.isSafeInteger(b.before)||(b.before as number)<1))throw new AttendanceInputError();args={a,ev,player:id(b.player),before_version:b.before??null};}
  else if(b.action==='mark'){keys=['action','academy','event','player','status','version','reason','captured_at','op'];rpc='a10_mark_v1';mutating=true;if(!['present','absent'].includes(String(b.status))||!Number.isSafeInteger(b.version)||(b.version as number)<0||!(b.reason===null||typeof b.reason==='string'&&b.reason.trim().length>0&&b.reason.length<=500)||typeof b.captured_at!=='string'||b.captured_at.length>35||!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,6})?Z$/.test(b.captured_at)||!Number.isFinite(Date.parse(b.captured_at))||new Date(b.captured_at).toISOString().slice(0,19)!==b.captured_at.slice(0,19))throw new AttendanceInputError();args={a,ev,player:id(b.player),new_status:b.status,expected_version:b.version,reason:b.reason,captured_at:b.captured_at,op:id(b.op)};}
+ else if(b.action==='register'){
+ keys=['action','academy','event','marks','captured_at','op'];rpc='a10_register_v1';mutating=true;
+ if(!Array.isArray(b.marks)||!b.marks.length||b.marks.length>1000)throw new AttendanceInputError();
+ const seen=new Set<string>();const marks=b.marks.map((v:unknown)=>{if(!v||typeof v!=='object'||Array.isArray(v))throw new AttendanceInputError();const m=v as Record<string,unknown>,player=id(m.player);if(Object.keys(m).length!==3||typeof m.status!=='string'||!['present','absent'].includes(String(m.status))||m.version!==0||seen.has(player))throw new AttendanceInputError();seen.add(player);return{player,status:m.status,version:0};});
+ // Share the exact strict timestamp contract with the existing individual operation.
+ attendanceRequest({action:'mark',academy:a,event:ev,player:a,status:'present',version:0,reason:null,captured_at:b.captured_at,op:b.op});
+ args={a,ev,marks,captured_at:b.captured_at,op:id(b.op)};
+ }
  else if(b.action==='reconcile'){keys=['action','academy','event','op'];rpc='a10_operation_v1';mutating=true;args={a,ev,op:id(b.op)};}
  else throw new AttendanceInputError();if(Object.keys(b).some(k=>!keys.includes(k)))throw new AttendanceInputError();return{rpc,args,mutating};
 }
@@ -19,4 +27,10 @@ export type AttendanceReceipt={event:string;player:string;status:'present'|'abse
 export function isAttendanceReceipt(value:unknown,event:string):value is AttendanceReceipt {
  if(!value||typeof value!=='object'||Array.isArray(value))return false;const v=value as Record<string,unknown>;
  return v.event===event&&typeof v.player==='string'&&uuid.test(v.player)&&['present','absent'].includes(String(v.status))&&Number.isSafeInteger(v.version)&&(v.version as number)>0;
+}
+
+export type RegisterReceipt={kind:'register';event:string;op:string;count:number};
+export function isRegisterReceipt(value:unknown,event:string,op:string):value is RegisterReceipt{
+ if(!value||typeof value!=='object'||Array.isArray(value))return false;const v=value as Record<string,unknown>;
+ return v.kind==='register'&&v.event===event&&v.op===op&&Number.isSafeInteger(v.count)&&(v.count as number)>0&&(v.count as number)<=1000;
 }

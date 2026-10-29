@@ -286,3 +286,50 @@ input[dir="ltr"] { text-align:left; }
 .development-workspace>p,.development-workspace>div[role=alert],.development-workspace>section[role=status]{margin:16px 24px}.development-workspace .workspace-panes{grid-template-columns:minmax(240px,.85fr) minmax(0,1.3fr)}.development-workspace .workspace-inspector{gap:8px}.development-workspace .workspace-inspector p{white-space:pre-wrap;margin-block:4px;overflow-wrap:anywhere}.development-workspace .workspace-inspector h3{margin-block:6px}.development-workspace label{display:grid;gap:8px;margin-block:12px}.development-workspace textarea{width:100%;box-sizing:border-box;padding:12px;font:inherit;border:1px solid var(--control-border);border-radius:6px;resize:vertical}.development-workspace input[type=date]{max-width:300px}.development-list{list-style:none;padding:0}.development-list li{margin-block:12px}.development-list button{width:100%;display:grid;justify-content:stretch;justify-items:start;gap:8px;text-align:start;padding:16px}.development-list button[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent)}.development-private{padding:12px;background:#fff7e5;border:1px solid #e6d7ad;border-radius:8px;margin-block:12px}.development-public section{padding-block:10px;border-bottom:1px solid var(--line)}.development-confirm{padding:16px;border:1px solid #9db8ef;background:#f2f6ff;border-radius:8px;margin-block:16px}.development-status{color:#174fad;font-weight:650}.development-workspace .journey-actions{display:flex;gap:10px;flex-wrap:wrap;margin-block:16px}.development-workspace .workspace-inspector button{margin-inline-end:8px;margin-block:6px}.development-workspace .inspector-heading button{margin:0}.development-workspace [role=alert]{padding:12px;border:1px solid #c33;background:#fff3f3;border-radius:6px}.development-receipt{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.development-workspace details{margin-block:12px}@media(max-width:1100px){.development-workspace .workspace-panes{display:flex;flex-direction:column}}@media(max-width:720px){.development-workspace>p,.development-workspace>div[role=alert],.development-workspace>section[role=status]{margin:12px 16px}}
 
 .development-layout .task-header{margin:20px 24px 12px}.development-layout .task-header h1{margin:0}@media(max-width:720px){.development-layout .task-header{margin:18px 16px 12px}}
+
+/* Accepted Charcoal spectrum: first connected rollout is the attendance register. */
+.attendance-theme { --canvas:#101318;--surface:#1b2028;--sidebar:#181c22;--subtle:#242a34;--hover:#2c3442;--line:#394456;--control-border:#718099;--ink:#edf1f8;--muted:#b2bed1;--accent:#d9e5fa;--accent-hover:#c4d5f1;--accent-soft:#303c50;--error:#ffb4ab;--error-surface:#472b2b; background:var(--canvas);color:var(--ink);min-height:100dvh;font-size:15px;color-scheme:dark; }
+.attendance-theme.attendance-light { --canvas:#e9edf3;--surface:#fff;--sidebar:#f3f5f8;--subtle:#e9edf3;--hover:#e0e6ee;--line:#c8d0db;--control-border:#64738a;--ink:#202632;--muted:#4b596f;--accent:#253b60;--accent-hover:#304e7f;--accent-soft:#dae3f0;--error:#a3292e;--error-surface:#ffebeb;color-scheme:light; }
+.attendance-theme .app-scene {max-width:1500px;}
+.attendance-theme .workspace-window {border-color:var(--line);box-shadow:none;}
+.attendance-theme .workspace-sidebar nav a,.attendance-theme .badge {color:var(--ink);}
+.attendance-theme .workspace-sidebar .selected {background:var(--accent-soft);color:var(--ink);}
+.attendance-theme .workspace-inspector {background:var(--subtle);}
+.attendance-theme main {max-width:none;}
+.attendance-theme :is(button,input,select) {min-height:44px;font-size:14px;}
+.attendance-theme .button {color:var(--surface);}
+.attendance-theme .workspace-center>p {margin-block:14px;}
+.attendance-theme .register-filters {display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,.4fr);gap:14px;margin-block:24px 12px;}
+.attendance-theme .register-roster {list-style:none;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.attendance-theme .register-roster li {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px;border-bottom:1px solid var(--line);background:var(--subtle);}
+.attendance-theme .register-roster li:last-child {border-bottom:0;}
+.attendance-theme .register-roster li>div:first-child {min-width:120px;flex:1;}
+.attendance-theme .register-roster li>div:first-child button {border:0;background:transparent;padding:0;text-align:start;font-weight:700;overflow-wrap:anywhere;max-width:100%;}
+.attendance-theme .register-roster small {display:block;color:var(--muted);font-size:13px;}
+.register-options {display:flex;gap:6px;flex-wrap:wrap;}
+.attendance-theme .register-options button[aria-pressed=true] {border-width:2px;box-shadow:inset 0 0 0 1px currentColor;}
+.attendance-theme :is(.attendance-status.present,.register-options .present[aria-pressed=true]) {background:#203e34;color:#a6ddbf;}
+.attendance-theme :is(.attendance-status.absent,.register-options .absent[aria-pressed=true]) {background:#492c29;color:#ffc8bb;}
+.attendance-theme .register-options .unmarked[aria-pressed=true] {background:#3b334d;color:#e0d4f6;}
+.attendance-theme .attendance-status {border-radius:6px;padding:6px 10px;}
+.register-savebar {position:sticky;bottom:0;background:var(--surface);border-block:1px solid var(--line);padding:16px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;z-index:2;}
+.register-savebar p {margin:0;}
+.register-dialog {color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;max-width:min(640px,calc(100vw - 24px));max-height:85dvh;padding:24px;overflow:auto;}
+.register-dialog::backdrop {background:#0009;}
+.register-dialog li {margin-block:12px;}
+.register-dialog button {margin-inline-end:10px;}
+@media(max-width:720px) { .attendance-theme {font-size:16px;}.attendance-theme .register-filters {grid-template-columns:1fr;}.attendance-theme .register-options {width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}.attendance-theme .register-options button {padding-inline:6px;}.register-savebar {align-items:stretch;flex-direction:column;}.attendance-theme .workspace-center {padding:16px;} }
+.attendance-theme .register-roster li {margin:0;}
+.attendance-theme .register-roster button {width:auto;}
+.attendance-theme .register-options button {min-width:84px;justify-content:center;}
+.attendance-theme .register-roster button[aria-pressed=true] {border-color:currentColor;}
+.attendance-theme .register-summary {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-block:22px 12px;}
+.register-summary>div {border:1px solid var(--line);background:var(--subtle);border-radius:8px;padding:16px;font-size:14px;}
+.register-summary>div:nth-child(2) {background:var(--accent-soft);}
+.register-summary strong {display:block;font-size:24px;margin-bottom:4px;}
+.register-links {display:flex;gap:16px;flex-wrap:wrap;margin-block:16px;}
+.attendance-theme .register-links p {margin:0;}
+.attendance-theme .register-window {font-size:13px;color:var(--muted);}
+.register-theme-toggle {float:inline-end;}
+@media(min-width:1101px) { .attendance-theme .workspace-panes {grid-template-columns:minmax(0,1fr) 290px;} }
+@media(max-width:720px) { .attendance-theme .workspace-sidebar {display:none;}.attendance-theme .register-roster button {min-width:0;}.attendance-theme .register-options button {width:100%;}.register-summary>div {padding:10px;font-size:12px;}.register-theme-toggle {float:none;margin-bottom:16px;} }
