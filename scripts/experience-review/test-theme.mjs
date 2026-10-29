@@ -3,7 +3,7 @@ import {chromium} from '@playwright/test';
 import {readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import assert from 'node:assert/strict';
-const root=resolve(import.meta.dirname,'../..'),captures=resolve(root,'design/app-experience-review/captures'),out=resolve(root,'docs/07-handoff/evidence/whole-app-charcoal-2026-10-29');
+const root=resolve(import.meta.dirname,'../..'),captures=resolve(root,'design/app-experience-review/captures'),out=resolve(root,process.env.UI_EVIDENCE_DIR??'docs/07-handoff/evidence/whole-app-charcoal-2026-10-29');
 await mkdir(out,{recursive:true});const css=await readFile(resolve(root,'apps/web/src/app/globals.css'),'utf8');
 const browser=await chromium.launch(),page=await browser.newPage(),results=[];
 function luminance(hex){const digits=hex.replace('#','');const rgb=(digits.length===3?[...digits].map(c=>c+c).join(''):digits).match(/../g).map(x=>parseInt(x,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]}
