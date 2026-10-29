@@ -1,0 +1,48 @@
+{
+  "scope": "Static visual sample, no app/database/provider changes",
+  "result": [
+    {
+      "theme": "Charcoal spectrum",
+      "mode": "☀ Light",
+      "overflow": false
+    },
+    {
+      "theme": "Charcoal spectrum",
+      "mode": "☾ Dark",
+      "overflow": false
+    },
+    {
+      "theme": "Lagoon & slate",
+      "mode": "☀ Light",
+      "overflow": false
+    },
+    {
+      "theme": "Lagoon & slate",
+      "mode": "☾ Dark",
+      "overflow": false
+    },
+    {
+      "theme": "Orchid & ink",
+      "mode": "☀ Light",
+      "overflow": false
+    },
+    {
+      "theme": "Orchid & ink",
+      "mode": "☾ Dark",
+      "overflow": false
+    },
+    {
+      "theme": "Clay & espresso",
+      "mode": "☀ Light",
+      "overflow": false
+    },
+    {
+      "theme": "Clay & espresso",
+      "mode": "☾ Dark",
+      "overflow": false
+    }
+  ],
+  "phoneOverflow": false,
+  "errors": [],
+  "requests": []
+}

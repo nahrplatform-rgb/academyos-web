@@ -1,0 +1,245 @@
+{
+  "scope": "48 token-pair contrast spot checks only; not complete accessibility validation",
+  "checks": [
+    {
+      "name": "Charcoal spectrum",
+      "mode": "☀ Light",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 13.67
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 5.52
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 14.23
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 6.59
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 5.9
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 5.62
+        }
+      ]
+    },
+    {
+      "name": "Charcoal spectrum",
+      "mode": "☾ Dark",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 14.62
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 8.21
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 11.53
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 7.51
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 7.38
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 7.16
+        }
+      ]
+    },
+    {
+      "name": "Lagoon & slate",
+      "mode": "☀ Light",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 12.47
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 5.42
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 11.49
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 6.59
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 5.9
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 5.62
+        }
+      ]
+    },
+    {
+      "name": "Lagoon & slate",
+      "mode": "☾ Dark",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 13.65
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 8.18
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 9.46
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 7.51
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 7.38
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 7.16
+        }
+      ]
+    },
+    {
+      "name": "Orchid & ink",
+      "mode": "☀ Light",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 13.11
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 5.64
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 12.51
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 6.59
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 5.9
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 5.62
+        }
+      ]
+    },
+    {
+      "name": "Orchid & ink",
+      "mode": "☾ Dark",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 13.69
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 7.86
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 10.05
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 7.51
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 7.38
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 7.16
+        }
+      ]
+    },
+    {
+      "name": "Clay & espresso",
+      "mode": "☀ Light",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 12.26
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 5.5
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 11.47
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 6.59
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 5.9
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 5.62
+        }
+      ]
+    },
+    {
+      "name": "Clay & espresso",
+      "mode": "☾ Dark",
+      "pairs": [
+        {
+          "pair": "text/canvas",
+          "ratio": 13.61
+        },
+        {
+          "pair": "muted/canvas",
+          "ratio": 7.78
+        },
+        {
+          "pair": "buttonInk/button",
+          "ratio": 9.66
+        },
+        {
+          "pair": "presentInk/presentBg",
+          "ratio": 7.51
+        },
+        {
+          "pair": "absentInk/absentBg",
+          "ratio": 7.38
+        },
+        {
+          "pair": "unmarkedInk/unmarkedBg",
+          "ratio": 7.16
+        }
+      ]
+    }
+  ]
+}
