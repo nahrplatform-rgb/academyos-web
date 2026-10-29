@@ -1,0 +1,17 @@
+{
+  "source": "9d4f9bb98b09880f903a6d00ddf7e58990f04274",
+  "scope": "Notice/language and failed-read presentation only; no API/schema/permission change",
+  "unit_tests": 70,
+  "typecheck": "passed",
+  "lint": "passed",
+  "production_build": "passed",
+  "actual_React_cases_per_mode": 8,
+  "modes": [
+    "production",
+    "development"
+  ],
+  "files": {
+    "apps/web/src/components/development-workspace.tsx": "4728871ce8472f0eaa7bc046e2b69457daa431a46e536e12695a992552182d62",
+    "scripts/development/test_ui.mjs": "26835f82f879701e36f1503d0f35aa900522ba2c1d2deeaf71c4c430111263c8"
+  }
+}

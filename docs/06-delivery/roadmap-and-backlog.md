@@ -88,3 +88,5 @@ Use the [operating blueprint](../01-product/saas-operating-blueprint.md) with ea
 ## Engineering charter and continuous security
 
 Apply the [engineering charter](../00-governance/engineering-charter.md) at every work package. The [security milestone matrix](../04-engineering/journey-security-review.md) adds design/build/verification/staging/acceptance/release and post-change gates; expand [journey security coverage](../04-engineering/journey-security-matrix.csv) to action-level cases. Documentation/PR review is a process gate; existing CI checks only its actual suites. Do not claim required branch protections or full security enforcement without verifying configuration.
+
+I5a29 October 2026: reviewed narrative development feedback implemented and deployed to synthetic staging; scoped two-account hosted publication/withdrawal and exact temporary-access cleanup passed. [Implementation/evidence](../07-handoff/i5a-development-feedback-implementation.md). Working acceptance pending; AO-085–092 broader metrics/Player/export/notification requirements are not fully closed. Independent security/device/load/cost gates remain open.

@@ -1,6 +1,6 @@
 # Prepared single synthetic I5a hosted test
 
-28 October2026. **Not yet authorized or executed.** Policy/design approval is not authority to restore an ended role/link or expand a Guardian view.
+Prepared28October2026; separately authorized and executed29 October 2026. **Test completed; temporary Trainer/link access ended and the development view closed.** Policy/design approval alone was not used as grant authority.
 
 ## Exact proposed scope
 
@@ -22,3 +22,15 @@
 ## Stop/cleanup criteria
 
 Stale invitation/assignment/link state, unknown actor, unsupported build, foreign resource, deadline/event mismatch, database or cleanup failure stops the dependent step. Never widen permissions or use a service credential to manufacture user success. Reconcile an unknown operation before replacement; execute the prepared exact ending if UI cleanup becomes unavailable. Retain feedback/withdrawal/audit history; no irreversible deletion or production action.
+
+## Executed result29 October 2026
+
+The Owner explicitly authorized this exact temporary test and ending. Restoration used the prepared audited compare-and-set transaction; no email/new identity/Owner grant. The existing published28October evening session was used without changing its time, roster or attendance. Trainer and Guardian were verified as the same intended existing account; Owner was a different account. Existing training-view opt-in stayed false throughout.
+
+- Real Trainer saved draft → submitted revision1 → real Owner returned it with private reason → Trainer changed next steps/resubmitted revision2 → real Owner published.
+- Guardian draft view was empty. Published view in EN/AR contained only the three public fields and context, excluding both `PRIVATE SYNTHETIC` test notes/reasons and internal history. [EN projection](evidence/i5a-hosted-2026-10-29/guardian-published-en.txt), [AR projection](evidence/i5a-hosted-2026-10-29/guardian-published-ar.txt). Trainer's earlier Arabic return capture is partial because the initial accessibility-text extractor truncated multiline values; it is not full-page proof. The extractor was corrected before complete publication captures.
+- Owner withdrew normally. The open Guardian detail cleared on refresh: [withdrawal denial](evidence/i5a-hosted-2026-10-29/guardian-after-withdrawal-ar.txt). No delete or privileged feedback write manufactured the result.
+- Prepared exact ending ran once, with audit operation `8b92c8f3-fb2b-49df-aeab-a7deaf17fb72`. Casey assignment/membership and Guardian link are ended; development opt-in false, training opt-in false. Original Guardian membership stays active/unchanged. [Trainer denial](evidence/i5a-hosted-2026-10-29/trainer-ended-en.txt), [ended-link empty list](evidence/i5a-hosted-2026-10-29/guardian-ended-en.txt), [foreign-academy Owner denial](evidence/i5a-hosted-2026-10-29/owner-a-foreign-b-denied-en.txt).
+- Assessment `3cc85f54-6da6-477f-a5f5-a10c86ee6a04` remains withdrawn/version6/revision2. Two submissions, one publication, six history records and six operation receipts retained. Owner reopened internal history after Trainer access ended. [History capture](evidence/i5a-hosted-2026-10-29/owner-retained-history-en.txt), [safe database counts/projection keys/cleanup/fingerprint comparison](evidence/i5a-hosted-2026-10-29/hosted-result.json).
+
+47 of 51 prior non-secret table fingerprints are unchanged, including academy memberships, attendance/corrections, schedules/rosters and QR cards/settings. Expected lifecycle changes are audit events, Trainer assignment epoch and Trainer/Guardian invitation versions. The original unrelated Response Drop QR card was not changed. No direct-JWT/race, broader device/accessibility, HTTP load/cost or independent human-security completion is inferred. Working-feature acceptance remains pending separately.

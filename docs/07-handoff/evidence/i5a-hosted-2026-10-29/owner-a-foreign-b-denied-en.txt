@@ -1,0 +1,20 @@
+					19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+						20 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development#main
+						21 container
+							22 text Trainer workspace Development feedback Staging
+							23 link العربية, Value: staging.academy.nahr.dev/ar/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+							24 pop up button Open user menu
+						25 container
+							26 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+							27 text Trainer workspace
+							28 container Workspace navigation
+								29 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+								30 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/trainer/schedule
+								31 link Development, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+							32 text Staging · Synthetic data only
+						33 container
+							34 heading Player development, Value: 1
+								35 text Player development
+							36 button Refresh view
+							37 text Write after a session, review the exact version, then share published feedback with the approved family.
+							38 text Access is unavailable. Return to your workspaces or sign in with the intended account.

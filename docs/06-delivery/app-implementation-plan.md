@@ -223,4 +223,6 @@ I5a preparation28October2026: [reviewed narrative feedback recommendation and en
 
 I5a policy continuation28October2026: Owner explicitly accepted policy for design. [Connected development-feedback preview](i5a-development-feedback-design-contract.md) is ready for its separate review; no evaluation API/database/deployment or account grant. Prior proposed-policy wording is historical for this bounded subset.
 
-I5a continuation29October2026: policy and connected design explicitly approved; [real source and evidence checkpoint](../07-handoff/i5a-development-feedback-implementation.md). Source/local checks progressed; schema/app rollout, hosted role journey and working acceptance remain separate. No new test access is authorized.
+I5a continuation29 October 2026: policy and connected design explicitly approved; [real source and evidence checkpoint](../07-handoff/i5a-development-feedback-implementation.md). Source/local checks progressed; schema/app rollout, hosted role journey and working acceptance remain separate. No new test access is authorized.
+
+I5a latest29 October 2026: [real hosted feedback journey and audited cleanup](../07-handoff/i5a-hosted-development-test.md) passed after separate explicit temporary-access authorization. Source/schema deployed; working usability acceptance pending. Scores, Player scope, notifications/export and broader security/device/load gates remain open. Prior source/rollout-pending notes are historical checkpoints.
