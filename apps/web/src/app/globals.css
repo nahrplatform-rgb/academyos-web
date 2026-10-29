@@ -506,3 +506,15 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 @media(max-width:1279px){.experience-session{min-height:96px;}.calendar-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:767px){.experience-task-grid{grid-template-columns:1fr 1fr;gap:12px;}.experience-task-card{padding:16px;}.experience-session{align-items:flex-start;flex-wrap:wrap;padding:16px;gap:12px;}.session-clock{flex:1 1 100%;}.experience-session>span:nth-child(2){flex:1 1 65%;}.calendar-toolbar .journey-actions{display:flex;flex-wrap:wrap;}.calendar-toolbar button{min-height:48px;}.calendar-grid{display:block;}.calendar-day{margin-block:12px;min-height:0;}.calendar-day:has(ul:empty){display:none;}.calendar-day .experience-session{display:flex;flex-direction:row;flex-wrap:wrap;}.calendar-day .session-clock{flex:1 1 100%;}.experience-player-picker{display:block;}.experience-player-picker button{margin-top:12px;}}
 @media(max-width:767px){.app-scene[lang="ar"]{font-size:16px;}.app-scene[data-workspace-role="guardian"] .experience-task-grid{grid-template-columns:1fr;}}
+
+/* People comparison stays in the task area; profiles remain contextual. */
+.people-comparison{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-block:24px}
+.people-comparison>section{padding:24px;border:1px solid var(--line);border-radius:12px;min-width:0;overflow-wrap:anywhere}
+.people-proposal{background:var(--gold-bg);border-inline-start:3px solid var(--gold)!important}
+.people-steps{display:flex;flex-wrap:wrap;gap:12px 32px;padding-inline-start:24px;margin-block:16px 24px;color:var(--muted)}
+.people-steps [aria-current=step]{color:var(--ink);font-weight:700}
+@media(max-width:767px){.people-comparison{grid-template-columns:minmax(0,1fr);gap:16px}.people-comparison>section{padding:16px}}
+
+.people-check{display:flex!important;min-height:44px;align-items:center;gap:12px;font-size:15px!important;font-weight:400!important;margin-block:24px 16px}
+.people-check input[type=checkbox]{width:24px;min-width:24px;height:24px;margin:0;flex:0 0 24px}
+.directory-page-summary{color:var(--muted);margin-block:16px 8px}

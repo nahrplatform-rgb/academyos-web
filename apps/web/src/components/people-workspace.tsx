@@ -3,6 +3,7 @@ import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type Mouse
 import { UserButton, useUser } from '@clerk/nextjs';
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
+import { ownerNavigation } from './owner-navigation';
 import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
@@ -279,63 +280,13 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
     useEffect(() => { if (!['profile','review','saving','unknown'].includes(stage)) heading.current?.focus(); }, [stage]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
         return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
-    function closeProfile() { if (busy || stage === 'unknown' || stage === 'saving') return; if (stage === 'review') { go('form'); return; } go('directory'); const restoreFocus = () => requestAnimationFrame(() => (profileOpeners.current.get(profileId) ?? searchInput.current)?.focus()); if (saved) void loadDirectory().then(restoreFocus); else restoreFocus(); }
+    function closeProfile() { if (busy || stage === 'unknown' || stage === 'saving') return; if (stage === 'review' || stage === 'duplicates') { go('form'); return; } if(stage === 'form' && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) return; go('directory'); const restoreFocus = () => requestAnimationFrame(() => (profileOpeners.current.get(profileId) ?? searchInput.current)?.focus()); if (saved) void loadDirectory().then(restoreFocus); else restoreFocus(); }
+    const registrationTask = !['directory','profile'].includes(stage);
     const inspector = <>
       {stage === 'profile' && <div className="read-toolbar"><Button disabled={busy} onClick={() => void openProfile(profileId, saved)}>{t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
 
-      {['profile','review','saving','unknown'].includes(stage) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
-      {['profile','review','saving','unknown'].includes(stage) && notice && <p className="notice" role="status">{notice}</p>}
-        {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
-          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
-          <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجل لاعب واحداً وجهة اتصال غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
-          <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
-        </section>}
-        {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Pending is not saved success. Repeated submission is disabled.', 'الانتظار ليس نجاحاً مؤكداً. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
-        {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('Keep the original operation reference. Check its status before creating a replacement.', 'احتفظ بمرجع العملية الأصلي. تحقق من حالتها قبل إنشاء بديل.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original operation', 'التحقق من العملية الأصلية')}</Button></section>}
-
-        {stage === 'profile' && saved && !selected && !busy && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
-        {stage === 'profile' && !selected && !busy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
-        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
-          <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
-          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd><bdi dir="ltr">{selected.contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
-          <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
-          <div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
-        </section>}
-
-      {!['profile','review','saving','unknown'].includes(stage) && <><h3>{t('Registration scope','نطاق التسجيل')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
-    </>;
-    const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
-    return <>
-    <WorkspaceShell role="owner" module="people" locale={locale} context={context?.academy_name ?? t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={[{ href: `/${locale}/workspace`, label: t('Your workspaces', 'مساحاتك') }, { href: `/${locale}/workspace/${academy}`, label: t('Academy setup', 'إعداد الأكاديمية') }, { href: '#directory', label: t('Players', 'اللاعبون'), current: true }]} onNavigate={event => { if (event.currentTarget.hash === '#language') {
-        event.preventDefault();
-        setLocale(ar ? 'en' : 'ar');
-    }
-    else if (event.currentTarget.hash === '#directory')
-        guard(event);
-    else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
-        event.preventDefault(); }} account={<UserButton />}>
-      <WorkspacePanes arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={['profile','review','saving','unknown'].includes(stage)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
-      <header className="task-header">      <h1 ref={heading} tabIndex={-1}>{title}</h1>
-      {stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}</header>
-      {context && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
-      {!['profile','review','saving','unknown'].includes(stage) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
-      {!['profile','review','saving','unknown'].includes(stage) && notice && <p className="notice" role="status">{notice}</p>}
-      {busy && stage !== 'saving' && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
-      {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
-      {unavailable ? <section className="journey-card">
-        <h2>{error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
-        <p>{error === 'denied' ? t('No player or contact information is shown after access is removed.', 'لا تُعرض بيانات اللاعبين أو جهات الاتصال بعد سحب الصلاحية.') : t('A failed lookup is not an empty directory.', 'فشل التحميل لا يعني أن القائمة فارغة.')}</p>
-        <Button onClick={() => void loadDirectory()}>{t('Retry access', 'إعادة محاولة الوصول')}</Button>
-      </section> : <>
-        {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
-          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
-          <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input ref={searchInput} id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
-          {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
-          {!busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{t('No matching players.', 'لا يوجد لاعبون مطابقون.')}</p>}
-          <table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!busy && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy} onClick={() => void openProfile(player.id)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
-          <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void loadDirectory(players.at(-1)?.id)}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
-        </section>}
+      {(stage === 'profile' || registrationTask) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {(stage === 'profile' || registrationTask) && notice && <p className="notice" role="status">{notice}</p>}
         {stage === 'form' && <section className="journey-card"><h2>{t('New player draft', 'مسودة لاعب جديد')}</h2>
           <p>{t('Use fictional details only. Saving a contact sends no invitation and grants no access.', 'استخدم بيانات خيالية فقط. حفظ جهة اتصال لا يرسل دعوة ولا يمنح صلاحية.')}</p>
           <form onSubmit={continueDraft}><fieldset disabled={busy}><legend>{t('Fictional player details', 'بيانات اللاعب الخيالية')}</legend>
@@ -354,10 +305,62 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         </section>}
         {stage === 'duplicates' && <section className="journey-card"><h2>{t('Review possible duplicates', 'مراجعة السجلات المتشابهة')}</h2>
           <p>{t('Matching names do not establish identity. Open an existing record, or explicitly confirm a different person. No automatic merge.', 'تشابه الاسم لا يثبت الهوية. افتح سجلاً موجوداً أو أكد أنه شخص مختلف. لا دمج تلقائياً.')}</p>
-          <ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={() => void openProfile(player.id)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul>
+          <div className="people-comparison"><section className="people-proposal"><h3>{t('New registration','التسجيل الجديد')}</h3><strong>{name.trim()}</strong><p>{context?.branch_name}</p><p><bdi dir="ltr">{contact || t('No contact supplied','لم تُضف جهة اتصال')}</bdi></p><span className="badge">{t('Not saved','غير محفوظ')}</span></section><section><h3>{t('Possible existing players','لاعبون موجودون محتملون')}</h3><ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy} onClick={() => void openProfile(player.id)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul></section></div>
           {candidateMore && <Button disabled={busy} onClick={() => void reviewCandidates(candidates.at(-1)?.id)}>{t('Next matching page (up to 25)', 'الصفحة المطابقة التالية (حتى 25)')}</Button>}<label className="people-check"><input type="checkbox" checked={different} onChange={event => setDifferent(event.target.checked)}/>{t('I reviewed these records. This is a different fictional person.', 'راجعت هذه السجلات. هذا شخص خيالي مختلف.')}</label>
           <div className="journey-actions"><Button disabled={!different || busy || candidateMore} className="button" onClick={() => go('review')}>{t('Review new registration', 'مراجعة التسجيل الجديد')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
         </section>}
+        {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
+          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجل لاعب واحداً وجهة اتصال غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
+          <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
+        </section>}
+        {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Pending is not saved success. Repeated submission is disabled.', 'الانتظار ليس نجاحاً مؤكداً. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
+        {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('Keep the original operation reference. Check its status before creating a replacement.', 'احتفظ بمرجع العملية الأصلي. تحقق من حالتها قبل إنشاء بديل.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original operation', 'التحقق من العملية الأصلية')}</Button></section>}
+
+        {stage === 'profile' && saved && !selected && !busy && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
+        {stage === 'profile' && !selected && !busy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
+        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
+          <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
+          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd><bdi dir="ltr">{selected.contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
+          <div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>
+        </section>}
+
+      {stage === 'directory' && <><h3>{t('Registration scope','نطاق التسجيل')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
+    </>;
+    const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
+    return <>
+    <WorkspaceShell role="owner" module="people" locale={locale} context={context?.academy_name ?? t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={ownerNavigation(locale,academy,'people')} onNavigate={event => { if (event.currentTarget.hash === '#language') {
+        event.preventDefault();
+        setLocale(ar ? 'en' : 'ar');
+    }
+    else if (event.currentTarget.hash === '#directory')
+        guard(event);
+    else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
+        event.preventDefault(); }} account={<UserButton />}>
+      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={stage === 'profile' || registrationTask} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
+      <header className="task-header">      <h1 ref={heading} tabIndex={-1}>{title}</h1>{registrationTask && <ol className="people-steps" aria-label={t('Registration progress','مراحل التسجيل')}><li aria-current={stage==='form'?'step':undefined}>{t('Player details','بيانات اللاعب')}</li><li aria-current={stage==='duplicates'?'step':undefined}>{t('Duplicate check','فحص التكرار')}</li><li aria-current={['review','saving','unknown'].includes(stage)?'step':undefined}>{t('Review and save','المراجعة والحفظ')}</li></ol>}
+      {stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}</header>
+      {context && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
+      {!registrationTask && stage !== 'profile' && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
+      {busy && stage !== 'saving' && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
+      {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
+      {unavailable ? <section className="journey-card">
+        <h2>{error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
+        <p>{error === 'denied' ? t('No player or contact information is shown after access is removed.', 'لا تُعرض بيانات اللاعبين أو جهات الاتصال بعد سحب الصلاحية.') : t('A failed lookup is not an empty directory.', 'فشل التحميل لا يعني أن القائمة فارغة.')}</p>
+        <Button onClick={() => void loadDirectory()}>{t('Retry access', 'إعادة محاولة الوصول')}</Button>
+      </section> : <>
+        {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
+          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
+          <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
+          <Input ref={searchInput} id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
+          {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
+          {!busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
+          {!busy && <p className="directory-page-summary">{players.length} {t('players on this page','لاعباً في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}{search.trim() && <Button disabled={busy} onClick={()=>{directoryTicket.current++;setSearch('');setBusy(true);searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}<table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!busy && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy} onClick={() => void openProfile(player.id)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void loadDirectory(players.at(-1)?.id)}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+        </section>}
+
       </>}
     </WorkspacePanes></WorkspaceShell>
   </>;
