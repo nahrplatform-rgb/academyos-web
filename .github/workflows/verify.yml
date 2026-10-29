@@ -112,3 +112,7 @@ jobs:
           node scripts/experience-projections/test_api.mjs
           node scripts/experience-projections/test_ui.mjs
           UI_REACT_MODE=development node scripts/experience-projections/test_ui.mjs
+      - name: Verify adaptive layout scrolling sizing and responsive focus
+        run: |
+          node scripts/workspace-layout/test_ui.mjs
+          UI_REACT_MODE=development node scripts/workspace-layout/test_ui.mjs

@@ -126,5 +126,13 @@
     "actions": "J07; J08; J09; J10; J11; J12; J13; J15; J16",
     "sequence": "Current role/link → authoritative home panels → bounded week/month → session details → existing exact task; unavailable and revoked views clear private content",
     "reference": "docs/07-handoff/full-experience-home-calendar-contract.md"
+  },
+  {
+    "id": "workspace-layout",
+    "title": "17 · Shared adaptive layout controls and scrolling",
+    "roles": "Owner / shared presentation",
+    "actions": "J01; J06; J09; J12",
+    "sequence": "Actual shell/panes with explicitly fictional long content → independent scroll → resize/hide → compact navigation → reset → responsive dialog. Structural evidence, not domain/API permission proof.",
+    "reference": "docs/07-handoff/adaptive-workspace-layout.md"
   }
 ]

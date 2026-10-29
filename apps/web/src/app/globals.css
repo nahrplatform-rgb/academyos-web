@@ -518,3 +518,47 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 .people-check{display:flex!important;min-height:44px;align-items:center;gap:12px;font-size:15px!important;font-weight:400!important;margin-block:24px 16px}
 .people-check input[type=checkbox]{width:24px;min-width:24px;height:24px;margin:0;flex:0 0 24px}
 .directory-page-summary{color:var(--muted);margin-block:16px 8px}
+
+/* Adaptive shell: viewport owns structure; only useful content regions scroll. */
+.layout-menu{position:relative;font-size:14px;flex-shrink:0}
+.layout-menu>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:9px}
+.layout-menu>div{position:absolute;inset-inline-end:0;top:100%;z-index:20;min-width:210px;padding:8px;display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 24px #0004}
+.inspector-toggle{margin-block-end:16px}
+.inspector-resizer{touch-action:none;cursor:col-resize;position:relative;min-height:44px;background:var(--canvas);outline-offset:-3px}
+.inspector-resizer::after{content:'';position:absolute;inset-block:0;inset-inline-start:5px;width:2px;background:var(--line)}
+.inspector-resizer:hover::after,.inspector-resizer:focus-visible::after{background:var(--accent)}
+@media(min-width:768px){
+ .app-scene .workspace-window{height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+ .app-scene .window-toolbar{flex:0 0 auto;min-width:0;flex-wrap:wrap}
+ .app-scene .shell{flex:1;min-height:0;overflow:hidden}
+ .app-scene .workspace-sidebar{min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-gutter:stable}
+ .app-scene .main{flex:1;min-width:0;min-height:0;display:flex;overflow:hidden}
+ .app-scene main{width:100%;margin:0;min-height:0;overflow-y:auto;scrollbar-gutter:stable;scroll-padding-block:20px}
+ .app-scene main:has(.workspace-panes){display:flex;flex-direction:column;overflow:hidden}
+ .app-scene main>:has(.workspace-panes){display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+ .app-scene .workspace-panes{flex:1;min-height:0;height:100%;grid-template-columns:minmax(0,1fr) 12px var(--inspector-width,336px);overflow:hidden}
+ .app-scene .workspace-center{min-height:0;overflow-y:auto;scrollbar-gutter:stable;scroll-padding-block:20px;overscroll-behavior-y:contain}
+ .app-scene .workspace-inspector{min-height:0;overflow-y:auto;scrollbar-gutter:stable;scroll-padding-block:20px;overscroll-behavior-y:contain}
+ .app-scene .workspace-panes[data-details=hidden]{grid-template-columns:minmax(0,1fr)}
+ .app-scene .workspace-panes[data-details=hidden]>.workspace-inspector,.app-scene .workspace-panes[data-details=hidden]>.inspector-resizer{display:none}
+ .app-scene .workspace-task{min-height:0}
+}
+@media(min-width:1280px){
+ .app-scene[data-navigation=compact] .workspace-sidebar{width:80px;padding-inline:10px}
+ .app-scene[data-navigation=compact] .workspace-sidebar :is(.sidebar-context,.sidebar-note,.nav-group){display:none}
+ .app-scene[data-navigation=compact] .workspace-sidebar nav a{justify-content:center;padding-inline:8px}
+ .app-scene[data-navigation=compact] .workspace-sidebar nav a span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
+@media(max-width:1279px){.inspector-resizer,.inspector-toggle,.layout-desktop-control{display:none!important}.app-scene .phone-dialog-panes .workspace-center{height:100%}}
+@media(max-width:767px){
+ .app-scene .workspace-window{height:auto;min-height:100dvh;overflow:visible}
+ .app-scene .window-toolbar{position:sticky;top:0;z-index:6;min-height:0}
+ .app-scene .shell,.app-scene .main,.app-scene main,.app-scene .workspace-center,.app-scene .workspace-panes{height:auto;min-height:0;overflow:visible}
+ .layout-menu>summary{min-height:48px}
+ .app-scene .workspace-detail-dialog{scroll-padding-block:20px}
+}
+
+.experience-task-card.is-empty{padding:12px 16px;background:var(--surface);border-block-start:1px solid var(--line);gap:8px}
+.experience-task-card.is-empty>strong{font-size:18px;color:var(--muted)}
+@media(min-width:1280px){.app-scene .inspector-toggle{position:sticky;top:0;z-index:3;background:var(--surface)}.app-scene .workspace-center{scroll-padding-block-start:80px}}
+@media(min-width:768px){.app-scene .workspace-center,.app-scene .workspace-inspector{overflow-anchor:none}}

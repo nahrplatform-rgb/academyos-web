@@ -33,7 +33,7 @@ await page.route('**/api/trainers',async route=>{const b=route.request().postDat
  if(lost&&['appoint','accept','end'].includes(b.action)){lost=false;await route.abort('failed');return;}
  await route.fulfill({json:{data}});
 });
-const evidence=resolve(root,`docs/07-handoff/evidence/workflow-clarity-2026-10-25/trainers/${mode}`);await mkdir(evidence,{recursive:true});
+const evidence=process.env.UI_EVIDENCE_DIR?resolve(process.env.UI_EVIDENCE_DIR):resolve(root,`docs/07-handoff/evidence/workflow-clarity-2026-10-25/trainers/${mode}`);await mkdir(evidence,{recursive:true});
 const button=name=>page.getByRole('button',{name:name==='Refresh saved state'?/^(Refresh view|Retry current read)$/:name==='تحديث الحالة المحفوظة'?/^(تحديث العرض|إعادة محاولة قراءة الحالة)$/:name,exact:true});
 try{
  await page.goto(url);await expect(button('Invite trainer')).toBeVisible();assert.equal(await page.getByLabel('Fictional staff name',{exact:true}).count(),0,'Directory first; no unsolicited form');await button('Invite trainer').click();await expect(page.getByRole('heading',{name:'Invite a fictional trainer',exact:true})).toBeVisible();
@@ -63,7 +63,7 @@ try{
  await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));});
  await expect(page.getByLabel('Intended test recipient email',{exact:true})).toHaveValue('draft@example.invalid');
  assert.equal(calls.filter(b=>b.action==='owner-list').length,readsBefore,'Returning to draft preserves intent without duplicate reads');
- assert.equal(await page.locator('.workspace-panes').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2,'Desktop central workspace and inspector remain separate');
+ assert.equal(await page.locator('.workspace-panes').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),3,'Desktop central workspace, resize separator and inspector remain separate');await expect(page.getByRole('separator',{name:'Resize details',exact:true})).toBeVisible();assert.ok(await page.locator('.workspace-center').evaluate(el=>el.clientWidth)>=560,'Main workspace keeps its usable minimum width');
 
  await page.setViewportSize({width:926,height:900});await expect(page.getByLabel('Intended test recipient email',{exact:true})).toBeVisible();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  await button('Back').click();await expect(button('Invite trainer')).toBeFocused();assert.equal(await page.getByLabel('Intended test recipient email',{exact:true}).count(),0);
