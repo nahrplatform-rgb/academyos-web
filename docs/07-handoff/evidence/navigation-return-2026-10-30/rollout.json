@@ -10,10 +10,10 @@
   "initial_ci_passed": 41098801188,
   "test_fix": "synthetic reviewer waits for original submission/result completion; fixed-snapshot delayed result; original assertions retained",
   "candidate": "dpl_HvzTM3tpwRFwNKUUcydGybQMngUR",
-  "staging": "promotion awaiting Vercel passkey/Touch ID account reauthentication",
+  "staging": "promotion pending; passkey request timed out before user completion",
   "hosted": "pending",
   "owner_acceptance": "pending",
   "no_access_grant": true,
   "no_operating_write": true,
-  "reauthentication": "existing nahrplatform-rgb passkey selected in Chrome; user action requested"
+  "reauthentication": "timeout dialog dismissed; Chrome Vercel Reauthenticate page exposes Continue with Passkey for retry"
 }
