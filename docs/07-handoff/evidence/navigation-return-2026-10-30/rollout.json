@@ -10,10 +10,29 @@
   "initial_ci_passed": 41098801188,
   "test_fix": "synthetic reviewer waits for original submission/result completion; fixed-snapshot delayed result; original assertions retained",
   "candidate": "dpl_HvzTM3tpwRFwNKUUcydGybQMngUR",
-  "staging": "promotion pending; passkey request timed out before user completion",
-  "hosted": "pending",
+  "staging": "Ready rebuilt deployment serves existing staging.academy.nahr.dev alias",
+  "hosted": "Owner EN and AR Calendar -> existing Nov 1 date -> Back to calendar passed; Month/from/search retained",
   "owner_acceptance": "pending",
   "no_access_grant": true,
   "no_operating_write": true,
-  "reauthentication": "timeout dialog dismissed; Chrome Vercel Reauthenticate page exposes Continue with Passkey for retry"
+  "reauthentication": "Owner completed Touch ID; authenticated Vercel dashboard shows Ready rebuilt source e950b41 and existing staging alias",
+  "staging_deployment": "dpl_CRx3e9GiTdPuWLCWNaPH4QhLRRQ3",
+  "staging_url": "https://academyos-194ax2fsj-academy-os2.vercel.app",
+  "guardian_hosted": "Positive academy-name check pending: test link remains ended; no restoration authorized",
+  "home_hosted": "Not exercised in this read-only hosted calendar walkthrough; EN/AR Home return destination covered locally",
+  "calendar_restored": {
+    "mode": "Month",
+    "from": "2026-10-30",
+    "period": [
+      "2026-09-27",
+      "2026-11-07"
+    ],
+    "filter": "Synthetic I3a",
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "program": "5c1d13f7-83f4-4637-a9fe-2081938b1ab7",
+    "day": "2026-11-01"
+  }
 }

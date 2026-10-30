@@ -31,3 +31,14 @@ Git-triggered candidate `dpl_HvzTM3tpwRFwNKUUcydGybQMngUR` is Ready. Staging pro
 Resume: complete account check → verify rebuilt source and staging alias → use the existing Owner session to open Calendar, choose a dated session and return using Back to calendar; verify saved period/view/filter, EN/AR and no writes. Guardian positive hosted proof requires an active authorized link; do not restore ended test access under this batch. Record deployment/hosted/Owner acceptance separately; do not retire pagination/selection/scroll or other missing-name work.
 
 Account-check follow-up: the passkey request timed out before completion. Timeout dialog was dismissed; Chrome is left on Vercel Reauthenticate with Continue with Passkey available. Promotion and hosted verification remain pending. Retry this account check before claiming a rebuilt staging deployment; no operating records or access changed.
+
+
+## Hosted checkpoint after account handoff
+
+Owner completed Touch ID. The authenticated Vercel dashboard shows rebuilt deployment `dpl_CRx3e9GiTdPuWLCWNaPH4QhLRRQ3` Ready, source `e950b41ca7b682210e7a74b6bdc1dea1990ec9b8`, with existing `staging.academy.nahr.dev` alias. This supersedes the pending promotion entries above. Vercel labels this project environment Production; the verified target is AcademyOS staging, not a production launch.
+
+Read-only hosted Owner walkthrough passed in EN and AR: Calendar → select Synthetic I3a Full-period Demo on 1 November → Open this date (fixed `return=calendar`) → Back to calendar / العودة إلى التقويم. The return stayed in academy A and current locale. Month remained selected, first visible date remained 2026-10-30, complete visible period remained 2026-09-27–2026-11-07, and filter remained Synthetic I3a. Scope was reloaded on return. No operating save, invitation, grant or account change was performed. Session selection and scroll are not restored by this change.
+
+Full-size actual staging captures: [EN date](evidence/navigation-return-2026-10-30/hosted-en-date.png), [EN returned calendar](evidence/navigation-return-2026-10-30/hosted-en-calendar.png), [AR date](evidence/navigation-return-2026-10-30/hosted-ar-date.png), [AR returned calendar](evidence/navigation-return-2026-10-30/hosted-ar-calendar.png). These demonstrate the declared desktop states, not phone/zoom completeness or full redesign parity. Native Chrome thumbnails are not used as visual proof.
+
+Guardian positive hosted name check remains pending because its test link is ended; local provided-name/denial-clearing checks passed. Home-specific return remains locally verified, not freshly hosted-tested in this Calendar walkthrough. Owner working acceptance of this continuation remains pending. Pagination/selected-row/scroll restoration, absent academy-name projections and broader security/device/load gates remain open.
