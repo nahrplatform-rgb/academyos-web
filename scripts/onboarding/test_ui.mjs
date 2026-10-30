@@ -33,6 +33,7 @@ async function captureReview(name,title,description){
  reviewFrames.push({name,title,description});
 }
 let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,revoked=false;
+let loseCreateReply=false,createCalls=0;
 let extraAcademy=false,secondRevoked=false,platformDenied=false,platformReads=0;const invitationChanges=[];
 const secondId='00000000-0000-4000-8000-000000000003';
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
@@ -50,7 +51,7 @@ await page.route('**/api/onboarding',async route=>{
  case'context':data={platform:true,memberships:accepted?[{membership_id:iv,academy_id:a,academy_name:setup.name,role:'owner'}]:[],more:false};break;
  case'platform':platformReads++;data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:false};break;
  case'reissue':invitationChanges.push(structuredClone(b));data={reissued:true};break;
- case'create':admitted=true;data={academy_id:a,invitation_id:iv,generation:1};break;
+ case'create':createCalls++;admitted=true;data={academy_id:a,invitation_id:iv,generation:1};break;
  case'exchange':
   exchangeCalls++;
   if(holdExchange){heldExchange=true;await new Promise(r=>{releaseExchange=r;});}
@@ -77,6 +78,7 @@ await page.route('**/api/onboarding',async route=>{
  }
  if(b.action==='platform'&&extraAcademy)data.items.push({id:secondId,name:'Synthetic Academy B',setup_complete:false,invitation_id:secondId,generation:7,expires_at:'2026-10-25T12:00:00Z',revoked:secondRevoked,redeemed_at:null,delivery:'unknown',attempts:0});
  if(b.op)receipts.set(b.op,structuredClone(data));
+ if(loseCreateReply&&b.action==='create'){loseCreateReply=false;await route.abort();return;}
  if(lost&&b.action==='save'){lost=false;await route.abort();return;}
  await route.fulfill({json:{data}});
 });
@@ -117,6 +119,15 @@ try{
   assert.equal(await page.getByRole('button',{name:locale==='en'?'Accept owner appointment':'قبول التعيين مالكاً',exact:true}).count(),0);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
+ for (const locale of ['en','ar']) for(const width of [320,390,768,1440]) {
+  const ar=locale==='ar';await page.setViewportSize({width,height:900});
+  await page.goto(`http://127.0.0.1:3194/?mode=platform&locale=${locale}`);
+  await page.getByRole('button',{name:ar?'إنشاء أكاديمية اختبار':'Create a synthetic academy',exact:true}).click();
+  await expect(page.locator('.workspace-task .admission-create')).toBeVisible();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.getByRole('button',{name:ar?'العودة إلى قائمة الأكاديميات':'Back to academy list',exact:true}).click();
+  await expect(page.getByRole('button',{name:ar?'إنشاء أكاديمية اختبار':'Create a synthetic academy',exact:true})).toBeFocused();
+ }
  failExchange=true;
  await page.goto(`http://127.0.0.1:3194/?mode=invitation&signedOut=1#${iv}.${'b'.repeat(64)}`);
  await page.getByRole('alert').waitFor();assert.equal(await page.getByRole('button',{name:'Create account',exact:true}).isDisabled(),true);failExchange=false;
@@ -126,7 +137,13 @@ try{
  await page.goto('http://127.0.0.1:3194/?mode=platform');
  await captureReview('01-admission','1. Platform Owner — academy admission','The real admission form, before creating the synthetic academy.');
  await page.getByRole('button',{name:'Create a synthetic academy',exact:true}).click();
- await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await captureReview('02-appointment-review','2. Review the owner appointment','Confirm the academy and intended recipient before creation.');await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();await page.getByText('Owner acceptance pending',{exact:true}).waitFor();await captureReview('03-invitation-pending','3. Invitation pending','Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation.');
+ assert.equal(await page.locator('.workspace-task .admission-create').count(),1,'Creation is a central task rather than a narrow inspector');
+ await page.getByLabel('Academy name',{exact:true}).fill('Synthetic Academy A');await page.getByLabel('Intended owner email',{exact:true}).fill('owner@academy.example');await page.getByRole('button',{name:'Review appointment',exact:true}).click();await captureReview('02-appointment-review','2. Review the owner appointment','Confirm the academy and intended recipient before creation.');loseCreateReply=true;await page.getByRole('button',{name:'Create and invite owner',exact:true}).click();
+ await page.getByRole('button',{name:'Check original operation',exact:true}).click();
+ await page.getByText('The original operation was committed once.',{exact:true}).waitFor();
+ await page.getByText('Owner acceptance pending',{exact:true}).waitFor();
+ assert.equal(createCalls,1,'Lost creation reply reconciles without a second academy');
+ assert.equal(await page.locator('.admission-create').count(),0,'Confirmed original creation exits its unsaved form');await captureReview('03-invitation-pending','3. Invitation pending','Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation.');
  // I1 inspection must not fetch or dispatch an invitation change by itself.
  extraAcademy=true;
  await page.reload();await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).waitFor();
@@ -157,7 +174,23 @@ try{
  const detail=page.getByRole('complementary',{name:'Synthetic Academy B',exact:true});
  await detail.getByText('Unknown; review before replacement',{exact:true}).waitFor();
  assert.equal(await detail.getByRole('button',{name:'Retry pending delivery',exact:true}).count(),0,'Unknown outcome cannot offer blind delivery retry');
+ // Focused review is cancellable without changing the invitation; modal focus cannot escape.
+ for (const width of [1440,390]) {
+  await page.setViewportSize({width,height:900});
+  const trigger=page.getByRole('button',{name:'Review new invitation',exact:true});
+  await trigger.click();
+  const modal=page.getByRole('dialog',{name:'Invitation change review',exact:true});
+  await expect(modal).toBeVisible();
+  await page.keyboard.press('Tab');
+  assert.equal(await modal.evaluate(el=>el.contains(document.activeElement)),true,'Focus stays in invitation review');
+  await page.keyboard.press('Escape');
+  await expect(modal).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+  assert.equal(invitationChanges.length,0,'Escape never changes an invitation');
+ }
+ await page.setViewportSize({width:1440,height:1000});
  await detail.getByRole('button',{name:'Review new invitation',exact:true}).click();
+ await captureReview('17-invitation-modal','17. Invitation change confirmation','Native focused review identifies the academy, exact consequence and retained recipient.');
  await page.getByRole('region',{name:'Invitation change review',exact:true}).getByText(/Synthetic Academy B/).waitFor();
  assert.equal(await page.getByRole('heading',{name:'Confirm invitation change',exact:true}).evaluate(el=>el===document.activeElement),true,'Invitation review receives keyboard focus');
  assert.equal(invitationChanges.length,0,'Review alone never commits');
@@ -172,7 +205,7 @@ try{
   const row=page.getByRole('button',{name:ar?'Synthetic Academy B — عرض التفاصيل':'Synthetic Academy B — view details',exact:true});await row.waitFor();
   await row.focus();await page.keyboard.press('Enter');
   const panel=page.getByRole('complementary',{name:'Synthetic Academy B',exact:true});await panel.waitFor();
-  assert.equal(await page.locator('.admission-create').isVisible(),false,'Phone inspection is one task; create draft remains mounted but hidden');
+  assert.equal(await page.locator('.admission-create').isVisible(),false,'Phone inspection is one task; creation form is not active');
   assert.equal(await panel.getByRole('button',{name:ar?'مراجعة إلغاء الدعوة':'Review withdrawal',exact:true}).count(),0,'Revoked invitation does not offer withdrawal');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await captureReview(ar?'15-admission-ar-phone':'14-admission-en-phone',ar?'15. Arabic phone — academy details':'14. English phone — academy details','Actual I1 details use only the current loaded projection. Revoked/unknown states do not offer blind retry.');
@@ -291,14 +324,14 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
+ const report={ui:'passed',reactMode,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'central EN/AR creation 320/390/768/1440; native review Escape/contained focus/trigger restore; lost-create receipt closes form without second create; two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
  if(process.env.UI_EVIDENCE_PATH)await writeFile(process.env.UI_EVIDENCE_PATH,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
  if(reviewDir){
   reviewFrames.sort((a,b)=>a.name.localeCompare(b.name));
   const escape=value=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
   const nav=reviewFrames.map(frame=>`<a href="#${frame.name}">${escape(frame.title)}</a>`).join('');
   const frames=reviewFrames.map(frame=>`<section id="${frame.name}"><h2>${escape(frame.title)}</h2><p>${escape(frame.description)}</p><a href="${frame.name}.png" target="_blank"><img src="${frame.name}.png" alt="${escape(frame.title)}" loading="lazy"></a><a href="#top">Back to steps</a></section>`).join('');
-  await writeFile(resolve(reviewDir,'index.html'),`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcademyOS M1 — actual component review</title><style>body{margin:0;background:#eff3f9;color:#172941;font:16px/1.5 system-ui}main{max-width:1180px;margin:auto;padding:24px}header,section{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:20px;margin-bottom:24px}nav{display:grid;gap:8px}a{color:#075bea}section{scroll-margin-top:16px}img{display:block;max-width:100%;height:auto;border:1px solid #cbd5e1;margin:16px 0}aside{border-inline-start:4px solid #075bea;padding:12px;background:#e8f0ff}</style><main><header id="top"><h1>AcademyOS M1: create → invite → accept → set up</h1><aside>Read-only review of actual app components in the compact blue design. Screenshots use fixed synthetic identity/transport adapters. This is not staging and does not send email, create real accounts or persist hosted records.</aside><p>Follow the steps below. Click an image for its full resolution. This gallery has no product actions. Review of this visual source is separate from hosted verification and full M1 acceptance.</p><nav aria-label="Journey review steps">${nav}</nav></header>${frames}</main></html>`,{flag:'wx'});
+  await writeFile(resolve(reviewDir,'index.html'),`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcademyOS M1 — actual component review</title><style>body{margin:0;background:#eff3f9;color:#172941;font:16px/1.5 system-ui}main{max-width:1180px;margin:auto;padding:24px}header,section{background:white;border:1px solid #cbd5e1;border-radius:8px;padding:20px;margin-bottom:24px}nav{display:grid;gap:8px}a{color:#075bea}section{scroll-margin-top:16px}img{display:block;max-width:100%;height:auto;border:1px solid #cbd5e1;margin:16px 0}aside{border-inline-start:4px solid #075bea;padding:12px;background:#e8f0ff}</style><main><header id="top"><h1>AcademyOS M1: create → invite → accept → set up</h1><aside>Read-only review of actual app components in the current Charcoal spectrum design. Screenshots use fixed synthetic identity/transport adapters. This is not staging and does not send email, create real accounts or persist hosted records.</aside><p>Follow the steps below. Click an image for its full resolution. This gallery has no product actions. Review of this visual source is separate from hosted verification and full M1 acceptance.</p><nav aria-label="Journey review steps">${nav}</nav></header>${frames}</main></html>`,{flag:'wx'});
   await writeFile(resolve(reviewDir,'source-and-test-receipt.json'),JSON.stringify({...report,reviewFrames},null,2)+'\n',{flag:'wx'});
  }
  console.log(JSON.stringify(report));

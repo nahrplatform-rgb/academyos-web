@@ -1,11 +1,11 @@
 "use client";
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import WorkspacePanes from "./workspace-panes";
 import { Button } from "./ui/controls";
 
 export type Academy = { id: string; name: string; setup_complete: boolean; invitation_id: string; generation: number; expires_at: string; revoked: boolean; redeemed_at: string | null; delivery: string; attempts: number };
 type Props = {
-  heading: ReactNode; toolbar: ReactNode; footer: ReactNode; creation: ReactNode; changeReview: ReactNode; creating: boolean; onCreate: () => void; onClose: () => void;
+  heading: ReactNode; toolbar: ReactNode; footer: ReactNode; creation: ReactNode; changeReview: ReactNode; creating: boolean; reviewing: boolean; onCancelReview: () => void; feedback: ReactNode; onCreate: () => void; onClose: () => void;
   items: Academy[];
   arabic: boolean;
   disabled: boolean;
@@ -15,11 +15,25 @@ type Props = {
 };
 
 /** Inspection uses only the current authorized page; it never fetches or grants. */
-export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry, creation, changeReview, creating, onCreate, onClose, heading, toolbar, footer }: Props) {
+export default function AdmissionDirectory({ items, arabic, disabled, hasError, onReview, onRetry, creation, changeReview, creating, reviewing, onCancelReview, feedback, onCreate, onClose, heading, toolbar, footer }: Props) {
   const t = (en: string, ar: string) => arabic ? ar : en;
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = items.find(item => item.id === selectedId);
+  const confirmation = useRef<HTMLDialogElement>(null);
+  const reviewOpener = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const dialog = confirmation.current;
+    if (!reviewing || !dialog) return;
+    dialog.showModal();
+    dialog.querySelector<HTMLElement>('h2')?.focus();
+    return () => { dialog.close(); requestAnimationFrame(() => reviewOpener.current?.isConnected && reviewOpener.current.focus()); };
+  }, [reviewing]);
+  function reviewChange(body: Record<string, unknown>) {
+    reviewOpener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    onReview(body);
+  }
   const opener = useRef<HTMLButtonElement | null>(null);
+  const creationOpener = useRef<HTMLButtonElement | null>(null);
   const ownerStatus = (item: Academy) => item.redeemed_at ? t('Owner accepted', 'قبل المالك الدعوة') : item.revoked ? t('Invitation revoked', 'أُلغيت الدعوة') : t('Owner acceptance pending', 'بانتظار قبول المالك');
   const setupStatus = (item: Academy) => item.setup_complete ? t('Initial setup complete; operational activation pending', 'اكتمل الإعداد الأولي؛ بانتظار التفعيل التشغيلي') : t('Initial setup incomplete', 'الإعداد الأولي غير مكتمل');
   const deliveryStatus = (item: Academy) => ({
@@ -32,7 +46,7 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
   } as Record<string, string>)[item.delivery] ?? item.delivery;
   function closeDetails() {
     setSelectedId(null); onClose();
-    requestAnimationFrame(() => opener.current?.focus());
+    requestAnimationFrame(() => (creating ? creationOpener.current : opener.current)?.focus());
   }
   const inspector = <><div className="read-toolbar inspector-read">{toolbar}</div>{creating ? creation : <>    {selected && <aside id="admission-details" className="admission-detail" aria-labelledby="admission-detail-heading">
 
@@ -44,14 +58,14 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
         <div><dt>{t('Setup', 'الإعداد')}</dt><dd>{setupStatus(selected)}</dd></div>
       </dl>
       {!selected.redeemed_at && <div className="journey-actions">
-        {!selected.revoked && <Button disabled={disabled} onClick={() => onReview({ action: 'revoke', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review withdrawal', 'مراجعة إلغاء الدعوة')}</Button>}
-        <Button disabled={disabled} onClick={() => onReview({ action: 'reissue', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>
+        {!selected.revoked && <Button disabled={disabled} onClick={() => reviewChange({ action: 'revoke', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review withdrawal', 'مراجعة إلغاء الدعوة')}</Button>}
+        <Button disabled={disabled} onClick={() => reviewChange({ action: 'reissue', invitation: selected.invitation_id, generation: selected.generation, name: selected.name })}>{t('Review new invitation', 'مراجعة دعوة جديدة')}</Button>
         {!selected.revoked && ['queued', 'failed', 'blocked', 'sending'].includes(selected.delivery) && <Button disabled={disabled} onClick={() => onRetry({ action: 'retry', invitation: selected.invitation_id, generation: selected.generation })}>{t('Retry pending delivery', 'إعادة محاولة الإرسال المعلق')}</Button>}
       </div>}
-    </aside>}{changeReview}{!selected && <div className="inspector-empty"><h3>{t('Select an academy','اختر أكاديمية')}</h3><p>{t('Open a row to view the owner invitation, delivery and setup. To admit another academy, choose Create a synthetic academy.','افتح صفاً لعرض دعوة المالك وحالة البريد والإعداد. لإضافة أكاديمية، اختر إنشاء أكاديمية اختبار.')}</p></div>}</>}</>;
-  return <WorkspacePanes focusTargetId={selected && !creating ? "admission-detail-heading" : undefined} arabic={arabic} title={creating ? t("New academy", "أكاديمية جديدة") : t("Academy details", "تفاصيل الأكاديمية")} inspector={inspector} selected={Boolean(selected || creating)} selectionKey={selectedId ?? (creating ? 'create' : '')} backLabel={t('Back to academy list','العودة إلى قائمة الأكاديميات')} onBack={closeDetails} blocked={disabled}><header className="task-header">{heading}<div className="read-toolbar">{toolbar}</div></header><section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className="admission-layout">
+    </aside>}{!selected && <div className="inspector-empty"><h3>{t('Select an academy','اختر أكاديمية')}</h3><p>{t('Open a row to view the owner invitation, delivery and setup. To admit another academy, choose Create a synthetic academy.','افتح صفاً لعرض دعوة المالك وحالة البريد والإعداد. لإضافة أكاديمية، اختر إنشاء أكاديمية اختبار.')}</p></div>}</>}</>;
+  return <><WorkspacePanes task={creating} focusTargetId={selected && !creating ? "admission-detail-heading" : undefined} arabic={arabic} title={creating ? t("New academy", "أكاديمية جديدة") : t("Academy details", "تفاصيل الأكاديمية")} inspector={creating ? creation : inspector} selected={Boolean(selected || creating)} selectionKey={selectedId ?? (creating ? 'create' : '')} backLabel={t('Back to academy list','العودة إلى قائمة الأكاديميات')} onBack={closeDetails} blocked={disabled}><header className="task-header">{heading}<div className="read-toolbar">{toolbar}</div></header>{!creating && <section aria-label={t('Admitted academies', 'الأكاديميات المقبولة')} className="admission-layout">
     <div className="admission-directory">
-      <div className="section-heading"><h2>{t('Admitted academies', 'الأكاديميات المقبولة')}</h2><Button className="button" disabled={disabled} onClick={() => {setSelectedId(null);onCreate();}}>{t('Create a synthetic academy','إنشاء أكاديمية اختبار')}</Button></div>
+      <div className="section-heading"><h2>{t('Admitted academies', 'الأكاديميات المقبولة')}</h2><Button ref={creationOpener} className="button" disabled={disabled} onClick={() => {setSelectedId(null);onCreate();}}>{t('Create a synthetic academy','إنشاء أكاديمية اختبار')}</Button></div>
       <p className="admission-hint">{t('Open an academy to inspect its invitation and setup status.', 'افتح أكاديمية لمراجعة حالة الدعوة والإعداد.')}</p>
       {items.length === 0 && !hasError && <p>{t('No academies on this page.', 'لا توجد أكاديميات في هذه الصفحة.')}</p>}
       {items.length > 0 && <table className="admission-table">
@@ -67,5 +81,9 @@ export default function AdmissionDirectory({ items, arabic, disabled, hasError, 
       </table>}
     </div>
 
-  </section>{footer}</WorkspacePanes>;
+  </section>}{!creating && footer}</WorkspacePanes>
+    <dialog ref={confirmation} className="register-dialog admission-confirmation" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')} onCancel={event => { event.preventDefault(); if (!disabled) onCancelReview(); }}>
+      {changeReview}{feedback}
+    </dialog>
+  </>;
 }

@@ -99,13 +99,13 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
   useEffect(() => { if (!editing) return; const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [editing]);
   async function mutate(body: Payload) {
     const ticket = epoch.current; const original = { ...body, op: body.op ?? crypto.randomUUID() }; try { sessionStorage.setItem(storageKey, JSON.stringify({ op: original.op, started: Date.now() })); } catch { } setPending(original); setBusy(true); setError(''); setNotice('');
-    try { await request(original); if (!alive.current || ticket !== epoch.current) return; forgetOperation(); setPending(null); setReview(null); setUncertain(false); setNotice(t('Operation confirmed. Saved progress is shown below.', 'تم تأكيد العملية. يظهر التقدم المحفوظ أدناه.')); setEditing(null); await load(); heading.current?.focus(); }
+    try { await request(original); if (!alive.current || ticket !== epoch.current) return; forgetOperation(); setPending(null); setReview(null); setUncertain(false); setNotice(t('Operation confirmed. Saved progress is shown below.', 'تم تأكيد العملية. يظهر التقدم المحفوظ أدناه.')); setEditing(null); if (body.action === 'create') { setCreateOpen(false); setName(''); setEmail(''); } await load(); heading.current?.focus(); }
     catch (e) { if (!alive.current || ticket !== epoch.current) return; const code = e instanceof RequestError ? e.code : 'unavailable'; setError(code); setUncertain(['unknown', 'unavailable'].includes(code)); if (code === 'denied') { wipe(); } else if (!['unknown', 'unavailable'].includes(code)) { forgetOperation(); setPending(null); } }
     finally { setBusy(false); }
   }
   async function reconcile() {
     if (!pending) return; setBusy(true); setError('');
-    try { const r = await request({ action: 'operation', op: pending.op }); if (r.found) { forgetOperation(); setUncertain(false); setPending(null); setReview(null); setNotice(t('The original operation was committed once.', 'حُفظت العملية الأصلية مرة واحدة.')); await load(); } else { setUncertain(false); setNotice(t('No committed receipt was found. Retry the original request below with the same operation ID.', 'لم يُعثر على نتيجة محفوظة. أعد إرسال الطلب الأصلي أدناه بالمرجع نفسه.')); } }
+    try { const r = await request({ action: 'operation', op: pending.op }); if (r.found) { if (pending.action === 'create') { setCreateOpen(false); setName(''); setEmail(''); } forgetOperation(); setUncertain(false); setPending(null); setReview(null); setNotice(t('The original operation was committed once.', 'حُفظت العملية الأصلية مرة واحدة.')); await load(); } else { setUncertain(false); setNotice(t('No committed receipt was found. Retry the original request below with the same operation ID.', 'لم يُعثر على نتيجة محفوظة. أعد إرسال الطلب الأصلي أدناه بالمرجع نفسه.')); } }
     catch (e) { const code = e instanceof RequestError ? e.code : 'unavailable'; setError(code); if (code === 'denied') { wipe(); setUncertain(false); } } finally { setBusy(false); }
   }
   function save(e: FormEvent, step: 'branch' | 'sport') { e.preventDefault(); if (!setup) return; void mutate({ action: 'save', academy, version: setup.version, step, fields: step === 'branch' ? { name: branch, timezone } : { label_en: sportEn, label_ar: sportAr } }); }
@@ -120,6 +120,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
   const disabled = busy || loading || uncertain || pending !== null || error === 'denied';
   const authReturn = `/${locale}/${mode === 'invitation' ? 'invitation' : 'workspace'}`;
   const createPanel = <>            <section className="journey-card admission-create">
+              <ol className="people-steps" aria-label={t('Academy appointment steps', 'خطوات تعيين مالك الأكاديمية')}><li aria-current={!review ? 'step' : undefined}>{t('Academy and Owner', 'الأكاديمية والمالك')}</li><li aria-current={review?.action === 'create' ? 'step' : undefined}>{t('Review appointment', 'مراجعة التعيين')}</li></ol>
               <h2>{t('Create a synthetic academy', 'إنشاء أكاديمية اختبار')}</h2>
               <p>{t('Appoint one initial owner. They will verify their email and accept before entering setup. No commercial activation is implied.', 'عيّن مالكاً أولاً واحداً. سيتحقق من بريده ويقبل الدعوة قبل الإعداد. لا يعني ذلك التفعيل التجاري.')}</p>
               {(!review || review.action !== 'create') ? <form onSubmit={e => { e.preventDefault(); setReview({ action: 'create', name: name.trim(), email: email.trim().toLowerCase(), invitation: crypto.randomUUID(), op: crypto.randomUUID() }); }}>
@@ -140,11 +141,11 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
               </div>}
             </section>
 </>;
-  const changePanel = <>            {review && review.action !== 'create' && <section className="journey-card" role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
+  const changePanel = <>            {review && review.action !== 'create' && <section role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
               <h2 tabIndex={-1} ref={invitationReviewHeading}>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
               <p>{String(review.name)} · {review.action === 'revoke' ? t('Withdraw this pending invitation. It will no longer grant access.', 'إلغاء هذه الدعوة المعلقة. لن تعود صالحة لمنح الصلاحية.') : t('Invalidate the old invitation and issue a new 72-hour invitation to the same recipient.', 'إبطال الدعوة القديمة وإصدار دعوة جديدة لمدة ٧٢ ساعة للمستلم نفسه.')}</p>
-              <Button disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
-              <Button disabled={disabled} onClick={() => { setReview(null); requestAnimationFrame(() => document.getElementById('admission-detail-heading')?.focus()); }}>{t('Cancel', 'إلغاء')}</Button>
+              <Button className="button" disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
+              <Button disabled={disabled} onClick={() => setReview(null)}>{t('Cancel', 'إلغاء')}</Button>
             </section>}
 </>;
   const contextPanel = <>
@@ -152,7 +153,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
     {mode === 'context' && <p>{t('Choose an existing academy and role. Each workspace checks its current access.','اختر أكاديمية ودوراً حاليين. تتحقق كل مساحة من الصلاحية الحالية.')}</p>}
     {mode === 'invitation' && <p>{t('Verify the intended email and review before accepting. Signing in alone grants no academy authority.','وثّق البريد المقصود وراجع قبل القبول. تسجيل الدخول وحده لا يمنح صلاحية الأكاديمية.')}</p>}
   </>;
-  return <WorkspaceShell module="operations" locale={locale}
+  return <WorkspaceShell module={mode === 'platform' || mode === 'invitation' ? "people" : "operations"} locale={locale}
     context={mode === 'platform' ? t('Platform workspace', 'مساحة المنصة') : t('Academy workspace', 'مساحة الأكاديمية')}
     title={mode === 'platform' ? t('Academy admission', 'قبول الأكاديمية') : mode === 'invitation' ? t('Owner invitation', 'دعوة المالك') : mode === 'setup' ? t('Initial setup', 'الإعداد الأولي') : t('Your workspaces', 'مساحاتك')}
     homeHref={`/${locale}/workspace`}
@@ -196,7 +197,8 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
                 <strong>{m.academy_name}</strong> · {({ owner: t('Academy Owner', 'مالك الأكاديمية'), manager: t('Manager', 'مدير'), trainer: t('Trainer', 'مدرب'), guardian: t('Guardian', 'ولي أمر'), player: t('Player', 'لاعب') } as Record<string, string>)[m.role] ?? m.role} {m.role === 'owner' ? <Link href={`/${locale}/workspace/${m.academy_id}/home`}>{t('Open academy', 'فتح الأكاديمية')}</Link> : m.role === 'guardian' ? <Link href={`/${locale}/workspace/${m.academy_id}/guardian/home`}>{t('Open Guardian home', 'فتح الصفحة الرئيسية لولي الأمر')}</Link> : m.role === 'trainer' ? <Link href={`/${locale}/workspace/${m.academy_id}/trainer/home`}>{t('Open Trainer home', 'فتح الصفحة الرئيسية للمدرب')}</Link> : <span>{t('Operational workspace is not available yet.', 'المساحة التشغيلية غير متاحة بعد.')}</span>}</li>)}</ul>{context.more && <Button onClick={() => void load(true)}>{t('More memberships', 'المزيد من العضويات')}</Button>}</>}
           {mode === 'platform' && error !== 'denied' && <>
             <AdmissionDirectory heading={<h1 tabIndex={-1} ref={heading}>{t('Academy admission', 'قبول الأكاديمية')}</h1>} toolbar={<Button disabled={busy} onClick={() => void load()}>{t(error ? 'Retry current read' : editing || review ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : editing || review ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button>} footer={more && <Button disabled={disabled} onClick={() => void load(true)}>{t('More academies', 'المزيد من الأكاديميات')}</Button>} items={items} arabic={ar} disabled={disabled} hasError={Boolean(error)}
-              onReview={setReview} onRetry={body => void mutate(body)} creation={createPanel} changeReview={changePanel} creating={createOpen} onCreate={() => setCreateOpen(true)} onClose={() => {setCreateOpen(false);setReview(null);}} />
+              onReview={setReview} onRetry={body => void mutate(body)} creation={createPanel} changeReview={changePanel} creating={createOpen} reviewing={Boolean(review && review.action !== 'create')}
+              onCancelReview={() => setReview(null)} feedback={<>{error && <p className="journey-error" role="alert">{messages[error] ?? messages.unavailable}</p>}{busy && <p role="status">{t('Saving… waiting for confirmation.', 'جارٍ الحفظ… بانتظار التأكيد.')}</p>}</>} onCreate={() => setCreateOpen(true)} onClose={() => {setCreateOpen(false);setReview(null);}} />
           </>}
           {mode === 'invitation' && invite && <section className="journey-card">
             <h2>{invite.name}</h2>
