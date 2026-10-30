@@ -4,7 +4,7 @@
   "browserVersion": "156.0.8078.4",
   "harnessSha256": "b9da5d4f92ad92f10fcd8656e8af7fae21613032b4f1d00001e3c68727a3c350",
   "implementationSha256": {
-    "src/components/onboarding-workspace.tsx": "afa8c3d8eb6c20b0efee184e9c70f558b5fdff70f6873ba19794e5590459622c",
+    "src/components/onboarding-workspace.tsx": "a8346a0588396480cad085e81f44c315e6b209b6c0f2df1c5ca0aa5acffba988",
     "src/components/admission-directory.tsx": "83f9729bbfdff555f09006f405949ef70b644c9519adc5db00073f23f2fd1d77",
     "src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
     "src/components/workspace-shell.tsx": "995b2b218bd5e4898424cadc52ecec0dcb48a80b3744f8d37cb861f9fa5befe1",

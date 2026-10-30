@@ -144,8 +144,8 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
   const changePanel = <>            {review && review.action !== 'create' && <section role="region" aria-label={t('Invitation change review', 'مراجعة تغيير الدعوة')}>
               <h2 tabIndex={-1} ref={invitationReviewHeading}>{t('Confirm invitation change', 'تأكيد تغيير الدعوة')}</h2>
               <p>{String(review.name)} · {review.action === 'revoke' ? t('Withdraw this pending invitation. It will no longer grant access.', 'إلغاء هذه الدعوة المعلقة. لن تعود صالحة لمنح الصلاحية.') : t('Invalidate the old invitation and issue a new 72-hour invitation to the same recipient.', 'إبطال الدعوة القديمة وإصدار دعوة جديدة لمدة ٧٢ ساعة للمستلم نفسه.')}</p>
-              <Button className="button" disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
-              <Button disabled={disabled} onClick={() => setReview(null)}>{t('Cancel', 'إلغاء')}</Button>
+              <div className="journey-actions"><Button className="button" disabled={disabled} onClick={() => void mutate(review)}>{t('Confirm change', 'تأكيد التغيير')}</Button>
+              <Button disabled={disabled} onClick={() => setReview(null)}>{t('Cancel', 'إلغاء')}</Button></div>
             </section>}
 </>;
   const contextPanel = <>
