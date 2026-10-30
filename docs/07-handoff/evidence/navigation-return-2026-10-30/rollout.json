@@ -1,0 +1,19 @@
+{
+  "source": "e950b41ca7b682210e7a74b6bdc1dea1990ec9b8",
+  "app_change_source": "79e601ccbd15a178c1b98c0649d52a1832955edc",
+  "ci_runs": [
+    41112422297,
+    41112411169
+  ],
+  "ci_status": "both passed",
+  "initial_ci_failed": 41098810716,
+  "initial_ci_passed": 41098801188,
+  "test_fix": "synthetic reviewer waits for original submission/result completion; fixed-snapshot delayed result; original assertions retained",
+  "candidate": "dpl_HvzTM3tpwRFwNKUUcydGybQMngUR",
+  "staging": "promotion awaiting Vercel passkey/Touch ID account reauthentication",
+  "hosted": "pending",
+  "owner_acceptance": "pending",
+  "no_access_grant": true,
+  "no_operating_write": true,
+  "reauthentication": "existing nahrplatform-rgb passkey selected in Chrome; user action requested"
+}
