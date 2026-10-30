@@ -153,8 +153,8 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
     {mode === 'context' && <p>{t('Choose an existing academy and role. Each workspace checks its current access.','اختر أكاديمية ودوراً حاليين. تتحقق كل مساحة من الصلاحية الحالية.')}</p>}
     {mode === 'invitation' && <p>{t('Verify the intended email and review before accepting. Signing in alone grants no academy authority.','وثّق البريد المقصود وراجع قبل القبول. تسجيل الدخول وحده لا يمنح صلاحية الأكاديمية.')}</p>}
   </>;
-  return <WorkspaceShell module={mode === 'platform' || mode === 'invitation' ? "people" : "operations"} locale={locale}
-    context={mode === 'platform' ? t('Platform workspace', 'مساحة المنصة') : t('Academy workspace', 'مساحة الأكاديمية')}
+  return <WorkspaceShell role={mode==='platform'?'platform':mode==='setup'?'owner':'workspace'} module={mode === 'platform' || mode === 'invitation' ? "people" : "operations"} locale={locale}
+    context={mode === 'platform' ? t('Platform workspace', 'مساحة المنصة') : mode === 'setup' && setup ? setup.name : t('Academy workspace', 'مساحة الأكاديمية')}
     title={mode === 'platform' ? t('Academy admission', 'قبول الأكاديمية') : mode === 'invitation' ? t('Owner invitation', 'دعوة المالك') : mode === 'setup' ? t('Initial setup', 'الإعداد الأولي') : t('Your workspaces', 'مساحاتك')}
     homeHref={`/${locale}/workspace`}
     languageHref={`/${ar ? 'en' : 'ar'}/${mode === 'platform' ? 'platform' : mode === 'invitation' ? 'invitation' : mode === 'setup' ? `workspace/${academy}` : 'workspace'}`}

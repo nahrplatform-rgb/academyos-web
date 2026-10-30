@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRef, type ComponentProps, type ReactNode } from "react";
+import { workspaceNavigation } from "./workspace-navigation";
 import ThemeToggle from "./theme-toggle";
 import { WorkspaceLayoutProvider, useWorkspaceLayout } from "./workspace-layout";
 import { StatusBadge } from "./ui/controls";
@@ -17,20 +18,26 @@ function NavIcon({ href }: { href: string }) {
 function WorkspaceShellContent({ locale, context, title, homeHref, languageHref, navigation, onNavigate, account, children, tools, module='operations', role='workspace' }: Props) {
   const {preferences,update,reset}=useWorkspaceLayout();
   const ar=locale==='ar',drawer=useRef<HTMLDialogElement>(null),opener=useRef<HTMLButtonElement>(null);
+  const academy=navigation.map(item=>item.href.match(/^\/(?:en|ar)\/workspace\/([a-f0-9-]{36})(?:\/|$)/i)?.[1]).find(Boolean);
+  const scopedRole=role==='owner'||role==='trainer'||role==='guardian'?role:null;
+  const menu=academy&&scopedRole?workspaceNavigation(locale,academy,scopedRole,navigation):navigation.filter(item=>item.href!==`/${locale}/workspace`);
+  const workspaceHome=academy&&scopedRole?`/${locale}/workspace/${academy}/${scopedRole==='owner'?'home':`${scopedRole}/home`}`:homeHref;
+  const roleLabel=({owner:ar?'مالك الأكاديمية':'Academy Owner',trainer:ar?'مدرب':'Trainer',guardian:ar?'ولي أمر':'Guardian',platform:ar?'مالك المنصة':'Platform Owner',workspace:ar?'اختيار مساحة العمل':'Choose workspace'})[role];
+  const switcher=<Link className="workspace-switch" href={`/${locale}/workspace`} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}}>{ar?'تبديل مساحة العمل':'Switch workspace'}</Link>;
   function close(){drawer.current?.close();opener.current?.focus();}
-  const links=(bottom=false)=><nav className={bottom?'workspace-bottom-nav':'workspace-navigation'} aria-label={ar?'التنقل في مساحة العمل':'Workspace navigation'}>{navigation.map((item,i)=><div key={item.href} className="nav-entry" data-module={item.module}>{!bottom&&item.group&&navigation[i-1]?.group!==item.group&&<p className="nav-group">{item.group}</p>}<Link href={item.href} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}} aria-label={item.label} title={item.label} className={item.current?'selected':undefined} aria-current={item.current?'page':undefined}><NavIcon href={item.href}/><span>{item.label}</span></Link></div>)}</nav>;
+  const links=(bottom=false)=><nav className={bottom?'workspace-bottom-nav':'workspace-navigation'} aria-label={ar?'التنقل في مساحة العمل':'Workspace navigation'}>{menu.map((item,i)=><div key={item.href} className="nav-entry" data-module={item.module}>{!bottom&&item.group&&menu[i-1]?.group!==item.group&&<p className="nav-group">{item.group}</p>}<Link href={item.href} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}} aria-label={item.label} title={item.label} className={item.current?'selected':undefined} aria-current={item.current?'page':undefined}><NavIcon href={item.href}/><span>{item.label}</span></Link></div>)}</nav>;
   return <div className="app-scene" lang={locale} dir={ar?'rtl':'ltr'} data-module={module} data-workspace-role={role} data-navigation={preferences.compact?'compact':'expanded'}>
     <a className="skip-link" href="#main">{ar?'انتقل إلى المحتوى':'Skip to content'}</a>
     <div className="workspace-window">
       <header className="window-toolbar">
         <button type="button" ref={opener} className="navigation-toggle" aria-haspopup="dialog" onClick={()=>drawer.current?.showModal()}>{ar?'القائمة':'Menu'}</button>
-        <Link onClick={onNavigate} className="brand" href={homeHref}><span className="mark" aria-hidden="true">A</span>AcademyOS</Link>
-        <span className="toolbar-context">{context}<span aria-hidden="true"> / </span><strong>{title}</strong></span>
+        <Link onClick={onNavigate} className="brand" href={workspaceHome}><span className="mark" aria-hidden="true">A</span>AcademyOS</Link>
+        <nav className="toolbar-context" aria-label={ar?'مسار التنقل':'Breadcrumb'}><Link onClick={onNavigate} href={workspaceHome} aria-label={ar?'رئيسية مساحة العمل':'Workspace home'}>{context}</Link><span aria-hidden="true"> / </span><strong aria-current="page">{title}</strong><span className="workspace-role">{roleLabel}</span></nav>
         <div className="toolbar-actions"><StatusBadge>{ar?'نسخة تجريبية':'Staging'}</StatusBadge><Link onClick={onNavigate} href={languageHref} hrefLang={ar?'en':'ar'}>{ar?'English':'العربية'}</Link><ThemeToggle arabic={ar}/><details className="layout-menu"><summary>{ar?'التخطيط':'Layout'}</summary><div><button className="layout-desktop-control" type="button" onClick={()=>update({compact:!preferences.compact})}>{preferences.compact?(ar?'توسيع التنقل':'Expand navigation'):(ar?'تصغير التنقل':'Compact navigation')}</button><button type="button" onClick={reset}>{ar?'إعادة ضبط التخطيط':'Reset layout'}</button></div></details>{tools}{account}</div>
       </header>
-      <div className="shell"><aside className="workspace-sidebar"><p className="sidebar-context">{context}</p>{links()}<p className="sidebar-note">{ar?'بيئة اختبار · بيانات اصطناعية فقط':'Staging · Synthetic data only'}</p></aside><div className="main"><main id="main">{children}</main></div></div>
+      <div className="shell"><aside className="workspace-sidebar"><div className="workspace-identity"><p className="sidebar-context">{context}</p><strong>{roleLabel}</strong>{switcher}</div>{links()}<p className="sidebar-note">{ar?'بيئة اختبار · بيانات اصطناعية فقط':'Staging · Synthetic data only'}</p></aside><div className="main"><main id="main">{children}</main></div></div>
       {(role==='trainer'||role==='guardian')&&links(true)}
-      <dialog ref={drawer} className="workspace-drawer" aria-labelledby="workspace-navigation-title" onCancel={e=>{e.preventDefault();close();}}><header><h2 id="workspace-navigation-title">{ar?'مساحة العمل':'Workspace'}</h2><button type="button" onClick={close}>{ar?'إغلاق':'Close'}</button></header><p>{context}</p>{links()}</dialog>
+      <dialog ref={drawer} className="workspace-drawer" aria-labelledby="workspace-navigation-title" onCancel={e=>{e.preventDefault();close();}}><header><h2 id="workspace-navigation-title">{ar?'مساحة العمل':'Workspace'}</h2><button type="button" onClick={close}>{ar?'إغلاق':'Close'}</button></header><div className="workspace-identity"><p>{context}</p><strong>{roleLabel}</strong>{switcher}</div>{links()}</dialog>
     </div>
   </div>;
 }

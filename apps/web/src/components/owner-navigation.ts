@@ -1,7 +1,7 @@
 import type { NavigationItem } from './workspace-shell';
 
 /** Existing Owner-only callers select this presentation; every destination still checks authority. */
-export function ownerNavigation(locale: string, academy: string, current: 'home' | 'calendar' | 'setup' | 'people' | 'staff' | 'training' | 'scan' | 'settings' | 'corrections' | 'development'): NavigationItem[] {
+export function ownerNavigation(locale: string, academy: string, current: 'home' | 'calendar' | 'setup' | 'people' | 'staff' | 'training' | 'scan' | 'settings' | 'corrections' | 'development' | undefined): NavigationItem[] {
   const ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
   const base = `/${locale}/workspace/${academy}`;
   return [
