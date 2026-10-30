@@ -1,0 +1,27 @@
+{
+  "source": "83dafbd94dd0d36e057bf57a2cb20ad6b3a21649",
+  "ci_run": 41071337878,
+  "ci": "passed",
+  "automatic_candidate": "dpl_39nBhy85busGuhckGK1gXBatyNtz",
+  "staging": "Ready on existing staging domain",
+  "hosted": {
+    "result": "scoped read-only Owner checks passed",
+    "checks": [
+      "Programs academy/Owner identity and parent-menu selection",
+      "same Owner menu on staff appointments",
+      "Switch workspace opens explicit Platform/academy chooser",
+      "Arabic role context and menu",
+      "actual Chrome 200% zoom breadcrumb and drawer switcher",
+      "zoom reset to 100%; English Programs restored"
+    ],
+    "limitations": [
+      "Trainer/Guardian role menus checked locally; hosted access remains ended",
+      "Older projections without academy name retain generic context",
+      "Full return-state restoration, independent security, broader devices/accessibility and measured live budgets remain open"
+    ]
+  },
+  "owner_acceptance": "pending",
+  "no_access_grant": true,
+  "no_operating_write": true,
+  "staging_deployment": "dpl_FkNWatVbvcrF1FLwo1MPghyjnDWb"
+}
