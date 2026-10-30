@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "writes": 8,
+  "scope": "Actual product React with synthetic identity/HTTP adapters; not SQL, hosted authority, transport race or device proof",
+  "cases": [
+    "StrictMode one initial context read",
+    "required reason/review/acknowledgment",
+    "request leaves canonical mark unchanged",
+    "Owner approval/history agree",
+    "rejection unchanged mark",
+    "request lost reply reload reconcile once",
+    "uncommitted fence retains private in-memory reason",
+    "malformed success reconciles original",
+    "decision lost reply reload reconcile once",
+    "stale domain decision not saved",
+    "confirmed write/read failure no resubmit",
+    "EN/AR320/360/926/1440 no overflow",
+    "denial clears private content and permits workspace recovery",
+    "account remount clears private draft"
+  ],
+  "errors": []
+}
