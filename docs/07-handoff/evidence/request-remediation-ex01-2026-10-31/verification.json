@@ -24,11 +24,12 @@
     "canonical_register_validator": "68 screens,30 actions,180 requirements passed",
     "offline_review_tool": "passed",
     "theme_snapshots": "33 passed; contrast scope disclosed",
-    "converted_task_prefetch": "disabled; real Next observed zero speculative dated-route prefetches"
+    "converted_task_prefetch": "disabled; real Next observed zero speculative dated-route prefetches",
+    "exact_source_ci": "41166052777 and41166048538 passed"
   },
   "local_runtime": "Node26.9.0; CI pinned24 pending",
   "authority": "No API/DB/schema/gateway/limiter/writer/grant/provider setting changes",
-  "release_status": "initial2788044 preview Ready; staging not promoted; revised source CI required",
+  "release_status": "app source776043f passed both Node24 CI runs; deployed/Owner read-only scoped verification recorded in hosted-release.json",
   "limitations": [
     "synthetic identity/API for local routing/components; not hosted DB proof",
     "browser Back/Forward tested clean; dirty/unknown native history remains G01/EX02",
@@ -48,5 +49,7 @@
       "reason": "new-tab assertion raced initial blank URL on Linux",
       "repair": "wait for exact intended program/day URL before retaining the existing assertion; local revised test passed"
     }
-  ]
+  ],
+  "owner_acceptance": "pending",
+  "independent_security": "open"
 }

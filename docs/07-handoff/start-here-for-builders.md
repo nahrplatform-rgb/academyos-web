@@ -1,6 +1,6 @@
 # Start here for builders
 
-Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized EX-01 navigation/resume/task-continuity remediation on31October2026. Check its latest evidence before continuing; do not infer all findings or redesign parity are complete.
+Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized navigation/resume/task-continuity remediation on31October2026. Check the tracker and latest EX-01 release evidence before continuing EX-02; do not infer all findings or redesign parity are complete.
 
 Current implementation tracking: [one app build plan and registers](../06-delivery/app-implementation-plan.md). Start with current-source verification, then the dependency-ordered people/training/attendance chain. Prototype actions are design references, not implemented business operations.
 
@@ -146,3 +146,5 @@ Read-only navigation/refresh baseline31October2026: [source diagnosis, actual Ow
 ## Whole-app request and offline diagnosis — 31 October2026
 
 Continue from [source/runtime findings](../04-engineering/request-findings-register.md), [actual service inventory/quotas/model and gaps](../04-engineering/request-service-impact.md), and [copy-ready prioritized fix handoff with freshness/offline standards](../06-delivery/request-hygiene-and-offline-standard.md). Product source remains7a6be974; this is analysis/docs only. Existing Owner B0 and13 added actual-component suites plus live read-only database/provider evidence do not prove full all-role runtime/performance readiness. No private offline/cache policy, access restoration, monitoring, deployment or commit/push is included.
+
+EX-01 release31October2026: app776043f passed both exact-source CI runs and serves existing staging as dpl_H98x3MWLTJXXdfSjpG3Zz8KoC4Gm Ready43s. Owner EN/AR Month/search/selected-session return/resume and foreign-scope denial were checked read-only. [Packet/evidence and an explicit Arabic focus/click retry limitation](request-remediation-ex01.md). [Tracker](../06-delivery/experience-execution.csv) keeps working Owner acceptance and broader gates open; EX-02 remains the next engineering batch, not full redesign completion.

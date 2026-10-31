@@ -111,3 +111,7 @@ Existing budgets remain targets, not passed results. No permanent monitoring ena
 ## Documentation verification receipt
 
 [Recorded checks](../07-handoff/evidence/navigation-refresh-2026-10-31/documentation-checks.json): implementation register validator, factual-review fingerprint freshness, offline review-tool test, local Markdown targets, CSV shape/model formulas and unchanged product/schema/dependency diff passed. No factual UI recapture required: this task changes no UI, wording or route.13 additional actual-component suites passed with synthetic transports, alongside retained3 baseline receipts. No commit/push or release.
+
+## Execution follow-up: observability distinction
+
+EX-01's Vercel staging rebuild displayed an existing Sentry build-plugin telemetry notice. The runtime sampling/replay configuration described above does not prove SDK build tooling telemetry is disabled. G05 includes checking that separate configuration/meter against current source/provider evidence; no monitoring setting was changed by the analysis or EX-01. [Current release and limits](../07-handoff/request-remediation-ex01.md).
