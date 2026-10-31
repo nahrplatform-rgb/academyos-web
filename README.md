@@ -1,5 +1,7 @@
 # AcademyOS application foundation
 
+Current delivery priority: [connected experience execution and finding closure](docs/06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.
+
 Current design-to-build tracking: [the application implementation plan](docs/06-delivery/app-implementation-plan.md) connects the selected compact-blue design, existing source, shared components and per-action acceptance gates. Its screen/action/requirement registers preserve separate implementation, verification, deployment and owner-approval status.
 
 Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Operational modules and production launch are still to be built and accepted.

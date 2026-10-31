@@ -1,5 +1,11 @@
 # One application implementation plan
 
+## Current execution priority — 31 October 2026
+
+Owner authorized integrating the request analysis into execution, then fixing navigation/refresh/task continuity before further feature expansion. Follow the [single execution guide](experience-execution.md) and [live batch/finding tracker](experience-execution.csv), with the [request hygiene and offline standard](request-hygiene-and-offline-standard.md), [findings](../04-engineering/request-findings-register.md) and [service/measurement gaps](../04-engineering/request-service-impact.md). This is a dependency overlay, not a replacement roadmap or restart of completed work. Preserve the approved Charcoal preview and scoped functional approvals. Historical progress below remains dated evidence, not the latest overall completion claim.
+
+First batch EX-01 fixes the demonstrated Owner Home/Calendar→dated task→return path and its read lifecycle. Broader routing adoption, recovery durability, query work and remaining redesign parity stay separately tracked. Private caching/offline writes, access restoration and security closure are not authorized by this engineering task.
+
 24 October 2026. Owner agreed to connect the selected design to the functional implementation plan before further expansion. This update is documentation/traceability only. It neither deploys the local visual changes nor authorizes policy-blocked financial, child-access, ownership, deletion or provider behavior.
 
 ## The working registers
@@ -228,3 +234,7 @@ I5a continuation29 October 2026: policy and connected design explicitly approved
 I5a latest29 October 2026: [real hosted feedback journey and audited cleanup](../07-handoff/i5a-hosted-development-test.md) passed after separate explicit temporary-access authorization. Source/schema deployed; working usability acceptance pending. Scores, Player scope, notifications/export and broader security/device/load gates remain open. Prior source/rollout-pending notes are historical checkpoints.
 
 I5a working-feature acceptance29 October 2026: Moamen explicitly accepted the working I5a development-feedback journey’s EN/AR wording and usability on 29 October 2026. Acceptance covers Trainer draft/submission, Owner return/publication, Guardian published-only reading and withdrawal. Independent human/security, broader hosted API/race, physical-device/accessibility and load/cost gates remain open. This grants no new access and does not close broader scored/Player/export/notification scope. Earlier acceptance-pending notes are historical checkpoints.
+
+## Request Hygiene, Responsive Loading and Explicit Offline Support — 31 October2026
+
+The [whole-app analysis](../04-engineering/request-service-impact.md), [findings/coverage](../04-engineering/request-findings-register.md) and [architecture, freshness, offline, Definition of Done and execution addendum](request-hygiene-and-offline-standard.md) accompany every upcoming I0–I10 slice and the unfinished full redesign. Apply its request-budget, navigation/resume, current-authority, recovery and evidence reviews before implementing further features. Engineering safeguards clarify existing charter requirements; private stale display, persistence/retention, queues and monitoring sampling remain proposed decisions. Analysis is classified with explicit gaps; full all-role runtime/performance verification is not complete. No product fix or deployment accompanies this planning update. Historical statuses above remain dated records, not current completion percentages.

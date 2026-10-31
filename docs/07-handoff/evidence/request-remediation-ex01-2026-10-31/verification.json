@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-10-31",
+  "source_base": "7a6be974eaf9826f33d9ecfce4accf0e568b3a0c",
+  "source_hashes": {
+    "apps/web/src/components/experience-workspace.tsx": "ff56e5e5d15f44f3afb761b017f6feaab8db5fd882f4826bacde41994055423b",
+    "apps/web/src/components/date-planning-workspace.tsx": "6075213c307bfb252824b2bef30b8526ca86f814a45d302666af8bedc06478de",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/lib/visible-resume.test.ts": "d4f6cd79d99824947444d4472ea001ede6546a980c166b7cc78ec8ed7a9dae99",
+    "scripts/navigation/test_next.mjs": "e7e35d21ed620d7c7af29377feb4d81a13c8f712a62c2ffacd4454c49278049f",
+    "scripts/experience-projections/test_ui.mjs": "1180038f7993c0e0cf4a0019c3c58e53a2d880195a7b9d9f01f5caa12ead679f",
+    "scripts/planning/test_ui.mjs": "cfd994c3bcbc8f278eab288e2aab6513d75cf4a9900329a4770ca300346c063c"
+  },
+  "checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "production_build": "passed",
+    "unit": "75 passed",
+    "foundation_e2e": "17 passed",
+    "production_component_capture_suites": "16 passed",
+    "next_production_routing": "EN/AR: zero task-loop document requests; explicit dirty cancellation; clean browser Back/Forward; middle click separate tab; selected permitted occurrence restored",
+    "resume": "one read for separated/in-flight focus/visibility test; denied or missing selected occurrence clears; no private payload persisted",
+    "factual_review_freshness": "passed",
+    "execution_validator": "9 batches,17 findings,G01-G09 passed",
+    "canonical_register_validator": "68 screens,30 actions,180 requirements passed",
+    "offline_review_tool": "passed",
+    "theme_snapshots": "33 passed; contrast scope disclosed"
+  },
+  "local_runtime": "Node26.9.0; CI pinned24 pending",
+  "authority": "No API/DB/schema/gateway/limiter/writer/grant/provider setting changes",
+  "release_status": "not pushed or hosted verified at this receipt",
+  "limitations": [
+    "synthetic identity/API for local routing/components; not hosted DB proof",
+    "browser Back/Forward tested clean; dirty/unknown native history remains G01/EX02",
+    "other NR01-03 occurrences remain open",
+    "no performance percentile, physical device or independent security closure"
+  ]
+}

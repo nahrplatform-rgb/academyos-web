@@ -1,0 +1,1127 @@
+{
+  "head": "7a6be974",
+  "scope": "app source excluding tests; pattern scan is triage and must be interpreted manually",
+  "files": [
+    {
+      "path": "apps/web/src/app/[locale]/guardian-invitation/page.tsx",
+      "sha256": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
+      "lines": 18,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/invitation/page.tsx",
+      "sha256": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
+      "lines": 8,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/layout.tsx",
+      "sha256": "d874f122a70d6cd2ae11a8608c5ea853f539b2d69b45a513a80166c318f0a6be",
+      "lines": 16,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/page.tsx",
+      "sha256": "abfa7fb7bf2480289e242e06c119839c9cbd2f40effc505509eb0f902bb972db",
+      "lines": 93,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/platform/page.tsx",
+      "sha256": "079627b4b65ee6224a52bbd0fc8affbd21baf9123e2e8aa75c637f862b09509d",
+      "lines": 7,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/service-setup/check-button.tsx",
+      "sha256": "1082a4a1ca544cb43f3c599c2be985518c641a4064370a328aeabbf2d3fe3e18",
+      "lines": 86,
+      "matches": {
+        "network": [
+          13,
+          39,
+          54
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/app/[locale]/service-setup/page.tsx",
+      "sha256": "98e1ba1d713452610f512bc1a917ab04cf2105b5fbc0851b92057fff4eedda6f",
+      "lines": 23,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/sign-in/[[...sign-in]]/page.tsx",
+      "sha256": "73bf71aa300db70c2ad09473d36a9d4623be693ff1ce8cd1d8f8462ae611cdb3",
+      "lines": 28,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/trainer-invitation/page.tsx",
+      "sha256": "df7146a240c6e741ccdd521211391fac3f52d8d990356a2181fb1d6271c80405",
+      "lines": 17,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx",
+      "sha256": "978688416b697ae1c1e138706282a20b4a3ad1110b495be43e24f6074385af43",
+      "lines": 6,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx",
+      "sha256": "2c3dab1f05f0fca82fc9e945fce63e84c225729377153cb742226c375b64e22c",
+      "lines": 6,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx",
+      "sha256": "04ea5bff44f27ba3b3ede3c5468db6ab7515b6e3460ca60812726906478fc545",
+      "lines": 2,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx",
+      "sha256": "2d08fc2f98b57d4b722e797c9dffcf3fecd5bff3d3fe7c2b501b22b8a4322963",
+      "lines": 2,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
+      "sha256": "ed4570638a0e415a1c4f8c3a6ad8a63cc5505cdd40b3f584085dca379981fedb",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
+      "sha256": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
+      "sha256": "4565aa2fafe394330d5e5b04016c03ed34a151bc5e278f271e9bb24e74bfd89a",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
+      "sha256": "8f940e8c851f646028d6e3ffda613a0ab00758c014f5a97814aee816def3fb7b",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx",
+      "sha256": "c23a376da6fe9a89a1293069bdc0639d19f58d351768b5331e5c9a122eec0c27",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx",
+      "sha256": "3b7503bdf06937b81b2c7b5111addb0fa44f2f9b7b28a727790aaeb151a6e514",
+      "lines": 18,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx",
+      "sha256": "197d48cabbee02b21fd4c863229c292efbaa1c31eaf7bfe7ffacf3f9e218a82e",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx",
+      "sha256": "6b4de6c8e812d9dffa8a25c41e8d31986b75418a2ec6cf0726bdb03d30b743b0",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/page.tsx",
+      "sha256": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx",
+      "sha256": "27cae004bebee14addf1c4c173b4b9dca067288df813f988cfc90df0ee30f83d",
+      "lines": 2,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx",
+      "sha256": "362807ca87bbf8f65214db83c0919b52c2bfd7ddacf146d631069db8375c3b02",
+      "lines": 18,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx",
+      "sha256": "bc31fba1f41796877bc4a3d5c8c83a33bac4e4d894132ba38a3be3faba035bca",
+      "lines": 17,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx",
+      "sha256": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
+      "lines": 4,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx",
+      "sha256": "9a62e3033a2a1d1b7f75bcff147bcc8fb175f29e6acdcb348fbb026a28c872bd",
+      "lines": 4,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx",
+      "sha256": "d9cc84a8073f49eea0ab11a4174eb9101f2bc83ffdace9848febe7cd2816a97a",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/plan/page.tsx",
+      "sha256": "83b10143b649ca23722ffee3358203bf47fa3723f0c3236497a87291cbcbba94",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx",
+      "sha256": "05c96ae48f9138414b84e33f6c9c3bd9bc136ad018028e99effaed8a02879b47",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
+      "sha256": "d699c679fa9b07784b8e86c860cada9c2900f1873960b14889d9c826611cab73",
+      "lines": 17,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx",
+      "sha256": "d85668411ab25a19cc3256f3a61db90e19c15a704003e38a3752b9023d5e8694",
+      "lines": 19,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
+      "sha256": "5e7f40636598396121eec6b33eeebbb2f35546a0129a02815877b18e0d46796d",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
+      "sha256": "b3976daa09320788a0e2056f333588ca7df4020c37d1b15ebb00b1937a1b3509",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx",
+      "sha256": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
+      "lines": 19,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx",
+      "sha256": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
+      "lines": 3,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/page.tsx",
+      "sha256": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+      "lines": 7,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/attendance/route.ts",
+      "sha256": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
+      "lines": 50,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/development/route.ts",
+      "sha256": "707018b4050a3eb60eac5e68100261d43878f2dde878f94739c90751a259c138",
+      "lines": 49,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/experience/route.ts",
+      "sha256": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/guardian-training/route.ts",
+      "sha256": "9f49c1b07da6c9de4cd45be1e7e7c6c8b7838df9c40ec4fe813e0f03e3eb5e9f",
+      "lines": 49,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/guardians/route.ts",
+      "sha256": "75ddd6ab0513c2edcbe0569bc7d296bfd59dbba5f72257f3ececffcccbd4f7d5",
+      "lines": 83,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "0344379df1eaf72222f4666ae950de21d014c20bd428e812356bb1d33384d136",
+      "lines": 6,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/guardians/route.ts",
+      "sha256": "ff1087259bf0053ea8d78d35c72eb9b68a547c9cede811a3a5757573a6ac23a2",
+      "lines": 15,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/invitations/route.ts",
+      "sha256": "ac4518416f8a1ba47c0a465c5a8ef514bd44fc641bec718da2f72b0c83d9b66d",
+      "lines": 15,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/setup/route.ts",
+      "sha256": "4017133fa073602e192ff6c582ff1392675a0df0ad3478974f2e0f14a0812e6e",
+      "lines": 48,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/trainers/route.ts",
+      "sha256": "34900759b79fb97552a14a4901599ca5b719101aba973aae3fac203f89f53f2b",
+      "lines": 15,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/onboarding/route.ts",
+      "sha256": "16d124d8dceb67ab4e9104c5b4742d97c09e9f086e76f0253cb57d50f61b7ca2",
+      "lines": 91,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/people/route.ts",
+      "sha256": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/planning/route.ts",
+      "sha256": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/program-planning/route.ts",
+      "sha256": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/programs/route.ts",
+      "sha256": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/publication/route.ts",
+      "sha256": "7b4a786607ae0a04400d777c4f246ff44fbafe83e538bf78a5d38d74fb1d6d4b",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/qr/route.ts",
+      "sha256": "34db2e0a830a8044ef9d19a2f8cb7d0a7556471635e138f4c477d47e9e0e722c",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/session-changes/route.ts",
+      "sha256": "b3dac8e693069c925ac9716a4bbb462c843fe6d57fac33231f750bbce93c1357",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/setup/email/route.ts",
+      "sha256": "b15e4d6fefe9a984525e3960fdba9a88839916691ed4dc56a201dadf1d0f7e6e",
+      "lines": 34,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/setup/verify/route.ts",
+      "sha256": "37e3999b3cf836a4d405e806af356d268fc8596165587873dd2e83426f659e31",
+      "lines": 107,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/trainers/route.ts",
+      "sha256": "476c9fb7af36631d3c5a223d6d3d8bfbda2d5455c9abab253d05ca07e0662e01",
+      "lines": 83,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/clerk-email/route.ts",
+      "sha256": "d5ba354df9be3a28149bd1981f128d36efd1d2bf688115071e048bcb38aa36a0",
+      "lines": 10,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/global-error.tsx",
+      "sha256": "b330a5d869f37a7ac638357d50c1764b797828e7a034e1e8c341f6f70ce40927",
+      "lines": 22,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+      "lines": 34,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/not-found.tsx",
+      "sha256": "c84deb379cf1ebe39423cbda1f936ee9a250c0480cde3f86a9e22f5bd08d0965",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
+      "lines": 4,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/admission-directory.tsx",
+      "sha256": "83f9729bbfdff555f09006f405949ef70b644c9519adc5db00073f23f2fd1d77",
+      "lines": 89,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/attendance-workspace.tsx",
+      "sha256": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
+      "lines": 79,
+      "matches": {
+        "document_navigation": [
+          15
+        ],
+        "focus_listener": [
+          45
+        ],
+        "online_listener": [
+          45
+        ],
+        "browser_persistence": [
+          40,
+          41,
+          49,
+          50
+        ],
+        "network": [
+          31
+        ],
+        "cache": [
+          31
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/correction-workspace.tsx",
+      "sha256": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
+      "lines": 52,
+      "matches": {
+        "document_navigation": [
+          13
+        ],
+        "focus_listener": [
+          36
+        ],
+        "online_listener": [
+          36
+        ],
+        "browser_persistence": [
+          31,
+          32,
+          41
+        ],
+        "network": [
+          23
+        ],
+        "cache": [
+          23
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/date-planning-workspace.tsx",
+      "sha256": "18a1082ef1f1bae4e888cd01573437f7c9850226860253d5e9ea25188277570e",
+      "lines": 42,
+      "matches": {
+        "document_navigation": [
+          9,
+          33,
+          34
+        ],
+        "focus_listener": [
+          22
+        ],
+        "visible_listener": [
+          22
+        ],
+        "browser_persistence": [
+          15,
+          22
+        ],
+        "network": [
+          17
+        ],
+        "cache": [
+          17
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/development-workspace.tsx",
+      "sha256": "547d9af258f93240bd583fca975f49d3d04d42624697dc06742efc4172c7b2be",
+      "lines": 86,
+      "matches": {
+        "document_navigation": [
+          15
+        ],
+        "focus_listener": [
+          42
+        ],
+        "visible_listener": [
+          42
+        ],
+        "network": [
+          24
+        ],
+        "cache": [
+          24
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/experience-workspace.tsx",
+      "sha256": "228365eff920056a96c70d0d4636d4e3e4dff707ac13b7a6fa1b3e3be3e8698e",
+      "lines": 110,
+      "matches": {
+        "document_navigation": [
+          19
+        ],
+        "focus_listener": [
+          36
+        ],
+        "visible_listener": [
+          36
+        ],
+        "browser_persistence": [
+          31,
+          32
+        ],
+        "network": [
+          28,
+          102
+        ],
+        "cache": [
+          28
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/guardian-training-workspace.tsx",
+      "sha256": "f287cb676ab54eb9d79d037af417337358bdc7b2e6546a55776e23e4fc7889c6",
+      "lines": 110,
+      "matches": {
+        "document_navigation": [
+          23
+        ],
+        "focus_listener": [
+          98
+        ],
+        "visible_listener": [
+          98
+        ],
+        "online_listener": [
+          98
+        ],
+        "network": [
+          37,
+          108
+        ],
+        "cache": [
+          37,
+          97,
+          98
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/guardian-workspace.tsx",
+      "sha256": "ce8a518e76ed4d124b84b20ad0a9bdc94072c7c92f3db4845ae5407081d484cf",
+      "lines": 307,
+      "matches": {
+        "document_navigation": [
+          69
+        ],
+        "focus_listener": [
+          177
+        ],
+        "visible_listener": [
+          180
+        ],
+        "browser_persistence": [
+          108,
+          168,
+          197
+        ],
+        "network": [
+          44,
+          95
+        ],
+        "cache": [
+          44,
+          95
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/onboarding-workspace.tsx",
+      "sha256": "53128e525f7a45e129433a72b2c494fd43028814c555c96c4f20ff9e16af65ac",
+      "lines": 265,
+      "matches": {
+        "focus_listener": [
+          98
+        ],
+        "visible_listener": [
+          98
+        ],
+        "browser_persistence": [
+          60,
+          82,
+          101
+        ],
+        "network": [
+          18
+        ],
+        "cache": [
+          18
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/owner-navigation.ts",
+      "sha256": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
+      "lines": 20,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/people-workspace.tsx",
+      "sha256": "39143128c241831e5bcc31a37b1aa6e6b2c202af71c5c854ac79069a09b1ff84",
+      "lines": 367,
+      "matches": {
+        "document_navigation": [
+          49
+        ],
+        "focus_listener": [
+          278
+        ],
+        "visible_listener": [
+          278
+        ],
+        "browser_persistence": [
+          76,
+          191,
+          260
+        ],
+        "network": [
+          94
+        ],
+        "cache": [
+          94
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/program-planning-workspace.tsx",
+      "sha256": "f5c94c4d9e4fbd5c07dcb196de6edc1dd91e0c830bd3becd759ef6ea7f11398f",
+      "lines": 50,
+      "matches": {
+        "document_navigation": [
+          8,
+          39
+        ],
+        "focus_listener": [
+          38
+        ],
+        "browser_persistence": [
+          13,
+          34
+        ],
+        "network": [
+          15
+        ],
+        "cache": [
+          15
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/program-workspace.tsx",
+      "sha256": "f1beea335e79ddc2a2f1a0dbd87517347020db97b41c019341e453ecb58c8244",
+      "lines": 123,
+      "matches": {
+        "document_navigation": [
+          19,
+          90
+        ],
+        "focus_listener": [
+          53
+        ],
+        "visible_listener": [
+          53
+        ],
+        "browser_persistence": [
+          31,
+          32,
+          52
+        ],
+        "network": [
+          36
+        ],
+        "cache": [
+          36
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/publication-workspace.tsx",
+      "sha256": "3b42e9a45879555e694683f4a77ca972d858d23fd94e62c8be0b9029f3815961",
+      "lines": 84,
+      "matches": {
+        "document_navigation": [
+          17
+        ],
+        "focus_listener": [
+          57,
+          78
+        ],
+        "browser_persistence": [
+          24,
+          31,
+          53
+        ],
+        "network": [
+          12
+        ],
+        "cache": [
+          12
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/qr-camera.tsx",
+      "sha256": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
+      "lines": 136,
+      "matches": {
+        "visible_listener": [
+          132
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/qr-print-card.tsx",
+      "sha256": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
+      "lines": 64,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/qr-workspace.tsx",
+      "sha256": "d2c540c7338d859889fbf68d7490c1b7dc8aa6aec63660c743148d8f2e90cd01",
+      "lines": 451,
+      "matches": {
+        "focus_listener": [
+          206
+        ],
+        "visible_listener": [
+          212
+        ],
+        "online_listener": [
+          207
+        ],
+        "browser_persistence": [
+          183,
+          238,
+          280
+        ],
+        "network": [
+          74
+        ],
+        "cache": [
+          74
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/session-change-workspace.tsx",
+      "sha256": "d770aebe46fd9048eeb3abd0a491aad3ccfbb70b64573978d68230c2eb74ae4e",
+      "lines": 50,
+      "matches": {
+        "document_navigation": [
+          17
+        ],
+        "focus_listener": [
+          37
+        ],
+        "browser_persistence": [
+          32,
+          33,
+          42
+        ],
+        "network": [
+          28
+        ],
+        "cache": [
+          28
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/theme-toggle.tsx",
+      "sha256": "ad84777729d758ba54abe446283e2ffbc89d50c2075717749fc38373912051fe",
+      "lines": 18,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/timezone-select.tsx",
+      "sha256": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+      "lines": 32,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/trainer-workspace.tsx",
+      "sha256": "331c97ce40dbcd20c661ec682be3ba287ff37323dbd579a0fdd4a32468a5103f",
+      "lines": 307,
+      "matches": {
+        "document_navigation": [
+          66
+        ],
+        "focus_listener": [
+          174
+        ],
+        "visible_listener": [
+          177
+        ],
+        "browser_persistence": [
+          105,
+          165,
+          194
+        ],
+        "network": [
+          41,
+          92
+        ],
+        "cache": [
+          41,
+          92
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/ui/controls.tsx",
+      "sha256": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+      "lines": 15,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/workspace-layout.tsx",
+      "sha256": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+      "lines": 21,
+      "matches": {
+        "browser_persistence": [
+          11,
+          18
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/components/workspace-navigation.ts",
+      "sha256": "258a7d73190d4c092d2aefb1dac9d5b132cd6b50a08c8b63778dcd6d2e0e6c34",
+      "lines": 15,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/workspace-panes.tsx",
+      "sha256": "350da2479d4a5930f36a4fc506915d6d5de23dfd188c0f5037bbc10b90e62482",
+      "lines": 37,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/components/workspace-shell.tsx",
+      "sha256": "f410edc945d5b8db0f13619e784e14ea635de8c9180872f94b81cad104e49252",
+      "lines": 47,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/instrumentation-client.ts",
+      "sha256": "cbfc6f4acd5f896cd3cc8541af4207a9172c8e7b9efb8767cba7c5a5f0d6729a",
+      "lines": 10,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/instrumentation.ts",
+      "sha256": "f50a52808eeb75d66ff4990ecedeca4f92e0ed93ceec9bb4fb7e5205d7dbe3bb",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/attendance.ts",
+      "sha256": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
+      "lines": 36,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/clerk-email.ts",
+      "sha256": "ee49e89612d28fe27ce97fbb7eab0cdd0b96a2916c005c711ecfea8725341e11",
+      "lines": 73,
+      "matches": {
+        "cache": [
+          62
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/config.ts",
+      "sha256": "1d957eb7258197b0d998caf4cb993814f0d84e388b449a02a0071e7c2bbe4265",
+      "lines": 56,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/corrections.ts",
+      "sha256": "410fd5bc299e6356ad77e3fd31b9e854b1c1d4e956ff488bac0553eeaea0b460",
+      "lines": 25,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "sha256": "e6cfe602fd4f68fcd768759e7a71de517a85cb56d62731d840d250742757e9cf",
+      "lines": 39,
+      "matches": {
+        "network": [
+          7,
+          25
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/email.ts",
+      "sha256": "451f338052d97fec79fa11a475cdfef4cb2d4e2b4083ed6fae21b6d17ae9b63a",
+      "lines": 69,
+      "matches": {
+        "cache": [
+          57
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/experience-format.ts",
+      "sha256": "0626076d0c7321b7fc04241e076ef1609dd493a069f30da4a16bd600603a97de",
+      "lines": 18,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/experience-projections.ts",
+      "sha256": "634532abf7b387f186cfa262603df2d2804fd7cc76f2c51a05ddd0f170b5c0d6",
+      "lines": 52,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/guardian-delivery.ts",
+      "sha256": "d481bf1c745f8c6317bcf2321bbe6b47f3c5177b025f98dcbd4a304f8aa654c7",
+      "lines": 42,
+      "matches": {
+        "network": [
+          33
+        ],
+        "cache": [
+          35
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/guardian-training.ts",
+      "sha256": "06961c449151e16d85553bd84597f6a9b1a67d2839fc67e668447581448ef122",
+      "lines": 71,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "sha256": "9190fee64d328eaaa61accf23be6abf6bac47c53205d17d659a47ea431d346fb",
+      "lines": 84,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/invitation-cookie.ts",
+      "sha256": "fa903b49a67dabd3d298d82b9275e8e960c55268741aa5ff5f2427a8a77ca088",
+      "lines": 15,
+      "matches": {
+        "network": [
+          5,
+          11
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/jobs.ts",
+      "sha256": "5c636e015223c582804e83cd05dbb1d490d06cd26b2336d3b407250ac7baf74e",
+      "lines": 49,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/memberships.ts",
+      "sha256": "9a1339b1255822bbf7f5f111b1ab79330ff8d40083a61d7fb6508ae341b76837",
+      "lines": 35,
+      "matches": {
+        "network": [
+          14,
+          16
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-delivery.ts",
+      "sha256": "45f56a47fade49a7a80cd359259461f4f53f521cab17968d4c9853e047e2a4ac",
+      "lines": 41,
+      "matches": {
+        "network": [
+          32
+        ],
+        "cache": [
+          34
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-gateway.ts",
+      "sha256": "b41423130c5f57c90ba9182408a88badff91ba36192a70d28c1d96594c374e54",
+      "lines": 41,
+      "matches": {
+        "cache": [
+          33
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-server.ts",
+      "sha256": "1e5f6b960ff5576d1c9bb73274f103437e8f47b0a53e6fbfe1431412924317bc",
+      "lines": 55,
+      "matches": {
+        "network": [
+          37
+        ],
+        "cache": [
+          25
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/onboarding.ts",
+      "sha256": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+      "lines": 39,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "sha256": "4475fdd096d84e71166494e418e75e07058885d2cdbcf8f892e77cbfbeaa5ee5",
+      "lines": 60,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/planning.ts",
+      "sha256": "fa53c334ccbb83cd2d57a52bba5b8ea9c6034bf209e34987a60d722a725b9cd8",
+      "lines": 27,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/program-planning.ts",
+      "sha256": "13b41caa1d981c5d1e056e60f8d914209bf01d02c3b2099d22e2d7db2700a988",
+      "lines": 21,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "sha256": "de96fd5dde5900193c27a8855b135ebbd13223b00b59c4b4017175ce61b3ce09",
+      "lines": 52,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/publication.ts",
+      "sha256": "691c17e2604a4f06852efffb632c28cdde4cf08390228eec4ecf302976b03ec9",
+      "lines": 21,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "sha256": "aefe4d180ea939133b72732678f29479588765b0fbdfa03e647f81de5b99001b",
+      "lines": 188,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/rate-limit.ts",
+      "sha256": "abd07a83d7cf4625ae35f63452cb52033f2a7b963e48c7e0077c56b14278489b",
+      "lines": 43,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/session-changes.ts",
+      "sha256": "55ac8bd8dea2a0873334c856995ab0b2c3a6e5acf6f903c6c632c1565cd3ef9a",
+      "lines": 17,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/supabase.ts",
+      "sha256": "57db6a6276b380238ec49112f7806fbd70eb526c224f9db6e521e2d2c2bd93fb",
+      "lines": 9,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/telemetry.ts",
+      "sha256": "7360e7ca5793200fb22b440405e7cb85e05ec0ea1793a5e0c7365c096efe5681",
+      "lines": 91,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/lib/trainer-delivery.ts",
+      "sha256": "aafad72d88315521a01c72919828804053e6cc78cf8588962dabc117d5afb153",
+      "lines": 42,
+      "matches": {
+        "network": [
+          33
+        ],
+        "cache": [
+          35
+        ]
+      }
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "sha256": "ce6d7e213c0f5b8c87e0a06f421df1b93694090b2085ad9292e0879b123b496a",
+      "lines": 84,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/proxy.ts",
+      "sha256": "677eeac0308a6a5748eee9ae32be54fd1db9433f371225def71fd47203c02866",
+      "lines": 50,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/sentry.edge.config.ts",
+      "sha256": "f751da650cc13273ed31c1e4852ab91c03c552ed0c7ce1e9db82c9b43f2ae506",
+      "lines": 8,
+      "matches": {}
+    },
+    {
+      "path": "apps/web/src/sentry.server.config.ts",
+      "sha256": "f751da650cc13273ed31c1e4852ab91c03c552ed0c7ce1e9db82c9b43f2ae506",
+      "lines": 8,
+      "matches": {}
+    }
+  ]
+}

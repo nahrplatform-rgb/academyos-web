@@ -1,0 +1,60 @@
+[
+  {
+    "case": "home-open-calendar-native",
+    "rows": [
+      {
+        "path": "/api/experience",
+        "status": "200 OK",
+        "type": "fetch",
+        "timing": "730 ms",
+        "size": "0.7 kB transferred over network, resource size: 1.0 kB"
+      },
+      {
+        "path": "/api/experience",
+        "status": "200 OK",
+        "type": "fetch",
+        "timing": "724 ms",
+        "size": "0.8 kB transferred over network, resource size: 2.9 kB"
+      }
+    ],
+    "note": "cumulative log includes preceding focus return; not isolated navigation request budget"
+  },
+  {
+    "case": "devtools-to-calendar-focus",
+    "rows": [
+      {
+        "path": "/api/experience",
+        "status": "200 OK",
+        "type": "fetch",
+        "timing": "1.23 s",
+        "size": "0.9 kB transferred over network, resource size: 2.9 kB"
+      }
+    ],
+    "note": "click toward Month first returned focus; loading replaced controls before intended view change"
+  },
+  {
+    "case": "calendar-week-to-month",
+    "rows": [
+      {
+        "path": "/api/experience",
+        "status": "200 OK",
+        "type": "fetch",
+        "timing": "1.23 s",
+        "size": "0.9 kB transferred over network, resource size: 2.9 kB"
+      },
+      {
+        "path": "/api/experience",
+        "status": "200 OK",
+        "type": "fetch",
+        "timing": "864 ms",
+        "size": "1.0 kB transferred over network, resource size: 4.1 kB"
+      }
+    ],
+    "note": "one additional experience request after already-focused Month click; prior focus request retained in log; observed same calendar document URL and loading placeholder"
+  },
+  {
+    "case": "calendar-open-date",
+    "rows": [],
+    "note": "document resource row observed immediately after Open this date; no operating write"
+  }
+]

@@ -1,5 +1,11 @@
 # Delivery roadmap and dependency-ordered backlog
 
+## Current execution priority — 31 October 2026
+
+Owner authorized integrating the request analysis into execution, then fixing navigation/refresh/task continuity before further feature expansion. Follow the [single execution guide](experience-execution.md) and [live batch/finding tracker](experience-execution.csv), with the [request hygiene and offline standard](request-hygiene-and-offline-standard.md), [findings](../04-engineering/request-findings-register.md) and [service/measurement gaps](../04-engineering/request-service-impact.md). This is a dependency overlay, not a replacement roadmap or restart of completed work. Preserve the approved Charcoal preview and scoped functional approvals. Historical progress below remains dated evidence, not the latest overall completion claim.
+
+First batch EX-01 fixes the demonstrated Owner Home/Calendar→dated task→return path and its read lifecycle. Broader routing adoption, recovery durability, query work and remaining redesign parity stay separately tracked. Private caching/offline writes, access restoration and security closure are not authorized by this engineering task.
+
 ## Current bounded slice — 26 October 2026
 
 The approved Owner-only I3a full-period/weekday-time draft-program implementation is locally verified. [Current source/evidence and separate rollout/acceptance status](../07-handoff/i3a-program-implementation.md). Assignments, enrollment/capacity, publication and attendance remain later steps; no whole scheduling requirement is closed.

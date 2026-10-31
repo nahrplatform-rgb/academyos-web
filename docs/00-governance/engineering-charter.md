@@ -61,3 +61,7 @@ A feature may be implemented while hosted verification is pending. Mark it preci
 | Branch protection, required reviewers, independent security review | Not established by this charter | Verify actual repository/provider eligibility and configuration separately; no new subscription or permission change |
 
 Do not claim this is a hard merge block. Future automation can validate artifact presence and identifiers, but cannot prove that a threat assessment is correct or owner acceptance is genuine. Any new automated gate must be implemented/tested and its actual reach documented.
+
+## Enforcement continuation — 31 October 2026
+
+Owner authorized integrating the request diagnosis into execution. The source workflow now includes canonical-register and [experience-execution structural validation](../../scripts/design/validate_experience_execution.py), plus [isolated real Next routing tests](../../scripts/navigation/test_next.mjs) alongside existing tests. Local checks pass; exact-source CI/deployment status is in [EX-01](../07-handoff/request-remediation-ex01.md). These checks detect missing finding/gap joins, circular dependencies, absent status/evidence fields and the declared navigation regressions. They do not prove that evidence is accurate, all roles are hosted verified, Owner acceptance exists or independent security is complete. No branch-protection/provider permission change.

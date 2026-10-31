@@ -1,0 +1,6 @@
+{
+  "mode": "production",
+  "scope": "actual shell/panes; fictional long list/details; no data API or domain permission proof",
+  "checks": "independent 3-column scrolling, short desktop, keyboard/pointer RTL sizing, clamps, compact/reset/persistence, exact presentation-only storage,320360390720768102412801440 reflow,phone dialog Escape",
+  "errors": []
+}

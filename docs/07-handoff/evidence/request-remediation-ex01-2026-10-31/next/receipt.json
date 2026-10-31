@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "runtime": "v26.9.0",
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "ff56e5e5d15f44f3afb761b017f6feaab8db5fd882f4826bacde41994055423b",
+    "apps/web/src/components/date-planning-workspace.tsx": "6075213c307bfb252824b2bef30b8526ca86f814a45d302666af8bedc06478de",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6"
+  },
+  "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+  "results": [
+    {
+      "locale": "en",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "ar",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    }
+  ],
+  "errors": []
+}

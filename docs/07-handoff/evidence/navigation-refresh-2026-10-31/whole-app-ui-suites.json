@@ -1,0 +1,67 @@
+[
+  {
+    "name": "guardians",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "onboarding",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "trainers",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "programs",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "session-changes",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "program-planning",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "attendance",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "publication",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "guardian-training",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "corrections",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "qr-attendance",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "development",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  },
+  {
+    "name": "workspace-layout",
+    "code": 0,
+    "scope": "existing actual-component synthetic identity/transport suite; evidence output redirected only"
+  }
+]

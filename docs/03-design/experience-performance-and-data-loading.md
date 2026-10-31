@@ -167,3 +167,7 @@ No checklist or document proves universal speed, zero defects or production capa
 ## Engineering and security accountability
 
 The [engineering charter](../00-governance/engineering-charter.md) and [journey security gates](../04-engineering/journey-security-review.md) govern implementation of this plan. Caching, prefetch, exports, query optimization and telemetry changes require relevant isolation/revocation/field/privacy checks. Faster loading or cheaper retrieval cannot compensate for a failed security boundary.
+
+## Source-grounded continuation — 31 October2026
+
+Use the [request/loading/offline addendum](../06-delivery/request-hygiene-and-offline-standard.md) and [service-impact analysis](../04-engineering/request-service-impact.md) with every loading-matrix row. They define one scoped projection owner, coordinated resume, retained nonprivate task geometry, current-authority writes, explicit offline capability, candidate freshness ranges and concrete regression gates. Proposed TTL/private persistence is not automatically accepted. The focused Owner runtime baseline is extended by whole-app source/local/catalog evidence, with all-role hosted and percentile gaps assigned explicitly. No product behavior changed.

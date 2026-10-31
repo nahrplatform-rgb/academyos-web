@@ -1,5 +1,7 @@
 # AcademyOS setup record — start here
 
+Current delivery priority: [connected experience execution and finding closure](../06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.
+
 Updated 22 October 2026. Owner: Moamen Ghareeb / NAHR. This index describes the actual **staging** system and the evidence available. It supersedes older planning/onboarding status statements; it does not turn unimplemented business features or production launch into completed work.
 
 ## Read in this order

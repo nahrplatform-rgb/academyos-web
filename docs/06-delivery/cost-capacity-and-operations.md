@@ -49,3 +49,7 @@ The [Services & Operations vision](../03-design/platform-owner-services-and-oper
 ## Journey-level retrieval and cost measurement
 
 The [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and [screen/data matrix](../03-design/screen-data-loading-matrix.csv) connect task demand to query work, requests, bytes, cache commands, job/retry amplification and provider meters. Model pilot, expected scale and busy-day scenarios using declared inputs; include abandoned visits, synchronized session starts, tenant size skew and both staging/production overhead. Keep dated rate assumptions, actual charges, allocated costs and marginal task estimates separate. A lower request count or higher cache hit rate alone is not proof of lower cost.
+
+## Measured inventory and scenario continuation — 31 October2026
+
+[Whole-app service impact](../04-engineering/request-service-impact.md) separates confirmed Supabase Free/Vercel Hobby plans, aggregate provider observations, official dated allowances and modeled demand. Regional double sliding-window checks can consume8–10 Redis commands per successful single-RPC read; effective Redis plan/replication is still unknown. Do not use one HTTP evaluation as one billed command, multiply Clerk/Supabase third-party monthly users by refreshes, or charge normal navigation for daily R2 backups. The linked scenario is adjustable, not a forecast. [Build standard](request-hygiene-and-offline-standard.md) requires per-task budgets and privacy-safe measurements; no monitoring/service changes are enabled.
