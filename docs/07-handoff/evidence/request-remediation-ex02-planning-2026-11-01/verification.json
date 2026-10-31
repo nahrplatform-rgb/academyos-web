@@ -1,0 +1,37 @@
+{
+  "base": "42f3ba9",
+  "runtime": "v26.9.0",
+  "inputs": {
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
+    "scripts/navigation/test_next.mjs": "5967d9bc4c7e1d1ecc23d6bd6e9c552e29042d2ec0a0f02b0a3e544b6a2e53a1"
+  },
+  "measured": {
+    "planningCleanDocumentsBeforeAfter": [
+      1,
+      0
+    ],
+    "planningConfirmedDirtyDocumentsBeforeAfter": [
+      1,
+      0
+    ],
+    "visibleOnlySavedReviewReadsBeforeAfter": [
+      0,
+      1
+    ],
+    "pairedVisibleFocusReadsBeforeAfter": [
+      1,
+      1
+    ],
+    "dirtyResumeReadsBeforeAfter": [
+      0,
+      0
+    ]
+  },
+  "local": "passed: build/type/lint,75 units,17 foundation E2E, API, production/development recovery, real Next EN/AR,16 captures",
+  "deployment": "pending",
+  "hosted": "pending",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}
