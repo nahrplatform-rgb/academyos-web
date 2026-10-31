@@ -174,3 +174,5 @@ No unseen browser trace is claimed. Raw provider URLs/headers, tokens, private b
 ## Execution continuation — 31 October 2026
 
 Owner authorized [integrated execution](../06-delivery/experience-execution.md). [EX-01](../07-handoff/request-remediation-ex01.md) implements a bounded Home/Calendar/dated-return subset of NR01–03; remaining occurrences and G01–G09 stay in the [single tracker](../06-delivery/experience-execution.csv). Diagnosis/source evidence above refers to7a6be974 and is preserved as history, not a claim that the affected code is still unchanged after remediation.
+
+EX-02 Programs checkpoint31October2026: [bounded implementation/evidence](../07-handoff/request-remediation-ex02.md) extends NR01/02/08/14 adoption; measured synthetic visible-return reads2→1 and real Next Programs dated navigation documents1→0 EN/AR. Remaining occurrences, private loading continuity, native dirty history and shell hypothesis remain open. Deployment/hosted/Owner statuses are in the tracker, not inferred from these counts.

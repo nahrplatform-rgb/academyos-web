@@ -29,3 +29,5 @@ Every implementation packet names authorization, finding/action/screen/requireme
 ## Current packet
 
 [EX-01 scope and evidence](../07-handoff/request-remediation-ex01.md) contains the released first bounded checkpoint. EX-02 is the next engineering scope, including focus/click timing and remaining domain adoption; its exact state is in the tracker. No working-feature acceptance is fabricated. Broader independent security, private-cache decisions and all-role runtime gaps remain open.
+
+EX-02 has a [Programs routing/visible-return checkpoint](../07-handoff/request-remediation-ex02.md). Continue its exact-source rollout and hosted evidence before extending other domains. The parent remains partial; dirty native history/focus-click timing and the shell hypothesis are not closed.
