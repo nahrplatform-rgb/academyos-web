@@ -30,8 +30,8 @@
     ]
   },
   "local": "passed: build/type/lint,75 units,17 foundation E2E, API, production/development recovery, real Next EN/AR,16 captures",
-  "deployment": "pending",
-  "hosted": "pending",
+  "deployment": "6bc18da serving existing staging; both exact-source CI passed",
+  "hosted": "scoped native EN/AR dirty/return/saved review and tenant denial; limits in hosted-release.json",
   "ownerAcceptance": "pending",
   "independentSecurity": "open"
 }
