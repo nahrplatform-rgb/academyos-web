@@ -1,0 +1,40 @@
+{
+  "source": "c27cada5272e2a51dead9e86ddbe17e3b2cc779d",
+  "ci": [
+    {
+      "id": 41169675725,
+      "conclusion": "success"
+    },
+    {
+      "id": 41169671778,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_4R1URWhQcaWZ8494zWxbgmVSWeXB",
+    "state": "Ready",
+    "durationSeconds": 47
+  },
+  "staging": {
+    "state": "promotion_pending_passkey",
+    "previousServing": "dpl_H98x3MWLTJXXdfSjpG3Zz8KoC4Gm",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "accountCheck": "Passkey sheet returned to Reauthenticate; no successful promotion observed"
+  },
+  "hosted": "not_verified_on_new_source",
+  "nativeBrowser": "Chrome available; browser connector disabled",
+  "providerAccess": "Vercel connector403; mapped CLI scope-not-existent; native dashboard used",
+  "buildWarnings": [
+    "npm cache-dir config warning",
+    "install-script allowlist notice esbuild/unrs-resolver",
+    "Sentry onRouterTransitionStart guidance; not enabled by this change",
+    "Sentry no release auth token; build-plugin telemetry notice remains G05"
+  ],
+  "accessRestored": false,
+  "operatingWrites": false,
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}
