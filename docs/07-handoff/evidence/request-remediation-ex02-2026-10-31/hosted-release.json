@@ -16,15 +16,33 @@
     "durationSeconds": 47
   },
   "staging": {
-    "state": "promotion_pending_passkey",
+    "state": "Ready; Current staging alias verified",
     "previousServing": "dpl_H98x3MWLTJXXdfSjpG3Zz8KoC4Gm",
     "domainsReviewed": [
       "academyos-web.vercel.app",
       "staging.academy.nahr.dev"
     ],
-    "accountCheck": "Passkey sheet returned to Reauthenticate; no successful promotion observed"
+    "accountCheck": "Owner completed promotion; dashboard source/alias verified31October2026",
+    "id": "dpl_2mWcnCFdXxfgvEvfWFrkegmUwVHg",
+    "durationSeconds": 38,
+    "source": "c27cada5272e2a51dead9e86ddbe17e3b2cc779d"
   },
-  "hosted": "not_verified_on_new_source",
+  "hosted": {
+    "observed": [
+      "EN Programs existing40-date detail and dated-task navigation",
+      "EN dirty Today exit Cancel retains fictional draft",
+      "real tab return retains draft and requires current date preview",
+      "AR retained draft wording and dirty exit Cancel",
+      "confirmed exit of only agent-entered unsaved fictional draft; no save"
+    ],
+    "limitations": [
+      "first hosted program-selection click did not open detail; retry succeeded; G01 remains open",
+      "no hosted precise document/request counts or latency percentiles",
+      "AR dated-task traversal not completed",
+      "native dirty browser Back not tested",
+      "no operating writes or access restoration"
+    ]
+  },
   "nativeBrowser": "Chrome available; browser connector disabled",
   "providerAccess": "Vercel connector403; mapped CLI scope-not-existent; native dashboard used",
   "buildWarnings": [
