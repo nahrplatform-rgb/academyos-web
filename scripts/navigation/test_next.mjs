@@ -43,8 +43,8 @@ try{
  const socket=createServer();await new Promise(r=>socket.listen(0,'127.0.0.1',r));const port=socket.address().port;await new Promise(r=>socket.close(r));const origin=`http://127.0.0.1:${port}`;
  server=spawn(process.execPath,[next,'start','--port',String(port),'--hostname','127.0.0.1'],{cwd:fixture,env:{...process.env,NEXT_TELEMETRY_DISABLED:'1'}});server.stdout.on('data',s=>log+=s);server.stderr.on('data',s=>log+=s);
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
- browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[];
- page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
+ browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
  for(const locale of ['en','ar']){
   const ar=locale==='ar',base=`${origin}/${locale}/workspace/${academy}`;
   await page.goto(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);
@@ -62,9 +62,9 @@ try{
   assert.equal(documents.length,before,'normal task navigation/guarded return/history adds no document loads');assert.equal(await page.evaluate(()=>window.__routingMarker),'same-document','same browser document survives');
   const popupReady=page.context().waitForEvent('page');
   await page.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click({button:'middle'});
-  const popup=await popupReady;await popup.waitForLoadState('domcontentloaded');assert.ok(popup.url().includes('/programs/'),'modified task link opens destination separately');await popup.close();assert.equal(page.url(),base+'/calendar','modifier navigation preserves original task');
+  const popup=await popupReady;await popup.waitForURL(new RegExp('/programs/'+program+'/'+day));await popup.waitForLoadState('domcontentloaded');assert.ok(popup.url().includes('/programs/'),'modified task link opens destination separately');await popup.close();assert.equal(page.url(),base+'/calendar','modifier navigation preserves original task');await expect(page.locator('.experience-session[aria-pressed="true"]')).toHaveCount(1);
   await page.screenshot({path:join(evidence,`next-calendar-${locale}.png`),fullPage:true});results.push({locale,documentLoadsForTaskLoop:documents.length-before,dirtyCancel:true,modifierNewTab:true,selectedIdRestored:true,browserBackForward:true});
  }
- assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,inputs,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
+ assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
 }catch(e){await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'failed',error:String(e),fixture},null,2));throw e;}
 finally{await browser?.close();server?.kill('SIGTERM');await writeFile(join(evidence,'next-fixture.log'),log);}

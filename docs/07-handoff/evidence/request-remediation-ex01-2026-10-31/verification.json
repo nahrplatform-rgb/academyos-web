@@ -1,14 +1,14 @@
 {
   "as_of": "2026-10-31",
-  "source_base": "7a6be974eaf9826f33d9ecfce4accf0e568b3a0c",
+  "source_base": "2788044de6a0452683c40213e4a4a532720f46e5",
   "source_hashes": {
-    "apps/web/src/components/experience-workspace.tsx": "ff56e5e5d15f44f3afb761b017f6feaab8db5fd882f4826bacde41994055423b",
-    "apps/web/src/components/date-planning-workspace.tsx": "6075213c307bfb252824b2bef30b8526ca86f814a45d302666af8bedc06478de",
+    "apps/web/src/components/experience-workspace.tsx": "40fa521386e6e750c8f94d7eb684666212d756d657d85f47fc2d806382c6fb9d",
+    "apps/web/src/components/date-planning-workspace.tsx": "1947ee6cb57dba8e77d8554f502921e05083e22f159764a42cc757d3f9da1455",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/visible-resume.test.ts": "d4f6cd79d99824947444d4472ea001ede6546a980c166b7cc78ec8ed7a9dae99",
-    "scripts/navigation/test_next.mjs": "e7e35d21ed620d7c7af29377feb4d81a13c8f712a62c2ffacd4454c49278049f",
-    "scripts/experience-projections/test_ui.mjs": "1180038f7993c0e0cf4a0019c3c58e53a2d880195a7b9d9f01f5caa12ead679f",
-    "scripts/planning/test_ui.mjs": "cfd994c3bcbc8f278eab288e2aab6513d75cf4a9900329a4770ca300346c063c"
+    "scripts/navigation/test_next.mjs": "7c0ba7e30aa7df2b8761249ad04c27caa7de6df8388e2a9b1e711c1f7b654bbd",
+    "scripts/experience-projections/test_ui.mjs": "56acfa79851caabfbd54aef57dae517c66f7f191d1d62f8807e2b9fce22dc037",
+    "scripts/planning/test_ui.mjs": "4e2728e7a01f86fdf496ee7f2eed4663a97418c46e9162875b30187f53eac844"
   },
   "checks": {
     "lint": "passed",
@@ -23,15 +23,30 @@
     "execution_validator": "9 batches,17 findings,G01-G09 passed",
     "canonical_register_validator": "68 screens,30 actions,180 requirements passed",
     "offline_review_tool": "passed",
-    "theme_snapshots": "33 passed; contrast scope disclosed"
+    "theme_snapshots": "33 passed; contrast scope disclosed",
+    "converted_task_prefetch": "disabled; real Next observed zero speculative dated-route prefetches"
   },
   "local_runtime": "Node26.9.0; CI pinned24 pending",
   "authority": "No API/DB/schema/gateway/limiter/writer/grant/provider setting changes",
-  "release_status": "not pushed or hosted verified at this receipt",
+  "release_status": "initial2788044 preview Ready; staging not promoted; revised source CI required",
   "limitations": [
     "synthetic identity/API for local routing/components; not hosted DB proof",
     "browser Back/Forward tested clean; dirty/unknown native history remains G01/EX02",
     "other NR01-03 occurrences remain open",
     "no performance percentile, physical device or independent security closure"
+  ],
+  "ci_history": [
+    {
+      "run": 41158249559,
+      "source": "2788044",
+      "conclusion": "success"
+    },
+    {
+      "run": 41158245377,
+      "source": "2788044",
+      "conclusion": "failure",
+      "reason": "new-tab assertion raced initial blank URL on Linux",
+      "repair": "wait for exact intended program/day URL before retaining the existing assertion; local revised test passed"
+    }
   ]
 }

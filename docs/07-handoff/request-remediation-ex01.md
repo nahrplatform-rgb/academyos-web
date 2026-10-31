@@ -20,7 +20,7 @@ Rollback: presentation-only code rollback; existing operation IDs/versions remai
 
 ## Local implementation and evidence
 
-Experience task destinations now use existing Next Link. Dated-task return/menu destinations use existing Next router while retaining explicit dirty-cancel, review Back, busy and unknown fences; modifier/middle clicks preserve browser semantics. The scoped experience navigation entry stores only period/view/filter and selected program/day identifiers. Revalidation clears private results, retains nonprivate calendar controls and an access-checking inspector, then restores selection only if the new permitted page still contains it. Denial clears selected identity; a removed occurrence cannot leave an actionable inspector.
+Experience task destinations now use existing Next Link with prefetch disabled on the converted links; no new speculative task reads are introduced. Existing shell prefetch remains NR08/EX-02 measurement work. Dated-task return/menu destinations use existing Next router while retaining explicit dirty-cancel, review Back, busy and unknown fences; modifier/middle clicks preserve browser semantics. The scoped experience navigation entry stores only period/view/filter and selected program/day identifiers. Revalidation clears private results, retains nonprivate calendar controls and an access-checking inspector, then restores selection only if the new permitted page still contains it. Denial clears selected identity; a removed occurrence cannot leave an actionable inspector.
 
 A small visibility listener pairs visible/focus returns without a TTL. The Experience request owner joins active reads rather than abort/restart on every focus. No current-authority API, gateway, SQL, grant, signed preview, writer or operation identity changed. Other domains' lifecycle occurrences stay open under EX-02. No general stale-while-revalidate private cache or offline capability was added.
 
@@ -34,3 +34,9 @@ No whole finding is closed across the app. Program/People/Guardian/Development r
 
 Deployment, current-alias hosted verification and Owner acceptance are pending until the exact checked source is pushed and verified. No account restoration, operating write or provider configuration change is part of this batch.
 
+
+## Initial push and follow-up check
+
+Source2788044 was pushed to the existing codex branch; automatic Preview deployment `dpl_GFByKgBXLBWtmg6bX23Myg4LbfLa` is Ready (35s), with no staging-domain alias. Both GitHub runs completed:41158249559 passed;41158245377 failed because the new-tab test inspected its initial blank URL on Linux. The assertion is retained and now waits for the exact intended destination; the revised real Next test passes locally. Converted task links explicitly disable prefetch, avoiding new speculative task requests. The revised source must pass exact-source CI before staging promotion. No failed check is treated as passed or bypassed.
+
+Vercel connector403 and CLI scope-unavailable were confirmed; native Chrome can read the existing project. The promotion dialog names only the existing default Vercel domain and staging.academy.nahr.dev. No promotion applied at this checkpoint. The Git push also reported an existing default-branch braces alert; its advisory GHSA-vfj7-8cjw-p6xm is marked withdrawn by GitHub (23October). No dependency change or automatic alert dismissal; independent security remains open.
