@@ -1,18 +1,20 @@
 {
-  "source": "6a6b78095253cf995efc8ab135fc79bc8d1dcca5",
+  "source": "b819040ffa94f0bf886ae667d6766b8f6d019f97",
   "ci": {
-    "41301958909": "success",
-    "41301953311": "success"
+    "41303660781": "success",
+    "41303654263": "success"
   },
   "preview": {
-    "id": "dpl_GouW92AZgnK9jeVxvYYTMdaEtwws",
+    "id": "dpl_DxMePQy2cbimgaGMX6GBcaVGeb8e",
     "state": "Ready",
-    "durationSeconds": 33
+    "durationSeconds": 35
   },
   "serving": {
-    "id": "dpl_JBH7sV9wZf4wNNzXRjUS15qcgDJC",
-    "state": "building",
-    "url": "academyos-k7cenhggk-academy-os2.vercel.app"
+    "id": "dpl_2jdjhrEV35QXUR8vHFX5yd8Fyr92",
+    "state": "Ready",
+    "url": "academyos-7bwz8z32u-academy-os2.vercel.app",
+    "durationSeconds": 40,
+    "alias": "staging.academy.nahr.dev"
   },
   "targetsReviewed": [
     "academyos-web.vercel.app",
@@ -20,9 +22,33 @@
   ],
   "accountCheck": "Vercel reauthentication appeared; Continue with Passkey followed by created rebuild. No credentials recorded.",
   "providerLabel": "Production is existing staging/default environment; no new production launch",
-  "hosted": "pending",
+  "hosted": {
+    "finalNative": "EN/AR Home side-menu and central Calendar hints verified; Calendar search/selected occurrence retained; dated plan actionable; dirty Cancel retains3; Arabic retains3; confirmed Back discards unsaved intent only; original Home restored",
+    "instrumentedIntermediate": "6a6b780 central Calendar one owner_calendar200/1736ms;date one read200/1708ms;zero document requests;sanitized limited samples",
+    "instrumentedBaseline": "previous-source reference fresh-tab Calendar owner_home200/1261ms + owner_calendar200/957ms;date read200/1061ms + dates200/2043ms;zero documents",
+    "limitations": "Built-in browser disabled before final b819040 repeat; exact final network counters not captured. Native language click during revalidation needed retry; G01 open. No hosted percentile, all-role, revoked-access, concurrency or unknown operating-write test."
+  },
   "operatingWrites": false,
   "accessChanges": false,
   "ownerAcceptance": "pending",
-  "independentSecurity": "open"
+  "independentSecurity": "open",
+  "previousCheckpoint": {
+    "source": "6a6b78095253cf995efc8ab135fc79bc8d1dcca5",
+    "ci": {
+      "41301958909": "success",
+      "41301953311": "success"
+    },
+    "preview": {
+      "id": "dpl_GouW92AZgnK9jeVxvYYTMdaEtwws",
+      "state": "Ready",
+      "durationSeconds": 33
+    },
+    "serving": {
+      "id": "dpl_JBH7sV9wZf4wNNzXRjUS15qcgDJC",
+      "state": "Ready",
+      "url": "academyos-k7cenhggk-academy-os2.vercel.app",
+      "durationSeconds": 45
+    },
+    "hosted": "central entry one Calendar read and dated entry one planning read verified;menu reconstruction follow-up required"
+  }
 }

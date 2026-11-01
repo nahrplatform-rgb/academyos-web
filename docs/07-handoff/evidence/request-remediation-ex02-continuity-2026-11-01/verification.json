@@ -88,8 +88,13 @@
   },
   "measurementLimit": "250ms injected per experience read; one sample per locale, not percentiles. Hidden directory response held; no hosted count/latency savings inferred.",
   "initialTestFailure": "Development counter included prior synthetic destination bootstrap. Added a network-idle boundary before new entry count; same assertion passes both modes. No product/business assertion weakened.",
-  "deployment": "pending",
-  "hosted": "pending",
+  "deployment": {
+    "source": "b819040ffa94f0bf886ae667d6766b8f6d019f97",
+    "id": "dpl_2jdjhrEV35QXUR8vHFX5yd8Fyr92",
+    "state": "Ready",
+    "durationSeconds": 40
+  },
+  "hosted": "scoped EN/AR native verified;instrumented intermediate comparison retained;final counters unavailable",
   "ownerAcceptance": "pending",
   "independentSecurity": "open",
   "ciInitial": {
@@ -98,5 +103,9 @@
     "41301009434": "failure: development hint fallback count asserted before Calendar summary; same count assertion now awaits semantic completion",
     "promotion": "not applied"
   },
-  "menuFollowup": "Hosted central hint passed; canonical side-menu catalogue stripped it. Scoped valid-day-only forwarding added, unit/Next/capture checks pass; fresh release required."
+  "menuFollowup": "Hosted central hint passed; canonical side-menu catalogue stripped it. Scoped valid-day-only forwarding added, unit/Next/capture checks pass; fresh release required.",
+  "finalCi": {
+    "41303660781": "success",
+    "41303654263": "success"
+  }
 }
