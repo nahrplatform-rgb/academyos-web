@@ -19,3 +19,23 @@ Baseline actual React/synthetic HTTP fixture: selected return4 reads (2detail/2r
 Development API boundary passed (33budget failures,3invalid bodies,cross-origin denied);75 units,17 foundation E2E, build/typecheck/lint passed. Local Node26.9.0 differs from CI Node24; exact-source CI remains separate. React review: current refresh ref, scoped identity remount and listener cleanup preserved; no new dependency/cache or hook authority. Factual captures and rollout pending.
 
 Factual maintenance:16 capture suites, actual welcome, offline review integrity, freshness and33 declared EN/AR phone/desktop theme snapshots passed.1041 frames/1050 transitions are captured inventory, not exhaustive runtime coverage. Inspected actual AR360 editor and EN1440 inspector screenshots; presentation unchanged. Exact-source rollout and hosted verification remain pending.
+
+## Release checkpoint
+
+Source `8b8a2e4d5bc4f31801b839acc6aa02ea2dd39819` pushed. Automatic Preview `dpl_nmadxGH3ko54Ho2ADB9arckwUM74` Ready in36s, source/Preview environment confirmed in native Vercel. Both exact-source Node24 CI runs41260821293/41260816142 are still in progress; staging remains People07abdf9 at this checkpoint. No promotion/hosted pass inferred from Preview.
+
+Observed build warnings: npm cache-dir configuration and uncovered esbuild/unrs-resolver install scripts; Sentry router-transition hook guidance and missing release auth token. Build-plugin telemetry notice remains an open G05 evidence boundary. No dependency, telemetry or provider configuration changed in this batch.
+
+Next scope, source-only preparation: Guardian-training has a separate links→schedule/detail chain plus online signal in `guardian-training-workspace.tsx`. Its existing abort/generation, exact link/academy checks and access-removal masking must be retained. Inspect its paired-resume and reconnect cases before adopting the shared listener; do not assume Development's4→2 count applies there.
+
+## Staging release
+
+Both exact-source Node24 CI runs41260821293/41260816142 passed. Promotion reused the existing account verification (no fresh Touch ID prompt). Serving `dpl_HQhdA1uVepcqkXsKtTcZJczRKSAi` Ready39s, native exact-source and `staging.academy.nahr.dev` alias verified. The provider Production label serves only the existing staging/default app domains; no production launch or settings/access change.
+
+## Hosted verification — 1 November 2026
+
+Existing Owner/academy-A synthetic record only: retained withdrawn feedback opened; a real about:blank tab return settled with the same selected record in EN and AR; internal revision history opened in Arabic. Foreign academy-B Development denied and no prior feedback/private note/history remained. Restored the original EN Owner Home. [EN return](evidence/request-remediation-ex02-development-2026-11-01/hosted-en-resumed.jpg), [AR return](evidence/request-remediation-ex02-development-2026-11-01/hosted-ar-resumed.jpg), [AR history](evidence/request-remediation-ex02-development-2026-11-01/hosted-ar-history.jpg), [foreign denial](evidence/request-remediation-ex02-development-2026-11-01/hosted-tenant-denied.jpg), [exact staging release](evidence/request-remediation-ex02-development-2026-11-01/staging-deployment.jpg).
+
+The foreign-denial shell still calls its unclassified context “Trainer workspace” beside “Choose workspace”; this is a presentation fallback, not granted authority. Retain it for EX-07 role-context parity; no unrelated wording change in this lifecycle batch. Native route/load observations are not exact request counts or latency measurements; initial navigation loading remains.
+
+No operating writes, published feedback changes or access restoration. Dirty-text/unknown/revocation/positive other-role checks remain actual-component synthetic evidence for this checkpoint; no new hosted permission or concurrency claim. Local4→2 readings do not establish hosted quota savings or p75/p95. Physical-device/accessibility, native dirty Back/G01, independent security and Owner maintenance acceptance stay open. EX-02 remains partial; next inspect Guardian-training's separate lifecycle/reconnect chain.
