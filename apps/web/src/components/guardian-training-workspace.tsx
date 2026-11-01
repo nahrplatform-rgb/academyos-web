@@ -4,6 +4,7 @@ import { useUser, UserButton, SignInButton } from '@clerk/nextjs';
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import { Button, Select } from './ui/controls';
+import { listenForVisibleResume } from '@/lib/visible-resume';
 import type { FamilyLink, FamilySchedule, FamilySession, FamilyContext } from '@/lib/guardian-training';
 type Props = {
     locale: string;
@@ -95,7 +96,7 @@ function FamilyJourney({ locale: initialLocale, academy,initialLink,initialEvent
         return () => { live = false; c.abort(); clearTimeout(timer); pending.delete(c); };
     }, [selected, link, refresh, request, denied, loadingLinks, deny, academy]);
     useEffect(() => { function revalidate() { if (document.visibilityState === 'hidden')
-        return; invalidate(); setBusy(true); setLoadingLinks(true); setLinks([]); setLinksError(''); setRefresh(n => n + 1); } window.addEventListener('focus', revalidate); window.addEventListener('online', revalidate); document.addEventListener('visibilitychange', revalidate); return () => { window.removeEventListener('focus', revalidate); window.removeEventListener('online', revalidate); document.removeEventListener('visibilitychange', revalidate); }; }, [invalidate]);
+        return; invalidate(); setBusy(true); setLoadingLinks(true); setLinks([]); setLinksError(''); setRefresh(n => n + 1); } const stopResume = listenForVisibleResume(revalidate); window.addEventListener('online', revalidate); return () => { stopResume(); window.removeEventListener('online', revalidate); }; }, [invalidate]);
     function changePeriod(n: number) { invalidate(); setSelected(''); setFrom(dayAdd(from, n)); setCursor(null); setPages([]); setFilter(''); setBusy(true); }
     function retry() { invalidate(); setLoadingLinks(true); setLinks([]); setLinksError(''); setRefresh(n => n + 1); setBusy(true); }
     function selectPlayer(id: string) { invalidate(); setSelected(''); setLink(id); setCursor(null); setPages([]); setFilter(''); setBusy(true); }

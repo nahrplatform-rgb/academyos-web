@@ -37,3 +37,5 @@ EX-02 continuation1November2026: [whole-program planning checkpoint](../07-hando
 EX-02 People continuation1November2026: [visible-return packet](../07-handoff/request-remediation-ex02-people.md) follows Programs/planning. Use the tracker for newest delivery states; previous receipts remain evidence.
 
 EX-02 Development continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-development.md) follows People. Only lifecycle pairing is in scope; EX-03 crash identity and EX-04 detail/list waterfall stay separate. Use the tracker for release/hosted status.
+
+EX-02 Guardian-training continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-guardian-training.md) follows Development. Reconnect stays fresh; no ended link is restored for this maintenance. Positive hosted G02 remains distinct.
