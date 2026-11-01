@@ -23,3 +23,15 @@ API boundary passed (9 budget failures,3 invalid bodies,cross-origin denial);75 
 Remaining EX-02 source inventory: onboarding still uses a microtask resume coalescer; Guardian and Trainer appointment components combine that coalescer with an in-flight read lock and dirty-review invalidation. Measure their fast-return/dirty/unknown cases next rather than declaring all lifecycle adoption complete. QR's visibility handler stops the camera and is not a duplicate visible-read trigger; do not mechanically replace camera privacy behavior. Shell-remount hypothesis/native dirty Back/G01 remain unproven/open.
 
 Factual maintenance passed:16 capture suites, welcome captures, review integrity/freshness and33 declared theme snapshots.1041 frames/1050 transitions are capture inventory, not exhaustive coverage. Inspected AR360 and EN1440 actual session-detail screenshots; presentation unchanged. Exact-source CI/deployment and live checks remain separate.
+
+## Release checkpoint
+
+Source `2c0a98ae77bda1d3b20fe1752caafddfc86d50f8` pushed. Automatic Preview `dpl_EoD51Moq9CCQHiWfWEPyr9RBKPfb` Ready41s; native source/environment verified. Exact-source CI41283858454/41283853840 in progress. Existing Development8b8a2e4 staging remains serving at this checkpoint; no hosted pass inferred from Preview.
+
+## Staging checkpoint
+
+Both exact-source Node24 CI runs41283858454/41283853840 passed. Vercel requested reauthentication; Continue with Passkey completed and the deployment was created without credential logging. Serving `dpl_8hAmNAi7zDaXNtyFoPvf86NDEQey` Ready56s, exact source and staging alias verified natively. Only existing staging/default domains were promoted; provider Production label does not imply a production launch.
+
+Current Owner account, read-only: targeted Guardian session URL denied in EN/AR; a real tab return kept the denied view clear of private data. This combines a wrong actor with a historically ended target: it does not isolate the current recipient's revocation behavior or establish positive Guardian access. No link/role restored. G02 positive hosted resume/reconnect remains open. Exact hosted counts, service cost/latency percentiles and physical-device/security/Owner acceptance remain open.
+
+Foreign academy-B with the same A target IDs also denied without player/session/attendance content. Original EN Owner Home restored. [EN denial](evidence/request-remediation-ex02-guardian-training-2026-11-01/hosted-en-denied.jpg), [AR denied return](evidence/request-remediation-ex02-guardian-training-2026-11-01/hosted-ar-denied-return.jpg), [foreign denial](evidence/request-remediation-ex02-guardian-training-2026-11-01/hosted-foreign-denied.jpg), [release](evidence/request-remediation-ex02-guardian-training-2026-11-01/staging-deployment.jpg). Initial native navigation after closing Vercel needed a second direct address entry; G01 native control/timing remains open, not attributed to an app mechanism. No operating write or access restoration. Next bounded scope: measure remaining onboarding/appointment microtask return cases before adoption; EX-02 parent stays partial.

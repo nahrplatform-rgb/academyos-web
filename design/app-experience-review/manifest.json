@@ -1,6 +1,6 @@
 {
-  "source": "b2b1ea99b289ac84ceddf0c43634144633530a16",
-  "generatedAt": "2026-11-01T07:12:13.027Z",
+  "source": "2c0a98ae77bda1d3b20fe1752caafddfc86d50f8",
+  "generatedAt": "2026-11-01T07:24:47.976Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -97,7 +97,7 @@
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
   "capturePackSha256": "51b8060ed6357c03d72c45b5a768ec86ab3dfb1691394f975424ef28807bc7ee",
-  "htmlSha256": "3f30118005d1f65e546d17152f65097cace53249662a1a0d12d6b0740c355135",
+  "htmlSha256": "28a6c5a5fa8548c553e3ff1ce9808f9f6cd33705b446d731b719c37139bc5a7a",
   "frames": 1041,
   "transitions": 1050,
   "sourceFiles": 64,
