@@ -1,0 +1,85 @@
+{
+  "scope": "Actual product React with synthetic identity/HTTP; not hosted requests/database/permissions proof",
+  "before": {
+    "guardians": {
+      "cleanPairedReads": 2,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    },
+    "trainers": {
+      "cleanPairedReads": 2,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    },
+    "onboarding": {
+      "cleanPairedReads": 2,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    }
+  },
+  "after": {
+    "guardians": {
+      "cleanPairedReads": 1,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    },
+    "trainers": {
+      "cleanPairedReads": 1,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    },
+    "onboarding": {
+      "cleanPairedReads": 1,
+      "laterFocusReads": 1,
+      "unknownReturnRequests": 0,
+      "dirtyReturnRequests": 0
+    }
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "units": 75,
+    "foundation_e2e": 17,
+    "onboarding_api_cases": 15,
+    "guardian_api_budgetFailures": 30,
+    "trainer_api_budgetFailures": 30,
+    "ui_modes": [
+      "production",
+      "development"
+    ]
+  },
+  "node": "26.9.0; exact-source CI Node24 separate",
+  "inputs": {
+    "apps/web/src/components/onboarding-workspace.tsx": "3490c21c9b38e3d64e7a04f348e003dcc30257a0ec4cf7685b0b215b1739ff94",
+    "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
+    "apps/web/src/components/trainer-workspace.tsx": "16dc4e857664b4bbb0faa9cf3a6b60ae6f0936abeca026becffad5cdfcf2d93a"
+  },
+  "open": [
+    "hosted counters/cost/performance",
+    "positive recipient role hosted cases",
+    "EX03 crash/storage failures",
+    "native dirty Back/G01",
+    "shell hypothesis",
+    "Owner acceptance",
+    "independent security"
+  ],
+  "factual_review": {
+    "capture_suites": 16,
+    "frames": 1043,
+    "transitions": 1050,
+    "theme_snapshots": 33,
+    "integrity": "passed",
+    "freshness": "passed",
+    "visual_inspection": [
+      "Trainer AR360",
+      "retained onboarding/appointment capture suite"
+    ],
+    "scope": "actual-component fictional captures, not hosted/device parity"
+  }
+}

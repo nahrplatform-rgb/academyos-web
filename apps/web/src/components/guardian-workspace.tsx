@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { listenForVisibleResume } from '@/lib/visible-resume';
 import { useRouter } from 'next/navigation';
 import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs';
 import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from 'react';
@@ -172,13 +173,8 @@ function GuardianJourney({ locale: initialLocale, mode, academy, player: playerI
             }
         }
         catch { } void load(); });
-        let queued = false;
-        const focus = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; refresh(); }); };
-        window.addEventListener('focus', focus);
-        const visible = () => { if (document.visibilityState === 'visible')
-            focus(); };
-        document.addEventListener('visibilitychange', visible);
-        return () => { live = false; active.current = false; pendingControllers.forEach(c => c.abort()); window.removeEventListener('focus', focus); document.removeEventListener('visibilitychange', visible); };
+        const stopResume = listenForVisibleResume(() => refresh());
+        return () => { live = false; active.current = false; pendingControllers.forEach(c => c.abort()); stopResume(); };
         // Keyed identity/context owns every private request and draft.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

@@ -39,3 +39,5 @@ EX-02 People continuation1November2026: [visible-return packet](../07-handoff/re
 EX-02 Development continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-development.md) follows People. Only lifecycle pairing is in scope; EX-03 crash identity and EX-04 detail/list waterfall stay separate. Use the tracker for release/hosted status.
 
 EX-02 Guardian-training continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-guardian-training.md) follows Development. Reconnect stays fresh; no ended link is restored for this maintenance. Positive hosted G02 remains distinct.
+
+EX-02 entry/appointment continuation1November2026: [checkpoint](../07-handoff/request-remediation-ex02-entry-appointments.md) measures onboarding and Guardian/Trainer fast returns with dirty/unknown guards retained. Use the tracker for release status; parent findings and shell/native-history measurement gaps remain open.

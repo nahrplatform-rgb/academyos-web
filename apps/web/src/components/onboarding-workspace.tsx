@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { listenForVisibleResume } from "@/lib/visible-resume";
 import TimezoneSelect from "./timezone-select";
 import WorkspacePanes from "./workspace-panes";
 import WorkspaceShell from "./workspace-shell";
@@ -95,7 +96,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
     if (editing || review || name || email) { setReview(null); setNotice(t('Draft retained. Recheck current state before confirming.', 'حُفظت المسودة في الذاكرة. أعد التحقق من الحالة قبل التأكيد.')); return; }
     void load();
   });
-  useEffect(() => { let queued = false; const refresh = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; resume(); }); }; document.addEventListener('visibilitychange', refresh); window.addEventListener('focus', refresh); return () => { document.removeEventListener('visibilitychange', refresh); window.removeEventListener('focus', refresh); }; }, []);
+  useEffect(() => listenForVisibleResume(() => resume()), []);
   useEffect(() => { if (!editing) return; const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [editing]);
   async function mutate(body: Payload) {
     const ticket = epoch.current; const original = { ...body, op: body.op ?? crypto.randomUUID() }; try { sessionStorage.setItem(storageKey, JSON.stringify({ op: original.op, started: Date.now() })); } catch { } setPending(original); setBusy(true); setError(''); setNotice('');
