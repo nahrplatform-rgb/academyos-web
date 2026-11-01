@@ -1,6 +1,6 @@
 {
-  "source": "6bc18da7bde92836c22cdd60f9f1a88065b7db46",
-  "generatedAt": "2026-10-31T23:46:49.430Z",
+  "source": "e986719a760adb746d72e98932c7f931db5b95df",
+  "generatedAt": "2026-11-01T00:59:58.290Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -49,7 +49,7 @@
     "apps/web/src/components/guardian-workspace.tsx": "ce8a518e76ed4d124b84b20ad0a9bdc94072c7c92f3db4845ae5407081d484cf",
     "apps/web/src/components/onboarding-workspace.tsx": "53128e525f7a45e129433a72b2c494fd43028814c555c96c4f20ff9e16af65ac",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
-    "apps/web/src/components/people-workspace.tsx": "39143128c241831e5bcc31a37b1aa6e6b2c202af71c5c854ac79069a09b1ff84",
+    "apps/web/src/components/people-workspace.tsx": "0fd80c139d18f0e64700540461d099c49d4b1b4a9a6c952e9d7341951953eda5",
     "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
     "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
     "apps/web/src/components/publication-workspace.tsx": "3b42e9a45879555e694683f4a77ca972d858d23fd94e62c8be0b9029f3815961",
@@ -86,7 +86,7 @@
     "scripts/guardian-training/test_ui.mjs": "abee06efa243e5ed919c0e06ec9a8baca5cc9b068a4cc065daf35fe7bce2424f",
     "scripts/guardians/test_ui.mjs": "9fb0e1d504ac98dc3edf0d583e8618bea532fa6958da303d6802d9afe207bb68",
     "scripts/onboarding/test_ui.mjs": "b9da5d4f92ad92f10fcd8656e8af7fae21613032b4f1d00001e3c68727a3c350",
-    "scripts/people/test_ui.mjs": "cea99330cbe4fc2919cf396980f4e8ff377777840e02bd8180b4562340fad575",
+    "scripts/people/test_ui.mjs": "4fe88307dbff30b07eb31636731b5ae62ed856e97b04b602c5807c2e35289930",
     "scripts/planning/test_ui.mjs": "4e2728e7a01f86fdf496ee7f2eed4663a97418c46e9162875b30187f53eac844",
     "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
     "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
@@ -96,12 +96,12 @@
     "scripts/trainers/test_ui.mjs": "ba6b911a94ff89101218a1e5802b8ab1d1bccc03373972c082eac65b5ce0a2c2",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "b608c92684586f1a8e82504f491c2a29a3d0f0dba467404ccf498455803a4c48",
-  "htmlSha256": "1ca2def1b2a50db34034c4a52e87c4543f924376d430cae18a83fd0cc08de652",
-  "frames": 1039,
-  "transitions": 1031,
+  "capturePackSha256": "64902d8697a963124ad80692571e4250c4b939e0ae858cd94b12ef7ac93ead53",
+  "htmlSha256": "5b2950e3b50c0cf0aa57b367fa0ff27b6cce336357560c842155aebeb286a3ed",
+  "frames": 1040,
+  "transitions": 1034,
   "sourceFiles": 64,
-  "sourceLiterals": 6873,
+  "sourceLiterals": 6870,
   "journeys": [
     {
       "id": "entry",
@@ -113,7 +113,7 @@
     },
     {
       "id": "people",
-      "frames": 55
+      "frames": 56
     },
     {
       "id": "guardians",

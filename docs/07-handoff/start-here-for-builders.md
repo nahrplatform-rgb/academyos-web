@@ -1,6 +1,6 @@
 # Start here for builders
 
-Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized navigation/resume/task-continuity remediation on31October2026. Check the tracker and [current EX-02 planning checkpoint](request-remediation-ex02-planning.md), retaining EX-01/Programs evidence, before continuing; do not infer all findings or redesign parity are complete.
+Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized navigation/resume/task-continuity remediation on31October2026. Check the tracker and [current EX-02 People checkpoint](request-remediation-ex02-people.md), retaining EX-01/Programs evidence, before continuing; do not infer all findings or redesign parity are complete.
 
 Current implementation tracking: [one app build plan and registers](../06-delivery/app-implementation-plan.md). Start with current-source verification, then the dependency-ordered people/training/attendance chain. Prototype actions are design references, not implemented business operations.
 

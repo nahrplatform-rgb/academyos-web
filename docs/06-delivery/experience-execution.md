@@ -33,3 +33,5 @@ Every implementation packet names authorization, finding/action/screen/requireme
 EX-02 has a [Programs routing/visible-return checkpoint](../07-handoff/request-remediation-ex02.md). Continue its exact-source rollout and hosted evidence before extending other domains. The parent remains partial; dirty native history/focus-click timing and the shell hypothesis are not closed.
 
 EX-02 continuation1November2026: [whole-program planning checkpoint](../07-handoff/request-remediation-ex02-planning.md) follows the scoped Programs release. Preserve both packets’ evidence and use the tracker for the newest status; no whole finding is closed.
+
+EX-02 People continuation1November2026: [visible-return packet](../07-handoff/request-remediation-ex02-people.md) follows Programs/planning. Use the tracker for newest delivery states; previous receipts remain evidence.

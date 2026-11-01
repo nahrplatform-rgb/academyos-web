@@ -1,0 +1,32 @@
+{
+  "base": "e986719",
+  "runtime": "v26.9.0",
+  "inputs": {
+    "apps/web/src/components/people-workspace.tsx": "0fd80c139d18f0e64700540461d099c49d4b1b4a9a6c952e9d7341951953eda5",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/people/test_ui.mjs": "4fe88307dbff30b07eb31636731b5ae62ed856e97b04b602c5807c2e35289930"
+  },
+  "beforeAfter": {
+    "directoryResumeReads": [
+      2,
+      1
+    ],
+    "profileResumeReads": [
+      2,
+      1
+    ],
+    "reviewFollowupReads": [
+      1,
+      0
+    ],
+    "syntheticCreates": [
+      3,
+      3
+    ]
+  },
+  "local": "passed: People production/development/API,75 units,17 E2E,build/type/lint,16 captures,review/freshness/theme",
+  "deployment": "not_deployed",
+  "hosted": "pending",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

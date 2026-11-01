@@ -4,6 +4,7 @@ import { UserButton, useUser } from '@clerk/nextjs';
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import { ownerNavigation } from './owner-navigation';
+import { listenForVisibleResume } from '@/lib/visible-resume';
 import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
@@ -275,7 +276,7 @@ function PeopleJourney({ locale: initialLocale, academy, subject }: {
         initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
     useEffect(() => { if (search === lastSearch.current)
         return; lastSearch.current = search; const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search]);
-    useEffect(() => { let queued = false; const refresh = () => { if (queued) return; queued = true; queueMicrotask(() => { queued = false; refreshVisible(); }); }; window.addEventListener('focus', refresh); document.addEventListener('visibilitychange', refresh); return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh); }; }, []);
+    useEffect(() => listenForVisibleResume(() => refreshVisible()), []);
     useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
     useEffect(() => { if (!['profile','review','saving','unknown'].includes(stage)) heading.current?.focus(); }, [stage]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
