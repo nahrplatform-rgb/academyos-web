@@ -80,7 +80,7 @@
       "frames": 1046,
       "transitions": 1050,
       "sourceFiles": 65,
-      "htmlBytes": 1537534,
+      "htmlBytes": 1537530,
       "offlineTool": "passed",
       "freshness": "passed",
       "themeSnapshots": 33
@@ -91,5 +91,11 @@
   "deployment": "pending",
   "hosted": "pending",
   "ownerAcceptance": "pending",
-  "independentSecurity": "open"
+  "independentSecurity": "open",
+  "ciInitial": {
+    "source": "760c98a6e744d421b0f57a273fc28ead315b8e1b",
+    "41301014000": "success",
+    "41301009434": "failure: development hint fallback count asserted before Calendar summary; same count assertion now awaits semantic completion",
+    "promotion": "not applied"
+  }
 }

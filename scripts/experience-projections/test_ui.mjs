@@ -17,7 +17,7 @@ try{
  // A date hint selects a query, never authority or private payload reuse.
  for(const [anchor,expected] of [['2026-11-08',['owner_calendar']],['2026-02-30',['owner_home','owner_calendar']]]){
   await page.goto(`http://127.0.0.1:${server.address().port}/?authProbe`);await expect(page.getByRole('status')).toHaveCount(0);await page.evaluate(()=>sessionStorage.clear());const start=reads.length;
-  await open('calendar&anchor='+anchor);assert.deepEqual(reads.slice(start).map(x=>x.action),expected,'civil hint/fallback request budget');
+  await open('calendar&anchor='+anchor);await expect(page.getByText(/55 sessions in the complete scoped period/)).toBeVisible();assert.deepEqual(reads.slice(start).map(x=>x.action),expected,'civil hint/fallback request budget');
  }
  await page.evaluate(()=>sessionStorage.setItem('academyos:experience:user_synthetic:00000000-0000-4000-8000-000000000001:owner:calendar',JSON.stringify({from:'2026-12-06',view:'week',filter:'',selection:null})));
  let hintStart=reads.length;await open('calendar&anchor=2026-11-01');assert.equal(reads[hintStart].from,'2026-12-06','saved return period wins over initial hint');assert.equal(reads.length-hintStart,1);
