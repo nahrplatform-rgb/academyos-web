@@ -68,6 +68,7 @@ try{
   await p.route('**/api/planning',async route=>{const action=route.request().postDataJSON().action;requests.push(action);if(action==='dates'){datesStarted=true;await new Promise(r=>{releaseDates=r;});}await route.continue();});
   const base=`${origin}/${locale}/workspace/${academy}`;
   await p.goto(base+'/home');await expect(p.locator('.experience-session')).toHaveCount(1);requests.length=0;
+  if(!continuityBaseline)assert.match(await p.getByRole('link',{name:ar?'التقويم':'Calendar',exact:true}).getAttribute('href'),/\?anchor=2026-11-01$/,'canonical side menu preserves the reviewed date hint');
   const begin=performance.now();await p.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await p.waitForURL(/\/calendar/);await expect(p.locator('.experience-session')).toHaveCount(1);
   const calendarMs=performance.now()-begin,calendarRequests=[...requests];
   assert.deepEqual(calendarRequests,continuityBaseline?['owner_home','owner_calendar']:['owner_calendar'],'known Home branch day avoids a redundant Home dependency');

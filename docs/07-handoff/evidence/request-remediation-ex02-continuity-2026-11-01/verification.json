@@ -37,7 +37,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 351,
+      "calendarActionableMs": 382,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"
@@ -49,7 +49,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 344,
+      "calendarActionableMs": 355,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"
@@ -63,7 +63,7 @@
     "build": "passed",
     "lint": "passed",
     "typecheck": "passed",
-    "units": 76,
+    "units": 77,
     "foundationE2E": 17,
     "experienceReact": [
       "production",
@@ -80,7 +80,7 @@
       "frames": 1046,
       "transitions": 1050,
       "sourceFiles": 65,
-      "htmlBytes": 1537530,
+      "htmlBytes": 1537902,
       "offlineTool": "passed",
       "freshness": "passed",
       "themeSnapshots": 33
@@ -97,5 +97,6 @@
     "41301014000": "success",
     "41301009434": "failure: development hint fallback count asserted before Calendar summary; same count assertion now awaits semantic completion",
     "promotion": "not applied"
-  }
+  },
+  "menuFollowup": "Hosted central hint passed; canonical side-menu catalogue stripped it. Scoped valid-day-only forwarding added, unit/Next/capture checks pass; fresh release required."
 }

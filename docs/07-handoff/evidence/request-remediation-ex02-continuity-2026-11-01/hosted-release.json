@@ -1,0 +1,28 @@
+{
+  "source": "6a6b78095253cf995efc8ab135fc79bc8d1dcca5",
+  "ci": {
+    "41301958909": "success",
+    "41301953311": "success"
+  },
+  "preview": {
+    "id": "dpl_GouW92AZgnK9jeVxvYYTMdaEtwws",
+    "state": "Ready",
+    "durationSeconds": 33
+  },
+  "serving": {
+    "id": "dpl_JBH7sV9wZf4wNNzXRjUS15qcgDJC",
+    "state": "building",
+    "url": "academyos-k7cenhggk-academy-os2.vercel.app"
+  },
+  "targetsReviewed": [
+    "academyos-web.vercel.app",
+    "staging.academy.nahr.dev"
+  ],
+  "accountCheck": "Vercel reauthentication appeared; Continue with Passkey followed by created rebuild. No credentials recorded.",
+  "providerLabel": "Production is existing staging/default environment; no new production launch",
+  "hosted": "pending",
+  "operatingWrites": false,
+  "accessChanges": false,
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

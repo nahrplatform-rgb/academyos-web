@@ -1,6 +1,6 @@
 {
-  "source": "760c98a6e744d421b0f57a273fc28ead315b8e1b",
-  "generatedAt": "2026-11-01T11:25:34.436Z",
+  "source": "6a6b78095253cf995efc8ab135fc79bc8d1dcca5",
+  "generatedAt": "2026-11-01T11:47:50.491Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -62,7 +62,7 @@
     "apps/web/src/components/trainer-workspace.tsx": "16dc4e857664b4bbb0faa9cf3a6b60ae6f0936abeca026becffad5cdfcf2d93a",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
     "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
-    "apps/web/src/components/workspace-navigation.ts": "258a7d73190d4c092d2aefb1dac9d5b132cd6b50a08c8b63778dcd6d2e0e6c34",
+    "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
     "apps/web/src/components/workspace-panes.tsx": "350da2479d4a5930f36a4fc506915d6d5de23dfd188c0f5037bbc10b90e62482",
     "apps/web/src/components/workspace-shell.tsx": "f410edc945d5b8db0f13619e784e14ea635de8c9180872f94b81cad104e49252",
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
@@ -97,8 +97,8 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "13a3625edef45199d4d5b01c70fd7ec25285a02c3c500453f68bab0806e0300b",
-  "htmlSha256": "2340ecf08778cf2d1d9a409cbb1c17f6514e509d2e10805224609365c95986d0",
+  "capturePackSha256": "c15a6f35c06f513fa5763618a6a8e3854d6a46d6adff936c570e196c628f9187",
+  "htmlSha256": "67cc57e1c71f8f6b6015c46ccff923f55a722ea7471a07f3d6a3c4681ab3a23c",
   "frames": 1046,
   "transitions": 1050,
   "sourceFiles": 65,

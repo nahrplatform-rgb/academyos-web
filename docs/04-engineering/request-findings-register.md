@@ -180,3 +180,7 @@ EX-02 Programs checkpoint31October2026: [bounded implementation/evidence](../07-
 EX-02 whole-program planning1November2026: [scope/results](../07-handoff/request-remediation-ex02-planning.md) adds real Next EN/AR clean/dirty-confirmed return documents1→0 and visible-only saved-review revalidation0→1, paired focus total1. It preserves dirty staged choices and unknown fences. Remaining domains, native dirty history, G01 and shell hypothesis stay open. This is partial adoption, not a global request/latency claim.
 
 EX-02 People1November2026: [scoped visible-return adoption](../07-handoff/request-remediation-ex02-people.md) measured directory/profile reads2→1 and review follow-up1→0 locally. Existing current-authority, duplicate and unknown-save contracts retained. Other domains and hosted timing remain open; no cross-app finding closed.
+
+## Scoped execution continuation — 1 November 2026
+
+[EX-02/EX-04 Owner task wait packet](../07-handoff/request-remediation-ex02-task-continuity.md): known branch-day Home entry can avoid full Home bootstrap before Calendar; explicit Home/Calendar dated tasks no longer need a hidden date directory before planning. Controlled before/after proves request dependency and action readiness, not all-role hosted speed. Unhinted cold Calendar, private-content clearing, remaining shell/native-history, cancellation/query measurements and whole NR03/NR06/NR07 coverage stay open. Read the single tracker for exact delivery/acceptance status.

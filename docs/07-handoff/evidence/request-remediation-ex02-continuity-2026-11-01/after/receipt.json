@@ -10,7 +10,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 351,
+      "calendarActionableMs": 382,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"
@@ -22,7 +22,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 344,
+      "calendarActionableMs": 355,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"

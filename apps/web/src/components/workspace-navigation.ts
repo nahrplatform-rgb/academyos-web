@@ -1,3 +1,4 @@
+import { isCivilDay } from '@/lib/experience-format';
 import { ownerNavigation } from './owner-navigation';
 import type { NavigationItem } from './workspace-shell';
 
@@ -11,5 +12,12 @@ export function workspaceNavigation(locale: string, academy: string, role: 'owne
     {href:role==='trainer'?`${base}/trainer/schedule`:`${base}/guardian/training`,label:role==='trainer'?t('My sessions','تدريباتي'):t('Training & attendance','التدريبات والحضور'),module:'attendance'},
     {href:role==='trainer'?`${base}/development`:`${base}/guardian/development`,label:t('Development','التطور'),module:'development'},
   ];
-  return items.filter(item=>item.href!==`/${locale}/workspace`).map(item=>({...item,current:active===item.href || Boolean(item.href!==base && active?.startsWith(item.href+'/'))}));
+  // The catalogue remains canonical. Only the reviewed Owner civil-day hint may
+  // survive reconstruction; arbitrary caller links/query data never replace it.
+  const calendarPath=`${base}/calendar`;
+  const proposed=role==='owner'?existing.find(item=>item.href.startsWith(calendarPath+'?'))?.href:undefined;
+  const query=new URLSearchParams(proposed?.slice(calendarPath.length+1).split('#')[0]);
+  const anchor=query.getAll('anchor');
+  const calendarHref=anchor.length===1&&isCivilDay(anchor[0])?`${calendarPath}?anchor=${anchor[0]}`:calendarPath;
+  return items.filter(item=>item.href!==`/${locale}/workspace`).map(item=>({...item,href:item.href===calendarPath?calendarHref:item.href,current:active===item.href || Boolean(item.href!==base && active?.startsWith(item.href+'/'))}));
 }
