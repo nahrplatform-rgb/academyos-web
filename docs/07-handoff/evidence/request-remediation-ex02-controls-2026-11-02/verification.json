@@ -1,0 +1,86 @@
+{
+  "sourceBase": "3dd9ab9",
+  "scope": "actual Next production fixture, synthetic identity/data with held current-authority reads;not hosted proof",
+  "before": [
+    {
+      "view": "home",
+      "inputRetained": false,
+      "languageChangedUrl": true,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "calendar",
+      "inputRetained": false,
+      "languageChangedUrl": true,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "dated",
+      "singleLocaleClickAccepted": false,
+      "readStarts": 1
+    }
+  ],
+  "after": [
+    {
+      "view": "home",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "calendar",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "dated",
+      "singleLocaleClickAccepted": true,
+      "readStarts": 1
+    }
+  ],
+  "requests": "one read per explicit revalidation before/after;search and language add no operating read or write;no claimed RPC savings",
+  "privacy": "private rows masked throughout held Home/Calendar reads;no stale-display TTL or private persistence",
+  "checks": {
+    "build": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "units": 77,
+    "foundationE2E": 17,
+    "HomeCalendarReact": [
+      "production",
+      "development"
+    ],
+    "planningReact": [
+      "production including final capture",
+      "development including unknown-locale/no-replay"
+    ],
+    "API": [
+      "experience18budget failures/3invalid/cross-origin",
+      "planning18budget failures/3invalid/cross-origin"
+    ],
+    "captureSuites": 16,
+    "factualReview": {
+      "frames": 1047,
+      "transitions": 1053,
+      "sourceFiles": 65,
+      "htmlBytes": 1540422,
+      "offline": "passed",
+      "freshness": "passed",
+      "themeSnapshots": 33
+    }
+  },
+  "limits": [
+    "held synthetic responses,not native event-frequency or speedpercentiles",
+    "home task-card geometry/scroll and shell-remount hypothesis remain open",
+    "no hosted operating-write/revocation/grant test"
+  ],
+  "deployment": "pending",
+  "hosted": "pending",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

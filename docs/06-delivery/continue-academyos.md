@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial: known-day Calendar entry and deferred hidden date directory implemented; routing/resume checkpoints retained; parent gaps open
-- Local checks: known-day Calendar2→1 and hidden date-directory unblock;77units;17E2E;build/type/lint;Next EN/AR;both React/API;16captures/offline/freshness/33theme passed
+- Implementation: partial: nonprivate search and local locale continuity implemented;previous known-day Calendar/deferred directory/routing fixes retained;geometry/shell gaps open
+- Local checks: controls held-read Next before/after;both React/API;77units;17E2E;build/type/lint passed;capture/release evidence separate
 - Deployment: continuity b819040; dpl_2jdjhrEV35QXUR8vHFX5yd8Fyr92 Ready40s; both exact-source CI passed
 - Hosted verification: final native Owner EN/AR menu/central hints,filtered selection and dirty Cancel/locale/Back verified;intermediate network2→1 each;final counters unavailable;G01 retry retained
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: measure remaining same-scope content clearing/focus-click interruptions and shell/history;dated resume pairing still open;EX-03/04 dependencies and private stale-display decision retained;Owner maintenance acceptance pending
-- Evidence: docs/07-handoff/request-remediation-ex02-task-continuity.md
+- Next action: finish controls factual refresh/exact-source CI/staging EN/AR;then measure remaining task-card/scroll geometry and shell/history;dated resume pairing and EX-03/04/private stale-display decisions retained
+- Evidence: docs/07-handoff/request-remediation-ex02-local-controls.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 

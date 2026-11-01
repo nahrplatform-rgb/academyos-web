@@ -9,6 +9,7 @@ import {spawn} from 'node:child_process';
 import {createServer} from 'node:net';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+const localControlsBaseline=process.env.EX02_LOCAL_CONTROLS_BASELINE==='1';
 const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
 const baseline=process.env.EX02_BASELINE==='1';
@@ -59,6 +60,34 @@ try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
+ // Local interaction survives a held authority read; private projections stay masked.
+ const localControls=[];
+ for(const view of ['home','calendar']){
+  const pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage();let hold=false,release;const calls=[];
+  await p.route('**/api/experience',async route=>{calls.push(route.request().postDataJSON().action);if(hold)await new Promise(r=>{release=r;});await route.continue();});
+  const url=`${origin}/en/workspace/${academy}/${view}${view==='calendar'?'?anchor='+day:''}`;
+  await p.goto(url);await expect(p.locator('.experience-session')).toHaveCount(1);
+  const input=p.getByRole('searchbox',{name:'Search this loaded page',exact:true});await input.fill('Fictional');
+  await input.evaluate(el=>{el.dataset.continuityProbe='original';});hold=true;const before=calls.length;
+  await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect.poll(()=>calls.length).toBe(before+1);await expect(p.locator('.experience-session')).toHaveCount(0);
+  const inputRetained=await input.count()===1;
+  assert.equal(inputRetained,!localControlsBaseline,'local search presence while private results are masked');
+  if(!localControlsBaseline){assert.equal(await input.getAttribute('data-continuity-probe'),'original');assert.equal(await input.evaluate(el=>el===document.activeElement),true);await input.press('End');await input.pressSequentially(' Routing');await expect(input).toHaveValue('Fictional Routing');}
+  const beforeLanguage=p.url();await p.getByRole('link',{name:'العربية',exact:true}).click();await expect(p.getByRole('heading',{name:view==='calendar'?'تقويم التدريب':'اليوم في أكاديميتك',exact:true})).toBeVisible();
+  const languageChangedUrl=p.url()!==beforeLanguage;if(!localControlsBaseline)assert.equal(languageChangedUrl,false,'local locale control adds no hash/router navigation');
+  assert.equal(calls.length,before+1,'typing/locale adds no business read');await p.screenshot({path:join(evidence,`local-controls-${view}.png`),fullPage:true});hold=false;release();await expect(p.locator('.experience-session')).toHaveCount(1);
+  localControls.push({view,inputRetained,languageChangedUrl,readStarts:calls.length-before,privateRowsMasked:true});await pc.close();
+ }
+ {
+  const pc=await browser.newContext(),p=await pc.newPage();let hold=false,release;const calls=[];
+  await p.route('**/api/planning',async route=>{calls.push(route.request().postDataJSON().action);if(hold)await new Promise(r=>{release=r;});await route.continue();});
+  const url=`${origin}/en/workspace/${academy}/programs/${program}/${day}?return=calendar`;
+  await p.goto(url);await expect(p.getByRole('button',{name:'Plan this date',exact:true})).toBeEnabled();hold=true;
+  const before=calls.length;await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect.poll(()=>calls.length).toBe(before+1);await expect(p.getByRole('button',{name:'Plan this date',exact:true})).toBeDisabled();
+  await p.getByRole('link',{name:'العربية',exact:true}).click();if(!localControlsBaseline)await expect(p.getByRole('heading',{name:'تواريخ المسودات',exact:true})).toBeVisible();const accepted=await p.getByRole('heading',{name:'تواريخ المسودات',exact:true}).isVisible();
+  assert.equal(accepted,!localControlsBaseline,'single locale click during held dated read');await p.getByRole('link',{name:localControlsBaseline?'Today':'اليوم',exact:true}).click();assert.equal(p.url(),url,'busy authority check still blocks leaving the dated task');assert.equal(calls.length,before+1);hold=false;release();await expect(p.getByRole('button',{name:localControlsBaseline?'Plan this date':'تخطيط هذا التاريخ',exact:true})).toBeEnabled();
+  localControls.push({view:'dated',singleLocaleClickAccepted:accepted,readStarts:calls.length-before});await pc.close();
+ }
  // Controlled wait ownership, separate from native/hosted performance.
  const continuity=[];
  for(const locale of ['en','ar']){
@@ -133,6 +162,6 @@ try{
   const leaveBefore=documents.length;page.once('dialog',d=>d.accept());await today().click();await page.waitForURL(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);assert.equal(documents.length-leaveBefore,planningBaseline?1:0,'planning confirmed dirty exit document count');
   results.push({locale,planningCleanDocuments:planningBaseline?1:0,planningConfirmedDirtyDocuments:documents.length-leaveBefore,dirtyCancel:true,planningBaseline});
  }
- assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,continuityBaseline,continuity,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
+ assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,continuityBaseline,continuity,localControlsBaseline,localControls,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
 }catch(e){await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'failed',error:String(e),fixture},null,2));throw e;}
 finally{await browser?.close();server?.kill('SIGTERM');await writeFile(join(evidence,'next-fixture.log'),log);}
