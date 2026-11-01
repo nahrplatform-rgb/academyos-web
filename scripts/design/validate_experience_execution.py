@@ -1,6 +1,8 @@
 """Structural traceability only: never proves runtime, acceptance or security."""
 import csv
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,3 +44,5 @@ for path in ['AGENTS.md', 'docs/06-delivery/app-implementation-plan.md',
              'docs/07-handoff/start-here-for-builders.md']:
     assert 'experience-execution' in (ROOT / path).read_text(), f'Missing execution pointer: {path}'
 print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states')
+
+subprocess.run([sys.executable, str(ROOT / 'scripts/design/build_continuation_prompt.py'), '--check'], check=True)
