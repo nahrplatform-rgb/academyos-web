@@ -25,8 +25,8 @@
     ]
   },
   "local": "passed: People production/development/API,75 units,17 E2E,build/type/lint,16 captures,review/freshness/theme",
-  "deployment": "not_deployed",
-  "hosted": "pending",
+  "deployment": "07abdf9 serving staging; both exact-source CI passed",
+  "hosted": "scoped native EN/AR duplicate invalidation, profile return and tenant denial; see hosted-release.json",
   "ownerAcceptance": "pending",
   "independentSecurity": "open"
 }
