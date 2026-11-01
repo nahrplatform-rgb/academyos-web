@@ -48,9 +48,11 @@ try{
  const writesBeforeReturn=saves;
  for(const locale of ['en','ar']) for(const target of ['home','calendar']) {
   const ar=locale==='ar',origin=`http://127.0.0.1:${server.address().port}`;
-  await page.goto(`${origin}/?return=${target}&locale=${locale}`);
+  // The synthetic server serves Planning at every destination; settle the previous
+  // destination's bootstrap before counting this new task entry. Real routing is tested separately.
+  await page.waitForLoadState('networkidle');const taskStart=calls.length;await page.goto(`${origin}/?return=${target}&locale=${locale}`);
   const backName=target==='calendar'?(ar?'العودة إلى التقويم':'Back to calendar'):(ar?'العودة إلى رئيسية الأكاديمية':'Back to academy home');
-  await expect(button(ar?'تخطيط هذا التاريخ':'Plan this date')).toBeEnabled();
+  await expect(button(ar?'تخطيط هذا التاريخ':'Plan this date')).toBeEnabled();assert.deepEqual(calls.slice(taskStart).map(x=>x.action),['read'],'Home/Calendar task entry does not fetch its hidden directory');
   if(locale==='en'&&target==='calendar'){
    await button('Plan this date').click();const before=page.url();page.once('dialog',d=>d.dismiss());await button(backName).click();assert.equal(page.url(),before,'Return cannot discard a dirty draft without confirmation');await page.reload();await expect(button('Plan this date')).toBeEnabled();
   }

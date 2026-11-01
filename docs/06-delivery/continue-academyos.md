@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial: scoped routing and visible-resume adoption including onboarding and Guardian/Trainer appointments; parent gaps open
-- Local checks: entry/appointments production/development/API;75 units;17 E2E;build/type/lint;16captures;review freshness/33theme snapshots passed
+- Implementation: partial: known-day Calendar entry and deferred hidden date directory implemented; routing/resume checkpoints retained; parent gaps open
+- Local checks: controlled Next EN/AR read waits2→1 and hidden directory unblock;76units;17E2E;build/type/lint;Home/Calendar and planning React/API passed; captures/CI separate
 - Deployment: entry/appointments06fbce0; dpl_EbDAys1ExutPsATPGLNtmJAH56Sf Ready44s; both exact-source CI passed
 - Hosted verification: Platform/Owner EN/AR unsaved draft returns; appointment confirmation invalidated; foreign appointment denial; counters/recipient-role/security gaps open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: prioritize visible Home → Calendar → session → Back continuity; measure loading/content loss/return context with EX-04 dependencies; include individual-date planning clean/dirty/review/unknown listener; retain G01/native dirty Back/shell hypothesis, EX-03 and admission locale parity EX-07
-- Evidence: docs/07-handoff/request-remediation-ex02-entry-appointments.md
+- Next action: finish continuity captures/exact-source CI/staging verification; then measure remaining content loss/shell and native focus/click history; individual-date resume pairing still open; EX-03/04/07 dependencies retained
+- Evidence: docs/07-handoff/request-remediation-ex02-task-continuity.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 
@@ -71,14 +71,14 @@ Dependencies: EX-01.
 Findings: NR05; NR06; NR07.
 Design: bounded contract review required.
 
-- Implementation: not_started
-- Local checks: not_run
+- Implementation: partial: known-day Owner Calendar navigation avoids redundant Home; hidden date-directory task read deferred; cold direct Calendar/cancellation/query work open
+- Local checks: controlled actual Next wait-ownership EN/AR passed; no hosted latency/cancellation proof
 - Deployment: not_deployed
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: measure request dependencies and preserve write uncertainty
-- Evidence: docs/04-engineering/request-service-impact.md
+- Next action: verify scoped continuity staging; measure unhinted cold Calendar/read cancellation and remaining detail waterfalls; retain write uncertainty
+- Evidence: docs/07-handoff/request-remediation-ex02-task-continuity.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

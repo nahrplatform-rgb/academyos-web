@@ -1,0 +1,27 @@
+{
+  "scope": "all16actual-component capture suites;planning recaptured after final test edit;run log summaries not hosted proof",
+  "results": [
+    "people: passed",
+    "onboarding: passed",
+    "trainers: passed",
+    "guardians: passed",
+    "planning: passed",
+    "programs: passed",
+    "session-changes: passed",
+    "program-planning: passed",
+    "publication: passed",
+    "attendance: passed",
+    "guardian-training: passed",
+    "corrections: passed",
+    "qr-attendance: passed",
+    "development: passed",
+    "workspace-layout: passed",
+    "experience-projections: passed"
+  ],
+  "checks": [
+    "actual welcome8captures",
+    "offline review passed",
+    "freshness passed",
+    "33theme snapshots passed"
+  ]
+}

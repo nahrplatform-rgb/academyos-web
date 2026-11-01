@@ -20,9 +20,14 @@ test('calendar bounds are inclusive and cursors remain tied to their visible per
   assert.throws(()=>experienceRequest({action:'delete',academy}));
 });
 
-import {addCivilDays,monthGridStart,shiftMonth,sessionTime} from './experience-format';
+import {addCivilDays,monthGridStart,shiftMonth,sessionTime,isCivilDay} from './experience-format';
 test('calendar civil periods and displayed times do not use the execution host zone',()=>{
  assert.equal(monthGridStart('2026-10-29'),'2026-09-27');assert.equal(addCivilDays('2026-12-31',1),'2027-01-01');assert.equal(shiftMonth('2026-01-31',1),'2026-02-01');
  assert.match(sessionTime('en','Africa/Cairo','2026-11-01T15:00:00Z','2026-11-01T16:00:00Z').time,/17:00.*18:00/);
  assert.notEqual(sessionTime('en','Africa/Cairo','2026-11-01T15:00:00Z','2026-11-01T16:00:00Z').time,sessionTime('en','UTC','2026-11-01T15:00:00Z','2026-11-01T16:00:00Z').time);
+});
+
+test('navigation civil hints reject overflow, arrays and invalid years',()=>{
+ for(const day of ['2024-02-29','2026-11-01'])assert.equal(isCivilDay(day),true);
+ for(const day of ['2026-02-30','2026-02-29','0000-01-01','2026-13-01','2026-11-01T12:00:00Z',['2026-11-01'],null,{}])assert.equal(isCivilDay(day),false);
 });

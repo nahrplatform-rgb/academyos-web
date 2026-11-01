@@ -16,3 +16,8 @@ export function monthGridStart(day: string) {
 export function shiftMonth(day: string, offset: number) {
  const date=new Date(`${day.slice(0,7)}-01T12:00:00Z`);date.setUTCMonth(date.getUTCMonth()+offset);return date.toISOString().slice(0,10);
 }
+
+/** Navigation hints are civil dates only, never cached authority or host-local time. */
+export function isCivilDay(value: unknown): value is string {
+ return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !value.startsWith('0000') && Number.isFinite(Date.parse(value+'T00:00:00Z')) && new Date(value+'T00:00:00Z').toISOString().slice(0,10) === value;
+}

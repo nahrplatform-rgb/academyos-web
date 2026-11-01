@@ -1,0 +1,95 @@
+{
+  "sourceBase": "5fdd795",
+  "scope": "Owner Home \u2192 Calendar \u2192 dated plan \u2192 Back; synthetic actual Next and React; no hosted performance claim",
+  "baseline": [
+    {
+      "locale": "en",
+      "calendarRequests": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 878,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read",
+        "dates"
+      ],
+      "planBlockedByHiddenDirectory": true
+    },
+    {
+      "locale": "ar",
+      "calendarRequests": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 843,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read",
+        "dates"
+      ],
+      "planBlockedByHiddenDirectory": true
+    }
+  ],
+  "after": [
+    {
+      "locale": "en",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 351,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    },
+    {
+      "locale": "ar",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 344,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    }
+  ],
+  "visibleOutcome": "A loaded dated plan no longer waits on an unrelated hidden-directory response. Calendar known-day entry removes the full-Home serial bootstrap.",
+  "unchanged": "Every visible projection still checks current authority; private rows cleared during revalidation. No stale TTL/persistence/schema/API/write change.",
+  "checks": {
+    "build": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "units": 76,
+    "foundationE2E": 17,
+    "experienceReact": [
+      "production",
+      "development"
+    ],
+    "planningReact": [
+      "production",
+      "development"
+    ],
+    "experienceApi": "18 budget failures,3invalid bodies,cross-origin denial passed",
+    "planningApi": "18 budget failures,3invalid bodies,cross-origin denial passed",
+    "captureSuites": 16,
+    "factualReview": {
+      "frames": 1046,
+      "transitions": 1050,
+      "sourceFiles": 65,
+      "htmlBytes": 1537534,
+      "offlineTool": "passed",
+      "freshness": "passed",
+      "themeSnapshots": 33
+    }
+  },
+  "measurementLimit": "250ms injected per experience read; one sample per locale, not percentiles. Hidden directory response held; no hosted count/latency savings inferred.",
+  "initialTestFailure": "Development counter included prior synthetic destination bootstrap. Added a network-idle boundary before new entry count; same assertion passes both modes. No product/business assertion weakened.",
+  "deployment": "pending",
+  "hosted": "pending",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

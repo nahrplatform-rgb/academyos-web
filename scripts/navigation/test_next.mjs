@@ -9,6 +9,7 @@ import {spawn} from 'node:child_process';
 import {createServer} from 'node:net';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
 const baseline=process.env.EX02_BASELINE==='1';
 const root=resolve(import.meta.dirname,'../..'),fixture=await mkdtemp(join(tmpdir(),'academyos-next-routing-'));
@@ -27,7 +28,7 @@ await put('product-fixture.jsx',bundled.outputFiles[0].text);
 const academy='00000000-0000-4000-8000-000000000001',program='00000000-0000-4000-8000-000000000002',day='2026-11-01';
 for(const view of ['home','calendar']){
  const path=`app/[locale]/workspace/[academy]/${view}/page.jsx`,imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
- await put(path,`import {Experience} from '${imp}';export default async function Page({params}){const p=await params;return <Experience locale={p.locale} academy={p.academy} role="owner" calendar={${view==='calendar'}}/>}`);
+ await put(path,`import {Experience} from '${imp}';export default async function Page({params,searchParams}){const p=await params,q=await searchParams;return <Experience locale={p.locale} academy={p.academy} role="owner" calendar={${view==='calendar'}} anchor={q.anchor}/>}`);
 }
 {
  const path='app/[locale]/workspace/[academy]/programs/[program]/[day]/page.jsx',imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
@@ -58,11 +59,31 @@ try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
+ // Controlled wait ownership, separate from native/hosted performance.
+ const continuity=[];
+ for(const locale of ['en','ar']){
+  const ar=locale==='ar',probeContext=await browser.newContext({viewport:{width:1440,height:1000}}),p=await probeContext.newPage();
+  const requests=[];let releaseDates,datesStarted=false;
+  await p.route('**/api/experience',async route=>{requests.push(route.request().postDataJSON().action);await new Promise(r=>setTimeout(r,250));await route.continue();});
+  await p.route('**/api/planning',async route=>{const action=route.request().postDataJSON().action;requests.push(action);if(action==='dates'){datesStarted=true;await new Promise(r=>{releaseDates=r;});}await route.continue();});
+  const base=`${origin}/${locale}/workspace/${academy}`;
+  await p.goto(base+'/home');await expect(p.locator('.experience-session')).toHaveCount(1);requests.length=0;
+  const begin=performance.now();await p.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await p.waitForURL(/\/calendar/);await expect(p.locator('.experience-session')).toHaveCount(1);
+  const calendarMs=performance.now()-begin,calendarRequests=[...requests];
+  assert.deepEqual(calendarRequests,continuityBaseline?['owner_home','owner_calendar']:['owner_calendar'],'known Home branch day avoids a redundant Home dependency');
+  await p.locator('.experience-session').click();requests.length=0;
+  await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await p.waitForURL(/\/programs\//);
+  const planButton=p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true});await expect(planButton).toBeVisible();
+  if(continuityBaseline){await expect(planButton).toBeDisabled();assert.equal(datesStarted,true);releaseDates();}
+  await expect(planButton).toBeEnabled();assert.deepEqual(requests,continuityBaseline?['read','dates']:['read'],'task return route needs selected plan only');
+  await p.screenshot({path:join(evidence,`continuity-date-${locale}.png`),fullPage:true});
+  continuity.push({locale,calendarRequests,calendarActionableMs:Math.round(calendarMs),syntheticDelayPerExperienceReadMs:250,planningRequests:[...requests],planBlockedByHiddenDirectory:continuityBaseline});await probeContext.close();
+ }
  for(const locale of ['en','ar']){
   const ar=locale==='ar',base=`${origin}/${locale}/workspace/${academy}`;
   await page.goto(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);
   await page.evaluate(()=>window.__routingMarker='same-document');const before=documents.length;
-  await page.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await page.waitForURL(base+'/calendar');await expect(page.locator('.experience-session')).toHaveCount(1);
+  const calendarUrl=await page.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).getAttribute('href');await page.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await page.waitForURL(origin+calendarUrl);await expect(page.locator('.experience-session')).toHaveCount(1);
   await page.locator('.experience-session').click();
   await page.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await page.waitForURL(/\/programs\//);
   const back=()=>page.getByRole('button',{name:ar?'العودة إلى التقويم':'Back to calendar',exact:true});
@@ -111,6 +132,6 @@ try{
   const leaveBefore=documents.length;page.once('dialog',d=>d.accept());await today().click();await page.waitForURL(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);assert.equal(documents.length-leaveBefore,planningBaseline?1:0,'planning confirmed dirty exit document count');
   results.push({locale,planningCleanDocuments:planningBaseline?1:0,planningConfirmedDirtyDocuments:documents.length-leaveBefore,dirtyCancel:true,planningBaseline});
  }
- assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
+ assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,continuityBaseline,continuity,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
 }catch(e){await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'failed',error:String(e),fixture},null,2));throw e;}
 finally{await browser?.close();server?.kill('SIGTERM');await writeFile(join(evidence,'next-fixture.log'),log);}

@@ -47,3 +47,5 @@ EX-02 Development continuation1November2026: [visible-return checkpoint](../07-h
 EX-02 Guardian-training continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-guardian-training.md) follows Development. Reconnect stays fresh; no ended link is restored for this maintenance. Positive hosted G02 remains distinct.
 
 EX-02 entry/appointment continuation1November2026: [checkpoint](../07-handoff/request-remediation-ex02-entry-appointments.md) measures onboarding and Guardian/Trainer fast returns with dirty/unknown guards retained. Use the tracker for release status; parent findings and shell/native-history measurement gaps remain open.
+
+Visible continuity checkpoint1November2026: [Home/Calendar/dated task wait ownership](../07-handoff/request-remediation-ex02-task-continuity.md) removes a redundant Home bootstrap on known-day Owner entry and a hidden date-directory wait on explicit task returns. Track exact-source/local/hosted states separately; private masking, direct cold fallback and remaining shell/native-history gaps stay visible.
