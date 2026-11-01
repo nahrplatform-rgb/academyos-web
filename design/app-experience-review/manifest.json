@@ -1,6 +1,6 @@
 {
-  "source": "07abdf9388420c446437b8ab755257e19c8c6d98",
-  "generatedAt": "2026-11-01T01:13:22.229Z",
+  "source": "818865090dc29502035c55c80a82f71a442f0a1e",
+  "generatedAt": "2026-11-01T01:22:10.008Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -43,7 +43,7 @@
     "apps/web/src/components/attendance-workspace.tsx": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "1947ee6cb57dba8e77d8554f502921e05083e22f159764a42cc757d3f9da1455",
-    "apps/web/src/components/development-workspace.tsx": "547d9af258f93240bd583fca975f49d3d04d42624697dc06742efc4172c7b2be",
+    "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
     "apps/web/src/components/experience-workspace.tsx": "40fa521386e6e750c8f94d7eb684666212d756d657d85f47fc2d806382c6fb9d",
     "apps/web/src/components/guardian-training-workspace.tsx": "f287cb676ab54eb9d79d037af417337358bdc7b2e6546a55776e23e4fc7889c6",
     "apps/web/src/components/guardian-workspace.tsx": "ce8a518e76ed4d124b84b20ad0a9bdc94072c7c92f3db4845ae5407081d484cf",
@@ -75,7 +75,7 @@
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
     "scripts/attendance/test_ui.mjs": "33094d6fb2fbbb9ddeb8f77d971111bbf4a65200ffe66498ca14797e51ce6eb6",
     "scripts/corrections/test_ui.mjs": "45a0028665122e9c04230469bab74da39a8797c7f8d99f89291cd6090d37f413",
-    "scripts/development/test_ui.mjs": "de232dd752e2bd6c72407069f8b88da7658c055a891c226c522959ce4d4cfef4",
+    "scripts/development/test_ui.mjs": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0",
     "scripts/experience-projections/test_ui.mjs": "56acfa79851caabfbd54aef57dae517c66f7f191d1d62f8807e2b9fce22dc037",
     "scripts/experience-review/build.mjs": "7888f4ff36a7d054026c51b95cbd27c29658099629249c36adbf8a3baafd4b2a",
     "scripts/experience-review/capture.mjs": "0e7c27139033d56b26a63afa7f07fc81759f792d211bf2dae0ea6fbac729e910",
@@ -96,12 +96,12 @@
     "scripts/trainers/test_ui.mjs": "ba6b911a94ff89101218a1e5802b8ab1d1bccc03373972c082eac65b5ce0a2c2",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "64902d8697a963124ad80692571e4250c4b939e0ae858cd94b12ef7ac93ead53",
-  "htmlSha256": "d5f473a6e701b6d2065a8aa57f36553eee6a326d9dcbba8e7f9d0bf946057396",
-  "frames": 1040,
-  "transitions": 1034,
+  "capturePackSha256": "7e79fa298d3991930378ca21d898a4c3fb950fcba28f86475ebc7f5d6af04982",
+  "htmlSha256": "f2fd022f81a68469b656a7b4fe9b311bfb7e336426340b888f254de5d206dcee",
+  "frames": 1041,
+  "transitions": 1050,
   "sourceFiles": 64,
-  "sourceLiterals": 6870,
+  "sourceLiterals": 6866,
   "journeys": [
     {
       "id": "entry",
@@ -161,7 +161,7 @@
     },
     {
       "id": "development",
-      "frames": 73
+      "frames": 74
     },
     {
       "id": "experience-projections",

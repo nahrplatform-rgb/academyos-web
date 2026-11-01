@@ -35,3 +35,5 @@ EX-02 has a [Programs routing/visible-return checkpoint](../07-handoff/request-r
 EX-02 continuation1November2026: [whole-program planning checkpoint](../07-handoff/request-remediation-ex02-planning.md) follows the scoped Programs release. Preserve both packets’ evidence and use the tracker for the newest status; no whole finding is closed.
 
 EX-02 People continuation1November2026: [visible-return packet](../07-handoff/request-remediation-ex02-people.md) follows Programs/planning. Use the tracker for newest delivery states; previous receipts remain evidence.
+
+EX-02 Development continuation1November2026: [visible-return checkpoint](../07-handoff/request-remediation-ex02-development.md) follows People. Only lifecycle pairing is in scope; EX-03 crash identity and EX-04 detail/list waterfall stay separate. Use the tracker for release/hosted status.
