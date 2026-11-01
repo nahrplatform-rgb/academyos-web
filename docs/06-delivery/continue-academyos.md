@@ -38,16 +38,16 @@ Design: existing approved experience; safeguards retained.
 ### EX-02 — Remaining routing/lifecycle adoption; shell hypothesis
 
 Dependencies: EX-01.
-Findings: NR01; NR02; NR03; NR04; NR08; NR14.
+Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial: nonprivate search and local locale continuity implemented;previous known-day Calendar/deferred directory/routing fixes retained;geometry/shell gaps open
-- Local checks: controls held-read Next before/after;both React/API;77units;17E2E;build/type/lint passed;capture/release evidence separate
-- Deployment: continuity b819040; dpl_2jdjhrEV35QXUR8vHFX5yd8Fyr92 Ready40s; both exact-source CI passed
-- Hosted verification: final native Owner EN/AR menu/central hints,filtered selection and dirty Cancel/locale/Back verified;intermediate network2→1 each;final counters unavailable;G01 retry retained
+- Local checks: held-read Next controls before/after;both React/API;unknown-locale no-replay;77units;17E2E;build/type/lint;16captures/offline/freshness/33theme passed
+- Deployment: local-controls ddce60d; dpl_4AJCCepgzWuxPAjxFDYBuTWu6BoT Ready45s;both exact-source CI passed
+- Hosted verification: partial:Owner Home/Calendar one-click locale/search retained,no hash;dated draft locale retained;dirty-return inconclusive after denial/control interruption;Home restored;G01 open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: finish controls factual refresh/exact-source CI/staging EN/AR;then measure remaining task-card/scroll geometry and shell/history;dated resume pairing and EX-03/04/private stale-display decisions retained
+- Next action: investigate intermittent current-read denial with sanitized auth/API success-versus-denial evidence before UX retries;then measure same-center scroll-height clamp/geometry and shell/history;dated resume pairing,EX-03/04/private stale-display decisions retained;Owner acceptance pending
 - Evidence: docs/07-handoff/request-remediation-ex02-local-controls.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees

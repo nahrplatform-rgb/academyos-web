@@ -79,8 +79,18 @@
     "home task-card geometry/scroll and shell-remount hypothesis remain open",
     "no hosted operating-write/revocation/grant test"
   ],
-  "deployment": "pending",
-  "hosted": "pending",
+  "deployment": {
+    "source": "ddce60d5a144a00f14df26f147a45adc3323d38f",
+    "id": "dpl_4AJCCepgzWuxPAjxFDYBuTWu6BoT",
+    "state": "Ready",
+    "durationSeconds": 45,
+    "alias": "staging.academy.nahr.dev"
+  },
+  "hosted": "partial:local-only controls verified;dated dirty-return inconclusive after access denial;Home restored;no grants/operating writes",
   "ownerAcceptance": "pending",
-  "independentSecurity": "open"
+  "independentSecurity": "open",
+  "ci": {
+    "41361321746": "success",
+    "41361316247": "success"
+  }
 }

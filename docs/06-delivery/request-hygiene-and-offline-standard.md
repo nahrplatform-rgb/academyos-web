@@ -30,7 +30,8 @@ Suggested read key: environment + subject + academy + capability/role + branch/l
 4. Separate initial access, same-scope revalidation, changed query, unavailable, stale and denied. Keep nonprivate shell and layout stable. Retain typed input and safe selected ID; redisplay selected details only if the new projection permits them. Expired authorization clears private content; failure is not empty or zero.
 5. Keep operation reconciliation distinct from refresh. Unknown outcome blocks replacement, even if network comes back. Preserve validated opaque operation identity across supported reload/crash paths; feedback text is not required in that recovery locator.
 6. No page-wide spinner for independent panel refresh. Panel error must leave unrelated authorized tasks usable. Show as-of/refreshing when meaningful. Preserve EN/AR focus, list/scroll and accessible announcements; do not reset task on a tab return.
-7. Do not reuse approval/preview just because typed fields survived: duplicate review, signed date checks and stale expected versions must be refreshed under their exact contract.
+7. Local presentation controls (language and loaded-page search) must remain usable during rereads without restoring private rows, making operating requests, or adding hash/history navigation. Keep input identity/focus during the check. Busy/unknown locks still fence route changes and operating commands; a local locale change must not replay or replace an operation. Test with held responses rather than assuming a quick local read proves continuity.
+8. Do not reuse approval/preview just because typed fields survived: duplicate review, signed date checks and stale expected versions must be refreshed under their exact contract.
 
 ### Library choice and caching options
 
