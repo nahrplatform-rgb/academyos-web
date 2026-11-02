@@ -1,5 +1,9 @@
 # Full scope and proposed release map
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Persistent permitted read datasets/reopen and synchronization are cross-cutting core experience work through EX-10/06/04/11, not deferred wholesale to native apps. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Offline mutation queues remain capability-specific later gates; unbuilt finance/communications/media/Manager/Player features and existing release boundaries are preserved.
+
 Version 1.0 · 21 October 2026 · Delivery placement: proposed, pending D-018
 
 ## Release meanings

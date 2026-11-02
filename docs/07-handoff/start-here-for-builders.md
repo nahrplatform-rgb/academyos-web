@@ -1,5 +1,9 @@
 # Start here for builders
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Current EX-10 is now persistent local datasets/progressive synchronization readiness. Read [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) before the generated continuation prompt/tracker. WB-P v1 is superseded; exact LF-P policies and revised changed-state review remain. Preserve earlier source/runtime receipts; no new local-data implementation/deployment is implied.
+
 Current copyable instruction: [generated continuation prompt](../06-delivery/continue-academyos.md), regenerated from the tracker after every checkpoint and freshness-checked by the execution validator.
 
 Current next work is the single `current` tracker row. The revised route introduces **EX-10 working-behaviour/decision/pilot-architecture readiness** and EX-11 working-day acceptance; do not restart either after its scoped checkpoint has passed. Read the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](../06-delivery/experience-execution.md), [tracker](../06-delivery/experience-execution.csv), [working-day acceptance](../06-delivery/academy-working-day-acceptance.md) and [planned cases](../06-delivery/academy-working-day-cases.csv). Scope and architecture/decision preparation precede dependent runtime cache work; EX-11 demonstrates the connected result. The tracker/generator selects current priority, not old dated next-step paragraphs below.
@@ -163,6 +167,6 @@ EX-04 Owner current-period implementation2November2026: [receipt](request-remedi
 
 EX-04 latest2November2026: [current-period receipt](request-remediation-ex04-current-calendar.md) now includes staging10bbda7, both CI passes and read-only EN/AR single-read/foreign-denial proof. The earlier rollout-pending note is superseded. Continue EX-03 recovery reproduction/contract; Owner acceptance, independent security and remaining EX-02/04 role/provider/query/cancellation gaps remain open.
 
-## EX-10 architecture checkpoint —2November2026
+## Earlier EX-10 source checkpoint — superseded recommendation
 
 The [actual-source pilot architecture and consolidated decision packet](../04-engineering/working-day-pilot-architecture.md) now maps resource/draft/recovery ownership, first/repeat/return/save request ceilings, affected-view invalidation, mechanism options and exact proposed WB-P01–P04 scope. Its linked EN/AR storyboard is fictional changed-state review only. Source preparation is complete at this bounded scope; policy/design review is pending and the tracker remains EX-10 current. No runtime cache/provider/schema/visibility or working-acceptance change is inferred. Follow the generated current next action rather than repeating this preparation.

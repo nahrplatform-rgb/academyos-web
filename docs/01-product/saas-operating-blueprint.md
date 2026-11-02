@@ -1,5 +1,9 @@
 # AcademyOS SaaS operating blueprint
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Core operating experience includes permitted player-directory pages, selected-month training records and later separately authorized finance snapshots retained locally between visits. First task first, bounded sequence, durable completeness and quiet changes are required; unlimited database replication is excluded. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) defines boundaries. Local read availability is separate from server-confirmed actions and future offline capture; no financial or role capability is implemented by the direction.
+
 ## Working-day execution overlay — 2 November2026
 
 The [academy working-behaviour contract](../03-design/academy-working-behavior-contract.md) turns the existing role/operating vision into startup, task navigation, save/update, interruption, concurrency, failure and safe scope-change rules. Use the [execution guide](../06-delivery/experience-execution.md), [current tracker](../06-delivery/experience-execution.csv) and [working-day acceptance](../06-delivery/academy-working-day-acceptance.md). This preserves all business families and role boundaries below. The current live pilot uses Academy Owner capabilities; Manager/Player, finance and other unbuilt operations are future scope. No new private freshness/retention/visibility rule is accepted by this overlay.

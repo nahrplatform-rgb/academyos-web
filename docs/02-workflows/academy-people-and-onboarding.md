@@ -1,5 +1,9 @@
 # Academy setup, people, guardians and staff
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+All permitted player-directory summary pages may be prepared progressively and persisted under exact field/branch policy. Profile/contact/history/guardian relationships are separate scopes. Existing duplicate review/no-auto-merge/current invitation authority stay unchanged. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-011–020. Policy dependencies: D-001, D-003, D-004 and D-015.
 
 ## Academy creation and first-use checklist

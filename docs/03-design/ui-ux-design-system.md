@@ -1,5 +1,9 @@
 # AcademyOS UI/UX and theme specification
 
+## Local-data planning boundary —LF-v2,2November2026
+
+Keep the approved Charcoal visual system. Add behaviour-state vocabulary for Not downloaded / Preparing / Ready as of / Checking changes / Updating / Locked and storage failure. Local Saved on device versus Server confirmed exists only where the relevant operation is actually implemented; no generic status badge may imply commit. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 **24 October supersession:** the owner-selected compact blue reference and explicit application replacement instruction supersede the historical teal/large typography/18px visual values below. Current shared app tokens/components and exact source/review scope are in [the implementation receipt](../07-handoff/compact-blue-design-foundation.md). Historical values are preserved as evidence; accessibility, responsiveness, truthful states and authority requirements remain applicable.
 
 Requirements: AO-117–130. **Selected direction: Workspace, Light, 18 px card corners.** English/Arabic, RTL, responsive use and restrained Apple-inspired clarity are foundational. These choices establish direction; the concept is not approval of every future screen or a production accessibility result.

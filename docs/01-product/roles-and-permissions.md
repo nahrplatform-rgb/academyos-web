@@ -1,5 +1,9 @@
 # Roles, membership and permission contract
 
+## Local-data planning boundary —LF-v2,2November2026
+
+Local replicas are capability/branch/relationship/field scoped, not a device-wide role grant. Owner directory, assigned Trainer roster and Guardian linked-child/published data need separate namespaces, indexes and local-access policy. No new role/business permission is accepted by the persistent-data direction. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 Status: proposed implementation contract for the six selected roles. Fine-grained delegation and approval thresholds remain decisions D-003, D-007 and D-021. Requirements: AO-001–010, AO-149–160.
 
 ## The authority model

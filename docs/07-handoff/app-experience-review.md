@@ -1,5 +1,9 @@
 # Whole-app current-experience review
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The factual real-component HTML remains current-source evidence: it does not show implemented durable local data. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) is the target and the previous summary-only storyboard is superseded. New local-first states need separate design review and later actual-component recapture; do not substitute the Shift reference or a simulation for operating proof.
+
 29 October2026. Owner requested one HTML file showing actual app visuals, wording, controls and workflow sequences, maintained alongside implementation. Existing scoped functional approvals remain valid; this task does not assume the overall visual experience is accepted.
 
 Primary deliverable: [self-contained current-experience review](../../design/app-experience-review/AcademyOS-experience-review.html). [Scope, honest gaps and regeneration instructions](../../design/app-experience-review/README.md). Use Journeys, Screen & state directory, Words & controls, Coverage & source and Review notes. The baseline is reproduced from actual components through synthetic local test adapters; it is not staging, a new prototype design, policy authority or security proof.

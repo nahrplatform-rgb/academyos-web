@@ -1,5 +1,9 @@
 # Programs, dated sessions, capacity and trainer assignment
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Persist permitted selected-month dated summaries with exact branch-timezone coverage and multi-page completion. Roster names/access are separate. Move/cancel/publication/version changes propagate through changed records/removals without weakening attended-session protections or signed all-or-nothing planning. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-021–034. Decisions: D-006 and D-012. Scheduling is a dated operational contract, not a collection of loosely related calendar edits.
 
 ## Core records

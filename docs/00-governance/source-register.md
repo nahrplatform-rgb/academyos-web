@@ -1,5 +1,9 @@
 # Source register and authority
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+[Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) identifies the actual staging worktree, source hashes and54passing synthetic core checks/1hosted skip. Shift is a read-only local-data/recovery reference, while PYSA remains functional workflow/audit reference. Neither supplies AcademyOS permission policy or deployed proof. Current target: [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).
+
 Version 1.0 · 21 October 2026 · Status: documentation baseline
 
 ## Authority order

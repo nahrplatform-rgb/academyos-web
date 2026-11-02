@@ -1,5 +1,9 @@
 # Working-day execution documentation and continuation checkpoint
 
+## LF-v2 supersession notice —2November2026
+
+**Superseded proposal, not awaiting approval.** The Owner clarified persistent local datasets across visits and progressive synchronization, rather than this v1 summary-only memory pilot. Read [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Earlier source inventories and synthetic storyboard receipts remain historical evidence; no approval, private runtime store or operating pass is inferred. Do not use the old30second/5minute/intent-only bundle as current defaults.
+
 2 November2026. Owner requested detailed updates to all required documentation and a reusable continuation instruction after the working-day analysis. Source base before this update: `ab8de80`. This is a **documentation and continuation-tooling checkpoint**. No app source, database, private payload, provider, cache dependency, telemetry, access grant or runtime deployment change.
 
 ## What is now explicit

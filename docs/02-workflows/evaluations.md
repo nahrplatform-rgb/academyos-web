@@ -1,5 +1,9 @@
 # Player evaluations and development history
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Published family feedback and private staff draft/reason have separate persistence/access policy. Retain review/publication/withdrawal/different-account rules; no automatic offline publication. Local drafts require their own confidential retention decision. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-085–092. Review authority, metrics, publication and age-appropriate visibility remain D-013/D-004.
 
 ## Model and authoring

@@ -1,5 +1,9 @@
 # Security and privacy design
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Private local data adds stored child/employee/financial/index metadata, shared-device, XSS/key, device-loss, local expiry and disconnected-revocation boundaries. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) requires exact LF-P01–LF-P06 policy and independent review before private runtime storage. Native Keychain/file protection and Shift personal7day lease do not transfer to browser authorization; current server checks remain.
+
 Requirements: AO-149–160. This is a threat-driven engineering plan, not a completed penetration test or legal compliance opinion. Country, age, retention and residency decisions remain open.
 
 ## Trust boundaries and threats

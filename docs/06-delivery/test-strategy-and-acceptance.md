@@ -1,5 +1,9 @@
 # Test strategy, evidence and formal acceptance
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Use [local-data and sync plan](local-data-and-sync-plan.md) with the extended working-day cases. Required new scenarios: persistent cross-reload data, coherent/resumed bootstrap, no unchanged full redownload, deletion/epoch/cursor handling, local index coverage, key/quota/eviction, multi-tab leadership and version upgrades. Keep synthetic core/native reference/browser emulation/physical/API/DB/hosted/Owner/security evidence separate.
+
 ## Connected operating acceptance — 2 November2026
 
 Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [EX-11 working-day specification](academy-working-day-acceptance.md), [32 planned cases](academy-working-day-cases.csv) and [single tracker](experience-execution.csv). The new case IDs are execution coverage, not new AO/AT business requirements or evidence that tests ran. Current-source architecture and dependent WB-P decisions are prepared in EX-10. Existing tests/evidence and per-journey approvals remain; all separate gates below remain mandatory.

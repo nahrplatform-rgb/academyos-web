@@ -1,5 +1,11 @@
 # Decisions and open questions
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Owner clarified on2November2026: data must remain locally saved between portal visits; permitted player-directory pages, monthly schedules and later financial data should prepare in sequences and synchronize quietly. Owner requested a deep staging iOS Shift review and adjustment of AcademyOS documentation. This selects the durable local-data **direction**, not every field/lease/retention/offline-write policy.
+
+[local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) owns LD datasets and exact pending LF-P01–LF-P06. The unaccepted WB-P01–WB-P04 summary-only/30second/5minute/intent-only proposal and its changed-state storyboard are superseded. Do not infer their acceptance from misunderstanding replies or re-ask whether the Owner means tab memory. No real data, new grant, production or offline mutation authority is included. Older entries below remain dated history.
+
 Version 1.0 · 21 October 2026
 
 ## Selected direction
@@ -58,7 +64,7 @@ Owner for product/business decisions: Moamen. Technical lead supplies consequenc
 | D-008 | Trainer earnings | Per session, hourly, monthly, attendance share or mixed contract; decide late cancellation, substitution, leave, rounding and approval rules. | Before payroll calculations |
 | D-009 | Platform commercial plans | Prices, limits, trial length, grace period, overage, billing cadence, refund policy and restricted-state access. No invented prices are treated as accepted. | Before entitlements and sales |
 | D-010 | Payment providers | Stripe where the actual entity is eligible; evaluate Paymob/Kashier for the intended market. Decide separate platform and academy merchant arrangements and money flow. | Before gateway coding |
-| D-011 | Offline authority | Propose attendance capture only; maximum cache/lease duration, sensitive fields, device revocation and conflict approver remain explicit choices. | Before offline implementation |
+| D-011 | Offline authority | Persistent permitted local reads/sync are the LF-v2 Owner-directed target; exact role/device/fields/local lease/key/retention and offline attendance write authority remain separate decisions. See local-data-and-sync-plan.md LF-P01–LF-P06. | Before dependent private storage/offline capability |
 | D-012 | Attendance rules | Session windows, grace/late states, early arrival, check-out, excused absence, correction deadlines and QR validity. | Before attendance business logic |
 | D-013 | Evaluations | Trainer self-publish versus manager review; player/guardian visibility; metric scales per sport; revision and rejection policies. Propose review before initial publication. | Before evaluation implementation |
 | D-014 | Communications | Transactional channels, optional marketing consent, guardian recipients, quiet hours, emergency notices and delivery budgets. Propose in-app plus transactional email for initial release. | Before external messaging |

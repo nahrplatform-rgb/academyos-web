@@ -1,5 +1,9 @@
 # Journey security review and delivery gates
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The local-replica gate in [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) supplements existing per-journey gates: same-account/academy/branch/link fields and indexes, known denial/late reply, lease expiry/clock rollback, missing/corrupt keys, logout cleanup failure, browser eviction, transactional watermark, tombstones and concurrent tabs. Local read approval does not approve offline commands. Independent security remains open;54passing Shift synthetic tests are reference proof only.
+
 ## Working-day/shared-state review overlay — 2 November2026
 
 Apply [WB-01–WB-24 and pending WB-P choices](../03-design/academy-working-behavior-contract.md), [working-day acceptance](../06-delivery/academy-working-day-acceptance.md) and [tracker](../06-delivery/experience-execution.csv) to every affected boundary. EX-10 prepares scoped ownership/freshness/operation-discovery decisions; EX-11 requires operating proof. This overlay is not an independent audit, new private-data policy or authority grant.

@@ -1,5 +1,9 @@
 # Identity, sessions, memberships and academy switching
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Review device-local unlock/access separately from server membership. Known denial/scope changes purge or lock incompatible namespaces/indexes; disconnected clients cannot learn instant revocation. Invitations, role grants and account changes stay online. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-001–010. Depends on [permissions](../01-product/roles-and-permissions.md), [Clerk](../05-services/04-clerk.md) and [Supabase](../05-services/05-supabase.md). Initial signup model remains D-002; player accounts remain D-004.
 
 ## Records and states

@@ -1,5 +1,9 @@
 # AcademyOS setup record — start here
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Current experience work includes durable local reads and quiet sync as core architecture. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) supersede the unaccepted summary-only pilot. No service setup/native build is necessary merely to document it; provider changes and privileged grants remain separately gated.
+
 Current working-day direction —2November2026: [behaviour contract](../03-design/academy-working-behavior-contract.md) → [single execution guide/tracker](../06-delivery/experience-execution.md) → [generated continuation prompt](../06-delivery/continue-academyos.md). The route introduces EX-10 architecture readiness; the tracker selects the actual current checkpoint, including after advancement; [EX-11 working-day acceptance](../06-delivery/academy-working-day-acceptance.md) is the connected evidence gate. Preserve all staging/source history below; no new runtime capability or policy is claimed by this planning overlay.
 
 Current delivery priority: [connected experience execution and finding closure](../06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.

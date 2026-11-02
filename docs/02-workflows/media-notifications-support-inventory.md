@@ -1,5 +1,9 @@
 # Private media, internal support and inventory
 
+## Local-data planning boundary —LF-v2,2November2026
+
+Private media/support bodies and offline stock/custody changes are not automatically included in the local read dataset. Explicit per-capability fields, downloaded objects, retention, conflicts and accepted side effects remain future gates; no generic service-worker cache or retry queue. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 Requirements: AO-093–104. Notification delivery is defined further in [privacy and reporting](privacy-reporting-and-exports.md). Public sharing, consent and retention depend on D-004/D-015; inventory depth is D-017.
 
 ## Private media lifecycle

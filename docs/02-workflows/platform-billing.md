@@ -1,5 +1,9 @@
 # AcademyOS subscriptions, entitlements and platform payments
 
+## Local-data planning boundary —LF-v2,2November2026
+
+A future locally retained monthly platform-billing view remains separate from family finance and trainer compensation. Current provider/ledger facts and payment authority are server-only; no offline purchase, subscription activation, refund or entitlement approval follows from cached data. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 Requirements: AO-073–084. D-009 governs pricing, limits, trials and grace. D-010 governs provider and merchant eligibility. This domain is NAHR charging an academy for AcademyOS, with separate records from family fees.
 
 ## Catalog and entitlement authority

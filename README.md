@@ -1,5 +1,9 @@
 # AcademyOS application foundation
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The intended experience now retains permitted datasets on the device across visits, opens covered tasks locally and synchronizes changed data quietly. [local-data and sync plan](docs/06-delivery/local-data-and-sync-plan.md) is the canonical current target; exact private-field/device/retention/offline-write choices remain gated. Current app functionality and deployed evidence are unchanged by this planning checkpoint. Continue using the generated continuation prompt; the old summary-only storyboard is superseded.
+
 Working-day continuation —2November2026: use **“Continue from the living continuation prompt.”** The [generated instruction](docs/06-delivery/continue-academyos.md) derives its single current priority from the [execution tracker](docs/06-delivery/experience-execution.csv). The ordered route includes [EX-10 working-behaviour/architecture readiness](docs/03-design/academy-working-behavior-contract.md), the scoped shared-loading pilot and [EX-11 operating acceptance](docs/06-delivery/academy-working-day-acceptance.md). Use the tracker's current row rather than restarting those checkpoints. The [case register](docs/06-delivery/academy-working-day-cases.csv) is planned coverage, not executed proof. Private caching/persistence/offline choices remain explicitly pending.
 
 Current delivery priority: [connected experience execution and finding closure](docs/06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.

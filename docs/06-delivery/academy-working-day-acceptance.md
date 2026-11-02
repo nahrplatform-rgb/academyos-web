@@ -1,5 +1,11 @@
 # Academy working-day pilot and acceptance gate
 
+## Persistent-local acceptance extension — LF-v2,2November2026
+
+Use [the local-data and sync plan](local-data-and-sync-plan.md). The [50-case register](academy-working-day-cases.csv) extends the original32 scenarios with WD-33–WD-50: durable refresh/relaunch, progressive finite datasets, compatible checkpoint resume, complete-empty, unchanged checks, changed/deleted rows, snapshot/cursor expiry, multi-tab leadership, scope epochs, trusted/shared local access, storage/key/quota/eviction, migrations, local indexing, online-write separation, offline cold shell, dirty input under sync, future finance and whole-visit cost. Every case remains planned or explicitly future, not executed.
+
+A54pass/1skip synthetic Shift reference run proves selected Swift mechanisms only. It is not AcademyOS API/DB/browser/physical/hosted evidence. Existing business and Charcoal approvals are retained; the revised local-first changed-state design still needs its own review.
+
 2 November2026. **EX-11 test/acceptance specification; not executed.** Owner authorized preparing this connected operating approach and updating execution documents. This specification changes no app, role, business rule, account, service or private storage policy. Use the [behaviour contract](../03-design/academy-working-behavior-contract.md), [planned case register](academy-working-day-cases.csv), [execution tracker](experience-execution.csv), [test strategy](test-strategy-and-acceptance.md) and [security review](../04-engineering/journey-security-review.md).
 
 ## Why this gate exists
@@ -12,7 +18,7 @@ EX-11 has two checkpoints: an Owner pilot acceptance checkpoint, then repeated r
 
 ## Readiness and fixtures
 
-Before a runtime run, attach the EX-10 architecture packet and the exact accepted WB-P choices needed by that run. A planned cache test remains blocked if its private reuse policy is unaccepted; test the present online/no-private-persistence boundary honestly instead. A proposed architecture or design preview is not a runtime result.
+Before a runtime run, attach the LF-v2 [local-data plan](local-data-and-sync-plan.md), revised EX-10 architecture/design and exact accepted LF-P device/field/access/retention/sync choices. The old WB-P summary-only proposal is superseded. Persistent data across visits is the directed target; exact privacy/offline-write rules are not inferred. Until implemented, test the present online/no-private-dataset-persistence boundary honestly. A source reference or design is not a runtime result.
 
 Use fictional Academy A and Academy B, known separate-account scope, long EN/AR names, an18-player register and40-date program. Reuse the existing approved dataset when its timing/state is suitable; do not create grants, restore appointments/links, send invitations or alter clock-sensitive records without the separately required authority. Test fixtures may use disposable local databases and simulated identity/transport, explicitly labelled as such. A live role test needs a currently authorized session or a separate access grant; it cannot be substituted by a client-selected role string.
 
@@ -97,3 +103,16 @@ Keep EX-05/EX-08 evidence work alongside each batch and EX-09 decisions limited 
 ## Current checkpoint
 
 This documentation preparation defines the gate and planned cases. No case in the new working-day register has been newly executed. Existing scoped fixes, including the verified Owner cold Calendar read, remain valid supporting evidence. EX-10 supplies current-source ownership inventory, consolidated policy preparation, changed-state review and pilot architecture; select the actual current checkpoint from the tracker rather than restarting this dated preparation. No app deployment or access grant is included in this document update.
+
+## Required new measurement and recovery profiles
+
+1. **First preparation:** cleared/new store; authenticate and task-first essentials; track every finite page/completion check and user-interactive preemption. No hidden full-data barrier for unrelated work.
+2. **Normal reopened store:** restart app/tab with compatible persisted records and accepted local access. Measure key/unlock/store open/index query versus current identity/manifest calls separately. An unchanged complete dataset must not transfer its pages again; zero pages does not mean zero auth/network calls.
+3. **Changed data:** sparse upserts/deletions, moved/withdrawn date, field-scope epoch and same-timestamp race. Validate atomic rows+watermark, no ghost/private rows, preserved draft basis and actual counts. A replacement implementation reports full replacement bytes honestly.
+4. **Interrupted preparation:** pause after page1, reload, resume under same snapshot; expired/moving snapshot rebases only the affected generation and preserves prior valid data. Complete-empty versus unknown page is explicit.
+5. **Actual storage/browser failure:** quota/private mode/eviction, wrong/missing key/corruption, blocked migration/old tab/downgrade. A failed local transaction never claims saved or complete; unresolved operations retain their original discovery fence.
+6. **Device and access:** same/different account, two academies, branch/role/child changes, trusted versus shared device, known denial and offline lease expiry/clock rollback. No instant disconnected revocation promise; no lease extension on reopen.
+7. **Connectivity and launch:** public shell/deep link plus private unlock before claiming actual offline cold start; mocked failed fetch is insufficient. Background sync while active and after suspension/reconnect has separate evidence; closed-app execution is not guaranteed.
+8. **Save integrity:** current server-confirmed command/review/receipt rules unchanged. Read-only local support cannot approve an offline mark/payment/publication. Any future local acknowledgement/outbox is tested under its separate domain policy.
+
+The dataset profile includes more than one directory/month page as well as18-player/40-date tasks. Prove local covered-scope search and indexed visible-range reads without dumping all disk records into memory. Existing latency/CLS targets remain, with cold local-open versus current HTTP and device-specific privacy costs disclosed. No native→web timing extrapolation or fabricated service saving.

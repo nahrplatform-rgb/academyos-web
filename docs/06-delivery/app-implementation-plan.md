@@ -1,12 +1,15 @@
 # One application implementation plan
 
-## Current execution priority — 2 November2026
+## Persistent local data and synchronization — LF-v2,2November2026
 
-Owner requested a continuous academy working-day approach and detailed execution updates. Read the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](experience-execution.md), [single tracker](experience-execution.csv), [working-day acceptance gate](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv). The generated [continuation prompt](continue-academyos.md) derives the explicit current priority and ordered checkpoints from that tracker.
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day acceptance](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv) with the current tracker.
 
-Current work begins with **EX-10: behaviour/ownership/freshness-decision/pilot-architecture readiness**, then shared workspace/read ownership and measured startup/return improvements, affected-save/recovery consistency, **EX-11: connected working-day acceptance**, and broader approved redesign adoption. EX-05 query/cost, EX-08 measurements and EX-09 dependent decisions accompany each relevant batch. EX-06 coordination is brought forward; do not wait for every EX-04 occurrence or future offline capability before designing it. Existing fixes, source evidence, Charcoal design and functional approvals remain valid.
+Owner clarified persistent permitted datasets across normal visits, progressive player-directory/month preparation and quiet change synchronization. This is now core experience architecture, not a memory-only summary pilot or an optional native-app prerequisite. Read [local-data and sync plan](local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md).
 
-This is an execution/dependency overlay across the existing feature plan. It introduces no private-cache TTL, persistent private payload, offline queue, telemetry, paid service, account grant or production launch. WB-P01–WB-P04 remain proposed until explicitly accepted for the dependent behaviour. Completion requires useful work, safe task continuity, correct outcomes and actual request/cost evidence—not another palette pass or request count alone. Dated progress/next-step notes below are historical; current tracker routing governs.
+Follow the single current row in [experience-execution.csv](experience-execution.csv): EX-10 revised local-data/access/transport design → EX-02 workspace → EX-06 durable repository → EX-04 resumable bootstrap/change sync → EX-03 original-operation recovery → EX-11 connected/reopened-local acceptance → EX-07 remaining Charcoal parity. EX-05/08/09 run alongside. Existing source, prior functional/visual approvals and release evidence remain.
+
+The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommendations are superseded. LF-P01–LF-P06 exact field/device/access/retention/sync choices still need review; offline writes, finance, new roles, production, real data and access grants are not inferred. No runtime persistence exists from this documentation update. Older dated source/evidence notes below remain historical within their own scope.
+
 
 ## The working registers
 

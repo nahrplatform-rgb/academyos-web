@@ -1,5 +1,9 @@
 # Experience blueprint and journey governance
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Design each journey across first bootstrap, covered local reopen, partial/missing range, quiet check/change apply, locked/expired local access, denied scope and storage/migration failure. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and preserve stable WB IDs. The full Charcoal visual reference remains accepted; the narrow v1 behaviour storyboard is superseded and the revised local-first changed-state review is pending.
+
 ## Current operating-experience overlay — 2 November2026
 
 Use the [working-behaviour contract](academy-working-behavior-contract.md) and [working-day acceptance](../06-delivery/academy-working-day-acceptance.md) for connected startup/first visit/return/save/interruption states. The [execution guide](../06-delivery/experience-execution.md) and [tracker](../06-delivery/experience-execution.csv) own current priority. Keep the later accepted Charcoal reference and each role's existing authority; historical palette/status/next-step descriptions below do not supersede those decisions. Existing visual approval does not approve new private reuse, persistent drafts or offline queues. Review changed behaviour at the appropriate connected-state boundary, preserving already approved journeys rather than restarting the complete design.

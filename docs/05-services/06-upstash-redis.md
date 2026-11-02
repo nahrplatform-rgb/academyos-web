@@ -1,5 +1,9 @@
 # Upstash Redis and rate-limit configuration
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Background manifest/page/change requests retain existing signed gateway and limiter checks. Fewer dataset downloads may reduce work but actual commands/regions/cost must be measured; local-first does not authorize removing protection. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).
+
 Selected initial service for distributed rate limiting. Redis is not the authority for memberships, financial state or durable job completion. Status: setup not executed.
 
 ## Resource setup

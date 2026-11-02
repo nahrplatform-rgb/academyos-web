@@ -1,0 +1,8 @@
+{
+  "docs/06-delivery/app-implementation-action-matrix.csv": "all existing columns/rows/status/bounds/evidence unchanged;prospective local_data_design column added",
+  "docs/03-design/screen-data-loading-matrix.csv": "all existing columns/rows/status/bounds/evidence unchanged;prospective local_data_design column added",
+  "tracker": "11IDs/current/order retained;prior runtime/release/acceptance states retained;EX10/11 preparation scope updated",
+  "runtime": "No app/package/schema changes in tracked diff",
+  "Shift_reference": "Current45source anchors/hashes valid;preexisting dirty status byte-identical;no reference working-tree change",
+  "reference_test_inputs": "isolated Swift source/tests match current reference bytes"
+}

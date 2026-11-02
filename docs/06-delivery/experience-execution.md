@@ -1,5 +1,11 @@
 # Connected experience execution guide
 
+## Current LF-v2 route —2November2026
+
+The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. Exact LF-P01–LF-P06 privacy/device/fields/retention/sync decisions and revised connected local-first design remain. The current app is unchanged by plan reconciliation.
+
+Use the tracker current row and revised output table below. EX-10 stays current; EX-02 workspace, EX-06 durable repository, EX-04 bootstrap/change sync, EX-03 recovery, EX-11 reopened-local acceptance and EX-07 remaining Charcoal adoption retain their scoped sequence. EX-05/08/09 accompany them. Do not substitute a transient cache, native-app wrapper or another feature for this target.
+
 31 October 2026. Owner authorized this integration and the first remediation batch after reviewing the whole-app analysis. This guide links existing authorities; it does not invent business rules, restart completed work or replace the canonical registers.
 
 ## One execution view, distinct sources of truth
@@ -18,11 +24,11 @@
 
 Use [continue-academyos.md](continue-academyos.md) for the current copyable implementation prompt. It is generated from every tracker row, including unresolved delivery/acceptance/security gates. After each completed or interrupted checkpoint: update the tracker/evidence, run `python3 scripts/design/build_continuation_prompt.py`, then `python3 scripts/design/validate_experience_execution.py`. The validator rejects a stale prompt; it does not run the next task or prove runtime behavior. This repository workflow is not a scheduled background automation.
 
-## Current working-day execution direction — 2 November2026
+## Earlier working-day direction — retained context,2November2026
 
 The Owner requested detailed plan updates after agreeing that the app must support a continuous academy working day. This direction supersedes the old instruction to mechanically continue EX-03 after the scoped cold Calendar fix. Existing source, accepted business rules, Charcoal design and released EX-01/02/04 evidence remain valid. No cache TTL, private persistence, offline queue, account grant or runtime feature is accepted merely by this plan update.
 
-The [working-behaviour contract](../03-design/academy-working-behavior-contract.md) defines WB-01–WB-24, request/state ownership, target operating behaviour, current-versus-proposed resource rules and consolidated pending WB-P01–WB-P04 decisions. The [working-day acceptance specification](academy-working-day-acceptance.md) and [32-case plan](academy-working-day-cases.csv) define how we will demonstrate the connected result. These are explicit gates, not a new infrastructure rebuild or another whole-app palette exercise.
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md) retains WB-01–WB-24 with the LF-v2 persistent-local target. The [local-data plan](local-data-and-sync-plan.md) owns LD-01–LD-10 and current LF-P01–LF-P06 decisions; the old WB-P summary-only proposal is superseded. The [working-day acceptance specification](academy-working-day-acceptance.md) and [50-case plan](academy-working-day-cases.csv) define the connected and cross-reopen evidence. These are explicit gates, not a new infrastructure rebuild or another whole-app palette exercise.
 
 ## Order and scoped dependency gates
 
@@ -37,21 +43,21 @@ The tracker is the only source for current priority/status. Its routing fields a
 
 | Primary order | Work | Output needed for the next dependent checkpoint |
 |---|---|---|
-| 1 | **EX-10 — working-behaviour, decisions and pilot architecture** | Actual-source ownership/state/request-budget inventory using existing evidence; consolidated WB-P choices and targeted changed-state walkthrough; implementable pilot architecture with scoped gates. Contract/case preparation is documented now; source inventory and dependent decisions/review remain. |
+| 1 | **EX-10 — working-behaviour, decisions and pilot architecture** | LF-v2 actual-source/Shift reference review and persistent repository/bootstrap/change/authority/recovery architecture; plain-language exact LF-P choices and revised connected changed-state review. The source review is recorded; dependent policy/design readiness remains. |
 | 2 | **EX-02 — shared workspace and remaining navigation/lifecycle** | Source-justified stable workspace/task boundaries, safe routing and current-authority/dirty/unknown behaviour in the pilot. Shell remounts do not prove provider calls. Preserve prior delivered fixes. |
-| 3 | **EX-06 — shared read owner, invalidation and approved reuse** | One scoped resource owner/key lifecycle across pilot routes; in-flight coordination, response seeding and affected-view updates. Choose existing primitives versus one focused library from evidence. Private reuse/preparation applies only after relevant WB-P acceptance. |
-| 4 | **EX-04 — first-use/dependency/preparation improvement** | Bounded critical startup/destination reads, accepted likely-task preparation and semantic before/after measurements; no duplicate hydration/mount fetch. Retain deployed Owner current-period read and current scope/bounds. |
+| 3 | **EX-06 — shared read owner, invalidation and approved reuse** | One scoped durable repository/storage/index/coverage/access-key lifecycle and local subscriptions; compatible read/sync ownership and affected-view updates. Query memory alone is insufficient. Enable exact accepted LF-P fields/device/access/retention only. |
+| 4 | **EX-04 — first-use/dependency/preparation improvement** | Task-first progressive directory/month pages, scoped manifest, coherent snapshot/checkpoint completion and changed/removal transfer or honest bounded replacement. Measure first versus reopened/unchanged/changed; retain prior Owner1read and no duplicate mount bootstrap. |
 | 5 | **EX-03 — save/interruption/crash recovery** | Original outcome discovery/storage-failure proof for the affected pilot paths, including actual supported refresh/process boundaries. Prepare this with EX-10 and validate before replacing recovery or accepting pilot writes; do not postpone integrity until the end. |
-| 6 | **EX-11 — working-day acceptance gate** | Declared Owner Today→Calendar→session/register→Back→People/review run with interruptions, actual results and working feedback; local/hosted/device/cost/security limits recorded. A bounded Owner pass does not close all-role adoption. |
+| 6 | **EX-11 — working-day acceptance gate** | Declared first-bootstrap→reopened-local→small check/change sync plus Owner Today→Calendar→register→People/review with interruptions, access/key/quota/migration/leader failures and working feedback; bounded Owner proof is not all-role completion. |
 | 7 | **EX-07 — broader journey and Charcoal parity adoption** | Extend the accepted working pattern across implemented journeys and role-specific experiences; preserve original approvals and demonstrate actual preview/runtime parity. Unbuilt capabilities stay explicitly future. |
 
 Supporting obligations run **alongside** the affected primary checkpoint:
 
 - **EX-05:** request/limiter/relational query work, bytes and provider costs; actual versus modeled savings; no index, shared cache or protection removal from hints alone.
 - **EX-08:** first useful content, local feedback, read timing, blank intervals, task continuity, device/accessibility, role/provider/security evidence. Collect baseline and after evidence in every batch; do not defer the entire measurement stage until all code is written.
-- **EX-09:** decide current-pilot freshness/private-memory/durability needs with EX-10/06. Persistent private payloads, offline writes and telemetry remain later capability-specific decisions. They do not block unrelated safe online coordination.
+- **EX-09:** resolve current durable-local device/unlock/field/key/retention/sync choices with EX-10/06. Persistent permitted read data is core target, not wholesale future work. Offline writes, future sensitive domains and telemetry remain separate gates; unrelated safe online work continues.
 
-The old nine work IDs remain; EX-10/EX-11 are the two new explicit gates. No historical implementation/deployment/acceptance status is reset. Advancing by numerical ID is incorrect: the explicit lane/order/current fields select the next task.
+The original nine work IDs and EX-10/EX-11 gates remain; LF-v2 revises their scoped outputs without discarding completed evidence. No historical implementation/deployment/acceptance status is reset. Advancing by numerical ID is incorrect: the explicit lane/order/current fields select the next task.
 
 ## Continuation and checkpoint maintenance
 
@@ -119,6 +125,6 @@ EX-04 Owner cold implementation now follows [current-period receipt](../07-hando
 
 EX-04 Owner rollout verified2November2026: [hosted completion receipt](../07-handoff/request-remediation-ex04-current-calendar.md) records exact10bbda7 source, both CI passes, staging alias, EN/AR1read entry and foreign403 recovery. Next bounded engineering checkpoint is EX-03 storage-denied/crash recovery reproduction and contract preparation. Keep remaining EX-02/04 role/provider/cancellation/query and Owner/security gates open.
 
-## EX-10 architecture checkpoint —2November2026
+## Earlier EX-10 source checkpoint — superseded recommendation
 
 The [actual-source pilot architecture and consolidated decision packet](../04-engineering/working-day-pilot-architecture.md) now maps resource/draft/recovery ownership, first/repeat/return/save request ceilings, affected-view invalidation, mechanism options and exact proposed WB-P01–P04 scope. Its linked EN/AR storyboard is fictional changed-state review only. Source preparation is complete at this bounded scope; policy/design review is pending and the tracker remains EX-10 current. No runtime cache/provider/schema/visibility or working-acceptance change is inferred. Follow the generated current next action rather than repeating this preparation.

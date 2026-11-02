@@ -1,5 +1,9 @@
 # Whole-app request and service impact — 31 October 2026
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Current target [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) adds separate first-download, unchanged-manifest, changed-page/replacement, local-query, multi-tab, restart/eviction and failure budgets. Manifest/hash SQL and limiter work still count; persistent local reads can avoid repeated dataset transfer only after implementation/evidence. The dated provider limits/models below are historical observations, not newly verified pricing or measured local-sync savings.
+
 ## Working-day execution follow-up —2November2026
 
 Use the [behaviour contract](../03-design/academy-working-behavior-contract.md), [pilot measurement protocol](../06-delivery/academy-working-day-acceptance.md), [case register](../06-delivery/academy-working-day-cases.csv) and [tracker](../06-delivery/experience-execution.csv). EX-05/EX-08 evidence accompanies every affected batch. Measure whole declared visits: critical/deferred/on-demand/prepared reads, return/resume, confirmed-save invalidation, reconciliation, retries, used/wasted preparation, bytes and available query/provider work. Faster local transport samples and fewer app calls do not establish SQL/Redis/Auth/egress savings or hosted percentiles. G01–G09, current-plan verification and private-cache/telemetry decisions remain explicit. No pricing/billing/limits were newly checked or changed by this documentation update.

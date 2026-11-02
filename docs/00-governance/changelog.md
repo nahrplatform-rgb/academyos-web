@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Persistent local-data clarification and Shift iOS reference — 2 November2026
+
+Owner clarified progressive permitted datasets retained across visits and quiet synchronization. Added [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md), [canonical LF-v2 plan](../06-delivery/local-data-and-sync-plan.md) and [reconciliation/evidence map](../07-handoff/local-data-sync-reconciliation.md). Updated mandatory guidance, product/workflow/architecture/privacy/API/data/service/implementation/redesign/roadmap/loading/test/handoff records and generated continuation routing. Retired the unaccepted summary-only v1 proposal without overwriting its historical receipts. Added18 persistent-local planned cases to the original32; all50 remain planned/future, not runtime passes. Isolated reference tests:54 passed,1 hosted-fixture skip,0 failures. No Shift changes, AcademyOS runtime/schema/private store, provider/access change, offline-write approval, production release or persistent-memory update.
+
 ## Engineering charter and continuous security — 22 October 2026
 
 Owner explicitly requested disciplined engineering and journey/milestone security gates. Added engineering charter, root AGENTS.md, PR review template, journey security packet and 28-family planned coverage matrix; linked design/performance, architecture security, delivery, tests and handoff. Added planned AO-177–180/AT-177–180. Distinguished process/instruction enforcement from existing CI, unverified branch protections and independent review. No runtime security control, provider setting, account access or production release changed.

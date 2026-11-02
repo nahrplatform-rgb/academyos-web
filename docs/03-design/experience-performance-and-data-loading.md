@@ -1,5 +1,9 @@
 # AcademyOS experience, performance and data-loading plan
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Separate durable local repository queries from transient query memory, online authorization and background synchronization. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) replaces the summary-only candidate. Required profiles now include first preparation, compatible reopen, unchanged manifest, sparse changes/full replacement, interrupted page resume, index query and storage failure. Existing numerical speed/row/byte limits and historical measurements stay intact; do not claim local-first performance from native reference timings.
+
 ## Current working-day contract — 2 November2026
 
 Read the [behaviour/data-lifecycle contract](academy-working-behavior-contract.md), [working-day acceptance and measurement protocol](../06-delivery/academy-working-day-acceptance.md), [planned cases](../06-delivery/academy-working-day-cases.csv) and [single execution tracker](../06-delivery/experience-execution.csv). EX-10 makes actual ownership/state/budget design and dependent choices explicit; EX-11 demonstrates the connected result. Shared coordination is prepared earlier, with EX-05/EX-08 measurement alongside every affected batch.

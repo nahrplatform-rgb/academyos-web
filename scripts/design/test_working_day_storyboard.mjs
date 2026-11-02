@@ -7,7 +7,9 @@ import assert from 'node:assert/strict';
 
 const root=resolve(import.meta.dirname,'../..');
 const html=await readFile(resolve(root,'design/working-day-pilot/index.html'),'utf8');
-const out=resolve(root,'docs/07-handoff/evidence/working-day-pilot-2026-11-02');
+// Preserve the original v1 receipts. This run checks the supersession notice,
+// not the new persistent-local design or working app.
+const out=resolve(root,'docs/07-handoff/evidence/local-data-sync-reconciliation-2026-11-02/v1-storyboard');
 const server=createServer((req,res)=>{res.setHeader('Content-Type','text/html; charset=utf-8');res.end(html)});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}`;
@@ -20,6 +22,7 @@ try {
   await page.setViewportSize({width,height:1000});await page.goto(origin);
   if(locale==='ar')await page.locator('#language').click();
   assert.equal(await page.locator('html').getAttribute('lang'),locale);
+  await expect(page.getByText('SUPERSEDED V1 · مقترح سابق تم تجاوزه',{exact:true})).toBeVisible();
   for(const state of ['cold','warm','aged','offline','dirty','unknown','confirmed','denied','storage']){
    await page.locator('#scenario').selectOption(state);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${locale}/${width}/${state} overflow`);
@@ -52,6 +55,6 @@ try {
  await page.locator('#language').click();await page.setViewportSize({width:390,height:1000});
  await page.screenshot({path:resolve(out,'storyboard-ar-phone.png'),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
- await writeFile(resolve(out,'storyboard-checks.json'),JSON.stringify({scope:'Fictional proposed-state storyboard only; not product/API/DB/hosted/security proof',htmlSha256:createHash('sha256').update(html).digest('hex'),checks,errors,external,operatingRequests:0,status:'passed'},null,2)+'\n');
+ await writeFile(resolve(out,'storyboard-checks.json'),JSON.stringify({scope:'Superseded v1 storyboard and visible retirement notice only; not LF-v2 design or product/API/DB/hosted/security proof',htmlSha256:createHash('sha256').update(html).digest('hex'),checks,errors,external,operatingRequests:0,status:'passed'},null,2)+'\n');
  console.log(`PASS ${checks.length} fictional locale/viewport/state cases; no external requests`);
 }finally{await browser.close();await new Promise(r=>server.close(r));}

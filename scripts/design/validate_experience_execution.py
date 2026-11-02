@@ -50,13 +50,26 @@ contract_path = ROOT / 'docs/03-design/academy-working-behavior-contract.md'
 contract = contract_path.read_text()
 behaviours = set(re.findall(r'^\| (WB-\d{2}) \|', contract, re.M))
 assert len(behaviours) == 24, 'Behaviour clauses missing or changed without coverage review'
-assert all(f'WB-P{i:02}' in contract for i in range(1, 5)), 'Pending decision packet missing'
+assert all(f'WB-P{i:02}' in contract for i in range(1, 5)), 'Retired proposal ID history missing'
+local_plan = delivery / 'local-data-and-sync-plan.md'
+assert local_plan.is_file(), 'Missing current durable-local target'
+local_body = local_plan.read_text()
+assert 'LF-v2' in local_body and 'supersedes' in local_body
+assert all(f'LF-P{i:02}' in local_body for i in range(1, 7)), 'Exact local-data policy gates missing'
+assert all(f'LD-{i:02}' in local_body for i in range(1, 11)), 'Dataset scope classes missing'
+assert (ROOT / 'docs/04-engineering/shift-ios-local-data-reference-review.md').is_file()
+assert 'superseded' in (ROOT / 'docs/04-engineering/working-day-pilot-architecture.md').read_text().lower(), 'Old pilot must be visibly superseded'
+assert 'SUPERSEDED V1' in (ROOT / 'design/working-day-pilot/index.html').read_text(), 'Old storyboard must not solicit current approval'
 with (delivery / 'academy-working-day-cases.csv').open(newline='') as stream:
     cases = list(csv.DictReader(stream))
 assert cases and all(None not in case and None not in case.values() for case in cases)
 assert len({case['case_id'] for case in cases}) == len(cases), 'Duplicate working-day case ID'
 with (ROOT / 'docs/03-design/screen-data-loading-matrix.csv').open(newline='') as stream:
-    loading = {row['matrix_id'] for row in csv.DictReader(stream)}
+    loading_rows = list(csv.DictReader(stream))
+    loading = {row['matrix_id'] for row in loading_rows}
+assert all('local-data-and-sync-plan.md' in row.get('local_data_design', '') for row in loading_rows), 'Missing local-data loading join'
+with (delivery / 'app-implementation-action-matrix.csv').open(newline='') as stream:
+    assert all('local-data-and-sync-plan.md' in row.get('local_data_design', '') for row in csv.DictReader(stream)), 'Missing action local-data join'
 covered = set()
 for case in cases:
     assert re.fullmatch(r'WD-\d{2}', case['case_id'])
@@ -72,6 +85,7 @@ for case in cases:
     else:
         assert case['execution_evidence'] == 'not_executed', 'Do not imply executed results in a planned case'
 assert covered == behaviours, f'Unmapped working behaviour: {behaviours - covered}'
+assert {f'WD-{i:02}' for i in range(33, 51)} <= {case['case_id'] for case in cases}, 'Persistent-local acceptance cases missing'
 for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan.md',
              'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/full-experience-redesign.md',
              'docs/06-delivery/experience-execution.md', 'docs/06-delivery/request-hygiene-and-offline-standard.md',
@@ -81,6 +95,7 @@ for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan
     body = (ROOT / path).read_text()
     assert 'academy-working-behavior-contract.md' in body, f'Missing behaviour pointer: {path}'
     assert 'academy-working-day-acceptance.md' in body, f'Missing acceptance pointer: {path}'
+    assert 'local-data-and-sync-plan.md' in body, f'Missing current persistent-local target: {path}'
 assert (delivery / 'academy-working-day-acceptance.md').is_file()
 print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states; current {active['work_id']}; {len(cases)} planned/evidence-linked working-day cases across {len(behaviours)} WB clauses')
 

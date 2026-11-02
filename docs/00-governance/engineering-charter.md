@@ -1,5 +1,9 @@
 # AcademyOS engineering charter
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Engineering must distinguish an Owner-directed persistent-local design target from acceptance of exact sensitive fields, offline read leases, retention, key handling and queues. Use [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Planned durable reads do not weaken current server authority or approve offline commands. No copied native personal-data policy or library default establishes an academy privacy rule. Audit documentation status and current-versus-target evidence alongside each batch.
+
 Effective planning instruction: 22 October 2026. Owner: Moamen Ghareeb, Product Owner and Platform Owner. Applies to human and AI-assisted work. The owner explicitly requested disciplined coding and continuous security gates. This charter defines required practice; the enforcement inventory below states what is actually automated.
 
 ## Accountability and authority

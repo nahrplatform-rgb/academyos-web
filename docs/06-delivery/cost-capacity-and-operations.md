@@ -1,5 +1,9 @@
 # Cost, capacity and routine operations
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Budget per completed working visit and prepared coverage: first manifest+finite pages+completion; unchanged reopen with local reads and bounded auth/version checks; changed deltas or disclosed full replacement. [local-data and sync plan](local-data-and-sync-plan.md). Add disk/index/key/migration/cursor costs and interrupted work; avoid double-counting modeled savings or claiming Supabase/Redis/API work disappears. No upgrade or new telemetry authorized.
+
 ## Working-day request budget overlay — 2 November2026
 
 Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day measurement protocol](academy-working-day-acceptance.md), [service-impact evidence](../04-engineering/request-service-impact.md) and [single tracker](experience-execution.csv). EX-05 and EX-08 support each affected pilot/adoption checkpoint; EX-10 defines ownership/budgets before new coordination or preparation. No new price, allowance, paid tier or measured savings is asserted here.

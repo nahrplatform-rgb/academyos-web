@@ -1,6 +1,10 @@
 # Architecture and platform approach
 
-## Working-day data lifecycle — 2 November2026
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The new current target is a scoped durable local repository plus transactional coverage/indexes and a separate sync coordinator, detailed in [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Compare IndexedDB adapters for web/PWA; a query library alone cannot implement disk persistence or replication. Preserve current signed APIs/Clerk/current DB authority. No schema/SDK/store is installed here; v1 memory-only recommendations are superseded.
+
+## Earlier working-day data lifecycle — superseded proposal context,2November2026
 
 The [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](../06-delivery/experience-execution.md) and [tracker](../06-delivery/experience-execution.csv) now make shared ownership/pilot architecture an explicit EX-10 gate before dependent adoption. EX-11 is connected operating acceptance. No framework, cache store, queue, provider or infrastructure replacement is selected by this documentation.
 
@@ -16,6 +20,11 @@ Status: selected stack direction with proposed implementation boundaries. Exact 
 flowchart LR
   W[Responsive web and later native clients] --> A[AcademyOS application API]
   W --> C[Clerk identity and sessions]
+  W --> L[Scoped durable local repository - LF-v2 target]
+  L --> Y[Bounded bootstrap and change synchronization]
+  Y --> A
+  C --> U[Reviewed device-local unlock and scope lifecycle]
+  U --> L
   A --> P[PostgreSQL domain records and permissions]
   A --> S[Private object storage]
   A --> R[Upstash rate limits]

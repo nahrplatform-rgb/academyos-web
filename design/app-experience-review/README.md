@@ -1,5 +1,9 @@
 # AcademyOS current-experience review
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Persistent local data and quiet synchronization are now the Owner-directed experience target; read [local-data and sync plan](../../docs/06-delivery/local-data-and-sync-plan.md). The approved full Charcoal visual/workflow reference and factual current-source capture evidence stay separate. New bootstrap/reopen/coverage/lock/sync/storage failure states need a targeted local-first review; do not infer durable functionality from this HTML. The older summary-only storyboard is superseded.
+
 Owner authorized29 October2026 after reporting whole-app visual, workflow, alignment and spacing problems. This is a **faithful current baseline for review**, not a redesigned product or new business-policy acceptance.
 
 Open [the single standalone HTML](AcademyOS-experience-review.html). It embeds actual product DOM/CSS snapshots, clickable observed transitions, wording/control inventory, full UI sources with line numbers, screen/action/loading/security/requirement registers, coverage gaps and reviewer-note download. No network is required to open it in a current browser. Repository source links require the reviewer's existing repository access; the embedded sources work offline. Keep the file private to authorized project reviewers: fictional captures contain no live users or tokens, but source is proprietary.

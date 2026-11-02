@@ -1,5 +1,9 @@
 # Data model, dictionary and integrity rules
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Future local model separately represents record revision, field-policy/scope epoch, collection/range coverage, checkpoint, tombstone and applied watermark. This is not an existing schema or retention policy. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) requires coherent snapshot/change design and explicit change-feed compaction/rebase before DB work. Do not infer absence/deletion from a partial cursor page.
+
 This is the proposed logical schema, not executed SQL. Column names and physical indexes are finalized in migration review. All domain decisions in the decision register remain applicable.
 
 ## Shared conventions

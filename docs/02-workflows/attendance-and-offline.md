@@ -1,5 +1,9 @@
 # Attendance, corrections and offline recovery
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Persistent local reading/reopening of a permitted register is separate from offline capture. Current marks/corrections/QR remain online authoritative until an exact D-011/D-012 queue rule is accepted. A downloaded roster cannot grant marking authority; local pending is never server recorded. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-035–046. Attendance windows, grace periods, checkout, correction authority and offline policy are D-011/D-012. The proposed first pilot is online attendance; offline is enabled only after its separate acceptance gate.
 
 ## Online attendance contract

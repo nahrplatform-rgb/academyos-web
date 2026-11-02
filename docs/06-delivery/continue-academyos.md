@@ -8,37 +8,37 @@ Reusable instruction: **Continue from the living continuation prompt.**
 
 Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`.
 
-Read `AGENTS.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
+Read `AGENTS.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
 
 Start with the explicit current priority below, not the first unfinished EX number or an old next-step sentence in a historical packet. Follow its current next action and scoped dependency gate. Keep the retained baseline and all supporting/open work visible. Advance routing only after recording the declared checkpoint evidence; a routing checkpoint is not whole-finding closure or Owner/security acceptance.
 
-The operating goal is a continuous academy working day: correct workspace → essential current task → bounded likely-task preparation where accepted → safe return/reuse → accurate confirmed updates → interruption/recovery. Shared request ownership and startup/warm-return behaviour are brought forward. Loading every page/database record, changing colours or adding another feature is not a substitute. Code preparation and private data preparation are distinct; do not introduce a duplicate read at hydration/mount/return.
+The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month preparation and quiet synchronization. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/month preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and original operations are distinct.
 
-Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. WB-P01–P04 are proposed choices until explicitly accepted for their exact capability: no inferred private display TTL, retention, persistence, offline queue, telemetry, role or access grant. Prepare one consolidated decision/changed-state packet; continue independent safe work without repeating accepted policy questions.
+Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded, not awaiting approval. LF-P01–LF-P06 own the exact pending device/unlock/fields/retention/key/sync and future-sensitive choices. Persistent local data is the requested direction; do not re-ask whether the Owner means memory. Prepare a plain-language scoped policy packet and revised connected local-first changed-state review before dependent private runtime storage. Offline writes, finance, telemetry and access grants remain separate; independent safe work continues.
 
-Use actual source/PYSA reference and the working-day case map. Record current versus proposed, code/data/authority/draft/recovery owners, initial/repeat/return/save/preparation request budgets and affected-view invalidation. Validate useful task readiness, blank/blocked intervals, preserved input/context, authoritative results and service requests/costs on declared datasets/devices/networks. Measure alongside every batch; fewer requests alone do not prove a better experience. Keep EN/AR, phone/desktop/zoom, denial, concurrency and interruption cases explicit.
+Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-10: Academy working-behaviour, freshness decisions and pilot architecture gate
+## Current priority — EX-10: Persistent local-data and synchronization policy/design/architecture readiness
 
-Next action: Review working-day-pilot-architecture packet and EN/AR storyboard;record exact WB-P01–P04 and changed-state answers;EX02 stable-frame/source compatibility work may proceed without enabling pending reuse or persistence
+Next action: Prepare plain-language LF-P device/fields/unlock/retention choices and connected persistent-local bootstrap→reopen→quiet-change→failure/recovery review using LF-v2;do not repeat superseded summary-only question;then record exact scoped design/policy readiness
 
-Scoped dependency gate: Use existing source/evidence as baseline; contract preparation needs no new cache/access grant; WB-P01–P04 block only dependent behaviour.
+Scoped dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 
-Read: `docs/04-engineering/working-day-pilot-architecture.md`
+Read: `docs/06-delivery/local-data-and-sync-plan.md`
 
 ## Ordered primary checkpoints
 
-1. **EX-10 — Academy working-behaviour, freshness decisions and pilot architecture gate** (current).
-2. **EX-02 — Shared workspace and remaining routing/lifecycle adoption; shell/provider evidence** (queued).
-3. **EX-06 — Shared read ownership, targeted invalidation and approved in-session reuse/preparation** (queued).
-4. **EX-04 — Read cancellation, cold Calendar and detail waterfalls** (queued).
-5. **EX-03 — Crash/unknown operation identity and unavailable storage guarantees** (queued).
-6. **EX-11 — Connected Owner working-day acceptance and subsequent role adoption gate** (queued).
+1. **EX-10 — Persistent local-data and synchronization policy/design/architecture readiness** (current).
+2. **EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle** (queued).
+3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (queued).
+4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (queued).
+5. **EX-03 — Durable original-operation identity and storage-loss recovery;offline-write boundary** (queued).
+6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
 7. **EX-07 — Remaining complete Charcoal journey parity** (queued).
 
-Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Offline/privacy/monitoring decisions and future capability boundaries
+Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
 
 The order names checkpoint outputs, not a requirement to finish every role/future feature in a parent row before safe dependent work. Detailed gates remain in each row. Private policy choices block dependent behaviour only.
 
@@ -61,28 +61,28 @@ Design: existing approved experience; safeguards retained.
 - Next action: Owner review; EX-02 focus/click overlap and remaining routing/lifecycle; no whole finding closed
 - Evidence: docs/07-handoff/request-remediation-ex01.md
 
-### EX-10 — Academy working-behaviour, freshness decisions and pilot architecture gate
+### EX-10 — Persistent local-data and synchronization policy/design/architecture readiness
 
 Routing: primary / 1 / current.
 Dependencies: EX-01.
-Dependency gate: Use existing source/evidence as baseline; contract preparation needs no new cache/access grant; WB-P01–P04 block only dependent behaviour.
+Dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Owner authorized planning/execution direction2November;detailed WB-P private reuse/preparation/durability decisions and changed-state review pending.
+Design: Owner clarified durable local datasets across visits and progressive quiet sync2November;v1 summary-only proposal superseded;exact LF-P01–LF-P06 and revised connected local-first design pending.
 
-- Implementation: Actual-source pilot ownership/request/invalidation architecture and bilingual changed-state storyboard prepared;no product/cache/dependency change
-- Local checks: Source anchor/hash inventory and72fictional storyboard cases;documentation checks in checkpoint receipt;no new operating/performance run
+- Implementation: Shift staging iOS source review and isolated synthetic reference checks;AcademyOS LF-v2 plan and cross-document reconciliation;no runtime local repository or sync API
+- Local checks: Reference54passed1hosted-skip;documentation/canonical/supersession checks in reconciliation receipt;no AcademyOS local-store operating run
 - Deployment: documentation/tooling only;no new app or schema rollout
 - Hosted verification: not newly executed;prior scoped release receipts retained
-- Owner acceptance: planning direction authorized;dependent policy/design and working acceptance not inferred
+- Owner acceptance: Persistent local-data direction explicitly requested;exact privacy/device/field/retention/offline-write and changed-state acceptance not inferred
 - Independent security: open
-- Next action: Review working-day-pilot-architecture packet and EN/AR storyboard;record exact WB-P01–P04 and changed-state answers;EX02 stable-frame/source compatibility work may proceed without enabling pending reuse or persistence
-- Evidence: docs/04-engineering/working-day-pilot-architecture.md
+- Next action: Prepare plain-language LF-P device/fields/unlock/retention choices and connected persistent-local bootstrap→reopen→quiet-change→failure/recovery review using LF-v2;do not repeat superseded summary-only question;then record exact scoped design/policy readiness
+- Evidence: docs/06-delivery/local-data-and-sync-plan.md
 
-### EX-02 — Shared workspace and remaining routing/lifecycle adoption; shell/provider evidence
+### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
 
 Routing: primary / 2 / queued.
 Dependencies: EX-01; EX-10.
-Dependency gate: Upcoming shared-workspace adoption uses EX10 scoped architecture/state review; prior fixes remain valid; do not await closure of every role/history finding.
+Dependency gate: EX10 LF-v2 scoped architecture and changed-state readiness;prior released routing fixes remain valid;no assumption shell alone provides durable storage
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
@@ -92,16 +92,16 @@ Design: existing approved experience; changes scoped before implementation.
 - Hosted verification: new shell/auth correlation attempt inconclusive nativefocus;prior Owner dated1read/Calendar return evidence retained;provider/role/history gaps remain
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: Follow current EX10 contract first;then source-justified stable workspace/navigation adoption with role/dirty/unknown guards;keep hosted role/history/provider gaps visible
+- Next action: After LF-v2 scoped architecture readiness establish stable workspace and repository/sync lifecycle seam;preserve root identity/domain guards and current online APIs;no private disk enablement before exact policy
 - Evidence: docs/07-handoff/request-remediation-ex02-shell-identity.md
 
-### EX-06 — Shared read ownership, targeted invalidation and approved in-session reuse/preparation
+### EX-06 — Durable scoped local repository and read/synchronization ownership
 
 Routing: primary / 3 / queued.
-Dependencies: EX-01; EX-10.
-Dependency gate: Begin coordination/architecture after EX10 pilot contract; apply private reuse/preparation only after relevant WB-P acceptance; whole EX04/offline completion is not prerequisite.
+Dependencies: EX-01; EX-10; EX-02.
+Dependency gate: EX10 exact local-data/field/device/security design readiness;EX02 compatible workspace lifetime;private implementation only after relevant LF-P acceptance
 Findings: NR14; NR15; G08.
-Design: Architecture brought forward by working-day direction;WB-P01–P04 dependent policies pending;no library chosen.
+Design: Owner-directed persistent permitted datasets;compare indexed durable adapter and optional transient query layer;LF-P exact policies pending;v1 memory-only recommendation superseded.
 
 - Implementation: not_started
 - Local checks: not_run
@@ -109,16 +109,16 @@ Design: Architecture brought forward by working-day direction;WB-P01–P04 depen
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: After EX10 scoped contract implement one pilot read owner/key lifecycle;compare reuse versus focused library;define affected-view invalidation;only accepted private reuse/preparation;no whole EX04/offline wait
+- Next action: After scoped LF-v2 readiness implement one typed repository/storage/index/coverage/key lifecycle with local subscriptions and multi-tab coordinator;query TTL is not durable persistence;enable only accepted fields/access/retention
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md
 
-### EX-04 — Read cancellation, cold Calendar and detail waterfalls
+### EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation
 
 Routing: primary / 4 / queued.
 Dependencies: EX-01; EX-10; EX-06.
-Dependency gate: Upcoming first-use/preparation/dependency work follows the scoped read owner; existing Owner cold fix remains deployed; signed receipts/current authority stay canonical.
+Dependency gate: Upcoming dataset bootstrap/change transfer follows EX10/06 readiness;preserve existing exact APIs until versioned replacements reviewed;no premature delta or backend-abort claim
 Findings: NR05; NR06; NR07.
-Design: existing approved Calendar;scoped authoritative current-period contract implemented.
+Design: Prior Owner current-period contract retained;LF-v2 progressive persistent directory/month bootstrap and version/change contracts require scoped review.
 
 - Implementation: Owner cold Calendar2→1 implemented;signed current DB scope/setup/timezone retained;Trainer/Guardian/cancellation/detail work open
 - Local checks: passed79units;17E2E;10PG;24API budget failures;actual Next18ENAR cold/period/recovery plus regression;prod/dev UI;16captures;build/type/lint/review
@@ -126,16 +126,16 @@ Design: existing approved Calendar;scoped authoritative current-period contract 
 - Hosted verification: Owner EN/AR freshCalendar1current200;Month1explicit200;sessionreturn context retained;foreign current/retry403 zero rows;no percentiles/cancellation proof
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: Preserve deployed Owner cold1read fix;after scoped coordinator readiness handle measured remaining first-use/detail/preparation dependencies;retain Trainer/Guardian/cancellation/query gaps
+- Next action: Preserve deployed Owner cold1read;after local repository readiness design/version bounded manifest,snapshot pages,resume/completion,changes/tombstones or explicit replacement;measure cold/reopened/unchanged/changed paths and remaining waterfalls
 - Evidence: docs/07-handoff/request-remediation-ex04-current-calendar.md
 
-### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
+### EX-03 — Durable original-operation identity and storage-loss recovery;offline-write boundary
 
 Routing: primary / 5 / queued.
 Dependencies: EX-01; EX-10.
-Dependency gate: Plan recovery with EX10; prove affected save/unknown/storage cases before pilot acceptance and before replacing existing recovery; no unapproved persistence.
+Dependency gate: Prepare with EX10 LF-P04 and EX06 storage design;prove affected save/discovery cases before replacing existing recovery;private drafts/offline queues separately gated
 Findings: NR13; NR17; G09.
-Design: recovery contract review before implementation.
+Design: Recovery integrated with LF-v2 storage architecture;offline writes require separate domain policy.
 
 - Implementation: not_started
 - Local checks: not_run
@@ -143,24 +143,24 @@ Design: recovery contract review before implementation.
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: Prepare recovery with EX10 WB-P04;reproduce crash/storage-denied and original-outcome discovery for pilot writes;do not preempt the shared loading contract or invent retention
+- Next action: With LF-v2 repository design prove original online outcome identity after restart/storage failure/eviction/account switch;preserve receipts/fences;no generic offline queue or new retention invented
 - Evidence: docs/04-engineering/request-findings-register.md
 
-### EX-11 — Connected Owner working-day acceptance and subsequent role adoption gate
+### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
 
 Routing: primary / 6 / queued.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Require the declared Owner pilot checkpoints of EX02/03/04/06, not closure of all roles/future work; accepted WB-P choices and actual run evidence required.
+Dependency gate: Declared EX02/03/04/06 LF-v2 checkpoints;exact accepted LF-P policies;app shell/offline access if claimed;Owner pass cannot close all roles
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
-Design: Working-day acceptance direction authorized;planned cases not operating proof;accepted pilot policy/changed-state reference required.
+Design: Owner-directed durable local-data target;LF-v2 bootstrap/reopen/change/coverage/storage/access cases planned;exact policy/design and runtime evidence pending.
 
-- Implementation: Acceptance specification and32planned cases only;runtime pilot pending
-- Local checks: planned-case/canonical links validated;not_run_as_connected_working_day;historical scoped evidence requires declared compatibility
+- Implementation: Working-day acceptance extended for persistent local replicas;runtime pilot pending
+- Local checks: Planned local-data cases and traceability validation only;Shift reference tests are not AcademyOS operating proof
 - Deployment: no new pilot deployment claimed
 - Hosted verification: not_run_as_connected_working_day;positive role/access/device limits remain
 - Owner acceptance: not_requested_for_unimplemented_pilot
 - Independent security: open
-- Next action: After declared pilot checkpoints run Owner Today→Calendar→session/register→Back→People/review with interruptions;measure useful work/context/requests/cost and seek working acceptance;repeat role-specific adoption without closing all roles from Owner pass
+- Next action: After pilot checkpoints run first prepare→reopen local→small check→changed/deleted data→task/save/return with18players40dates and paged directory/month;test scope/key/quota/migration/multi-tab failures;measure and seek separate working acceptance
 - Evidence: docs/06-delivery/academy-working-day-acceptance.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
@@ -177,7 +177,7 @@ Design: connected proposal approved 29 October; scope preserved.
 - Hosted verification: partial_existing
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: open
-- Next action: Retain previous approvals and scoped delivery;extend the accepted working-day pattern with matching preview/runtime evidence;remaining visuals/functions and future backlog retained
+- Next action: Retain prior functional/Charcoal approvals;extend accepted durable-data/lifecycle behaviour across current journeys with actual preview/runtime evidence;future features explicit
 - Evidence: docs/06-delivery/full-experience-redesign.md
 
 ### EX-05 — Rate-limit amplification and relational query work
@@ -194,7 +194,7 @@ Design: optimization only; authority unchanged.
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: representative local query/cost measurements; no unproven index or limiter removal
+- Next action: Measure representative manifest/digest/snapshot/change and existing query/limiter work,bytes/cost;no naive all-row hashing,index/protection removal or unmeasured savings
 - Evidence: docs/04-engineering/request-service-impact.md
 
 ### EX-08 — Hosted role/device/performance/provider/source evidence
@@ -211,16 +211,16 @@ Design: measurement profiles required.
 - Hosted verification: partial_baseline
 - Owner acceptance: not_applicable
 - Independent security: open
-- Next action: Supply cold/warm/return/save/denial/request/cost evidence for every pilot batch;preserve device/role/provider limits;no silent access restoration or new telemetry
+- Next action: Measure first preparation versus reopened local stores,unchanged manifests,changed transfers,local queries,save/recovery and device/scope/storage cases per batch;preserve source/provider/role/physical limits
 - Evidence: docs/04-engineering/request-service-impact.md
 
-### EX-09 — Offline/privacy/monitoring decisions and future capability boundaries
+### EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
 
 Routing: supporting / 3 / supporting.
 Dependencies: none declared.
-Dependency gate: Resolve WB-P choices needed for the current pilot with EX10/06; persistent private data/offline queues/telemetry remain separate future decisions.
+Dependency gate: Exact policies needed for current LF-v2 local read pilot;current online coordination safe to continue;no blanket offline read/write or financial approval
 Findings: NR15; G08.
-Design: policy_pending.
+Design: Durable local-data target requested;LF-P01–LF-P06 exact policy pending;WB-P v1 superseded.
 
 - Implementation: not_started
 - Local checks: not_run
@@ -228,5 +228,5 @@ Design: policy_pending.
 - Hosted verification: not_verified
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: With EX10 prepare one WB-P01–P04 decision packet;separate memory display age from retention/offline;no blanket cache/queue/telemetry approval;independent safe online work continues
+- Next action: Resolve current persistent-read device/unlock/fields/lease/key/retention/sync choices with EX10;do not defer all persistence to native apps;offline mutations,finance,telemetry remain separate gates
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

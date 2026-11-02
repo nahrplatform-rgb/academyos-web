@@ -1,5 +1,9 @@
 # Family fees, bills, receipts, corrections and reconciliation
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Monthly local financial views are future target, not implemented finance. Separate family ledger/compensation/platform snapshots, unlock, revisions, completeness and immutable server records. No offline payment/receipt/refund approval or invented balances. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-047–062. Decisions D-001, D-005, D-006, D-007 and D-010 must settle the actual commercial rules before financial implementation. This specification defines integrity and workflow, not tax or legal policy.
 
 ## Boundary and records

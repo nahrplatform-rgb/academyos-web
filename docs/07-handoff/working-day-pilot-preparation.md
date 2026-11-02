@@ -1,5 +1,9 @@
 # EX-10 source/architecture and changed-state review checkpoint
 
+## LF-v2 supersession notice —2November2026
+
+**Superseded proposal, not awaiting approval.** The Owner clarified persistent local datasets across visits and progressive synchronization, rather than this v1 summary-only memory pilot. Read [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Earlier source inventories and synthetic storyboard receipts remain historical evidence; no approval, private runtime store or operating pass is inferred. Do not use the old30second/5minute/intent-only bundle as current defaults.
+
 2 November2026; source baseline `da24885ec77e31870b76b5c169cb6d3bb616c460`. Follow the tracker for the current next action; do not repeat this prepared inventory or resume a superseded numerical work order.
 
 The [pilot architecture packet](../04-engineering/working-day-pilot-architecture.md) is the main implementation/decision reference. It contains current owners/anchors, scoped first/repeat/return/save request ceilings, invalidation, mechanism comparison, exact pending WB-P01–P04 proposals, PYSA evidence and a bilingual [changed-state walkthrough](../../design/working-day-pilot/index.html). The [source inventory](evidence/working-day-pilot-2026-11-02/source-inventory.csv) identifies hashes/line anchors; [PYSA inventory](evidence/working-day-pilot-2026-11-02/reference-inventory.json) records read-only reference scope.
