@@ -19,5 +19,8 @@
   ],
   "backup_workflow_run": 41446372192,
   "restored_plaintext_removed": true,
-  "scope": "Schema/metadata and row-hash check; not hosted authorized app proof"
+  "scope": "Schema/metadata and row-hash check; not hosted authorized app proof",
+  "canonical_migration": "20261102124518_owner_current_calendar.sql",
+  "provider_migration_version": "20261102124518",
+  "migration_sql_sha256": "6702ba48a13982bae37c771de8861572b51469603dd117a4385d8006748ac750"
 }

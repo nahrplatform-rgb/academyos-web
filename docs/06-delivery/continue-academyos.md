@@ -47,7 +47,7 @@ Design: existing approved experience; changes scoped before implementation.
 - Hosted verification: new shell/auth correlation attempt inconclusive nativefocus;prior Owner dated1read/Calendar return evidence retained;provider/role/history gaps remain
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: EX04 Owner cold fix localpassed and schema applied;finish app rollout/hosted checks;retain EX02 role/history and provider causality gaps;EX03/private policies/Owner review open
+- Next action: EX04 Owner current fix hosted ENAR verified;continue EX03 recovery reproduction;retain EX02 role/history/provider causality and Owner review;private policies open
 - Evidence: docs/07-handoff/request-remediation-ex02-shell-identity.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
@@ -73,11 +73,11 @@ Design: existing approved Calendar;scoped authoritative current-period contract 
 
 - Implementation: Owner cold Calendar2→1 implemented;signed current DB scope/setup/timezone retained;Trainer/Guardian/cancellation/detail work open
 - Local checks: passed79units;17E2E;10PG;24API budget failures;actual Next18ENAR cold/period/recovery plus regression;prod/dev UI;16captures;build/type/lint/review
-- Deployment: staging schema applied after fresh backup/restore;dependent app CI/rollout pending
-- Hosted verification: schema ACL/proof config and57table fingerprints verified;signed-in app checks pending
-- Owner acceptance: not_requested
+- Deployment: staging10bbda7;dpl_C3PbqAmBUf4HpntLrYJ1VundMdDk Ready52s;schema20261102124518;bothCIpassed
+- Hosted verification: Owner EN/AR freshCalendar1current200;Month1explicit200;sessionreturn context retained;foreign current/retry403 zero rows;no percentiles/cancellation proof
+- Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: finish exact-source CI/app staging rollout and read-only ENAR cold/current recovery/period/return verification;no finding closure from deployment
+- Next action: Owner scoped review;continue EX03 recovery reproduction/contract;keep EX04 Trainer/Guardian cold entry and cancellation/detail/query gaps open
 - Evidence: docs/07-handoff/request-remediation-ex04-current-calendar.md
 
 ### EX-05 — Rate-limit amplification and relational query work

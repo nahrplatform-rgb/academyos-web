@@ -10,7 +10,7 @@ class ExperienceBoundary(Base):
   super().setUpClass()
   cls.sql((ROOT/'supabase/migrations/20261029035928_attendance_register_batch.sql').read_text())
   cls.sql((ROOT/'supabase/migrations/20261029194029_experience_home_calendar_reads.sql').read_text())
-  cls.sql((ROOT/'supabase/migrations/20261102120000_owner_current_calendar.sql').read_text())
+  cls.sql((ROOT/'supabase/migrations/20261102124518_owner_current_calendar.sql').read_text())
  def calendar(self,a,actor='owner',who='user_owner',first='2099-11-01',last='2099-12-12',link=None,cursor=None,ok=True):
   args=f"'{a}',"+(f"'{link}',"if actor=='guardian'else'')+f"'{first}','{last}'"
   if cursor:args+=f",'{cursor['at']}','{cursor['id']}','{cursor['day']}'"
