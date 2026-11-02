@@ -8,33 +8,33 @@ Reusable instruction: **Continue from the living continuation prompt.**
 
 Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`.
 
-Read `AGENTS.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
+Read `AGENTS.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
 
 Start with the explicit current priority below, not the first unfinished EX number or an old next-step sentence in a historical packet. Follow its current next action and scoped dependency gate. Keep the retained baseline and all supporting/open work visible. Advance routing only after recording the declared checkpoint evidence; a routing checkpoint is not whole-finding closure or Owner/security acceptance.
 
-The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month preparation and quiet synchronization. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/month preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and original operations are distinct.
+The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
-Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded, not awaiting approval. LF-P01–LF-P06 own the exact pending device/unlock/fields/retention/key/sync and future-sensitive choices. Persistent local data is the requested direction; do not re-ask whether the Owner means memory. Prepare a plain-language scoped policy packet and revised connected local-first changed-state review before dependent private runtime storage. Offline writes, finance, telemetry and access grants remain separate; independent safe work continues.
+Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope: prepare the first exact command/deadline/conflict/pending-work packet and connected changed-state review before enabling it. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
 
 Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-10: Persistent local-data and synchronization policy/design/architecture readiness
+## Current priority — EX-10: Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
-Next action: Honor no-inactivity-lock decision and approved connected design;resolve only remaining exact device,fields,local-access,key and retention choices;then advance scoped ready EX02 seam;app-wide adoption follows permitted module contracts
+Next action: Resolve prepared first Owner offline-register protocol and protected pending-work/logout choices;then prepare connected offline-capture/sync/conflict review and exact device/field/key readiness;do not repeat read-design or settled timer/retention questions;preserve completed EX02 online seam
 
-Scoped dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
+Scoped dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 
-Read: `docs/07-handoff/local-data-read-pilot-review.md`
+Read: `docs/07-handoff/request-remediation-ex02-read-owner.md`
 
 ## Ordered primary checkpoints
 
-1. **EX-10 — Persistent local-data and synchronization policy/design/architecture readiness** (current).
+1. **EX-10 — Persistent local-data, offline-edit and synchronization policy/design/architecture readiness** (current).
 2. **EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle** (queued).
 3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (queued).
 4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (queued).
-5. **EX-03 — Durable original-operation identity and storage-loss recovery;offline-write boundary** (queued).
+5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (queued).
 6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
 7. **EX-07 — Remaining complete Charcoal journey parity** (queued).
 
@@ -61,22 +61,22 @@ Design: existing approved experience; safeguards retained.
 - Next action: Owner review; EX-02 focus/click overlap and remaining routing/lifecycle; no whole finding closed
 - Evidence: docs/07-handoff/request-remediation-ex01.md
 
-### EX-10 — Persistent local-data and synchronization policy/design/architecture readiness
+### EX-10 — Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
 Routing: primary / 1 / current.
 Dependencies: EX-01.
-Dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
+Dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Connected persistent-local lifecycle design approved2November;Owner rejects automatic inactivity lock;app-wide role-scoped local-data direction retained;remaining exact LF-P pilot choices pending;future sensitive fields separate.
+Design: Read/preparation design approved;LF-v3 Owner requests month/three-month data and offline edits/reconnect;no idle lock or24hour cutoff;30day/logout read-replica cleanup selected;new command/conflict/pending-work design pending.
 
-- Implementation: Fictional IndexedDB review tool implements bounded pages,indexed local reads,atomic checkpoint/delta,reopen and synthetic recovery;no private app repository,keys or sync API
-- Local checks: Passed26 synthetic connected/restart/rollback/continuity checks and24 ENAR dark/light viewport combinations;fresh AI artifact review fixes resolved;loopback serving/current factual freshness/canonical checks;no private app operating or security proof
-- Deployment: Local review tool and documentation only;no app/schema rollout or staging promotion
+- Implementation: Fictional IndexedDB review retained;independent current-online EX02 workspace/read-owner seam implemented;no private repository,key,outbox or sync API
+- Local checks: Prior26 read-preview checks/24layouts retained;current91units,actual Next ENAR owner-lifetime/identity/concurrency and regressions,16capture suites plus2development suites passed;57WD cases remain planned/future;no offline operating proof
+- Deployment: No private local-data/schema/queue rollout;current-online seam release tracked separately in EX02
 - Hosted verification: No new hosted run for this checkpoint;no app/schema promotion performed;prior scoped release receipts retained
-- Owner acceptance: Design approved;no automatic inactivity lock per explicit Owner decision;no acceptance of24hour lease,30day retention or remaining exact policies;no app working,security or grant approval
+- Owner acceptance: Read design approved;no idle lock;no proposed24hour cutoff;30day/logout replica cleanup selected;offline edit direction selected;remaining exact fields/device/key and per-command/deadline/conflict/pending-work policy/design open
 - Independent security: open
-- Next action: Honor no-inactivity-lock decision and approved connected design;resolve only remaining exact device,fields,local-access,key and retention choices;then advance scoped ready EX02 seam;app-wide adoption follows permitted module contracts
-- Evidence: docs/07-handoff/local-data-read-pilot-review.md
+- Next action: Resolve prepared first Owner offline-register protocol and protected pending-work/logout choices;then prepare connected offline-capture/sync/conflict review and exact device/field/key readiness;do not repeat read-design or settled timer/retention questions;preserve completed EX02 online seam
+- Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
 
@@ -86,14 +86,14 @@ Dependency gate: EX10 LF-v2 scoped architecture and changed-state readiness;prio
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial_prior_fixes;NR04 diagnostic confirms route-shell remount and same-route retention;no product rewrite or identity-provider causality claim
-- Local checks: actual Next EN/AR opt-in shell/identity mechanism and ordinary suites passed;route mounts1→2→3→4;focus/locale unchanged;forced pending+2;prior dated/return/header checks retained
-- Deployment: measurement tooling only;no new app promotion;prior127352b staging dpl_46SQeUGWGxVr3i5ugARk3nWcCHdj remains last verified
-- Hosted verification: new shell/auth correlation attempt inconclusive nativefocus;prior Owner dated1read/Calendar return evidence retained;provider/role/history gaps remain
+- Implementation: Prior routing retained;stable principal/academy layout read owner now used by Home/Calendar and dated reads;in-flight refcounts/partition/cancel/denial handling;route chrome still remounts;no private disk or settled-result cache
+- Local checks: 91units incl12new read-owner cases;actual Next ENAR1owner across4task routes/1document/4reads,identity reset and dual-consumer1transport;dirty/unknown/history regressions;16capture suites plus2development suites;build/type/lint/factual checks passed
+- Deployment: Current-online seam locally verified;commit/push/CI/staging source reconciliation pending;no schema/package/provider change
+- Hosted verification: No new release-specific hosted proof yet;prior Owner navigation receipts retained;Vercel project connector404 under explicit AcademyOS scope;browser available;no provider-cost inference
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: After LF-v2 scoped architecture readiness establish stable workspace and repository/sync lifecycle seam;preserve root identity/domain guards and current online APIs;no private disk enablement before exact policy
-- Evidence: docs/07-handoff/request-remediation-ex02-shell-identity.md
+- Next action: Finish exact-source Git/CI/staging read-only verification of new seam;retain shell remount/working acceptance/security limits;then use established lifetime for ready EX06 storage work without repeating the seam
+- Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-06 — Durable scoped local repository and read/synchronization ownership
 
@@ -129,13 +129,13 @@ Design: Prior Owner current-period contract retained;LF-v2 progressive persisten
 - Next action: Preserve deployed Owner cold1read;after local repository readiness design/version bounded manifest,snapshot pages,resume/completion,changes/tombstones or explicit replacement;measure cold/reopened/unchanged/changed paths and remaining waterfalls
 - Evidence: docs/07-handoff/request-remediation-ex04-current-calendar.md
 
-### EX-03 — Durable original-operation identity and storage-loss recovery;offline-write boundary
+### EX-03 — Durable original-operation and requested offline-edit journal recovery
 
 Routing: primary / 5 / queued.
 Dependencies: EX-01; EX-10.
 Dependency gate: Prepare with EX10 LF-P04 and EX06 storage design;prove affected save/discovery cases before replacing existing recovery;private drafts/offline queues separately gated
 Findings: NR13; NR17; G09.
-Design: Recovery integrated with LF-v2 storage architecture;offline writes require separate domain policy.
+Design: Offline local edits/reconnect now Owner-directed;exact command/deadline/conflict and pending-work/logout protocol needs focused review;current online recovery retained.
 
 - Implementation: not_started
 - Local checks: not_run
@@ -143,7 +143,7 @@ Design: Recovery integrated with LF-v2 storage architecture;offline writes requi
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: With LF-v2 repository design prove original online outcome identity after restart/storage failure/eviction/account switch;preserve receipts/fences;no generic offline queue or new retention invented
+- Next action: Prepare original online outcome plus exact offline intent/base-version/receipt/conflict lifecycle with EX10/06;keep unsent/unknown operations separate from30day/logout replica cleanup;no generic command replay
 - Evidence: docs/04-engineering/request-findings-register.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
@@ -155,12 +155,12 @@ Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G
 Design: Owner-directed durable local-data target;LF-v2 bootstrap/reopen/change/coverage/storage/access cases planned;exact policy/design and runtime evidence pending.
 
 - Implementation: Working-day acceptance extended for persistent local replicas;runtime pilot pending
-- Local checks: Planned local-data cases and traceability validation only;Shift reference tests are not AcademyOS operating proof
+- Local checks: 57 planned cases including7 LF-v3 period/offline-capture/conflict/deadline/logout/clock/replay cases;existing synthetic read/online seam tests do not promote operating cases
 - Deployment: no new pilot deployment claimed
 - Hosted verification: not_run_as_connected_working_day;positive role/access/device limits remain
 - Owner acceptance: not_requested_for_unimplemented_pilot
 - Independent security: open
-- Next action: After pilot checkpoints run first prepare→reopen local→small check→changed/deleted data→task/save/return with18players40dates and paged directory/month;test scope/key/quota/migration/multi-tab failures;measure and seek separate working acceptance
+- Next action: After accepted pilot checkpoints prove first prepare/reopen/changed data and connected18player40date tasks,then selected offline save/restart/reconnect/conflict/late upload and pending-work cleanup;physical/role/key/load and Owner/security separate
 - Evidence: docs/06-delivery/academy-working-day-acceptance.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
@@ -226,7 +226,7 @@ Design: Durable local-data target requested across app;connected design approved
 - Local checks: not_run
 - Deployment: not_deployed
 - Hosted verification: not_verified
-- Owner acceptance: Owner explicitly rejects automatic inactivity lock;other exact device,field,local-access,key and retention choices pending;design approval separately recorded in EX10
+- Owner acceptance: No inactivity lock;no proposed24hour read cutoff;30day/logout replica cleanup selected;offline edit direction selected;remaining device/fields/key and command timing/conflict/unsent logout choices open
 - Independent security: open
-- Next action: Resolve remaining exact personal/shared device,fields,unlock/local-read lease and retention choices using EX10 packet;do not reintroduce rejected idle timer;private key/security enablement and offline writes/finance separate
+- Next action: Use LF-v3 packet for remaining exact device/fields/key and first offline-command timing/conflict/pending-work choices;do not re-ask rejected timers or selected replica retention;no private enablement before dependent review
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

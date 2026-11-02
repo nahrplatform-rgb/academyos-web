@@ -54,7 +54,7 @@ assert all(f'WB-P{i:02}' in contract for i in range(1, 5)), 'Retired proposal ID
 local_plan = delivery / 'local-data-and-sync-plan.md'
 assert local_plan.is_file(), 'Missing current durable-local target'
 local_body = local_plan.read_text()
-assert 'LF-v2' in local_body and 'supersedes' in local_body
+assert 'LF-v3' in local_body and 'supersedes' in local_body, 'Current local-data/offline-edit revision or superseded history missing'
 assert all(f'LF-P{i:02}' in local_body for i in range(1, 7)), 'Exact local-data policy gates missing'
 assert all(f'LD-{i:02}' in local_body for i in range(1, 11)), 'Dataset scope classes missing'
 assert (ROOT / 'docs/04-engineering/shift-ios-local-data-reference-review.md').is_file()
@@ -86,6 +86,8 @@ for case in cases:
         assert case['execution_evidence'] == 'not_executed', 'Do not imply executed results in a planned case'
 assert covered == behaviours, f'Unmapped working behaviour: {behaviours - covered}'
 assert {f'WD-{i:02}' for i in range(33, 51)} <= {case['case_id'] for case in cases}, 'Persistent-local acceptance cases missing'
+assert {f'WD-{i:02}' for i in range(51, 58)} <= {case['case_id'] for case in cases}, 'Offline-edit/conflict planned cases missing'
+assert (ROOT / 'docs/04-engineering/offline-edit-and-conflict-contract.md').is_file(), 'Offline command decision/design contract missing'
 for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan.md',
              'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/full-experience-redesign.md',
              'docs/06-delivery/experience-execution.md', 'docs/06-delivery/request-hygiene-and-offline-standard.md',

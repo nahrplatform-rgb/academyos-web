@@ -1,10 +1,15 @@
 # Academy working-day pilot and acceptance gate
 
+## Latest local-first direction — LF-v3,2November2026
+
+Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.
+
+
 ## Persistent-local acceptance extension — LF-v2,2November2026
 
-Use [the local-data and sync plan](local-data-and-sync-plan.md). The [50-case register](academy-working-day-cases.csv) extends the original32 scenarios with WD-33–WD-50: durable refresh/relaunch, progressive finite datasets, compatible checkpoint resume, complete-empty, unchanged checks, changed/deleted rows, snapshot/cursor expiry, multi-tab leadership, scope epochs, trusted/shared local access, storage/key/quota/eviction, migrations, local indexing, online-write separation, offline cold shell, dirty input under sync, future finance and whole-visit cost. Every case remains planned or explicitly future, not executed.
+Use [the local-data and sync plan](local-data-and-sync-plan.md). The [57-case register](academy-working-day-cases.csv) extends the original32 scenarios with WD-33–WD-50: durable refresh/relaunch, progressive finite datasets, compatible checkpoint resume, complete-empty, unchanged checks, changed/deleted rows, snapshot/cursor expiry, multi-tab leadership, scope epochs, trusted/shared local access, storage/key/quota/eviction, migrations, local indexing, online-write separation, offline cold shell, dirty input under sync, future finance and whole-visit cost. Every case remains planned or explicitly future, not executed.
 
-A54pass/1skip synthetic Shift reference run proves selected Swift mechanisms only. It is not AcademyOS API/DB/browser/physical/hosted evidence. Existing business and Charcoal approvals are retained; the revised local-first changed-state design still needs its own review.
+A54pass/1skip synthetic Shift reference run proves selected Swift mechanisms only. It is not AcademyOS API/DB/browser/physical/hosted evidence. Existing business/Charcoal and connected read/preparation design approvals are retained; new offline-edit/conflict states need focused review.
 
 2 November2026. **EX-11 test/acceptance specification; not executed.** Owner authorized preparing this connected operating approach and updating execution documents. This specification changes no app, role, business rule, account, service or private storage policy. Use the [behaviour contract](../03-design/academy-working-behavior-contract.md), [planned case register](academy-working-day-cases.csv), [execution tracker](experience-execution.csv), [test strategy](test-strategy-and-acceptance.md) and [security review](../04-engineering/journey-security-review.md).
 
@@ -18,7 +23,7 @@ EX-11 has two checkpoints: an Owner pilot acceptance checkpoint, then repeated r
 
 ## Readiness and fixtures
 
-Before a runtime run, attach the LF-v2 [local-data plan](local-data-and-sync-plan.md), revised EX-10 architecture/design and exact accepted LF-P device/field/access/retention/sync choices. The old WB-P summary-only proposal is superseded. Persistent data across visits is the directed target; exact privacy/offline-write rules are not inferred. Until implemented, test the present online/no-private-dataset-persistence boundary honestly. A source reference or design is not a runtime result.
+Before a runtime run, attach the current LF-v3 [local-data plan](local-data-and-sync-plan.md), revised EX-10 architecture/design and exact accepted LF-P device/field/access/retention/sync choices. The old WB-P summary-only proposal is superseded. Persistent data across visits is the directed target; exact privacy/offline-write rules are not inferred. Until implemented, test the present online/no-private-dataset-persistence boundary honestly. A source reference or design is not a runtime result.
 
 Use fictional Academy A and Academy B, known separate-account scope, long EN/AR names, an18-player register and40-date program. Reuse the existing approved dataset when its timing/state is suitable; do not create grants, restore appointments/links, send invitations or alter clock-sensitive records without the separately required authority. Test fixtures may use disposable local databases and simulated identity/transport, explicitly labelled as such. A live role test needs a currently authorized session or a separate access grant; it cannot be substituted by a client-selected role string.
 
@@ -116,3 +121,7 @@ This documentation preparation defines the gate and planned cases. No case in th
 8. **Save integrity:** current server-confirmed command/review/receipt rules unchanged. Read-only local support cannot approve an offline mark/payment/publication. Any future local acknowledgement/outbox is tested under its separate domain policy.
 
 The dataset profile includes more than one directory/month page as well as18-player/40-date tasks. Prove local covered-scope search and indexed visible-range reads without dumping all disk records into memory. Existing latency/CLS targets remain, with cold local-open versus current HTTP and device-specific privacy costs disclosed. No native→web timing extrapolation or fabricated service saving.
+
+## LF-v3 planned offline-edit extension — WD-51–WD-57
+
+The added cases cover one/three-month completeness, atomic offline local capture/restart, equal/skewed timestamps with version conflicts, delayed deadline/revocation,30day/logout cleanup with unsent work, exact reconnect replay/leader changes, and retained reads without the rejected24hour/idle timers. These7cases are **planned and not executed**. They do not convert the26 synthetic read-preview checks or current-online coordinator tests into offline command proof. Use the [offline-edit/conflict packet](../04-engineering/offline-edit-and-conflict-contract.md) for the exact new decision/design gate.

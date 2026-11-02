@@ -1,5 +1,7 @@
 # Start here for builders
 
+Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Current EX-10 is now persistent local datasets/progressive synchronization readiness. Read [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) before the generated continuation prompt/tracker. WB-P v1 is superseded; exact LF-P policies and revised changed-state review remain. Preserve earlier source/runtime receipts; no new local-data implementation/deployment is implied.

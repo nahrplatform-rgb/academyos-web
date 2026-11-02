@@ -1,5 +1,10 @@
 # Full connected experience redesign —29 October2026
 
+## Latest local-first direction — LF-v3,2November2026
+
+Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.
+
+
 Local-first behaviour review: [targeted EX-10 packet](local-data-read-pilot-decision-design.md) extends the accepted Charcoal reference with persistent reopening/preparation/recovery states; [handoff/evidence](../07-handoff/local-data-read-pilot-review.md). Proposed local behaviour is not factual current-app parity.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

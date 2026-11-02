@@ -1,5 +1,9 @@
 # Decisions and open questions
 
+## LF-v3 decisions —2November2026
+
+Owner explicitly rejects automatic inactivity locking; wants retained prepared data readable offline without the proposed24hour cutoff; requests local offline edits and reconnect synchronization; selects30day-without-online-verification or explicit-logout cleanup of read replicas. Month/three-month finite coverage and app-wide role-scoped adoption are the direction. [Exact responses](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json), [canonical plan](../06-delivery/local-data-and-sync-plan.md) and [offline-edit/conflict packet](../04-engineering/offline-edit-and-conflict-contract.md) govern. Timestamps were suggested by the Owner; expected server versions plus immutable IDs/retained conflicts are the engineering recommendation, not a silently accepted overwrite rule. Per-command timing, conflict authority, pending-work/logout and remaining device/key/field choices are open. Read-only design approval is retained; new offline-edit states need focused review. No new grant, real data, financial functionality, production or security clearance. Older entries below retain their dated scope.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Owner clarified on2November2026: data must remain locally saved between portal visits; permitted player-directory pages, monthly schedules and later financial data should prepare in sequences and synchronize quietly. Owner requested a deep staging iOS Shift review and adjustment of AcademyOS documentation. This selects the durable local-data **direction**, not every field/lease/retention/offline-write policy.

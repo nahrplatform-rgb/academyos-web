@@ -1,5 +1,7 @@
 # AcademyOS application foundation
 
+Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](docs/04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 The intended experience now retains permitted datasets on the device across visits, opens covered tasks locally and synchronizes changed data quietly. [local-data and sync plan](docs/06-delivery/local-data-and-sync-plan.md) is the canonical current target; exact private-field/device/retention/offline-write choices remain gated. Current app functionality and deployed evidence are unchanged by this planning checkpoint. Continue using the generated continuation prompt; the old summary-only storyboard is superseded.

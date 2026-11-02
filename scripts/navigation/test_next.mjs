@@ -14,10 +14,11 @@ const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
 const baseline=process.env.EX02_BASELINE==='1';
 const measureShell=process.env.EX02_SHELL_MEASURE==='1';
+const measureReadOwner=process.env.EX02_READ_OWNER_MEASURE==='1';
 const measureColdCalendar=process.env.EX04_COLD_MEASURE==='1';
 const root=resolve(import.meta.dirname,'../..'),fixture=await mkdtemp(join(tmpdir(),'academyos-next-routing-'));
 const evidence=resolve(process.env.UI_EVIDENCE_DIR||join(tmpdir(),'academyos-ex01-next'));
-const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
+const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/components/workspace-runtime.tsx','apps/web/src/lib/workspace-read-owner.ts','apps/web/src/app/[locale]/workspace/[academy]/layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
 await mkdir(evidence,{recursive:true});
 async function put(path,body){const p=join(fixture,path);await mkdir(dirname(p),{recursive:true});await writeFile(p,body);}
 await symlink(join(root,'node_modules'),join(fixture,'node_modules'),'dir');
@@ -25,10 +26,20 @@ await put('package.json',JSON.stringify({name:'academyos-isolated-next-routing',
 await put('next.config.mjs','export default {devIndicators:false};');
 await put('app/globals.css',await readFile(join(root,'apps/web/src/app/globals.css'),'utf8'));
 await put('app/layout.jsx',`import './globals.css';export default function Layout({children}){return <html lang="en"><body>{children}</body></html>}`);
-const clerk=measureShell?`import React from 'react';let loaded=true;const listeners=new Set();if(typeof window!=='undefined')window.addEventListener('fixture-identity',e=>{loaded=e.detail;listeners.forEach(f=>f())});export function useUser(){const isLoaded=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>loaded,()=>true);return {isLoaded,user:isLoaded?{id:'user_synthetic_navigation'}:undefined}}export function UserButton(){return <span>Fictional identity provider</span>}`:`import React from 'react';export function useUser(){return {isLoaded:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`;
-const bundled=await build({stdin:{contents:`export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){if(measureShell)b.onLoad({filter:/workspace-shell\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('import { useRef,','import { useEffect, useRef,');source=source.replace('export default function WorkspaceShell(props:Props){','export default function WorkspaceShell(props:Props){useEffect(()=>{const counts=window.__shellProbe??={mounts:0,unmounts:0};counts.mounts++;return()=>{counts.unmounts++;};},[]);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));}}]});
+const clerk=(measureShell||measureReadOwner)?`import React from 'react';let loaded=true,subject='user_synthetic_navigation';const listeners=new Set();if(typeof window!=='undefined')window.addEventListener('fixture-identity',e=>{loaded=e.detail!==false;if(typeof e.detail==='string')subject=e.detail;listeners.forEach(f=>f())});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>loaded?subject:null,()=>subject);return {isLoaded:id!==null,user:id?{id}:undefined}}export function UserButton(){return <span>Fictional identity provider</span>}`:`import React from 'react';export function useUser(){return {isLoaded:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`;
+const bundled=await build({stdin:{contents:`export {default as Runtime} from '${root}/apps/web/src/components/workspace-runtime.tsx';export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){if(measureShell)b.onLoad({filter:/workspace-shell\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('import { useRef,','import { useEffect, useRef,');source=source.replace('export default function WorkspaceShell(props:Props){','export default function WorkspaceShell(props:Props){useEffect(()=>{const counts=window.__shellProbe??={mounts:0,unmounts:0};counts.mounts++;return()=>{counts.unmounts++;};},[]);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});if(measureReadOwner)b.onLoad({filter:/workspace-runtime\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('  const owner = useMemo',`  useEffect(()=>{const p=window.__readOwnerProbe??={mounts:0,unmounts:0};p.mounts++;return()=>{p.unmounts++;};},[]);\n  const owner = useMemo`);return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));}}]});
 await put('product-fixture.jsx',bundled.outputFiles[0].text);
 const academy='00000000-0000-4000-8000-000000000001',program='00000000-0000-4000-8000-000000000002',day='2026-11-01';
+{
+ const path='app/[locale]/workspace/[academy]/layout.tsx',imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
+ const actual=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/layout.tsx'),'utf8');
+ await put(path,actual.replace("import WorkspaceRuntime from '@/components/workspace-runtime';",`import {Runtime as WorkspaceRuntime} from '${imp}';`).replace("import { uuidPattern } from '@/lib/onboarding';",`const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;`));
+}
+if(measureReadOwner){
+ const path='app/[locale]/workspace/[academy]/read-probe/page.jsx',imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
+ await put(path,`import {Experience} from '${imp}';export default async function Page({params}){const p=await params;return <><Experience locale={p.locale} academy={p.academy} role="owner"/><Experience locale={p.locale} academy={p.academy} role="owner"/></>}`);
+}
+
 for(const view of ['home','calendar']){
  const path=`app/[locale]/workspace/[academy]/${view}/page.jsx`,imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
  await put(path,`import {Experience} from '${imp}';export default async function Page({params,searchParams}){const p=await params,q=await searchParams;return <Experience locale={p.locale} academy={p.academy} role="owner" calendar={${view==='calendar'}} anchor={q.anchor}/>}`);
@@ -130,6 +141,31 @@ try{
    shellResults.push({locale,steps});await pc.close();
   }
   await writeFile(join(evidence,'shell-identity.json'),JSON.stringify({scope:'actual Next production routes/product shell;diagnostic-only useEffect mount counters;fictional reactive identity;forced pending tests mechanism only;no Clerk FAPI/BAPI/token/provider measurements',inputs,shellResults},null,2));
+ }
+
+ if(measureReadOwner){
+  const cases=[];
+  for(const locale of ['en','ar']){
+   const ar=locale==='ar',pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),reads=[],docs=[],faults=[];
+   p.on('pageerror',e=>faults.push(e.message));p.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')docs.push(new URL(r.url()).pathname);if(r.url().includes('/api/'))reads.push(r.postDataJSON()?.action)});
+   const base=`${origin}/${locale}/workspace/${academy}`,steps=[];
+   async function ready(label){await expect(p.getByRole('button',{name:ar?'إعادة تحميل العرض الحالي':'Reload current view',exact:true})).toBeEnabled();await expect(p.getByRole('status')).toHaveCount(0);await expect(p.locator('.experience-session')).toHaveCount(1);steps.push({label,reads:[...reads],documents:docs.length,owner:await p.evaluate(()=>({...window.__readOwnerProbe}))});}
+   await p.goto(base+'/home');await ready('home');
+   await p.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await p.waitForURL(/\/calendar/);await expect(p.getByRole('heading',{name:ar?'تقويم التدريب':'Training calendar',exact:true})).toBeVisible();await ready('calendar');
+   await p.locator('.experience-session').click();await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();steps.push({label:'date',reads:[...reads],documents:docs.length,owner:await p.evaluate(()=>({...window.__readOwnerProbe}))});
+   await p.getByRole('button',{name:ar?'العودة إلى التقويم':'Back to calendar',exact:true}).click();await p.waitForURL(/\/calendar/);await ready('return');
+   assert.ok(steps.every(s=>s.owner.mounts===1&&s.owner.unmounts===0&&s.documents===1),'one workspace owner survives task navigation;no document or auth bootstrap');
+   assert.deepEqual(reads,['owner_home','owner_calendar','read','owner_calendar'],'Home link carries its existing validated period hint');
+   await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:false})));await expect(p.locator('.public-task')).toBeVisible();assert.equal(await p.locator('.experience-session').count(),0,'uncertain identity masks old private views');
+   await expect.poll(()=>p.evaluate(()=>window.__readOwnerProbe.unmounts)).toBe(1);
+   await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:'user_second_synthetic'})));await ready('different-subject');assert.equal(steps.at(-1).owner.mounts,2);assert.equal(reads.length,5,'new identity checks current data once');
+   const before=reads.length;await p.getByRole('button',{name:ar?'إعادة تحميل العرض الحالي':'Reload current view',exact:true}).click();await ready('explicit-current-read');assert.equal(reads.length,before+1,'settled read is never a freshness/authority cache');
+   await p.screenshot({path:join(evidence,`read-owner-calendar-${locale}.png`),fullPage:true});
+   // Controlled same-resource consumers,not an allegation that current user routes render two tasks.
+   await p.goto(base+'/read-probe');await expect(p.locator('.experience-session')).toHaveCount(2);assert.equal(reads.length,before+2,'two concurrent actual consumers share one current transport');
+   assert.deepEqual(faults,[]);cases.push({locale,steps,controlledTwoConsumersReadStarts:1,errors:faults});await pc.close();
+  }
+  await writeFile(join(evidence,'workspace-read-owner.json'),JSON.stringify({status:'passed',inputs,scope:'actual Next production layout/client components;fictional identity and read-only API;no hosted Clerk/DB/cost proof;no private disk or settled-result cache',cases},null,2));
  }
  // Local interaction survives a held authority read; private projections stay masked.
  const localControls=[];

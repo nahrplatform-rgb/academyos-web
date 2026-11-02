@@ -1,5 +1,10 @@
 # Connected experience execution guide
 
+## Latest local-first direction — LF-v3,2November2026
+
+Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.
+
+
 ## Current LF-v2 route —2November2026
 
 The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. The connected local-first design is approved; the Owner rejected automatic inactivity locking. Remaining exact LF-P01–LF-P06 privacy/device/fields/retention/sync choices stay separate. Follow the canonical packet for current decisions; the app is unchanged by these documentation checkpoints.
@@ -30,7 +35,7 @@ Use [continue-academyos.md](continue-academyos.md) for the current copyable impl
 
 The Owner requested detailed plan updates after agreeing that the app must support a continuous academy working day. This direction supersedes the old instruction to mechanically continue EX-03 after the scoped cold Calendar fix. Existing source, accepted business rules, Charcoal design and released EX-01/02/04 evidence remain valid. No cache TTL, private persistence, offline queue, account grant or runtime feature is accepted merely by this plan update.
 
-The [working-behaviour contract](../03-design/academy-working-behavior-contract.md) retains WB-01–WB-24 with the LF-v2 persistent-local target. The [local-data plan](local-data-and-sync-plan.md) owns LD-01–LD-10 and current LF-P01–LF-P06 decisions; the old WB-P summary-only proposal is superseded. The [working-day acceptance specification](academy-working-day-acceptance.md) and [50-case plan](academy-working-day-cases.csv) define the connected and cross-reopen evidence. These are explicit gates, not a new infrastructure rebuild or another whole-app palette exercise.
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md) retains WB-01–WB-24 with the LF-v2 persistent-local target. The [local-data plan](local-data-and-sync-plan.md) owns LD-01–LD-10 and current LF-P01–LF-P06 decisions; the old WB-P summary-only proposal is superseded. The [working-day acceptance specification](academy-working-day-acceptance.md) and [57-case plan](academy-working-day-cases.csv) define the connected and cross-reopen evidence. These are explicit gates, not a new infrastructure rebuild or another whole-app palette exercise.
 
 ## Order and scoped dependency gates
 

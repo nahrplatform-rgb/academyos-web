@@ -30,7 +30,7 @@ jobs:
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
       - name: Verify real Next task navigation and guarded return
-        run: node scripts/navigation/test_next.mjs
+        run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked
         run: node scripts/navigation/measure_geometry.mjs
       - name: Verify offline experience-review navigation and boundaries

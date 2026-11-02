@@ -2,6 +2,10 @@
 
 2 November 2026. Starting source `4044ec50b2c4b7329206be2b6ae6600de68d6f72`, clean before this task. Authorized outcome: continue the living prompt’s current EX-10 next action, preparing clear LF-P choices and a connected persistent-local changed-state review. This is a proposed experience/tooling checkpoint, **not** private app storage implementation, deployment, Owner acceptance or independent security approval.
 
+## LF-v3 continuation — latest2November2026
+
+Owner selected30day-without-verification/logout replica cleanup, wants retained prepared data readable offline without the proposed24hour cutoff, and explicitly requests durable local edits plus reconnect synchronization. See [exact responses](evidence/local-first-owner-direction-2026-11-02.json) and [the new offline-edit/conflict preparation](../04-engineering/offline-edit-and-conflict-contract.md). No inactivity lock. The original connected read/preparation design remains approved; its24hour/15minute captions are superseded and its approval does not cover new command/conflict/deadline/logout states. Exact device/key/field and per-command handling remain to review. Current-online read-owner work is independent; [contract](../04-engineering/workspace-read-owner-contract.md). Earlier receipts below remain historical within their declared scope.
+
 ## Latest Owner response — 2 November2026
 
 Connected design explicitly approved for implementation. After asking what “locks after15min” meant, the Owner explicitly rejected automatic inactivity locking. Do not hide records, sign out or require unlocking solely because interaction stopped, and do not propose another idle duration as an accepted fallback. Other device/field/local-read-expiry/key/retention choices remain pending; current server authorization is unchanged. The persistent-local pattern is intended across suitable modules, not only the initial directory/month proof. [Exact scoped responses and approved artifact hash](../../design/local-data-preview/evidence/owner-design-approval.json). EX-10 remains current for exact remaining policy readiness; app/hosted/working-feature/security acceptance is unchanged.

@@ -3,6 +3,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { listenForVisibleResume } from '@/lib/visible-resume';
 import { useUser, UserButton } from '@clerk/nextjs';
+import { WorkspaceReadFailure as ReadFailure } from '@/lib/workspace-read-owner';
+import { useWorkspaceReadOwner } from './workspace-runtime';
 import WorkspaceShell, { PublicWorkspace, type NavigationItem } from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import { Button, Select } from './ui/controls';
@@ -15,7 +17,6 @@ type HomeTask={id:string;title?:string;kind:'program'|'publication'|'correction'
 type Panel={tasks?:HomeTask[];state:'ready'|'unavailable';count?:number;items?:CalendarSession[];more?:boolean;item?:{id:string;title?:string;starts_at?:string;ends_at?:string;timezone?:string;date?:string;status?:string;created_at?:string}|null};
 type Home={context:ExperienceContext&{setup_required?:boolean;player_name?:string};as_of:string;setup_required?:boolean;panels?:Record<string,Panel>};
 type Link={id:string;display_name:string;branch_name:string};
-class ReadFailure extends Error {constructor(public code:string){super(code);}}
 export default function ExperienceWorkspace(props:Props){
  const session=useUser(),ar=props.locale==='ar';const[authExpired,setAuthExpired]=useState(false);useEffect(()=>{if(session.isLoaded)return;const timer=setTimeout(()=>setAuthExpired(true),15000);return()=>clearTimeout(timer);},[session.isLoaded]);
  if(!session.isLoaded)return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{authExpired?(ar?'تعذر تحميل تسجيل الدخول. أعد المحاولة.':'Sign-in unavailable. Retry.'):(ar?'جارٍ تحميل تسجيل الدخول…':'Loading sign-in…')}</p>{authExpired&&<Button onClick={()=>window.location.reload()}>{ar?'إعادة المحاولة':'Retry'}</Button>}</PublicWorkspace>;
@@ -23,6 +24,7 @@ export default function ExperienceWorkspace(props:Props){
  return <ExperienceJourney {...props} subject={session.user.id} key={`${session.user.id}:${props.academy}:${props.role}:${props.calendar}`}/>;
 }
 function ExperienceJourney({locale:initialLocale,academy,role,calendar=false,anchor,subject}:Props&{subject:string}){
+ const readOwner=useWorkspaceReadOwner(subject,academy);
  const[locale,setLocale]=useState(initialLocale),[home,setHome]=useState<Home|null>(null),[data,setData]=useState<CalendarProjection|null>(null),[links,setLinks]=useState<Link[]>([]),[link,setLink]=useState(''),[moreLinks,setMoreLinks]=useState(false),[linkAfter,setLinkAfter]=useState<string|null>(null),[from,setFrom]=useState(()=>isCivilDay(anchor)?anchor:''),[view,setView]=useState<'week'|'month'>('week'),[selected,setSelected]=useState<CalendarSession|null>(null),[pages,setPages]=useState<(CalendarCursor|null)[]>([]),[cursor,setCursor]=useState<CalendarCursor|null>(null),[busy,setBusy]=useState(true),[error,setError]=useState(''),[filter,setFilter]=useState(''),[revision,setRevision]=useState(0);
  // The resolved cold-entry anchor is display/navigation state, not another read trigger.
  const currentAnchor=useRef('');
@@ -35,9 +37,8 @@ function ExperienceJourney({locale:initialLocale,academy,role,calendar=false,anc
  const reserveGeometry=useCallback(()=>{setCheckingHeight(resultsRegion.current?.getBoundingClientRect().height??0);setCheckingRegions({headerWidth:headerContent.current?.getBoundingClientRect().width??0,header:taskHeader.current?.getBoundingClientRect().height??0,toolbar:scene.current?.querySelector('.window-toolbar')?.getBoundingClientRect().height??0,context:headerContext.current?.getBoundingClientRect().height??0,summary:periodSummary.current?.getBoundingClientRect().height??0,tasks:taskGrid.current?.getBoundingClientRect().height??0});},[]);
  const rememberSelection=useCallback((value:{program:string;day:string}|null)=>{selectionRef.current=value;setSelectedKey(value);},[]);
  const request=useCallback(async<T,>(path:string,body:Record<string,unknown>,signal:AbortSignal):Promise<T>=>{
-  const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},cache:'no-store',body:JSON.stringify({academy,...body}),signal:AbortSignal.any([signal,AbortSignal.timeout(15000)])});
-  const value=await r.json();if(!r.ok||value.error||value.data?.error)throw new ReadFailure(value.error??value.data?.error??'unavailable');return value.data;
- },[academy]);
+  return readOwner.read<T>(role,path,body,signal);
+ },[readOwner,role]);
  useEffect(()=>{let live=true;queueMicrotask(()=>{if(!live)return;try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');if(saved){if(saved.position&&['center','document'].every(key=>Number.isFinite(saved.position[key])&&saved.position[key]>=0&&saved.position[key]<=1000000)){scrollPosition.current={center:saved.position.center,document:saved.position.document};pendingPosition.current={...scrollPosition.current};}if(isCivilDay(saved.from))setFrom(saved.from);if(saved.view==='week'||saved.view==='month')setView(saved.view);if(typeof saved.filter==='string'&&saved.filter.length<=80)setFilter(saved.filter);if(typeof saved.selection?.program==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(saved.selection.program)&&typeof saved.selection.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.selection.day))rememberSelection({program:saved.selection.program,day:saved.selection.day});}}catch{}setRestored(true);});return()=>{live=false;};},[cacheKey,rememberSelection]);
  useEffect(()=>{if(!restored)return;try{sessionStorage.setItem(cacheKey,JSON.stringify({from:displayedFrom,view,filter,selection:selectionRef.current,position:scrollPosition.current}));}catch{}},[cacheKey,restored,displayedFrom,view,filter,selectedKey]);
  // Navigation coordinates only: never persist the projection or restore before authority.

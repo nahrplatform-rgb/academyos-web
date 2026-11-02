@@ -1,5 +1,7 @@
 # AcademyOS setup record — start here
 
+Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Current experience work includes durable local reads and quiet sync as core architecture. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) supersede the unaccepted summary-only pilot. No service setup/native build is necessary merely to document it; provider changes and privileged grants remain separately gated.
