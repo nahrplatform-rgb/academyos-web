@@ -1,0 +1,11 @@
+{
+  "scope": "Fictional local-data changed-state preview; no private app implementation or hosted/security proof",
+  "sources": {
+    "src/index.html": "8a562ad1c585c81752459d90c8e9cd1f5b716d045cd32aef3b93887069a43c7c",
+    "src/style.css": "8dc3c7ffd291d2926715b04d77f6fff6b07cf4f980b62811a20d69215ef562d5",
+    "src/repository.mjs": "b627a391cd52504ca39d34bb09db5314e23828833e66d88dedc82c313bf18362",
+    "src/fixtures.mjs": "e463d84354b76d76138bb2629aa6547c3297990ee2586cebcdde6fef9dc9faaf",
+    "src/app.mjs": "a3e1bd14e953299c5626a95551ccec450c56bad6f1a4e533eff4fcf1dafd868e"
+  },
+  "htmlSha256": "9e3b0a77b2359267d8459d8989810152a3a7d1f3b7a05bce39b9681914dcf150"
+}

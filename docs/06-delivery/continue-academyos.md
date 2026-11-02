@@ -22,11 +22,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data and synchronization policy/design/architecture readiness
 
-Next action: Prepare plain-language LF-P device/fields/unlock/retention choices and connected persistent-local bootstrap→reopen→quiet-change→failure/recovery review using LF-v2;do not repeat superseded summary-only question;then record exact scoped design/policy readiness
+Next action: Review prepared local-data packet and connected preview;record exact scoped LF-P choices and design acceptance;resolve changes rather than rebuild or repeat old memory-only question;then advance ready EX02 seam with private key/security gates retained
 
 Scoped dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 
-Read: `docs/06-delivery/local-data-and-sync-plan.md`
+Read: `docs/07-handoff/local-data-read-pilot-review.md`
 
 ## Ordered primary checkpoints
 
@@ -67,16 +67,16 @@ Routing: primary / 1 / current.
 Dependencies: EX-01.
 Dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Owner clarified durable local datasets across visits and progressive quiet sync2November;v1 summary-only proposal superseded;exact LF-P01–LF-P06 and revised connected local-first design pending.
+Design: LF-v2 direction retained;plain-language exact LF-P01–LF-P05 pilot recommendations and connected Charcoal local-data preview prepared;policy/design acceptance pending;LF-P06 future scope separate.
 
-- Implementation: Shift staging iOS source review and isolated synthetic reference checks;AcademyOS LF-v2 plan and cross-document reconciliation;no runtime local repository or sync API
-- Local checks: Reference54passed1hosted-skip;documentation/canonical/supersession checks in reconciliation receipt;no AcademyOS local-store operating run
-- Deployment: documentation/tooling only;no new app or schema rollout
-- Hosted verification: not newly executed;prior scoped release receipts retained
-- Owner acceptance: Persistent local-data direction explicitly requested;exact privacy/device/field/retention/offline-write and changed-state acceptance not inferred
+- Implementation: Fictional IndexedDB review tool implements bounded pages,indexed local reads,atomic checkpoint/delta,reopen and synthetic recovery;no private app repository,keys or sync API
+- Local checks: Passed26 synthetic connected/restart/rollback/continuity checks and24 ENAR dark/light viewport combinations;fresh AI artifact review fixes resolved;loopback serving/current factual freshness/canonical checks;no private app operating or security proof
+- Deployment: Local review tool and documentation only;no app/schema rollout or staging promotion
+- Hosted verification: No new hosted run for this checkpoint;no app/schema promotion performed;prior scoped release receipts retained
+- Owner acceptance: Persistent direction requested;exact fields/device/unlock24h/idle15m/replica30d recommendations and changed-state design pending;no offline-write or key approval inferred
 - Independent security: open
-- Next action: Prepare plain-language LF-P device/fields/unlock/retention choices and connected persistent-local bootstrap→reopen→quiet-change→failure/recovery review using LF-v2;do not repeat superseded summary-only question;then record exact scoped design/policy readiness
-- Evidence: docs/06-delivery/local-data-and-sync-plan.md
+- Next action: Review prepared local-data packet and connected preview;record exact scoped LF-P choices and design acceptance;resolve changes rather than rebuild or repeat old memory-only question;then advance ready EX02 seam with private key/security gates retained
+- Evidence: docs/07-handoff/local-data-read-pilot-review.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
 
@@ -226,7 +226,7 @@ Design: Durable local-data target requested;LF-P01–LF-P06 exact policy pending
 - Local checks: not_run
 - Deployment: not_deployed
 - Hosted verification: not_verified
-- Owner acceptance: not_requested
+- Owner acceptance: Exact pilot choices presented with EX10;response pending;no acceptance inferred
 - Independent security: open
-- Next action: Resolve current persistent-read device/unlock/fields/lease/key/retention/sync choices with EX10;do not defer all persistence to native apps;offline mutations,finance,telemetry remain separate gates
+- Next action: Use EX10 prepared plain-language local-data packet for exact personal/shared device,fields,local unlock/lease and retention review;key threat model and private enablement stay gated;offline writes/finance separate
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

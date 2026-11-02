@@ -1,0 +1,18 @@
+preview_surface,transition_or_state,canonical_groups,loading,working_behaviour,planned_cases,evidence_layer,limits
+Device choice,personal opt-in versus shared no-retention,IMP-J01-A01,L01,WB-01;WB-15;WB-16,WD-41;WD-42,fictional design plus no-retained-row test,No real identity/unlock/encryption/lease enforcement
+Overview,first task and progressive finite preparation,IMP-J06-A01;IMP-J09-A01,L05;L06;L04;L07,WB-02;WB-04;WB-18;WB-22;WB-24,WD-34;WD-50,real synthetic IndexedDB pages and UI,No app API/RPC/SQL/cost or real task-readiness proof
+Overview,pause reload unlock resume,IMP-J01-A01;IMP-J06-A01;IMP-J09-A01,L01;L05;L04,WB-06;WB-17;WB-18,WD-33;WD-35,real synthetic checkpoint and browser restart,Unlock is a simulation; no private protection or physical-device pass
+Overview,unchanged reopening,IMP-J01-A01;IMP-J06-A01;IMP-J09-A01,L01;L05;L04,WB-05;WB-06;WB-07;WB-24,WD-33;WD-37;WD-50,synthetic version checks with zero snapshot pages,Not zero network request promise or operating-service quota proof
+Players,indexed search paging optional inspector,IMP-J06-A01;IMP-J06-A02,L05;L06,WB-08;WB-18;WB-20;WB-21,WD-45,real bounded synthetic local query and rendered states,Name-prefix index only; full profile stays outside local pilot
+Calendar,covered month and day selection,IMP-J09-A01,L04;L07,WB-08;WB-18;WB-19,WD-34;WD-45,real synthetic local day index,No new planning/publication/attendance write
+Calendar,missing versus checked empty month,IMP-J09-A01,L04;L07,WB-16;WB-17;WB-18,WD-36,real synthetic empty completion metadata,No server snapshot consistency proof
+Review scenarios,changed name moved date and removals,IMP-J06-A01;IMP-J09-A01,L05;L04,WB-07;WB-12;WB-19;WB-24,WD-38,real synthetic atomic delta and revision,Fixture source and version proof simulated; not deployed change feed
+Review scenarios,storage transaction abort and retry,IMP-J06-A01;IMP-J09-A01,L05;L04,WB-12;WB-17;WB-23,WD-35;WD-43,real injected IndexedDB abort,Not physical quota/eviction/key/corruption proof
+Review scenarios,expired partial snapshot rebase,IMP-J06-A01;IMP-J09-A01,L05;L04,WB-17;WB-18;WB-23,WD-39,implemented synthetic staging reset and bounded rebase,Cursor expiration source is simulated
+Overview,quiet update retains dirty text selection and focus,IMP-J01-A01;IMP-J06-A01;IMP-J09-A01,L01;L05;L04,WB-11;WB-12;WB-20,WD-48,real DOM input retention and dialog checks,Private draft is memory only; not a persisted domain draft
+Two preview tabs,one coordinator and nonprivate invalidation,IMP-J01-A01,L01,WB-13;WB-24,WD-40,synthetic Web Locks contention and shared committed data,Not product leader-crash/migration/concurrent-command proof
+Review scenarios,already-open offline local read,IMP-J06-A01;IMP-J09-A01,L05;L04,WB-16,WD-42;WD-46,real local query with browser network disabled,No offline cold shell or permission guarantee; no offline writes
+Review scenarios,scope switch expired access and denial,IMP-J01-A01,L01,WB-14;WB-15;WB-16,WD-41;WD-42,synthetic scope partitions and hidden views,Real lease/token/key/revocation protection not implemented
+Original save,unknown reference reload replica removal reconciliation,IMP-J01-A01,L01,WB-09;WB-10;WB-15,WD-33;WD-43;WD-46,real synthetic locator store and retained ID,Write/receipt/outcome discovery are simulated not domain operations
+Responsive review,EN AR dark light and focused details,IMP-J01-A01;IMP-J06-A01;IMP-J09-A01,L01;L05;L04,WB-20;WB-21,WD-48,Chromium rendered layout and native dialogs,Emulation not physical devices or assistive-technology acceptance
+Not implemented,private keys migrations cold offline shell future finance,IMP-J01-A01,L01,WB-15;WB-16;WB-23,WD-43;WD-44;WD-47;WD-49,planned real-app gate only,Not demonstrated or passed by this review

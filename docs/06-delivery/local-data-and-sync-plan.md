@@ -6,6 +6,8 @@ This is the canonical current local-data design/policy-preparation record. It su
 
 Use the [Shift source review](../04-engineering/shift-ios-local-data-reference-review.md), [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution tracker](experience-execution.csv), [request standard](request-hygiene-and-offline-standard.md), [loading matrix](../03-design/screen-data-loading-matrix.csv), [acceptance cases](academy-working-day-cases.csv), [security review](../04-engineering/journey-security-review.md) and [service-impact evidence](../04-engineering/request-service-impact.md). No new app capability or private storage policy is inferred from a generated prompt, simulated view or dependency default.
 
+Current EX-10 review: [plain-language device/fields/access recommendations](local-data-read-pilot-decision-design.md) and [connected synthetic local-data preview](../../design/local-data-preview/README.md). These are prepared for review, not accepted policy or private runtime storage.
+
 ## 1. The experience being built
 
 **First permitted use:** authenticate/choose workspace → open the requested task with its essential current data → start a visible, resumable preparation of the allowed dataset in bounded pages → save completed coverage locally → let the person work while remaining approved sets are prepared.

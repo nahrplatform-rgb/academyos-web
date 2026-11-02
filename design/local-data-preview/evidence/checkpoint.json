@@ -1,0 +1,20 @@
+{
+  "scope": "EX10 fictional decision/design checkpoint only",
+  "sourceBase": "4044ec50b2c4b7329206be2b6ae6600de68d6f72",
+  "htmlSha256": "9e3b0a77b2359267d8459d8989810152a3a7d1f3b7a05bce39b9681914dcf150",
+  "checks": {
+    "previewBrowser": 26,
+    "layoutCombinations": 24,
+    "sourceAndGeneratedPreviewFresh": true,
+    "servingWhitelistAndCSP": true,
+    "reviewFindingsResolved": 2,
+    "executionValidator": "passed;EX10 current;50 WD cases not promoted",
+    "canonicalValidator": "passed;68 screens/30 action groups/180 requirements retained",
+    "factualCurrentSourceFreshness": "passed;unchanged capture pack",
+    "diffWhitespace": "passed",
+    "runtimeAppSchemaPackageUnchanged": true
+  },
+  "designPolicyApproval": "pending;questions presented with exact scoped recommendations",
+  "deploymentHostedOwnerSecurity": "No app rollout or new hosted/Owner/security acceptance claimed",
+  "automaticUserBrowserOpening": "blocked by disabled local browser control; clickable local preview provided"
+}

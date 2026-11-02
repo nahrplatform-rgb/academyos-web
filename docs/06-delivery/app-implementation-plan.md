@@ -1,5 +1,7 @@
 # One application implementation plan
 
+Persistent-local changed-state review checkpoint: [EX-10 packet and exact pending choices](local-data-read-pilot-decision-design.md); [evidence and next action](../07-handoff/local-data-read-pilot-review.md). The existing app and policy/security gates remain separate.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day acceptance](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv) with the current tracker.

@@ -20,6 +20,8 @@ Use the tracker current row and revised output table below. EX-10 stays current;
 - [Canonical actions](app-implementation-action-matrix.csv), [requirements](requirements-traceability.csv), [loading rows](../03-design/screen-data-loading-matrix.csv) and [security gates](../04-engineering/journey-security-review.md): existing IDs, accepted rules and evidence. Do not renumber or mark parent requirements complete from a scoped finding fix.
 - [Living factual review](../../design/app-experience-review/README.md): actual component captures/wording/control states. Approved proposal remains separate; UI changes require affected recapture and freshness checks.
 
+Current EX-10 artifact: [local-data decision/design packet](local-data-read-pilot-decision-design.md) and [verification/handoff](../07-handoff/local-data-read-pilot-review.md). Consult the tracker for the exact pending review; do not rebuild the prepared packet or treat fictional persistence as app implementation.
+
 ## Living continuation prompt
 
 Use [continue-academyos.md](continue-academyos.md) for the current copyable implementation prompt. It is generated from every tracker row, including unresolved delivery/acceptance/security gates. After each completed or interrupted checkpoint: update the tracker/evidence, run `python3 scripts/design/build_continuation_prompt.py`, then `python3 scripts/design/validate_experience_execution.py`. The validator rejects a stale prompt; it does not run the next task or prove runtime behavior. This repository workflow is not a scheduled background automation.

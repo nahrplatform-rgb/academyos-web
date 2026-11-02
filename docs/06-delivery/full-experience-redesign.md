@@ -1,5 +1,7 @@
 # Full connected experience redesign —29 October2026
 
+Local-first behaviour review: [targeted EX-10 packet](local-data-read-pilot-decision-design.md) extends the accepted Charcoal reference with persistent reopening/preparation/recovery states; [handoff/evidence](../07-handoff/local-data-read-pilot-review.md). Proposed local behaviour is not factual current-app parity.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day acceptance](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv) with the current tracker.

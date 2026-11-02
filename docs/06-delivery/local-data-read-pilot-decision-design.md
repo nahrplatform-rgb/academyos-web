@@ -1,0 +1,68 @@
+# Local-data pilot: the choices and the connected review
+
+2 November 2026. **Recommendations and a fictional reviewable prototype; policy/design acceptance pending.** This prepares the current EX-10 checkpoint from [LF-v2](local-data-and-sync-plan.md). The Owner already requested records that survive reopening, progressive player/month preparation and quiet synchronization. That direction is settled. The decisions below concern the narrower privacy and device boundaries; they do not ask whether to keep data merely in tab memory.
+
+## What this will mean in everyday use
+
+The first time you use your own device, the requested task opens first. The app then prepares the permitted player directory and month schedule in small batches, showing what is complete. You can keep working. If interrupted, it resumes the unfinished batch sequence.
+
+Next time, it opens those prepared records after unlocking. A small account/version check looks for changes. If nothing changed, it does **not** download all the player and schedule pages again. If something changed, only supported changes/removals are applied; an older server contract may instead need an honestly labelled bounded replacement. Data is local, but permission to make an operating change is still checked by the server.
+
+“Kept on the device,” “up to date,” “unlocked,” and “saved by the server” are four different states. They must be understandable without technical language.
+
+## Recommended first scope — pending your acceptance
+
+| Choice | Concrete recommendation | What you will notice |
+|---|---|---|
+| Person/device — LF-P01 | Start with an existing Academy Owner on an explicitly selected personal device. Shared/public computers default to online access without retaining private datasets. Trainer and Guardian policies follow as separately scoped work. | You choose whether this is your own device. This grants no new account or academy access. |
+| Player fields — LF-P02 / LD-02 | All currently permitted directory summaries: player ID, display name, branch ID/name and authoritative revision. Retain scope/field-policy metadata and protected search indexes. No contact, date of birth, medical data, family relationship, full profile, staff reason or feedback text. Do not invent a player status absent from the current projection. | Search/browse the prepared directory without downloading it again. Full profiles and duplicate-registration checks remain current online operations. |
+| Schedule fields — LF-P02 / LD-03 | The selected branch-timezone month, plus necessary grid spillover within the existing 42-day request bound. Session/program/branch IDs, title, sport label, date/start/end, IANA zone, draft/published/moved/cancelled state, capacity, roster count and revision. Prepare all pages for that finite scope. Previous/next month can be explicitly added. No player names/roster, Trainer private profile, reasons or attendance history. | A month with more than 50 sessions remains complete across pages. Missing months are labelled Not prepared; checked empty months stay checked empty. |
+| Reopening and disconnection — LF-P01 | Require current same-account sign-in plus local unlocking before first private use. For a trusted device that has a separately created local-unlock passphrase, propose a **maximum 24-hour local-read lease**, issued only after a successful online scope check. Offline reopening never renews it. Without that optional local unlock, reconnect before unlocking after restart. Current operating writes remain online. | An already prepared directory/month can be read during a short outage under the accepted lease. No claim of instant offline revocation. A cold offline launch also needs a separately implemented app shell. |
+| Locking — LF-P01/P03 | Propose locking private views and dropping the usable in-memory key after **15 minutes of inactivity**, manual Lock, account change, or known denial. Unlock requires the appropriate account/device check. Hidden/suspended-tab timing must be re-evaluated before display. | Lock hides the data; it does not force a full redownload. Clock uncertainty or an expired lease requires online verification. |
+| Retention — LF-P03 | Retain approved encrypted replicas across ordinary refresh, browser restart and daily use. Propose removing replicas on explicit logout/Remove downloaded data/known scope loss, or on next execution after **30 days without successful online verification**. Do not automatically remove unresolved operation references. No private backup/export in this pilot. | Normal reopening reuses records. Logout removes this device’s read replica; the server records remain. Storage eviction/key loss requires an explained scoped re-download. |
+| Local confidentiality — LF-P03 | Use a separately reviewed encrypted store and key/unlock design; protect searchable indexes too. A local-unlock passphrase is separate from the AcademyOS account password. An online key-envelope option and offline passphrase wrapping need a documented threat model, measured derivation cost and security review before private enablement. No plaintext fallback, token-as-key or promise of iPhone Keychain equivalence. | The prototype’s Unlock button is a simulation, not the eventual security mechanism. Losing a replica key can require re-download; losing an unresolved original operation cannot be disguised as safe reset. |
+| Original saves — LF-P04 / LD-09 | Persist the original operation ID, action, subject/academy scope and outcome reference before an affected online command. No name, roster, token or full form payload in a minimal locator. Reconcile the same operation after restart. Replica removal must not clear its unresolved identity. Sign-out quarantines it until the same verified subject returns. Do not add a new server/audit retention period. If durable recording or outcome discovery is unavailable, block the affected replacement. | A missing reply means Check original save, never silently submit another one. A confirmed save followed by a read failure remains confirmed. This does not authorize an offline queue. |
+
+The **24-hour / 15-minute / 30-day values are proposals**, chosen for a short read-only pilot rather than copied from Shift’s seven-day native lease. They are not accepted defaults. You can change these values before implementation. The engineering security gate can still reject an unsafe mechanism even after product-policy approval. A disconnected client cannot guarantee remote erasure; deletion occurs when it executes and learns the decision, and an offline lease trades availability against bounded exposure. Browser clock rollback across process restarts cannot be made tamper-proof merely with a saved timestamp; the key/lease review must declare the supported threat model, monotonic checks and reconnect fallback.
+
+This first scope excludes private roster persistence, development text, finance, medical/media/export datasets, offline edits, new grants, real customer/child data and production. It does not retire those future capabilities. LF-P06 owns their later review.
+
+## Engineering recommendation — LF-P05, not a copied policy
+
+Use one typed scoped repository and one synchronization owner. Compare native IndexedDB against one focused wrapper in EX-06; this prototype adds no dependency and is not the private runtime adapter. Keep the existing API/gateway/current DB authority until reviewed versioned transport is implemented.
+
+The first bounded implementation should prioritize the current task/month, then remaining permitted directory pages, then explicitly chosen adjacent months. Start with one background page at a time, yield to interactive work, coalesce foreground/reconnect/manual checks, and use one per-scope tab leader. Do not introduce periodic polling, Realtime or closed-tab guarantees as a default. Read current version/permission metadata on unlock/resume/reconnect and relevant confirmed commands. Active long-running session freshness needs measured cadence before claiming a maximum detection time.
+
+Bind pages to scope/field-policy epoch, snapshot, stable ordering, cursor, total and final completion proof. Store rows/checkpoint in one transaction. Keep prior complete generations until a replacement is verified. Apply upserts/removals and watermark atomically; expire/rebase only the affected scope. Server response, SQL work, change-feed retention and byte limits must be measured/reviewed. A fixture diff or count alone is not a complete server snapshot proof.
+
+Unchanged reopening should transfer **zero directory/month snapshot pages**, with small authentication/access/version requests still counted. No zero-network, guaranteed quota savings, native-equivalent speed, or delta-API claim is made here. Existing signed review/atomicity/idempotency/publication/attendance deadlines remain unchanged.
+
+## Connected review artifact
+
+Open [the proposed local-data preview](../../design/local-data-preview/index.html) through its local server; use the [review instructions](../../design/local-data-preview/README.md). It inherits the accepted Charcoal spectrum visual world and dark/light EN/AR layout. The earlier full-app proposal stays valid; this artifact reviews the newly clarified data lifecycle only. The [factual current-source HTML](../../design/app-experience-review/AcademyOS-experience-review.html) stays separate.
+
+Try these connected steps:
+
+1. Choose Personal device → prepare November’s 64 session summaries and 128 permitted fictional player summaries. The first 50-session page becomes visibly partial before completion. Pause, reload and unlock; unfinished preparation resumes from its committed cursor.
+2. Reopen again after completion. The directory/month remain in IndexedDB; a simulated unchanged check uses no new dataset pages. Browse/filter/select locally, including a name from a later downloaded page.
+3. Type an unsaved working note. Run Changes or Read failure. The note, selection and focus stay; changed/moved/deleted rows update precise views. A failed check leaves last-checked data visibly labelled.
+4. Run Storage abort, then Changes. A real IndexedDB transaction is aborted: neither a partial record change nor its revision is committed. Retry explicitly. Cursor-expiry review discards only a partial generation and restarts that collection, retaining complete data elsewhere.
+5. Try an unprepared month versus the checked-empty February; try offline reading, a separate empty academy, lock/expiry/denial, shared-device mode, and the original unknown-save reference across reload and replica removal.
+
+**Real in this artifact:** synthetic IndexedDB records/indexed reads, page/checkpoint and delta/watermark transactions, aborts, persistent browser-process reopen, Web Locks coordination, nonprivate BroadcastChannel invalidation, native dialogs and rendered EN/AR controls.
+
+**Simulated:** sign-in, passphrase/key unlocking, lease/idle/clock/denial, network/source transport/version proof, operating write/receipt and server scope enforcement. Fictional rows are deliberately **unencrypted**; no real account/password is requested. Delay is an explicitly artificial 500ms per snapshot page / 450ms per change page. There is no service worker/offline cold shell, private encryption, real API, domain write, provider request, quota proof or production deployment. Offline mode represents an already-open page; closed/suspended background work is not promised.
+
+The prototype does not replace the established 18-player register or 40-date program reference with a fake new implementation. Those remain required real-app EX-11 regression/acceptance cases. This targeted preview uses a larger 64-session month to demonstrate multiple pages across several nonoverlapping-per-program session series.
+
+## Traceability, trust boundaries and readiness
+
+Affected existing groups: IMP-J01-A01 / J01-A01 / AO-002,003,004,009 / AT-002,003,004,009 / L01 / SEC-J01; IMP-J06-A01,A02 / J06-A01,A02 / AO-013,016,020 / AT-013,016,020 / L05,L06 / SEC-J06; IMP-J09-A01 / J09-A01 / AO-021,022,027,029 / AT-021,022,027,029 / L04,L07 / SEC-J09. Requirements are associations, not completion claims.
+
+WB-01–WB-24 and WD-33–WD-50 retain their real-app acceptance scope. The [preview coverage map](../../design/local-data-preview/coverage.csv) identifies design demonstrations, implementation approximations and unsupported states. No WD case is marked executed/passed from this fictional tool. Findings NR03,04,06,07,08,13–17 and G01,08,09 remain open/partial.
+
+Trust boundaries: browser disk/key/account/academy partition, identity/local unlock, current signed API/gateway and tenant DB, cross-tab metadata, local draft versus replica, original command versus projected result. Only a separate fictional origin is changed now. No app source/schema/API/permission/provider or real data changes.
+
+Design approval and exact policy approval must be recorded independently. Then EX-02 can establish the stable workspace/repository seam; EX-06 designs/tests encryption, storage, migrations and exact accepted fields/access, and EX-04 implements bounded real transport. EX-03 recovery is designed alongside them before affected writes change. Follow the [tracker](experience-execution.csv); this packet cannot grant its own acceptance or security clearance.
+
+Evidence, actual verification results, limitations and continuation are in the [EX-10 handoff](../07-handoff/local-data-read-pilot-review.md). No working-feature, deployment, Owner acceptance or independent security status is inferred from this design packet.
