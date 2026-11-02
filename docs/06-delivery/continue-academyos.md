@@ -43,11 +43,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial:Home/Calendar control/header geometry reservations implemented;prior scroll/local controls retained;remaining inspector/shell/history and dated resume open
 - Local checks: 20EN/AR320/360/390/1024/1440 Home/Calendar control/scroll/private-mask/short/403/503/unoccluded-status checks passed;actual Next;77units;17E2E;API/build/type/lint;16capture/offline/freshness/33theme passed
-- Deployment: prior geometry309dcfb staging Ready;new header change not yet pushed/deployed
-- Hosted verification: prior309dcfb scoped EN/AR native Calendar return verified;new header/control positions not yet hosted;intermittent denial cause open
+- Deployment: header a17f4ff staging;dpl_DQfZX9xW967XNVqWNecUX9XWBQ9w Ready59s;both exact-source CI passed
+- Hosted verification: scoped Owner Home EN/AR revalidation;Calendar EN reload/search/selection and Arabic date return observed;held-read pixel geometry local only;intermittent denial cause open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: finish header capture/local evidence and exact-source CI/staging verification;then inspector/shell/history and dated resume pairing;EX03/04/private policies retained;Owner review pending
+- Next action: next bounded inspector/shell/history and dated resume pairing;preserve current geometry/private masks;EX03/04/private policies retained;Owner review pending
 - Evidence: docs/07-handoff/request-remediation-ex02-header.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
