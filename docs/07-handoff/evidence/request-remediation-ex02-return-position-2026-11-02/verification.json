@@ -6,7 +6,7 @@
   },
   "local": "77units;17foundation;actual Next EN/AR long-list return/history/mask/short/denial;20geometry;build/type/lint;16capture suites+8welcome;review offline/freshness passed",
   "requestBudget": "2 Calendar reads initial+task return;5 including explicit history/short/denied;no extra read",
-  "deployment": "correction not yet pushed",
+  "deployment": "corrected033322f previewReady38s;both exact-sourceCI41411200972/41411191876 passed;staging promotion paused at user TouchID;not hosted verified",
   "hosted": "not verified for this change",
   "ownerAcceptance": "pending",
   "independentSecurity": "open",
@@ -16,5 +16,6 @@
     "41410216093": "failed phone scroll restore",
     "promoted": false
   },
-  "correction": "snapshot actual numeric position at unmodified internal-link activation before router scroll handling;strict test forces reset at target before unmount;local passed"
+  "correction": "snapshot actual numeric position at unmodified internal-link activation before router scroll handling;strict test forces reset at target before unmount;local passed",
+  "capture": "corrected source16suites+8welcome;1049frames/1053transitions/65sourcefiles/6880literals;offline/freshness passed"
 }

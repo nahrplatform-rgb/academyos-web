@@ -43,11 +43,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial:long-list Calendar task return coordinates implemented;prior header/scroll/local controls retained;remaining shell/dated resume open
 - Local checks: 4EN/AR1440/390 actual Next40-row task return/history/mask/short/denied passed;20geometry;77units;17E2E;build/type/lint;16capture/offline/freshness passed
-- Deployment: new return-position local;prior a17f4ff staging Ready59s
+- Deployment: corrected033322f previewReady38s;both exact-source CI passed;staging promotion awaits selected nahrplatform-rgb TouchID;27052b8 failed/not promoted;prior a17f4ff staging
 - Hosted verification: new return-position not yet hosted;prior scoped Owner EN/AR header/return evidence retained;intermittent denial cause open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: exact-source CI/deploy/hosted return-position;then remaining shell/dated resume pairing;EX03/04/private policies retained;Owner review pending
+- Next action: after TouchID verify exact033322f staging source/alias and hosted return-position;then shell/dated resume pairing;EX03/04/private policies and Owner review retained
 - Evidence: docs/07-handoff/request-remediation-ex02-return-position.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees

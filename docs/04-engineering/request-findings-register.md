@@ -184,3 +184,5 @@ EX-02 People1November2026: [scoped visible-return adoption](../07-handoff/reques
 ## Scoped execution continuation — 1 November 2026
 
 [EX-02/EX-04 Owner task wait packet](../07-handoff/request-remediation-ex02-task-continuity.md): known branch-day Home entry can avoid full Home bootstrap before Calendar; explicit Home/Calendar dated tasks no longer need a hidden date directory before planning. Controlled before/after proves request dependency and action readiness, not all-role hosted speed. Unhinted cold Calendar, private-content clearing, remaining shell/native-history, cancellation/query measurements and whole NR03/NR06/NR07 coverage stay open. Read the single tracker for exact delivery/acceptance status.
+
+EX-02 long-list2November2026: [Calendar task return position](../07-handoff/request-remediation-ex02-return-position.md) distinguishes restored selection from actual scroll orientation. Exact-source CI caught and corrected pre-unmount router scroll ordering; remaining role/shell/freshness and hosted measurement gaps stay open in the execution tracker.
