@@ -14,5 +14,22 @@
     "Private runtime encryption or security clearance",
     "New account grant",
     "App deployment or working-feature acceptance"
-  ]
+  ],
+  "subsequentOwnerResponse": {
+    "date": "2026-11-02",
+    "inactivityResponse": "i dont want this at all",
+    "inactivityResponseContext": "The explained15minute automatic lock/hiding of records after no interaction",
+    "appWideQuestion": "this local storage behaviour will extend to full app right ?",
+    "recordedDecision": "No automatic lock,hidden records,sign-out or re-unlock solely for inactivity;do not substitute a different idle timer",
+    "appWideScope": "Persistent permitted datasets and quiet synchronization are the existing app-wide direction;progressive adoption by module and role;first directory/month slice is not the final scope",
+    "notInferred": [
+      "Indefinite offline access",
+      "24hour local-read lease or30day retention acceptance",
+      "Every private field or role policy accepted",
+      "Offline writes or unbuilt finance functionality",
+      "App implementation,deployment or security clearance"
+    ],
+    "approvedArtifactPreserved": "Original approved HTML hash retained;old15minute device caption is superseded by this response;there is no active automatic idle timer in that preview"
+  },
+  "currentPolicyStatus": "Automatic inactivity lock explicitly rejected;remaining exact device/field/local-access/key/retention choices pending"
 }

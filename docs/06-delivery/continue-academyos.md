@@ -22,7 +22,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data and synchronization policy/design/architecture readiness
 
-Next action: Clarify proposed idle lock in ordinary language and resolve exact remaining device/field/unlock/retention choices;do not re-ask approved connected design;then advance scoped ready EX02 seam while private key/security gates remain
+Next action: Honor no-inactivity-lock decision and approved connected design;resolve only remaining exact device,fields,local-access,key and retention choices;then advance scoped ready EX02 seam;app-wide adoption follows permitted module contracts
 
 Scoped dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 
@@ -67,15 +67,15 @@ Routing: primary / 1 / current.
 Dependencies: EX-01.
 Dependency gate: Use Shift source/PYSA workflow and current AcademyOS evidence;durable-data target selected;exact LF-P dependent policies and changed-state review before private runtime enablement
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Connected persistent-local lifecycle design explicitly approved for implementation2November;exact LF-P01–LF-P05 pilot policy bundle remains pending;Owner requested15minute idle-lock explanation;LF-P06 future separate.
+Design: Connected persistent-local lifecycle design approved2November;Owner rejects automatic inactivity lock;app-wide role-scoped local-data direction retained;remaining exact LF-P pilot choices pending;future sensitive fields separate.
 
 - Implementation: Fictional IndexedDB review tool implements bounded pages,indexed local reads,atomic checkpoint/delta,reopen and synthetic recovery;no private app repository,keys or sync API
 - Local checks: Passed26 synthetic connected/restart/rollback/continuity checks and24 ENAR dark/light viewport combinations;fresh AI artifact review fixes resolved;loopback serving/current factual freshness/canonical checks;no private app operating or security proof
 - Deployment: Local review tool and documentation only;no app/schema rollout or staging promotion
 - Hosted verification: No new hosted run for this checkpoint;no app/schema promotion performed;prior scoped release receipts retained
-- Owner acceptance: Design approval recorded only;policy answer requests idle-lock clarification,not acceptance of15min/24h/30d or other exact choices;no app working/security/grant approval inferred
+- Owner acceptance: Design approved;no automatic inactivity lock per explicit Owner decision;no acceptance of24hour lease,30day retention or remaining exact policies;no app working,security or grant approval
 - Independent security: open
-- Next action: Clarify proposed idle lock in ordinary language and resolve exact remaining device/field/unlock/retention choices;do not re-ask approved connected design;then advance scoped ready EX02 seam while private key/security gates remain
+- Next action: Honor no-inactivity-lock decision and approved connected design;resolve only remaining exact device,fields,local-access,key and retention choices;then advance scoped ready EX02 seam;app-wide adoption follows permitted module contracts
 - Evidence: docs/07-handoff/local-data-read-pilot-review.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
@@ -220,13 +220,13 @@ Routing: supporting / 3 / supporting.
 Dependencies: none declared.
 Dependency gate: Exact policies needed for current LF-v2 local read pilot;current online coordination safe to continue;no blanket offline read/write or financial approval
 Findings: NR15; G08.
-Design: Durable local-data target requested;LF-P01–LF-P06 exact policy pending;WB-P v1 superseded.
+Design: Durable local-data target requested across app;connected design approved;automatic inactivity lock rejected;remaining exact LF-P choices pending;WB-P v1 superseded.
 
 - Implementation: not_started
 - Local checks: not_run
 - Deployment: not_deployed
 - Hosted verification: not_verified
-- Owner acceptance: Policy response requests15minute idle-lock clarification;exact bundle remains pending;connected design approval is separately recorded in EX10
+- Owner acceptance: Owner explicitly rejects automatic inactivity lock;other exact device,field,local-access,key and retention choices pending;design approval separately recorded in EX10
 - Independent security: open
-- Next action: Use EX10 prepared plain-language local-data packet for exact personal/shared device,fields,local unlock/lease and retention review;key threat model and private enablement stay gated;offline writes/finance separate
+- Next action: Resolve remaining exact personal/shared device,fields,unlock/local-read lease and retention choices using EX10 packet;do not reintroduce rejected idle timer;private key/security enablement and offline writes/finance separate
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

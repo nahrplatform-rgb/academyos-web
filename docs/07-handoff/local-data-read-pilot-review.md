@@ -4,7 +4,7 @@
 
 ## Latest Owner response — 2 November2026
 
-Connected design explicitly approved for implementation. Device/privacy policy was not accepted: the Owner asked for clarification of “locks after15min”. Explain inactivity versus active use, hiding versus deleting records, and the still-pending unlock method; do not re-ask the already approved design. [Exact scoped approval and artifact hash](../../design/local-data-preview/evidence/owner-design-approval.json). Earlier pending-design statements below describe the preparation checkpoint. EX-10 remains current for exact policy readiness; app/hosted/working-feature/security acceptance is unchanged.
+Connected design explicitly approved for implementation. After asking what “locks after15min” meant, the Owner explicitly rejected automatic inactivity locking. Do not hide records, sign out or require unlocking solely because interaction stopped, and do not propose another idle duration as an accepted fallback. Other device/field/local-read-expiry/key/retention choices remain pending; current server authorization is unchanged. The persistent-local pattern is intended across suitable modules, not only the initial directory/month proof. [Exact scoped responses and approved artifact hash](../../design/local-data-preview/evidence/owner-design-approval.json). EX-10 remains current for exact remaining policy readiness; app/hosted/working-feature/security acceptance is unchanged.
 
 ## Review now
 
@@ -12,7 +12,7 @@ Connected design explicitly approved for implementation. Device/privacy policy w
 - [Connected proposed preview and instructions](../../design/local-data-preview/README.md), served at `http://127.0.0.1:3235/design/local-data-preview/index.html` by `node scripts/design/serve_local_data_preview.mjs`. The server serves this generated preview only, binds loopback, prohibits external connections and does not expose the repository.
 - [Generated single-file HTML](../../design/local-data-preview/index.html), [source fingerprint manifest](../../design/local-data-preview/manifest.json), [coverage map](../../design/local-data-preview/coverage.csv), [verification receipt](../../design/local-data-preview/evidence/checks.json).
 
-Persistent cross-visit data is already the requested direction. The new packet recommends an Owner-only personal-device first slice with exact directory/month summary fields, optional local-unlock read access for24hours, idle lock15minutes and replica cleanup after30days without successful verification. **All exact values, local-access/key/field/retention choices and design acceptance remain pending.** These are separate from the superseded v1 memory/30second/5minute proposal. No offline write queue or sensitive-domain scope is inferred.
+Persistent cross-visit data is already the requested direction. The first slice proposes an Owner personal device, exact directory/month summary fields, optional local-unlock read access for24hours and replica cleanup after30days without successful verification. **Those remaining exact device/access/key/field/retention choices are pending; the connected design is approved and automatic inactivity locking is rejected.** The approved-hash HTML’s old15minute caption is historical proposal copy, not a current requirement; its source has no active automatic idle timer. These decisions are separate from the superseded v1 memory/30second/5minute proposal. No offline write queue or sensitive-domain scope is inferred.
 
 ## What was built and verified
 
@@ -46,7 +46,7 @@ Canonical joins: IMP-J01-A01, IMP-J06-A01/A02 and IMP-J09-A01; L01/L04/L05/L06/L
 
 ## What remains explicitly open
 
-- Product acceptance of the exact scoped policy and proposed connected lifecycle. Proposed numbers are not hidden defaults.
+- Product acceptance of the remaining exact scoped policy. Connected lifecycle design is approved; automatic inactivity locking is rejected. Remaining proposed numbers are not hidden defaults.
 - Private adapter/key derivation/wrapping/online key access, passphrase recovery, local lease threat model, clock limitations, account cleanup, quotas/corruption/migration/eviction and cold offline shell.
 - Real versioned manifest/snapshot/change/removal contracts and SQL/bytes/limiter/provider cost, server-side discovery after locator loss, access epochs and late replies at actual boundaries.
 - Trainer/Guardian scoped local fields, original domain writes/concurrency/unknown-result regressions, leader-crash failover, active-scope freshness cadence, Safari/iOS/Android/physical and assistive technology, hosted working-day/Owner acceptance and independent human/security review.
@@ -55,7 +55,7 @@ No new access grant/restoration, real data, service upgrade, production release 
 
 ## Continuation
 
-EX-10 remains `current`. Review the prepared artifact and obtain exact policy/design choices; do not repeat the source-reconciliation task or ask whether the Owner meant persistent data. Record accepted and changed choices separately. Then advance only the scoped ready output toward EX-02’s stable workspace seam, followed by EX-06 storage/key implementation and EX-04 real bounded transport, with EX-03 recovery and supporting EX-05/08/09 evidence alongside them.
+EX-10 remains `current`. Resolve only the remaining exact policy choices, honoring the rejection of inactivity locking and existing design approval. Do not re-ask those settled choices, repeat the source-reconciliation task or ask whether the Owner meant persistent data. Record accepted and changed choices separately. Then advance only the scoped ready output toward EX-02’s stable workspace seam, followed by EX-06 storage/key implementation and EX-04 real bounded transport, with EX-03 recovery and supporting EX-05/08/09 evidence alongside them.
 
 The loopback server whitelist/CSP/freshness and native dialog were also checked separately; see [serving checks](../../design/local-data-preview/evidence/serving-checks.json). Automatic opening in the user’s browser reports “Local browser use is disabled in Work settings”; the clickable local URL remains available, without changing user settings.
 

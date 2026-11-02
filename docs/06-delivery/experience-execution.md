@@ -2,7 +2,7 @@
 
 ## Current LF-v2 route —2November2026
 
-The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. Exact LF-P01–LF-P06 privacy/device/fields/retention/sync decisions and revised connected local-first design remain. The current app is unchanged by plan reconciliation.
+The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. The connected local-first design is approved; the Owner rejected automatic inactivity locking. Remaining exact LF-P01–LF-P06 privacy/device/fields/retention/sync choices stay separate. Follow the canonical packet for current decisions; the app is unchanged by these documentation checkpoints.
 
 Use the tracker current row and revised output table below. EX-10 stays current; EX-02 workspace, EX-06 durable repository, EX-04 bootstrap/change sync, EX-03 recovery, EX-11 reopened-local acceptance and EX-07 remaining Charcoal adoption retain their scoped sequence. EX-05/08/09 accompany them. Do not substitute a transient cache, native-app wrapper or another feature for this target.
 

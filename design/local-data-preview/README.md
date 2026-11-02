@@ -4,7 +4,9 @@ This is the proposed EX-10 changed-state review for the Owner-directed [LF-v2 mo
 
 Open `http://127.0.0.1:3235/design/local-data-preview/index.html` when the repository-local server is running. Use HTTP on this fixed local origin: browser storage is origin-specific, so a different port/profile is a different store. Opening the downloaded HTML through `file://` does not establish reliable cross-browser persistence. The generated `index.html` contains its styles and script, with no CDN/assets/API dependency.
 
-Owner response2November2026: the connected design is explicitly approved for implementation. The exact device/privacy bundle remains unaccepted: the Owner asked what the proposed15minute idle lock means. See the [approval record](evidence/owner-design-approval.json). This is not working-feature or security acceptance.
+Owner responses2November2026: the connected design is explicitly approved for implementation. After clarification, the Owner **rejected automatic inactivity locking**. Do not implement a15minute timer or replace it with a different idle duration. The exact remaining device/privacy choices remain pending. See the [approval record](evidence/owner-design-approval.json). This is not working-feature or security acceptance.
+
+The HTML is preserved at its approved hash; its device-description caption still lists the earlier proposed15minute lock. That caption is superseded by the [current Owner decision](../../docs/06-delivery/local-data-read-pilot-decision-design.md), and is not an implementation requirement. The preview has no active automatic idle timer. Manual Lock and simulated lease/denial scenarios illustrate separate states. App-wide local-data adoption remains the target, delivered by module and permitted role/fields.
 
 ## Review sequence
 
