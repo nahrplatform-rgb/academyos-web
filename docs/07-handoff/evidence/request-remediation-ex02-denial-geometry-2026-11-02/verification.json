@@ -10,7 +10,7 @@
   "typecheck": "passed",
   "build": "passed",
   "capture": "16actual-component suites plus8welcome frames passed;1047frames/1053transitions;offline tool/freshness and33theme snapshots passed",
-  "deployment": "not yet pushed/deployed",
+  "deployment": "source309dcfb pushed;both CI41394348190/41394341789 success;preview dpl_E8DzFa9DEkbDK2H7BWwcP8kfM3MV Ready34s;staging promotion waits TouchID",
   "hosted": "prior-release bounded native EN/AR draft/Calendar return evidence only;new geometry not yet verified",
   "ownerAcceptance": "pending",
   "independentSecurity": "open"

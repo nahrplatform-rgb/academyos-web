@@ -1,0 +1,24 @@
+{
+  "source": "309dcfb131402dd793ecff41f2b90bc760824454",
+  "ci": {
+    "41394348190": "success",
+    "41394341789": "success"
+  },
+  "preview": {
+    "id": "dpl_E8DzFa9DEkbDK2H7BWwcP8kfM3MV",
+    "url": "academyos-3xd4szztf-academy-os2.vercel.app",
+    "status": "Ready",
+    "durationSeconds": 34,
+    "sourceVerified": "309dcfb131402dd793ecff41f2b90bc760824454",
+    "method": "native existing AcademyOS project dashboard;connector returned no matching projects"
+  },
+  "staging": "promotion pending Vercel reauthentication;existing nahrplatform-rgb passkey selected,TouchID required;no new deployment/alias result observed",
+  "hostedGeometry": "not yet verified",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "targetDomainsReviewed": [
+    "academyos-web.vercel.app",
+    "staging.academy.nahr.dev"
+  ],
+  "providerEnvironmentLabel": "Production in existing staging/default project;not a production launch"
+}

@@ -43,11 +43,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial: local-control fix retained;temporary geometry reservation for Home/Calendar checks implemented;denial cause and remaining shell gaps open
 - Local checks: six EN/AR 1440/1024/390 clamp before/after and short/denied/unavailable release passed;actual Next;77units;17E2E;API/build/type/lint;16capture suites/offline/freshness/33theme passed
-- Deployment: prior controls ddce60d Ready;geometry change not yet pushed/deployed
+- Deployment: geometry309dcfb pushed;both exact-source CI success;preview dpl_E8DzFa9DEkbDK2H7BWwcP8kfM3MV Ready34s;existing staging promotion waits Vercel TouchID
 - Hosted verification: prior serving native EN/AR dirty Cancel retained agent draft;explicit discard restored filter/selection;six200/one canceled app rows;denial not reproduced;new geometry not hosted verified
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: finish exact-source checks/CI and staging geometry verification;retain intermittent denial until failing status/context captured;then remaining header/toolbar geometry,shell/history and dated resume pairing;EX03/04/private policies open
+- Next action: complete pending Vercel nahrplatform-rgb passkey/TouchID promotion;verify exact staging alias/source and EN/AR geometry separately;then remaining header/summary movement,shell/history and dated resume pairing;capture failing denial status if it recurs;EX03/04/private policies remain open
 - Evidence: docs/07-handoff/request-remediation-ex02-geometry.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
