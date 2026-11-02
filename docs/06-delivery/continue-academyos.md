@@ -22,7 +22,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
-Next action: Resolve prepared first Owner offline-register protocol and protected pending-work/logout choices;then prepare connected offline-capture/sync/conflict review and exact device/field/key readiness;do not repeat read-design or settled timer/retention questions;preserve completed EX02 online seam
+Next action: First finish prepared1e7008f staging promotion after Vercel passkey completion and read-only verification;then resolve prepared Owner offline-register protocol and protected pending-work/logout choices and build focused offline-capture/sync/conflict design;remaining device/field/key readiness;do not repeat settled decisions or EX02 seam
 
 Scoped dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 
@@ -75,7 +75,7 @@ Design: Read/preparation design approved;LF-v3 Owner requests month/three-month 
 - Hosted verification: No new hosted run for this checkpoint;no app/schema promotion performed;prior scoped release receipts retained
 - Owner acceptance: Read design approved;no idle lock;no proposed24hour cutoff;30day/logout replica cleanup selected;offline edit direction selected;remaining exact fields/device/key and per-command/deadline/conflict/pending-work policy/design open
 - Independent security: open
-- Next action: Resolve prepared first Owner offline-register protocol and protected pending-work/logout choices;then prepare connected offline-capture/sync/conflict review and exact device/field/key readiness;do not repeat read-design or settled timer/retention questions;preserve completed EX02 online seam
+- Next action: First finish prepared1e7008f staging promotion after Vercel passkey completion and read-only verification;then resolve prepared Owner offline-register protocol and protected pending-work/logout choices and build focused offline-capture/sync/conflict design;remaining device/field/key readiness;do not repeat settled decisions or EX02 seam
 - Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
@@ -88,11 +88,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: Prior routing retained;stable principal/academy layout read owner now used by Home/Calendar and dated reads;in-flight refcounts/partition/cancel/denial handling;route chrome still remounts;no private disk or settled-result cache
 - Local checks: 91units incl12new read-owner cases;actual Next ENAR1owner across4task routes/1document/4reads,identity reset and dual-consumer1transport;dirty/unknown/history regressions;16capture suites plus2development suites;build/type/lint/factual checks passed
-- Deployment: Current-online seam locally verified;commit/push/CI/staging source reconciliation pending;no schema/package/provider change
-- Hosted verification: No new release-specific hosted proof yet;prior Owner navigation receipts retained;Vercel project connector404 under explicit AcademyOS scope;browser available;no provider-cost inference
+- Deployment: Code1e7008f pushed;both exact-source CI41531516588/41531507290 passed;Vercel Preview dpl_7MRnExdKzvVagCzBF4hna6kzfJWo Ready56s;canonical staging promotion waits for fresh Vercel passkey;not claimed deployed to alias
+- Hosted verification: Existing signed-in staging Calendar observed as baseline only;new-code ENAR/navigation/foreign denial pending promotion;no operating writes or grants
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: Finish exact-source Git/CI/staging read-only verification of new seam;retain shell remount/working acceptance/security limits;then use established lifetime for ready EX06 storage work without repeating the seam
+- Next action: After Owner completes open Vercel passkey check,finish prepared1e7008f staging promotion and verify exact source/Ready/alias plus read-only ENAR task return and foreign denial;do not rebuild current-online seam or claim private persistence
 - Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-06 — Durable scoped local repository and read/synchronization ownership

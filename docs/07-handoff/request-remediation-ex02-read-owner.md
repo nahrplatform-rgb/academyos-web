@@ -44,3 +44,13 @@ Working Owner acceptance, broad role/device/load/cost and independent security r
 ## Continue
 
 Do not rebuild this seam or re-ask settled durable-data/timer/replica-retention/read-design choices. Follow the current generated prompt: resolve the prepared first offline-register timing/conflict and pending-work/logout decisions, prepare its connected offline-write review, and complete remaining exact device/field/key readiness. Then advance only ready EX-06/04/03 work, preserving current server checks and all existing scopes. Actual private local implementation and working offline acceptance are still ahead.
+
+## Release checkpoint —3November2026
+
+App/source commit `1e7008f388e82c225a7b1e50f4e7319469dbfede` was pushed. Both exact-source Foundation checks passed: [run41531516588](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531516588) and [run41531507290](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531507290). Vercel automatically produced **Preview Ready** `dpl_7MRnExdKzvVagCzBF4hna6kzfJWo` in56seconds, visibly bound to that source. A preview build does not update the canonical staging alias.
+
+The explicit promotion review listed only `academyos-web.vercel.app` and `staging.academy.nahr.dev`. Promotion was requested within the existing staging authorization; Vercel then displayed **Reauthenticate**. Continue with Passkey was initiated and the tab was left visible for the Owner. The fresh account check is pending; no credentials, OTP or recovery code were read or entered. This is the existing provider's account control, not a new feature/access approval. [Release receipt](evidence/ex02-read-owner-2026-11-02/release.json).
+
+**Canonical staging deployment and release-specific hosted verification remain pending.** The existing signed-in Calendar could be read, but was not claimed as the new source. No domain save or access restoration occurred. Once the Owner finishes the passkey check, inspect fresh provider state; complete the prepared release if necessary; verify exact source/Ready/canonical alias, then run read-only Owner EN/AR Home/Calendar/date/return and foreign-scope denial. Do not assume authentication completion itself proves promotion or app behaviour. Keep the original user Calendar tab/selection; use a temporary test tab.
+
+This documentation receipt may follow the code commit; do not rebuild/promote a different source merely because its documentation timestamp is later. Current code hashes and the source-specific CI/release boundary stay explicit.

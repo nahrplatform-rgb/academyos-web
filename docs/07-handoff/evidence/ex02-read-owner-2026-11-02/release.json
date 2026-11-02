@@ -1,0 +1,51 @@
+{
+  "observedAtUTC": "2026-11-02T22:01:54Z",
+  "localDate": "2026-11-03",
+  "codeCommit": "1e7008f388e82c225a7b1e50f4e7319469dbfede",
+  "branch": "codex/onboarding-decision-design-packet",
+  "push": "confirmed",
+  "ci": [
+    {
+      "run": 41531516588,
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531516588"
+    },
+    {
+      "run": 41531507290,
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531507290"
+    }
+  ],
+  "preview": {
+    "id": "dpl_7MRnExdKzvVagCzBF4hna6kzfJWo",
+    "status": "Ready",
+    "durationSeconds": 56,
+    "url": "https://academyos-p7gwbiacl-academy-os2.vercel.app",
+    "inspection": "Vercel signed-in UI shows Preview and exact1e7008f source;Git commit status success"
+  },
+  "canonicalStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "promotion": "prepared/requested;Vercel requires reauthentication before completion",
+    "reviewedTargetDomains": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "verifiedRelease": false,
+    "releaseSpecificHostedCheck": "pending;existing signed-in calendar observed only as baseline,not1e7008f proof"
+  },
+  "accountCheck": {
+    "state": "Vercel Reauthenticate dialog;Continue with Passkey initiated;user response pending",
+    "tabUrl": "https://vercel.com/academy-os2/academyos-web/7MRnExdKzvVagCzBF4hna6kzfJWo",
+    "captureOutsideGit": "/private/tmp/academyos-ex02-staging-passkey.png",
+    "noCredentialsOrCodesRecorded": true
+  },
+  "notClaimed": [
+    "Canonical alias updated",
+    "Hosted code-specific verification",
+    "Private local persistence or offline writes enabled",
+    "Working Owner acceptance",
+    "Independent security approval",
+    "Provider usage/latency savings"
+  ],
+  "connector": "get_project with explicit AcademyOS team scope returned404;used existing authenticated browser UI;no provider settings changed"
+}
