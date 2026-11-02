@@ -43,11 +43,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial:individual-date resume uses shared pairing;prior long-list/header/local-control fixes retained;shell and wider history/role evidence open
 - Local checks: actual Next EN/AR detail+dirty paired reads2→1;distinct return1;planning production/development directory/review/unknown/denied;77units;API/build/type/lint;17E2E;16capture/offline/freshness passed
-- Deployment: new dated resume local;prior033322f staging Ready45s
+- Deployment: dated127352b previewReady39s;both exact-sourceCI passed;existing staging promotion awaits selected nahrplatform-rgb TouchID;prior033322f staging
 - Hosted verification: new dated pairing not yet hosted;prior EN/AR Calendar return proof retained;phone/history/role and intermittent denial gaps open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: exact-source CI/staging/hosted dated resume;then measured shell/identity and remaining role/history;EX03/04/private policies and Owner review open
+- Next action: afterTouchID verify127352b staging source/alias and signed-in dated resume;then measured shell/identity and remaining role/history;EX03/04/private policies and Owner review open
 - Evidence: docs/07-handoff/request-remediation-ex02-dated-resume.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees

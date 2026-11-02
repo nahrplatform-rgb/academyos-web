@@ -1,0 +1,19 @@
+{
+  "source": "127352bac3e415e628eaac858e51f5f7a5b58f46",
+  "ci": {
+    "41437451195": "success",
+    "41437442051": "success"
+  },
+  "preview": {
+    "id": "dpl_4wRogvRYaDkakfZ89e27ZEnVFRRy",
+    "url": "academyos-gwxq88uxo-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 39,
+    "sourceVerified": true,
+    "method": "existing native authenticated dashboard"
+  },
+  "staging": "promotion requested to existing staging.academy.nahr.dev and academyos-web.vercel.app;paused at selected nahrplatform-rgb TouchID;prior033322f serves until verified",
+  "hosted": "new pairing not yet verified",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

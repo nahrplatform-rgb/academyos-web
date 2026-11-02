@@ -8,8 +8,8 @@
   "before": "EN/AR detail+dirty return2reads",
   "after": "EN/AR detail+dirty return1read;distinct new return1read",
   "local": "77units;actual Next;planning production/development dirty-review/directory/unknown/denied and API18budget/3body/cross-origin;build/type/lint;17foundation passed",
-  "capture": "16actual component suites+8welcome;offline/freshness passed",
-  "deployment": "not yet pushed",
+  "capture": "16component suites+8welcome;1052frames/1055transitions/65sourcefiles/6876literals;offline/freshness passed",
+  "deployment": "127352b previewReady39s;both exact-sourceCI41437451195/41437442051 passed;promotion awaits userTouchID;new hosted not verified",
   "hosted": "new listener not verified",
   "ownerAcceptance": "pending",
   "independentSecurity": "open"
