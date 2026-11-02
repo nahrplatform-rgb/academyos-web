@@ -121,6 +121,9 @@ try{
   await p.locator('.experience-session').last().click();
   const position=()=>p.evaluate(()=>({center:document.querySelector('.workspace-center').scrollTop,document:window.scrollY}));
   const before=await position();
+  // Router/browser scroll handling may run before the domain unmounts. Force
+  // that ordering at link activation instead of relying on a fast local route.
+  if(process.env.EX02_RETURN_BASELINE!=='1')await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).evaluate(el=>el.addEventListener('click',()=>{document.querySelector('.workspace-center').scrollTop=0;window.scrollTo(0,0);},{once:true}));
   await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await p.waitForURL(/\/programs\//);
   await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();
   await p.getByRole('button',{name:ar?'العودة إلى التقويم':'Back to calendar',exact:true}).click();

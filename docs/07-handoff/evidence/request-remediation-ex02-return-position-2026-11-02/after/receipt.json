@@ -10,7 +10,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 324,
+      "calendarActionableMs": 323,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"
@@ -22,7 +22,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 327,
+      "calendarActionableMs": 319,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"
@@ -53,7 +53,7 @@
     }
   ],
   "inputs": {
-    "apps/web/src/components/experience-workspace.tsx": "3fa1b7e61697694eb623f35728bf5f93efb7f8f080cc7858bb94c20b702007e6",
+    "apps/web/src/components/experience-workspace.tsx": "a1c8cc3123002c5542388a7511c34b481070f3cfec0c33027f13b177bc84e01d",
     "apps/web/src/components/date-planning-workspace.tsx": "c7d14cb2acd28bf469f4ded10d1d1f4b0ec3004357375173e79b62ccec9d5252",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
