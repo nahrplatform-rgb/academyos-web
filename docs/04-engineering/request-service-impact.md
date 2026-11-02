@@ -115,3 +115,5 @@ Existing budgets remain targets, not passed results. No permanent monitoring ena
 ## Execution follow-up: observability distinction
 
 EX-01's Vercel staging rebuild displayed an existing Sentry build-plugin telemetry notice. The runtime sampling/replay configuration described above does not prove SDK build tooling telemetry is disabled. G05 includes checking that separate configuration/meter against current source/provider evidence; no monitoring setting was changed by the analysis or EX-01. [Current release and limits](../07-handoff/request-remediation-ex01.md).
+
+G01 scoped2November2026: [shell versus identity measurement](../07-handoff/request-remediation-ex02-shell-identity.md) supplies isolated actual-router shell counters; it does not measure the real root Clerk provider, FAPI/BAPI/token/Redis/SQL counts. Hosted correlation attempt was inconclusive due focus-triggered checks. Do not convert React mounts into provider charges or infer quotas from these counts.

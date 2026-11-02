@@ -13,9 +13,10 @@ const localControlsBaseline=process.env.EX02_LOCAL_CONTROLS_BASELINE==='1';
 const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
 const baseline=process.env.EX02_BASELINE==='1';
+const measureShell=process.env.EX02_SHELL_MEASURE==='1';
 const root=resolve(import.meta.dirname,'../..'),fixture=await mkdtemp(join(tmpdir(),'academyos-next-routing-'));
 const evidence=resolve(process.env.UI_EVIDENCE_DIR||join(tmpdir(),'academyos-ex01-next'));
-const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
+const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
 await mkdir(evidence,{recursive:true});
 async function put(path,body){const p=join(fixture,path);await mkdir(dirname(p),{recursive:true});await writeFile(p,body);}
 await symlink(join(root,'node_modules'),join(fixture,'node_modules'),'dir');
@@ -23,8 +24,8 @@ await put('package.json',JSON.stringify({name:'academyos-isolated-next-routing',
 await put('next.config.mjs','export default {devIndicators:false};');
 await put('app/globals.css',await readFile(join(root,'apps/web/src/app/globals.css'),'utf8'));
 await put('app/layout.jsx',`import './globals.css';export default function Layout({children}){return <html lang="en"><body>{children}</body></html>}`);
-const clerk=`import React from 'react';export function useUser(){return {isLoaded:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`;
-const bundled=await build({stdin:{contents:`export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));}}]});
+const clerk=measureShell?`import React from 'react';let loaded=true;const listeners=new Set();if(typeof window!=='undefined')window.addEventListener('fixture-identity',e=>{loaded=e.detail;listeners.forEach(f=>f())});export function useUser(){const isLoaded=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>loaded,()=>true);return {isLoaded,user:isLoaded?{id:'user_synthetic_navigation'}:undefined}}export function UserButton(){return <span>Fictional identity provider</span>}`:`import React from 'react';export function useUser(){return {isLoaded:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`;
+const bundled=await build({stdin:{contents:`export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){if(measureShell)b.onLoad({filter:/workspace-shell\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('import { useRef,','import { useEffect, useRef,');source=source.replace('export default function WorkspaceShell(props:Props){','export default function WorkspaceShell(props:Props){useEffect(()=>{const counts=window.__shellProbe??={mounts:0,unmounts:0};counts.mounts++;return()=>{counts.unmounts++;};},[]);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));}}]});
 await put('product-fixture.jsx',bundled.outputFiles[0].text);
 const academy='00000000-0000-4000-8000-000000000001',program='00000000-0000-4000-8000-000000000002',day='2026-11-01';
 for(const view of ['home','calendar']){
@@ -60,6 +61,30 @@ try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
+ // Diagnostic-only source instrumentation: no production counters, SDK
+ // network interception, credentials or provider behavior are fabricated.
+ if(measureShell){
+  const shellResults=[];
+  for(const locale of ['en','ar']){
+   const ar=locale==='ar',pc=await browser.newContext(),p=await pc.newPage(),requests=[],docs=[];
+   p.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')docs.push(new URL(r.url()).pathname);if(r.url().includes('/api/'))requests.push(r.postDataJSON()?.action)});
+   const base=`${origin}/${locale}/workspace/${academy}`,steps=[];
+   async function snapshot(step){await p.locator('.app-scene').waitFor();const state=await p.evaluate(()=>({counts:{...window.__shellProbe},documentMarker:window.__shellDocument,identityShell:!!document.querySelector('.public-task'),shellCount:document.querySelectorAll('.app-scene').length}));steps.push({step,...state,documents:docs.length,requests:[...requests]});}
+   await p.goto(base+'/home');await expect(p.locator('.experience-session')).toHaveCount(1);await p.evaluate(()=>window.__shellDocument='same-document');await snapshot('home');
+   await p.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await expect(p.locator('.experience-session')).toHaveCount(1);await p.waitForURL(/\/calendar/);await expect(p.getByRole('heading',{name:ar?'تقويم التدريب':'Training calendar',exact:true})).toBeVisible();await expect.poll(()=>requests.length).toBe(2);await expect(p.locator('.experience-session')).toHaveCount(1);await snapshot('calendar');
+   await p.locator('.experience-session').click();await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();await snapshot('date');
+   const before=p.url(),beforeFocus=requests.length;await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect.poll(()=>requests.length).toBe(beforeFocus+1);await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();await snapshot('date-focus');
+   await p.getByRole('link',{name:ar?'English':'العربية',exact:true}).click();await expect(p.getByRole('heading',{name:ar?'Draft dates':'تواريخ المسودات',exact:true})).toBeVisible();assert.equal(p.url(),before);await snapshot('local-language');
+   await p.getByRole('button',{name:ar?'Back to calendar':'العودة إلى التقويم',exact:true}).click();await expect(p.locator('.experience-session')).toHaveCount(1);await expect.poll(()=>requests.length).toBe(5);await expect(p.getByRole('heading',{name:ar?'Training calendar':'تقويم التدريب',exact:true})).toBeVisible();await snapshot('calendar-return');
+   assert.deepEqual(steps.map(s=>s.counts.mounts),[1,2,3,3,3,4],'route changes remount;focus and local locale retain the current shell');
+   const steady=steps.at(-1).counts.mounts;await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:false})));await expect(p.locator('.public-task')).toBeVisible();await snapshot('forced-identity-pending');
+   await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:true})));await expect(p.locator('.experience-session')).toHaveCount(1);await snapshot('identity-ready');
+   assert.equal(steps[3].counts.mounts,steps[2].counts.mounts,'same dated focus does not remount shell');assert.equal(steps[4].counts.mounts,steps[2].counts.mounts,'local locale does not remount shell');assert.equal(steps.at(-1).counts.mounts,steady+2,'forced identity pending replaces private shell and returns with fresh projection');
+   assert.ok(steps.every(s=>s.documents===1&&s.documentMarker==='same-document'&&s.shellCount===1),'shell replacement is not a document reload or duplicated shell');
+   shellResults.push({locale,steps});await pc.close();
+  }
+  await writeFile(join(evidence,'shell-identity.json'),JSON.stringify({scope:'actual Next production routes/product shell;diagnostic-only useEffect mount counters;fictional reactive identity;forced pending tests mechanism only;no Clerk FAPI/BAPI/token/provider measurements',inputs,shellResults},null,2));
+ }
  // Local interaction survives a held authority read; private projections stay masked.
  const localControls=[];
  for(const view of ['home','calendar']){

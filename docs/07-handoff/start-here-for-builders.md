@@ -154,3 +154,5 @@ EX-01 release31October2026: app776043f passed both exact-source CI runs and serv
 EX-02 latest2November2026: [long-list Calendar task return](request-remediation-ex02-return-position.md) follows the released header checkpoint. Preserve scoped numeric-navigation-only restoration and current-authority reads; inspect the tracker for exact local/release/hosted/acceptance states.
 
 EX-02 dated-resume latest2November2026: [individual-date visible return](request-remediation-ex02-dated-resume.md). Shared pairing preserves current review/dirty/unknown behavior; consult tracker for exact release/hosted status. Prior Calendar return evidence remains valid within its scope.
+
+EX-02 shell/identity latest2November2026: [measurement checkpoint](request-remediation-ex02-shell-identity.md) changes diagnostic tooling/docs only. Real Clerk costs cannot be inferred from shell mounts. Continue tracker EX-04 cold Calendar dependency measurement without retiring residual EX-02 gaps or private policy boundaries.

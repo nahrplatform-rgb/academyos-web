@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial:individual-date resume uses shared pairing;prior long-list/header/local-control fixes retained;shell and wider history/role evidence open
-- Local checks: actual Next EN/AR detail+dirty paired reads2→1;distinct return1;planning production/development directory/review/unknown/denied;77units;API/build/type/lint;17E2E;16capture/offline/freshness passed
-- Deployment: dated127352b staging;dpl_46SQeUGWGxVr3i5ugARk3nWcCHdj Ready48s;both exact-sourceCI passed
-- Hosted verification: Owner EN detail/AR dirty native return each1planning200;capacity7 retained then discarded;saved2 rechecked;wider role/history/shell/intermittent denial gaps open
+- Implementation: partial_prior_fixes;NR04 diagnostic confirms route-shell remount and same-route retention;no product rewrite or identity-provider causality claim
+- Local checks: actual Next EN/AR opt-in shell/identity mechanism and ordinary suites passed;route mounts1→2→3→4;focus/locale unchanged;forced pending+2;prior dated/return/header checks retained
+- Deployment: measurement tooling only;no new app promotion;prior127352b staging dpl_46SQeUGWGxVr3i5ugARk3nWcCHdj remains last verified
+- Hosted verification: new shell/auth correlation attempt inconclusive nativefocus;prior Owner dated1read/Calendar return evidence retained;provider/role/history gaps remain
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: measure shell/identity and remaining role/history returns before further rewrite;retain dated pairing and numeric-only Calendar continuity;EX03/04/private policies and Owner review open
-- Evidence: docs/07-handoff/request-remediation-ex02-dated-resume.md
+- Next action: proceed bounded EX04 cold Calendar dependency measurement;retain EX02 hosted role/history and identity causality gaps;no shell rewrite from mounts alone;EX03/private policies/Owner review open
+- Evidence: docs/07-handoff/request-remediation-ex02-shell-identity.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 
@@ -77,7 +77,7 @@ Design: bounded contract review required.
 - Hosted verification: intermediate read-only network count comparison;final native menu/task verified;no cancellation/SQL/percentile proof
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: measure unhinted cold Calendar/read cancellation and remaining detail waterfalls;retain write uncertainty and scoped continuity evidence
+- Next action: next concrete batch: measure unhinted cold Calendar versus known-day entry and cancellation/waterfall;keep EX02 shell/auth causality open;preserve current authority/recovery
 - Evidence: docs/07-handoff/request-remediation-ex02-task-continuity.md
 
 ### EX-05 — Rate-limit amplification and relational query work
