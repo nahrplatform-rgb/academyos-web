@@ -12,8 +12,16 @@
     "sourceVerified": true,
     "method": "existing native authenticated Vercel dashboard"
   },
-  "staging": "promotion requested to existing staging.academy.nahr.dev and academyos-web.vercel.app;paused at selected nahrplatform-rgb TouchID account check;prior a17f4ff still serving until verified",
-  "hosted": "new long-list position not hosted",
+  "staging": {
+    "id": "dpl_9LZX2qr7yjqcEvTtm8YEGshAEzNy",
+    "url": "academyos-5corxxatw-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 45,
+    "sourceVerified": true,
+    "aliasVerified": "staging.academy.nahr.dev",
+    "method": "native authenticated dashboard after user TouchID;duration detail45s/build log46s"
+  },
+  "hosted": "Existing Owner EN/AR monthly Calendar26scoped sessions;1Nov\u201312Dec;Synthetic I3a filter;selected10Dec date\u2192Back restored period/filter/selection and lower calendar orientation observed;no operating writes;exact pixel position remains local proof",
   "ownerAcceptance": "pending",
   "independentSecurity": "open"
 }
