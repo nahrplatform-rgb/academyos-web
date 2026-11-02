@@ -1,0 +1,13 @@
+{
+  "sourceBase": "751c85d",
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "3fa1b7e61697694eb623f35728bf5f93efb7f8f080cc7858bb94c20b702007e6",
+    "scripts/navigation/test_next.mjs": "c9e7ea128a142d0c669ce210671b0a16996adb056d7afd0b6d9c4a05286b669d"
+  },
+  "local": "77units;17foundation;actual Next EN/AR long-list return/history/mask/short/denial;20geometry;build/type/lint;16capture suites+8welcome;review offline/freshness passed",
+  "requestBudget": "2 Calendar reads initial+task return;5 including explicit history/short/denied;no extra read",
+  "deployment": "not yet pushed",
+  "hosted": "not verified for this change",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

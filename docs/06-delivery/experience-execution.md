@@ -55,3 +55,5 @@ EX-02 local-control continuation2November2026: [search/language during authority
 EX-02 geometry checkpoint2November2026: [measured scroll clamp and denial follow-up](../07-handoff/request-remediation-ex02-geometry.md). Same-node collapse is measured independently from the still-open intermittent auth/permission denial; tracker retains separate release/hosted/acceptance gates.
 
 EX-02 header checkpoint2November2026: [Home/Calendar control-position stability](../07-handoff/request-remediation-ex02-header.md) extends the six Calendar scroll cases to bounded Home and Calendar control geometry. Keep prior release receipts and use the tracker for current delivery gates.
+
+EX-02 long-list continuation2November2026: [Calendar task return position](../07-handoff/request-remediation-ex02-return-position.md) tests40-row date/Back and history separately from selection. Numeric navigation coordinates restore after authority; no private projection cache. Use tracker for release/hosted gates.

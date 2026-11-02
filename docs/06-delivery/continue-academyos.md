@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial:Home/Calendar control/header geometry reservations implemented;prior scroll/local controls retained;remaining inspector/shell/history and dated resume open
-- Local checks: 20EN/AR320/360/390/1024/1440 Home/Calendar control/scroll/private-mask/short/403/503/unoccluded-status checks passed;actual Next;77units;17E2E;API/build/type/lint;16capture/offline/freshness/33theme passed
-- Deployment: header a17f4ff staging;dpl_DQfZX9xW967XNVqWNecUX9XWBQ9w Ready59s;both exact-source CI passed
-- Hosted verification: scoped Owner Home EN/AR revalidation;Calendar EN reload/search/selection and Arabic date return observed;held-read pixel geometry local only;intermittent denial cause open
+- Implementation: partial:long-list Calendar task return coordinates implemented;prior header/scroll/local controls retained;remaining shell/dated resume open
+- Local checks: 4EN/AR1440/390 actual Next40-row task return/history/mask/short/denied passed;20geometry;77units;17E2E;build/type/lint;16capture/offline/freshness passed
+- Deployment: new return-position local;prior a17f4ff staging Ready59s
+- Hosted verification: new return-position not yet hosted;prior scoped Owner EN/AR header/return evidence retained;intermittent denial cause open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: next bounded inspector/shell/history and dated resume pairing;preserve current geometry/private masks;EX03/04/private policies retained;Owner review pending
-- Evidence: docs/07-handoff/request-remediation-ex02-header.md
+- Next action: exact-source CI/deploy/hosted return-position;then remaining shell/dated resume pairing;EX03/04/private policies retained;Owner review pending
+- Evidence: docs/07-handoff/request-remediation-ex02-return-position.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 

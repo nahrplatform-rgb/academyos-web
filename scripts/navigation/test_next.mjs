@@ -109,6 +109,43 @@ try{
   await p.screenshot({path:join(evidence,`continuity-date-${locale}.png`),fullPage:true});
   continuity.push({locale,calendarRequests,calendarActionableMs:Math.round(calendarMs),syntheticDelayPerExperienceReadMs:250,planningRequests:[...requests],planBlockedByHiddenDirectory:continuityBaseline});await probeContext.close();
  }
+ // Long-list task return: current selection alone does not prove return position.
+ const returnPositions=[];
+ for(const locale of ['en','ar'])for(const width of [1440,390]){
+  const ar=locale==='ar',pc=await browser.newContext({viewport:{width,height:900}}),p=await pc.newPage();
+  let reads=0,hold=false,release,phase='full';
+  const items=Array.from({length:40},(_,i)=>({...session,program:i===39?program:`00000000-0000-4000-8000-${String(i+100).padStart(12,'0')}`,id:i===39?program:`00000000-0000-4000-8000-${String(i+100).padStart(12,'0')}`,title:`Fictional Routing Session ${i+1}`}));
+  await p.route('**/api/experience',async route=>{reads++;const body=route.request().postDataJSON();if(hold)await new Promise(r=>{release=r;});if(phase==='denied')return route.fulfill({status:403,json:{error:'denied'}});const current=phase==='short'?items.slice(0,3):items;await route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',from:body.from,to:body.to,total:current.length,items:current,more:false,next:null}}});});
+  const base=`${origin}/${locale}/workspace/${academy}`;
+  await p.goto(base+'/calendar?anchor='+day);await expect(p.locator('.experience-session')).toHaveCount(40);
+  await p.locator('.experience-session').last().click();
+  const position=()=>p.evaluate(()=>({center:document.querySelector('.workspace-center').scrollTop,document:window.scrollY}));
+  const before=await position();
+  await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await p.waitForURL(/\/programs\//);
+  await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();
+  await p.getByRole('button',{name:ar?'العودة إلى التقويم':'Back to calendar',exact:true}).click();
+  await expect(p.locator('.experience-session[aria-pressed="true"]')).toHaveCount(1);
+  if(process.env.EX02_RETURN_BASELINE!=='1')await expect.poll(position).toEqual(before);
+  const after=await position();returnPositions.push({locale,width,before,after,reads});
+  if(process.env.EX02_RETURN_BASELINE!=='1')assert.ok(Math.abs(after.center-before.center)<=1&&Math.abs(after.document-before.document)<=1,'date return preserves long-list position');
+  assert.equal(reads,2,'initial and returned Calendar each own one read');
+  if(process.env.EX02_RETURN_BASELINE!=='1'){
+   await p.goBack();await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();
+   hold=true;await p.goForward();await expect.poll(()=>reads).toBe(3);await expect(p.locator('.experience-session')).toHaveCount(0);
+   await expect(p.getByText('Fictional Routing Academy',{exact:true})).toHaveCount(0);hold=false;release();
+   await expect.poll(position).toEqual(before);await expect(p.locator('.experience-session[aria-pressed="true"]')).toHaveCount(1);
+   const saved=await p.evaluate(()=>JSON.parse(sessionStorage.getItem(Object.keys(sessionStorage).find(k=>k.startsWith('academyos:experience:')))));
+   assert.deepEqual(Object.keys(saved).sort(),['filter','from','position','selection','view'],'navigation store contains only safe context');
+   assert.ok(!JSON.stringify(saved).includes('Fictional Routing'),'no private projection persisted');
+   phase='short';await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect(p.locator('.experience-session')).toHaveCount(3);
+   const shortened=await position();assert.ok(shortened.center<before.center||shortened.document<before.document,'current shorter result naturally clamps');
+   phase='denied';await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect(p.locator('.workspace-content [role=alert]')).toHaveText(ar?'لم تعد الصلاحية متاحة. اختر مساحة عملك الحالية.':'Access is no longer available. Choose your current workspace.');await expect(p.locator('.experience-session')).toHaveCount(0);await expect(p.locator('dialog[open]')).toHaveCount(0);
+   assert.equal(reads,5,'history/short/denied changes add only their deliberate current read');
+   Object.assign(returnPositions.at(-1),{historyRestored:true,heldPrivateMask:true,shortened,denied:true,totalReads:reads});
+  }
+  await pc.close();
+ }
+ await writeFile(join(evidence,'return-positions.json'),JSON.stringify({scope:'actual Next production;fictional40-row Calendar;read-only APIs',returnPositions},null,2));
  for(const locale of ['en','ar']){
   const ar=locale==='ar',base=`${origin}/${locale}/workspace/${academy}`;
   await page.goto(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);
