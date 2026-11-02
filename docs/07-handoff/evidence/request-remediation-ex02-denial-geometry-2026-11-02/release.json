@@ -12,13 +12,45 @@
     "sourceVerified": "309dcfb131402dd793ecff41f2b90bc760824454",
     "method": "native existing AcademyOS project dashboard;connector returned no matching projects"
   },
-  "staging": "promotion pending Vercel reauthentication;existing nahrplatform-rgb passkey selected,TouchID required;no new deployment/alias result observed",
-  "hostedGeometry": "not yet verified",
+  "staging": {
+    "id": "dpl_6cs4PbmyRkFFMMmpYyipQdZV4uoe",
+    "url": "academyos-1xm04w4r8-academy-os2.vercel.app",
+    "status": "Ready",
+    "durationSeconds": 44,
+    "alias": "staging.academy.nahr.dev",
+    "source": "309dcfb131402dd793ecff41f2b90bc760824454",
+    "method": "native dashboard refreshed;Ready/current staging alias/exact source observed"
+  },
+  "hostedGeometry": "scoped native EN/AR month/visible-return checks passed;exact geometry measurements local only",
   "ownerAcceptance": "pending",
   "independentSecurity": "open",
   "targetDomainsReviewed": [
     "academyos-web.vercel.app",
     "staging.academy.nahr.dev"
   ],
-  "providerEnvironmentLabel": "Production in existing staging/default project;not a production launch"
+  "providerEnvironmentLabel": "Production in existing staging/default project;not a production launch",
+  "accountCheck": "Owner confirmed TouchID completed;promotion rebuild then Ready",
+  "hosted": {
+    "environment": "existing staging",
+    "actor": "existing synthetic-academy Owner;no access change",
+    "source": "309dcfb131402dd793ecff41f2b90bc760824454",
+    "verified": [
+      "Clean EN Calendar read settled with original filter and selected1November occurrence",
+      "Month view42days/26scoped sessions;existing loaded-page filter retained",
+      "EN native away/return current read completed;visual before/after showed retained scroll position and inspector",
+      "AR local locale and native away/return current read completed;filter and selected occurrence retained",
+      "Restored EN week view4scoped sessions;DevTools closed;current read settled"
+    ],
+    "limits": [
+      "Native visual observation,not instrumented DOM scroll pixels or held-frame timing",
+      "Six exact40-row held-response/denial/short-result geometry cases remain local fixtures",
+      "No fresh operating-write,unknown,revoked-role,physical-phone,zoom,CLS or latency-percentile proof",
+      "Earlier intermittent denial not reproduced;cause open"
+    ],
+    "capture": "hosted-calendar.png;page-only current app;no browser tabs;not a held-response proof",
+    "operatingWrites": false,
+    "accessChanges": false,
+    "ownerAcceptance": "pending",
+    "independentSecurity": "open"
+  }
 }

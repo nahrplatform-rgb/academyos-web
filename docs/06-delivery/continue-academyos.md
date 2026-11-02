@@ -43,11 +43,11 @@ Design: existing approved experience; changes scoped before implementation.
 
 - Implementation: partial: local-control fix retained;temporary geometry reservation for Home/Calendar checks implemented;denial cause and remaining shell gaps open
 - Local checks: six EN/AR 1440/1024/390 clamp before/after and short/denied/unavailable release passed;actual Next;77units;17E2E;API/build/type/lint;16capture suites/offline/freshness/33theme passed
-- Deployment: geometry309dcfb pushed;both exact-source CI success;preview dpl_E8DzFa9DEkbDK2H7BWwcP8kfM3MV Ready34s;existing staging promotion waits Vercel TouchID
-- Hosted verification: prior serving native EN/AR dirty Cancel retained agent draft;explicit discard restored filter/selection;six200/one canceled app rows;denial not reproduced;new geometry not hosted verified
+- Deployment: geometry309dcfb;both exact-source CI success;staging dpl_6cs4PbmyRkFFMMmpYyipQdZV4uoe Ready44s;alias/source verified
+- Hosted verification: scoped native Owner EN/AR month/visible-return current reads passed;filter/selected occurrence/visual position retained;ENweek restored;exact held-frame proof local;denial not reproduced and cause open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: complete pending Vercel nahrplatform-rgb passkey/TouchID promotion;verify exact staging alias/source and EN/AR geometry separately;then remaining header/summary movement,shell/history and dated resume pairing;capture failing denial status if it recurs;EX03/04/private policies remain open
+- Next action: measure remaining header/summary/inspector movement and shell/history;dated resume pairing and EX03/04 remain;capture safe failing denial status/order if it recurs;Owner review and private freshness policies pending
 - Evidence: docs/07-handoff/request-remediation-ex02-geometry.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
