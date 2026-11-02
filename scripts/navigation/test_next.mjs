@@ -14,6 +14,7 @@ const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
 const baseline=process.env.EX02_BASELINE==='1';
 const measureShell=process.env.EX02_SHELL_MEASURE==='1';
+const measureColdCalendar=process.env.EX04_COLD_MEASURE==='1';
 const root=resolve(import.meta.dirname,'../..'),fixture=await mkdtemp(join(tmpdir(),'academyos-next-routing-'));
 const evidence=resolve(process.env.UI_EVIDENCE_DIR||join(tmpdir(),'academyos-ex01-next'));
 const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
@@ -61,6 +62,48 @@ try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
+ // Cold-entry diagnosis uses actual product reads and a deterministic transport
+ // delay. These fictional failures are not hosted permission or SQL evidence.
+ if(measureColdCalendar){
+  const cold=[];
+  for(const locale of ['en','ar'])for(const scenario of ['cold','hint','invalid-hint','stored-period','cold-month','home-failure','calendar-failure','setup-required','leave-during-home']){
+   const ar=locale==='ar',pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),events=[],pageErrors=[];
+   p.on('pageerror',e=>pageErrors.push(e.message));
+   const cacheKey=`academyos:experience:user_synthetic_navigation:${academy}:owner:calendar`;
+   if(scenario==='stored-period'||scenario==='cold-month')await pc.addInitScript(({cacheKey,scenario})=>sessionStorage.setItem(cacheKey,JSON.stringify({from:scenario==='stored-period'?'2026-11-08':'',view:scenario==='cold-month'?'month':'week',filter:'',selection:null,position:{center:0,document:0}})),{cacheKey,scenario});
+   let releaseHome,homeStarted,fail=true;const startedHome=new Promise(r=>homeStarted=r);
+   await p.route('**/api/experience',async route=>{
+    const body=route.request().postDataJSON(),event={action:body.action,from:body.from??null,to:body.to??null,started:Math.round(performance.now())};events.push(event);
+    if(scenario==='leave-during-home'&&body.action==='owner_home'){homeStarted();await new Promise(r=>releaseHome=r);event.releasedAfterDeparture=true;await route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',panels:{}}}}).catch(()=>{});return;}
+    await new Promise(r=>setTimeout(r,250));
+    if(fail&&((scenario==='home-failure'&&body.action==='owner_home')||(scenario==='calendar-failure'&&body.action==='owner_calendar'))){event.status=503;await route.fulfill({status:503,json:{error:'unavailable'}});return;}
+    if(scenario==='setup-required'){event.status=200;await route.fulfill({json:{data:{context:{...context,setup_required:true},as_of:'2026-11-01T12:00:00Z',setup_required:true}}});return;}
+    event.status=200;await route.continue();
+   });
+   const url=`${origin}/${locale}/workspace/${academy}/calendar${scenario==='hint'?'?anchor=2026-11-01':scenario==='invalid-hint'?'?anchor=2026-02-30':''}`,begin=performance.now();
+   await p.goto(url);
+   if(scenario==='leave-during-home'){
+    await startedHome;await p.goto('about:blank');releaseHome();await expect.poll(()=>events[0].releasedAfterDeparture).toBe(true);assert.deepEqual(events.map(x=>x.action),['owner_home']);
+    cold.push({locale,scenario,events,scope:'departure releases held fixture response; no database cancellation claim'});await pc.close();continue;
+   }
+   if(scenario==='home-failure'||scenario==='calendar-failure'){
+    await expect(p.getByRole('alert').filter({hasText:ar?'هذا العرض غير متاح':'This view is unavailable'})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);
+    const failedActions=events.map(x=>x.action);assert.deepEqual(failedActions,scenario==='home-failure'?['owner_home']:['owner_home','owner_calendar']);
+    await writeFile(join(evidence,`cold-failure-${locale}-${scenario}.txt`),await p.locator('body').innerText());await p.screenshot({path:join(evidence,`cold-failure-${locale}-${scenario}.png`),fullPage:true});fail=false;await p.getByRole('button',{name:ar?'العودة للفترة الحالية':'Return to the current period',exact:true}).click();await expect(p.locator('.experience-session')).toHaveCount(1);
+    assert.deepEqual(events.map(x=>x.action),[...failedActions,'owner_home','owner_calendar']);cold.push({locale,scenario,failedActions,recoveryActions:events.slice(failedActions.length).map(x=>x.action),events,privateRowsOnFailure:0});
+   }else if(scenario==='setup-required'){
+    await expect(p.getByRole('heading',{name:ar?'أكمل إعداد الأكاديمية':'Finish academy setup',exact:true})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);assert.deepEqual(events.map(x=>x.action),['owner_home']);cold.push({locale,scenario,events});
+   }else{
+    await expect(p.locator('.experience-session')).toHaveCount(1);await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();
+    const actionableMs=Math.round(performance.now()-begin),expected=['hint','stored-period'].includes(scenario)?['owner_calendar']:['owner_home','owner_calendar'];assert.deepEqual(events.map(x=>x.action),expected);
+    if(expected.length===2)assert.ok(events[1].started-events[0].started>=250,'Calendar is serially dependent on delayed Home response');
+    const first=scenario==='stored-period'?'2026-11-08':day;assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='cold-month'?'2026-12-12':scenario==='stored-period'?'2026-11-14':'2026-11-07');
+    cold.push({locale,scenario,events,actionableMs,syntheticDelayPerReadMs:250});
+   }
+   assert.deepEqual(pageErrors,[]);await pc.close();
+  }
+  await writeFile(join(evidence,'cold-calendar.json'),JSON.stringify({status:'passed',inputs,scope:'actual Next production components; fictional Owner identity/read-only API; controlled 250ms transport delay; no hosted latency, SQL, service cost or backend cancellation proof',cases:cold},null,2));
+ }
  // Diagnostic-only source instrumentation: no production counters, SDK
  // network interception, credentials or provider behavior are fabricated.
  if(measureShell){

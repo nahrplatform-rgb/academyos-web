@@ -1,0 +1,18 @@
+{
+  "scope": "EX-04 Owner cold Calendar measurement; actual Next production components with fictional identity/API adapters",
+  "source_base": "b08e083",
+  "product_changed": false,
+  "app_deployed": false,
+  "hosted_checked": false,
+  "owner_accepted": false,
+  "security_gate": "open",
+  "diagnostic": "cold-calendar.json",
+  "full_navigation_regression": "receipt.json",
+  "failed_exploratory_runs": "Initial two local probes matched the Next route announcer alert before the domain failure; recovery assertion timed out. Corrected to wait for the domain unavailable text; assertions retained. Final run passed.",
+  "limitations": [
+    "one timed sample per locale/scenario; controlled 250ms delay, not service latency percentiles",
+    "no real Clerk, gateway, Redis or SQL cost measured",
+    "departure ignores/rejects late UI replies; does not prove backend cancellation",
+    "Trainer/Guardian and hosted measurements not run; no access restored"
+  ]
+}

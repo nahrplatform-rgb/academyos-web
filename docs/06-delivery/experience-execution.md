@@ -61,3 +61,5 @@ EX-02 long-list continuation2November2026: [Calendar task return position](../07
 EX-02 dated-resume2November2026: [individual-date pairing](../07-handoff/request-remediation-ex02-dated-resume.md) completes this bounded listener adoption after visible Calendar return work. Event-pair request counts remain distinct from whole-app visible performance and the unproven shell hypothesis.
 
 EX-02 shell/identity2November2026: [measured ownership and limits](../07-handoff/request-remediation-ex02-shell-identity.md). Route shell remount is confirmed locally but provider causality is unproved; no layout rewrite. The next concrete dependency batch is EX-04 cold Calendar while residual EX-02 hosted role/history/G01 gaps remain visible.
+
+Latest EX-04 dependency checkpoint: [cold Calendar evidence and implementation contract](../07-handoff/request-remediation-ex04-cold-calendar.md). The measurement is complete at its declared fictional Owner/local scope; the bounded current-period read implementation is next. Do not repeat the baseline or treat local timings as hosted performance. NR06, role/cancellation/query evidence and prior gates remain open.
