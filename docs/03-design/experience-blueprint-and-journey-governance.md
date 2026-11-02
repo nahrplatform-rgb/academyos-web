@@ -1,5 +1,9 @@
 # Experience blueprint and journey governance
 
+## Current operating-experience overlay — 2 November2026
+
+Use the [working-behaviour contract](academy-working-behavior-contract.md) and [working-day acceptance](../06-delivery/academy-working-day-acceptance.md) for connected startup/first visit/return/save/interruption states. The [execution guide](../06-delivery/experience-execution.md) and [tracker](../06-delivery/experience-execution.csv) own current priority. Keep the later accepted Charcoal reference and each role's existing authority; historical palette/status/next-step descriptions below do not supersede those decisions. Existing visual approval does not approve new private reuse, persistent drafts or offline queues. Review changed behaviour at the appropriate connected-state boundary, preserving already approved journeys rather than restarting the complete design.
+
 Updated 22 October 2026. Owner: Moamen Ghareeb. Status: **owner-requested planning direction; detailed designs, policy choices and usability results remain unaccepted until reviewed.** This document expands the role journeys and connects experience design to delivery. It does not claim that the planned journeys are implemented.
 
 ## Purpose and success

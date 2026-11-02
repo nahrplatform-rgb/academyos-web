@@ -1,5 +1,13 @@
 # Test strategy, evidence and formal acceptance
 
+## Connected operating acceptance — 2 November2026
+
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [EX-11 working-day specification](academy-working-day-acceptance.md), [32 planned cases](academy-working-day-cases.csv) and [single tracker](experience-execution.csv). The new case IDs are execution coverage, not new AO/AT business requirements or evidence that tests ran. Current-source architecture and dependent WB-P decisions are prepared in EX-10. Existing tests/evidence and per-journey approvals remain; all separate gates below remain mandatory.
+
+Validate cold and repeated visits, direct links, Home→Calendar→session/register→Back→People/review,18-player/40-date volume, focus/reconnect, dirty/unknown/confirmed-read-failed states, concurrency, paging, account/scope changes, denied/revoked access and applicable version/storage failures. Match source/role/data/view/locale/profile across before/after. Wait for semantic task completion, not a route announcer or old row. Record visible blank/blocked time, retained context/input, authoritative outcomes, requests/bytes/speculative waste and measured service/query costs separately. No request-count-only or skeleton-only acceptance.
+
+Measurement is part of every affected implementation batch, not deferred until EX-08 at the end. Declare local/fixture/hosted/physical limits and actual sample sizes; targets are not measured percentiles. Owner acceptance of the working-day subset is separate from approval of a preview or policy. Do not manufacture positive role coverage through an unapproved access restoration. Remaining roles/device/load/independent-security checks stay open explicitly.
+
 The [requirements matrix](requirements-traceability.csv) defines 180 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
 
 ## Evidence layers

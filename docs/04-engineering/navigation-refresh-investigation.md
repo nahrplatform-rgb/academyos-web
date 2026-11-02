@@ -1,5 +1,9 @@
 # Navigation and refresh — source review and runtime baseline
 
+## Current execution pointer —2November2026
+
+This dated baseline remains historical evidence. Current priority follows [the execution tracker](../06-delivery/experience-execution.csv), [working-behaviour contract](../03-design/academy-working-behavior-contract.md) and [working-day acceptance](../06-delivery/academy-working-day-acceptance.md). The EX-10/EX-11 gates make shared loading/coordination and connected operating proof explicit; this pointer is not a fresh investigation, product fix or hosted result.
+
 31 October 2026. **Analysis only. No product fix, rollout or working acceptance.**
 
 ## Outcome and provenance

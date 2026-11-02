@@ -1,5 +1,13 @@
 # Journey security review and delivery gates
 
+## Working-day/shared-state review overlay — 2 November2026
+
+Apply [WB-01–WB-24 and pending WB-P choices](../03-design/academy-working-behavior-contract.md), [working-day acceptance](../06-delivery/academy-working-day-acceptance.md) and [tracker](../06-delivery/experience-execution.csv) to every affected boundary. EX-10 prepares scoped ownership/freshness/operation-discovery decisions; EX-11 requires operating proof. This overlay is not an independent audit, new private-data policy or authority grant.
+
+Review at least: cross-user/academy/role/branch/link keys and late replies; private projection versus navigation/draft/operation data; current authority at reads and commands; denial/logout/account-switch cleanup; stale-display age and disconnected revocation limits; speculative work retrieving unauthorized/unused fields; cross-tab hints and app-version compatibility; dirty version conflicts; unknown-command discovery and storage failure; idempotent replacement fences; retention/purge limits. Persistent private payloads, queues, tokens/QR bearer values and new telemetry remain excluded without their separate decision.
+
+Test enforcement at server/API/database boundaries as well as visible UI; keeping a shell mounted or a cache hit never replaces those checks. A current-policy check or invalidation hint must not be inferred from a cached displayed role. Targeted refresh must not silently retain withdrawn family content or reissue an uncertain operating save. Record exact data class, actor, evidence layer and current-versus-proposed policy; no speed/appearance score waives a failed isolation or integrity case.
+
 Updated 22 October 2026. Required process under the [engineering charter](../00-governance/engineering-charter.md). This is a review framework and planned coverage, not an executed security audit. Use the [security architecture](security-and-privacy.md), [journey register](../03-design/journey-register.csv) and [security coverage matrix](journey-security-matrix.csv).
 
 ## Defense contract

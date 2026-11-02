@@ -1,5 +1,13 @@
 # Cost, capacity and routine operations
 
+## Working-day request budget overlay — 2 November2026
+
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day measurement protocol](academy-working-day-acceptance.md), [service-impact evidence](../04-engineering/request-service-impact.md) and [single tracker](experience-execution.csv). EX-05 and EX-08 support each affected pilot/adoption checkpoint; EX-10 defines ownership/budgets before new coordination or preparation. No new price, allowance, paid tier or measured savings is asserted here.
+
+For a declared visit model, separate initial critical/deferred reads, navigation/return reads, visible-resume reads, post-commit invalidation, original-operation reconciliation, speculative preparation and retries. Track duplicate in-flight work and prepared results actually consumed versus wasted/evicted/re-requested. One fewer UI request does not establish one fewer SQL statement, saved backend cancellation, lower MAU or a fixed Redis reduction. Compare actual provider meters/query traces only where available; keep G01–G09 limits visible.
+
+Preparation adds cost if unused or repeated on navigation. Configure finite key/memory/row/byte/concurrency/retry budgets before enabling it, prioritize the active task and suppress obsolete speculative work. Measure representative small/large academy and ordinary/concurrent operator cases. Cache coordination may reduce work; external Redis/business caching, Realtime, private persistence and telemetry each require their own justified contract. Service limits/plan observations in dated evidence remain separate from purchase authority and current billing.
+
 This is a planning cost model, not a live billing statement. Selected staging billing observations are recorded separately in the configuration register; no fixed current-price quote is made here. Record current provider prices/limits at purchase and review after pilot load measurements. D-022 sets the actual budget; D-016 sets affordable recovery targets.
 
 ## Cost model

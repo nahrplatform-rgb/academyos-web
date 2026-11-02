@@ -1,10 +1,12 @@
 # AcademyOS application foundation
 
+Working-day continuation —2November2026: use **“Continue from the living continuation prompt.”** The [generated instruction](docs/06-delivery/continue-academyos.md) derives its single current priority from the [execution tracker](docs/06-delivery/experience-execution.csv). The ordered route includes [EX-10 working-behaviour/architecture readiness](docs/03-design/academy-working-behavior-contract.md), the scoped shared-loading pilot and [EX-11 operating acceptance](docs/06-delivery/academy-working-day-acceptance.md). Use the tracker's current row rather than restarting those checkpoints. The [case register](docs/06-delivery/academy-working-day-cases.csv) is planned coverage, not executed proof. Private caching/persistence/offline choices remain explicitly pending.
+
 Current delivery priority: [connected experience execution and finding closure](docs/06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.
 
-Current design-to-build tracking: [the application implementation plan](docs/06-delivery/app-implementation-plan.md) connects the selected compact-blue design, existing source, shared components and per-action acceptance gates. Its screen/action/requirement registers preserve separate implementation, verification, deployment and owner-approval status.
+Current design-to-build tracking: [the application implementation plan](docs/06-delivery/app-implementation-plan.md) connects the accepted Charcoal spectrum design, existing source, shared components and per-action acceptance gates. Its screen/action/requirement registers preserve separate implementation, verification, deployment and owner-approval status.
 
-Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Operational modules and production launch are still to be built and accepted.
+Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Implemented operational subsets and remaining feature/verification/acceptance gates are recorded in the current tracker and action matrix; production launch remains separately authorized.
 
 **Current setup documentation starts at [the ordered setup index](docs/07-handoff/setup-index.md).** It links the execution history, actual configuration/credential-name register, evidence and remaining work. Older handbook/onboarding statements below are historical and must not override current receipts.
 

@@ -1,5 +1,13 @@
 # Architecture and platform approach
 
+## Working-day data lifecycle — 2 November2026
+
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](../06-delivery/experience-execution.md) and [tracker](../06-delivery/experience-execution.csv) now make shared ownership/pilot architecture an explicit EX-10 gate before dependent adoption. EX-11 is connected operating acceptance. No framework, cache store, queue, provider or infrastructure replacement is selected by this documentation.
+
+The architecture packet must locate six different owners in actual source: identity/session; scoped persistent workspace/navigation; compatible domain read coordination; unfinished task state; original-operation reconciliation/discovery; authoritative server/data boundary. The read owner defines scoped keys, subscription lifetime, in-flight coordination, hydration/seed handoff, invalidation and accepted memory reuse. Draft fields and pending writes must not be stored inside a reusable server-result cache. Account/academy/capability/link changes invalidate incompatible work and late replies. A layout/sidebar identity label never authorizes a private read or action.
+
+Compare minimal server delivery with coordinated client reads where it removes actual waterfalls; do not move every query into a root layout or add duplicate client hydration fetches. Existing signed/current-authority operations remain canonical. Prepare likely destinations only under explicit row/byte/concurrency/waste budgets; retain existing paging/totals and avoid whole-app preloading. A focused query library versus existing primitives is an engineering choice requiring measured fit, compatibility, security and bundle/runtime/cost review. Private display age, retention, persistence and offline behaviour are dependent policy choices, not library defaults. See WB-P01–WB-P04; no values are accepted here.
+
 Status: selected stack direction with proposed implementation boundaries. Exact package versions are resolved, compatibility-tested and locked at foundation kickoff. Requirements: AO-131–160.
 
 ## System shape

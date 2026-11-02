@@ -1,5 +1,15 @@
 # Request Hygiene, Responsive Loading and Explicit Offline Support
 
+## Current working-day execution overlay —2November2026
+
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md) is the detailed operating/state/ownership reference. Use [EX-11 acceptance](academy-working-day-acceptance.md), [planned cases](academy-working-day-cases.csv), [execution guide](experience-execution.md) and [tracker](experience-execution.csv). This extends these standards into one connected pilot; it does not accept private cache settings or duplicate the source of TTL/retention policy.
+
+EX-10 prepares current-source ownership, state/request budgets, consolidated WB-P01–WB-P04 choices and pilot architecture. EX-02/EX-06 bring stable workspace/read ownership and targeted invalidation forward, then scoped EX-04 dependency/preparation improvements and EX-03 recovery proof. EX-11 demonstrates the actual working day before EX-07 broad adoption. EX-05/EX-08 measurements accompany every stage. EX-09 distinguishes decisions needed now from future private persistence/offline/telemetry work. Do not defer shared coordination merely because another EX-04 occurrence is open, or let an unaccepted future queue block unrelated safe online work.
+
+One compatible read owner must account for seed/hydration/mount, initial/warm/return/focus, partial failure, stale/denied scope and prepared-data consumption; a query library alone does not provide the accepted product behaviour. Each confirmed write needs an affected-view map and verified result/invalidation, while dirty drafts and unknown operations retain separate owners/fences. Preserve current server authority and bounds. Current implementation still uses no-store/private read checks; any proposed in-session payload reuse/preparation remains gated by the relevant WB-P decision.
+
+Prepare one consolidated decision/changed-state packet.30s display age,5min inactive lifetime and one speculative read are review candidates only, not enabled or universally safe defaults. Memory, durable browser payloads, operation locators and offline queues have separate scopes. Measure actual first-useful work, warm-return continuity, input preservation, correct cross-view results and resource work rather than treating fewer reads or a fast skeleton as sufficient acceptance.
+
 31 October2026. Linked addendum to [the original app implementation plan](app-implementation-plan.md), based on [confirmed findings](../04-engineering/request-findings-register.md) and [service/cost analysis](../04-engineering/request-service-impact.md). Applies to upcoming work across I0–I10 and the incomplete Charcoal redesign. It changes no product behavior or historical approval.
 
 ## Authority and status
@@ -78,9 +88,9 @@ Default remains online-only for operating reads/writes, with honest disconnected
 
 If a future capability gets an explicit offline write policy: assign durable operation identity at intent creation; retain expected versions and ordered dependencies; bound queue bytes/items and expiry; encrypt only as defense in depth; revalidate account/academy/role/link and current recording window on sync; send each canonical idempotent command once and query original outcome after uncertainty; stop dependent commands on conflict/expiry/denial; show user conflict review rather than last-write-wins; purge disallowed unsent intent without deleting immutable server history. No automatic payment/access grant/publication/ownership/QR validity queue. Attendance offline remains separately governed by D-011/D-012, not accepted by generic cache approval. Queue ordering, background expiry, multi-tab/device concurrency and local retention need decisions before building. A disconnected device cannot be remotely erased or immediately informed of revoked access.
 
-## Prioritized fix implementation handoff
+## Original fix estimates and handoff — historical31October2026
 
-This is copy-ready execution scope for a separately authorized fix task; analysis did not implement it.
+The following estimates and sequence describe the original31October handoff, not the current work order or a refreshed delivery estimate. Use the tracker and2November overlay above; preserve completed evidence and bring shared coordination forward. The original analysis itself did not implement these steps.
 
 1. **P0 baseline and navigation (1–2 engineering days).** Recheck tree/source/deployment; fix NR01 only on safe internal destinations. Test real Next production router, modifier/new-tab clicks, native Back/Forward, dirty cancel, busy and unknown fences, locale/academy allowlists. Acceptance: H1/H3/H4 no document transitions; intentional identity/terminal reloads remain explicit.
 2. **P0 scoped read coordinator and recovery (2–4d +1–3d recovery).** Pilot Experience then Development opaque recovery reference; review NR17 storage-failure guarantees per operation. One identical in-flight owner; test synchronous/separated focus, online and pending read/writes; reproduce crash unknown and resolve original identity. No private payload persistence. Acceptance: no duplicate starts for the declared resume transition, no leaked cross-scope late response, no replacement of unknown commands.

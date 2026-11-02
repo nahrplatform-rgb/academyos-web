@@ -4,6 +4,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from build_continuation_prompt import execution_route
 
 ROOT = Path(__file__).resolve().parents[2]
 delivery = ROOT / 'docs/06-delivery'
@@ -12,6 +13,8 @@ with (delivery / 'experience-execution.csv').open(newline='') as stream:
 assert rows and all(None not in row and None not in row.values() for row in rows)
 ids = {row['work_id'] for row in rows}
 assert len(ids) == len(rows), 'Duplicate work ID'
+assert {'EX-10','EX-11'} <= ids, 'Missing explicit working-day gates'
+active, primary = execution_route(rows)
 findings = set(re.findall(r'^### (NR\d+) ', (ROOT / 'docs/04-engineering/request-findings-register.md').read_text(), re.M))
 mapped = set()
 with (delivery / 'app-implementation-action-matrix.csv').open(newline='') as stream:
@@ -43,6 +46,42 @@ for path in ['AGENTS.md', 'docs/06-delivery/app-implementation-plan.md',
              'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/full-experience-redesign.md',
              'docs/07-handoff/start-here-for-builders.md']:
     assert 'experience-execution' in (ROOT / path).read_text(), f'Missing execution pointer: {path}'
-print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states')
+contract_path = ROOT / 'docs/03-design/academy-working-behavior-contract.md'
+contract = contract_path.read_text()
+behaviours = set(re.findall(r'^\| (WB-\d{2}) \|', contract, re.M))
+assert len(behaviours) == 24, 'Behaviour clauses missing or changed without coverage review'
+assert all(f'WB-P{i:02}' in contract for i in range(1, 5)), 'Pending decision packet missing'
+with (delivery / 'academy-working-day-cases.csv').open(newline='') as stream:
+    cases = list(csv.DictReader(stream))
+assert cases and all(None not in case and None not in case.values() for case in cases)
+assert len({case['case_id'] for case in cases}) == len(cases), 'Duplicate working-day case ID'
+with (ROOT / 'docs/03-design/screen-data-loading-matrix.csv').open(newline='') as stream:
+    loading = {row['matrix_id'] for row in csv.DictReader(stream)}
+covered = set()
+for case in cases:
+    assert re.fullmatch(r'WD-\d{2}', case['case_id'])
+    refs = set(case['behavior_ids'].split('; '))
+    assert refs <= behaviours, (case['case_id'], refs - behaviours)
+    covered |= refs
+    assert set(case['canonical_work_ids'].split('; ')) <= canonical, case['case_id']
+    assert set(case['loading_ids'].split('; ')) <= loading, case['case_id']
+    assert all(value.strip() for value in case.values()), case['case_id']
+    assert case['status'] in {'planned','future_not_in_pilot','blocked','evidence_linked'}, 'Plan status is not a runtime pass'
+    if case['status'] == 'evidence_linked':
+        assert (ROOT / case['execution_evidence']).is_file(), case['execution_evidence']
+    else:
+        assert case['execution_evidence'] == 'not_executed', 'Do not imply executed results in a planned case'
+assert covered == behaviours, f'Unmapped working behaviour: {behaviours - covered}'
+for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan.md',
+             'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/full-experience-redesign.md',
+             'docs/06-delivery/experience-execution.md', 'docs/06-delivery/request-hygiene-and-offline-standard.md',
+             'docs/07-handoff/start-here-for-builders.md', 'docs/07-handoff/setup-index.md',
+             'docs/03-design/experience-performance-and-data-loading.md',
+             'docs/06-delivery/test-strategy-and-acceptance.md']:
+    body = (ROOT / path).read_text()
+    assert 'academy-working-behavior-contract.md' in body, f'Missing behaviour pointer: {path}'
+    assert 'academy-working-day-acceptance.md' in body, f'Missing acceptance pointer: {path}'
+assert (delivery / 'academy-working-day-acceptance.md').is_file()
+print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states; current {active['work_id']}; {len(cases)} planned/evidence-linked working-day cases across {len(behaviours)} WB clauses')
 
 subprocess.run([sys.executable, str(ROOT / 'scripts/design/build_continuation_prompt.py'), '--check'], check=True)

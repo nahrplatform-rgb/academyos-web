@@ -1,5 +1,9 @@
 # Whole-app findings and coverage register
 
+## Current execution overlay —2November2026
+
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day acceptance gate](../06-delivery/academy-working-day-acceptance.md) and [single tracker](../06-delivery/experience-execution.csv) now join the17 findings to a connected operating pilot. EX-10 prepares architecture/states/decisions; EX-11 tests useful work, return/save/interruption and resource costs together. These new gates do not introduce new confirmed source defects, reset delivered fixes or close any finding. WB-P proposals remain pending. The original investigation and subsequent scoped runtime receipts below retain their stated provenance and limitations.
+
 31 October2026; extends [B0 investigation](navigation-refresh-investigation.md). See [service impact/model](request-service-impact.md) and [fix/architecture handoff](../06-delivery/request-hygiene-and-offline-standard.md). All records refer to source7a6be974 and unchanged product tree. IDs NR01–NR17 are investigation IDs, not new business actions. Severity columns are **UX / latency / request-load**, H=high, M=medium, L=low, relative priority rather than measured incident severity. Effort is an engineering-day estimate excluding approvals, workload setup and release. Confidence: explicit source mechanisms high; cost/scale and unobserved runtime conditional. Findings described as hypothesis or preserved behavior are not confirmed defects.
 
 ## Findings

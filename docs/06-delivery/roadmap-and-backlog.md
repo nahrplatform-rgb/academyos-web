@@ -1,10 +1,12 @@
 # Delivery roadmap and dependency-ordered backlog
 
-## Current execution priority — 31 October 2026
+## Current execution priority — 2 November2026
 
-Owner authorized integrating the request analysis into execution, then fixing navigation/refresh/task continuity before further feature expansion. Follow the [single execution guide](experience-execution.md) and [live batch/finding tracker](experience-execution.csv), with the [request hygiene and offline standard](request-hygiene-and-offline-standard.md), [findings](../04-engineering/request-findings-register.md) and [service/measurement gaps](../04-engineering/request-service-impact.md). This is a dependency overlay, not a replacement roadmap or restart of completed work. Preserve the approved Charcoal preview and scoped functional approvals. Historical progress below remains dated evidence, not the latest overall completion claim.
+Owner requested a continuous academy working-day approach and detailed execution updates. Read the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](experience-execution.md), [single tracker](experience-execution.csv), [working-day acceptance gate](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv). The generated [continuation prompt](continue-academyos.md) derives the explicit current priority and ordered checkpoints from that tracker.
 
-First batch EX-01 fixes the demonstrated Owner Home/Calendar→dated task→return path and its read lifecycle. Broader routing adoption, recovery durability, query work and remaining redesign parity stay separately tracked. Private caching/offline writes, access restoration and security closure are not authorized by this engineering task.
+Current work begins with **EX-10: behaviour/ownership/freshness-decision/pilot-architecture readiness**, then shared workspace/read ownership and measured startup/return improvements, affected-save/recovery consistency, **EX-11: connected working-day acceptance**, and broader approved redesign adoption. EX-05 query/cost, EX-08 measurements and EX-09 dependent decisions accompany each relevant batch. EX-06 coordination is brought forward; do not wait for every EX-04 occurrence or future offline capability before designing it. Existing fixes, source evidence, Charcoal design and functional approvals remain valid.
+
+This is an execution/dependency overlay across the existing feature plan. It introduces no private-cache TTL, persistent private payload, offline queue, telemetry, paid service, account grant or production launch. WB-P01–WB-P04 remain proposed until explicitly accepted for the dependent behaviour. Completion requires useful work, safe task continuity, correct outcomes and actual request/cost evidence—not another palette pass or request count alone. Dated progress/next-step notes below are historical; current tracker routing governs.
 
 ## Current bounded slice — 26 October 2026
 

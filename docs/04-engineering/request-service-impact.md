@@ -1,5 +1,9 @@
 # Whole-app request and service impact — 31 October 2026
 
+## Working-day execution follow-up —2November2026
+
+Use the [behaviour contract](../03-design/academy-working-behavior-contract.md), [pilot measurement protocol](../06-delivery/academy-working-day-acceptance.md), [case register](../06-delivery/academy-working-day-cases.csv) and [tracker](../06-delivery/experience-execution.csv). EX-05/EX-08 evidence accompanies every affected batch. Measure whole declared visits: critical/deferred/on-demand/prepared reads, return/resume, confirmed-save invalidation, reconciliation, retries, used/wasted preparation, bytes and available query/provider work. Faster local transport samples and fewer app calls do not establish SQL/Redis/Auth/egress savings or hosted percentiles. G01–G09, current-plan verification and private-cache/telemetry decisions remain explicit. No pricing/billing/limits were newly checked or changed by this documentation update.
+
 Analysis/documentation only. Source base: `7a6be974eaf9826f33d9ecfce4accf0e568b3a0c`. Product files unchanged; existing uncommitted focused report/evidence and builder link preserved. This extends [the navigation baseline](navigation-refresh-investigation.md); it does not replace its limited runtime observations. [Findings and coverage](request-findings-register.md), [build standard and fix handoff](../06-delivery/request-hygiene-and-offline-standard.md), [evidence index](../07-handoff/evidence/navigation-refresh-2026-10-31/index.json).
 
 ## Executive summary

@@ -1,5 +1,11 @@
 # AcademyOS experience, performance and data-loading plan
 
+## Current working-day contract — 2 November2026
+
+Read the [behaviour/data-lifecycle contract](academy-working-behavior-contract.md), [working-day acceptance and measurement protocol](../06-delivery/academy-working-day-acceptance.md), [planned cases](../06-delivery/academy-working-day-cases.csv) and [single execution tracker](../06-delivery/experience-execution.csv). EX-10 makes actual ownership/state/budget design and dependent choices explicit; EX-11 demonstrates the connected result. Shared coordination is prepared earlier, with EX-05/EX-08 measurement alongside every affected batch.
+
+The existing progressive-loading and five-dimension rules remain. Distinguish code/assets, private query results, authority, navigation state, unfinished input and original-operation recovery. Define cold entry, first navigation, warm return, visible resume, post-save invalidation and denial separately. A route prefetch is not a prepared private API projection; a warm memory result is not a current permission grant. WB-P01–WB-P04 govern pending concrete freshness/preparation/memory/durability choices; proposed values anywhere in this pack are not enabled defaults. Keep first-useful measurements inclusive of required identity/context, and separate interaction acknowledgement from commit. Existing numerical targets below remain targets on declared profiles, not measured results.
+
 Updated 22 October 2026. Status: **owner-requested planning direction; proposed budgets and implementation defaults await first-slice measurement and review.** No new caching, telemetry, database policy, provider plan or application behavior is implemented by this document.
 
 ## One product design problem

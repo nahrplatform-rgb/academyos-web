@@ -1,5 +1,9 @@
 # AcademyOS SaaS operating blueprint
 
+## Working-day execution overlay — 2 November2026
+
+The [academy working-behaviour contract](../03-design/academy-working-behavior-contract.md) turns the existing role/operating vision into startup, task navigation, save/update, interruption, concurrency, failure and safe scope-change rules. Use the [execution guide](../06-delivery/experience-execution.md), [current tracker](../06-delivery/experience-execution.csv) and [working-day acceptance](../06-delivery/academy-working-day-acceptance.md). This preserves all business families and role boundaries below. The current live pilot uses Academy Owner capabilities; Manager/Player, finance and other unbuilt operations are future scope. No new private freshness/retention/visibility rule is accepted by this overlay.
+
 Updated 22 October 2026. Owner: Moamen Ghareeb. Status: planning framework requested by the owner; lifecycle names and recommended policies are **proposals**, not implemented rules or blanket approval. Current staging proof is in the [setup index](../07-handoff/setup-index.md).
 
 ## Purpose and connected records
