@@ -53,3 +53,5 @@ Visible continuity checkpoint1November2026: [Home/Calendar/dated task wait owner
 EX-02 local-control continuation2November2026: [search/language during authority checks](../07-handoff/request-remediation-ex02-local-controls.md). Preserve search identity/focus without stale private content and process local locale before route guards; private geometry/shell/loading, role/performance and exact-source release gates remain distinct.
 
 EX-02 geometry checkpoint2November2026: [measured scroll clamp and denial follow-up](../07-handoff/request-remediation-ex02-geometry.md). Same-node collapse is measured independently from the still-open intermittent auth/permission denial; tracker retains separate release/hosted/acceptance gates.
+
+EX-02 header checkpoint2November2026: [Home/Calendar control-position stability](../07-handoff/request-remediation-ex02-header.md) extends the six Calendar scroll cases to bounded Home and Calendar control geometry. Keep prior release receipts and use the tracker for current delivery gates.

@@ -2,7 +2,7 @@
 
 Current copyable instruction: [generated continuation prompt](../06-delivery/continue-academyos.md), regenerated from the tracker after every checkpoint and freshness-checked by the execution validator.
 
-Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized navigation/resume/task-continuity remediation on31October2026. Check the tracker and [current EX-02 geometry/denial checkpoint](request-remediation-ex02-geometry.md), retaining EX-01/Programs evidence, before continuing; do not infer all findings or redesign parity are complete.
+Current next work: [execution guide](../06-delivery/experience-execution.md) and [single tracker](../06-delivery/experience-execution.csv). Owner authorized navigation/resume/task-continuity remediation on31October2026. Check the tracker and [current EX-02 header/control checkpoint](request-remediation-ex02-header.md), retaining EX-01/Programs evidence, before continuing; do not infer all findings or redesign parity are complete.
 
 Current implementation tracking: [one app build plan and registers](../06-delivery/app-implementation-plan.md). Start with current-source verification, then the dependency-ordered people/training/attendance chain. Prototype actions are design references, not implemented business operations.
 

@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial: local-control fix retained;temporary geometry reservation for Home/Calendar checks implemented;denial cause and remaining shell gaps open
-- Local checks: six EN/AR 1440/1024/390 clamp before/after and short/denied/unavailable release passed;actual Next;77units;17E2E;API/build/type/lint;16capture suites/offline/freshness/33theme passed
-- Deployment: geometry309dcfb;both exact-source CI success;staging dpl_6cs4PbmyRkFFMMmpYyipQdZV4uoe Ready44s;alias/source verified
-- Hosted verification: scoped native Owner EN/AR month/visible-return current reads passed;filter/selected occurrence/visual position retained;ENweek restored;exact held-frame proof local;denial not reproduced and cause open
+- Implementation: partial:Home/Calendar control/header geometry reservations implemented;prior scroll/local controls retained;remaining inspector/shell/history and dated resume open
+- Local checks: 20EN/AR320/360/390/1024/1440 Home/Calendar control/scroll/private-mask/short/403/503/unoccluded-status checks passed;actual Next;77units;17E2E;API/build/type/lint;16capture/offline/freshness/33theme passed
+- Deployment: prior geometry309dcfb staging Ready;new header change not yet pushed/deployed
+- Hosted verification: prior309dcfb scoped EN/AR native Calendar return verified;new header/control positions not yet hosted;intermittent denial cause open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: measure remaining header/summary/inspector movement and shell/history;dated resume pairing and EX03/04 remain;capture safe failing denial status/order if it recurs;Owner review and private freshness policies pending
-- Evidence: docs/07-handoff/request-remediation-ex02-geometry.md
+- Next action: finish header capture/local evidence and exact-source CI/staging verification;then inspector/shell/history and dated resume pairing;EX03/04/private policies retained;Owner review pending
+- Evidence: docs/07-handoff/request-remediation-ex02-header.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 

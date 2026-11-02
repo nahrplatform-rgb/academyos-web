@@ -1,6 +1,6 @@
 {
-  "source": "0dd0e1fa108d61e2b8a543cc3fe47d194b679662",
-  "generatedAt": "2026-11-02T05:48:26.518Z",
+  "source": "79bc3462f17e79f84f07d57745ac8b421cc1ba87",
+  "generatedAt": "2026-11-02T06:06:02.849Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -44,7 +44,7 @@
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "c7d14cb2acd28bf469f4ded10d1d1f4b0ec3004357375173e79b62ccec9d5252",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
-    "apps/web/src/components/experience-workspace.tsx": "d59fa156702c607b3c82672d4293ae626f1f6e0ad9088276072dab8db9ed4875",
+    "apps/web/src/components/experience-workspace.tsx": "08f86fdcf3c06513c051177b64636b3b01d0fc4cb648a70240904274f9e2bbc4",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
     "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
     "apps/web/src/components/onboarding-workspace.tsx": "3490c21c9b38e3d64e7a04f348e003dcc30257a0ec4cf7685b0b215b1739ff94",
@@ -64,7 +64,7 @@
     "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
     "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
     "apps/web/src/components/workspace-panes.tsx": "350da2479d4a5930f36a4fc506915d6d5de23dfd188c0f5037bbc10b90e62482",
-    "apps/web/src/components/workspace-shell.tsx": "f410edc945d5b8db0f13619e784e14ea635de8c9180872f94b81cad104e49252",
+    "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
@@ -97,12 +97,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "7d48a2d9e4ba481a391c0bd50f05e3967353da32f67cdb81ac5e931afdca4f6d",
-  "htmlSha256": "c40d0fce660ca7d66ddec003895b231580d0a01d06d92ae425a2188f6794ad80",
-  "frames": 1047,
+  "capturePackSha256": "ec46010b9feee5b3b43998083174a3dc64b444ce4290c1c5b421da2d28644f3c",
+  "htmlSha256": "52b392cc0e4dc11798923d36be5a13bc809ab36cc771522bf983719770c3420b",
+  "frames": 1049,
   "transitions": 1053,
   "sourceFiles": 65,
-  "sourceLiterals": 6857,
+  "sourceLiterals": 6864,
   "journeys": [
     {
       "id": "entry",
@@ -166,7 +166,7 @@
     },
     {
       "id": "experience-projections",
-      "frames": 65
+      "frames": 67
     },
     {
       "id": "workspace-layout",
