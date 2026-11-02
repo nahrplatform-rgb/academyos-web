@@ -118,3 +118,7 @@ Latest EX-04 dependency checkpoint: [cold Calendar evidence and implementation c
 EX-04 Owner cold implementation now follows [current-period receipt](../07-handoff/request-remediation-ex04-current-calendar.md): local passed; staging schema applied after backup/restore; finish app rollout and hosted checks before claiming delivery. Historical baseline packet remains evidence, not the next work instruction.
 
 EX-04 Owner rollout verified2November2026: [hosted completion receipt](../07-handoff/request-remediation-ex04-current-calendar.md) records exact10bbda7 source, both CI passes, staging alias, EN/AR1read entry and foreign403 recovery. Next bounded engineering checkpoint is EX-03 storage-denied/crash recovery reproduction and contract preparation. Keep remaining EX-02/04 role/provider/cancellation/query and Owner/security gates open.
+
+## EX-10 architecture checkpoint —2November2026
+
+The [actual-source pilot architecture and consolidated decision packet](../04-engineering/working-day-pilot-architecture.md) now maps resource/draft/recovery ownership, first/repeat/return/save request ceilings, affected-view invalidation, mechanism options and exact proposed WB-P01–P04 scope. Its linked EN/AR storyboard is fictional changed-state review only. Source preparation is complete at this bounded scope; policy/design review is pending and the tracker remains EX-10 current. No runtime cache/provider/schema/visibility or working-acceptance change is inferred. Follow the generated current next action rather than repeating this preparation.

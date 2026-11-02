@@ -60,3 +60,5 @@ Moamen explicitly answered â€œApprove this connected design for implementation.â
 Implementation batch1: [scope, contracts and evidence](../../docs/07-handoff/full-experience-foundations-implementation.md). Preserve the exact approved proposal while translating its representative fixtures into real scoped data.
 
 Continuation: [publication batch evidence](../07-handoff/full-experience-publication-implementation.md) and [next program/date planning scope](../07-handoff/full-experience-planning-implementation.md). The full redesign remains in progress; the source, staging, hosted verification and acceptance checkpoints in these packets are deliberately separate.
+
+EX-10 decision-preparation checkpoint2November2026: [pilot source/architecture and exact WB-P recommendations](../04-engineering/working-day-pilot-architecture.md). Proposed policy and changed-state review remain pending; this pointer does not accept private caching or advance runtime delivery. Current work remains selected by the execution tracker.

@@ -161,3 +161,7 @@ After pilot implementation, use EX-11 as the explicit working-day acceptance gat
 Use current framework guidance with the actual locked versions when preparing the implementation packet: [Next navigation/prefetch/streaming](https://nextjs.org/docs/app/getting-started/linking-and-navigating), [authorization near the data boundary](https://nextjs.org/docs/app/guides/authentication), and [query lifecycle defaults](https://tanstack.com/query/latest/docs/framework/react/guides/important-defaults). These are technical references, not a requirement to add a library, permission to cache authority or acceptance of library defaults.
 
 [Documentation/routing checkpoint](../07-handoff/working-day-execution-update.md) records what was updated and structurally checked. It does not execute this operating contract or close EX-10/EX-11.
+
+## EX-10 architecture checkpoint —2November2026
+
+The [actual-source pilot architecture and consolidated decision packet](../04-engineering/working-day-pilot-architecture.md) now maps resource/draft/recovery ownership, first/repeat/return/save request ceilings, affected-view invalidation, mechanism options and exact proposed WB-P01–P04 scope. Its linked EN/AR storyboard is fictional changed-state review only. Source preparation is complete at this bounded scope; policy/design review is pending and the tracker remains EX-10 current. No runtime cache/provider/schema/visibility or working-acceptance change is inferred. Follow the generated current next action rather than repeating this preparation.

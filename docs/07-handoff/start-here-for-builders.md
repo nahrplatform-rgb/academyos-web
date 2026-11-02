@@ -162,3 +162,7 @@ EX-04 latest2November2026: [cold Calendar checkpoint and implementation contract
 EX-04 Owner current-period implementation2November2026: [receipt](request-remediation-ex04-current-calendar.md). Continue exact-source app rollout and hosted read-only checks; local implementation and restored staging schema passed. Do not repeat the measurement-only next step or restore access. The tracker holds subsequent delivery status.
 
 EX-04 latest2November2026: [current-period receipt](request-remediation-ex04-current-calendar.md) now includes staging10bbda7, both CI passes and read-only EN/AR single-read/foreign-denial proof. The earlier rollout-pending note is superseded. Continue EX-03 recovery reproduction/contract; Owner acceptance, independent security and remaining EX-02/04 role/provider/query/cancellation gaps remain open.
+
+## EX-10 architecture checkpoint —2November2026
+
+The [actual-source pilot architecture and consolidated decision packet](../04-engineering/working-day-pilot-architecture.md) now maps resource/draft/recovery ownership, first/repeat/return/save request ceilings, affected-view invalidation, mechanism options and exact proposed WB-P01–P04 scope. Its linked EN/AR storyboard is fictional changed-state review only. Source preparation is complete at this bounded scope; policy/design review is pending and the tracker remains EX-10 current. No runtime cache/provider/schema/visibility or working-acceptance change is inferred. Follow the generated current next action rather than repeating this preparation.

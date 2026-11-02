@@ -22,11 +22,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Academy working-behaviour, freshness decisions and pilot architecture gate
 
-Next action: Read working-behaviour contract;map actual pilot ownership/state/request budgets using existing evidence;prepare consolidated WB-P01–P04 choices and targeted changed-state walkthrough;deliver concrete pilot architecture before dependent runtime work
+Next action: Review working-day-pilot-architecture packet and EN/AR storyboard;record exact WB-P01–P04 and changed-state answers;EX02 stable-frame/source compatibility work may proceed without enabling pending reuse or persistence
 
 Scoped dependency gate: Use existing source/evidence as baseline; contract preparation needs no new cache/access grant; WB-P01–P04 block only dependent behaviour.
 
-Read: `docs/03-design/academy-working-behavior-contract.md`
+Read: `docs/04-engineering/working-day-pilot-architecture.md`
 
 ## Ordered primary checkpoints
 
@@ -69,14 +69,14 @@ Dependency gate: Use existing source/evidence as baseline; contract preparation 
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
 Design: Owner authorized planning/execution direction2November;detailed WB-P private reuse/preparation/durability decisions and changed-state review pending.
 
-- Implementation: Detailed contract and32case planned register documented;no new runtime/cache/store implementation
-- Local checks: passed structural routing/canonical/WB-case/link checks and review inventory freshness;no new operating/cache test run;policy/architecture readiness remains open
+- Implementation: Actual-source pilot ownership/request/invalidation architecture and bilingual changed-state storyboard prepared;no product/cache/dependency change
+- Local checks: Source anchor/hash inventory and72fictional storyboard cases;documentation checks in checkpoint receipt;no new operating/performance run
 - Deployment: documentation/tooling only;no new app or schema rollout
 - Hosted verification: not newly executed;prior scoped release receipts retained
 - Owner acceptance: planning direction authorized;dependent policy/design and working acceptance not inferred
 - Independent security: open
-- Next action: Read working-behaviour contract;map actual pilot ownership/state/request budgets using existing evidence;prepare consolidated WB-P01–P04 choices and targeted changed-state walkthrough;deliver concrete pilot architecture before dependent runtime work
-- Evidence: docs/03-design/academy-working-behavior-contract.md
+- Next action: Review working-day-pilot-architecture packet and EN/AR storyboard;record exact WB-P01–P04 and changed-state answers;EX02 stable-frame/source compatibility work may proceed without enabling pending reuse or persistence
+- Evidence: docs/04-engineering/working-day-pilot-architecture.md
 
 ### EX-02 — Shared workspace and remaining routing/lifecycle adoption; shell/provider evidence
 
