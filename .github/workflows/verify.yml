@@ -31,6 +31,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Verify real Next task navigation and guarded return
         run: node scripts/navigation/test_next.mjs
+      - name: Verify scroll continuity while private results are masked
+        run: node scripts/navigation/measure_geometry.mjs
       - name: Verify offline experience-review navigation and boundaries
         run: node scripts/experience-review/test.mjs
       - name: Verify onboarding API budgets before provider calls

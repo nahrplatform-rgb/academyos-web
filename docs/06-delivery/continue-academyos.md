@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial: nonprivate search and local locale continuity implemented;previous known-day Calendar/deferred directory/routing fixes retained;geometry/shell gaps open
-- Local checks: held-read Next controls before/after;both React/API;unknown-locale no-replay;77units;17E2E;build/type/lint;16captures/offline/freshness/33theme passed
-- Deployment: local-controls ddce60d; dpl_4AJCCepgzWuxPAjxFDYBuTWu6BoT Ready45s;both exact-source CI passed
-- Hosted verification: partial:Owner Home/Calendar one-click locale/search retained,no hash;dated draft locale retained;dirty-return inconclusive after denial/control interruption;Home restored;G01 open
+- Implementation: partial: local-control fix retained;temporary geometry reservation for Home/Calendar checks implemented;denial cause and remaining shell gaps open
+- Local checks: six EN/AR 1440/1024/390 clamp before/after and short/denied/unavailable release passed;actual Next;77units;17E2E;API/build/type/lint;16capture suites/offline/freshness/33theme passed
+- Deployment: prior controls ddce60d Ready;geometry change not yet pushed/deployed
+- Hosted verification: prior serving native EN/AR dirty Cancel retained agent draft;explicit discard restored filter/selection;six200/one canceled app rows;denial not reproduced;new geometry not hosted verified
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: investigate intermittent current-read denial with sanitized auth/API success-versus-denial evidence before UX retries;then measure same-center scroll-height clamp/geometry and shell/history;dated resume pairing,EX-03/04/private stale-display decisions retained;Owner acceptance pending
-- Evidence: docs/07-handoff/request-remediation-ex02-local-controls.md
+- Next action: finish exact-source checks/CI and staging geometry verification;retain intermittent denial until failing status/context captured;then remaining header/toolbar geometry,shell/history and dated resume pairing;EX03/04/private policies open
+- Evidence: docs/07-handoff/request-remediation-ex02-geometry.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 

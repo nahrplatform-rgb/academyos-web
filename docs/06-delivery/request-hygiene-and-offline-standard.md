@@ -31,7 +31,8 @@ Suggested read key: environment + subject + academy + capability/role + branch/l
 5. Keep operation reconciliation distinct from refresh. Unknown outcome blocks replacement, even if network comes back. Preserve validated opaque operation identity across supported reload/crash paths; feedback text is not required in that recovery locator.
 6. No page-wide spinner for independent panel refresh. Panel error must leave unrelated authorized tasks usable. Show as-of/refreshing when meaningful. Preserve EN/AR focus, list/scroll and accessible announcements; do not reset task on a tab return.
 7. Local presentation controls (language and loaded-page search) must remain usable during rereads without restoring private rows, making operating requests, or adding hash/history navigation. Keep input identity/focus during the check. Busy/unknown locks still fence route changes and operating commands; a local locale change must not replay or replace an operation. Test with held responses rather than assuming a quick local read proves continuity.
-8. Do not reuse approval/preview just because typed fields survived: duplicate review, signed date checks and stale expected versions must be refreshed under their exact contract.
+8. Measure loading geometry with the same scroll-container node and variable-size results. When masking private content, reserve only temporary empty dimensions where needed; release on completion, failure, denial and scope change. Test a genuinely shorter response separately. A stored scrollTop cannot prevent browser clamping when content height collapses. Do not infer a shell remount from a jump alone.
+9. Do not reuse approval/preview just because typed fields survived: duplicate review, signed date checks and stale expected versions must be refreshed under their exact contract.
 
 ### Library choice and caching options
 

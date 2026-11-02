@@ -1,6 +1,6 @@
 {
-  "source": "ddce60d5a144a00f14df26f147a45adc3323d38f",
-  "generatedAt": "2026-11-01T23:47:25.655Z",
+  "source": "c1f604b96ddcb8d2b5de1dfb9d265c58e8e2db7c",
+  "generatedAt": "2026-11-02T05:28:50.402Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -44,7 +44,7 @@
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "c7d14cb2acd28bf469f4ded10d1d1f4b0ec3004357375173e79b62ccec9d5252",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
-    "apps/web/src/components/experience-workspace.tsx": "1537f5932237860efdfb980a6ef97c85606ec02398b89b455e69ee84d703c0d2",
+    "apps/web/src/components/experience-workspace.tsx": "d59fa156702c607b3c82672d4293ae626f1f6e0ad9088276072dab8db9ed4875",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
     "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
     "apps/web/src/components/onboarding-workspace.tsx": "3490c21c9b38e3d64e7a04f348e003dcc30257a0ec4cf7685b0b215b1739ff94",
@@ -97,12 +97,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "a50c5959512b0afa1bdb07cc8ba4923c3d35ab346ddb4d0bc89bab2f02679ebd",
-  "htmlSha256": "1a8180f79aec6b20d0167798279810f548a0006ecd2a037cb9bea5d8104f005e",
+  "capturePackSha256": "7d48a2d9e4ba481a391c0bd50f05e3967353da32f67cdb81ac5e931afdca4f6d",
+  "htmlSha256": "0b17c7440dbd44aef44fd88a56d20b16451905c909b012dac93d47ec3a5fb67e",
   "frames": 1047,
   "transitions": 1053,
   "sourceFiles": 65,
-  "sourceLiterals": 6853,
+  "sourceLiterals": 6857,
   "journeys": [
     {
       "id": "entry",
