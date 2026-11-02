@@ -4,6 +4,8 @@ This is the proposed EX-10 changed-state review for the Owner-directed [LF-v2 mo
 
 Open `http://127.0.0.1:3235/design/local-data-preview/index.html` when the repository-local server is running. Use HTTP on this fixed local origin: browser storage is origin-specific, so a different port/profile is a different store. Opening the downloaded HTML through `file://` does not establish reliable cross-browser persistence. The generated `index.html` contains its styles and script, with no CDN/assets/API dependency.
 
+Owner response2November2026: the connected design is explicitly approved for implementation. The exact device/privacy bundle remains unaccepted: the Owner asked what the proposed15minute idle lock means. See the [approval record](evidence/owner-design-approval.json). This is not working-feature or security acceptance.
+
 ## Review sequence
 
 1. Choose **Prepare this personal device**. November has 64 fictional sessions across three programs; the directory has 128 fictional players. Pages are 50 sessions / 25 players. Pause midway, reopen, then unlock. Already committed pages are not fetched again.

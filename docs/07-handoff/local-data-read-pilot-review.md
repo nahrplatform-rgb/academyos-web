@@ -2,6 +2,10 @@
 
 2 November 2026. Starting source `4044ec50b2c4b7329206be2b6ae6600de68d6f72`, clean before this task. Authorized outcome: continue the living prompt’s current EX-10 next action, preparing clear LF-P choices and a connected persistent-local changed-state review. This is a proposed experience/tooling checkpoint, **not** private app storage implementation, deployment, Owner acceptance or independent security approval.
 
+## Latest Owner response — 2 November2026
+
+Connected design explicitly approved for implementation. Device/privacy policy was not accepted: the Owner asked for clarification of “locks after15min”. Explain inactivity versus active use, hiding versus deleting records, and the still-pending unlock method; do not re-ask the already approved design. [Exact scoped approval and artifact hash](../../design/local-data-preview/evidence/owner-design-approval.json). Earlier pending-design statements below describe the preparation checkpoint. EX-10 remains current for exact policy readiness; app/hosted/working-feature/security acceptance is unchanged.
+
 ## Review now
 
 - [Plain-language exact policy/design packet](../06-delivery/local-data-read-pilot-decision-design.md).

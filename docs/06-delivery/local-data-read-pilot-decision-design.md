@@ -1,6 +1,12 @@
 # Local-data pilot: the choices and the connected review
 
-2 November 2026. **Recommendations and a fictional reviewable prototype; policy/design acceptance pending.** This prepares the current EX-10 checkpoint from [LF-v2](local-data-and-sync-plan.md). The Owner already requested records that survive reopening, progressive player/month preparation and quiet synchronization. That direction is settled. The decisions below concern the narrower privacy and device boundaries; they do not ask whether to keep data merely in tab memory.
+2 November 2026. **Connected design approved for implementation; exact device/privacy recommendations remain pending.** This prepares the current EX-10 checkpoint from [LF-v2](local-data-and-sync-plan.md). The Owner already requested records that survive reopening, progressive player/month preparation and quiet synchronization. That direction is settled. The decisions below concern the narrower privacy and device boundaries; they do not ask whether to keep data merely in tab memory.
+
+## Owner response — 2 November 2026
+
+The Owner explicitly answered “Approve this local-data design for implementation” to the separate design question. That approves the declared connected lifecycle preview, not the device/privacy policy bundle. The policy response was “what you mean about locks after 15 min”, which is a clarification request, not acceptance of the timer or the remaining proposed choices. [Exact approval record](../../design/local-data-preview/evidence/owner-design-approval.json).
+
+The proposed idle lock means hiding private views after15minutes without deliberate interaction, such as clicking, typing, touching or scrolling. It is not a15minute usage limit. Background synchronization must not keep the workspace unlocked by itself. Locking does not delete downloaded records or require their full re-download; the eventual unlock/key mechanism remains subject to the pending policy/security design. Reading without interacting can also count as inactivity, which is why the duration still needs the Owner’s choice.
 
 ## What this will mean in everyday use
 
@@ -63,6 +69,6 @@ WB-01–WB-24 and WD-33–WD-50 retain their real-app acceptance scope. The [pre
 
 Trust boundaries: browser disk/key/account/academy partition, identity/local unlock, current signed API/gateway and tenant DB, cross-tab metadata, local draft versus replica, original command versus projected result. Only a separate fictional origin is changed now. No app source/schema/API/permission/provider or real data changes.
 
-Design approval and exact policy approval must be recorded independently. Then EX-02 can establish the stable workspace/repository seam; EX-06 designs/tests encryption, storage, migrations and exact accepted fields/access, and EX-04 implements bounded real transport. EX-03 recovery is designed alongside them before affected writes change. Follow the [tracker](experience-execution.csv); this packet cannot grant its own acceptance or security clearance.
+Connected design approval is recorded above; exact policy approval remains separate and pending. EX-02 can establish the stable workspace/repository seam; EX-06 designs/tests encryption, storage, migrations and exact accepted fields/access, and EX-04 implements bounded real transport. EX-03 recovery is designed alongside them before affected writes change. Follow the [tracker](experience-execution.csv); this packet cannot grant its own acceptance or security clearance.
 
 Evidence, actual verification results, limitations and continuation are in the [EX-10 handoff](../07-handoff/local-data-read-pilot-review.md). No working-feature, deployment, Owner acceptance or independent security status is inferred from this design packet.
