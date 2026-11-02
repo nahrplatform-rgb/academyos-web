@@ -56,3 +56,7 @@ EX-10 remains `current`. Review the prepared artifact and obtain exact policy/de
 The loopback server whitelist/CSP/freshness and native dialog were also checked separately; see [serving checks](../../design/local-data-preview/evidence/serving-checks.json). Automatic opening in the user’s browser reports “Local browser use is disabled in Work settings”; the clickable local URL remains available, without changing user settings.
 
 The tracker, canonical LF-v2 plan, master/redesign/execution pointers and generated continuation prompt are synchronized. The factual current-source HTML remains unchanged and is freshness-checked because no runtime source/canonical implementation status changed. Design, implemented review tool, local verification, app implementation, deployment, hosted verification, Owner acceptance and independent security remain separate.
+
+## Git delivery and observed security notice
+
+Review/tooling commit `af1463f` was pushed to `codex/onboarding-decision-design-packet`; the working tree was clean afterward. This does not establish an app rollout or hosted working-feature acceptance. The push reported one high dependency alert on the repository’s default branch: [Dependabot alert1](https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1). This checkpoint did not triage the advisory, determine staging applicability or change dependencies; retain it for the existing security gate. Do not describe it as a new preview dependency or a resolved vulnerability.

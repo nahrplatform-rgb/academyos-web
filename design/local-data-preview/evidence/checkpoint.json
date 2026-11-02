@@ -16,5 +16,18 @@
   },
   "designPolicyApproval": "pending;questions presented with exact scoped recommendations",
   "deploymentHostedOwnerSecurity": "No app rollout or new hosted/Owner/security acceptance claimed",
-  "automaticUserBrowserOpening": "blocked by disabled local browser control; clickable local preview provided"
+  "automaticUserBrowserOpening": "blocked by disabled local browser control; clickable local preview provided",
+  "gitDelivery": {
+    "reviewCommit": "af1463f",
+    "branch": "codex/onboarding-decision-design-packet",
+    "push": "confirmed",
+    "appPromotion": "not performed"
+  },
+  "observedPushNotice": {
+    "source": "GitHub remote push output",
+    "defaultBranchDependencyAlerts": 1,
+    "reportedSeverity": "high",
+    "alertUrl": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+    "triage": "not performed;staging applicability unverified;no dependency changes"
+  }
 }
