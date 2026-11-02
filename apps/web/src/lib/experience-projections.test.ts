@@ -31,3 +31,12 @@ test('navigation civil hints reject overflow, arrays and invalid years',()=>{
  for(const day of ['2024-02-29','2026-11-01'])assert.equal(isCivilDay(day),true);
  for(const day of ['2026-02-30','2026-02-29','0000-01-01','2026-13-01','2026-11-01T12:00:00Z',['2026-11-01'],null,{}])assert.equal(isCivilDay(day),false);
 });
+
+test('cold Owner Calendar accepts only a mode and academy, not caller dates or scope',()=>{
+ for(const view of ['week','month']){
+  const result=experienceRequest({action:'owner_current_calendar',academy,view});
+  assert.deepEqual(result,{rpc:'x16_owner_current_calendar_v1',args:{a:academy,mode:view},mutating:false});
+ }
+ for(const extra of [{view:'year'},{view:null},{from:'2026-11-01'},{cursor:{}},{role:'owner'},{link},{branch:link}])assert.throws(()=>experienceRequest({action:'owner_current_calendar',academy,view:'week',...extra}));
+ assert.throws(()=>experienceRequest({action:'trainer_current_calendar',academy,view:'week'}));
+});

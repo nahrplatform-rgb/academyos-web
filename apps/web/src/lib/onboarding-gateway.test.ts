@@ -90,3 +90,9 @@ test("actual Supabase transport preserves gateway denial and expected POST path"
  await assert.rejects(call("https://snpphkenmvmhpjstbeul.supabase.co/rest/v1/rpc/a10_mark_v1", {method:"POST"}));
  assert.equal(seen,"POST:/rpc/a10_mark_v1");
  });
+
+test('current Owner Calendar is an exact allowlisted read target',()=>{
+ assert.deepEqual(gatewayRequest(url('x16_owner_current_calendar_v1'),post({a:'synthetic',mode:'week'})),{target:'POST:/rpc/x16_owner_current_calendar_v1',mutating:false});
+ assert.throws(()=>gatewayRequest(url('x16_trainer_current_calendar_v1'),post()),GatewayError);
+ assert.throws(()=>gatewayRequest(url('x16_owner_current_calendar_v1'),{method:'GET'}),GatewayError);
+});

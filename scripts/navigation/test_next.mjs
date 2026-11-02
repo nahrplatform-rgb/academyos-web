@@ -47,7 +47,7 @@ for(const suffix of ['','/[program]']){
 }
 const context={academy_id:academy,academy_name:'Fictional Routing Academy',branch_name:'Main Demo Branch',branch_id:academy,timezone:'Africa/Cairo',today:day};
 const session={id:program,program,day,date:day,starts_at:day+'T15:00:00Z',ends_at:day+'T16:00:00Z',title:'Fictional Routing Session',branch:'Main Demo Branch',sport:'Football',sport_ar:'كرة القدم',timezone:'Africa/Cairo',state:'draft',published:false,capacity:18,roster_count:0};
-await put('app/api/experience/route.js',`const context=${JSON.stringify(context)},item=${JSON.stringify(session)};export async function POST(req){const b=await req.json();const data=b.action==='owner_home'?{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:'ready',items:[item],count:1}}}:{context,as_of:'2026-11-01T12:00:00Z',from:b.from,to:b.to,total:1,items:[item],more:false,next:null};return Response.json({data});}`);
+await put('app/api/experience/route.js',`const context=${JSON.stringify(context)},item=${JSON.stringify(session)};export async function POST(req){const b=await req.json();const first=b.action==='owner_current_calendar'?'${day}':b.from,last=b.action==='owner_current_calendar'?(b.view==='month'?'2026-12-12':'2026-11-07'):b.to;const data=b.action==='owner_home'?{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:'ready',items:[item],count:1}}}:{context,as_of:'2026-11-01T12:00:00Z',anchor:'${day}',from:first,to:last,total:1,items:[item],more:false,next:null};return Response.json({data});}`);
 await put('app/api/planning/route.js',`const context=${JSON.stringify(context)};export async function POST(req){const b=await req.json();if(!['read','dates'].includes(b.action))return Response.json({error:'test_read_only'},{status:403});const data=b.action==='read'?{context,program:'${program}',name:'Fictional Routing Session',day:'${day}',start:'17:00',end:'18:00',timezone:'Africa/Cairo',version:0,schedule_version:1,capacity:null,trainer:null,count:0,players:[],more:false}:{items:[],more:false};return Response.json({data});}`);
 const programRecord={id:program,definition:{name:'Fictional Routing Program',from:day,to:day,rules:[{day:0,start:'17:00',end:'18:00'}]},timezone:'Africa/Cairo',state:'ready',completed:1,prepared:1,version:1,context_version:1,total:1,windows:1,failure:null,failure_date:null};
 await put('app/api/programs/route.js',`const context=${JSON.stringify({...context,sport_name:'Football',sport_name_ar:'كرة القدم',version:1})},program=${JSON.stringify(programRecord)};export async function POST(req){const b=await req.json();if(!['list','read'].includes(b.action))return Response.json({error:'test_read_only'},{status:403});return Response.json({data:b.action==='list'?{context,items:[program],more:false}:{context,program,dates:[{date:'${day}',start:'17:00',end:'18:00',utcStart:'${day}T15:00:00Z',utcEnd:'${day}T16:00:00Z'}]}});}`);
@@ -66,7 +66,7 @@ try{
  // delay. These fictional failures are not hosted permission or SQL evidence.
  if(measureColdCalendar){
   const cold=[];
-  for(const locale of ['en','ar'])for(const scenario of ['cold','hint','invalid-hint','stored-period','cold-month','home-failure','calendar-failure','setup-required','leave-during-home']){
+  for(const locale of ['en','ar'])for(const scenario of ['cold','hint','invalid-hint','stored-period','cold-month','current-failure','explicit-failure','setup-required','leave-during-current']){
    const ar=locale==='ar',pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),events=[],pageErrors=[];
    p.on('pageerror',e=>pageErrors.push(e.message));
    const cacheKey=`academyos:experience:user_synthetic_navigation:${academy}:owner:calendar`;
@@ -74,31 +74,34 @@ try{
    let releaseHome,homeStarted,fail=true;const startedHome=new Promise(r=>homeStarted=r);
    await p.route('**/api/experience',async route=>{
     const body=route.request().postDataJSON(),event={action:body.action,from:body.from??null,to:body.to??null,started:Math.round(performance.now())};events.push(event);
-    if(scenario==='leave-during-home'&&body.action==='owner_home'){homeStarted();await new Promise(r=>releaseHome=r);event.releasedAfterDeparture=true;await route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',panels:{}}}}).catch(()=>{});return;}
+    if(scenario==='leave-during-current'&&body.action==='owner_current_calendar'){homeStarted();await new Promise(r=>releaseHome=r);event.releasedAfterDeparture=true;await route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',panels:{}}}}).catch(()=>{});return;}
     await new Promise(r=>setTimeout(r,250));
-    if(fail&&((scenario==='home-failure'&&body.action==='owner_home')||(scenario==='calendar-failure'&&body.action==='owner_calendar'))){event.status=503;await route.fulfill({status:503,json:{error:'unavailable'}});return;}
+    if(fail&&((scenario==='current-failure'&&body.action==='owner_current_calendar')||(scenario==='explicit-failure'&&body.action==='owner_calendar'))){event.status=503;await route.fulfill({status:503,json:{error:'unavailable'}});return;}
     if(scenario==='setup-required'){event.status=200;await route.fulfill({json:{data:{context:{...context,setup_required:true},as_of:'2026-11-01T12:00:00Z',setup_required:true}}});return;}
     event.status=200;await route.continue();
    });
-   const url=`${origin}/${locale}/workspace/${academy}/calendar${scenario==='hint'?'?anchor=2026-11-01':scenario==='invalid-hint'?'?anchor=2026-02-30':''}`,begin=performance.now();
+   const url=`${origin}/${locale}/workspace/${academy}/calendar${['hint','explicit-failure'].includes(scenario)?'?anchor=2026-11-01':scenario==='invalid-hint'?'?anchor=2026-02-30':''}`,begin=performance.now();
    await p.goto(url);
-   if(scenario==='leave-during-home'){
-    await startedHome;await p.goto('about:blank');releaseHome();await expect.poll(()=>events[0].releasedAfterDeparture).toBe(true);assert.deepEqual(events.map(x=>x.action),['owner_home']);
+   if(scenario==='leave-during-current'){
+    await startedHome;await p.goto('about:blank');releaseHome();await expect.poll(()=>events[0].releasedAfterDeparture).toBe(true);assert.deepEqual(events.map(x=>x.action),['owner_current_calendar']);
     cold.push({locale,scenario,events,scope:'departure releases held fixture response; no database cancellation claim'});await pc.close();continue;
    }
-   if(scenario==='home-failure'||scenario==='calendar-failure'){
+   if(scenario==='current-failure'||scenario==='explicit-failure'){
     await expect(p.getByRole('alert').filter({hasText:ar?'هذا العرض غير متاح':'This view is unavailable'})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);
-    const failedActions=events.map(x=>x.action);assert.deepEqual(failedActions,scenario==='home-failure'?['owner_home']:['owner_home','owner_calendar']);
+    const failedActions=events.map(x=>x.action);assert.deepEqual(failedActions,scenario==='current-failure'?['owner_current_calendar']:['owner_calendar']);
     await writeFile(join(evidence,`cold-failure-${locale}-${scenario}.txt`),await p.locator('body').innerText());await p.screenshot({path:join(evidence,`cold-failure-${locale}-${scenario}.png`),fullPage:true});fail=false;await p.getByRole('button',{name:ar?'العودة للفترة الحالية':'Return to the current period',exact:true}).click();await expect(p.locator('.experience-session')).toHaveCount(1);
-    assert.deepEqual(events.map(x=>x.action),[...failedActions,'owner_home','owner_calendar']);cold.push({locale,scenario,failedActions,recoveryActions:events.slice(failedActions.length).map(x=>x.action),events,privateRowsOnFailure:0});
+    assert.deepEqual(events.map(x=>x.action),[...failedActions,'owner_current_calendar']);cold.push({locale,scenario,failedActions,recoveryActions:events.slice(failedActions.length).map(x=>x.action),events,privateRowsOnFailure:0});
    }else if(scenario==='setup-required'){
-    await expect(p.getByRole('heading',{name:ar?'أكمل إعداد الأكاديمية':'Finish academy setup',exact:true})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);assert.deepEqual(events.map(x=>x.action),['owner_home']);cold.push({locale,scenario,events});
+    await expect(p.getByRole('heading',{name:ar?'أكمل إعداد الأكاديمية':'Finish academy setup',exact:true})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);assert.deepEqual(events.map(x=>x.action),['owner_current_calendar']);cold.push({locale,scenario,events});
    }else{
     await expect(p.locator('.experience-session')).toHaveCount(1);await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();
-    const actionableMs=Math.round(performance.now()-begin),expected=['hint','stored-period'].includes(scenario)?['owner_calendar']:['owner_home','owner_calendar'];assert.deepEqual(events.map(x=>x.action),expected);
+    const actionableMs=Math.round(performance.now()-begin),expected=['hint','stored-period'].includes(scenario)?['owner_calendar']:['owner_current_calendar'];assert.deepEqual(events.map(x=>x.action),expected);
     if(expected.length===2)assert.ok(events[1].started-events[0].started>=250,'Calendar is serially dependent on delayed Home response');
-    const first=scenario==='stored-period'?'2026-11-08':day;assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='cold-month'?'2026-12-12':scenario==='stored-period'?'2026-11-14':'2026-11-07');
-    cold.push({locale,scenario,events,actionableMs,syntheticDelayPerReadMs:250});
+    const first=scenario==='stored-period'?'2026-11-08':day;if(expected[0]==='owner_calendar'){assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='stored-period'?'2026-11-14':'2026-11-07');}else{assert.equal(events.at(-1).from,null);assert.equal(events.at(-1).to,null);}
+    await expect(p.getByLabel(ar?'أول تاريخ معروض':'First visible date',{exact:true})).toHaveValue(first);
+    // Resolved anchor application must not start a second request. A real period change must.
+    await p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true}).click();await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();assert.equal(events.length,2);assert.equal(events[1].action,'owner_calendar');
+    cold.push({locale,scenario,initialActions:events.slice(0,1).map(x=>x.action),events,actionableMs,syntheticDelayPerReadMs:250});
    }
    assert.deepEqual(pageErrors,[]);await pc.close();
   }

@@ -1,15 +1,16 @@
 """Disposable real PG17 read projections. No hosted grants or data."""
-import runpy,json,uuid,unittest
+import runpy,json,uuid,unittest,os
 from pathlib import Path
 m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'development/test_boundary.py'));Base,ROOT=m['DevelopmentBoundary'],m['ROOT']
 class ExperienceBoundary(Base):
- extra_authenticated_calls={**Base.extra_authenticated_calls,'a10_register_v1':"a10_register_v1(gen_random_uuid(),gen_random_uuid(),'[]',clock_timestamp(),gen_random_uuid())",**{f'x15_{actor}_{kind}_v1':f"x15_{actor}_{kind}_v1(gen_random_uuid()"+(",gen_random_uuid()"if actor=='guardian'else'')+(",'2099-11-01','2099-12-12'"if kind=='calendar'else'')+")"for actor in ['owner','trainer','guardian']for kind in ['home','calendar']}}
+ extra_authenticated_calls={**Base.extra_authenticated_calls,'x16_owner_current_calendar_v1':"x16_owner_current_calendar_v1(gen_random_uuid(),'week')",'a10_register_v1':"a10_register_v1(gen_random_uuid(),gen_random_uuid(),'[]',clock_timestamp(),gen_random_uuid())",**{f'x15_{actor}_{kind}_v1':f"x15_{actor}_{kind}_v1(gen_random_uuid()"+(",gen_random_uuid()"if actor=='guardian'else'')+(",'2099-11-01','2099-12-12'"if kind=='calendar'else'')+")"for actor in ['owner','trainer','guardian']for kind in ['home','calendar']}}
 
  @classmethod
  def setUpClass(cls):
   super().setUpClass()
   cls.sql((ROOT/'supabase/migrations/20261029035928_attendance_register_batch.sql').read_text())
   cls.sql((ROOT/'supabase/migrations/20261029194029_experience_home_calendar_reads.sql').read_text())
+  cls.sql((ROOT/'supabase/migrations/20261102120000_owner_current_calendar.sql').read_text())
  def calendar(self,a,actor='owner',who='user_owner',first='2099-11-01',last='2099-12-12',link=None,cursor=None,ok=True):
   args=f"'{a}',"+(f"'{link}',"if actor=='guardian'else'')+f"'{first}','{last}'"
   if cursor:args+=f",'{cursor['at']}','{cursor['id']}','{cursor['day']}'"
@@ -45,7 +46,7 @@ class ExperienceBoundary(Base):
   statement=f"perform public.x15_owner_calendar_v1('{a}','2099-11-01','2099-12-12');"
   metrics=json.loads(self.sql("create temporary table experience_measured(ms double precision);do $$declare started timestamptz;begin for i in 1..30 loop started:=clock_timestamp();"+statement+"insert into experience_measured values(extract(epoch from clock_timestamp()-started)*1000);end loop;end$$;select json_build_object('samples',count(*),'p95_ms',percentile_cont(0.95)within group(order by ms),'max_ms',max(ms))from experience_measured",'user_owner'))
   self.assertLess(metrics['p95_ms'],800)
-  dest=ROOT/'docs/07-handoff/evidence/redesign-homes-2026-10-29';dest.mkdir(parents=True,exist_ok=True)
+  dest=Path(os.environ.get('SQL_EVIDENCE_DIR','/tmp/academyos-experience-projections-sql'));dest.mkdir(parents=True,exist_ok=True)
   (dest/'sql-read-budget.json').write_text(json.dumps({'scope':'Disposable local PostgreSQL17 functions only; excludes app/HTTP/identity/network/hosted/WAL cost','programs':31,'scoped_dates':total,'pages':pages,'samples':metrics,'page_limit':50,'utf8_payload_limit':32768},indent=2)+'\n')
  def test_experience_04_trainer_published_current_only(self):
   a,b,p,staff,iv,x,dates=self.fixture();self.assertEqual(self.calendar(a,'trainer','user_trainer')['total'],0)
@@ -98,6 +99,35 @@ class ExperienceBoundary(Base):
   self.home(a);self.calendar(a);self.home(a,'trainer','user_trainer');self.calendar(a,'trainer','user_trainer')
   after=self.sql("select md5(string_agg(table_name||':'||n,','order by table_name))from(select 'audit' table_name,count(*)::text n from academy.audit_events union all select 'marks',count(*)::text from academy.attendance_marks union all select 'memberships',count(*)::text from academy.memberships union all select 'plans',count(*)::text from academy.date_plans)q")
   self.assertEqual(before,after)
+ def test_experience_10_current_owner_calendar(self):
+  a,b,p,staff,iv,x,dates=self.fixture()
+  call=lambda mode='week',who='user_owner',academy=a,ok=True:self.sql(f"select public.x16_owner_current_calendar_v1('{academy}','{mode}')",who,ok=ok)
+  stmt=f"select public.x16_owner_current_calendar_v1('{a}','week')"
+  for role in ['anon','authenticated']:
+   self.sql(f"begin;set local role {role};set local request.jwt.claims='{{}}';{stmt};commit",ok=False)
+  for opts in [dict(method='GET'),dict(proof_subject='user_other_owner'),dict(proof_path='/rpc/x15_owner_calendar_v1')]:
+   self.sql('begin;'+self.caller('user_owner',path='/rpc/x16_owner_current_calendar_v1',**opts)+stmt+';commit',ok=False)
+  self.assertEqual(self.sql("select has_function_privilege('anon','public.x16_owner_current_calendar_v1(uuid,text)','execute')"),'f')
+  before=self.sql("select md5(string_agg(table_name||':'||n,','order by table_name))from(select 'audit'table_name,count(*)::text n from academy.audit_events union all select 'memberships',count(*)::text from academy.memberships union all select 'plans',count(*)::text from academy.date_plans)q")
+  call();call('month')
+  after=self.sql("select md5(string_agg(table_name||':'||n,','order by table_name))from(select 'audit'table_name,count(*)::text n from academy.audit_events union all select 'memberships',count(*)::text from academy.memberships union all select 'plans',count(*)::text from academy.date_plans)q")
+  self.assertEqual(before,after)
+  for zone in ['Pacific/Kiritimati','America/Adak','Africa/Cairo']:
+   self.sql(f"update academy.academies set timezone='{zone}'where id='{a}'")
+   for mode in ['week','month']:
+    r=json.loads(call(mode));expected=self.sql(f"select(clock_timestamp()at time zone'{zone}')::date")
+    self.assertEqual(r['anchor'],expected)
+    start=expected if mode=='week'else self.sql(f"select date_trunc('month','{expected}'::date)::date-extract(dow from date_trunc('month','{expected}'::date))::integer")
+    self.assertEqual(r['from'],start)
+    self.assertEqual(r['to'],self.sql(f"select'{start}'::date+{6 if mode=='week'else 41}"))
+    self.assertLessEqual(len(r['items']),50);self.assertLess(len(json.dumps(r).encode()),32768)
+  for mode in ['year','', 'WEEK']:call(mode,ok=False)
+  for who in ['user_trainer','user_guardian','user_platform','user_unknown']:call(who=who,ok=False)
+  other,_=self.academy('user_other_owner');call(academy=other,ok=False)
+  self.sql(f"update academy.memberships set status='suspended'where academy_id='{a}'and role='owner'");call(ok=False)
+  self.sql(f"update academy.memberships set status='active'where academy_id='{a}'and role='owner';update academy.academies set setup_complete=false where id='{a}'")
+  r=json.loads(call());self.assertTrue(r['setup_required']);self.assertNotIn('items',r);self.assertNotIn('today',r['context'])
+
 def load_tests(loader,tests,pattern):
  # The inherited suites have their own clean-cluster CI entry points. Discover
  # this additive read contract here, rather than mixing fixtures across classes.

@@ -30,6 +30,7 @@ try{
  function reset(results){state.results=results;state.budgets=[];state.provider=state.rpc=state.dispatch=0;}
  const academy='00000000-0000-4000-8000-000000000001',op='00000000-0000-4000-8000-000000000002';
  const cases=['owner','trainer','guardian'].flatMap(actor=>['home','calendar'].map(kind=>({action:`${actor}_${kind}`,academy,...(actor==='guardian'?{link:op}:{}),...(kind==='calendar'?{from:'2026-11-01',to:'2026-12-12'}:{})})));
+ cases.push({action:'owner_current_calendar',academy,view:'week'},{action:'owner_current_calendar',academy,view:'month'});
  for(const body of cases)for(const result of [{success:false},{success:true,reason:'timeout'},'unavailable']){
   reset([result]);const r=await send(body);assert.equal(r.status,result==='unavailable'?503:429);assert.equal(state.rpc,0);assert.equal(r.headers.get('cache-control'),'no-store');
   assert.deepEqual(state.budgets,[{prefix:'onboarding-entry-read',limit:60}]);
@@ -37,7 +38,7 @@ try{
  reset([]);let r=await send(cases[0]);assert.equal(r.status,200);assert.equal(state.rpc,1);
  for(const body of [{...cases[4],role:'owner'},{...cases[1],to:'2027-01-01'},{...cases[4],unexpected:'x'.repeat(9000)}]){reset([]);r=await send(body);assert.ok([413,422].includes(r.status));assert.equal(state.rpc,0);}
  reset([]);r=await POST(new NextRequest('https://staging.academy.nahr.dev/api/experience',{method:'POST',headers:{origin:'https://attacker.example','content-type':'application/json'},body:JSON.stringify(cases[0])}));assert.equal(r.status,403);assert.equal(state.rpc,0);
- console.log(JSON.stringify({experienceApi:'passed',budgetFailures:18,invalidBodies:3,crossOriginDenied:true,scope:'actual route; synthetic limiter/session adapters'}));
+ console.log(JSON.stringify({experienceApi:'passed',budgetFailures:cases.length*3,invalidBodies:3,crossOriginDenied:true,scope:'actual route; synthetic limiter/session adapters'}));
 }finally{
  for(const [name,value] of Object.entries(previous))if(value===undefined)delete process.env[name];else process.env[name]=value;
  await rm(temp,{recursive:true,force:true});

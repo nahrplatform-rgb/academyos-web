@@ -16,16 +16,22 @@ export function experienceRequest(value: unknown) {
   const body = value as Record<string, unknown>;
   const a = id(body.academy);
   const actions = {
+    owner_current_calendar: 'x16_owner_current_calendar_v1',
     owner_home: 'x15_owner_home_v1', trainer_home: 'x15_trainer_home_v1', guardian_home: 'x15_guardian_home_v1',
     owner_calendar: 'x15_owner_calendar_v1', trainer_calendar: 'x15_trainer_calendar_v1', guardian_calendar: 'x15_guardian_calendar_v1',
   } as const;
   if (typeof body.action !== 'string' || !Object.hasOwn(actions, body.action)) throw new ExperienceInputError();
   const action = body.action as keyof typeof actions;
-  const calendar = action.endsWith('_calendar'), guardian = action.startsWith('guardian_');
-  const allowed = ['action', 'academy', ...(guardian ? ['link'] : []), ...(calendar ? ['from', 'to', 'cursor'] : [])];
+  const current = action === 'owner_current_calendar';
+  const calendar = action.endsWith('_calendar') && !current, guardian = action.startsWith('guardian_');
+  const allowed = ['action', 'academy', ...(guardian ? ['link'] : []), ...(current ? ['view'] : []), ...(calendar ? ['from', 'to', 'cursor'] : [])];
   if (Object.keys(body).some(key => !allowed.includes(key))) throw new ExperienceInputError();
   const args: Record<string, unknown> = { a };
   if (guardian) args.link = id(body.link);
+  if (current) {
+    if (body.view !== 'week' && body.view !== 'month') throw new ExperienceInputError();
+    args.mode = body.view;
+  }
   if (calendar) {
     const from = day(body.from), to = day(body.to);
     const span = (Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86400000;
@@ -50,3 +56,5 @@ export type CalendarSession = {
   capacity: number | null; roster_count: number | null; cursor: CalendarCursor;
 };
 export type CalendarProjection = { context: ExperienceContext; as_of: string; from: string; to: string; total: number; items: CalendarSession[]; more: boolean; next: CalendarCursor | null };
+
+export type CurrentCalendarProjection = (CalendarProjection & { anchor: string; setup_required?: false }) | { context: ExperienceContext; as_of: string; setup_required: true };

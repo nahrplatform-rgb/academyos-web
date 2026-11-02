@@ -47,7 +47,7 @@ Design: existing approved experience; changes scoped before implementation.
 - Hosted verification: new shell/auth correlation attempt inconclusive nativefocus;prior Owner dated1read/Calendar return evidence retained;provider/role/history gaps remain
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: EX04 cold dependency measurement passed;continue scoped current-period read implementation;retain EX02 hosted role/history and provider causality gaps;EX03/private policies/Owner review remain open
+- Next action: EX04 Owner cold fix localpassed and schema applied;finish app rollout/hosted checks;retain EX02 role/history and provider causality gaps;EX03/private policies/Owner review open
 - Evidence: docs/07-handoff/request-remediation-ex02-shell-identity.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
@@ -69,16 +69,16 @@ Design: recovery contract review before implementation.
 
 Dependencies: EX-01.
 Findings: NR05; NR06; NR07.
-Design: existing approved Calendar; minimal current-period read contract scoped in packet;implementation pending.
+Design: existing approved Calendar;scoped authoritative current-period contract implemented.
 
-- Implementation: partial_prior_fixes;new cold-entry diagnostic only;Owner cold full-Home dependency remains
-- Local checks: 18 EN/AR actual Next cold/hint/stored/month/failure/setup/departure cases passed;ordinary navigation/dirty/history regression passed;synth250ms;not hosted percentiles
-- Deployment: measurement tooling/docs only;no new app promotion;prior127352b last verified staging
-- Hosted verification: not newly checked;cold role/SQL/cancellation/latency gaps remain;prior scoped continuity evidence retained
+- Implementation: Owner cold Calendar2→1 implemented;signed current DB scope/setup/timezone retained;Trainer/Guardian/cancellation/detail work open
+- Local checks: passed79units;17E2E;10PG;24API budget failures;actual Next18ENAR cold/period/recovery plus regression;prod/dev UI;16captures;build/type/lint/review
+- Deployment: staging schema applied after fresh backup/restore;dependent app CI/rollout pending
+- Hosted verification: schema ACL/proof config and57table fingerprints verified;signed-in app checks pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: implement reviewed Owner current-period Calendar read through signed gateway/current DB authority;retain setup/timezone/bounds/cursor;prove cold2→1 before rollout;Trainer/Guardian/cancellation/SQL remain open
-- Evidence: docs/07-handoff/request-remediation-ex04-cold-calendar.md
+- Next action: finish exact-source CI/app staging rollout and read-only ENAR cold/current recovery/period/return verification;no finding closure from deployment
+- Evidence: docs/07-handoff/request-remediation-ex04-current-calendar.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
