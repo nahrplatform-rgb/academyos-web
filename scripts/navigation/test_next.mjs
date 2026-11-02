@@ -109,6 +109,28 @@ try{
   await p.screenshot({path:join(evidence,`continuity-date-${locale}.png`),fullPage:true});
   continuity.push({locale,calendarRequests,calendarActionableMs:Math.round(calendarMs),syntheticDelayPerExperienceReadMs:250,planningRequests:[...requests],planBlockedByHiddenDirectory:continuityBaseline});await probeContext.close();
  }
+ // A visible return followed by focus is one current-authority check, even
+ // when the first read completes before the second browser signal arrives.
+ const datedResume=[];
+ for(const locale of ['en','ar']){
+  const ar=locale==='ar',pc=await browser.newContext(),p=await pc.newPage(),calls=[];
+  await p.route('**/api/planning',async route=>{calls.push(route.request().postDataJSON().action);await route.continue();});
+  await p.goto(`${origin}/${locale}/workspace/${academy}/programs/${program}/${day}?return=calendar`);
+  const plan=()=>p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true});await expect(plan()).toBeEnabled();
+  await p.evaluate(()=>{window.__resumeVisibility='visible';Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>window.__resumeVisibility});});
+  const visible=()=>p.evaluate(()=>{window.dispatchEvent(new Event('blur'));window.__resumeVisibility='hidden';document.dispatchEvent(new Event('visibilitychange'));window.__resumeVisibility='visible';document.dispatchEvent(new Event('visibilitychange'));});
+  const before=calls.length;await visible();await expect.poll(()=>calls.length).toBe(before+1);await expect(plan()).toBeEnabled();
+  await p.waitForTimeout(40);await p.evaluate(()=>window.dispatchEvent(new Event('focus')));
+  // A bounded observation window measures event pairing, never a product TTL.
+  await p.waitForTimeout(80);const paired=calls.length-before;
+  assert.equal(paired,process.env.EX02_DATED_RESUME_BASELINE==='1'?2:1,'one visible/focus return owns one dated read');
+  await plan().click();const capacity=p.getByLabel(ar?'سعة هذا التاريخ':'Capacity for this date',{exact:true});await capacity.fill('7');
+  const dirtyBefore=calls.length;await visible();await expect.poll(()=>calls.length).toBe(dirtyBefore+1);await expect(capacity).toBeEnabled();await p.waitForTimeout(40);await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await p.waitForTimeout(80);
+  await expect(capacity).toHaveValue('7');const dirtyPaired=calls.length-dirtyBefore;assert.equal(dirtyPaired,process.env.EX02_DATED_RESUME_BASELINE==='1'?2:1);
+  const fresh=calls.length;await p.evaluate(()=>{window.dispatchEvent(new Event('blur'));window.dispatchEvent(new Event('focus'));});await expect.poll(()=>calls.length).toBe(fresh+1);await expect(capacity).toHaveValue('7');
+  datedResume.push({locale,pairedReads:paired,dirtyPairedReads:dirtyPaired,retainedCapacity:'7',distinctReturnReads:calls.length-fresh});await pc.close();
+ }
+ await writeFile(join(evidence,'dated-resume.json'),JSON.stringify({scope:'actual Next production;fictional identity/read-only planning APIs;40ms separated browser signals',datedResume},null,2));
  // Long-list task return: current selection alone does not prove return position.
  const returnPositions=[];
  for(const locale of ['en','ar'])for(const width of [1440,390]){

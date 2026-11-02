@@ -1,6 +1,6 @@
 {
-  "source": "5499bff4b7933fbdf3bba92139c0cd2362a19d57",
-  "generatedAt": "2026-11-02T11:21:15.011Z",
+  "source": "8e32c7ce73f071c3c0b125063a8496e6d8b0aef5",
+  "generatedAt": "2026-11-02T11:30:29.440Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -42,7 +42,7 @@
     "apps/web/src/components/admission-directory.tsx": "83f9729bbfdff555f09006f405949ef70b644c9519adc5db00073f23f2fd1d77",
     "apps/web/src/components/attendance-workspace.tsx": "ed3802dc6bed91a6180269693c54edc6e17b9df8422a9d7a62021fce12ac4bb6",
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
-    "apps/web/src/components/date-planning-workspace.tsx": "c7d14cb2acd28bf469f4ded10d1d1f4b0ec3004357375173e79b62ccec9d5252",
+    "apps/web/src/components/date-planning-workspace.tsx": "caa608bd214c267a7a0106f2d92aff9fcaa75bfd66b04f69b9d4268031fd2092",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
     "apps/web/src/components/experience-workspace.tsx": "a1c8cc3123002c5542388a7511c34b481070f3cfec0c33027f13b177bc84e01d",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
@@ -88,7 +88,7 @@
     "scripts/guardians/test_ui.mjs": "3b326fb0800baf571bb6b0b37b70788f8c105973f3aec4750c145a995f8f3959",
     "scripts/onboarding/test_ui.mjs": "a813822aad04605c538c9c9c14aae92042df4598791b4668aeb91498e82ea118",
     "scripts/people/test_ui.mjs": "4fe88307dbff30b07eb31636731b5ae62ed856e97b04b602c5807c2e35289930",
-    "scripts/planning/test_ui.mjs": "82df327a4a0b9cc1dd192e77834cc7b7139f56d22ac38975ecbd34c8dc03c102",
+    "scripts/planning/test_ui.mjs": "bb353c0aae9f1debb5049ad1bc6f3ecc29ae0c7dcd927edbdf5bab7aeebbaf6b",
     "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
     "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
     "scripts/publication/test_ui.mjs": "a41d775d6a2a56594f202cecd792581d94f48f4b3f15d11febd7840893f9b427",
@@ -97,12 +97,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "fd146ed200857adfee82991cd3cf2e3b47b08f9c222f53d05e1531a58fd08593"
   },
-  "capturePackSha256": "f75c7ffe115ab295921a1128e21994a1b2040e3c784d0f8c8e6b30eb15eae1a2",
-  "htmlSha256": "fcb67f98e9e344c7e8aba18d833faeb65d3944fd5aac831f58375e9579c2b44d",
-  "frames": 1049,
-  "transitions": 1053,
+  "capturePackSha256": "872a493e853035265ce3ae1ee9b5cc26cd658901b9d61502ec1d47eff732a1ac",
+  "htmlSha256": "7bd1c670b9541eb0551724fe3d6a89419acd65b5bad98445b492fa4973d9ab74",
+  "frames": 1052,
+  "transitions": 1055,
   "sourceFiles": 65,
-  "sourceLiterals": 6880,
+  "sourceLiterals": 6876,
   "journeys": [
     {
       "id": "entry",
@@ -130,7 +130,7 @@
     },
     {
       "id": "planning",
-      "frames": 63
+      "frames": 66
     },
     {
       "id": "program-planning",

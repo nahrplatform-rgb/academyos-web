@@ -41,14 +41,14 @@ Dependencies: EX-01.
 Findings: NR01; NR02; NR03; NR04; NR08; NR14; G01.
 Design: existing approved experience; changes scoped before implementation.
 
-- Implementation: partial:long-list Calendar task return coordinates implemented;prior header/scroll/local controls retained;remaining shell/dated resume open
-- Local checks: 4EN/AR1440/390 actual Next40-row task return/history/mask/short/denied passed;20geometry;77units;17E2E;build/type/lint;16capture/offline/freshness passed
-- Deployment: corrected033322f staging;dpl_9LZX2qr7yjqcEvTtm8YEGshAEzNy Ready45s;both exact-sourceCI passed;failed27052b8 not promoted
-- Hosted verification: Owner EN/AR monthly26session Calendar10Dec date/Back retained period/filter/selection and lower orientation;exact pixels local;phone/history hosted and intermittent denial remain open
+- Implementation: partial:individual-date resume uses shared pairing;prior long-list/header/local-control fixes retained;shell and wider history/role evidence open
+- Local checks: actual Next EN/AR detail+dirty paired reads2→1;distinct return1;planning production/development directory/review/unknown/denied;77units;API/build/type/lint;17E2E;16capture/offline/freshness passed
+- Deployment: new dated resume local;prior033322f staging Ready45s
+- Hosted verification: new dated pairing not yet hosted;prior EN/AR Calendar return proof retained;phone/history/role and intermittent denial gaps open
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: next bounded shell/dated resume pairing and remaining history/role return evidence;retain numeric-only context/current masks;EX03/04/private policies and Owner review open
-- Evidence: docs/07-handoff/request-remediation-ex02-return-position.md
+- Next action: exact-source CI/staging/hosted dated resume;then measured shell/identity and remaining role/history;EX03/04/private policies and Owner review open
+- Evidence: docs/07-handoff/request-remediation-ex02-dated-resume.md
 
 ### EX-03 — Crash/unknown operation identity and unavailable storage guarantees
 

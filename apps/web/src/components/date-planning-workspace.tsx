@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
+import { listenForVisibleResume } from '@/lib/visible-resume';
 import { ownerNavigation } from './owner-navigation';
 import{useEffect,useEffectEvent,useRef,useState,type MouseEvent}from'react';
 import{useUser,UserButton}from'@clerk/nextjs';
@@ -22,7 +23,7 @@ function PlanningJourney({locale:initialLocale,academy,program,day,from,returnTo
  async function directory(from=dateFrom,after:Pick<Dated,'date'|'program_id'>|null=dateAfter){if(lock.current)return;lock.current=true;setBusy(true);setDateError(false);try{const r=await call<{items:Dated[];more:boolean}>({action:'dates',from,after_day:after?.date,after_program:after?.program_id});setDates(r.items);setDateMore(r.more);setDateFrom(from);setDateAfter(after);}catch(e){setDateError(true);fail(e);}finally{lock.current=false;if(live.current)setBusy(false);}}
  async function bootstrap(){if(lock.current)return;lock.current=true;setBusy(true);await Promise.allSettled([call<DatePlan>({action:'read',program,day}).then(r=>{if(!deniedNow.current)setData(r);}).catch(e=>{setReadFailed(true);fail(e);}),...((returnTo==='home'||returnTo==='calendar')?[]:[call<{items:Dated[];more:boolean}>({action:'dates',from:from??day,after_day:cursorDay,after_program:cursorProgram}).then(r=>{if(!deniedNow.current){setDates(r.items);setDateMore(r.more);}}).catch(e=>{setDateError(true);if(e instanceof Failure&&['denied','setup_required'].includes(e.code))fail(e);})])]);lock.current=false;if(live.current)setBusy(false);}
  const refresh=useEffectEvent(()=>{if(lock.current||stage==='unknown')return;if(!selected)void directory();else{if(intent){setStage('edit');setConfirmed(false);setNotice('retained');}void read();}});
- useEffect(()=>{live.current=true;let mounted=true;queueMicrotask(()=>{if(!mounted)return;try{const op=sessionStorage.getItem(key);if(op&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(op)){pending.current=op;setStage('unknown');return;}}catch{}void bootstrap();});const active=controllers.current;let queued=false;const focus=()=>{if(queued)return;queued=true;queueMicrotask(()=>{queued=false;if(live.current)refresh();});};const visibility=()=>{if(document.visibilityState==='visible')focus();};window.addEventListener('focus',focus);document.addEventListener('visibilitychange',visibility);return()=>{mounted=false;live.current=false;active.forEach(c=>c.abort());window.removeEventListener('focus',focus);document.removeEventListener('visibilitychange',visibility);};
+ useEffect(()=>{live.current=true;let mounted=true;queueMicrotask(()=>{if(!mounted)return;try{const op=sessionStorage.getItem(key);if(op&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(op)){pending.current=op;setStage('unknown');return;}}catch{}void bootstrap();});const active=controllers.current;const stopResume=listenForVisibleResume(()=>{if(live.current)refresh();});return()=>{mounted=false;live.current=false;active.forEach(c=>c.abort());stopResume();};
  // Identity, academy and dated target own all private requests and recovery identifiers.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  },[key]);

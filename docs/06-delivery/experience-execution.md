@@ -57,3 +57,5 @@ EX-02 geometry checkpoint2November2026: [measured scroll clamp and denial follow
 EX-02 header checkpoint2November2026: [Home/Calendar control-position stability](../07-handoff/request-remediation-ex02-header.md) extends the six Calendar scroll cases to bounded Home and Calendar control geometry. Keep prior release receipts and use the tracker for current delivery gates.
 
 EX-02 long-list continuation2November2026: [Calendar task return position](../07-handoff/request-remediation-ex02-return-position.md) tests40-row date/Back and history separately from selection. Numeric navigation coordinates restore after authority; no private projection cache. Use tracker for release/hosted gates.
+
+EX-02 dated-resume2November2026: [individual-date pairing](../07-handoff/request-remediation-ex02-dated-resume.md) completes this bounded listener adoption after visible Calendar return work. Event-pair request counts remain distinct from whole-app visible performance and the unproven shell hypothesis.
