@@ -1,13 +1,21 @@
 # Local edits, reconnect and conflict resolution — LF-v3 preparation
 
-2 November 2026. **Owner-directed target; domain rules and connected offline-edit design are not yet approved or implemented.** This extends [the canonical local-data plan](../06-delivery/local-data-and-sync-plan.md); it does not replace current server authorization, atomicity, deadlines, history or previous business approvals. Read-only preview approval remains valid for its scope, not for these newly requested write states.
+Prepared2November2026; Owner decisions3November2026. **First Owner offline-register policy accepted for design, including protected pending-work recovery. Connected offline-edit design, private implementation and security approval remain pending.** This extends [the canonical local-data plan](../06-delivery/local-data-and-sync-plan.md); it does not replace current server authorization, atomicity, deadlines, history or previous business approvals. Read-only preview approval remains valid for its scope, not for these newly requested write states.
+
+## Accepted first-slice policies —3November2026
+
+The Owner answered “Accept this first offline-save policy for design”: start with the **Academy Owner's register on their personal device**, saving all selected new marks locally together and later uploading them together under the original save ID. Current server access, expected versions and recording deadline still apply. Conflicting/refused uploads remain **Needs review** with local work retained; timestamps never silently overwrite another save. This does not authorize offline saved-mark corrections, late backdating, Trainer grants or other domain commands.
+
+The Owner also selected “Keep protected pending work for recovery”: logout/30day cleanup removes downloaded read copies, while pending edits stay separately protected for the **same verified account** to recover. Another account cannot open or send them. Exact encryption/unlock/key and recovery mechanics still require engineering/security review; no new pending-edit expiry or automatic discard period is invented.
+
+Do not ask for these policies again. Build the focused connected capture/reopen/reconnect/conflict/deadline/logout preview under these rules, then obtain its design review before dependent private implementation. [Exact approval record](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json).
 
 ## What the Owner clarified
 
 - Prepare permitted data in bounded sequences, with a month or three months of dated coverage, instead of redownloading it for each read. Complete directory coverage is separate from dated coverage.
 - Retained prepared data should remain readable offline; do not impose the proposed24hour cutoff or the rejected inactivity lock. Same-account/device protection and handling a known loss of access still need implementation/security review.
 - Save new work locally while disconnected and synchronize when internet returns. The Owner suggested timestamps for conflict resolution. That is a requested conflict mechanism to evaluate, not permission to silently overwrite another person's work.
-- Retention choice:30days without successful online verification, or explicit logout. Keep existing Remove downloads/known-denial controls; unresolved original operations are a separate recoverability class, not disposable read replicas. The fate of *unsent new offline edits* at logout/retention requires the explicit rule below before any outbox is enabled.
+- Retention choice:30days without successful online verification, or explicit logout. Keep existing Remove downloads/known-denial controls. The3November choice retains separately protected pending edits for same-account recovery; read replicas and pending operations must not share a blanket deletion command.
 
 These choices are recorded in [the exact Owner response receipt](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json). They grant no new account access, real-data use, production release or automatic approval/financial authority.
 
@@ -25,7 +33,7 @@ Shift read-only reference: `DurableScheduleEditor`, `EncryptedEditJournal`, `Jou
 |---|---|---|
 | Read replica | Last permitted server rows and coverage, with applied revision | Rebuildable; agreed30day/logout cleanup applies. Not a server write entitlement. |
 | Draft input | Work not yet deliberately saved | Keep separately from sync; exact private draft persistence/dirty-leave rules must be selected. |
-| Locally saved edit/outbox | Exact user intent plus base versions and operation identity, committed atomically on this device | Not disposable cache. Do not erase/expire it silently during logout, migration, key rotation, storage pressure or replica cleanup. Quarantine versus deliberate discard needs a reviewed choice. |
+| Locally saved edit/outbox | Exact user intent plus base versions and operation identity, committed atomically on this device | Accepted recovery choice: retain separately protected work for the same verified account after logout/30day replica cleanup. No silent expiry or another account's access. Key/unlock/migration implementation remains reviewed separately. |
 | Submitted, reply unknown | The original operation may have committed at the server | Reconcile that same identity before replacement. Do not convert unknown to failed/unsent merely because the connection dropped. |
 | Confirmed receipt | Authoritative accepted outcome, revision and immutable audit reference | Apply exact result and settle the original intent atomically; failed later read does not undo confirmation. |
 
@@ -40,7 +48,7 @@ Shift read-only reference: `DurableScheduleEditor`, `EncryptedEditJournal`, `Jou
 | Corrections, approval/publication, invitation/access/card changes | Recommended online-only consequential decision in the first outbox slice | Current identity/version/recipient/reviewer/publication/authority checks. Do not make an offline grant, approval or visibility change appear effective. |
 | Finance, payroll, medical/media and unbuilt roles | Future domain design, no working endpoint or general queue assumed | Immutable monetary records, ownership, amounts/fees/retention and exact role authority; local timestamps never decide balances or permissions. |
 
-The first candidate above is a recommendation, not silent acceptance of new recording-window rules. Prove one complete connected capture/reopen/sync/conflict/recovery journey before extending the mechanism. An app-wide architecture does not require enabling every offline command at once.
+The first **Owner register** policy is accepted for design; other candidates are recommendations. Existing recording-window rules remain unchanged. Prove one complete connected capture/reopen/sync/conflict/recovery journey before extending the mechanism. An app-wide architecture does not require enabling every offline command at once.
 
 ## Required state machine and sync sequence
 
@@ -53,14 +61,14 @@ The first candidate above is a recommendation, not silent acceptance of new reco
 7. On conflict, preserve base/local/current values and state the business consequence. Proposed choices: keep server result; deliberately edit/review against the current basis; or retain unresolved work. **No automatic last-device-clock-wins.** Replacing an already settled/conflicting intent needs an explicit new review/operation linked to the old result.
 8. On denied access, hide forbidden records, quarantine protected pending work under the eventual same-account recovery rule, stop dispatch and reject late replies. No new account/role can inherit another subject's drafts/outbox. On unknown reply, reconcile first; on storage loss, use reviewed server outcome discovery rather than pretending an outbox survived.
 
-## Exact decisions for the first write slice
+## Connected design and remaining engineering detail
 
 Prepare one plain-language packet and changed-state preview that answers:
 
 - What may be **saved on this device**, who may do it, and what coverage/version must already exist?
-- If the attendance window expires before reconnection, is the upload rejected into Owner review, or is another explicit timing rule accepted? Current server deadline stays unchanged until that decision.
+- If the attendance window expires before reconnection, retain the refused upload as Needs review under the accepted policy; current server deadline still applies. Explain the safe next action without claiming permission to record after the deadline.
 - If two devices or QR/manual capture disagree, who resolves it and which existing correction/review path applies? Unmarked never becomes Absent automatically.
-- At logout/30day cleanup, how are unsent edits safely quarantined or deliberately discarded without exposing them to a different account? Read replicas and pending edits must not share a blanket deletion command.
+- At logout/30day cleanup, implement the accepted protected same-account quarantine/recovery choice; do not ask whether to silently discard pending edits. Read replicas and pending edits must not share a blanket deletion command.
 - How is one atomic18-player save reported if one player conflicts? Preserve all-or-nothing unless the Owner explicitly changes that rule.
 - What unlock/recovery/key policy protects retained fields and pending payloads on personal/shared devices? No plaintext fallback, token-as-key or claimed native hardware protection.
 

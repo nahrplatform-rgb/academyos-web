@@ -14,7 +14,7 @@ Start with the explicit current priority below, not the first unfinished EX numb
 
 The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
-Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope: prepare the first exact command/deadline/conflict/pending-work packet and connected changed-state review before enabling it. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
+Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. Build the focused connected offline-write changed-state review before enabling it; remaining device/field/key engineering and security readiness stay separate. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
 
 Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
@@ -22,7 +22,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
-Next action: First finish prepared1e7008f staging promotion after Vercel passkey completion and read-only verification;then resolve prepared Owner offline-register protocol and protected pending-work/logout choices and build focused offline-capture/sync/conflict design;remaining device/field/key readiness;do not repeat settled decisions or EX02 seam
+Next action: First finish prepared1e7008f-only staging promotion after Vercel account check and read-only verification;58eee46 is docs-only,do not promote both;then build focused Owner offline-register capture/reopen/sync/conflict/deadline/logout preview under accepted policy;remaining device/field/key readiness;do not re-ask settled choices
 
 Scoped dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 
@@ -67,15 +67,15 @@ Routing: primary / 1 / current.
 Dependencies: EX-01.
 Dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Read/preparation design approved;LF-v3 Owner requests month/three-month data and offline edits/reconnect;no idle lock or24hour cutoff;30day/logout read-replica cleanup selected;new command/conflict/pending-work design pending.
+Design: Read/preparation design approved;3November first Owner offline-register policy accepted for design and protected pending recovery selected;new connected offline-write design pending;no idle lock/24hour cutoff;30day/logout read-replica cleanup.
 
 - Implementation: Fictional IndexedDB review retained;independent current-online EX02 workspace/read-owner seam implemented;no private repository,key,outbox or sync API
 - Local checks: Prior26 read-preview checks/24layouts retained;current91units,actual Next ENAR owner-lifetime/identity/concurrency and regressions,16capture suites plus2development suites passed;57WD cases remain planned/future;no offline operating proof
 - Deployment: No private local-data/schema/queue rollout;current-online seam release tracked separately in EX02
 - Hosted verification: No new hosted run for this checkpoint;no app/schema promotion performed;prior scoped release receipts retained
-- Owner acceptance: Read design approved;no idle lock;no proposed24hour cutoff;30day/logout replica cleanup selected;offline edit direction selected;remaining exact fields/device/key and per-command/deadline/conflict/pending-work policy/design open
+- Owner acceptance: First Owner register offline-save policy accepted for design;original ID/all-or-nothing/current access-version-deadline/Needs review retained;protected same-account pending recovery selected;read design and prior decisions retained;no private runtime or security approval
 - Independent security: open
-- Next action: First finish prepared1e7008f staging promotion after Vercel passkey completion and read-only verification;then resolve prepared Owner offline-register protocol and protected pending-work/logout choices and build focused offline-capture/sync/conflict design;remaining device/field/key readiness;do not repeat settled decisions or EX02 seam
+- Next action: First finish prepared1e7008f-only staging promotion after Vercel account check and read-only verification;58eee46 is docs-only,do not promote both;then build focused Owner offline-register capture/reopen/sync/conflict/deadline/logout preview under accepted policy;remaining device/field/key readiness;do not re-ask settled choices
 - Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
@@ -135,7 +135,7 @@ Routing: primary / 5 / queued.
 Dependencies: EX-01; EX-10.
 Dependency gate: Prepare with EX10 LF-P04 and EX06 storage design;prove affected save/discovery cases before replacing existing recovery;private drafts/offline queues separately gated
 Findings: NR13; NR17; G09.
-Design: Offline local edits/reconnect now Owner-directed;exact command/deadline/conflict and pending-work/logout protocol needs focused review;current online recovery retained.
+Design: First Owner offline-register protocol accepted for design;protected pending recovery after logout/30day replica cleanup selected;connected design and private journal/key implementation pending;current online recovery retained.
 
 - Implementation: not_started
 - Local checks: not_run
@@ -226,7 +226,7 @@ Design: Durable local-data target requested across app;connected design approved
 - Local checks: not_run
 - Deployment: not_deployed
 - Hosted verification: not_verified
-- Owner acceptance: No inactivity lock;no proposed24hour read cutoff;30day/logout replica cleanup selected;offline edit direction selected;remaining device/fields/key and command timing/conflict/unsent logout choices open
+- Owner acceptance: First Owner offline-register atomic/original-ID/current-server-check/Needs review policy accepted for design;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;remaining device/fields/key and new connected design/security open
 - Independent security: open
-- Next action: Use LF-v3 packet for remaining exact device/fields/key and first offline-command timing/conflict/pending-work choices;do not re-ask rejected timers or selected replica retention;no private enablement before dependent review
+- Next action: Implement policy detail in focused offline-write design;review remaining device/field/key and recovery mechanics without re-asking accepted first Owner-register,protected pending-work,timer or retention choices
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

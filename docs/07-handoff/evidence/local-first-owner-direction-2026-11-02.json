@@ -20,5 +20,20 @@
     "Automatic conflict overwrites,access grants,approval or financial authority",
     "Deletion of unsent offline work at logout or retention expiry",
     "Private encryption,offline cold launch,app implementation,staging deployment,working acceptance or independent security proof"
-  ]
+  ],
+  "acceptedFirstSlice2026_11_03": {
+    "authority": "Direct Product Owner replies in this chat",
+    "registerPolicyResponse": "Accept this first offline-save policy for design",
+    "registerScope": "Existing Academy Owner;personal device;selected new attendance marks saved/uploaded atomically with original save ID;current server access,versions and recording deadline;conflicting/refused uploads Needs review with local work retained;no timestamp overwrite",
+    "pendingWorkResponse": "Keep protected pending work for recovery",
+    "pendingWorkScope": "Logout/30day cleanup removes read replicas;pending edits separately protected for same verified account;other accounts cannot open/send",
+    "notInferred": [
+      "Connected offline-write design approved",
+      "Private implementation or encryption/unlock/key security approval",
+      "Trainer/new role grants",
+      "Changed recording deadline,offline saved-mark correction or automatic overwrite",
+      "Financial or other domain queue approval",
+      "Vercel reauthentication/promotion completed"
+    ]
+  }
 }

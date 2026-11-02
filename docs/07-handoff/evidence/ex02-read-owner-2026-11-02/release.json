@@ -47,5 +47,17 @@
     "Independent security approval",
     "Provider usage/latency savings"
   ],
-  "connector": "get_project with explicit AcademyOS team scope returned404;used existing authenticated browser UI;no provider settings changed"
+  "connector": "get_project with explicit AcademyOS team scope returned404;used existing authenticated browser UI;no provider settings changed",
+  "releaseSelectionAdvice": {
+    "date": "2026-11-03",
+    "ownerQuestion": "there is two , which one and i promote them ? 58eee46 / 1e7008f",
+    "verifiedDifference": [
+      "docs/06-delivery/continue-academyos.md",
+      "docs/06-delivery/experience-execution.csv",
+      "docs/07-handoff/evidence/ex02-read-owner-2026-11-02/release.json",
+      "docs/07-handoff/request-remediation-ex02-read-owner.md"
+    ],
+    "recommendation": "Promote1e7008f only;58eee46 is documentation/evidence follow-up with identical application source;do not promote both",
+    "reauthenticationOrPromotionCompletion": "not confirmed by this clarification"
+  }
 }
