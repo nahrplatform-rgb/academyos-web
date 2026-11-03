@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-03T10:54:12.931Z",
+  "scope": "Isolated Chromium/WebCrypto/IndexedDB mechanism + fictional HTTP authority; NOT private app/Clerk/hosted/security proof",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Automatic non-extractable keys seal the 18-player read and 17-mark original without credentials or plaintext storage",
+      "status": "passed"
+    },
+    {
+      "name": "Covered reads and page reopening use retained keys with zero key exchanges and no unlock prompt",
+      "status": "passed"
+    },
+    {
+      "name": "An actual browser-process restart retains the encrypted original and reopens automatically; no authenticator",
+      "status": "passed"
+    },
+    {
+      "name": "Aborted key provisioning acknowledges no active store or plaintext fallback and can retry without lost work",
+      "status": "passed"
+    },
+    {
+      "name": "Aborted capture commits neither replica nor intent; an unsettled original cannot be replaced",
+      "status": "passed"
+    },
+    {
+      "name": "Logout deletes replicas/read/cached-recovery keys but retains pending ciphertext; device key alone cannot recover it",
+      "status": "passed"
+    },
+    {
+      "name": "Another authenticated account and even a wrong recovery key with forged correct labels cannot open retained work; original account recovers without restoring replicas",
+      "status": "passed"
+    },
+    {
+      "name": "An incompatible device handle cannot open, activate or clean another namespace; its original remains intact",
+      "status": "passed"
+    },
+    {
+      "name": "A key response begun before logout cannot reactivate its durable scope fence",
+      "status": "passed"
+    },
+    {
+      "name": "Failed 30-day cleanup durably closes access across reload; retry removes read copies and preserves recoverable pending work",
+      "status": "passed"
+    },
+    {
+      "name": "Known denial stops local opening and server key release; a different device is denied",
+      "status": "passed"
+    },
+    {
+      "name": "Missing persisted device key refuses reopening/reenrollment and retains original ciphertext",
+      "status": "passed"
+    },
+    {
+      "name": "Missing scope metadata cannot create an empty vault over orphaned keys/original ciphertext",
+      "status": "passed"
+    },
+    {
+      "name": "Tampered authenticated ciphertext is refused without clearing the original",
+      "status": "passed"
+    },
+    {
+      "name": "Competing storage connections commit one immutable pending capture without partial replica writes",
+      "status": "passed"
+    },
+    {
+      "name": "Storage failure is explicit without a plaintext or falsely acknowledged fallback; this is injected failure, not real disk exhaustion",
+      "status": "passed"
+    }
+  ],
+  "browser": "156.0.8078.4",
+  "node": "v24.14.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "data": {
+    "rosterPlayers": 18,
+    "selectedNewMarks": 17
+  },
+  "metrics": {
+    "firstActivateCaptureMs": 13.477374999999938,
+    "localReadSamples": 30,
+    "localReadP50Ms": 1.0930829999999787,
+    "localReadP95Ms": 1.6708750000000236,
+    "coveredReadKeyExchanges": 0,
+    "keyExchanges": 19,
+    "allowed": 16,
+    "denied": 3,
+    "credentialAPICalls": 0,
+    "initialReadAndPendingCiphertextBytes": 3715,
+    "keyResponseJsonBytes": 2855
+  },
+  "errors": [],
+  "expectedHttp403ConsoleMessages": 3,
+  "externalRequests": [],
+  "hashes": {
+    "scripts/local-data/automatic-key-research.mjs": "aa46aab7222d04c06461130ebee60a966c0c4fdc22a3d93b6c5ddf08854604d1",
+    "scripts/local-data/test_automatic_key.mjs": "499c66e29bf9c0a5f762523b0b6d80bcf961ccc534ae8b60a7ade97513eb54f0"
+  },
+  "limitations": [
+    "Fictional HTTP identity and in-memory key custody; no Clerk/current database/account proof",
+    "Same-origin scripts before cleanup can use cached keys; no hardware/OS-keystore guarantee",
+    "One read/pending research scope, not typed app repository/real register sync",
+    "No real quota exhaustion, browser eviction, key rotation recovery or schema migration proof",
+    "30-day cleanup invoked explicitly; trusted time/clock rollback integration remains",
+    "Page assets served before offline; no hosted cold-offline boot/service worker",
+    "No physical device/provider p75/p95 or Supabase/Redis cost measurement",
+    "Not an independent security audit; private app enablement remains closed"
+  ]
+}

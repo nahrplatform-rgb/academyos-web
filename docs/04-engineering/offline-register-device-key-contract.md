@@ -17,6 +17,8 @@ Ordinary account sign-in establishes identity; it does not itself provide an off
 
 Primary references checked3November: [WebCrypto key generation/non-extractability](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey) and [WebCrypto key-management cautions](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API). They describe primitives and limitations, not proof of this future implementation.
 
+**Candidate mechanism now proven in isolation:** [16actual browser cases](../07-handoff/evidence/automatic-local-key-2026-11-03.json), including browser-process reopening without a prompt, separately wrapped pending work, wrong account/key/device refusal and failed-cleanup fences. [Architecture and real-integration limits](automatic-local-key-readiness.md). EX-06 may implement an inactive typed register adapter; no private app data, real key endpoint/custody or independent security approval follows from these results.
+
 ## Bounded slice and traceability
 
 Outcome: a reviewed opening/recovery mechanism for the first personal-device **Owner register**, with an encrypted field/basis/command map and tests before app enablement. It supports IMP-J12-A01 / J12-A01–A03 / S28 / AO-035,036,042,045 / AT-035,036,042,045 / L08 / SEC-J12. Cross-cutting IMP-J16-A01 / J16-A01–A06 / S31,S32,S47 / AO-085–092 / AT-085–092 / L10 / SEC-J16 supplies authority, namespace and recovery requirements. Findings NR13/14/15/17 and G08/G09 remain open until their declared runtime cases pass.

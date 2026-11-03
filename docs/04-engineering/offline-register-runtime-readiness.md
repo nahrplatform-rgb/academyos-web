@@ -2,6 +2,8 @@
 
 **Current Owner direction:** ordinary email/password sign-in, without mandatory passkey enrollment or a separate local password. The successful Owner-created localhost PRF sample remains research evidence; it does not select the product mechanism. Follow the [revised device/key contract and exact response](offline-register-device-key-contract.md). Automatic local protection and same-account recovery still need engineering/security proof; no private records are enabled.
 
+**Scoped readiness checkpoint completed3November:** [automatic no-extra-credential mechanism](automatic-local-key-readiness.md) now has16passing actual browser cases; [workspace compatibility recheck and handoff](../07-handoff/automatic-local-key-checkpoint.md) justify EX-06 inactive typed-adapter work. Real authenticated key custody, private field/time/recovery integration and independent security remain enablement gates. Do not repeat the rejected passkey proposal or imply this isolated proof is a private app release.
+
 3November2026. The Owner has **approved the connected offline-register design for implementation**. Accepted write/retention policy stays in the [canonical contract](offline-edit-and-conflict-contract.md); [approved artifact and evidence](../06-delivery/offline-register-decision-design.md) stay separate from private runtime readiness. This packet supplies concrete next work rather than reopening accepted timer, atomic-save, conflict or cleanup choices.
 
 ## Device choice — normal sign-in only

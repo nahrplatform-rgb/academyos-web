@@ -2,6 +2,8 @@
 
 **3November current continuation:** the Owner requires ordinary email/password sign-in without mandatory passkey/local-secret setup. Follow the [revised device/key contract](../04-engineering/offline-register-device-key-contract.md) and [runtime readiness](../04-engineering/offline-register-runtime-readiness.md) for automatic local protection and same-account recovery. The register design is approved; positive localhost PRF evidence and15disposable DB replay/fence tests are retained separately. Do not restart the rejected passkey product proposal or treat `reconcile` as passive. Current staging remains Owner-promoted1e7008f; future promotions are Owner-controlled.
 
+**Latest scoped output:** [automatic-key/workspace handoff](automatic-local-key-checkpoint.md) supplies16passing real browser mechanism cases and refreshed EX-02 lifetime compatibility. **EX-06 is current** for the inactive typed encrypted register adapter with fictional data. Do not repeat mechanism research or insert another provider without a source need; real authenticated key custody/private enablement/security and broader working-day evidence remain open.
+
 Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

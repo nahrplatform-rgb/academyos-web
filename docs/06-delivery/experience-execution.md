@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**3November checkpoint:** [EX-10 offline-register changed-state packet](offline-register-decision-design.md) is the current review. The first Owner policy is accepted for design; its new connected write preview is approved. Current next work is the actual-source device/key/transport readiness, not repeating review. EX-02 exact staging source and read-only evidence are verified separately. Owner-controlled promotions are mandatory under AGENTS.md.
+**3November checkpoint:** [automatic-key/workspace handoff](../07-handoff/automatic-local-key-checkpoint.md) records scoped EX-10 candidate mechanism readiness (16actual browser cases) and reverified EX-02 workspace compatibility. EX-06 is now current for an inactive typed encrypted register adapter with fictional data. Real key custody/authority, private fields/time lifecycle, hosted proof and independent security remain separate gates. Prior policy/design approvals and Owner-controlled promotions remain; do not restart completed research or infer private enablement.
 
 ## Latest local-first direction — LF-v3,2November2026
 
@@ -11,7 +11,7 @@ Owner now requests retained permitted month/three-month datasets **and locally s
 
 The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. The connected local-first design is approved; the Owner rejected automatic inactivity locking. Remaining exact LF-P01–LF-P06 privacy/device/fields/retention/sync choices stay separate. Follow the canonical packet for current decisions; the app is unchanged by these documentation checkpoints.
 
-Use the tracker current row and revised output table below. EX-10 stays current; EX-02 workspace, EX-06 durable repository, EX-04 bootstrap/change sync, EX-03 recovery, EX-11 reopened-local acceptance and EX-07 remaining Charcoal adoption retain their scoped sequence. EX-05/08/09 accompany them. Do not substitute a transient cache, native-app wrapper or another feature for this target.
+At this historical2November routing checkpoint EX-10 was current. The tracker now selects the current row after the dated scoped checkpoints above; EX-02 workspace, EX-06 durable repository, EX-04 bootstrap/change sync, EX-03 recovery, EX-11 reopened-local acceptance and EX-07 remaining Charcoal adoption retain their sequence. EX-05/08/09 accompany them. Do not substitute a transient cache, native-app wrapper or another feature for this target.
 
 31 October 2026. Owner authorized this integration and the first remediation batch after reviewing the whole-app analysis. This guide links existing authorities; it does not invent business rules, restart completed work or replace the canonical registers.
 
