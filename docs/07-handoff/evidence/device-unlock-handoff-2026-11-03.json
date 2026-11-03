@@ -1,0 +1,22 @@
+{
+  "observedAtUTC": "2026-11-03T09:34:36.325526+00:00",
+  "environment": "Owner native Chrome;local diagnostic only",
+  "url": "http://localhost:3239/design/device-unlock-probe/index.html",
+  "method": "Read-only AX;no consent checkbox or credential action operated by agent",
+  "htmlSha256": "e597a886fe8f751dc6b2e37831f86757a5f5abd3f4160b422fbec5a16210681a",
+  "observed": {
+    "browserPRFHint": "Browser reports support",
+    "diagnosticCredential": "Not created",
+    "credentialPRF": "Not tested",
+    "unlock": "Not tested this visit"
+  },
+  "ownerHandoff": "Concrete Create diagnostic passkey/device-verification request pending;Owner must perform it",
+  "appAccessChange": false,
+  "agentCreatedRealCredential": false,
+  "promotionNeeded": false,
+  "limitations": [
+    "Browser capability hint is not provider/credential support",
+    "No actual physical passkey/offline/restart/recovery result yet",
+    "No private app records enabled"
+  ]
+}

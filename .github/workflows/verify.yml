@@ -33,6 +33,8 @@ jobs:
         run: |
           node scripts/design/build_offline_register_preview.mjs --check
           node scripts/design/test_offline_register_preview.mjs
+          node scripts/design/check_device_unlock_probe.mjs
+          node scripts/design/test_device_unlock_probe.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-03T09:27:26.131Z",
+  "scope": "Actual diagnostic UI with virtual authenticator and fictional data;no real credential/provider/physical device/security proof",
+  "htmlSha256": "e597a886fe8f751dc6b2e37831f86757a5f5abd3f4160b422fbec5a16210681a",
+  "harnessSha256": "ed3aaf7139024bf2df0a17a92b89ab28f23251104c7d3eaa557def1ae48a3f9e",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "name": "Probe loads without automatically creating a credential or storing a record",
+      "status": "passed"
+    },
+    {
+      "name": "Explicit confirmation/create flow recognizes virtual PRF and distinguishes enrollment from saved data",
+      "status": "passed"
+    },
+    {
+      "name": "Actual probe encrypts in IndexedDB, reloads and decrypts through virtual passkey while network-disabled",
+      "status": "passed"
+    },
+    {
+      "name": "Visible Cancel stops a pending ceremony, retains ciphertext and permits an explicit successful retry",
+      "status": "passed"
+    },
+    {
+      "name": "Local-data removal accurately preserves the provider credential and has keyboard/Escape/confirmation semantics",
+      "status": "passed"
+    },
+    {
+      "name": "Non-PRF passkey produces an explicit unsupported result without an unencrypted data fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Eight EN/AR phone/tablet/desktop layouts fit without horizontal page overflow",
+      "status": "passed"
+    },
+    {
+      "name": "No app console/page errors or external page requests in the isolated diagnostic",
+      "status": "passed"
+    }
+  ],
+  "layouts": [
+    {
+      "lang": "en",
+      "width": 320,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "en",
+      "width": 768,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "en",
+      "width": 1280,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "ar",
+      "width": 320,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "ar",
+      "width": 390,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "ar",
+      "width": 768,
+      "noHorizontalOverflow": true
+    },
+    {
+      "lang": "ar",
+      "width": 1280,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "consoleErrors": [],
+  "externalPageRequests": 0,
+  "capturesOutsideGit": "/var/folders/pg/dj4sr3bn5yx7gy5kk39gp03w0000gn/T/academyos-device-unlock-probe",
+  "limitations": [
+    "Physical Touch ID/provider PRF not tested",
+    "Repeated failed-verification recovery remains a separate unresolved research case",
+    "No AcademyOS auth/access/server/current private implementation",
+    "No cold hosted offline boot or process-restart physical-key proof"
+  ]
+}

@@ -13,7 +13,7 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin=`http://localh
 async function addAuthenticator(hasPrf){return(await cdp.send('WebAuthn.addVirtualAuthenticator',{options:{protocol:'ctap2',ctap2Version:'ctap2_1',transport:'internal',hasResidentKey:true,hasUserVerification:true,isUserVerified:true,automaticPresenceSimulation:true,hasPrf}})).authenticatorId}
 async function provision(page,label='fictional-owner-a'){return page.evaluate(async label=>{
   const challenge=crypto.getRandomValues(new Uint8Array(32)),salt=crypto.getRandomValues(new Uint8Array(32));
-  const c=await navigator.credentials.create({publicKey:{challenge,rp:{id:location.hostname,name:'Fictional local key research'},user:{id:new TextEncoder().encode(label),name:label,displayName:'Fictional Owner'},pubKeyCredParams:[{type:'public-key',alg:-7}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',extensions:{prf:{eval:{first:salt}}},timeout:5000}});
+  const c=await navigator.credentials.create({publicKey:{challenge,rp:{id:location.hostname,name:'Fictional local key research'},user:{id:new TextEncoder().encode(label),name:label,displayName:'Fictional Owner'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',extensions:{prf:{eval:{first:salt}}},timeout:5000}});
   // Public metadata only; never serialize PRF output or a private signing key.
   return {id:Array.from(new Uint8Array(c.rawId)),salt:Array.from(salt),enabled:c.getClientExtensionResults().prf?.enabled===true};
 },label)}
@@ -58,8 +58,16 @@ try{
   denied=await p.evaluate(async()=>{try{await window.keyResearch.open({tamper:true});return false}catch{return true}});assert.equal(denied,true);record('Tampered wrapped-key ciphertext is refused without clearing the original envelope');
   await context.setOffline(false);const different=await provision(p,'fictional-owner-b');await context.setOffline(true);denied=await p.evaluate(async meta=>{try{await window.keyResearch.open({overrideMeta:meta});return false}catch{return true}},different);assert.equal(denied,true);record('Another virtual passkey cannot unwrap the original data key');
   const preVerificationRecovery=await p.evaluate(async()=>{try{return(await window.keyResearch.open()).matches}catch{return false}});console.log('CONTROL original key after second credential: '+preVerificationRecovery);
+  assert.equal(preVerificationRecovery,true);
+  // Cancellation is a separate state from repeatedly failing internal UV. Wait
+  // for no simulated touch, abort that request, then explicitly allow a new one.
+  await cdp.send('WebAuthn.setAutomaticPresenceSimulation',{authenticatorId,enabled:false});
+  const cancelled=await p.evaluate(async()=>{try{await window.keyResearch.open({cancel:true});return false}catch(e){return e.name==='AbortError'}});assert.equal(cancelled,true);
+  await cdp.send('WebAuthn.setAutomaticPresenceSimulation',{authenticatorId,enabled:true});assert.equal((await p.evaluate(()=>window.keyResearch.open())).matches,true);
+  record('Actually aborted virtual touch request preserves the envelope; next permitted ceremony reopens it offline');
   await cdp.send('WebAuthn.setUserVerified',{authenticatorId,isUserVerified:false});denied=await p.evaluate(async()=>{try{await window.keyResearch.open({cancel:true});return false}catch(e){return e.name==='AbortError'||e.name==='NotAllowedError'}});assert.equal(denied,true);
   await cdp.send('WebAuthn.setUserVerified',{authenticatorId,isUserVerified:true});
+  await cdp.send('WebAuthn.setAutomaticPresenceSimulation',{authenticatorId,enabled:true});
   // Exercise an explicit reopened page/user action after the cancelled ceremony.
   await context.setOffline(false);await p.reload();await installHelpers(p);await p.locator('h1').click();await context.setOffline(true);
   try{assert.equal((await p.evaluate(()=>window.keyResearch.open())).matches,true);record('Unverified virtual ceremony releases no decrypted result; explicit reopen recovers the original encrypted work')}

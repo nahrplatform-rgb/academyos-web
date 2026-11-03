@@ -24,7 +24,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
-Next action: Investigate selected device/passkey unlock route:resolve recorded virtual verification-recovery failure and prepare concrete physical diagnostic handoff;no real credential without explicit authorization;map current cancellation fence/count-only receipt to safe original replay/outcome;then ready EX06/04/03;do not re-ask approved policy/design or passphrase preference;Owner promotes releases
+Next action: Complete prepared localhost3239 Owner device/passkey diagnostic handoff;do not create a real credential yourself;verify PRF/sample/reopen/cancel results and retain failed-UV/native recovery gate;then exact key/field and cancellation-fence/count-only receipt transport readiness before EX06/04/03;no re-asking approved policy/design/passphrase preference;Owner promotes releases
 
 Scoped dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 
@@ -72,12 +72,12 @@ Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; 
 Design: Read/preparation and focused Owner offline-register connected design approved for implementation3November;first atomic/original-ID/current-check/retained-recovery policy accepted;no idle lock/24hour cutoff.
 
 - Implementation: Fictional transaction-backed Owner register review built;current-online EX02 seam retained;no private repository,key,outbox,sync API or operating write enabled
-- Local checks: Prior read/online seam retained;23offline-register review checks/24ENAR dark-light layouts passed;passkey research7passed/1unresolved verification-recovery check;no real credential/device/private security proof;57WD operating cases remain planned
+- Local checks: Prior read/online seam retained;23register-review checks/24ENAR layouts passed;passkey mechanism8passed/1unresolved failed-UV recovery;separate device diagnostic8UI checks/8layouts passed with virtual credentials;57WD cases still planned;no physical/private/security proof
 - Deployment: Current-online1e7008f Owner-promoted to existing staging;new offline review is local standalone HTML only;no private schema/queue rollout or promotion required
 - Hosted verification: EX02 read-only exact-release Owner checks verified separately;new offline-register design has no hosted private run
 - Owner acceptance: Policy and new connected offline-register design explicitly approved3November;protected same-account pending recovery selected;no private runtime working/security approval
 - Independent security: open
-- Next action: Investigate selected device/passkey unlock route:resolve recorded virtual verification-recovery failure and prepare concrete physical diagnostic handoff;no real credential without explicit authorization;map current cancellation fence/count-only receipt to safe original replay/outcome;then ready EX06/04/03;do not re-ask approved policy/design or passphrase preference;Owner promotes releases
+- Next action: Complete prepared localhost3239 Owner device/passkey diagnostic handoff;do not create a real credential yourself;verify PRF/sample/reopen/cancel results and retain failed-UV/native recovery gate;then exact key/field and cancellation-fence/count-only receipt transport readiness before EX06/04/03;no re-asking approved policy/design/passphrase preference;Owner promotes releases
 - Evidence: docs/04-engineering/passkey-local-unlock-investigation.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle

@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-03T00:02:52.496Z",
+  "date": "2026-11-03T09:24:05.029Z",
   "scope": "Isolated virtual-authenticator mechanism experiment;not physical device,real account,app implementation,security audit or private enablement",
   "ownerDirection": "Investigate device/passkey unlocking first;no separate local-passphrase acceptance inferred",
   "conclusion": "Not ready for private enablement;recovery case unresolved",
   "browser": "156.0.8078.4",
-  "scriptSha256": "aab8b9479964539940b074aeddb1f449928b550ebf52992f365667d446098924",
+  "scriptSha256": "728a7bf7cd0d0ebc7901cc594f99bac0f4d7fdeca79cb6017d07108a4e8083b2",
   "checks": [
     {
       "name": "Disposable Chromium virtual authenticator reports PRF for newly created fictional credential",
@@ -30,6 +30,10 @@
     },
     {
       "name": "Another virtual passkey cannot unwrap the original data key",
+      "status": "passed"
+    },
+    {
+      "name": "Actually aborted virtual touch request preserves the envelope; next permitted ceremony reopens it offline",
       "status": "passed"
     },
     {

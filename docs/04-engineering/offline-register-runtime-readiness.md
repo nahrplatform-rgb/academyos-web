@@ -1,6 +1,6 @@
 # Owner offline register — private runtime readiness
 
-**Current Owner direction:** investigate device/passkey unlocking first. The separate local-passphrase proposal below is not selected. [Research results and remaining verification-recovery/physical-device gates](passkey-local-unlock-investigation.md). No real credential or provider account was changed.
+**Current Owner direction:** investigate device/passkey unlocking first. The separate local-passphrase proposal below is not selected. [Research results and remaining verification-recovery/physical-device gates](passkey-local-unlock-investigation.md). No real credential or provider account was changed. The [concrete local device diagnostic](../../design/device-unlock-probe/README.md) is prepared for an Owner-performed enrollment/verification step; research approval does not authorize the agent to create that credential.
 
 3November2026. The Owner has **approved the connected offline-register design for implementation**. Accepted write/retention policy stays in the [canonical contract](offline-edit-and-conflict-contract.md); [approved artifact and evidence](../06-delivery/offline-register-decision-design.md) stay separate from private runtime readiness. This packet supplies concrete next work rather than reopening accepted timer, atomic-save, conflict or cleanup choices.
 
