@@ -1,5 +1,7 @@
 # Full connected experience redesign —29 October2026
 
+**4 November Owner Operations.** Review the [Owner Today candidate and acceptance gate](../../design/operations-review/owner-today-batch.md) for the approved Operations reference and its working presentation. Earlier business approvals retain their scope.
+
 **3November focused changed-state review:** [Owner offline-register packet](offline-register-decision-design.md) extends the approved Charcoal direction with local-save/reopen/sync/conflict/cleanup states. The Owner approved this connected write design3November. It remains a fictional reference; it does not change the factual app or constitute private runtime/working acceptance.
 
 ## Latest local-first direction — LF-v3,2November2026

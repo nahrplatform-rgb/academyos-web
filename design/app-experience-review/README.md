@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+The Owner Operations review candidate is tracked in the [implementation and acceptance packet](../operations-review/owner-today-batch.md). This replay uses fictional identities and HTTP adapters.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Persistent local data and quiet synchronization are now the Owner-directed experience target; read [local-data and sync plan](../../docs/06-delivery/local-data-and-sync-plan.md). The approved full Charcoal visual/workflow reference and factual current-source capture evidence stay separate. New bootstrap/reopen/coverage/lock/sync/storage failure states need a targeted local-first review; do not infer durable functionality from this HTML. The older summary-only storyboard is superseded.

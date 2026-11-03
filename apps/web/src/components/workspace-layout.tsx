@@ -1,10 +1,29 @@
 "use client";
 import {createContext,useCallback,useContext,useSyncExternalStore,type ReactNode} from 'react';
-export type LayoutPreferences={compact:boolean;inspectorWidth:number;detailsHidden:boolean};
-const defaults:LayoutPreferences={compact:false,inspectorWidth:336,detailsHidden:false};
+export const navigationMin = 220;
+export const navigationMax = 336;
+export const inspectorMin = 260;
+export const inspectorDefault = 276;
+export const inspectorMax = 420;
+export type LayoutPreferences={compact:boolean;navigationHidden:boolean;navigationWidth:number;inspectorWidth:number;detailsHidden:boolean};
+const defaults:LayoutPreferences={compact:false,navigationHidden:false,navigationWidth:navigationMin,inspectorWidth:inspectorDefault,detailsHidden:false};
 const key='academyos:layout:v1',eventName='academyos-layout-change';
 const LayoutContext=createContext<{preferences:LayoutPreferences;update:(change:Partial<LayoutPreferences>)=>void;reset:()=>void}>({preferences:defaults,update:()=>{},reset:()=>{}});
-function clean(value:unknown):LayoutPreferences{const p=value&&typeof value==='object'?value as Record<string,unknown>:{};return{compact:p.compact===true,detailsHidden:p.detailsHidden===true,inspectorWidth:typeof p.inspectorWidth==='number'&&Number.isFinite(p.inspectorWidth)?Math.round(Math.min(480,Math.max(280,p.inspectorWidth))):336};}
+function boundedWidth(value: unknown, minimum: number, maximum: number, fallback = minimum) {
+ return typeof value === 'number' && Number.isFinite(value)
+  ? Math.round(Math.min(maximum, Math.max(minimum, value)))
+  : fallback;
+}
+function clean(value:unknown):LayoutPreferences {
+ const p = value && typeof value === 'object' ? value as Record<string, unknown> : {};
+ return {
+  compact: p.compact === true,
+  navigationHidden: p.navigationHidden === true,
+  navigationWidth: boundedWidth(p.navigationWidth, navigationMin, navigationMax),
+  inspectorWidth: boundedWidth(p.inspectorWidth, inspectorMin, inspectorMax, inspectorDefault),
+  detailsHidden: p.detailsHidden === true,
+ };
+}
 function parse(value:string):LayoutPreferences{try{return clean(value.length<512?JSON.parse(value):null);}catch{return defaults;}}
 function snapshot(){return document.documentElement.dataset.workspaceLayout??'';}
 function subscribe(listener:()=>void){

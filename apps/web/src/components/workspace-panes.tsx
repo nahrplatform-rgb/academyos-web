@@ -1,12 +1,13 @@
 "use client";
 import { useCallback, useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { Button } from './ui/controls';
-import {useWorkspaceLayout} from './workspace-layout';
+import {inspectorDefault,inspectorMax,inspectorMin,useWorkspaceLayout} from './workspace-layout';
+import WorkspaceSeparator from './workspace-separator';
 /** Presentation only. Domain owns selection, data retrieval, dirty guards and recovery. */
 export default function WorkspacePanes({ children, inspector, title, arabic, selected = false, onBack, blocked = false, plain = false, selectionKey, backLabel, contextLabel, modalOnPhone = true, task = false, focusTargetId }: { children: ReactNode; inspector: ReactNode; title: string; arabic: boolean; selected?: boolean; onBack?: () => void; blocked?: boolean; plain?: boolean; selectionKey?: string; backLabel?: string; contextLabel?: string; modalOnPhone?: boolean; task?: boolean; focusTargetId?: string }) {
   const {preferences,update}=useWorkspaceLayout();
-  const frame=useRef<HTMLDivElement>(null),drag=useRef<{x:number;width:number}|null>(null),inspectorId=useId();
-  const [maximum,setMaximum]=useState(480);
+  const frame=useRef<HTMLDivElement>(null),inspectorId=useId();
+  const [maximum,setMaximum]=useState(inspectorMax);
   const centerScroll=useRef(0);
   const centerRef=useCallback((node:HTMLDivElement|null)=>{if(node)node.scrollTop=centerScroll.current;},[]);
 
@@ -14,7 +15,7 @@ export default function WorkspacePanes({ children, inspector, title, arabic, sel
   const [contextOpen, setContextOpen] = useState(false);
   const phoneDialog = useRef<HTMLDialogElement>(null);
   const [phone, setPhone] = useState(false);
-  useEffect(()=>{if(task||plain||!frame.current)return;const node=frame.current;const measure=()=>setMaximum(Math.max(280,Math.min(480,node.clientWidth-572)));const observer=new ResizeObserver(measure);observer.observe(node);measure();return()=>observer.disconnect();},[task,plain,phone]);
+  useEffect(()=>{if(task||plain||!frame.current)return;const node=frame.current;const measure=()=>setMaximum(Math.max(inspectorMin,Math.min(inspectorMax,node.clientWidth-572)));const observer=new ResizeObserver(measure);observer.observe(node);measure();return()=>observer.disconnect();},[task,plain,phone]);
   useEffect(() => { if(!modalOnPhone)return; const media=window.matchMedia("(max-width: 1279px)");const update=()=>setPhone(media.matches);update();media.addEventListener("change",update);return()=>media.removeEventListener("change",update); },[modalOnPhone]);
   useEffect(()=>{if(!task&&modalOnPhone&&phone&&(selected||contextOpen))phoneDialog.current?.showModal();else phoneDialog.current?.close();},[task,modalOnPhone,phone,selected,contextOpen]);
   const heading = useRef<HTMLHeadingElement>(null), opener = useRef<HTMLButtonElement>(null);
@@ -29,7 +30,7 @@ export default function WorkspacePanes({ children, inspector, title, arabic, sel
   if(modalOnPhone&&phone)return <div className="workspace-panes phone-dialog-panes">{center}<dialog ref={phoneDialog} className="workspace-detail-dialog" aria-label={title} onCancel={e=>{e.preventDefault();back();}}>{content}</dialog></div>;
   return <div ref={frame} style={{'--inspector-width':`${width}px`} as CSSProperties} data-details={preferences.detailsHidden?'hidden':'visible'} className={`workspace-panes${selected || contextOpen ? ' pane-selected' : ''}`} onKeyDown={e => { if (e.key === 'Escape' && (selected || contextOpen) && !blocked) { e.preventDefault(); back(); } }}>
     {center}
-    <div className="inspector-resizer" role="separator" tabIndex={preferences.detailsHidden?-1:0} aria-label={arabic?'تغيير عرض التفاصيل':'Resize details'} aria-orientation="vertical" aria-controls={inspectorId} aria-valuemin={280} aria-valuemax={maximum} aria-valuenow={width} onKeyDown={e=>{let next=width;const step=e.shiftKey?32:16;if(e.key==='Home')next=280;else if(e.key==='End')next=maximum;else if(e.key==='ArrowLeft')next+=arabic?-step:step;else if(e.key==='ArrowRight')next+=arabic?step:-step;else return;e.preventDefault();e.stopPropagation();update({inspectorWidth:Math.min(maximum,Math.max(280,next))});}} onPointerDown={e=>{drag.current={x:e.clientX,width};e.currentTarget.setPointerCapture(e.pointerId);}} onPointerMove={e=>{if(!drag.current)return;const delta=(drag.current.x-e.clientX)*(arabic?-1:1);update({inspectorWidth:Math.min(maximum,Math.max(280,drag.current.width+delta))});}} onPointerUp={e=>{drag.current=null;if(e.currentTarget.hasPointerCapture(e.pointerId))e.currentTarget.releasePointerCapture(e.pointerId);}} onPointerCancel={()=>{drag.current=null;}}/>
+    <WorkspaceSeparator pane="inspector" label={arabic?'تغيير عرض التفاصيل':'Resize details'} controls={inspectorId} width={width} minimum={inspectorMin} initial={inspectorDefault} maximum={maximum} arabic={arabic} hidden={preferences.detailsHidden} onResize={inspectorWidth=>update({inspectorWidth})}/>
     <aside id={inspectorId} hidden={preferences.detailsHidden} className="workspace-inspector" aria-label={arabic ? 'التفاصيل والإجراءات السياقية' : 'Contextual details and actions'}>
       <header className="inspector-heading"><h2 ref={heading} tabIndex={-1}>{title}</h2>{(selected || contextOpen) && (onBack || contextOpen) && <Button disabled={blocked} onClick={back}>{backLabel ?? (arabic ? 'رجوع' : 'Back')}</Button>}</header>{inspector}
     </aside>

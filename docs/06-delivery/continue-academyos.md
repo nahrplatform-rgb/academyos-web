@@ -174,13 +174,13 @@ Findings: NR03; NR16.
 Design: connected proposal approved 29 October; scope preserved.
 
 - Implementation: partial_existing
-- Local checks: per-journey receipts; not full parity
+- Local checks: per-journey receipts; working Owner Operations candidate prepared on staged source
 - Deployment: partial_existing
 - Hosted verification: partial_existing
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: open
-- Next action: Retain prior functional/Charcoal approvals;extend accepted durable-data/lifecycle behaviour across current journeys with actual preview/runtime evidence;future features explicit
-- Evidence: docs/06-delivery/full-experience-redesign.md
+- Next action: Retain prior functional/Charcoal approvals;extend accepted durable-data/lifecycle behaviour across current journeys with actual preview/runtime evidence;future features explicit; require authenticated Owner Today comparison
+- Evidence: design/operations-review/owner-today-batch.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
