@@ -39,6 +39,10 @@ jobs:
         run: |
           node scripts/local-data/test_automatic_key.mjs --check
           node scripts/local-data/test_automatic_key.mjs
+      - name: Verify inactive typed Owner register storage and original recovery
+        run: |
+          node scripts/local-data/test_register_repository.mjs --check
+          node scripts/local-data/test_register_repository.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

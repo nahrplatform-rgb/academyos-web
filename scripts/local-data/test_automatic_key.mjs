@@ -7,10 +7,12 @@ import {readFile, writeFile, mkdir, mkdtemp, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import {chromium} from '@playwright/test';
+import {build} from 'esbuild';
 
 const root = resolve(import.meta.dirname, '../..');
 const sourcePath = 'scripts/local-data/automatic-key-research.mjs';
 const source = await readFile(join(root, sourcePath), 'utf8');
+const sharedPath = 'apps/web/src/lib/local-register-crypto.ts';
 const evidence = join(root, 'docs/07-handoff/evidence/automatic-local-key-2026-11-03.json');
 if (process.argv.includes('--check')) {
   const recorded = JSON.parse(await readFile(evidence, 'utf8'));
@@ -22,6 +24,7 @@ if (process.argv.includes('--check')) {
   console.log('PASS automatic-key research receipt matches its sources; private/security gates separate');
   process.exit(0);
 }
+const compiled = (await build({entryPoints: [join(root, sourcePath)], bundle: true, format: 'esm', write: false, platform: 'browser'})).outputFiles[0].text;
 const profiles = await mkdtemp(join(tmpdir(), 'academyos-automatic-keys-'));
 const checks = [], errors = [], expectedDenials = [], externalRequests = [], timings = [];
 const grants = new Map(), requests = [];
@@ -77,7 +80,7 @@ const server = createServer(async (req, res) => {
   res.setHeader('Content-Security-Policy', "default-src 'none'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'");
   if (req.method === 'GET' && ['/', '/research.mjs', '/harness.mjs'].includes(req.url)) {
     res.setHeader('Content-Type', req.url.endsWith('.mjs') ? 'text/javascript' : 'text/html');
-    res.end(req.url === '/research.mjs' ? source : req.url === '/harness.mjs' ? harness : html); return;
+    res.end(req.url === '/research.mjs' ? compiled : req.url === '/harness.mjs' ? harness : html); return;
   }
   if (req.url === '/favicon.ico') { res.writeHead(204); res.end(); return; }
   if (req.method !== 'POST' || req.url !== '/fixture-key') { res.writeHead(404); res.end(); return; }
@@ -335,7 +338,8 @@ try {
       initialReadAndPendingCiphertextBytes: disk.ciphertextBytes,
       keyResponseJsonBytes: requests.reduce((n, r) => n + r.responseBytes, 0)},
     errors, expectedHttp403ConsoleMessages: expectedDenials.length, externalRequests,
-    hashes: {[sourcePath]: createHash('sha256').update(source).digest('hex'),
+    hashes: {[sharedPath]: createHash('sha256').update(await readFile(join(root, sharedPath))).digest('hex'),
+      [sourcePath]: createHash('sha256').update(source).digest('hex'),
       'scripts/local-data/test_automatic_key.mjs': createHash('sha256').update(await readFile(new URL(import.meta.url))).digest('hex')},
     limitations: ['Fictional HTTP identity and in-memory key custody; no Clerk/current database/account proof',
       'Same-origin scripts before cleanup can use cached keys; no hardware/OS-keystore guarantee',

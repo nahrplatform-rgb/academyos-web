@@ -2,6 +2,8 @@
 
 3November2026. Current continuation uses the single [tracker](../06-delivery/experience-execution.csv); this is a **scoped engineering handoff**, not a whole-app completion/security/release receipt.
 
+Later3November: [typed register repository checkpoint](local-register-repository-checkpoint.md) now supersedes this packet's **next-action routing only**. Its38browser cases complete the inactive EX-06 library checkpoint; EX-04 is current for coherent server transfer contracts. This packet's mechanism/workspace evidence and all private/security limitations remain retained.
+
 ## What actually changed
 
 Added an isolated no-extra-credential encryption/recovery mechanism and browser harness under `scripts/local-data`. Its [source-bound receipt](evidence/automatic-local-key-2026-11-03.json) records16passing actual browser cases,18fictional roster players/17selected marks, browser-process restart, atomic writes, wrong-account/key/device denial, cleanup/recovery and late-response fencing.30covered reads made zero fixture key exchanges. [Architecture, measured profile, fixes and limitations](../04-engineering/automatic-local-key-readiness.md).

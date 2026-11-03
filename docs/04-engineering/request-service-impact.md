@@ -1,5 +1,7 @@
 # Whole-app request and service impact — 31 October 2026
 
+3November isolated measurement: [EX-06 typed repository evidence](../07-handoff/evidence/local-register-repository-2026-11-03.json) records30actual covered local reads with zero key/operating requests,1000players/20server-shaped fixture pages,≤50local rows, exact original wire/cipher bytes and fixture key exchanges. [Scope/limits](../07-handoff/local-register-repository-checkpoint.md). The product does not import this adapter: **before/after product provider traffic is unchanged**, not an achieved quota saving. Physical disk usage, real provider costs, full working-day percentiles and hosted private authority remain unmeasured; no historical provider limit is refreshed by these tests.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Current target [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) adds separate first-download, unchanged-manifest, changed-page/replacement, local-query, multi-tab, restart/eviction and failure budgets. Manifest/hash SQL and limiter work still count; persistent local reads can avoid repeated dataset transfer only after implementation/evidence. The dated provider limits/models below are historical observations, not newly verified pricing or measured local-sync savings.

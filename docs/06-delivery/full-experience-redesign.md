@@ -2,6 +2,8 @@
 
 **3November focused changed-state review:** [Owner offline-register packet](offline-register-decision-design.md) extends the approved Charcoal direction with local-save/reopen/sync/conflict/cleanup states. The Owner approved this connected write design3November. It remains a fictional reference; it does not change the factual app or constitute private runtime/working acceptance.
 
+**Execution checkpoint:** [EX-06 typed storage](../07-handoff/local-register-repository-checkpoint.md) is implemented/inactive with38actual browser cases. EX-04 now addresses coherent server transfer before real bootstrap. No current visuals/navigation changed; factual review receives register links only, and no redesign parity or working-day case is closed by isolated storage proof.
+
 ## Latest local-first direction — LF-v3,2November2026
 
 Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.

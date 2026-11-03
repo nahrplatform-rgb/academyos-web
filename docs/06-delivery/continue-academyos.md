@@ -14,7 +14,7 @@ Start with the explicit current priority below, not the first unfinished EX numb
 
 The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
-Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. The focused Owner offline-register changed-state design is now approved for implementation3November; do not re-ask it. Preserve the completed automatic-key mechanism, canonical replay/fence proof and workspace compatibility checkpoints; do not repeat them by default. Build the current inactive typed-adapter slice, while real authenticated key custody, private field/time recovery and server transport gates remain required before private enablement. Remaining device/field/key engineering and security readiness stay separate. After successful device/passkey research, the Owner rejected mandatory passkey setup/reopening and directs ordinary email/password sign-in for personal-device use. Do not re-ask that rejected choice or add a separate local secret. Follow the revised offline-register-device-key-contract.md for automatic protection and same-account recovery; do not persist the login password, use it/token as a key, or silently weaken confidentiality. Historical PRF results and failed-UV cases remain evidence, not prerequisites for the different mechanism. No real credential creation or provider-account change is included in ordinary continuation. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
+Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. The focused Owner offline-register changed-state design is now approved for implementation3November; do not re-ask it. Preserve the completed automatic-key mechanism, canonical replay/fence proof and workspace compatibility checkpoints; do not repeat them by default. The inactive typed Owner-register adapter checkpoint now has38actual browser cases and is retained. Continue with coherent server transfer/authority contracts before actual bootstrap; real authenticated key custody, private field/time recovery and server transport gates remain required before private enablement. Do not repeat the completed library build or mistake per-row transfer completeness for a coherent server snapshot. Remaining device/field/key engineering and security readiness stay separate. After successful device/passkey research, the Owner rejected mandatory passkey setup/reopening and directs ordinary email/password sign-in for personal-device use. Do not re-ask that rejected choice or add a separate local secret. Follow the revised offline-register-device-key-contract.md for automatic protection and same-account recovery; do not persist the login password, use it/token as a key, or silently weaken confidentiality. Historical PRF results and failed-UV cases remain evidence, not prerequisites for the different mechanism. No real credential creation or provider-account change is included in ordinary continuation. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
 
 Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
@@ -22,20 +22,20 @@ Promotion ownership: the Owner performs all deployment promotions. Prepare/test/
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-06: Durable scoped local repository and read/synchronization ownership
+## Current priority — EX-04: Progressive dataset bootstrap, manifest/change sync and read cancellation
 
-Next action: Implement one typed encrypted Owner-register repository/journal with fictional data first;reuse exact canonical register validation/count-only receipt and actual browser storage;bind identity/academy/device/epoch and durable fences;no extra credential or private opening until authenticated key custody/field/security gates;then EX04/03 real bootstrap and transport
+Next action: Design and verify one bounded Owner-register coherent snapshot/manifest/page-resume contract against current APIs;preserve deployed Calendar1read;record and resolve per-row-only coherence before actual private bootstrap;EX09 key custody/current Owner/device/epoch/fields/time support and EX03 original transport remain separate
 
-Scoped dependency gate: EX10 scoped candidate readiness and EX02 compatible lifetime passed;first work is inactive fictional-data typed adapter;real key release/custody,private field/time lifecycle and independent security still gate private app enablement
+Scoped dependency gate: EX06 inactive typed repository checkpoint passed;next scoped work is coherent versioned transfer/authority contract and tests;no private opening until actual key custody/current scope/fields/time/security readiness
 
-Read: `docs/07-handoff/automatic-local-key-checkpoint.md`
+Read: `docs/07-handoff/local-register-repository-checkpoint.md`
 
 ## Ordered primary checkpoints
 
 1. **EX-10 — Persistent local-data, offline-edit and synchronization policy/design/architecture readiness** (checkpoint_passed).
 2. **EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle** (checkpoint_passed).
-3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (current).
-4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (queued).
+3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (checkpoint_passed).
+4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (current).
 5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (queued).
 6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
 7. **EX-07 — Remaining complete Charcoal journey parity** (queued).
@@ -71,13 +71,13 @@ Dependency gate: Scoped candidate readiness permits fictional/inactive adapter o
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
 Design: Read/preparation and focused Owner offline-register designs approved;Owner now directs ordinary email/password sign-in with no mandatory passkey/local secret;atomic original-ID/current-check/retained recovery and no idle/24hour cutoff retained.
 
-- Implementation: Scoped candidate mechanism checkpoint passed:isolated automatic encrypted reopening/recovery built;approved designs retained;no private product repository,key endpoint,outbox or sync enabled
+- Implementation: Scoped candidate mechanism checkpoint passed:isolated automatic encrypted reopening/recovery built;approved designs retained;no private product repository activation,key endpoint or live sync enabled
 - Local checks: 16actual browser automatic-key cases incl restart,wrong-key/device,atomic abort,cleanup failure and fencing passed;30covered reads0key exchanges;15disposable PG contracts passed;23register-review/24layouts and8virtual probe cases retained;historical UV gap retained;57WD cases planned
 - Deployment: Current-online1e7008f Owner-promoted to existing staging;new offline review is local standalone HTML only;no private schema/queue rollout or promotion required
 - Hosted verification: EX02 exact-release read-only checks retained;new local physical Chrome positive diagnostic only;Online signal;no private hosted offline/restart/cancel or transport proof
 - Owner acceptance: Policy and connected register design approved3November;Owner rejects mandatory passkeys and selects normal sign-in experience;automatic protection/recovery implementation and security not accepted from that direction
 - Independent security: open
-- Next action: Preserve candidate architecture/proof;support EX06 inactive typed register adapter;real Clerk/current Owner/device/epoch key release,custody/time/fields and independent security must precede private enablement;do not repeat credential research or approved policy/design
+- Next action: Preserve candidate architecture/design and16shared mechanism tests;typed EX06 checkpoint is recorded separately;support EX04/09 real current authority,key custody,fields/time/security before private enablement;no repeated credential research
 - Evidence: docs/07-handoff/automatic-local-key-checkpoint.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
@@ -99,26 +99,26 @@ Design: existing approved experience; changes scoped before implementation.
 
 ### EX-06 — Durable scoped local repository and read/synchronization ownership
 
-Routing: primary / 3 / current.
+Routing: primary / 3 / checkpoint_passed.
 Dependencies: EX-01; EX-10; EX-02.
-Dependency gate: EX10 scoped candidate readiness and EX02 compatible lifetime passed;first work is inactive fictional-data typed adapter;real key release/custody,private field/time lifecycle and independent security still gate private app enablement
+Dependency gate: Declared inactive typed storage checkpoint passed with38actual browser cases;not full parent closure;real authority/key/field/time/coherent transfer and security gates still precede private app enablement
 Findings: NR14; NR15; G08.
 Design: Owner offline-register/read designs and login-only UX approved;candidate automatic key protocol proven with fictional authority;typed field/repository and real private key/authority/security gate retained.
 
-- Implementation: Typed product repository not started;automatic crypto mechanism research exists outside product;private activation closed
-- Local checks: 16automatic key mechanism cases and EX02 lifetime evidence support this batch;typed product IDB/index/coverage/receipt/migration tests not yet run
-- Deployment: not_deployed
-- Hosted verification: pending
-- Owner acceptance: not_requested
+- Implementation: Scoped typed Owner-register repository/codec/shared crypto implemented;encrypted indexed pages,staged coverage,original discovery and atomic receipt settlement;no product caller/private enablement
+- Local checks: 38actual browser cases incl1000Unicode players/1000marks,restart,abort,concurrency,scope/key refusal,strict durability and downgrade fencing;30covered reads0key requests;16shared crypto cases and91units/build/type/lint passed;provider/physical/migration/eviction proof open
+- Deployment: Inactive source only;not enabled in staging;no promotion needed
+- Hosted verification: not_run_for_private_repository;online source unchanged
+- Owner acceptance: Prior policy/read/register design approvals retained;working private acceptance not requested
 - Independent security: open
-- Next action: Implement one typed encrypted Owner-register repository/journal with fictional data first;reuse exact canonical register validation/count-only receipt and actual browser storage;bind identity/academy/device/epoch and durable fences;no extra credential or private opening until authenticated key custody/field/security gates;then EX04/03 real bootstrap and transport
-- Evidence: docs/07-handoff/automatic-local-key-checkpoint.md
+- Next action: Preserve tested inactive adapter;support EX04 coherent roster snapshot/bootstrap and EX09 real key custody/current Owner/device/epoch/fields/time readiness;EX03 canonical original transport later;no repeat of mechanism research or private enablement
+- Evidence: docs/07-handoff/local-register-repository-checkpoint.md
 
 ### EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation
 
-Routing: primary / 4 / queued.
+Routing: primary / 4 / current.
 Dependencies: EX-01; EX-10; EX-06.
-Dependency gate: Upcoming dataset bootstrap/change transfer follows EX10/06 readiness;preserve existing exact APIs until versioned replacements reviewed;no premature delta or backend-abort claim
+Dependency gate: EX06 inactive typed repository checkpoint passed;next scoped work is coherent versioned transfer/authority contract and tests;no private opening until actual key custody/current scope/fields/time/security readiness
 Findings: NR05; NR06; NR07.
 Design: Prior Owner current-period contract retained;LF-v2 progressive persistent directory/month bootstrap and version/change contracts require scoped review.
 
@@ -128,8 +128,8 @@ Design: Prior Owner current-period contract retained;LF-v2 progressive persisten
 - Hosted verification: Owner EN/AR freshCalendar1current200;Month1explicit200;sessionreturn context retained;foreign current/retry403 zero rows;no percentiles/cancellation proof
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: Preserve deployed Owner cold1read;after local repository readiness design/version bounded manifest,snapshot pages,resume/completion,changes/tombstones or explicit replacement;measure cold/reopened/unchanged/changed paths and remaining waterfalls
-- Evidence: docs/07-handoff/request-remediation-ex04-current-calendar.md
+- Next action: Design and verify one bounded Owner-register coherent snapshot/manifest/page-resume contract against current APIs;preserve deployed Calendar1read;record and resolve per-row-only coherence before actual private bootstrap;EX09 key custody/current Owner/device/epoch/fields/time support and EX03 original transport remain separate
+- Evidence: docs/07-handoff/local-register-repository-checkpoint.md
 
 ### EX-03 — Durable original-operation and requested offline-edit journal recovery
 
@@ -230,5 +230,5 @@ Design: Durable local-data target requested across app;connected design approved
 - Hosted verification: not_verified
 - Owner acceptance: First Owner offline-register atomic/original-ID/current-check/Needs review policy and connected design approved;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;concrete device/key/field recovery readiness and security remain separate
 - Independent security: open
-- Next action: Support EX06 real key custody/account authority,field/minimal-index/time and recovery readiness;normal sign-in/no mandatory credential selected;retain no-idle/30day/logout/atomic original-ID policy;no plaintext or private security waiver
+- Next action: Support EX04/06 coherent scope and real key custody/account authority,private field/index/time/recovery readiness;typed adapter proof is not a privacy/security waiver;no extra credential or idle lock
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

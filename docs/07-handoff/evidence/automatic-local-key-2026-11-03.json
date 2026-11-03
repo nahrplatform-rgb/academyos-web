@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-03T10:54:12.931Z",
+  "date": "2026-11-03T15:16:45.490Z",
   "scope": "Isolated Chromium/WebCrypto/IndexedDB mechanism + fictional HTTP authority; NOT private app/Clerk/hosted/security proof",
   "passed": true,
   "checks": [
@@ -77,10 +77,10 @@
     "selectedNewMarks": 17
   },
   "metrics": {
-    "firstActivateCaptureMs": 13.477374999999938,
+    "firstActivateCaptureMs": 6.479999999999961,
     "localReadSamples": 30,
-    "localReadP50Ms": 1.0930829999999787,
-    "localReadP95Ms": 1.6708750000000236,
+    "localReadP50Ms": 0.9149170000000026,
+    "localReadP95Ms": 1.4394589999999994,
     "coveredReadKeyExchanges": 0,
     "keyExchanges": 19,
     "allowed": 16,
@@ -93,8 +93,9 @@
   "expectedHttp403ConsoleMessages": 3,
   "externalRequests": [],
   "hashes": {
-    "scripts/local-data/automatic-key-research.mjs": "aa46aab7222d04c06461130ebee60a966c0c4fdc22a3d93b6c5ddf08854604d1",
-    "scripts/local-data/test_automatic_key.mjs": "499c66e29bf9c0a5f762523b0b6d80bcf961ccc534ae8b60a7ade97513eb54f0"
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "scripts/local-data/automatic-key-research.mjs": "a716381499a21ac3d95fc1ed4dc9636b3834e031acb982eaa0de91e8c774656d",
+    "scripts/local-data/test_automatic_key.mjs": "c8a606017672fee84b0a2172228f0ee018be88a8572af18fbf878482386aa849"
   },
   "limitations": [
     "Fictional HTTP identity and in-memory key custody; no Clerk/current database/account proof",

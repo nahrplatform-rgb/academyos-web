@@ -1,5 +1,7 @@
 # Delivery roadmap and dependency-ordered backlog
 
+3November scoped execution: [EX-06 typed encrypted register checkpoint](../07-handoff/local-register-repository-checkpoint.md) is implemented and locally tested with fictional data, inactive in the app. The [single experience-execution tracker](experience-execution.csv) now selects EX-04 coherent transfer contracts. Real key custody/current authority/fields/time, private enablement, hosted/Owner/security gates and the broader roadmap remain open.
+
 ## Latest local-first direction — LF-v3,2November2026
 
 Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.

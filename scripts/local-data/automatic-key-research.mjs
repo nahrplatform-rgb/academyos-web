@@ -2,6 +2,7 @@
  * A RecoveryTicket must come from an authenticated authority. The companion
  * harness models that boundary, not Clerk or production key custody.
  */
+import {seal, unseal, newLocalKey as newKey, checkLocalKey} from '../../apps/web/src/lib/local-register-crypto.ts';
 const encode = new TextEncoder(), decode = new TextDecoder();
 const DB = 'academyos-automatic-key-research-v1';
 const stores = ['control', 'keys', 'records'];
@@ -10,7 +11,6 @@ const fail = code => { throw new Error(code); };
 const request = r => new Promise((resolve, reject) => {
   r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error);
 });
-const aad = (scope, purpose, id) => encode.encode(JSON.stringify([1, scope, purpose, id]));
 
 async function transaction(db, names, mode, work, abort = false) {
   const tx = db.transaction(names, mode);
@@ -32,34 +32,10 @@ async function transaction(db, names, mode, work, abort = false) {
   }
 }
 
-async function seal(key, scope, purpose, id, bytes) {
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const cipher = await crypto.subtle.encrypt({name: 'AES-GCM', iv,
-    additionalData: aad(scope, purpose, id), tagLength: 128}, key, bytes);
-  return {v: 1, scope, purpose, id, iv, cipher};
-}
-
-async function unseal(key, scope, purpose, id, record) {
-  if (!record || record.v !== 1 || record.scope !== scope ||
-      record.purpose !== purpose || record.id !== id) fail('envelope_mismatch');
-  return crypto.subtle.decrypt({name: 'AES-GCM', iv: record.iv,
-    additionalData: aad(scope, purpose, id), tagLength: 128}, key, record.cipher);
-}
-
 function payload(value) {
   const bytes = encode.encode(JSON.stringify(value));
   if (!bytes.byteLength || bytes.byteLength > 131072) fail('research_record_size');
   return bytes;
-}
-
-async function newKey() {
-  return crypto.subtle.generateKey({name: 'AES-GCM', length: 256}, false, ['encrypt', 'decrypt']);
-}
-
-function checkLocalKey(key) {
-  if (!(key instanceof CryptoKey) || key.extractable || key.type !== 'secret' ||
-      key.algorithm.name !== 'AES-GCM') fail('local_key_missing_or_invalid');
-  return key;
 }
 
 export async function openResearchVault(scope, device) {

@@ -2,7 +2,7 @@
 
 **Current Owner direction:** ordinary email/password sign-in, without mandatory passkey enrollment or a separate local password. The successful Owner-created localhost PRF sample remains research evidence; it does not select the product mechanism. Follow the [revised device/key contract and exact response](offline-register-device-key-contract.md). Automatic local protection and same-account recovery still need engineering/security proof; no private records are enabled.
 
-**Scoped readiness checkpoint completed3November:** [automatic no-extra-credential mechanism](automatic-local-key-readiness.md) now has16passing actual browser cases; [workspace compatibility recheck and handoff](../07-handoff/automatic-local-key-checkpoint.md) justify EX-06 inactive typed-adapter work. Real authenticated key custody, private field/time/recovery integration and independent security remain enablement gates. Do not repeat the rejected passkey proposal or imply this isolated proof is a private app release.
+**Scoped readiness checkpoints completed3November:** the [typed inactive repository](../07-handoff/local-register-repository-checkpoint.md) now has38actual browser cases, following16automatic-key and workspace checks. EX-04 is current for coherent snapshot/manifest/resume design; existing pages have only individual mark versions. Real authenticated key custody/current scope, private field/time/recovery integration, canonical live transport and independent security remain enablement gates. Do not repeat the rejected passkey proposal or imply these isolated proofs are a private app release.
 
 3November2026. The Owner has **approved the connected offline-register design for implementation**. Accepted write/retention policy stays in the [canonical contract](offline-edit-and-conflict-contract.md); [approved artifact and evidence](../06-delivery/offline-register-decision-design.md) stay separate from private runtime readiness. This packet supplies concrete next work rather than reopening accepted timer, atomic-save, conflict or cleanup choices.
 
@@ -63,7 +63,7 @@ Expected request shape, **not measured savings**: one existing register API/RPC 
 | Next checkpoint | Concrete output / evidence |
 |---|---|
 | EX-10 / LF-P01/P03 | Record the login-only direction; design/prove automatic device-key and same-account recovery with exact retained fields. PRF diagnostics stay historical, not mandatory. Do not re-ask approved workflow/timer/save/cleanup or require another credential |
-| EX-06 | One typed encrypted repository/journal adapter, actual browser transaction/key/namespace/migration/eviction/cleanup tests with fictional data first; private gate stays closed until relevant security readiness |
+| EX-06 | Inactive typed adapter and38browser cases delivered; preserve indexed coverage/original recovery/cleanup evidence. Actual migration/eviction discovery, private key/authority/field/time/security integration remain open; [checkpoint](../07-handoff/local-register-repository-checkpoint.md) |
 | EX-04 / EX-03 | Canonical replay/fence/publication/page/version checks now have15passing disposable DB cases. Implement the typed adapter and bounded coherent-basis/settlement behaviour, then prove HTTP/restart/unknown receipt-read-failure cases without changing the current online fence |
 | EX-11 | First prepare → offline reopen/capture → process restart → reconnect → exact outcome → cleanup/recovery; real role isolation, physical browser/device and cost measurements. The57planned WD cases remain unexecuted by the prototype |
 

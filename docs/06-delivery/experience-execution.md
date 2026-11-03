@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**3November checkpoint:** [automatic-key/workspace handoff](../07-handoff/automatic-local-key-checkpoint.md) records scoped EX-10 candidate mechanism readiness (16actual browser cases) and reverified EX-02 workspace compatibility. EX-06 is now current for an inactive typed encrypted register adapter with fictional data. Real key custody/authority, private fields/time lifecycle, hosted proof and independent security remain separate gates. Prior policy/design approvals and Owner-controlled promotions remain; do not restart completed research or infer private enablement.
+**3November latest checkpoint:** [typed register repository handoff](../07-handoff/local-register-repository-checkpoint.md) records38actual browser cases and the inactive EX-06 storage checkpoint. **EX-04 is current** for a bounded coherent snapshot/manifest/resume contract; current roster pages have only per-row versions. Real key custody/current authority, private fields/time lifecycle, transport, hosted proof and independent security remain gates before private integration. The earlier [16mechanism/workspace checks](../07-handoff/automatic-local-key-checkpoint.md), all prior approvals and Owner-controlled promotions are retained. Do not repeat the completed library/mechanism work or infer whole-finding closure.
 
 ## Latest local-first direction — LF-v3,2November2026
 
