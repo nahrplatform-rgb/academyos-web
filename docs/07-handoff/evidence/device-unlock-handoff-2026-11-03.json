@@ -1,22 +1,47 @@
 {
-  "observedAtUTC": "2026-11-03T09:34:36.325526+00:00",
+  "observedAtUTC": "2026-11-03T09:55:58.808849+00:00",
   "environment": "Owner native Chrome;local diagnostic only",
   "url": "http://localhost:3239/design/device-unlock-probe/index.html",
   "method": "Read-only AX;no consent checkbox or credential action operated by agent",
   "htmlSha256": "e597a886fe8f751dc6b2e37831f86757a5f5abd3f4160b422fbec5a16210681a",
   "observed": {
     "browserPRFHint": "Browser reports support",
-    "diagnosticCredential": "Not created",
-    "credentialPRF": "Not tested",
-    "unlock": "Not tested this visit"
+    "diagnosticCredential": "Created",
+    "credentialPRF": "Available",
+    "encryptedSample": "Yes · ciphertext",
+    "unlock": "Fictional record matched",
+    "status": "Unlocked: the original fictional record matches. No academy record or access was involved.",
+    "browserConnectionSignal": "Online signal"
   },
-  "ownerHandoff": "Concrete Create diagnostic passkey/device-verification request pending;Owner must perform it",
+  "ownerHandoff": "Initial enrollment/sample handoff completed by Owner; reuse existing credential for remaining physical checks",
   "appAccessChange": false,
   "agentCreatedRealCredential": false,
   "promotionNeeded": false,
   "limitations": [
-    "Browser capability hint is not provider/credential support",
-    "No actual physical passkey/offline/restart/recovery result yet",
-    "No private app records enabled"
-  ]
+    "Owner response to the create/save/reload/unlock handoff plus read-only current UI confirmation; agent did not observe every preceding step",
+    "No physical external-internet-off, browser-process restart or cancellation/retry evidence",
+    "Repeated failed-verification recovery remains open; do not deliberately exhaust real biometric retries",
+    "Localhost credential does not prove AcademyOS RP/account binding, private recovery or cold hosted offline boot",
+    "No private app records enabled; product mechanism selection and independent security remain separate"
+  ],
+  "history": [
+    {
+      "observedAtUTC": "2026-11-03T09:34:36.325526+00:00",
+      "method": "Read-only AX;no consent checkbox or credential action operated by agent",
+      "observed": {
+        "browserPRFHint": "Browser reports support",
+        "diagnosticCredential": "Not created",
+        "credentialPRF": "Not tested",
+        "unlock": "Not tested this visit"
+      },
+      "ownerHandoff": "Concrete Create diagnostic passkey/device-verification request pending;Owner must perform it",
+      "limitations": [
+        "Browser capability hint is not provider/credential support",
+        "No actual physical passkey/offline/restart/recovery result yet",
+        "No private app records enabled"
+      ]
+    }
+  ],
+  "ownerReported": "Created; PRF available and sample unlocks",
+  "actualProvider": "Not established by the observed page; no Touch ID, iCloud Keychain or hardware-only claim"
 }

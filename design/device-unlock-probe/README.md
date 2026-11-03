@@ -1,8 +1,10 @@
-# Device/passkey diagnostic — fictional data only
+# Device/passkey diagnostic — fictional historical research
 
 3November2026. Prepared after the Owner chose **Investigate device/passkey unlocking first**. This is a diagnostic, not the working AcademyOS app or an accepted private-key implementation.
 
 Start `node scripts/design/serve_device_unlock_probe.mjs`, then open [the local diagnostic](http://localhost:3239/design/device-unlock-probe/index.html) in the browser/device being tested. Keep this exact **localhost** address and port; do not use the127.0.0.1alias or a production/staging RP. The loopback server serves only the diagnostic HTML. No app API, sign-in, email, membership, real child/customer record or paid service is used.
+
+**Later Owner direction3November:** mandatory passkey setup/reopening was rejected for the app. [Normal sign-in/device-protection contract](../../docs/04-engineering/offline-register-device-key-contract.md). Keep this successful diagnostic and its missing cases as research evidence; do not ask for further credentials or require these steps for the current product path.
 
 ## Owner handoff before a real credential
 
@@ -22,6 +24,8 @@ The diagnostic uses a fictional identifier and one fictional encrypted record. D
 If creation succeeds at the provider but local metadata storage fails, the credential can still exist there. The page reports this rather than pretending enrollment never happened. Failed unlock/storage preserves the existing encrypted sample; it never silently resets a key or purges work.
 
 ## Evidence and boundaries
+
+**Owner device checkpoint3November:** the Owner performed enrollment and answered “Created; PRF available and sample unlocks.” Read-only native Chrome inspection confirms Created, credential PRF Available, ciphertext stored and Fictional record matched. [Physical handoff receipt](../../docs/07-handoff/evidence/device-unlock-handoff-2026-11-03.json) keeps this separate from the virtual harness below. The inspected page reported an Online signal; external-internet-off use, actual browser-process restart, physical cancellation/retry and provider identity remain unverified. Do not create a second passkey or reset the successful sample for ordinary continuation.
 
 [Diagnostic UI checks](../../docs/07-handoff/evidence/device-unlock-probe-2026-11-03.json) bind the HTML and harness hashes. Reproduce with `node scripts/design/test_device_unlock_probe.mjs` using Node24. These checks use an isolated Chromium virtual authenticator, not the Owner's profile: explicit enrollment, ciphertext storage, reload/network-disabled unlock, visible cancellation/retry, honest cleanup/unsupported states, keyboard modal and8EN/AR viewport combinations.
 

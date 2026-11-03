@@ -12,7 +12,7 @@ Current EX-10 review: [plain-language device/fields/access recommendations](loca
 
 ## Latest Owner choices — LF-v3,2November2026
 
-**3November unlock direction:** investigate device/passkey unlocking first; the separate local-passphrase proposal is not accepted. [Actual virtual-authenticator findings and remaining gates](../04-engineering/passkey-local-unlock-investigation.md). No real credential creation or private enablement is authorized by that research choice.
+**Latest3November device direction:** ordinary email/password sign-in should be sufficient; do not require passkey enrollment, a separate local secret or local reopening prompts in the normal journey. [Exact response and revised automatic-protection/key-recovery work](../04-engineering/offline-register-device-key-contract.md). Earlier passkey research produced a positive Owner Chrome sample result, retained as historical evidence. It is not a product prerequisite or permission to weaken private encryption, same-account pending recovery or current server authority.
 
 **3November update:** the Owner accepted the first Owner-register offline-save policy **for design**, retaining atomic selected marks/original operation IDs and current server access/version/deadline checks. Conflicting/refused uploads keep local work as Needs review; no timestamp overwrite. Protected pending edits survive logout/30day replica cleanup for the same verified account only. The [offline-edit packet](../04-engineering/offline-edit-and-conflict-contract.md) records the exact scope. The connected offline-register design is now approved for implementation3November; private storage/key/security implementation remains pending; do not re-ask the settled policy or pending-work choice.
 

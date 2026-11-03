@@ -14,7 +14,7 @@ Start with the explicit current priority below, not the first unfinished EX numb
 
 The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
-Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. The focused Owner offline-register changed-state design is now approved for implementation3November; do not re-ask it. Finish the actual-source runtime/key readiness packet, including exact protected reopening and current cancellation-fence versus noncancelling outcome/replay semantics, before private enablement. Remaining device/field/key engineering and security readiness stay separate. The Owner selected device/passkey unlocking research first, not the separate local-passphrase proposal; follow the recorded PRF/virtual-recovery/physical-device investigation. No real credential creation or provider-account change is included in ordinary continuation. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
+Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. The focused Owner offline-register changed-state design is now approved for implementation3November; do not re-ask it. Finish the actual-source runtime/key readiness packet, including exact protected reopening and current cancellation-fence versus noncancelling outcome/replay semantics, before private enablement. Remaining device/field/key engineering and security readiness stay separate. After successful device/passkey research, the Owner rejected mandatory passkey setup/reopening and directs ordinary email/password sign-in for personal-device use. Do not re-ask that rejected choice or add a separate local secret. Follow the revised offline-register-device-key-contract.md for automatic protection and same-account recovery; do not persist the login password, use it/token as a key, or silently weaken confidentiality. Historical PRF results and failed-UV cases remain evidence, not prerequisites for the different mechanism. No real credential creation or provider-account change is included in ordinary continuation. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
 
 Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
@@ -24,11 +24,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-10: Persistent local-data, offline-edit and synchronization policy/design/architecture readiness
 
-Next action: Complete prepared localhost3239 Owner device/passkey diagnostic handoff;do not create a real credential yourself;verify PRF/sample/reopen/cancel results and retain failed-UV/native recovery gate;then exact key/field and cancellation-fence/count-only receipt transport readiness before EX06/04/03;no re-asking approved policy/design/passphrase preference;Owner promotes releases
+Next action: Design and prove automatic personal-device key management plus same-account pending recovery after normal sign-in;no mandatory passkey or extra local secret;retain PRF diagnostic as history not current gate;canonical register replay/fence/count-only receipt already tested;then EX06 typed encrypted fictional adapter with private enablement gated;Owner promotes releases
 
 Scoped dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 
-Read: `docs/04-engineering/passkey-local-unlock-investigation.md`
+Read: `docs/04-engineering/offline-register-runtime-readiness.md`
 
 ## Ordered primary checkpoints
 
@@ -69,16 +69,16 @@ Routing: primary / 1 / current.
 Dependencies: EX-01.
 Dependency gate: LF-v3 direction/selected choices recorded;new per-command conflict/deadline/local-journal/key design before private enablement;current-online independent seam retains server authority
 Findings: NR03; NR04; NR06; NR07; NR08; NR13; NR14; NR15; NR16; NR17; G01; G08; G09.
-Design: Read/preparation and focused Owner offline-register connected design approved for implementation3November;first atomic/original-ID/current-check/retained-recovery policy accepted;no idle lock/24hour cutoff.
+Design: Read/preparation and focused Owner offline-register designs approved;Owner now directs ordinary email/password sign-in with no mandatory passkey/local secret;atomic original-ID/current-check/retained recovery and no idle/24hour cutoff retained.
 
 - Implementation: Fictional transaction-backed Owner register review built;current-online EX02 seam retained;no private repository,key,outbox,sync API or operating write enabled
-- Local checks: Prior read/online seam retained;23register-review checks/24ENAR layouts passed;passkey mechanism8passed/1unresolved failed-UV recovery;separate device diagnostic8UI checks/8layouts passed with virtual credentials;57WD cases still planned;no physical/private/security proof
+- Local checks: 23register-review checks/24ENAR layouts and8virtual device UI checks/8layouts passed;Owner Chrome Created/PRF Available/ciphertext/sample matched observed;15actual disposable PG17 replay/fence/deadline/scope/publication/page tests passed;failed-UV recovery1open;57WD cases planned
 - Deployment: Current-online1e7008f Owner-promoted to existing staging;new offline review is local standalone HTML only;no private schema/queue rollout or promotion required
-- Hosted verification: EX02 read-only exact-release Owner checks verified separately;new offline-register design has no hosted private run
-- Owner acceptance: Policy and new connected offline-register design explicitly approved3November;protected same-account pending recovery selected;no private runtime working/security approval
+- Hosted verification: EX02 exact-release read-only checks retained;new local physical Chrome positive diagnostic only;Online signal;no private hosted offline/restart/cancel or transport proof
+- Owner acceptance: Policy and connected register design approved3November;Owner rejects mandatory passkeys and selects normal sign-in experience;automatic protection/recovery implementation and security not accepted from that direction
 - Independent security: open
-- Next action: Complete prepared localhost3239 Owner device/passkey diagnostic handoff;do not create a real credential yourself;verify PRF/sample/reopen/cancel results and retain failed-UV/native recovery gate;then exact key/field and cancellation-fence/count-only receipt transport readiness before EX06/04/03;no re-asking approved policy/design/passphrase preference;Owner promotes releases
-- Evidence: docs/04-engineering/passkey-local-unlock-investigation.md
+- Next action: Design and prove automatic personal-device key management plus same-account pending recovery after normal sign-in;no mandatory passkey or extra local secret;retain PRF diagnostic as history not current gate;canonical register replay/fence/count-only receipt already tested;then EX06 typed encrypted fictional adapter with private enablement gated;Owner promotes releases
+- Evidence: docs/04-engineering/offline-register-runtime-readiness.md
 
 ### EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle
 
@@ -94,7 +94,7 @@ Design: existing approved experience; changes scoped before implementation.
 - Hosted verification: Read-only Owner Home/Calendar/dated Back retains period and selected record;Arabic Calendar;known foreign-academy denial3November;no hosted transport counts/provider percentiles or all-role proof
 - Owner acceptance: pending_working_review
 - Independent security: open
-- Next action: Retain verified online seam;complete EX10 connected offline-write review/device-key readiness then ready EX06/04/03 work;ordinary settled navigation still reads;Owner alone promotes future checked releases
+- Next action: Retain verified online seam;EX10 connected offline-register design already approved;finish remaining device/key/recovery readiness then ready EX06/04/03 work;ordinary settled navigation still reads;Owner alone promotes future checked releases
 - Evidence: docs/07-handoff/request-remediation-ex02-read-owner.md
 
 ### EX-06 — Durable scoped local repository and read/synchronization ownership
@@ -111,7 +111,7 @@ Design: Owner-directed persistent permitted datasets;compare indexed durable ada
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: After scoped LF-v2 readiness implement one typed repository/storage/index/coverage/key lifecycle with local subscriptions and multi-tab coordinator;query TTL is not durable persistence;enable only accepted fields/access/retention
+- Next action: After login-only key/recovery readiness implement typed encrypted repository/index/coverage and multi-tab coordination with fictional data first;no extra credential setup;enable only approved fields/scope after relevant security proof;memory reuse is not persistence
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md
 
 ### EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation
@@ -137,16 +137,16 @@ Routing: primary / 5 / queued.
 Dependencies: EX-01; EX-10.
 Dependency gate: Prepare with EX10 LF-P04 and EX06 storage design;prove affected save/discovery cases before replacing existing recovery;private drafts/offline queues separately gated
 Findings: NR13; NR17; G09.
-Design: First Owner offline-register protocol accepted for design;protected pending recovery after logout/30day replica cleanup selected;connected design and private journal/key implementation pending;current online recovery retained.
+Design: First Owner offline-register policy and connected design approved;protected pending recovery after logout/30day selected;private journal/key implementation pending;existing online cancellation retained.
 
 - Implementation: not_started
-- Local checks: not_run
+- Local checks: 15actual disposable PG17 canonical replay/fence/deadline/authority/publication/page tests passed;private journal/restart/HTTP receipt settlement not run
 - Deployment: not_deployed
 - Hosted verification: pending
 - Owner acceptance: not_requested
 - Independent security: open
-- Next action: Prepare original online outcome plus exact offline intent/base-version/receipt/conflict lifecycle with EX10/06;keep unsent/unknown operations separate from30day/logout replica cleanup;no generic command replay
-- Evidence: docs/04-engineering/request-findings-register.md
+- Next action: Use exact immutable register replay under current authority;never automatically call cancelling reconcile before resend;implement protected original intent/count-only receipt settlement with EX10/06;retain current online fence and pending work across replica cleanup
+- Evidence: docs/04-engineering/offline-register-runtime-readiness.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
 
@@ -228,7 +228,7 @@ Design: Durable local-data target requested across app;connected design approved
 - Local checks: not_run
 - Deployment: not_deployed
 - Hosted verification: not_verified
-- Owner acceptance: First Owner offline-register atomic/original-ID/current-server-check/Needs review policy accepted for design;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;remaining device/fields/key and new connected design/security open
+- Owner acceptance: First Owner offline-register atomic/original-ID/current-check/Needs review policy and connected design approved;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;concrete device/key/field recovery readiness and security remain separate
 - Independent security: open
-- Next action: Implement policy detail in focused offline-write design;review remaining device/field/key and recovery mechanics without re-asking accepted first Owner-register,protected pending-work,timer or retention choices
+- Next action: Owner selected ordinary sign-in without mandatory passkey/local-secret setup;finish automatic key custody and exact field/same-account recovery readiness without re-asking workflow,timer,retention or rejected passkey question;do not silently downgrade confidentiality
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

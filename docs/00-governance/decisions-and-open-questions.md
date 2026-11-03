@@ -1,5 +1,9 @@
 # Decisions and open questions
 
+## Normal sign-in without extra local credentials —3November2026
+
+After a successful localhost PRF diagnostic, the Owner rejected mandatory passkey setup/reopening as confusing and directed ordinary email/password sign-in on the personal device. [Exact response](../07-handoff/evidence/local-data-login-only-direction-2026-11-03.json) and [revised device/key contract](../04-engineering/offline-register-device-key-contract.md). Preserve the approved local-data/register workflows, no inactivity lock,30day/logout replica cleanup and separately protected same-account pending recovery. This selects the user experience; automatic key custody/account binding still need implementation and independent security proof. It does not authorize storing passwords, weakening confidentiality, another real credential, access grant or promotion. Do not ask for the rejected passkey product choice again.
+
 ## First offline-save policy accepted for design —3November2026
 
 Owner selected the first **Academy Owner register** offline policy: atomic selected new marks on a personal device; upload together under the original save ID; current server access/version/recording deadline; conflicting/refused uploads keep local work as Needs review, with no timestamp overwrite. Pending edits remain separately protected for the same verified account after logout/30day read-replica cleanup; another account cannot open/send them. [Accepted scope](../04-engineering/offline-edit-and-conflict-contract.md) and [exact replies](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json). Connected offline-write design, device/key/field implementation and security remain separate. Do not repeat these policy questions or infer new recording exceptions, role grants, other queues or runtime completion.

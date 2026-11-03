@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-03T09:58:33.643080+00:00",
+  "scope": "Actual disposable PostgreSQL17 existing canonical contracts; synthetic fixtures only",
+  "tests": 15,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "cases": [
+    "test_offline_01_owner_original_replay_and_exact_receipt",
+    "test_offline_02_fence_and_commit_both_observed_orders",
+    "test_offline_03_existing_receipt_survives_deadline_but_new_intent_cannot",
+    "test_offline_04_unsent_expired_batch_cannot_backdate_or_use_future_device_clock",
+    "test_offline_05_replay_keeps_current_owner_authority_and_tenant_scope",
+    "test_offline_06_publication_identity_changes_on_withdraw_republish",
+    "test_offline_07_complete_paged_basis_and_saved_version_conflict",
+    "test_register_01_all_commit_and_replay",
+    "test_register_02_stale_mixed_set_saves_none",
+    "test_register_03_duplicate_invalid_foreign_and_roles",
+    "test_register_04_failures_roll_back_every_row",
+    "test_register_05_fence_window_and_concurrent_mark",
+    "test_register_06_full_roster_scale_and_deadline_rollback",
+    "test_register_07_simultaneous_batch_replay_and_revoke_order",
+    "test_register_08_acl_branch_and_foreign_scope"
+  ],
+  "sourceHashes": {
+    "scripts/offline-register/test_boundary.py": "38c0cda963e3a5706b035f286f837b5c9bbc341ea16f8c5dccdedb736b6ed214",
+    "scripts/attendance-register/test_boundary.py": "06bf06a9ba469ddb9d01223dd7f443ffa6f5a441c877de04c0d15be60b8fe21f",
+    "scripts/onboarding/test_boundary.py": "c6ffec292d0fa20d784fb7df68133b214d78687fd19bede204ce7c3cd7c98e9f",
+    "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
+    "apps/web/src/app/api/attendance/route.ts": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
+    "supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+    "supabase/migrations/20261028012453_i3e_session_changes.sql": "6ccf71443c9184e7586d0ebac9f9467a9f2ee67e5f57266d6fcb302d74e595f4",
+    "supabase/migrations/20261028024556_i4a_online_attendance.sql": "838434b50966fbb80881d7d8dbd4013d4d26ed0915fe09399e7c1be5d28d03f0",
+    "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5"
+  },
+  "newSchemaOrServerContract": false,
+  "hostedConnection": false,
+  "limitations": [
+    "No real HTTP, Clerk, Redis, RLS deployment or hosted evidence",
+    "No private local repository, device-key or offline sync implementation",
+    "Privileged fixture setup is not a product capability",
+    "No performance percentile or provider cost claim",
+    "No passive outcome endpoint introduced; current reconcile is a fence"
+  ]
+}

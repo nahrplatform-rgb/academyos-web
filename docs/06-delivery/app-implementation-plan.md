@@ -1,6 +1,6 @@
 # One application implementation plan
 
-**3November current checkpoint:** [EX-10 Owner offline-register review](offline-register-decision-design.md) makes the accepted first write policy reviewable; connected design approval is recorded; private device/key/sync readiness remains. Follow the tracker. Owner alone performs release promotions; see AGENTS.md.
+**3November current checkpoint:** [EX-10 Owner offline-register review](offline-register-decision-design.md) is approved; [runtime readiness](../04-engineering/offline-register-runtime-readiness.md) now links positive Owner Chrome key/sample evidence and15disposable database replay/fence checks. The Owner now directs login-only device use without mandatory passkey setup; automatic protection, same-account recovery and private implementation still need proof. Follow the tracker; Owner alone performs release promotions.
 
 ## Latest local-first direction — LF-v3,2November2026
 
