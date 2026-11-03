@@ -95,3 +95,6 @@ Earlier navigation/visible-return/cold Calendar fixes remain useful but do not i
 - Prefer existing redacted diagnostics/isolated counters; no new telemetry sampling/retention or private payload logging without review.
 - Keep design, implementation, local, deployed, hosted, Owner acceptance and independent security separate. Shift tests cannot pass AcademyOS operating cases.
 - Update tracker/generated prompt, canonical joins/matrices, factual actual-component review where affected and reconciliation map. Deployment/document publication alone closes no finding.
+
+
+3November scoped implementation reference: [coherent register transfer](../07-handoff/register-download-checkpoint.md) demonstrates why page counts alone do not prove coverage: signed cursor/digest, bounded final server check, staged-row re-hash and atomic activation are required for this contract. First preparation and unchanged checks have distinct measured costs. Reuse the pattern only within its exact field/authority/size gates; no global preload or private activation is approved by library proof.

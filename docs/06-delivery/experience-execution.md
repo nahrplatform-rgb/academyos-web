@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**3November latest checkpoint:** [typed register repository handoff](../07-handoff/local-register-repository-checkpoint.md) records38actual browser cases and the inactive EX-06 storage checkpoint. **EX-04 is current** for a bounded coherent snapshot/manifest/resume contract; current roster pages have only per-row versions. Real key custody/current authority, private fields/time lifecycle, transport, hosted proof and independent security remain gates before private integration. The earlier [16mechanism/workspace checks](../07-handoff/automatic-local-key-checkpoint.md), all prior approvals and Owner-controlled promotions are retained. Do not repeat the completed library/mechanism work or infer whole-finding closure.
+**3November latest checkpoint:** [EX-04 coherent register download](../07-handoff/register-download-checkpoint.md) passes11actual PG17 and20connected browser/API/database/storage cases. **EX-03 is current** for immutable original-operation transport/restart/receipt recovery. Preserve the38typed storage cases and earlier16mechanism checks. New read schema/API/library remain inactive; actual key custody/current authority, exact fields/time lifecycle, UI/hosted/Owner/security gates stay open. The scoped checkpoint does not close all collections/roles,57working-day cases or findings.
 
 ## Latest local-first direction — LF-v3,2November2026
 

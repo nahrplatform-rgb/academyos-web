@@ -7,6 +7,8 @@ import {checkLocalKey, newLocalKey, seal, unseal, protectOriginal, openOriginal,
 import {canonicalRegister, digest, exactReceipt, fromBytes, identifier, jsonBytes,
   LOCAL_PAGE_LIMIT, LOCAL_RECORD_LIMIT, opaque, record, refuse, rosterHeader, rosterPage, stableHeader,
   type Original, type RosterHeader} from './local-register-codec';
+import {downloadChain, downloadSeed, downloadRoot, registerDownloadResult,
+  type DownloadReceipt, type DownloadManifest, type DownloadPage, type DownloadComplete} from './register-download';
 
 export const LOCAL_REGISTER_DATABASE = 'academyos-owner-register-v1';
 export type RegisterScope = {
@@ -22,7 +24,7 @@ type Head = {namespace: string; event: string; generation: string; revision: num
 type ImportRow = {namespace: string; event: string; transfer: string; revision: number;
   sealed: SealedRecord};
 type ImportState = {header: RosterHeader | null; cursor: string | null; seen: number;
-  saved: number; commandRevision: number};
+  saved: number; commandRevision: number; receipt?: DownloadReceipt};
 type StoredPlayer = {namespace: string; event: string; generation: string; player: string; sealed: SealedRecord};
 type StoredOriginal = {namespace: string; event: string; op: string; revision: number;
   active?: [string, string]; protected: ProtectedOriginal};
@@ -185,19 +187,31 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
         value.invalid !== head.invalid) refuse('head_mismatch');
     const header = value.header as RosterHeader;
     rosterPage({...header, count: 0, saved: 0, players: [], more: false});
+    let verification: DownloadComplete | null = null;
+    if (value.verification) {
+      verification = await registerDownloadResult({kind: 'complete', revision: (value.verification as DownloadReceipt).payload.revision,
+        header, receipt: value.verification}, scope.academy, event) as DownloadComplete;
+    }
     await verify(s.c);
-    return {...s, head, header};
+    return {...s, head, header, verification};
   }
   async function verifyHead(t: IDBTransaction, before: Head) {
     const h: Head | undefined = await req(t.objectStore('heads').get([namespace, before.event]));
     if (!h || h.revision !== before.revision || h.generation !== before.generation || h.invalid !== before.invalid) refuse('basis_changed');
   }
-  async function beginImport(event: string, transfer: string) {
+  async function beginImport(event: string, transfer: string, manifest?: DownloadManifest) {
     identifier(event); opaque(transfer);
+    if (manifest) {
+      manifest = await registerDownloadResult(manifest, scope.academy, event) as DownloadManifest;
+      const p = manifest.receipt.payload;
+      if (manifest.kind !== 'manifest' || p.seen !== 0 || p.saved !== 0 || p.cursor !== null ||
+          p.acc !== await downloadSeed(p.head)) refuse('download_initial_basis');
+    }
     const s = await snapshot();
     const row: ImportRow = {namespace, event, transfer, revision: 0, sealed: undefined as unknown as SealedRecord};
-    row.sealed = await seal(s.read, binding, 'import', importId(row), jsonBytes({header: null,
-      cursor: null, seen: 0, saved: 0, commandRevision: s.c.revision}));
+    row.sealed = await seal(s.read, binding, 'import', importId(row), jsonBytes({header: manifest?.header ?? null,
+      cursor: null, seen: 0, saved: 0, commandRevision: s.c.revision,
+      ...(manifest ? {receipt: manifest.receipt} : {})}));
     await tx(['control', 'imports', 'heads', 'rows'], 'readwrite', async t => {
       const c = (await control(t, true))!; unchanged(s.c, c);
       if (c.revision !== s.c.revision) refuse('import_basis_changed');
@@ -230,7 +244,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       t.objectStore('imports').delete([namespace, event]);
     });
   }
-  async function appendPage(event: string, transfer: string, after: string | null, input: unknown) {
+  async function appendPage(event: string, transfer: string, after: string | null, input: unknown, proof?: DownloadPage) {
     identifier(event); opaque(transfer); if (after !== null) identifier(after);
     const page = rosterPage(input);
     if (page.event !== event) refuse('page_event_mismatch');
@@ -241,12 +255,25 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     if (!before || before.transfer !== transfer) refuse('import_mismatch');
     const prior = fromBytes(await unseal(s.read, binding, 'import', importId(before), before.sealed)) as ImportState;
     if (prior.commandRevision !== s.c.revision) refuse('import_basis_changed');
+    if (Boolean(prior.receipt) !== Boolean(proof)) refuse('verified_transfer_required');
+    if (proof) {
+      proof = await registerDownloadResult(proof, scope.academy, event) as DownloadPage;
+      if (proof.kind !== 'page' || JSON.stringify(proof.roster) !== JSON.stringify(page) ||
+          proof.revision !== prior.receipt!.payload.revision ||
+          proof.receipt.payload.head !== prior.receipt!.payload.head ||
+          proof.receipt.payload.acc !== await downloadChain(prior.receipt!.payload.acc, page.players)) refuse('download_chain_mismatch');
+    }
     const header = rosterHeader(page);
     if (prior.cursor !== after || page.players.some(p => p.id <= (after ?? '')) ||
         prior.header && stableHeader(prior.header) !== stableHeader(header)) refuse('page_basis_changed');
     const state: ImportState = {header, seen: prior.seen + page.players.length,
       saved: prior.saved + page.players.filter(p => p.status !== null).length,
       cursor: page.players.at(-1)?.id ?? prior.cursor, commandRevision: prior.commandRevision};
+    if (proof) {
+      const p = proof.receipt.payload;
+      if (p.seen !== state.seen || p.saved !== state.saved || p.cursor !== state.cursor) refuse('download_progress_mismatch');
+      state.receipt = proof.receipt;
+    }
     if (state.seen > page.count || state.saved > page.saved || page.more && state.seen >= page.count ||
         !page.more && (state.seen !== page.count || state.saved !== page.saved)) refuse('coverage_mismatch');
     const next = {...before, revision: before.revision + 1};
@@ -254,14 +281,14 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     const rows = await Promise.all(page.players.map(async p => ({namespace, event, generation: transfer, player: p.id,
       sealed: await seal(s.read, binding, 'player', playerId(event, transfer, p.id), jsonBytes(p))} satisfies StoredPlayer)));
     const head: Head = {namespace, event, generation: transfer, revision: 1, invalid: false, sealed: undefined as unknown as SealedRecord};
-    if (!page.more) head.sealed = await seal(s.read, binding, 'header', headId(head), jsonBytes({namespace, event, generation: transfer, invalid: false, header}));
+    if (!page.more && !proof) head.sealed = await seal(s.read, binding, 'header', headId(head), jsonBytes({namespace, event, generation: transfer, invalid: false, header}));
     await tx(['control', 'imports', 'rows', 'heads'], 'readwrite', async t => {
       const c = (await control(t, true))!; unchanged(s.c, c);
       if (c.revision !== prior.commandRevision) refuse('import_basis_changed');
       const current: ImportRow | undefined = await req(t.objectStore('imports').get([namespace, event]));
       if (!current || current.transfer !== transfer || current.revision !== before.revision) refuse('import_changed');
       for (const row of rows) t.objectStore('rows').add(row, [namespace, event, transfer, row.player]);
-      if (page.more) t.objectStore('imports').put(next, [namespace, event]);
+      if (page.more || proof) t.objectStore('imports').put(next, [namespace, event]);
       else {
         const old: Head | undefined = await req(t.objectStore('heads').get([namespace, event]));
         if (old) t.objectStore('rows').delete(range([namespace, event, old.generation]));
@@ -269,7 +296,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
         t.objectStore('imports').delete([namespace, event]);
       }
     });
-    return {complete: !page.more, cursor: state.cursor, seen: state.seen};
+    return {complete: !page.more && !proof, cursor: state.cursor, seen: state.seen};
   }
   async function readPage(event: string, after: string | null = null) {
     if (after !== null) identifier(after);
@@ -287,7 +314,116 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     rosterPage({...s.header, players, more}, LOCAL_RECORD_LIMIT);
     await tx(['control', 'heads'], 'readonly', async t => {unchanged(s.c, await control(t, true)); await verifyHead(t, s.head);});
     return {header: s.header, players, more, needsCurrentRead: s.head.invalid,
-      complete: true as const, coherence: 'per-row-only' as const};
+      complete: true as const, coherence: s.verification ? 'verified-transfer' as const : 'per-row-only' as const};
+  }
+  async function transferState(event: string) {
+    identifier(event);
+    const s = await snapshot();
+    const row: ImportRow | undefined = await tx(['control', 'imports'], 'readonly', async t => {
+      unchanged(s.c, await control(t, true)); return req(t.objectStore('imports').get([namespace, event]));
+    });
+    if (!row) return null;
+    const value = fromBytes(await unseal(s.read, binding, 'import', importId(row), row.sealed)) as ImportState;
+    if (!value.receipt || !value.header) refuse('unversioned_import');
+    await registerDownloadResult({kind: 'manifest', revision: value.receipt.payload.revision,
+      header: value.header, receipt: value.receipt, unchanged: true}, scope.academy, event);
+    if (value.commandRevision !== s.c.revision || value.seen !== value.receipt.payload.seen ||
+        value.saved !== value.receipt.payload.saved || value.cursor !== value.receipt.payload.cursor) refuse('import_basis_changed');
+    await verify(s.c);
+    return {...s, row, value};
+  }
+  async function transferCheckpoint(event: string) {
+    const s = await transferState(event);
+    return s ? {transfer: s.row.transfer, receipt: s.value.receipt!} : null;
+  }
+  async function refreshTransfer(event: string, transfer: string, manifest: DownloadManifest) {
+    manifest = await registerDownloadResult(manifest, scope.academy, event) as DownloadManifest;
+    const s = await transferState(event);
+    if (!s || s.row.transfer !== transfer) refuse('import_mismatch');
+    const before = s.value.receipt!.payload, next = manifest.receipt.payload;
+    if (manifest.kind !== 'manifest' || before.revision !== next.revision || before.head !== next.head ||
+        before.acc !== next.acc || before.cursor !== next.cursor || before.seen !== next.seen ||
+        before.saved !== next.saved) refuse('download_resume_mismatch');
+    const row = {...s.row, revision: s.row.revision + 1};
+    row.sealed = await seal(s.read, binding, 'import', importId(row), jsonBytes({...s.value,
+      header: manifest.header, receipt: manifest.receipt}));
+    await tx(['control', 'imports'], 'readwrite', async t => {
+      const c = (await control(t, true))!; unchanged(s.c, c);
+      const current: ImportRow | undefined = await req(t.objectStore('imports').get([namespace, event]));
+      if (c.revision !== s.value.commandRevision || current?.transfer !== transfer ||
+          current.revision !== s.row.revision) refuse('import_changed');
+      t.objectStore('imports').put(row, [namespace, event]);
+    });
+  }
+  async function finalizeTransfer(event: string, transfer: string, complete: DownloadComplete, signal?: AbortSignal) {
+    complete = await registerDownloadResult(complete, scope.academy, event) as DownloadComplete;
+    const s = await transferState(event);
+    if (!s || s.row.transfer !== transfer) refuse('import_mismatch');
+    const p = s.value.receipt!.payload, final = complete.receipt.payload;
+    if (complete.kind !== 'complete' || p.revision !== final.revision || p.head !== final.head || p.acc !== final.acc ||
+        p.cursor !== final.cursor || s.value.seen !== final.count || s.value.saved !== final.total_saved) refuse('download_incomplete');
+    // Re-read and authenticate the actual staged rows in bounded pages, rather
+    // than treating counters or receipt metadata as evidence of disk coverage.
+    let cursor: string | null = null, seen = 0, saved = 0, acc = await downloadSeed(p.head);
+    while (seen < p.count) {
+      signal?.throwIfAborted();
+      const rows: StoredPlayer[] = await tx(['control', 'imports', 'rows'], 'readonly', async t => {
+        unchanged(s.c, await control(t, true));
+        const current: ImportRow | undefined = await req(t.objectStore('imports').get([namespace, event]));
+        if (current?.transfer !== transfer || current.revision !== s.row.revision) refuse('import_changed');
+        return req(t.objectStore('rows').getAll(IDBKeyRange.bound([namespace, event, transfer, cursor ?? ''],
+          [namespace, event, transfer, []], true), LOCAL_PAGE_LIMIT));
+      });
+      if (!rows.length) refuse('download_disk_coverage');
+      const players = await Promise.all(rows.map(async row =>
+        fromBytes(await unseal(s.read, binding, 'player', playerId(event, transfer, row.player), row.sealed)) as AttendancePlayer));
+      rosterPage({...complete.header, players, more: seen + players.length < p.count}, LOCAL_RECORD_LIMIT);
+      if (players.some((player, i) => player.id !== rows[i].player || player.id <= (cursor ?? ''))) refuse('download_disk_coverage');
+      seen += players.length; saved += players.filter(player => player.status !== null).length;
+      cursor = players.at(-1)!.id; acc = await downloadChain(acc, players);
+    }
+    if (seen !== p.count || saved !== p.total_saved || cursor !== p.cursor ||
+        acc !== p.acc || await downloadRoot(p.head, acc) !== p.revision) refuse('download_disk_coverage');
+    const head: Head = {namespace, event, generation: transfer, revision: 1, invalid: false, sealed: undefined as unknown as SealedRecord};
+    head.sealed = await seal(s.read, binding, 'header', headId(head), jsonBytes({namespace, event,
+      generation: transfer, invalid: false, header: complete.header, verification: complete.receipt}));
+    signal?.throwIfAborted();
+    await tx(['control', 'imports', 'rows', 'heads'], 'readwrite', async t => {
+      signal?.throwIfAborted();
+      const abort = () => {try {t.abort();} catch { /* Transaction may have completed. */ }};
+      signal?.addEventListener('abort', abort, {once: true});
+      t.addEventListener('complete', () => signal?.removeEventListener('abort', abort), {once: true});
+      t.addEventListener('abort', () => signal?.removeEventListener('abort', abort), {once: true});
+      const c = (await control(t, true))!; unchanged(s.c, c);
+      const current: ImportRow | undefined = await req(t.objectStore('imports').get([namespace, event]));
+      if (c.revision !== s.value.commandRevision || current?.transfer !== transfer || current.revision !== s.row.revision ||
+          await req(t.objectStore('rows').count(range([namespace, event, transfer]))) !== p.count) refuse('import_changed');
+      const old: Head | undefined = await req(t.objectStore('heads').get([namespace, event]));
+      if (old) t.objectStore('rows').delete(range([namespace, event, old.generation]));
+      t.objectStore('heads').put(head, [namespace, event]);
+      t.objectStore('imports').delete([namespace, event]);
+    });
+  }
+  async function transferBasis(event: string) {
+    try {
+      const s = await loadHead(event);
+      return s.verification && !s.head.invalid ? {revision: s.verification.revision} : null;
+    } catch (e) {if (e instanceof Error && e.message === 'not_downloaded') return null; throw e;}
+  }
+  async function refreshUnchanged(event: string, manifest: DownloadManifest) {
+    manifest = await registerDownloadResult(manifest, scope.academy, event) as DownloadManifest;
+    const s = await loadHead(event);
+    if (manifest.kind !== 'manifest' || !manifest.unchanged || s.head.invalid ||
+        !s.verification || manifest.revision !== s.verification.revision ||
+        stableHeader(manifest.header) !== stableHeader(s.header)) refuse('download_unchanged_mismatch');
+    const head = {...s.head, revision: s.head.revision + 1};
+    head.sealed = await seal(s.read, binding, 'header', headId(head), jsonBytes({namespace, event,
+      generation: head.generation, invalid: false, header: manifest.header, verification: s.verification.receipt}));
+    await tx(['control', 'heads'], 'readwrite', async t => {
+      const c = (await control(t, true))!; unchanged(s.c, c);
+      if (c.revision !== s.c.revision) refuse('basis_changed');
+      await verifyHead(t, s.head); t.objectStore('heads').put(head, [namespace, event]);
+    });
   }
   async function decodeOriginal(row: StoredOriginal, bytes: ArrayBuffer): Promise<Original> {
     const value = fromBytes(bytes) as Original;
@@ -447,6 +583,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     });
   }
   return {beginActivation, activate, beginImport, importStatus, abandonImport, appendPage, readPage,
+    transferCheckpoint, refreshTransfer, finalizeTransfer, transferBasis, refreshUnchanged,
     captureRegister, readOriginal, listOriginals, readActiveOriginal,
     beginOriginal: async (op: string) => (await transition(op, 'unknown')).wire,
     refuseOriginal: (op: string, reason: 'conflict' | 'deadline' | 'denied') => transition(op, 'needs_review', reason),

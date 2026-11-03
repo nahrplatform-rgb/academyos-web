@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "hashes": {
+    "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
+    "apps/web/src/lib/register-download-coordinator.ts": "2d20816f18a3e58aceeecf1131a080a2d36cc4edb8fe2306d7e055be67f8daf8",
+    "apps/web/src/app/api/register-download/route.ts": "1f3fd95f54c62c34a871f1e2b87ce018d0a61ec1dd27ccc88fb21f77429de4e8",
+    "apps/web/src/lib/local-register-repository.ts": "92dc9949dc584a0db2f921aa6b052590d1d2610d24231c53847694bb462bce51",
+    "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/onboarding-gateway.ts": "dd370bb4530c24123e588f54fcdd5f761574fe508a56ea1c59ff90bfa16e1de4",
+    "scripts/register-download/test_browser.mjs": "aea6c06022391238171d87dd485db4dc53bf046ea3b20dd8ab74353ddc6efe0b",
+    "scripts/register-download/bridge.py": "7f48849a88bd33e66300c9bbe6ad4f47b61444b65b4be5ee5090807f6eacb216",
+    "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
+    "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f"
+  },
+  "checks": [
+    {
+      "case": "Default-closed API makes zero session/RPC calls; same-origin/no-store boundary retained",
+      "status": "passed"
+    },
+    {
+      "case": "Invalid/oversize/forged-scope bodies, foreign origin and exhausted/timed-out/unavailable limiter never reach the database",
+      "status": "passed"
+    },
+    {
+      "case": "Final data page remains encrypted staging; complete row count alone never opens a register",
+      "status": "passed"
+    },
+    {
+      "case": "Actual manifest/pages/completion through route and PG produce one authenticated local generation with bounded 50-row reads",
+      "status": "passed"
+    },
+    {
+      "case": "Unchanged complete generation costs one current manifest and zero roster pages/completion requests",
+      "status": "passed"
+    },
+    {
+      "case": "Two same-owner consumers coalesce into one transport without a settled private query cache",
+      "status": "passed"
+    },
+    {
+      "case": "Failed final transaction preserves previous complete coverage and exact unknown original intent; no fake saved totals",
+      "status": "passed"
+    },
+    {
+      "case": "Retry after failed head commit reissues checked prefix and completes without replacing or cancelling an unknown attendance operation",
+      "status": "passed"
+    },
+    {
+      "case": "Refresh/restart resumes encrypted cursor/receipt using automatic stored keys; no credential or per-page unlock call",
+      "status": "passed"
+    },
+    {
+      "case": "A later server mark changes the whole revision and replaces only read coverage; no claim of instant revocation from a receipt",
+      "status": "passed"
+    },
+    {
+      "case": "Source changed after all data pages refuses completion and keeps staged evidence; next attempt never silently rebases the staged revision",
+      "status": "passed"
+    },
+    {
+      "case": "Current server revocation denies transport; explicit known-denial quarantine removes read access without treating an outage as denial",
+      "status": "passed"
+    },
+    {
+      "case": "Missing actual staged ciphertext fails final bounded re-hash/count check; receipt counters cannot fabricate disk completeness",
+      "status": "passed"
+    },
+    {
+      "case": "Scope cancellation after server completion but before delivery refuses late local activation; no claim that database execution was cancelled",
+      "status": "passed"
+    },
+    {
+      "case": "Two actual tabs sharing a namespace cannot race two imports into an acknowledged generation; one succeeds and the other retains an explicit CAS failure",
+      "status": "passed"
+    },
+    {
+      "case": "A new local register captured during download fences older transfer activation and preserves both original input and previous coverage",
+      "status": "passed"
+    },
+    {
+      "case": "Empty roster needs current manifest plus completion and remains distinct from not downloaded",
+      "status": "passed"
+    },
+    {
+      "case": "1000 Unicode players use 22 bounded requests, complete authenticated disk coverage and 20 bounded local reads; unchanged repeat uses one manifest",
+      "status": "passed"
+    },
+    {
+      "case": "Actual PostgreSQL and browser hashes agree for Arabic, CJK, emoji, combining characters and delimiter/escape input",
+      "status": "passed"
+    },
+    {
+      "case": "Download names, signed receipts and attendance original payloads are absent from raw metadata; zero credential APIs/external browser requests",
+      "status": "passed"
+    }
+  ],
+  "metrics": {
+    "baseline1000": {
+      "requests": 20,
+      "rows": 1000,
+      "bytes": 213902,
+      "ms": 604.2060420149937,
+      "coherence": "per-row-only",
+      "transport": "Direct fixture RPC; same PG/psql bridge, no API/WebCrypto"
+    },
+    "prepare1000Ms": 898.4761660000004,
+    "prepare1000": {
+      "requests": 22,
+      "pages": 20,
+      "bytes": 228525,
+      "maxResponseBytes": 11320
+    },
+    "localRead1000Ms": 79.06654200000048,
+    "manifestExplain": [
+      {
+        "Plan": {
+          "Node Type": "Result",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 0,
+          "Total Cost": 0.26,
+          "Plan Rows": 1,
+          "Plan Width": 32,
+          "Actual Startup Time": 17.988,
+          "Actual Total Time": 17.988,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 2160,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.029,
+        "Triggers": [],
+        "Execution Time": 18.002
+      }
+    ],
+    "unchanged1000": {
+      "requests": 1,
+      "bytes": 1179,
+      "ms": 41.76529200000368
+    }
+  },
+  "scope": "Actual route with fictional identity/rate/PostgREST adapters -> disposable PG17 -> real Chromium WebCrypto/IndexedDB/coordinator. Local timings include fixture bridge/psql startup, not hosted percentiles, Clerk/key custody/provider quotas or independent security. No product caller, hosted migration, enablement or promotion."
+}

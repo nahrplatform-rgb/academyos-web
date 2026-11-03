@@ -204,3 +204,6 @@ EX-04 cold-entry checkpoint2November2026: [actual Next EN/AR diagnostic and next
 EX-04 Owner cold fix2November2026: [implementation and local/schema evidence](../07-handoff/request-remediation-ex04-current-calendar.md) removes full-Home bootstrap for cold Owner Calendar through a named signed/current-authority read.79units/10PG/18ENAR cases and recovery passed; schema applied, app rollout/hosted checks pending at source checkpoint. NR06 remains partial: Trainer/Guardian and broader query/cancellation measurements are open.
 
 EX-04 delivery update2November2026: [Owner current-period fix](../07-handoff/request-remediation-ex04-current-calendar.md) is staging10bbda7 with both exact CI passes; fresh EN/AR Calendar each1current200, other academy/retry403. Owner occurrence implemented and hosted checked; whole NR06 remains partial and broader service/cancellation/role evidence is not inferred.
+
+
+EX-04 scoped3November: [coherent register transfer](../07-handoff/register-download-checkpoint.md) resolves the inactive Owner-register per-row coherence gap with signed bounded pages/final source+disk checks. NR05/06/07 remain partial across collections/roles; first/repeat request/byte samples are local fixtures, not hosted useful-content or provider savings. No finding is closed.

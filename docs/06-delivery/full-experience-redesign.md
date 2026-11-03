@@ -2,7 +2,7 @@
 
 **3November focused changed-state review:** [Owner offline-register packet](offline-register-decision-design.md) extends the approved Charcoal direction with local-save/reopen/sync/conflict/cleanup states. The Owner approved this connected write design3November. It remains a fictional reference; it does not change the factual app or constitute private runtime/working acceptance.
 
-**Execution checkpoint:** [EX-06 typed storage](../07-handoff/local-register-repository-checkpoint.md) is implemented/inactive with38actual browser cases. EX-04 now addresses coherent server transfer before real bootstrap. No current visuals/navigation changed; factual review receives register links only, and no redesign parity or working-day case is closed by isolated storage proof.
+**Execution checkpoint:** [EX-04 coherent register transfer](../07-handoff/register-download-checkpoint.md) adds11PG17/20browser cases after the38typed storage cases. EX-03 is current for immutable original transport and restart recovery. No rendered UI changed and no new private runtime, redesign parity, working-day, hosted or security acceptance is claimed. The factual HTML receives register links from unchanged captures.
 
 ## Latest local-first direction — LF-v3,2November2026
 

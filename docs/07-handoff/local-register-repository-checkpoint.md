@@ -36,7 +36,7 @@ Measurements are in the exact JSON, on Chromium156.0.8078.4/Node24.14.0/macOS ar
 | Owner working acceptance | Not requested for an unconnected private runtime |
 | Independent security | Open; same-origin available-key exposure, actual key custody/current authority/fields/lifecycle remain |
 
-**EX-06 scoped checkpoint passed; EX-04 is next.** Inspect current roster APIs and design/verify a bounded coherent snapshot/manifest/resume contract before adapting actual private bootstrap. Current roster pages carry individual mark versions but no global snapshot receipt. Repository `complete` means transfer coverage and explicitly reports `coherence: per-row-only`; it cannot establish a simultaneous server snapshot. Do not integrate it into working private UI by skipping that gap.
+**Historical routing updated by the later3November [EX-04 transfer checkpoint](register-download-checkpoint.md).** EX-06's38storage cases remain; the new versioned path separately passes11PG17/20connected cases and reports `verified-transfer` only after server completion and disk re-hash. Legacy fixture imports remain `per-row-only`. Neither path is a working private UI. Follow the tracker for current EX-03 original transport rather than repeating the now-completed scoped transfer work.
 
 EX-09 supports real authenticated key release/custody, exact personal-device fields/indexes, trusted verification time/30-day trigger and same-account recovery. EX-03 must wire current-authority original replay and receipt settlement; the existing cancelling reconcile endpoint is never a passive retry lookup. Current online saves stay canonical. No extra credential or generic queue. No real account grant, provider secret, infrastructure purchase, production launch or agent promotion.
 

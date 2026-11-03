@@ -8,7 +8,7 @@ import {join, resolve} from 'node:path';
 import {build} from 'esbuild';
 import {chromium} from '@playwright/test';
 const root = resolve(import.meta.dirname, '../..');
-const sources = ['apps/web/src/lib/local-register-repository.ts', 'apps/web/src/lib/local-register-codec.ts',
+const sources = ['apps/web/src/lib/register-download.ts', 'apps/web/src/lib/local-register-repository.ts', 'apps/web/src/lib/local-register-codec.ts',
   'apps/web/src/lib/local-register-crypto.ts', 'apps/web/src/lib/attendance.ts', 'apps/web/src/lib/corrections.ts',
   'scripts/local-data/test_register_repository.mjs'];
 const evidence = join(root, 'docs/07-handoff/evidence/local-register-repository-2026-11-03.json');
