@@ -202,9 +202,13 @@ try{
   pass('Scope cancellation after server completion but before delivery refuses late local activation; no claim that database execution was cancelled');
   const racing=await fixture(60),sr=await open(racing);const tab=await context.newPage();await tab.goto(origin);await tab.waitForFunction(()=>window.started);
   await tab.evaluate(async({s,e})=>{await window.open(s);window.events[s.namespace]=e;window.owner(s.namespace,s.academy)},{s:sr,e:racing.event});
-  const races=await Promise.allSettled([prepare(sr),tab.evaluate(ns=>window.prepare(ns),sr.namespace)]);
+  const racingManifest=await page.evaluate(async f=>{const r=await fetch('/api/register-download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'manifest',academy:f.academy,event:f.event,expected:null,after:null})});if(!r.ok)throw new Error('Manifest refused');return(await r.json()).data},racing);
+  // Hold the winning staged import open. Scheduling must not turn this into
+  // two legitimate sequential preparations on a fast/slow CI machine.
+  const races=await Promise.allSettled([call(sr,'beginImport',racing.event,'racing_first',racingManifest),
+    tab.evaluate(({ns,e,m})=>window.call(ns,'beginImport',e,'racing_second',m),{ns:sr.namespace,e:racing.event,m:racingManifest})]);
   assert.equal(races.filter(r=>r.status==='fulfilled').length,1);assert.equal(races.filter(r=>r.status==='rejected').length,1);
-  assert.equal((await call(sr,'readPage',racing.event)).coherence,'verified-transfer');await tab.close();
+  await prepare(sr);assert.equal((await call(sr,'readPage',racing.event)).coherence,'verified-transfer');await tab.close();
   pass('Two actual tabs sharing a namespace cannot race two imports into an acknowledged generation; one succeeds and the other retains an explicit CAS failure');
   const fencing=await fixture(60),sf=await open(fencing);await prepare(sf);const basis=await call(sf,'readPage',fencing.event);await db({action:'mark',...fencing});holdComplete=true;
   await page.evaluate(ns=>{window.result=window.prepare(ns).then(v=>({v}),e=>({error:e.message}))},sf.namespace);await waitComplete();
