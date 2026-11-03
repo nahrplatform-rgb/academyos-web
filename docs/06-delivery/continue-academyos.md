@@ -123,7 +123,7 @@ Findings: NR05; NR06; NR07.
 Design: Existing approved Owner read/register designs retained;bounded versioned transfer engineering contract tested;no new policy or private enablement.
 
 - Implementation: Retained Owner Calendar2to1;new inactive Owner-register signed manifest/page/completion RPC,closed API,encrypted staged receiver and scoped coordinator;no hosted migration/product caller
-- Local checks: 11actual PG17 and20connected Chromium/API/PG/IDB cases;38retained typed storage cases;92units/build/type/lint passed;1000players22initial requests,1unchanged,0network local reads;advisor unavailable;hosted/provider percentiles open
+- Local checks: 11actual PG17 and20connected Chromium/API/PG/IDB cases;38retained typed storage cases;92units/build/type/lint passed;1000players22initial requests,1unchanged,0network local reads;advisor unavailable;hosted/provider percentiles open;both exact-source Foundation runs passed for ac485f6;delivery receipt linked in handoff
 - Deployment: staging10bbda7;dpl_C3PbqAmBUf4HpntLrYJ1VundMdDk Ready52s;schema20261102124518;bothCIpassed;new transfer source only: schema not applied,flag closed,no promotion needed
 - Hosted verification: Owner EN/AR freshCalendar1current200;Month1explicit200;sessionreturn context retained;foreign current/retry403 zero rows;no percentiles/cancellation proof;new private transfer not enabled/not hosted verified
 - Owner acceptance: pending_working_review
@@ -139,8 +139,8 @@ Dependency gate: EX06 typed journal and EX04 coherent download scoped checkpoint
 Findings: NR13; NR17; G09.
 Design: First Owner offline-register policy and connected design approved;protected pending recovery after logout/30day selected;private journal/key implementation pending;existing online cancellation retained.
 
-- Implementation: not_started
-- Local checks: 15actual disposable PG17 canonical replay/fence/deadline/authority/publication/page tests passed;private journal/restart/HTTP receipt settlement not run
+- Implementation: Inactive storage/discovery/Unknown/refusal/settlement already implemented under EX06;canonical live HTTP original sender not started;no private product caller
+- Local checks: 15actual disposable PG17 canonical replay/fence/deadline/authority tests retained;38typed storage/restart/original cases passed under EX06;connected original HTTP sender/current RPC/settlement proof not yet run
 - Deployment: not_deployed
 - Hosted verification: pending
 - Owner acceptance: not_requested
@@ -191,7 +191,7 @@ Findings: NR09; NR10; NR11; NR12; G04.
 Design: optimization only; authority unchanged.
 
 - Implementation: not_started
-- Local checks: not_run
+- Local checks: EX04 one-event1000row baseline/initial/unchanged/local-query samples and one actual EXPLAIN recorded;manifest remains bounded O(N);nested SQL/provider/role/load/Redis percentile measurements open;docs/07-handoff/register-download-checkpoint.md
 - Deployment: not_deployed
 - Hosted verification: pending
 - Owner acceptance: not_requested

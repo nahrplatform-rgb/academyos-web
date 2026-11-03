@@ -1,6 +1,8 @@
 # EX-04 coherent register download checkpoint
 
-3 November 2026. **Implemented and locally tested; inactive in the app.** [Contract](../04-engineering/register-download-contract.md), [database receipt](evidence/register-download-database.json), [browser/API receipt](evidence/register-download-browser.json), [execution tracker](../06-delivery/experience-execution.csv). This passes one declared Owner-register transfer checkpoint, not all EX-04 collections/roles, private enablement or working-day acceptance.
+3 November 2026. **Implemented and locally tested; inactive in the app.** [Contract](../04-engineering/register-download-contract.md), [database receipt](evidence/register-download-database.json), [browser/API receipt](evidence/register-download-browser.json), [execution tracker](../06-delivery/experience-execution.csv). This passes one declared Owner-register transfer checkpoint, not all EX-04 collections/roles, private enablement or working-day acceptance. The earlier [Owner Calendar1-read release](request-remediation-ex04-current-calendar.md) and its distinct hosted limits are retained.
+
+**Delivery recorded:** implementation `a105479`, deterministic-test follow-up `ac485f6` pushed. Both exact-source Foundation runs [41694194844](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41694194844) and [41694223560](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41694223560) passed, including actual PG17/Chromium tests on CI. [Delivery receipt](evidence/register-download-delivery-2026-11-03.json) separates GitHub's Vercel build-success report from independent provider/live-alias proof: connector403 and CLI scope failure prevented that inspection. No promotion, hosted migration or private activation occurred. The existing withdrawn development-dependency alert was rechecked without dismissal or dependency change; it is no security waiver.
 
 ## Delivered behavior
 
@@ -12,7 +14,7 @@ The [typed protocol](../../apps/web/src/lib/register-download.ts), [repository](
 
 Each explicit prepare starts with a current manifest. A compatible complete unchanged revision costs one manifest and no pages; an interrupted same-revision import obtains a newly checked prefix and continues. The600second transfer-receipt lifetime is not a local-read cutoff. A changed in-progress source remains a visible `download_changed` failure with staged evidence retained; abandoning only that staged generation is an explicit later task. No automatic reset, write reconciliation, endless retry, timer, polling, credential enrollment or per-page unlock.
 
-The coordinator coalesces same-event work within one scoped owner and rejects late results after cancellation. Repository compare-and-swap rejects competing actual-tab imports and a new local register fences an earlier transfer. This proves storage contention behavior, **not** the future background scheduler/leader, actual Clerk/device key custody or cross-device synchronization.
+The coordinator coalesces same-event work within one scoped owner and rejects late results after cancellation. Repository compare-and-swap rejects competing actual-tab imports and a new local register fences an earlier transfer. This proves storage contention behavior, **not** the future background scheduler/leader, actual Clerk/device key custody or cross-device synchronization. A generic403 is not automatically global membership revocation: the actual authority/lifecycle integration must distinguish a withdrawn occurrence from loss of Owner authority, invalidate the appropriate read scope and retain protected originals. The coordinator deliberately does not perform global cleanup from a network error.
 
 ## Evidence and before/after cost
 
