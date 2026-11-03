@@ -106,7 +106,7 @@ Findings: NR14; NR15; G08.
 Design: Owner offline-register/read designs and login-only UX approved;candidate automatic key protocol proven with fictional authority;typed field/repository and real private key/authority/security gate retained.
 
 - Implementation: Scoped typed Owner-register repository/codec/shared crypto implemented;encrypted indexed pages,staged coverage,original discovery and atomic receipt settlement;no product caller/private enablement
-- Local checks: 38actual browser cases incl1000Unicode players/1000marks,restart,abort,concurrency,scope/key refusal,strict durability and downgrade fencing;30covered reads0key requests;16shared crypto cases and91units/build/type/lint passed;provider/physical/migration/eviction proof open
+- Local checks: 38actual browser cases incl1000Unicode players/1000marks,restart,abort,concurrency,scope/key refusal,strict durability and downgrade fencing;30covered reads0key requests;16shared crypto cases and91units/build/type/lint passed;provider/physical/migration/eviction proof open;both exact-source Foundation runs passed for e156173;delivery receipt linked in handoff
 - Deployment: Inactive source only;not enabled in staging;no promotion needed
 - Hosted verification: not_run_for_private_repository;online source unchanged
 - Owner acceptance: Prior policy/read/register design approvals retained;working private acceptance not requested
