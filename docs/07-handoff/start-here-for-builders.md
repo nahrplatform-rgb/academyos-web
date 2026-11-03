@@ -1,5 +1,7 @@
 # Start here for builders
 
+**3November current continuation:** [Owner offline-register design packet](../06-delivery/offline-register-decision-design.md) has the new connected write-design approval under accepted policy. Finish the [runtime/key readiness](../04-engineering/offline-register-runtime-readiness.md), including the current operation-cancellation-fence distinction, before private enablement. [EX-02 release evidence](evidence/ex02-read-owner-2026-11-02/release.json) confirms Owner-promoted1e7008f/current staging and scoped read-only checks. The Owner performs future promotions; agents hand off exact tested releases and verify read-only, as recorded in AGENTS.md.
+
 Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

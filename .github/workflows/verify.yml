@@ -29,6 +29,10 @@ jobs:
           "$RUNNER_TEMP/backup-tests/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
+      - name: Verify fictional offline-register review freshness and browser recovery
+        run: |
+          node scripts/design/build_offline_register_preview.mjs --check
+          node scripts/design/test_offline_register_preview.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

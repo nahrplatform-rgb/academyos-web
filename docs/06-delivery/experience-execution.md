@@ -1,5 +1,7 @@
 # Connected experience execution guide
 
+**3November checkpoint:** [EX-10 offline-register changed-state packet](offline-register-decision-design.md) is the current review. The first Owner policy is accepted for design; its new connected write preview is approved. Current next work is the actual-source device/key/transport readiness, not repeating review. EX-02 exact staging source and read-only evidence are verified separately. Owner-controlled promotions are mandatory under AGENTS.md.
+
 ## Latest local-first direction — LF-v3,2November2026
 
 Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.

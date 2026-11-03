@@ -1,6 +1,8 @@
 # Local edits, reconnect and conflict resolution — LF-v3 preparation
 
-Prepared2November2026; Owner decisions3November2026. **First Owner offline-register policy accepted for design, including protected pending-work recovery. Connected offline-edit design, private implementation and security approval remain pending.** This extends [the canonical local-data plan](../06-delivery/local-data-and-sync-plan.md); it does not replace current server authorization, atomicity, deadlines, history or previous business approvals. Read-only preview approval remains valid for its scope, not for these newly requested write states.
+**Connected review prepared3November:** [Owner register design packet and preview](../06-delivery/offline-register-decision-design.md). The connected write design is now approved3November; synthetic browser checks remain separate from private implementation and independent security; existing accepted policies are not reopened.
+
+Prepared2November2026; Owner decisions3November2026. **First Owner offline-register policy accepted for design, including protected pending-work recovery. Connected offline-register design is now approved3November; private implementation and security approval remain pending. See the [runtime readiness packet](offline-register-runtime-readiness.md).** This extends [the canonical local-data plan](../06-delivery/local-data-and-sync-plan.md); it does not replace current server authorization, atomicity, deadlines, history or previous business approvals. Read-only preview approval remains valid for its scope, not for these newly requested write states.
 
 ## Accepted first-slice policies —3November2026
 
@@ -8,7 +10,7 @@ The Owner answered “Accept this first offline-save policy for design”: start
 
 The Owner also selected “Keep protected pending work for recovery”: logout/30day cleanup removes downloaded read copies, while pending edits stay separately protected for the **same verified account** to recover. Another account cannot open or send them. Exact encryption/unlock/key and recovery mechanics still require engineering/security review; no new pending-edit expiry or automatic discard period is invented.
 
-Do not ask for these policies again. Build the focused connected capture/reopen/reconnect/conflict/deadline/logout preview under these rules, then obtain its design review before dependent private implementation. [Exact approval record](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json).
+Do not ask for these policies again. Build the focused connected capture/reopen/reconnect/conflict/deadline/logout preview under these rules, retain its recorded design approval before dependent private implementation; do not re-ask that review. [Exact approval record](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json).
 
 ## What the Owner clarified
 
