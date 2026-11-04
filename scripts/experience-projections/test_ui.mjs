@@ -57,7 +57,7 @@ try{
  emptyToday=true;await open();
  await expect(page.getByRole('link',{name:/0 Sessions today/})).toBeVisible();
  await expect(page.getByText('No sessions in this selection.',{exact:true})).toBeVisible();
- await expect(page.getByRole('searchbox')).toHaveCount(0);
+ await expect(page.getByRole('searchbox')).toBeVisible();
  emptyToday=false;unavailable=true;await open();
  await expect(page.getByRole('alert')).toContainText('This view is unavailable');
  await expect(page.locator('.operations-summary')).toHaveCount(0);

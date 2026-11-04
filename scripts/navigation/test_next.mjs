@@ -180,7 +180,7 @@ try{
   const inputRetained=await input.count()===1;
   assert.equal(inputRetained,!localControlsBaseline,'local search presence while private results are masked');
   if(!localControlsBaseline){assert.equal(await input.getAttribute('data-continuity-probe'),'original');assert.equal(await input.evaluate(el=>el===document.activeElement),true);await input.press('End');await input.pressSequentially(' Routing');await expect(input).toHaveValue('Fictional Routing');}
-  const beforeLanguage=p.url();await p.getByRole('link',{name:'العربية',exact:true}).click();await expect(p.getByRole('heading',{name:view==='calendar'?'تقويم التدريب':'اليوم في أكاديميتك',exact:true})).toBeVisible();
+  const beforeLanguage=p.url();await p.getByRole('link',{name:'العربية',exact:true}).click();await expect(p.getByRole('heading',{name:view==='calendar'?'تقويم التدريب':'عمليات الأكاديمية',exact:true})).toBeVisible();
   const languageChangedUrl=p.url()!==beforeLanguage;if(!localControlsBaseline)assert.equal(languageChangedUrl,false,'local locale control adds no hash/router navigation');
   assert.equal(calls.length,before+1,'typing/locale adds no business read');await p.screenshot({path:join(evidence,`local-controls-${view}.png`),fullPage:true});hold=false;release();await expect(p.locator('.experience-session')).toHaveCount(1);
   localControls.push({view,inputRetained,languageChangedUrl,readStarts:calls.length-before,privateRowsMasked:true});await pc.close();

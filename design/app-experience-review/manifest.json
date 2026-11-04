@@ -1,6 +1,6 @@
 {
-  "source": "f266aabce5deb4efb9cfef78463dcc8144c3bce9",
-  "generatedAt": "2026-11-03T23:56:44.594Z",
+  "source": "652363952a08efc9476ec4f3edc1e0f3c89763fa",
+  "generatedAt": "2026-11-04T00:04:06.463Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -39,7 +39,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "ff9936437df6288b60a5123ff2f8badc1e52e8548ad401a8b7696bcc173d6c82",
+    "apps/web/src/app/globals.css": "a650b97be9e0ae49b2e59311dd44268d3eb9ba72b19a61e457b65760103f6f47",
     "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/components/admission-directory.tsx": "83f9729bbfdff555f09006f405949ef70b644c9519adc5db00073f23f2fd1d77",
@@ -47,7 +47,7 @@
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
-    "apps/web/src/components/experience-workspace.tsx": "1d114d23a2626999bfc5d94e01a51ab892dda8208c2645468b8b93bfc36ca577",
+    "apps/web/src/components/experience-workspace.tsx": "0352bd61220edbab7a40bd02942df5c8199dee83b1250b407f13d6113970fb55",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
     "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
     "apps/web/src/components/onboarding-workspace.tsx": "3490c21c9b38e3d64e7a04f348e003dcc30257a0ec4cf7685b0b215b1739ff94",
@@ -83,7 +83,7 @@
     "scripts/attendance/test_ui.mjs": "791f74ee3452a8d71b414b46b68c06afbe6b00988168566a24e9372920f876ee",
     "scripts/corrections/test_ui.mjs": "45a0028665122e9c04230469bab74da39a8797c7f8d99f89291cd6090d37f413",
     "scripts/development/test_ui.mjs": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0",
-    "scripts/experience-projections/test_ui.mjs": "e65fac2964e711c1cddd2b7d0bfe348c67a9ce83c0557e13ba4abce6bb102f22",
+    "scripts/experience-projections/test_ui.mjs": "dfa7b216f213fa39afe3e2fdcecd2864c1fc53360f6852dde90da9e53f35c20b",
     "scripts/experience-review/build.mjs": "20e42e6ab9fb40cfb221c05e4d17172b42b7eed75f23b021503dd4c4a011f4c2",
     "scripts/experience-review/capture.mjs": "12c6a4db77bf897ee10d6aa49799b88a7e0d21a8440008850f57d6ca7239c380",
     "scripts/experience-review/collect.mjs": "b50df08d627c4a55606bbe82eb5dde6c0ceffa7efbcf57558fcd5b563dcbf63a",
@@ -103,12 +103,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "ad18bd1bccfed08945c61d3d7e3f655ef651d7970d7620c62136c392fc7d36c9",
-  "htmlSha256": "b65227810c9ddbfd595a3a1faaabe2117ab8ea440beee12ced417175597b806d",
+  "capturePackSha256": "591897e71134a2eb631ab6756199d47e56646dd7f3cf8784c1a3ab9f01a9c8ca",
+  "htmlSha256": "8cc1a0ff9ab7950f6bc7cad6298374e80c1a82c11d3cc1cc3b6c09dc7cd0a860",
   "frames": 1069,
   "transitions": 1070,
   "sourceFiles": 71,
-  "sourceLiterals": 7036,
+  "sourceLiterals": 7043,
   "journeys": [
     {
       "id": "entry",
