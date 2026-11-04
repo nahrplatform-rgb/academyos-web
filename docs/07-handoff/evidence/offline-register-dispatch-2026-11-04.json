@@ -1,19 +1,22 @@
 {
   "passed": true,
   "hashes": {
-    "apps/web/src/app/api/register-dispatch/route.ts": "6cf1f7e856672a5916aae940671cd56c9c759b9dc871b626acc97dc2042d65b4",
-    "apps/web/src/lib/register-original-dispatch.ts": "bf328ee84a426f2e2a50050a590da00f017cd2722ed48a5e31473a7a16df614a",
-    "apps/web/src/lib/local-register-repository.ts": "4fa03727b3b1fd6b1b16d4fad77a2c5d503808a51abfbbfdcf7f2be888fe9bf3",
+    "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+    "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
+    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
     "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
-    "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
+    "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
-    "apps/web/src/lib/onboarding-server.ts": "d233d9fbd711245a0b75b19e500bf319c9af78611e594fba2730b3b3b35ba827",
-    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
-    "scripts/offline-register/test_dispatch.mjs": "54e86e1cc7ae448fca837973cdbad6bdf3445c4695a835121d617a5b52ccd901",
-    "scripts/offline-register/dispatch_bridge.py": "f9e4ab6c9fee7b90e546e619d7f0f4f86188cd4066036d5e9216643d0c7ef80c",
+    "scripts/offline-register/test_dispatch.mjs": "60c29c153a722177d2a3b1d5ca848e6cbf05266f3fc46f19f0b22bf0730ae154",
+    "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
+    "scripts/register-key/bound_fixture.py": "c4eeff58bb210ee9f0671917905b3788a6411d25c99867e0a60c2d53ce024976",
+    "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
+    "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
     "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e"
@@ -38,7 +41,7 @@
     "The complete 1000-mark register settles through one POST with a bounded count receipt"
   ],
   "metrics": {
-    "replayMs": 33.654207999999926,
+    "replayMs": 35.17504199999985,
     "lostReply": {
       "httpAttempts": 2,
       "signedRpcs": 2,
@@ -49,7 +52,7 @@
       "httpAttempts": 1,
       "requestBytes": 80715,
       "receiptBytes": 132,
-      "elapsedMs": 97.37399999999616
+      "elapsedMs": 97.00620899999922
     }
   },
   "environment": {

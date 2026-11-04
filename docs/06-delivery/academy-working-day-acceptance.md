@@ -1,6 +1,6 @@
 # Academy working-day pilot and acceptance gate
 
-**4 November readiness:** The [EX-11 connected fictional Owner run](../07-handoff/owner-working-day-fixture.md) now connects real navigation, preparation, offline restart and canonical original dispatch in a disposable app. The Owner approved the [EX-09 one-register scope and recovery rule](../04-engineering/owner-register-private-readiness.md). The [local key boundary](../07-handoff/owner-register-key-checkpoint.md) passed; integration and activation remain separate. The 57-case register keeps its existing acceptance states.
+**4 November readiness:** The [EX-11 connected fictional Owner run](../07-handoff/owner-working-day-fixture.md) now connects real navigation, preparation, offline restart and canonical original dispatch in a disposable app. The Owner approved the [EX-09 one-register scope and recovery rule](../04-engineering/owner-register-private-readiness.md). The [local key boundary](../07-handoff/owner-register-key-checkpoint.md) passed; integration and activation remain separate. The [registered lifecycle checkpoint](../07-handoff/owner-register-lifecycle-checkpoint.md) adds time, cleanup and registered transport proof in Chromium. The 57-case register keeps its existing acceptance states.
 
 ## Latest local-first direction — LF-v3,2November2026
 

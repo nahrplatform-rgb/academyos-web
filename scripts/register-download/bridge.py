@@ -9,11 +9,14 @@ from pathlib import Path
 
 module = runpy.run_path(str(Path(__file__).with_name('test_boundary.py')))
 Boundary = module['DownloadBoundary']
+scope = runpy.run_path(str(Path(__file__).resolve().parents[1] / 'register-key/bound_fixture.py'))
 ready = False
 try:
     Boundary.setUpClass()
     ready = True
     test = Boundary()
+    test.sql((scope['ROOT'] / 'supabase/migrations/20261104002448_owner_register_original_dispatch.sql').read_text())
+    scope['apply_bound'](test)
     print(json.dumps({'ready': True}), flush=True)
     for line in sys.stdin:
         command = json.loads(line)
@@ -29,10 +32,16 @@ try:
                 else:
                     a, b, ev = test.scale(size, command.get('wide', False))
                 data = {'academy': a, 'event': ev}
+            elif action == 'slot':
+                data = scope['seed_slot'](test, command)
             elif action == 'rpc':
                 args = command['args']
-                data = test.download(args['a'], args['ev'], args['act'], args['previous'],
-                    args['expected'], args['after_id'], command.get('who', 'user_owner'))
+                literal = scope['literal']
+                keys = ('a','ev','act','previous','expected','after_id','device','ns','expected_subject')
+                values = [literal(json.dumps(args[k]))+'::jsonb' if isinstance(args[k], dict)
+                          else 'null' if args[k] is None else literal(args[k]) for k in keys]
+                data = json.loads(test.sql('select public.x20_register_download_v1('+','.join(values)+')',
+                                           command.get('who', 'user_owner')))
             elif action == 'mark':
                 a, ev = command['academy'], command['event']
                 player = test.sql(f"select player_id from academy.publication_rosters where event_id='{ev}'order by player_id limit 1")
@@ -58,7 +67,8 @@ try:
                     'coherence': 'per-row-only', 'transport': 'Direct fixture RPC; same PG/psql bridge, no API/WebCrypto'}
             elif action == 'explain':
                 a, ev = command['academy'], command['event']
-                query = 'begin;' + test.caller('user_owner', '/rpc/x17_register_download_v1') + f"explain(analyze,buffers,format json)select public.x17_register_download_v1('{a}','{ev}','manifest');commit;"
+                ns, device = command['namespace'], command['device']
+                query = 'begin;' + test.caller('user_owner', '/rpc/x20_register_download_v1') + f"explain(analyze,buffers,format json)select public.x20_register_download_v1('{a}','{ev}','manifest',null,null,null,'{device}','{ns}','user_owner');commit;"
                 result = subprocess.run(test.base, input=query, text=True, capture_output=True, check=True)
                 data = json.loads(result.stdout.strip())
             else:

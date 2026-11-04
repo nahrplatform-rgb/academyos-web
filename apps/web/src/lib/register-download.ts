@@ -44,14 +44,14 @@ export function registerDownloadRequest(value: unknown) {
       exact(v, ['action', 'academy', 'event', 'expected', 'after']);
       if (v.expected !== null) downloadHash(v.expected);
       if (v.after !== null) {identifier(v.after); if (v.expected === null) refuse('resume_requires_revision');}
-      return {rpc: 'x17_register_download_v1', mutating: false as const,
+      return {rpc: 'x20_register_download_v1', mutating: false as const,
         args: {a, ev, act: 'manifest', previous: null, expected: v.expected, after_id: v.after}};
     }
     if (!['page', 'complete'].includes(String(v.action))) refuse('invalid_download_action');
     exact(v, ['action', 'academy', 'event', 'receipt']);
     const receipt = downloadReceipt(v.receipt, a, ev);
     if (receipt.payload.phase !== 'transfer') refuse('invalid_download_phase');
-    return {rpc: 'x17_register_download_v1', mutating: false as const,
+    return {rpc: 'x20_register_download_v1', mutating: false as const,
       args: {a, ev, act: v.action, previous: receipt, expected: null, after_id: null}};
   } catch {throw new DownloadInputError();}
 }

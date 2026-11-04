@@ -6,6 +6,7 @@ import WorkspaceShell from '../../apps/web/src/components/workspace-shell';
 import {Button} from '../../apps/web/src/components/ui/controls';
 import {openLocalRegister, type LocalRegisterRepository, type RecoveryTicket, type RegisterScope} from '../../apps/web/src/lib/local-register-repository';
 import {registerDownloadCoordinator} from '../../apps/web/src/lib/register-download-coordinator';
+import {registerScopeHeaders} from '../../apps/web/src/lib/register-scope-transport';
 import {registerOriginalDispatch} from '../../apps/web/src/lib/register-original-dispatch';
 
 type Page = Awaited<ReturnType<LocalRegisterRepository['readPage']>>;
@@ -13,9 +14,9 @@ type Original = Awaited<ReturnType<LocalRegisterRepository['readActiveOriginal']
 type Choice = 'present' | 'absent';
 type Handle = {repo: LocalRegisterRepository; lifetime: AbortController; active: boolean};
 
-async function post(path: string, body: unknown, signal: AbortSignal) {
+async function post(path: string, body: unknown, signal: AbortSignal, scope?: RegisterScope) {
   const response = await fetch(path, {
-    method: 'POST', headers: {'content-type': 'application/json'},
+    method: 'POST', headers: {'content-type': 'application/json', ...(scope ? registerScopeHeaders(scope) : {})},
     body: JSON.stringify(body), cache: 'no-store', signal,
   });
   const reply = await response.json();
@@ -110,7 +111,7 @@ export default function OwnerRegister({locale, scope, event}: {locale: string; s
   const prepare = () => run(async h => {
     await activate(h);
     const download = registerDownloadCoordinator(h.repo, scope.academy,
-      (command, signal) => post('/api/register-download', command, signal), h.lifetime.signal);
+      (command, signal) => post('/api/register-download', command, signal, scope), h.lifetime.signal);
     const result = await download.prepare(event);
     await refresh(h);
     setNotice(result.kind === 'unchanged' ? 'unchanged' : 'prepared');

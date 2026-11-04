@@ -18,7 +18,7 @@ export type RegisterScope = {
 export type RecoveryTicket = {binding: string; keyId: string; material: string; verifiedAt: number};
 export type ActivationAttempt = {binding: string; fence: number};
 type Control = {binding: string; mode: 'active' | 'cleaning' | 'quarantined'; fence: number;
-  keyId: string; verifiedAt: number; revision: number};
+  keyId: string; verifiedAt: number; verifiedWallAt?: number; observedWallAt?: number; revision: number};
 type Head = {namespace: string; event: string; generation: string; revision: number;
   invalid: boolean; sealed: SealedRecord};
 type ImportRow = {namespace: string; event: string; transfer: string; revision: number;
@@ -139,7 +139,8 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       return {binding, fence: c.fence};
     });
   }
-  async function activate(ticket: RecoveryTicket, attempt: ActivationAttempt) {
+  async function activate(ticket: RecoveryTicket, attempt: ActivationAttempt, signal?: AbortSignal) {
+    signal?.throwIfAborted();
     if (!attempt || attempt.binding !== binding || ticket.binding !== binding ||
         !/^[A-Za-z0-9+/]{43}=$/.test(ticket.material) ||
         !Number.isSafeInteger(ticket.verifiedAt) || ticket.verifiedAt <= 0) refuse('key_ticket_mismatch');
@@ -154,6 +155,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       const device = await req(t.objectStore('keys').get(key('device')));
       const read = await req(t.objectStore('keys').get(key('read')));
       const original: StoredOriginal | undefined = await req(t.objectStore('originals').index('namespace').get(namespace));
+      if (c?.verifiedAt && ticket.verifiedAt < c.verifiedAt) refuse('stale_verification');
       if (c?.keyId && c.keyId !== ticket.keyId) refuse('key_rotation_requires_recovery');
       if (c) checkLocalKey(device);
       if (c?.mode === 'active') checkLocalKey(read);
@@ -171,10 +173,15 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       const c = await control(t);
       if ((c?.fence ?? 0) !== attempt.fence || (c?.revision ?? 0) !== (before.c?.revision ?? 0)) refuse('scope_changed');
       if (!c) await noOrphans(t);
-      const keys = t.objectStore('keys');
+      signal?.throwIfAborted();
+      const abort = () => {try {t.abort();} catch { /* Already completed. */ }};
+      signal?.addEventListener('abort', abort, {once: true});
+      t.addEventListener('complete', () => signal?.removeEventListener('abort', abort), {once: true});
+      t.addEventListener('abort', () => signal?.removeEventListener('abort', abort), {once: true});
+      const wall = Date.now(), keys = t.objectStore('keys');
       keys.put(device, key('device')); keys.put(read, key('read')); keys.put(recovery, key('recovery'));
       t.objectStore('control').put({binding, mode: 'active', fence: attempt.fence + 1,
-        keyId: ticket.keyId, verifiedAt: ticket.verifiedAt, revision: (c?.revision ?? 0) + 1} satisfies Control, namespace);
+        keyId: ticket.keyId, verifiedAt: ticket.verifiedAt, verifiedWallAt: wall, observedWallAt: wall, revision: (c?.revision ?? 0) + 1} satisfies Control, namespace);
     });
   }
   async function loadHead(event: string) {
@@ -588,7 +595,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       return {kind: 'needs_review' as const, refusal: original.value.refusal!};
     const value = await transitionOriginal(original, 'unknown', undefined, signal);
     signal.throwIfAborted();
-    return {kind: 'send' as const, wire: value.wire, subject: scope.subject,
+    return {kind: 'send' as const, wire: value.wire, scope: {subject: scope.subject, namespace, device: scope.device},
       attempt: {binding, fence: original.c.fence, op: original.row.op, revision: value.revision} satisfies DispatchAttempt};
   }
   async function finishOriginalDispatch(attempt: DispatchAttempt, outcome: DispatchOutcome, signal: AbortSignal) {
@@ -606,6 +613,30 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     if ('receipt' in outcome) await transitionOriginal(original, 'confirmed', outcome.receipt, signal);
     else await transitionOriginal(original, 'needs_review', outcome.refusal, signal);
     signal.throwIfAborted();
+  }
+  async function checkReplicaAccess() {
+    return tx(['control'], 'readwrite', async t => {
+      const c = (await control(t, true))!, now = Date.now();
+      const {verifiedAt, verifiedWallAt, observedWallAt} = c;
+      if (!Number.isSafeInteger(verifiedAt) || verifiedAt <= 0 ||
+          verifiedWallAt === undefined || observedWallAt === undefined ||
+          !Number.isSafeInteger(verifiedWallAt) || !Number.isSafeInteger(observedWallAt) ||
+          observedWallAt < verifiedWallAt || now < observedWallAt) return {state: 'verify_online' as const};
+      const maxAge = 30 * 24 * 60 * 60 * 1000;
+      if (now - verifiedWallAt >= maxAge || now - verifiedAt >= maxAge) return {state: 'expired' as const};
+      if (now > observedWallAt) t.objectStore('control').put({...c, observedWallAt: now}, namespace);
+      return {state: 'current' as const, fence: c.fence};
+    });
+  }
+  async function noteReplicaVerification(verifiedAt: number, fence: number) {
+    if (!Number.isSafeInteger(verifiedAt) || verifiedAt <= 0) refuse('invalid_verification_time');
+    await tx(['control'], 'readwrite', async t => {
+      const c = (await control(t, true))!;
+      if (c.fence !== fence) refuse('scope_changed');
+      if (verifiedAt <= c.verifiedAt) return;
+      const wall = Date.now();
+      t.objectStore('control').put({...c, verifiedAt, verifiedWallAt: wall, observedWallAt: wall}, namespace);
+    });
   }
   async function quarantine(reason: 'logout' | 'thirty_days' | 'known_denial') {
     if (!['logout', 'thirty_days', 'known_denial'].includes(reason)) refuse('invalid_cleanup');
@@ -635,6 +666,6 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     beginOriginal: async (op: string) => (await transition(op, 'unknown')).wire,
     refuseOriginal: (op: string, reason: 'conflict' | 'deadline' | 'denied') => transition(op, 'needs_review', reason),
     settleOriginal: (op: string, receipt: unknown) => transition(op, 'confirmed', receipt),
-    quarantine, dispose};
+    checkReplicaAccess, noteReplicaVerification, quarantine, dispose};
 }
 export type LocalRegisterRepository = Awaited<ReturnType<typeof openLocalRegister>>;

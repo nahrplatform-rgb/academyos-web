@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+4 November EX-09 follow-on: [registered transport and lifecycle evidence](../../docs/07-handoff/owner-register-lifecycle-checkpoint.md) is linked in the loading inventory. The lifecycle remains inactive and adds no product capture.
+
 4 November EX-09: the [inactive register key release](../../docs/07-handoff/owner-register-key-checkpoint.md) is linked in loading evidence. It adds no user-facing screen or state.
 
 4 November EX-11: [connected Owner test evidence](../../docs/07-handoff/owner-working-day-fixture.md) is linked in the action and loading inventory. The isolated register is outside the shipped app. The factual HTML retains the actual product captures.

@@ -12,21 +12,31 @@ download = runpy.run_path(str(ROOT / 'scripts/register-download/test_boundary.py
 Boundary = download['DownloadBoundary']
 literal = download['literal']
 RPC = 'x19_owner_register_key_v1'
+scope = runpy.run_path(str(ROOT / 'scripts/register-key/bound_fixture.py'))
+dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.py'))
+RPC_FIELDS = {
+    RPC: ('a', 'ev', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
+    'x20_register_download_v1': ('a','ev','act','previous','expected','after_id','device','ns','expected_subject'),
+    'x20_register_dispatch_v1': ('a','ev','marks','captured_at','op','device','ns','expected_subject'),
+}
 
 
 def rpc(test, command):
     args = command['args']
-    fields = ('a', 'ev', 'device', 'expected_subject', 'act', 'ns', 'envelope')
+    target = command.get('target', RPC)
+    fields = RPC_FIELDS[target]
     assert set(args) == set(fields)
-    sql_args = ','.join('null' if args[name] is None else literal(args[name]) for name in fields)
+    values = (args[name] for name in fields)
+    sql_args = ','.join('null' if value is None else literal(json.dumps(value))+'::jsonb'
+                        if isinstance(value,(dict,list)) else literal(value) for value in values)
     claims = json.dumps({'iss': 'https://immune-grizzly-7875.clerk.accounts.dev',
                          'sub': command['subject'], 'role': 'authenticated'})
     headers = json.dumps({'x-academyos-gateway': command['proof']})
     query = ("\\set VERBOSITY verbose\nbegin;set local role authenticated;"
              f"set local request.jwt.claims={literal(claims)};"
-             f"set local request.path='/rpc/{RPC}';set local request.method='POST';"
+             f"set local request.path='/rpc/{target}';set local request.method='POST';"
              f"set local request.headers={literal(headers)};"
-             f"select public.{RPC}({sql_args});commit;")
+             f"select public.{target}({sql_args});commit;")
     result = subprocess.run(test.base, input=query, text=True, capture_output=True)
     if result.returncode:
         match = re.search(r'ERROR:\s+([A-Z0-9]{5}):', result.stderr)
@@ -45,6 +55,14 @@ def command_result(test, command):
             "'anon_rpc',has_function_privilege('anon','public.x19_owner_register_key_v1(uuid,uuid,uuid,text,text,uuid,text)','execute'),"
             "'authenticated_table',has_table_privilege('authenticated','academy.owner_register_keys','select'),"
             "'authenticated_insert',has_table_privilege('authenticated','academy.owner_register_keys','insert'))"))
+    if action == 'bound_acl':
+        return json.loads(test.sql(
+            "select json_build_array(has_function_privilege('authenticated','public.x17_register_download_v1(uuid,uuid,text,jsonb,text,uuid)','execute'),"
+            "has_function_privilege('authenticated','public.x18_owner_register_dispatch_v1(uuid,uuid,jsonb,timestamptz,uuid,text)','execute'),"
+            "has_function_privilege('anon','public.x20_register_download_v1(uuid,uuid,text,jsonb,text,uuid,uuid,uuid,text)','execute'),"
+            "has_function_privilege('anon','public.x20_register_dispatch_v1(uuid,uuid,jsonb,timestamptz,uuid,uuid,uuid,text)','execute'))"))
+    if action == 'counts':
+        return dispatch['execute'](test, command)
     if action == 'make':
         academy, branch, event, _, _ = test.pair()
         return {'academy': academy, 'event': event, 'branch': branch}
@@ -68,9 +86,8 @@ def command_result(test, command):
 if __name__ == '__main__':
     Boundary.setUpClass()
     try:
-        for migration in ('20261104002448_owner_register_original_dispatch.sql',
-                          '20261104012057_owner_register_key_custody.sql'):
-            Boundary.sql((ROOT / 'supabase/migrations' / migration).read_text())
+        Boundary.sql((ROOT / 'supabase/migrations/20261104002448_owner_register_original_dispatch.sql').read_text())
+        scope['apply_bound'](Boundary)
         fixture = Boundary()
         print(json.dumps({'ready': True}), flush=True)
 

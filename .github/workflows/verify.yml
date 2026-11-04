@@ -71,7 +71,7 @@ jobs:
         run: |
           node scripts/working-day/test_owner_next.mjs --check
           node scripts/working-day/test_owner_next.mjs
-      - name: Verify inactive register key release and recovery boundary
+      - name: Verify inactive register key, registered transport and browser lifecycle
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
         run: |

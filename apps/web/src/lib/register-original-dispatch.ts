@@ -1,8 +1,9 @@
 /** Inactive Owner register sender. The workspace owns the scope lifetime. */
 import type {LocalRegisterRepository} from './local-register-repository';
+import {registerScopeHeaders, registerWithdrawn} from './register-scope-transport';
 import {identifier, refuse} from './local-register-codec';
 
-type DispatchResult = {kind: 'none' | 'confirmed' | 'unknown'} |
+type DispatchResult = {kind: 'none' | 'confirmed' | 'unknown' | 'withdrawn' | 'scope_lost'} |
   {kind: 'needs_review'; refusal: 'conflict' | 'deadline' | 'denied'};
 
 async function readReply(response: Response): Promise<Record<string, unknown>> {
@@ -33,13 +34,13 @@ export function registerOriginalDispatch(repository: LocalRegisterRepository, sc
   async function run(event: string): Promise<DispatchResult> {
     const dispatch = await repository.beginOriginalDispatch(event, scopeSignal);
     if (dispatch.kind !== 'send') return dispatch;
-    const {attempt, subject, wire} = dispatch;
+    const {attempt, scope, wire} = dispatch;
     scopeSignal.throwIfAborted();
     let response: Response, reply: Record<string, unknown>;
     try {
       response = await fetch('/api/register-dispatch', {
         method: 'POST', body: wire, credentials: 'same-origin', cache: 'no-store', redirect: 'error',
-        headers: {'content-type': 'application/json', 'x-academyos-original-subject': subject},
+        headers: {'content-type': 'application/json', ...registerScopeHeaders(scope)},
         signal: AbortSignal.any([scopeSignal, AbortSignal.timeout(20000)]),
       });
       reply = await readReply(response);
@@ -48,6 +49,14 @@ export function registerOriginalDispatch(repository: LocalRegisterRepository, sc
       return {kind: 'unknown'};
     }
     scopeSignal.throwIfAborted();
+    if (response.status === 410 && registerWithdrawn(reply)) {
+      await repository.finishOriginalDispatch(attempt,{refusal:'denied'},scopeSignal);
+      return {kind: 'withdrawn'};
+    }
+    if (Object.keys(reply).length === 1 && (
+      response.status === 401 && reply.error === 'denied' ||
+      response.status === 403 && reply.error === 'account_changed'
+    )) return {kind: 'scope_lost'};
     const data = reply.data;
     if (response.status === 200 && Object.keys(reply).length === 1 && data && typeof data === 'object') {
       const refusal = Object.keys(data).length === 1 && 'error' in data ? data.error : null;

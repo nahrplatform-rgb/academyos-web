@@ -3,6 +3,7 @@ import {STAGING_AUTH_ORIGINS} from '@/lib/config';
 import {onboardingSession, rpc, JourneyError} from '@/lib/onboarding-server';
 import {GatewayError} from '@/lib/onboarding-gateway';
 import {rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis} from '@/lib/rate-limit';
+import {registerScopeArguments, registerWithdrawn} from '@/lib/register-scope-transport';
 import {DownloadInputError, registerDownloadRequest} from '@/lib/register-download';
 
 export const dynamic = 'force-dynamic';
@@ -33,10 +34,15 @@ export async function POST(req: NextRequest) {
       chunks.push(value);
     }
     const operation = registerDownloadRequest(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+    const scope = registerScopeArguments(req.headers);
+    if (!scope) return respond({error: 'invalid'}, 422);
     const {subject, client} = await onboardingSession();
+    if (subject !== scope.expected_subject) return respond({error: 'account_changed'}, 403);
     if (!rateLimitAllowed(await stagingLimiter(stagingRedis(), 'onboarding-entry-read', 60)
       .limit(rateLimitSubject(subject)))) return respond({error: 'limited'}, 429);
-    return respond({data: await rpc(client, operation.rpc, operation.args)});
+    const data = await rpc(client, operation.rpc, {...operation.args, ...scope});
+    if (registerWithdrawn(data)) return respond({error: 'withdrawn'}, 410);
+    return respond({data});
   } catch (e) {
     if (e instanceof JourneyError || e instanceof GatewayError) return respond({error: e.code}, e.http);
     if (e instanceof DownloadInputError || e instanceof SyntaxError) return respond({error: 'invalid'}, 422);

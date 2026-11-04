@@ -1,15 +1,18 @@
 {
   "passed": true,
   "hashes": {
-    "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
-    "apps/web/src/lib/register-download-coordinator.ts": "2d20816f18a3e58aceeecf1131a080a2d36cc4edb8fe2306d7e055be67f8daf8",
-    "apps/web/src/app/api/register-download/route.ts": "1f3fd95f54c62c34a871f1e2b87ce018d0a61ec1dd27ccc88fb21f77429de4e8",
-    "apps/web/src/lib/local-register-repository.ts": "4fa03727b3b1fd6b1b16d4fad77a2c5d503808a51abfbbfdcf7f2be888fe9bf3",
+    "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
+    "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
+    "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
+    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
     "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
-    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
-    "scripts/register-download/test_browser.mjs": "d7f6008a878b2d3fab46f517e9f6a6bf10ab226388a77a41bbe7ee8fde54cbf6",
-    "scripts/register-download/bridge.py": "7f48849a88bd33e66300c9bbe6ad4f47b61444b65b4be5ee5090807f6eacb216",
+    "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
+    "scripts/register-download/test_browser.mjs": "d8c002a524ef52144e429f130a6f86da6f960fc0d42887c521aaa916a9ce8263",
+    "scripts/register-download/bridge.py": "988ec8f2979e8e39f85bbaf3f4db1dc0cda75313dd0daf404ec7f5dd183a5a31",
+    "scripts/register-key/bound_fixture.py": "c4eeff58bb210ee9f0671917905b3788a6411d25c99867e0a60c2d53ce024976",
+    "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
+    "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f"
   },
@@ -99,19 +102,19 @@
     "baseline1000": {
       "requests": 20,
       "rows": 1000,
-      "bytes": 213904,
-      "ms": 537.2730000017327,
+      "bytes": 213906,
+      "ms": 498.25274999966496,
       "coherence": "per-row-only",
       "transport": "Direct fixture RPC; same PG/psql bridge, no API/WebCrypto"
     },
-    "prepare1000Ms": 755.6897080000017,
+    "prepare1000Ms": 772.2234170000011,
     "prepare1000": {
       "requests": 22,
       "pages": 20,
       "bytes": 228525,
       "maxResponseBytes": 11320
     },
-    "localRead1000Ms": 57.697542000001704,
+    "localRead1000Ms": 58.44820900000195,
     "manifestExplain": [
       {
         "Plan": {
@@ -122,11 +125,11 @@
           "Total Cost": 0.26,
           "Plan Rows": 1,
           "Plan Width": 32,
-          "Actual Startup Time": 16.504,
-          "Actual Total Time": 16.504,
+          "Actual Startup Time": 16.625,
+          "Actual Total Time": 16.625,
           "Actual Rows": 1,
           "Actual Loops": 1,
-          "Shared Hit Blocks": 2161,
+          "Shared Hit Blocks": 2292,
           "Shared Read Blocks": 0,
           "Shared Dirtied Blocks": 0,
           "Shared Written Blocks": 0,
@@ -149,15 +152,15 @@
           "Temp Read Blocks": 0,
           "Temp Written Blocks": 0
         },
-        "Planning Time": 0.026,
+        "Planning Time": 0.024,
         "Triggers": [],
-        "Execution Time": 16.518
+        "Execution Time": 16.638
       }
     ],
     "unchanged1000": {
       "requests": 1,
       "bytes": 1179,
-      "ms": 36.40754200000083
+      "ms": 37.55170800000269
     }
   },
   "scope": "Actual route with fictional identity/rate/PostgREST adapters -> disposable PG17 -> real Chromium WebCrypto/IndexedDB/coordinator. Local timings include fixture bridge/psql startup, not hosted percentiles, Clerk/key custody/provider quotas or independent security. No product caller, hosted migration, enablement or promotion."

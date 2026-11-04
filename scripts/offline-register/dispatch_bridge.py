@@ -10,21 +10,38 @@ ROOT = Path(__file__).resolve().parents[2]
 module = runpy.run_path(str(ROOT / 'scripts/register-download/test_boundary.py'))
 Boundary = module['DownloadBoundary']
 literal = module['literal']
-RPC = 'x18_owner_register_dispatch_v1'
+RPC = 'x20_register_dispatch_v1'
+scope = runpy.run_path(str(ROOT / 'scripts/register-key/bound_fixture.py'))
 
 
 def execute(test, request):
     action = request['action']
     if action == 'fixture':
         academy, _, event = test.scale(request.get('size', 18))
-        manifest, pages, complete, _ = test.transfer(academy, event)
-        return dict(academy=academy, event=event, manifest=manifest, pages=pages, complete=complete)
+        ns, device = request['namespace'], request['device']
+        scope['seed_slot'](test, dict(academy=academy,event=event,namespace=ns,device=device,subject='user_owner'))
+
+        def read(action, receipt=None):
+            previous = 'null' if receipt is None else literal(json.dumps(receipt))+'::jsonb'
+            args = [literal(academy),literal(event),literal(action),previous,'null','null',
+                    literal(device),literal(ns),literal('user_owner')]
+            return json.loads(test.sql('select public.x20_register_download_v1('+','.join(args)+')','user_owner'))
+
+        manifest = read('manifest')
+        pages, receipt = [], manifest['receipt']
+        while receipt['payload']['seen'] < receipt['payload']['count']:
+            page = read('page',receipt)
+            pages.append(page)
+            receipt = page['receipt']
+        return dict(academy=academy,event=event,manifest=manifest,pages=pages,complete=read('complete',receipt))
+    if action == 'slot':
+        return scope['seed_slot'](test, request)
     academy, event = (literal(request.get(k)) for k in ('academy', 'event'))
     if action == 'rpc':
         a = request['args']
         args = [literal(a[k]) for k in ('a', 'ev')]
         args += [literal(json.dumps(a['marks'])) + '::jsonb']
-        args += [literal(a[k]) for k in ('captured_at', 'op', 'expected_subject')]
+        args += [literal(a[k]) for k in ('captured_at', 'op', 'device', 'ns', 'expected_subject')]
         claims = json.dumps(dict(iss='https://immune-grizzly-7875.clerk.accounts.dev',
                                  sub=request['subject'], role='authenticated'))
         headers = json.dumps({'x-academyos-gateway': request.get('proof')})
@@ -73,7 +90,7 @@ def execute(test, request):
                                    'user_owner'))
     if action == 'acl':
         return test.sql("select has_function_privilege('anon',"
-                        "'public.x18_owner_register_dispatch_v1(uuid,uuid,jsonb,timestamptz,uuid,text)','execute')")
+                        "'public.x20_register_dispatch_v1(uuid,uuid,jsonb,timestamptz,uuid,uuid,uuid,text)','execute')")
     raise ValueError('Unknown fixture command')
 
 
@@ -81,6 +98,7 @@ if __name__ == '__main__':
     Boundary.setUpClass()
     try:
         Boundary.sql((ROOT / 'supabase/migrations/20261104002448_owner_register_original_dispatch.sql').read_text())
+        scope['apply_bound'](Boundary)
         print(json.dumps({'ready': True}), flush=True)
         test = Boundary()
         for line in sys.stdin:

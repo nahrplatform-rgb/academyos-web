@@ -26,11 +26,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Continue EX-09 by binding the registered event at transfer and canonical dispatch, then connect the approved inactive personal-device lifecycle. Verify trusted-time/logout/denial fencing and retain fictional end-to-end proof; real authenticated device/custody and independent security gate private activation.
+Next action: Wire the tested inactive registered lifecycle to verified workspace identity, device choice, guarded startup and account-wide logout/masking. Retain fictional proof and independently verify hosted synthetic scope and key custody before any private activation.
 
-Scoped dependency gate: Scoped connected fictional proof and local EX-09 key boundary passed. Private enablement requires integrated one-event authority, field/time/cleanup lifecycle, actual authenticated key custody and independent security.
+Scoped dependency gate: Fictional working day and scoped EX-09 registered lifecycle passed. Private activation requires authenticated product integration, supported-device/time/logout evidence, hosted custody and independent security.
 
-Read: `docs/07-handoff/owner-working-day-fixture.md`
+Read: `docs/07-handoff/owner-register-lifecycle-checkpoint.md`
 
 ## Ordered primary checkpoints
 
@@ -154,18 +154,18 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Scoped connected fictional proof and local EX-09 key boundary passed. Private enablement requires integrated one-event authority, field/time/cleanup lifecycle, actual authenticated key custody and independent security.
+Dependency gate: Fictional working day and scoped EX-09 registered lifecycle passed. Private activation requires authenticated product integration, supported-device/time/logout evidence, hosted custody and independent security.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
-- Implementation: Connected fictional Owner fixture implemented with actual Home/Calendar/dated planning, encrypted preparation, offline capture, restart and signed dispatch; product private runtime disabled
-- Local checks: 8 connected Next/Chromium/PG17 checks passed: EN desktop and AR390px;18-player register in40-date program;0 API requests offline; exact lost-reply replay produces1 commit; deadline and logout recovery tested;57 broader case statuses retained
+- Implementation: Connected fictional Owner fixture and registered key/transfer/dispatch plus browser cleanup lifecycle passed locally; authenticated product workspace integration remains inactive
+- Local checks: 8 connected Next/Chromium/PG17 working-day checks and15 registered key/lifecycle checks; 18-player register in40-date program, offline0 API requests, exact lost-reply replay; broader case statuses retained
 - Deployment: Local test fixture only; no new pilot deployment
 - Hosted verification: Private pilot not hosted or verified; prior online staging evidence retained
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Continue EX-09 by binding the registered event at transfer and canonical dispatch, then connect the approved inactive personal-device lifecycle. Verify trusted-time/logout/denial fencing and retain fictional end-to-end proof; real authenticated device/custody and independent security gate private activation.
-- Evidence: docs/07-handoff/owner-working-day-fixture.md
+- Next action: Wire the tested inactive registered lifecycle to verified workspace identity, device choice, guarded startup and account-wide logout/masking. Retain fictional proof and independently verify hosted synthetic scope and key custody before any private activation.
+- Evidence: docs/07-handoff/owner-register-lifecycle-checkpoint.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
 
@@ -222,15 +222,15 @@ Design: measurement profiles required.
 
 Routing: supporting / 3 / supporting.
 Dependencies: none declared.
-Dependency gate: One-register scope and recovery policy accepted. Local key boundary passed; registry binding at all request surfaces, trusted clock/cleanup, hosted auth/custody and independent security remain.
+Dependency gate: Approved one-register policy and registered local integration pass. Real product identity/startup, browser/device support, hosted custody and independent security gate private enablement.
 Findings: NR15; G08.
 Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
-- Implementation: Inactive scoped signed key route, one-device/event slot, wrapped key and preparation audit implemented; client lifecycle and download/dispatch slot binding pending
-- Local checks: Nine actual Next/Supabase SDK/PG17 key-boundary cases passed with fixture Clerk, rate limiter and PostgREST HTTP; production root, clock/cleanup and real identity pending
+- Implementation: Inactive key release, registered-event transfer and dispatch, browser lifetime, verified-time and cleanup implemented; product session/startup caller pending
+- Local checks: 15 local actual Next handlers/Supabase SDK/PG17/Chromium cases passed with fixture Clerk, rate limiter and PostgREST HTTP; loss of access, rollback/30-day cleanup and late key fenced
 - Deployment: No hosted schema, configured key or private rollout
 - Hosted verification: not_verified
 - Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
 - Independent security: open
-- Next action: Bind transfer and exact original dispatch to the registered event and build the inactive personal-device lifecycle with 30-day verification, late replies, logout and denied-scope fencing. Preserve current Owner rules and review real key custody before private activation.
-- Evidence: docs/07-handoff/owner-register-key-checkpoint.md
+- Next action: Connect inactive lifecycle to the verified app workspace and guarded offline startup. Verify whole-account logout and rendered scope-change masking, then plan authorized synthetic hosted custody/device checks and independent security.
+- Evidence: docs/07-handoff/owner-register-lifecycle-checkpoint.md

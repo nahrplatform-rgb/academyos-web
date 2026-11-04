@@ -16,7 +16,7 @@ dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.p
 literal = dispatch['literal']
 ROUTES = {
     'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
-    'q6_read_v1', 'x17_register_download_v1', 'x18_owner_register_dispatch_v1',
+    'q6_read_v1', 'x20_register_download_v1', 'x20_register_dispatch_v1',
 }
 
 
@@ -50,6 +50,16 @@ def seed(test):
         f"select json_agg(json_build_object('event',event_id,'day',day) order by day) "
         f"from academy.publication_heads where academy_id={literal(academy)}"))
     assert len(events) == 2
+    # The Arabic deadline scenario uses an independent academy's registered slot.
+    second, second_branch, second_event, _, _ = dispatch['Boundary'].pair(test)
+    test.sql("insert into academy.players(academy_id,branch_id,display_name,normalized_name) "
+             f"select {literal(second)},{literal(second_branch)},'لاعب خيالي '||n,'second fictional '||n "
+             "from generate_series(1,16)n")
+    test.sql(f"insert into academy.publication_rosters select {literal(second_event)},id,display_name "
+             f"from academy.players p where p.academy_id={literal(second)} and not exists "
+             f"(select 1 from academy.publication_rosters r where r.event_id={literal(second_event)} and r.player_id=p.id);"
+             f"update academy.publication_events set roster_count=18,capacity=18 where id={literal(second_event)}")
+    events = [{**events[0], 'academy': academy}, {'event': second_event, 'academy': second}]
     for event in events:
         # Disposable timing setup. Canonical dispatch still uses the real server clock.
         test.retime(event['event'], 'clock_timestamp()')
@@ -86,6 +96,7 @@ if __name__ == '__main__':
                          '20261104002448_owner_register_original_dispatch.sql'):
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
+        dispatch['scope']['apply_bound'](test)
         print(json.dumps({'ready': seed(test)}), flush=True)
         for line in sys.stdin:
             command = json.loads(line)

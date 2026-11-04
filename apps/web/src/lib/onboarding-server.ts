@@ -15,7 +15,7 @@ export function onboardingDatabase(token?: string, subject?: string) {
   if (url !== "https://snpphkenmvmhpjstbeul.supabase.co" || !key) throw new JourneyError("unavailable");
   if (Boolean(token) !== Boolean(subject)) throw new JourneyError("denied", 403);
   const transport = subject ? gatewayFetch(subject, onboardingKey, async (mutating, target) => {
-    const attendanceWrite = mutating && ["POST:/rpc/a10_mark_v1", "POST:/rpc/a10_register_v1", "POST:/rpc/x18_owner_register_dispatch_v1", "POST:/rpc/a10_operation_v1", "POST:/rpc/q13_capture_v1", "POST:/rpc/q13_operation_v1"].includes(target);
+    const attendanceWrite = mutating && ["POST:/rpc/a10_mark_v1", "POST:/rpc/a10_register_v1", "POST:/rpc/x20_register_dispatch_v1", "POST:/rpc/a10_operation_v1", "POST:/rpc/q13_capture_v1", "POST:/rpc/q13_operation_v1"].includes(target);
     const result = await stagingLimiter(stagingRedis(), attendanceWrite ? "attendance-write" : mutating ? "onboarding-write" : "onboarding-read", attendanceWrite ? 60 : mutating ? 10 : 60).limit(rateLimitSubject(subject));
     return rateLimitAllowed(result);
   }) : fetch;

@@ -76,10 +76,13 @@ export async function ownerFixture(root, temp) {
   }
   try {
     const data = await bridge.fixture;
-    const scope = {namespace:randomUUID(),environment:'staging',subject:'user_owner',academy:data.academy,
-      device:'fictional_browser',epoch:'fields_v1',capability:'owner-register-v1'};
-    const binding = JSON.stringify([1,scope.environment,scope.subject,scope.academy,scope.device,scope.epoch,scope.capability,scope.namespace]);
-    const material = randomBytes(32).toString('base64');
+    const scopes = Object.fromEntries(await Promise.all(data.events.map(async ({academy,event}) => {
+      const scope = {namespace:randomUUID(),environment:'staging',subject:'user_owner',academy,
+        device:randomUUID(),epoch:'fields_v1',capability:'owner-register-v1'};
+      assert.equal(await bridge.db({action:'slot',...scope,event}),true);
+      const binding = JSON.stringify([1,scope.environment,scope.subject,scope.academy,scope.device,scope.epoch,scope.capability,scope.namespace]);
+      return [event,{scope,binding,material:randomBytes(32).toString('base64')}];
+    })));
     const adapters = {
       server: `import{gatewayFetch,DATABASE_ORIGIN,GatewayError}from'${root}/apps/web/src/lib/onboarding-gateway.ts';
         import{databaseError}from'${root}/apps/web/src/lib/onboarding.ts';
@@ -135,8 +138,9 @@ export async function ownerFixture(root, temp) {
         state.events.push(record);
         let reply;
         if (name === 'fixture-key') {
-          const allowed = state.subject === scope.subject && payload.binding === binding;
-          reply = allowed ? Response.json({data:{binding,keyId:'fictional_recovery',material,verifiedAt:Date.now()}}) :
+          const found = Object.values(scopes).find(candidate => candidate.binding === payload.binding &&
+            candidate.scope.subject === state.subject);
+          reply = found ? Response.json({data:{binding:found.binding,keyId:'fictional_recovery',material:found.material,verifiedAt:Date.now()}}) :
             Response.json({error:'denied'},{status:403});
         } else if (name === 'fixture-signout') {
           state.subject = null;
@@ -144,7 +148,9 @@ export async function ownerFixture(root, temp) {
         } else {
           if (name === 'register-dispatch') state.dispatchBodies.push(body);
           const headers = {origin:stage,'content-type':'application/json'};
-          if (req.headers['x-academyos-original-subject']) headers['x-academyos-original-subject'] = req.headers['x-academyos-original-subject'];
+          for (const name of ['x-academyos-original-subject','x-academyos-register-namespace','x-academyos-register-device']) {
+            if (req.headers[name]) headers[name] = req.headers[name];
+          }
           const request = new handlers.NextRequest(`${stage}/api/${name}`,{method:'POST',headers,body});
           reply = await handlers['route'+routes.indexOf(name)](request);
         }
@@ -191,11 +197,11 @@ export async function ownerFixture(root, temp) {
     await page('programs/[program]/[day]/page.jsx',`import{Planning}from'__CLIENT__';
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
       return <Planning {...p} from={q.from} returnTo={q.return==='calendar'?'calendar':undefined}/>}`);
-    const params=['en','ar'].flatMap(locale=>data.events.map(({event})=>({locale,academy:data.academy,event})));
+    const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
     await page('attendance/[event]/page.jsx',`import{Register}from'__CLIENT__';
       export const dynamicParams=false;export function generateStaticParams(){return ${JSON.stringify(params)}}
       export default async function Page({params}){const p=await params;return <Register key={p.locale+':'+p.event}
-      locale={p.locale} event={p.event} scope={${JSON.stringify(scope)}}/>}`);
+      locale={p.locale} event={p.event} scope={${JSON.stringify(Object.fromEntries(Object.entries(scopes).map(([event,{scope}])=>[event,scope])))}[p.event]}/>}`);
     await mkdir(join(temp,'public'),{recursive:true});
     const next = join(root,'node_modules/next/dist/bin/next');
     const buildProcess=spawn(process.execPath,[next,'build','--webpack'],{cwd:temp,env,stdio:['ignore','pipe','pipe']});

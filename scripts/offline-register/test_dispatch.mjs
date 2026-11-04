@@ -21,7 +21,8 @@ const sources = [
   'apps/web/src/lib/local-register-crypto.ts', 'apps/web/src/lib/register-download.ts', 'apps/web/src/lib/attendance.ts',
   'apps/web/src/lib/onboarding-server.ts', 'apps/web/src/lib/onboarding-gateway.ts', 'apps/web/src/lib/onboarding.ts',
   'scripts/offline-register/test_dispatch.mjs', 'scripts/offline-register/dispatch_bridge.py',
-  'scripts/register-download/test_boundary.py', 'supabase/migrations/20261029035928_attendance_register_batch.sql',
+  'scripts/register-download/test_boundary.py','scripts/register-key/bound_fixture.py',
+  'apps/web/src/lib/register-scope-transport.ts','supabase/migrations/20261104013632_owner_register_bound_transport.sql', 'supabase/migrations/20261029035928_attendance_register_batch.sql',
   'supabase/migrations/20261103165604_owner_register_download_contract.sql',
   'supabase/migrations/20261104002448_owner_register_original_dispatch.sql',
 ];
@@ -37,7 +38,7 @@ if (process.argv.includes('--check')) {
 }
 
 const tmp = await mkdtemp(join(tmpdir(), 'academyos-register-dispatch-'));
-const rpcName = 'x18_owner_register_dispatch_v1';
+const rpcName = 'x20_register_dispatch_v1';
 const stage = 'https://staging.academy.nahr.dev';
 const state = {subject: 'user_owner', sessions: 0, limits: [], calls: [], refusedBudget: null};
 const checks = [], attempts = [], metrics = {};
@@ -113,8 +114,9 @@ try {
     return result.error ? Response.json({code:result.error,message:'Fixture refusal'},
       {status:result.error==='42501'?403:409}) : Response.json(result.data);
   };
-  const request = (body, subject='user_owner', origin=stage) => POST(new NextRequest(stage+'/api/register-dispatch',{
-    method:'POST',headers:{origin,'content-type':'application/json','x-academyos-original-subject':subject},body,
+  const request = (body, subject='user_owner', origin=stage, namespace=randomUUID(), device=randomUUID()) => POST(new NextRequest(stage+'/api/register-dispatch',{
+    method:'POST',headers:{origin,'content-type':'application/json','x-academyos-original-subject':subject,
+      'x-academyos-register-namespace':namespace,'x-academyos-register-device':device},body,
   }));
   const sample = {action:'register',academy:randomUUID(),event:randomUUID(),op:randomUUID(),
     captured_at:'2026-11-04T00:00:00.123Z',marks:[{player:randomUUID(),status:'present',version:0}]};
@@ -159,7 +161,8 @@ try {
     const wire = Buffer.concat(chunks).toString('utf8');
     const attempt = {wire,requestBytes:Buffer.byteLength(wire),responseBytes:0};
     attempts.push(attempt);
-    const outcome = await request(wire,req.headers['x-academyos-original-subject']);
+    const outcome = await request(wire,req.headers['x-academyos-original-subject'],stage,
+      req.headers['x-academyos-register-namespace'],req.headers['x-academyos-register-device']);
     const body = await outcome.text();
     attempt.responseBytes = Buffer.byteLength(body);
     const mode = fault;fault=null;
@@ -190,9 +193,9 @@ try {
   const send=event=>page.evaluate(event=>window.send(event),event);
   const open=(scope,ticket)=>page.evaluate(({scope,ticket})=>window.openFixture(scope,ticket),{scope,ticket});
   async function fixture(subject='user_owner',size=18){
-    const {academy,event,manifest,pages,complete}=await db({action:'fixture',size});
-    const scope={namespace:randomUUID(),environment:'staging',subject,academy,
-      device:'fictional_device',epoch:'fields_v1',capability:'owner-register-v1'};
+    const namespace=randomUUID(), device=randomUUID();
+    const {academy,event,manifest,pages,complete}=await db({action:'fixture',size,namespace,device});
+    const scope={namespace,environment:'staging',subject,academy,device,epoch:'fields_v1',capability:'owner-register-v1'};
     const binding=JSON.stringify([1,scope.environment,subject,academy,scope.device,scope.epoch,scope.capability,scope.namespace]);
     const ticket={binding,keyId:'test_recovery',material:randomBytes(32).toString('base64'),verifiedAt:Date.now()};
     await open(scope,ticket);
@@ -276,10 +279,10 @@ try {
   await db({action:'switch_owner',academy:other.academy,subject:'user_other_owner'});
   state.subject='user_other_owner';
   const callCount=state.calls.length;
-  assert.deepEqual(await send(other.event),{kind:'unknown'});
+  assert.deepEqual(await send(other.event),{kind:'scope_lost'});
   assert.equal(state.calls.length,callCount);
   assert.deepEqual(await counts(other),empty);
-  state.subject=null;assert.deepEqual(await send(other.event),{kind:'unknown'});
+  state.subject=null;assert.deepEqual(await send(other.event),{kind:'scope_lost'});
   assert.equal(state.calls.length,callCount);state.subject='user_owner';
   await db({action:'switch_owner',academy:other.academy,subject:'user_owner'});
   assert.deepEqual(await send(other.event),{kind:'confirmed'});
@@ -294,7 +297,7 @@ try {
   for(const [action,refusal]of [['role','denied'],['withdraw','denied'],['expire','deadline'],['cancel','conflict'],['mark','conflict']]){
     const f=await fixture(),savedWire=await capture(f);
     await db({action,academy:f.academy,event:f.event,op:f.op,player:f.packet.marks[0].player});
-    assert.deepEqual(await send(f.event),{kind:'needs_review',refusal});
+    assert.deepEqual(await send(f.event),action==='withdraw'?{kind:'withdrawn'}:{kind:'needs_review',refusal});
     const count=attempts.length;
     assert.deepEqual(await send(f.event),{kind:'needs_review',refusal});
     assert.equal(attempts.length,count);assert.equal((await original(f)).wire,savedWire);
@@ -307,7 +310,7 @@ try {
   state.subject='user_other_owner';
   assert.equal((await request(JSON.stringify({...sample,academy:foreign,event:first.event}),state.subject)).status,403);
   const replayArgs = {a:first.academy,ev:first.event,marks:first.packet.marks,
-    captured_at:first.packet.captured_at,op:first.op,expected_subject:'user_owner'};
+    captured_at:first.packet.captured_at,op:first.op,expected_subject:'user_owner',ns:first.scope.namespace,device:first.scope.device};
   assert.equal((await db({action:'rpc',subject:'user_owner',args:replayArgs})).error,'42501');
   const proof = JSON.stringify(signProof('gateway','POST:/rpc/'+rpcName,'user_owner',[],key));
   assert.equal((await db({action:'rpc',subject:'user_owner',proof,

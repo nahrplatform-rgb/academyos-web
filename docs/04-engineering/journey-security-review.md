@@ -88,6 +88,8 @@ The coverage matrix has one planned entry per current journey family J01–J28. 
 
 At each milestone compare the journey register, actual rendered actions, server operations, database/file grants and jobs with these packets. Newly exposed paths must not be missed because they lack a sidebar item. Reconcile this review with the difficult scenarios OPS-01–OPS-10 in the [operating blueprint](../01-product/saas-operating-blueprint.md).
 
+4 November SEC-J12/16 registered lifecycle: [local registered transport and cleanup](../07-handoff/owner-register-lifecycle-checkpoint.md) covers event/device binding, retired grants, protected pending recovery and logout/age fencing. Authenticated product integration, custody and independent review remain open.
+
 4 November SEC-J12/16 key boundary: the [inactive register key checkpoint](../07-handoff/owner-register-key-checkpoint.md) verifies current Owner, tenant/device/event binding, concurrent provisioning and authenticated wrapping in a disposable PG17 test. Product lifecycle, hosted custody and independent review remain open.
 
 4 November SEC-J12 component evidence: [inactive Owner register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) exercises signed current Owner, original-account matching, tenant denial and late receipt fencing with fictional authority and disposable PG17. Independent review and actual private lifecycle evidence remain open.

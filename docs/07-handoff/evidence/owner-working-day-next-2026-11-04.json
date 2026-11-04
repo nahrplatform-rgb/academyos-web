@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 214,
-    "calendarMs": 123,
-    "dateMs": 158,
+    "homeMs": 250,
+    "calendarMs": 98,
+    "dateMs": 165,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 187,
-    "selectReviewSaveMs": 777,
+    "firstPrepareMs": 203,
+    "selectReviewSaveMs": 758,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 184,
-    "originalReplayMs": 114,
+    "offlineRestartMs": 172,
+    "originalReplayMs": 113,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -73,14 +73,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1623
+        "responseBytes": 1517
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4510
+        "responseBytes": 4489
       },
       {
         "route": "planning",
@@ -94,7 +94,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4509
+        "responseBytes": 4489
       },
       {
         "route": "planning",
@@ -106,9 +106,9 @@
       {
         "route": "fixture-key",
         "action": null,
-        "requestBytes": 184,
+        "requestBytes": 203,
         "status": 200,
-        "responseBytes": 307
+        "responseBytes": 326
       },
       {
         "route": "register-download",
@@ -174,25 +174,32 @@
         "responseBytes": 1207
       },
       {
+        "route": "fixture-key",
+        "action": null,
+        "requestBytes": 203,
+        "status": 200,
+        "responseBytes": 326
+      },
+      {
         "route": "register-download",
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1188
+        "responseBytes": 1176
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 633,
         "status": 200,
-        "responseBytes": 3863
+        "responseBytes": 3058
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 672,
         "status": 200,
-        "responseBytes": 1205
+        "responseBytes": 1193
       },
       {
         "route": "register-dispatch",
@@ -211,49 +218,52 @@
       {
         "route": "fixture-key",
         "action": null,
-        "requestBytes": 184,
+        "requestBytes": 203,
         "status": 403,
         "responseBytes": 18
       },
       {
         "route": "fixture-key",
         "action": null,
-        "requestBytes": 184,
+        "requestBytes": 203,
         "status": 200,
-        "responseBytes": 307
+        "responseBytes": 326
       }
     ],
     "rpcCount": 18,
     "logicalRateChecks": 36,
     "cacheEntries": 29,
-    "requestBytes": 9329,
-    "responseBytes": 37612
+    "requestBytes": 9589,
+    "responseBytes": 37000
   },
   "hashes": {
-    "scripts/working-day/owner_fixture.mjs": "6bb4a96f1ff3782c132593d82a51645cbb034ca04859244a31ecf1e22476e1a8",
-    "scripts/working-day/owner-register.tsx": "fb826e91d42fde238a1df3442f3daaeb5516c7a6aecef98f4116d1f049dab423",
-    "scripts/working-day/owner_db.py": "cb58abc22f67f777cd05d5376d5d2828873d57ccc54d1aa5ba3eb00ed02bc8c8",
-    "scripts/working-day/test_owner_next.mjs": "3539bf3b140f5ef48897257fc4a43c284037984bc405ed24d4343a5f04aad0c7",
+    "scripts/working-day/owner_fixture.mjs": "fbc13cba33a3080a5e3deb4aaa6f3328e5d8369f60b32a8d959098faaf644b62",
+    "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
+    "scripts/working-day/owner_db.py": "aaa702f9904532a82c78ba2338ed9ea297a2bd1f180a2eb14f1c1bdb370db8e9",
+    "scripts/working-day/test_owner_next.mjs": "b034a34535c55e2209ffe5dba22b745531f20135100dfd1e24ff37669425f6ff",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
-    "scripts/offline-register/dispatch_bridge.py": "f9e4ab6c9fee7b90e546e619d7f0f4f86188cd4066036d5e9216643d0c7ef80c",
+    "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "apps/web/src/app/api/experience/route.ts": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
     "apps/web/src/app/api/planning/route.ts": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7",
-    "apps/web/src/app/api/register-download/route.ts": "1f3fd95f54c62c34a871f1e2b87ce018d0a61ec1dd27ccc88fb21f77429de4e8",
-    "apps/web/src/app/api/register-dispatch/route.ts": "6cf1f7e856672a5916aae940671cd56c9c759b9dc871b626acc97dc2042d65b4",
+    "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
+    "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
     "apps/web/src/components/experience-workspace.tsx": "ed55a22cd3e720876f51be0b754a93d08881b2162099707a7cc3cef834bb5439",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
-    "apps/web/src/lib/local-register-repository.ts": "4fa03727b3b1fd6b1b16d4fad77a2c5d503808a51abfbbfdcf7f2be888fe9bf3",
+    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
-    "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
-    "apps/web/src/lib/register-download-coordinator.ts": "2d20816f18a3e58aceeecf1131a080a2d36cc4edb8fe2306d7e055be67f8daf8",
-    "apps/web/src/lib/register-original-dispatch.ts": "bf328ee84a426f2e2a50050a590da00f017cd2722ed48a5e31473a7a16df614a",
-    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
+    "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
+    "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
+    "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
+    "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
+    "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "apps/web/src/app/globals.css": "6d12337841b0f9a95648ce91e8a4184ac14d4d17f2ea64890af9a4629755c0c7",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
-    "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e"
+    "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
+    "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
+    "scripts/register-key/bound_fixture.py": "c4eeff58bb210ee9f0671917905b3788a6411d25c99867e0a60c2d53ce024976"
   }
 }

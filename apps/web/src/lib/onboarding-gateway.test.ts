@@ -98,8 +98,12 @@ test('current Owner Calendar is an exact allowlisted read target',()=>{
 });
 
 test('Owner register transfer is an exact read target; phase never selects a write budget',()=>{
- for(const act of ['manifest','page','complete']) assert.deepEqual(gatewayRequest(url('x17_register_download_v1'),post({act})),
-  {target:'POST:/rpc/x17_register_download_v1',mutating:false});
- assert.throws(()=>gatewayRequest(url('x17_register_download_v1'),{method:'GET'}),GatewayError);
+ for(const act of ['manifest','page','complete']) assert.deepEqual(gatewayRequest(url('x20_register_download_v1'),post({act})),
+  {target:'POST:/rpc/x20_register_download_v1',mutating:false});
+ assert.throws(()=>gatewayRequest(url('x20_register_download_v1'),{method:'GET'}),GatewayError);
+ assert.deepEqual(gatewayRequest(url('x20_register_dispatch_v1'),post({})),{target:'POST:/rpc/x20_register_dispatch_v1',mutating:true});
+ for (const retired of ['x17_register_download_v1','x18_owner_register_dispatch_v1']) {
+  assert.throws(()=>gatewayRequest(url(retired),post({})),GatewayError);
+ }
  assert.throws(()=>gatewayRequest(url('x17_trainer_register_download_v1'),post()),GatewayError);
 });

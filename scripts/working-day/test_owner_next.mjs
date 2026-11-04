@@ -16,10 +16,11 @@ const sources = [
   ...['experience','planning','register-download','register-dispatch'].map(name => `apps/web/src/app/api/${name}/route.ts`),
   ...['workspace-runtime','workspace-shell','experience-workspace','date-planning-workspace'].map(name => `apps/web/src/components/${name}.tsx`),
   ...['workspace-read-owner','local-register-repository','local-register-crypto','local-register-codec',
-    'register-download','register-download-coordinator','register-original-dispatch','onboarding-gateway'].map(name => `apps/web/src/lib/${name}.ts`),
+    'register-download','register-download-coordinator','register-original-dispatch','onboarding-gateway','register-scope-transport'].map(name => `apps/web/src/lib/${name}.ts`),
   'apps/web/src/app/globals.css',
   'supabase/migrations/20261103165604_owner_register_download_contract.sql',
   'supabase/migrations/20261104002448_owner_register_original_dispatch.sql',
+  'supabase/migrations/20261104013632_owner_register_bound_transport.sql', 'scripts/register-key/bound_fixture.py',
 ];
 const hashes = Object.fromEntries(await Promise.all(sources.map(async path =>
   [path, createHash('sha256').update(await readFile(join(root, path))).digest('hex')])));
@@ -40,7 +41,7 @@ try {
   const {origin, data, state, db, paths, registerPaths} = fixture;
   const [first, second] = data.events;
   const base = `/en/workspace/${data.academy}`, firstPath = registerPaths[0], secondPath = registerPaths[3];
-  const counts = (event, op = randomUUID()) => db({action:'counts', academy:data.academy, event, op});
+  const counts = (event, op = randomUUID()) => db({action:'counts', academy:data.events.find(item=>item.event===event).academy, event, op});
   const noWrites = {marks:0,history:0,operations:0,audit:0};
   const errors = [], external = [];
   const now = () => performance.now();
@@ -206,13 +207,13 @@ try {
   await expect(arabic).toHaveCount(18);
   await expect(page.locator('.attendance-theme')).toHaveAttribute('dir','rtl');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
-  assert.deepEqual(slice(before),download);
+  assert.deepEqual(slice(before),[['fixture-key',null,200],...download]);
   await browser.setOffline(true);
   await arabic.first().getByRole('button',{name:'حاضر',exact:true}).click();
   await button('مراجعة الحضور').click();
   await button('حفظ على هذا الجهاز').click();
   await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة')).toBeVisible();
-  assert.ok(await db({action:'expire', academy:data.academy,event:second.event}));
+  assert.ok(await db({action:'expire', academy:second.academy,event:second.event}));
   await browser.setOffline(false);
   await expect(page.getByText('تحتاج مراجعة',{exact:true})).toBeVisible();
   assert.deepEqual(await counts(second.event,JSON.parse(state.dispatchBodies[2]).op),noWrites);

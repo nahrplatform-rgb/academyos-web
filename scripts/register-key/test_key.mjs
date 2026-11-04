@@ -1,6 +1,8 @@
 // Real Next handler, Supabase SDK, signed gateway, crypto and PG17.
 // Clerk session, limiter responses and PostgREST transport are isolated adapters.
 import assert from 'node:assert/strict';
+import {createServer} from 'node:http';
+import {chromium} from '@playwright/test';
 import {spawn} from 'node:child_process';
 import {createHash, randomBytes, randomUUID} from 'node:crypto';
 import {mkdtemp, readFile, rm, writeFile} from 'node:fs/promises';
@@ -10,6 +12,7 @@ import {join, resolve} from 'node:path';
 import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
+import {pilotCases} from './pilot_cases.mjs';
 
 const root = resolve(import.meta.dirname,'../..'), require = createRequire(import.meta.url);
 const evidence = join(root,'docs/07-handoff/evidence/owner-register-key-2026-11-04.json');
@@ -18,27 +21,32 @@ const sources = [
   'apps/web/src/lib/onboarding-server.ts', 'apps/web/src/lib/onboarding-gateway.ts',
   'apps/web/src/lib/onboarding.ts', 'apps/web/src/lib/local-register-repository.ts',
   'supabase/migrations/20261104012057_owner_register_key_custody.sql',
-  'scripts/register-key/key_bridge.py', 'scripts/register-key/test_key.mjs',
+  'scripts/register-key/key_bridge.py', 'scripts/register-key/test_key.mjs', 'scripts/register-key/bound_fixture.py',
+  'scripts/offline-register/dispatch_bridge.py', 'scripts/register-key/pilot_cases.mjs',
+  'apps/web/src/app/api/register-download/route.ts', 'apps/web/src/app/api/register-dispatch/route.ts',
+  'apps/web/src/lib/owner-register-pilot.ts', 'apps/web/src/lib/register-scope-transport.ts',
+  'apps/web/src/lib/register-download-coordinator.ts', 'apps/web/src/lib/register-original-dispatch.ts',
+  'supabase/migrations/20261104013632_owner_register_bound_transport.sql',
 ];
 const hashes = Object.fromEntries(await Promise.all(sources.map(async file=>[file,
   createHash('sha256').update(await readFile(join(root,file))).digest('hex')])));
 if (process.argv.includes('--check')) {
   const receipt = JSON.parse(await readFile(evidence,'utf8'));
   assert.deepEqual(receipt.hashes,hashes);
-  assert.equal(receipt.checks.length,9);
+  assert.equal(receipt.checks.length,15);
   console.log('PASS EX-09 key receipt source fingerprints');
   process.exit(0);
 }
 
 const stage = 'https://staging.academy.nahr.dev';
-const target = '/rest/v1/rpc/x19_owner_register_key_v1';
+const targets = new Set(['x19_owner_register_key_v1','x20_register_download_v1','x20_register_dispatch_v1']);
 const owner = 'user_owner', key = 'a'.repeat(64);
 const state = {subject:owner, hasToken:true, sessions:0, calls:0, deniedBudget:false, limits:[]};
 const checks = [];
 const pass = name => {checks.push(name); console.log('PASS '+name);};
 const temp = await mkdtemp(join(tmpdir(),'academyos-register-key-'));
 const realFetch = globalThis.fetch;
-let pg, exited;
+let pg, exited, server, browser;
 try {
   const adapters = {
     clerk: `export async function auth(){
@@ -56,19 +64,21 @@ try {
   };
   const code = await build({
     stdin:{contents:`export{POST}from'./apps/web/src/app/api/register-key/route.ts';
+      export{POST as download}from'./apps/web/src/app/api/register-download/route.ts';
+      export{POST as dispatch}from'./apps/web/src/app/api/register-dispatch/route.ts';
       export{NextRequest}from'next/server';`,resolveDir:root},
     bundle:true,write:false,platform:'node',format:'esm',packages:'external',
     plugins:[{name:'key-fixture',setup(b){
       b.onResolve({filter:/^(next\/server|@supabase\/supabase-js)$/},x=>({path:require.resolve(x.path),external:true}));
       b.onResolve({filter:/^@clerk\/nextjs\/server$/},()=>({path:'clerk',namespace:'fixture'}));
-      b.onResolve({filter:/^\.\/rate-limit$/},()=>({path:'limiter',namespace:'fixture'}));
+      b.onResolve({filter:/^(\.\/rate-limit|@\/lib\/rate-limit)$/},()=>({path:'limiter',namespace:'fixture'}));
       b.onResolve({filter:/^server-only$/},()=>({path:'serverOnly',namespace:'fixture'}));
       b.onLoad({filter:/.*/,namespace:'fixture'},x=>({contents:adapters[x.path],loader:'js'}));
     }}],
   });
   const entry = join(temp,'route.mjs');
   await writeFile(entry,code.outputFiles[0].text);
-  const {POST,NextRequest} = await import(pathToFileURL(entry));
+  const {POST,NextRequest,download,dispatch} = await import(pathToFileURL(entry));
   globalThis.keyFixture = state;
   const wrappingKey = randomBytes(32).toString('hex');
   Object.assign(process.env,{APP_ENV:'staging',ONBOARDING_PROOF_KEY:key,
@@ -102,14 +112,16 @@ try {
   globalThis.fetch = async (input, init) => {
     const url = new URL(String(input));
     assert.equal(url.origin,process.env.NEXT_PUBLIC_SUPABASE_URL);
-    assert.equal(url.pathname,target);
+    const target = url.pathname.slice('/rest/v1/rpc/'.length);
+    assert.equal(url.pathname,'/rest/v1/rpc/'+target);
+    assert.ok(targets.has(target));
     assert.equal(init.method,'POST');
     const headers = new Headers(init.headers);
     assert.equal(headers.get('authorization'),'Bearer fictional-session-token');
     const proof = headers.get('x-academyos-gateway');
     const args = JSON.parse(init.body);
     state.calls++;
-    previous = {action:'rpc',args,subject:JSON.parse(proof).subject,proof};
+    previous = {action:'rpc',target,args,subject:JSON.parse(proof).subject,proof};
     const result = await db({...previous,proof:alterProof ? alterProof(proof) : proof});
     return result.error ? Response.json({code:result.error,message:'Fixture refusal'},
       {status:result.error==='42501'?403:400}) : Response.json(alterReply ? alterReply(result.data) : result.data);
@@ -235,10 +247,38 @@ try {
   assert.equal(one.error,'42501');
   pass('Bounded signed RPC enforces the original subject independently of the application fence');
 
+  const calls = [];
+  const handlers = {'/api/register-key':POST,'/api/register-download':download,'/api/register-dispatch':dispatch};
+  const api = (path,body,headers={})=>handlers[path](new NextRequest(stage+path,{
+    method:'POST',headers:{origin:stage,'content-type':'application/json',...headers},body,
+  }));
+  process.env.LOCAL_REGISTER_TRANSFER_ENABLED='true';
+  process.env.LOCAL_REGISTER_DISPATCH_ENABLED='true';
+  const browserCode = await build({stdin:{contents:`
+    import {ownerRegisterPilot} from './apps/web/src/lib/owner-register-pilot';
+    window.openPilot=input=>{window.lifetime=new AbortController();window.pilot=ownerRegisterPilot(input,window.lifetime.signal);};
+  `,resolveDir:root},bundle:true,write:false,platform:'browser',format:'esm'});
+  server=createServer(async (req,res)=>{
+    if(req.url==='/'){res.setHeader('content-type','text/html');res.end('<!doctype html><title>Fictional register lifecycle</title><script type="module" src="/pilot.js"></script>');return;}
+    if(req.url==='/pilot.js'){res.setHeader('content-type','text/javascript');res.end(browserCode.outputFiles[0].text);return;}
+    if(!handlers[req.url]||req.method!=='POST'){res.writeHead(404).end();return;}
+    const chunks=[];for await(const chunk of req)chunks.push(chunk);
+    const body=Buffer.concat(chunks).toString('utf8');
+    const headers=Object.fromEntries(Object.entries(req.headers).filter(([name])=>name.startsWith('x-academyos-')));
+    const response=await api(req.url,body,headers);
+    calls.push({path:req.url,body,status:response.status});
+    res.writeHead(response.status,{'content-type':'application/json','cache-control':'no-store'}).end(await response.text());
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  browser=await chromium.launch();
+  const lifecycle = await pilotCases({browser,origin:`http://127.0.0.1:${server.address().port}`,db,api,calls,
+    pass,state,result,owner});
   const receipt={checks, hashes, measurements:{rpcAttempts:state.calls,logicalLimiterChecks:state.limits.length,
-    storedEnvelopeBytes:60, browserMaterialBytes:32}};
+    storedEnvelopeBytes:60, browserMaterialBytes:32, lifecycle}};
   if(process.argv.includes('--record')) await writeFile(evidence,JSON.stringify(receipt,null,2)+'\n');
 } finally {
+  await browser?.close();
+  if (server?.listening) await new Promise(resolve=>server.close(resolve));
   globalThis.fetch=realFetch;
   delete globalThis.keyFixture;
   if (pg?.exitCode===null) pg.stdin.end();

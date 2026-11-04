@@ -8,23 +8,45 @@
     "Swapped envelope, wrong wrapping root and missing configuration fail without overwriting stored work",
     "Current Owner suspension blocks key release; verified restoration recovers the original key",
     "Withdrawn register cannot prepare; current Owner can recover the existing pending-work key",
-    "Bounded signed RPC enforces the original subject independently of the application fence"
+    "Bounded signed RPC enforces the original subject independently of the application fence",
+    "Registered transport denies missing, wrong event/tenant/account/device/namespace; retired RPC grants are closed",
+    "Actual key grant and registered transfer enable offline local capture; a lost reply replays exact bytes once",
+    "Clock rollback requires online verification; 30-day expiry clears rows offline and retains the original",
+    "Membership loss masks all work until restoration; withdrawal clears read coverage while Owner recovery remains possible",
+    "Cross-tab logout fences a late first key response; later preparation reuses the one server slot",
+    "Interrupted cleanup stays masked after reopen; recovery requires the same current Owner and preserves pending bytes"
   ],
   "hashes": {
     "apps/web/src/app/api/register-key/route.ts": "640b5a8d3140cf161ce8a68bc2c54261d0943de1dd10a920ed1ab9ca33eaaa68",
     "apps/web/src/lib/register-key-server.ts": "87fdaf94c9e45b6fe9b7d28085efe3bcc0da4db3f3b41ffe97bfea3222d00873",
-    "apps/web/src/lib/onboarding-server.ts": "d233d9fbd711245a0b75b19e500bf319c9af78611e594fba2730b3b3b35ba827",
-    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
-    "apps/web/src/lib/local-register-repository.ts": "4fa03727b3b1fd6b1b16d4fad77a2c5d503808a51abfbbfdcf7f2be888fe9bf3",
+    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
     "supabase/migrations/20261104012057_owner_register_key_custody.sql": "8bb0528c58446a9afec48adc04f3191d98aa1abbdedd787f45918067bfca1af1",
-    "scripts/register-key/key_bridge.py": "1b283305820d904c2ef0372a92970583888e71dbfdae6eefdb38c7ee99cb873a",
-    "scripts/register-key/test_key.mjs": "89e75fc1cb636d8126e394b96976f3920bfd3b3c3f2e08b78a575738b34eb76a"
+    "scripts/register-key/key_bridge.py": "da3ec01a6abee6679b235ed737da70b47eb2b6b64133345bec4f4dee7733f34a",
+    "scripts/register-key/test_key.mjs": "e590e466550bce9bfeedac50b56925d0a8138a8b75d4ef3db7c6e5b98bae6d5a",
+    "scripts/register-key/bound_fixture.py": "c4eeff58bb210ee9f0671917905b3788a6411d25c99867e0a60c2d53ce024976",
+    "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
+    "scripts/register-key/pilot_cases.mjs": "e1fc59c7cb8b71ddc118707ea0be3f7e6e4037c52cc07e2302769467a560788e",
+    "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
+    "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+    "apps/web/src/lib/owner-register-pilot.ts": "be8469f52eaa19d91622b95fd761a7b5de26d8e29a8057a8fd635c6a32cd6479",
+    "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
+    "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
+    "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
+    "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9"
   },
   "measurements": {
-    "rpcAttempts": 22,
-    "logicalLimiterChecks": 23,
+    "rpcAttempts": 62,
+    "logicalLimiterChecks": 92,
     "storedEnvelopeBytes": 60,
-    "browserMaterialBytes": 32
+    "browserMaterialBytes": 32,
+    "lifecycle": {
+      "firstPrepareRequests": 4,
+      "unchangedRequests": 1,
+      "offlineReadAndCaptureRequests": 0,
+      "exactReplay": true
+    }
   }
 }

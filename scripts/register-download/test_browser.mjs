@@ -18,7 +18,8 @@ const sources = ['apps/web/src/lib/register-download.ts', 'apps/web/src/lib/regi
   'apps/web/src/app/api/register-download/route.ts', 'apps/web/src/lib/local-register-repository.ts',
   'apps/web/src/lib/local-register-codec.ts', 'apps/web/src/lib/local-register-crypto.ts',
   'apps/web/src/lib/onboarding-gateway.ts', 'scripts/register-download/test_browser.mjs',
-  'scripts/register-download/bridge.py', 'scripts/register-download/test_boundary.py',
+  'scripts/register-download/bridge.py', 'scripts/register-key/bound_fixture.py',
+  'apps/web/src/lib/register-scope-transport.ts', 'supabase/migrations/20261104013632_owner_register_bound_transport.sql', 'scripts/register-download/test_boundary.py',
   'supabase/migrations/20261103165604_owner_register_download_contract.sql'];
 const evidence = join(root, 'docs/07-handoff/evidence/register-download-browser.json');
 const hashes = Object.fromEntries(await Promise.all(sources.map(async p => [p,
@@ -56,7 +57,7 @@ const db = (command) => new Promise((resolve,reject) => {
 });
 const adapters = {
   state: `export const state={session:0,rpcCalls:0,limits:[],who:'user_owner',rate:{success:true},execute:null};`,
-  server: `import {state}from'test:state';export class JourneyError extends Error{constructor(code,http){super(code);this.code=code;this.http=http}}export async function onboardingSession(){state.session++;return{subject:state.who,client:{}}}export async function rpc(c,name,args){state.rpcCalls++;if(name!=='x17_register_download_v1')throw new Error('Unexpected RPC');try{return await state.execute(args,state.who)}catch{throw new JourneyError('denied',403)}}`,
+  server: `import {state}from'test:state';export class JourneyError extends Error{constructor(code,http){super(code);this.code=code;this.http=http}}export async function onboardingSession(){state.session++;return{subject:state.who,client:{}}}export async function rpc(c,name,args){state.rpcCalls++;if(name!=='x20_register_download_v1')throw new Error('Unexpected RPC');try{return await state.execute(args,state.who)}catch{throw new JourneyError('denied',403)}}`,
   limiter: `import{state}from'test:state';export const stagingRedis=()=>({});export const rateLimitSubject=s=>s;export const rateLimitAllowed=r=>r.success&&r.reason!=='timeout';export function stagingLimiter(r,p,n){return{limit:async()=>{state.limits.push({prefix:p,limit:n});if(state.rate==='throw')throw new Error('Unavailable');return state.rate}}}`,
 };
 const api = (await build({stdin: {contents: `export{POST}from'${root}/apps/web/src/app/api/register-download/route.ts';export{NextRequest}from'next/server';export{state}from'test:state';`,resolveDir:root},
@@ -71,11 +72,12 @@ const {POST,NextRequest,state} = await import(pathToFileURL(join(temp,'api.mjs')
 const env = {APP_ENV: process.env.APP_ENV, LOCAL_REGISTER_TRANSFER_ENABLED: process.env.LOCAL_REGISTER_TRANSFER_ENABLED};
 const browserEntry = `import{openLocalRegister,LOCAL_REGISTER_DATABASE}from'./apps/web/src/lib/local-register-repository.ts';
 import{registerDownloadCoordinator}from'./apps/web/src/lib/register-download-coordinator.ts';import*as protocol from'./apps/web/src/lib/register-download.ts';
-window.protocol=protocol;window.repos={};window.owners={};window.credentialCalls=0;
+import{registerScopeHeaders}from'./apps/web/src/lib/register-scope-transport.ts';
+window.protocol=protocol;window.repos={};window.scopes={};window.owners={};window.credentialCalls=0;
 const no=()=>{window.credentialCalls++;throw new Error('Credentials forbidden')};Object.defineProperty(navigator,'credentials',{value:{create:no,get:no}});
-window.open=async(s,ticket)=>{const r=await openLocalRegister(s);window.repos[s.namespace]=r;if(ticket){const a=await r.beginActivation();await r.activate({...ticket,binding:a.binding},a)}};
+window.open=async(s,ticket)=>{const r=await openLocalRegister(s);window.repos[s.namespace]=r;window.scopes[s.namespace]=s;if(ticket){const a=await r.beginActivation();await r.activate({...ticket,binding:a.binding},a)}};
 window.call=async(ns,name,...args)=>window.repos[ns][name](...args);
-window.owner=(ns,a)=>{const c=new AbortController();const o=registerDownloadCoordinator(window.repos[ns],a,async(command,signal)=>{const r=await fetch('/api/register-download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(command),signal});if(!r.ok)throw new Error('http_'+r.status);return(await r.json()).data},c.signal);window.owners[ns]={c,...o}};
+window.owner=(ns,a)=>{const c=new AbortController();const o=registerDownloadCoordinator(window.repos[ns],a,async(command,signal)=>{const r=await fetch('/api/register-download',{method:'POST',headers:{'content-type':'application/json',...registerScopeHeaders(window.scopes[ns])},body:JSON.stringify(command),signal});if(!r.ok)throw new Error('http_'+r.status);return(await r.json()).data},c.signal);window.owners[ns]={c,...o}};
 window.prepare=ns=>window.owners[ns].prepare(window.events[ns]);window.events={};
 window.raw=async(work)=>{const q=indexedDB.open(LOCAL_REGISTER_DATABASE);const d=await new Promise((a,b)=>{q.onsuccess=()=>a(q.result);q.onerror=()=>b(q.error)});try{return await work(d)}finally{d.close()}};
 window.removeStaged=async(ns,event,transfer)=>window.raw(d=>new Promise((a,b)=>{const t=d.transaction('rows','readwrite'),s=t.objectStore('rows'),q=s.openCursor(IDBKeyRange.bound([ns,event,transfer],[ns,event,transfer,[]]));q.onsuccess=()=>{if(q.result)q.result.delete()};t.oncomplete=a;t.onabort=()=>b(t.error)}));
@@ -94,7 +96,10 @@ const server = createServer(async(req,res)=>{
   const start=performance.now();
   if(failPageAt&&command.action==='page'&&!--failPageAt){res.writeHead(503);res.end('{}');entry.status=503;return}
   if(markBeforeComplete&&command.action==='complete'){const f=markBeforeComplete;markBeforeComplete=null;await db({action:'mark',...f})}
-  const response=await POST(new NextRequest('https://staging.academy.nahr.dev/api/register-download',{method:'POST',headers:{origin:'https://staging.academy.nahr.dev','content-type':'application/json'},body:text}));
+  const response=await POST(new NextRequest('https://staging.academy.nahr.dev/api/register-download',{method:'POST',headers:{origin:'https://staging.academy.nahr.dev','content-type':'application/json',
+    'x-academyos-register-namespace':req.headers['x-academyos-register-namespace'],
+    'x-academyos-register-device':req.headers['x-academyos-register-device'],
+    'x-academyos-original-subject':req.headers['x-academyos-original-subject']},body:text}));
   const body=await response.text();entry.bytes=Buffer.byteLength(body);entry.status=response.status;entry.ms=performance.now()-start;
   if(holdComplete&&command.action==='complete'){blocked={res,body,status:response.status};return}
   res.writeHead(response.status,{'content-type':'application/json'});res.end(body);
@@ -107,7 +112,8 @@ try{
   state.execute=(args,who)=>db({action:'rpc',args,who});
   process.env.APP_ENV='staging';delete process.env.LOCAL_REGISTER_TRANSFER_ENABLED;
   const sample={action:'manifest',academy:randomUUID(),event:randomUUID(),expected:null,after:null};
-  const send=(body,headers={})=>POST(new NextRequest('https://staging.academy.nahr.dev/api/register-download',{method:'POST',headers:{origin:'https://staging.academy.nahr.dev','content-type':'application/json',...headers},body:JSON.stringify(body)}));
+  const send=(body,headers={})=>POST(new NextRequest('https://staging.academy.nahr.dev/api/register-download',{method:'POST',headers:{origin:'https://staging.academy.nahr.dev','content-type':'application/json','x-academyos-register-namespace':randomUUID(),
+    'x-academyos-register-device':randomUUID(),'x-academyos-original-subject':'user_owner',...headers},body:JSON.stringify(body)}));
   let response=await send(sample);assert.equal(response.status,503);assert.equal(state.session,0);assert.equal(state.rpcCalls,0);
   pass('Default-closed API makes zero session/RPC calls; same-origin/no-store boundary retained');
   process.env.LOCAL_REGISTER_TRANSFER_ENABLED='true';
@@ -124,7 +130,8 @@ try{
   const startPage=async()=>{await page.goto(origin);await page.waitForFunction(()=>window.started)};
   await startPage();
   const open=async(f,ns=randomUUID())=>{
-    const scope={namespace:ns,environment:'staging',subject:'user_owner',academy:f.academy,device:'fictional_device',epoch:'fields_v1',capability:'owner-register-v1'};
+    const scope={namespace:ns,environment:'staging',subject:'user_owner',academy:f.academy,device:randomUUID(),epoch:'fields_v1',capability:'owner-register-v1'};
+    assert.equal(await db({action:'slot',...scope,event:f.event}),true);
     await page.evaluate(async({s,t,e})=>{await window.open(s,t);window.events[s.namespace]=e;window.owner(s.namespace,s.academy)},
       {s:scope,t:{keyId:'fictional_fixed_recovery',material:randomBytes(32).toString('base64'),verifiedAt:Date.now()},e:f.event});return scope;
   };
@@ -202,7 +209,7 @@ try{
   pass('Scope cancellation after server completion but before delivery refuses late local activation; no claim that database execution was cancelled');
   const racing=await fixture(60),sr=await open(racing);const tab=await context.newPage();await tab.goto(origin);await tab.waitForFunction(()=>window.started);
   await tab.evaluate(async({s,e})=>{await window.open(s);window.events[s.namespace]=e;window.owner(s.namespace,s.academy)},{s:sr,e:racing.event});
-  const racingManifest=await page.evaluate(async f=>{const r=await fetch('/api/register-download',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'manifest',academy:f.academy,event:f.event,expected:null,after:null})});if(!r.ok)throw new Error('Manifest refused');return(await r.json()).data},racing);
+  const racingManifest=await page.evaluate(async ({f,s})=>{const r=await fetch('/api/register-download',{method:'POST',headers:{'content-type':'application/json','x-academyos-register-namespace':s.namespace,'x-academyos-register-device':s.device,'x-academyos-original-subject':s.subject},body:JSON.stringify({action:'manifest',academy:f.academy,event:f.event,expected:null,after:null})});if(!r.ok)throw new Error('Manifest refused');return(await r.json()).data},{f:racing,s:sr});
   // Hold the winning staged import open. Scheduling must not turn this into
   // two legitimate sequential preparations on a fast/slow CI machine.
   const races=await Promise.allSettled([call(sr,'beginImport',racing.event,'racing_first',racingManifest),
@@ -223,7 +230,7 @@ try{
   const slice=requests.slice(before);assert.equal(slice.filter(r=>r.action==='page').length,20);assert.equal(slice.length,22);assert.ok(slice.every(r=>r.bytes<32768&&r.status===200));
   metrics.prepare1000={requests:slice.length,pages:20,bytes:slice.reduce((n,r)=>n+r.bytes,0),maxResponseBytes:Math.max(...slice.map(r=>r.bytes))};
   let rows=0,after=null;start=performance.now();do{const r=await call(sl,'readPage',large.event,after);rows+=r.players.length;after=r.more?r.players.at(-1).id:null}while(after);assert.equal(rows,1000);metrics.localRead1000Ms=performance.now()-start;
-  metrics.manifestExplain=await db({action:'explain',...large});
+  metrics.manifestExplain=await db({action:'explain',...large,namespace:sl.namespace,device:sl.device});
   before=requests.length;await prepare(sl);metrics.unchanged1000={requests:requests.length-before,bytes:requests.at(-1).bytes,ms:requests.at(-1).ms};
   pass('1000 Unicode players use 22 bounded requests, complete authenticated disk coverage and 20 bounded local reads; unchanged repeat uses one manifest');
   const vectors=JSON.parse(await readFile(join(root,'docs/07-handoff/evidence/register-download-vectors.json')));

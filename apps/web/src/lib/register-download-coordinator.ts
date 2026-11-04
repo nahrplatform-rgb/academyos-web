@@ -8,7 +8,7 @@ import {registerDownloadRequest, registerDownloadResult,
 export function registerDownloadCoordinator(repository: LocalRegisterRepository, academy: string,
   transport: (command: DownloadCommand, signal: AbortSignal) => Promise<unknown>, signal: AbortSignal) {
   identifier(academy);
-  const running = new Map<string, Promise<{kind: 'prepared' | 'unchanged'; revision: string}>>();
+  const running = new Map<string, Promise<{kind: 'prepared' | 'unchanged'; revision: string; verifiedAt: number}>>();
   async function read(command: DownloadCommand) {
     signal.throwIfAborted();
     registerDownloadRequest(command);
@@ -34,7 +34,7 @@ export function registerDownloadCoordinator(repository: LocalRegisterRepository,
       signal.throwIfAborted();
       await repository.refreshUnchanged(event, manifest);
       signal.throwIfAborted();
-      return {kind: 'unchanged' as const, revision: manifest.revision};
+      return {kind: 'unchanged' as const, revision: manifest.revision, verifiedAt: Date.parse(manifest.header.server_now)};
     }
     const transfer = checkpoint?.transfer ?? crypto.randomUUID();
     signal.throwIfAborted();
@@ -54,7 +54,7 @@ export function registerDownloadCoordinator(repository: LocalRegisterRepository,
     signal.throwIfAborted();
     await repository.finalizeTransfer(event, transfer, complete, signal);
     signal.throwIfAborted();
-    return {kind: 'prepared' as const, revision: complete.revision};
+    return {kind: 'prepared' as const, revision: complete.revision, verifiedAt: Date.parse(complete.header.server_now)};
   }
   function prepare(event: string) {
     identifier(event);

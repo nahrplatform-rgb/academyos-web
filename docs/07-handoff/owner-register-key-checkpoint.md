@@ -12,6 +12,10 @@
 
 Run `node scripts/register-key/test_key.mjs` with Node 24 and disposable PG17. Use `--check` to verify the receipt hashes. `--record` replaces the receipt after successful execution. The checked fixture invokes the routes in process and does not contact providers.
 
+## Follow-on checkpoint
+
+The [registered transport and lifecycle checkpoint](owner-register-lifecycle-checkpoint.md) adds six connected cases after the original nine key-release cases. It supplies the scoped device and cleanup integration evidence. Product identity and startup remain open.
+
 ## Remaining before private enablement
 
 The new route has a closed default and no product caller. Keep `LOCAL_REGISTER_KEY_ENABLED` and `LOCAL_REGISTER_WRAP_KEY_V1` unset on hosted environments pending release review. The next checkpoint binds transfer and original dispatch to the same registered event and adds the personal-device lifecycle around the repository. Cover late first-prepare and recovery replies after logout or account changes, the 30-day server-stamped verification rule, clock rollback, event withdrawal versus membership denial, and guarded offline startup. Verify the exact fields before persisting data. Reuse the canonical attendance policy, original-operation recovery and current online flows.
