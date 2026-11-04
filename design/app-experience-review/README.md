@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+**Reference versus working review — 4 November 2026:** the [Operations contract](../../docs/03-design/operations-design-reference.md) pins the selected interactive design and full-app adoption criteria. This factual HTML remains actual-component capture evidence, not a live backend or a complete functional Operations review. After product UI changes, refresh affected captures/HTML; documentation-only reference reconciliation may rebuild inventory from unchanged captures. Full redesign acceptance requires the signed-in working app and equivalent-state comparisons, not this replay alone.
+
 The integrated captures include the deployed [Owner Operations shell and Today work](../operations-review/owner-today-batch.md) and the default attendance route. The gated register has separate runtime evidence.
 
 4 November EX-11 follow-on. Default app captures were refreshed after the shared shell and attendance route changes. The [gated workspace receipt](../../docs/07-handoff/owner-register-workspace-checkpoint.md) covers prepared-device screens, cold offline entry and account cleanup separately. Those pilot states remain outside the default capture set and private activation remains gated.

@@ -79,7 +79,7 @@ On corruption/full/eviction/missing key, retain current input/recoverable pendin
 
 ## Findings and execution
 
-All17 findings/G01–G09 remain tracked. EX-10 prepares LF-v2 policy/architecture; EX-02 stable workspace; EX-06 durable repository; EX-04 bootstrap/version/change sync; EX-03 recovery with storage; EX-11 reopened-local and connected-day acceptance; EX-07 remaining Charcoal parity. EX-05/08 measurements and EX-09 current access decisions accompany each stage. Local read persistence is not postponed wholesale to native apps/offline write queues.
+All17 findings/G01–G09 remain tracked. EX-10/02/06/04/03 retain their scoped policy/workspace/repository/transfer/recovery checkpoints. The [current tracker](experience-execution.csv) selects safe online EX-07 [Operations adoption](../03-design/operations-design-reference.md), with equivalent-state visual/task/request evidence. EX-11 private reopened-local and connected-day acceptance stays gated; EX-05/08 measurements and EX-09 custody/current-access/security work accompany affected stages. Local read persistence is not postponed wholesale to native apps/offline write queues, and its activation gates do not block unrelated approved online redesign.
 
 Earlier navigation/visible-return/cold Calendar fixes remain useful but do not implement this model. Historical effort estimates/memory-only recommendations are not current routing or renewed delivery promises.
 

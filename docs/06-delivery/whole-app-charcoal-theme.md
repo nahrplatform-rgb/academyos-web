@@ -1,5 +1,7 @@
 # Whole-app Charcoal conversion —29 October2026
 
+**Historical theme-only receipt.** The later [Operations design/adoption contract](../03-design/operations-design-reference.md) supersedes this document's dark-default and palette-only scope as the current redesign authority. Light is now default with Charcoal alternative; structure, density, controls and connected working journeys are required. Preserve the 29 October source/test history below without treating it as completed full redesign.
+
 Owner requested “good, convert the full app” after reviewing the corrected deployed attendance theme. Authorized outcome: extend its Charcoal spectrum dark default across existing implemented J01–J16 workflows and welcome/access states. Existing screen/action/requirement joins remain in the app implementation registers (S01–S68 inventory is not all implemented). Presentation only: no new operation, visibility, schema, retrieval, fee, role or account grant. Previously accepted workflows and independent pending gates remain unchanged.
 
 Reuse shared shell, controls, panes and semantic tokens. Preserve module-specific wide planning/publication inspectors and existing phone back/focus/dirty/unknown controls. Centralize optional in-visit light mode; no identity or private data is stored. Status meaning stays labelled, independent of colour. QR printable cards retain white backgrounds for scanning. Provider-hosted sign-in pages remain external; configure embedded Clerk appearance through supported variables without changing authentication.

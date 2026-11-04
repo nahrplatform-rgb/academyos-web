@@ -1,5 +1,7 @@
 # Attendance experience redesign —29 October2026
 
+**Presentation supersession — 4 November 2026:** use the [Operations reference](../03-design/operations-design-reference.md) for the current light-default/Charcoal-alternative appearance, compact geometry, controls and fidelity checks. The approved atomic-register policy, connected interaction/recovery design and prior evidence here retain their scope. The older dark-default preview remains historical; it does not govern later shared styling or establish full working-app acceptance.
+
 ## Authority and outcome
 
 Owner selected **Charcoal spectrum, dark mode as the platform default**, then instructed starting the connected redesign. Light is an alternative in this preview; no production preference mechanism is implemented. Existing business policy and scoped working-feature approvals are preserved. The imported visual-help verdict/studio is reference guidance, not authority to accept new rules. Its blue-led recommendation is superseded by the explicit new palette choice.

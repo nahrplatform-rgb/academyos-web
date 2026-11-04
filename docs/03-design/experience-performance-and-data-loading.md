@@ -1,5 +1,7 @@
 # AcademyOS experience, performance and data-loading plan
 
+**Operations adoption — 4 November 2026:** the [current design reference](operations-design-reference.md) governs presentation and connected task fidelity. Every affected batch still declares read ownership, bounds, freshness, invalidation, initial/revalidation behavior and before/after request evidence. Denser screens do not authorize extra bootstrap, chart queries, unbounded preload or fixture-backed metrics. Preserve the current server and original-operation boundaries; online visual adoption and private local-data activation have separate gates under the [execution tracker](../06-delivery/experience-execution.csv).
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Separate durable local repository queries from transient query memory, online authorization and background synchronization. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) replaces the summary-only candidate. Required profiles now include first preparation, compatible reopen, unchanged manifest, sparse changes/full replacement, interrupted page resume, index query and storage failure. Existing numerical speed/row/byte limits and historical measurements stay intact; do not claim local-first performance from native reference timings.

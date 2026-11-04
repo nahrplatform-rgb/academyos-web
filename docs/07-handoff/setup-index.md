@@ -1,5 +1,7 @@
 # AcademyOS setup record — start here
 
+**Current design/execution — 4 November 2026:** [Operations reference](../03-design/operations-design-reference.md) → [master plan](../06-delivery/app-implementation-plan.md) / [full redesign](../06-delivery/full-experience-redesign.md) → [single tracker](../06-delivery/experience-execution.csv) / [generated continuation](../06-delivery/continue-academyos.md). Operations is light by default with a Charcoal alternative; real connected workflows and exact visual fidelity are required. Safe online adoption is EX-07; private EX-11/EX-09 readiness remains separately gated. [Reconciliation receipt](operations-plan-reconciliation-2026-11-04.md) records the source and plan corrections. No new service setup, promotion or access grant is included.
+
 Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

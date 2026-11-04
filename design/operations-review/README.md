@@ -1,5 +1,7 @@
 # AcademyOS Operations review
 
+**Current reconciliation — 4 November 2026:** use the [Operations reference/adoption contract](../../docs/03-design/operations-design-reference.md) for final selected values and [the current tracker](../../docs/06-delivery/experience-execution.csv) for priority. This document retains the earlier review-branch findings and intermediate recommendations. In particular, the detail starting width is now **276px**, not the intermediate 280px below; Home reaches the minimum, Enter/double-click restores the starting width. The first shell/Owner Today work is merged into combined source `ef73a36` and has [closed staging evidence](../../docs/07-handoff/owner-register-promoted-checkpoint.md). The replay below is factual capture evidence; the full review deliverable is the actual signed-in app. Earlier EX-03 routing and separate-checkout notes do not override current source/routing.
+
 The Owner selected Operations in the browser studio and requested a complete working sample with the real AcademyOS staging backend and dedicated fictional records. The review branch, codex/operations-review, starts from 5766398. The current implementation chat and the studio are in a separate checkout.
 
 ## Open the review

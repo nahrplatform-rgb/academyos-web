@@ -1,5 +1,7 @@
 # AcademyOS SaaS operating blueprint
 
+**Current experience reference — 4 November 2026:** the Owner's selected [Operations contract](../03-design/operations-design-reference.md) and [full redesign plan](../06-delivery/full-experience-redesign.md) govern the working presentation: light default with Charcoal alternative, compact resizable panes, unified controls and connected role-specific tasks. This is an adoption layer over the business vision below, not a change to roles, transactions, fees or access. The [master plan](../06-delivery/app-implementation-plan.md) and [tracker](../06-delivery/experience-execution.csv) preserve both implemented journeys and unbuilt scope. Safe online redesign proceeds while private local-data activation/security remains separately gated.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Core operating experience includes permitted player-directory pages, selected-month training records and later separately authorized finance snapshots retained locally between visits. First task first, bounded sequence, durable completeness and quiet changes are required; unlimited database replication is excluded. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) defines boundaries. Local read availability is separate from server-confirmed actions and future offline capture; no financial or role capability is implemented by the direction.

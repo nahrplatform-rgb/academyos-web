@@ -1,5 +1,7 @@
 # Experience blueprint and journey governance
 
+**Current presentation — 4 November 2026:** the [Operations contract](operations-design-reference.md) reconciles the selected design chat and exact sample with the working app. Light is the default; Charcoal remains an alternative. Layout, density, wording, controls, task sequence, focus and recovery must adopt the selected system, not merely its palette. The complete connected working review covers all implemented journeys and role homes/calendar under the [full redesign plan](../06-delivery/full-experience-redesign.md). Existing business/permission/ID contracts and prior scoped approvals remain. Safe online adoption proceeds through the current tracker independently of gated private offline activation.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Design each journey across first bootstrap, covered local reopen, partial/missing range, quiet check/change apply, locked/expired local access, denied scope and storage/migration failure. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) and preserve stable WB IDs. The full Charcoal visual reference remains accepted; the narrow v1 behaviour storyboard is superseded and the revised local-first changed-state review is pending.

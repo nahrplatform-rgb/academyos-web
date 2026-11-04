@@ -1,5 +1,7 @@
 # AcademyOS connected experience proposal
 
+**Current reference reconciliation — 4 November 2026:** this complete proposed flow/state design was approved on 29 October (see its approval receipt below). The Owner's later selected [Operations design](../../docs/03-design/operations-design-reference.md) supersedes presentation values: light default, Charcoal alternative, compact resizable panes and unified controls. Preserve this broader workflow/state coverage where compatible with current rules, and implement it as one connected working app. Do not recreate another fictional whole-app proposal or use historical review-pending text below to re-ask the settled approval. The four-view Operations sample, this simulation and factual app captures have different evidence roles.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Persistent local data and quiet synchronization are now the Owner-directed experience target; read [local-data and sync plan](../../docs/06-delivery/local-data-and-sync-plan.md). The approved full Charcoal visual/workflow reference and factual current-source capture evidence stay separate. New bootstrap/reopen/coverage/lock/sync/storage failure states need a targeted local-first review; do not infer durable functionality from this HTML. The older summary-only storyboard is superseded.

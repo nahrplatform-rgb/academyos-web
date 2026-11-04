@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**4 November checkpoint:** [EX-03 original attendance register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) passes 17 connected synthetic checks, with the prior download and storage suites retained. **EX-11 is current** for connected Owner working-day proof. Actual key custody, current authority, field and retention choices, hosted verification, Owner acceptance and independent security remain separate.
+**4 November Operations reconciliation:** [the selected design contract](../03-design/operations-design-reference.md) and [reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) now route **EX-07 safe online Operations adoption as current**. Preserve delivered Owner shell/Today and completed EX-10/02/06/04/03 scoped outputs. EX-11 retains its open private working-day gate, with EX-09 custody/independent review preparation supporting it. No private activation or acceptance is inferred. The tracker, not an older route below, selects the exact next action.
 
 ## Latest local-first direction — LF-v3,2November2026
 
@@ -11,7 +11,7 @@ Owner now requests retained permitted month/three-month datasets **and locally s
 
 The Owner clarified persistent permitted local datasets and progressive quiet synchronization across visits. Read [the canonical local-data plan](local-data-and-sync-plan.md) and [Shift staging iOS review](../04-engineering/shift-ios-local-data-reference-review.md). The unaccepted summary-only v1 packet/storyboard is superseded, not awaiting approval. The connected local-first design is approved; the Owner rejected automatic inactivity locking. Remaining exact LF-P01–LF-P06 privacy/device/fields/retention/sync choices stay separate. Follow the canonical packet for current decisions; the app is unchanged by these documentation checkpoints.
 
-At this historical2November routing checkpoint EX-10 was current. The tracker now selects the current row after the dated scoped checkpoints above; EX-02 workspace, EX-06 durable repository, EX-04 bootstrap/change sync, EX-03 recovery, EX-11 reopened-local acceptance and EX-07 remaining Charcoal adoption retain their sequence. EX-05/08/09 accompany them. Do not substitute a transient cache, native-app wrapper or another feature for this target.
+At the historical2November routing checkpoint EX-10 was current. The tracker now retains the completed EX-02 workspace, EX-06 repository, EX-04 transfer and EX-03 recovery scoped outputs; EX-07 safe online adoption can advance while private EX-11 acceptance remains gated. EX-05/08/09 accompany affected work. Do not substitute a transient cache, native-app wrapper or another feature for the persistent-local target, and do not use a private enablement gate to stall unrelated approved online redesign.
 
 31 October 2026. Owner authorized this integration and the first remediation batch after reviewing the whole-app analysis. This guide links existing authorities; it does not invent business rules, restart completed work or replace the canonical registers.
 
@@ -20,7 +20,7 @@ At this historical2November routing checkpoint EX-10 was current. The tracker no
 [experience-execution.csv](experience-execution.csv) records current work and next gates. Each row names finding IDs, journey/action work IDs, dependencies, exact evidence and separate design/implementation/local/deployment/hosted/Owner/security states. Update it in the same batch as the change. Findings are closed only across their declared occurrence/coverage; a scoped repair is marked partial. G01–G09 from the service analysis remain explicit measurement/decision work.
 
 - [Original app plan](app-implementation-plan.md) and [roadmap](roadmap-and-backlog.md): overall feature scope/dependencies, I0–I10. No finance, Manager, Player, media or offline scope disappears.
-- [Full redesign](full-experience-redesign.md): approved Charcoal spectrum proposal and journey parity. Existing visual/functional approvals are not rewritten.
+- [Full redesign](full-experience-redesign.md) and [Operations reference](../03-design/operations-design-reference.md): complete working-app adoption, selected light-default/Charcoal-alternative presentation and equivalent-state fidelity. Earlier scoped business/functional approvals and historical design receipts are retained.
 - [Findings](../04-engineering/request-findings-register.md): diagnosis/evidence and closure scope, not an implementation checklist with implied success.
 - [Service impact](../04-engineering/request-service-impact.md): verified meters versus scenario estimates, G01–G09 and responsible measurement roles.
 - [Standard](request-hygiene-and-offline-standard.md): ownership, fresh/loading behavior, security/recovery, proposed cache/offline decisions, DoD and execution acceptance cases.
@@ -57,10 +57,12 @@ The tracker is the only source for current priority/status. Its routing fields a
 | 3 | **EX-06 — shared read owner, invalidation and approved reuse** | One scoped durable repository/storage/index/coverage/access-key lifecycle and local subscriptions; compatible read/sync ownership and affected-view updates. Query memory alone is insufficient. Enable exact accepted LF-P fields/device/access/retention only. |
 | 4 | **EX-04 — first-use/dependency/preparation improvement** | Task-first progressive directory/month pages, scoped manifest, coherent snapshot/checkpoint completion and changed/removal transfer or honest bounded replacement. Measure first versus reopened/unchanged/changed; retain prior Owner1read and no duplicate mount bootstrap. |
 | 5 | **EX-03 — save/interruption/crash recovery** | Original outcome discovery/storage-failure proof for the affected pilot paths, including actual supported refresh/process boundaries. Prepare this with EX-10 and validate before replacing recovery or accepting pilot writes; do not postpone integrity until the end. |
-| 6 | **EX-11 — working-day acceptance gate** | Declared first-bootstrap→reopened-local→small check/change sync plus Owner Today→Calendar→register→People/review with interruptions, access/key/quota/migration/leader failures and working feedback; bounded Owner proof is not all-role completion. |
-| 7 | **EX-07 — broader journey and Charcoal parity adoption** | Extend the accepted working pattern across implemented journeys and role-specific experiences; preserve original approvals and demonstrate actual preview/runtime parity. Unbuilt capabilities stay explicitly future. |
+| 6 | **EX-07 — Operations adoption across implemented journeys** | Preserve the delivered shell/Owner Today; compare and adopt selected Operations in actual Calendar→session→register→return and Players, then remaining implemented journeys/role homes. Require equivalent-state fidelity, current authority/input/recovery and request evidence. Safe online adoption does not depend on private activation. |
+| 7 | **EX-11 — private working-day acceptance gate** | Retain closed staging and fictional connected proofs; independent review/custody and separately authorized enablement precede actual private bootstrap→reopened-local→sync→save/recovery/device evidence and working feedback. Continue ready support work alongside EX-07; this gate remains open, not passed or retired. |
 
 Supporting obligations run **alongside** the affected primary checkpoint:
+
+The 4 November order change is explicit scoped reprioritization, not completion of EX-11. Its current blocker affects private identity/key/schema use, not the already-authorized online Operations presentation. EX-07 drops the blanket EX-11 dependency while preserving all affected authorization, dirty-state, unknown-operation and local-data requirements. If a proposed visual batch actually needs private activation or a new visibility rule, that portion waits for its named gate.
 
 - **EX-05:** request/limiter/relational query work, bytes and provider costs; actual versus modeled savings; no index, shared cache or protection removal from hints alone.
 - **EX-08:** first useful content, local feedback, read timing, blank intervals, task continuity, device/accessibility, role/provider/security evidence. Collect baseline and after evidence in every batch; do not defer the entire measurement stage until all code is written.
@@ -84,9 +86,10 @@ The original nine work IDs and EX-10/EX-11 gates remain; LF-v2 revises their sco
 | Record | Owns |
 |---|---|
 | This guide + tracker | Current routing, scoped dependencies and separate delivery status |
-| Working-behaviour contract | Required operating states, ownership and exact pending WB-P choices |
+| Working-behaviour contract | Required operating states/ownership; accepted and pending LF policies follow current linked contracts, not superseded WB-P proposals |
 | Working-day specification + CSV | Planned scenarios/volumes and proper-layer acceptance evidence requirements |
 | Master plan / roadmap / redesign | Overall scope, sequence/dependencies and approved visual/workflow reference |
+| Operations reference | Selected source and Owner-turn ledger, current presentation values, equivalent-state fidelity and full working-review criteria |
 | Findings + service impact | Problems, declared closure scope and measured/modeled/unmeasured cost facts |
 | Action/loading/security matrices | Existing canonical joins, resource bounds and affected authority/acceptance coverage |
 | Dated implementation/pilot packet | Actual source/change/test/rollout results and limitations |

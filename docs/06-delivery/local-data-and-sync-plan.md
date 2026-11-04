@@ -1,5 +1,7 @@
 # AcademyOS persistent local data and quiet synchronization plan
 
+**4 November design/execution reconciliation:** [Operations](../03-design/operations-design-reference.md) now governs the presentation of online and prepared-device states: light default, Charcoal alternative and the selected compact workflow. EX-07 safe online adoption is current in the [tracker](experience-execution.csv); the private EX-11/EX-09 gates below remain open and unchanged. Their dependency does not hold unrelated authorized online redesign work. This routing neither substitutes transient studio memory for durable data nor activates private storage/sync.
+
 **4 November hosted checkpoint.** The [Owner-promoted combined source](../07-handoff/owner-register-promoted-checkpoint.md) passed closed-pilot staging checks. The next gate is hosted key custody and independent review before separately authorized private enablement. The permitted local-data target and earlier approvals retain their recorded scope.
 
 **3November connected-write checkpoint:** [Owner offline-register preview and traceability](offline-register-decision-design.md) now covers the accepted atomic/original-ID/current-check/retained-recovery rules. Connected write design is now approved; policy/read-design approvals remain. Follow the [runtime/key readiness packet](../04-engineering/offline-register-runtime-readiness.md) before private enablement. No private runtime is enabled.

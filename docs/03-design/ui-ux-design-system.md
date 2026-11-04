@@ -1,8 +1,16 @@
 # AcademyOS UI/UX and theme specification
 
+## Current system — Operations, reconciled 4 November 2026
+
+The [Operations reference and adoption contract](operations-design-reference.md) governs current appearance, layout, density, controls, responsive behavior and fidelity evidence: **light default, Charcoal alternative**, consistent blue primary/neutral supporting/red destructive hierarchy, meaningful module colours, compact 220px initial navigation and 276px initial detail with independent resizing. Inspect the selected source and existing shared implementation before editing. These later Owner selections supersede the dark-default, compact-blue and initial teal/18px values in earlier receipts below.
+
+The current reference is a complete-system direction with four demonstrated studio destinations; the full working-app journey review remains required. Accessibility, truthful states, role boundaries and accepted operation contracts still apply. Readability-driven adaptations must be recorded/reviewed, not hidden as unexplained visual drift. Do not claim conformance from the sample's compact text or layout tests alone.
+
+The remaining initial token/typography tables below are **historical design proposals**, not an alternative current palette/geometry specification. The general semantic, accessibility and state obligations remain applicable where compatible with current contracts.
+
 ## Local-data planning boundary —LF-v2,2November2026
 
-Keep the approved Charcoal visual system. Add behaviour-state vocabulary for Not downloaded / Preparing / Ready as of / Checking changes / Updating / Locked and storage failure. Local Saved on device versus Server confirmed exists only where the relevant operation is actually implemented; no generic status badge may imply commit. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+Apply the current Operations system to Not downloaded / Preparing / Ready as of / Checking changes / Updating / Unavailable and storage-failure states. Local Saved on device versus Server confirmed exists only where the relevant operation is actually implemented; no generic status badge may imply commit. No inactivity lock or mandatory passkey/local-secret flow is introduced. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md) and current device-key contract. Current implementation/evidence and earlier business approvals are unchanged.
 
 **24 October supersession:** the owner-selected compact blue reference and explicit application replacement instruction supersede the historical teal/large typography/18px visual values below. Current shared app tokens/components and exact source/review scope are in [the implementation receipt](../07-handoff/compact-blue-design-foundation.md). Historical values are preserved as evidence; accessibility, responsiveness, truthful states and authority requirements remain applicable.
 

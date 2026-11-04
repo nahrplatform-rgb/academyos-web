@@ -8,9 +8,11 @@ Reusable instruction: **Continue from the living continuation prompt.**
 
 Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`.
 
-Read `AGENTS.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
+Read `AGENTS.md`, `docs/03-design/operations-design-reference.md`, `docs/06-delivery/full-experience-redesign.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
 
 Start with the explicit current priority below, not the first unfinished EX number or an old next-step sentence in a historical packet. Follow its current next action and scoped dependency gate. Keep the retained baseline and all supporting/open work visible. Advance routing only after recording the declared checkpoint evidence; a routing checkpoint is not whole-finding closure or Owner/security acceptance.
+
+Current presentation authority is the selected Operations studio, variant2: light default with Charcoal alternative, unified primary/supporting/destructive controls, compact resizable navigation/detail and faithful composition, density, typography and spacing. Preserve delivered Owner shell/Today and the earlier approved full-journey workflow coverage. Use actual app components and existing permitted fictional staging data, comparing equivalent role/state/locale/theme/viewport while editing. Four studio destinations and a static capture replay are not the complete working redesign. Extend the selected system in bounded connected batches, with a difference ledger and focused review only for new patterns. The 4 November routing permits safe online EX-07 adoption while private EX-11 acceptance and EX-09 custody/independent review stay gated; it does not authorize private activation, new analytics definitions or account grants. Follow later evidenced tracker changes without restarting completed research or redesign approvals.
 
 The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
@@ -24,13 +26,13 @@ Promotion ownership: the Owner performs all deployment promotions. Prepare/test/
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
+## Current priority — EX-07: Operations design adoption across implemented journeys
 
-Next action: Resolve independent reviewer assignment and hosted wrapping-root custody, backup/rotation and recovery readiness using the prepared handoff. Private enablement requires independent disposition and separate authorization. Preserve approved scope and keep physical-device, provider-cost and Owner acceptance cases open.
+Next action: Read the pinned Operations contract and current source. Scope and compare Owner Today -> Calendar -> dated session -> register -> exact return, plus Players, at matching EN/AR state/theme/viewport; adopt already-approved patterns with before/after request and fidelity evidence. Preserve dirty input, current authority and original-operation recovery. Continue remaining implemented journeys in bounded batches; no new simulator, colour-only pass, private activation or access grant.
 
-Scoped dependency gate: Combined CI and closed hosted checkpoint passed. Reviewer/custody readiness and explicit private enablement precede hosted offline/device/recovery tests. Owner working acceptance pending.
+Scoped dependency gate: EX10/02/06/04/03 scoped outputs and closed staging proof retained. Safe online adoption reuses existing contracts; private EX11/09 activation remains separately gated. Exact reference fidelity, actual working coverage, per-role checks and Owner acceptance remain required.
 
-Read: `docs/07-handoff/owner-register-promoted-checkpoint.md`
+Read: `docs/07-handoff/operations-plan-reconciliation-2026-11-04.md`
 
 ## Ordered primary checkpoints
 
@@ -39,8 +41,8 @@ Read: `docs/07-handoff/owner-register-promoted-checkpoint.md`
 3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (checkpoint_passed).
 4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (checkpoint_passed).
 5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (checkpoint_passed).
-6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (current).
-7. **EX-07 — Remaining complete Charcoal journey parity** (queued).
+6. **EX-07 — Operations design adoption across implemented journeys** (current).
+7. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
 
 Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
 
@@ -150,11 +152,28 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 - Next action: Preserve verified exact original transport, distinct online cancellation and both request budgets. EX11 connects fictional working-day proof and EX09 resolves actual private authority/key/field/time gates.
 - Evidence: docs/07-handoff/offline-register-dispatch-checkpoint.md
 
-### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
+### EX-07 — Operations design adoption across implemented journeys
 
 Routing: primary / 6 / current.
+Dependencies: EX-01; EX-02; EX-10.
+Dependency gate: EX10/02/06/04/03 scoped outputs and closed staging proof retained. Safe online adoption reuses existing contracts; private EX11/09 activation remains separately gated. Exact reference fidelity, actual working coverage, per-role checks and Owner acceptance remain required.
+Findings: NR03; NR16.
+Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
+
+- Implementation: Partial. Delivered Operations shell and Owner Today preserved in combined ef73a36. Remaining journey adoption requires actual-source/reference comparison; no product changes in this reconciliation.
+- Local checks: Per-journey evidence and scoped Operations browser, navigation and geometry checks.
+- Deployment: Combined source ef73a36 verified at canonical staging with Owner Operations retained.
+- Hosted verification: Signed-in Owner Today and online attendance checked in EN/AR at 1600x900. Full per-role/journey parity remains partial.
+- Owner acceptance: per-journey approvals; not full redesign
+- Independent security: open
+- Next action: Read the pinned Operations contract and current source. Scope and compare Owner Today -> Calendar -> dated session -> register -> exact return, plus Players, at matching EN/AR state/theme/viewport; adopt already-approved patterns with before/after request and fidelity evidence. Preserve dirty input, current authority and original-operation recovery. Continue remaining implemented journeys in bounded batches; no new simulator, colour-only pass, private activation or access grant.
+- Evidence: docs/07-handoff/operations-plan-reconciliation-2026-11-04.md
+
+### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
+
+Routing: primary / 7 / queued.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Combined CI and closed hosted checkpoint passed. Reviewer/custody readiness and explicit private enablement precede hosted offline/device/recovery tests. Owner working acceptance pending.
+Dependency gate: Combined CI and closed hosted checkpoint retained. Independent reviewer/custody readiness and explicit private enablement precede actual offline/device/recovery tests. This open private gate does not block unrelated approved online Operations adoption; no acceptance or security waiver.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
@@ -164,25 +183,8 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 - Hosted verification: Closed checkpoint passed: real signed-in Owner Today and historical roster in EN/AR, no private action or worker/cache, three 503 endpoint gates, no register schema. Private working day still unverified.
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Resolve independent reviewer assignment and hosted wrapping-root custody, backup/rotation and recovery readiness using the prepared handoff. Private enablement requires independent disposition and separate authorization. Preserve approved scope and keep physical-device, provider-cost and Owner acceptance cases open.
+- Next action: Continue ready EX09 reviewer/custody/backup/rotation/recovery preparation alongside current EX07 online adoption. Private enablement needs independent disposition and separate authorization before hosted offline/device/recovery tests. Preserve all fictional and closed staging proofs; actual private working acceptance remains pending.
 - Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md
-
-### EX-07 — Remaining complete Charcoal journey parity
-
-Routing: primary / 7 / queued.
-Dependencies: EX-01; EX-11.
-Dependency gate: Retain existing approved/delivered redesign; use the EX11 accepted scoped working pattern before broader new adoption; per-role/state reviews remain.
-Findings: NR03; NR16.
-Design: Connected Charcoal proposal approved. Later Owner Operations design approved for the scoped shell and Today work..
-
-- Implementation: Partial. Owner Operations shell and Today preserved in the combined register candidate.
-- Local checks: Per-journey evidence and scoped Operations browser, navigation and geometry checks.
-- Deployment: Combined source ef73a36 verified at canonical staging with Owner Operations retained.
-- Hosted verification: Signed-in Owner Today and online attendance checked in EN/AR at 1600x900. Full per-role/journey parity remains partial.
-- Owner acceptance: per-journey approvals; not full redesign
-- Independent security: open
-- Next action: Retain deployed Owner Operations work when releasing register changes. Continue the remaining accepted redesign after EX-11 with signed-in exact-source and per-role evidence.
-- Evidence: design/operations-review/owner-today-batch.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

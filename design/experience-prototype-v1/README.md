@@ -1,5 +1,7 @@
 # AcademyOS complete local design review
 
+**Historical coverage reference.** Current visual/workflow adoption follows the [Operations contract](../../docs/03-design/operations-design-reference.md) and [full redesign plan](../../docs/06-delivery/full-experience-redesign.md). This older prototype remains coverage provenance for the generated registers; its fixtures, proposed future operations and old colours/geometry are not current business authority or implementation proof.
+
 23 October 2026. **All six design batches have artifacts and connected or explicitly policy-gated prototype paths. Rendered review and owner approval remain pending.** Functional application implementation is separate.
 
 Open [the prototype](prototype/index.html) or [the local preview](http://127.0.0.1:8765/prototype/index.html) while the server is running. Use the sidebar/review controls:

@@ -1,5 +1,7 @@
 # Test strategy, evidence and formal acceptance
 
+**Operations fidelity gate — 4 November 2026:** follow the [selected reference/adoption contract](../03-design/operations-design-reference.md) and [full redesign plan](full-experience-redesign.md). Compare reference and actual app at the same role, data state, locale, theme and viewport, including layout/density, typography, spacing, meaningful colours, real controls, focus, scroll/return and exceptional recovery. Record intentional adaptations and unresolved differences; a token test or screenshot replay cannot establish complete working-app parity. Preserve earlier functional approvals and independent security; EX-07 safe online adoption can proceed while private EX-11/EX-09 activation remains gated.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Use [local-data and sync plan](local-data-and-sync-plan.md) with the extended working-day cases. Required new scenarios: persistent cross-reload data, coherent/resumed bootstrap, no unchanged full redownload, deletion/epoch/cursor handling, local index coverage, key/quota/eviction, multi-tab leadership and version upgrades. Keep synthetic core/native reference/browser emulation/physical/API/DB/hosted/Owner/security evidence separate.

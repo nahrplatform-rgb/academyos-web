@@ -1,8 +1,16 @@
 # One application implementation plan
 
+## Current cross-plan authority — 4 November 2026
+
+Use the [Operations design reference/adoption contract](../03-design/operations-design-reference.md) and [full redesign plan](full-experience-redesign.md) for the connected experience. The Owner selected Operations with **light default, Charcoal alternative**, compact resizable panes, unified controls and useful data density. The exact versioned sample is the presentation reference. The complete review must be a signed-in working app using the real backend and dedicated fictional records within current authorization. A palette conversion or captured replay does not satisfy it.
+
+The [tracker](experience-execution.csv) now selects **EX-07 safe online adoption**, retaining completed EX-10/02/06/04/03 scoped checkpoints and the delivered Owner Operations shell/Today. Start with equivalent-state Calendar→session→register→return and Players comparison/adoption, then the remaining implemented journeys and role homes/calendar. EX-11 private working-day acceptance and EX-09 custody/independent review remain gated; unrelated authorized online redesign can proceed alongside. The [reconciliation receipt](../07-handoff/operations-plan-reconciliation-2026-11-04.md) explains this dependency correction. Per-journey implementation, verification, deployment and acceptance are not reset.
+
+The I0–I10 packages below retain the product's entire scope; they are not a claim of completion or a reason to rebuild earlier work. Existing implemented people, Guardian/Trainer appointments, scheduling/planning/publication/changes, attendance/corrections/QR and development feedback must be preserved and assessed from their receipts. Unbuilt finance, communications/media, Manager/Player operations and later expansion stay explicitly future with their policy gates. Persistent local data and scoped offline attendance are current cross-cutting architecture, not deferred merely because I10 also contains native expansion.
+
 **3November current checkpoint:** [EX-10 Owner offline-register review](offline-register-decision-design.md) is approved; [runtime readiness](../04-engineering/offline-register-runtime-readiness.md) now links positive Owner Chrome key/sample evidence and15disposable database replay/fence checks. The Owner now directs login-only device use without mandatory passkey setup; automatic protection, same-account recovery and private implementation still need proof. Follow the tracker; Owner alone performs release promotions.
 
-**4 November execution checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) is implemented and verified locally with fictional data. The [execution tracker](experience-execution.csv) now selects EX-11 for a connected Owner working-day proof. Actual private key custody, scope, fields, retention, security and working acceptance remain separate gates.
+**Retained 4 November checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) and the combined [closed staging verification](../07-handoff/owner-register-promoted-checkpoint.md) remain evidence for their exact scope. Private key custody, independent security, activation and working acceptance are separate gates; current overall priority is selected by the tracker above.
 
 ## Latest local-first direction — LF-v3,2November2026
 
@@ -17,9 +25,9 @@ Use the [working-behaviour contract](../03-design/academy-working-behavior-contr
 
 Owner clarified persistent permitted datasets across normal visits, progressive player-directory/month preparation and quiet change synchronization. This is now core experience architecture, not a memory-only summary pilot or an optional native-app prerequisite. Read [local-data and sync plan](local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md).
 
-Follow the single current row in [experience-execution.csv](experience-execution.csv): EX-10 revised local-data/access/transport design → EX-02 workspace → EX-06 durable repository → EX-04 resumable bootstrap/change sync → EX-03 original-operation recovery → EX-11 connected/reopened-local acceptance → EX-07 remaining Charcoal parity. EX-05/08/09 run alongside. Existing source, prior functional/visual approvals and release evidence remain.
+Follow the single current row in [experience-execution.csv](experience-execution.csv). Retain the EX-10/02/06/04/03 scoped outputs; EX-07 continues safe online Operations adoption while EX-11's private reopened-local gate stays open and EX-05/08/09 support affected work. The earlier LF-v2 ordering that held all redesign behind private enablement is superseded at this routing layer, without waiving a private dependency.
 
-The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommendations are superseded. LF-P01–LF-P06 exact field/device/access/retention/sync choices still need review; offline writes, finance, new roles, production, real data and access grants are not inferred. No runtime persistence exists from this documentation update. Older dated source/evidence notes below remain historical within their own scope.
+The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommendations are superseded. Later offline-register policy/design and one-register scope/recovery approvals remain recorded; remaining LF-P device/key/field/security and per-command choices are assessed in their current packets. Finance, new roles, production, real data and access grants are not inferred. This documentation update enables no private runtime. Older dated notes below remain historical within their own scope.
 
 
 ## The working registers
@@ -36,15 +44,15 @@ The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommenda
 
 Existing S01–S58 and J/AO/AT IDs are preserved. S59–S68 remain **proposed additive design IDs**, not silently approved catalog changes. IMP work-item IDs derive from the group's primary action (for example IMP-J02-A01); adding/reordering rows does not renumber them. Action suffixes introduced in the design pack remain proposed subdivisions unless already accepted by the M1 packet. New atomic business commands require their own reviewed action contract, even when one inventory row groups them.
 
-The68-row matrix is not68 implemented screens. All180 requirement rows remain visible, including cross-cutting requirements without a precise action join. Those explicitly require mapping before the dependent slice; they are not excluded or completed. Canonical status snapshots may contain older wording: they are quoted rather than silently corrected. Reconcile current evidence before relying on them.
+The68-row matrix is not68 implemented screens. All180 requirement rows remain visible, including cross-cutting requirements without a precise action join. Those explicitly require mapping before the dependent slice; they are not excluded or completed. Canonical status snapshots may contain older wording: they are quoted rather than silently corrected. Reconcile current evidence before relying on them. Matrix `prototype_reference` fields retain original screen-coverage provenance; use the Operations contract for current presentation authority, and link each implementation packet to the affected existing IDs. Do not rewrite historical functional approval into new visual acceptance.
 
-## Current implementation boundary
+## Retained initial implementation boundary —24 October2026
 
 The functional app has foundation and a bounded M1 academy admission/invitation/context/setup journey. The compact blue shared visual source has been applied locally to existing welcome/sign-in/M1 surfaces; build/typecheck/lint and31 unit tests passed, local production/development M1 browser regression and5 foundation E2E pass (24 October); shown compact-blue M1 visual design approved24 October; compact-blue M1 staging rollout b209acb and scoped authenticated rendering verified24 October. See [the exact source receipt](../07-handoff/compact-blue-design-foundation.md).
 
 The larger product prototypes are fictional local design models. Their state transitions, seeded roles, linked flags, dates, payments, uploads, notifications and job results are not app implementation. Do not transplant those helpers or sessionStorage state into real operations. S51–S58 service operations are not implemented merely because a temporary staging verification route exists. A Clerk account control is not a completed custom profile/recovery screen. M1 initial branch/sport is not full multi-branch/catalog/archive support.
 
-## Implementation sequence
+## Product work packages and retained initial sequence
 
 | Work package | Connected outcome | Dependencies / next gate |
 |---|---|---|
@@ -58,15 +66,15 @@ The larger product prototypes are fictional local design models. Their state tra
 | I7 — supporting operations | Communications; private media; support/internal notes; stock movements | Channel/consent/privacy/support/inventory policies; per-item partial recovery, private projections and durable job outcomes |
 | I8 — report/privacy lifecycle | Defined summaries → full-scope export/download/expiry; authority/hold/subsystem cleanup | Stable authoritative domain sources; consistent snapshot, complete pagination, actual artifact checks, policy/legal basis and no false erasure closure |
 | I9 — platform service operations | Read-only redacted inventory/health/freshness/impact → usage/cost provenance → incident/backup evidence | Explicit platform read capability; actual versus estimated/unknown observations; provider-read scopes. Administrative writes/purchases/restores require separately approved bounded actions |
-| I10 — offline / expansion / native | Accepted limited offline attendance, later advanced channels and iOS/Android priorities | D-011/D-018/D-020; physical-device storage/replay/upgrades, stable APIs and separate release acceptance. Retain R2/N1 scope without pretending it is current |
+| I10 — local-data / offline / expansion / native | Persistent permitted datasets and approved scoped offline-register work run across current packages; broader channels and iOS/Android remain later scope | Follow the current local-data/offline contracts, EX gates and accepted first-pilot rules; D-011/D-018/D-020 broader fields/commands/platforms remain separate. Physical-device storage/replay/upgrades, stable APIs and release acceptance are required. |
 
-Shared design, localization, performance/cost/recovery and security work accompany every package. They are not deferred to the last screen. Select a narrow approved vertical slice inside each package; this table is an order, not a deadline, release commitment or automatic authority for production changes.
+Shared design, localization, performance/cost/recovery, persistent-local architecture and security accompany every package. They are not deferred to the last screen. The tracker selects the actual next bounded slice across these retained packages; this initial package table is not a deadline, release commitment or authority for production changes.
 
 ## Shared library: actual versus proposed
 
-Actual source: `WorkspaceShell`, native `Button`, `Input`, `Select`, `StatusBadge`, semantic tokens and the existing reusable `TimezoneSelect`. These retain native form/ARIA/event/disabled/ref semantics; the shell has no membership authority. New domains reuse them and inspect actual existing source before adding a duplicate.
+Inspect current source first: shared shell/panes, layout preferences, theme toggle, native controls, scoped read ownership, review/recovery primitives and domain workspaces already exist beyond the initial list. The [Operations contract](../03-design/operations-design-reference.md) points to current seams and the Owner Today batch. Preserve native form/ARIA/event/disabled/ref semantics; the shell has no membership authority. Reuse compatible existing components rather than adding a second visual system.
 
-Proposed only: scoped directory/table/inspection, review dialog, operation receipt, independent region state, complete roster/attendance mark, correction diff, money/allocation after currency policy, per-item upload/job progress, observation/freshness/cost/impact/recovery evidence. Build them when a real repeated domain contract needs them. No monolithic form with many unrelated switches; domain behavior remains explicit. Every repeated element must state ownership, semantics, keyboard/phone/RTL and error/recovery behavior before being called accepted.
+The initial proposed inventory included directory/inspection, review, receipts, region states, roster and correction surfaces; several now exist in scoped domain implementations. Reassess current source/receipts before classifying one as missing. Unbuilt money/allocation, uploads/jobs and service-operation capabilities retain policy gates. No monolithic form with unrelated switches; every repeated element states ownership, semantics, keyboard/phone/RTL and error/recovery behavior before being called accepted.
 
 ## Required gates for every action
 
@@ -84,7 +92,7 @@ The three new CSVs are generated documentation joins by `scripts/design/build_im
 
 Validate with `python3 scripts/design/validate_implementation_register.py`. It checks identifiers, references, status separation and preservation against canonical/design inputs; it proves documentation structure only. Screen/action joins are scoped: finance/compensation/service loading rows may include several canonical families and must be narrowed before implementation. An unmapped row is a visible follow-up, not scope retirement.
 
-This planning update changes no functional app source, schema, account, provider, runtime, deployment or Git publication. Existing uncommitted visual source and design artifacts are preserved.
+The 4 November reconciliation changes documentation and versions the existing selected reference package. It changes no functional app source, schema, account, provider, runtime or deployment. Git publication is recorded separately after validation; prior source and design artifacts are preserved.
 
 ## Documentation validation receipt — 24 October 2026
 

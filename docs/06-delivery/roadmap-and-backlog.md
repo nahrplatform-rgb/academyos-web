@@ -1,6 +1,6 @@
 # Delivery roadmap and dependency-ordered backlog
 
-**4 November execution checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) is implemented and verified locally with fictional data. The [execution tracker](experience-execution.csv) now selects EX-11 for a connected Owner working-day proof. Actual private key custody, scope, fields, retention, security and working acceptance remain separate gates.
+**Current direction — 4 November 2026:** the [Operations contract](../03-design/operations-design-reference.md) and [full redesign plan](full-experience-redesign.md) govern the selected light-default/Charcoal-alternative working experience. Preserve implemented journeys and Owner shell/Today. The [tracker](experience-execution.csv) now selects EX-07 safe online Calendar→session→register→return and Players adoption; EX-11 private acceptance and EX-09 custody/independent review stay separately gated. [Reconciliation receipt](../07-handoff/operations-plan-reconciliation-2026-11-04.md). Existing source/local/hosted/Owner evidence is retained, not reset.
 
 ## Latest local-first direction — LF-v3,2November2026
 
@@ -13,16 +13,16 @@ Use the [working-behaviour contract](../03-design/academy-working-behavior-contr
 
 Owner clarified persistent permitted datasets across normal visits, progressive player-directory/month preparation and quiet change synchronization. This is now core experience architecture, not a memory-only summary pilot or an optional native-app prerequisite. Read [local-data and sync plan](local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md).
 
-Follow the single current row in [experience-execution.csv](experience-execution.csv): EX-10 revised local-data/access/transport design → EX-02 workspace → EX-06 durable repository → EX-04 resumable bootstrap/change sync → EX-03 original-operation recovery → EX-11 connected/reopened-local acceptance → EX-07 remaining Charcoal parity. EX-05/08/09 run alongside. Existing source, prior functional/visual approvals and release evidence remain.
+Follow the single current row in [experience-execution.csv](experience-execution.csv). Completed EX-10/02/06/04/03 scoped checkpoints remain; safe online EX-07 adoption proceeds while EX-11's private reopened-local acceptance stays gated, with EX-05/08/09 supporting affected batches. The earlier sequence placing all redesign after private enablement is superseded without waiving that private gate.
 
 The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommendations are superseded. LF-P01–LF-P06 exact field/device/access/retention/sync choices still need review; offline writes, finance, new roles, production, real data and access grants are not inferred. No runtime persistence exists from this documentation update. Older dated source/evidence notes below remain historical within their own scope.
 
 
-## Current bounded slice — 26 October 2026
+## Historical bounded slice — 26 October 2026
 
 The approved Owner-only I3a full-period/weekday-time draft-program implementation is locally verified. [Current source/evidence and separate rollout/acceptance status](../07-handoff/i3a-program-implementation.md). Assignments, enrollment/capacity, publication and attendance remain later steps; no whole scheduling requirement is closed.
 
-## Current tracked implementation plan — 24 October 2026
+## Historical initial implementation plan — 24 October 2026
 
 Use [the unified app implementation plan](app-implementation-plan.md), [screen register](app-implementation-screen-matrix.csv), [action register](app-implementation-action-matrix.csv) and [requirement joins](app-implementation-requirement-links.csv) for the next slices. These connect the compact-blue design to actual source/evidence, preserve all scope and keep design, implementation, verification, deployment and owner approval separate. The older proposed backlog below remains historical planning; assess existing M1 work before repeating it.
 
@@ -30,7 +30,7 @@ The objective is a fully working, accepted web application against an agreed rel
 
 ## Delivery approach
 
-Current M1 work item: [repository assessment and first decision/design packet](onboarding-m1-decision-design-packet.md), with a connected synthetic prototype. Policy/design accepted by Moamen on 22 October 2026; [M1 implementation evidence](../07-handoff/onboarding-m1-implementation.md) records source/local progress and pending staging configuration, privileged provisioning, hosted verification and journey acceptance.
+Initial M1 work item: [repository assessment and first decision/design packet](onboarding-m1-decision-design-packet.md), with a connected synthetic prototype. Policy/design accepted by Moamen on 22 October 2026; [M1 implementation evidence](../07-handoff/onboarding-m1-implementation.md) retains its dated progress. Later receipts and the current master plan/tracker supersede its old next-step status. Do not rebuild infrastructure or repeat completed M1 work from this initial backlog.
 
 Build vertical slices that include screen, permission, database operation, audit, recovery and tests. Do not finish a large collection of disconnected screens and then add the business rules. Resolve the policy for the next slice before its implementation; unrelated unresolved future choices do not stop safe foundation work.
 
