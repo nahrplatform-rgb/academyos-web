@@ -1,0 +1,101 @@
+"""Fictional Owner working-day database and signed RPC transport fixture."""
+import datetime
+import json
+import re
+import runpy
+import subprocess
+import sys
+import uuid
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+ROOT = Path(__file__).resolve().parents[2]
+module = runpy.run_path(str(ROOT / 'scripts/experience-projections/test_boundary.py'))
+Boundary = module['ExperienceBoundary']
+dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.py'))
+literal = dispatch['literal']
+ROUTES = {
+    'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
+    'q6_read_v1', 'x17_register_download_v1', 'x18_owner_register_dispatch_v1',
+}
+
+
+def seed(test):
+    now = datetime.datetime.now(ZoneInfo('Africa/Cairo'))
+    first = now.date() + datetime.timedelta(days=int(now.hour >= 22))
+    last = first + datetime.timedelta(days=39)
+    academy, branch = test.academy()
+    other, _ = test.academy('user_other_owner')
+    program = test.ready(academy, {
+        'name': 'Fictional working-day program', 'from': str(first), 'to': str(last),
+        'rules': [{'day': n, 'start': '22:30', 'end': '23:30'} for n in range(7)],
+    })
+    program_id = literal(program['id'])
+    dates = json.loads(test.sql(
+        f"select json_agg(local_date order by local_date) from academy.training_dates where program_id={program_id}"))
+    assert len(dates) == 40
+    test.sql("insert into academy.players(academy_id,branch_id,display_name,normalized_name) "
+             f"select {literal(academy)},{literal(branch)},'لاعب خيالي للاختبار في الأكاديمية '||n,"
+             "'synthetic owner working day '||n from generate_series(1,18)n")
+    players = json.loads(test.sql(f"select json_agg(id order by id) from academy.players where academy_id={literal(academy)}"))
+    staff, _ = test.staff(academy, branch)
+    for day in dates[:2]:
+        plan = json.loads(test.plan(academy, program, capacity=18, trainer=staff, add=players, day=day))
+        assert plan['version'] == 1
+    job = json.loads(test.sql(f"select public.s8_create_v1({literal(academy)},{program_id},"
+                              f"{literal(uuid.uuid4())},'publish',{literal(dates[0])},{literal(dates[1])},"
+                              "'{0,1,2,3,4,5,6}')", 'user_owner'))
+    assert test.mutate(academy, test.prepare_pub(academy, job), 'activate')['state'] == 'committed'
+    events = json.loads(test.sql(
+        f"select json_agg(json_build_object('event',event_id,'day',day) order by day) "
+        f"from academy.publication_heads where academy_id={literal(academy)}"))
+    assert len(events) == 2
+    for event in events:
+        # Disposable timing setup. Canonical dispatch still uses the real server clock.
+        test.retime(event['event'], 'clock_timestamp()')
+    return dict(academy=academy, otherAcademy=other, program=program['id'],
+                dates=len(dates), events=events, players=len(players))
+
+
+def rpc(test, command):
+    name = command['name']
+    assert name in ROUTES
+    args = []
+    for key, value in command['args'].items():
+        assert re.fullmatch(r'[a-z_]+', key)
+        encoded = 'null' if value is None else literal(json.dumps(value)) + '::jsonb' if isinstance(value, (dict, list)) else literal(value)
+        args.append(f'{key}=>{encoded}')
+    claims = json.dumps(dict(iss='https://immune-grizzly-7875.clerk.accounts.dev',
+                             sub=command['subject'], role='authenticated'))
+    headers = json.dumps({'x-academyos-gateway': command['proof']})
+    query = ("\\set VERBOSITY verbose\nbegin;set local role authenticated;"
+             f"set local request.jwt.claims={literal(claims)};"
+             f"set local request.path='/rpc/{name}';set local request.method='POST';"
+             f"set local request.headers={literal(headers)};select public.{name}({','.join(args)});commit;")
+    result = subprocess.run(test.base, input=query, text=True, capture_output=True)
+    if result.returncode:
+        match = re.search(r'ERROR:\s+([A-Z0-9]{5}):', result.stderr)
+        return {'error': match.group(1) if match else 'XX000'}
+    return {'data': json.loads(result.stdout.strip())}
+
+
+if __name__ == '__main__':
+    Boundary.setUpClass()
+    try:
+        for filename in ('20261103165604_owner_register_download_contract.sql',
+                         '20261104002448_owner_register_original_dispatch.sql'):
+            Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
+        test = Boundary()
+        print(json.dumps({'ready': seed(test)}), flush=True)
+        for line in sys.stdin:
+            command = json.loads(line)
+            if command['action'] == 'close':
+                break
+            try:
+                value = rpc(test, command) if command['action'] == 'rpc' else dispatch['execute'](test, command)
+                print(json.dumps({'id': command['id'], 'value': value}), flush=True)
+            except Exception as error:
+                print(json.dumps({'id': command['id'], 'error': type(error).__name__ + ':' + command['action']}),
+                      flush=True)
+    finally:
+        Boundary.tearDownClass()

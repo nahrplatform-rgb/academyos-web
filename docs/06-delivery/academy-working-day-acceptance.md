@@ -1,6 +1,6 @@
 # Academy working-day pilot and acceptance gate
 
-**4 November readiness:** The [inactive EX-03 dispatch checkpoint](../07-handoff/offline-register-dispatch-checkpoint.md) provides component evidence for WD-12 and the Owner analogues of WD-52/54–56. EX-11 now owns connected Owner verification. The 57-case register keeps its existing acceptance states.
+**4 November readiness:** The [EX-11 connected fictional Owner run](../07-handoff/owner-working-day-fixture.md) now connects real navigation, preparation, offline restart and canonical original dispatch in a disposable app. The [EX-09 private-release choices](../04-engineering/owner-register-private-readiness.md) are ready for review. The 57-case register keeps its existing acceptance states.
 
 ## Latest local-first direction — LF-v3,2November2026
 

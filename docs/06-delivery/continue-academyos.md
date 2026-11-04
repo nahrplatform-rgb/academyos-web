@@ -24,11 +24,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Prove the connected fictional Owner working day in a running app using the existing repository, coherent prepare and exact original dispatch. Cover first prepare, offline reopen/capture, restart, reconnect, confirmation and scope cleanup. Prepare exact EX09 current identity/key custody/field/time/recovery decisions and keep private activation gated.
+Next action: Review the exact EX-09 personal-device, one-roster fields, authenticated key custody, verification-time and recovery-authority choices. Preserve the connected fictional proof and proceed with authorized inactive engineering only until dependent decisions and security readiness permit a private pilot.
 
-Scoped dependency gate: EX02/06/04/03 scoped checkpoints passed. Synthetic connected proof may proceed. Actual private enablement requires reviewed EX09 scope, key custody, field/retention/time and independent security readiness. No blanket role or capability approval.
+Scoped dependency gate: Scoped connected fictional proof passed. Private enablement requires reviewed EX-09 scope, real current identity/key custody, field/retention/time and independent security readiness; actual Clerk/hosted, broader device and other roles remain open.
 
-Read: `docs/06-delivery/academy-working-day-acceptance.md`
+Read: `docs/07-handoff/owner-working-day-fixture.md`
 
 ## Ordered primary checkpoints
 
@@ -152,18 +152,18 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: EX02/06/04/03 scoped checkpoints passed. Synthetic connected proof may proceed. Actual private enablement requires reviewed EX09 scope, key custody, field/retention/time and independent security readiness. No blanket role or capability approval.
+Dependency gate: Scoped connected fictional proof passed. Private enablement requires reviewed EX-09 scope, real current identity/key custody, field/retention/time and independent security readiness; actual Clerk/hosted, broader device and other roles remain open.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
-Design: Owner-directed durable local-data target;LF-v2 bootstrap/reopen/change/coverage/storage/access cases planned;exact policy/design and runtime evidence pending.
+Design: Connected read/preparation and first Owner offline-register designs approved; exact private release choices proposed in EX-09.
 
-- Implementation: Working-day acceptance extended for persistent local replicas;runtime pilot pending
-- Local checks: 57 planned cases including7 LF-v3 period/offline-capture/conflict/deadline/logout/clock/replay cases;existing synthetic read/online seam tests do not promote operating cases
-- Deployment: no new pilot deployment claimed
-- Hosted verification: not_run_as_connected_working_day;positive role/access/device limits remain
-- Owner acceptance: not_requested_for_unimplemented_pilot
+- Implementation: Connected fictional Owner fixture implemented with actual Home/Calendar/dated planning, encrypted preparation, offline capture, restart and signed dispatch; product private runtime disabled
+- Local checks: 8 connected Next/Chromium/PG17 checks passed: EN desktop and AR390px;18-player register in40-date program;0 API requests offline; exact lost-reply replay produces1 commit; deadline and logout recovery tested;57 broader case statuses retained
+- Deployment: Local test fixture only; no new pilot deployment
+- Hosted verification: Private pilot not hosted or verified; prior online staging evidence retained
+- Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Prove the connected fictional Owner working day in a running app using the existing repository, coherent prepare and exact original dispatch. Cover first prepare, offline reopen/capture, restart, reconnect, confirmation and scope cleanup. Prepare exact EX09 current identity/key custody/field/time/recovery decisions and keep private activation gated.
-- Evidence: docs/06-delivery/academy-working-day-acceptance.md
+- Next action: Review the exact EX-09 personal-device, one-roster fields, authenticated key custody, verification-time and recovery-authority choices. Preserve the connected fictional proof and proceed with authorized inactive engineering only until dependent decisions and security readiness permit a private pilot.
+- Evidence: docs/07-handoff/owner-working-day-fixture.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
 
@@ -224,11 +224,11 @@ Dependency gate: Exact policies needed for current LF-v2 local read pilot;curren
 Findings: NR15; G08.
 Design: Durable local-data target requested across app;connected design approved;automatic inactivity lock rejected;remaining exact LF-P choices pending;WB-P v1 superseded.
 
-- Implementation: not_started
-- Local checks: not_run
+- Implementation: Concrete proposed private-release contract drafted; no production key custody or scope implementation
+- Local checks: EX-11 synthetic connected original-account recovery passed; actual Clerk/authority/key/time and platform cases pending
 - Deployment: not_deployed
 - Hosted verification: not_verified
 - Owner acceptance: First Owner offline-register atomic/original-ID/current-check/Needs review policy and connected design approved;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;concrete device/key/field recovery readiness and security remain separate
 - Independent security: open
-- Next action: Support EX11 with a concrete authenticated server key custody and release contract, current Owner/device/epoch binding, exact field/retention/time lifecycle and same-account recovery proof. Establish withdrawal versus membership denial containment. No extra credential or idle lock.
-- Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md
+- Next action: Review the named personal-device scope, one-roster fields, key custody, verification-time and same-account recovery choices before dependent private work. Reuse existing authentication and test the signed current-Owner boundary; retain no extra credential or idle lock.
+- Evidence: docs/04-engineering/owner-register-private-readiness.md
