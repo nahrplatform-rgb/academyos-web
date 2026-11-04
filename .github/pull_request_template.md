@@ -16,6 +16,8 @@ For currently authorized synthetic staging, record independent human/external se
 
 ## Validation and evidence
 
+For delegated work, follow docs/00-governance/ai-delegation-and-cost-policy.md. State configured coordinator/worker models and effort if known, active peak (normally zero/one, maximum two), scope/resource ownership, validation and repairs; distinguish measured usage/savings from unavailable or modeled values. Explain serial/script execution briefly when no helper was appropriate. No new benchmark or human-audit gate is created.
+
 Record meaningful checks with actual results, build/environment and limitations. Separate local, hosted, provider and physical-device evidence. List failed, skipped or unavailable checks explicitly. Include applicable usability, speed, correctness, cost and recovery results.
 
 ## Release and recovery

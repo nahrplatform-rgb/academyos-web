@@ -61,6 +61,8 @@ PYSA read-only references: platform-description/current-surface reference and Ac
 
 ## Verification and rollout sequence
 
+All adoption batches follow the [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md): bounded Terra work against settled reference/contract, coordinator-owned composition/authority/integration, scripts for generators/checks, zero/one helper normally and two maximum. Keep one owner of shared shell, real browser and generated captures. Model choice does not relax visual fidelity, meaningful assertions, current permissions or original-operation recovery.
+
 1. Retain the completed 29 October connected design review and 3–4 November Operations selection/refinements. Pin the selected reference and reconcile its current source; do not replace it with a new aesthetic or generic captured replay.
 2. Preserve delivered Owner shell/Today. Under EX-07 with EX-12, prepare the distinct Platform/Academy test contexts and exact controlled-role changes, then adopt the two connected Owner journeys using existing current-authority data and recovery. Start Platform admission/appointment/status and Academy Today→Calendar→dated session→attendance→return plus Players. Independent ready UI work proceeds while any actual new account/grant/transfer change awaits its own operational authorization.
 3. Extend the same system through program creation/planning/publication, entry/setup/admission, people/appointments, changes/corrections/QR/development and Trainer/Guardian homes/calendar. Keep the full connected working review in one coherent app while delivery remains bounded. Re-capture the factual review after actual UI changes.

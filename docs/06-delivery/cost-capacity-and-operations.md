@@ -16,6 +16,8 @@ This is a planning cost model, not a live billing statement. Selected staging bi
 
 ## Cost model
 
+AI development cost is separate from application runtime and customer pricing. The [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) owns model routing, context/repair overhead, the dated official-rate snapshot and bounded concurrency. It does not promise half whole-project cost or twice the five-hour allowance. Measure verified delivered work including coordinator, workers, integration and repairs; record models/effort, active peak, wall time, repair cycles and actual available usage in the batch receipt. If usage attribution or a comparable baseline is unavailable, say unmeasured. Do not infer a worker bill from account-wide limits shared by other chats. No paid telemetry, credential setup, upgrade or automatic billing polling is authorized.
+
 Monthly cost = fixed organization/seats/plans + database compute/disk/recovery + object storage/egress + hosting compute/build/bandwidth + identity usage/features + Redis commands + job deliveries/retries + email/messages + monitoring/log retention + backup copies + payment fees + applicable taxes. Distinguish customer charges from provider operating cost.
 
 | Service | Main cost driver | Control / decision |

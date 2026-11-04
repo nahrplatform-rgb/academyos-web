@@ -75,6 +75,8 @@ The original nine work IDs and EX-10/EX-11 checkpoints remain, with additive EX-
 
 ## Continuation and checkpoint maintenance
 
+Apply the [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) within each existing batch, not as a new stage: direct scripts for mechanical work, a bounded explicitly configured Terra helper where worthwhile, default zero/one and maximum two active subagents with no nested spawning. The coordinator owns decisions/integration and shared stateful resources. Add a proportional model/count/rationale/checks/repair/available-usage note to the normal receipt; unobserved savings stay unmeasured. This does not reorder EX-07/EX-12 or stall work for a benchmark. [Policy checkpoint](../07-handoff/ai-delegation-policy-2026-11-04.md).
+
 1. Read the single `current` row, its latest next action, this contract and applicable evidence. Historical packets explain prior results; their old next-step text cannot override current routing.
 2. Name the bounded outcome and existing IMP/J/S/AO/AT/L/SEC joins. Reuse compatible baseline results and inspect current source; do not repeat an investigation-only checkpoint without a new question or changed evidence.
 3. Prepare concrete decisions/design only where dependent behaviour actually changes. The engineering choice of a library is not a business decision; private display/persistence/retention and new visibility rules are. No elapsed time or generated field implies consent.
@@ -95,6 +97,7 @@ The original nine work IDs and EX-10/EX-11 checkpoints remain, with additive EX-
 | Operations reference | Selected source and Owner-turn ledger, current presentation values, equivalent-state fidelity and full working-review criteria |
 | Staging delivery/review policy | Current independent-review deferral and preserved engineering/environment/authorization boundaries |
 | Dedicated-role plan | Exact target mailboxes/roles, controlled cleanup and unexecuted mutation authority, role-first journey/evidence sequence |
+| AI delegation/cost policy | Model/task routing, bounded concurrency, file/resource ownership, repair/escalation and honest engineering usage evidence |
 | Findings + service impact | Problems, declared closure scope and measured/modeled/unmeasured cost facts |
 | Action/loading/security matrices | Existing canonical joins, resource bounds and affected authority/acceptance coverage |
 | Dated implementation/pilot packet | Actual source/change/test/rollout results and limitations |

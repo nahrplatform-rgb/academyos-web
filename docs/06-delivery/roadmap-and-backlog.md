@@ -32,6 +32,8 @@ The objective is a fully working, accepted web application against an agreed rel
 
 ## Delivery approach
 
+Use the [bounded Sol/Terra delivery method](../00-governance/ai-delegation-and-cost-policy.md) throughout these work packages: scripts first, selective explicitly configured Terra helpers, zero/one by default and two maximum with no nested agents. Preserve one coordinator for scope, difficult boundaries and integration; retain actual validation and honest usage evidence. This is cross-cutting delivery practice, not an added feature milestone or a reason to defer the two Owner journeys.
+
 Initial M1 work item: [repository assessment and first decision/design packet](onboarding-m1-decision-design-packet.md), with a connected synthetic prototype. Policy/design accepted by Moamen on 22 October 2026; [M1 implementation evidence](../07-handoff/onboarding-m1-implementation.md) retains its dated progress. Later receipts and the current master plan/tracker supersede its old next-step status. Do not rebuild infrastructure or repeat completed M1 work from this initial backlog.
 
 Build vertical slices that include screen, permission, database operation, audit, recovery and tests. Do not finish a large collection of disconnected screens and then add the business rules. Resolve the policy for the next slice before its implementation; unrelated unresolved future choices do not stop safe foundation work.

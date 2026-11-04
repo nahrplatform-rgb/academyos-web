@@ -18,6 +18,14 @@ assert 'EX-12' in ids, 'Dedicated-role preparation/verification must remain trac
 staging_policy = ROOT / 'docs/00-governance/staging-delivery-and-review-policy.md'
 role_plan = ROOT / 'docs/06-delivery/staging-role-separation-plan.md'
 assert staging_policy.is_file() and role_plan.is_file(), 'Missing current review/role policy records'
+ai_policy = ROOT / 'docs/00-governance/ai-delegation-and-cost-policy.md'
+assert ai_policy.is_file(), 'Missing bounded AI delegation/cost policy'
+for path in ['AGENTS.md', 'README.md', 'docs/00-governance/engineering-charter.md',
+             'docs/06-delivery/app-implementation-plan.md', 'docs/06-delivery/full-experience-redesign.md',
+             'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/experience-execution.md',
+             'docs/06-delivery/cost-capacity-and-operations.md', 'docs/06-delivery/test-strategy-and-acceptance.md',
+             'docs/07-handoff/start-here-for-builders.md', 'docs/07-handoff/setup-index.md']:
+    assert ai_policy.name in (ROOT / path).read_text(), f'Missing AI execution policy pointer: {path}'
 for path in ['AGENTS.md', 'README.md', 'docs/00-governance/engineering-charter.md',
              'docs/06-delivery/app-implementation-plan.md', 'docs/06-delivery/full-experience-redesign.md',
              'docs/06-delivery/experience-execution.md', 'docs/07-handoff/start-here-for-builders.md']:
