@@ -1,5 +1,7 @@
 # AcademyOS persistent local data and quiet synchronization plan
 
+**4 November hosted checkpoint.** The [Owner-promoted combined source](../07-handoff/owner-register-promoted-checkpoint.md) passed closed-pilot staging checks. The next gate is hosted key custody and independent review before separately authorized private enablement. The permitted local-data target and earlier approvals retain their recorded scope.
+
 **3November connected-write checkpoint:** [Owner offline-register preview and traceability](offline-register-decision-design.md) now covers the accepted atomic/original-ID/current-check/retained-recovery rules. Connected write design is now approved; policy/read-design approvals remain. Follow the [runtime/key readiness packet](../04-engineering/offline-register-runtime-readiness.md) before private enablement. No private runtime is enabled.
 
 **4 November scoped readiness.** The [gated Owner workspace and startup checkpoint](../07-handoff/owner-register-workspace-checkpoint.md) passed local integration and account-wide sign-out checks for the [approved one-register scope](../04-engineering/owner-register-private-readiness.md). It uses the EX-04 transfer, EX-06 storage and EX-03 original dispatch. Prepare synthetic hosted validation and the independent security handoff before any private activation. Broader datasets and roles have separate gates.

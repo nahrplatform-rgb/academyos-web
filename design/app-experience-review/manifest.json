@@ -1,6 +1,6 @@
 {
-  "source": "6c8d517f1555644251a2a23d6d642c421049c7df",
-  "generatedAt": "2026-11-04T02:20:14.026Z",
+  "source": "9df9bb4b1893d1361ab225d633ca043bb2cd69ca",
+  "generatedAt": "2026-11-04T02:45:42.696Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -80,7 +80,7 @@
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
-    "docs/03-design/screen-data-loading-matrix.csv": "1be036d67f74ee90284c38526057bedb6beb2875e7d7b8d4ff14370ca06d5682",
+    "docs/03-design/screen-data-loading-matrix.csv": "f243740a8327b70c3c12fee740bb3b961bd1498c50ba03e72eb77e6c7a5637d4",
     "docs/04-engineering/journey-security-matrix.csv": "c28b2fe687c8856ba06d08be1a94e6d73d4a712dd8a210d380108fa4a0e505bb",
     "docs/06-delivery/app-implementation-action-matrix.csv": "ae302ab7c435666ef157dc9202e12d696106df6cce568a3f28efdbb66f7927b6",
     "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
@@ -109,7 +109,7 @@
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
   "capturePackSha256": "69f27d7c77a60824d281066309eeacfe9d51911605062e2ae4459a92e68c000f",
-  "htmlSha256": "343358e2c6d55da91a0cea59c896c984b6d6da2cd387f7b3c8af15a67201e41b",
+  "htmlSha256": "eae9a7e8e7c3c1ca3490dcbcc33c40afe9d554359f2868656edaecc06529d64d",
   "frames": 1069,
   "transitions": 1070,
   "sourceFiles": 76,

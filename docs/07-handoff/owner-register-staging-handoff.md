@@ -4,9 +4,9 @@
 
 ## Checked combined candidate
 
-Both Foundation runs passed for combined code `ef73a36537228461f80aecf1084bd1429b2ebb8c`. Vercel reports [deployment dpl_njj5t3tPpdq4tyXp68rUBWcox27C](https://vercel.com/academy-os2/academyos-web/njj5t3tPpdq4tyXp68rUBWcox27C) Ready as a Preview. This is the pinned code candidate for Owner promotion to `staging.academy.nahr.dev`. Later documentation-only commits record this result and do not replace the selected code build. [Delivery receipt](evidence/owner-register-staging-delivery-2026-11-04.json)
+Both Foundation runs passed for combined code `ef73a36537228461f80aecf1084bd1429b2ebb8c`. The Owner promoted that source and Vercel rebuilt it as `dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM` on the canonical staging alias. The [closed staging checkpoint](owner-register-promoted-checkpoint.md) verifies the source, EN/AR Owner views and disabled private endpoints. The original preview is retained in the [delivery receipt](evidence/owner-register-staging-delivery-2026-11-04.json).
 
-## Verified release state
+## Pre-promotion observations
 
 | Check | Observation |
 | --- | --- |

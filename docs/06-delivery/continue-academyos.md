@@ -26,11 +26,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
+Next action: Resolve independent reviewer assignment and hosted wrapping-root custody, backup/rotation and recovery readiness using the prepared handoff. Private enablement requires independent disposition and separate authorization. Preserve approved scope and keep physical-device, provider-cost and Owner acceptance cases open.
 
-Scoped dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
+Scoped dependency gate: Combined CI and closed hosted checkpoint passed. Reviewer/custody readiness and explicit private enablement precede hosted offline/device/recovery tests. Owner working acceptance pending.
 
-Read: `docs/07-handoff/owner-register-staging-handoff.md`
+Read: `docs/07-handoff/owner-register-promoted-checkpoint.md`
 
 ## Ordered primary checkpoints
 
@@ -154,18 +154,18 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
+Dependency gate: Combined CI and closed hosted checkpoint passed. Reviewer/custody readiness and explicit private enablement precede hosted offline/device/recovery tests. Owner working acceptance pending.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
 - Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
 - Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
-- Deployment: Combined code ef73a36 preview dpl_njj5t3tPpdq4tyXp68rUBWcox27C Ready. Both exact-source Foundation runs passed. Awaiting Owner promotion to staging.
-- Hosted verification: Canonical alias and public route behavior verified on 56736d8. Combined closed smoke and private runtime still pending.
+- Deployment: Owner-promoted ef73a36 verified Ready at canonical staging on dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM. Private activation remains gated.
+- Hosted verification: Closed checkpoint passed: real signed-in Owner Today and historical roster in EN/AR, no private action or worker/cache, three 503 endpoint gates, no register schema. Private working day still unverified.
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
-- Evidence: docs/07-handoff/owner-register-staging-handoff.md
+- Next action: Resolve independent reviewer assignment and hosted wrapping-root custody, backup/rotation and recovery readiness using the prepared handoff. Private enablement requires independent disposition and separate authorization. Preserve approved scope and keep physical-device, provider-cost and Owner acceptance cases open.
+- Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
 
@@ -177,8 +177,8 @@ Design: Connected Charcoal proposal approved. Later Owner Operations design appr
 
 - Implementation: Partial. Owner Operations shell and Today preserved in the combined register candidate.
 - Local checks: Per-journey evidence and scoped Operations browser, navigation and geometry checks.
-- Deployment: Owner Operations source 56736d8 verified at the existing staging alias. Combined candidate separate.
-- Hosted verification: Exact Operations source and process availability verified. Combined runtime and full parity pending.
+- Deployment: Combined source ef73a36 verified at canonical staging with Owner Operations retained.
+- Hosted verification: Signed-in Owner Today and online attendance checked in EN/AR at 1600x900. Full per-role/journey parity remains partial.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: open
 - Next action: Retain deployed Owner Operations work when releasing register changes. Continue the remaining accepted redesign after EX-11 with signed-in exact-source and per-role evidence.
@@ -212,7 +212,7 @@ Design: measurement profiles required.
 - Implementation: not_applicable
 - Local checks: partial_baseline
 - Deployment: not_applicable
-- Hosted verification: partial_baseline
+- Hosted verification: Closed ef73a36 staging source, Owner EN/AR, public shell, private endpoint gates and schema absence verified. Private roles, percentiles and provider cost remain open.
 - Owner acceptance: not_applicable
 - Independent security: open
 - Next action: Measure first preparation versus reopened local stores,unchanged manifests,changed transfers,local queries,save/recovery and device/scope/storage cases per batch;preserve source/provider/role/physical limits
@@ -222,15 +222,15 @@ Design: measurement profiles required.
 
 Routing: supporting / 3 / supporting.
 Dependencies: none declared.
-Dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
+Dependency gate: Closed staging proof passed. Independent reviewer, wrapping-root custody and explicit private enablement remain required.
 Findings: NR15; G08.
 Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
 - Implementation: Gated Owner workspace, explicit device preparation, public offline startup and account-wide cleanup use the registered key, transfer and dispatch lifecycle.
 - Local checks: Seven connected workspace cases and 15 registered lifecycle cases pass with Chromium, Next and PG17. Fixture identity and provider adapters. No real Clerk or hosted custody proof.
-- Deployment: Combined code ef73a36 preview dpl_njj5t3tPpdq4tyXp68rUBWcox27C Ready. Both exact-source Foundation runs passed. Awaiting Owner promotion to staging.
-- Hosted verification: Read-only migration and catalog absence verified. Private identity, device and custody cases pending.
+- Deployment: Owner promoted ef73a36 rebuilt as dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM. Private register endpoints closed, four migrations pending.
+- Hosted verification: Canonical source, gate responses, migration and catalog absence verified. Hosted private identity, device, key-custody and recovery cases pending.
 - Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
 - Independent security: open
-- Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
-- Evidence: docs/07-handoff/owner-register-staging-handoff.md
+- Next action: Resolve independent reviewer assignment and hosted wrapping-root custody, backup/rotation and recovery readiness using the prepared handoff. Private enablement requires independent disposition and separate authorization. Preserve approved scope and keep physical-device, provider-cost and Owner acceptance cases open.
+- Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md
