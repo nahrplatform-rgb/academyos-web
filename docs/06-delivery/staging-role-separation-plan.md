@@ -4,6 +4,8 @@
 
 Read [the staging delivery/review policy](../00-governance/staging-delivery-and-review-policy.md), [Operations reference](../03-design/operations-design-reference.md), [master plan](app-implementation-plan.md) and [tracker](experience-execution.csv).
 
+**4 November execution follow-up:** [SELECT-only preflight and exact cleanup dependencies](../07-handoff/staging-role-preflight-2026-11-04.md) supersede the inspection-not-started status below. Current roles/Gmail login are partially verified; iCloud's current separate session and local pending work are not. No grant, ending, transfer, purge or reset ran; Gmail remains A's sole Owner. Earlier planning tables stay historical, not new passes.
+
 ## Target personas
 
 | Sign-in email | Intended active staging role | Journey to demonstrate |

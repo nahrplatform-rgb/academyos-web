@@ -118,6 +118,50 @@ h1[tabindex]:focus { outline: none; }
   .admission-detail { padding: 0; }
 }
 
+/* Platform admission extends the selected Operations directory pattern. */
+.platform-admission .admission-directory > .section-heading { background: transparent; padding: 0; gap: 12px; }
+.platform-admission .admission-directory > .section-heading h2 { font-size: 17px; font-weight: 620; }
+.platform-admission .admission-hint { margin-block: 8px 16px; font-size: 13px; }
+.admission-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 16px; }
+.admission-filters button { flex: 1 1 145px; justify-content: space-between; gap: 10px; min-height: 48px; padding: 10px 12px; text-align: start; }
+.admission-filters strong { font-size: 18px; font-variant-numeric: tabular-nums; }
+.admission-filters button[aria-pressed="true"] { background: var(--gold-bg); color: var(--gold); border-color: var(--gold); }
+.admission-search { max-width: 460px; }
+.admission-search label { display: block; margin-block-end: 6px; font-size: 13px; font-weight: 600; }
+.admission-coverage,.admission-result-count { color: var(--muted); font-size: 12px; margin-block: 8px; }
+.admission-result-count { margin-block-end: 16px; }
+.platform-admission .admission-table { font-size: 13px; }
+.platform-admission .admission-table th:first-child { width: 33%; }
+.platform-admission .admission-table :is(th,td) { padding: 12px 9px; }
+.platform-admission .admission-table .inspected { background: var(--gold-bg); box-shadow: inset 3px 0 var(--gold); }
+.platform-admission [dir="rtl"] .admission-table .inspected { box-shadow: inset -3px 0 var(--gold); }
+.admission-status { display: inline-block; max-width: 100%; border-radius: 5px; padding: 3px 7px; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.admission-status[data-tone="neutral"] { background: var(--subtle); color: var(--muted); }
+.admission-status[data-tone="success"] { background: var(--green-bg); color: var(--green); }
+.admission-status[data-tone="warning"] { background: var(--gold-bg); color: var(--gold); }
+.admission-status[data-tone="error"] { background: var(--error-surface); color: var(--error); }
+.admission-status-detail { color: var(--muted); font-size: 12px; margin-block: 6px 0; }
+.platform-admission .admission-detail > .eyebrow { margin-block: 12px 4px; }
+.platform-admission .admission-detail h2 { font-size: 20px; margin-block: 0 18px; }
+.platform-admission .admission-properties > div { padding-block: 12px; }
+.admission-scope-note { color: var(--muted); font-size: 12px; line-height: 1.6; margin-block: 16px; }
+.admission-invitation-actions h3 { font-size: 14px; margin-block: 20px 8px; }
+.admission-invitation-actions .journey-actions { margin-block-start: 8px; }
+.admission-filtered-empty { padding: 24px 16px; background: var(--subtle); border: 1px solid var(--line); border-radius: 8px; }
+.admission-filtered-empty h3 { font-size: 16px; margin-block: 0 8px; }
+.admission-filtered-empty p { font-size: 13px; color: var(--muted); }
+.admission-phone-delivery { display: none; }
+@media (min-width:1280px) { .admission-mobile-refresh { display: none; } }
+@media (max-width:767px) {
+  .admission-filters { gap: 8px; }
+  .admission-filters button { flex-basis: calc(50% - 8px); min-width: 0; font-size: 12px; }
+  .admission-desktop { display: none; }
+  .admission-phone-delivery { display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-block-start: 6px; }
+  .platform-admission .admission-table th:first-child { width: 56%; }
+  .platform-admission .admission-table :is(th,td) { padding: 12px 6px; }
+  .platform-admission .admission-directory > .section-heading > button { min-height: 48px; }
+}
+
 @media(max-width:720px) { .main:has(.admission-layout.has-detail) .admission-create { display: none; } }
 
 .people-check{display:flex;align-items:center;gap:10px;min-height:44px}.people-check input{width:22px;min-width:22px;min-height:22px;height:22px}

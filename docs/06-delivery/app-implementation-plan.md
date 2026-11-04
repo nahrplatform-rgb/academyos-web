@@ -4,6 +4,8 @@
 
 ## Current cross-plan authority — 4 November 2026
 
+Latest bounded implementation: [Operations Platform admission](../07-handoff/operations-admission-checkpoint.md) adds loaded-data search/status/delivery and measured selected-context retention; source/local checks are separate from new-source staging/acceptance. [EX-12 preflight](../07-handoff/staging-role-preflight-2026-11-04.md) records current roles, retained history and the sole-Owner cleanup constraint without any grant, transfer or purge. Continue the existing tracker; this does not complete the redesign or two-account separation.
+
 Execution method across I0–I10 and every EX batch: [bounded AI delegation](../00-governance/ai-delegation-and-cost-policy.md). Use scripts for deterministic repetition and explicitly configured Terra for suitable scoped work; default zero/one helper, maximum two, no nested spawning. Coordinator retains decisions, sensitive boundaries and integration. Measure whole-task quality/cost where available; no model benchmark or delegation quota replaces the current role-first/product sequence.
 
 Use the [Operations design reference/adoption contract](../03-design/operations-design-reference.md) and [full redesign plan](full-experience-redesign.md) for the connected experience. The Owner selected Operations with **light default, Charcoal alternative**, compact resizable panes, unified controls and useful data density. The exact versioned sample is the presentation reference. The complete review must be a signed-in working app using the real backend and dedicated fictional records within current authorization. A palette conversion or captured replay does not satisfy it.

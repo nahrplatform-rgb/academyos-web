@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Operations Platform admission and read-only role inventory — 4 November 2026
+
+Implemented the bounded Operations admission directory/status/inspector and account-scoped search/selection retention. Actual-component comparison reproduces baseline selection loss and verifies retention with unchanged1-read recheck;24 EN/AR/theme/viewport cases preserve zero-read local interaction. Existing invitation/authority/original-operation contracts remain. [Implementation and evidence](../07-handoff/operations-admission-checkpoint.md) separates local source from rollout/acceptance. [EX-12 preflight](../07-handoff/staging-role-preflight-2026-11-04.md) records current mixed roles and sole-Owner cleanup dependencies through SELECT-only inspection; no account or data mutation. Updated tracker, joins and continuation; no finding or full redesign closed from deployment.
+
 ## Persistent local-data clarification and Shift iOS reference — 2 November2026
 
 Owner clarified progressive permitted datasets retained across visits and quiet synchronization. Added [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md), [canonical LF-v2 plan](../06-delivery/local-data-and-sync-plan.md) and [reconciliation/evidence map](../07-handoff/local-data-sync-reconciliation.md). Updated mandatory guidance, product/workflow/architecture/privacy/API/data/service/implementation/redesign/roadmap/loading/test/handoff records and generated continuation routing. Retired the unaccepted summary-only v1 proposal without overwriting its historical receipts. Added18 persistent-local planned cases to the original32; all50 remain planned/future, not runtime passes. Isolated reference tests:54 passed,1 hosted-fixture skip,0 failures. No Shift changes, AcademyOS runtime/schema/private store, provider/access change, offline-write approval, production release or persistent-memory update.

@@ -375,7 +375,7 @@
     },
     {
       "journey": "onboarding",
-      "frame": "onboarding-174",
+      "frame": "onboarding-416",
       "lang": "ar",
       "width": 360,
       "canvas": "#fff",
@@ -386,7 +386,7 @@
     },
     {
       "journey": "onboarding",
-      "frame": "onboarding-174",
+      "frame": "onboarding-416",
       "lang": "ar",
       "width": 360,
       "canvas": "#1a1e27",
@@ -397,7 +397,7 @@
     },
     {
       "journey": "onboarding",
-      "frame": "onboarding-120",
+      "frame": "onboarding-362",
       "lang": "ar",
       "width": 1440,
       "canvas": "#fff",
@@ -408,7 +408,7 @@
     },
     {
       "journey": "onboarding",
-      "frame": "onboarding-120",
+      "frame": "onboarding-362",
       "lang": "ar",
       "width": 1440,
       "canvas": "#1a1e27",

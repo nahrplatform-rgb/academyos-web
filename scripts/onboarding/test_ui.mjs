@@ -35,6 +35,8 @@ async function captureReview(name,title,description){
 let admitted=false,accepted=false,delivery='queued',lost=false,conflict=false,revoked=false;
 let loseCreateReply=false,createCalls=0;
 let extraAcademy=false,secondRevoked=false,platformDenied=false,platformReads=0;const invitationChanges=[];
+let platformHasMore=false,holdPlatform=false,releasePlatform,platformUnavailable=false,secondName='Synthetic Academy B';
+const admissionMetrics={};
 const secondId='00000000-0000-4000-8000-000000000003';
 let holdExchange=false,failExchange=false,releaseExchange,heldExchange;
 let exchangeCommitted=true,reviewBeforeExchange=0,reviewCalls=0,exchangeCalls=0;
@@ -49,7 +51,7 @@ await page.route('**/api/onboarding',async route=>{
  if(revoked&&['setup','save','operation'].includes(b.action)){await route.fulfill({status:403,json:{error:'denied'}});return;}
  switch(b.action){
  case'context':data={platform:true,memberships:accepted?[{membership_id:iv,academy_id:a,academy_name:setup.name,role:'owner'}]:[],more:false};break;
- case'platform':platformReads++;data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:false};break;
+ case'platform':platformReads++;if(holdPlatform)await new Promise(resolve=>{releasePlatform=resolve;});if(platformUnavailable){await route.fulfill({status:503,json:{error:'unavailable'}});return;}data={items:admitted?[{id:a,name:setup.name,setup_complete:setup.complete,invitation_id:iv,generation:1,expires_at:'2026-10-25T12:00:00Z',revoked:false,redeemed_at:accepted?'2026-10-22T12:00:00Z':null,delivery,attempts:0}]:[],more:platformHasMore};break;
  case'reissue':invitationChanges.push(structuredClone(b));data={reissued:true};break;
  case'create':createCalls++;admitted=true;data={academy_id:a,invitation_id:iv,generation:1};break;
  case'exchange':
@@ -76,7 +78,7 @@ await page.route('**/api/onboarding',async route=>{
  case'operation':data={found:receipts.has(b.op),result:receipts.get(b.op)};break;
  default:await route.fulfill({status:422,json:{error:'invalid'}});return;
  }
- if(b.action==='platform'&&extraAcademy)data.items.push({id:secondId,name:'Synthetic Academy B',setup_complete:false,invitation_id:secondId,generation:7,expires_at:'2026-10-25T12:00:00Z',revoked:secondRevoked,redeemed_at:null,delivery:'unknown',attempts:0});
+ if(b.action==='platform'&&extraAcademy)data.items.push({id:secondId,name:secondName,setup_complete:false,invitation_id:secondId,generation:7,expires_at:'2026-10-25T12:00:00Z',revoked:secondRevoked,redeemed_at:null,delivery:'unknown',attempts:0});
  if(b.op)receipts.set(b.op,structuredClone(data));
  if(loseCreateReply&&b.action==='create'){loseCreateReply=false;await route.abort();return;}
  if(lost&&b.action==='save'){lost=false;await route.abort();return;}
@@ -150,6 +152,40 @@ try{
  // I1 inspection must not fetch or dispatch an invitation change by itself.
  extraAcademy=true;
  await page.reload();await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).waitFor();
+ const readsBeforeFilters=platformReads,changesBeforeFilters=invitationChanges.length;
+ const search=page.getByLabel('Search loaded academies',{exact:true});
+ await search.fill('Academy B');
+ await expect(page.getByRole('button',{name:'Synthetic Academy A — view details',exact:true})).toHaveCount(0);
+ await expect(page.locator('.admission-result-count')).toHaveText('1 of 2 loaded academies shown');
+ await search.fill('No such academy');await expect(page.getByRole('heading',{name:'No loaded academies match',exact:true})).toBeVisible();
+ await captureReview('operations-admission-filtered-empty','Operations — filtered empty','A local search has no match among loaded records; no academy was deleted and no search request was made.');
+ await page.getByRole('button',{name:'Clear filters',exact:true}).click();
+ await page.getByRole('group',{name:'Filter loaded academies',exact:true}).getByRole('button',{name:/Owner accepted/}).click();
+ await expect(page.getByRole('heading',{name:'No loaded academies match',exact:true})).toBeVisible();
+ await page.getByRole('group',{name:'Filter loaded academies',exact:true}).getByRole('button',{name:/Delivery to review/}).click();
+ await expect(page.locator('.admission-table tbody tr')).toHaveCount(2);
+ assert.equal(platformReads,readsBeforeFilters,'Search, filtered-empty recovery and status filters add zero reads');
+ assert.equal(invitationChanges.length,changesBeforeFilters,'Filtering cannot dispatch an invitation change');
+ admissionMetrics.localFilterReads=platformReads-readsBeforeFilters;
+ await page.getByRole('group',{name:'Filter loaded academies',exact:true}).getByRole('button',{name:/^All/}).click();
+ // Loading, unavailable and partial coverage never masquerade as complete-empty.
+ holdPlatform=true;
+ await page.reload();await expect(page.getByRole('heading',{name:'Checking access and saved progress',exact:true})).toBeVisible();
+ await expect(page.getByText('No academies on this page.',{exact:true})).toHaveCount(0);
+ await expect(page.locator('.admission-filters strong')).toHaveCount(0);
+ await expect.poll(()=>typeof releasePlatform).toBe('function');holdPlatform=false;releasePlatform();
+ await expect(page.locator('.admission-table tbody tr')).toHaveCount(2);
+ platformHasMore=true;await page.reload();
+ await expect(page.locator('#admission-search-scope')).toContainText('More academies are available');
+ await page.getByLabel('Search loaded academies',{exact:true}).fill('Academy B');
+ await expect(page.locator('.admission-result-count')).toHaveText('1 of 2 loaded academies shown');
+ await expect(page.getByRole('button',{name:'More academies',exact:true})).toBeEnabled();
+ await captureReview('operations-admission-partial','Operations — partial loaded coverage','Search and count describe loaded rows only; additional-page access remains explicit.');
+ platformHasMore=false;platformUnavailable=true;await page.reload();
+ await expect(page.locator('.admission-result-count')).toHaveText('Admission records are unavailable. Retry the current read.');
+ await expect(page.getByText('No academies on this page.',{exact:true})).toHaveCount(0);
+ await expect(page.locator('.admission-filters strong')).toHaveCount(0);
+ platformUnavailable=false;await page.reload();await expect(page.locator('.admission-table tbody tr')).toHaveCount(2);
  // Regression for the reported detached title/refresh and cramped tablet columns.
  for (const width of [1440,926,360]) {
   await page.setViewportSize({width,height:900});
@@ -174,6 +210,39 @@ try{
  await captureReview('16-admission-desktop','16. Desktop — loaded list and academy details','Explicit row inspection adds zero retrieval and keeps invitation changes in the named academy context.');
  assert.equal(platformReads,readsBeforeInspection,'Inspection adds zero data reads');
  assert.equal(invitationChanges.length,0,'Inspection is not an invitation mutation');
+ const operationLayouts=[];
+ for(const locale of ['en','ar'])for(const theme of ['light','dark'])for(const width of [320,360,390,768,1280,1600]){
+  const ar=locale==='ar',label=(en,arabic)=>ar?arabic:en;
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://127.0.0.1:3194/?mode=platform&locale=${locale}`);
+  await page.getByRole('button',{name:label('Synthetic Academy B — view details','Synthetic Academy B — عرض التفاصيل'),exact:true}).waitFor();
+  const dark=await page.locator('html').getAttribute('data-theme')==='dark';
+  if(dark!==(theme==='dark'))await page.getByRole('button',{name:dark?label('Light mode','الوضع الفاتح'):label('Dark mode','الوضع الداكن'),exact:true}).click();
+  const readBasis=platformReads;
+  await page.getByLabel(label('Search loaded academies','البحث في الأكاديميات المحملة'),{exact:true}).fill('Academy B');
+  await expect(page.locator('.admission-table tbody tr')).toHaveCount(1);
+  await page.getByRole('button',{name:label('Synthetic Academy B — view details','Synthetic Academy B — عرض التفاصيل'),exact:true}).click();
+  await expect(page.locator('#admission-detail-heading')).toBeFocused();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Admission fits each declared theme/locale/viewport');
+  const beforeRecheck=platformReads;await visibleReturn();
+  assert.equal(platformReads-beforeRecheck,1,'A clean paired visible return performs only its canonical read');
+  await expect(page.getByLabel(label('Search loaded academies','البحث في الأكاديميات المحملة'),{exact:true})).toHaveValue('Academy B');
+  await expect(page.locator('#admission-detail-heading')).toBeFocused();
+  await page.getByRole('button',{name:label('Back to academy list','العودة إلى قائمة الأكاديميات'),exact:true}).click();
+  await expect(page.getByRole('button',{name:label('Synthetic Academy B — view details','Synthetic Academy B — عرض التفاصيل'),exact:true})).toBeFocused();
+  assert.equal(platformReads-readBasis,1,'Search, selection and Back add no read beyond the explicit resume');
+  if([390,1600].includes(width))await captureReview(`operations-${locale}-${theme}-${width}`,`Operations admission — ${locale} / ${theme} / ${width}px`,'Real admission components: loaded-data search, row delivery, selection, current-state recheck and exact Back focus.');
+  operationLayouts.push({locale,theme,width,localInteractionReads:0,pairedResumeReads:1});
+ }
+ admissionMetrics.layouts=operationLayouts;
+ secondName='أكاديمية التدريب والسباحة لكرة القدم والأنشطة الرياضية للاختبار ذات الاسم العربي الطويل جداً';
+ await page.setViewportSize({width:320,height:900});await page.goto('http://127.0.0.1:3194/?mode=platform&locale=ar');
+ await page.getByRole('button',{name:secondName+' — عرض التفاصيل',exact:true}).click();
+ await expect(page.locator('#admission-detail-heading')).toHaveText(secondName);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Long Arabic academy names retain phone reflow');
+ await captureReview('operations-ar-long-name','Operations — long Arabic academy name','Long-name selected details at a real 320 CSS-pixel viewport.');
+ secondName='Synthetic Academy B';await page.setViewportSize({width:1440,height:1000});await page.goto('http://127.0.0.1:3194/?mode=platform');
+ await page.getByRole('button',{name:'Synthetic Academy B — view details',exact:true}).click();
  const detail=page.getByRole('complementary',{name:'Synthetic Academy B',exact:true});
  await detail.getByText('Unknown; review before replacement',{exact:true}).waitFor();
  assert.equal(await detail.getByRole('button',{name:'Retry pending delivery',exact:true}).count(),0,'Unknown outcome cannot offer blind delivery retry');
@@ -327,7 +396,7 @@ try{
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
  assert.deepEqual(errors,[]);
- const report={ui:'passed',reactMode,resumeMetrics,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'central EN/AR creation 320/390/768/1440; native review Escape/contained focus/trigger restore; lost-create receipt closes form without second create; two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
+ const report={ui:'passed',reactMode,resumeMetrics,admissionMetrics,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'central EN/AR creation 320/390/768/1440; native review Escape/contained focus/trigger restore; lost-create receipt closes form without second create; two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};
  if(process.env.UI_EVIDENCE_PATH)await writeFile(process.env.UI_EVIDENCE_PATH,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
  if(reviewDir){
   reviewFrames.sort((a,b)=>a.name.localeCompare(b.name));

@@ -1,0 +1,32 @@
+{
+  "scope": "Same actual Platform components and fictional two-academy read; request/continuity counts, not service latency or hosted authority",
+  "browser": "156.0.8078.4",
+  "results": [
+    {
+      "source": "d6bd958",
+      "bundleSha256": "a8ea1f59513936279a651edb23ff8b22c61ae3858a3ca103e12cc0c181caadf6",
+      "initialReads": 1,
+      "localInteractionReads": 0,
+      "recheckReads": 1,
+      "selectionRetained": false,
+      "selectionHeadingFocused": false,
+      "searchSupported": false,
+      "searchRetained": null,
+      "titlePx": "28px",
+      "otherRequests": 0
+    },
+    {
+      "source": "working-tree",
+      "bundleSha256": "b10ad5401428c867235cc18b1ec5454afa91e39dfd2426d0a806d1e6798e76e8",
+      "initialReads": 1,
+      "localInteractionReads": 0,
+      "recheckReads": 1,
+      "selectionRetained": true,
+      "selectionHeadingFocused": true,
+      "searchSupported": true,
+      "searchRetained": true,
+      "titlePx": "25px",
+      "otherRequests": 0
+    }
+  ]
+}

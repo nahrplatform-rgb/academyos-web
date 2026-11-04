@@ -32,6 +32,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR03 — Task erasure during revalidation
 
+4 November scoped Platform result: [Operations admission checkpoint](../07-handoff/operations-admission-checkpoint.md) compares actual baseline/current components and fixes selected-academy loss after recheck, retaining new loaded-data search/filter and focus without private payload reuse. Required recheck remains1 read and retains its existing checking replacement. This does not close other routes, continuous-content, scroll, hosted or full NR03 coverage.
+
 - Priority: H/M/L; effort 2–4d. Source references relative to `apps/web/src/components`: `experience-workspace.tsx:35,48`, `guardian-training-workspace.tsx:98`, `program-workspace.tsx:40–54`.
 - Mechanism / expected difference: Experience nulls Home/data/selection; Guardian training invalidates link-picker on resume; list/detail loaders replace content.
 - Evidence: H2/H6/H7 observed Owner reset EN/AR; other families source/local only.

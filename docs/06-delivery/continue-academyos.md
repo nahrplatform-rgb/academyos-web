@@ -34,11 +34,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Operations adoption with distinct Platform and Academy Owner journeys first
 
-Next action: Read the current staging review policy and EX12 role plan. Prepare the read-only account/role/academy/pending-work inventory and concrete controlled-cleanup list; no actual grant/transfer/purge is authorized yet. In parallel, adopt the selected Operations reference in distinct Platform admission/appointment/status and Academy Today -> Calendar -> session/register -> exact return plus Players journeys. Reuse delivered source, measure EN/AR fidelity and requests, preserve current authority/dirty input/original recovery, then extend remaining roles. Do not wait for independent reviewer assignment or repeat settled design approvals. Apply docs/00-governance/ai-delegation-and-cost-policy.md: scripts first; selective bounded Terra work; zero/one helper normally, two maximum, no nested agents; record actual rationale/checks/repairs/available usage without adding a benchmark stage.
+Next action: Use the Operations admission checkpoint: check exact-source CI/Ready build, give Owner the checked deployment for promotion, then verify signed-in ENAR Platform admission without new writes/grants. Continue Academy Today -> Calendar -> session/register -> exact return and Players adoption. Supporting EX12 has current DB roles/Gmail proof; prepare supported A sole-Owner disposition and exact authorized cleanup, without purge or inferred grant. Preserve completed work, original recovery and bounded Terra policy; no external-review wait or repeat design gate.
 
 Scoped dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof retained. EX12 prepares dedicated-role contexts and exact mutations; actual grants/transfers/cleanup/activation keep explicit authority. Independent security review is deferred and nonblocking, not passed. Current checks and actual per-role fidelity/evidence remain required.
 
-Read: `docs/07-handoff/staging-role-and-review-update-2026-11-04.md`
+Read: `docs/07-handoff/operations-admission-checkpoint.md`
 
 ## Ordered primary checkpoints
 
@@ -166,14 +166,14 @@ Dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof reta
 Findings: NR03; NR16.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Partial. Delivered Operations shell and Owner Today preserved in combined ef73a36. Remaining journey adoption requires actual-source/reference comparison; no product changes in this reconciliation.
-- Local checks: Per-journey evidence and scoped Operations browser, navigation and geometry checks.
-- Deployment: Combined source ef73a36 verified at canonical staging with Owner Operations retained.
-- Hosted verification: Signed-in Owner Today and online attendance checked in EN/AR at 1600x900. Full per-role/journey parity remains partial.
+- Implementation: Partial. Delivered Owner Operations retained; Platform admission now adopts Operations, loaded-data search/status/delivery and account-scoped view continuity. Full role/journey parity remains incomplete.
+- Local checks: 4Nov Platform: measured selected-context loss fixed;24 ENAR/lightCharcoal/320-1600 layouts,93 units,17 foundation,16 capture suites and build/type/lint passed. Factual/document checks in current receipt.
+- Deployment: Prior combined ef73a36 remains verified on canonical staging; new Platform source awaits exact-source CI/Ready build and Owner promotion.
+- Hosted verification: Current Gmail session/subject and mixed-role chooser read-only verified; new Platform UI not yet hosted verified. Earlier Owner ENAR staging evidence retained.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Read the current staging review policy and EX12 role plan. Prepare the read-only account/role/academy/pending-work inventory and concrete controlled-cleanup list; no actual grant/transfer/purge is authorized yet. In parallel, adopt the selected Operations reference in distinct Platform admission/appointment/status and Academy Today -> Calendar -> session/register -> exact return plus Players journeys. Reuse delivered source, measure EN/AR fidelity and requests, preserve current authority/dirty input/original recovery, then extend remaining roles. Do not wait for independent reviewer assignment or repeat settled design approvals. Apply docs/00-governance/ai-delegation-and-cost-policy.md: scripts first; selective bounded Terra work; zero/one helper normally, two maximum, no nested agents; record actual rationale/checks/repairs/available usage without adding a benchmark stage.
-- Evidence: docs/07-handoff/staging-role-and-review-update-2026-11-04.md
+- Next action: Use the Operations admission checkpoint: check exact-source CI/Ready build, give Owner the checked deployment for promotion, then verify signed-in ENAR Platform admission without new writes/grants. Continue Academy Today -> Calendar -> session/register -> exact return and Players adoption. Supporting EX12 has current DB roles/Gmail proof; prepare supported A sole-Owner disposition and exact authorized cleanup, without purge or inferred grant. Preserve completed work, original recovery and bounded Terra policy; no external-review wait or repeat design gate.
+- Evidence: docs/07-handoff/operations-admission-checkpoint.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
 
@@ -200,14 +200,14 @@ Dependency gate: Policy direction recorded, not permission to change accounts/da
 Findings: NR01; NR03; NR16; G01; G08.
 Design: Owner selected separate Platform/Academy account targets and controlled cleanup preserving history; current Operations design retained; no global one-role-per-user rule..
 
-- Implementation: Plan only. Existing login/history evidence inspected; live role preflight, exact mutation packet and actual changes not performed. No grant, transfer, invitation, purge or reset authorized by this documentation task.
-- Local checks: RS01-RS06 planned, not executed. Documentation validation is separate from real-session role/permission results.
+- Implementation: Read-only preflight prepared:2 identities,2 academies,4 memberships,1 active Platform grant;Gmail still owns A, iCloud owns B plus extra active Guardian membership in A. No account mutation.
+- Local checks: RS01-RS06 remain partial/planned:current Gmail UI subject and DB role sets inspected;two isolated sessions,pending-work check and actual cleanup/denial not executed.
 - Deployment: No app/database/provider/account deployment or mutation in this documentation checkpoint.
-- Hosted verification: Historical two-account and role tests retained; current target identities, active grants/memberships, sessions and pending work not rechecked.
+- Hosted verification: 4Nov SELECT-only current roles/invitations/ended links and limited historical references verified;current Gmail email/subject verified through normal UI. Fresh iCloud session and local originals not verified.
 - Owner acceptance: Target mailboxes/roles, controlled cleanup/history preservation and Owner-first sequence agreed; exact operations and working outcome not accepted/executed.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Read the dedicated-role plan. Verify exact current accounts/active roles/academies and protected pending references read-only. Prepare the supported audited mutation and restoration list, resolving any sole-Owner disposition first; request only the concrete required operational authorization after preparation. Use separate browser profiles and continue ready role-specific UI work under current access; no blanket purge or email-based permission bypass.
-- Evidence: docs/06-delivery/staging-role-separation-plan.md
+- Next action: Follow the read-only preflight cleanup table. Preserve both sole Owners; reuse existing iCloud B authority for ready Academy work. Verify its independent normal login and pending work. Determine supported A ownership/fixture disposition before ending Gmail Owner; end extra Guardian membership only through an exact audited authorized operation. No transfer endpoint, purge, restoration or email-based authority inferred.
+- Evidence: docs/07-handoff/staging-role-preflight-2026-11-04.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

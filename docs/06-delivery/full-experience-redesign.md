@@ -61,6 +61,8 @@ PYSA read-only references: platform-description/current-surface reference and Ac
 
 ## Verification and rollout sequence
 
+4 November scoped result: [Platform admission Operations checkpoint](../07-handoff/operations-admission-checkpoint.md) records actual-source before/after, loaded-data filters, visible delivery, recheck selection retention and EN/AR/light/Charcoal evidence. It adapts the selected system to the approved Platform workflow; the four-view studio does not contain an exact Platform screen. New-source staging, complete Owner journeys and working acceptance remain separate. [Current role preflight](../07-handoff/staging-role-preflight-2026-11-04.md) makes no account mutation.
+
 All adoption batches follow the [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md): bounded Terra work against settled reference/contract, coordinator-owned composition/authority/integration, scripts for generators/checks, zero/one helper normally and two maximum. Keep one owner of shared shell, real browser and generated captures. Model choice does not relax visual fidelity, meaningful assertions, current permissions or original-operation recovery.
 
 1. Retain the completed 29 October connected design review and 3–4 November Operations selection/refinements. Pin the selected reference and reconcile its current source; do not replace it with a new aesthetic or generic captured replay.
