@@ -1,5 +1,11 @@
 # AcademyOS engineering charter
 
+## Current staging review direction — 4 November 2026
+
+The Owner explicitly deferred independent human/external security review so it must not stop any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Follow the [staging delivery/review policy](staging-delivery-and-review-policy.md). Do not wait for reviewer assignment or independent disposition to continue. Record the external review as deferred, nonblocking and not performed; preserve engineering security checks, actual findings, unresolved tests and separate Owner acceptance. Production, real data, privilege changes, destructive cleanup and Owner-controlled promotions retain their existing authorization boundaries.
+
+Use the [dedicated-role plan](../06-delivery/staging-role-separation-plan.md) to complete the Platform Owner and Academy Owner experiences first. The email/role targets and controlled cleanup approach are selected; this documentation does not execute or authorize account/grant/data mutations. Existing functionality and historical actor/evidence records are preserved.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Engineering must distinguish an Owner-directed persistent-local design target from acceptance of exact sensitive fields, offline read leases, retention, key handling and queues. Use [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Planned durable reads do not weaken current server authority or approve offline commands. No copied native personal-data policy or library default establishes an academy privacy rule. Audit documentation status and current-versus-target evidence alongside each batch.
@@ -46,11 +52,11 @@ The packet may be a concise PR/work-item section for a small change. Routine rev
 6. Demonstrate on the appropriate environment with synthetic data. Production rollout retains its own authority and release gates.
 7. Record role/Product Owner acceptance separately from commit, push and deployment. Update traceability and handoff.
 
-A fresh review should challenge assumptions and inspect the actual diff and evidence. An AI reviewing its own output is not an independent human/security audit. No additional agent or third-party disclosure is automatically authorized by this charter.
+A fresh engineering review should challenge assumptions and inspect the actual diff and evidence. An AI reviewing its own output is not an independent human/security audit. The independent-person review is deferred and nonblocking for current synthetic staging under the policy above; maintain its evidence backlog without requiring a signature. No additional agent or third-party disclosure is automatically authorized by this charter.
 
 ## Definition of done
 
-Every in-scope journey answers usability, speed, correctness, cost and recovery. Security/privacy is an independent non-negotiable gate across them, not an averaged sixth score that can be offset by speed. Required actor/tenant/branch/field boundaries, denial tests, durable outcomes and applicable recovery are verified; UI includes EN/AR and declared devices/states; relevant tests and documentation pass; residual risks have named handling; appropriate owner acceptance is recorded.
+Every in-scope journey answers usability, speed, correctness, cost and recovery. Engineering security/privacy controls and actual negative-case verification are required across them; speed cannot offset a failed boundary. Required actor/tenant/branch/field boundaries, denial tests, durable outcomes and applicable recovery are verified; UI includes EN/AR and declared devices/states; relevant tests and documentation pass; residual risks have named handling; appropriate Owner acceptance is recorded. The independent human/external audit is a separately recorded deferred, nonblocking staging item, not a prerequisite or a passed security result. Production/real-data release keeps its separate authority and decisions.
 
 A feature may be implemented while hosted verification is pending. Mark it precisely. Do not equate “not reproduced” with safe, “no lint errors” with quality, or a dependency scan with a full security review. Never hide an unresolved tenant leak, child-data exposure or financial-integrity defect behind a lower-risk acceptance waiver.
 
@@ -61,7 +67,7 @@ A feature may be implemented while hosted verification is pending. Mark it preci
 | Root [AGENTS.md](../../AGENTS.md) | Repository instructions added by this change | Guides compatible agents; not a technical guarantee of compliance |
 | [PR template](../../.github/pull_request_template.md) | Review prompts added by this change | Manual answers can be wrong; no automatic semantic verification |
 | [Foundation workflow](../../.github/workflows/verify.yml) | Existing push/PR workflow invokes lint, build, typecheck, app tests, backup safety tests and Chromium E2E | Executes existing suites only; does not enforce all planned journey/security cases |
-| Decision/journey/security packets | Required review artifacts | Human/process gate until evidence tooling and reviewer ownership are implemented |
+| Decision/journey/security packets | Required engineering/evidence artifacts | Structured checks and status records; independent human review is deferred and nonblocking for current synthetic staging |
 | Branch protection, required reviewers, independent security review | Not established by this charter | Verify actual repository/provider eligibility and configuration separately; no new subscription or permission change |
 
 Do not claim this is a hard merge block. Future automation can validate artifact presence and identifiers, but cannot prove that a threat assessment is correct or owner acceptance is genuine. Any new automated gate must be implemented/tested and its actual reach documented.

@@ -1,5 +1,7 @@
 # Typed encrypted Owner register repository — EX-06
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 3 November 2026. Authorized outcome: implement the approved register's **inactive typed storage boundary**, exercised with fictional records in real browser IndexedDB/WebCrypto. It is not an app integration, private enablement, server key endpoint, schema rollout or new access grant. Ordinary sign-in, no extra credential/idle lock, the accepted original-ID/all-or-nothing policy and separate pending-work recovery remain unchanged.
 
 Joins: IMP-J12-A01, J12-A01–A03, S28, AO/AT-035,036,042,045, L08, SEC-J12; IMP-J16-A01, J16-A01–A06, S31/S32/S47, AO/AT-085–092, L10, SEC-J16; NR13/14/15/17, G08/G09. Read the [automatic mechanism](automatic-local-key-readiness.md), [canonical transport](offline-register-runtime-readiness.md), [offline-edit contract](offline-edit-and-conflict-contract.md), [security gates](journey-security-review.md) and [local-data plan](../06-delivery/local-data-and-sync-plan.md).

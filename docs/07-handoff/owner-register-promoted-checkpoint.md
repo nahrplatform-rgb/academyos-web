@@ -1,5 +1,7 @@
 # EX-11 closed staging verification
 
+**Current execution policy — 4 November 2026:** the runtime observations below remain the closed staging receipt. Under [SDR-01](../00-governance/staging-delivery-and-review-policy.md), independent review is now deferred and nonblocking; do not wait for reviewer assignment/disposition. Actual custody/configuration, engineering checks, activation authority and working evidence are still unexecuted where noted. The policy update itself changes no runtime result.
+
 4 November 2026. The Owner reported promotion of the combined register and Operations source. Vercel resolved the canonical staging alias to rebuilt deployment `dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM`, Ready, source `ef73a36537228461f80aecf1084bd1429b2ebb8c`. The earlier preview and both CI receipts remain in the [delivery record](evidence/owner-register-staging-delivery-2026-11-04.json). [Hosted verification receipt](evidence/owner-register-promoted-2026-11-04/verification.json) · [Deployment](https://vercel.com/academy-os2/academyos-web/7uNTT7sXQ3SWHh9gWhbFn9pzxGMM).
 
 ## Observed result
@@ -14,6 +16,6 @@ The receipt includes eight individual public HTTP durations, byte counts, respon
 
 ## Next gate
 
-Use the [staging and independent security handoff](owner-register-staging-handoff.md) for review of the four migrations together, the real identity and grant boundary, wrapping-root custody and recovery, browser protection and exact synthetic cases. Independent reviewer assignment and hosted key-custody readiness remain unresolved. The approved one-register scope, ordinary login and protected pending-recovery choices stand.
+Use the [staging engineering handoff](owner-register-staging-handoff.md) to verify the four migrations together, the real identity and grant boundary, wrapping-root custody and recovery, browser protection and exact synthetic cases. Hosted key-custody readiness remains unfinished; independent reviewer assignment is deferred and is no longer a staging dependency. The approved one-register scope, ordinary login and protected pending-recovery choices stand.
 
-After the independent disposition and explicit private enablement authorization, perform the reviewed migration and custody procedure and run the synthetic private cases with the original-operation and current-authority checks. Keep physical-device evidence and Owner acceptance distinct. Current engineering and browser results do not supply independent security approval.
+After concrete engineering readiness and explicit private enablement authorization, perform the prepared migration/custody procedure and run the synthetic private cases with the original-operation and current-authority checks. No independent-person disposition is required for this authorized staging work. Keep physical-device evidence and Owner acceptance distinct. Current engineering/browser results and the review deferral do not supply an independent audit pass.

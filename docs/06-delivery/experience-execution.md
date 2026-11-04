@@ -1,6 +1,8 @@
 # Connected experience execution guide
 
-**4 November Operations reconciliation:** [the selected design contract](../03-design/operations-design-reference.md) and [reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) now route **EX-07 safe online Operations adoption as current**. Preserve delivered Owner shell/Today and completed EX-10/02/06/04/03 scoped outputs. EX-11 retains its open private working-day gate, with EX-09 custody/independent review preparation supporting it. No private activation or acceptance is inferred. The tracker, not an older route below, selects the exact next action.
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
+**Current Operations execution:** [the selected design contract](../03-design/operations-design-reference.md) and [latest policy/role update](../07-handoff/staging-role-and-review-update-2026-11-04.md) retain **EX-07 as current**, with EX-12 dedicated staging-role preflight/verification alongside it. Complete the Platform Owner and Academy Owner experiences first; preserve delivered Owner shell/Today and completed EX-10/02/06/04/03 outputs. EX-09 handles actual custody/authority readiness and EX-11 actual private working-day proof. Independent review is deferred and no longer gates authorized staging, including otherwise-authorized private activation. Account/activation changes and acceptance are not inferred from this document.
 
 ## Latest local-first direction — LF-v3,2November2026
 
@@ -57,8 +59,8 @@ The tracker is the only source for current priority/status. Its routing fields a
 | 3 | **EX-06 — shared read owner, invalidation and approved reuse** | One scoped durable repository/storage/index/coverage/access-key lifecycle and local subscriptions; compatible read/sync ownership and affected-view updates. Query memory alone is insufficient. Enable exact accepted LF-P fields/device/access/retention only. |
 | 4 | **EX-04 — first-use/dependency/preparation improvement** | Task-first progressive directory/month pages, scoped manifest, coherent snapshot/checkpoint completion and changed/removal transfer or honest bounded replacement. Measure first versus reopened/unchanged/changed; retain prior Owner1read and no duplicate mount bootstrap. |
 | 5 | **EX-03 — save/interruption/crash recovery** | Original outcome discovery/storage-failure proof for the affected pilot paths, including actual supported refresh/process boundaries. Prepare this with EX-10 and validate before replacing recovery or accepting pilot writes; do not postpone integrity until the end. |
-| 6 | **EX-07 — Operations adoption across implemented journeys** | Preserve the delivered shell/Owner Today; compare and adopt selected Operations in actual Calendar→session→register→return and Players, then remaining implemented journeys/role homes. Require equivalent-state fidelity, current authority/input/recovery and request evidence. Safe online adoption does not depend on private activation. |
-| 7 | **EX-11 — private working-day acceptance gate** | Retain closed staging and fictional connected proofs; independent review/custody and separately authorized enablement precede actual private bootstrap→reopened-local→sync→save/recovery/device evidence and working feedback. Continue ready support work alongside EX-07; this gate remains open, not passed or retired. |
+| 6 | **EX-07 — Operations adoption across implemented journeys** | Preserve the delivered shell/Owner Today. With EX-12, make Platform admission/appointment/status and Academy Today→Calendar→session/register→return plus Players distinct and connected; then extend remaining roles/journeys. Require equivalent-state fidelity, current authority/input/recovery and request evidence. Independent review is not a staging dependency. |
+| 7 | **EX-11 — private working-day acceptance gate** | Retain closed staging and fictional proofs; prepare actual custody/configuration and separately authorized enablement, then collect real private bootstrap→reopened-local→sync→save/recovery/device evidence and working feedback. No independent-person approval is required for current authorized synthetic staging; actual unfinished evidence remains open. |
 
 Supporting obligations run **alongside** the affected primary checkpoint:
 
@@ -67,8 +69,9 @@ The 4 November order change is explicit scoped reprioritization, not completion 
 - **EX-05:** request/limiter/relational query work, bytes and provider costs; actual versus modeled savings; no index, shared cache or protection removal from hints alone.
 - **EX-08:** first useful content, local feedback, read timing, blank intervals, task continuity, device/accessibility, role/provider/security evidence. Collect baseline and after evidence in every batch; do not defer the entire measurement stage until all code is written.
 - **EX-09:** resolve current durable-local device/unlock/field/key/retention/sync choices with EX-10/06. Persistent permitted read data is core target, not wholesale future work. Offline writes, future sensitive domains and telemetry remain separate gates; unrelated safe online work continues.
+- **EX-12:** read-only verification of the two named test identities, exact active-role/academy/pending-work inventory, supported controlled-cleanup and restoration plan, and distinct Platform/Academy actual-session journeys. Preserve historical actors and prevent ownerless academies; actual grants/transfers/purge require separate operational authorization. Continue ready UI work while preparing that concrete list.
 
-The original nine work IDs and EX-10/EX-11 gates remain; LF-v2 revises their scoped outputs without discarding completed evidence. No historical implementation/deployment/acceptance status is reset. Advancing by numerical ID is incorrect: the explicit lane/order/current fields select the next task.
+The original nine work IDs and EX-10/EX-11 checkpoints remain, with additive EX-12 for dedicated-role evidence. No historical implementation/deployment/acceptance result is reset. The independent-review status now records the Owner's explicit nonblocking staging deferral, not a pass. Advancing by numerical ID is incorrect: the explicit lane/order/current fields select the next task.
 
 ## Continuation and checkpoint maintenance
 
@@ -90,6 +93,8 @@ The original nine work IDs and EX-10/EX-11 gates remain; LF-v2 revises their sco
 | Working-day specification + CSV | Planned scenarios/volumes and proper-layer acceptance evidence requirements |
 | Master plan / roadmap / redesign | Overall scope, sequence/dependencies and approved visual/workflow reference |
 | Operations reference | Selected source and Owner-turn ledger, current presentation values, equivalent-state fidelity and full working-review criteria |
+| Staging delivery/review policy | Current independent-review deferral and preserved engineering/environment/authorization boundaries |
+| Dedicated-role plan | Exact target mailboxes/roles, controlled cleanup and unexecuted mutation authority, role-first journey/evidence sequence |
 | Findings + service impact | Problems, declared closure scope and measured/modeled/unmeasured cost facts |
 | Action/loading/security matrices | Existing canonical joins, resource bounds and affected authority/acceptance coverage |
 | Dated implementation/pilot packet | Actual source/change/test/rollout results and limitations |

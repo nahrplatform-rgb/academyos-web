@@ -14,6 +14,16 @@ assert rows and all(None not in row and None not in row.values() for row in rows
 ids = {row['work_id'] for row in rows}
 assert len(ids) == len(rows), 'Duplicate work ID'
 assert {'EX-10','EX-11'} <= ids, 'Missing explicit working-day gates'
+assert 'EX-12' in ids, 'Dedicated-role preparation/verification must remain tracked'
+staging_policy = ROOT / 'docs/00-governance/staging-delivery-and-review-policy.md'
+role_plan = ROOT / 'docs/06-delivery/staging-role-separation-plan.md'
+assert staging_policy.is_file() and role_plan.is_file(), 'Missing current review/role policy records'
+for path in ['AGENTS.md', 'README.md', 'docs/00-governance/engineering-charter.md',
+             'docs/06-delivery/app-implementation-plan.md', 'docs/06-delivery/full-experience-redesign.md',
+             'docs/06-delivery/experience-execution.md', 'docs/07-handoff/start-here-for-builders.md']:
+    body = (ROOT / path).read_text()
+    assert staging_policy.name in body, f'Missing current staging review policy pointer: {path}'
+    assert role_plan.name in body, f'Missing dedicated-role plan pointer: {path}'
 active, primary = execution_route(rows)
 findings = set(re.findall(r'^### (NR\d+) ', (ROOT / 'docs/04-engineering/request-findings-register.md').read_text(), re.M))
 mapped = set()
@@ -67,6 +77,12 @@ assert len({case['case_id'] for case in cases}) == len(cases), 'Duplicate workin
 with (ROOT / 'docs/03-design/screen-data-loading-matrix.csv').open(newline='') as stream:
     loading_rows = list(csv.DictReader(stream))
     loading = {row['matrix_id'] for row in loading_rows}
+with (ROOT / 'docs/04-engineering/journey-security-matrix.csv').open(newline='') as stream:
+    security_rows = list(csv.DictReader(stream))
+for row in security_rows:
+    assert row.get('independent_review_status', '').strip(), 'Missing independent-review scheduling status'
+    policy_ref = row.get('independent_review_policy', '')
+    assert policy_ref and (ROOT / policy_ref).is_file(), 'Missing independent-review policy reference'
 assert all('local-data-and-sync-plan.md' in row.get('local_data_design', '') for row in loading_rows), 'Missing local-data loading join'
 with (delivery / 'app-implementation-action-matrix.csv').open(newline='') as stream:
     assert all('local-data-and-sync-plan.md' in row.get('local_data_design', '') for row in csv.DictReader(stream)), 'Missing action local-data join'

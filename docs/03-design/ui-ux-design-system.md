@@ -1,5 +1,7 @@
 # AcademyOS UI/UX and theme specification
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 ## Current system — Operations, reconciled 4 November 2026
 
 The [Operations reference and adoption contract](operations-design-reference.md) governs current appearance, layout, density, controls, responsive behavior and fidelity evidence: **light default, Charcoal alternative**, consistent blue primary/neutral supporting/red destructive hierarchy, meaningful module colours, compact 220px initial navigation and 276px initial detail with independent resizing. Inspect the selected source and existing shared implementation before editing. These later Owner selections supersede the dark-default, compact-blue and initial teal/18px values in earlier receipts below.

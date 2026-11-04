@@ -83,3 +83,8 @@ Completed incoming database SSL enforcement, scheduled uptime review, independen
 ## Platform Owner Services & Operations plan — 22 October 2026
 
 Added the detailed owner-facing administration vision, S51–S58 screen extension and AO-161–168/AT-161–168 planned acceptance requirements. Linked roles, roadmap, cost operations and setup index. Owner selected free Sentry Developer; immediate transition is blocked by provider trial cancellation eligibility and is recorded pending, with no paid plan change.
+
+
+## Independent-review deferral and dedicated role journeys —4November2026
+
+Recorded the Owner's explicit nonblocking synthetic-staging independent-review policy, including otherwise-authorized private offline activation. Updated charter, security/readiness packets, master/redesign/roadmap, test/loading/working-day standards, builder entry points, security-matrix scheduling metadata and generated continuation. Added supporting EX-12 for the two named role personas, read-only preflight, controlled cleanup preserving history and distinct Platform/Academy journeys first. Preserved original implementation, local/deployment/hosted/Owner evidence and meaningful tests; independent review is deferred, not passed. No app/account/grant/database/provider/activation/promotion change. [Policy](staging-delivery-and-review-policy.md) · [Role plan](../06-delivery/staging-role-separation-plan.md) · [Evidence checkpoint](../07-handoff/staging-role-and-review-update-2026-11-04.md).

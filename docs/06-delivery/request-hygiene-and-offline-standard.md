@@ -1,5 +1,7 @@
 # Request hygiene, persistent local data and explicit offline support
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 **3November device UX:** normal email/password sign-in, without mandatory passkey enrollment or a separate local secret. Follow the [automatic protection/recovery contract](../04-engineering/offline-register-device-key-contract.md). Key provisioning/recovery must not add one request/prompt per navigation; current server checks and protected same-account recovery remain. This is the selected experience, not completed private runtime/security evidence.
 
 ## Latest local-first direction — LF-v3,2November2026

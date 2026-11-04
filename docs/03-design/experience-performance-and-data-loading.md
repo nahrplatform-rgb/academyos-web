@@ -1,5 +1,7 @@
 # AcademyOS experience, performance and data-loading plan
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 **Operations adoption — 4 November 2026:** the [current design reference](operations-design-reference.md) governs presentation and connected task fidelity. Every affected batch still declares read ownership, bounds, freshness, invalidation, initial/revalidation behavior and before/after request evidence. Denser screens do not authorize extra bootstrap, chart queries, unbounded preload or fixture-backed metrics. Preserve the current server and original-operation boundaries; online visual adoption and private local-data activation have separate gates under the [execution tracker](../06-delivery/experience-execution.csv).
 
 ## Persistent local data and synchronization — LF-v2,2November2026

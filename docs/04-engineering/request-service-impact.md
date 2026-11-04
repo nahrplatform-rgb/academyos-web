@@ -1,5 +1,7 @@
 # Whole-app request and service impact — 31 October 2026
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 3November isolated measurement: [EX-06 typed repository evidence](../07-handoff/evidence/local-register-repository-2026-11-03.json) records30actual covered local reads with zero key/operating requests,1000players/20server-shaped fixture pages,≤50local rows, exact original wire/cipher bytes and fixture key exchanges. [Scope/limits](../07-handoff/local-register-repository-checkpoint.md). The product does not import this adapter: **before/after product provider traffic is unchanged**, not an achieved quota saving. Physical disk usage, real provider costs, full working-day percentiles and hosted private authority remain unmeasured; no historical provider limit is refreshed by these tests.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

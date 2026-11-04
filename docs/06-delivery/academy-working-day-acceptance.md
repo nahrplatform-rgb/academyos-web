@@ -1,5 +1,7 @@
 # Academy working-day pilot and acceptance gate
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 **4 November readiness.** The [gated Owner workspace run](../07-handoff/owner-register-workspace-checkpoint.md) verifies local product integration, cold public-shell restart and account-wide sign-out. It builds on the [connected fictional working day](../07-handoff/owner-working-day-fixture.md), [registered lifecycle](../07-handoff/owner-register-lifecycle-checkpoint.md) and [approved one-register scope](../04-engineering/owner-register-private-readiness.md). The 57-case register keeps its existing acceptance states. Hosted verification, private activation and working acceptance remain separate.
 
 ## Latest local-first direction — LF-v3,2November2026
@@ -74,7 +76,7 @@ The existing targets are planning/acceptance targets, not newly claimed current 
 
 The planned CSV covers startup/direct navigation, first/repeat visits, selective preparation, period/inspect/return, input and save states, before/after-commit failure, original reconciliation, other-user/tab changes, account/academy/role changes, denial/expiry, offline/storage failures, paging/completeness, EN/AR/device/zoom, app-version compatibility and role-specific isolation.
 
-Security/privacy is an independent gate, not averaged into task speed. Test at the affected UI/API/database boundaries: two academies, wrong role/branch/field, revoked membership/Trainer appointment/Guardian link, direct/unsigned target calls, stale versions, duplicate payloads, concurrency and late replies. Preserve exact expected business results and meaningful assertions. Positive role proof cannot be obtained by silently restoring ended staging access.
+Engineering security/privacy checks cannot be averaged into task speed. Test affected UI/API/database boundaries: two academies, wrong role/branch/field, revoked membership/Trainer appointment/Guardian link, direct/unsigned target calls, stale versions, duplicate payloads, concurrency and late replies. Preserve exact business results and meaningful assertions. Positive role proof cannot be obtained by silently restoring ended access. Independent human/external review is separately deferred and nonblocking under SDR-01, not an additional staging test/activation prerequisite.
 
 Exercise recovery both before and after a server commit, including committed result with failed reread. For new EX-03 locators, include unsupported/denied/full/corrupt browser storage and refresh/process loss under the agreed scope. Establish what actually survives. Do not invent a new receipt retention period or assume sessionStorage guarantees every crash/reopen case.
 

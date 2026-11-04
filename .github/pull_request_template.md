@@ -12,6 +12,8 @@ For experience/request work, link the EX batch and NR/G findings in docs/06-deli
 
 Link the journey security packet or explain why existing coverage suffices. State trust boundaries, permission/tenant/field checks, misuse cases, prevention/detection/containment/recovery, and findings. Use N/A with a reason for irrelevant checks; never include secrets or private customer data.
 
+For currently authorized synthetic staging, record independent human/external security review as deferred by Owner, nonblocking and not performed under docs/00-governance/staging-delivery-and-review-policy.md. Preserve actual security checks/findings; do not require a reviewer signature or label this deferral an audit pass. State any actual access/configuration/destructive authority needed separately.
+
 ## Validation and evidence
 
 Record meaningful checks with actual results, build/environment and limitations. Separate local, hosted, provider and physical-device evidence. List failed, skipped or unavailable checks explicitly. Include applicable usability, speed, correctness, cost and recovery results.

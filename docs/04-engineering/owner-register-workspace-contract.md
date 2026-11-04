@@ -1,5 +1,7 @@
 # EX-09 authenticated workspace integration
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 4 November 2026. Implement the approved one-register personal-device workflow behind an inactive staging gate. Use the existing signed-in attendance route, current Owner roster authority and browser lifecycle. Scope joins IMP-J12-A01, J12-A01–A03, S28, AO/AT-035/036/042/045, L08, SEC-J12 and IMP-J16-A01, L10, SEC-J16. NR15/17 and G08/09 remain open. PYSA deliberately avoids caching authenticated Next responses. Shift's account-scoped store and generation fencing inform the local boundary without importing its native lease. [Prior lifecycle contract](owner-register-lifecycle-contract.md) · [Reference review](shift-ios-local-data-reference-review.md).
 
 - Online entry requires the protected route's verified principal, matching active Clerk user and current Owner roster result. User choice and locator state only select a local path. A shared device or a missing capability keeps the online experience. Explicit preparation is the only first key or download trigger.

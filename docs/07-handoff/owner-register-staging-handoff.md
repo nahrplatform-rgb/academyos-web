@@ -1,4 +1,6 @@
-# EX-11 staging integration and independent security handoff
+# EX-11 staging integration, engineering verification and deferred independent review
+
+**Current review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) removes independent reviewer appointment/disposition as a dependency for authorized synthetic staging work, including otherwise-authorized private activation. Keep the packet/evidence for later independent review. Concrete engineering/custody/configuration checks, separate activation/access authority and Owner-controlled promotions remain; no provider or account change is performed here.
 
 4 November 2026. This packet supports the approved personal-device Owner register. It joins SEC-J12 and SEC-J16, NR15 and NR17, G08 and G09, and the [working-day acceptance cases](../06-delivery/academy-working-day-cases.csv). The [workspace receipt](owner-register-workspace-checkpoint.md) contains the earlier local proof. This packet prepares review and records source and hosted observations. Security and working-feature acceptance remain open.
 
@@ -30,9 +32,9 @@ The local built shell and worker both returned 200. Each of the three private en
 3. From a clean profile inspect `GET /prepared-register` and its worker. Check 200, shell marker `register-v1`, no identity or roster in the response, online workspace guidance and no automatic worker registration. Check a same-origin JSON POST of `{}` to each private register route returns the expected closed `503 unavailable` response before identity, SQL or key use. A redirect or 404 only proves the route was unavailable at that hostname. Record headers, statuses and counts without response secrets, cookies or roster fields.
 4. Confirm migration history and catalog remain as recorded for this closed test. Keep the active rollout, database apply, wrapping-root custody, feature flags and working acceptance as distinct decisions.
 
-## Independent review and synthetic activation gate
+## Engineering verification and authorized synthetic activation
 
-Use one existing synthetic Owner, a separately authorized foreign or wrong-role fixture, and one published register in a dedicated personal browser profile. Use fictional names only. The review owner records the exact commit, provider deployment, browser and OS versions, configuration presence as booleans, case results, residual risk and disposition. Independent reviewer and authorization for any new grant or hosted enablement are pending.
+Use one existing synthetic Owner, a separately authorized foreign or wrong-role fixture, and one published register in a dedicated personal browser profile. Use fictional names only. The implementing engineer records the exact commit, provider deployment, browser and OS versions, configuration presence as booleans, case results, residual risks and actual outcomes. Do not wait for an independent reviewer or signature. Authorization for any new grant, actual custody/configuration or hosted enablement remains separate from this documentation; prepare the concrete bounded procedure. Account/academy selection must respect the [dedicated-role cleanup plan](../06-delivery/staging-role-separation-plan.md), preserving original-account pending work.
 
 | Review area | Evidence required |
 | --- | --- |

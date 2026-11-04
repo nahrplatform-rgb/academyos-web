@@ -1,5 +1,7 @@
 # Local edits, reconnect and conflict resolution — LF-v3 preparation
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 **Connected review prepared3November:** [Owner register design packet and preview](../06-delivery/offline-register-decision-design.md). The connected write design is now approved3November; synthetic browser checks remain separate from private implementation and independent security; existing accepted policies are not reopened.
 
 Prepared2November2026; Owner decisions3November2026. **First Owner offline-register policy accepted for design, including protected pending-work recovery. Connected offline-register design is now approved3November; private implementation and security approval remain pending. See the [runtime readiness packet](offline-register-runtime-readiness.md).** This extends [the canonical local-data plan](../06-delivery/local-data-and-sync-plan.md); it does not replace current server authorization, atomicity, deadlines, history or previous business approvals. Read-only preview approval remains valid for its scope, not for these newly requested write states.

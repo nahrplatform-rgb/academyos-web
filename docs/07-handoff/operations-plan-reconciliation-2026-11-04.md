@@ -1,5 +1,7 @@
 # Operations design and plan reconciliation — 4 November 2026
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 ## Authorized outcome and evidence
 
 The Owner asked this implementation chat to inspect the [design chat](codex://threads/01a16a57-9fa0-73f0-a6d5-33df9119e86b) and adjust redesign, master and dependent plans. This checkpoint reconciles documentation and versions the exact existing fictional reference. It makes no app, database, provider, account, private activation or deployment change.

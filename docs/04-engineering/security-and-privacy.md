@@ -1,8 +1,10 @@
 # Security and privacy design
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
-Private local data adds stored child/employee/financial/index metadata, shared-device, XSS/key, device-loss, local expiry and disconnected-revocation boundaries. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) requires exact LF-P01–LF-P06 policy and independent review before private runtime storage. Native Keychain/file protection and Shift personal7day lease do not transfer to browser authorization; current server checks remain.
+Private local data adds stored child/employee/financial/index metadata, shared-device, XSS/key, device-loss, local expiry and disconnected-revocation boundaries. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) requires the applicable accepted LF-P01–LF-P06 policy and concrete engineering/storage/authority verification before private runtime storage. Independent human/external review is deferred and nonblocking for current synthetic staging under SDR-01. Native Keychain/file protection and Shift personal7day lease do not transfer to browser authorization; current server checks remain.
 
 Requirements: AO-149–160. This is a threat-driven engineering plan, not a completed penetration test or legal compliance opinion. Country, age, retention and residency decisions remain open.
 

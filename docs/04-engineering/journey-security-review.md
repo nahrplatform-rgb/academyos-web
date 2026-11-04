@@ -1,5 +1,7 @@
 # Journey security review and delivery gates
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 The local-replica gate in [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) supplements existing per-journey gates: same-account/academy/branch/link fields and indexes, known denial/late reply, lease expiry/clock rollback, missing/corrupt keys, logout cleanup failure, browser eviction, transactional watermark, tombstones and concurrent tabs. Local read approval does not approve offline commands. Independent security remains open;54passing Shift synthetic tests are reference proof only.
@@ -55,7 +57,8 @@ For narrow changes mark irrelevant controls N/A with a reason and review affecte
 | Implementation verified | Run meaningful relevant checks and inspect final diff; compare actual policy to intended contract | Layer-specific results; missing hosted/provider evidence stays pending |
 | Staging demonstration | Use two academies and wrong-role/branch/revoked personas; test direct access as applicable plus recovery and redacted signals | Runtime proof on named build; no secrets/real child records in artifacts |
 | Journey acceptance | Reconcile actual UI/API/actions against packet and tests; review unresolved risks and role outcome | Owner acceptance separate from test execution; no critical boundary failure waived by visual approval |
-| Pilot/production release | Revisit combined cross-module boundaries, effective permissions, privacy/retention, recovery, provider modes and incident readiness | Production-specific evidence and explicit launch decision; staging success is insufficient |
+| Authorized synthetic staging pilot | Verify actual cross-module permissions, privacy/retention, custody/configuration and recovery at the named build; retain explicit activation/access authority | Meaningful engineering results and honest open limitations; independent human/external review is deferred and not a prerequisite |
+| Production/real-data release | Revisit combined boundaries, effective permissions, privacy/retention, recovery, provider modes and incident readiness under its own release decisions | Production-specific evidence and explicit launch decision; staging deferral/success grants no production authority |
 | After changes/incidents | Reassess affected packets after new roles, fields, dependencies, routes, cache, migration, provider or policy changes | Regression cases and updated evidence; old green status is not inherited automatically |
 
 Security is reviewed alongside the five journey dimensions: usability must not conceal authority; speed/cache must preserve isolation; correctness includes current permissions; cost controls cannot bypass validation; recovery cannot resurrect revoked access or erased records. Keep failed controls visible individually.
@@ -83,6 +86,8 @@ Containment may revoke a capability, expire an invitation, pause a scoped job or
 Track finding ID, journey/action, severity with rationale, reproduction, affected environments, evidence, owner, remediation, re-test and closure. Separate source suspicion, synthetic reproduction and demonstrated hosted impact. Proposed fix is not closure. Known tenant isolation, child privacy, unauthorized access or financial-integrity failures block the affected release. Other residual risks require explicit owner decision, containment/workaround, scope and expiry; no automatic risk acceptance because a deadline is near.
 
 ## Coverage maintenance
+
+The matrix's `independent_review_status` and `independent_review_policy` fields record the current scheduling decision separately. Existing family engineering/test/acceptance fields and evidence descriptions retain their historical scope; an old “independent gate open/unchanged” link note is not a current staging prerequisite. Use SDR-01 for current review dependencies. Neither deferred review nor a new metadata field passes an adversarial case or accepts a family.
 
 The coverage matrix has one planned entry per current journey family J01–J28. Before a family enters implementation, split it into action-level packets and link exact requirement/case IDs and evidence. One family row does not prove every action reviewed. Current entries are **Planned / Not executed / Not accepted**. Existing foundation checks and provider proof do not close unrelated rows.
 

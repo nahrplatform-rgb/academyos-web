@@ -1,5 +1,7 @@
 # Owner local-data protection — ordinary sign-in, no extra credential setup
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 3November2026. **Current Owner direction: email/password sign-in should be sufficient for the normal personal-device experience; no mandatory passkey enrollment or separate local secret.** This supersedes the passkey-opening product recommendation in this same packet, while preserving its successful diagnostic evidence. [Exact decision receipt](../07-handoff/evidence/local-data-login-only-direction-2026-11-03.json), [physical PRF result and limits](../07-handoff/evidence/device-unlock-handoff-2026-11-03.json), [historical mechanism research](passkey-local-unlock-investigation.md). No private runtime is enabled.
 
 ## Normal user journey

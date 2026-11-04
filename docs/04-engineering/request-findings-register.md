@@ -1,5 +1,7 @@
 # Whole-app findings and coverage register
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Current remediation target is persistent scoped local data and quiet sync under [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md), not only memory summary reuse. Existing NR01–NR17 diagnoses and scoped fixes remain; none is closed by plan reconciliation. New replica/coverage/lease/key/migration cases are planned in the working-day register; do not rewrite historical source/hosted findings as new runtime facts.

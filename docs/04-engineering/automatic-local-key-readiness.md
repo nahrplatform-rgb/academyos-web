@@ -1,5 +1,7 @@
 # Automatic local protection — EX-10 mechanism checkpoint
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 3November2026. Authorized outcome: prove a no-extra-credential path for the approved Owner personal-device register before integrating private data. The [Owner's login-only direction](offline-register-device-key-contract.md) and existing atomic/original-ID/deadline/retained-recovery policies govern. This is mechanism engineering with fictional records, not a new business-policy question, deployment, private enablement or independent audit.
 
 Scope: IMP-J12-A01 / J12-A01–A03 / S28 / AO-035,036,042,045 / AT-035,036,042,045 / L08 / SEC-J12; cross-cutting IMP-J16-A01 / L10 / SEC-J16; NR13/14/15/17 and G08/G09. No offline saved-mark correction, new role, real family/child data or new retention rule.

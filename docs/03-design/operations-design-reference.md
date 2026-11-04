@@ -1,5 +1,7 @@
 # Operations design reference and adoption contract
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 Reconciled 4 November 2026 from the Owner's [Design AcademyOS visual prototype chat](codex://threads/01a16a57-9fa0-73f0-a6d5-33df9119e86b), the actual studio files, shared app source and existing delivery receipts. This is the current presentation authority for the redesign. Accepted AcademyOS business, authorization, data, audit and recovery contracts continue to govern operations.
 
 ## Selected reference and decision evidence
@@ -61,7 +63,7 @@ Retain program weekday-specific times, full-period automatic bounded checks, wee
 
 Owner requested a **complete functional review using the real AcademyOS backend and dedicated fictional staging records**. Use current authorized accounts and existing fictional records first. A new account, invitation, restored role, Guardian link or added visibility requires its own explicit authorization. Do not seed private data to make a screenshot look like the sample. Empty/error views must remain useful and truthful. Proposed analytics need approved denominator, cohort, timezone, completeness and an authoritative scoped projection before becoming real counts/charts. Keep any unavailable metric unavailable instead of inserting fixture values.
 
-Persistent local data remains a core target under the [local-data plan](../06-delivery/local-data-and-sync-plan.md); the studio's browser memory is not a substitute. The [closed private-register checkpoint](../07-handoff/owner-register-promoted-checkpoint.md) preserves real implementation and gate evidence. Private key custody, independent security disposition, actual activation and hosted offline acceptance remain separate. Safe online visual/task adoption may proceed while those dependent private gates are open.
+Persistent local data remains a core target under the [local-data plan](../06-delivery/local-data-and-sync-plan.md); the studio's browser memory is not a substitute. The [closed private-register checkpoint](../07-handoff/owner-register-promoted-checkpoint.md) preserves real implementation and gate evidence. Actual key custody, activation authority and hosted offline evidence remain unfinished where recorded. Independent human review is deferred and nonblocking under the current staging policy; no reviewer disposition precedes otherwise-authorized staging activation.
 
 ## Full-app adoption and coverage
 
@@ -92,6 +94,6 @@ The complete connected **working** review remains required across this scope. Ba
 
 ## Next execution and reconciliation receipt
 
-The [single tracker](../06-delivery/experience-execution.csv) selects **EX-07 Operations adoption** for the next safe online batch. Preserve completed EX-10/02/06/04/03 checkpoints. EX-11 retains its open private working-day gate; EX-09 custody/reviewer readiness and EX-05/08 measurements support their affected work. This routing changes no privacy requirement and declares no offline acceptance.
+The [single tracker](../06-delivery/experience-execution.csv) selects **EX-07 Operations adoption** with **EX-12 dedicated-role preflight/verification** alongside it. Complete Platform Owner and Academy Owner journeys first, using the role plan and current permitted fictional records; then extend shared patterns across other implemented roles. Preserve completed EX-10/02/06/04/03 checkpoints. EX-11 retains actual private working-day evidence, EX-09 concrete custody/authority readiness and EX-05/08 measurements. Independent reviewer assignment/disposition is deferred and is not a staging dependency. No offline acceptance or account mutation is inferred.
 
 See [the reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) for changed documents, source limits and verification. The reusable instruction stays **“Continue from the living continuation prompt.”** Its generated current priority must reflect this route.

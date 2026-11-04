@@ -1,5 +1,7 @@
 # Experience blueprint and journey governance
 
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
 **Current presentation — 4 November 2026:** the [Operations contract](operations-design-reference.md) reconciles the selected design chat and exact sample with the working app. Light is the default; Charcoal remains an alternative. Layout, density, wording, controls, task sequence, focus and recovery must adopt the selected system, not merely its palette. The complete connected working review covers all implemented journeys and role homes/calendar under the [full redesign plan](../06-delivery/full-experience-redesign.md). Existing business/permission/ID contracts and prior scoped approvals remain. Safe online adoption proceeds through the current tracker independently of gated private offline activation.
 
 ## Persistent local data and synchronization — LF-v2,2November2026
@@ -155,4 +157,4 @@ The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) suppli
 
 ## Security packet in every action contract
 
-Add a [security review packet](../04-engineering/journey-security-review.md) to each upcoming action specification. Identify assets/trust crossings, misuse, prevention/detection/containment/recovery and negative evidence. Use the [family coverage matrix](../04-engineering/journey-security-matrix.csv) to avoid omissions. Security/privacy is an independent gate alongside usability, speed, correctness, cost and recovery, never an averaged score.
+Add a [security engineering packet](../04-engineering/journey-security-review.md) to each upcoming action specification. Identify assets/trust crossings, misuse, prevention/detection/containment/recovery and negative evidence. Use the [family coverage matrix](../04-engineering/journey-security-matrix.csv) to avoid omissions. Actual security/privacy controls cannot be traded against usability/speed/cost scores. Independent human/external review is separately deferred and nonblocking for current authorized synthetic staging under SDR-01; no reviewer signature is required to continue.

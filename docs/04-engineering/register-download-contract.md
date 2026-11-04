@@ -1,5 +1,7 @@
 # EX-04 bounded coherent Owner-register download
 
+**Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
+
 3 November 2026. Authorized outcome: extend the [inactive typed register repository](local-register-repository-contract.md) with a read-only server transfer contract and actual disposable-database/browser proof. Existing Owner register/read designs govern; no new product workflow, access grant, key enrollment, recording rule or private enablement is approved here. Current Calendar1-read work and all online attendance writers remain unchanged.
 
 Joins: IMP-J12-A01 / J12-A01–A03 / S28 / AO/AT-035,036,042,045 / L08 / SEC-J12; cross-cutting WB-06/09/10/12/14/15/17/18/23/24; NR05/06/07/14, G03/G08/G09. The [local-data plan](../06-delivery/local-data-and-sync-plan.md), [request standard](../06-delivery/request-hygiene-and-offline-standard.md), [offline-edit contract](offline-edit-and-conflict-contract.md) and [security gates](journey-security-review.md) remain authoritative.
