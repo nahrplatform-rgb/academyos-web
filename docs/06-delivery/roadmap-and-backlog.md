@@ -1,6 +1,6 @@
 # Delivery roadmap and dependency-ordered backlog
 
-3November scoped execution: [EX-04 coherent register transfer](../07-handoff/register-download-checkpoint.md) is implemented and locally tested with fictional data, inactive in the app. The [single tracker](experience-execution.csv) selects EX-03 original transport/restart/receipt recovery. Real key/current authority/fields/time, directory/month/other-role adoption, hosted/Owner/security and the broader roadmap remain open.
+**4 November execution checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) is implemented and verified locally with fictional data. The [execution tracker](experience-execution.csv) now selects EX-11 for a connected Owner working-day proof. Actual private key custody, scope, fields, retention, security and working acceptance remain separate gates.
 
 ## Latest local-first direction — LF-v3,2November2026
 

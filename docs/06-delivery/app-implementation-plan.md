@@ -2,7 +2,7 @@
 
 **3November current checkpoint:** [EX-10 Owner offline-register review](offline-register-decision-design.md) is approved; [runtime readiness](../04-engineering/offline-register-runtime-readiness.md) now links positive Owner Chrome key/sample evidence and15disposable database replay/fence checks. The Owner now directs login-only device use without mandatory passkey setup; automatic protection, same-account recovery and private implementation still need proof. Follow the tracker; Owner alone performs release promotions.
 
-Later3November: [EX-04 coherent transfer checkpoint](../07-handoff/register-download-checkpoint.md) passes11PG17/20connected browser cases and retains38storage/16mechanism checks. The tracker now selects EX-03 exact original transport/restart/receipt recovery. Schema/API/receiver remain inactive; real key/current scope/fields/time, private integration, hosted/Owner/security and broader functional/redesign gates remain separate.
+**4 November execution checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) is implemented and verified locally with fictional data. The [execution tracker](experience-execution.csv) now selects EX-11 for a connected Owner working-day proof. Actual private key custody, scope, fields, retention, security and working acceptance remain separate gates.
 
 ## Latest local-first direction — LF-v3,2November2026
 

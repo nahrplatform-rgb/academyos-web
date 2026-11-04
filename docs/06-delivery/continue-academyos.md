@@ -140,7 +140,7 @@ Findings: NR13; NR17; G09.
 Design: Approved Owner capture/recovery policy and design retained. Scoped dispatch contract binds the original subject to current Owner membership and canonical write..
 
 - Implementation: Inactive Owner original sender, closed staging API and signed transactional Owner RPC implemented. Durable Unknown before dispatch, exact receipt and scoped roster invalidation, retained refusal and late reply fencing.
-- Local checks: 17 connected Chromium/Next handler/Supabase SDK/signed gateway/PG17 checks. 15 canonical PG17, 20 download browser, 38 storage and 92 unit cases passed with build/type/lint. Fictional authority and provider bridges.
+- Local checks: 17 connected Chromium/Next handler/Supabase SDK/signed gateway/PG17 checks. 15 canonical PG17, 20 download browser, 38 storage and 92 unit cases passed with build/type/lint. Fictional authority and provider bridges. Both Foundation workflows passed for 013e6f7. Delivery record linked from handoff.
 - Deployment: Inactive source. Migration not applied to hosted staging, flag closed, no promotion required.
 - Hosted verification: not_run_for_private_transport
 - Owner acceptance: Approved workflow design retained. Working private acceptance pending.
