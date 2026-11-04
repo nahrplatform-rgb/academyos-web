@@ -99,3 +99,7 @@ The complete connected **working** review remains required across this scope. Ba
 The [single tracker](../06-delivery/experience-execution.csv) selects **EX-07 Operations adoption** with **EX-12 dedicated-role preflight/verification** alongside it. Complete Platform Owner and Academy Owner journeys first, using the role plan and current permitted fictional records; then extend shared patterns across other implemented roles. Preserve completed EX-10/02/06/04/03 checkpoints. EX-11 retains actual private working-day evidence, EX-09 concrete custody/authority readiness and EX-05/08 measurements. Independent reviewer assignment/disposition is deferred and is not a staging dependency. No offline acceptance or account mutation is inferred.
 
 See [the reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) for changed documents, source limits and verification. The reusable instruction stays **“Continue from the living continuation prompt.”** Its generated current priority must reflect this route.
+
+## Supporting design quality guidance
+
+Use [design tools and quality guidance](design-tools-and-quality-guidance.md) proportionately when implementing and reviewing this reference. It supports this contract and does not change the selected direction, execution sequence or acceptance authority.

@@ -1,5 +1,7 @@
 # Concrete one-register synthetic staging activation
 
+**Latest checkpoint:** the Owner promoted `50a2ae1`; canonical Ready deployment `dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj` reports that source. The [live checkpoint/restart instructions](owner-register-live-checkpoint-2026-11-04.md) supersede the pending-promotion next action below. Empty probes now422; actual authenticated download/offline sync remains unexecuted. Casey is ended/version17; zero key slots. No new promotion or provisioning is needed to resume.
+
 4 November2026. EX12's exact authorized role cleanup is executed and verified; EX11 is now current. This packet prepares the next bounded action under the existing accepted device, scope, offline-register and recovery designs. It is neither a new business rule nor evidence that the private feature is enabled. Independent review is deferred/nonblocking.
 
 **Current authority:** the Owner explicitly authorized this staging offline activation and supplied standing synthetic-trial test/account authority under [SDR-06](../00-governance/staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority). No further per-test Casey restoration/ending question is needed. Owner-only promotions remain. All four schema sources are now applied with verified final grants; provider/root/flags and hosted runtime results are recorded separately.
@@ -37,7 +39,7 @@ Rollback closes new preparations/private routes through the existing settings/bu
 
 All four migration sources are applied. Final x20 bound download/dispatch and x19 key gateway signatures are present; unbound x17/x18 are absent from the signed allowlist and denied to authenticated/anon/service roles. Key table RLS is enabled with zero registrations; all55 earlier operating fingerprints/401 rows remain unchanged. The Vercel root is sensitive and all five new settings target only this existing project's staging `production` target, with no Preview/development copy. The CLI account lacked this team; the root entered the existing administrator UI's Secret field through in-process trusted-digest recovery without a plaintext file, emitted secret or credential copying. Nonsecret flags used the connector. Current deployed old runtime still returns the three expected503 gates; [pre-promotion receipt](evidence/role-first-offline-2026-11-04/pre-promotion-gates.json). New-build promotion and actual working-day proof remain pending; no agent promotion occurred.
 
-## Exact checked release awaiting Owner promotion
+## Retained checked release before Owner promotion
 
 Both full Foundation runs passed for code **`50a2ae149bfeff56af94108cb2e04f26e4be075c`**: [push41851855395](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41851855395) and [PR41851866155](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41851866155). Its automatic [PreviewGPbZ3zDJVzRSAx8Av5HsUkWnd22M](https://vercel.com/academy-os2/academyos-web/GPbZ3zDJVzRSAx8Av5HsUkWnd22M) is Ready. **Promote this exact code build50a2ae1 to `staging.academy.nahr.dev`.** A later documentation-only handoff commit is evidence, not a replacement promotion candidate. No agent promotion/redeploy/alias/passkey action occurred. [Release receipt](evidence/role-first-offline-2026-11-04/release-handoff.json).
 

@@ -1,5 +1,7 @@
 # EX-11 closed staging verification
 
+**Later4November:** retain this older closed-runtime evidence. The [live checkpoint](owner-register-live-checkpoint-2026-11-04.md) records the Owner-promoted50a2ae1, opened validators, interrupted fixture attempt, ended Trainer access and exact next action. Do not repeat older migration/configuration/promotion prerequisites as current blockers.
+
 **Current execution policy — 4 November 2026:** the runtime observations below remain the closed staging receipt. Under [SDR-01](../00-governance/staging-delivery-and-review-policy.md), independent review is now deferred and nonblocking; do not wait for reviewer assignment/disposition. Actual custody/configuration, engineering checks, activation authority and working evidence are still unexecuted where noted. The policy update itself changes no runtime result.
 
 4 November 2026. The Owner reported promotion of the combined register and Operations source. Vercel resolved the canonical staging alias to rebuilt deployment `dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM`, Ready, source `ef73a36537228461f80aecf1084bd1429b2ebb8c`. The earlier preview and both CI receipts remain in the [delivery record](evidence/owner-register-staging-delivery-2026-11-04.json). [Hosted verification receipt](evidence/owner-register-promoted-2026-11-04/verification.json) · [Deployment](https://vercel.com/academy-os2/academyos-web/7uNTT7sXQ3SWHh9gWhbFn9pzxGMM).

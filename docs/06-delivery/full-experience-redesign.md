@@ -40,6 +40,8 @@ Accepted execution choices: redesign all implemented journeys plus connected Own
 
 Required final deliverable: **one connected, signed-in working app review** using the real AcademyOS staging backend and dedicated fictional records within existing authorization. The selected [Operations studio](../../design/owner-design-studio-2026-11-03/README.md) demonstrates four destinations; the older [complete proposed preview](../../design/full-experience-preview/README.md) and [coverage](../../design/full-experience-preview/coverage.json) retain broader flow/state intent. Neither a studio nor the [factual current-source HTML](../../design/app-experience-review/README.md) is that complete working deliverable. Existing home/calendar/read/command implementations must be inspected and preserved; do not assume they are still unimplemented from the October proposal.
 
+Use the [design tools and quality guidance](../03-design/design-tools-and-quality-guidance.md) for proportional skill selection and evidence-based review of each affected journey.
+
 ## Design contract
 
 - Operations light default with Charcoal alternative. Use the exact selected sample's neutral surfaces, blue primary controls and meaningful sky/training, teal/attendance, gold/people, violet/development, coral/family and mint/operations accents. Module identity and semantic success/error/warning remain separate. Colour appears in selected navigation/rows, summaries, module surfaces and meaningful context, not only badges. Supporting controls are neutral/quiet; destructive confirmation is red.
