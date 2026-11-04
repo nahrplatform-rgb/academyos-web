@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-11-04T21:40:11.374809+00:00",
+  "candidate": {
+    "sha": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+    "id": "dpl_BiUMSPv9sbbETQS7sQHMLb4bUwSz",
+    "state": "READY",
+    "target": "preview",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/BiUMSPv9sbbETQS7sQHMLb4bUwSz"
+  },
+  "checks": [
+    {
+      "event": "push",
+      "status": "success",
+      "sha": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915930417"
+    },
+    {
+      "event": "pull_request",
+      "status": "success",
+      "sha": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915942729"
+    }
+  ],
+  "canonical_staging": {
+    "host": "staging.academy.nahr.dev",
+    "sha": "50a2ae149bfeff56af94108cb2e04f26e4be075c",
+    "id": "dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj"
+  },
+  "promotion": "Waiting for Owner"
+}

@@ -2,6 +2,10 @@
 
 4 November 2026. The existing Academy A Owner completed a two-player offline register on staging build `50a2ae1`. The browser reopened the encrypted register while disconnected, saved both marks together, then recorded the original save once after reconnecting. Preparing before the session exposed a recording-window defect. The repair is in the next candidate. Follow the [execution tracker](../06-delivery/experience-execution.csv) for release and verification status.
 
+## Release handoff
+
+Both Foundation runs passed on `cb00ab8`. Vercel reports the same commit Ready as a preview, while `staging.academy.nahr.dev` still resolves to `50a2ae1`. Promote the checked preview to the existing staging domain using the Owner account. [Vercel deployment](https://vercel.com/academy-os2/academyos-web/BiUMSPv9sbbETQS7sQHMLb4bUwSz) · [Push checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915930417) · [PR checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915942729) · [Release receipt](evidence/offline-pilot-resumed-2026-11-04/release-candidate.json).
+
 ## Hosted journey
 
 | Step | Observed result |
