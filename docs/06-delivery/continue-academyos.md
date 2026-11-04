@@ -38,7 +38,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Finish checked commit/CI/automatic Preview and give Owner exact deployment to promote to existing staging. Then verify real iCloud Owner one-register prepare/cold offline reopen/local atomic save/exact original sync/conflict/deadline/logout/current-same-account recovery. Use SDR06 for temporary Casey fixture setup and ending;no repeated trial access question. EX13 datasets then remaining EX07 after actual checkpoint.
+Next action: Await Owner promotion of exact50a2ae1 via VercelGPbZ3zDJVzRSAx8Av5HsUkWnd22M to staging.academy.nahr.dev;both CI runs passed. Verify resulting canonical source/gates,then real iCloud Owner fresh-register prepare/cold offline reopen/local atomic save/original sync/conflict/deadline/logout/recovery. SDR06 covers temporary Casey fixture setup and ending;do not re-ask. Do not bind an old register first. EX13 datasets follows actual pilot checkpoint,then remaining EX07.
 
 Scoped dependency gate: Actual staging activation now explicitly authorized. Schema/root/flags prepared and checked;new-runtime Owner promotion and concrete offline proof remain. Independent review deferred/nonblocking;working acceptance and measured limits separate.
 
@@ -190,12 +190,12 @@ Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
 - Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
-- Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
-- Deployment: Canonical fc1b5ee retained;all four register migrations and staging-only root/flags provisioned and verified. Existing runtime still503 until new checked build is Owner-promoted;no agent promotion.
+- Local checks: Both full Foundation CI runs passed for50a2ae1:41851855395/41851866155. Retained combined app/recovery cases plus new9operator,9custody,2restore-scope cases and complete recovered-backup four-migration rehearsal.
+- Deployment: Code50a2ae1 automatic Preview dpl_GPbZ3zDJVzRSAx8Av5HsUkWnd22M Ready;Owner promotion pending. Canonical stillfc1b5ee. Four schema sources/root/staging-only flags provisioned;existing runtime still503.
 - Hosted verification: EX12 isolated actual accounts passed;schema grants/history and sensitive settings scopes checked. No key slot/local private data prepared yet. Three pre-promotion503 gates remain;actual offline working day unexecuted.
 - Owner acceptance: Private activation explicitly authorized4November;SDR06 standing necessary synthetic-trial test authority. Working acceptance pending.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Finish checked commit/CI/automatic Preview and give Owner exact deployment to promote to existing staging. Then verify real iCloud Owner one-register prepare/cold offline reopen/local atomic save/exact original sync/conflict/deadline/logout/current-same-account recovery. Use SDR06 for temporary Casey fixture setup and ending;no repeated trial access question. EX13 datasets then remaining EX07 after actual checkpoint.
+- Next action: Await Owner promotion of exact50a2ae1 via VercelGPbZ3zDJVzRSAx8Av5HsUkWnd22M to staging.academy.nahr.dev;both CI runs passed. Verify resulting canonical source/gates,then real iCloud Owner fresh-register prepare/cold offline reopen/local atomic save/original sync/conflict/deadline/logout/recovery. SDR06 covers temporary Casey fixture setup and ending;do not re-ask. Do not bind an old register first. EX13 datasets follows actual pilot checkpoint,then remaining EX07.
 - Evidence: docs/07-handoff/owner-register-activation-2026-11-04.md
 
 ### EX-13 — Progressive persistent Owner Players/month datasets before remaining redesign
@@ -280,5 +280,5 @@ Design: Owner approved one personal-device published register, minimal fields, 3
 - Hosted verification: Current real Clerk roles verified after EX12;root/flags metadata scoped without decryption;zero key slots. All55 operating fingerprints unchanged. Existing build still503s;actual key release/offline/recovery pending.
 - Owner acceptance: Scope/recovery approved;actual staging activation explicitly authorized4November;SDR06 covers necessary trial tests. Working acceptance separate.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Support current EX11 checked build/Owner promotion and actual personal-device register tests;preserve pinned root archive/digest and protected originals. Covered synthetic trial setup/ending now standing-authorized;do not re-ask. No external reviewer wait.
+- Next action: Support current EX11 after Owner promotion of checked50a2ae1. Actual root/schema/flags are ready;preserve pinned archive/digest and protected originals. Standing SDR06 covers necessary trial setup/ending;Owner alone promotes. Actual private working evidence remains unexecuted.
 - Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md
