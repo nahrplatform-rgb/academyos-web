@@ -1,0 +1,56 @@
+{
+  "checked_at_utc": "2026-11-04 08:13:52 UTC",
+  "code_commit": "fc1b5ee76260ac96dfdd212f98a64c413246e548",
+  "branch": "codex/onboarding-decision-design-packet",
+  "ci": [
+    {
+      "id": 41796045535,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41796045535",
+      "head_sha": "fc1b5ee76260ac96dfdd212f98a64c413246e548"
+    },
+    {
+      "id": 41796036140,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41796036140",
+      "head_sha": "fc1b5ee76260ac96dfdd212f98a64c413246e548"
+    }
+  ],
+  "preview": {
+    "id": "dpl_Bg7jbVqaM6omEdDLntqLjRcfYNDn",
+    "state": "READY",
+    "url": "https://academyos-o4e35xtoi-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/Bg7jbVqaM6omEdDLntqLjRcfYNDn",
+    "verification": "Read-only exact-SHA automatic Preview; no new signed-in runtime proof"
+  },
+  "canonical_staging": {
+    "host": "staging.academy.nahr.dev",
+    "observed_deployment": "dpl_HJ5sFEJ5uJXh954APLtwumia8R36",
+    "observed_source": "12b9a99c26cb446d71fcc9987572d056fc16e219",
+    "verification": "Read-only alias lookup joined to retained exact-source provider evidence",
+    "new_source_promoted": false,
+    "promotion_owner": "Owner only; no agent promotion, passkey operation or alias mutation",
+    "url": "https://academyos-gwefnesem-academy-os2.vercel.app"
+  },
+  "hosted_verification": "Pending new checked release and Owner promotion; no new hosted UI/operating proof",
+  "owner_acceptance": "Pending working Calendar feedback; previous functional/design approvals preserved",
+  "limits": [
+    "Local fixtures use fictional identity and transport; actual Next/Postgres regressions are separately indexed",
+    "No full redesign or whole-finding closure",
+    "No new account grant/restoration,hosted record,invitation or private activation",
+    "Independent external review deferred/nonblocking/not performed",
+    "No hosted latency percentile or billing savings measurement"
+  ],
+  "promotion_handoff": {
+    "checked_source": "fc1b5ee76260ac96dfdd212f98a64c413246e548",
+    "deployment": "dpl_Bg7jbVqaM6omEdDLntqLjRcfYNDn",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/Bg7jbVqaM6omEdDLntqLjRcfYNDn",
+    "destination": "staging.academy.nahr.dev",
+    "status": "Ready for Owner promotion; agent has not initiated or finalized promotion",
+    "docs_followup": "A later documentation-only commit records this receipt; named code build remains the checked candidate"
+  }
+}
