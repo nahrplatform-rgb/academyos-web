@@ -74,6 +74,14 @@ Source/UI/local evidence are separate from exact-source CI, preview readiness, O
 | Owner acceptance | No new working acceptance supplied; earlier functional approvals retained. |
 | Account separation/security | Read-only role inventory partial; no mutation. Independent external review deferred/nonblocking, not performed. |
 
+## CI dependency correction
+
+Initial app commit `e151261547f2781e9bb4cc5400c1ebb69993cc9a` produced Ready preview `dpl_CtpRze26VdYJEJ4HQ2fHWBur44Sm`, but [PR run41779950070](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41779950070) and [push run41779941572](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41779941572) failed the pre-existing working-day **source freshness** check before reaching the onboarding step. The record still fingerprinted the old shared CSS. That Ready build is not the recommended promotion candidate.
+
+Reran the actual disposable Next/PG17/Chromium working day, then its supported `--record` mode to regenerate [the current eight-case evidence](evidence/owner-working-day-next-2026-11-04.json). Offline18-player capture, restart, unchanged manifest, exact lost-reply replay, scoped invalidation, deadline refusal and same-account pending recovery passed. The separate seven-case Owner public-startup/account-cleanup run also passed with current CSS. No expected business result, assertion, source list, freshness rule or private gate was changed. No stored hash was patched manually. These remain fictional local integration runs, not private hosted activation or a new latency percentile.
+
+Recheck all CI receipt-freshness commands before publishing the corrected checkpoint, then inspect its exact CI/Ready source separately. Preserve the failed initial runs as evidence; neither preview readiness nor corrected local evidence alone marks remote verification passed.
+
 Next: release/verify this exact code through Owner-controlled promotion, then continue the Academy Today→Calendar→session/register→exact return and Players adoption. Preserve current source and the role preflight; do not repeat settled design reviews, create a new feature or make account changes from this packet alone.
 
 ## AI execution
