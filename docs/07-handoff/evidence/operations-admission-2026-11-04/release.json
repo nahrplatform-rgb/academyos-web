@@ -1,0 +1,45 @@
+{
+  "checked_at_utc": "2026-11-04 06:10:30 UTC",
+  "checked_commit": "12b9a99c26cb446d71fcc9987572d056fc16e219",
+  "app_change_commit": "e151261547f2781e9bb4cc5400c1ebb69993cc9a",
+  "ci": [
+    {
+      "id": 41782270670,
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782270670"
+    },
+    {
+      "id": 41782261857,
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782261857"
+    }
+  ],
+  "preview": {
+    "id": "dpl_5MPKjBS8dAvbmxReUg4jSL4darTr",
+    "state": "READY",
+    "url": "https://academyos-cio8ajjkb-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/5MPKjBS8dAvbmxReUg4jSL4darTr",
+    "authentication": "Preview page fails closed: Authentication is not configured; no signed-in new-source proof"
+  },
+  "canonical_staging": {
+    "host": "staging.academy.nahr.dev",
+    "observed_deployment": "dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM",
+    "observed_source": "ef73a36537228461f80aecf1084bd1429b2ebb8c",
+    "new_source_promoted": false,
+    "promotion_owner": "Owner only; no agent promotion or alias mutation"
+  },
+  "superseded_candidate": {
+    "commit": "e151261547f2781e9bb4cc5400c1ebb69993cc9a",
+    "ci_failure": "Stale shared-CSS fingerprint in existing eight-case working-day receipt; regenerated through actual supported --record run, no assertion change"
+  },
+  "limitations": [
+    "New-source signed-in staging verification pending",
+    "Working Owner acceptance pending",
+    "Two-account role separation partial; no account mutation",
+    "Independent external review deferred/nonblocking/not performed",
+    "No full redesign or whole-finding closure",
+    "No measured hosted latency percentiles or billing savings"
+  ]
+}

@@ -69,7 +69,7 @@ Source/UI/local evidence are separate from exact-source CI, preview readiness, O
 |---|---|
 | Design | Existing accepted Operations/full workflow applied; adaptations and gaps recorded above. |
 | Implementation/local tests | Bounded admission source, fixtures, comparison, regression and factual maintenance passed as recorded. |
-| Git/CI/preview | Publish the checked source; inspect exact commit/build separately. This local receipt does not imply remote success. |
+| Git/CI/preview | Corrected12b9a99 passed both CI runs and has a Ready preview; exact links and limits are recorded below. |
 | Staging | Existing ef73a36 source verified; new source requires Owner promotion and subsequent hosted checks. |
 | Owner acceptance | No new working acceptance supplied; earlier functional approvals retained. |
 | Account separation/security | Read-only role inventory partial; no mutation. Independent external review deferred/nonblocking, not performed. |
@@ -81,6 +81,14 @@ Initial app commit `e151261547f2781e9bb4cc5400c1ebb69993cc9a` produced Ready pre
 Reran the actual disposable Next/PG17/Chromium working day, then its supported `--record` mode to regenerate [the current eight-case evidence](evidence/owner-working-day-next-2026-11-04.json). Offline18-player capture, restart, unchanged manifest, exact lost-reply replay, scoped invalidation, deadline refusal and same-account pending recovery passed. The separate seven-case Owner public-startup/account-cleanup run also passed with current CSS. No expected business result, assertion, source list, freshness rule or private gate was changed. No stored hash was patched manually. These remain fictional local integration runs, not private hosted activation or a new latency percentile.
 
 Recheck all CI receipt-freshness commands before publishing the corrected checkpoint, then inspect its exact CI/Ready source separately. Preserve the failed initial runs as evidence; neither preview readiness nor corrected local evidence alone marks remote verification passed.
+
+## Corrected release handoff — 4 November,06:10 UTC
+
+Checked source **`12b9a99c26cb446d71fcc9987572d056fc16e219`** passed [PR CI41782270670](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782270670) and [push CI41782261857](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782261857). The exact [Vercel deployment](https://vercel.com/academy-os2/academyos-web/5MPKjBS8dAvbmxReUg4jSL4darTr), `dpl_5MPKjBS8dAvbmxReUg4jSL4darTr`, is Ready. [Structured release evidence](evidence/operations-admission-2026-11-04/release.json) retains the superseded candidate and separate live-source observation.
+
+**Owner action:** promote that checked `12b9a99` build to the existing `staging.academy.nahr.dev` destination. A later handoff-only commit records these results; it does not replace the named checked build. The agent did not initiate promotion, touch a passkey prompt or change an alias. At the final read-only check, canonical staging still points to `dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM` / `ef73a36`.
+
+The corrected Preview route displays **Authentication is not configured** and fails closed. Preview readiness is not authenticated workflow verification; do not bypass or change its environment to create a success claim. Once the Owner promotes using the existing configured staging environment, independently verify the resulting exact source and real EN/AR directory, loaded-only search, statuses, selection/recheck and return. No new invitation, role restoration, data write or private activation is required for that read-only check. Hosted working feedback, full redesign and separate role cleanup remain open.
 
 Next: release/verify this exact code through Owner-controlled promotion, then continue the Academy Today→Calendar→session/register→exact return and Players adoption. Preserve current source and the role preflight; do not repeat settled design reviews, create a new feature or make account changes from this packet alone.
 
