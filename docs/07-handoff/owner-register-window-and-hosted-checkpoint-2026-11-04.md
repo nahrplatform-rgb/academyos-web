@@ -1,10 +1,16 @@
 # EX-11 hosted offline save and recording-window repair
 
-4 November 2026. The existing Academy A Owner completed a two-player offline register on staging build `50a2ae1`. The browser reopened the encrypted register while disconnected, saved both marks together, then recorded the original save once after reconnecting. Preparing before the session exposed a recording-window defect. The repair is in the next candidate. Follow the [execution tracker](../06-delivery/experience-execution.csv) for release and verification status.
+4 November 2026. The existing Academy A Owner completed a two-player offline register on staging build `50a2ae1`. The browser reopened the encrypted register while disconnected, saved both marks together, then recorded the original save once after reconnecting. Preparing before the session exposed a recording-window defect. The repair is promoted and the existing register passed its signed-in offline retest. Follow the [execution tracker](../06-delivery/experience-execution.csv) into EX-13.
 
-## Release handoff
+## Promotion and signed-in retest
 
-Both Foundation runs passed on `cb00ab8`. Vercel reports the same commit Ready as a preview, while `staging.academy.nahr.dev` still resolves to `50a2ae1`. Promote the checked preview to the existing staging domain using the Owner account. [Vercel deployment](https://vercel.com/academy-os2/academyos-web/BiUMSPv9sbbETQS7sQHMLb4bUwSz) · [Push checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915930417) · [PR checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915942729) · [Release receipt](evidence/offline-pilot-resumed-2026-11-04/release-candidate.json).
+The Owner promoted `cb00ab8`. On 5 November Cairo time, Vercel resolved the staging hostname to Ready deployment `dpl_GaKbABC9eyafobc72VNfCYjQ9UNu` at the same full commit as both passing Foundation runs. The public worker's SHA-256 matched Git, and the public startup returned HTTP 200 with its register shell marker. [Promoted deployment](https://vercel.com/academy-os2/academyos-web/GaKbABC9eyafobc72VNfCYjQ9UNu) · [Push checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915930417) · [PR checks](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41915942729).
+
+In the existing signed-in Chrome profile, Check download refreshed the public offline code. The test tab then reopened and reloaded the register with DevTools Offline and Disable cache enabled. Both saved statuses appeared from the local store. The updated recording-window bundle came from the service worker. The full log showed 18 entries, 0 transferred bytes and 826 kB of resources, including a failed network-first fetch and a failed Sentry attempt. No operating API request appeared. Normal Chrome network and cache settings were restored, and the signed-in register was left open.
+
+The database still showed one bound slot, two version-1 marks, two history rows, one original operation and one corresponding attendance audit. Casey's membership remained ended. The event was within its recording window. The hosted retest covers code replacement and cold offline reopening of the already-started event. Opening at the start boundary remains verified in the separate local test.
+
+[Post-promotion receipt](evidence/offline-pilot-resumed-2026-11-04/promoted-retest.json) · [Offline screenshot](evidence/offline-pilot-resumed-2026-11-04/promoted-offline-reload.png) · [Network/accessibility extract](evidence/offline-pilot-resumed-2026-11-04/promoted-offline-reload.txt) · [Earlier preview receipt](evidence/offline-pilot-resumed-2026-11-04/release-candidate.json)
 
 ## Hosted journey
 
@@ -21,7 +27,7 @@ Both Foundation runs passed on `cb00ab8`. Vercel reports the same commit Ready a
 
 [Structured hosted result](evidence/offline-pilot-resumed-2026-11-04/phase.json) · [Offline reload](evidence/offline-pilot-resumed-2026-11-04/offline-reload.png) · [Pending after reload](evidence/offline-pilot-resumed-2026-11-04/pending-reopened.png) · [Server confirmation](evidence/offline-pilot-resumed-2026-11-04/server-confirmed.png)
 
-## Candidate changes
+## Changes in the promoted build
 
 - Before the repair, the offline UI retained the download's closed flag after server time had reached session start. The device now uses elapsed local time since its last verified server-time sample to estimate the start and end of the capture window. A local timer and returning to the tab refresh the controls. Opening and closing require no network request, and unsaved choices remain visible when the window closes. Capture rechecks the window immediately before writing the protected original. The server continues to enforce current authority, versions and its recording deadline at dispatch.
 - An explicit online preparation checks for updated public offline code. The worker retains the current build until the new public document and assets are complete. An unchanged document reuses the existing assets, and a failed update preserves the previous build. A normal offline reopen continues to read the prepared device store.
@@ -33,7 +39,7 @@ The device estimate depends on the local clock and stored verification basis. A 
 
 Local evidence covers the future-prepared start and close without requests, dirty choices at the deadline, public build replacement and failed-update recovery, typed storage, original dispatch and the connected working day. The latter verifies full Chromium restart, committed-response loss, deadline refusal and logout recovery in a disposable environment. Hosted evidence here uses a cold tab reload and interruption before commit. Physical browser restart, committed-response loss, extended conflict/deadline and logout/30-day recovery on staging, broader devices and measured provider costs remain open. Owner working acceptance is pending. Independent human review is deferred by Owner and remains unperformed.
 
-After Owner promotion, verify the exact staging source and use Check download in the existing Chrome Owner profile to refresh public code for the same registered event `ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6`. Reopen offline and verify the saved marks and current recording-window state. The existing event has passed its start, so the start transition remains proven locally unless a later bounded hosted test covers it. Preserve the existing slot, root, operation and audit history. Continue to EX-13 after the declared EX-11 checkpoint.
+The scoped EX-11 checkpoint passed. EX-13 starts with the permitted Players and selected-month datasets. Preserve the existing event, registered slot, root, original and audit history. Owner working acceptance and the wider device, recovery and performance evidence remain open.
 
 [Local startup and window cases](evidence/owner-register-workspace-2026-11-04.json) · [Public worker cases](evidence/public-register-shell-2026-11-04.json) · [Working-day cases](evidence/owner-working-day-next-2026-11-04.json) · [Typed storage cases](evidence/local-register-repository-2026-11-03.json) · [Dispatch cases](evidence/offline-register-dispatch-2026-11-04.json)
 

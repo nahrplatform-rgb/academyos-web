@@ -1,6 +1,6 @@
 # One application implementation plan
 
-**Current EX-11 delivery:** [Hosted offline save and window repair](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md). Keep the existing Owner fixture and use the tracker for the repair rollout and retest. The [design-tools and quality guidance](../03-design/design-tools-and-quality-guidance.md) applies to affected UI and workflow work.
+**Current delivery:** The first Owner offline register passed its scoped staging checkpoint. EX-13 takes the local-data work to the permitted Players and selected-month datasets. [Hosted evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md) · [Design-tools and quality guidance](../03-design/design-tools-and-quality-guidance.md).
 
 **Latest Owner execution order — 4 November 2026:** [Role-first/offline sequence](../07-handoff/role-first-offline-sequence-2026-11-04.md) supersedes the earlier EX-07-first order: **EX-12 isolated accounts and exact role cleanup → EX-11 working private register pilot with EX-09 custody/activation → EX-13 progressive permitted Players/month datasets → remaining EX-07 Operations redesign.** Retain all completed source/tests/releases and earlier approvals. Independent review is deferred/nonblocking. Do not substitute further visual batches or tab-memory reuse for these outcomes; actual grants, ownership changes and promotions retain their specific authority. The tracker/generated continuation own exact current state.
 

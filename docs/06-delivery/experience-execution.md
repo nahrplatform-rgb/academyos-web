@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**Current checkpoint:** [EX-11 hosted offline register and repair](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md). A real offline save synced once after an explicit online refresh. The candidate fixes the recording window and offline code updates. Follow the tracker for release and retest.
+**Current checkpoint:** The EX-11 one-register pilot passed its signed-in staging retest after the window repair. EX-13 is current for the permitted Players and selected-month datasets. [Hosted evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md) · [Tracker](experience-execution.csv).
 
 **Latest Owner execution order — 4 November 2026:** [Role-first/offline sequence](../07-handoff/role-first-offline-sequence-2026-11-04.md) supersedes the earlier EX-07-first order: **EX-12 isolated accounts and exact role cleanup → EX-11 working private register pilot with EX-09 custody/activation → EX-13 progressive permitted Players/month datasets → remaining EX-07 Operations redesign.** Retain all completed source/tests/releases and earlier approvals. Independent review is deferred/nonblocking. Do not substitute further visual batches or tab-memory reuse for these outcomes; actual grants, ownership changes and promotions retain their specific authority. The tracker/generated continuation own exact current state.
 
