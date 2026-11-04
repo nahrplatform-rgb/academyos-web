@@ -1,5 +1,7 @@
 # EX-11 promoted runtime and interrupted hosted pilot
 
+**Latest EX-11 result:** [Hosted offline save and recording-window repair](owner-register-window-and-hosted-checkpoint-2026-11-04.md) supersedes the earlier fixture and pending-test status below. Follow its continuation with the existing register.
+
 4 November 2026. EX-11 remains current. This supersedes the pending-promotion next action in the [activation packet](owner-register-activation-2026-11-04.md), without completing the private offline working day. [Tracker](../06-delivery/experience-execution.csv) · [SDR-06 standing authority](../00-governance/staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority).
 
 ## Verified release

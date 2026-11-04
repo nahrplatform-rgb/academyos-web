@@ -3,8 +3,8 @@
   "hashes": {
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
-    "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
-    "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
@@ -41,7 +41,7 @@
     "The complete 1000-mark register settles through one POST with a bounded count receipt"
   ],
   "metrics": {
-    "replayMs": 34.67333400000007,
+    "replayMs": 33.284458000000086,
     "lostReply": {
       "httpAttempts": 2,
       "signedRpcs": 2,
@@ -52,11 +52,11 @@
       "httpAttempts": 1,
       "requestBytes": 80715,
       "receiptBytes": 132,
-      "elapsedMs": 103.12795900000492
+      "elapsedMs": 104.4144590000069
     }
   },
   "environment": {
-    "node": "v24.14.0",
+    "node": "v26.9.0",
     "platform": "darwin",
     "architecture": "arm64",
     "browser": "156.0.8078.4",

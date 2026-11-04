@@ -25,7 +25,7 @@ const hashes=Object.fromEntries(await Promise.all(sources.map(async file=>[file,
   createHash('sha256').update(await readFile(join(root,file))).digest('hex')])));
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
-  assert.deepEqual(receipt.hashes,hashes);assert.equal(receipt.checks.length,7);
+  assert.deepEqual(receipt.hashes,hashes);assert.equal(receipt.checks.length,8);
   console.log('PASS Owner workspace startup evidence matches sources');
   process.exit(0);
 }
@@ -189,6 +189,29 @@ try {
   await expect(online.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
   await expect(online.getByText('18 / 18 loaded from this device',{exact:true})).toHaveCount(0);
   pass('Normal same-account sign-in recovers both pending originals without restoring cleared downloads');
+  const future=await fixture.db({action:'future_fixture'});
+  const boundary=await context.newPage();
+  await boundary.clock.install({time:Date.now()});
+  await boundary.goto(url(future));
+  await button('Use a personal-device register',boundary).click();
+  await boundary.getByLabel('This is my personal device',{exact:true}).check();
+  await button('Prepare register on this device',boundary).click();
+  await expect(boundary.getByRole('link',{name:'Offline reopening link',exact:true})).toBeVisible({timeout:20000});
+  const localOnly=state.events.length;
+  await context.setOffline(true);
+  await boundary.goto(origin+'/prepared-register');
+  const choice=boundary.getByRole('group').first().getByRole('button',{name:'Present',exact:true});
+  await expect(choice).toBeDisabled();
+  await boundary.clock.fastForward(120000);
+  await expect(choice).toBeEnabled();
+  await choice.click();
+  await boundary.clock.fastForward(26*3600000);
+  await expect(choice).toBeDisabled();
+  await expect(choice).toHaveAttribute('aria-pressed','true');
+  await expect(button('Review register',boundary)).toBeDisabled();
+  await expect(boundary.getByText('The recording window has closed. Unsaved choices are retained.')).toBeVisible();
+  assert.equal(state.events.length,localOnly);
+  pass('Future-prepared offline UI opens at start and closes at deadline without network or losing unsaved choices');
   if(process.argv.includes('--record'))await writeFile(evidence,JSON.stringify({checks,metrics,hashes},null,2)+'\n');
 } catch(error) {
   if(page) console.error('Fixture failed at',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1500}).catch(()=>''));

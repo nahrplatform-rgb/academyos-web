@@ -40,8 +40,16 @@ async function prepare() {
   const assets=[...new Set([...html.matchAll(/(?:src|href)="([^"]+)"/g)].map(match=>match[1])
     .filter(path=>staticAsset.test(path)&&!path.includes('..')))];
   if (!assets.some(path=>path.endsWith('.js')) || assets.length>48) throw new Error('public_asset_bound');
+  const revision=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(html))))
+    .map(value=>value.toString(16).padStart(2,'0')).join('');
+  const index=await caches.open(indexName), prior=await index.match(pointer);
+  const previous=prior?await prior.json():null;
+  if (previous?.revision===revision && typeof previous.current==='string' && previous.current.startsWith(cachePrefix)) {
+    const current=await caches.open(previous.current);
+    if ((await Promise.all([shell,...assets].map(path=>current.match(path)))).every(Boolean)) return;
+  }
   const cacheName=cachePrefix+crypto.randomUUID();
-  const next=await caches.open(cacheName), index=await caches.open(indexName);
+  const next=await caches.open(cacheName);
   try {
     for (const path of assets) {
       const item=await loadPublic(path,remaining);
@@ -49,12 +57,11 @@ async function prepare() {
       await next.put(path,item.response);
     }
     await next.put(shell,publicPage.response);
-    const prior=await index.match(pointer);
-    const previous=prior?JSON.parse(await prior.text()).current:null;
-    await index.put(pointer,Response.json({current:cacheName,previous}));
+    const priorName=typeof previous?.current==='string'&&previous.current.startsWith(cachePrefix)?previous.current:null;
+    await index.put(pointer,Response.json({current:cacheName,previous:priorName,revision}));
     // Keep the previous public build for already-open tabs during the swap.
     await Promise.all((await caches.keys()).filter(name=>name.startsWith(cachePrefix)&&
-      ![indexName,cacheName,previous].includes(name)).map(name=>caches.delete(name))).catch(()=>{});
+      ![indexName,cacheName,priorName].includes(name)).map(name=>caches.delete(name))).catch(()=>{});
   } catch(error) {await caches.delete(cacheName);throw error;}
 }
 self.addEventListener('message',event=>{

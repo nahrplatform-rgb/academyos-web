@@ -1,0 +1,13 @@
++							1168 heading سجل الحضور المحضّر, Value: 1
++								1169 text سجل الحضور المحضّر
++							1170 container سجل الجهاز الشخصي
++								1171 heading سجل الجهاز الشخصي, Value: 2
++									1172 text سجل الجهاز الشخصي
++								1173 heading Synthetic EX11 Offline Register 21:30, Value: 3
++									1174 text Synthetic EX11 Offline Register 21:30
++									1178 text 2  /  2 محمّلون من هذا الجهاز
++											1183 toggle button (disabled) حاضر, Value: 0
++											1184 toggle button (disabled) غائب, Value: 0
++											1189 toggle button (disabled) حاضر, Value: 0
++											1190 toggle button (disabled) غائب, Value: 0
++								1192 button (disabled) راجع الحضور

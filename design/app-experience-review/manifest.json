@@ -1,6 +1,6 @@
 {
-  "source": "4a55353c641a63f111788686e0305db0cf8f2942",
-  "generatedAt": "2026-11-04T17:25:47.339Z",
+  "source": "52dc3efd08711cc3bff6903684dd250a6d0b9cf0",
+  "generatedAt": "2026-11-04T21:24:15.442Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -54,7 +54,7 @@
     "apps/web/src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/people-workspace.tsx": "0fd80c139d18f0e64700540461d099c49d4b1b4a9a6c952e9d7341951953eda5",
-    "apps/web/src/components/prepared-register-panel.tsx": "57727720c0271114e4846a0d530cbef7bc49471e8e08eae474669812946c0518",
+    "apps/web/src/components/prepared-register-panel.tsx": "892d95dbe1a84fedccb117f0f1fb6c2d92d0c9efae3da4f7d2e85dfb8638843b",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
     "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
@@ -80,9 +80,9 @@
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
-    "docs/03-design/screen-data-loading-matrix.csv": "57a41b396eed59fe3f877d3214b13027442aa9212f7c24aba8d53690a6792b28",
+    "docs/03-design/screen-data-loading-matrix.csv": "599b2af6a1584aa0f68b3864f955d2cbbbf37fdbbc60f67fec45c9f972258a44",
     "docs/04-engineering/journey-security-matrix.csv": "18004174e6ddffdd172f2ed28bb86d456b8da544a2469958ab7e84ab777db3ac",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "16b186cdc28d727d40a00887e7969ca27840c6131f173b9da6936afbbc5e5427",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "0a89ef2c9699be9b8195ed5c6f414bb1c46109bbad9eafb90fdf3c8499183ca6",
     "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
     "scripts/attendance/test_ui.mjs": "791f74ee3452a8d71b414b46b68c06afbe6b00988168566a24e9372920f876ee",
@@ -108,12 +108,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "0d4d73dd43e2049640f01308e821e2b587fe13b8b03ebaf78327cf30c24f36c3",
-  "htmlSha256": "dc37ab5f29b681ce3ed5b817ba9fbeeebf863e0c7c116f5a02aeaf116e7f4a28",
+  "capturePackSha256": "65be1fd737e997b2f4b16073aee5375e929fe560c91b6dd0c564bd30a5273a0a",
+  "htmlSha256": "f4118bf3f7d859cc1187be586a844a8e6f8d772f8cfda0336efa7422f033f811",
   "frames": 1189,
   "transitions": 1163,
   "sourceFiles": 76,
-  "sourceLiterals": 7486,
+  "sourceLiterals": 7494,
   "journeys": [
     {
       "id": "entry",

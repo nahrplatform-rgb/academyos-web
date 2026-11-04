@@ -40,11 +40,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: After Owner Codex restart,reacquire separate Chrome iCloud Owner profile;verify subject/scope/pending originals and reconcile fixture cancellation. Prepare fresh guarded Casey restore/ending from ended/version17 under SDR06;create sufficiently future fictional session through actual Owner UI,publish before start,then intended one-register prepare/cold offline/local atomic save/original sync/conflict/deadline/logout/recovery. Do not bind old drafts,replace root,reapply migrations or request another promotion. End temporary role. EX13 follows declared private pilot checkpoint.
+Next action: Finish exact-source release checks and request Owner promotion to existing staging. Verify deployed source, then Check download and reopen offline in the existing Owner Chrome profile on event ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6. Verify saved marks, refreshed public code and current window state. Preserve registered slot/root/original and Casey ended. Keep future-start hosted coverage separate from the passing local case. EX13 follows the scoped EX11 checkpoint.
 
-Scoped dependency gate: Private staging activation authorized and exact50a2ae1 rollout verified. Actual offline proof remains;browser-control tools unavailable after interruption,Owner restarting. Independent review deferred/nonblocking;working acceptance and measurements separate.
+Scoped dependency gate: The one-register staged offline save and same-original reconnect worked after an explicit online refresh. Local repair passed its window and public-code cases. Candidate rollout and signed-in retest remain open. Owner acceptance and wider measurements are tracked separately.
 
-Read: `docs/07-handoff/owner-register-live-checkpoint-2026-11-04.md`
+Read: `docs/07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md`
 
 ## Ordered primary checkpoints
 
@@ -187,18 +187,18 @@ Design: Owner selected separate Platform/Academy account targets and controlled 
 
 Routing: primary / 7 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06; EX-12.
-Dependency gate: Private staging activation authorized and exact50a2ae1 rollout verified. Actual offline proof remains;browser-control tools unavailable after interruption,Owner restarting. Independent review deferred/nonblocking;working acceptance and measurements separate.
+Dependency gate: The one-register staged offline save and same-original reconnect worked after an explicit online refresh. Local repair passed its window and public-code cases. Candidate rollout and signed-in retest remain open. Owner acceptance and wider measurements are tracked separately.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
-- Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
-- Local checks: Both full Foundation CI runs passed for50a2ae1:41851855395/41851866155. Retained combined app/recovery cases plus new9operator,9custody,2restore-scope cases and complete recovered-backup four-migration rehearsal.
-- Deployment: Owner-promoted50a2ae1 verified Ready at canonical staging as dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj;four schema sources/root/staging-only flags installed. No agent promotion.
-- Hosted verification: Enabled empty probes422 invalid;actual Owner fixture creation/planning and started-publication refusal observed. Two drafts retained;first cancellation original needs reconciliation. Casey ended/version17,one restore/end audit,zero key slots;real private download/offline sync unexecuted.
+- Implementation: Gated register preparation, offline startup, account cleanup and same-account recovery implemented. Candidate repairs offline capture opening and closing after a pre-start download and refreshes public offline code during explicit preparation.
+- Local checks: 96 unit tests and passing lint/type/build. Eight connected working-day and eight workspace startup cases, 40 typed storage, 20 coherent download, 17 dispatch, 15 key and six public-worker cases. Retained prior operator, custody, restore and four-migration checks.
+- Deployment: Owner-promoted50a2ae1 remains canonical staging dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj. Recording-window and public-code repair candidate requires checked preview and Owner promotion.
+- Hosted verification: Separate iCloud Owner Chrome prepared 2/2 sealed rows and reopened in EN/AR on a cold offline tab reload. Original 045f09c7 survived reload and an interrupted dispatch, then recorded two marks/two history/one operation/one audit. Casey ended/version19. The staged pre-start download required an online Check download after start. Physical restart, committed lost response and broader recovery remain open.
 - Owner acceptance: Private activation explicitly authorized4November;SDR06 standing necessary synthetic-trial test authority. Working acceptance pending.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: After Owner Codex restart,reacquire separate Chrome iCloud Owner profile;verify subject/scope/pending originals and reconcile fixture cancellation. Prepare fresh guarded Casey restore/ending from ended/version17 under SDR06;create sufficiently future fictional session through actual Owner UI,publish before start,then intended one-register prepare/cold offline/local atomic save/original sync/conflict/deadline/logout/recovery. Do not bind old drafts,replace root,reapply migrations or request another promotion. End temporary role. EX13 follows declared private pilot checkpoint.
-- Evidence: docs/07-handoff/owner-register-live-checkpoint-2026-11-04.md
+- Next action: Finish exact-source release checks and request Owner promotion to existing staging. Verify deployed source, then Check download and reopen offline in the existing Owner Chrome profile on event ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6. Verify saved marks, refreshed public code and current window state. Preserve registered slot/root/original and Casey ended. Keep future-start hosted coverage separate from the passing local case. EX13 follows the scoped EX11 checkpoint.
+- Evidence: docs/07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md
 
 ### EX-13 — Progressive persistent Owner Players/month datasets before remaining redesign
 
@@ -262,7 +262,7 @@ Design: measurement profiles required.
 - Implementation: not_applicable
 - Local checks: partial_baseline
 - Deployment: not_applicable
-- Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open.
+- Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open. EX11 signed-in Owner cold offline tab reload:18 network-log entries,0 transferred bytes,0 operating API calls; no provider quota or percentile inference.
 - Owner acceptance: not_applicable
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
 - Next action: Measure first preparation versus reopened local stores,unchanged manifests,changed transfers,local queries,save/recovery and device/scope/storage cases per batch;preserve source/provider/role/physical limits
@@ -272,15 +272,15 @@ Design: measurement profiles required.
 
 Routing: supporting / 4 / supporting.
 Dependencies: none declared.
-Dependency gate: Exact staging activation/rollout now authorized and verified;actual subject/device key release,reopening,cleanup/recovery evidence remains. Independent review deferred,not passed or a prerequisite.
+Dependency gate: Authenticated preparation and encrypted reopening verified in the one-register staging scope. Local restart and recovery pass. Hosted cleanup and broader device cases remain open. Independent review is deferred.
 Findings: NR15; G08.
 Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
 - Implementation: Gated Owner workspace, explicit device preparation, public offline startup and account-wide cleanup use the registered key, transfer and dispatch lifecycle.
-- Local checks: Retained seven workspace/15 lifecycle cases. New nine custody cases plus two restore-scope cases pass; fresh hosted backup restores and complete four-migration rehearsal passes. Terra engineering finding repaired;not independent audit.
+- Local checks: Eight workspace startup/window and 15 key/lifecycle cases pass. Retained nine custody cases, two restore-scope cases and complete four-migration rehearsal.
 - Deployment: Four register schema sources/RLS/binding/grants verified;protected V1 root/staging-only flags installed;Owner-promoted50a2ae1 verified Ready at canonical staging.
-- Hosted verification: Enabled invalid-body probes422;zero key slots after interrupted fixture attempt. Casey ended/version17 and one Owner per academy confirmed. Actual authenticated key release/private download/recovery remain unexecuted;prior unchanged55-table fingerprint checkpoint retained.
+- Hosted verification: Actual authenticated key release and coherent download used one registered Owner/event/device slot and loaded 2/2 fictional rows. Hosted offline reload verified sealed row envelopes and public-only code cache. Casey ended/version19. Earlier backup and schema/grant evidence retained.
 - Owner acceptance: Scope/recovery approved;actual staging activation explicitly authorized4November;SDR06 covers necessary trial tests. Working acceptance separate.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Support current EX11 real hosted preparation/reopening/sync after browser restart. Preserve existing root/archive/trusted digest,one-event binding and protected originals;no repeated provisioning or promotion. SDR06 covers bounded trial setup/ending;record actual private evidence.
-- Evidence: docs/07-handoff/owner-register-live-checkpoint-2026-11-04.md
+- Next action: Support EX11 retest of the existing prepared register after the Owner promotes the checked repair. Preserve the root, protected archive, registered slot and original. Full physical restart and hosted cleanup/recovery remain separate checks.
+- Evidence: docs/07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md

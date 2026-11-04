@@ -1,5 +1,7 @@
 # Concrete one-register synthetic staging activation
 
+**Latest EX-11 result:** [Hosted offline save and recording-window repair](owner-register-window-and-hosted-checkpoint-2026-11-04.md) supersedes the earlier fixture and pending-test status below. Follow its continuation with the existing register.
+
 **Latest checkpoint:** the Owner promoted `50a2ae1`; canonical Ready deployment `dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj` reports that source. The [live checkpoint/restart instructions](owner-register-live-checkpoint-2026-11-04.md) supersede the pending-promotion next action below. Empty probes now422; actual authenticated download/offline sync remains unexecuted. Casey is ended/version17; zero key slots. No new promotion or provisioning is needed to resume.
 
 4 November2026. EX12's exact authorized role cleanup is executed and verified; EX11 is now current. This packet prepares the next bounded action under the existing accepted device, scope, offline-register and recovery designs. It is neither a new business rule nor evidence that the private feature is enabled. Independent review is deferred/nonblocking.

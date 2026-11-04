@@ -6,33 +6,34 @@
     "Reconnect preserves unsaved choices in the open offline task, while direct online startup exposes no prepared rows",
     "Account-wide logout masks another tab, retries a failed cleanup and clears both replicas before Clerk sign-out",
     "A mismatched Clerk account and protected-route principal cannot open or recover the device register",
-    "Normal same-account sign-in recovers both pending originals without restoring cleared downloads"
+    "Normal same-account sign-in recovers both pending originals without restoring cleared downloads",
+    "Future-prepared offline UI opens at start and closes at deadline without network or losing unsaved choices"
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 184
+    "offlineProcessReopenMs": 113
   },
   "hashes": {
-    "scripts/working-day/test_owner_startup.mjs": "20bcb42a8c0a8bc26891b507284e5c3ec5bc632dbd8fcb9e8135ed9b56cd1fd2",
+    "scripts/working-day/test_owner_startup.mjs": "9e0991eb2e65efe202b3a49d19483a2fa9ef8dd48b0f38a9d445f5cfd43877ef",
     "scripts/working-day/owner_fixture.mjs": "06000aef4c8e3088b183cd91a482e25f7ba9209b952e4eb3e016f97e1aee5a31",
-    "scripts/working-day/owner_db.py": "b90fedd7253e48c1cb811b02a2461b9e8dd766317a78843b7e877526132599f9",
+    "scripts/working-day/owner_db.py": "ee1f9887274b6c58440ff99daf6c681078468ba2f7ca273b9bda1af2fc18b0b2",
     "apps/web/next.config.ts": "b1de04be649f6fe9c9ba6d7623b98864420afc57c0eaaefd8ae4775edc2d979a",
-    "apps/web/public/prepared-register-worker.js": "66617d5f542e680af6406191cf9aa9dceb07f89337ae3da454c1475d392af3cb",
+    "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/src/app/[locale]/layout.tsx": "d78283f90aa28af92731873a385a82dc5ed7875d376851e21afd3b67ddf2e1df",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/components/attendance-workspace.tsx": "13e331cc41d517f6689551f75653333dc3102eb526b0b07248cf1ecf57356d66",
     "apps/web/src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
-    "apps/web/src/components/prepared-register-panel.tsx": "57727720c0271114e4846a0d530cbef7bc49471e8e08eae474669812946c0518",
+    "apps/web/src/components/prepared-register-panel.tsx": "892d95dbe1a84fedccb117f0f1fb6c2d92d0c9efae3da4f7d2e85dfb8638843b",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
     "apps/web/src/components/register-account-boundary.tsx": "e73913cb05ed5654c56d7ccb7af9797619492f26bfec8590f3c1500a10603760",
     "apps/web/src/lib/owner-register-pilot.ts": "bfb16bab0e47fee1e515975f6a066bd1ef62409bc7619583e3fc4010b7352a48",
     "apps/web/src/lib/register-device-account.ts": "ed20ab81afdad5aa3d3de1923e8f393d2e5f36d6c86a6c4bb96cb2f76bf43ce0",
     "apps/web/src/lib/register-device-slots.ts": "80f5e98c008e1572edbc1c88146b78e3aa5485a8d969f82e90717118b0d32d74",
-    "apps/web/src/lib/register-public-shell.ts": "1d96c3fd4437a211848b921c6e51a4d65958bd62eaa77f2fa4b39144bb946c58",
-    "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
+    "apps/web/src/lib/register-public-shell.ts": "b4ca915bfbeb01544989d34d934abfc4a9910d1b3a5d0f359fc415af6bbb6797",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "apps/web/src/lib/config.ts": "b8d7d5b92bbfde395ca9d83c4ce122562597177b038fee48c45eefe95df857ac",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9"
   }

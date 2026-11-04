@@ -1,10 +1,18 @@
 {
-  "date": "2026-11-04T02:08:05.616Z",
+  "date": "2026-11-04T21:20:15.354Z",
   "scope": "Inactive typed Owner-register adapter; actual Chromium IndexedDB/WebCrypto; fictional HTTP authority; not product/Clerk/provider/independent-security proof",
   "passed": true,
   "checks": [
     {
       "name": "Import has no database, network, credential or product activation side effects",
+      "status": "passed"
+    },
+    {
+      "name": "Future-prepared register crosses its start offline after repository reopening and captures locally without another request",
+      "status": "passed"
+    },
+    {
+      "name": "Originally open prepared register closes locally at its deadline and refuses a new capture",
       "status": "passed"
     },
     {
@@ -157,38 +165,38 @@
     }
   ],
   "browser": "156.0.8078.4",
-  "node": "v24.14.0",
+  "node": "v26.9.0",
   "platform": "darwin",
   "arch": "arm64",
   "metrics": {
-    "initialPrepareCaptureMs": 26.303041000000007,
-    "initialCiphertextBytes": 7023,
+    "initialPrepareCaptureMs": 11.163916000000029,
+    "initialCiphertextBytes": 9823,
     "coveredReads": 30,
     "coveredReadKeyExchanges": 0,
-    "localReadP50Ms": 1.6523329999999987,
-    "localReadP95Ms": 1.98683299999999,
-    "thousandPlayerPrepareMs": 117.944208,
-    "thousandMarkCaptureMs": 38.733749999999986,
+    "localReadP50Ms": 2.0190410000000156,
+    "localReadP95Ms": 3.2505409999999983,
+    "thousandPlayerPrepareMs": 114.86300000000006,
+    "thousandMarkCaptureMs": 40.5145,
     "thousandMarkWireBytes": 80712,
-    "thousandPlayerCiphertextBytes": 731514,
+    "thousandPlayerCiphertextBytes": 734266,
     "maxLocalPagePlayers": 50,
-    "keyExchanges": 20,
-    "allowedKeyExchanges": 19,
+    "keyExchanges": 22,
+    "allowedKeyExchanges": 21,
     "deniedKeyExchanges": 1,
-    "keyResponseJsonBytes": 5455,
+    "keyResponseJsonBytes": 6041,
     "credentialAPICalls": 0,
-    "bundleBytes": 60531
+    "bundleBytes": 61578
   },
   "errors": [],
   "externalRequests": [],
   "hashes": {
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
-    "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
-    "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
     "apps/web/src/lib/corrections.ts": "410fd5bc299e6356ad77e3fd31b9e854b1c1d4e956ff488bac0553eeaea0b460",
-    "scripts/local-data/test_register_repository.mjs": "178285dc9a523097b0aa7e93ef034a059e6eab16240b89871ae56578ffd56618"
+    "scripts/local-data/test_register_repository.mjs": "2127ad99e4ccc75b40b4a33b254b98feca17fdef90d7f6702debaeb3eb748895"
   },
   "limitations": [
     "No product route imports or private activation; no actual account/Clerk/current Owner/device registration or protected server key custody",

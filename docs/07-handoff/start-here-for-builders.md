@@ -1,6 +1,6 @@
 # Start here for builders
 
-**Current delivery/restart:** [EX-11 live checkpoint](owner-register-live-checkpoint-2026-11-04.md) records verified50a2ae1, unfinished offline test, preserved fixture/cancellation recovery and ended temporary Trainer access. Follow the generated continuation; no new promotion/provisioning. Apply the [design-tools and quality guide](../03-design/design-tools-and-quality-guidance.md) to affected UI/journey work.
+**Current delivery:** [EX-11 hosted offline register](owner-register-window-and-hosted-checkpoint-2026-11-04.md) records the same-original save and the recording-window repair. Follow the generated continuation for release and retest on the existing register. Apply the [design-tools and quality guide](../03-design/design-tools-and-quality-guidance.md) to affected journeys.
 
 **Later4November execution:** the [current role/offline receipt](role-first-offline-sequence-2026-11-04.md) records the completed exact role separation, explicit private activation and SDR-06 standing trial-test authority, applied four-source schema and staging-only protected configuration. A new checked Owner-promoted runtime and actual offline working-day proof remain separate. Earlier pending configuration/permission paragraphs below are historical; do not re-ask covered synthetic test access or an independent reviewer.
 

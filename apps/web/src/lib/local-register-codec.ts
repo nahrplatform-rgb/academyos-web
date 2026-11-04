@@ -106,6 +106,21 @@ export function rosterPage(value: unknown, byteLimit = 32768): AttendanceRoster 
   return JSON.parse(JSON.stringify(v)) as AttendanceRoster;
 }
 export type RosterHeader = Omit<AttendanceRoster, 'players' | 'more'>;
+/** Device-time estimate for local capture controls only. Server dispatch still
+ * checks the real clock, current authority and versions before recording. */
+export function localCaptureWindow(header: Pick<RosterHeader,'starts_at'|'closes_at'>,
+  clock: {verifiedAt:number;verifiedWallAt?:number;observedWallAt?:number}, now=Date.now()) {
+  const {verifiedAt,verifiedWallAt,observedWallAt}=clock;
+  if (!Number.isSafeInteger(now)||!Number.isSafeInteger(verifiedAt)||verifiedAt<=0||
+    verifiedWallAt===undefined||observedWallAt===undefined||
+    !Number.isSafeInteger(verifiedWallAt)||!Number.isSafeInteger(observedWallAt)||
+    observedWallAt<verifiedWallAt||now<observedWallAt) refuse('clock_verification_required');
+  const estimated=verifiedAt+(now-verifiedWallAt);
+  const starts=Date.parse(header.starts_at),closes=Date.parse(header.closes_at);
+  if (estimated<starts) return {state:'before' as const,open:false,nextChangeAt:now+starts-estimated};
+  if (estimated>closes) return {state:'closed' as const,open:false,nextChangeAt:null};
+  return {state:'open' as const,open:true,nextChangeAt:now+closes-estimated+1};
+}
 export function rosterHeader(page: AttendanceRoster): RosterHeader {
   const {players: _players, more: _more, ...header} = page;
   void _players; void _more;

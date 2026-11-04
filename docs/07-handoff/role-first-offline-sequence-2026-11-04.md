@@ -1,5 +1,7 @@
 # Role separation → working offline pilot → persistent datasets → remaining redesign
 
+**Latest EX-11 result:** [Hosted offline save and recording-window repair](owner-register-window-and-hosted-checkpoint-2026-11-04.md) supersedes the earlier fixture and pending-test status below. Follow its continuation with the existing register.
+
 **Latest hosted checkpoint:** [50a2ae1 runtime and restart receipt](owner-register-live-checkpoint-2026-11-04.md). Owner promotion verified; private preparation/offline sync still unexecuted. Temporary Casey access ended/version17, zero key slots; preserve fixture drafts/cancellation recovery. EX-11 remains current.
 
 4 November 2026. The Owner explicitly directed this sequence after asking why visual adoption had advanced while role separation and private offline activation remained unfinished. This supersedes the earlier EX-07-first routing. Preserve all delivered functionality, Calendar code `fc1b5ee`, prior decisions and evidence; do not restart the app or treat completed local mechanisms as hosted activation.

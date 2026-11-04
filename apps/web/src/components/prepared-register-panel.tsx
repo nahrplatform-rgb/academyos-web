@@ -107,6 +107,7 @@ export default function PreparedRegisterPanel({locale,scope,offline=false,offlin
 
   function prepare(recover=false) {
     void perform(async()=>{
+      if(!recover)setShellReady(false);
       const id=await armRegisterAccount(subject), p=pilot(id);
       setKnown(true);
       if (recover) await p.recover();
@@ -114,12 +115,12 @@ export default function PreparedRegisterPanel({locale,scope,offline=false,offlin
       show(await p.read(),id);
       if (!recover) {
         await rememberPreparedRegister({subject,academy,event},id);
-        if (!shellReady) {
-          const life=lifetime.current;
-          void registerShellAvailable().then(ready=>ready?undefined:prepareRegisterShell()).then(()=>{
-            if (!life?.signal.aborted) setShellReady(true);
-          },()=>{if (!life?.signal.aborted)setNotice('shell_unavailable');});
-        }
+        const life=lifetime.current;
+        // Explicit online preparation checks the public build. The worker reuses
+        // unchanged assets and swaps complete new builds atomically.
+        void prepareRegisterShell().then(()=>{
+          if (!life?.signal.aborted) setShellReady(true);
+        },()=>{if (!life?.signal.aborted)setNotice('shell_unavailable');});
       }
     });
   }
@@ -137,6 +138,19 @@ export default function PreparedRegisterPanel({locale,scope,offline=false,offlin
     window.addEventListener('online',sync);
     return ()=>window.removeEventListener('online',sync);
   });
+  const nextWindowChange=visible?.page?.captureWindow.nextChangeAt;
+  useEffect(()=>{
+    if (!hasAccess||!current||nextWindowChange==null||visible?.original||busy||problem) return;
+    // One local recheck at a window boundary, including a resumed/background tab.
+    // No polling or network revalidation; dirty selections remain in this panel.
+    const refresh=()=>void perform(async()=>show(await pilot(current).read(),current));
+    const visibleAgain=()=>{if(!document.hidden)refresh();};
+    const timer=setTimeout(refresh,Math.min(2147483647,Math.max(1,nextWindowChange-Date.now())));
+    document.addEventListener('visibilitychange',visibleAgain);
+    return ()=>{clearTimeout(timer);document.removeEventListener('visibilitychange',visibleAgain);};
+    // The prepared generation and its boundary own this local timer.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[hasAccess,current,nextWindowChange,visible?.original,busy,problem]);
   function save() {
     void perform(async()=>{
       if (!hasAccess||!current) throw new Error('scope_changed');
@@ -190,10 +204,13 @@ export default function PreparedRegisterPanel({locale,scope,offline=false,offlin
       <h3>{page.header.projection.name}</h3>
       <p>{page.header.projection.branch} · <bdi>{page.header.projection.timezone}</bdi></p>
       <p>{page.players.length} / {page.header.count} {t('loaded from this device','محمّلون من هذا الجهاز')}</p>
+      {!page.captureWindow.open&&<p role="status">{page.captureWindow.state==='before'?
+        t('This session has not started yet.','لم يبدأ هذا التدريب بعد.'):
+        t('The recording window has closed. Unsaved choices are retained.','انتهت مهلة التسجيل. الاختيارات غير المحفوظة محفوظة هنا.')}</p>}
       <ul className="register-roster">{page.players.map(player=><li key={player.id}>
         <span>{player.name}</span>{player.version?<span className={`attendance-status ${player.status}`}>{label(player.status)}</span>:
           <div className="register-options" role="group" aria-label={player.name}>{(['present','absent',null] as const).map(status=>
-            <Button key={String(status)} disabled={busy||!!pending||page.needsCurrentRead||!page.header.open}
+            <Button key={String(status)} disabled={busy||!!pending||page.needsCurrentRead||!page.captureWindow.open}
               aria-pressed={(draft[player.id]?.status??null)===status} onClick={()=>setDraft(previous=>{
                 const next={...previous};
                 if(status)next[player.id]={name:player.name,status};else delete next[player.id];
@@ -201,14 +218,14 @@ export default function PreparedRegisterPanel({locale,scope,offline=false,offlin
               })}>{label(status)}</Button>)}</div>}
       </li>)}</ul>
       {page.more&&<Button disabled={busy} onClick={nextPage}>{t('Load more players','حمّل المزيد من اللاعبين')}</Button>}
-      <Button ref={opener} disabled={busy||!selections.length||!!pending||page.needsCurrentRead}
+      <Button ref={opener} disabled={busy||!selections.length||!!pending||page.needsCurrentRead||!page.captureWindow.open}
         onClick={()=>setReviewing(true)}>{t('Review register','راجع الحضور')}</Button>
     </>}
     <dialog ref={dialog} className="register-dialog" aria-labelledby="prepared-review" onCancel={e=>{e.preventDefault();dismiss();}}>
       <h3 id="prepared-review">{t('Save selected marks on this device?','هل تريد حفظ العلامات المختارة على هذا الجهاز؟')}</h3>
       {hasAccess&&<ul>{selections.map(([id,value])=><li key={id}>{value.name} · {label(value.status)}</li>)}</ul>}
       <Button disabled={busy} onClick={dismiss}>{t('Back to editing','العودة إلى التعديل')}</Button>
-      <Button disabled={busy||!hasAccess||!selections.length} onClick={save}>{t('Save on this device','احفظ على هذا الجهاز')}</Button>
+      <Button disabled={busy||!hasAccess||!selections.length||!page?.captureWindow.open} onClick={save}>{t('Save on this device','احفظ على هذا الجهاز')}</Button>
     </dialog>
   </section>;
 }

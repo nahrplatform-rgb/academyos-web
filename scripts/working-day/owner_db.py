@@ -22,10 +22,15 @@ ROUTES = {
 
 
 def seed(test):
-    now = datetime.datetime.now(ZoneInfo('Africa/Cairo'))
-    first = now.date() + datetime.timedelta(days=int(now.hour >= 22))
+    now = datetime.datetime.now(datetime.timezone.utc)
+    # Keep today's session publishable before retiming the disposable register.
+    zones = ('Africa/Cairo', 'Pacific/Kiritimati', 'America/Adak')
+    local_times = [now.astimezone(ZoneInfo(zone)) for zone in zones]
+    local = min(local_times, key=lambda time: abs(time.hour - 12))
+    first = local.date()
     last = first + datetime.timedelta(days=39)
     academy, branch = test.academy()
+    test.sql(f'update academy.academies set timezone={literal(local.tzinfo.key)} where id={literal(academy)}')
     other, _ = test.academy('user_other_owner')
     program = test.ready(academy, {
         'name': 'Fictional working-day program', 'from': str(first), 'to': str(last),
@@ -104,7 +109,14 @@ if __name__ == '__main__':
             if command['action'] == 'close':
                 break
             try:
-                value = rpc(test, command) if command['action'] == 'rpc' else dispatch['execute'](test, command)
+                if command['action'] == 'future_fixture':
+                    # Disposable fixture only: exercise a download before its window.
+                    academy, _, event, _, _ = dispatch['Boundary'].pair(test)
+                    test.retime(event,"clock_timestamp()+interval '60 seconds'",
+                                "clock_timestamp()+interval '3660 seconds'")
+                    value = {'academy': academy, 'event': event}
+                else:
+                    value = rpc(test, command) if command['action'] == 'rpc' else dispatch['execute'](test, command)
                 print(json.dumps({'id': command['id'], 'value': value}), flush=True)
             except Exception as error:
                 print(json.dumps({'id': command['id'], 'error': type(error).__name__ + ':' + command['action']}),

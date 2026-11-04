@@ -43,6 +43,10 @@ jobs:
         run: |
           node scripts/local-data/test_register_repository.mjs --check
           node scripts/local-data/test_register_repository.mjs
+      - name: Verify public offline-code updates and failed-build recovery
+        run: |
+          node scripts/local-data/test_public_shell.mjs --check
+          node scripts/local-data/test_public_shell.mjs
       - name: Install disposable PostgreSQL 17 test runtime
         run: |
           if [ ! -x /usr/lib/postgresql/17/bin/initdb ]; then

@@ -10,7 +10,8 @@ export async function registerShellAvailable() {
 export async function prepareRegisterShell() {
   if (!('serviceWorker' in navigator) || !globalThis.isSecureContext) throw new Error('offline_shell_unavailable');
   const registration=await navigator.serviceWorker.register('/prepared-register-worker.js',{scope:PREPARED_REGISTER_PATH});
-  const worker=registration.active??registration.installing??registration.waiting;
+  if (registration.active&&!registration.installing) await registration.update();
+  const worker=registration.installing??registration.waiting??registration.active;
   if (!worker) throw new Error('offline_shell_unavailable');
   if (worker.state!=='activated') await new Promise<void>((resolve,reject)=>{
     const timer=setTimeout(()=>finish(false),5000);

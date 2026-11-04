@@ -5,7 +5,7 @@ import {type AttendancePlayer, type RegisterReceipt} from './attendance';
 import {checkLocalKey, newLocalKey, seal, unseal, protectOriginal, openOriginal,
   type SealedRecord, type ProtectedOriginal} from './local-register-crypto';
 import {canonicalRegister, digest, exactReceipt, fromBytes, identifier, jsonBytes,
-  LOCAL_PAGE_LIMIT, LOCAL_RECORD_LIMIT, opaque, record, refuse, rosterHeader, rosterPage, stableHeader,
+  LOCAL_PAGE_LIMIT, LOCAL_RECORD_LIMIT, opaque, record, refuse, rosterHeader, rosterPage, stableHeader, localCaptureWindow,
   type Original, type RosterHeader} from './local-register-codec';
 import {downloadChain, downloadSeed, downloadRoot, registerDownloadResult,
   type DownloadReceipt, type DownloadManifest, type DownloadPage, type DownloadComplete} from './register-download';
@@ -322,7 +322,8 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     // Local pages combine rows from potentially smaller byte-bounded API pages.
     rosterPage({...s.header, players, more}, LOCAL_RECORD_LIMIT);
     await tx(['control', 'heads'], 'readonly', async t => {unchanged(s.c, await control(t, true)); await verifyHead(t, s.head);});
-    return {header: s.header, players, more, revision: `${s.head.generation}:${s.head.revision}`, needsCurrentRead: s.head.invalid,
+    return {header: s.header, players, more, captureWindow:localCaptureWindow(s.header,s.c),
+      revision: `${s.head.generation}:${s.head.revision}`, needsCurrentRead: s.head.invalid,
       complete: true as const, coherence: s.verification ? 'verified-transfer' as const : 'per-row-only' as const};
   }
   async function transferState(event: string) {
@@ -505,7 +506,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     const {packet, wire} = canonicalRegister(input);
     if (packet.academy !== scope.academy) refuse('academy_mismatch');
     const s = await loadHead(packet.event);
-    if (s.head.invalid || !s.header.open) refuse('current_basis_required');
+    if (s.head.invalid || !localCaptureWindow(s.header,s.c).open) refuse('current_basis_required');
     const rows: (StoredPlayer | undefined)[] = await tx(['control', 'heads', 'rows', 'originals'], 'readonly', async t => {
       unchanged(s.c, await control(t, true)); await verifyHead(t, s.head);
       if (await req(t.objectStore('originals').index('activeEvent').count([namespace, packet.event]))) refuse('original_pending_replacement_blocked');
@@ -524,6 +525,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     row.protected = await protectOriginal(s.device, s.recovery, binding, originalId(row), jsonBytes(value));
     await tx(['control', 'heads', 'originals'], 'readwrite', async t => {
       unchanged(s.c, await control(t, true)); await verifyHead(t, s.head);
+      if (!localCaptureWindow(s.header,s.c).open) refuse('current_basis_required');
       if (await req(t.objectStore('originals').index('activeEvent').count([namespace, packet.event]))) refuse('original_pending_replacement_blocked');
       t.objectStore('originals').add(row, [namespace, packet.op]);
       const c = (await control(t, true))!;
