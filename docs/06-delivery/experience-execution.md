@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**3November latest checkpoint:** [EX-04 coherent register download](../07-handoff/register-download-checkpoint.md) passes11actual PG17 and20connected browser/API/database/storage cases. **EX-03 is current** for immutable original-operation transport/restart/receipt recovery. Preserve the38typed storage cases and earlier16mechanism checks. New read schema/API/library remain inactive; actual key custody/current authority, exact fields/time lifecycle, UI/hosted/Owner/security gates stay open. The scoped checkpoint does not close all collections/roles,57working-day cases or findings.
+**4 November checkpoint:** [EX-03 original attendance register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) passes 17 connected synthetic checks, with the prior download and storage suites retained. **EX-11 is current** for connected Owner working-day proof. Actual key custody, current authority, field and retention choices, hosted verification, Owner acceptance and independent security remain separate.
 
 ## Latest local-first direction — LF-v3,2November2026
 

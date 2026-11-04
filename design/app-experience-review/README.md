@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+4 November EX-03: [inactive dispatch proof](../../docs/07-handoff/offline-register-dispatch-checkpoint.md) updates action/loading register evidence. The HTML continues to use the existing actual-component captures.
+
 3November EX-06: [inactive typed storage checkpoint](../../docs/07-handoff/local-register-repository-checkpoint.md) adds no product UI/copy/route changes. Its action/loading register links are rebuilt from the unchanged capture pack. The38fictional-data storage checks are separate from this factual rendered review; no offline/private screen is newly captured or claimed working.
 
 3November EX-04: [signed transfer checkpoint](../../docs/07-handoff/register-download-checkpoint.md) adds a closed API/read contract and inactive storage coordination. No rendered UI/copy/navigation input changed; action/loading links are rebuilt from the unchanged capture pack. It is not a private offline screen or hosted proof.

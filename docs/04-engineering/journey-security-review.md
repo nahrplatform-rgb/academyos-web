@@ -87,3 +87,5 @@ Track finding ID, journey/action, severity with rationale, reproduction, affecte
 The coverage matrix has one planned entry per current journey family J01–J28. Before a family enters implementation, split it into action-level packets and link exact requirement/case IDs and evidence. One family row does not prove every action reviewed. Current entries are **Planned / Not executed / Not accepted**. Existing foundation checks and provider proof do not close unrelated rows.
 
 At each milestone compare the journey register, actual rendered actions, server operations, database/file grants and jobs with these packets. Newly exposed paths must not be missed because they lack a sidebar item. Reconcile this review with the difficult scenarios OPS-01–OPS-10 in the [operating blueprint](../01-product/saas-operating-blueprint.md).
+
+4 November SEC-J12 component evidence: [inactive Owner register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) exercises signed current Owner, original-account matching, tenant denial and late receipt fencing with fictional authority and disposable PG17. Independent review and actual private lifecycle evidence remain open.

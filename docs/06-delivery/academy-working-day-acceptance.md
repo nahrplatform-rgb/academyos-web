@@ -1,5 +1,7 @@
 # Academy working-day pilot and acceptance gate
 
+**4 November readiness:** The [inactive EX-03 dispatch checkpoint](../07-handoff/offline-register-dispatch-checkpoint.md) provides component evidence for WD-12 and the Owner analogues of WD-52/54–56. EX-11 now owns connected Owner verification. The 57-case register keeps its existing acceptance states.
+
 ## Latest local-first direction — LF-v3,2November2026
 
 Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.

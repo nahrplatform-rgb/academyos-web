@@ -207,3 +207,5 @@ EX-04 delivery update2November2026: [Owner current-period fix](../07-handoff/req
 
 
 EX-04 scoped3November: [coherent register transfer](../07-handoff/register-download-checkpoint.md) resolves the inactive Owner-register per-row coherence gap with signed bounded pages/final source+disk checks. NR05/06/07 remain partial across collections/roles; first/repeat request/byte samples are local fixtures, not hosted useful-content or provider savings. No finding is closed.
+
+4 November EX-03 evidence: [Owner register original dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) preserves the exact save through interruption, transaction failure and restart in a fictional scope. NR13 and NR17 retain their broader affected paths and G09 retains connected/hosted measurement gaps.

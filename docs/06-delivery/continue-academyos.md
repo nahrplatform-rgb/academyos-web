@@ -22,13 +22,13 @@ Promotion ownership: the Owner performs all deployment promotions. Prepare/test/
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-03: Durable original-operation and requested offline-edit journal recovery
+## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Implement and verify the next inactive Owner-register original-transport seam:discover exact persisted pending/unknown packet,send immutable canonical wire under current authority,settle only correlated count receipt,retain refusals/restart/lost-reply recovery;never cancelling reconcile before resend;reuse EX04/06 proof;no private app enablement
+Next action: Prove the connected fictional Owner working day in a running app using the existing repository, coherent prepare and exact original dispatch. Cover first prepare, offline reopen/capture, restart, reconnect, confirmation and scope cleanup. Prepare exact EX09 current identity/key custody/field/time/recovery decisions and keep private activation gated.
 
-Scoped dependency gate: EX06 typed journal and EX04 coherent download scoped checkpoints passed;safe fictional/inactive transport work now;real key/current scope/fields/time and independent security still precede private opening
+Scoped dependency gate: EX02/06/04/03 scoped checkpoints passed. Synthetic connected proof may proceed. Actual private enablement requires reviewed EX09 scope, key custody, field/retention/time and independent security readiness. No blanket role or capability approval.
 
-Read: `docs/04-engineering/offline-register-runtime-readiness.md`
+Read: `docs/06-delivery/academy-working-day-acceptance.md`
 
 ## Ordered primary checkpoints
 
@@ -36,8 +36,8 @@ Read: `docs/04-engineering/offline-register-runtime-readiness.md`
 2. **EX-02 — Stable scoped workspace/repository boundary and navigation lifecycle** (checkpoint_passed).
 3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (checkpoint_passed).
 4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (checkpoint_passed).
-5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (current).
-6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
+5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (checkpoint_passed).
+6. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (current).
 7. **EX-07 — Remaining complete Charcoal journey parity** (queued).
 
 Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
@@ -133,26 +133,26 @@ Design: Existing approved Owner read/register designs retained;bounded versioned
 
 ### EX-03 — Durable original-operation and requested offline-edit journal recovery
 
-Routing: primary / 5 / current.
+Routing: primary / 5 / checkpoint_passed.
 Dependencies: EX-01; EX-10; EX-06; EX-04.
-Dependency gate: EX06 typed journal and EX04 coherent download scoped checkpoints passed;safe fictional/inactive transport work now;real key/current scope/fields/time and independent security still precede private opening
+Dependency gate: Scoped inactive original dispatch checkpoint passed. Private enablement requires actual EX09 custody/authority/fields/time, connected app proof and independent security.
 Findings: NR13; NR17; G09.
-Design: First Owner offline-register policy and connected design approved;protected pending recovery after logout/30day selected;private journal/key implementation pending;existing online cancellation retained.
+Design: Approved Owner capture/recovery policy and design retained. Scoped dispatch contract binds the original subject to current Owner membership and canonical write..
 
-- Implementation: Inactive storage/discovery/Unknown/refusal/settlement already implemented under EX06;canonical live HTTP original sender not started;no private product caller
-- Local checks: 15actual disposable PG17 canonical replay/fence/deadline/authority tests retained;38typed storage/restart/original cases passed under EX06;connected original HTTP sender/current RPC/settlement proof not yet run
-- Deployment: not_deployed
-- Hosted verification: pending
-- Owner acceptance: not_requested
+- Implementation: Inactive Owner original sender, closed staging API and signed transactional Owner RPC implemented. Durable Unknown before dispatch, exact receipt and scoped roster invalidation, retained refusal and late reply fencing.
+- Local checks: 17 connected Chromium/Next handler/Supabase SDK/signed gateway/PG17 checks. 15 canonical PG17, 20 download browser, 38 storage and 92 unit cases passed with build/type/lint. Fictional authority and provider bridges.
+- Deployment: Inactive source. Migration not applied to hosted staging, flag closed, no promotion required.
+- Hosted verification: not_run_for_private_transport
+- Owner acceptance: Approved workflow design retained. Working private acceptance pending.
 - Independent security: open
-- Next action: Implement and verify the next inactive Owner-register original-transport seam:discover exact persisted pending/unknown packet,send immutable canonical wire under current authority,settle only correlated count receipt,retain refusals/restart/lost-reply recovery;never cancelling reconcile before resend;reuse EX04/06 proof;no private app enablement
-- Evidence: docs/04-engineering/offline-register-runtime-readiness.md
+- Next action: Preserve verified exact original transport, distinct online cancellation and both request budgets. EX11 connects fictional working-day proof and EX09 resolves actual private authority/key/field/time gates.
+- Evidence: docs/07-handoff/offline-register-dispatch-checkpoint.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
 
-Routing: primary / 6 / queued.
+Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Declared EX02/03/04/06 LF-v2 checkpoints;exact accepted LF-P policies;app shell/offline access if claimed;Owner pass cannot close all roles
+Dependency gate: EX02/06/04/03 scoped checkpoints passed. Synthetic connected proof may proceed. Actual private enablement requires reviewed EX09 scope, key custody, field/retention/time and independent security readiness. No blanket role or capability approval.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Owner-directed durable local-data target;LF-v2 bootstrap/reopen/change/coverage/storage/access cases planned;exact policy/design and runtime evidence pending.
 
@@ -162,7 +162,7 @@ Design: Owner-directed durable local-data target;LF-v2 bootstrap/reopen/change/c
 - Hosted verification: not_run_as_connected_working_day;positive role/access/device limits remain
 - Owner acceptance: not_requested_for_unimplemented_pilot
 - Independent security: open
-- Next action: After accepted pilot checkpoints prove first prepare/reopen/changed data and connected18player40date tasks,then selected offline save/restart/reconnect/conflict/late upload and pending-work cleanup;physical/role/key/load and Owner/security separate
+- Next action: Prove the connected fictional Owner working day in a running app using the existing repository, coherent prepare and exact original dispatch. Cover first prepare, offline reopen/capture, restart, reconnect, confirmation and scope cleanup. Prepare exact EX09 current identity/key custody/field/time/recovery decisions and keep private activation gated.
 - Evidence: docs/06-delivery/academy-working-day-acceptance.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
@@ -230,5 +230,5 @@ Design: Durable local-data target requested across app;connected design approved
 - Hosted verification: not_verified
 - Owner acceptance: First Owner offline-register atomic/original-ID/current-check/Needs review policy and connected design approved;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;concrete device/key/field recovery readiness and security remain separate
 - Independent security: open
-- Next action: Support EX04/06 coherent scope and real key custody/account authority,private field/index/time/recovery readiness;typed adapter proof is not a privacy/security waiver;no extra credential or idle lock
+- Next action: Support EX11 with a concrete authenticated server key custody and release contract, current Owner/device/epoch binding, exact field/retention/time lifecycle and same-account recovery proof. Establish withdrawal versus membership denial containment. No extra credential or idle lock.
 - Evidence: docs/06-delivery/request-hygiene-and-offline-standard.md

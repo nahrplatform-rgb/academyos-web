@@ -28,6 +28,8 @@ type ImportState = {header: RosterHeader | null; cursor: string | null; seen: nu
 type StoredPlayer = {namespace: string; event: string; generation: string; player: string; sealed: SealedRecord};
 type StoredOriginal = {namespace: string; event: string; op: string; revision: number;
   active?: [string, string]; protected: ProtectedOriginal};
+type DispatchAttempt = {binding: string; fence: number; op: string; revision: number};
+type DispatchOutcome = {receipt: unknown} | {refusal: 'conflict' | 'deadline' | 'denied'};
 const stores = ['control', 'keys', 'heads', 'imports', 'rows', 'originals'];
 const req = <T>(r: IDBRequest<T>) => new Promise<T>((resolve, reject) => {
   r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error);
@@ -476,7 +478,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     return {items: rows.slice(0, LOCAL_PAGE_LIMIT).map(row => ({op: row.op, event: row.event})),
       more: rows.length > LOCAL_PAGE_LIMIT};
   }
-  async function readActiveOriginal(event: string) {
+  async function activeOriginalSnapshot(event: string) {
     identifier(event);
     const s = await snapshot();
     const row: StoredOriginal | undefined = await tx(['control', 'originals'], 'readonly', async t => {
@@ -484,8 +486,13 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       return req(t.objectStore('originals').index('activeEvent').get([namespace, event]));
     });
     if (!row) return null;
-    const value = await readOriginal(row.op);
-    return value.state === 'confirmed' ? null : value;
+    const original = await originalSnapshot(row.op);
+    unchanged(s.c, original.c);
+    if (original.row.event !== event) refuse('original_mismatch');
+    return original.value.state === 'confirmed' ? null : original;
+  }
+  async function readActiveOriginal(event: string) {
+    return (await activeOriginalSnapshot(event))?.value ?? null;
   }
   async function captureRegister(input: unknown) {
     const {packet, wire} = canonicalRegister(input);
@@ -517,8 +524,10 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     });
     return {savedOnDevice: true as const, op: packet.op, count: packet.marks.length};
   }
-  async function transition(op: string, state: 'unknown' | 'needs_review' | 'confirmed', reply?: unknown) {
-    const s = await originalSnapshot(op);
+  async function transitionOriginal(s: Awaited<ReturnType<typeof originalSnapshot>>,
+    state: 'unknown' | 'needs_review' | 'confirmed', reply?: unknown, signal?: AbortSignal) {
+    signal?.throwIfAborted();
+    const op = s.row.op;
     const packet = canonicalRegister(JSON.parse(s.value.wire)).packet;
     const receipt: RegisterReceipt | null = state === 'confirmed' ? exactReceipt(reply, packet) : null;
     if (s.value.state === 'confirmed') {
@@ -546,19 +555,57 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
       }
     }
     await tx(['control', 'originals', 'heads'], 'readwrite', async t => {
+      signal?.throwIfAborted();
+      const abort = () => {try {t.abort();} catch { /* The transaction already completed. */ }};
+      signal?.addEventListener('abort', abort, {once: true});
+      t.addEventListener('complete', () => signal?.removeEventListener('abort', abort), {once: true});
+      t.addEventListener('abort', () => signal?.removeEventListener('abort', abort), {once: true});
       unchanged(s.c, await control(t, true));
       const current: StoredOriginal | undefined = await req(t.objectStore('originals').get([namespace, op]));
       if (current?.revision !== s.row.revision) refuse('original_changed');
-      if (invalidHead) {
+      if (state === 'confirmed') {
         const h: Head | undefined = await req(t.objectStore('heads').get([namespace, s.row.event]));
-        if (h?.generation !== invalidHead.generation || h.revision !== invalidHead.revision - 1) refuse('basis_changed');
-        t.objectStore('heads').put(invalidHead, [namespace, s.row.event]);
+        if (invalidHead) {
+          if (h?.generation !== invalidHead.generation || h.revision !== invalidHead.revision - 1) refuse('basis_changed');
+          t.objectStore('heads').put(invalidHead, [namespace, s.row.event]);
+        } else if (h) refuse('basis_changed');
       }
       t.objectStore('originals').put(next, [namespace, op]);
       const c = (await control(t, true))!;
       t.objectStore('control').put({...c, revision: c.revision + 1}, namespace);
     });
     return value;
+  }
+  async function transition(op: string, state: 'unknown' | 'needs_review' | 'confirmed', reply?: unknown) {
+    return transitionOriginal(await originalSnapshot(op), state, reply);
+  }
+  async function beginOriginalDispatch(event: string, signal: AbortSignal) {
+    signal.throwIfAborted();
+    const original = await activeOriginalSnapshot(event);
+    signal.throwIfAborted();
+    if (!original) return {kind: 'none' as const};
+    if (original.value.state === 'needs_review')
+      return {kind: 'needs_review' as const, refusal: original.value.refusal!};
+    const value = await transitionOriginal(original, 'unknown', undefined, signal);
+    signal.throwIfAborted();
+    return {kind: 'send' as const, wire: value.wire, subject: scope.subject,
+      attempt: {binding, fence: original.c.fence, op: original.row.op, revision: value.revision} satisfies DispatchAttempt};
+  }
+  async function finishOriginalDispatch(attempt: DispatchAttempt, outcome: DispatchOutcome, signal: AbortSignal) {
+    signal.throwIfAborted();
+    if (attempt.binding !== binding) refuse('scope_changed');
+    const original = await originalSnapshot(attempt.op);
+    if (attempt.fence !== original.c.fence) refuse('scope_changed');
+    // Another tab may already have persisted the same definitive receipt.
+    if ('receipt' in outcome && original.value.state === 'confirmed') {
+      exactReceipt(outcome.receipt, canonicalRegister(JSON.parse(original.value.wire)).packet);
+      signal.throwIfAborted();
+      return;
+    }
+    if (original.row.revision !== attempt.revision || original.value.state !== 'unknown') refuse('original_changed');
+    if ('receipt' in outcome) await transitionOriginal(original, 'confirmed', outcome.receipt, signal);
+    else await transitionOriginal(original, 'needs_review', outcome.refusal, signal);
+    signal.throwIfAborted();
   }
   async function quarantine(reason: 'logout' | 'thirty_days' | 'known_denial') {
     if (!['logout', 'thirty_days', 'known_denial'].includes(reason)) refuse('invalid_cleanup');
@@ -584,7 +631,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
   }
   return {beginActivation, activate, beginImport, importStatus, abandonImport, appendPage, readPage,
     transferCheckpoint, refreshTransfer, finalizeTransfer, transferBasis, refreshUnchanged,
-    captureRegister, readOriginal, listOriginals, readActiveOriginal,
+    captureRegister, readOriginal, listOriginals, readActiveOriginal, beginOriginalDispatch, finishOriginalDispatch,
     beginOriginal: async (op: string) => (await transition(op, 'unknown')).wire,
     refuseOriginal: (op: string, reason: 'conflict' | 'deadline' | 'denied') => transition(op, 'needs_review', reason),
     settleOriginal: (op: string, receipt: unknown) => transition(op, 'confirmed', receipt),

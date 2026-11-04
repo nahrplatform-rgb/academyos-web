@@ -130,3 +130,5 @@ G01 scoped2November2026: [shell versus identity measurement](../07-handoff/reque
 
 
 3November EX-04 local evidence: [register transfer measurements and limits](../07-handoff/register-download-checkpoint.md) compare20old roster pages with22first coherent-transfer requests and1unchanged manifest. Initial verification deliberately adds work; the manifest scans/hashes up to1000rows. Provider Redis/egress/real-role concurrency and performance percentiles remain unmeasured; no service-limit or production-cost conclusion follows.
+
+4 November EX-03 measurement: [Owner original dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) observes one POST and at most one signed write RPC per explicit attempt. Lost-reply recovery uses the same payload, with no application retry loop or roster reread. Actual provider work, end-to-end timings and concurrency remain open.
