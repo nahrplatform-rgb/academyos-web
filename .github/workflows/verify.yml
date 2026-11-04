@@ -71,6 +71,12 @@ jobs:
         run: |
           node scripts/working-day/test_owner_next.mjs --check
           node scripts/working-day/test_owner_next.mjs
+      - name: Verify inactive register key release and recovery boundary
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/register-key/test_key.mjs --check
+          node scripts/register-key/test_key.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

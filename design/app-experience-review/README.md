@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+4 November EX-09: the [inactive register key release](../../docs/07-handoff/owner-register-key-checkpoint.md) is linked in loading evidence. It adds no user-facing screen or state.
+
 4 November EX-11: [connected Owner test evidence](../../docs/07-handoff/owner-working-day-fixture.md) is linked in the action and loading inventory. The isolated register is outside the shipped app. The factual HTML retains the actual product captures.
 
 4 November EX-03: [inactive dispatch proof](../../docs/07-handoff/offline-register-dispatch-checkpoint.md) updates action/loading register evidence. The HTML continues to use the existing actual-component captures.

@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "Closed default, origin, strict field shape and streamed size bounds reject before authentication",
+    "Missing session or token, switched account and limiter timeout make zero database calls",
+    "Direct, unsigned or stale-proof callers cannot create or release a key",
+    "Concurrent preparation persists one authenticated envelope, one audit row and one stable recoverable key",
+    "Wrong account, role, academy, event, browser or namespace cannot recover or replace the pilot slot",
+    "Swapped envelope, wrong wrapping root and missing configuration fail without overwriting stored work",
+    "Current Owner suspension blocks key release; verified restoration recovers the original key",
+    "Withdrawn register cannot prepare; current Owner can recover the existing pending-work key",
+    "Bounded signed RPC enforces the original subject independently of the application fence"
+  ],
+  "hashes": {
+    "apps/web/src/app/api/register-key/route.ts": "640b5a8d3140cf161ce8a68bc2c54261d0943de1dd10a920ed1ab9ca33eaaa68",
+    "apps/web/src/lib/register-key-server.ts": "87fdaf94c9e45b6fe9b7d28085efe3bcc0da4db3f3b41ffe97bfea3222d00873",
+    "apps/web/src/lib/onboarding-server.ts": "d233d9fbd711245a0b75b19e500bf319c9af78611e594fba2730b3b3b35ba827",
+    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
+    "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+    "apps/web/src/lib/local-register-repository.ts": "4fa03727b3b1fd6b1b16d4fad77a2c5d503808a51abfbbfdcf7f2be888fe9bf3",
+    "supabase/migrations/20261104012057_owner_register_key_custody.sql": "8bb0528c58446a9afec48adc04f3191d98aa1abbdedd787f45918067bfca1af1",
+    "scripts/register-key/key_bridge.py": "1b283305820d904c2ef0372a92970583888e71dbfdae6eefdb38c7ee99cb873a",
+    "scripts/register-key/test_key.mjs": "89e75fc1cb636d8126e394b96976f3920bfd3b3c3f2e08b78a575738b34eb76a"
+  },
+  "measurements": {
+    "rpcAttempts": 22,
+    "logicalLimiterChecks": 23,
+    "storedEnvelopeBytes": 60,
+    "browserMaterialBytes": 32
+  }
+}

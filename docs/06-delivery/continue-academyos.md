@@ -16,6 +16,8 @@ The Owner clarified the operating goal: persistent permitted local datasets acro
 
 Preserve current server authority, tenant/role/field scope, explicit context choice, dirty input, exact-change/signed review, atomic/idempotent writes and original unknown-operation recovery. The connected read/preparation design is approved. No inactivity lock or proposed24hour local-read cutoff;30day-without-verification/logout read-replica cleanup is selected. Do not re-ask those decisions or apply replica cleanup to unresolved original operations/unsent offline edits. WB-P01–P04's unaccepted summary-only/30second/5minute/intent-only proposal is superseded. LF-P01–LF-P06 own remaining exact device/unlock/fields/key/sync and sensitive-domain choices. Offline edits are now a target, not permanently future scope. The first Owner-register atomic/original-ID/current-server-check/Needs review policy is accepted for design, and protected pending-work recovery after logout/30day replica cleanup is selected. Do not re-ask those choices. The focused Owner offline-register changed-state design is now approved for implementation3November; do not re-ask it. Preserve the completed automatic-key mechanism, canonical replay/fence proof and workspace compatibility checkpoints; do not repeat them by default. Preserve the inactive typed Owner-register adapter and any completed versioned-transfer checkpoint according to their tracker evidence. Follow the current row rather than repeating storage or transfer research. Real authenticated key custody, private field/time recovery and original server transport gates remain required before private enablement. Legacy per-row transfer completeness is not a coherent server snapshot; only a separately completed versioned path can make that scoped claim. Remaining device/field/key engineering and security readiness stay separate. After successful device/passkey research, the Owner rejected mandatory passkey setup/reopening and directs ordinary email/password sign-in for personal-device use. Do not re-ask that rejected choice or add a separate local secret. Follow the revised offline-register-device-key-contract.md for automatic protection and same-account recovery; do not persist the login password, use it/token as a key, or silently weaken confidentiality. Historical PRF results and failed-UV cases remain evidence, not prerequisites for the different mechanism. No real credential creation or provider-account change is included in ordinary continuation. The Owner suggested timestamps; engineering recommends expected server versions plus immutable IDs and retained conflicts, never silent device-clock overwrite. Current online writers remain unchanged until their domain slice is accepted and implemented. Finance, telemetry, real data and access grants remain separate; independent safe work continues.
 
+The Owner approved the first private pilot scope for implementation on 4 November: one published register for an existing Academy Owner's personal device, storing session details, roster names/IDs and marks/versions. Apply the existing logout/30-day read-copy cleanup. The original account can recover protected pending work only with current Owner access. Loss of access retains encrypted work until restored. Do not re-ask this rule. The inactive key seam, repository lifecycle/slot wiring, real authentication, hosted secret custody and independent security have separate evidence. See docs/04-engineering/owner-register-private-readiness.md.
+
 Use actual AcademyOS source, PYSA workflow/audit and Shift staging iOS local-data reference plus the working-day case map. Reference code/tests are not AcademyOS operating proof. Record current versus target, repository/index/key/coverage/sync/authority/draft/recovery owners, first-bootstrap/reopen/unchanged/changed/save budgets and affected-view invalidation. Prove transactional checkpoints/watermarks, tombstones/withdrawal/scope epochs, cursor expiry, multi-tab leadership, key/quota/eviction/migration and original-operation recovery. Measure useful task readiness, blank intervals, local queries, input/context and API/RPC/SQL/bytes/costs alongside each batch. No zero-network/full-offline claim from a cached screen; closed-app background execution is not guaranteed. Keep EN/AR, phone/desktop/zoom and all-role limits explicit.
 
 Promotion ownership: the Owner performs all deployment promotions. Prepare/test/push and inspect automatic builds as authorized, but never click Promote, invoke a CLI/connector promotion, reassign the live alias or complete the provider promotion/passkey flow. If needed, supply the exact checked commit/deployment link and existing staging destination for the Owner. Ordinary continuation is not an exception. Verify the Owner-reported result read-only and keep it separate from preview readiness.
@@ -24,9 +26,9 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Review the exact EX-09 personal-device, one-roster fields, authenticated key custody, verification-time and recovery-authority choices. Preserve the connected fictional proof and proceed with authorized inactive engineering only until dependent decisions and security readiness permit a private pilot.
+Next action: Continue EX-09 by binding the registered event at transfer and canonical dispatch, then connect the approved inactive personal-device lifecycle. Verify trusted-time/logout/denial fencing and retain fictional end-to-end proof; real authenticated device/custody and independent security gate private activation.
 
-Scoped dependency gate: Scoped connected fictional proof passed. Private enablement requires reviewed EX-09 scope, real current identity/key custody, field/retention/time and independent security readiness; actual Clerk/hosted, broader device and other roles remain open.
+Scoped dependency gate: Scoped connected fictional proof and local EX-09 key boundary passed. Private enablement requires integrated one-event authority, field/time/cleanup lifecycle, actual authenticated key custody and independent security.
 
 Read: `docs/07-handoff/owner-working-day-fixture.md`
 
@@ -152,9 +154,9 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Scoped connected fictional proof passed. Private enablement requires reviewed EX-09 scope, real current identity/key custody, field/retention/time and independent security readiness; actual Clerk/hosted, broader device and other roles remain open.
+Dependency gate: Scoped connected fictional proof and local EX-09 key boundary passed. Private enablement requires integrated one-event authority, field/time/cleanup lifecycle, actual authenticated key custody and independent security.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
-Design: Connected read/preparation and first Owner offline-register designs approved; exact private release choices proposed in EX-09.
+Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
 - Implementation: Connected fictional Owner fixture implemented with actual Home/Calendar/dated planning, encrypted preparation, offline capture, restart and signed dispatch; product private runtime disabled
 - Local checks: 8 connected Next/Chromium/PG17 checks passed: EN desktop and AR390px;18-player register in40-date program;0 API requests offline; exact lost-reply replay produces1 commit; deadline and logout recovery tested;57 broader case statuses retained
@@ -162,7 +164,7 @@ Design: Connected read/preparation and first Owner offline-register designs appr
 - Hosted verification: Private pilot not hosted or verified; prior online staging evidence retained
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Review the exact EX-09 personal-device, one-roster fields, authenticated key custody, verification-time and recovery-authority choices. Preserve the connected fictional proof and proceed with authorized inactive engineering only until dependent decisions and security readiness permit a private pilot.
+- Next action: Continue EX-09 by binding the registered event at transfer and canonical dispatch, then connect the approved inactive personal-device lifecycle. Verify trusted-time/logout/denial fencing and retain fictional end-to-end proof; real authenticated device/custody and independent security gate private activation.
 - Evidence: docs/07-handoff/owner-working-day-fixture.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
@@ -220,15 +222,15 @@ Design: measurement profiles required.
 
 Routing: supporting / 3 / supporting.
 Dependencies: none declared.
-Dependency gate: Exact policies needed for current LF-v2 local read pilot;current online coordination safe to continue;no blanket offline read/write or financial approval
+Dependency gate: One-register scope and recovery policy accepted. Local key boundary passed; registry binding at all request surfaces, trusted clock/cleanup, hosted auth/custody and independent security remain.
 Findings: NR15; G08.
-Design: Durable local-data target requested across app;connected design approved;automatic inactivity lock rejected;remaining exact LF-P choices pending;WB-P v1 superseded.
+Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
-- Implementation: Concrete proposed private-release contract drafted; no production key custody or scope implementation
-- Local checks: EX-11 synthetic connected original-account recovery passed; actual Clerk/authority/key/time and platform cases pending
-- Deployment: not_deployed
+- Implementation: Inactive scoped signed key route, one-device/event slot, wrapped key and preparation audit implemented; client lifecycle and download/dispatch slot binding pending
+- Local checks: Nine actual Next/Supabase SDK/PG17 key-boundary cases passed with fixture Clerk, rate limiter and PostgREST HTTP; production root, clock/cleanup and real identity pending
+- Deployment: No hosted schema, configured key or private rollout
 - Hosted verification: not_verified
-- Owner acceptance: First Owner offline-register atomic/original-ID/current-check/Needs review policy and connected design approved;protected same-account pending recovery selected;no idle lock or24hour cutoff;30day/logout replica cleanup;concrete device/key/field recovery readiness and security remain separate
+- Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
 - Independent security: open
-- Next action: Review the named personal-device scope, one-roster fields, key custody, verification-time and same-account recovery choices before dependent private work. Reuse existing authentication and test the signed current-Owner boundary; retain no extra credential or idle lock.
-- Evidence: docs/04-engineering/owner-register-private-readiness.md
+- Next action: Bind transfer and exact original dispatch to the registered event and build the inactive personal-device lifecycle with 30-day verification, late replies, logout and denied-scope fencing. Preserve current Owner rules and review real key custody before private activation.
+- Evidence: docs/07-handoff/owner-register-key-checkpoint.md

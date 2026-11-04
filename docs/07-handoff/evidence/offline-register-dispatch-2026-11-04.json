@@ -9,7 +9,7 @@
     "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
     "apps/web/src/lib/onboarding-server.ts": "d233d9fbd711245a0b75b19e500bf319c9af78611e594fba2730b3b3b35ba827",
-    "apps/web/src/lib/onboarding-gateway.ts": "fb10e68b96362508e9b813c97a9ef3a3e460bd1d3024cce79e3a08df5bc741d0",
+    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
     "scripts/offline-register/test_dispatch.mjs": "54e86e1cc7ae448fca837973cdbad6bdf3445c4695a835121d617a5b52ccd901",
     "scripts/offline-register/dispatch_bridge.py": "f9e4ab6c9fee7b90e546e619d7f0f4f86188cd4066036d5e9216643d0c7ef80c",
@@ -38,7 +38,7 @@
     "The complete 1000-mark register settles through one POST with a bounded count receipt"
   ],
   "metrics": {
-    "replayMs": 39.70679199999995,
+    "replayMs": 33.654207999999926,
     "lostReply": {
       "httpAttempts": 2,
       "signedRpcs": 2,
@@ -49,7 +49,7 @@
       "httpAttempts": 1,
       "requestBytes": 80715,
       "receiptBytes": 132,
-      "elapsedMs": 102.29766699999891
+      "elapsedMs": 97.37399999999616
     }
   },
   "environment": {

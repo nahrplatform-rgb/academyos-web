@@ -1,0 +1,21 @@
+# EX-09 inactive Owner register key release
+
+4 November 2026. The Owner approved the one-register personal-device scope and current-Owner recovery rule for implementation. The [policy receipt](evidence/owner-register-private-policy-2026-11-04.json) and [scope and security contract](../04-engineering/owner-register-private-readiness.md) govern. Existing connected design and working-day fixture evidence are preserved.
+
+## Implemented and tested locally
+
+- The [inactive Next route](../../apps/web/src/app/api/register-key/route.ts) accepts a same-origin staging POST with at most 512 streamed bytes and exact prepare or recover fields. The existing Clerk-backed session derives identity. The request's subject is a precondition for an account-switch race.
+- The [signed database boundary](../../supabase/migrations/20261104012057_owner_register_key_custody.sql) locks the current Owner membership and checks the exact academy, event, installation and namespace. Prepare checks current publication and the existing 1,000-player transfer bound. One indexed registration per Owner and academy prevents a competing browser or register from replacing it. Concurrent retries return the same key and create one audit row. Recovery requires the original scope and current Owner access, including after withdrawal of the event. It supplies no roster or write permission.
+- The [server-only wrapper](../../apps/web/src/lib/register-key-server.ts) stores a 60-byte authenticated envelope in an RLS-protected private table. The 32-byte per-registration key is random and wrapped with a dedicated configured root. AAD covers the event, complete scope and key version. A swapped envelope, missing root or wrong root fails closed and preserves the record. No application wrapping root has been provisioned.
+- [Nine executable cases](evidence/owner-register-key-2026-11-04.json) passed with the actual route, Supabase SDK, signed gateway, Node cryptography and disposable PostgreSQL 17. Tests include zero RPCs for malformed/oversized requests or missing/switching identity, limiter timeout, direct ACL and unsigned/expired proof denial, concurrent preparation, isolation, revoked membership, restoration, withdrawal and envelope substitution. Clerk, rate-limit responses and PostgREST HTTP were fixture adapters. This proves the local boundary with synthetic identities, not actual hosted Clerk or key administration.
+- Each accepted attempt uses at most one signed RPC and one existing write limiter decision. Concurrent fixture requests used separate PostgreSQL connections. Covered browser reads remain outside this endpoint. Provider costs, latency percentiles and real client lifecycle are unmeasured.
+
+Run `node scripts/register-key/test_key.mjs` with Node 24 and disposable PG17. Use `--check` to verify the receipt hashes. `--record` replaces the receipt after successful execution. The checked fixture invokes the routes in process and does not contact providers.
+
+## Remaining before private enablement
+
+The new route has a closed default and no product caller. Keep `LOCAL_REGISTER_KEY_ENABLED` and `LOCAL_REGISTER_WRAP_KEY_V1` unset on hosted environments pending release review. The next checkpoint binds transfer and original dispatch to the same registered event and adds the personal-device lifecycle around the repository. Cover late first-prepare and recovery replies after logout or account changes, the 30-day server-stamped verification rule, clock rollback, event withdrawal versus membership denial, and guarded offline startup. Verify the exact fields before persisting data. Reuse the canonical attendance policy, original-operation recovery and current online flows.
+
+Hosted deployment, actual Clerk session behavior, wrapping-root access/rotation/backup, actual device/role checks, Owner working acceptance and independent security remain separate. The additive migration is unapplied to hosted staging. Keep the key route and existing transfer/dispatch flags closed. Disable the key route to halt release while preserving any pending envelopes if this later rolls out. Key custody requires a reviewed recovery/rotation plan before actual configuration.
+
+Relevant requirements: IMP-J12-A01, J12-A01–A03, S28, AO/AT-035/036/042/045, L08 and SEC-J12, plus IMP-J16-A01, L10 and SEC-J16. Findings NR15/17 and G08/09 remain open.

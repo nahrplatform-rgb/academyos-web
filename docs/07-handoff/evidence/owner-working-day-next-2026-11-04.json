@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 231,
-    "calendarMs": 129,
-    "dateMs": 156,
+    "homeMs": 214,
+    "calendarMs": 123,
+    "dateMs": 158,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 185,
-    "selectReviewSaveMs": 776,
+    "firstPrepareMs": 187,
+    "selectReviewSaveMs": 777,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 179,
-    "originalReplayMs": 122,
+    "offlineRestartMs": 184,
+    "originalReplayMs": 114,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -80,7 +80,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4507
+        "responseBytes": 4510
       },
       {
         "route": "planning",
@@ -94,7 +94,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4507
+        "responseBytes": 4509
       },
       {
         "route": "planning",
@@ -227,7 +227,7 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9329,
-    "responseBytes": 37607
+    "responseBytes": 37612
   },
   "hashes": {
     "scripts/working-day/owner_fixture.mjs": "6bb4a96f1ff3782c132593d82a51645cbb034ca04859244a31ecf1e22476e1a8",
@@ -251,7 +251,7 @@
     "apps/web/src/lib/register-download.ts": "07de4f191978b02d71adca00252e5ee646ca8c99b53347e1bf985371155fbf54",
     "apps/web/src/lib/register-download-coordinator.ts": "2d20816f18a3e58aceeecf1131a080a2d36cc4edb8fe2306d7e055be67f8daf8",
     "apps/web/src/lib/register-original-dispatch.ts": "bf328ee84a426f2e2a50050a590da00f017cd2722ed48a5e31473a7a16df614a",
-    "apps/web/src/lib/onboarding-gateway.ts": "fb10e68b96362508e9b813c97a9ef3a3e460bd1d3024cce79e3a08df5bc741d0",
+    "apps/web/src/lib/onboarding-gateway.ts": "a4552a52fc253863c8ac3482fd4b758931f005469b198022de6bca545430101d",
     "apps/web/src/app/globals.css": "6d12337841b0f9a95648ce91e8a4184ac14d4d17f2ea64890af9a4629755c0c7",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e"

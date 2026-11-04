@@ -1,5 +1,9 @@
 # Decisions and open questions
 
+## First private Owner register scope accepted for implementation — 4 November 2026
+
+The Owner approved one published register on an existing Academy Owner's personal device. The stored fields are session details, roster names and IDs, and marks and versions. Logout or 30 days without an online access check clears downloaded rows. The same account can recover protected pending work through ordinary sign-in while its Owner access is current. If access ends, recovery waits until it is restored. Private activation and independent security remain separate. [Exact approval](../07-handoff/evidence/owner-register-private-policy-2026-11-04.json) and [EX-09 contract](../04-engineering/owner-register-private-readiness.md).
+
 ## Normal sign-in without extra local credentials —3November2026
 
 After a successful localhost PRF diagnostic, the Owner rejected mandatory passkey setup/reopening as confusing and directed ordinary email/password sign-in on the personal device. [Exact response](../07-handoff/evidence/local-data-login-only-direction-2026-11-03.json) and [revised device/key contract](../04-engineering/offline-register-device-key-contract.md). Preserve the approved local-data/register workflows, no inactivity lock,30day/logout replica cleanup and separately protected same-account pending recovery. This selects the user experience; automatic key custody/account binding still need implementation and independent security proof. It does not authorize storing passwords, weakening confidentiality, another real credential, access grant or promotion. Do not ask for the rejected passkey product choice again.
