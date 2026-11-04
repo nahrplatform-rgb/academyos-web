@@ -889,3 +889,80 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
     margin-block-end: 8px;
   }
 }
+
+/* Owner Calendar uses the selected Operations composition; reads remain domain-owned. */
+.operations-calendar .operations-calendar-toolbar { display:flex; align-items:end; gap:12px 20px; margin-block:0 24px; padding-block-end:16px; border-block-end:1px solid var(--operations-line); }
+.operations-calendar-toolbar .journey-actions { margin:0; gap:4px; flex-wrap:wrap; }
+.operations-calendar-toolbar [role="group"] { min-width:0; }
+.operations-calendar-toolbar .journey-actions:first-child { display:flex; padding:3px; border:1px solid var(--line); border-radius:8px; background:var(--operations-inspector); }
+.operations-calendar-toolbar .journey-actions:first-child button { background:transparent; border-color:transparent; }
+.operations-calendar-toolbar .journey-actions:first-child button[aria-pressed="true"] { background:var(--operations-canvas); border-color:var(--line); color:var(--sky); box-shadow:0 1px 2px #0000000a; }
+.operations-calendar-toolbar .operations-period-actions { display:flex; gap:4px; }
+.operations-period-actions button { display:inline-flex; justify-content:center; align-items:center; gap:6px; }
+.operations-calendar-toolbar > label { margin-inline-start:auto; color:var(--muted); font-size:12px; gap:4px; }
+.operations-calendar-toolbar input { min-width:0; width:100%; }
+.operations-calendar .experience-sessions { margin-block:0 20px; }
+.operations-calendar .experience-sessions > header { margin-block-end:8px; }
+.operations-calendar .experience-sessions > header h2 { font-size:17px; line-height:1.45; }
+.operations-calendar .experience-sessions > p { color:var(--muted); font-size:13px; }
+.operations-calendar .experience-sessions > label { max-width:360px; }
+.operations-calendar-content { container-type:inline-size; }
+.operations-week-board, .operations-calendar .operations-month-board { display:grid; grid-template-columns:minmax(0,1fr); gap:20px; margin-block:16px; }
+.operations-calendar .operations-calendar-day { min-width:0; min-height:0; margin:0; padding:0; border:0; border-radius:8px; background:transparent; }
+.operations-calendar-day.is-empty { display:none; }
+.operations-calendar-day > header { display:flex; align-items:baseline; justify-content:space-between; gap:8px; padding-block:8px; margin-block-end:8px; border-block-end:1px solid var(--operations-line); }
+.operations-calendar-day h3 { display:flex; align-items:baseline; gap:8px; margin:0; font-size:14px; line-height:1.5; }
+.operations-calendar-day h3 span { color:var(--muted); font-weight:500; }
+.operations-calendar-day h3 bdi { font-weight:650; }
+.operations-calendar-day.is-today > header { color:var(--sky); border-color:var(--sky); }
+.operations-day-today { color:var(--sky); font-size:12px; font-weight:650; }
+.operations-calendar-day ul { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+.operations-calendar .app-scene .operations-calendar-event { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:4px 8px; min-height:76px; padding:10px 12px; border:1px solid color-mix(in srgb,var(--sky) 22%,var(--line)); border-inline-start:3px solid var(--sky); border-radius:7px; background:color-mix(in srgb,var(--sky-bg) 52%,var(--operations-canvas)); font:13px/1.45 var(--font); }
+.operations-calendar-event .session-clock { flex:none; grid-column:1; min-width:0; color:var(--sky); font-size:12px; font-weight:600; }
+.operations-calendar-event .session-name { grid-column:1; min-width:0; gap:3px; }
+.operations-calendar-event .session-name strong { font-size:14px; font-weight:650; }
+.operations-calendar-event .session-name > span { color:var(--muted); font-size:12px; }
+.operations-calendar-event .session-state { grid-column:2; grid-row:1 / span 2; display:inline-block; justify-self:end; padding:2px 5px; font-size:11px; line-height:1.5; }
+.operations-calendar .app-scene .operations-calendar-event[data-state="moved"] { border-inline-start-color:var(--gold); }
+.operations-calendar .app-scene .operations-calendar-event[data-state="draft"] { border-inline-start-color:var(--violet); }
+.operations-calendar .app-scene .operations-calendar-event[data-state="cancelled"] { border-inline-start-color:var(--muted); background:var(--operations-inspector); }
+.operations-calendar .operations-calendar-event[aria-pressed="true"] { outline:2px solid var(--sky); outline-offset:1px; background:var(--sky-bg); }
+.operations-calendar .operations-calendar-event:focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.operations-day-empty { margin:12px 8px; font-size:12px; color:var(--muted); }
+.operations-calendar-empty { margin-block:20px; padding:16px; border:1px dashed var(--line); border-radius:8px; }
+.operations-calendar-empty p { margin-block:0 8px; }
+@container (min-width:750px) {
+  .operations-week-board, .operations-calendar .operations-month-board { grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; }
+  .operations-calendar .operations-calendar-day { min-height:136px; padding:6px; background:var(--operations-inspector); border:1px solid var(--operations-line); }
+  .operations-calendar-day.is-empty { display:block; }
+  .operations-calendar-day > header { align-items:start; min-height:51px; padding:3px 2px 8px; }
+  .operations-calendar-day h3 { display:flex; flex-direction:column; align-items:start; gap:2px; font-size:13px; }
+  .operations-calendar-day h3 span { font-size:11px; }
+  .operations-day-today { font-size:10px; }
+  .operations-calendar .app-scene .operations-calendar-event { display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; gap:6px; padding:8px; min-height:112px; }
+  .operations-calendar-event .session-name strong { font-size:12px; }
+  .operations-calendar-event .session-name > span { font-size:11px; }
+  .operations-calendar-event .session-state { align-self:start; }
+}
+@media (min-width:768px) {
+  .operations-calendar-toolbar button { min-height:34px; padding:6px 10px; font-size:12px; }
+  .operations-calendar-toolbar input { min-height:36px; padding:6px 8px; font-size:13px; }
+}
+@media (max-width:767px) {
+  .operations-calendar .operations-calendar-toolbar { gap:12px; margin-block-end:20px; }
+  .operations-calendar-toolbar .journey-actions { width:auto; }
+  .operations-calendar-toolbar .journey-actions:first-child button { min-width:64px; }
+  .operations-calendar-toolbar .operations-period-actions { display:flex; }
+  .operations-period-actions button { min-width:48px; }
+  .operations-period-word { display:none; }
+  .operations-calendar-toolbar button { min-height:48px; padding:8px 10px; font-size:14px; }
+  .operations-calendar-toolbar > label { margin:0; width:100%; font-size:14px; }
+  .operations-calendar-toolbar input { min-height:48px; font-size:16px; }
+  .operations-calendar-event .session-state { grid-row:1; font-size:12px; }
+  .operations-calendar-event .session-name { grid-column:1 / -1; }
+}
+
+.operations-period-actions .directional { display:inline-block; font-size:18px; line-height:1; }
+[dir="rtl"] .operations-period-actions .directional { transform:scaleX(-1); }
+
+.operations-calendar .app-scene .operations-calendar-event:hover { background:var(--sky-bg); }

@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 283,
-    "calendarMs": 162,
-    "dateMs": 170,
+    "homeMs": 244,
+    "calendarMs": 99,
+    "dateMs": 158,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 203,
-    "selectReviewSaveMs": 763,
+    "firstPrepareMs": 220,
+    "selectReviewSaveMs": 775,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 202,
-    "originalReplayMs": 121,
+    "offlineRestartMs": 176,
+    "originalReplayMs": 109,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -80,7 +80,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4489
+        "responseBytes": 4488
       },
       {
         "route": "planning",
@@ -94,7 +94,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4489
+        "responseBytes": 4487
       },
       {
         "route": "planning",
@@ -234,7 +234,7 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9589,
-    "responseBytes": 37000
+    "responseBytes": 36997
   },
   "hashes": {
     "scripts/working-day/owner_fixture.mjs": "06000aef4c8e3088b183cd91a482e25f7ba9209b952e4eb3e016f97e1aee5a31",
@@ -249,7 +249,7 @@
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
-    "apps/web/src/components/experience-workspace.tsx": "0352bd61220edbab7a40bd02942df5c8199dee83b1250b407f13d6113970fb55",
+    "apps/web/src/components/experience-workspace.tsx": "ad58edbb5afc2d449281d4923e071daac0da8d761a5378db6188ef9998036d9e",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
@@ -260,7 +260,7 @@
     "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
     "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
-    "apps/web/src/app/globals.css": "944cd2b848fb59fe41668080e288968f551ac1346edc744d46d8a68c7e5a2b5c",
+    "apps/web/src/app/globals.css": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",

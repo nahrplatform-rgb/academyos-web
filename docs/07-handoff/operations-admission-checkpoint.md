@@ -45,7 +45,7 @@ The [expanded actual-component receipt](evidence/operations-admission-2026-11-04
 | Primary blue action, neutral supporting actions, meaningful module/status colour | Reused; gold identifies People/admission/selection, semantic delivery/acceptance tones remain labelled. Module colour is not approval/permission. |
 | Compact directory plus optional inspector; one task on phone | Real table/detail/central-create/native-confirmation seams retained; visible row delivery on phone; 24 viewport/theme/locale checks and representative images inspected. |
 | Exact Platform screen | Operations studio has only Today/Calendar/Players/Attendance. This is an adaptation of its system plus the accepted full Platform workflow, not a pixel match to a nonexistent Platform studio screen. |
-| Pane dimensions | Existing220px navigation and stored bounded detail width retained. Existing default280px versus the sample276px is a known4px difference, not silently reported identical. No cross-app preference rewrite. |
+| Pane dimensions | Existing220px navigation and stored bounded detail width retained. Source default276px matches the sample. The later Owner Calendar source/geometry check corrects this ledger's earlier280px default description; persisted per-device widths can differ. No cross-app preference rewrite. |
 | Continuity/recovery | Search/selected ID/focus return proven after current recheck; existing checking replacement remains visible. No full instantaneous/cached/offline claim. |
 | Remaining copy/flows | Wider entry, setup and appointment refinements, diagnostic-copy cleanup and full Owner/Trainer/Guardian adoption remain in EX-07. No new whole-design acceptance. |
 

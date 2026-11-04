@@ -34,11 +34,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Operations adoption with distinct Platform and Academy Owner journeys first
 
-Next action: Continue bounded Academy Owner Operations adoption: Today -> Calendar -> session/register -> exact return,then Players,against the selected system with matched before/after and state/read budgets. Preserve shipped12b9 Platform checkpoint and pending working acceptance;do not repeat its promotion/design review or claim whole-finding closure. EX12 supports fresh isolated iCloud/pending-work proof and supported A sole-Owner disposition before any exact authorized cleanup;no account mutation inferred. No external-review wait;bounded Terra policy retained.
+Next action: Complete bounded Owner Calendar local regression/build/factual evidence;commit/push and inspect exact CI/Ready candidate,then give Owner its precise promotion link to existing staging. After Owner promotion verify exact-source ENAR Calendar/selection/read/return,keeping acceptance separate. Then dated task/register Operations and Players. Preserve shipped Platform/Today,EX12 authority constraints and no external-review wait.
 
 Scoped dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof retained. EX12 prepares dedicated-role contexts and exact mutations; actual grants/transfers/cleanup/activation keep explicit authority. Independent security review is deferred and nonblocking, not passed. Current checks and actual per-role fidelity/evidence remain required.
 
-Read: `docs/07-handoff/operations-admission-checkpoint.md`
+Read: `docs/07-handoff/operations-owner-calendar-checkpoint.md`
 
 ## Ordered primary checkpoints
 
@@ -166,14 +166,14 @@ Dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof reta
 Findings: NR03; NR16.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Partial. Delivered Owner Operations retained; Platform admission now adopts Operations, loaded-data search/status/delivery and account-scoped view continuity. Full role/journey parity remains incomplete.
-- Local checks: 4Nov Platform: selected-context loss fixed;24 ENAR/theme/viewport cases in prod/dev,93 units,17 foundation,16 capture suites,8 working-day/7 startup cases,9 receipt freshness checks and build/type/lint/review/docs passed. Corrected exact-source CI both passed.
-- Deployment: Owner-promoted12b9a99 / dpl_HJ5sFEJ5uJXh954APLtwumia8R36 Ready on canonical staging;alias+exact-SHA source independently verified4Nov. Both code CI runs passed;no agent promotion.
-- Hosted verification: 4Nov real Platform ENAR loaded-only search/status/selection,recheck retains search/selection/focus,Back,light/Charcoal and390CSSpx AR passed. Recheck1 read,local actions0;entry observed1 but event buffer truncated,exact total open. Two accepted invitations only;no writes/grants. Mixed roles retained; broader checks/working acceptance open.
+- Implementation: Partial. Delivered Owner Today and shipped Platform admission retained; Owner Calendar now adopts Operations weekly board/adaptive agenda,compact controls and structured session context. Domain writes/read authority unchanged; full role/journey parity incomplete.
+- Local checks: 4Nov Calendar:24 ENAR/theme/width cases xweek+month,partial/denied/moved/current-selection and44x48 targets;0local/1recheck read retained. Build/TypeScript/lint,93units,17foundation,16captures,actual Next ENAR/20geometry,8working-day/7startup,9freshness,factual/theme/docs passed;new regression added to CI. Exact remote CI pending.
+- Deployment: Canonical staging12b9a99 / dpl_HJ5sFEJ5uJXh954APLtwumia8R36 Owner-promoted and verified. New Calendar source local,not yet committed/CI/Ready/promoted;agents do not promote.
+- Hosted verification: Prior12b9 Platform ENAR read-only continuity verified. New Calendar visual/source/read/return checks await exact checked release and Owner promotion;no new hosted operating write or account change.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Continue bounded Academy Owner Operations adoption: Today -> Calendar -> session/register -> exact return,then Players,against the selected system with matched before/after and state/read budgets. Preserve shipped12b9 Platform checkpoint and pending working acceptance;do not repeat its promotion/design review or claim whole-finding closure. EX12 supports fresh isolated iCloud/pending-work proof and supported A sole-Owner disposition before any exact authorized cleanup;no account mutation inferred. No external-review wait;bounded Terra policy retained.
-- Evidence: docs/07-handoff/operations-admission-checkpoint.md
+- Next action: Complete bounded Owner Calendar local regression/build/factual evidence;commit/push and inspect exact CI/Ready candidate,then give Owner its precise promotion link to existing staging. After Owner promotion verify exact-source ENAR Calendar/selection/read/return,keeping acceptance separate. Then dated task/register Operations and Players. Preserve shipped Platform/Today,EX12 authority constraints and no external-review wait.
+- Evidence: docs/07-handoff/operations-owner-calendar-checkpoint.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
 

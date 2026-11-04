@@ -1,5 +1,7 @@
 # One application implementation plan
 
+Current EX-07 [Owner Calendar Operations checkpoint](../07-handoff/operations-owner-calendar-checkpoint.md) follows the verified Platform release. It adds the selected weekly-board/adaptive-agenda composition and real session context with unchanged authoritative reads/commands. Local/CI/rollout/hosted/working acceptance remain separate; Today and the completed Platform checkpoint are preserved.
+
 **Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
 
 ## Current cross-plan authority — 4 November 2026

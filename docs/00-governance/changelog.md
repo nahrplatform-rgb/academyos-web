@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Owner Calendar Operations adoption — 4 November 2026
+
+Implemented the existing Owner Calendar as a weekly board/adaptive agenda with compact view/date controls and structured selected-session context. [Source, comparison and evidence](../07-handoff/operations-owner-calendar-checkpoint.md) retain authoritative paging/totals, timezone/original-occurrence routing,0 local/1 recheck requests and all operating contracts. Local regression,actual Next/PG recovery and refreshed factual review pass; exact-source rollout/hosted/working acceptance stay separate. One bounded read-only Terra helper; no account/provider/schema/private activation or agent promotion.
+
 ## Operations admission Owner promotion and hosted checkpoint — 4 November 2026
 
 Read-only provider inspection confirms checked12b9a99 on canonical staging after the Owner reported promotion. Existing signed-in EN/AR search/filter/selection/recheck/Back and Arabic390CSS-px/light/Charcoal checks passed; untruncated samples show1 recheck request and0 local-action requests; the initial reload buffer was truncated, so its exact total remains unmeasured. [Receipt and limits](../07-handoff/operations-admission-checkpoint.md) keep prior Preview/freshness history, actual hosted scope and working acceptance separate. No operating write, invitation, role change, private activation or agent promotion. Tracker/continuation now route the next Academy Operations adoption; no source change or new factual capture was required.
