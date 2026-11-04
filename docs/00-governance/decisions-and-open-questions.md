@@ -1,5 +1,11 @@
 # Decisions and open questions
 
+## Synthetic staging activation and standing trial authority —4November2026
+
+The Owner explicitly selected **“Authorize this staging offline activation”** for the [concrete one-register release](../07-handoff/owner-register-activation-2026-11-04.md), and then stated that all accounts are trials and necessary trial actions may proceed without repeated approval. [SDR-06](staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority) records the operational scope: existing synthetic staging account/membership setup, temporary restoration/ending and bounded fixture tests are authorized. Preserve audits/history/original operations and the final dedicated Gmail Platform-only / iCloud Owner-only personas. Do not re-ask covered test access changes. Owner-controlled promotions, production/real-data/paid boundaries and genuinely new business-policy choices remain separate. [Exact responses](../07-handoff/evidence/role-first-offline-2026-11-04/owner-activation-authority.json).
+
+The exact earlier A ownership transfer and unused Guardian ending were separately authorized and have now executed with one audit and preserved operating/history hashes. Four register schema sources and staging-only server settings are provisioned; activation in a new checked/promoted runtime, actual offline working-day proof and Owner acceptance remain separately tracked. Independent review is deferred/nonblocking, not passed.
+
 ## First private Owner register scope accepted for implementation — 4 November 2026
 
 The Owner approved one published register on an existing Academy Owner's personal device. The stored fields are session details, roster names and IDs, and marks and versions. Logout or 30 days without an online access check clears downloaded rows. The same account can recover protected pending work through ordinary sign-in while its Owner access is current. If access ends, recovery waits until it is restored. Private activation and independent security remain separate. [Exact approval](../07-handoff/evidence/owner-register-private-policy-2026-11-04.json) and [EX-09 contract](../04-engineering/owner-register-private-readiness.md).

@@ -1,5 +1,9 @@
 # Dedicated staging accounts and clear Owner journeys
 
+**Executed checkpoint4November:** the Owner completed iCloud login and explicitly authorized the exact transfer/cleanup. It committed with one audit and preserved all operating/history fingerprints. Gmail is Platform-only; iCloud is Owner in A/B, with Trainer/Guardian ended. Both isolated sessions and reciprocal denials were checked. [Current result and limitations](../07-handoff/role-first-offline-sequence-2026-11-04.md). Earlier pending/unexecuted paragraphs below are historical.
+
+**Latest Owner execution order — 4 November 2026:** [Role-first/offline sequence](../07-handoff/role-first-offline-sequence-2026-11-04.md) supersedes the earlier EX-07-first order: **EX-12 isolated accounts and exact role cleanup → EX-11 working private register pilot with EX-09 custody/activation → EX-13 progressive permitted Players/month datasets → remaining EX-07 Operations redesign.** Retain all completed source/tests/releases and earlier approvals. Independent review is deferred/nonblocking. Do not substitute further visual batches or tab-memory reuse for these outcomes; actual grants, ownership changes and promotions retain their specific authority. The tracker/generated continuation own exact current state.
+
 4 November 2026. Work item EX-12, supporting the current EX-07 Operations adoption. The Owner selected this direction after finding the combined Platform Owner/Academy Owner experience confusing, then explicitly asked to update all affected documents. Policy/sequence is recorded; account/permission/data changes remain **unexecuted and not authorized by this documentation-only task**.
 
 Read [the staging delivery/review policy](../00-governance/staging-delivery-and-review-policy.md), [Operations reference](../03-design/operations-design-reference.md), [master plan](app-implementation-plan.md) and [tracker](experience-execution.csv).
@@ -18,6 +22,10 @@ These are dedicated test personas, not a new one-role-per-user product restricti
 Both mailboxes appear in historical staging test records. Their current provider identities, active grants, memberships and sessions have **not** been re-inspected for this planning update. Reuse verified existing logins where possible; do not promise recreation is necessary or current cleanup is already done.
 
 Use two browser profiles, or two different browsers, with a distinct signed-in session in each. Ordinary windows in one profile can share authentication. A window title/profile colour is a testing aid, not authority. Do not extract or copy cookies/session tokens to create separation. Normal email/password sign-in remains sufficient under the accepted product direction.
+
+## Current operational authority
+
+[SDR-06](../00-governance/staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority) is the latest explicit Owner instruction for necessary existing synthetic-trial account/test setup, restoration and ending. Do not repeat historical per-test grant questions within that scope. Keep audits/history/originals/final intended personas and Owner-only promotions. Historical planning-only restrictions below remain context, not a new repeated approval gate.
 
 ## Controlled cleanup rather than blanket purge
 

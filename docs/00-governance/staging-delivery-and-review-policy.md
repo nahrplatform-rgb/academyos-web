@@ -12,6 +12,14 @@ Current Owner direction, recorded 4 November 2026. This policy reconciles the di
 | SDR-04 — cleanup | Owner agreed with controlled role cleanup that preserves history instead of a blanket account purge | Prefer existing verified logins, end unwanted active relationships through supported audited operations, preserve identity/history/pending work, and prevent an ownerless active academy. Exact account/grant/cleanup execution is not authorized by this documentation request. |
 | SDR-05 — build order | Complete Platform Owner and Academy Owner journeys first, then extend shared patterns to other roles | Preserve already implemented work for every role. Two Owner personas lead the next working review; Trainer/Guardian follow with their own permissions and tasks. Finance/communications/media/Manager/Player future scope remains visible. |
 
+## SDR-06 — standing synthetic-trial account and test authority
+
+Later4November the Owner explicitly replied **“Authorize this staging offline activation”** and **“all accounts are trials, you can do everything without my approval, include this in your decisions.”** This supersedes repeated per-test account/grant/restore requests for the existing synthetic staging accounts and fixtures within the authorized AcademyOS work. Agents may perform necessary trial membership/role setup, temporary restoration, ending and bounded fixture/test operations under this standing authorization. Record the concrete before/after scope, audit, restoration/ending and results; preserve intended final Gmail Platform-only and iCloud Academy-Owner-only personas. Do not ask again for Casey's temporary Trainer setup/ending for the prepared offline test or equivalent covered synthetic tests.
+
+This is operational authority for the existing synthetic staging environment, not a new business-role policy or email-based grant. Preserve historical actors, operating/audit/receipt records and original pending work; avoid unnecessary purge/recreation. Real academies/child/customer data, paid commitments and production release remain outside scope. **Owner-only deployment promotions remain unchanged**: the new statement concerns trial accounts/testing and does not explicitly revoke that separate promotion instruction. Genuinely new business rules still need their scoped decisions. Independent review remains deferred/nonblocking, not passed.
+
+The concrete offline activation authorizes the reviewed four-source schema release, separately backed-up server-only wrapping root, staging-only flags and the existing one-register personal-device runtime. No password/passkey enrollment is added. Actual rollout and hosted working-day proof remain separately evidenced in the [activation packet](../07-handoff/owner-register-activation-2026-11-04.md).
+
 ## Independent review is deferred, not passed
 
 For current authorized synthetic staging development, no task waits merely for reviewer appointment, reviewer availability, an independent signature or a completed external audit. Do not repeatedly ask the Owner to find a reviewer or present that wait as the next implementation action. Keep a review-ready evidence packet and backlog for later consolidated independent review.
@@ -43,7 +51,7 @@ Future production/real-data release keeps its own explicit authority and release
 
 ## Execution and evidence
 
-The [single tracker](../06-delivery/experience-execution.csv) retains EX-07 as the current Operations implementation lane. [EX-12](../06-delivery/staging-role-separation-plan.md) supplies the dedicated-role preflight and verification alongside it. EX-09 handles concrete key/custody/authority readiness; EX-11 retains actual private working-day proof and its unexecuted cases. EX-05/08 cost, device, hosted and request evidence continue alongside each affected batch.
+The [single tracker](../06-delivery/experience-execution.csv) records the latest Owner sequence: EX12 dedicated-role checkpoint → EX11 real private register pilot with EX09 custody/configuration → EX13 persistent Players/month datasets → remaining EX07 Operations adoption. The [4November execution receipt](../07-handoff/role-first-offline-sequence-2026-11-04.md) records actual authorization, mutation and bounded proof. EX05/08 cost, device, hosted and request evidence continue alongside each affected batch. Earlier EX07-first routing is superseded.
 
 For every checkpoint record source, design reference, implementation, local results, exact deployed source, hosted proof, Owner acceptance and deferred independent review separately. Do not erase earlier failures or reset delivered functionality. A missing human review is no longer a staging dependency; actual unfinished work and unmeasured evidence stay visible.
 

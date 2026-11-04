@@ -1,0 +1,58 @@
+{
+  "recorded_at_utc": "2026-11-04T14:42:55.919Z",
+  "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+  "team": "academy-os2",
+  "existing_target": "production is the AcademyOS staging environment",
+  "owner_authority": "Explicit offline activation and SDR-06 standing synthetic trial authority",
+  "settings": [
+    {
+      "key": "LOCAL_REGISTER_KEY_ENABLED",
+      "type": "plain",
+      "target": [
+        "production"
+      ],
+      "id": "PqTMhQlRIuTMYAwF",
+      "configured_true": true
+    },
+    {
+      "key": "LOCAL_REGISTER_TRANSFER_ENABLED",
+      "type": "plain",
+      "target": [
+        "production"
+      ],
+      "id": "eTQlOHfzA8ixnTeN",
+      "configured_true": true
+    },
+    {
+      "key": "LOCAL_REGISTER_DISPATCH_ENABLED",
+      "type": "plain",
+      "target": [
+        "production"
+      ],
+      "id": "UUPDe4IOjkdiFEr5",
+      "configured_true": true
+    },
+    {
+      "key": "LOCAL_REGISTER_PILOT_ENABLED",
+      "type": "plain",
+      "target": [
+        "production"
+      ],
+      "id": "kvxVQKBuLFntXJIn",
+      "configured_true": true
+    },
+    {
+      "key": "LOCAL_REGISTER_WRAP_KEY_V1",
+      "type": "sensitive",
+      "target": [
+        "production"
+      ],
+      "id": "hiTQnptAObouZE7V",
+      "value_not_requested": true
+    }
+  ],
+  "root_backup": "root-custody.json",
+  "provisioning": "Existing admin UI Secret field; in-process trusted-digest recovery, no plaintext key output or file; safe nonsecret flags via connector",
+  "deployed_runtime": "Earlier fc1b5ee build not rebuilt/promoted; activation not yet verified",
+  "promotion": "Owner only; no agent promotion or alias action"
+}

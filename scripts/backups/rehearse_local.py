@@ -5,6 +5,7 @@ Never accepts a host, port, connection URL or existing database. The recovery
 receipt must first be compared to a trusted successful GitHub run's digest.
 """
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -14,15 +15,25 @@ import tempfile
 from backup import command, BackupError, PROJECT
 
 
+def reviewed_migrations(repo, migration):
+    paths = [] if migration is None else [migration] if isinstance(migration, Path) else list(migration)
+    checked = []
+    for path in paths:
+        path = path.resolve()
+        if path.parent != (repo / "supabase/migrations").resolve() or path.suffix != ".sql" or not path.is_file():
+            raise BackupError("Migration must be a reviewed repository migration")
+        checked.append(path)
+    if len(set(checked)) != len(checked) or checked != sorted(checked):
+        raise BackupError("Reviewed migrations must be unique and in repository version order")
+    return checked
+
+
 def rehearse(payload, migration=None):
     manifest = json.loads((payload / "manifest.json").read_text())
     if manifest["project"] != PROJECT:
         raise BackupError("Wrong recovery project")
     repo = Path(__file__).resolve().parents[2]
-    if migration is not None:
-        migration = migration.resolve()
-        if migration.parent != (repo / "supabase/migrations").resolve() or migration.suffix != ".sql" or not migration.is_file():
-            raise BackupError("Migration must be a reviewed repository migration")
+    migrations = reviewed_migrations(repo, migration)
     os.umask(0o077)
     with tempfile.TemporaryDirectory(prefix="academyos-restore-") as tmp:
         root = Path(tmp)
@@ -58,8 +69,11 @@ def rehearse(payload, migration=None):
             restore_list = root / "restore.list"
             restore_list.write_text("\n".join(line for line in toc.splitlines() if not re.match(r"^\d+; \d+ \d+ SCHEMA - public ", line)) + "\n")
             command(["pg_restore", "--exit-on-error", "--no-owner", "--use-list", str(restore_list), "--dbname=postgres", str(payload / "database.dump")], env)
-            if migration is not None:
-                command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "--single-transaction", "-f", str(migration)], env)
+            if migrations:
+                # One transaction for the complete reviewed release. An error
+                # cannot leave an intermediate public function/grant in place.
+                command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "--single-transaction",
+                         *[arg for path in migrations for arg in ("-f", str(path))]], env)
             # Fixed synthetic transaction rolls back. Restored identity values
             # and the SQL dump are never printed to the console.
             command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "-f", str(repo / "supabase/tests/membership_boundary.sql")], env)
@@ -71,7 +85,10 @@ def rehearse(payload, migration=None):
               'private_tables_with_rls', (select count(*) from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='academy' and c.relkind='r' and c.relrowsecurity));
             """], env))
             return {"project": PROJECT, "run_id": manifest["run_id"], "database_restore_passed": True,
-                    "membership_boundary_passed": True, "migration_rehearsed": migration.name if migration else None, "counts": result,
+                    "membership_boundary_passed": True,
+                    "migration_rehearsed": migrations[0].name if len(migrations) == 1 else None,
+                    "migrations_rehearsed": [{"file": path.name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()} for path in migrations],
+                    "counts": result,
                     "hosted_storage_restore_tested": False}
         finally:
             command(["pg_ctl", "-D", str(data), "-m", "fast", "-w", "stop"])
@@ -80,7 +97,7 @@ def rehearse(payload, migration=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("payload", type=Path)
-    parser.add_argument("--migration", type=Path, help="Replay one reviewed repository migration inside the disposable restore only")
+    parser.add_argument("--migration", type=Path, action="append", help="Replay reviewed repository migration(s), in version order and one transaction, inside the disposable restore only")
     args = parser.parse_args()
     try:
         print(json.dumps(rehearse(args.payload,args.migration)))

@@ -1,0 +1,72 @@
+{
+  "recorded_at_utc": "2026-11-04T14:34:28.439Z",
+  "project": "snpphkenmvmhpjstbeul",
+  "owner_authorization": "Authorize this staging offline activation",
+  "applied": [
+    {
+      "version": "20261104142903",
+      "name": "owner_register_download_contract"
+    },
+    {
+      "version": "20261104142953",
+      "name": "owner_register_original_dispatch"
+    },
+    {
+      "version": "20261104142954",
+      "name": "owner_register_key_custody"
+    },
+    {
+      "version": "20261104143101",
+      "name": "owner_register_bound_transport"
+    }
+  ],
+  "source_hash_receipt": "migration-rehearsal.json",
+  "operating_tables_unchanged": 55,
+  "operating_rows_unchanged": 401,
+  "grants": [
+    {
+      "key_table_select": false,
+      "unbound_download": false,
+      "unbound_dispatch": false,
+      "key_boundary": false,
+      "bound_download": false,
+      "bound_dispatch": false,
+      "role": "anon"
+    },
+    {
+      "key_table_select": false,
+      "unbound_download": false,
+      "unbound_dispatch": false,
+      "key_boundary": true,
+      "bound_download": true,
+      "bound_dispatch": true,
+      "role": "authenticated"
+    },
+    {
+      "key_table_select": false,
+      "unbound_download": false,
+      "unbound_dispatch": false,
+      "key_boundary": false,
+      "bound_download": false,
+      "bound_dispatch": false,
+      "role": "service_role"
+    }
+  ],
+  "catalog": [
+    {
+      "key_table_rls": true,
+      "registered_slots": 0,
+      "gateway_has_key": true,
+      "gateway_has_bound_download": true,
+      "gateway_has_bound_dispatch": true,
+      "gateway_has_unbound_download": false,
+      "gateway_has_unbound_dispatch": false
+    }
+  ],
+  "provider_config": "not yet provisioned",
+  "notes": [
+    "Supported migration tool generated hosted timestamps; map by exact source names/hashes instead of fabricating source-version history.",
+    "Initial final-migration call returned non-success. Catalog/history confirmed no partial x20 apply; a subsequent exact-source retry succeeded. Initial raw error was not retained; cause is not claimed.",
+    "No root/flags opened before final grants/binding checks."
+  ]
+}

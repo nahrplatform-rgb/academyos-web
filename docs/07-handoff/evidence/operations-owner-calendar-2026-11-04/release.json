@@ -52,5 +52,15 @@
     "destination": "staging.academy.nahr.dev",
     "status": "Ready for Owner promotion; agent has not initiated or finalized promotion",
     "docs_followup": "A later documentation-only commit records this receipt; named code build remains the checked candidate"
+  },
+  "later_provider_observation": {
+    "observed_at_utc": "2026-11-04T13:45:28.385291+00:00",
+    "host": "staging.academy.nahr.dev",
+    "deployment": "dpl_8hiwQ93Y5bf9axQLLjvJo1DeYhzu",
+    "source": "fc1b5ee76260ac96dfdd212f98a64c413246e548",
+    "state": "READY",
+    "owner_reported_new_promotion": false,
+    "agent_promotion_or_alias_actions": 0,
+    "full_new_calendar_hosted_verification": "pending;see role-first-offline-2026-11-04/read-only-preflight.json"
   }
 }

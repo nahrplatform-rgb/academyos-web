@@ -1,5 +1,9 @@
 # EX-12 read-only role preflight — 4 November 2026
 
+**Executed checkpoint4November:** the Owner completed iCloud login and explicitly authorized the exact transfer/cleanup. It committed with one audit and preserved all operating/history fingerprints. Gmail is Platform-only; iCloud is Owner in A/B, with Trainer/Guardian ended. Both isolated sessions and reciprocal denials were checked. [Current result and limitations](../07-handoff/role-first-offline-sequence-2026-11-04.md). Earlier pending/unexecuted paragraphs below are historical.
+
+**Execution follow-up4November:** [Role-first/offline checkpoint](role-first-offline-sequence-2026-11-04.md) records fresh matching role reads, separate Gmail Platform/iCloud Safari sign-in preparation and a tested exact operator-only A ownership/unused Guardian cleanup transaction. No product transfer endpoint is introduced; actual new access still needs the exact Owner authorization and pending-work check. The earlier RS-C04 hold is now a prepared operation, not an executed transfer.
+
 Supports EX-07. Implements the inspection part of the [dedicated-role plan](../06-delivery/staging-role-separation-plan.md), not the account changes. All hosted SQL in this checkpoint was SELECT-only against `academyos-staging`, project `snpphkenmvmhpjstbeul`. No credentials, token hashes, private operation bodies or child/customer payloads were retrieved. The current Gmail menu and workspace chooser were read through the normal signed-in staging UI; no session was exported.
 
 ## Current observations

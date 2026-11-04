@@ -10,15 +10,19 @@ Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`.
 
 Read `AGENTS.md`, `docs/00-governance/ai-delegation-and-cost-policy.md`, `docs/00-governance/staging-delivery-and-review-policy.md`, `docs/06-delivery/staging-role-separation-plan.md`, `docs/03-design/operations-design-reference.md`, `docs/06-delivery/full-experience-redesign.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
 
+Latest Owner sequence4November is EX-12 isolated role journeys/exact cleanup → EX-11 actual private register pilot with EX-09 custody/activation → EX-13 progressive persistent Players/month datasets → remaining EX-07 Operations adoption. Earlier same-day EX-07-first notes are superseded. Preserve delivered Calendar/Platform/Today and all passed mechanism checkpoints; do not replace offline progress with further styling. Actual new grants/transfers, key/provider configuration and Owner promotions retain their specific authority. See docs/07-handoff/role-first-offline-sequence-2026-11-04.md.
+
 Start with the explicit current priority below, not the first unfinished EX number or an old next-step sentence in a historical packet. Follow its current next action and scoped dependency gate. Keep the retained baseline and all supporting/open work visible. Advance routing only after recording the declared checkpoint evidence; a routing checkpoint is not whole-finding closure or Owner/security acceptance.
 
 Apply the Owner-directed AI delegation/cost policy within that work. Scripts/direct tools handle deterministic repetition. For substantial eligible independent work, explicitly choose gpt-6.1-terra with a fresh concise brief, exact file/resource ownership, relevant contracts, validation and stop conditions; do not forward this entire chat. Default zero/one helper, maximum two active subagents in the coordinated batch excluding its single lead, and no nested spawning or duplicate jobs. A second needs a concrete independence/benefit; more needs a later explicit Owner instruction. Coordinator (Sol when selected) owns architecture, policy/authority, complex sync/recovery, integration and real browser/provider operations. Helpers do not commit/publish, promote, grant access or alter providers. Preserve tests and actual evidence, escalate ambiguity or failed bounded repair, and record configured model/effort/count/rationale/checks/repairs/available usage in the existing receipt. Do not invent savings, promise twice the five-hour limit or pause the current sequence for a benchmark. The cap is an instruction, not a runtime/billing setting changed by documentation. Use no helper when serial/direct work is simpler or cheaper.
 
-Current presentation authority is the selected Operations studio, variant2: light default with Charcoal alternative, unified primary/supporting/destructive controls, compact resizable navigation/detail and faithful composition, density, typography and spacing. Preserve delivered Owner shell/Today and earlier approved full-journey workflows. Complete distinct Platform Owner and Academy Owner journeys first under EX07/12, then extend shared patterns across remaining implemented roles. Use actual app components and current permitted fictional staging data, comparing equivalent role/state/locale/theme/viewport while editing. Four studio destinations and static capture replay are not the complete working redesign. Maintain a difference ledger, avoid repeating settled design approvals, and retain focused decisions for genuinely new business/design behavior. Follow later evidenced tracker changes without restarting completed research or redesign approvals.
+Current presentation authority is the selected Operations studio, variant2: light default with Charcoal alternative, unified primary/supporting/destructive controls, compact resizable navigation/detail and faithful composition, density, typography and spacing. Preserve delivered Owner shell/Today and earlier approved full-journey workflows. Establish distinct normal-login role journeys and exact cleanup under EX-12 first; finish the real EX-11 private pilot and EX-13 persistent datasets before remaining EX-07 visual adoption across implemented roles. Use actual app components and current permitted fictional staging data, comparing equivalent role/state/locale/theme/viewport while editing. Four studio destinations and static capture replay are not the complete working redesign. Maintain a difference ledger, avoid repeating settled design approvals, and retain focused decisions for genuinely new business/design behavior. Follow later evidenced tracker changes without restarting completed research or redesign approvals.
 
 Owner review direction4November: independent human/external security review is deferred and must not block any currently authorized synthetic staging development, delivery or otherwise-authorized private offline activation. Do not wait for reviewer assignment, availability, a signature or independent disposition; do not repeatedly ask the Owner to find a reviewer. Keep actual engineering/security tests, current authority, custody/configuration and original recovery checks; fix real defects and preserve unexecuted/failed evidence. Record independent review as Deferred by Owner, nonblocking and not performed, never passed. This changes the external-review dependency, not production/real-data/access/promotion authority. Owner working acceptance remains separately recorded at the established consolidated review; the security clarification does not waive all new business/design decisions.
 
-Dedicated staging direction: nahr.platform@gmail.com is the Platform-only target; moamen_ghareeb@icloud.com is the Academy-Owner-only target. These are test personas, not a global one-role-per-email product rule or email-based authority. Reuse verified existing logins where possible; isolate browser profiles; preserve historical identity/audit/receipt/pending work. First inspect current subjects, active roles, academies and pending references read-only, then prepare the exact supported audited cleanup/restoration list. Prevent an ownerless active academy. Do not purge accounts/data, transfer ownership, grant/restore roles or send invitations from this plan alone; prepare concrete changes before requesting only the needed operational authorization. Continue ready UI work under current authority while that list is prepared. EX12 tracks this separately from the deferred independent review.
+Latest operational authority4November: SDR-06 records explicit authorization of the concrete one-register staging activation and standing permission for necessary existing synthetic-trial account/test actions without repeated approval. Do not re-ask per-test role setup/restoration/ending for those accounts, including Casey offline test setup. Keep bounded audited operations, originals/history and final Gmail Platform-only/iCloud Owner-only personas. This does not authorize production/real-data/paid commitments or alter Owner-only promotions; new business-policy decisions remain separate. Older packet requests for another exact trial-test grant are historical within this scope.
+
+Dedicated staging direction: nahr.platform@gmail.com is the Platform-only target; moamen_ghareeb@icloud.com is the Academy-Owner-only target. These are test personas, not a global one-role-per-email product rule or email-based authority. Reuse verified existing logins where possible; isolate browser profiles; preserve historical identity/audit/receipt/pending work. First inspect current subjects, active roles, academies and pending references read-only, then prepare the exact supported audited cleanup/restoration list. Prevent an ownerless active academy. The generated plan alone grants no authority; apply the later explicit SDR-06 standing trial authorization within its scope, and seek only authority genuinely outside it. Preserve stable accounts/history; no unnecessary purge. Continue ready UI work under current authority while that list is prepared. EX12 tracks this separately from the deferred independent review.
 
 The Owner clarified the operating goal: persistent permitted local datasets across visits, progressive player-directory/month or three-month preparation and quiet synchronization, plus new offline edits saved locally and synchronized on reconnect. First task essentials → finite resumable dataset pages → transactional local coverage → later compatible local reopening → small access/version checks → changed data/removals. Do not substitute a tab-memory-only summary cache, colour pass or new feature. Finite all-permitted directory/period preparation is different from unbounded whole-app/database preloading; complete disk coverage does not mean all records in memory. Code preparation, local read replicas, query memory, drafts and immutable pending operations are distinct.
 
@@ -32,13 +36,13 @@ Promotion ownership: the Owner performs all deployment promotions. Prepare/test/
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-07: Operations adoption with distinct Platform and Academy Owner journeys first
+## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Owner promotes checked code fc1b5ee via https://vercel.com/academy-os2/academyos-web/Bg7jbVqaM6omEdDLntqLjRcfYNDn to staging.academy.nahr.dev. Then verify exact-source ENAR Calendar/selection/read/return,keeping acceptance separate. Continue dated task/register Operations and Players. Later documentation-only commit is the handoff,not a substitute promotion candidate. Preserve shipped Platform/Today,EX12 authority constraints and no external-review wait.
+Next action: Finish checked commit/CI/automatic Preview and give Owner exact deployment to promote to existing staging. Then verify real iCloud Owner one-register prepare/cold offline reopen/local atomic save/exact original sync/conflict/deadline/logout/current-same-account recovery. Use SDR06 for temporary Casey fixture setup and ending;no repeated trial access question. EX13 datasets then remaining EX07 after actual checkpoint.
 
-Scoped dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof retained. EX12 prepares dedicated-role contexts and exact mutations; actual grants/transfers/cleanup/activation keep explicit authority. Independent security review is deferred and nonblocking, not passed. Current checks and actual per-role fidelity/evidence remain required.
+Scoped dependency gate: Actual staging activation now explicitly authorized. Schema/root/flags prepared and checked;new-runtime Owner promotion and concrete offline proof remain. Independent review deferred/nonblocking;working acceptance and measured limits separate.
 
-Read: `docs/07-handoff/operations-owner-calendar-checkpoint.md`
+Read: `docs/07-handoff/owner-register-activation-2026-11-04.md`
 
 ## Ordered primary checkpoints
 
@@ -47,10 +51,12 @@ Read: `docs/07-handoff/operations-owner-calendar-checkpoint.md`
 3. **EX-06 — Durable scoped local repository and read/synchronization ownership** (checkpoint_passed).
 4. **EX-04 — Progressive dataset bootstrap, manifest/change sync and read cancellation** (checkpoint_passed).
 5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (checkpoint_passed).
-6. **EX-07 — Operations adoption with distinct Platform and Academy Owner journeys first** (current).
-7. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (queued).
+6. **EX-12 — Dedicated staging identities, controlled active-role cleanup plan and role-journey verification** (checkpoint_passed).
+7. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (current).
+8. **EX-13 — Progressive persistent Owner Players/month datasets before remaining redesign** (queued).
+9. **EX-07 — Operations adoption with distinct Platform and Academy Owner journeys first** (queued).
 
-Supporting work runs with the affected checkpoint: EX-12 — Dedicated staging identities, controlled active-role cleanup plan and role-journey verification; EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
+Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
 
 The order names checkpoint outputs, not a requirement to finish every role/future feature in a parent row before safe dependent work. Detailed gates remain in each row. Private policy choices block dependent behaviour only.
 
@@ -158,56 +164,73 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 - Next action: Preserve verified exact original transport, distinct online cancellation and both request budgets. EX11 connects fictional working-day proof and EX09 resolves actual private authority/key/field/time gates.
 - Evidence: docs/07-handoff/offline-register-dispatch-checkpoint.md
 
+### EX-12 — Dedicated staging identities, controlled active-role cleanup plan and role-journey verification
+
+Routing: primary / 6 / checkpoint_passed.
+Dependencies: EX-01; EX-02.
+Dependency gate: Exact Owner authorization and backup restore satisfied;one audited change preserves a valid Owner in both academies and historical rows. Dedicated account role checkpoint passed;not whole-app security/usability acceptance.
+Findings: NR01; NR03; NR16; G01; G08.
+Design: Owner selected separate Platform/Academy account targets and controlled cleanup preserving history; current Operations design retained; no global one-role-per-user rule..
+
+- Implementation: Exact authorized synthetic role separation executed atomically: Gmail A Owner ended; iCloud A Owner active; unused iCloud A Guardian ended. Platform grant and B Owner retained; no login or history deleted.
+- Local checks: Nine disposable-PG17 operator transaction cases passed, including retry/concurrency, rollback, active-link/changed-state and ordinary-role denial.
+- Deployment: Database-only authorized operation f0e9ca53-7ecf-4c2b-aa83-47a496bfcf0b applied on existing synthetic staging; app source fc1b5ee unchanged.
+- Hosted verification: Real isolated Gmail IAB and iCloud Safari sessions verified: Gmail chooser Platform-only and A/B direct denial; iCloud chooser A/B Owners and Platform denial. All55 operating table fingerprints/401 rows plus129 earlier audit rows unchanged;one new audit. Scoped journals checked;no all-profile claim.
+- Owner acceptance: Owner explicitly authorized exact staging transfer/cleanup and completed isolated iCloud login;consolidated working/visual acceptance remains separate.
+- Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
+- Next action: Role checkpoint passed. Retain isolated sessions/history and any original-account pending work. Continue EX11 real offline pilot with EX09 custody/configuration;then EX13 datasets before remaining EX07. Full RS03/RS05 device,late-response,dirty/recovery and parity cases remain open.
+- Evidence: docs/07-handoff/role-first-offline-sequence-2026-11-04.md
+
+### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
+
+Routing: primary / 7 / current.
+Dependencies: EX-02; EX-03; EX-04; EX-06; EX-12.
+Dependency gate: Actual staging activation now explicitly authorized. Schema/root/flags prepared and checked;new-runtime Owner promotion and concrete offline proof remain. Independent review deferred/nonblocking;working acceptance and measured limits separate.
+Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
+Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
+
+- Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
+- Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
+- Deployment: Canonical fc1b5ee retained;all four register migrations and staging-only root/flags provisioned and verified. Existing runtime still503 until new checked build is Owner-promoted;no agent promotion.
+- Hosted verification: EX12 isolated actual accounts passed;schema grants/history and sensitive settings scopes checked. No key slot/local private data prepared yet. Three pre-promotion503 gates remain;actual offline working day unexecuted.
+- Owner acceptance: Private activation explicitly authorized4November;SDR06 standing necessary synthetic-trial test authority. Working acceptance pending.
+- Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
+- Next action: Finish checked commit/CI/automatic Preview and give Owner exact deployment to promote to existing staging. Then verify real iCloud Owner one-register prepare/cold offline reopen/local atomic save/exact original sync/conflict/deadline/logout/current-same-account recovery. Use SDR06 for temporary Casey fixture setup and ending;no repeated trial access question. EX13 datasets then remaining EX07 after actual checkpoint.
+- Evidence: docs/07-handoff/owner-register-activation-2026-11-04.md
+
+### EX-13 — Progressive persistent Owner Players/month datasets before remaining redesign
+
+Routing: primary / 8 / queued.
+Dependencies: EX-04; EX-06; EX-09; EX-11.
+Dependency gate: EX12/EX11 precede actual expanded private activation;retain complete current-authority,field/key/retention/recovery contracts and separate measured/working evidence.
+Findings: NR01; NR02; NR13; NR15; NR17; G01; G03; G06; G08; G09.
+Design: Existing durable-data target/read preview approved;exact per-dataset field/scope/version/changed-state contracts and activation remain separate..
+
+- Implementation: Not implemented for private Players/month runtime;reuse delivered scoped storage/versioned transfer mechanisms without claiming all-app readiness.
+- Local checks: No new dataset test result;prior register/transfer tests retain their recorded scope.
+- Deployment: Not deployed or enabled.
+- Hosted verification: Not executed for these expanded private datasets.
+- Owner acceptance: Direction selected;working dataset acceptance pending.
+- Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
+- Next action: After EX11 private register proof,prepare bounded Owner name/ID/branch and selected month coverage using current authority,protected indexing,transactional completeness/removals and resumable transfer. Reopen from local data across visits;small current checks;no whole-app preload,profile/contact expansion or offline operating command authority inferred. Obtain only genuinely new dependent field/command decisions.
+- Evidence: docs/07-handoff/role-first-offline-sequence-2026-11-04.md
+
 ### EX-07 — Operations adoption with distinct Platform and Academy Owner journeys first
 
-Routing: primary / 6 / current.
-Dependencies: EX-01; EX-02; EX-10.
+Routing: primary / 9 / queued.
+Dependencies: EX-01; EX-02; EX-10; EX-12; EX-11; EX-13.
 Dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof retained. EX12 prepares dedicated-role contexts and exact mutations; actual grants/transfers/cleanup/activation keep explicit authority. Independent security review is deferred and nonblocking, not passed. Current checks and actual per-role fidelity/evidence remain required.
 Findings: NR03; NR16.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
 - Implementation: Partial. Delivered Owner Today and shipped Platform admission retained; Owner Calendar now adopts Operations weekly board/adaptive agenda,compact controls and structured session context. Domain writes/read authority unchanged; full role/journey parity incomplete.
 - Local checks: 4Nov Calendar:24 ENAR/theme/width cases xweek+month,partial/denied/moved/current-selection and44x48 targets;0local/1recheck read retained. Build/TypeScript/lint,93units,17foundation,16captures,actual Next ENAR/20geometry,8working-day/7startup,9freshness,factual/theme/docs passed;new regression added to CI. Exact fc1b5ee push/PR CI passed;ENAR in-place switch retains filter/selection with0 operating reads.
-- Deployment: Checked Calendar code fc1b5ee pushed;both exact push/PR CI passed;automatic Preview dpl_Bg7jbVqaM6omEdDLntqLjRcfYNDn READY. Owner promotion pending to existing staging. Canonical alias still verified12b9a99 / dpl_HJ5sFEJ5uJXh954APLtwumia8R36;agents do not promote.
+- Deployment: Checked fc1b5ee exact push/PR CI passed. Canonical provider now shows Ready dpl_8hiwQ93Y5bf9axQLLjvJo1DeYhzu/sourcefc1b5ee;no new Owner promotion report or agent release action. Full Calendar hosted verification/acceptance separate.
 - Hosted verification: Prior12b9 Platform ENAR read-only continuity verified. New Calendar visual/source/read/return checks await exact checked release and Owner promotion;no new hosted operating write or account change.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Owner promotes checked code fc1b5ee via https://vercel.com/academy-os2/academyos-web/Bg7jbVqaM6omEdDLntqLjRcfYNDn to staging.academy.nahr.dev. Then verify exact-source ENAR Calendar/selection/read/return,keeping acceptance separate. Continue dated task/register Operations and Players. Later documentation-only commit is the handoff,not a substitute promotion candidate. Preserve shipped Platform/Today,EX12 authority constraints and no external-review wait.
+- Next action: Preserve checked Calendar/Platform/Today;read-only new-source Calendar verification may accompany role checks. After EX12 role separation,EX11 working private pilot and EX13 progressive datasets,continue dated-task/register and Players Operations adoption. Do not displace those priorities with another styling batch.
 - Evidence: docs/07-handoff/operations-owner-calendar-checkpoint.md
-
-### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
-
-Routing: primary / 7 / queued.
-Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Combined CI and closed hosted checkpoint retained. Actual custody/configuration, current authority and explicit private enablement precede hosted tests. Independent review is deferred and nonblocking, not a pass. Concrete unexecuted evidence and Owner acceptance remain visible.
-Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
-Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
-
-- Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
-- Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
-- Deployment: Owner-promoted ef73a36 verified Ready at canonical staging on dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM. Private activation remains gated.
-- Hosted verification: Closed checkpoint passed: real signed-in Owner Today and historical roster in EN/AR, no private action or worker/cache, three 503 endpoint gates, no register schema. Private working day still unverified.
-- Owner acceptance: Working acceptance pending; prior policy and design approvals retained
-- Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Continue ready EX09 actual custody/configuration and explicit activation preparation alongside EX07/12 role-first adoption. Run actual private working-day/reopen/sync/original-recovery/device cases when concretely ready and authorized; do not wait for independent reviewer assignment/signature. Preserve fictional and closed staging proofs; actual private working acceptance remains pending.
-- Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md
-
-### EX-12 — Dedicated staging identities, controlled active-role cleanup plan and role-journey verification
-
-Routing: supporting / 1 / supporting.
-Dependencies: EX-01; EX-02.
-Dependency gate: Policy direction recorded, not permission to change accounts/data. Preserve stable identities, actor/audit/receipt/pending history and a valid Owner for active academies. Independent review is deferred/nonblocking. Actual role separation and hosted proof remain unexecuted.
-Findings: NR01; NR03; NR16; G01; G08.
-Design: Owner selected separate Platform/Academy account targets and controlled cleanup preserving history; current Operations design retained; no global one-role-per-user rule..
-
-- Implementation: Read-only preflight prepared:2 identities,2 academies,4 memberships,1 active Platform grant;Gmail still owns A, iCloud owns B plus extra active Guardian membership in A. No account mutation.
-- Local checks: RS01-RS06 remain partial/planned:current Gmail UI subject and DB role sets inspected;two isolated sessions,pending-work check and actual cleanup/denial not executed.
-- Deployment: No app/database/provider/account deployment or mutation in this documentation checkpoint.
-- Hosted verification: 4Nov SELECT-only current roles/invitations/ended links and limited historical references verified;current Gmail email/subject verified through normal UI. Fresh iCloud session and local originals not verified.
-- Owner acceptance: Target mailboxes/roles, controlled cleanup/history preservation and Owner-first sequence agreed; exact operations and working outcome not accepted/executed.
-- Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Follow the read-only preflight cleanup table. Preserve both sole Owners; reuse existing iCloud B authority for ready Academy work. Verify its independent normal login and pending work. Determine supported A ownership/fixture disposition before ending Gmail Owner; end extra Guardian membership only through an exact audited authorized operation. No transfer endpoint, purge, restoration or email-based authority inferred.
-- Evidence: docs/07-handoff/staging-role-preflight-2026-11-04.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
@@ -252,10 +275,10 @@ Findings: NR15; G08.
 Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
 - Implementation: Gated Owner workspace, explicit device preparation, public offline startup and account-wide cleanup use the registered key, transfer and dispatch lifecycle.
-- Local checks: Seven connected workspace cases and 15 registered lifecycle cases pass with Chromium, Next and PG17. Fixture identity and provider adapters. No real Clerk or hosted custody proof.
-- Deployment: Owner promoted ef73a36 rebuilt as dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM. Private register endpoints closed, four migrations pending.
-- Hosted verification: Canonical source, gate responses, migration and catalog absence verified. Hosted private identity, device, key-custody and recovery cases pending.
-- Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
+- Local checks: Retained seven workspace/15 lifecycle cases. New nine custody cases plus two restore-scope cases pass; fresh hosted backup restores and complete four-migration rehearsal passes. Terra engineering finding repaired;not independent audit.
+- Deployment: Four register schema sources applied with generated provider version mapping;RLS/binding/grants verified. Server-only sensitive V1 root and four flags configured for existing staging target only;new runtime activation pending Owner promotion.
+- Hosted verification: Current real Clerk roles verified after EX12;root/flags metadata scoped without decryption;zero key slots. All55 operating fingerprints unchanged. Existing build still503s;actual key release/offline/recovery pending.
+- Owner acceptance: Scope/recovery approved;actual staging activation explicitly authorized4November;SDR06 covers necessary trial tests. Working acceptance separate.
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Prepare concrete hosted wrapping-root custody, backup/rotation/recovery and configuration/schema verification using the existing handoff. Independent reviewer assignment/disposition is deferred and must not block otherwise-authorized synthetic activation. Any actual activation, secret/provider change or new grant still needs its specific authority. Preserve minimal fields/current identity, meaningful tests and open device/cost/working evidence.
+- Next action: Support current EX11 checked build/Owner promotion and actual personal-device register tests;preserve pinned root archive/digest and protected originals. Covered synthetic trial setup/ending now standing-authorized;do not re-ask. No external reviewer wait.
 - Evidence: docs/07-handoff/owner-register-promoted-checkpoint.md

@@ -59,6 +59,14 @@ jobs:
           node scripts/register-download/test_browser.mjs --check
           python3 scripts/register-download/test_boundary.py
           node scripts/register-download/test_browser.mjs
+      - name: Verify prepared staging role transaction and protected root backup tooling
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          sudo apt-get install -y age
+          python3 scripts/staging/test_role_separation.py
+          python3 scripts/register-key/test_custody.py
+          python3 scripts/backups/test_rehearsal_scope.py
       - name: Verify inactive Owner original dispatch and restart recovery
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin

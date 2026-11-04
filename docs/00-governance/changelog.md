@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## 4 November 2026 — role-first/offline execution correction
+
+Owner directs isolated role journeys and exact cleanup, then working private register activation, progressive Players/month datasets and remaining redesign. [Checkpoint](../07-handoff/role-first-offline-sequence-2026-11-04.md) records fresh read-only state, nine local operator-transaction and six custody-tool cases. No hosted grant/migration/configuration/activation ran; normal iCloud sign-in and exact access authorization are pending. Existing Calendar source is now provider-observed on staging; new Owner promotion report and full hosted verification remain separate.
+
 ## Owner Calendar Operations adoption — 4 November 2026
 
 Implemented the existing Owner Calendar as a weekly board/adaptive agenda with compact view/date controls and structured selected-session context. [Source, comparison and evidence](../07-handoff/operations-owner-calendar-checkpoint.md) retain authoritative paging/totals, timezone/original-occurrence routing,0 local/1 recheck requests and all operating contracts. Local regression,actual Next/PG recovery and refreshed factual review pass; exact-source rollout/hosted/working acceptance stay separate. One bounded read-only Terra helper; no account/provider/schema/private activation or agent promotion.
@@ -105,3 +109,5 @@ Recorded the Owner's explicit nonblocking synthetic-staging independent-review p
 ## Cost-aware bounded AI delegation —4November2026
 
 Added the Owner-requested [Sol/Terra delivery policy](ai-delegation-and-cost-policy.md), linked through AGENTS, charter, master/redesign/roadmap, cost/test/execution workflow, PR template and builder entry points. Default zero/one helper, ceiling two active subagents, no nested spawning; scripts first, exact scopes, coordinator decisions/integration, bounded repairs and honest usage evidence. Updated the generator and structural policy-pointer checks; current tracker priority and product/test/deployment/acceptance records remain. No workers needed for this policy-only checkpoint, no runtime cap/global setting or measured savings claimed, and no app/provider/account/deployment change. [Evidence](../07-handoff/ai-delegation-policy-2026-11-04.md).
+
+-4November2026: exact audited synthetic Owner transfer/Guardian ending executed after explicit authorization; all55 operating fingerprints and prior audit preserved. EX12 checkpoint passed, EX11 current. Owner authorized concrete offline activation and standing existing trial-account/test actions (SDR-06), retaining Owner-only promotions. Four-source schema release applied; actual protected root/configuration/build and offline working proof tracked separately.

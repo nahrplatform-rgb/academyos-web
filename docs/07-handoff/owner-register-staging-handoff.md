@@ -1,5 +1,7 @@
 # EX-11 staging integration, engineering verification and deferred independent review
 
+**Later4November execution:** the [current role/offline receipt](role-first-offline-sequence-2026-11-04.md) records the completed exact role separation, explicit private activation and SDR-06 standing trial-test authority, applied four-source schema and staging-only protected configuration. A new checked Owner-promoted runtime and actual offline working-day proof remain separate. Earlier pending configuration/permission paragraphs below are historical; do not re-ask covered synthetic test access or an independent reviewer.
+
 **Current review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) removes independent reviewer appointment/disposition as a dependency for authorized synthetic staging work, including otherwise-authorized private activation. Keep the packet/evidence for later independent review. Concrete engineering/custody/configuration checks, separate activation/access authority and Owner-controlled promotions remain; no provider or account change is performed here.
 
 4 November 2026. This packet supports the approved personal-device Owner register. It joins SEC-J12 and SEC-J16, NR15 and NR17, G08 and G09, and the [working-day acceptance cases](../06-delivery/academy-working-day-cases.csv). The [workspace receipt](owner-register-workspace-checkpoint.md) contains the earlier local proof. This packet prepares review and records source and hosted observations. Security and working-feature acceptance remain open.
