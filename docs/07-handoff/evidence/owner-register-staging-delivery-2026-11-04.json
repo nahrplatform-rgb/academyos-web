@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-11-04T02:35:59.200216+00:00",
+  "source": "ef73a36537228461f80aecf1084bd1429b2ebb8c",
+  "deployment": {
+    "id": "dpl_njj5t3tPpdq4tyXp68rUBWcox27C",
+    "url": "https://academyos-13fupkoj7-academy-os2.vercel.app",
+    "review": "https://vercel.com/academy-os2/academyos-web/njj5t3tPpdq4tyXp68rUBWcox27C",
+    "state": "READY",
+    "target": "preview"
+  },
+  "ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 41760231418,
+      "status": "completed",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41760231418"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41760224168,
+      "status": "completed",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41760224168"
+    }
+  ],
+  "canonical_staging": {
+    "hostname": "staging.academy.nahr.dev",
+    "observed_deployment": "dpl_5gycdkmrhcaMpGMFXh4iTiLHeGdz",
+    "owner_promotion": "pending",
+    "combined_runtime": "not_verified"
+  },
+  "private_register": {
+    "hosted_migrations": "not_applied",
+    "activation": "not_enabled_by_this_work",
+    "independent_security": "open"
+  },
+  "source_scope": "Combined code candidate is pinned. Later handoff-only commits do not change this release selection."
+}

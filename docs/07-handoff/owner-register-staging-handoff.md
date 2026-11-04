@@ -2,6 +2,10 @@
 
 4 November 2026. This packet supports the approved personal-device Owner register. It joins SEC-J12 and SEC-J16, NR15 and NR17, G08 and G09, and the [working-day acceptance cases](../06-delivery/academy-working-day-cases.csv). The [workspace receipt](owner-register-workspace-checkpoint.md) contains the earlier local proof. This packet prepares review and records source and hosted observations. Security and working-feature acceptance remain open.
 
+## Checked combined candidate
+
+Both Foundation runs passed for combined code `ef73a36537228461f80aecf1084bd1429b2ebb8c`. Vercel reports [deployment dpl_njj5t3tPpdq4tyXp68rUBWcox27C](https://vercel.com/academy-os2/academyos-web/njj5t3tPpdq4tyXp68rUBWcox27C) Ready as a Preview. This is the pinned code candidate for Owner promotion to `staging.academy.nahr.dev`. Later documentation-only commits record this result and do not replace the selected code build. [Delivery receipt](evidence/owner-register-staging-delivery-2026-11-04.json)
+
 ## Verified release state
 
 | Check | Observation |

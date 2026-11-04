@@ -26,9 +26,9 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
+Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
 
-Scoped dependency gate: Combined local evidence passes. Exact candidate CI, Owner promotion, closed runtime, custody, physical-device evidence and independent security are separate. Owner working acceptance pending.
+Scoped dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
 
 Read: `docs/07-handoff/owner-register-staging-handoff.md`
 
@@ -154,17 +154,17 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Combined local evidence passes. Exact candidate CI, Owner promotion, closed runtime, custody, physical-device evidence and independent security are separate. Owner working acceptance pending.
+Dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
 - Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
 - Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
-- Deployment: Staging serves Operations 56736d8. Register-only 6c8d517 preview is Ready. Combined candidate is separate.
+- Deployment: Combined code ef73a36 preview dpl_njj5t3tPpdq4tyXp68rUBWcox27C Ready. Both exact-source Foundation runs passed. Awaiting Owner promotion to staging.
 - Hosted verification: Canonical alias and public route behavior verified on 56736d8. Combined closed smoke and private runtime still pending.
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
+- Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
 - Evidence: docs/07-handoff/owner-register-staging-handoff.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
@@ -222,15 +222,15 @@ Design: measurement profiles required.
 
 Routing: supporting / 3 / supporting.
 Dependencies: none declared.
-Dependency gate: One-register scope approved and local workspace integrated. Hosted custody, supported device behavior and independent security gate private activation.
+Dependency gate: Pinned combined code and both CI runs pass. Owner promotion and exact-source closed staging smoke are next. Key custody, physical-device/private runtime and independent security still gate private activation.
 Findings: NR15; G08.
 Design: Owner approved one personal-device published register, minimal fields, 30-day/logout read cleanup and recovery only by the same current Owner.
 
 - Implementation: Gated Owner workspace, explicit device preparation, public offline startup and account-wide cleanup use the registered key, transfer and dispatch lifecycle.
 - Local checks: Seven connected workspace cases and 15 registered lifecycle cases pass with Chromium, Next and PG17. Fixture identity and provider adapters. No real Clerk or hosted custody proof.
-- Deployment: Pilot migrations and register RPCs absent from staging. Wrapping-root custody and private activation pending.
+- Deployment: Combined code ef73a36 preview dpl_njj5t3tPpdq4tyXp68rUBWcox27C Ready. Both exact-source Foundation runs passed. Awaiting Owner promotion to staging.
 - Hosted verification: Read-only migration and catalog absence verified. Private identity, device and custody cases pending.
 - Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
 - Independent security: open
-- Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
+- Next action: Owner promotes pinned code ef73a36 using the deployment linked in the staging handoff. Then verify the resulting canonical source and closed pilot with retained Owner Operations. Hosted private activation and independent security remain separate.
 - Evidence: docs/07-handoff/owner-register-staging-handoff.md
