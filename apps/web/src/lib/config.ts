@@ -54,3 +54,11 @@ export function validateStaging(env: Record<string, string | undefined>) {
       "The hosted staging deployment requires its canonical origin",
     );
 }
+
+/** Product entry stays closed until the complete private pilot is authorized. */
+export function offlineRegisterPilotEnabled(env: Record<string,string|undefined>) {
+  return env.APP_ENV==='staging' && env.LOCAL_REGISTER_PILOT_ENABLED==='true' &&
+    env.LOCAL_REGISTER_KEY_ENABLED==='true' && env.LOCAL_REGISTER_TRANSFER_ENABLED==='true' &&
+    env.LOCAL_REGISTER_DISPATCH_ENABLED==='true' && /^[a-f0-9]{64}$/.test(env.LOCAL_REGISTER_WRAP_KEY_V1??'') &&
+    env.LOCAL_REGISTER_WRAP_KEY_V1!==env.ONBOARDING_PROOF_KEY;
+}

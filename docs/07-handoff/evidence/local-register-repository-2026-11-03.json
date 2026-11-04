@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04T01:48:45.669Z",
+  "date": "2026-11-04T02:08:05.616Z",
   "scope": "Inactive typed Owner-register adapter; actual Chromium IndexedDB/WebCrypto; fictional HTTP authority; not product/Clerk/provider/independent-security proof",
   "passed": true,
   "checks": [
@@ -161,14 +161,14 @@
   "platform": "darwin",
   "arch": "arm64",
   "metrics": {
-    "initialPrepareCaptureMs": 26.03770800000001,
+    "initialPrepareCaptureMs": 26.303041000000007,
     "initialCiphertextBytes": 7023,
     "coveredReads": 30,
     "coveredReadKeyExchanges": 0,
-    "localReadP50Ms": 1.6627090000000067,
-    "localReadP95Ms": 2.6478329999999914,
-    "thousandPlayerPrepareMs": 105.908458,
-    "thousandMarkCaptureMs": 49.46770900000001,
+    "localReadP50Ms": 1.6523329999999987,
+    "localReadP95Ms": 1.98683299999999,
+    "thousandPlayerPrepareMs": 117.944208,
+    "thousandMarkCaptureMs": 38.733749999999986,
     "thousandMarkWireBytes": 80712,
     "thousandPlayerCiphertextBytes": 731514,
     "maxLocalPagePlayers": 50,
@@ -177,13 +177,13 @@
     "deniedKeyExchanges": 1,
     "keyResponseJsonBytes": 5455,
     "credentialAPICalls": 0,
-    "bundleBytes": 60472
+    "bundleBytes": 60531
   },
   "errors": [],
   "externalRequests": [],
   "hashes": {
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
-    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
+    "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
     "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",

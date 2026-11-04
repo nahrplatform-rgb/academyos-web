@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 250,
-    "calendarMs": 98,
-    "dateMs": 165,
+    "homeMs": 252,
+    "calendarMs": 122,
+    "dateMs": 164,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 203,
-    "selectReviewSaveMs": 758,
+    "firstPrepareMs": 186,
+    "selectReviewSaveMs": 757,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 172,
-    "originalReplayMs": 113,
+    "offlineRestartMs": 184,
+    "originalReplayMs": 112,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -237,9 +237,9 @@
     "responseBytes": 37000
   },
   "hashes": {
-    "scripts/working-day/owner_fixture.mjs": "fbc13cba33a3080a5e3deb4aaa6f3328e5d8369f60b32a8d959098faaf644b62",
+    "scripts/working-day/owner_fixture.mjs": "06000aef4c8e3088b183cd91a482e25f7ba9209b952e4eb3e016f97e1aee5a31",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
-    "scripts/working-day/owner_db.py": "aaa702f9904532a82c78ba2338ed9ea297a2bd1f180a2eb14f1c1bdb370db8e9",
+    "scripts/working-day/owner_db.py": "b90fedd7253e48c1cb811b02a2461b9e8dd766317a78843b7e877526132599f9",
     "scripts/working-day/test_owner_next.mjs": "b034a34535c55e2209ffe5dba22b745531f20135100dfd1e24ff37669425f6ff",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
@@ -248,11 +248,11 @@
     "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
-    "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+    "apps/web/src/components/workspace-shell.tsx": "925add5f82d99bb2a08ab278e615ab9aefdacf87903f3805e8b04c120ec86687",
     "apps/web/src/components/experience-workspace.tsx": "ed55a22cd3e720876f51be0b754a93d08881b2162099707a7cc3cef834bb5439",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
-    "apps/web/src/lib/local-register-repository.ts": "8380983013f57957346882d80e3970c9006a6a78a630d546ade4b2505f46cef7",
+    "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/local-register-codec.ts": "0d83170fe39ea89478c52b13eba5babdebad61ef02f949a6ce232b69dfa721f4",
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",

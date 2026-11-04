@@ -13,7 +13,7 @@ import {build} from 'esbuild';
 
 const require = createRequire(import.meta.url);
 const stage = 'https://staging.academy.nahr.dev';
-const routes = ['experience', 'planning', 'register-download', 'register-dispatch'];
+
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
 function pgBridge(root) {
@@ -56,7 +56,8 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp) {
+export async function ownerFixture(root, temp, {pilot=false} = {}) {
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[])];
   const bridge = pgBridge(root);
   let api, app, appClosed, log = '', origin;
   const state = {subject: 'user_owner', events: [], dispatchBodies: [], rpcs: [], limits: []};
@@ -76,7 +77,7 @@ export async function ownerFixture(root, temp) {
   }
   try {
     const data = await bridge.fixture;
-    const scopes = Object.fromEntries(await Promise.all(data.events.map(async ({academy,event}) => {
+    const scopes = pilot ? {} : Object.fromEntries(await Promise.all(data.events.map(async ({academy,event}) => {
       const scope = {namespace:randomUUID(),environment:'staging',subject:'user_owner',academy,
         device:randomUUID(),epoch:'fields_v1',capability:'owner-register-v1'};
       assert.equal(await bridge.db({action:'slot',...scope,event}),true);
@@ -114,12 +115,15 @@ export async function ownerFixture(root, temp) {
         "\nexport {NextRequest} from 'next/server';",resolveDir:root},
       tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,format:'esm',platform:'node',packages:'external',write:false,
       define:{'process.env.APP_ENV':'"staging"','process.env.LOCAL_REGISTER_TRANSFER_ENABLED':'"true"',
-        'process.env.LOCAL_REGISTER_DISPATCH_ENABLED':'"true"'},
+        'process.env.LOCAL_REGISTER_DISPATCH_ENABLED':'"true"',
+        ...(pilot?{'process.env.LOCAL_REGISTER_KEY_ENABLED':'"true"',
+          'process.env.LOCAL_REGISTER_WRAP_KEY_V1':JSON.stringify(randomBytes(32).toString('hex'))}:{})},
       plugins:[{name:'fixture-transport',setup(b){
         b.onResolve({filter:/^next\/server$/},v=>({path:require.resolve(v.path),external:true}));
         b.onResolve({filter:/^@\/lib\/onboarding-server$/},()=>({path:'server',namespace:'fixture'}));
         b.onResolve({filter:/^@\/lib\/rate-limit$/},()=>({path:'limiter',namespace:'fixture'}));
-        b.onLoad({filter:/.*/,namespace:'fixture'},v=>({contents:adapters[v.path],loader:'js',resolveDir:root}));
+        b.onResolve({filter:/^server-only$/},()=>({path:'serverOnly',namespace:'fixture'}));
+        b.onLoad({filter:/.*/,namespace:'fixture'},v=>({contents:adapters[v.path]??'',loader:'js',resolveDir:root}));
       }}],
     });
     await put('fixture-api.mjs', serverCode.outputFiles[0].text);
@@ -166,19 +170,36 @@ export async function ownerFixture(root, temp) {
       stdin:{contents:`export{default as Runtime}from'./apps/web/src/components/workspace-runtime.tsx';
         export{default as Experience}from'./apps/web/src/components/experience-workspace.tsx';
         export{default as Planning}from'./apps/web/src/components/date-planning-workspace.tsx';
-        export{default as Register}from'./scripts/working-day/owner-register.tsx';`,resolveDir:root,loader:'tsx'},
+        export{default as Register}from'./scripts/working-day/owner-register.tsx';
+        ${pilot?`export{default as Attendance}from'./apps/web/src/components/attendance-workspace.tsx';
+        export{default as RegisterAccountBoundary}from'./apps/web/src/components/register-account-boundary.tsx';
+        export{default as PreparedRegisterStartup}from'./apps/web/src/components/prepared-register-startup.tsx';`:''}`,
+        resolveDir:root,loader:'tsx'},
       tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',
       external:['react','react/*','next/*'],banner:{js:'"use client";'},
       plugins:[{name:'fictional-clerk-presentation',setup(b){
         b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));
-        b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:`
+        b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:pilot?`
+          import{useSyncExternalStore}from'react';
+          const event='fixture-clerk-identity';
+          const subscribe=callback=>{window.addEventListener(event,callback);return()=>window.removeEventListener(event,callback)};
+          const subject=()=>sessionStorage.getItem('fixture-signed-out')?'':sessionStorage.getItem('fixture-subject')||'user_owner';
+          export function useUser(){const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');return{isLoaded:true,user:id?{id}:null};}
+          export function UserButton(){return null;}
+          export function useClerk(){return{openUserProfile:()=>{},signOut:async()=>{
+            const reply=await fetch('/api/fixture-signout',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});
+            if(!reply.ok)throw new Error('Fixture sign-out failed');
+            sessionStorage.setItem('fixture-signed-out','1');window.dispatchEvent(new Event(event));
+          }}}
+          `:`
           export function useUser(){return{isLoaded:true,user:{id:'user_owner'}};}
-          export function UserButton(){return null;}`,loader:'js'}));
+          export function UserButton(){return null;}`,loader:'js',resolveDir:root}));
       }}],
     });
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
     await put('package.json','{"name":"academyos-owner-working-day-fixture","private":true}');
-    await put('next.config.mjs',`export default {devIndicators:false,async rewrites(){return[{source:'/api/:path*',destination:'${apiOrigin}/api/:path*'}]}};`);
+    await put('next.config.mjs',`export default {devIndicators:false,async rewrites(){return[{source:'/api/:path*',destination:'${apiOrigin}/api/:path*'}]},
+      async headers(){return [{source:'/prepared-register',headers:[{key:'X-AcademyOS-Public-Shell',value:'register-v1'}]}]}};`);
     await put('app/globals.css',await readFile(join(root,'apps/web/src/app/globals.css'),'utf8'));
     await put('app/layout.jsx',"import './globals.css';export default function Layout({children}){return <html lang='en'><body>{children}</body></html>}");
     await put('fixture-client.jsx',client.outputFiles[0].text);
@@ -198,10 +219,30 @@ export async function ownerFixture(root, temp) {
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
       return <Planning {...p} from={q.from} returnTo={q.return==='calendar'?'calendar':undefined}/>}`);
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
-    await page('attendance/[event]/page.jsx',`import{Register}from'__CLIENT__';
-      export const dynamicParams=false;export function generateStaticParams(){return ${JSON.stringify(params)}}
-      export default async function Page({params}){const p=await params;return <Register key={p.locale+':'+p.event}
-      locale={p.locale} event={p.event} scope={${JSON.stringify(Object.fromEntries(Object.entries(scopes).map(([event,{scope}])=>[event,scope])))}[p.event]}/>}`);
+    if (pilot) {
+      const eventRoute=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx'),'utf8');
+      await page('attendance/[event]/page.tsx',eventRoute
+        .replace("import {auth} from '@clerk/nextjs/server';","const auth={protect:async()=>({userId:'user_owner'})};")
+        .replace("import AttendanceWorkspace from '@/components/attendance-workspace';","import {Attendance as AttendanceWorkspace} from '__CLIENT__';")
+        .replace("import {offlineRegisterPilotEnabled} from '@/lib/config';","const offlineRegisterPilotEnabled=(_env: unknown)=>true;")
+        .replace("import {uuidPattern} from '@/lib/onboarding';","const uuidPattern=/^[a-f0-9-]{36}$/i;"));
+      await put('app/[locale]/layout.jsx',`import {RegisterAccountBoundary} from '../../fixture-client.jsx';
+        export default async function Layout({children,params}){
+          const {locale}=await params;
+          return <RegisterAccountBoundary enabled={true} locale={locale}>{children}</RegisterAccountBoundary>;
+        }`);
+      const startup=await readFile(join(root,'apps/web/src/app/prepared-register/page.tsx'),'utf8');
+      await put('app/prepared-register/page.tsx',startup.replace(
+        "import PreparedRegisterStartup from '@/components/prepared-register-startup';",
+        "import {PreparedRegisterStartup} from '../../fixture-client.jsx';"));
+      await put('app/[locale]/page.jsx','export default function Landing(){return <h1>Fictional signed-out landing</h1>}');
+      await put('public/prepared-register-worker.js',await readFile(join(root,'apps/web/public/prepared-register-worker.js'),'utf8'));
+    } else {
+      await page('attendance/[event]/page.jsx',`import{Register}from'__CLIENT__';
+        export const dynamicParams=false;export function generateStaticParams(){return ${JSON.stringify(params)}}
+        export default async function Page({params}){const p=await params;return <Register key={p.locale+':'+p.event}
+        locale={p.locale} event={p.event} scope={${JSON.stringify(Object.fromEntries(Object.entries(scopes).map(([event,{scope}])=>[event,scope])))}[p.event]}/>}`);
+    }
     await mkdir(join(temp,'public'),{recursive:true});
     const next = join(root,'node_modules/next/dist/bin/next');
     const buildProcess=spawn(process.execPath,[next,'build','--webpack'],{cwd:temp,env,stdio:['ignore','pipe','pipe']});
@@ -212,7 +253,7 @@ export async function ownerFixture(root, temp) {
     const buildId=(await readFile(join(temp,'.next/BUILD_ID'),'utf8')).trim();
     const assets=(await readdir(join(temp,'.next/static'),{recursive:true})).filter(p=>/\.(js|css)$/.test(p)).map(p=>'/_next/static/'+p);
     const paths=[...registerPaths,...assets];
-    await put('public/owner-fixture-sw.js',`
+    if (!pilot) await put('public/owner-fixture-sw.js',`
       const cacheName=${JSON.stringify('owner-fixture-'+buildId)};
       const shell=new Set(${JSON.stringify(registerPaths)}), assets=new Set(${JSON.stringify(assets)});
       self.addEventListener('install',event=>event.waitUntil((async()=>{

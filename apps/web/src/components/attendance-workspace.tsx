@@ -1,22 +1,28 @@
 "use client";
 import {useEffect,useRef,useState,type MouseEvent} from 'react';
 import {useUser,UserButton} from '@clerk/nextjs';
+import dynamic from 'next/dynamic';
 import {useRouter} from 'next/navigation';
 import WorkspaceShell,{PublicWorkspace} from './workspace-shell';
+import {REGISTER_DRAFT_EXIT_EVENT} from '@/lib/register-device-account';
+import {useRegisterAccount} from './register-account-context';
+import {readRegisterSlot,registerSlotLock,cleanRegisterSlot} from '@/lib/register-device-slots';
 import WorkspacePanes from './workspace-panes';
 import {Button,Input,Select} from './ui/controls';
 import {isAttendanceReceipt,isRegisterReceipt} from '@/lib/attendance';
 import type {AttendanceRoster,AttendancePlayer,AttendanceHistory} from '@/lib/attendance';
-type Props={locale:string;academy:string;event:string};
+const PreparedRegisterPanel=dynamic(()=>import('./prepared-register-panel'));
+type Props={locale:string;academy:string;event:string;deviceSubject?:string};
 class Failure extends Error{constructor(public code:string){super(code);}}
 export default function AttendanceWorkspace(props:Props){
  const session=useUser(),[expired,setExpired]=useState(false);
  useEffect(()=>{if(session.isLoaded)return;const timer=setTimeout(()=>setExpired(true),15000);return()=>clearTimeout(timer);},[session.isLoaded]);
  if(!session.isLoaded)return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale==='ar'?(expired?'تعذر تحميل الدخول.':'تحميل الدخول…'):(expired?'Sign-in unavailable.':'Loading sign-in…')}</p>{expired&&<Button onClick={()=>window.location.reload()}>{props.locale==='ar'?'إعادة المحاولة':'Retry'}</Button>}</PublicWorkspace>;
  if(!session.user)return <PublicWorkspace locale={props.locale} title="AcademyOS"><a href={`/${props.locale}/sign-in`}>{props.locale==='ar'?'تسجيل الدخول':'Sign in again'}</a></PublicWorkspace>;
+ if(props.deviceSubject&&props.deviceSubject!==session.user.id)return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale==='ar'?'أعد فتح مساحة العمل للتحقّق من حسابك.':'Reopen the workspace to verify your current account.'}</p></PublicWorkspace>;
  return <AttendanceJourney {...props} subject={session.user.id} key={`${session.user.id}:${props.academy}:${props.event}`}/>;
 }
-function AttendanceJourney({locale:initialLocale,academy,event,subject}:Props&{subject:string}){
+function AttendanceJourney({locale:initialLocale,academy,event,subject,deviceSubject}:Props&{subject:string}){
  const router=useRouter(),[locale,setLocale]=useState(initialLocale),ar=locale==='ar',t=(en:string,a:string)=>ar?a:en;
  const[data,setData]=useState<AttendanceRoster|null>(null),[selected,setSelected]=useState<AttendancePlayer|null>(null),[history,setHistory]=useState<AttendanceHistory|null>(null),[historyError,setHistoryError]=useState(false);
  const[stage,setStage]=useState<'detail'|'edit'|'review'|'unknown'>('detail'),[intent,setIntent]=useState<'present'|'absent'>('present'),[reason,setReason]=useState(''),[ack,setAck]=useState(false),[pending,setPending]=useState<string|null>(null);
@@ -27,6 +33,29 @@ function AttendanceJourney({locale:initialLocale,academy,event,subject}:Props&{s
  const opener=useRef<HTMLButtonElement|null>(null);
  const live=useRef(false),lock=useRef(false),controllers=useRef(new Set<AbortController>()),key=`attendance:${subject}:${academy}:${event}`;
  const uncertain=!!pending||stage==='unknown',dirty=stage==='edit'||stage==='review'||Object.keys(draft).length>0;
+ const registerAccount=useRegisterAccount(), [deviceOpen,setDeviceOpen]=useState(false);
+ const deviceEligible=Boolean(deviceSubject===subject&&registerAccount?.allowed&&registerAccount.subject===subject);
+ const deviceShowing=deviceEligible&&deviceOpen&&Boolean(data?.owner)&&!denied&&!readFailed&&!uncertain;
+ useEffect(()=>{
+   if(!deviceEligible)return;
+   let mounted=true;
+   queueMicrotask(()=>{
+     if(!mounted)return;
+     try {if(readRegisterSlot(subject,academy)?.event===event)setDeviceOpen(true);}
+     catch {/* A blocked browser store leaves the online register available. */}
+   });
+   return()=>{mounted=false;};
+ },[deviceEligible,subject,academy,event]);
+ useEffect(()=>{
+   if(deviceSubject!==subject||!denied&&data?.owner!==false)return;
+   try {
+     if(readRegisterSlot(subject,academy)?.event!==event)return;
+     void registerSlotLock(subject,academy,async()=>{
+       const slot=readRegisterSlot(subject,academy);
+       if(slot?.event===event&&slot.mode!=='sealed')await cleanRegisterSlot(subject,academy,slot,'known_denial');
+     }).catch(()=>{}); // A failed cleanup remains fenced and the online denial stays visible.
+   }catch {/* The private device panel is not available in this state. */}
+ },[deviceSubject,subject,academy,event,denied,data?.owner]);
  useEffect(()=>{live.current=true;const set=controllers.current;return()=>{live.current=false;set.forEach(c=>c.abort());};},[]);
  async function call<T>(body:Record<string,unknown>):Promise<T>{const c=new AbortController();controllers.current.add(c);try{const r=await fetch('/api/attendance',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({academy,event,...body}),cache:'no-store',signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])});const d=await r.json();if(!live.current)throw new Failure('aborted');if(!r.ok||d.error||d.data?.error)throw new Failure(d.error??d.data?.error??'unavailable');return d.data as T;}finally{controllers.current.delete(c);}}
  function fail(e:unknown){const code=e instanceof Failure?e.code:'unavailable';setError(code);setAck(false);if(code==='denied'){setDenied(true);setData(null);setSelected(null);setHistory(null);setNotice('');setReason('');setStage('detail');setDraft({});setRegisterReview(false);}}
@@ -42,7 +71,7 @@ function AttendanceJourney({locale:initialLocale,academy,event,subject}:Props&{s
  // Current principal/academy/event remount the journey. Abort old requests on unmount.
  // eslint-disable-next-line react-hooks/exhaustive-deps
  },[]);
- useEffect(()=>{const refresh=()=>{if(!lock.current&&!dirty&&!uncertain)void run(async()=>{await read();setHistory(null);});};window.addEventListener('focus',refresh);window.addEventListener('online',refresh);return()=>{window.removeEventListener('focus',refresh);window.removeEventListener('online',refresh);};});
+ useEffect(()=>{const refresh=()=>{if(!deviceShowing&&!lock.current&&!dirty&&!uncertain)void run(async()=>{await read();setHistory(null);});};window.addEventListener('focus',refresh);window.addEventListener('online',refresh);return()=>{window.removeEventListener('focus',refresh);window.removeEventListener('online',refresh);};});
  useEffect(()=>{if(!dirty&&!uncertain)return;const guard=(e:BeforeUnloadEvent)=>{e.preventDefault();};window.addEventListener('beforeunload',guard);return()=>window.removeEventListener('beforeunload',guard);},[dirty,uncertain]);
  const clearDetails=()=>{if(busy||uncertain)return;if((stage==='edit'||stage==='review')&&!window.confirm(t('Discard this unsaved choice?','تجاهل الاختيار غير المحفوظ؟')))return;setStage('detail');setSelected(null);setHistory(null);requestAnimationFrame(()=>opener.current?.focus());};
  function navigate(e:MouseEvent<HTMLAnchorElement>){e.preventDefault();if(busy||uncertain)return;const href=e.currentTarget.getAttribute('href');if(href==='#register'){clearDetails();return;}if(href==='#language'){setLocale(ar?'en':'ar');return;}if(dirty&&!window.confirm(t('Discard this unsaved attendance choice?','تجاهل اختيار الحضور غير المحفوظ؟')))return;if(href)router.push(href);}
@@ -62,7 +91,17 @@ function AttendanceJourney({locale:initialLocale,academy,event,subject}:Props&{s
  // Loaded rows have exact status counts. Unloaded rows are explicitly outside the summary projection.
  const allLoaded=!!data&&!data.more;
  const backHref=data?.owner?`/${locale}/workspace/${academy}/programs/${data.program}/${data.day}`:`/${locale}/workspace/${academy}/trainer/schedule`;
- return <div className="attendance-theme"><WorkspaceShell role={data?.owner?'owner':data?'trainer':'workspace'} module="attendance" locale={locale} context={data?(data.owner?t('Academy Owner workspace','مساحة مالك الأكاديمية'):t('Trainer workspace','مساحة المدرب')):t('Academy workspace','مساحة الأكاديمية')} title={t('Training · Attendance','التدريب · الحضور')} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={navigate} account={<UserButton/>} navigation={[{href:`/${locale}/workspace`,label:t('Your workspaces','مساحاتك')},{href:backHref,label:t('Session schedule','جدول التدريب')},{href:'#register',label:t('Attendance','الحضور'),current:true}]}><WorkspacePanes modalOnPhone contextLabel={t('Session / player details','تفاصيل التدريب / اللاعب')} title={t('Player attendance','حضور اللاعب')} arabic={ar} selected={!!selected&&!uncertain} selectionKey={`${selected?.id}:${stage}`} blocked={busy||uncertain} onBack={clearDetails} inspector={denied||uncertain?null:detail}><div className="register-heading"><div><p className="register-breadcrumb">{t('Training / Session attendance','التدريب / حضور التدريب')}</p><h1>{t('Session attendance','حضور التدريب')}</h1></div><span className={`attendance-status ${Object.keys(draft).length?'unsaved':''}`}>{Object.keys(draft).length?t('Unsaved choices','اختيارات غير محفوظة'):t('Current register','القائمة الحالية')}</span></div>{!denied&&!selected&&!uncertain&&messages}{uncertain&&<div className="register-recovery">{detail}</div>}{denied?<p role="alert">{labels.denied}</p>:data&&!readFailed&&!uncertain&&!busy?<><p className="register-meta"><strong>{data.projection.name}</strong> · {data.projection.branch} · <bdi>{format(data.starts_at)} — {format(data.ends_at)}</bdi> · <bdi>{data.projection.timezone}</bdi></p>{!data.open&&<p role="status">{labels.window_closed}</p>}<div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(v=><div key={v} className={v}><strong>{counts[v]}</strong>{status(v==='unmarked'?null:v)}</div>)}</div><p className="register-counts">{t(allLoaded?'Counts include unsaved selections.':'Status counts cover loaded players only. Unloaded players are not inferred absent.',allLoaded?'الأعداد تشمل الاختيارات غير المحفوظة.':'الأعداد تخص اللاعبين المحمّلين فقط. لا يُفترض غياب غير المحمّلين.')} {t('Saved','محفوظ')}: {data.saved} · {t('Selected, not saved','مختار غير محفوظ')}: {Object.keys(draft).length}</p>{data.protected&&<p>{t('Attendance recorded: date, roster and publication are protected from changes.','سُجّل حضور: التاريخ والقائمة والنشر محمية من التغيير.')}</p>}<div className="register-links"><p><a href={`/${locale}/workspace/${academy}/attendance/scan?event=${event}&day=${data.day}`} onClick={navigate}>{t('Scan player cards','مسح بطاقات اللاعبين')}</a></p><p><a href={`/${locale}/workspace/${academy}/attendance/corrections?event=${event}`} onClick={navigate}>{t('Correction requests','طلبات التصحيح')}</a></p><p><a href={backHref} onClick={navigate}>{t('Back to session','الرجوع إلى التدريب')}</a></p></div>{data.players.length?<>
+ if(deviceShowing)return <WorkspaceShell role="owner" module="attendance" locale={locale}
+   context={t('Academy Owner workspace','مساحة مالك الأكاديمية')} title={t('Personal-device attendance','حضور الجهاز الشخصي')}
+   homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={e=>{
+     const href=e.currentTarget.getAttribute('href');
+     if(href==='#language'){e.preventDefault();setLocale(ar?'en':'ar');return;}
+     if(href){e.preventDefault();if(window.dispatchEvent(new Event(REGISTER_DRAFT_EXIT_EVENT,{cancelable:true})))router.push(href);}
+   }} account={<UserButton/>} navigation={[{href:backHref,label:t('Back to session','الرجوع إلى التدريب')}]}>
+   <PreparedRegisterPanel locale={locale} scope={{subject,academy,event}} onCancel={()=>setDeviceOpen(false)}/>
+ </WorkspaceShell>;
+ return <div className="attendance-theme"><WorkspaceShell role={data?.owner?'owner':data?'trainer':'workspace'} module="attendance" locale={locale} context={data?(data.owner?t('Academy Owner workspace','مساحة مالك الأكاديمية'):t('Trainer workspace','مساحة المدرب')):t('Academy workspace','مساحة الأكاديمية')} title={t('Training · Attendance','التدريب · الحضور')} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={navigate} account={<UserButton/>} navigation={[{href:`/${locale}/workspace`,label:t('Your workspaces','مساحاتك')},{href:backHref,label:t('Session schedule','جدول التدريب')},{href:'#register',label:t('Attendance','الحضور'),current:true}]}><WorkspacePanes modalOnPhone contextLabel={t('Session / player details','تفاصيل التدريب / اللاعب')} title={t('Player attendance','حضور اللاعب')} arabic={ar} selected={!!selected&&!uncertain} selectionKey={`${selected?.id}:${stage}`} blocked={busy||uncertain} onBack={clearDetails} inspector={denied||uncertain?null:detail}><div className="register-heading"><div><p className="register-breadcrumb">{t('Training / Session attendance','التدريب / حضور التدريب')}</p><h1>{t('Session attendance','حضور التدريب')}</h1></div><span className={`attendance-status ${Object.keys(draft).length?'unsaved':''}`}>{Object.keys(draft).length?t('Unsaved choices','اختيارات غير محفوظة'):t('Current register','القائمة الحالية')}</span></div>{!denied&&!selected&&!uncertain&&messages}{uncertain&&<div className="register-recovery">{detail}</div>}{denied?<p role="alert">{labels.denied}</p>:data&&!readFailed&&!uncertain&&!busy?<><p className="register-meta"><strong>{data.projection.name}</strong> · {data.projection.branch} · <bdi>{format(data.starts_at)} — {format(data.ends_at)}</bdi> · <bdi>{data.projection.timezone}</bdi></p>{!data.open&&<p role="status">{labels.window_closed}</p>}<div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(v=><div key={v} className={v}><strong>{counts[v]}</strong>{status(v==='unmarked'?null:v)}</div>)}</div><p className="register-counts">{t(allLoaded?'Counts include unsaved selections.':'Status counts cover loaded players only. Unloaded players are not inferred absent.',allLoaded?'الأعداد تشمل الاختيارات غير المحفوظة.':'الأعداد تخص اللاعبين المحمّلين فقط. لا يُفترض غياب غير المحمّلين.')} {t('Saved','محفوظ')}: {data.saved} · {t('Selected, not saved','مختار غير محفوظ')}: {Object.keys(draft).length}</p>{data.protected&&<p>{t('Attendance recorded: date, roster and publication are protected from changes.','سُجّل حضور: التاريخ والقائمة والنشر محمية من التغيير.')}</p>}<div className="register-links"><p><a href={`/${locale}/workspace/${academy}/attendance/scan?event=${event}&day=${data.day}`} onClick={navigate}>{t('Scan player cards','مسح بطاقات اللاعبين')}</a></p><p><a href={`/${locale}/workspace/${academy}/attendance/corrections?event=${event}`} onClick={navigate}>{t('Correction requests','طلبات التصحيح')}</a></p><p><a href={backHref} onClick={navigate}>{t('Back to session','الرجوع إلى التدريب')}</a></p></div>{deviceEligible&&data.owner&&<Button disabled={dirty||busy||uncertain} onClick={()=>setDeviceOpen(true)}>
+   {t('Use a personal-device register','استخدم سجل الجهاز الشخصي')}</Button>}{data.players.length?<>
  <div className="register-filters"><label>{t('Find a loaded player','البحث في اللاعبين المحمّلين')}<Input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>{t('Show','عرض')}<Select value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">{t('All loaded players','كل اللاعبين المحمّلين')}</option><option value="unmarked">{status(null)}</option><option value="selected">{t('Selected, not saved','مختار غير محفوظ')}</option><option value="saved">{t('Saved','محفوظ')}</option></Select></label></div>
  <p className="register-loaded">{t('Loaded','المحمّل')}: {data.players.length} / {data.count} · {t('Selected, not saved','مختار غير محفوظ')}: {Object.keys(draft).length}</p>
  {error==='stale'&&<Button disabled={busy} onClick={()=>void latest()}>{t('Load latest register; choices stay selected','تحميل القائمة الأحدث مع إبقاء الاختيارات')}</Button>}

@@ -4,6 +4,7 @@ import { useRef, type ComponentProps, type ReactNode } from "react";
 import { workspaceNavigation } from "./workspace-navigation";
 import ThemeToggle from "./theme-toggle";
 import { WorkspaceLayoutProvider, useWorkspaceLayout } from "./workspace-layout";
+import { RegisterAccountControl } from './register-account-context';
 import { StatusBadge } from "./ui/controls";
 
 type Module = 'training'|'attendance'|'people'|'development'|'family'|'operations';
@@ -33,7 +34,7 @@ function WorkspaceShellContent({ locale, context, title, homeHref, languageHref,
         <button type="button" ref={opener} className="navigation-toggle" aria-haspopup="dialog" onClick={()=>drawer.current?.showModal()}>{ar?'القائمة':'Menu'}</button>
         <Link onClick={onNavigate} className="brand" href={workspaceHome}><span className="mark" aria-hidden="true">A</span>AcademyOS</Link>
         <nav className="toolbar-context" aria-label={ar?'مسار التنقل':'Breadcrumb'}><Link onClick={onNavigate} href={workspaceHome} aria-label={ar?'رئيسية مساحة العمل':'Workspace home'}>{context}</Link><span aria-hidden="true"> / </span><strong aria-current="page">{title}</strong><span className="workspace-role">{roleLabel}</span></nav>
-        <div className="toolbar-actions"><StatusBadge>{ar?'نسخة تجريبية':'Staging'}</StatusBadge><Link onClick={onNavigate} href={languageHref} hrefLang={ar?'en':'ar'}>{ar?'English':'العربية'}</Link><ThemeToggle arabic={ar}/><details className="layout-menu"><summary>{ar?'التخطيط':'Layout'}</summary><div><button className="layout-desktop-control" type="button" onClick={()=>update({compact:!preferences.compact})}>{preferences.compact?(ar?'توسيع التنقل':'Expand navigation'):(ar?'تصغير التنقل':'Compact navigation')}</button><button type="button" onClick={reset}>{ar?'إعادة ضبط التخطيط':'Reset layout'}</button></div></details>{tools}{account}</div>
+        <div className="toolbar-actions"><StatusBadge>{ar?'نسخة تجريبية':'Staging'}</StatusBadge><Link onClick={onNavigate} href={languageHref} hrefLang={ar?'en':'ar'}>{ar?'English':'العربية'}</Link><ThemeToggle arabic={ar}/><details className="layout-menu"><summary>{ar?'التخطيط':'Layout'}</summary><div><button className="layout-desktop-control" type="button" onClick={()=>update({compact:!preferences.compact})}>{preferences.compact?(ar?'توسيع التنقل':'Expand navigation'):(ar?'تصغير التنقل':'Compact navigation')}</button><button type="button" onClick={reset}>{ar?'إعادة ضبط التخطيط':'Reset layout'}</button></div></details>{tools}{account&&<RegisterAccountControl locale={locale}>{account}</RegisterAccountControl>}</div>
       </header>
       <div className="shell"><aside className="workspace-sidebar"><div className="workspace-identity"><p className="sidebar-context">{context}</p><strong>{roleLabel}</strong>{switcher}</div>{links()}<p className="sidebar-note">{ar?'بيئة اختبار · بيانات اصطناعية فقط':'Staging · Synthetic data only'}</p></aside><div className="main"><main id="main">{children}</main></div></div>
       {(role==='trainer'||role==='guardian')&&links(true)}

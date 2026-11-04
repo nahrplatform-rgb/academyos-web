@@ -322,7 +322,7 @@ export async function openLocalRegister(scopeInput: RegisterScope) {
     // Local pages combine rows from potentially smaller byte-bounded API pages.
     rosterPage({...s.header, players, more}, LOCAL_RECORD_LIMIT);
     await tx(['control', 'heads'], 'readonly', async t => {unchanged(s.c, await control(t, true)); await verifyHead(t, s.head);});
-    return {header: s.header, players, more, needsCurrentRead: s.head.invalid,
+    return {header: s.header, players, more, revision: `${s.head.generation}:${s.head.revision}`, needsCurrentRead: s.head.invalid,
       complete: true as const, coherence: s.verification ? 'verified-transfer' as const : 'per-row-only' as const};
   }
   async function transferState(event: string) {

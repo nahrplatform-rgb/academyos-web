@@ -19,4 +19,4 @@ Run `node scripts/register-key/test_key.mjs` with Node 24, Playwright Chromium a
 
 ## Remaining release work
 
-Product wiring is still inactive. The next bounded work is to connect the reviewed device lifecycle to the actual authenticated workspace and startup shell. Supply verified principal and academy context, mask rendered state on scope changes, fence all of the signing-out account's prepared academy slots, and prove supported refresh/offline startup with real session behavior. No product UI caller, hosted schema, wrapping secret or feature flag was enabled here. Device support, production key custody and incident recovery, independent security, hosted and Owner working acceptance all remain separate. Owner-controlled promotion still applies.
+This checkpoint recorded the registered lifecycle before product wiring. The [workspace and startup checkpoint](owner-register-workspace-checkpoint.md) now supplies local integration evidence. Device support, hosted custody and incident recovery, independent security and Owner working acceptance remain separate. Owner-controlled promotion still applies.

@@ -17,6 +17,7 @@ literal = dispatch['literal']
 ROUTES = {
     'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
     'q6_read_v1', 'x20_register_download_v1', 'x20_register_dispatch_v1',
+    'x19_owner_register_key_v1', 'a10_roster_v1',
 }
 
 

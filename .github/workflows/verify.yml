@@ -77,6 +77,12 @@ jobs:
         run: |
           node scripts/register-key/test_key.mjs --check
           node scripts/register-key/test_key.mjs
+      - name: Verify gated Owner workspace startup and account cleanup
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/working-day/test_owner_startup.mjs --check
+          node scripts/working-day/test_owner_startup.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

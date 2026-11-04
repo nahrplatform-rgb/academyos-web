@@ -1,6 +1,6 @@
 # AcademyOS current-experience review
 
-4 November EX-09 follow-on: [registered transport and lifecycle evidence](../../docs/07-handoff/owner-register-lifecycle-checkpoint.md) is linked in the loading inventory. The lifecycle remains inactive and adds no product capture.
+4 November EX-11 follow-on. Default app captures were refreshed after the shared shell and attendance route changes. The [gated workspace receipt](../../docs/07-handoff/owner-register-workspace-checkpoint.md) covers prepared-device screens, cold offline entry and account cleanup separately. Those pilot states remain outside the default capture set and private activation remains gated.
 
 4 November EX-09: the [inactive register key release](../../docs/07-handoff/owner-register-key-checkpoint.md) is linked in loading evidence. It adds no user-facing screen or state.
 

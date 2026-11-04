@@ -4,11 +4,9 @@
 
 **4 November execution checkpoint:** [EX-11 connected fictional Owner working day](owner-working-day-fixture.md) verifies actual task navigation, encrypted prepare, offline restart, exact save recovery and cleanup in an isolated app. The [EX-09 approved scope and local key checkpoint](owner-register-key-checkpoint.md) now support the inactive device/verification lifecycle and registered-event binding. Private app use, hosted verification and independent security remain open.
 
-**Latest scoped output:** [typed register repository checkpoint](local-register-repository-checkpoint.md) supplies38actual browser cases and an inactive EX-06 typed storage adapter. **EX-04 is current** for coherent snapshot/manifest/resume contract work; current roster pages are per-row-versioned only. Preserve the earlier [16mechanism/workspace checks](automatic-local-key-checkpoint.md). Do not repeat completed storage research or add a new provider without a source need; real key custody/current authority/fields/time, private enablement, security and broader working-day evidence remain open.
+**Latest scoped output.** The [gated Owner workspace checkpoint](owner-register-workspace-checkpoint.md) connects personal-device preparation, public offline startup and account-wide sign-out. Use the [living continuation prompt](../06-delivery/continue-academyos.md) for the next action. Keep the [typed register repository evidence](local-register-repository-checkpoint.md) and [registered lifecycle evidence](owner-register-lifecycle-checkpoint.md) as supporting checkpoints.
 
 Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
-
-**4 November registered lifecycle:** The [EX-09 checkpoint](owner-register-lifecycle-checkpoint.md) binds private transfer and dispatch to the approved registered event and checks cleanup and exact replay in a disposable browser/database. The continuation prompt now owns authenticated workspace/startup integration.
 
 ## Persistent local data and synchronization — LF-v2,2November2026
 

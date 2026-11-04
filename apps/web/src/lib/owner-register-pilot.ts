@@ -5,11 +5,9 @@ import {registerDownloadCoordinator} from './register-download-coordinator';
 import {registerOriginalDispatch} from './register-original-dispatch';
 import {registerScopeHeaders} from './register-scope-transport';
 import {identifier, record, refuse} from './local-register-codec';
+import {readRegisterSlot, writeRegisterSlot, registerSlotLock, cleanRegisterSlot,
+  type RegisterSlot, type RegisterCleanup, type RegisterContext} from './register-device-slots';
 
-type Context = Pick<RegisterScope, 'subject' | 'academy'> & {event: string};
-type Slot = {device: string; event: string; namespace: string | null; generation: number;
-  mode: 'reserved' | 'active' | 'sealed' | 'cleaning'};
-type Cleanup = 'logout' | 'thirty_days' | 'known_denial';
 class RegisterAuthorityLoss extends Error {
   constructor(readonly reason: 'withdrawn' | 'scope_lost') {super(reason);}
 }
@@ -43,50 +41,28 @@ async function post(path: string, body: unknown, signal: AbortSignal, scope?: Re
   return reply.data;
 }
 
-export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
+export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSignal, assertAccount = () => {}) {
   const ended = new AbortController(), lifetime = AbortSignal.any([scopeSignal,ended.signal]);
   const {subject, academy, event} = {...input};
   identifier(academy); identifier(event);
   if (!/^user_[a-zA-Z0-9_]{1,120}$/.test(subject)) refuse('invalid_scope');
   if (!navigator.locks) refuse('protected_storage_unavailable');
-  const locator = `academyos.register-slot.v1:${subject}:${academy}`;
-  const underLock = <T>(work: () => T | Promise<T>) => navigator.locks.request(locator,work);
-  function load(): Slot | null {
-    const raw = localStorage.getItem(locator);
-    if (raw === null) return null;
-    const v = record(JSON.parse(raw));
-    if (Object.keys(v).sort().join(',') !== 'device,event,generation,mode,namespace' ||
-        !Number.isSafeInteger(v.generation) || Number(v.generation) < 1 ||
-        !['reserved','active','sealed','cleaning'].includes(String(v.mode))) refuse('register_locator_invalid');
-    identifier(v.device); identifier(v.event);
-    if (v.namespace !== null) identifier(v.namespace);
-    if (v.mode === 'active' && v.namespace === null) refuse('register_locator_invalid');
-    return v as Slot;
-  }
-  function save(slot: Slot) {localStorage.setItem(locator,JSON.stringify(slot));}
-  function scopeOf(slot: Slot): RegisterScope {
+  const underLock = <T>(work: () => T | Promise<T>) => registerSlotLock(subject,academy,work);
+  const load = () => readRegisterSlot(subject,academy);
+  const save = (slot: RegisterSlot) => writeRegisterSlot(subject,academy,slot);
+  function scopeOf(slot: RegisterSlot): RegisterScope {
     return {environment:'staging', subject, academy, device:slot.device,
       namespace:identifier(slot.namespace), epoch:'fields_v1', capability:'owner-register-v1'};
   }
-  function current(slot: Slot) {
+  function current(slot: RegisterSlot) {
     lifetime.throwIfAborted();
+    assertAccount();
     const stored = load();
     if (!stored || stored.generation !== slot.generation || stored.mode !== slot.mode ||
         stored.device !== slot.device || stored.event !== slot.event || stored.namespace !== slot.namespace) refuse('scope_changed');
   }
-  async function clean(slot: Slot, reason: Cleanup) {
-    const cleaning = {...slot, mode:'cleaning' as const, generation:slot.generation + 1};
-    let markerFailed = false;
-    try {save(cleaning);} catch {markerFailed = true;}
-    if (slot.namespace) {
-      const repo = await openLocalRegister(scopeOf(slot));
-      try {await repo.quarantine(reason);}
-      finally {repo.dispose();}
-    }
-    if (markerFailed) refuse('register_locator_unavailable');
-    save({...cleaning, mode:'sealed'});
-  }
-  async function lose(slot: Slot, reason: Cleanup) {
+  const clean = (slot: RegisterSlot, reason: RegisterCleanup) => cleanRegisterSlot(subject,academy,slot,reason);
+  async function lose(slot: RegisterSlot, reason: RegisterCleanup) {
     await underLock(async () => {
       current(slot);
       await clean(slot,reason);
@@ -95,6 +71,7 @@ export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
   async function activation(recover: boolean) {
     const slot = await underLock(async () => {
       lifetime.throwIfAborted();
+      assertAccount();
       let existing = load();
       if (existing && existing.event !== event) refuse('different_registered_event');
       if (existing?.mode === 'cleaning') {
@@ -103,9 +80,10 @@ export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
       }
       if (!recover && existing?.mode === 'active') return existing;
       if (recover && !existing?.namespace) refuse('register_not_prepared');
-      const pending: Slot = existing ?
+      const pending: RegisterSlot = existing ?
         {...existing, generation:existing.generation + 1, mode:'reserved'} :
         {device:crypto.randomUUID(), event, namespace:null, generation:1, mode:'reserved'};
+      assertAccount();
       save(pending);
       return pending;
     });
@@ -141,8 +119,9 @@ export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
       } finally {repo.dispose();}
     });
   }
-  async function operate<T>(work: (repo: LocalRegisterRepository, scope: RegisterScope, fence: number)=>Promise<T>) {
+  async function operate<T>(work: (repo: LocalRegisterRepository, scope: RegisterScope, fence: number, slotGeneration:number)=>Promise<T>) {
     lifetime.throwIfAborted();
+    assertAccount();
     const slot = load();
     if (!slot || slot.event !== event || slot.mode !== 'active') refuse('account_verification_required');
     const scope = scopeOf(slot), repo = await openLocalRegister(scope);
@@ -152,7 +131,7 @@ export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
       current(slot);
       if (access.state === 'expired') {await lose(slot,'thirty_days'); refuse('account_verification_required');}
       if (access.state === 'verify_online') refuse('clock_verification_required');
-      const result = await work(repo,scope,access.fence);
+      const result = await work(repo,scope,access.fence,slot.generation);
       current(slot);
       return result;
     } catch (error) {
@@ -182,13 +161,13 @@ export function ownerRegisterPilot(input: Context, scopeSignal: AbortSignal) {
   return {
     prepare: () => preparing ??= prepare().finally(()=>{preparing=undefined;}),
     recover: async () => {await activation(true);},
-    read: () => operate(async repo => {
+    read: (after?:string) => operate(async (repo,_scope,_fence,slotGeneration) => {
       const original = await repo.readActiveOriginal(event);
-      const page = await repo.readPage(event).catch((error: unknown) => {
+      const page = await repo.readPage(event,after).catch((error: unknown) => {
         if (error instanceof Error && error.message === 'not_downloaded') return null;
         throw error;
       });
-      return {original,page};
+      return {original,page,slotGeneration};
     }),
     capture: (op: string, captured_at: string, marks: unknown) => operate(repo =>
       repo.captureRegister({action:'register',academy,event,op,captured_at,marks})),
