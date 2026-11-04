@@ -15,13 +15,34 @@ try{
  await page.locator('.workspace-center').evaluate(e=>e.scrollTop=600);await page.locator('.workspace-inspector').evaluate(e=>e.scrollTop=350);
  assert.equal(await page.locator('.workspace-center').evaluate(e=>e.scrollTop),600);assert.equal(await page.locator('.workspace-inspector').evaluate(e=>e.scrollTop),350);assert.equal(await page.locator('.workspace-sidebar').evaluate(e=>e.scrollTop),0);assert.equal(await page.evaluate(()=>scrollY),0);
  await page.locator('.workspace-sidebar').evaluate(e=>e.scrollTop=250);assert.equal(await page.locator('.workspace-center').evaluate(e=>e.scrollTop),600);
- const divider=page.getByRole('separator',{name:ar?'تغيير عرض التفاصيل':'Resize details',exact:true});await divider.focus();await divider.press('End');await expect(divider).toHaveAttribute('aria-valuenow','480');await divider.press('Home');await expect(divider).toHaveAttribute('aria-valuenow','280');await divider.press(ar?'ArrowRight':'ArrowLeft');await expect(divider).toHaveAttribute('aria-valuenow','296');
+ const divider=page.getByRole('separator',{name:ar?'تغيير عرض التفاصيل':'Resize details',exact:true});await divider.focus();await divider.press('End');await expect(divider).toHaveAttribute('aria-valuenow','420');await divider.press('Home');await expect(divider).toHaveAttribute('aria-valuenow','260');await divider.press(ar?'ArrowRight':'ArrowLeft');await expect(divider).toHaveAttribute('aria-valuenow','276');
  const box=await divider.boundingBox();await page.mouse.move(box.x+box.width/2,box.y+50);await page.mouse.down();await page.mouse.move(box.x+(ar?100:-100),box.y+50);await page.mouse.up();assert.ok(Number(await divider.getAttribute('aria-valuenow'))>350);
  // Click the rendered sticky control, avoiding locator auto-scroll to its original flow position.
  const toggle=page.getByRole('button',{name:ar?'إخفاء التفاصيل':'Hide details',exact:true}),toggleBox=await toggle.boundingBox();await page.mouse.click(toggleBox.x+toggleBox.width/2,toggleBox.y+toggleBox.height/2);await expect(page.locator('.workspace-inspector')).toBeHidden();assert.equal(await page.locator('.workspace-center').evaluate(e=>e.scrollTop),600);const show=page.getByRole('button',{name:ar?'إظهار التفاصيل':'Show details',exact:true}),showBox=await show.boundingBox();await page.mouse.click(showBox.x+showBox.width/2,showBox.y+showBox.height/2);await expect(page.locator('.inspector-heading h2')).toBeFocused();
  await page.locator('.layout-menu summary').click();await page.getByRole('button',{name:ar?'تصغير التنقل':'Compact navigation',exact:true}).click();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','compact');await page.locator('.layout-menu summary').click();
- await page.reload();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','compact');const prefs=JSON.parse(await page.evaluate(()=>localStorage.getItem('academyos:layout:v1')));assert.deepEqual(Object.keys(prefs).sort(),['compact','detailsHidden','inspectorWidth']);
- await reset();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','expanded');await expect(divider).toHaveAttribute('aria-valuenow','336');
+ await page.reload();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','compact');const prefs=JSON.parse(await page.evaluate(()=>localStorage.getItem('academyos:layout:v1')));assert.deepEqual(Object.keys(prefs).sort(),['compact','detailsHidden','inspectorWidth','navigationHidden','navigationWidth']);
+ await reset();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','expanded');await expect(divider).toHaveAttribute('aria-valuenow','276');
+ const navigation=page.getByRole('separator',{name:ar?'تغيير عرض التنقل':'Resize navigation',exact:true});
+ await expect(navigation).toHaveAttribute('aria-valuenow','220');
+ await navigation.press(ar?'ArrowLeft':'ArrowRight');
+ await expect(navigation).toHaveAttribute('aria-valuenow','236');
+ const navigationBox=await navigation.boundingBox();
+ await page.mouse.move(navigationBox.x+navigationBox.width/2,navigationBox.y+60);
+ await page.mouse.down();await page.mouse.move(navigationBox.x+(ar?-60:60),navigationBox.y+60);await page.mouse.up();
+ assert.ok(Number(await navigation.getAttribute('aria-valuenow'))>280);
+ await navigation.press('End');await expect(navigation).toHaveAttribute('aria-valuenow','336');
+ await page.getByRole('button',{name:ar?'إخفاء التنقل':'Hide navigation',exact:true}).click();
+ await expect(page.locator('.workspace-sidebar')).toBeHidden();
+ await expect(navigation).toBeHidden();
+ await page.getByRole('button',{name:ar?'إظهار التنقل':'Show navigation',exact:true}).click();
+ await expect(navigation).toHaveAttribute('aria-valuenow','336');
+ await navigation.press('Enter');await expect(navigation).toHaveAttribute('aria-valuenow','220');
+ const appearance=page.locator('.theme-toggle');
+ await expect(appearance).toHaveText(ar?'الوضع الداكن':'Dark mode');
+ assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).colorScheme),'light');
+ await appearance.click();
+ assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).colorScheme),'dark');
+ await appearance.click();
  await page.screenshot({path:resolve(out,`desktop-${ar?'ar':'en'}.png`)});
  const retained=await page.getByRole('button',{name:'Record 4',exact:true}).elementHandle();await retained.focus();await page.setViewportSize({width:1024,height:700});await expect(page.getByRole('button',{name:ar?'التفاصيل والسياق':'Details & context',exact:true})).toBeVisible();assert.equal(await retained.evaluate(e=>e.isConnected),true,'Breakpoint must retain the working-list DOM');await expect(page.getByRole('button',{name:'Record 4',exact:true})).toBeFocused();await page.setViewportSize({width:1440,height:600});await expect(divider).toBeVisible();assert.equal(await retained.evaluate(e=>e.isConnected),true);await expect(page.getByRole('button',{name:'Record 4',exact:true})).toBeFocused();
  for(const width of [1280,1024,768,720,390,360,320]){await page.setViewportSize({width,height:700});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`${width} overflow`);if(width<1280)await expect(divider).toBeHidden();if(width<768){assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight>innerHeight),'Phone retains natural page scroll');await page.getByRole('button',{name:'Record 4',exact:true}).click();await expect(page.locator('dialog[open]')).toBeVisible();await page.locator('dialog[open]').press('Escape');await expect(page.locator('dialog[open]')).toHaveCount(0);}}

@@ -69,7 +69,8 @@ try {
   page.on('request', r => {if (r.isNavigationRequest() && r.frame() === page.mainFrame()) documents.push(r.url());});
   let start = now();
   await page.goto(origin+base+'/home');
-  await expect(page.getByRole('heading',{name:'Today at your academy'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Academy operations',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Today’s sessions',exact:true})).toBeVisible();
   await expect(page.locator('.experience-session').filter({hasText:'Published'}).first()).toBeVisible();
   await expect(link('Open calendar')).toBeVisible();
   await expect.poll(() => state.events.some(e=>e.route==='experience'&&e.status===200)).toBe(true);

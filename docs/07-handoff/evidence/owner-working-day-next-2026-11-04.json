@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 252,
-    "calendarMs": 122,
-    "dateMs": 164,
+    "homeMs": 223,
+    "calendarMs": 110,
+    "dateMs": 167,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 186,
-    "selectReviewSaveMs": 757,
+    "firstPrepareMs": 218,
+    "selectReviewSaveMs": 752,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 184,
-    "originalReplayMs": 112,
+    "offlineRestartMs": 200,
+    "originalReplayMs": 109,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -240,7 +240,7 @@
     "scripts/working-day/owner_fixture.mjs": "06000aef4c8e3088b183cd91a482e25f7ba9209b952e4eb3e016f97e1aee5a31",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
     "scripts/working-day/owner_db.py": "b90fedd7253e48c1cb811b02a2461b9e8dd766317a78843b7e877526132599f9",
-    "scripts/working-day/test_owner_next.mjs": "b034a34535c55e2209ffe5dba22b745531f20135100dfd1e24ff37669425f6ff",
+    "scripts/working-day/test_owner_next.mjs": "5728d8f738ad4fbd104cef9d78976c41d97b4406e1b710f0d0c3d60be435cc40",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "apps/web/src/app/api/experience/route.ts": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
@@ -248,8 +248,8 @@
     "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
-    "apps/web/src/components/workspace-shell.tsx": "925add5f82d99bb2a08ab278e615ab9aefdacf87903f3805e8b04c120ec86687",
-    "apps/web/src/components/experience-workspace.tsx": "ed55a22cd3e720876f51be0b754a93d08881b2162099707a7cc3cef834bb5439",
+    "apps/web/src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
+    "apps/web/src/components/experience-workspace.tsx": "0352bd61220edbab7a40bd02942df5c8199dee83b1250b407f13d6113970fb55",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "apps/web/src/lib/local-register-repository.ts": "61210d47e1aee64d4e9becb1cb07736ec9996230a2843794ac48168f5e279d12",
@@ -260,7 +260,7 @@
     "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
     "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
-    "apps/web/src/app/globals.css": "6d12337841b0f9a95648ce91e8a4184ac14d4d17f2ea64890af9a4629755c0c7",
+    "apps/web/src/app/globals.css": "a650b97be9e0ae49b2e59311dd44268d3eb9ba72b19a61e457b65760103f6f47",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",

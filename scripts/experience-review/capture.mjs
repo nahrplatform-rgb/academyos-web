@@ -15,7 +15,7 @@ async function snapshot(page,label){try{if(page.isClosed()||!page.url().startsWi
  for(const e of clone.querySelectorAll('*'))for(const a of [...e.attributes])if(a.name.startsWith('on'))e.removeAttribute(a.name);
  const controls=[...document.querySelectorAll('[data-review-node]')].map(e=>{const r=e.getBoundingClientRect();return {node:e.getAttribute('data-review-node'),tag:e.tagName,label:e.getAttribute('aria-label')||e.innerText||e.getAttribute('placeholder')||e.getAttribute('name')||e.getAttribute('type')||e.tagName,disabled:!!e.disabled,visible:!!r.width&&!!r.height}});
  let css='';for(const sheet of document.styleSheets)try{css += [...sheet.cssRules].map(r=>r.cssText).join('\n')}catch{}
- return {html:clone.innerHTML,css,text:document.body.innerText,controls,lang:document.documentElement.lang,dir:document.documentElement.dir,scroll:{x:scrollX,y:scrollY},focus:document.activeElement?.getAttribute('data-review-node')};
+ return {html:clone.innerHTML,css,text:document.body.innerText,controls,lang:document.documentElement.lang,dir:document.documentElement.dir,theme:document.documentElement.dataset.theme,scroll:{x:scrollX,y:scrollY},focus:document.activeElement?.getAttribute('data-review-node')};
  });const id=journey+'-'+sequence++,viewport=page.viewportSize();const cssId=createHash('sha256').update(data.css).digest('hex');emit({type:'style',id:cssId,css:data.css});delete data.css;emit({type:'frame',id,journey,label,viewport,cssId,...data});return id;
  }catch(e){emit({type:'gap',journey,label,error:String(e)});return null}}
 async function wrapPage(page){if(pages.has(page))return page;pages.add(page);

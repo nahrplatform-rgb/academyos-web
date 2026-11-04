@@ -26,11 +26,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-11: Persistent-local reopened working-day acceptance and role adoption gate
 
-Next action: Prepare exact-source synthetic hosted verification and independent security handoff for the gated register. Verify closed staging behavior first. Keep schema, wrapping key and activation separate. Cover real account switching, supported physical devices, cleanup, custody and service costs before any private activation.
+Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
 
-Scoped dependency gate: Scoped local product and fictional working-day evidence passed. Hosted identity, custody, browser/device and independent security evidence still required. Working Owner acceptance remains separate.
+Scoped dependency gate: Combined local evidence passes. Exact candidate CI, Owner promotion, closed runtime, custody, physical-device evidence and independent security are separate. Owner working acceptance pending.
 
-Read: `docs/07-handoff/owner-register-workspace-checkpoint.md`
+Read: `docs/07-handoff/owner-register-staging-handoff.md`
 
 ## Ordered primary checkpoints
 
@@ -154,18 +154,18 @@ Design: Approved Owner capture/recovery policy and design retained. Scoped dispa
 
 Routing: primary / 6 / current.
 Dependencies: EX-02; EX-03; EX-04; EX-06.
-Dependency gate: Scoped local product and fictional working-day evidence passed. Hosted identity, custody, browser/device and independent security evidence still required. Working Owner acceptance remains separate.
+Dependency gate: Combined local evidence passes. Exact candidate CI, Owner promotion, closed runtime, custody, physical-device evidence and independent security are separate. Owner working acceptance pending.
 Findings: NR01; NR02; NR03; NR08; NR13; NR14; NR15; NR16; NR17; G01; G02; G03; G04; G05; G06; G07; G08; G09.
 Design: Connected designs and one-register personal-device scope/current-Owner recovery approved; activation and working acceptance remain separate.
 
-- Implementation: Gated product attendance integration supports explicit personal-device preparation, cold public-shell restart, account-wide logout and protected same-account recovery.
-- Local checks: Seven connected product workspace, eight connected fictional working-day and 15 registered lifecycle checks pass. Cold Arabic register reopened with zero API calls and kept unsaved choices through reconnect. Broader case statuses retained.
-- Deployment: Local checkpoint. No new pilot deployment or activation.
-- Hosted verification: Private pilot not hosted or verified; prior online staging evidence retained
+- Implementation: Combined candidate preserves the live Owner Operations shell and Today with gated register preparation, offline startup, account cleanup and same-account recovery.
+- Local checks: Combined production build, 93 units, seven workspace and eight working-day cases, and navigation and geometry checks pass. Earlier registered lifecycle evidence retained.
+- Deployment: Staging serves Operations 56736d8. Register-only 6c8d517 preview is Ready. Combined candidate is separate.
+- Hosted verification: Canonical alias and public route behavior verified on 56736d8. Combined closed smoke and private runtime still pending.
 - Owner acceptance: Working acceptance pending; prior policy and design approvals retained
 - Independent security: open
-- Next action: Prepare exact-source synthetic hosted verification and independent security handoff for the gated register. Verify closed staging behavior first. Keep schema, wrapping key and activation separate. Cover real account switching, supported physical devices, cleanup, custody and service costs before any private activation.
-- Evidence: docs/07-handoff/owner-register-workspace-checkpoint.md
+- Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
+- Evidence: docs/07-handoff/owner-register-staging-handoff.md
 
 ### EX-07 — Remaining complete Charcoal journey parity
 
@@ -173,16 +173,16 @@ Routing: primary / 7 / queued.
 Dependencies: EX-01; EX-11.
 Dependency gate: Retain existing approved/delivered redesign; use the EX11 accepted scoped working pattern before broader new adoption; per-role/state reviews remain.
 Findings: NR03; NR16.
-Design: connected proposal approved 29 October; scope preserved.
+Design: Connected Charcoal proposal approved. Later Owner Operations design approved for the scoped shell and Today work..
 
-- Implementation: partial_existing
-- Local checks: per-journey receipts; not full parity
-- Deployment: partial_existing
-- Hosted verification: partial_existing
+- Implementation: Partial. Owner Operations shell and Today preserved in the combined register candidate.
+- Local checks: Per-journey evidence and scoped Operations browser, navigation and geometry checks.
+- Deployment: Owner Operations source 56736d8 verified at the existing staging alias. Combined candidate separate.
+- Hosted verification: Exact Operations source and process availability verified. Combined runtime and full parity pending.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: open
-- Next action: Retain prior functional/Charcoal approvals;extend accepted durable-data/lifecycle behaviour across current journeys with actual preview/runtime evidence;future features explicit
-- Evidence: docs/06-delivery/full-experience-redesign.md
+- Next action: Retain deployed Owner Operations work when releasing register changes. Continue the remaining accepted redesign after EX-11 with signed-in exact-source and per-role evidence.
+- Evidence: design/operations-review/owner-today-batch.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
@@ -228,9 +228,9 @@ Design: Owner approved one personal-device published register, minimal fields, 3
 
 - Implementation: Gated Owner workspace, explicit device preparation, public offline startup and account-wide cleanup use the registered key, transfer and dispatch lifecycle.
 - Local checks: Seven connected workspace cases and 15 registered lifecycle cases pass with Chromium, Next and PG17. Fixture identity and provider adapters. No real Clerk or hosted custody proof.
-- Deployment: Local checkpoint with gate closed. No hosted schema, configured key or private rollout.
-- Hosted verification: not_verified
+- Deployment: Pilot migrations and register RPCs absent from staging. Wrapping-root custody and private activation pending.
+- Hosted verification: Read-only migration and catalog absence verified. Private identity, device and custody cases pending.
 - Owner acceptance: One-register scope and recovery rule approved for implementation 4 November; private activation and working acceptance separate
 - Independent security: open
-- Next action: Prepare exact-source synthetic hosted verification and independent security handoff for the gated register. Verify closed staging behavior first. Keep schema, wrapping key and activation separate. Cover real account switching, supported physical devices, cleanup, custody and service costs before any private activation.
-- Evidence: docs/07-handoff/owner-register-workspace-checkpoint.md
+- Next action: Verify exact combined candidate CI and Vercel build. Owner alone promotes to the canonical staging hostname. Verify closed pilot and the retained Owner Operations experience on that source, then follow the separately gated synthetic and independent security cases.
+- Evidence: docs/07-handoff/owner-register-staging-handoff.md

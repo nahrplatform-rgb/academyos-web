@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+The integrated captures include the deployed [Owner Operations shell and Today work](../operations-review/owner-today-batch.md) and the default attendance route. The gated register has separate runtime evidence.
+
 4 November EX-11 follow-on. Default app captures were refreshed after the shared shell and attendance route changes. The [gated workspace receipt](../../docs/07-handoff/owner-register-workspace-checkpoint.md) covers prepared-device screens, cold offline entry and account cleanup separately. Those pilot states remain outside the default capture set and private activation remains gated.
 
 4 November EX-09: the [inactive register key release](../../docs/07-handoff/owner-register-key-checkpoint.md) is linked in loading evidence. It adds no user-facing screen or state.

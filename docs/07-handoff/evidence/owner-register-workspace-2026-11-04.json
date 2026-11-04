@@ -10,7 +10,7 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 124
+    "offlineProcessReopenMs": 184
   },
   "hashes": {
     "scripts/working-day/test_owner_startup.mjs": "20bcb42a8c0a8bc26891b507284e5c3ec5bc632dbd8fcb9e8135ed9b56cd1fd2",
@@ -23,7 +23,7 @@
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/components/attendance-workspace.tsx": "13e331cc41d517f6689551f75653333dc3102eb526b0b07248cf1ecf57356d66",
-    "apps/web/src/components/workspace-shell.tsx": "925add5f82d99bb2a08ab278e615ab9aefdacf87903f3805e8b04c120ec86687",
+    "apps/web/src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
     "apps/web/src/components/prepared-register-panel.tsx": "57727720c0271114e4846a0d530cbef7bc49471e8e08eae474669812946c0518",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",

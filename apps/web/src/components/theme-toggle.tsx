@@ -7,10 +7,10 @@ function subscribe(listener: () => void) {
   window.addEventListener(eventName, listener);
   return () => window.removeEventListener(eventName, listener);
 }
-function isLight() { return document.documentElement.dataset.theme === "light"; }
+function isLight() { return document.documentElement.dataset.theme !== "dark"; }
 /** Presentation preference only, retained during navigation; no account or private data. */
 export default function ThemeToggle({ arabic }: { arabic: boolean }) {
-  const light = useSyncExternalStore(subscribe, isLight, () => false);
+  const light = useSyncExternalStore(subscribe, isLight, () => true);
   return <Button className="theme-toggle" onClick={() => {
     document.documentElement.dataset.theme = light ? "dark" : "light";
     window.dispatchEvent(new Event(eventName));

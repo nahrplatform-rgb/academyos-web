@@ -1,0 +1,41 @@
+# EX-11 staging integration and independent security handoff
+
+4 November 2026. This packet supports the approved personal-device Owner register. It joins SEC-J12 and SEC-J16, NR15 and NR17, G08 and G09, and the [working-day acceptance cases](../06-delivery/academy-working-day-cases.csv). The [workspace receipt](owner-register-workspace-checkpoint.md) contains the earlier local proof. This packet prepares review and records source and hosted observations. Security and working-feature acceptance remain open.
+
+## Verified release state
+
+| Check | Observation |
+| --- | --- |
+| Canonical staging alias | Vercel resolved `staging.academy.nahr.dev` to [the Owner Operations release](https://vercel.com/academy-os2/academyos-web/5gycdkmrhcaMpGMFXh4iTiLHeGdz), deployment `dpl_5gycdkmrhcaMpGMFXh4iTiLHeGdz`, source `56736d88570c0b038a3eed22f65ba152a15dbd1f` on `codex/operations-owner-preview`. |
+| Existing register preview | Vercel reports [the exact register preview](https://vercel.com/academy-os2/academyos-web/8Ek2354THw885iX32PGHFa7W9VwM) Ready for `6c8d517f1555644251a2a23d6d642c421049c7df`. Its direct shell URL returned 302 without Vercel authentication. It has the branch alias only. |
+| Canonical public requests | `/en` and `/api/health` returned 200. The health reply is process-only. `/prepared-register` and its worker returned 404. Those observations describe the live Operations source. |
+| Staging database | Supabase reported 25 recorded migrations ending at `20261102124518`. Catalog checks found neither the register key table nor any of the five register RPCs. The four pending versions are `20261103165604`, `20261104002448`, `20261104012057` and `20261104013632`. |
+
+The live Operations source and register preview diverged from `f266aab`. A combined candidate preserves the deployed Today and shared shell behavior, integrates the gated account cleanup control, and rebuilds the factual review from both sets of changes. Verify the exact combined build and its alias before recording any hosted pass. A Vercel preview promotion can rebuild with target environment variables, so verify the resulting deployment again. Promotion belongs to the Owner. [Operations evidence](../../design/operations-review/owner-today-batch.md) · [Vercel promotion behavior](https://vercel.com/docs/deployments/promoting-a-deployment)
+
+## Combined local evidence
+
+The combined source passed the production build, lint, type checking and 93 unit cases. The two real Next and disposable PostgreSQL browser suites passed seven register workspace cases and eight working-day cases. The working-day test now checks the deployed Operations heading and the schedule. Its one-document, request-count, original replay and deadline assertions passed. Local navigation and 20 geometry cases passed with zero temporary scroll clamps.
+
+The local built shell and worker both returned 200. Each of the three private endpoints returned 503 with the feature settings absent on the supported localhost origin. The captured review was regenerated and passed freshness, review-tool and 66 EN/AR theme checks. One combined-run Arabic cold reopen took 184 ms with zero application API calls. Hosted identity, supported physical devices and provider costs remain open. [Combined workspace receipt](evidence/owner-register-workspace-2026-11-04.json) · [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+## Closed staging smoke
+
+1. Compare Vercel's source SHA, deployment ID and canonical alias after Owner promotion. Verify the deployment is Ready and contains both source checkpoints. Record the active Operations deployment as the fallback while its gate and schema are compatible.
+2. With the four `LOCAL_REGISTER_*_ENABLED` settings absent or false, open the existing synthetic Owner's Today and a published online register using normal sign-in. Check useful roster, EN/AR, role-appropriate menu, no personal-device action and no register worker installation by normal navigation. Use a clean profile for storage checks. Preserve the normal sign-in and sign-out path.
+3. From a clean profile inspect `GET /prepared-register` and its worker. Check 200, shell marker `register-v1`, no identity or roster in the response, online workspace guidance and no automatic worker registration. Check a same-origin JSON POST of `{}` to each private register route returns the expected closed `503 unavailable` response before identity, SQL or key use. A redirect or 404 only proves the route was unavailable at that hostname. Record headers, statuses and counts without response secrets, cookies or roster fields.
+4. Confirm migration history and catalog remain as recorded for this closed test. Keep the active rollout, database apply, wrapping-root custody, feature flags and working acceptance as distinct decisions.
+
+## Independent review and synthetic activation gate
+
+Use one existing synthetic Owner, a separately authorized foreign or wrong-role fixture, and one published register in a dedicated personal browser profile. Use fictional names only. The review owner records the exact commit, provider deployment, browser and OS versions, configuration presence as booleans, case results, residual risk and disposition. Independent reviewer and authorization for any new grant or hosted enablement are pending.
+
+| Review area | Evidence required |
+| --- | --- |
+| Identity and database | Check real Clerk principal, current scoped Owner membership, foreign academy and wrong role, revocation/withdrawal, missing and stale signatures, cross-device/event/namespace attempts, service-role and unbound RPC grants, no sensitive headers or response caching. Inspect all four migrations together. The last migration revokes the intermediate unbound grants. Apply only as a reviewed complete set during an authorized change, with actual grant and signature checks before any endpoint is opened. |
+| Wrapping root | Keep `LOCAL_REGISTER_WRAP_KEY_V1` distinct from the gateway key and out of client builds, logs and preview configuration. Establish who may read or replace it, protected backup and restore rehearsal, and rollback/rotation handling before provisioning. The source uses a versioned envelope with one configured root. Preserve the previous recovery material during any future rewrap. A missing or wrong root must fail closed and retain unresolved originals. |
+| Browser privacy and failure | Test current physical Chrome and Safari candidates on the intended device classes before claiming support. Include cold offline open, dirty reconnect, stale/revoked view, ordinary account switching, cross-tab sign-out, 30-day/clock rollback, cache eviction or quota failure, update and rollback. Inspect service-worker Cache Storage for public static assets only and IndexedDB for encrypted copies and sealed originals. Verify same-account recovery and absence of a password/token-derived key. Record that an offline browser cannot observe a remote sign-out or revocation. |
+| Writes and recovery | Save a fictional register locally and inspect exact original ID replay after a lost response. Check stale version, deadline, concurrent selection and refused upload without replacement or duplicate history. Confirm normal online recording/correction still obeys the existing rule. |
+| Service and usability | On declared device/network profiles record first useful view, blank intervals and retained draft, four first-prepare application calls, unchanged/changed checks, offline reopen, exact sync attempts, bytes, Supabase signed RPC work, Redis work and function usage. Capture measured counts and timings. Local sample results do not establish hosted percentiles or provider cost. |
+
+For rollback, stop new preparations and private endpoints through the authorized provider release procedure, restore the checked closed build as needed, and verify the ordinary online path and existing browser cleanup path. Retain encrypted pending data and its recovery material. Schema rollback, credential changes and remediation are separately reviewed. This handoff authorizes no provider mutation or private activation.

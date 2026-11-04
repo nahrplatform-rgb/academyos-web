@@ -1,5 +1,7 @@
 # Full connected experience redesign —29 October2026
 
+**4 November Owner Operations.** Review the [Owner Today candidate and acceptance gate](../../design/operations-review/owner-today-batch.md) for the approved Operations reference and its working presentation. Earlier business approvals retain their scope.
+
 **3November focused changed-state review:** [Owner offline-register packet](offline-register-decision-design.md) extends the approved Charcoal direction with local-save/reopen/sync/conflict/cleanup states. The Owner approved this connected write design3November. It remains a fictional reference; it does not change the factual app or constitute private runtime/working acceptance.
 
 **4 November execution checkpoint:** [EX-03 original register dispatch](../07-handoff/offline-register-dispatch-checkpoint.md) is implemented and verified locally with fictional data. The [execution tracker](experience-execution.csv) now selects EX-11 for a connected Owner working-day proof. Actual private key custody, scope, fields, retention, security and working acceptance remain separate gates.
