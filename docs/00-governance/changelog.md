@@ -1,5 +1,9 @@
 # Documentation changelog
 
+## Operations admission Owner promotion and hosted checkpoint — 4 November 2026
+
+Read-only provider inspection confirms checked12b9a99 on canonical staging after the Owner reported promotion. Existing signed-in EN/AR search/filter/selection/recheck/Back and Arabic390CSS-px/light/Charcoal checks passed; untruncated samples show1 recheck request and0 local-action requests; the initial reload buffer was truncated, so its exact total remains unmeasured. [Receipt and limits](../07-handoff/operations-admission-checkpoint.md) keep prior Preview/freshness history, actual hosted scope and working acceptance separate. No operating write, invitation, role change, private activation or agent promotion. Tracker/continuation now route the next Academy Operations adoption; no source change or new factual capture was required.
+
 ## Operations Platform admission and read-only role inventory — 4 November 2026
 
 Implemented the bounded Operations admission directory/status/inspector and account-scoped search/selection retention. Actual-component comparison reproduces baseline selection loss and verifies retention with unchanged1-read recheck;24 EN/AR/theme/viewport cases preserve zero-read local interaction. Existing invitation/authority/original-operation contracts remain. [Implementation and evidence](../07-handoff/operations-admission-checkpoint.md) separates local source from rollout/acceptance. [EX-12 preflight](../07-handoff/staging-role-preflight-2026-11-04.md) records current mixed roles and sole-Owner cleanup dependencies through SELECT-only inspection; no account or data mutation. Updated tracker, joins and continuation; no finding or full redesign closed from deployment.

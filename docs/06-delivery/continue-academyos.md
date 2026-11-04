@@ -34,7 +34,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Operations adoption with distinct Platform and Academy Owner journeys first
 
-Next action: Owner promotion needed: checked12b9a99 via https://vercel.com/academy-os2/academyos-web/5MPKjBS8dAvbmxReUg4jSL4darTr to existing staging.academy.nahr.dev;agents must not promote. Superseded e151 candidate failed evidence freshness. After Owner reports promotion, verify exact-source signed-in ENAR Platform admission/search/status/selection/recheck without writes/grants;update factual evidence and acceptance separately. Then continue Academy Today -> Calendar -> session/register -> exact return plus Players Operations adoption. EX12 retains current roles/preflight, fresh iCloud/pending-work and supported A sole-Owner disposition before any authorized cleanup. Preserve bounded Terra policy and no external-review wait.
+Next action: Continue bounded Academy Owner Operations adoption: Today -> Calendar -> session/register -> exact return,then Players,against the selected system with matched before/after and state/read budgets. Preserve shipped12b9 Platform checkpoint and pending working acceptance;do not repeat its promotion/design review or claim whole-finding closure. EX12 supports fresh isolated iCloud/pending-work proof and supported A sole-Owner disposition before any exact authorized cleanup;no account mutation inferred. No external-review wait;bounded Terra policy retained.
 
 Scoped dependency gate: Completed scoped EX10/02/06/04/03 and closed staging proof retained. EX12 prepares dedicated-role contexts and exact mutations; actual grants/transfers/cleanup/activation keep explicit authority. Independent security review is deferred and nonblocking, not passed. Current checks and actual per-role fidelity/evidence remain required.
 
@@ -168,11 +168,11 @@ Design: Full connected workflow design approved29October; later Operations selec
 
 - Implementation: Partial. Delivered Owner Operations retained; Platform admission now adopts Operations, loaded-data search/status/delivery and account-scoped view continuity. Full role/journey parity remains incomplete.
 - Local checks: 4Nov Platform: selected-context loss fixed;24 ENAR/theme/viewport cases in prod/dev,93 units,17 foundation,16 capture suites,8 working-day/7 startup cases,9 receipt freshness checks and build/type/lint/review/docs passed. Corrected exact-source CI both passed.
-- Deployment: Corrected12b9a99 Ready preview dpl_5MPKjBS8dAvbmxReUg4jSL4darTr;both CI runs passed. Owner promotion pending;canonical staging remains ef73a36 / dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM.
-- Hosted verification: Current Gmail session/subject and mixed-role chooser read-only verified;Preview auth is unconfigured/fails closed. New-source signed-in staging verification awaits Owner promotion. Prior scoped Owner evidence retained.
+- Deployment: Owner-promoted12b9a99 / dpl_HJ5sFEJ5uJXh954APLtwumia8R36 Ready on canonical staging;alias+exact-SHA source independently verified4Nov. Both code CI runs passed;no agent promotion.
+- Hosted verification: 4Nov real Platform ENAR loaded-only search/status/selection,recheck retains search/selection/focus,Back,light/Charcoal and390CSSpx AR passed. Recheck1 read,local actions0;entry observed1 but event buffer truncated,exact total open. Two accepted invitations only;no writes/grants. Mixed roles retained; broader checks/working acceptance open.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Owner promotion needed: checked12b9a99 via https://vercel.com/academy-os2/academyos-web/5MPKjBS8dAvbmxReUg4jSL4darTr to existing staging.academy.nahr.dev;agents must not promote. Superseded e151 candidate failed evidence freshness. After Owner reports promotion, verify exact-source signed-in ENAR Platform admission/search/status/selection/recheck without writes/grants;update factual evidence and acceptance separately. Then continue Academy Today -> Calendar -> session/register -> exact return plus Players Operations adoption. EX12 retains current roles/preflight, fresh iCloud/pending-work and supported A sole-Owner disposition before any authorized cleanup. Preserve bounded Terra policy and no external-review wait.
+- Next action: Continue bounded Academy Owner Operations adoption: Today -> Calendar -> session/register -> exact return,then Players,against the selected system with matched before/after and state/read budgets. Preserve shipped12b9 Platform checkpoint and pending working acceptance;do not repeat its promotion/design review or claim whole-finding closure. EX12 supports fresh isolated iCloud/pending-work proof and supported A sole-Owner disposition before any exact authorized cleanup;no account mutation inferred. No external-review wait;bounded Terra policy retained.
 - Evidence: docs/07-handoff/operations-admission-checkpoint.md
 
 ### EX-11 — Persistent-local reopened working-day acceptance and role adoption gate
@@ -237,7 +237,7 @@ Design: measurement profiles required.
 - Implementation: not_applicable
 - Local checks: partial_baseline
 - Deployment: not_applicable
-- Hosted verification: Closed ef73a36 staging source, Owner EN/AR, public shell, private endpoint gates and schema absence verified. Private roles, percentiles and provider cost remain open.
+- Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open.
 - Owner acceptance: not_applicable
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
 - Next action: Measure first preparation versus reopened local stores,unchanged manifests,changed transfers,local queries,save/recovery and device/scope/storage cases per batch;preserve source/provider/role/physical limits
