@@ -136,7 +136,7 @@
     "source_transition": "Owner-promoted7ddc6f1 independently verified;new SPA repair not deployed"
   },
   "remaining": [
-    "Exact SPA repair source CI/automatic build and Owner promotion",
+    "Owner promotion of checked86d7fac automatic build",
     "actual SPA preparation without manual reload and remaining signed-in matrix",
     "cold People context,device,provider/percentile and working acceptance gaps"
   ],
@@ -217,7 +217,8 @@
       }
     ],
     "staging_source_unchanged": false,
-    "schema_configuration_receipt": "activation.json"
+    "schema_configuration_receipt": "activation.json",
+    "provenance": "Retained7ddc6f1 delivery;current86d7fac repair delivery is in spa_repair"
   },
   "rendered_qa": {
     "browser": "Chromium via existing Playwright harness; Browser plugin/skill absent",
@@ -290,8 +291,16 @@
       "offlineAssets": 2,
       "legacyNormalRoute": true
     },
-    "exact_source_ci": "pending",
-    "automatic_build": "pending",
+    "exact_source_ci": "passed_both",
+    "automatic_build": {
+      "id": "dpl_AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+      "state": "READY",
+      "target": null,
+      "url": "https://academyos-p9mv4ecn2-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "environment": "automatic Preview"
+    },
     "hosted_repaired_source": "not yet deployed",
     "evidence": "hosted.json",
     "source_checks": "Transport44,Owner startup8,working-day8 and key15 source-bound receipts verified;no rerun of unchanged provider or schema operations",
@@ -313,6 +322,38 @@
       "changed_markdown_link_targets": "10 changed documents;all local destinations exist",
       "git_diff_check": "passed",
       "provider_mutations_during_public_code_repair": false
+    },
+    "checked_source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "ci": [
+      {
+        "id": 42052062395,
+        "event": "push",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052062395"
+      },
+      {
+        "id": 42052074810,
+        "event": "pull_request",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052074810"
+      }
+    ],
+    "owner_promotion": "pending;Owner only",
+    "recorded_delivery_at": "2026-11-05T15:24:59.440429+00:00",
+    "staging_before_repair_promotion": {
+      "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+      "id": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
+      "state": "READY"
+    },
+    "delivery_documentation_checks": {
+      "execution_and_canonical": "passed;13 batches,17 findings,71 planned/evidence-linked cases;68screens/30actions/180requirements",
+      "continuation_prompt": "generated and freshness passed;EX-13 remains current",
+      "factual_html": "inventory rebuilt;1189states/1163transitions;review tool and freshness passed",
+      "changed_markdown_links": "7 documents;all local targets exist",
+      "git_diff_check": "passed",
+      "runtime_source_change_in_delivery_receipt": false
     }
   }
 }

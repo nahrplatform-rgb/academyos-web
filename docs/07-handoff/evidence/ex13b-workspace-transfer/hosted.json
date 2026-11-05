@@ -57,7 +57,7 @@
     "observed_worker_window_client_url": "https://staging.academy.nahr.dev/en/sign-in",
     "message": "prepare-workspace-public-shell",
     "source_guard": "prepared-workspace-worker.js lines74\u201376 at7ddc6f1 rejects the initial sign-in Client.url",
-    "native_observation": "Temporary breakpoint at message guard exposed WindowClient.url;actual typed message/port arrived. No workspace cache before normal-route reload.",
+    "native_observation": "Temporary breakpoint at message guard exposed WindowClient.url;the expected legacy string message and port arrived. No workspace cache before normal-route reload.",
     "diagnostic_limit": "Pausing the worker temporarily delayed reads and produced Sync paused;that pause is excluded from product latency/failure attribution. Worker resumed and temporary breakpoint removed."
   },
   "public_http_checks": {
@@ -85,7 +85,7 @@
     "file": "scripts/workspace-download/public_shell_spa.mjs",
     "before": "Confirmed real WindowClient URL stays sign-in after History API navigation;old source times out offline_shell_unavailable",
     "scope": "Fictional isolated Chromium;no private data/provider calls",
-    "after": "Four focused cases and full44-check transport/browser suite passed;build,types,lint and99units passed;repaired-source CI/Preview/hosted still pending",
+    "after": "Four focused cases and full44-check transport/browser suite passed;build,types,lint and99units passed;both exact86d7fac CI runs passed and automatic Preview Ready;repaired-source hosted test awaits Owner promotion",
     "negative_messages": 14,
     "metrics": {
       "spaClientUrlRetained": true,
@@ -104,7 +104,7 @@
     "private_api_cache_added": false
   },
   "remaining": [
-    "Exact repaired source build/CI and Owner promotion",
+    "Owner promotion of checked86d7fac code build",
     "Signed-in SPA-entry retest without manual reload",
     "Warm search/selection/week-month request counts",
     "Normal EN/AR offline reload/reconnect and uncovered coverage",
@@ -119,5 +119,33 @@
     "scope": "Source observation map and one isolated SPA browser regression file;no provider/user-browser/Git/nested work",
     "coordinator": "Hosted browser/provider observations,architecture,production fix,integration and evidence",
     "savings": "unmeasured"
+  },
+  "repair_delivery": {
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "ci": [
+      {
+        "id": 42052062395,
+        "event": "push",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052062395"
+      },
+      {
+        "id": 42052074810,
+        "event": "pull_request",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052074810"
+      }
+    ],
+    "preview": {
+      "id": "dpl_AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "state": "READY",
+      "target": null,
+      "url": "https://academyos-p9mv4ecn2-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/AGn4QPxJSaYPdTo471QabnbTfWWo"
+    },
+    "staging_before_repair": "7ddc6f1;Ready;Owner-controlled promotion pending",
+    "agent_promoted": false
   }
 }
