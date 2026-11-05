@@ -1,6 +1,6 @@
 {
-  "source": "ca48e2be0aa73825fbcc84f393161792bedad05c",
-  "generatedAt": "2026-11-05T08:04:55.948Z",
+  "source": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+  "generatedAt": "2026-11-05T08:28:30.476Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -58,7 +58,7 @@
     "apps/web/src/components/people-workspace.tsx": "5904b072b20e11cc6bb4ddee4fcf410746dbece0163262f701081ab4de2301ca",
     "apps/web/src/components/prepared-register-panel.tsx": "892d95dbe1a84fedccb117f0f1fb6c2d92d0c9efae3da4f7d2e85dfb8638843b",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
     "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
     "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
     "apps/web/src/components/publication-workspace.tsx": "3b42e9a45879555e694683f4a77ca972d858d23fd94e62c8be0b9029f3815961",
@@ -111,12 +111,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "871b694d5638780a45d8f0f2ac76fdeda088fb22a90f43e96eb3af828bf3b360",
-  "htmlSha256": "ad1272d49e6a5f5b0db8331973d4b438758fc3e1558f40f3033f3fe85b6dcf89",
+  "capturePackSha256": "0147f2f3e28f8ba24649e966ffea8de856cc1ec3bc3955f1e23c0e354ed8df5e",
+  "htmlSha256": "4a84b22cfbab08f4d57104a563fa54ea40fe9436773618d3f124fb2755926a20",
   "frames": 1189,
   "transitions": 1163,
   "sourceFiles": 79,
-  "sourceLiterals": 7676,
+  "sourceLiterals": 7685,
   "journeys": [
     {
       "id": "entry",

@@ -81,7 +81,7 @@ export async function normalWorkspaceFixture(root, fixture) {
 
 export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,db,pass}) {
   let browser=await chromium.launchPersistentContext(profile);
-  const pageErrors=[], failedRequests=[], requests=[];
+  const pageErrors=[], failedRequests=[], requests=[], navigationEvents=[];
   let offlineShellNavigations=0, nullGotoResponses=0;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
@@ -93,10 +93,38 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     if(!await button.isVisible())await online(page).click();
     await button.click();
   }
-  const track=page=>{
+  const track=async page=>{
+    const record=(event,value)=>{
+      navigationEvents.push({event,...value});
+      if(navigationEvents.length>100)navigationEvents.shift();
+    };
     page.on('pageerror',error=>pageErrors.push(error.message));
-    page.on('request',request=>requests.push(request.url()));
+    page.on('request',request=>{
+      requests.push(request.url());
+      if(request.isNavigationRequest())record('request',{url:request.url()});
+    });
+    page.on('framenavigated',frame=>{if(frame===page.mainFrame())record('frame',{url:frame.url()});});
     page.on('requestfailed',request=>failedRequests.push([request.url(),request.failure()?.errorText]));
+    page.on('console',message=>{
+      const text=message.text();
+      if(text.startsWith('WORKSPACE_NAV '))record('document',JSON.parse(text.slice(14)));
+    });
+    await page.addInitScript(()=>{
+      const emit=(event,extra={})=>console.debug('WORKSPACE_NAV '+JSON.stringify({event,
+        url:location.href,document:performance.timeOrigin,online:navigator.onLine,...extra}));
+      emit('init');
+      for(const name of ['pushState','replaceState']){
+        const original=history[name].bind(history);
+        history[name]=function(state,unused,url){
+          emit(name,{destination:url==null?null:String(url),stack:new Error().stack?.split('\n').slice(1,5)});
+          return original(state,unused,url);
+        };
+      }
+      for(const name of ['pageshow','pagehide','beforeunload','popstate','DOMContentLoaded','load','online','offline'])
+        addEventListener(name,()=>emit(name));
+      navigation?.addEventListener('navigate',event=>emit('navigate',{
+        destination:event.destination.url,navigationType:event.navigationType}));
+    });
   };
   async function openOffline(page,url){
     await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
@@ -127,7 +155,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
   }
   let page;
   try {
-    page=await browser.newPage();track(page);
+    page=await browser.newPage();await track(page);
     await page.goto(players);
     await page.getByRole('button',{name:'Register player',exact:true}).waitFor();
     assert.deepEqual(ui.calls.map(call=>call.action),['list']);
@@ -180,7 +208,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await browser.close();
     ui.setNetworkAvailable(false);
     browser=await chromium.launchPersistentContext(profile,{offline:true});
-    page=await browser.newPage();track(page);
+    page=await browser.newPage();await track(page);
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
     await openOffline(page,calendar);
     await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
@@ -237,8 +265,8 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
       offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses};
   } catch (error) {
-    console.error({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
-      pageErrors,failedRequests:failedRequests.slice(-25)});
+    console.error(JSON.stringify({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
+      pageErrors,failedRequests:failedRequests.slice(-25),navigationEvents:navigationEvents.slice(-35)},null,2));
     throw error;
   } finally {ui.setNetworkAvailable(true);await browser.close();}
 }

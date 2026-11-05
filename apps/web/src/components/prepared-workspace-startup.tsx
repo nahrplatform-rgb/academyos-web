@@ -40,23 +40,41 @@ export default function PreparedWorkspaceStartup() {
   useEffect(()=>{
     if(!pathPattern.test(location.pathname))return;
     const destination=location.pathname+location.search;
-    const disconnected=()=>{try{sessionStorage.removeItem(reentryKey);}catch{}};
+    let disposed=false,leaving=false,pending:AbortController|null=null;
+    const cancel=()=>{pending?.abort();pending=null;};
+    const disconnected=()=>{cancel();try{sessionStorage.removeItem(reentryKey);}catch{}};
+    const departing=()=>{leaving=true;cancel();};
     const reconnect=()=>{
       if(!navigator.onLine){disconnected();return;}
+      if(disposed||leaving||pending)return;
       // A connection can return before hydration attaches its listener. Try
-      // once on mount too, without looping when the network remains unreachable.
+      // on mount too. The browser's online flag alone does not prove that the
+      // origin is reachable, and must not reload a usable offline document.
       try {
         if(sessionStorage.getItem(reentryKey)===destination)return;
-        sessionStorage.setItem(reentryKey,destination);
       } catch {return;}
-      location.reload();
+      const controller=new AbortController();pending=controller;
+      const timer=setTimeout(()=>controller.abort(),3000);
+      void fetch('/prepared-workspace',{method:'HEAD',credentials:'omit',cache:'no-store',
+        redirect:'error',signal:controller.signal}).then(response=>{
+        if(!response.ok||response.headers.get('x-academyos-public-shell')!=='workspace-v1'||
+          controller.signal.aborted||disposed||leaving||!navigator.onLine||
+          location.pathname+location.search!==destination)return;
+        try{sessionStorage.setItem(reentryKey,destination);}catch{return;}
+        location.reload();
+      }).catch(()=>{}).finally(()=>{
+        clearTimeout(timer);if(pending===controller)pending=null;
+      });
     };
     window.addEventListener('online',reconnect);
     window.addEventListener('offline',disconnected);
+    window.addEventListener('beforeunload',departing);
     reconnect();
     return()=>{
+      disposed=true;cancel();
       window.removeEventListener('online',reconnect);
       window.removeEventListener('offline',disconnected);
+      window.removeEventListener('beforeunload',departing);
     };
   },[]);
   if(source==='')return <main className="public-task" lang={locale} dir={ar?'rtl':'ltr'}>

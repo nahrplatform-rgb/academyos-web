@@ -22,8 +22,14 @@ export async function checkStartupResume(root,pass){
           'export const readRegisterAccount=()=>null;export const subscribeRegisterAccount=()=>()=>{};':
           'export const PeopleJourney=()=>null;export const ExperienceJourney=()=>null;'}));
     }}]});
-  let documents=0;
+  let documents=0,probes=0,reachable=true,heldProbe=null,holdProbe=false;
   const server=createServer((req,res)=>{
+    if(req.url==='/prepared-workspace'&&req.method==='HEAD'){
+      probes++;
+      const reply=()=>res.writeHead(reachable?200:503,{'x-academyos-public-shell':'workspace-v1'}).end();
+      if(holdProbe)heldProbe=reply;else reply();
+      return;
+    }
     if(req.url==='/fixture.js'){
       res.writeHead(200,{'content-type':'application/javascript'}).end(output.outputFiles[0].text);return;
     }
@@ -32,7 +38,7 @@ export async function checkStartupResume(root,pass){
       res.writeHead(200,{'content-type':'text/html'}).end(`<!doctype html><div id="root"></div>
         <script>window.automaticStartup=${documents>1}</script><script src="/fixture.js"></script>`);return;
     }
-    res.writeHead(404).end();
+    res.writeHead(404,{'content-type':'text/html'}).end('<h1>Another task</h1>');
   });
   let browser;
   try{
@@ -46,12 +52,14 @@ export async function checkStartupResume(root,pass){
     await page.evaluate(()=>window.mountStartup());
     assert.equal((await first).status(),200);
     await expect(page.getByText('This workspace has no prepared data on this device.',{exact:false})).toBeVisible();
+    assert.equal(probes,1);
     assert.equal(await page.evaluate(()=>sessionStorage.getItem('academyos.workspace-reentry.v1')),new URL(target).pathname);
     await page.evaluate(()=>{
       window.dispatchEvent(new Event('online'));
       window.dispatchEvent(new Event('online'));
     });
     assert.equal(documents,2);
+    assert.equal(probes,1);
     pass('A connection restored before public startup mounts retries the normal URL once without a reload loop');
     const next=page.waitForResponse(response=>response.request().isNavigationRequest()&&response.url()===target);
     await page.evaluate(()=>{
@@ -61,7 +69,31 @@ export async function checkStartupResume(root,pass){
     await next;
     await expect(page.getByText('This workspace has no prepared data on this device.',{exact:false})).toBeVisible();
     assert.equal(documents,3);
+    assert.equal(probes,2);
     pass('A later offline/online cycle clears the public reentry guard and permits the next recovery');
+
+    await page.close();
+    documents=0;probes=0;reachable=false;
+    const unavailable=await browser.newPage();
+    await unavailable.goto(target);
+    await unavailable.evaluate(()=>window.mountStartup());
+    await expect.poll(()=>probes).toBe(1);
+    await expect(unavailable.getByText('This workspace has no prepared data on this device.',{exact:false})).toBeVisible();
+    assert.equal(documents,1);
+    pass('A browser reporting online with an unavailable origin retains the public workspace without reloading it');
+    await unavailable.close();
+
+    documents=0;probes=0;reachable=true;holdProbe=true;
+    const leaving=await browser.newPage();
+    await leaving.goto(target);
+    await leaving.evaluate(()=>window.mountStartup());
+    await expect.poll(()=>probes).toBe(1);
+    await leaving.goto(new URL('/another-task',target).href);
+    heldProbe();
+    await expect(leaving.getByRole('heading',{name:'Another task',exact:true})).toBeVisible();
+    assert.equal(leaving.url(),new URL('/another-task',target).href);
+    assert.equal(documents,1);
+    pass('A late public reachability response cannot replace an outgoing task navigation');
   }finally{
     await browser?.close();
     if(server.listening)await new Promise(resolve=>server.close(resolve));

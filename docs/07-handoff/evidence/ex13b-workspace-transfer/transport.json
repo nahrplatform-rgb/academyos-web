@@ -22,16 +22,16 @@
     "scripts/workspace-download/test_transport.mjs": "6eeb35e3f8547ec787c1e854ddaab45252621d9716f4d677fc358bfcff46fff0",
     "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "21ee64638158532c2adccdab2b495d13b418a3bdd88bf106f8b8cced649aa593",
+    "scripts/workspace-download/normal_workspace.mjs": "3a2bad16c021b590073ef53a5db05dc0102a3bcdce73429522e7fa01e8e6d5db",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
-    "scripts/workspace-download/startup_resume.mjs": "63d6ac727211e85dee5a98bfb65dd03872b3efbf81daa178ac72ca05c4e4204b",
+    "scripts/workspace-download/startup_resume.mjs": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
     "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "apps/web/public/prepared-workspace-worker.js": "8ff71436d6fa948ca1468d1a61a9c80f43c56305f2d00b8aa5565eeaeac5b404",
     "apps/web/src/lib/workspace-public-shell.ts": "c3ee694ab01939845bd1071d51ba5b8ba655ab1a0ddda4aa1f4d8eadca2341ac",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
     "apps/web/src/components/people-workspace.tsx": "5904b072b20e11cc6bb4ddee4fcf410746dbece0163262f701081ab4de2301ca",
     "apps/web/src/components/experience-workspace.tsx": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
@@ -81,7 +81,9 @@
     "Re-enabling a capability finishes its interrupted retirement before any new preparation",
     "Register-only rollback preserves workspace data and protected originals recover byte-identically after the register capability returns",
     "A connection restored before public startup mounts retries the normal URL once without a reload loop",
-    "A later offline/online cycle clears the public reentry guard and permits the next recovery"
+    "A later offline/online cycle clears the public reentry guard and permits the next recovery",
+    "A browser reporting online with an unavailable origin retains the public workspace without reloading it",
+    "A late public reachability response cannot replace an outgoing task navigation"
   ],
   "metrics": {
     "initialPeople": {
@@ -96,7 +98,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 15.30120899999929,
+      "elapsedMs": 15.98949999999968,
       "operatingRequests": 0
     },
     "workspaceDevice": {

@@ -1,0 +1,12 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "environment": "staging",
+  "version": 1,
+  "created_at": "2026-11-05T08:25:45.625990+00:00",
+  "recipient": "age15ca2qpffygqeey86dlhquz23fglv9y4h5mdxx8psaqxdvlqs65ysfu5q42",
+  "ciphertext_sha256": "f9efe0f1811c3619fb794d1ec4ecda5e434beebd5ead089168769dcd4e8e4a17",
+  "encrypted_backup_restored": true,
+  "provider_provisioned": false,
+  "note": "One V1 root; no automatic rotation or replacement. Preserve for pending ciphertext recovery.",
+  "capability": "owner-workspace-v1"
+}

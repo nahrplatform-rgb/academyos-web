@@ -1,6 +1,6 @@
 {
-  "recorded_at": "2026-11-05T08:04:27.642814+00:00",
-  "source_base": "ca48e2be0aa73825fbcc84f393161792bedad05c",
+  "recorded_at": "2026-11-05T08:28:04.974920+00:00",
+  "source_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
@@ -14,9 +14,9 @@
     "scripts/workspace-download/test_transport.mjs": "6eeb35e3f8547ec787c1e854ddaab45252621d9716f4d677fc358bfcff46fff0",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
     "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
-    "scripts/workspace-download/normal_workspace.mjs": "21ee64638158532c2adccdab2b495d13b418a3bdd88bf106f8b8cced649aa593",
-    "scripts/workspace-download/startup_resume.mjs": "63d6ac727211e85dee5a98bfb65dd03872b3efbf81daa178ac72ca05c4e4204b"
+    "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
+    "scripts/workspace-download/normal_workspace.mjs": "3a2bad16c021b590073ef53a5db05dc0102a3bcdce73429522e7fa01e8e6d5db",
+    "scripts/workspace-download/startup_resume.mjs": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3"
   },
   "checks": [
     {
@@ -47,7 +47,7 @@
     {
       "command": "node scripts/workspace-download/test_transport.mjs",
       "status": "passed",
-      "scope": "38 checks;actual cached-shell DOM on seven offline entries with fixture origin disconnected;normal components/storage/SDK/gateway/PG;four capability cleanup and two startup reconnect cases;fictional identity/legacy wire/providers"
+      "scope": "40 checks;seven exact cached-shell/new-document entries;four capability cleanup and four public startup reachability/reconnect cases;fictional identity/legacy wire/providers"
     },
     {
       "command": "node scripts/workspace-download/test_transport.mjs --check",
@@ -82,7 +82,7 @@
     {
       "command": "node scripts/experience-review/build.mjs && node scripts/experience-review/test.mjs && node scripts/experience-review/build.mjs --check",
       "status": "passed",
-      "scope": "1189 factual captured states/1163 transitions;16 refreshed suites plus welcome entry;review tool/freshness passed;gated startup remains separate runtime fixture"
+      "scope": "1189 factual captured states/1163 transitions;16 refreshed suites plus welcome entry;review tool/freshness passed;public recovery fixture separate"
     },
     {
       "command": "node scripts/navigation/test_next.mjs",
@@ -112,7 +112,12 @@
     {
       "command": "Changed-document local links and git diff --check",
       "status": "passed",
-      "scope": "150 checked Markdown local links;no whitespace errors"
+      "scope": "17 changed-document local links;no whitespace errors"
+    },
+    {
+      "command": "purpose-bound workspace custody prepare/check with separately retained digest",
+      "status": "passed",
+      "scope": "Actual new root encrypted/recovered on this Mac;not provisioned;no plaintext key emitted"
     }
   ],
   "staging_observation": {
@@ -126,7 +131,7 @@
   },
   "remaining": [
     "applicable workspace-root/schema/provider expansion authority",
-    "actual workspace encrypted root backup and sensitive staging-only configuration",
+    "sensitive staging-only workspace configuration through an approved secret-entry path",
     "exact-source candidate CI and Owner-controlled promotion",
     "signed-in hosted normal-route matrix",
     "cold Players search/selection continuity,physical device,provider cost and percentile gaps"
@@ -143,10 +148,11 @@
     "Both89e7536 CI runs failed in normal workspace fixture;no navigation response or missing Device after logout/reconnect. Retained as failed;not promoted.",
     "Local follow-up proved fromServiceWorker can describe network-backed HTML. Fixture now cuts origin and browser connection, asserts cached-shell marker at seven offline navigations and actual protected-document reentry. No request-budget/access/original assertion removed.",
     "Public startup now checks online state on mount and guards one automatic reentry per URL/connection cycle;Opening state avoids false no-downloads server markup. Two controlled browser cases passed. Session-storage failure skips automatic reentry;broader device handling remains open.",
-    "ca48e2b push passed but PR failed with null goto before the requested offline destination was observed. Exact CDP cause unmeasured. Fixture now waits for actual requested main-frame response, destination, new document and cached shell;seven entries passed,zero observed null convenience returns. No retry or weakened budget."
+    "ca48e2b push passed but PR failed with null goto before the requested offline destination was observed. Exact CDP cause unmeasured. Fixture now waits for actual requested main-frame response, destination, new document and cached shell;seven entries passed,zero observed null convenience returns. No retry or weakened budget.",
+    "Actual public startup now verifies reachable marked public HEAD before reentry,coalesces events and cancels on timeout/offline/departure/unmount. Four actual-component cases passed;forty full transport checks passed. Historical CI trace remains incomplete;extra CDP session affected emulation and was removed from the fixture."
   ],
   "delivery": {
-    "candidate_base": "ca48e2be0aa73825fbcc84f393161792bedad05c",
+    "candidate_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
     "previous_attempts": [
       {
         "source": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
@@ -162,6 +168,15 @@
         "pr": 41990060670,
         "pr_result": "failure",
         "preview": "dpl_7MjynusnyQPCTzDWrwJD87euzqQP",
+        "preview_result": "READY"
+      },
+      {
+        "source": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+        "push": 41991839581,
+        "push_result": "failure",
+        "pr": 41991849102,
+        "pr_result": "success",
+        "preview": "dpl_BJY7d4Fxmjuijid41tpGnfAHLPGk",
         "preview_result": "READY"
       }
     ],
@@ -195,5 +210,13 @@
     "fixtureOriginDisconnected": true,
     "newOfflineDocuments": 7,
     "nullGotoResponses": 0
+  },
+  "configuration_preflight": {
+    "workspace_variables_present": [],
+    "register_root_retained_as": "sensitive;production target only",
+    "register_flags_retained": 4,
+    "values_decrypted": false,
+    "cli_account_has_academyos_team": false,
+    "provider_mutated": false
   }
 }
