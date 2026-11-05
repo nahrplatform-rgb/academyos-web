@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "hashes": {
+    "apps/web/src/app/api/workspace-download/route.ts": "b18eef0fd34eaf68731d8535fe4f1f2a8897e2270e9a17b55d313e8e7a9c771f",
+    "apps/web/src/lib/workspace-download.ts": "446be7fd37c735c9436651b3ba38ba18cb5c99f8ad906b427af7c38d48164d5d",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+    "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+    "apps/web/src/lib/config.ts": "b8d7d5b92bbfde395ca9d83c4ce122562597177b038fee48c45eefe95df857ac",
+    "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/workspace-download/test_transport.mjs": "043a302916589aa97cdb7fbdc621c01a364bd78c4ee2453e63d493da0700510f",
+    "scripts/workspace-download/bridge.py": "dcd69493e0ddfc17db18b036dd909cc756bc646d6ce51a0bc410a7bd09d3beb0",
+    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
+  },
+  "checks": [
+    "Closed default performs zero authentication, limiter and database calls",
+    "Actual SDK, gateway HMAC and PostgreSQL return one manifest, three bounded pages and a coherent completion",
+    "Each transfer phase uses one entry budget, one gateway read budget and one RPC, independent of row count",
+    "An unchanged manifest retains the collection revision and scope without fetching a dataset page",
+    "Changed projection refuses the old chain and a modified signature is rejected by the database",
+    "Account mismatch and a timed-out gateway budget refuse the read before PostgreSQL",
+    "Current PostgreSQL authority denies a Platform-only account and a suspended Academy Owner",
+    "All observed wire packets stay within the declared request and response limits"
+  ],
+  "metrics": {
+    "initialPeople": {
+      "players": 56,
+      "pages": 3,
+      "apiRequests": 5,
+      "limiterChecks": 10,
+      "requestBytes": 3305,
+      "responseBytes": 15442
+    }
+  },
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Fictional Clerk, limiter and PostgREST wire; synthetic envelope. No hosted data, real key wrapping, browser storage, device or latency percentile claim."
+  }
+}

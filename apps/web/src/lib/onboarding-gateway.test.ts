@@ -107,3 +107,11 @@ test('Owner register transfer is an exact read target; phase never selects a wri
  }
  assert.throws(()=>gatewayRequest(url('x17_trainer_register_download_v1'),post()),GatewayError);
 });
+
+test('workspace transfer keeps an exact read target and separate metadata registration',()=>{
+ for(const act of ['manifest','page','resume','complete']) assert.deepEqual(gatewayRequest(url('x21_workspace_transfer_v1'),post({act})),
+  {target:'POST:/rpc/x21_workspace_transfer_v1',mutating:false});
+ assert.deepEqual(gatewayRequest(url('x21_workspace_key_v1'),post({act:'prepare'})),{target:'POST:/rpc/x21_workspace_key_v1',mutating:true});
+ assert.throws(()=>gatewayRequest(url('x21_workspace_transfer_v1'),{method:'GET'}),GatewayError);
+ assert.throws(()=>gatewayRequest(url('x21_trainer_workspace_transfer_v1'),post()),GatewayError);
+});

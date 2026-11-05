@@ -1,5 +1,7 @@
 # Cost, capacity and routine operations
 
+**EX-13B local cost evidence — 5 November:** [new backend transport/query measurements](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) separate page/RPC bytes and logical budgets from unmeasured Redis/provider charges. First-page count and conservative collection replacement costs remain. No live billing, savings or hosted-percentile claim follows from the closed transfer seam.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Budget per completed working visit and prepared coverage: first manifest+finite pages+completion; unchanged reopen with local reads and bounded auth/version checks; changed deltas or disclosed full replacement. [local-data and sync plan](local-data-and-sync-plan.md). Add disk/index/key/migration/cursor costs and interrupted work; avoid double-counting modeled savings or claiming Supabase/Redis/API work disappears. No upgrade or new telemetry authorized.

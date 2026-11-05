@@ -20,7 +20,7 @@
     "apps/web/src/app/api/register-key/route.ts": "640b5a8d3140cf161ce8a68bc2c54261d0943de1dd10a920ed1ab9ca33eaaa68",
     "apps/web/src/lib/register-key-server.ts": "87fdaf94c9e45b6fe9b7d28085efe3bcc0da4db3f3b41ffe97bfea3222d00873",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
-    "apps/web/src/lib/onboarding-gateway.ts": "2d208bea7118d7df660f66208b920d63a087e72e93cc441109f117e091080836",
+    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "supabase/migrations/20261104012057_owner_register_key_custody.sql": "8bb0528c58446a9afec48adc04f3191d98aa1abbdedd787f45918067bfca1af1",

@@ -44,11 +44,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
 
-Next action: Start EX-13B from the exact Owner workspace dataset contract: implement bounded version manifest, transactional projection revisions and signed page/completion chain with disposable-PostgreSQL negative/concurrency/size tests. Preserve the register namespace/originals;then protected repository and normal Players/Calendar offline boot/quiet sync. Follow the full-app adoption map for settings, remaining domains and future finance. Do not restart EX-13A or re-ask settled product/device/retention direction.
+Next action: Continue EX-13B from the passed closed backend checkpoint: implement the distinct typed encrypted Owner-workspace repository and actual automatic capability key wrapping/release. Prove transactional page/checkpoint/final-root publication, bounded local search, overlapping-month consistency, quota/corruption/migration/multi-tab/account/logout30day cleanup while preserving register slots/originals. Then wire normal Players/Calendar, task-first quiet sync/top-bar status and normal offline boot; measure before/after and verify staging separately. Do not restart EX-13A/transfer research or re-ask settled product/device direction. Full-app settings/finance adoption remains.
 
-Scoped dependency gate: EX-12 roles and scoped EX-11 pilot passed. EX-13A baseline/specification checkpoint recorded with hosted/device/cost gaps retained. EX-13B requires coherent bounded transfer and protected normal-route Players/Calendar under the named starting scope;prove local actions0 operating requests,unchanged0 dataset pages,bounded replacement/removals and retained context. Whole-app/working acceptance stays open.
+Scoped dependency gate: EX-12 and scoped EX-11 passed; EX-13A baseline/spec and EX-13B backend local checkpoint recorded. Current gate is protected dataset repository/custody and normal-route integration, not more transfer design. Prove local actions0 operating requests, unchanged0 dataset pages, bounded replacement/removals and retained context. Hosted/device/cost and whole-app working acceptance stay open.
 
-Read: `docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md`
+Read: `docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md`
 
 ## Ordered primary checkpoints
 
@@ -208,18 +208,18 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 
 Routing: primary / 8 / current.
 Dependencies: EX-04; EX-06; EX-09; EX-11.
-Dependency gate: EX-12 roles and scoped EX-11 pilot passed. EX-13A baseline/specification checkpoint recorded with hosted/device/cost gaps retained. EX-13B requires coherent bounded transfer and protected normal-route Players/Calendar under the named starting scope;prove local actions0 operating requests,unchanged0 dataset pages,bounded replacement/removals and retained context. Whole-app/working acceptance stays open.
+Dependency gate: EX-12 and scoped EX-11 passed; EX-13A baseline/spec and EX-13B backend local checkpoint recorded. Current gate is protected dataset repository/custody and normal-route integration, not more transfer design. Prove local actions0 operating requests, unchanged0 dataset pages, bounded replacement/removals and retained context. Hosted/device/cost and whole-app working acceptance stay open.
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
-- Implementation: EX-13A source/local baseline and first dataset engineering specification recorded. Players/month persistence and no-flash runtime changes not implemented. EX-13B starts versioned transport before repository/normal-route integration.
-- Local checks: 15 existing actual-component suites passed with test-only delayed reads;830 known-read hold observations;source/tool hashes and fictional traces retained. Earlier actual Next ENAR and20 Home/Calendar geometry receipts retained. Optional cold fixture hydration result open. New transfer/repository/normal-route offline cases unexecuted.
-- Deployment: Not deployed or enabled.
+- Implementation: EX-13A baseline/spec retained. EX-13B closed backend manifest/revision/page/resume/completion and separate workspace key metadata implemented locally; migration unapplied, flag closed. Protected browser repository/key custody/normal routes remain; no runtime refresh fix claimed.
+- Local checks: 21 disposable PG17 tests passed: coherent snapshots, exact scoped fields, revisions/removals, wrong account/role/device, bytes, rollback/concurrency, 10001-player/301-program indexed-page profile and existing register replay. Actual Next/API/SDK/gateway checks recorded; existing register regressions refreshed. UI/device/hosted/performance percentile gaps remain.
+- Deployment: New backend migration not applied; transfer flag disabled by default. No staging promotion or private dataset activation. Automatic CI/preview status is separate.
 - Hosted verification: Scoped cb00ab8 Owner observations record Setup to Players document navigation and same-document Calendar/Players rechecks. Other role/write/device and cost samples remain open. Expanded private datasets are unexecuted.
 - Owner acceptance: Full-app local-first direction and starting projection response recorded5November;working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Start EX-13B from the exact Owner workspace dataset contract: implement bounded version manifest, transactional projection revisions and signed page/completion chain with disposable-PostgreSQL negative/concurrency/size tests. Preserve the register namespace/originals;then protected repository and normal Players/Calendar offline boot/quiet sync. Follow the full-app adoption map for settings, remaining domains and future finance. Do not restart EX-13A or re-ask settled product/device/retention direction.
-- Evidence: docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md
+- Next action: Continue EX-13B from the passed closed backend checkpoint: implement the distinct typed encrypted Owner-workspace repository and actual automatic capability key wrapping/release. Prove transactional page/checkpoint/final-root publication, bounded local search, overlapping-month consistency, quota/corruption/migration/multi-tab/account/logout30day cleanup while preserving register slots/originals. Then wire normal Players/Calendar, task-first quiet sync/top-bar status and normal offline boot; measure before/after and verify staging separately. Do not restart EX-13A/transfer research or re-ask settled product/device direction. Full-app settings/finance adoption remains.
+- Evidence: docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity
 
@@ -247,7 +247,7 @@ Findings: NR09; NR10; NR11; NR12; G04.
 Design: optimization only; authority unchanged.
 
 - Implementation: not_started
-- Local checks: EX04 one-event1000row baseline/initial/unchanged/local-query samples and one actual EXPLAIN recorded;manifest remains bounded O(N);nested SQL/provider/role/load/Redis percentile measurements open;docs/07-handoff/register-download-checkpoint.md
+- Local checks: EX04 one-event1000row baseline/initial/unchanged/local-query samples and one actual EXPLAIN recorded;manifest remains bounded O(N);nested SQL/provider/role/load/Redis percentile measurements open;docs/07-handoff/register-download-checkpoint.md; EX-13B local indexed page/56-player transport costs recorded; advisor0 WARN/ERROR,164 INFO with4 new-object notices dispositioned. Legacy FK/index hints require workload measurement; real provider savings unmeasured.
 - Deployment: not_deployed
 - Hosted verification: pending
 - Owner acceptance: not_requested

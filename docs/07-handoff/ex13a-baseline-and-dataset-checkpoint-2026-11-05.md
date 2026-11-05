@@ -1,5 +1,7 @@
 # EX-13A — refresh baseline and normal-workspace dataset specification
 
+Later checkpoint: [EX-13B closed backend transfer](ex13b-workspace-transfer-checkpoint-2026-11-05.md). Its repository/normal-route handoff supersedes this packet's historical next action; baseline observations and evidence limits below remain unchanged.
+
 5 November 2026. This checkpoint expands the [root-cause investigation](refresh-root-causes-2026-11-05.md), specifies the [Owner Players/month transfer and storage contract](../04-engineering/owner-workspace-dataset-contract.md), and records the Owner's [full-app local-data direction](evidence/full-app-local-data-direction-2026-11-05.json). **No product source, migration, provider, role or deployment was changed.** The working app still has the documented refresh behavior. The current local-first runtime remains the previously verified one-register staging slice.
 
 ## Outcome and traceability

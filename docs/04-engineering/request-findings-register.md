@@ -1,6 +1,6 @@
 # Whole-app findings and coverage register
 
-**EX-13A expansion — 5 November:** [15-family local measurement and dataset specification](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) retain controlled actual-component traces and exact source/tool hashes. This is baseline evidence, not a runtime fix or whole-finding closure. EX-13B now starts coherent versioned transfer before normal Players/Calendar integration; EX-07 applies continuity to the remaining journeys.
+**EX-13A expansion — 5 November:** [15-family local measurement and dataset specification](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) retain controlled actual-component traces and exact source/tool hashes. This is baseline evidence, not a runtime fix or whole-finding closure. The [EX-13B closed backend checkpoint](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) now implements bounded coherent transfer locally. Protected repository/key custody and normal Players/Calendar integration are next; EX-07 applies continuity to the remaining journeys. No live refresh finding closes from this backend work.
 
 **5 November refresh evidence:** Signed-in staging confirmed a full document load from the Setup → Players shortcut and same-document rechecks on Calendar and Players. Local controlled runs verified route screen mounts, response-time masking and the attendance receipt-to-reread path. The [refresh baseline](../07-handoff/refresh-root-causes-2026-11-05.md) maps source triggers to WD-58 and WD-68–WD-71. EX-13A continues the remaining route/action measurements and exact dataset contracts. EX-13B and EX-07 verify the fixes in their scoped order. Earlier results and open findings retain their evidence boundaries.
 
@@ -107,6 +107,7 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 - Evidence: Live source and catalog; Owner surrogate plain EXPLAIN; no scale execution.
 - Safe reproduction / next measurement: Local dense42day fixtures, counts, first/next pages; ensure page truncation remains explicit.
 - Recommendation and safety boundary: Separate small Home projection and optimize scoped counting; never derive total from loaded page.
+- 5 November scoped follow-up: the new closed EX-13B Calendar transport bounds eligible date candidates before display joins; its 12,040-date profile visits 51 source rows for the tested page. First-page counts remain additional work. Existing x15/Home queries and whole-finding closure are unchanged. [Local backend evidence](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md).
 
 ### NR12 — Computed local-day predicates and FK suggestions
 

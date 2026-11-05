@@ -83,7 +83,7 @@ On corruption/full/eviction/missing key, retain current input/recoverable pendin
 
 ## Findings and execution
 
-All 17 findings and G01–G09 remain tracked. The [current tracker](experience-execution.csv) selects EX-13A. The scoped EX-11 pilot passed. EX-13B proves normal Owner Players/Calendar and EX-07 applies the standard across remaining implemented journeys. EX-05/08 measurements and EX-09 custody/current-access work accompany affected stages. The [refresh baseline](../07-handoff/refresh-root-causes-2026-11-05.md) separates document navigation, route mounts, in-view masking and post-write reads.
+All 17 findings and G01–G09 remain tracked. The [current tracker](experience-execution.csv) selects EX-13B protected repository/normal-route work after its [closed backend checkpoint](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md). The scoped EX-11 pilot passed. EX-13B proves normal Owner Players/Calendar and EX-07 applies the standard across remaining implemented journeys. EX-05/08 measurements and EX-09 custody/current-access work accompany affected stages. The [refresh baseline](../07-handoff/refresh-root-causes-2026-11-05.md) separates document navigation, route mounts, in-view masking and post-write reads.
 
 Earlier navigation/visible-return/cold Calendar fixes remain useful but do not implement this model. Historical effort estimates/memory-only recommendations are not current routing or renewed delivery promises.
 

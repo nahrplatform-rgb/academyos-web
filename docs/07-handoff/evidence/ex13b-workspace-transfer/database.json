@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "sources": {
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
+  },
+  "scope": "Disposable actual PostgreSQL17; synthetic identity proofs/data. No hosted schema, key custody, browser persistence or performance percentile claim."
+}

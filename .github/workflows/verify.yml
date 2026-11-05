@@ -63,6 +63,14 @@ jobs:
           node scripts/register-download/test_browser.mjs --check
           python3 scripts/register-download/test_boundary.py
           node scripts/register-download/test_browser.mjs
+      - name: Verify closed Owner workspace transfer and coherent revisions
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/workspace-download/test_transport.mjs --check
+          WORKSPACE_TRANSFER_EVIDENCE_DIR="$RUNNER_TEMP/owner-workspace-transfer" python3 scripts/workspace-download/test_boundary.py
+          node scripts/workspace-download/test_api.mjs
+          WORKSPACE_TRANSFER_EVIDENCE_DIR="$RUNNER_TEMP/owner-workspace-transfer" node scripts/workspace-download/test_transport.mjs
       - name: Verify prepared staging role transaction and protected root backup tooling
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
