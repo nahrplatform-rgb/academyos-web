@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-05T08:28:04.974920+00:00",
+  "recorded_at": "2026-11-05T08:45:37.240096+00:00",
   "source_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
@@ -127,12 +127,13 @@
     "migration_count": 29,
     "x21_workspace_applied": false,
     "workspace_configuration_mutated": false,
-    "promotion_performed_by_agent": false
+    "promotion_performed_by_agent": false,
+    "rechecked_at": "2026-11-05T08:47:28.016831+00:00"
   },
   "remaining": [
     "applicable workspace-root/schema/provider expansion authority",
     "sensitive staging-only workspace configuration through an approved secret-entry path",
-    "exact-source candidate CI and Owner-controlled promotion",
+    "Owner-controlled promotion after applicable workspace expansion activation/configuration",
     "signed-in hosted normal-route matrix",
     "cold Players search/selection continuity,physical device,provider cost and percentile gaps"
   ],
@@ -180,9 +181,34 @@
         "preview_result": "READY"
       }
     ],
-    "repair_exact_source_ci": "pending",
-    "repair_preview": "pending",
-    "staging_unchanged": true
+    "repair_exact_source_ci": "passed_both",
+    "repair_preview": {
+      "id": "dpl_9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+      "state": "READY",
+      "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+      "url": "https://academyos-5htz8xinj-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+      "target": "preview",
+      "private_workspace_activation_verified": false
+    },
+    "staging_unchanged": true,
+    "checked_source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "ci": [
+      {
+        "id": 41994973878,
+        "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+        "event": "push",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994973878"
+      },
+      {
+        "id": 41994987996,
+        "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+        "event": "pull_request",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994987996"
+      }
+    ]
   },
   "rendered_qa": {
     "browser": "Chromium via existing Playwright harness; Browser plugin/skill absent",
@@ -218,5 +244,21 @@
     "values_decrypted": false,
     "cli_account_has_academyos_team": false,
     "provider_mutated": false
+  },
+  "activation_request": {
+    "status": "requested_pending_owner_reply",
+    "requested_after": "both exact7ddc6f1 Foundation runs passed",
+    "scope": "x21 workspace migration,separate backed-up workspace root,three staging flags",
+    "not_included": "promotion,new accounts or roles,production or real data",
+    "policy": "docs/00-governance/staging-delivery-and-review-policy.md#permissions-and-environment-boundaries-retained"
+  },
+  "delivery_checkpoint_checks": {
+    "execution_validator": "passed;current EX-13;generated continuation matches",
+    "implementation_validator": "passed;68 screens,30 action groups,180 requirements",
+    "factual_inventory": "rebuilt from unchanged current capture pack;1189 states,1163 transitions",
+    "review_tool_and_freshness": "passed",
+    "changed_document_local_links": 14,
+    "git_diff_check": "passed",
+    "provider_mutations": false
   }
 }
