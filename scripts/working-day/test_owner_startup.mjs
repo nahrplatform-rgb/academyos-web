@@ -12,7 +12,7 @@ const root=resolve(import.meta.dirname,'../..');
 const evidence=join(root,'docs/07-handoff/evidence/owner-register-workspace-2026-11-04.json');
 const sources=[
   'scripts/working-day/test_owner_startup.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
-  'apps/web/next.config.ts','apps/web/public/prepared-register-worker.js','apps/web/src/app/layout.tsx',
+  'apps/web/next.config.ts','apps/web/public/prepared-register-worker.js','apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts','apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx',
   'apps/web/src/app/[locale]/layout.tsx','apps/web/src/app/prepared-register/page.tsx',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
   ...['attendance-workspace','workspace-shell','prepared-register-panel','prepared-register-startup','register-account-context','register-account-boundary']
@@ -43,15 +43,18 @@ try {
   const slotStem='academyos.register-slot.v1:user_owner:';
   async function browser(offline=false){
     context=await chromium.launchPersistentContext(join(temp,'profile'),{viewport:{width:1200,height:900}});
+    if(offline)fixture.disconnect();else fixture.reconnect();
     await context.setOffline(offline);
+    // Keep cleanup-test originals unresolved across process restarts.
+    await context.route('**/api/register-dispatch',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}));
     return context.pages()[0]??context.newPage();
   }
   function button(name,tab=page){return tab.getByRole('button',{name,exact:true});}
   async function recordMark(tab=page){
     await tab.getByRole('group').filter({has:button('Present',tab)}).first().getByRole('button',{name:'Present',exact:true}).click();
     await button('Review register',tab).click();
-    await button('Save on this device',tab).click();
-    await expect(tab.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+    await button('Save selected marks',tab).click();
+    await expect(tab.getByText(/Saved on this device · Awaiting sync|Outcome unknown · Check the original save/)).toBeVisible();
   }
   async function prepare(scope,tab=page){
     await tab.goto(url(scope));
@@ -63,7 +66,7 @@ try {
     await prepare.click();
     await expect(tab.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
     assert.deepEqual(state.events.slice(before).map(x=>x.route),['register-key','register-download','register-download','register-download']);
-    await expect(tab.getByRole('link',{name:'Offline reopening link',exact:true})).toBeVisible({timeout:20000});
+    await expect(tab.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   }
 
   page=await browser();
@@ -79,6 +82,9 @@ try {
   pass('Authorized Owner can choose the online path without key, download, locator or worker preparation');
 
   await prepare(a);
+  // Hold transport unavailable in this retained cleanup scenario. No canonical
+  // commit is expected; the original is durable even after an unknown send.
+  await context.route('**/api/register-dispatch',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}));
   await recordMark();
   await prepare(b);
   const cache=await page.evaluate(async()=>{
@@ -88,7 +94,7 @@ try {
       const cache=await caches.open(key);
       for(const request of await cache.keys()){
         const url=new URL(request.url);paths.push(url.pathname);
-        if(url.pathname==='/prepared-register'){
+        if(url.pathname==='/prepared-workspace'){
           const html=await (await cache.match(request)).text();
           privateDocument||=/user_owner|لاعب خيالي|Synthetic second|accounts\.dev/.test(html);
         }
@@ -97,11 +103,12 @@ try {
     return {paths,privateDocument};
   });
   assert.equal(cache.privateDocument,false);
-  assert.ok(cache.paths.includes('/prepared-register'));
-  assert.ok(cache.paths.every(path=>path==='/prepared-register'||path==='/prepared-register/cache-pointer'||path.startsWith('/_next/static/')));
+  assert.ok(cache.paths.includes('/prepared-workspace'));
+  assert.ok(cache.paths.every(path=>path==='/prepared-workspace'||path==='/prepared-workspace/cache-pointer'||path.startsWith('/_next/static/')));
   metrics.cachedPublicEntries=cache.paths.length;
   pass('Explicit personal-device choice uses four scoped requests and caches only a public shell and its static assets');
 
+  await page.evaluate(async()=>{const worker=await navigator.serviceWorker.register('/prepared-register-worker.js',{scope:'/prepared-register'});await navigator.serviceWorker.ready;while(worker.installing)await new Promise(r=>setTimeout(r,10));await new Promise((resolve,reject)=>{const c=new MessageChannel();c.port1.onmessage=e=>e.data==='ready'?resolve():reject(new Error('legacy preparation'));worker.active.postMessage('prepare-public-shell',[c.port2]);});});
   await context.close();
   page=await browser(true);
   const recorded=state.events.length, start=performance.now();
@@ -115,7 +122,7 @@ try {
 
   const present=page.getByRole('group').filter({has:button('حاضر')}).first().getByRole('button',{name:'حاضر',exact:true});
   await present.click();
-  await context.setOffline(false);
+  fixture.reconnect();await context.setOffline(false);
   await expect(page.getByText(/عاد الاتصال/)).toBeVisible();
   await expect(present).toHaveAttribute('aria-pressed','true');
   const online=await context.newPage();
@@ -129,7 +136,7 @@ try {
   pass('Reconnect preserves unsaved choices in the open offline task, while direct online startup exposes no prepared rows');
 
   await online.goto(url(a));
-  await expect(online.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+  await expect(online.getByText(/Saved on this device · Awaiting sync|Outcome unknown · Check the original save/)).toBeVisible();
   await online.evaluate(()=>{
     const old=IDBObjectStore.prototype.put;
     IDBObjectStore.prototype.put=function(value,...args){
@@ -183,11 +190,11 @@ try {
   await online.evaluate(()=>sessionStorage.removeItem('fixture-subject'));
   await online.goto(url(a));
   await button('Recover saved work',online).click();
-  await expect(online.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+  await expect(online.getByText(/Saved on this device · Awaiting sync|Outcome unknown · Check the original save/)).toBeVisible();
   await expect(online.getByText('18 / 18 loaded from this device',{exact:true})).toHaveCount(0);
   await online.goto(url(b));
   await button('Recover saved work',online).click();
-  await expect(online.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+  await expect(online.getByText(/Saved on this device · Awaiting sync|Outcome unknown · Check the original save/)).toBeVisible();
   await expect(online.getByText('18 / 18 loaded from this device',{exact:true})).toHaveCount(0);
   pass('Normal same-account sign-in recovers both pending originals without restoring cleared downloads');
   const future=await fixture.db({action:'future_fixture'});
@@ -197,11 +204,11 @@ try {
   await button('Use a personal-device register',boundary).click();
   await boundary.getByLabel('This is my personal device',{exact:true}).check();
   await button('Prepare register on this device',boundary).click();
-  await expect(boundary.getByRole('link',{name:'Offline reopening link',exact:true})).toBeVisible({timeout:20000});
+  await expect(boundary.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const localOnly=state.events.length;
-  await context.setOffline(true);
-  await boundary.goto(origin+'/prepared-register');
-  const choice=boundary.getByRole('group').first().getByRole('button',{name:'Present',exact:true});
+  fixture.disconnect();await context.setOffline(true);
+  await boundary.goto(url(future));
+  const choice=boundary.locator('.register-options').first().getByRole('button',{name:'Present',exact:true});
   await expect(choice).toBeDisabled();
   await boundary.clock.fastForward(120000);
   await expect(choice).toBeEnabled();

@@ -31,7 +31,7 @@
     "scripts/register-key/pilot_cases.mjs": "e1fc59c7cb8b71ddc118707ea0be3f7e6e4037c52cc07e2302769467a560788e",
     "apps/web/src/app/api/register-download/route.ts": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
-    "apps/web/src/lib/owner-register-pilot.ts": "bfb16bab0e47fee1e515975f6a066bd1ef62409bc7619583e3fc4010b7352a48",
+    "apps/web/src/lib/owner-register-pilot.ts": "9617c8eb5d4f1fda91dd6618f34607e4318485c1df851c074323822d4a28de10",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",

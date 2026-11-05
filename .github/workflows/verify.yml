@@ -103,6 +103,12 @@ jobs:
         run: |
           node scripts/working-day/test_owner_startup.mjs --check
           node scripts/working-day/test_owner_startup.mjs
+      - name: Verify normal Attendance local save, reconnect and original recovery
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/working-day/test_normal_attendance.mjs --check
+          node scripts/working-day/test_normal_attendance.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify scroll continuity while private results are masked

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {randomBytes, randomUUID} from 'node:crypto';
 import {mkdir, readFile, readdir, symlink, writeFile} from 'node:fs/promises';
-import {createServer} from 'node:http';
+import {createServer,request as proxyRequest} from 'node:http';
 import {createRequire} from 'node:module';
 import {dirname, join, relative} from 'node:path';
 import {createInterface} from 'node:readline';
@@ -59,8 +59,8 @@ async function listen(server) {
 export async function ownerFixture(root, temp, {pilot=false} = {}) {
   const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[])];
   const bridge = pgBridge(root);
-  let api, app, appClosed, log = '', origin;
-  const state = {subject: 'user_owner', events: [], dispatchBodies: [], rpcs: [], limits: []};
+  let api, entry, app, appClosed, log = '', origin, appOrigin;
+  const state = {subject: 'user_owner', events: [], dispatchBodies: [], rpcs: [], limits: [],originReachable:true};
   const env = {PATH:process.env.PATH, ...(process.env.TMPDIR ? {TMPDIR:process.env.TMPDIR} : {}),
     NODE_ENV:'production', NEXT_TELEMETRY_DISABLED:'1'};
   async function put(path, body) {
@@ -71,6 +71,7 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
   async function close() {
     if (app?.exitCode === null) app.kill();
     if (appClosed) await appClosed;
+    if (entry?.listening) await new Promise(resolve => entry.close(resolve));
     if (api?.listening) await new Promise(resolve => api.close(resolve));
     delete globalThis.ownerDayFixture;
     await bridge.close();
@@ -173,7 +174,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${pilot?`export{default as Attendance}from'./apps/web/src/components/attendance-workspace.tsx';
         export{default as RegisterAccountBoundary}from'./apps/web/src/components/register-account-boundary.tsx';
-        export{default as PreparedRegisterStartup}from'./apps/web/src/components/prepared-register-startup.tsx';`:''}`,
+        export{default as PreparedRegisterStartup}from'./apps/web/src/components/prepared-register-startup.tsx';
+        export{default as PreparedWorkspaceStartup}from'./apps/web/src/components/prepared-workspace-startup.tsx';`:''}`,
         resolveDir:root,loader:'tsx'},
       tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',
       external:['react','react/*','next/*'],banner:{js:'"use client";'},
@@ -199,7 +201,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
     await put('package.json','{"name":"academyos-owner-working-day-fixture","private":true}');
     await put('next.config.mjs',`export default {devIndicators:false,async rewrites(){return[{source:'/api/:path*',destination:'${apiOrigin}/api/:path*'}]},
-      async headers(){return [{source:'/prepared-register',headers:[{key:'X-AcademyOS-Public-Shell',value:'register-v1'}]}]}};`);
+      async headers(){return [{source:'/prepared-register',headers:[{key:'X-AcademyOS-Public-Shell',value:'register-v1'}]}${pilot?`,
+        {source:'/prepared-workspace',headers:[{key:'X-AcademyOS-Public-Shell',value:'workspace-v1'}]}`:''}]}};`);
     await put('app/globals.css',await readFile(join(root,'apps/web/src/app/globals.css'),'utf8'));
     await put('app/layout.jsx',"import './globals.css';export default function Layout({children}){return <html lang='en'><body>{children}</body></html>}");
     await put('fixture-client.jsx',client.outputFiles[0].text);
@@ -235,8 +238,13 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
       await put('app/prepared-register/page.tsx',startup.replace(
         "import PreparedRegisterStartup from '@/components/prepared-register-startup';",
         "import {PreparedRegisterStartup} from '../../fixture-client.jsx';"));
+      const workspaceStartup=await readFile(join(root,'apps/web/src/app/prepared-workspace/page.tsx'),'utf8');
+      await put('app/prepared-workspace/page.tsx',workspaceStartup.replace(
+        "import PreparedWorkspaceStartup from '@/components/prepared-workspace-startup';",
+        "import {PreparedWorkspaceStartup} from '../../fixture-client.jsx';"));
       await put('app/[locale]/page.jsx','export default function Landing(){return <h1>Fictional signed-out landing</h1>}');
       await put('public/prepared-register-worker.js',await readFile(join(root,'apps/web/public/prepared-register-worker.js'),'utf8'));
+      await put('public/prepared-workspace-worker.js',await readFile(join(root,'apps/web/public/prepared-workspace-worker.js'),'utf8'));
     } else {
       await page('attendance/[event]/page.jsx',`import{Register}from'__CLIENT__';
         export const dynamicParams=false;export function generateStaticParams(){return ${JSON.stringify(params)}}
@@ -269,18 +277,31 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         event.respondWith((async()=>{const cache=await caches.open(cacheName);return await cache.match(request)||fetch(request)})());
       });`);
     const socket = createServer();
-    origin = await listen(socket);
-    const port = new URL(origin).port;
+    appOrigin = await listen(socket);
+    const port = new URL(appOrigin).port;
     await new Promise(resolve=>socket.close(resolve));
+    // An actual origin failure includes worker fetches, which a page-only
+    // offline flag cannot reliably establish across Chromium versions.
+    entry=createServer((req,res)=>{
+      if(!state.originReachable){req.socket.destroy();return;}
+      const upstream=proxyRequest(new URL(req.url,appOrigin),{method:req.method,headers:req.headers},reply=>{
+        res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);
+      });
+      upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});
+      req.pipe(upstream);
+    });
+    origin=await listen(entry);
     app = spawn(process.execPath,[next,'start','--hostname','127.0.0.1','--port',port],{cwd:temp,env,stdio:['ignore','pipe','pipe']});
     appClosed = new Promise(resolve=>app.once('close',resolve));
     for(const stream of [app.stdout,app.stderr]) stream.on('data',chunk=>log+=chunk);
     let ready=false;
     for(let i=0;i<100&&!ready;i++){
       try{ready=(await fetch(origin+registerPaths[0],{signal:AbortSignal.timeout(1500)})).ok;}
-      catch {await new Promise(resolve=>setTimeout(resolve,100));}
+      catch {}
+      if(!ready)await new Promise(resolve=>setTimeout(resolve,100));
     }
     assert.ok(ready,'Isolated Next server failed to start\n'+log.slice(-2500));
-    return {data,origin,state,db:bridge.db,close,paths,registerPaths};
+    return {data,origin,state,db:bridge.db,close,paths,registerPaths,
+      disconnect:()=>{state.originReachable=false;},reconnect:()=>{state.originReachable=true;}};
   } catch (error) {await close();throw error;}
 }

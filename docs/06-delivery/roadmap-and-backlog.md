@@ -1,5 +1,7 @@
 # Delivery roadmap and dependency-ordered backlog
 
+**6 November EX-07 checkpoint:** [Normal Attendance evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) advances the current primary through ordinary-route local reading/saving/reopening/reconnect using the existing engine. EX-15 receives only this scoped root-worker/lifecycle contribution; EX-14 metadata/launch and EX-16 actual installed-device cases remain supporting work. Keep the remaining redesign, all-role refresh coverage and provider/device measures open.
+
 ## Supporting installed-web delivery lane — 6 November 2026
 
 The [PWA contract](pwa-delivery-and-readiness.md#work-packages-and-delivery-lanes) defines supporting EX-14 installation identity/launch, EX-15 worker/storage/offline lifecycle and EX-16 actual installed-device evidence. Preserve the existing EX-13 foundation → remaining EX-07 primary sequence and one current row. Metadata can progress now; installed-only proof follows EX-14, while offline/update/command cases additionally follow their relevant domain/EX-15 slice. Do not wait for future finance or every EX-07 journey before the first install test.

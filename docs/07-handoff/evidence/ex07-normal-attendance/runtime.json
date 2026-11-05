@@ -1,0 +1,66 @@
+{
+  "checks": [
+    "One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination",
+    "Prepared normal reopening avoids the old preliminary roster read and uses one unchanged manifest",
+    "Paired resume signals share one held freshness check while rows, filter, selection and unsaved marks remain usable",
+    "Dirty navigation is guarded and a failed strict local commit keeps every choice without false save or transport",
+    "All 18 selected marks commit locally under one original and only bounded public code is cached",
+    "Actual root public worker reopens the normal Arabic Attendance URL and durable original after full browser restart with zero API calls",
+    "An old online unknown-operation locator takes precedence over prepared normal-route data and blocks replacement",
+    "Automatic reconnect preserves the document; a lost committed reply retries byte-identical original and records exactly one canonical result",
+    "Two normal tabs share dispatch leadership; confirmed-save read failure stays confirmed and retry reads only",
+    "Saved-mark history/correction handoff uses the existing current online task and returns to the same prepared register",
+    "Current Owner loss on resume masks the prepared roster and keeps the canonical refusal visible",
+    "A capture made while locally eligible retains its original for review when the server recording deadline expires before sync"
+  ],
+  "metrics": {
+    "preparedReopen": {
+      "attendanceReads": 0,
+      "manifestReads": 1
+    },
+    "cachedPublicEntries": 11,
+    "offlineNormalRoute": {
+      "fullBrowserRestart": true,
+      "operatingRequests": 0,
+      "normalArabicUrl": true
+    },
+    "phoneWidthsWithoutDocumentOverflow": [
+      320,
+      360,
+      390
+    ],
+    "originalSync": {
+      "transportAttempts": 2,
+      "distinctOriginals": 1,
+      "serverOperations": 1,
+      "marks": 18,
+      "history": 18,
+      "audit": 1,
+      "reconnectDocuments": 0
+    },
+    "concurrentConfirmedSends": 1
+  },
+  "hashes": {
+    "scripts/working-day/test_normal_attendance.mjs": "19ac6dcfb97283a50755e88fed035dc78396d7db02c4023becf28c04c4ab7c96",
+    "scripts/working-day/owner_fixture.mjs": "21c5fcb12b2ee03426a2db91d946ea52996f4b9002bf25a64e30d609235396fe",
+    "scripts/working-day/owner_db.py": "ee1f9887274b6c58440ff99daf6c681078468ba2f7ca273b9bda1af2fc18b0b2",
+    "apps/web/src/components/attendance-workspace.tsx": "4d8665a62618992f73d1eaf172eb0bd9d461f5e3075071e700072ac11d4642e6",
+    "apps/web/src/components/prepared-register-panel.tsx": "7fb6f1d0dae702f1abb1927eb4d6870b1e3a039decb12a281189307e180763c6",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "6749ba19ea3434862b48c8995354f5920c5527a7f27633b36c3f5e64e99e0d0d",
+    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/components/workspace-panes.tsx": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+    "apps/web/src/lib/owner-register-pilot.ts": "9617c8eb5d4f1fda91dd6618f34607e4318485c1df851c074323822d4a28de10",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+    "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+    "apps/web/src/lib/register-original-dispatch.ts": "2fa0063e180eb666a0af4a5650d9d17ef807d6ab74388395c068d21167840114",
+    "apps/web/src/lib/workspace-public-shell.ts": "793bae50dd7ce7fe90128248965b801adc2e6d64c1b7653dfc86be9a10d257c8",
+    "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
+    "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
+    "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
+    "apps/web/src/app/globals.css": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386"
+  },
+  "errors": [],
+  "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof"
+}

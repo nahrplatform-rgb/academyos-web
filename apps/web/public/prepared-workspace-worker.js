@@ -4,7 +4,7 @@ const cachePrefix='academyos-workspace-public-v1:';
 const indexName=cachePrefix+'index';
 const pointer='/prepared-workspace/cache-pointer';
 const staticAsset=/^\/_next\/static\/[a-zA-Z0-9_./-]+\.(?:js|css)$/;
-const route=/^\/(en|ar)\/workspace\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/(players|calendar)$/;
+const route=/^\/(en|ar)\/workspace\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/(players|calendar|attendance\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/;
 let preparation;
 
 function supported(url) {

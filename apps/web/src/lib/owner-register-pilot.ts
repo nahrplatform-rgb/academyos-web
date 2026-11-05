@@ -159,7 +159,10 @@ export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSig
     });
   }
   return {
-    prepare: () => preparing ??= prepare().finally(()=>{preparing=undefined;}),
+    // One transfer owns this register across tabs. Concurrent imports otherwise
+    // replace each other's staging checkpoint after the same confirmed save.
+    prepare: () => preparing ??= navigator.locks.request(`academyos.register-prepare.v1:${subject}:${academy}:${event}`,
+      {signal:lifetime},prepare).finally(()=>{preparing=undefined;}),
     recover: async () => {await activation(true);},
     read: (after?:string) => operate(async (repo,_scope,_fence,slotGeneration) => {
       const original = await repo.readActiveOriginal(event);
@@ -171,7 +174,11 @@ export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSig
     }),
     capture: (op: string, captured_at: string, marks: unknown) => operate(repo =>
       repo.captureRegister({action:'register',academy,event,op,captured_at,marks})),
-    sync: () => syncing ??= sync().finally(()=>{syncing=undefined;}),
+    // Separate dispatch leadership avoids holding the slot lock over transport.
+    // Cleanup may fence the slot while a send is held; the original checks reject
+    // that late reply. A waiting tab then discovers the same persisted result.
+    sync: () => syncing ??= navigator.locks.request(`academyos.register-dispatch.v1:${subject}:${academy}:${event}`,
+      {signal:lifetime},sync).finally(()=>{syncing=undefined;}),
     logout: () => {
       ended.abort();
       return underLock(async () => {

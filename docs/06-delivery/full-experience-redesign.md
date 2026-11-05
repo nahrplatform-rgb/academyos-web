@@ -1,5 +1,7 @@
 # Full connected experience redesign
 
+**6 November EX-07 slice:** [Normal Attendance implementation and evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) replaces the alternate prepared-register shell in the ordinary Owner task, reuses Operations controls/panes and retains the current online history/correction workflow. Its difference ledger and evidence limits remain explicit. Full Operations parity and remaining journeys are still open; local proof is separate from release, hosted checks and Owner acceptance.
+
 ## Installed experience overlay — 6 November 2026
 
 Apply the [PWA delivery/readiness contract](pwa-delivery-and-readiness.md) alongside Operations adoption. Design accurate optional installation guidance, stable OS launch/auth return, normal route navigation/back behavior, safe areas/software keyboards, light-default/Charcoal window colors, compact connection/pending feedback and non-disruptive update-ready states. Preserve search/selection/scroll/focus and dirty or unknown work across active return and updates. An installed window uses the same working components and business rules.

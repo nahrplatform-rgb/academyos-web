@@ -46,11 +46,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch. PWA EX-14/15 planning and metadata/worker compatibility progress alongside this primary;EX-16 verifies each delivered installed slice,not every future module first.
+Next action: Finish exact-source CI/automatic Ready build,then give Owner the checked commit/deployment for staging promotion. Verify the released normal ENAR Attendance path,offline/reconnect/original and current-history recovery separately. Preserve pending work and use SDR06 bounded synthetic fixture authority;no repeated grant question. Then continue remaining Attendance Operations density/context and other implemented journeys;retain wider EX13/device/provider gaps and supporting EX14/15/16.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read: `docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md`
+Read: `docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md`
 
 ## Ordered primary checkpoints
 
@@ -228,17 +228,17 @@ Design: Normal-workspace/read design retained. Owner5November requests the full 
 Routing: primary / 9 / current.
 Dependencies: EX-01; EX-02; EX-10; EX-12; EX-11; EX-13.
 Dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
-Findings: NR03; NR16.
+Findings: NR02; NR03; NR07; NR16; NR17.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Delivered Owner Today,Platform and Calendar retained. Normal Attendance already hosts a personal-device button/alternate prepared-register shell and separate public startup;unified ordinary-route lifecycle/save/reopening integration is next,not a missing mechanism to rebuild. Remaining full-role/Operations parity incomplete.
-- Local checks: 4Nov Calendar:24 ENAR/theme/width cases xweek+month,partial/denied/moved/current-selection and44x48 targets;0local/1recheck read retained. Build/TypeScript/lint,93units,17foundation,16captures,actual Next ENAR/20geometry,8working-day/7startup,9freshness,factual/theme/docs passed;new regression added to CI. Exact fc1b5ee push/PR CI passed;ENAR in-place switch retains filter/selection with0 operating reads.
-- Deployment: Checked fc1b5ee exact push/PR CI passed. Canonical provider now shows Ready dpl_8hiwQ93Y5bf9axQLLjvJo1DeYhzu/sourcefc1b5ee;no new Owner promotion report or agent release action. Full Calendar hosted verification/acceptance separate.
-- Hosted verification: Prior12b9 Platform ENAR read-only continuity verified. New Calendar visual/source/read/return checks await exact checked release and Owner promotion;no new hosted operating write or account change.
+- Implementation: Normal ENAR Owner Attendance now selects the matching protected register before the redundant online roster;ordinary shell,quiet resume,atomic local capture,normal-route worker reopening,coordinated same-original sync and current online history/correction return. Trainer/unprepared online paths retained. Remaining Attendance density/inspector and full-app Operations/continuity incomplete.
+- Local checks: 12actual normal-route Chromium/worker/IDB/API/PG cases pass:18marks,full offline restart,0offline operating calls,1unchanged manifest,paired resume1read,dirty/quota abort,original priority,lost receipt1operation,two-tab1send,confirmed/read-fail retry,AR context/history return,denial/deadline. Retained8startup/8working-day/15key/49workspace receipts current. Build/type/lint,101units,development Attendance and16capture suites;factual/structural verification recorded in receipt. No hosted/installed/performance pass inferred.
+- Deployment: New normal Attendance code not promoted. Canonical staging independently remains Ready1347470/dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br. Exact-source CI and automatic build precede Owner-only promotion;no schema/key/flag reapply.
+- Hosted verification: New normal Attendance integration not hosted verified. Existing dedicated roles,register pilot,Platform/Today/Calendar and scoped1347470 Players evidence retained separately;full hosted/device/installed/provider matrix open.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch. PWA EX-14/15 planning and metadata/worker compatibility progress alongside this primary;EX-16 verifies each delivered installed slice,not every future module first.
-- Evidence: docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md
+- Next action: Finish exact-source CI/automatic Ready build,then give Owner the checked commit/deployment for staging promotion. Verify the released normal ENAR Attendance path,offline/reconnect/original and current-history recovery separately. Preserve pending work and use SDR06 bounded synthetic fixture authority;no repeated grant question. Then continue remaining Attendance Operations density/context and other implemented journeys;retain wider EX13/device/provider gaps and supporting EX14/15/16.
+- Evidence: docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
@@ -316,13 +316,13 @@ Dependency gate: Deliver compatibility/startup/storage by relevant existing doma
 Findings: NR03; NR13; NR15; NR17; G03; G08; G09.
 Design: Owner-requested documentation/PWA direction;existing business and local-first decisions retained;detailed new changed-state designs remain scoped.
 
-- Implementation: Planned PWA package;existing deployed offline/data foundation retained,not a new PWA implementation
-- Local checks: No new PWA runtime test;current source inventory and prior domain suites separate
+- Implementation: Partial EX07 supporting source integration:root public worker covers validated normal Attendance;protected register/store schemas and original sender reused;per-register transfer/dispatch leadership. Metadata/stable launch,full update/persistence/installed lifecycle remain planned.
+- Local checks: 12normal-route recovery/browser cases plus8startup/49workspace retained with scoped worker coexistence/public-only cache assertions. Not mixed-version installed/OS/quota/persistence proof. docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md
 - Deployment: PWA metadata/installed integration not deployed;shared domain source1347470 remains verified staging
 - Hosted verification: Actual installed OS launch/auth/offline/update/device matrix not executed
 - Owner acceptance: Planning scope requested;no installed working acceptance inferred
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
-- Next action: Coordinate root workspace and narrower register worker ownership with normal Attendance;plan public launch,code/schema compatibility,persistence/quota/eviction and same-original foreground resume. Reuse protected stores and preserve pending work;no new universal queue.
+- Next action: Retain EX07 normal-route worker contribution;follow checked source/Owner promotion/hosted verification. Scope remaining stable public launch,code/schema compatibility,persistence/eviction and actual installed update cases without a second engine or loss of originals.
 - Evidence: docs/06-delivery/pwa-delivery-and-readiness.md
 
 ### EX-16 — PWA actual installed-device verification and declared coverage

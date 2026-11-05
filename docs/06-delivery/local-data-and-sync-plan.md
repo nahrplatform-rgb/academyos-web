@@ -1,5 +1,7 @@
 # AcademyOS persistent local data and quiet synchronization plan
 
+**6 November normal Attendance:** [The EX-07 checkpoint](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) integrates the existing protected one-register mechanism at the ordinary EN/AR Attendance URL. The root public fallback now has a bounded normal-Attendance extension in source; the narrower legacy register worker remains compatible. Local original-first reconnect, quiet checks and confirmed-save/read-failure recovery do not extend the approved command/dataset scope or establish a manifest launch/installed-device result. Follow the tracker for release and hosted status.
+
 ## PWA reuse and installed-container boundary — 6 November 2026
 
 The [canonical PWA plan](pwa-delivery-and-readiness.md) reuses these repositories, field/coverage contracts, automatic preparation and exact original sender. Installation must not add a second cache/queue/data engine. Existing root workspace and narrower register public workers retain explicit cache/route ownership until a compatible integration changes them. Current Players/Calendar fallback does not by itself cover a manifest launch address or normal Attendance.

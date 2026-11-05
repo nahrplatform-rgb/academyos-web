@@ -1,0 +1,200 @@
+// Actual ordinary Attendance, public worker, encrypted storage and canonical PG
+// sender. Clerk and the provider wire are fictional; installed OS proof is separate.
+import assert from 'node:assert/strict';
+import {createHash,randomUUID} from 'node:crypto';
+import {mkdtemp,mkdir,readFile,rm,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {chromium,expect} from '@playwright/test';
+import {ownerFixture} from './owner_fixture.mjs';
+
+const root=resolve(import.meta.dirname,'../..');
+const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
+const receipt=join(output,'runtime.json');
+const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
+  ...['attendance-workspace','prepared-register-panel','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
+  ...['owner-register-pilot','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
+  'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css'];
+const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,12);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
+let fixture,context,page;
+const checks=[],metrics={},errors=[];
+const pass=name=>{checks.push(name);console.log('PASS '+name);};
+try{
+ fixture=await ownerFixture(root,join(temp,'app'),{pilot:true});
+ const {origin,state,data,db}=fixture,[a,b]=data.events;
+ const url=(scope,locale='en')=>`${origin}/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
+ const button=(name,tab=page)=>tab.getByRole('button',{name,exact:true});
+ const apiAfter=start=>state.events.slice(start);
+ const settled=()=>expect(page.locator('.toolbar-actions [role=status]')).toHaveText('Online');
+ async function browser(offline=false,width=1440){
+  context=await chromium.launchPersistentContext(join(temp,'profile'),{viewport:{width,height:1000}});
+  await context.setOffline(offline);page=context.pages()[0]??await context.newPage();
+  page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));
+ }
+ async function prepare(scope,count=18){
+  await page.goto(url(scope));await button('Use a personal-device register').click();
+  await page.getByLabel('This is my personal device',{exact:true}).check();
+  await button('Prepare register on this device').click();
+  await expect(page.getByText(`${count} / ${count} loaded from this device`,{exact:true})).toBeVisible();
+  await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
+  await settled();
+ }
+ await browser();await prepare(a);
+ await expect(page.locator('.app-scene')).toHaveCount(1);
+ await expect(page.getByRole('heading',{name:'Personal-device register',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('link',{name:'Offline reopening link',exact:true})).toHaveCount(0);
+ if(process.argv.includes('--record')){
+  await mkdir(output,{recursive:true});
+  await page.screenshot({path:join(output,'normal-en-1440-light.png'),fullPage:true});
+  await button('Dark mode').click();await page.screenshot({path:join(output,'normal-en-1440-charcoal.png'),fullPage:true});
+  await button('Light mode').click();
+ }
+ pass('One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination');
+
+ let before=state.events.length;await page.reload();
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();await settled();
+ const reads=apiAfter(before);assert.equal(reads.filter(r=>r.route==='attendance').length,0);
+ assert.deepEqual(reads.filter(r=>r.route==='register-download').map(r=>r.action),['manifest']);
+ metrics.preparedReopen={attendanceReads:0,manifestReads:1};
+ pass('Prepared normal reopening avoids the old preliminary roster read and uses one unchanged manifest');
+
+ let release,entered;
+ const held=new Promise(r=>release=r),seen=new Promise(r=>entered=r);
+ await page.route('**/api/register-download',async route=>{entered();await held;await route.continue();},{times:1});
+ before=state.events.length;
+ await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));window.dispatchEvent(new Event('online'));});
+ await seen;
+ const first=page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true});
+ await first.click();await page.getByLabel('Find a loaded player',{exact:true}).fill('لاعب');
+ await page.locator('.register-person button').first().click();
+ await expect(first).toHaveAttribute('aria-pressed','true');await expect(page.locator('.register-roster li')).toHaveCount(18);
+ release();await settled();await expect(first).toHaveAttribute('aria-pressed','true');
+ assert.equal(apiAfter(before).filter(r=>r.route==='register-download').length,1);
+ pass('Paired resume signals share one held freshness check while rows, filter, selection and unsaved marks remain usable');
+
+ page.once('dialog',d=>d.dismiss());await page.getByRole('link',{name:'Calendar',exact:true}).click();
+ assert.equal(page.url(),url(a));await expect(first).toHaveAttribute('aria-pressed','true');
+ before=state.events.length;fixture.disconnect();await context.setOffline(true);await page.getByLabel('Find a loaded player',{exact:true}).fill('');
+ const rows=page.locator('.register-options');await expect(rows).toHaveCount(18);
+ for(let i=0;i<18;i++)await rows.nth(i).getByRole('button',{name:i%2?'Absent':'Present',exact:true}).click();
+ await button('Review register').click();
+ await page.evaluate(()=>{const original=IDBObjectStore.prototype.add;IDBObjectStore.prototype.add=function(value,...args){if(this.name==='originals'){IDBObjectStore.prototype.add=original;this.transaction.abort();throw new Error('fixture_disk_abort');}return original.call(this,value,...args);};});
+ await button('Save selected marks').click();
+ await expect(page.locator('main').getByRole('alert')).toContainText('Saved work remains protected');
+ await expect(page.locator('.register-options [aria-pressed=true]')).toHaveCount(18);
+ await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toHaveCount(0);
+ assert.equal(state.events.length,before);
+ pass('Dirty navigation is guarded and a failed strict local commit keeps every choice without false save or transport');
+
+ await button('Save selected marks').click();await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+ await expect(page.getByText('Present · Saved on this device',{exact:true})).toHaveCount(9);
+ await expect(page.getByText('Absent · Saved on this device',{exact:true})).toHaveCount(9);
+ assert.equal(state.events.length,before);
+ const cached=await page.evaluate(async()=>{const result=[];for(const name of await caches.keys()){const cache=await caches.open(name);for(const r of await cache.keys()){const u=new URL(r.url);if(!u.pathname.startsWith('/_next/static/')&&!['/prepared-workspace','/prepared-workspace/cache-pointer'].includes(u.pathname))throw new Error('private_cached_path');if(u.pathname==='/prepared-workspace'){const html=await(await cache.match(r)).text();if(/user_owner|لاعب خيالي|accounts\.dev/.test(html))throw new Error('private_shell');}result.push(u.pathname);}}return result.length;});
+ metrics.cachedPublicEntries=cached;
+ pass('All 18 selected marks commit locally under one original and only bounded public code is cached');
+
+ await context.close();await browser(true,390);before=state.events.length;
+ const response=await page.goto(url(a,'ar'));assert.ok(response.fromServiceWorker());
+ await expect(page.getByRole('heading',{name:'حضور التدريب',exact:true})).toBeVisible();
+ await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة',{exact:true})).toBeVisible();
+ await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ assert.equal(state.events.length,before);metrics.offlineNormalRoute={fullBrowserRestart:true,operatingRequests:0,normalArabicUrl:true};
+ const widths=[];
+ for(const width of [320,360,390]){
+  await page.setViewportSize({width,height:1000});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Normal Arabic register must fit phone width');
+  widths.push(width);
+ }
+ metrics.phoneWidthsWithoutDocumentOverflow=widths;
+ if(process.argv.includes('--record')){
+  await page.screenshot({path:join(output,'offline-ar-390.png'),fullPage:true});
+  await button('الوضع الداكن').click();await page.screenshot({path:join(output,'offline-ar-390-charcoal.png'),fullPage:true});
+  await button('الوضع الفاتح').click();
+ }
+ pass('Actual root public worker reopens the normal Arabic Attendance URL and durable original after full browser restart with zero API calls');
+
+ const key=`attendance:user_owner:${a.academy}:${a.event}`;
+ await page.evaluate(({key,id})=>sessionStorage.setItem(key,id),{key,id:randomUUID()});await page.reload();
+ await expect(page.getByText('يوجد حفظ أصلي يحتاج التحقق عبر الإنترنت قبل تسجيل حضور آخر.',{exact:true})).toBeVisible();
+ await expect(page.locator('.register-roster')).toHaveCount(0);
+ await expect(page.getByRole('link',{name:'تحقق من الحفظ الأصلي عبر الإنترنت',exact:true})).toHaveAttribute('href',new URL(url(a,'ar')).pathname);
+ await page.evaluate(key=>sessionStorage.removeItem(key),key);await page.reload();
+ await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ pass('An old online unknown-operation locator takes precedence over prepared normal-route data and blocks replacement');
+
+ let capturedWire;
+ await page.route('**/api/register-dispatch',async route=>{capturedWire=route.request().postData();await route.fetch();await route.abort('failed');},{times:1});
+ const docs=[];page.on('request',r=>{if(r.isNavigationRequest()&&r.frame()===page.mainFrame())docs.push(r.url());});
+ fixture.reconnect();await context.setOffline(false);
+ await expect(page.getByText('النتيجة غير معروفة · تحقّق من الحفظ الأصلي',{exact:true})).toBeVisible();
+ assert.equal(docs.length,0);
+ const original=JSON.parse(capturedWire),counts=()=>db({action:'counts',...a,op:original.op});
+ assert.deepEqual(await counts(),{marks:18,history:18,operations:1,audit:1});
+ await page.route('**/api/register-download',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}),{times:1});
+ await button('أعد محاولة الحفظ الأصلي').click();
+ await expect(page.getByText('تأكد الحفظ؛ تعذّرت قراءة القائمة الأحدث. أعد القراءة وليس الحفظ.',{exact:true})).toBeVisible();
+ await expect(page.locator('.register-summary')).toHaveCount(0);
+ await button('أعد التحقق').click();
+ await expect(page.getByText('تمت المزامنة · سجّل الخادم الحضور.',{exact:true})).toBeVisible();
+ assert.deepEqual(state.dispatchBodies,[capturedWire,capturedWire]);
+ assert.deepEqual(await counts(),{marks:18,history:18,operations:1,audit:1});
+ await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(9);
+ await expect(page.locator('.register-roster .attendance-status.absent')).toHaveCount(9);
+ metrics.originalSync={transportAttempts:2,distinctOriginals:1,serverOperations:1,marks:18,history:18,audit:1,reconnectDocuments:0};
+ pass('Automatic reconnect preserves the document; a lost committed reply retries byte-identical original and records exactly one canonical result');
+
+ await page.setViewportSize({width:1440,height:1000});await prepare(b);
+ fixture.disconnect();await context.setOffline(true);await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
+ await button('Review register').click();await button('Save selected marks').click();
+ await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+ const other=await context.newPage();await other.goto(url(b));
+ await expect(other.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+ // Keep the first send held so another tab reaches the same dispatch leader.
+ let releaseSend,sendEntered;const sendHold=new Promise(r=>releaseSend=r),sendSeen=new Promise(r=>sendEntered=r);
+ await context.route('**/api/register-dispatch',async route=>{sendEntered();await sendHold;await route.continue();},{times:1});
+ await page.route('**/api/register-download',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}),{times:1});
+ const sendCount=state.dispatchBodies.length;fixture.reconnect();await context.setOffline(false);await sendSeen;releaseSend();
+ await expect(page.getByText('Save confirmed; latest register unavailable. Retry reading, not saving.',{exact:true})).toBeVisible();
+ await expect(other.getByText('Saved on this device · Awaiting sync',{exact:true})).toHaveCount(0);
+ assert.equal(state.dispatchBodies.length-sendCount,1);
+ await button('Retry current check').click();await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+ await other.close();metrics.concurrentConfirmedSends=1;
+ pass('Two normal tabs share dispatch leadership; confirmed-save read failure stays confirmed and retry reads only');
+
+ await settled();before=state.events.length;
+ await page.getByLabel('Find a loaded player',{exact:true}).fill(' ');
+ await page.locator('.register-person button').first().click();
+ const scroll=await page.locator('.workspace-center').evaluate(el=>{el.scrollTop=240;return el.scrollTop;});
+ await page.getByRole('link',{name:'العربية',exact:true}).click();await button('السجل والتصحيحات').click();
+ await expect(button('تصحيح التسجيل المحفوظ')).toBeVisible();await expect(button('عرض السجل')).toBeVisible();
+ await button('العودة إلى الحضور').click();await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ await expect(page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true})).toHaveValue(' ');
+ await expect(page.locator('.register-person button').first()).toHaveAttribute('aria-pressed','true');
+ assert.ok(Math.abs(await page.locator('.workspace-center').evaluate(el=>el.scrollTop)-scroll)<=1);
+ await page.getByRole('link',{name:'English',exact:true}).click();await settled();
+ assert.equal(apiAfter(before).filter(r=>r.route==='attendance'&&r.action==='roster').length,1);
+ pass('Saved-mark history/correction handoff uses the existing current online task and returns to the same prepared register');
+
+ before=state.events.length;await db({action:'role',...b});await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+ await expect(page.locator('main').getByRole('alert')).toHaveText('Current account access changed. Sign in again to recover protected work.');
+ await expect(page.locator('.register-roster')).toHaveCount(0);
+ assert.equal(apiAfter(before).filter(r=>r.route==='register-download').length,1);
+ pass('Current Owner loss on resume masks the prepared roster and keeps the canonical refusal visible');
+
+ const future=await db({action:'future_fixture'});await page.clock.install({time:Date.now()});await prepare(future,2);
+ fixture.disconnect();await context.setOffline(true);await page.clock.fastForward(120000);
+ const present=page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true});await expect(present).toBeEnabled();
+ await present.click();await button('Review register').click();await button('Save selected marks').click();
+ await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+ await db({action:'expire',...future});fixture.reconnect();await context.setOffline(false);
+ await expect(page.getByText('Needs review · Original work retained',{exact:true})).toBeVisible();
+ assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});
+ pass('A capture made while locally eligible retains its original for review when the server recording deadline expires before sync');
+
+ assert.deepEqual(errors,[]);assert.equal(checks.length,12);
+ if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
+}catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
+finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}

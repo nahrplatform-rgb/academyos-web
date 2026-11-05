@@ -3,26 +3,29 @@
 import {useEffect,useSyncExternalStore} from 'react';
 import {readRegisterAccount,subscribeRegisterAccount} from '@/lib/register-device-account';
 import {isCivilDay} from '@/lib/experience-format';
+import PreparedRegisterPanel from './prepared-register-panel';
+import {readRegisterSlot} from '@/lib/register-device-slots';
 import {readWorkspaceSlot} from '@/lib/workspace-device-slots';
 import {PeopleJourney} from './people-workspace';
 import {ExperienceJourney} from './experience-workspace';
 
-const pathPattern=/^\/(en|ar)\/workspace\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\/(players|calendar)$/;
+const pathPattern=/^\/(en|ar)\/workspace\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\/(players|calendar|attendance\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}))$/;
 const opening=()=>'';
 const reentryKey='academyos.workspace-reentry.v1';
 function snapshot() {
   try {
     const match=pathPattern.exec(location.pathname);
     if(!match)return null;
-    const [,locale,academy,view]=match;
+    const [,locale,academy,destination,event]=match,view=event?'attendance':destination;
+    if(event){const original=sessionStorage.getItem(`attendance:${readRegisterAccount()?.subject}:${academy}:${event}`);if(original&&/^[a-f0-9-]{36}$/i.test(original))return JSON.stringify({locale,original:true});}
     const account=readRegisterAccount();
     if(account?.mode!=='active')return JSON.stringify({locale});
     const context={subject:account.subject,academy};
-    const slot=readWorkspaceSlot(context);
-    if(slot?.mode!=='active')return JSON.stringify({locale});
+    const slot=event?readRegisterSlot(account.subject,academy):readWorkspaceSlot(context);
+    if(slot?.mode!=='active'||event&&'event' in slot&&slot.event!==event)return JSON.stringify({locale});
     const anchor=new URLSearchParams(location.search).get('anchor');
     return JSON.stringify({locale,academy,view,subject:account.subject,generation:account.generation,
-      anchor:isCivilDay(anchor)?anchor:undefined});
+      event,anchor:isCivilDay(anchor)?anchor:undefined});
   } catch {return null;}
 }
 function subscribe(listener:()=>void) {
@@ -35,10 +38,11 @@ function subscribe(listener:()=>void) {
  * selects encrypted data. A network return re-enters the protected same URL. */
 export default function PreparedWorkspaceStartup() {
   const source=useSyncExternalStore(subscribe,snapshot,opening);
-  const scope=source?JSON.parse(source) as {locale:string;academy?:string;view?:string;subject?:string;generation?:string;anchor?:string}:null;
+  const scope=source?JSON.parse(source) as {locale:string;academy?:string;view?:string;subject?:string;generation?:string;event?:string;anchor?:string;original?:boolean}:null;
   const locale=scope?.locale??'en',ar=locale==='ar';
   useEffect(()=>{
-    if(!pathPattern.test(location.pathname))return;
+    const match=pathPattern.exec(location.pathname);
+    if(!match||match[4])return; // Attendance sync uses current signed API checks without reloading an open draft.
     const destination=location.pathname+location.search;
     let disposed=false,leaving=false,pending:AbortController|null=null;
     const cancel=()=>{pending?.abort();pending=null;};
@@ -82,11 +86,14 @@ export default function PreparedWorkspaceStartup() {
   </main>;
   if(!scope?.subject||!scope.academy)return <main className="public-task" lang={locale} dir={ar?'rtl':'ltr'}>
     <h1>{ar?'مساحة الأكاديمية':'Academy workspace'}</h1>
-    <p role="status">{ar?'لا توجد بيانات محضّرة لهذه المساحة على الجهاز. افتحها عند الاتصال.':
-      'This workspace has no prepared data on this device. Open it when connected.'}</p>
+    <p role="status">{scope?.original?(ar?'يوجد حفظ أصلي يحتاج التحقق عبر الإنترنت قبل تسجيل حضور آخر.':'An original save needs an online check before another attendance save.'):(ar?'لا توجد بيانات محضّرة لهذه المساحة على الجهاز. افتحها عند الاتصال.':
+      'This workspace has no prepared data on this device. Open it when connected.')}</p>
+    {scope?.original&&<a href={location.pathname+location.search}>{ar?'تحقق من الحفظ الأصلي عبر الإنترنت':'Check original save online'}</a>}
   </main>;
   const common={locale,academy:scope.academy,subject:scope.subject,prepared:true,publicOffline:true};
   const key=`${scope.generation}:${scope.academy}:${scope.view}`;
+  if(scope.view==='attendance'&&scope.event)return <PreparedRegisterPanel key={`${key}:${scope.event}`}
+    locale={locale} scope={{subject:scope.subject,academy:scope.academy,event:scope.event}} normal offline offlineGeneration={scope.generation}/>;
   return scope.view==='players'?<PeopleJourney key={key} {...common}/>:
     <ExperienceJourney key={key} {...common} role="owner" calendar anchor={scope.anchor}/>;
 }

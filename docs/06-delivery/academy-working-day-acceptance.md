@@ -1,5 +1,7 @@
 # Academy working-day pilot and acceptance gate
 
+**6 November normal Attendance evidence:** [EX-07 checkpoint](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) links controlled current-component/worker/IndexedDB/API/PG evidence for ordinary-route reopen, retained input, offline restart, original retry, current denial and confirmed-save/read failure. WD-63/64/66/69/71 receive evidence links only; no whole-case, hosted, physical-device, installed or Owner pass is inferred. Existing WD-72–86 remain planned.
+
 ## Installed PWA cases — 6 November 2026
 
 Follow the [canonical PWA contract](pwa-delivery-and-readiness.md) and [PW joins](pwa-delivery-traceability.csv). WD-72–WD-86 are **planned**, not executed: installation identity, fresh separate-container sign-in, deep-link return, OS offline launch, quiet daily use, original local save/reconnect, safe update/migration, persistence/quota/eviction, logout/account/role changes, physical QR/camera, EN/AR/accessibility, rollback, suspended execution and concurrent containers. Preserve prior case/evidence states.

@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+**6 November EX-07 normal Attendance:** All affected actual-component captures and this factual HTML are refreshed for [the normal-route checkpoint](../../docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md). The default capture replay still omits the protected prepared-device branch; the receipt links separate real-component EN/AR light/Charcoal captures and browser/API/PG recovery checks for that branch. These are fictional local fixtures, not staging or installed-PWA proof.
+
 ## PWA planning overlay — 6 November 2026
 
 The [canonical PWA plan](../../docs/06-delivery/pwa-delivery-and-readiness.md) and PW/WD joins are documentation-only. Manifest/install/update/actual installed-device behavior is planned; no new runtime/capture pass is created. Rebuild the factual inventory from the unchanged real-component capture pack after register updates, then run review-tool/freshness checks. Existing captures remain browser fixtures with the recorded gaps; they do not establish an installed app or additional offline coverage.

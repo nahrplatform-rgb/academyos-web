@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 267,
-    "calendarMs": 154,
-    "dateMs": 174,
+    "homeMs": 214,
+    "calendarMs": 143,
+    "dateMs": 147,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 221,
-    "selectReviewSaveMs": 770,
+    "firstPrepareMs": 251,
+    "selectReviewSaveMs": 746,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 197,
-    "originalReplayMs": 119,
+    "offlineRestartMs": 194,
+    "originalReplayMs": 108,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -73,35 +73,35 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1517
+        "responseBytes": 1529
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4489
+        "responseBytes": 4537
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 2995
+        "responseBytes": 3007
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4489
+        "responseBytes": 4537
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 2995
+        "responseBytes": 3007
       },
       {
         "route": "fixture-key",
@@ -115,28 +115,28 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1188
+        "responseBytes": 1194
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 633,
         "status": 200,
-        "responseBytes": 3863
+        "responseBytes": 3869
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 672,
         "status": 200,
-        "responseBytes": 1205
+        "responseBytes": 1211
       },
       {
         "route": "register-download",
         "action": "manifest",
         "requestBytes": 208,
         "status": 200,
-        "responseBytes": 1187
+        "responseBytes": 1193
       },
       {
         "route": "register-dispatch",
@@ -157,21 +157,21 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1189
+        "responseBytes": 1195
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 634,
         "status": 200,
-        "responseBytes": 3946
+        "responseBytes": 3952
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 674,
         "status": 200,
-        "responseBytes": 1207
+        "responseBytes": 1213
       },
       {
         "route": "fixture-key",
@@ -234,10 +234,10 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9589,
-    "responseBytes": 37000
+    "responseBytes": 37174
   },
   "hashes": {
-    "scripts/working-day/owner_fixture.mjs": "06000aef4c8e3088b183cd91a482e25f7ba9209b952e4eb3e016f97e1aee5a31",
+    "scripts/working-day/owner_fixture.mjs": "21c5fcb12b2ee03426a2db91d946ea52996f4b9002bf25a64e30d609235396fe",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
     "scripts/working-day/owner_db.py": "ee1f9887274b6c58440ff99daf6c681078468ba2f7ca273b9bda1af2fc18b0b2",
     "scripts/working-day/test_owner_next.mjs": "5728d8f738ad4fbd104cef9d78976c41d97b4406e1b710f0d0c3d60be435cc40",

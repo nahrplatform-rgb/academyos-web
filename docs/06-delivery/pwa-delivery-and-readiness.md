@@ -1,5 +1,7 @@
 # Installable PWA delivery and readiness
 
+**6 November supporting integration:** [EX-07 normal Attendance](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) extends the existing root public worker to validated normal Attendance UUID routes and reuses the protected register/original sender. The legacy narrower worker, public protocols and version1 repositories are retained. Its controlled browser results are partial PW-03/04/05/08 support, not installation or complete mixed-version/update proof. The earlier inventory below describes the1347470 staging baseline; follow the tracker for deployment/hosted state of this new slice. Stable manifest launch/metadata and actual installed cases remain unimplemented/unexecuted.
+
 6 November 2026. Canonical cross-cutting delivery contract for installing the **existing AcademyOS web app**. The Owner requested this documentation/planning integration; no PWA product code, manifest, installation, provider configuration, database change or new runtime pass is delivered here. [Planning receipt](../07-handoff/evidence/pwa-planning-2026-11-06.json) · [PWA traceability](pwa-delivery-traceability.csv) · [execution tracker](experience-execution.csv) · [living continuation](continue-academyos.md).
 
 ## Outcome, authority and separate readiness claims

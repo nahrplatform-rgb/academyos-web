@@ -1,5 +1,7 @@
 # Start here for builders
 
+**Current EX-07 checkpoint — 6 November:** Continue from [normal Attendance implementation and evidence](ex07-normal-attendance-checkpoint-2026-11-06.md) and the single tracker. The normal-route integration is no longer an unstarted mechanism: preserve its protected repository, coordinated transfer/sender, offline reopening and recovery. Follow recorded CI, Owner-only promotion and hosted next steps; do not reapply schema/keys/settings or start another engine. Broader Operations and installed-PWA scope remain open.
+
 ## PWA alongside the current primary — 6 November 2026
 
 Read the [PWA delivery/readiness contract](../06-delivery/pwa-delivery-and-readiness.md) and [PW traceability](../06-delivery/pwa-delivery-traceability.csv). EX-14/15/16 support the current normal-Attendance integration; they do not replace it or wait for future finance to finish. Existing data/worker/original mechanisms remain the foundation. Manifest/icons/stable launch and actual installed OS/device proof are planned, not delivered by this documentation update. Preserve normal sign-in/retention/recovery, dedicated personas, synthetic authority and Owner-only promotions. [Planning receipt](evidence/pwa-planning-2026-11-06.json).

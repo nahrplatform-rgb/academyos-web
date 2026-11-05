@@ -1,4 +1,4 @@
-const WORKSPACE_ROUTE=/^\/(en|ar)\/workspace\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/(players|calendar)$/;
+const WORKSPACE_ROUTE=/^\/(en|ar)\/workspace\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/(players|calendar|attendance\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/;
 
 function supportedWorkspaceRoute(url:URL) {
   const match=WORKSPACE_ROUTE.exec(url.pathname);
