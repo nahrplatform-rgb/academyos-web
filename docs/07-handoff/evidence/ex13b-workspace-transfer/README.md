@@ -1,11 +1,11 @@
 # EX-13B backend evidence
 
-Fictional disposable PostgreSQL17 and actual local app transport only. Read the [checkpoint](../../ex13b-workspace-transfer-checkpoint-2026-11-05.md) for scope, current source, authority and open client/hosted work.
+Fictional disposable PostgreSQL17 and actual local app transport and Chromium repository. Read the [checkpoint](../../ex13b-workspace-transfer-checkpoint-2026-11-05.md) for scope, current source, authority and open client/hosted work.
 
 - `database.json`: final SQL-suite result and migration/test hashes.
 - `snapshot-interleaving.json`: observed writer commit between read metadata and row access; production STABLE versus fixture-only VOLATILE negative control. No production function change remains.
 - `query-plans.json`: indexed seek/enrichment work for the declared 10,001-player/301-program fixture. Single warm local SQL observations, not provider latency or a percentile.
-- `transport.json`: actual Next handler/Supabase SDK/signed gateway/PG checks, scoped wire-byte totals and one logical entry/read limiter check per phase. Identity, Redis, envelope and PostgREST wire are fictional.
+- `transport.json`: actual Next handler/Supabase SDK/signed gateway/PG checks, scoped wire-byte totals, logical limiter checks and repository recovery cases. Workspace wrapping and browser storage use the actual implementation. Identity, Redis and the PostgREST wire use fixtures. The original transfer-only receipt is retained at commit c616816.
 - `advisors.json`: local CLI advisor result/disposition, including limitations; not independent human review.
 - `validation.json`: commands/results for the completed checkpoint, regressions and generated-document checks. Source hashes in individual receipts define their exact boundary.
 

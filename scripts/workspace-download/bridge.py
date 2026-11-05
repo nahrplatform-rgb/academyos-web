@@ -9,25 +9,29 @@ from pathlib import Path
 module = runpy.run_path(str(Path(__file__).with_name('test_boundary.py')))
 WorkspaceBoundary = module['WorkspaceBoundary']
 literal = module['literal']
-TARGET = 'x21_workspace_transfer_v1'
-FIELDS = ('a', 'device', 'ns', 'expected_subject', 'act', 'previous', 'month_anchor')
+TARGETS = {
+    'x21_workspace_transfer_v1': ('a', 'device', 'ns', 'expected_subject', 'act', 'previous', 'month_anchor'),
+    'x21_workspace_key_v1': ('a', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
+}
 
 
 def rpc(test, command):
-    if command.get('target') != TARGET:
+    target = command.get('target')
+    if target not in TARGETS:
         raise ValueError('Unsupported target')
+    fields = TARGETS[target]
     args = command['args']
-    if not isinstance(args, dict) or set(args) != set(FIELDS):
+    if not isinstance(args, dict) or set(args) != set(fields):
         raise ValueError('Invalid arguments')
     if not isinstance(command['subject'], str) or not isinstance(command['proof'], str):
         raise ValueError('Invalid caller')
-    if args['previous'] is not None and not isinstance(args['previous'], dict):
+    if args.get('previous') is not None and not isinstance(args['previous'], dict):
         raise ValueError('Invalid receipt')
-    for field in FIELDS:
+    for field in fields:
         if field != 'previous' and args[field] is not None and not isinstance(args[field], str):
             raise ValueError('Invalid argument')
     sql_args = []
-    for field in FIELDS:
+    for field in fields:
         value = args[field]
         if value is None:
             sql_args.append('null')
@@ -40,9 +44,9 @@ def rpc(test, command):
     headers = json.dumps({'x-academyos-gateway': command['proof']})
     query = ("\\set VERBOSITY verbose\nbegin;set local role authenticated;"
              f"set local request.jwt.claims={literal(claims)};"
-             f"set local request.path='/rpc/{TARGET}';set local request.method='POST';"
+             f"set local request.path='/rpc/{target}';set local request.method='POST';"
              f"set local request.headers={literal(headers)};"
-             f"select public.{TARGET}({','.join(sql_args)});commit;")
+             f"select public.{target}({','.join(sql_args)});commit;")
     result = subprocess.run(test.base, input=query, text=True, capture_output=True)
     if result.returncode:
         match = re.search(r'ERROR:\s+([A-Z0-9]{5}):', result.stderr)
@@ -56,13 +60,26 @@ def execute(test, command):
         size = command.get('size', 56)
         if type(size) is not int or not 0 <= size <= 10000:
             raise ValueError('Invalid size')
-        academy, branch = test.academy()
+        if command.get('calendar'):
+            if size < 1:
+                raise ValueError('Calendar fixture includes one player')
+            academy, branch, program, *_ = test.fixture()
+            size -= 1
+        else:
+            academy, branch = test.academy()
+            program = None
         test.seed_people(academy, branch, size)
+        if command.get('unregistered'):
+            return {'academy': academy, 'branch': branch, 'program': program and program['id']}
         slot = test.key(academy)
         return {'academy': academy, 'branch': branch,
                 'device': slot['device'], 'namespace': slot['namespace']}
     if action == 'rpc':
         return rpc(test, command)
+    if action == 'calendar_change':
+        program = literal(command['program'])
+        test.sql(f"update academy.training_programs set definition=jsonb_set(definition,'{{name}}',to_jsonb('Synthetic changed title'::text))where id={program}")
+        return True
     if action in ('rename', 'suspend'):
         academy = command['academy']
         if not isinstance(academy, str):

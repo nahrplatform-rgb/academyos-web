@@ -14,7 +14,7 @@ Trust boundaries: verified identity/current Owner authority → minimal signed c
 
 ## First backend checkpoint — EX-13B
 
-The [workspace-transfer receipt](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) records the new, closed `/api/workspace-download` seam, `x21_workspace_transfer_v1`, separate workspace key metadata and transactional projection revisions. Its migration is local-only and the route defaults to disabled. This implements the server transfer boundary; protected dataset storage/query/cleanup, real workspace-key wrapping, sync ownership and normal Players/Calendar offline startup remain the next checkpoint. The live app's refresh behavior is not fixed by this server work.
+The [workspace-transfer receipt](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) records the new, closed `/api/workspace-download` seam, `x21_workspace_transfer_v1`, separate workspace key metadata and transactional projection revisions. Its migration is local-only and the route defaults to disabled. The [subsequent repository checkpoint](../07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) proves real workspace wrapping and protected browser storage in isolation. The shared account/device lifecycle, sync ownership and normal Players/Calendar offline startup are next. The live app's refresh behavior is not fixed by this server work.
 
 ## Legacy code: what can and cannot be reused
 

@@ -2,7 +2,12 @@
   "passed": true,
   "hashes": {
     "apps/web/src/app/api/workspace-download/route.ts": "b18eef0fd34eaf68731d8535fe4f1f2a8897e2270e9a17b55d313e8e7a9c771f",
-    "apps/web/src/lib/workspace-download.ts": "446be7fd37c735c9436651b3ba38ba18cb5c99f8ad906b427af7c38d48164d5d",
+    "apps/web/src/lib/workspace-download.ts": "0bfe6bf52ff4d238d8e2ac063ae344039697e08dd8cc5503b6b9edaba7fd16af",
+    "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
+    "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
+    "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
+    "apps/web/src/lib/local-workspace-repository.ts": "cce442ff4f74ef3a353a57a66c062db6b7a24086f1e2d27214c05002dbcab575",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
     "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
@@ -10,8 +15,8 @@
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "043a302916589aa97cdb7fbdc621c01a364bd78c4ee2453e63d493da0700510f",
-    "scripts/workspace-download/bridge.py": "dcd69493e0ddfc17db18b036dd909cc756bc646d6ce51a0bc410a7bd09d3beb0",
+    "scripts/workspace-download/test_transport.mjs": "f11f4b5902921e0d3ee75f023f3d7d0b661241b21052e7c75cb39d8b641ea196",
+    "scripts/workspace-download/bridge.py": "3d3587a0d51958d028924c092899c5af7bce87cc8dd6dfd82999b6b689d4e889",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
   },
   "checks": [
@@ -22,7 +27,17 @@
     "Changed projection refuses the old chain and a modified signature is rejected by the database",
     "Account mismatch and a timed-out gateway budget refuse the read before PostgreSQL",
     "Current PostgreSQL authority denies a Platform-only account and a suspended Academy Owner",
-    "All observed wire packets stay within the declared request and response limits"
+    "All observed wire packets stay within the declared request and response limits",
+    "Actual key route and signed database binding reuse one wrapped key and deny foreign origin, wrong actor, namespace and wrapping root",
+    "Actual row hash rejects tampering and a failed checkpoint write rolls back its encrypted page without publishing partial data",
+    "Two tabs cannot advance the same checkpoint twice and a browser process restart resumes at the saved page",
+    "A complete 1000-player directory searches in bounded encrypted slices with zero operating requests or readable name indexes",
+    "An unchanged verified manifest refreshes completed coverage in one request with no dataset pages or replayed timestamp extension",
+    "Changed Calendar publishes one verified replacement and removes older overlap while rejecting a late stale completion",
+    "Missing staged ciphertext cannot finalize and the previous completed generation remains readable",
+    "Thirty-day read cleanup is measured from the dataset verification and a key release cannot extend it",
+    "Retiring the namespace removes read ciphertext and its browser key and fences late work in a second tab",
+    "A suspended Owner cannot receive workspace key material from the real signed database boundary"
   ],
   "metrics": {
     "initialPeople": {
@@ -32,12 +47,20 @@
       "limiterChecks": 10,
       "requestBytes": 3305,
       "responseBytes": 15442
+    },
+    "localDirectory": {
+      "rows": 1000,
+      "searchSlices": 4,
+      "pagesScanned": 40,
+      "elapsedMs": 14.090457999999671,
+      "operatingRequests": 0
     }
   },
   "environment": {
     "node": "v24.14.0",
     "platform": "darwin",
     "architecture": "arm64",
-    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Fictional Clerk, limiter and PostgREST wire; synthetic envelope. No hosted data, real key wrapping, browser storage, device or latency percentile claim."
+    "browser": "156.0.8078.4",
+    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping and Chromium WebCrypto/IndexedDB. Fictional Clerk, limiter and PostgREST wire. No hosted data, device or latency percentile claim."
   }
 }

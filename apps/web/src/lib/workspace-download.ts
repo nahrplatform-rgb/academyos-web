@@ -17,19 +17,19 @@ function id(value: unknown) {
 }
 
 /** HTTP shape checks only. The database verifies signature, current scope and version. */
-export function workspaceReceipt(value: unknown) {
+export function workspaceReceipt(value: unknown, completed = false) {
   const receipt = object(value);
   keys(receipt,['payload','signature']);
   const p = object(receipt.payload);
   keys(p,['v','a','device','ns','epoch','scope','dataset','first','last','revision','total','seen','cursor','acc','issued','phase']);
   if (!hash(receipt.signature) || !hash(p.scope) || !hash(p.acc) || p.v !== 1 || p.epoch !== 1 ||
       !uint(p.seen) || !uint(p.issued) || !['people','calendar'].includes(p.dataset as string) ||
-      !['seed','transfer'].includes(p.phase as string) || typeof p.revision !== 'string' ||
+      !(completed ? ['complete'] : ['seed','transfer']).includes(p.phase as string) || typeof p.revision !== 'string' ||
       !/^(0|[1-9][0-9]{0,18})$/.test(p.revision) || BigInt(p.revision) > 9223372036854775807n) fail();
   id(p.a); id(p.device); id(p.ns);
   if (p.phase === 'seed') {
     if (p.total !== null || p.seen !== 0 || p.cursor !== null) fail();
-  } else if (!uint(p.total) || (p.seen as number) > p.total) fail();
+  } else if (!uint(p.total) || (p.seen as number) > p.total || (completed && p.seen !== p.total)) fail();
   if (p.dataset === 'people') {
     if (p.first !== null || p.last !== null) fail();
   } else if (!isCivilDay(p.first) || !isCivilDay(p.last) || addCivilDays(p.first,41) !== p.last) fail();

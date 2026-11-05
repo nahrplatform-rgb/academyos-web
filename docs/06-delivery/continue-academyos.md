@@ -44,11 +44,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
 
-Next action: Continue EX-13B from the passed closed backend checkpoint: implement the distinct typed encrypted Owner-workspace repository and actual automatic capability key wrapping/release. Prove transactional page/checkpoint/final-root publication, bounded local search, overlapping-month consistency, quota/corruption/migration/multi-tab/account/logout30day cleanup while preserving register slots/originals. Then wire normal Players/Calendar, task-first quiet sync/top-bar status and normal offline boot; measure before/after and verify staging separately. Do not restart EX-13A/transfer research or re-ask settled product/device direction. Full-app settings/finance adoption remains.
+Next action: Continue EX-13B normal-workspace integration from the passed repository checkpoint. Wire the scoped personal-device slot, shared account/logout/denial fence, abortable transfer and one resumable cross-tab sync leader. Connect normal Owner Players and Calendar with task-first preparation, quiet refresh, missing coverage and public offline boot. Measure local actions0 operating requests, unchanged0 pages, stable context and first/repeat startup before separately verifying staging. Preserve register originals and the full-app adoption sequence. Do not redo transfer or wrapping research.
 
-Scoped dependency gate: EX-12 and scoped EX-11 passed; EX-13A baseline/spec and EX-13B backend local checkpoint recorded. Current gate is protected dataset repository/custody and normal-route integration, not more transfer design. Prove local actions0 operating requests, unchanged0 dataset pages, bounded replacement/removals and retained context. Hosted/device/cost and whole-app working acceptance stay open.
+Scoped dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline, EX-13B bounded server transfer and protected repository/custody fixture passed. Advance through normal-route startup, coordinated lifecycle and actual request/continuity checks before expanded staging activation. Whole-app working acceptance stays open.
 
-Read: `docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md`
+Read: `docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md`
 
 ## Ordered primary checkpoints
 
@@ -208,18 +208,18 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 
 Routing: primary / 8 / current.
 Dependencies: EX-04; EX-06; EX-09; EX-11.
-Dependency gate: EX-12 and scoped EX-11 passed; EX-13A baseline/spec and EX-13B backend local checkpoint recorded. Current gate is protected dataset repository/custody and normal-route integration, not more transfer design. Prove local actions0 operating requests, unchanged0 dataset pages, bounded replacement/removals and retained context. Hosted/device/cost and whole-app working acceptance stay open.
+Dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline, EX-13B bounded server transfer and protected repository/custody fixture passed. Advance through normal-route startup, coordinated lifecycle and actual request/continuity checks before expanded staging activation. Whole-app working acceptance stays open.
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
-- Implementation: EX-13A baseline/spec retained. EX-13B closed backend manifest/revision/page/resume/completion and separate workspace key metadata implemented locally; migration unapplied, flag closed. Protected browser repository/key custody/normal routes remain; no runtime refresh fix claimed.
-- Local checks: 21 disposable PG17 tests passed: coherent snapshots, exact scoped fields, revisions/removals, wrong account/role/device, bytes, rollback/concurrency, 10001-player/301-program indexed-page profile and existing register replay. Actual Next/API/SDK/gateway checks recorded; existing register regressions refreshed. UI/device/hosted/performance percentile gaps remain.
-- Deployment: New backend migration not applied; transfer flag disabled by default. No staging promotion or private dataset activation. Automatic CI/preview status is separate.
+- Implementation: EX-13A baseline and EX-13B transfer preserved. Separate closed workspace key release and typed encrypted repository implemented locally. Device lifecycle/sync owner and normal-route UI/offline startup remain.
+- Local checks: 21 disposable PG boundary cases retained. Extended 18 actual handler/SDK/gateway/PG/Chromium checks pass including real scoped wrapping, 1000-player restart and local search, unchanged manifest, Calendar overlap, quota abort, missing ciphertext, cross-tab fencing and 30-day cleanup. Account-wide integration, device/hosted/cost evidence remain.
+- Deployment: Prior backend c616816 passed both CI runs and automatic preview. Staging alias observed on cb00ab8. Workspace schema unapplied and both gates default closed.
 - Hosted verification: Scoped cb00ab8 Owner observations record Setup to Players document navigation and same-document Calendar/Players rechecks. Other role/write/device and cost samples remain open. Expanded private datasets are unexecuted.
 - Owner acceptance: Full-app local-first direction and starting projection response recorded5November;working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Continue EX-13B from the passed closed backend checkpoint: implement the distinct typed encrypted Owner-workspace repository and actual automatic capability key wrapping/release. Prove transactional page/checkpoint/final-root publication, bounded local search, overlapping-month consistency, quota/corruption/migration/multi-tab/account/logout30day cleanup while preserving register slots/originals. Then wire normal Players/Calendar, task-first quiet sync/top-bar status and normal offline boot; measure before/after and verify staging separately. Do not restart EX-13A/transfer research or re-ask settled product/device direction. Full-app settings/finance adoption remains.
-- Evidence: docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md
+- Next action: Continue EX-13B normal-workspace integration from the passed repository checkpoint. Wire the scoped personal-device slot, shared account/logout/denial fence, abortable transfer and one resumable cross-tab sync leader. Connect normal Owner Players and Calendar with task-first preparation, quiet refresh, missing coverage and public offline boot. Measure local actions0 operating requests, unchanged0 pages, stable context and first/repeat startup before separately verifying staging. Preserve register originals and the full-app adoption sequence. Do not redo transfer or wrapping research.
+- Evidence: docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity
 

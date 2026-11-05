@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13B follow-on. The [protected repository checkpoint](../../docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) adds isolated key and storage evidence. The capture inventory retains the existing rendered experience.
+
 5 November EX-13B: [closed workspace-transfer evidence](../../docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) updates action/loading inventory links. UI/copy/rendered capture inputs are unchanged; rebuild inventory only. Existing captures do not demonstrate the new backend, protected dataset storage or normal-route offline behavior.
 
 5 November EX-13A: [refresh baseline and first dataset specification](../../docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) update action/loading evidence and the full-app local-data scope. App UI/test capture inputs remain unchanged; rebuild the inventory from the existing capture pack. These current captures do not demonstrate new Players/month persistence or a fixed refresh behavior.
