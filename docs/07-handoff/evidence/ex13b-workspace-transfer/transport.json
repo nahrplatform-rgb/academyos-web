@@ -22,7 +22,7 @@
     "scripts/workspace-download/test_transport.mjs": "d701b0477582bcba9ff0b8077fc3413f7f96e399a2197d74b8456149fbf4475e",
     "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "2906280f1284d8f9a25fbc1b665b33a6445c74a432df9ac8f5b7d40bd560a874",
+    "scripts/workspace-download/normal_workspace.mjs": "925912671538f9aa1e79a6d39c70ad47a25ef488b05ed973fcec020a4b85f9b5",
     "apps/web/public/prepared-workspace-worker.js": "8ff71436d6fa948ca1468d1a61a9c80f43c56305f2d00b8aa5565eeaeac5b404",
     "apps/web/src/lib/workspace-public-shell.ts": "c3ee694ab01939845bd1071d51ba5b8ba655ab1a0ddda4aa1f4d8eadca2341ac",
     "apps/web/src/components/prepared-workspace-startup.tsx": "7212bce4a0c1d62a26933592b9be138ec73771d3a9067409d45c539bed54f194",
@@ -83,7 +83,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 13.007415999998557,
+      "elapsedMs": 14.500833000000057,
       "operatingRequests": 0
     },
     "workspaceDevice": {

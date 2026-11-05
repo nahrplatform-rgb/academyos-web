@@ -91,6 +91,8 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
   };
   async function openOffline(page,url){
     const reply=await page.goto(url,{waitUntil:'load'});
+    assert.equal(reply?.url(),url);
+    await page.waitForURL(url,{waitUntil:'commit'});
     assert.equal(page.url(),url);
     assert.ok(reply?.fromServiceWorker(),'normal route should come from the offline worker');
   }
