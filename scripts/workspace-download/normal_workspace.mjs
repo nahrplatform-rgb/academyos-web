@@ -82,7 +82,7 @@ export async function normalWorkspaceFixture(root, fixture) {
 export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,db,pass}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[];
-  let offlineShellNavigations=0;
+  let offlineShellNavigations=0, nullGotoResponses=0;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
   const calendar=scope('ar','calendar?anchor=2099-11-01');
@@ -100,11 +100,18 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
   };
   async function openOffline(page,url){
     await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
-    const reply=await page.goto(url,{waitUntil:'load'});
-    assert.equal(reply?.url(),url);
-    await page.waitForURL(url,{waitUntil:'commit'});
+    const previousDocument=await page.evaluate(()=>performance.timeOrigin);
+    // Observe the requested navigation directly. goto can complete on an
+    // interim same-document history event while the worker navigation commits.
+    const response=page.waitForResponse(reply=>reply.url()===url&&reply.request().isNavigationRequest()&&
+      reply.request().frame()===page.mainFrame());
+    const [reply,reported]=await Promise.all([response,page.goto(url,{waitUntil:'load'})]);
+    if(reported)assert.equal(reported.url(),url);else nullGotoResponses++;
+    assert.equal(reply.url(),url);
+    await page.waitForURL(url,{waitUntil:'load'});
     assert.equal(page.url(),url);
-    assert.ok(reply?.fromServiceWorker(),'normal route should come from the offline worker');
+    await expect.poll(()=>page.evaluate(()=>performance.timeOrigin)).not.toBe(previousDocument);
+    assert.ok(reply.fromServiceWorker(),'normal route should come from the offline worker');
     await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
     offlineShellNavigations++;
   }
@@ -228,7 +235,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     pass('Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial');
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
-      offlineShellNavigations,fixtureOriginDisconnected:true};
+      offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses};
   } catch (error) {
     console.error({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
       pageErrors,failedRequests:failedRequests.slice(-25)});

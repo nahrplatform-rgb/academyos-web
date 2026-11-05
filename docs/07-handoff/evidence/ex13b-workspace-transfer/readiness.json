@@ -1,6 +1,6 @@
 {
-  "recorded_at": "2026-11-05T07:47:03.349861+00:00",
-  "source_base": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
+  "recorded_at": "2026-11-05T08:04:27.642814+00:00",
+  "source_base": "ca48e2be0aa73825fbcc84f393161792bedad05c",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
@@ -11,11 +11,11 @@
     "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
     "scripts/register-key/test_custody.py": "80ae7be0c56bd0b9371d0238fb6ec7329182433991ac5b095146f7ca9a41b5ad",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
-    "scripts/workspace-download/test_transport.mjs": "17b1f2bf4e9a17dd4cb78c6afa03b26dc8264c37295cca145ba14febfdf8072a",
+    "scripts/workspace-download/test_transport.mjs": "6eeb35e3f8547ec787c1e854ddaab45252621d9716f4d677fc358bfcff46fff0",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
     "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a",
     "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
-    "scripts/workspace-download/normal_workspace.mjs": "35968da9963a5477824898ed04c3bf92ed09e4b31dcbe3a6d67a750103df1347",
+    "scripts/workspace-download/normal_workspace.mjs": "21ee64638158532c2adccdab2b495d13b418a3bdd88bf106f8b8cced649aa593",
     "scripts/workspace-download/startup_resume.mjs": "63d6ac727211e85dee5a98bfb65dd03872b3efbf81daa178ac72ca05c4e4204b"
   },
   "checks": [
@@ -142,12 +142,29 @@
     "Archive inspection initially selected local PG14;explicit PG17.11 PATH fixed it;plaintext removed. No provider change.",
     "Both89e7536 CI runs failed in normal workspace fixture;no navigation response or missing Device after logout/reconnect. Retained as failed;not promoted.",
     "Local follow-up proved fromServiceWorker can describe network-backed HTML. Fixture now cuts origin and browser connection, asserts cached-shell marker at seven offline navigations and actual protected-document reentry. No request-budget/access/original assertion removed.",
-    "Public startup now checks online state on mount and guards one automatic reentry per URL/connection cycle;Opening state avoids false no-downloads server markup. Two controlled browser cases passed. Session-storage failure skips automatic reentry;broader device handling remains open."
+    "Public startup now checks online state on mount and guards one automatic reentry per URL/connection cycle;Opening state avoids false no-downloads server markup. Two controlled browser cases passed. Session-storage failure skips automatic reentry;broader device handling remains open.",
+    "ca48e2b push passed but PR failed with null goto before the requested offline destination was observed. Exact CDP cause unmeasured. Fixture now waits for actual requested main-frame response, destination, new document and cached shell;seven entries passed,zero observed null convenience returns. No retry or weakened budget."
   ],
   "delivery": {
-    "candidate_base": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
-    "push_ci_failed": 41981187485,
-    "pr_ci_failed": 41981196873,
+    "candidate_base": "ca48e2be0aa73825fbcc84f393161792bedad05c",
+    "previous_attempts": [
+      {
+        "source": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
+        "push": 41981187485,
+        "push_result": "failure",
+        "pr": 41981196873,
+        "pr_result": "failure"
+      },
+      {
+        "source": "ca48e2be0aa73825fbcc84f393161792bedad05c",
+        "push": 41990052014,
+        "push_result": "success",
+        "pr": 41990060670,
+        "pr_result": "failure",
+        "preview": "dpl_7MjynusnyQPCTzDWrwJD87euzqQP",
+        "preview_result": "READY"
+      }
+    ],
     "repair_exact_source_ci": "pending",
     "repair_preview": "pending",
     "staging_unchanged": true
@@ -163,5 +180,20 @@
     "runtime_console": "normal-route pageerror list empty",
     "hosted": "not yet run for expanded feature",
     "physical_device": "not run"
+  },
+  "normal_workspace_metrics": {
+    "baselinePlayersReads": 1,
+    "coveredPlayersRequests": 0,
+    "fullProfileReads": 1,
+    "coveredCalendarRequests": 0,
+    "unchangedManifestRequests": 1,
+    "unchangedDatasetPages": 0,
+    "offlineOperatingRequests": 0,
+    "offlineRoutePayloadRequests": 0,
+    "fullBrowserRestart": true,
+    "offlineShellNavigations": 7,
+    "fixtureOriginDisconnected": true,
+    "newOfflineDocuments": 7,
+    "nullGotoResponses": 0
   }
 }

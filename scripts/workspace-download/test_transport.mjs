@@ -52,6 +52,7 @@ if(process.argv.includes('--check')){
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,7);
+  assert.equal(receipt.metrics.normalWorkspace.newOfflineDocuments,7);
   assert.equal(receipt.metrics.normalWorkspace.fixtureOriginDisconnected,true);
   assert.deepEqual(receipt.metrics.capabilityCleanup,{
     workspaceRollbackPreservesRegister:true,registerRollbackPreservesWorkspace:true,
@@ -657,6 +658,7 @@ try{
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
     profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,db,pass});
+  console.log('NORMAL_WORKSPACE_METRICS '+JSON.stringify(metrics.normalWorkspace));
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await checkStartupResume(root,pass);
   await mkdir(directory,{recursive:true});
