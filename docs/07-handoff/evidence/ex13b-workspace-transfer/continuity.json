@@ -94,9 +94,9 @@
     "No local timing percentile,hosted fix or full matrix pass inferred from observer0Loading and zero operating requests",
     "Native late Week observation remains unconfirmed;anchorless same-tab fixture passes,not proof of native cause",
     "Navigation is per tab;datasets and protected originals retain their distinct durable policies",
-    "Source1347470 both exact CI runs passed and automatic Preview Ready;new People UI awaits Owner promotion and hosted verification"
+    "Scoped native EN/AR Players continuity on promoted1347470 is recorded in hosted-continuity.json; remaining hosted/device/performance matrix stays open"
   ],
-  "deployment": "Source1347470 both CI passed,Preview Ready;Owner promotion and hosted continuity retest pending",
+  "deployment": "Owner-promoted1347470 independently verified Ready on canonical staging; scoped native EN/AR Players continuity passed; broader hosted matrix and working acceptance remain open",
   "independent_review": "Deferred by Owner,nonblocking,not performed",
   "owner_acceptance": "pending working review",
   "reference_scope": "PYSA member-list direct loaded-set filtering and local selected IDs inspected;AcademyOS prefix semantics,complete dataset proof and privacy rules retained",
@@ -127,20 +127,51 @@
       "url": "https://academyos-9ye7zxwfn-academy-os2.vercel.app",
       "inspector_url": "https://vercel.com/academy-os2/academyos-web/Ez85kxkPEz4VDNYbCGntnsYXowTd"
     },
-    "owner_promotion": "pending;Owner only",
-    "new_people_ui_hosted": "not deployed",
+    "owner_promotion": "Owner reported Promoted1347470 to staging; independently verified exact source and canonical alias",
+    "new_people_ui_hosted": "Scoped EN/AR search/summary retention, offline document entries and automatic reconnect passed; live denial not run",
     "staging_before_promotion": {
       "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
       "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
       "state": "READY"
     },
-    "documentation_checks": {
-      "generated_continuation": "current;EX-13 remains current",
+    "staging_after_promotion": {
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+      "state": "READY",
+      "target": "production",
+      "url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/35UAsn5THBRHhtWLY6DuWBw3u7Br",
+      "canonical_alias": "staging.academy.nahr.dev",
+      "verification": "Read-only Vercel deployment lookup independently identifies the exact promoted source and staging alias",
+      "agent_promoted": false,
+      "schema_key_flags_reapplied": false
+    },
+    "prepromotion_documentation_checks": {
+      "generated_continuation": "At the checked-code handoff: EX-13 was current; latest routing follows hosted-continuity.json and the regenerated tracker",
       "execution_and_canonical": "passed",
       "factual_inventory_tool_and_freshness": "passed",
       "changed_markdown_links": 5,
       "git_diff_check": "passed",
       "product_or_test_change_since_checked1347470": false
+    },
+    "hosted_checkpoint_documentation": {
+      "execution_validator": "Passed:13 batches,17 findings,G01-G09,71 planned/evidence-linked cases;single current EX-07",
+      "canonical_validator": "Passed:68screens,30stable action groups,180preserved requirements",
+      "continuation": "Regenerated and freshness passed;EX-07 normal Attendance handoff current;EX-13 scoped checkpoint retained",
+      "local_markdown_links": "Passed:11 changed/new Markdown files,377 local targets",
+      "json_and_generator": "Changed JSON parses;generator AST valid;exact-source and retained-gap assertions passed",
+      "factual_review": "Inventory rebuilt from unchanged capture pack;1189states,1163transitions,79sources,7696literals;offline review-tool and fingerprint/freshness checks passed",
+      "rendered_review": "Generated phone review and Arabic desktop replay inspected;gated prepared-device states still outside default pack",
+      "product_checks": "No product/UI/test input changed in this hosted/documentation batch;retain checked1347470 build/type/lint,101units,49browser/transport and16capture-suite evidence without claiming a new run",
+      "git_diff_check": "Passed before commit",
+      "promotion_required": false
     }
+  },
+  "hosted_continuity": "hosted-continuity.json",
+  "routing_checkpoint": {
+    "ex13": "Scoped Owner Players/Calendar foundation checkpoint passed from the combined declared local and hosted evidence; parent findings and wider matrix remain partial",
+    "next_primary": "EX-07: integrate the approved Owner offline register into the ordinary Attendance route with original-save and recovery parity",
+    "supporting_owner": "EX-08 retains the unexecuted hosted/device/performance matrix; EX-09 retains actual custody/privacy checks; EX-05 retains provider/query measurement",
+    "no_scope_retired": true
   }
 }

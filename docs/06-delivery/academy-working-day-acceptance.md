@@ -1,5 +1,7 @@
 # Academy working-day pilot and acceptance gate
 
+**5 November scoped routing result:** [EX-13 continuity](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) records checked/promoted1347470 and actual EN/AR Players query/selection/offline/reconnect samples. Combined with retained local/Calendar proof, the foundation routing checkpoint passes into [EX-07 normal Attendance](../07-handoff/ex07-normal-attendance-integration-2026-11-05.md). WD-60/61/66/70 remain evidence-linked, not whole-case passes: the packet distinguishes local negative tests, current hosted positives and the unexecuted matrix. EX-08/05/09 retain those gaps and working acceptance remains separate.
+
 **Full-app coverage — 5 November:** the [Owner response](../07-handoff/evidence/full-app-local-data-direction-2026-11-05.json) requires settings, finance and future modules to adopt the [same normal-workspace contract](local-data-and-sync-plan.md#full-app-adoption--5-november-2026). Expand the existing canonical action/loading/WD joins when each module is built. Preserve current planned/executed boundaries; the [15-family baseline](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) does not pass future no-flash/offline cases.
 
 ## Normal-workspace acceptance — 5 November 2026

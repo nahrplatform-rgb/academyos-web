@@ -1225,5 +1225,19 @@
     "agent_promoted": false,
     "hosted_receipt": "hosted-repair.json",
     "schema_key_flags_reapplied": false
+  },
+  "continuity_promotion": {
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "state": "READY",
+    "target": "production",
+    "url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+    "inspector_url": "https://vercel.com/academy-os2/academyos-web/35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "canonical_alias": "staging.academy.nahr.dev",
+    "verification": "Read-only Vercel deployment lookup independently identifies the exact promoted source and staging alias",
+    "agent_promoted": false,
+    "schema_key_flags_reapplied": false,
+    "hosted_receipt": "hosted-continuity.json",
+    "existing_setup_preserved": true
   }
 }

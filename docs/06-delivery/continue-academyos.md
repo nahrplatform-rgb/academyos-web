@@ -16,7 +16,7 @@ Start with the explicit current priority below, not the first unfinished EX numb
 
 Owner's 5 November normal-workspace direction is in docs/06-delivery/local-data-and-sync-plan.md. EX-13A measures cold/warm entry, return, local clicks and saves across implemented routes/actions and defines the exact Owner dataset contracts. EX-13B proves normal Players and Calendar across connection changes, with task-first automatic preparation, durable local reads, bounded current/adjacent month coverage and quiet changes/removals. Routine use needs no special offline route or manual preparation/sync step on an approved device. EX-07 integrates the approved Owner register in normal Attendance and verifies continuity in every implemented journey, including online-only work. Keep EX-11's scoped hosted pilot passed and preserve exact access, device, field, retention, deadline, version, atomicity and original-recovery rules. Use the recorded source/staging/local refresh baseline in docs/07-handoff/refresh-root-causes-2026-11-05.md and WD-58–WD-71 for planned evidence. Retain platform-specific proof for future installed clients.
 
-Owner's later5November reply requests the full application experience, including settings, finances and future modules. Read docs/04-engineering/owner-workspace-dataset-contract.md and docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md. The exact starting Players/month projection is a delivery slice, not a permanent summary-only product limit. Follow the full-app adoption map in local-data-and-sync-plan.md: normal-route Attendance and remaining implemented profiles/settings/training/reviews/Guardian/development, then real future finance/reporting/communications/new portals with local behavior in their creation scope. Preserve existing domain authority and supported offline writers; do not invent financial rules or a universal queue. Do not re-ask the settled normal-workspace, sign-in, timer or cleanup direction. The tracker owns the current EX-13A/B implementation handoff and its remaining evidence gaps.
+Owner's later5November reply requests the full application experience, including settings, finances and future modules. Read docs/04-engineering/owner-workspace-dataset-contract.md and docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md. The exact starting Players/month projection is a delivery slice, not a permanent summary-only product limit. Follow the full-app adoption map in local-data-and-sync-plan.md: normal-route Attendance and remaining implemented profiles/settings/training/reviews/Guardian/development, then real future finance/reporting/communications/new portals with local behavior in their creation scope. Preserve existing domain authority and supported offline writers; do not invent financial rules or a universal queue. Do not re-ask the settled normal-workspace, sign-in, timer or cleanup direction. The tracker owns the current implementation handoff and retains EX-13A/B results and remaining evidence gaps even after routing advances.
 
 Apply the Owner-directed AI delegation/cost policy within that work. Scripts/direct tools handle deterministic repetition. For substantial eligible independent work, explicitly choose gpt-6.1-terra with a fresh concise brief, exact file/resource ownership, relevant contracts, validation and stop conditions; do not forward this entire chat. Default zero/one helper, maximum two active subagents in the coordinated batch excluding its single lead, and no nested spawning or duplicate jobs. A second needs a concrete independence/benefit; more needs a later explicit Owner instruction. Coordinator (Sol when selected) owns architecture, policy/authority, complex sync/recovery, integration and real browser/provider operations. Helpers do not commit/publish, promote, grant access or alter providers. Preserve tests and actual evidence, escalate ambiguity or failed bounded repair, and record configured model/effort/count/rationale/checks/repairs/available usage in the existing receipt. Do not invent savings, promise twice the five-hour limit or pause the current sequence for a benchmark. The cap is an instruction, not a runtime/billing setting changed by documentation. Use no helper when serial/direct work is simpler or cheaper.
 
@@ -42,13 +42,13 @@ Promotion ownership: the Owner performs all deployment promotions. Prepare/test/
 
 After every checkpoint, update the tracker/evidence and affected plan/handoff, maintain actual-component factual HTML where required, regenerate this prompt and run the execution/canonical/review checks. Keep design, implementation, local tests, deployed source, hosted verification, Owner acceptance and independent security separate. If blocked, record the exact decision/evidence/access limitation and safe next action; do not invent approval or silently retire scope. No production launch, service purchase/upgrade or privileged access restoration is included.
 
-## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
+## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Owner promotes checked1347470 from linked Ready deployment to staging;verify exact new source and actual Players query/summary/local-feedback/denial presentation. Retain scoped86d7fac Calendar/offline proof and unconfirmed earlier Week observation;broader restart/access/rollback/device/performance gaps stay open. Reuse schema/key/flags;then EX-07.
+Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch.
 
-Scoped dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted proof retained. Continuity1347470 passes local49/101/captures and both CI;Preview Ready. Owner promotion/new hosted verification and broader working matrix/acceptance remain. No repeated activation or human-review wait.
+Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read: `docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md`
+Read: `docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md`
 
 ## Ordered primary checkpoints
 
@@ -59,8 +59,8 @@ Read: `docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md`
 5. **EX-03 — Durable original-operation and requested offline-edit journal recovery** (checkpoint_passed).
 6. **EX-12 — Dedicated staging identities, controlled active-role cleanup plan and role-journey verification** (checkpoint_passed).
 7. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (checkpoint_passed).
-8. **EX-13 — Normal local-first Owner Players and Calendar before app-wide adoption** (current).
-9. **EX-07 — Remaining Operations adoption and app-wide workflow continuity** (queued).
+8. **EX-13 — Normal local-first Owner Players and Calendar before app-wide adoption** (checkpoint_passed).
+9. **EX-07 — Remaining Operations adoption and app-wide workflow continuity** (current).
 
 Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
 
@@ -206,37 +206,37 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 
 ### EX-13 — Normal local-first Owner Players and Calendar before app-wide adoption
 
-Routing: primary / 8 / current.
+Routing: primary / 8 / checkpoint_passed.
 Dependencies: EX-04; EX-06; EX-09; EX-11.
-Dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted proof retained. Continuity1347470 passes local49/101/captures and both CI;Preview Ready. Owner promotion/new hosted verification and broader working matrix/acceptance remain. No repeated activation or human-review wait.
+Dependency gate: Declared Owner Players/Calendar foundation routing checkpoint passed:49source-bound browser/transport,101units,captures,exact CI,Owner-promoted1347470 and scoped native continuity plus prior Calendar proof. Wider hosted matrix remains EX-08-supported and Owner acceptance pending;not full EX-13 parent completion.
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
 - Implementation: 86d7fac entry repair hosted;new Players safe-view restoration/local feedback and masked-inspector denial announcement implemented. Calendar product unchanged;anchorless same-tab reconnect fixture added. Existing authority/dirty/original rules retained.
 - Local checks: 49 transport/browser incl11offline documents,zero local Loading additions,safe query/summary recovery and unknown/denial priority passed;build/type/lint,101units,16capture suites,legacy People development,factual/tool/freshness/structural checks passed. Source-bound startup/working-day/key receipts current.
-- Deployment: Live86d7fac Ready dpl_FybLg1odEtcfDWnB7LrBgfouFwDR. Continuity1347470 both exact CI passed,Preview dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd Ready;Owner promotion pending. No agent promotion/configuration change.
-- Hosted verification: 86d7fac dedicated Owner:chooser-SPA,normal EN Players/AR Calendar offline0bytes,month grids9/29/24,automatic reconnect. Additional live AR reload/settled check retained Month29 and selection;earlier Week cause unconfirmed. New People continuity not hosted;wider matrix open.
+- Deployment: Owner-promoted1347470;canonical staging independently Ready dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br at exact source. Both code CI passed;no agent promotion or schema/key/flag reapply.
+- Hosted verification: 1347470 dedicated Owner:normal EN/AR Players retains prefix/selected summary through online and offline document entries;each offline entry23log entries/0bytes/0API;clear/filter/summary0API. Automatic AR reconnect retains context;1workspace check1172B,0People calls. Prior86d Calendar grids9/29/24 and repeat retained;no new Calendar run. Hosted denial/full-process restart/device/performance still open.
 - Owner acceptance: Full-app local-first direction/starting projection retained;exact workspace staging activation explicitly authorized5November. Working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Owner promotes checked1347470 from linked Ready deployment to staging;verify exact new source and actual Players query/summary/local-feedback/denial presentation. Retain scoped86d7fac Calendar/offline proof and unconfirmed earlier Week observation;broader restart/access/rollback/device/performance gaps stay open. Reuse schema/key/flags;then EX-07.
+- Next action: Retain scoped foundation checkpoint and hosted-continuity.json;EX-07 now integrates the existing prepared Owner register into normal Attendance. EX-08 keeps explicit EX-13 hosted restart/known-loss/logout/rollback/changed-transfer/device/performance cases with EX-05/09 support. No whole finding or working acceptance closed;reuse installed setup.
 - Evidence: docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity
 
-Routing: primary / 9 / queued.
+Routing: primary / 9 / current.
 Dependencies: EX-01; EX-02; EX-10; EX-12; EX-11; EX-13.
-Dependency gate: EX-12 role separation and scoped EX-11 register pilot passed. EX-13 precedes this remaining adoption. Each affected batch verifies actual continuity, current authority, recovery and Operations parity. Independent review remains deferred and working acceptance remains separate.
+Dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 Findings: NR03; NR16.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Partial. Delivered Owner Today and shipped Platform admission retained; Owner Calendar now adopts Operations weekly board/adaptive agenda,compact controls and structured session context. Domain writes/read authority unchanged; full role/journey parity incomplete.
+- Implementation: Delivered Owner Today,Platform and Calendar retained. Normal Attendance already hosts a personal-device button/alternate prepared-register shell and separate public startup;unified ordinary-route lifecycle/save/reopening integration is next,not a missing mechanism to rebuild. Remaining full-role/Operations parity incomplete.
 - Local checks: 4Nov Calendar:24 ENAR/theme/width cases xweek+month,partial/denied/moved/current-selection and44x48 targets;0local/1recheck read retained. Build/TypeScript/lint,93units,17foundation,16captures,actual Next ENAR/20geometry,8working-day/7startup,9freshness,factual/theme/docs passed;new regression added to CI. Exact fc1b5ee push/PR CI passed;ENAR in-place switch retains filter/selection with0 operating reads.
 - Deployment: Checked fc1b5ee exact push/PR CI passed. Canonical provider now shows Ready dpl_8hiwQ93Y5bf9axQLLjvJo1DeYhzu/sourcefc1b5ee;no new Owner promotion report or agent release action. Full Calendar hosted verification/acceptance separate.
 - Hosted verification: Prior12b9 Platform ENAR read-only continuity verified. New Calendar visual/source/read/return checks await exact checked release and Owner promotion;no new hosted operating write or account change.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: After EX-13, retain shipped Calendar/Platform/Today. Apply stable return, navigation, local controls and saves across each implemented route/action, including online-only work, alongside Operations parity. Integrate the approved Owner register into normal Attendance and prove durable save, restart and automatic original sync. Keep additional offline commands and native releases in their own scope. Apply the full-app adoption map to permitted profiles,settings,training/reviews,Guardian/development and reporting;future finance/communications/new portals include the same architecture when their real modules are built.
-- Evidence: docs/07-handoff/operations-owner-calendar-checkpoint.md
+- Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch.
+- Evidence: docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 
@@ -266,10 +266,10 @@ Design: measurement profiles required.
 - Implementation: not_applicable
 - Local checks: partial_baseline
 - Deployment: not_applicable
-- Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open. EX11 signed-in Owner cold offline tab reload:18 network-log entries,0 transferred bytes,0 operating API calls; no provider quota or percentile inference. Promoted cb00ab8 retest:18 log entries,0 transferred bytes,826 kB resources and 0 operating API calls on one Owner cold offline reload.
+- Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open. EX11 signed-in Owner cold offline tab reload:18 network-log entries,0 transferred bytes,0 operating API calls; no provider quota or percentile inference. Promoted cb00ab8 retest:18 log entries,0 transferred bytes,826 kB resources and 0 operating API calls on one Owner cold offline reload. 5Nov1347470 exact staging and dedicated Owner ENAR Players continuity verified:two normal offline entries each23log entries/0bytes/0API;automatic reconnect1workspace check1172B,0People calls. Prior86d Calendar grids and repeat retained separately;hosted-continuity.json records limits.
 - Owner acceptance: not_applicable
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Measure first preparation versus reopened local stores,unchanged manifests,changed transfers,local queries,save/recovery and device/scope/storage cases per batch;preserve source/provider/role/physical limits
+- Next action: With current EX-07 normal Attendance, retain and execute the named EX-13 hosted cases:isolated full-process restart,known Owner loss/logout/cross-profile cleanup,workspace-only rollback preserving register originals,changed/held transfers and fresh-device entry;physical/Safari/zoom/accessibility and declared whole-day/provider percentiles stay open. Coordinate safely with active browser/profiles;do not claim them from local fixtures or discard gaps when routing advances.
 - Evidence: docs/04-engineering/request-service-impact.md
 
 ### EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
