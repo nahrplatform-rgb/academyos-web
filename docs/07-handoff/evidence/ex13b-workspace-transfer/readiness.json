@@ -371,8 +371,43 @@
     "transport_cases": 49,
     "units": 101,
     "local_status": "Build/type/lint,101units,49browser/transport,16capture suites,legacy People development and factual/structural/freshness checks passed",
-    "exact_source_ci": "pending",
-    "hosted": "not deployed;retain86d7fac scoped proof"
+    "exact_source_ci": "passed_both1347470",
+    "hosted": "not deployed;retain86d7fac scoped proof",
+    "delivery": {
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "ci": [
+        {
+          "id": 42109504375,
+          "event": "push",
+          "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+          "status": "completed",
+          "result": "success",
+          "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109504375"
+        },
+        {
+          "id": 42109517422,
+          "event": "pull_request",
+          "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+          "status": "completed",
+          "result": "success",
+          "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109517422"
+        }
+      ],
+      "preview": {
+        "id": "dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "state": "READY",
+        "url": "https://academyos-9ye7zxwfn-academy-os2.vercel.app",
+        "inspector_url": "https://vercel.com/academy-os2/academyos-web/Ez85kxkPEz4VDNYbCGntnsYXowTd"
+      },
+      "owner_promotion": "pending;Owner only",
+      "new_people_ui_hosted": "not deployed",
+      "staging_before_promotion": {
+        "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "state": "READY"
+      }
+    }
   },
   "provenance": "Retained activation/SPA snapshots are historical and scoped;continuity.json owns the latest follow-up source/checks. No aggregate full-readiness/security pass."
 }

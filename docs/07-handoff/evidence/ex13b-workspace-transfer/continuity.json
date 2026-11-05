@@ -94,10 +94,53 @@
     "No local timing percentile,hosted fix or full matrix pass inferred from observer0Loading and zero operating requests",
     "Native late Week observation remains unconfirmed;anchorless same-tab fixture passes,not proof of native cause",
     "Navigation is per tab;datasets and protected originals retain their distinct durable policies",
-    "New source awaits commit,push,exact-source CI/automatic Preview and Owner promotion/hosted retest"
+    "Source1347470 both exact CI runs passed and automatic Preview Ready;new People UI awaits Owner promotion and hosted verification"
   ],
-  "deployment": "pending checked source and Owner-controlled promotion",
+  "deployment": "Source1347470 both CI passed,Preview Ready;Owner promotion and hosted continuity retest pending",
   "independent_review": "Deferred by Owner,nonblocking,not performed",
   "owner_acceptance": "pending working review",
-  "reference_scope": "PYSA member-list direct loaded-set filtering and local selected IDs inspected;AcademyOS prefix semantics,complete dataset proof and privacy rules retained"
+  "reference_scope": "PYSA member-list direct loaded-set filtering and local selected IDs inspected;AcademyOS prefix semantics,complete dataset proof and privacy rules retained",
+  "delivery": {
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "ci": [
+      {
+        "id": 42109504375,
+        "event": "push",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "status": "completed",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109504375"
+      },
+      {
+        "id": 42109517422,
+        "event": "pull_request",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "status": "completed",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109517422"
+      }
+    ],
+    "preview": {
+      "id": "dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd",
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "state": "READY",
+      "url": "https://academyos-9ye7zxwfn-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/Ez85kxkPEz4VDNYbCGntnsYXowTd"
+    },
+    "owner_promotion": "pending;Owner only",
+    "new_people_ui_hosted": "not deployed",
+    "staging_before_promotion": {
+      "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+      "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+      "state": "READY"
+    },
+    "documentation_checks": {
+      "generated_continuation": "current;EX-13 remains current",
+      "execution_and_canonical": "passed",
+      "factual_inventory_tool_and_freshness": "passed",
+      "changed_markdown_links": 5,
+      "git_diff_check": "passed",
+      "product_or_test_change_since_checked1347470": false
+    }
+  }
 }

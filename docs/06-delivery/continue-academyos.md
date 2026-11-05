@@ -44,9 +44,9 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
 
-Next action: Commit/push bounded continuity follow-up;verify both exact-source CI runs and automatic Preview. Owner performs any promotion;then verify actual Players context/local feedback and repeat controlled Calendar resume on staging. Keep86d7fac scoped proof,native late-Week and wider matrix gaps;reuse schema/key/flags;then EX-07.
+Next action: Owner promotes checked1347470 from linked Ready deployment to staging;verify exact new source and actual Players query/summary/local-feedback/denial presentation. Retain scoped86d7fac Calendar/offline proof and unconfirmed earlier Week observation;broader restart/access/rollback/device/performance gaps stay open. Reuse schema/key/flags;then EX-07.
 
-Scoped dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted entry/offline/reconnect retained. Players continuity and settled Calendar fixture are next;broader matrix/working acceptance remain. No repeated activation or independent-review wait.
+Scoped dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted proof retained. Continuity1347470 passes local49/101/captures and both CI;Preview Ready. Owner promotion/new hosted verification and broader working matrix/acceptance remain. No repeated activation or human-review wait.
 
 Read: `docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md`
 
@@ -208,17 +208,17 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 
 Routing: primary / 8 / current.
 Dependencies: EX-04; EX-06; EX-09; EX-11.
-Dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted entry/offline/reconnect retained. Players continuity and settled Calendar fixture are next;broader matrix/working acceptance remain. No repeated activation or independent-review wait.
+Dependency gate: EX-12,scoped EX-11,authorized EX-13 setup and scoped86d7fac hosted proof retained. Continuity1347470 passes local49/101/captures and both CI;Preview Ready. Owner promotion/new hosted verification and broader working matrix/acceptance remain. No repeated activation or human-review wait.
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
 - Implementation: 86d7fac entry repair hosted;new Players safe-view restoration/local feedback and masked-inspector denial announcement implemented. Calendar product unchanged;anchorless same-tab reconnect fixture added. Existing authority/dirty/original rules retained.
 - Local checks: 49 transport/browser incl11offline documents,zero local Loading additions,safe query/summary recovery and unknown/denial priority passed;build/type/lint,101units,16capture suites,legacy People development,factual/tool/freshness/structural checks passed. Source-bound startup/working-day/key receipts current.
-- Deployment: Owner-promoted86d7fac independently Ready as dpl_FybLg1odEtcfDWnB7LrBgfouFwDR;served public worker matches Git. Existing schema/root/flags retained;no agent promotion.
-- Hosted verification: Dedicated iCloud Owner:chooser-SPA Players4 no reopening warning;normal EN Players and AR Calendar offline0transferred bytes;month grids9/29/24;Calendar selection survives offline reload;automatic reconnect. Cold People context/local Loading gap;late Week observation unconfirmed;wider matrix open.
+- Deployment: Live86d7fac Ready dpl_FybLg1odEtcfDWnB7LrBgfouFwDR. Continuity1347470 both exact CI passed,Preview dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd Ready;Owner promotion pending. No agent promotion/configuration change.
+- Hosted verification: 86d7fac dedicated Owner:chooser-SPA,normal EN Players/AR Calendar offline0bytes,month grids9/29/24,automatic reconnect. Additional live AR reload/settled check retained Month29 and selection;earlier Week cause unconfirmed. New People continuity not hosted;wider matrix open.
 - Owner acceptance: Full-app local-first direction/starting projection retained;exact workspace staging activation explicitly authorized5November. Working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Commit/push bounded continuity follow-up;verify both exact-source CI runs and automatic Preview. Owner performs any promotion;then verify actual Players context/local feedback and repeat controlled Calendar resume on staging. Keep86d7fac scoped proof,native late-Week and wider matrix gaps;reuse schema/key/flags;then EX-07.
+- Next action: Owner promotes checked1347470 from linked Ready deployment to staging;verify exact new source and actual Players query/summary/local-feedback/denial presentation. Retain scoped86d7fac Calendar/offline proof and unconfirmed earlier Week observation;broader restart/access/rollback/device/performance gaps stay open. Reuse schema/key/flags;then EX-07.
 - Evidence: docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity

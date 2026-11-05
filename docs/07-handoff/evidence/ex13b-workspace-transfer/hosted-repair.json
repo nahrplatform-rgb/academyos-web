@@ -148,5 +148,20 @@
     "scope": "read-only Calendar context inventory and one owned fixture-file extension;no real browser/provider/Git",
     "coordinator": "native verification,evidence,Players implementation,integration and combined validation",
     "usage_and_savings": "unmeasured"
+  },
+  "calendar_repeat": {
+    "recorded_at": "2026-11-05T21:15:22.473755+00:00",
+    "source": "86d7fac;Calendar code unchanged in1347470",
+    "scope": "Actual existing AR Calendar online document reload and completed freshness check;not a second offline cycle",
+    "initial_and_settled": {
+      "month": true,
+      "anchor": "2026-11-05",
+      "sessions": 29,
+      "selected_occurrence_retained": true,
+      "online": true
+    },
+    "earlier_late_week": "Not reproduced in this repeat or isolated same-tab fixture;cause remains unconfirmed",
+    "observation_limit": "Two tabs and different panel widths were present on revisit;other tabs were not operated or closed;no causal user-action assumption",
+    "cleanup": "Device tools closed;DevTools was not reopened;connection remained online"
   }
 }

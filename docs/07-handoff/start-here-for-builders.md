@@ -2,7 +2,7 @@
 
 **Current EX-13 checkpoint — 5 November:** Read the [workspace device lifecycle receipt](ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) and [dataset contract](../04-engineering/owner-workspace-dataset-contract.md). Continue normal Players/Calendar integration and offline startup. The [full-app adoption map](../06-delivery/local-data-and-sync-plan.md#full-app-adoption--5-november-2026) includes settings, finances and future modules.
 
-**Current delivery:** `86d7fac` is Owner-promoted and independently verified Ready. The [scoped hosted receipt](evidence/ex13b-workspace-transfer/hosted-repair.json) records normal offline Players/Calendar and automatic reconnect. Continue the [bounded continuity follow-up](ex13b-workspace-continuity-2026-11-05.md) from the tracker; do not repeat activation or conflate scoped reopening with full-app acceptance. [Living continuation](../06-delivery/continue-academyos.md).
+**Current delivery:** `86d7fac` remains the verified live source. [Continuity code1347470](ex13b-workspace-continuity-2026-11-05.md) passes local49/101/captures and both exact CI;its automatic Preview is Ready. The Owner promotes that checked build,then actual Players continuity is verified. Preserve prior offline/Calendar proof and all remaining gaps;do not repeat activation. [Living continuation](../06-delivery/continue-academyos.md).
 
 **Retained 4 November execution:** [Role separation, authorized pilot activation and trial-test authority](role-first-offline-sequence-2026-11-04.md). The later [signed-in register checkpoint](owner-register-window-and-hosted-checkpoint-2026-11-04.md) records the promoted build and scoped offline proof.
 
