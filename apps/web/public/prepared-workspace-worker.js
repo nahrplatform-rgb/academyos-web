@@ -15,6 +15,22 @@ function supported(url) {
   const value=url.search.slice(8), date=new Date(value+'T00:00:00Z');
   return !Number.isNaN(date.valueOf()) && date.toISOString().slice(0,10)===value;
 }
+function preparationAllowed(message,client) {
+  if(client?.type!=='window'||!client.url)return false;
+  try {
+    const source=new URL(client.url);
+    if(source.origin!==self.location.origin)return false;
+    // Preserve older normal-document clients. A SPA client can still report
+    // its initial sign-in URL, so new callers supply their current route.
+    if(message==='prepare-workspace-public-shell')return supported(source);
+    if(!message||typeof message!=='object'||Array.isArray(message)||
+      Object.keys(message).length!==2||!Object.hasOwn(message,'type')||!Object.hasOwn(message,'route')||
+      message.type!=='prepare-workspace-public-shell'||typeof message.route!=='string'||
+      message.route.length>256||!message.route.startsWith('/')||message.route.startsWith('//'))return false;
+    const current=new URL(message.route,self.location.origin);
+    return current.origin===self.location.origin&&!current.hash&&supported(current);
+  } catch {return false;}
+}
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
 
@@ -71,9 +87,7 @@ async function prepare() {
 }
 self.addEventListener('message',event=>{
   const client=event.source, port=event.ports[0];
-  if (!port || event.data!=='prepare-workspace-public-shell' || !client?.url) return;
-  const caller=new URL(client.url);
-  if (caller.origin!==self.location.origin || !supported(caller)) return;
+  if (!port || !preparationAllowed(event.data,client)) return;
   preparation??=prepare().finally(()=>{preparation=undefined;});
   event.waitUntil(preparation.then(()=>port.postMessage('ready'),()=>port.postMessage('unavailable')));
 });
@@ -99,9 +113,12 @@ self.addEventListener('fetch',event=>{
   } else if (request.mode!=='navigate'&&!url.search&&staticAsset.test(url.pathname)&&!url.pathname.includes('..')&&event.clientId) {
     event.respondWith((async()=>{
       const client=await self.clients.get(event.clientId);
-      if (client?.url) {
+      if (client?.type==='window'&&client.url) {
         const source=new URL(client.url);
-        if (source.origin===self.location.origin&&supported(source)) {
+        // These entries contain only the checked public shell's JS/CSS.
+        // Client.url may retain an earlier SPA route; it is not a reliable
+        // current-path fence and never establishes private-data authority.
+        if (source.origin===self.location.origin) {
           const result=await cached(url.pathname);
           if (result) return result;
         }

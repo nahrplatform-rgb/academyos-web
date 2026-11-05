@@ -1,6 +1,6 @@
 {
-  "recorded_at": "2026-11-05T14:04:36.348625+00:00",
-  "source_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+  "recorded_at": "2026-11-05T15:02:41.780850+00:00",
+  "source_base": "db11fd36fe2bb462efdd22e53aa649a280fe809c",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
@@ -11,12 +11,15 @@
     "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
     "scripts/register-key/test_custody.py": "80ae7be0c56bd0b9371d0238fb6ec7329182433991ac5b095146f7ca9a41b5ad",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
-    "scripts/workspace-download/test_transport.mjs": "6eeb35e3f8547ec787c1e854ddaab45252621d9716f4d677fc358bfcff46fff0",
+    "scripts/workspace-download/test_transport.mjs": "9b78736b3c5629a0b34cc89b681c1ef7519eecb7308d54f3415a9f712a969931",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
     "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a",
     "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
     "scripts/workspace-download/normal_workspace.mjs": "3a2bad16c021b590073ef53a5db05dc0102a3bcdce73429522e7fa01e8e6d5db",
-    "scripts/workspace-download/startup_resume.mjs": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3"
+    "scripts/workspace-download/startup_resume.mjs": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3",
+    "apps/web/public/prepared-workspace-worker.js": "6f319e1cb36593217079172efb18924ea74815d2bd07e8a774e041a61265214c",
+    "apps/web/src/lib/workspace-public-shell.ts": "36e66633aedc5f13f4aba4e6e00aacdb2e856022bee5667647cff330df79744e",
+    "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a"
   },
   "checks": [
     {
@@ -47,7 +50,7 @@
     {
       "command": "node scripts/workspace-download/test_transport.mjs",
       "status": "passed",
-      "scope": "40 checks;seven exact cached-shell/new-document entries;four capability cleanup and four public startup reachability/reconnect cases;fictional identity/legacy wire/providers"
+      "scope": "44cases;retained40plus4SPA caller/public-only cache/14invalid message/offline-asset cases"
     },
     {
       "command": "node scripts/workspace-download/test_transport.mjs --check",
@@ -77,7 +80,7 @@
     {
       "command": "node scripts/experience-review/collect.mjs && node scripts/experience-review/static.mjs",
       "status": "passed",
-      "scope": "16 real-component capture suites"
+      "scope": "Prior16real-component captures retained;no changed default capture input in this public-worker/client repair"
     },
     {
       "command": "node scripts/experience-review/build.mjs && node scripts/experience-review/test.mjs && node scripts/experience-review/build.mjs --check",
@@ -121,20 +124,21 @@
     }
   ],
   "staging_observation": {
-    "source": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
-    "deployment": "dpl_GaKbABC9eyafobc72VNfCYjQ9UNu",
+    "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "deployment": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
     "state": "READY",
     "migration_count": 30,
     "x21_workspace_applied": true,
     "workspace_configuration_mutated": true,
     "promotion_performed_by_agent": false,
-    "rechecked_at": "2026-11-05T08:47:28.016831+00:00",
-    "source_unchanged": true
+    "rechecked_at": "2026-11-05T14:56:24.635Z",
+    "hosted_entry": "data prepared;public SPA shell rejected retained sign-in client URL",
+    "source_transition": "Owner-promoted7ddc6f1 independently verified;new SPA repair not deployed"
   },
   "remaining": [
-    "Owner-controlled promotion of checked7ddc6f1",
-    "signed-in hosted normal-route matrix",
-    "cold Players search/selection continuity,physical device,provider cost and percentile gaps"
+    "Exact SPA repair source CI/automatic build and Owner promotion",
+    "actual SPA preparation without manual reload and remaining signed-in matrix",
+    "cold People context,device,provider/percentile and working acceptance gaps"
   ],
   "independent_review": "Deferred by Owner;nonblocking;not performed",
   "delegation": {
@@ -212,7 +216,7 @@
         "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994987996"
       }
     ],
-    "staging_source_unchanged": true,
+    "staging_source_unchanged": false,
     "schema_configuration_receipt": "activation.json"
   },
   "rendered_qa": {
@@ -224,7 +228,7 @@
       "design/app-experience-review/evidence/review-ar-desktop.png"
     ],
     "runtime_console": "normal-route pageerror list empty",
-    "hosted": "not yet run for expanded feature",
+    "hosted": "Owner7ddc6f1 data preparation observed;public SPA-entry defect diagnosed;repaired-source retest pending",
     "physical_device": "not run"
   },
   "normal_workspace_metrics": {
@@ -248,7 +252,8 @@
     "register_flags_retained": 4,
     "values_decrypted": false,
     "cli_account_has_academyos_team": false,
-    "provider_mutated": false
+    "provider_mutated": false,
+    "provenance": "Historical pre-activation inspection;current applied state is in current_configuration and activation.json"
   },
   "activation_request": {
     "status": "authorized",
@@ -256,7 +261,7 @@
     "recorded_at": "2026-11-05T13:44:14.308734+00:00",
     "scope": "exact x21 workspace migration,separate prepared workspace root,three synthetic-staging flags",
     "promotion": "Owner only",
-    "provider_apply": "schema/root/three settings applied and verified;Owner promotion pending"
+    "provider_apply": "completed;Owner promoted7ddc6f1;new SPA code repair pending separate checked release"
   },
   "delivery_checkpoint_checks": {
     "execution_validator": "passed;current EX-13;generated continuation matches",
@@ -265,7 +270,8 @@
     "review_tool_and_freshness": "passed",
     "changed_document_local_links": 14,
     "git_diff_check": "passed",
-    "provider_mutations": false
+    "provider_mutations": false,
+    "provenance": "Retained earlier checkpoint;current repair documentation/tool checks recorded separately after execution"
   },
   "current_configuration": {
     "workspace_root": "sensitive;production target only;reused prepared archive",
@@ -273,5 +279,40 @@
     "register_settings_preserved": true,
     "correct_cli_account_verified": true,
     "values_decrypted_for_evidence": false
+  },
+  "spa_repair": {
+    "source_base": "db11fd36fe2bb462efdd22e53aa649a280fe809c",
+    "transport_checks": 44,
+    "public_shell_spa": {
+      "spaClientUrlRetained": true,
+      "publicEntries": 3,
+      "invalidMessages": 14,
+      "offlineAssets": 2,
+      "legacyNormalRoute": true
+    },
+    "exact_source_ci": "pending",
+    "automatic_build": "pending",
+    "hosted_repaired_source": "not yet deployed",
+    "evidence": "hosted.json",
+    "source_checks": "Transport44,Owner startup8,working-day8 and key15 source-bound receipts verified;no rerun of unchanged provider or schema operations",
+    "delegation": {
+      "model": "gpt-6.1-terra",
+      "reasoning": "high",
+      "peak_helpers": 1,
+      "scope": "source observation map and one isolated browser regression file",
+      "coordinator": "native hosted diagnosis,production fix,integration,validation and evidence",
+      "nested_spawning": false,
+      "savings_measured": false
+    },
+    "documentation_checks": {
+      "recorded_at": "2026-11-05T15:08:58.904164+00:00",
+      "execution_validator": "passed;current EX-13 and generated prompt current",
+      "implementation_validator": "passed;68 screens,30 action groups,180 requirements",
+      "factual_inventory": "1189states,1163transitions,79sources,7685literals;unchanged capture pack accepted",
+      "review_tool_and_freshness": "passed;EN/AR desktop and phone tool captures inspected",
+      "changed_markdown_link_targets": "10 changed documents;all local destinations exist",
+      "git_diff_check": "passed",
+      "provider_mutations_during_public_code_repair": false
+    }
   }
 }

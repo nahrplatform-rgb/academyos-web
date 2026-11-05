@@ -28,6 +28,11 @@ export async function prepareWorkspaceShell() {
     worker!.addEventListener('statechange',changed);changed();
   });
   await new Promise<void>((resolve,reject)=>{
+    // WindowClient.url can remain the document's sign-in/chooser URL after
+    // History API navigation. Send the current bounded route separately;
+    // this prepares public code only and grants no private-data authority.
+    const current=new URL(location.href);
+    if(!supportedWorkspaceRoute(current)){reject(new Error('offline_shell_unavailable'));return;}
     const channel=new MessageChannel();
     const timer=setTimeout(()=>finish(false),15000);
     function finish(ready:boolean) {
@@ -35,6 +40,6 @@ export async function prepareWorkspaceShell() {
       if (ready) resolve();else reject(new Error('offline_shell_unavailable'));
     }
     channel.port1.onmessage=event=>finish(event.data==='ready');
-    worker.postMessage('prepare-workspace-public-shell',[channel.port2]);
+    worker.postMessage({type:'prepare-workspace-public-shell',route:current.pathname+current.search},[channel.port2]);
   });
 }

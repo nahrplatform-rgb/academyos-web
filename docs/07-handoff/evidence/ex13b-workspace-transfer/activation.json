@@ -1206,5 +1206,13 @@
     "factual_review": "inventory-only rebuild,review-tool and freshness passed;1189 states/1163 transitions;no changed product capture input",
     "changed_document_local_links": 309,
     "git_diff_check": "passed"
+  },
+  "subsequent_promotion": {
+    "owner_reported": true,
+    "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "verified_deployment": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
+    "state": "READY",
+    "evidence": "hosted.json",
+    "result": "partial hosted data success;SPA public-shell defect;new code repair needs delivery"
   }
 }
