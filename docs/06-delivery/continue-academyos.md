@@ -8,7 +8,7 @@ Reusable instruction: **Continue from the living continuation prompt.**
 
 Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`.
 
-Read `AGENTS.md`, `docs/00-governance/ai-delegation-and-cost-policy.md`, `docs/00-governance/staging-delivery-and-review-policy.md`, `docs/06-delivery/staging-role-separation-plan.md`, `docs/03-design/operations-design-reference.md`, `docs/03-design/design-tools-and-quality-guidance.md`, `docs/06-delivery/full-experience-redesign.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
+Read `AGENTS.md`, `docs/00-governance/ai-delegation-and-cost-policy.md`, `docs/00-governance/staging-delivery-and-review-policy.md`, `docs/06-delivery/staging-role-separation-plan.md`, `docs/03-design/operations-design-reference.md`, `docs/03-design/design-tools-and-quality-guidance.md`, `docs/06-delivery/full-experience-redesign.md`, `docs/06-delivery/local-data-and-sync-plan.md`, `docs/06-delivery/pwa-delivery-and-readiness.md`, `docs/06-delivery/pwa-delivery-traceability.csv`, `docs/04-engineering/offline-edit-and-conflict-contract.md`, `docs/04-engineering/shift-ios-local-data-reference-review.md`, `docs/06-delivery/experience-execution.md`, `docs/06-delivery/experience-execution.csv`, `docs/03-design/academy-working-behavior-contract.md`, `docs/06-delivery/academy-working-day-acceptance.md` and the evidence linked by the current row. Recheck working tree, actual source and release. Preserve completed work and concurrent changes.
 
 Latest Owner sequence4November is EX-12 isolated role journeys/exact cleanup → EX-11 actual private register pilot with EX-09 custody/activation → EX-13 progressive persistent Players/month datasets → remaining EX-07 Operations adoption. Earlier same-day EX-07-first notes are superseded. Preserve delivered Calendar/Platform/Today and all passed mechanism checkpoints; do not replace offline progress with further styling. Actual new grants/transfers, key/provider configuration and Owner promotions retain their specific authority. See docs/07-handoff/role-first-offline-sequence-2026-11-04.md.
 
@@ -17,6 +17,8 @@ Start with the explicit current priority below, not the first unfinished EX numb
 Owner's 5 November normal-workspace direction is in docs/06-delivery/local-data-and-sync-plan.md. EX-13A measures cold/warm entry, return, local clicks and saves across implemented routes/actions and defines the exact Owner dataset contracts. EX-13B proves normal Players and Calendar across connection changes, with task-first automatic preparation, durable local reads, bounded current/adjacent month coverage and quiet changes/removals. Routine use needs no special offline route or manual preparation/sync step on an approved device. EX-07 integrates the approved Owner register in normal Attendance and verifies continuity in every implemented journey, including online-only work. Keep EX-11's scoped hosted pilot passed and preserve exact access, device, field, retention, deadline, version, atomicity and original-recovery rules. Use the recorded source/staging/local refresh baseline in docs/07-handoff/refresh-root-causes-2026-11-05.md and WD-58–WD-71 for planned evidence. Retain platform-specific proof for future installed clients.
 
 Owner's later5November reply requests the full application experience, including settings, finances and future modules. Read docs/04-engineering/owner-workspace-dataset-contract.md and docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md. The exact starting Players/month projection is a delivery slice, not a permanent summary-only product limit. Follow the full-app adoption map in local-data-and-sync-plan.md: normal-route Attendance and remaining implemented profiles/settings/training/reviews/Guardian/development, then real future finance/reporting/communications/new portals with local behavior in their creation scope. Preserve existing domain authority and supported offline writers; do not invent financial rules or a universal queue. Do not re-ask the settled normal-workspace, sign-in, timer or cleanup direction. The tracker owns the current implementation handoff and retains EX-13A/B results and remaining evidence gaps even after routing advances.
+
+Owner-requested6November PWA delivery is a supporting track in docs/06-delivery/pwa-delivery-and-readiness.md and pwa-delivery-traceability.csv. EX-14 installation identity/normal launch, EX-15 shared worker/storage/update lifecycle and EX-16 actual installed-device verification progress alongside the single current primary. Metadata need not wait for every future module; installed auth/offline/update cases follow each relevant delivered slice. Reuse the protected repositories, bounded preparation, public shells and exact original sender; no second offline engine, competing root worker, blanket private-response cache or universal queue. Installed and browser contexts may have separate sessions/data/keys. Preserve normal sign-in and accepted cleanup/recovery; no new passkey, idle/24hour rule, production, paid service or promotion authority. Installation-ready, scoped offline coverage and whole-app completion remain separate. Actual installed OS/device cases WD-72 through WD-86 are planned until evidence is recorded; source/browser tests do not pass them. No guaranteed continuous sync while closed; optional push/shortcuts remain separate. This checkpoint is documentation-only and implements no new PWA code. Keep the tracker-selected current primary while scoping these supporting packages; normal Attendance is the6November checkpoint.
 
 Apply the Owner-directed AI delegation/cost policy within that work. Scripts/direct tools handle deterministic repetition. For substantial eligible independent work, explicitly choose gpt-6.1-terra with a fresh concise brief, exact file/resource ownership, relevant contracts, validation and stop conditions; do not forward this entire chat. Default zero/one helper, maximum two active subagents in the coordinated batch excluding its single lead, and no nested spawning or duplicate jobs. A second needs a concrete independence/benefit; more needs a later explicit Owner instruction. Coordinator (Sol when selected) owns architecture, policy/authority, complex sync/recovery, integration and real browser/provider operations. Helpers do not commit/publish, promote, grant access or alter providers. Preserve tests and actual evidence, escalate ambiguity or failed bounded repair, and record configured model/effort/count/rationale/checks/repairs/available usage in the existing receipt. Do not invent savings, promise twice the five-hour limit or pause the current sequence for a benchmark. The cap is an instruction, not a runtime/billing setting changed by documentation. Use no helper when serial/direct work is simpler or cheaper.
 
@@ -44,7 +46,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch.
+Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch. PWA EX-14/15 planning and metadata/worker compatibility progress alongside this primary;EX-16 verifies each delivered installed slice,not every future module first.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
@@ -62,7 +64,7 @@ Read: `docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md`
 8. **EX-13 — Normal local-first Owner Players and Calendar before app-wide adoption** (checkpoint_passed).
 9. **EX-07 — Remaining Operations adoption and app-wide workflow continuity** (current).
 
-Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
+Supporting work runs with the affected checkpoint: EX-05 — Rate-limit amplification and relational query work; EX-08 — Hosted role/device/performance/provider/source evidence; EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries; EX-14 — PWA installation identity,launch and authentication readiness; EX-15 — PWA coordinated worker updates,storage and offline lifecycle; EX-16 — PWA actual installed-device verification and declared coverage
 
 The order names checkpoint outputs, not a requirement to finish every role/future feature in a parent row before safe dependent work. Detailed gates remain in each row. Private policy choices block dependent behaviour only.
 
@@ -235,7 +237,7 @@ Design: Full connected workflow design approved29October; later Operations selec
 - Hosted verification: Prior12b9 Platform ENAR read-only continuity verified. New Calendar visual/source/read/return checks await exact checked release and Owner promotion;no new hosted operating write or account change.
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch.
+- Next action: Start the bounded normal-Attendance integration in the linked handoff:reuse existing panel,slot/account and original sender;one permitted prepared Owner register in the usual task,stable choices/indicator,atomic local save,offline reopen and automatic same-original sync. Measure before/after;preserve Trainer online behavior,current authority,deadline,corrections,dirty input and unknown recovery. Refresh captures/evidence/continuation;then other implemented journeys and domains from the adoption map. No new queue,credential or colour batch. PWA EX-14/15 planning and metadata/worker compatibility progress alongside this primary;EX-16 verifies each delivered installed slice,not every future module first.
 - Evidence: docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md
 
 ### EX-05 — Rate-limit amplification and relational query work
@@ -269,7 +271,7 @@ Design: measurement profiles required.
 - Hosted verification: Retained ef73a36 closed-gate/Owner baseline;4Nov12b9 canonical source and Platform ENAR read-only continuity verified in Operations admission receipt. Recheck1read,local actions0;entry buffer truncated,exact total open;no SQL/Redis/billing/percentiles or physical-phone/zoom proof. Private-role scope remains open. EX11 signed-in Owner cold offline tab reload:18 network-log entries,0 transferred bytes,0 operating API calls; no provider quota or percentile inference. Promoted cb00ab8 retest:18 log entries,0 transferred bytes,826 kB resources and 0 operating API calls on one Owner cold offline reload. 5Nov1347470 exact staging and dedicated Owner ENAR Players continuity verified:two normal offline entries each23log entries/0bytes/0API;automatic reconnect1workspace check1172B,0People calls. Prior86d Calendar grids and repeat retained separately;hosted-continuity.json records limits.
 - Owner acceptance: not_applicable
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: With current EX-07 normal Attendance, retain and execute the named EX-13 hosted cases:isolated full-process restart,known Owner loss/logout/cross-profile cleanup,workspace-only rollback preserving register originals,changed/held transfers and fresh-device entry;physical/Safari/zoom/accessibility and declared whole-day/provider percentiles stay open. Coordinate safely with active browser/profiles;do not claim them from local fixtures or discard gaps when routing advances.
+- Next action: With current EX-07 normal Attendance, retain and execute the named EX-13 hosted cases:isolated full-process restart,known Owner loss/logout/cross-profile cleanup,workspace-only rollback preserving register originals,changed/held transfers and fresh-device entry;physical/Safari/zoom/accessibility and declared whole-day/provider percentiles stay open. Coordinate safely with active browser/profiles;do not claim them from local fixtures or discard gaps when routing advances. Coordinate EX-16 installed-device evidence separately from existing browser-tab results.
 - Evidence: docs/04-engineering/request-service-impact.md
 
 ### EX-09 — Local-device access, fields, confidentiality and retention decisions;offline-write/future boundaries
@@ -288,3 +290,54 @@ Design: Owner approved one personal-device published register, minimal fields, 3
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
 - Next action: Support EX13 dataset preparation with the verified custody/lifecycle constraints. Keep existing register slot, root, archive and original. Hosted cleanup/recovery and broader devices retain their own evidence gates.
 - Evidence: docs/07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md
+
+### EX-14 — PWA installation identity,launch and authentication readiness
+
+Routing: supporting / 5 / supporting.
+Dependencies: EX-02; EX-12.
+Dependency gate: Metadata/launch may progress with EX-07 and need not wait for future modules. Installed auth/coverage claims require corresponding cases;Owner-only promotion unchanged.
+Findings: NR01; NR04; NR15; G01; G06; G08.
+Design: Owner-requested documentation/PWA direction;existing business and local-first decisions retained;detailed new changed-state designs remain scoped.
+
+- Implementation: Planned PWA package;existing deployed offline/data foundation retained,not a new PWA implementation
+- Local checks: No new PWA runtime test;current source inventory and prior domain suites separate
+- Deployment: PWA metadata/installed integration not deployed;shared domain source1347470 remains verified staging
+- Hosted verification: Actual installed OS launch/auth/offline/update/device matrix not executed
+- Owner acceptance: Planning scope requested;no installed working acceptance inferred
+- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
+- Next action: Scope manifest/icons/stable public launch and platform installation guidance alongside current EX-07;reuse normal sign-in/workspace/deep-link rules. Implement no competing worker or offline engine;verify actual installation separately.
+- Evidence: docs/06-delivery/pwa-delivery-and-readiness.md
+
+### EX-15 — PWA coordinated worker updates,storage and offline lifecycle
+
+Routing: supporting / 6 / supporting.
+Dependencies: EX-03; EX-06; EX-13.
+Dependency gate: Deliver compatibility/startup/storage by relevant existing domain slice. Shared files have one coordinator;do not replace accepted repositories or repeat schema/root activation;no claimed installed evidence.
+Findings: NR03; NR13; NR15; NR17; G03; G08; G09.
+Design: Owner-requested documentation/PWA direction;existing business and local-first decisions retained;detailed new changed-state designs remain scoped.
+
+- Implementation: Planned PWA package;existing deployed offline/data foundation retained,not a new PWA implementation
+- Local checks: No new PWA runtime test;current source inventory and prior domain suites separate
+- Deployment: PWA metadata/installed integration not deployed;shared domain source1347470 remains verified staging
+- Hosted verification: Actual installed OS launch/auth/offline/update/device matrix not executed
+- Owner acceptance: Planning scope requested;no installed working acceptance inferred
+- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
+- Next action: Coordinate root workspace and narrower register worker ownership with normal Attendance;plan public launch,code/schema compatibility,persistence/quota/eviction and same-original foreground resume. Reuse protected stores and preserve pending work;no new universal queue.
+- Evidence: docs/06-delivery/pwa-delivery-and-readiness.md
+
+### EX-16 — PWA actual installed-device verification and declared coverage
+
+Routing: supporting / 7 / supporting.
+Dependencies: EX-14.
+Dependency gate: Installation-only checks need EX-14;offline/update/command checks additionally require their EX-15/domain slice. Do not wait for all future EX-07 modules;untested platforms and working Owner acceptance remain explicit.
+Findings: G01; G02; G03; G05; G06; G07; G08; G09.
+Design: Owner-requested documentation/PWA direction;existing business and local-first decisions retained;detailed new changed-state designs remain scoped.
+
+- Implementation: Planned PWA package;existing deployed offline/data foundation retained,not a new PWA implementation
+- Local checks: No new PWA runtime test;current source inventory and prior domain suites separate
+- Deployment: PWA metadata/installed integration not deployed;shared domain source1347470 remains verified staging
+- Hosted verification: Actual installed OS launch/auth/offline/update/device matrix not executed
+- Owner acceptance: Planning scope requested;no installed working acceptance inferred
+- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
+- Next action: Pin actual OS/browser/device/container and run WD-72-86 per delivered slice:install/launch/auth,offline/reconnect,updates,storage/account changes,camera and ENAR/accessibility. Keep optional push/shortcuts separate and no continuous closed-sync guarantee.
+- Evidence: docs/06-delivery/pwa-delivery-and-readiness.md

@@ -1,5 +1,9 @@
 # Identity, sessions, memberships and academy switching
 
+## Installed-container entry and account scope — 6 November 2026
+
+The [PWA delivery contract](../06-delivery/pwa-delivery-and-readiness.md#pw-02--launch-normal-sign-in-and-workspace-return) applies the existing identity/tenancy rules to OS launch. Do not assume a browser session or local key/store is shared with the installed context. Use normal email/password sign-in and verified workspace/role selection, safe locale/task return and the existing private-data cleanup/original recovery. No mandatory new passkey/local secret, idle lock or24hour cutoff. An install ID, shortcut, cached membership or deep link grants no authority; preserve dedicated synthetic personas without making one-role-per-email a product rule. Actual installed authentication/account-change cases are planned WD-73/74/80,not passed by existing browser proof.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Review device-local unlock/access separately from server membership. Known denial/scope changes purge or lock incompatible namespaces/indexes; disconnected clients cannot learn instant revocation. Invitations, role grants and account changes stay online. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.

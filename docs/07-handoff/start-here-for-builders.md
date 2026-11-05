@@ -1,5 +1,9 @@
 # Start here for builders
 
+## PWA alongside the current primary — 6 November 2026
+
+Read the [PWA delivery/readiness contract](../06-delivery/pwa-delivery-and-readiness.md) and [PW traceability](../06-delivery/pwa-delivery-traceability.csv). EX-14/15/16 support the current normal-Attendance integration; they do not replace it or wait for future finance to finish. Existing data/worker/original mechanisms remain the foundation. Manifest/icons/stable launch and actual installed OS/device proof are planned, not delivered by this documentation update. Preserve normal sign-in/retention/recovery, dedicated personas, synthetic authority and Owner-only promotions. [Planning receipt](evidence/pwa-planning-2026-11-06.json).
+
 **Current primary work — 5 November:** Start [EX-07 normal Attendance integration](ex07-normal-attendance-integration-2026-11-05.md). Reuse the existing prepared-register panel/account/slot/original sender in the ordinary task; do not rebuild the mechanism or repeat activation. Preserve the [dataset contract](../04-engineering/owner-workspace-dataset-contract.md), delivered Operations and [full-app adoption map](../06-delivery/local-data-and-sync-plan.md#full-app-adoption--5-november-2026).
 
 **Current delivery:** Owner-promoted **`1347470`** independently resolves Ready on canonical staging. [Scoped hosted continuity](ex13b-workspace-continuity-2026-11-05.md) verifies normal EN/AR Players query/summary restoration and automatic reconnect with no operating People reads; normal offline entries each transferred zero bytes. The EX-13 foundation routing checkpoint passed from combined local/hosted evidence; actual denial/full-process restart/rollback/changed transfers/device/performance and working acceptance remain open in supporting EX-08/05/09. No whole finding closed. [Living continuation](../06-delivery/continue-academyos.md).

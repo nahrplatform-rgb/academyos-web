@@ -1,5 +1,9 @@
 # AcademyOS current-experience review
 
+## PWA planning overlay — 6 November 2026
+
+The [canonical PWA plan](../../docs/06-delivery/pwa-delivery-and-readiness.md) and PW/WD joins are documentation-only. Manifest/install/update/actual installed-device behavior is planned; no new runtime/capture pass is created. Rebuild the factual inventory from the unchanged real-component capture pack after register updates, then run review-tool/freshness checks. Existing captures remain browser fixtures with the recorded gaps; they do not establish an installed app or additional offline coverage.
+
 5 November hosted continuity checkpoint. The Owner-promoted1347470 has [scoped normal EN/AR Players proof](../../docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md). This verification/documentation batch changes no UI/test input; rebuild inventory from the unchanged capture pack. The replay still omits gated prepared-device states and is not the hosted proof. [EX-07 normal Attendance](../../docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md) is the next UI/state integration; it must refresh affected captures.
 
 5 November EX-13B continuity. All16 actual-component capture suites and the welcome entry were refreshed after the bounded Players navigation/local-feedback and denied-inspector announcement changes. The [continuity receipt](../../docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md) contains separate49-case protected normal-route evidence. Default replay captures still omit those gated prepared-device states; source freshness and legacy rendered capture coverage do not establish the new source as hosted.

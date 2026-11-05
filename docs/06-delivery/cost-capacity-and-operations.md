@@ -1,5 +1,11 @@
 # Cost, capacity and routine operations
 
+## PWA storage and service-cost planning — 6 November 2026
+
+Use the [PWA readiness plan](pwa-delivery-and-readiness.md) for installed measurement. Installation adds manifest/icons/public asset delivery and update checks; a separate installed storage context may legitimately repeat bounded data/key preparation. Measure per working visit, device/container and code generation, including compatible old assets, indexes, migration temporary space and protected originals. Storage estimates and persistence grants do not reserve disk space.
+
+Separate local reads and Cache Storage bytes from Vercel/CDN traffic, Clerk auth, Supabase RPC/SQL/egress and Redis limiters. Do not equate fewer screen requests with zero provider cost, multiply all provider work by every local click, or claim current quota/pricing savings without measurements. No new paid service, polling, Realtime, push provider or telemetry authorization comes from PWA planning. Optional notifications/shortcuts/background scheduling have their own scope/cost. Existing dated provider limits remain historical; this checkpoint refreshes platform requirements, not billing plans.
+
 **EX-13B local cost evidence — 5 November:** [new backend transport/query measurements](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) separate page/RPC bytes and logical budgets from unmeasured Redis/provider charges. First-page count and conservative collection replacement costs remain. No live billing, savings or hosted-percentile claim follows from the closed transfer seam.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

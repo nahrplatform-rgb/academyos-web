@@ -1,5 +1,9 @@
 # AcademyOS setup record — start here
 
+## PWA documentation and delivery index — 6 November 2026
+
+[Canonical PWA readiness/delivery](../06-delivery/pwa-delivery-and-readiness.md) · [PW requirement/action/loading/security/WD joins](../06-delivery/pwa-delivery-traceability.csv) · [planning checkpoint receipt](evidence/pwa-planning-2026-11-06.json). The existing [tracker](../06-delivery/experience-execution.csv) keeps EX-07 normal Attendance current and EX-14/15/16 supporting. [Living continuation](../06-delivery/continue-academyos.md) includes both. Install metadata/launch and actual installed verification are still planned; existing hosted local-data/register proof remains separate. No PWA code, install or new private activation is made by this documentation checkpoint.
+
 5 November: [EX-13A baseline/specification](ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) and [Owner dataset contract](../04-engineering/owner-workspace-dataset-contract.md) route the next EX-13B engineering slice. The [full-app adoption map](../06-delivery/local-data-and-sync-plan.md#full-app-adoption--5-november-2026) explicitly includes settings and future finance; it is not implemented by this checkpoint.
 
 **Latest execution order4November:** [Role-first/offline checkpoint](role-first-offline-sequence-2026-11-04.md) selects EX-12 isolated accounts/exact cleanup, then EX-11 working private register pilot, EX-13 progressive Players/month data, then remaining EX-07 redesign. Retain completed Operations work; actual access/activation/promotion authority and separate evidence remain. Older same-day EX-07-first notes below are superseded.
@@ -33,11 +37,11 @@ Updated 22 October 2026. Owner: Moamen Ghareeb / NAHR. This index describes the 
 7. [Operator actions, custody and cost boundaries](operations-and-custody.md): failures, recovery, rotation and provider-plan limits.
 8. [Product and policy decisions](../00-governance/decisions-and-open-questions.md): requirements that must be settled before dependent app features.
 
-## Current outcome
+## Historical foundation outcome — retained service-setup snapshot
 
 The private EN/AR staging application is deployed. Authentication and the initial database boundary work. Redis, a signed QStash test callback, controlled Resend delivery, Sentry errors/source maps and encrypted independent backup/database restoration have runtime proof. Scheduled uptime checks, an explicit operator alert and a controlled backup failure/recovery notification now have proof. Database SSL is enforced. Actual nonempty file transport/recovery/re-upload passed within the staging service. The private R2 bucket has a seven-day lock and owner-approved 30-day expiry. The first daily scheduled backup also succeeded: [39712985982](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/39712985982).
 
-The application currently has one verified identity and no academy/membership records in the last restored snapshot. Signing up grants no academy authority. No operational module, tenant upload/download permission, live payment integration or production launch is accepted as complete.
+At that historical foundation snapshot, the application had one verified identity and no academy/membership records. Use the current tracker and later scoped register/Players/Calendar receipts for the current state. Signing up grants no academy authority. No operational module, tenant upload/download permission, live payment integration or production launch is accepted as complete.
 
 ## Evidence rules
 

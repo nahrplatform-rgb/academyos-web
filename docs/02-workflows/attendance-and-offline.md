@@ -1,8 +1,14 @@
 # Attendance, corrections and offline recovery
 
-## Current first offline slice —3November2026
+## Current register and installed integration — 6 November 2026
 
-The Owner accepted the first Owner/personal-device register policy and approved its connected design: selected new marks save locally together, upload together under the original ID, retain current access/version/publication/deadline checks, and keep conflicts/refusals as Needs review. Protected pending work survives30day/logout read-copy cleanup for the same verified account. No inactivity lock or24hour read cutoff. [Accepted policy](../04-engineering/offline-edit-and-conflict-contract.md), [approved design](../06-delivery/offline-register-decision-design.md), [remaining runtime/key dependencies](../04-engineering/offline-register-runtime-readiness.md). Existing app commands are still online; private implementation and security evidence remain pending. Earlier general future examples below do not supersede this accepted narrow slice.
+The accepted Owner one-register policy/design now has [scoped hosted pilot evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md). Current EX-07 [normal Attendance integration](../07-handoff/ex07-normal-attendance-integration-2026-11-05.md) reuses that mechanism in the ordinary task. Earlier dated online-only/inactive descriptions below retain their historical scope; they do not reset that delivered subset or approve other offline commands.
+
+The [PWA contract](../06-delivery/pwa-delivery-and-readiness.md) carries the same atomic durable save,original ID,current server access/version/deadline checks and retained conflict/recovery into installed contexts. Keep Saved on this device separate from Synced; no universal queue or freshest-device-time overwrite. Installation does not create Trainer offline authority or cover unprepared registers. Installed launch/update/storage/concurrency cases remain planned and distinct from the existing register/browser checks; app-managed cleanup protects pending work,while destruction of its only local copy cannot be promised recoverable.
+
+## Retained first offline policy/design checkpoint —3November2026
+
+The Owner accepted the first Owner/personal-device register policy and approved its connected design: selected new marks save locally together, upload together under the original ID, retain current access/version/publication/deadline checks, and keep conflicts/refusals as Needs review. Protected pending work survives30day/logout read-copy cleanup for the same verified account. No inactivity lock or24hour read cutoff. [Accepted policy](../04-engineering/offline-edit-and-conflict-contract.md), [approved design](../06-delivery/offline-register-decision-design.md), [remaining runtime/key dependencies](../04-engineering/offline-register-runtime-readiness.md). At that3November checkpoint, app commands were online and private implementation/runtime evidence was pending; use the later current-status receipt above for subsequent delivery. Earlier general future examples below do not supersede this accepted narrow slice.
 
 ## Persistent local data and synchronization — LF-v2,2November2026
 

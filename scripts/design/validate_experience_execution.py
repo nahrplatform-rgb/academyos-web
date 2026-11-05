@@ -125,6 +125,65 @@ for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan
     assert 'academy-working-day-acceptance.md' in body, f'Missing acceptance pointer: {path}'
     assert 'local-data-and-sync-plan.md' in body, f'Missing current persistent-local target: {path}'
 assert (delivery / 'academy-working-day-acceptance.md').is_file()
+# Installed PWA is a supporting delivery overlay; structural checks are not runtime proof.
+pwa_contract = delivery / 'pwa-delivery-and-readiness.md'
+pwa_trace = delivery / 'pwa-delivery-traceability.csv'
+assert pwa_contract.is_file() and pwa_trace.is_file(), 'Missing canonical PWA delivery records'
+pwa_packages = {'EX-14', 'EX-15', 'EX-16'}
+assert pwa_packages <= ids, 'PWA supporting packages must remain tracked'
+for row in rows:
+    if row['work_id'] in pwa_packages:
+        assert row['execution_lane'] == 'supporting' and row['execution_state'] == 'supporting', 'PWA work must not replace the current primary'
+        assert row['evidence'] == 'docs/06-delivery/pwa-delivery-and-readiness.md', 'PWA package needs its canonical contract'
+assert int(next(r for r in rows if r['work_id'] == 'EX-13')['execution_order']) < int(next(r for r in rows if r['work_id'] == 'EX-07')['execution_order']), 'Retain EX-13 before remaining EX-07'
+pwa_pointer_files = [
+    'AGENTS.md', 'README.md', 'docs/00-governance/engineering-charter.md',
+    'docs/00-governance/source-register.md', 'docs/01-product/scope-and-release-map.md',
+    'docs/02-workflows/identity-and-tenancy.md', 'docs/02-workflows/attendance-and-offline.md',
+    'docs/04-engineering/architecture.md', 'docs/04-engineering/journey-security-review.md',
+    'docs/04-engineering/request-service-impact.md',
+    'docs/03-design/experience-performance-and-data-loading.md',
+    'docs/06-delivery/app-implementation-plan.md', 'docs/06-delivery/roadmap-and-backlog.md',
+    'docs/06-delivery/full-experience-redesign.md', 'docs/06-delivery/local-data-and-sync-plan.md',
+    'docs/06-delivery/request-hygiene-and-offline-standard.md',
+    'docs/06-delivery/cost-capacity-and-operations.md', 'docs/06-delivery/release-and-recovery.md',
+    'docs/06-delivery/test-strategy-and-acceptance.md', 'docs/06-delivery/academy-working-day-acceptance.md',
+    'docs/06-delivery/experience-execution.md', 'docs/07-handoff/start-here-for-builders.md',
+    'docs/07-handoff/setup-index.md', 'design/app-experience-review/README.md']
+for path in pwa_pointer_files:
+    assert pwa_contract.name in (ROOT / path).read_text(), f'Missing PWA integration pointer: {path}'
+with (delivery / 'requirements-traceability.csv').open(newline='') as stream:
+    requirement_rows = {row['requirement_id']: row for row in csv.DictReader(stream)}
+with (delivery / 'app-implementation-requirement-links.csv').open(newline='') as stream:
+    requirement_links = {row['requirement_id']: row for row in csv.DictReader(stream)}
+with (delivery / 'app-implementation-action-matrix.csv').open(newline='') as stream:
+    action_rows = list(csv.DictReader(stream))
+assert all(pwa_contract.name in r['local_data_design'] for r in action_rows), 'Missing installed action overlay'
+assert all(pwa_contract.name in r['local_data_design'] for r in loading_rows), 'Missing installed loading overlay'
+assert all(pwa_contract.name in r['action_packet_requirement'] for r in security_rows), 'Missing installed security overlay'
+with pwa_trace.open(newline='') as stream:
+    pwa_rows = list(csv.DictReader(stream))
+assert pwa_rows and all(None not in r and None not in r.values() and all(v.strip() for v in r.values()) for r in pwa_rows)
+pwa_ids = {r['pwa_requirement_id'] for r in pwa_rows}
+assert len(pwa_ids) == len(pwa_rows), 'Duplicate PWA requirement ID'
+assert {f'PW-{i:02}' for i in range(1, 10)} <= pwa_ids, 'Required PWA work package coverage missing'
+case_ids = {r['case_id'] for r in cases}
+assert {f'WD-{i:02}' for i in range(72, 87)} <= case_ids, 'Installed working-day cases missing'
+security_ids = {r['review_family_id'] for r in security_rows}
+for row in pwa_rows:
+    assert re.fullmatch(r'PW-\d{2}', row['pwa_requirement_id'])
+    assert set(row['execution_packages'].split('; ')) <= pwa_packages
+    assert set(row['canonical_work_ids'].split('; ')) <= canonical
+    req_ids = set(row['requirement_ids'].split('; '))
+    assert req_ids <= requirement_rows.keys(), 'Unknown PWA canonical requirement join'
+    assert set(row['acceptance_case_ids'].split('; ')) == {requirement_rows[r]['acceptance_test_id'] for r in req_ids}, 'PWA AO/AT joins disagree'
+    assert set(row['loading_ids'].split('; ')) <= loading
+    assert set(row['security_ids'].split('; ')) <= security_ids
+    assert set(row['working_day_cases'].split('; ')) <= case_ids
+    assert row['contract'] == 'docs/06-delivery/pwa-delivery-and-readiness.md'
+    assert all(pwa_contract.name in requirement_links[r]['next_gate'] for r in req_ids), 'Missing reverse PWA requirement pointer'
+print(f'PASS: {len(pwa_rows)} PWA joins,3 supporting packages,installed WD cases and linked governance/plans; runtime and acceptance remain separate')
+
 print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states; current {active['work_id']}; {len(cases)} planned/evidence-linked working-day cases across {len(behaviours)} WB clauses')
 
 subprocess.run([sys.executable, str(ROOT / 'scripts/design/build_continuation_prompt.py'), '--check'], check=True)

@@ -1,0 +1,245 @@
+{
+  "recorded_at_utc": "2026-11-05T22:12:59Z",
+  "local_date": "2026-11-06",
+  "timezone": "Africa/Cairo",
+  "scope": "Owner-requested documentation/planning integration of installable PWA alongside existing local-data,sync and redesign;no PWA product code",
+  "source_base": "546efe44dd1ba5f3090bc2b342ce2afe4eb007d8",
+  "canonical_document": "docs/06-delivery/pwa-delivery-and-readiness.md",
+  "traceability": "docs/06-delivery/pwa-delivery-traceability.csv",
+  "source_hashes": {
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/src/lib/workspace-public-shell.ts": "36e66633aedc5f13f4aba4e6e00aacdb2e856022bee5667647cff330df79744e",
+    "apps/web/src/lib/register-public-shell.ts": "b4ca915bfbeb01544989d34d934abfc4a9910d1b3a5d0f359fc415af6bbb6797",
+    "apps/web/public/prepared-workspace-worker.js": "6f319e1cb36593217079172efb18924ea74815d2bd07e8a774e041a61265214c",
+    "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
+    "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
+    "apps/web/src/components/attendance-workspace.tsx": "13e331cc41d517f6689551f75653333dc3102eb526b0b07248cf1ecf57356d66",
+    "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/workspace-device.ts": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7"
+  },
+  "actual_staging_read_only": {
+    "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "state": "READY",
+    "target": "production",
+    "alias": "staging.academy.nahr.dev",
+    "runtime_url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+    "verification": "Read-only Vercel connector;no promotion/alias/configuration change"
+  },
+  "current_capabilities": {
+    "installation_metadata": "Not found in current app/public source;manifest/icons/install guidance remain planned;browser save-site feature not tested",
+    "offline_data_foundation": "Scoped encrypted repositories,coherent bounded transfer and original recovery have retained local and deployed subset evidence",
+    "hosted_register": "Existing EX-11 one-register hosted pilot retained;normal Attendance integration current EX-07",
+    "hosted_players_calendar": "1347470 scoped native ENAR Players restoration/offline/reconnect proof;prior86d Calendar proof retained separately",
+    "installed_mode": "No actual installation/OS-launch/device check run;not accepted",
+    "storage_persistence": "No navigator.storage persistence/estimate calls found;strict durability/failure handling exists;real installed quota/eviction unmeasured",
+    "optional_capabilities": "Push,badging,shortcuts and new device integrations not implied or prerequisite"
+  },
+  "worker_inventory": [
+    {
+      "registration": "/prepared-workspace-worker.js",
+      "scope": "/",
+      "cache_prefix": "academyos-workspace-public-v1:",
+      "supported_navigation": "Validated ENAR Players/Calendar UUID route;optional validated Calendar anchor",
+      "public_shell": "/prepared-workspace"
+    },
+    {
+      "registration": "/prepared-register-worker.js",
+      "scope": "/prepared-register",
+      "cache_prefix": "academyos-prepared-public-v1:",
+      "supported_navigation": "/prepared-register separate startup",
+      "public_shell": "/prepared-register"
+    }
+  ],
+  "worker_limits": "Both current sources use public credential-omitted bounded48asset/8MiB preparation,retain previous revision,and call skipWaiting/clients.claim;not installed-update proof",
+  "official_sources": [
+    {
+      "url": "https://web.dev/articles/install-criteria",
+      "use": "Current published Chrome promoted-install metadata/HTTPS/engagement criteria,distinguished from menu install and other browsers"
+    },
+    {
+      "url": "https://web.dev/articles/add-manifest",
+      "use": "Manifest identity,start,scope,icons and stable id"
+    },
+    {
+      "url": "https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest",
+      "use": "Existing App Router manifest convention;no SDK upgrade performed"
+    },
+    {
+      "url": "https://webkit.org/blog/17333/webkit-features-in-safari-26-0/",
+      "use": "Safari26 Home Screen web-app behavior differs from older universal installability claims"
+    },
+    {
+      "url": "https://support.apple.com/en-us/104996",
+      "use": "Mac Add to Dock and independent website data/settings;minimum feature macOS14,not app support proof"
+    },
+    {
+      "url": "https://webkit.org/blog/14445/webkit-features-in-safari-17-0/",
+      "use": "Historical initial cookie-copy behavior and no copying of other local storage;later independent context must be tested"
+    },
+    {
+      "url": "https://webkit.org/blog/14403/updates-to-storage-policy/",
+      "use": "Variable quota,persistence heuristics and origin eviction;not a reserved-capacity guarantee"
+    },
+    {
+      "url": "https://developer.chrome.com/docs/workbox/service-worker-lifecycle",
+      "use": "Scope/control,waiting activation and mixed-generation risks;not authority to replace existing workers"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Background_Synchronization_API",
+      "use": "Limited browser availability and optional background scheduling"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation",
+      "use": "Worker termination/retries and no continuous closed-app sync guarantee"
+    }
+  ],
+  "preserved_registers": {
+    "docs/06-delivery/experience-execution.csv": {
+      "original_rows": 13,
+      "current_rows": 16,
+      "unchanged_except": [
+        "next_action"
+      ],
+      "prior_sha256": "4553e6c321b3a919c27c6b6db91c83748e666a2cfe014b2d72fa9800ec760810"
+    },
+    "docs/06-delivery/academy-working-day-cases.csv": {
+      "original_rows": 71,
+      "current_rows": 86,
+      "unchanged_except": [],
+      "prior_sha256": "0ea21ba5dedb447679b7fd2bf9c0504e1ee2790678fa268a07819718f0cd25ac"
+    },
+    "docs/06-delivery/app-implementation-action-matrix.csv": {
+      "original_rows": 30,
+      "current_rows": 30,
+      "unchanged_except": [
+        "local_data_design"
+      ],
+      "prior_sha256": "18b4cdab7a03b3f2722333cd4c641ad69252214e451a67f5e0f2a54cee269c4c"
+    },
+    "docs/06-delivery/app-implementation-requirement-links.csv": {
+      "original_rows": 180,
+      "current_rows": 180,
+      "unchanged_except": [
+        "next_gate"
+      ],
+      "prior_sha256": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d"
+    },
+    "docs/03-design/screen-data-loading-matrix.csv": {
+      "original_rows": 18,
+      "current_rows": 18,
+      "unchanged_except": [
+        "local_data_design"
+      ],
+      "prior_sha256": "4c20050a9e3e5bff4e11309d0f7d17f012227a9051374efd2a42b9148e9ed469"
+    },
+    "docs/04-engineering/journey-security-matrix.csv": {
+      "original_rows": 28,
+      "current_rows": 28,
+      "unchanged_except": [
+        "action_packet_requirement"
+      ],
+      "prior_sha256": "18004174e6ddffdd172f2ed28bb86d456b8da544a2469958ab7e84ab777db3ac"
+    }
+  },
+  "new_planning_coverage": {
+    "pwa_requirements": 9,
+    "supporting_packages": [
+      "EX-14",
+      "EX-15",
+      "EX-16"
+    ],
+    "new_planned_cases": "WD-72 through WD-86",
+    "existing_case_states_unchanged": 71,
+    "existing_requirement_count_unchanged": 180,
+    "primary_current": "EX-07",
+    "ex13_scoped_checkpoint_retained": true
+  },
+  "settled_rules": "Normal email/password,no required passkey/local secret,no idle lock/no24hour cutoff,logout/30day replica cleanup,protected pending recovery,server versions/deadlines,original IDs,synthetic authority and Owner-only promotions retained",
+  "unresolved": "Exact supported OS/browser minimums and available physical targets;launch/worker implementation choices and measured persistence/quota;optional device-feature scope stays separate. None reopens settled sign-in/retention policy or blocks unrelated work",
+  "next_implementation": "EX-07 ordinary Attendance integration;scope EX-14 metadata/launch and EX-15 compatibility alongside;EX-16 tests each delivered installed slice",
+  "checks": {
+    "register_preservation": "Passed comparisons above;all prior protected status/case fields retained",
+    "product_source": "No apps/web or canonical requirements edits",
+    "documentation_validation": "Passed:16execution batches,17findings,G01-G09,86planned/evidence-linked cases,9PW joins,3supporting PWA packages;EX-07 single current",
+    "factual_html": "Inventory-only rebuild from unchanged capture pack passed:1189states,1163transitions,79source files,7696literals;offline review-tool and freshness checks passed",
+    "canonical_validation": "Passed:68screen IDs,30stable action groups,180preserved requirements and existing source/loading/security status joins",
+    "continuation": "Regenerated through existing generator;freshness passed;supporting PWA track visible without changing current primary",
+    "local_links_and_syntax": {
+      "markdown_files": 27,
+      "local_link_targets": 813,
+      "changed_json": "parses",
+      "documentation_python": "AST valid"
+    },
+    "existing_assertions": "All original execution-validator assert ASTs retained;no weakened/removed assertion",
+    "rendered_review": "Generated review-tool phone and Arabic desktop replay inspected;not new installed/runtime application evidence",
+    "git_diff_check": "Passed;no product source,canonical requirement record,private state or provider mutation",
+    "product_build_unit_runtime_tests": "Not repeated for documentation-only changes;prior source-bound suites and hosted proof retained,not claimed newly run"
+  },
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peak_helpers": 1,
+    "scope": "Read-only actual source inventory;no edits,suites,Git,browser or provider access",
+    "coordinator": "Policy/routing,official-source review,source/result checks,documentation integration,generator/validator and final verification",
+    "rationale": "Independent settled-scope inventory while coordinator handles cross-plan architecture;no duplicated investigation or nested worker",
+    "usage_and_savings": "Unmeasured"
+  },
+  "runtime_tests": "None newly run or claimed by this planning request;retained source-bound domain checks referenced separately",
+  "owner_acceptance": "PWA documentation direction requested;no installed working acceptance",
+  "independent_review": "Deferred by Owner,nonblocking,not performed",
+  "provider_or_private_state_mutated": false,
+  "promoted_by_agent": false,
+  "documents_changed": [
+    "AGENTS.md",
+    "README.md",
+    "design/app-experience-review/README.md",
+    "docs/00-governance/engineering-charter.md",
+    "docs/00-governance/source-register.md",
+    "docs/01-product/scope-and-release-map.md",
+    "docs/02-workflows/attendance-and-offline.md",
+    "docs/02-workflows/identity-and-tenancy.md",
+    "docs/03-design/experience-performance-and-data-loading.md",
+    "docs/04-engineering/architecture.md",
+    "docs/04-engineering/journey-security-review.md",
+    "docs/04-engineering/request-service-impact.md",
+    "docs/06-delivery/academy-working-day-acceptance.md",
+    "docs/06-delivery/app-implementation-plan.md",
+    "docs/06-delivery/continue-academyos.md",
+    "docs/06-delivery/cost-capacity-and-operations.md",
+    "docs/06-delivery/experience-execution.md",
+    "docs/06-delivery/full-experience-redesign.md",
+    "docs/06-delivery/local-data-and-sync-plan.md",
+    "docs/06-delivery/pwa-delivery-and-readiness.md",
+    "docs/06-delivery/release-and-recovery.md",
+    "docs/06-delivery/request-hygiene-and-offline-standard.md",
+    "docs/06-delivery/roadmap-and-backlog.md",
+    "docs/06-delivery/test-strategy-and-acceptance.md",
+    "docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md",
+    "docs/07-handoff/setup-index.md",
+    "docs/07-handoff/start-here-for-builders.md"
+  ],
+  "registers_changed": [
+    "docs/03-design/screen-data-loading-matrix.csv",
+    "docs/04-engineering/journey-security-matrix.csv",
+    "docs/06-delivery/academy-working-day-cases.csv",
+    "docs/06-delivery/app-implementation-action-matrix.csv",
+    "docs/06-delivery/app-implementation-requirement-links.csv",
+    "docs/06-delivery/experience-execution.csv",
+    "docs/06-delivery/pwa-delivery-traceability.csv"
+  ],
+  "documentation_tools_changed": [
+    "scripts/design/build_continuation_prompt.py",
+    "scripts/design/validate_experience_execution.py"
+  ],
+  "generated_review_artifacts": [
+    "design/app-experience-review/AcademyOS-experience-review.html",
+    "design/app-experience-review/evidence/review-ar-desktop.png",
+    "design/app-experience-review/evidence/review-tool-phone.png",
+    "design/app-experience-review/manifest.json"
+  ],
+  "documentation_completed_at_utc": "2026-11-05T22:19:22.881608+00:00",
+  "git_delivery": "Documentation-only delivery on the existing codex branch;no promotion required;Owner-promoted app source remains1347470"
+}

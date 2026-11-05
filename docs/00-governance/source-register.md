@@ -1,5 +1,11 @@
 # Source register and authority
 
+## PWA planning and current platform references — 6 November 2026
+
+The Owner-requested [canonical PWA delivery/readiness contract](../06-delivery/pwa-delivery-and-readiness.md) applies to the existing AcademyOS app; [planning receipt](../07-handoff/evidence/pwa-planning-2026-11-06.json) records actual source/provider scope,official URLs and unchanged authority. Primary platform references were checked for manifest/install behavior,independent installed storage,worker lifecycle,storage persistence/eviction and background limits. The contract links Google/Chrome,WebKit/Apple,MDN and Next.js documentation beside supported claims. Older published guidance is qualified where newer Safari behavior differs.
+
+External documentation describes platform capability,not AcademyOS installation proof or business authority. Recheck exact target versions when implementing. Existing source/local/hosted/Owner evidence remains separate; no new installed runtime pass,paid commitment,production launch or provider configuration is inferred.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md) identifies the actual staging worktree, source hashes and54passing synthetic core checks/1hosted skip. Shift is a read-only local-data/recovery reference, while PYSA remains functional workflow/audit reference. Neither supplies AcademyOS permission policy or deployed proof. Current target: [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).

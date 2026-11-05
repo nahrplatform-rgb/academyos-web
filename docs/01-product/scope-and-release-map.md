@@ -1,5 +1,11 @@
 # Full scope and proposed release map
 
+## Installable web delivery, not a separate product — 6 November 2026
+
+A properly installable PWA is planned alongside the current web/local-data/redesign work under the [canonical PWA contract](../06-delivery/pwa-delivery-and-readiness.md). Supporting EX-14/15/16 cover identity/launch,worker/storage lifecycle and actual installed proof. They add no module, role, finance rule, native rewrite or production release. Installation metadata need not wait for all future modules; offline coverage grows through the existing domain adoption map.
+
+Report installation-ready for exact tested targets separately from permitted offline commands/data and whole-app completion. Current Owner register and Players/Calendar have scoped deployed evidence; full installed operation and remaining domains are unverified/unbuilt as recorded. Future native clients and optional push/store integration remain separate capabilities,not prerequisites or implied delivered scope.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Persistent permitted read datasets/reopen and synchronization are cross-cutting core experience work through EX-10/06/04/11, not deferred wholesale to native apps. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Offline mutation queues remain capability-specific later gates; unbuilt finance/communications/media/Manager/Player features and existing release boundaries are preserved.

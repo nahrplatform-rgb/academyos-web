@@ -1,5 +1,11 @@
 # Academy working-day pilot and acceptance gate
 
+## Installed PWA cases — 6 November 2026
+
+Follow the [canonical PWA contract](pwa-delivery-and-readiness.md) and [PW joins](pwa-delivery-traceability.csv). WD-72–WD-86 are **planned**, not executed: installation identity, fresh separate-container sign-in, deep-link return, OS offline launch, quiet daily use, original local save/reconnect, safe update/migration, persistence/quota/eviction, logout/account/role changes, physical QR/camera, EN/AR/accessibility, rollback, suspended execution and concurrent containers. Preserve prior case/evidence states.
+
+Verify installation-only after EX-14 and each offline/update/command case after its relevant EX-15/domain slice; do not wait for all future modules or claim the complete matrix from one browser test. Record exact OS/browser/device/container/source/worker/schema and actual counts/bytes/outcomes. Independent review and Owner acceptance remain separate. Future native builds repeat their own platform lifecycle proof; they are not prerequisites to the installed web app.
+
 **5 November scoped routing result:** [EX-13 continuity](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) records checked/promoted1347470 and actual EN/AR Players query/selection/offline/reconnect samples. Combined with retained local/Calendar proof, the foundation routing checkpoint passes into [EX-07 normal Attendance](../07-handoff/ex07-normal-attendance-integration-2026-11-05.md). WD-60/61/66/70 remain evidence-linked, not whole-case passes: the packet distinguishes local negative tests, current hosted positives and the unexecuted matrix. EX-08/05/09 retain those gaps and working acceptance remains separate.
 
 **Full-app coverage — 5 November:** the [Owner response](../07-handoff/evidence/full-app-local-data-direction-2026-11-05.json) requires settings, finance and future modules to adopt the [same normal-workspace contract](local-data-and-sync-plan.md#full-app-adoption--5-november-2026). Expand the existing canonical action/loading/WD joins when each module is built. Preserve current planned/executed boundaries; the [15-family baseline](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) does not pass future no-flash/offline cases.

@@ -1,5 +1,11 @@
 # Release, incident response and recovery
 
+## Installed PWA updates and recovery — 6 November 2026
+
+Apply the [PWA delivery/readiness contract](pwa-delivery-and-readiness.md#pw-05--service-worker-and-update-ownership) to each changed installed release. Record manifest identity/launch, worker controller/public cache revision, code/protocol and protected repository schema compatibility alongside the existing source/configuration/migration evidence. Test an open older client, dirty input, pending/unknown original, interrupted update and rollback/forward repair. Retain compatible assets and protected pending work; no blanket prefix/store wipe or unconditional focus/controllerchange reload.
+
+An Owner promotion changes the hosted build, not every already installed client instantaneously. Verify each declared installed combination after the relevant release and keep unsupported devices/current old clients explicit. Persistence is not a backup guarantee; OS/user destruction of the only unsynced copy is not recoverable by promising a server restore. Owner-only promotions and current synthetic authority remain unchanged. This planning update performs no PWA install, release, cache deletion or migration.
+
 ## Release record
 
 Each release records scope/requirements, commit, package lock, migration set, configuration changes, affected providers, test evidence, known issues, rollback/forward-fix strategy, operator and owner decision. Staging acceptance, production deployment and formal business acceptance are distinct records.

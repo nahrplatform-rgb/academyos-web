@@ -1,5 +1,9 @@
 # EX-07 next batch: normal Attendance and connection continuity
 
+## Parallel PWA dependency — 6 November 2026
+
+The [PWA contract](../06-delivery/pwa-delivery-and-readiness.md) adds supporting EX-14/15/16 without changing this primary or approved command. Coordinate normal Attendance public startup and shared worker/schema changes with EX-15; inspect the current root/narrow worker ownership and avoid simultaneous edits or a replacement offline engine. Applicable installed cases WD-75/77/78/80/83/84/86 follow this working slice; installation-only metadata tests need not wait for every later domain. Existing ordinary sign-in, protected originals and promotion authority remain. This plan integration itself changes no PWA/app code.
+
 5 November 2026. This is the bounded implementation handoff after the [EX-13 scoped hosted continuity checkpoint](ex13b-workspace-continuity-2026-11-05.md). It changes no product, schema, role or service. The Owner promoted checked `1347470`; exact staging and the limited hosted results are recorded there. The EX-13 foundation routing checkpoint passed; its wider hosted/device/performance evidence remains assigned to EX-08, with EX-05/09 support. No whole finding or working acceptance is closed.
 
 Retain the delivered [Owner Calendar Operations work](operations-owner-calendar-checkpoint.md), Platform and Today, the [one-register hosted pilot](owner-register-window-and-hosted-checkpoint-2026-11-04.md), the installed key/schema/flags and the [normal-workspace contract](../06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026). Use the [Operations reference](../03-design/operations-design-reference.md) and [design guidance](../03-design/design-tools-and-quality-guidance.md), not a fresh palette. The [living prompt](../06-delivery/continue-academyos.md) derives routing from the tracker.

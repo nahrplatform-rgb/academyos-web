@@ -1,5 +1,11 @@
 # AcademyOS engineering charter
 
+## Installed web delivery — 6 November 2026
+
+The [canonical PWA contract](../06-delivery/pwa-delivery-and-readiness.md) is an installation/update/storage delivery overlay on existing domain authority. Installation metadata may progress alongside the current primary; actual installed proof follows the relevant working slice, without waiting for future modules. A manifest or OS shortcut does not establish offline coverage, security or Owner acceptance. Keep installation readiness, per-domain offline support and whole-app completion separate.
+
+For changed startup/worker/storage boundaries, verify older/newer code/schema compatibility, active drafts, pending/unknown original operations, account/container separation and destructive-storage recovery limits. Use the same protected stores and canonical writers; no second offline application, blanket cache, device-clock overwrite or forced update reload. Existing staging deferral, sign-in/retention decisions and Owner-only promotions remain. Add actual OS/browser/source evidence to the existing Definition of Done where an installed combination is claimed; no new PWA code is authorized by this documentation checkpoint.
+
 ## Current staging review direction — 4 November 2026
 
 The Owner explicitly deferred independent human/external security review so it must not stop any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Follow the [staging delivery/review policy](staging-delivery-and-review-policy.md). Do not wait for reviewer assignment or independent disposition to continue. Record the external review as deferred, nonblocking and not performed; preserve engineering security checks, actual findings, unresolved tests and separate Owner acceptance. Production, real data, privilege changes, destructive cleanup and Owner-controlled promotions retain their existing authorization boundaries.

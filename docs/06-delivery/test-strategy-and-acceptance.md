@@ -1,5 +1,11 @@
 # Test strategy, evidence and formal acceptance
 
+## Actual installed-web verification — 6 November 2026
+
+The [PWA delivery contract](pwa-delivery-and-readiness.md) and [PW/WD traceability](pwa-delivery-traceability.csv) add a supporting installed track. Source/static manifest validation and normal browser tests support it; actual OS installation/launch, independent authentication/storage, covered offline entry, original save/reconnect, update/migration, quota/account cleanup, camera and EN/AR/keyboard/zoom/device checks are separately recorded. WD-72–86 remain planned. No synthetic install click, Lighthouse result, desktop emulation or existing service worker establishes a physical installed pass.
+
+Run relevant existing domain/authority/concurrency/recovery checks without weakening them, plus the installed cases for each delivered slice. Keep no-device and unsupported combinations explicit rather than blocking unrelated metadata/Attendance work. The execution validator checks supporting lanes, canonical PW joins and plan pointers; it validates structure, not runtime/Owner/security evidence. This docs-only batch runs structural/link/factual freshness checks, not invented new product suites.
+
 **Current continuity gate:** EX-13 checks ordinary Owner Players/Calendar setup, warm reuse, offline reopening and sync. EX-07 extends the same continuity checks to all implemented pages and common actions and integrates normal-route Owner Attendance. Separate actual document loads, in-app masking, request counts and save outcomes. [Acceptance protocol and cases](academy-working-day-acceptance.md#normal-workspace-acceptance--5-november-2026).
 
 The [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) applies to delegated implementation and checks. Preserve meaningful assertions and actual evidence; the coordinator verifies returned diffs and combined results. Isolate fixtures/ports, serialize stateful builds/captures/measurements when needed, and do not duplicate full suites across agents without cause. Record model/effort, active peak, ownership, repair cycles and measured or unavailable usage. A second AI is not an independent human audit, and the existing nonblocking staging review deferral remains unchanged.

@@ -1,6 +1,10 @@
 # AcademyOS application foundation
 
-**Current delivery:** EX-13 proves the normal local-first Owner Players and Calendar experience before the remaining app-wide continuity and Operations work. [normal-workspace contract](docs/06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) · [Living continuation](docs/06-delivery/continue-academyos.md).
+## Installable web app track — 6 November 2026
+
+Follow the [PWA delivery/readiness contract](docs/06-delivery/pwa-delivery-and-readiness.md) and [PW traceability](docs/06-delivery/pwa-delivery-traceability.csv). Installation identity/launch, worker/storage updates and installed-device verification are supporting EX-14/15/16 packages alongside normal Attendance and remaining redesign. Existing protected data/sync remains the foundation; no second app or offline engine. Manifest/icons and actual installed acceptance are still planned. The [tracker](docs/06-delivery/experience-execution.csv) and [living prompt](docs/06-delivery/continue-academyos.md) retain one current primary and separate installation, offline-coverage and whole-app results.
+
+**Current delivery:** The EX-13 Owner Players/Calendar foundation has scoped source/local/hosted proof on promoted1347470. **EX-07 normal Attendance integration is current**, with wider evidence and app-wide Operations work retained. [Current handoff](docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md) · [normal-workspace contract](docs/06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) · [living continuation](docs/06-delivery/continue-academyos.md).
 
 **Latest execution order4November:** [Role-first/offline checkpoint](docs/07-handoff/role-first-offline-sequence-2026-11-04.md) selects EX-12 isolated accounts/exact cleanup, then EX-11 working private register pilot, EX-13 progressive Players/month data, then remaining EX-07 redesign. Retain completed Operations work; actual access/activation/promotion authority and separate evidence remain. Older same-day EX-07-first notes below are superseded.
 

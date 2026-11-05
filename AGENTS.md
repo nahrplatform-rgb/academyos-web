@@ -1,5 +1,12 @@
 # AcademyOS engineering instructions
 
+## Installable PWA delivery — 6 November 2026
+
+- Read the [canonical PWA delivery/readiness contract](docs/06-delivery/pwa-delivery-and-readiness.md) and [PW/WD traceability](docs/06-delivery/pwa-delivery-traceability.csv) for installation, launch, worker, storage or installed-device work. Keep the existing single primary current route; EX-14/15/16 are supporting packages alongside EX-07, with installation metadata before all future domains and installed checks after each relevant working slice. This documentation checkpoint implements no PWA code.
+- Reuse the current protected repositories, data preparation and original sender. The existing workspace worker owns root scope and the register worker owns its narrower scope; inspect both before changes. Do not add a competing root worker/caching plugin, cache private HTML/API responses, replace the local engine or delete other cache prefixes/pending work during update. Declare worker/code/local-schema compatibility and preserve dirty/unknown tasks.
+- Installation is not evidence of offline coverage or whole-app completion. Do not assume installed and browser contexts share sessions, IndexedDB or keys. Verify normal sign-in, actual OS launch, scoped offline/reconnect, updates, storage/account changes, QR/camera and EN/AR/accessibility on declared devices. Distinguish active/resume sync from best-effort closed execution; no continuous-background promise.
+- Preserve settled no-passkey/no-local-secret/no-idle-lock/no24hour-cutoff and logout/30day replica/protected-original rules, SDR-06/07 synthetic authority and Owner-only promotions. Optional push/shortcuts/new native clients remain separately scoped. Keep planned/implemented/local/deployed/installed/Owner statuses and untested combinations explicit; maintain the linked registers and generated continuation.
+
 Apply these instructions to this repository. Explicit current owner instructions take precedence. This file guides coding agents; it is not evidence that CI or branch protection enforces every rule.
 
 ## Before changing implementation

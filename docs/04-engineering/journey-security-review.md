@@ -1,5 +1,11 @@
 # Journey security review and delivery gates
 
+## Installed PWA trust boundaries — 6 November 2026
+
+Use the [PWA contract](../06-delivery/pwa-delivery-and-readiness.md) and [PW security joins](../06-delivery/pwa-delivery-traceability.csv) when expanding action packets. Cover installation identity/origin confusion, unsafe auth returns/deep links, independent cookie/storage/key containers, stale or wrong-account local views, worker controller/asset/schema skew, quota/eviction and pending-operation cleanup. A root worker scope or manifest is not authority. No caching of private authenticated HTML/API responses, bearer URLs or credentials; public assets and protected IndexedDB retain separate owners.
+
+Test same-account current-access recovery, forbidden/late replies, compatible update/downgrade, old pending IDs and multiple contexts. Record actual installed proof per domain and declared device; source/local cases do not become hosted/physical passes. App-managed cleanup protects pending work; OS/user deletion of its only copy cannot be promised recoverable. Existing synthetic authority and nonblocking independent-review deferral remain; no production, paid, grant or new offline-command authority is created.
+
 **Current staging review policy — 4 November 2026:** [SDR-01](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review; it is not a prerequisite for currently authorized synthetic staging work or otherwise-authorized private activation. Keep actual engineering checks, custody/configuration, explicit activation/access authority and unexecuted evidence separate. Earlier reviewer/disposition waits below are historical and superseded; no review is marked passed.
 
 ## Persistent local data and synchronization — LF-v2,2November2026
