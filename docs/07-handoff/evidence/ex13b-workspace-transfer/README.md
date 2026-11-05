@@ -2,7 +2,7 @@
 
 Fictional disposable PostgreSQL17 and actual local app transport and Chromium repository. Read the [normal-route checkpoint](../../ex13b-normal-workspace-checkpoint-2026-11-05.md), [device lifecycle checkpoint](../../ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) and [original transfer checkpoint](../../ex13b-workspace-transfer-checkpoint-2026-11-05.md) for scope, current source, authority and remaining hosted work.
 
-The subsequent [staging-readiness packet](../../owner-workspace-staging-activation-2026-11-05.md) records expiry deletion, capability-specific rollback and separate workspace-root backup preparation. These remain local checks, not provider activation or hosted acceptance.
+The subsequent [activation packet](../../owner-workspace-staging-activation-2026-11-05.md) records expiry/capability cleanup, root preparation and the later Owner-authorized live schema/key/settings setup. The local checks, installed provider definitions and signed-in working acceptance retain separate evidence.
 
 - `database.json`: final SQL-suite result and migration/test hashes.
 - `snapshot-interleaving.json`: observed writer commit between read metadata and row access; production STABLE versus fixture-only VOLATILE negative control. No production function change remains.
@@ -11,6 +11,7 @@ The subsequent [staging-readiness packet](../../owner-workspace-staging-activati
 - `advisors.json`: local CLI advisor result/disposition, including limitations; not independent human review.
 - `validation.json`: commands/results for the completed checkpoint, regressions and generated-document checks. Source hashes in individual receipts define their exact boundary.
 - `root-custody.json`: separate purpose-bound workspace archive generated and recovered with the existing Owner identity; independent digest recheck passed. No provider provisioning and no plaintext key. The archive/identity remain private outside Git.
+- `activation.json`: later explicit Owner authorization, provider-assigned migration version, 59-table/605-row live preservation, installed ACL/gateway/trigger checks, unsigned-call denial, separate sensitive workspace root and three settings. Includes provider advisor findings/dispositions, consistent fingerprint timezone and one bounded Terra review. Owner promotion and signed-in runtime proof remain separate. `root-custody.json` retains its earlier preparation-only scope.
 - `startup-reentry.json`: actual-component before/failure and four-case post-repair scope; public probe budget and diagnostic limits.
 - `readiness.json`: subsequent cleanup/custody regression scope and source-bound local checks; current staged release observations remain separate.
 - `backup-readiness.json`: fresh main-only encrypted backup receipt matched to trusted workflow output before recovery; the original copy result remains separate from restore evidence.

@@ -20,6 +20,10 @@ This is operational authority for the existing synthetic staging environment, no
 
 The concrete offline activation authorizes the reviewed four-source schema release, separately backed-up server-only wrapping root, staging-only flags and the existing one-register personal-device runtime. No password/passkey enrollment is added. Actual rollout and hosted working-day proof remain separately evidenced in the [activation packet](../07-handoff/owner-register-activation-2026-11-04.md).
 
+## SDR-07 — authorized workspace expansion, 5 November
+
+After the checked Players/Calendar build passed both CI runs, the Owner explicitly answered **“Authorize this workspace staging activation.”** This authorizes the exact x21 migration, separately prepared workspace wrapping root and three synthetic-staging settings in the [workspace activation packet](../07-handoff/owner-workspace-staging-activation-2026-11-05.md). The [live setup receipt](../07-handoff/evidence/ex13b-workspace-transfer/activation.json) records the actual application and verification; do not re-ask this authorization. It adds no account, role or new business/privacy decision. Existing register custody, originals and canonical operating rules remain protected. The Owner alone promotes; a configured database/key is separate from deployed source, signed-in runtime proof and working acceptance.
+
 ## Independent review is deferred, not passed
 
 For current authorized synthetic staging development, no task waits merely for reviewer appointment, reviewer availability, an independent signature or a completed external audit. Do not repeatedly ask the Owner to find a reviewer or present that wait as the next implementation action. Keep a review-ready evidence packet and backlog for later consolidated independent review.

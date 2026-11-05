@@ -1,0 +1,1210 @@
+{
+  "recorded_at": "2026-11-05T13:49:29.900Z",
+  "project": "snpphkenmvmhpjstbeul",
+  "authority": {
+    "owner_answer": "Authorize this workspace staging activation",
+    "scope": "Exact x21 migration,prepared workspace root and three staging settings",
+    "promotion": "Owner only"
+  },
+  "migration": {
+    "file": "20261105003702_owner_workspace_transfer_contract.sql",
+    "source_sha256": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "applied": true,
+    "provider_version": "20261105135304",
+    "applied_with_workspace_app_gates_closed": true
+  },
+  "before": {
+    "table_count": 59,
+    "rows": 605,
+    "row_fingerprints": {
+      "sports": {
+        "rows": 2,
+        "sha256": "05bfc9637010cde1e76e2ad2f3a1cab4d15c60ef5de537da389317fce063ee1f"
+      },
+      "players": {
+        "rows": 4,
+        "sha256": "32fb702b97a3bd21f6cb4f007a2409455938ad77140ec9fd98565f66d52fe76c"
+      },
+      "branches": {
+        "rows": 2,
+        "sha256": "f2b77e41b2018e0c60dab7f832995a1cd264d80beba158281526cac99d64de7f"
+      },
+      "qr_cards": {
+        "rows": 4,
+        "sha256": "f74da9a18fa677b5ad976f42245176de9698b168b1755fa2a63343a5879bf247"
+      },
+      "academies": {
+        "rows": 2,
+        "sha256": "06ec672438afe662c29305eead48d81accbb86e13f338935a5f7a5b20fbdcaa4"
+      },
+      "date_plans": {
+        "rows": 46,
+        "sha256": "15fa854363044456033e8368b146f813dc7afed4481effef9a4fea73d4dc61b9"
+      },
+      "identities": {
+        "rows": 2,
+        "sha256": "61ec945dea7f578e3e63eff86072b117a00131a59c02eca3ebc972b5e9d2031d"
+      },
+      "m1_secrets": {
+        "rows": 1,
+        "sha256": "8544cbc8aec3cf4c8c8b81ef034163304dffb1b69d7bb327aed95fc62dc23359"
+      },
+      "operations": {
+        "rows": 16,
+        "sha256": "1f37a79c6bbc1c4b90cba1a549594afc903f8770b550cba8fa06d4101f660852"
+      },
+      "memberships": {
+        "rows": 5,
+        "sha256": "3a1e52655f508798b31d95b62621c82c78f6741950573b5e6b4cdea3bee4bec0"
+      },
+      "audit_events": {
+        "rows": 155,
+        "sha256": "bf4f7f4bf4901082b93c7f7e0057dd1394d7af863ef71dd54b615c16e0a5f4f1"
+      },
+      "date_rosters": {
+        "rows": 47,
+        "sha256": "5cc3fbb7d01518e72f0ff268057c8629260f797fab5385f9cae706bc98ca8bc2"
+      },
+      "initial_setup": {
+        "rows": 2,
+        "sha256": "328f320958b43aefebfd83f29802211da0cad4ea3834d8e7d0a319a17214b503"
+      },
+      "program_plans": {
+        "rows": 2,
+        "sha256": "3cefe7c3b051210914dd89033c30740cfff0758ca0c1d04785185348d1d0620f"
+      },
+      "qr_card_heads": {
+        "rows": 2,
+        "sha256": "8a622b6195ec3ccc0a6e767ff54cb4120f243e9422c15b0127477fd4b7b2c11b"
+      },
+      "qr_operations": {
+        "rows": 11,
+        "sha256": "29419200f65f05bc76677287f8796580691109aed4a675f78fc1424f9ef70e48"
+      },
+      "guardian_links": {
+        "rows": 1,
+        "sha256": "a15e9605e2f490832da2f8dbb28a3f0881f54cf3f2519efc8553e7606849b1e0"
+      },
+      "trainer_people": {
+        "rows": 1,
+        "sha256": "b515611c6307a5f88557fe9d68710ff29e1d63f2b93a64559dc97f47413daeeb"
+      },
+      "training_dates": {
+        "rows": 65,
+        "sha256": "f975120dc6179688c2af6d8a0712f3103e47767927ee8bce687f0922297ada1b"
+      },
+      "guardian_people": {
+        "rows": 1,
+        "sha256": "2f820388783e0859201088c745a274ccfaf92ccf5c27d13bed440d4272c0e030"
+      },
+      "platform_grants": {
+        "rows": 1,
+        "sha256": "0815d710a012f9a307a6000540f9ae8e42485cf4c7a682da90e05fade40a1e7f"
+      },
+      "session_changes": {
+        "rows": 2,
+        "sha256": "e0544f7ffd5eb8335e0898736448590e9bdb3d50fba7fdcef897c3f3f156a315"
+      },
+      "attendance_marks": {
+        "rows": 4,
+        "sha256": "9d51966ef4e91ab6980bacb39b7d0d162d3f4f35c31a8107c3fb3889462d101c"
+      },
+      "publication_jobs": {
+        "rows": 7,
+        "sha256": "72c0b1560ac56d629e886cea3b8bb6264ba422ce077765ef8b0c7068a1a12ef2"
+      },
+      "owner_invitations": {
+        "rows": 2,
+        "sha256": "5a62bb179c48e5559d17fb314308f417db451f951f46f5bcd21d220002b0d363"
+      },
+      "people_operations": {
+        "rows": 6,
+        "sha256": "cb89942ad572f9c2c8a879279ff83324d6c0cabcc2546e97c53389cb19756cc1"
+      },
+      "publication_heads": {
+        "rows": 4,
+        "sha256": "ecf68da9ce609ac5bbd7690b2530f56b0a0ba515298791434d6d7fd5566fc2a3"
+      },
+      "training_programs": {
+        "rows": 8,
+        "sha256": "eb77392a31d7fd064efd4f8c7d15c6dc1379e1486f8aa3db75517cefece0fd67"
+      },
+      "attendance_history": {
+        "rows": 6,
+        "sha256": "0d040ed9e020f3de4899b7e3ff52ab7d8a86c0b967b43a0f032367c4d5e3c4b0"
+      },
+      "correction_history": {
+        "rows": 2,
+        "sha256": "ee703797c71820fb3fdef799e7463f48032153147b5f84cde2488ea5985d130f"
+      },
+      "development_access": {
+        "rows": 1,
+        "sha256": "828e8269000f79663eb398066ea2f4128cd352672f36ccc4d867ffae0139c2d4"
+      },
+      "publication_events": {
+        "rows": 5,
+        "sha256": "6f97b3cfcc3f1f167d3638d3f402395a0f0fa5944d128ab0fd7cd177f291cde4"
+      },
+      "qr_window_settings": {
+        "rows": 1,
+        "sha256": "2aebce5f25af3007558889cd9c0d9ee9c870c24cd0e61c33d2f8b0df39887526"
+      },
+      "trainer_operations": {
+        "rows": 6,
+        "sha256": "7f4184d958d9641bf2546d935d512eb62d709153a54c17b163e090f3bb48f4b2"
+      },
+      "correction_requests": {
+        "rows": 1,
+        "sha256": "bddb15d415310c4b09777a745c28b9102e5f08cdbcaa065a33712277345693cf"
+      },
+      "development_history": {
+        "rows": 6,
+        "sha256": "9cfaeb7d79edf6b68c374e32907de2d0f7f52aee2d12588a0e72cc6f59c4f4b5"
+      },
+      "guardian_operations": {
+        "rows": 4,
+        "sha256": "ee7abef289534381a6656f820c7fa635535ba080f4040195309c21ac0d81ee92"
+      },
+      "owner_register_keys": {
+        "rows": 1,
+        "sha256": "4c98fc308d645528909c89b1a0a4c36c9dc62255776046bda1091c1ce3af3b55"
+      },
+      "planning_operations": {
+        "rows": 8,
+        "sha256": "a78f505759a8b2e277b615ff00a8b1fa58fa03bba5408ba4b96d9524c581d186"
+      },
+      "publication_rosters": {
+        "rows": 5,
+        "sha256": "f16d6d66f6dce22f55199203b4cededd6cf22b84d5bc2a1ea8879fc481acb27e"
+      },
+      "publication_targets": {
+        "rows": 46,
+        "sha256": "99a7b75292f9cbb9eba17c979fad7983878147e220c93065045071a91e476f85"
+      },
+      "qr_window_overrides": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "trainer_assignments": {
+        "rows": 1,
+        "sha256": "27b92d4c404947ac447ce23f3c55c557ffd54c4239ee61dd4d345658a1d54414"
+      },
+      "trainer_invitations": {
+        "rows": 1,
+        "sha256": "260651ab8cddab58b5b9cccd12a0938c01842fdbd4721bbde6f5edcea51b5c7c"
+      },
+      "training_operations": {
+        "rows": 8,
+        "sha256": "acf268fcbbf8833b18cf3e537b75ae356fdce51d115ddf8ed0349000944a8955"
+      },
+      "guardian_invitations": {
+        "rows": 1,
+        "sha256": "01bd5cb0d09e451a4589c1e6d0f78d27b69036bbf390f4ad48f1ac457d978426"
+      },
+      "program_plan_players": {
+        "rows": 5,
+        "sha256": "75f284f13618bd760664dc73779baba7c32ec7a7efa751b244b58d3d3214b211"
+      },
+      "program_plan_targets": {
+        "rows": 41,
+        "sha256": "3576a62cc04e7d78bdaa205328c2fdcd3226114583f3e67768721070bfec75fe"
+      },
+      "attendance_operations": {
+        "rows": 4,
+        "sha256": "c10aade0546b89c0f7bb7cb3b2321b2d84181b0b26f45c737760f9524f8db3cc"
+      },
+      "correction_operations": {
+        "rows": 2,
+        "sha256": "b24ccf2119a95ec91320425c834ca14821dfaaeb4844a8af9f63abed49668b3a"
+      },
+      "player_name_revisions": {
+        "rows": 4,
+        "sha256": "d6bb156d7746cca046946e06e3242d43ee0d754f1f40e642cddcb759cc3ffdf7"
+      },
+      "development_operations": {
+        "rows": 6,
+        "sha256": "953e624e0880a5149b0da7ccd087bfeaac36a950c75001d891666eafbc8e8c96"
+      },
+      "publication_operations": {
+        "rows": 21,
+        "sha256": "7e168a1c6e2c70561afb1099562740765b3c0ee70953c7ca4e32997d0a6f7b65"
+      },
+      "development_assessments": {
+        "rows": 1,
+        "sha256": "647e0a0d2a032277eadac3347591eb049ddaad43983983c11644fd40c4ed3061"
+      },
+      "development_submissions": {
+        "rows": 2,
+        "sha256": "e4c002e44c994533fb905daf8821a435d89e33e642c5ba4b33359ac77e759b55"
+      },
+      "program_plan_operations": {
+        "rows": 7,
+        "sha256": "c25ddc473052dd21c684af1dee664189bf72c81239f67471ed62e359eacd1e49"
+      },
+      "development_publications": {
+        "rows": 1,
+        "sha256": "3c897f75e6cf3e4c817675f0481147ba3ca705561a92dc980ce62140e828513a"
+      },
+      "guardian_training_access": {
+        "rows": 1,
+        "sha256": "828e8269000f79663eb398066ea2f4128cd352672f36ccc4d867ffae0139c2d4"
+      },
+      "session_change_operations": {
+        "rows": 2,
+        "sha256": "cd0a2f3733e5ab2530d29372c6d057c8d058750820a667aa7ae41f829d512c55"
+      }
+    },
+    "function_hashes": {
+      "m1_setup_v1(uuid)": "d9b1872191d969a59bfb9e1a8fcab376b98eede4d2754b01f4092e8d385c3f25",
+      "rls_auto_enable()": "b21d88816c445d14cef5032c3cd4abaebc1db2001fcb3435022ab6b496182ca4",
+      "m1_context_v1(uuid)": "fc4c6eb23ef29bfb2b6c38865905c1e87fdf50c8360c1906a9c49398ea3ad26d",
+      "t4_profile_v1(uuid)": "ed76802be18d66679602ac34b9526b024c9c85817c7be7c76c5d5a03238fc2ac",
+      "e14_context_v1(uuid)": "827b87c74222c07ae8b61da50d856089a152eb798c6a2ce7a8325e9bc4a8982a",
+      "q13_context_v1(uuid)": "74826fbabf974ed324fe80a51bf1791387b0c26760012b9c2f94e357e28a0abb",
+      "academy.g3_lock(uuid)": "181cb906fcb1a69d6cd4a3af536eff211011661103ec64a2cae9a28caa2fdf03",
+      "academy.m1_platform()": "4ed73e1fc2f101c29f8d1846ed4c1c0d1c6abef3dc00d78ad9f217c3e9215901",
+      "academy.t4_lock(uuid)": "846005641c94f34c9e14fb909cbc7b13f3b98c70dcf6badc8bd2237a9f987f0d",
+      "m1_operation_v1(uuid)": "d68f72782277a2e5b5dfddeea05c3ddd49b3b32575d139f0c1eaed77b1e059c7",
+      "p5_list_v1(uuid,uuid)": "6268b7e74e289f8fc5c7fee6fc3ee4c7749a42fb5344be315cfe2e50a35c2188",
+      "academy.e14_lock(uuid)": "05b3511c01dcfaf3bbddb258cd98bc94715a696aae6be1ed51e6fbd86253a3cb",
+      "academy.i2_owner(uuid)": "1adcb396abbfe5a1be9b17f5fd80de32e1a58d9c1a191c5c5db229cabb09a4bd",
+      "academy.m1_owner(uuid)": "7a45952628bdad08e8a080f70576353ad23dea6d3f06268a0ff263b74e8dd35e",
+      "academy.x17_hash(text)": "4632393938112a6a7f67392ec996d29249fa12bf4f5fc8e52cf723634619f650",
+      "q13_card_v1(uuid,uuid)": "cb443e3ecce6d07c944ca3f08893eeb9a74490d6eeea23ebd640fb1b5e49cc9a",
+      "academy.e14_staff(uuid)": "4cd4499cf81d091ae93aa2486a312387656c3d1436a836e6c087cc8e957eaef2",
+      "academy.p5_count(jsonb)": "84cbe4ec94777c6c91ee334dd49e777050dffad22edb10f389dbac6463708a89",
+      "academy.s8_guard_plan()": "ddc0e009a023ddb107d9e8a4c31f36ccbfcc922ed490ec7502c1cc5245937f16",
+      "academy.t9_guard_date()": "3d3fff27abab15000472397bfb482fe6ddc7a218d95dbc876fcf7e3e4ccd6bfc",
+      "academy.x17_frame(text)": "baf8c6d67b4380661b4116f56d9558427f24085252c3e831ca3b1c3c6cf38672",
+      "b11_links_v1(uuid,uuid)": "cf02a5bd929005b3b093d5d28b61b1d4cd9b2f38bc48c9a660cdf917912826ab",
+      "bootstrap_identity_v1()": "4413ab6040c00b380f944c980c40df5aac8d82f6c9494f1808e042229f88316f",
+      "e14_links_v1(uuid,uuid)": "8ef5fd5b3224f5dffa348cd2d899efabe30967f71b802ab02375b56f07ce8044",
+      "x15_owner_home_v1(uuid)": "b7524aa4a301d2a9dbcf29d1fe214d86bd89331d41d67daa602847b411d3071d",
+      "academy.p5_context(uuid)": "18c54bbc3343b2c2b5cd7d5ef17a26f1eeaffe90e46e51da00df608287116c8f",
+      "academy.t4_trainer(uuid)": "2dcabcb2147c3182947bb975c5221428c33a433dc93b98ebf7c65d3e361ad731",
+      "i2_profile_v1(uuid,uuid)": "922850f26412c7bef3179797b39dcd66c25ec70d800cd288498804eca80476ea",
+      "academy.g3_guardian(uuid)": "2f20c052780080dc340625d94819157ead4a7e53e5f26b2eaab1c465de92a654",
+      "academy.r7_job(uuid,uuid)": "b10717ddde288a29c3fa4e651a073a4e4fd71d094278bd83629473fe4f7e020c",
+      "academy.s8_job(uuid,uuid)": "2faafac20f33bf52226b47f5c4b70e45fdd49c618c65cc4c5ab894e9ecd6c420",
+      "academy.t9_date_default()": "70197d1222e960fd0e5316ca5533815a5b7a4d625af12a0d800465e175007a7d",
+      "m1_platform_list_v1(uuid)": "9673bcbd27cf7fd9a3ed9eaa452f17405ce6712a3c24695926b26d695b03a9c1",
+      "x15_trainer_home_v1(uuid)": "d65388e472e38d809f95fbedde7564e2c6fda58cfe875c0c9454323d49da065d",
+      "academy.i2_normalize(text)": "cb599dc622e0f55b4306a151b9f062b2a036239ac24717ba91ea0130667df099",
+      "academy.verified_subject()": "99a156356b7e4f2d3920627e3e5c5203c76c006e9d98d1b7983d37313f58879c",
+      "g3_operation_v1(uuid,uuid)": "fd92891aa77f0bb4bca9c2bebbec16f5cc5e4c4d930d09fc215d3e74a4f87a89",
+      "i2_operation_v1(uuid,uuid)": "a2d0d6a6f0b0cb012d9de8ba9b619c69e5d2bb713bf4922ea39c66eafae91d27",
+      "p5_operation_v1(uuid,uuid)": "161cabb10c414a8e66917341d5d808a3d617af5ae59704b416b15008f062fb19",
+      "q6_operation_v1(uuid,uuid)": "18148c71d1f0264846e9a5b392f41c204000cccbc1a0dce4c5dd8a7d5a74a465",
+      "r7_list_v1(uuid,uuid,uuid)": "27d88d175989d7e8fccf05d005e3a475db4b79da6b012936633312e6aa6c083f",
+      "r7_operation_v1(uuid,uuid)": "eef1b756e3e78bf187fbf155d1df8c0d44353df3213358be18a563557d47bbd7",
+      "s8_jobs_v1(uuid,uuid,uuid)": "6982c51e470daa79e2f65f5cc2e47e8926272d34141353bd33cc82089e8e5fbf",
+      "s8_operation_v1(uuid,uuid)": "b3eee1f70698bb498926d15cb2d8c291a9cad68e9de7abf668c233d521dd4d44",
+      "s8_read_v1(uuid,uuid,date)": "68fe8985441c5bf2853151228b368744ddbb22895b4e604e89e78a65c0b1e527",
+      "t4_operation_v1(uuid,uuid)": "12489e815e5c61655048f99902813d4a88af5ee4db0073cce03a637c95a5b3c7",
+      "t9_operation_v1(uuid,uuid)": "141a47e3d0bedd82eddde7dbc9a6a48b7cf014e23af8285ca9b0d934104cc702",
+      "academy.a10_guard_session()": "dc30d7cbd7010bc4290aef5f68c1632538ef10dee321f8f0fec4383edf78a622",
+      "academy.e14_link(uuid,uuid)": "f3da203f76354085fafc2e71089c2b16cbb07f0b69282bfa3a4978cd764e0868",
+      "g3_links_v1(uuid,uuid,uuid)": "da00e031b21a7fcf7dc026cd62f1f626e570ad4b1ec6b5d8f545a3ad453245f3",
+      "my_academy_memberships_v1()": "11f66b34194ba1691b8dc90e37acce141e1698ba895d29da073292fc0f05e925",
+      "academy.a10_owner(uuid,text)": "b1f8021157cf5b1accbedcf89d32644538a7bb02af94ba4f8934a5467d9cdb8d",
+      "academy.p5_chain(text,jsonb)": "caf6b067d3a9b82620b0fec00f5ec74af8dfb7f30727787b5536edeb3845b7b9",
+      "academy.p5_definition(jsonb)": "0a17cdfc1987673d993eb6729c7c1893e275c70ad6db93164ca5d4cc710d0270",
+      "academy.q13_scope(uuid,uuid)": "f308e96506ec7988c3ca35171cf0697364e52badd78a9acf2f025f6d904dc2b4",
+      "e14_queue_v1(uuid,text,uuid)": "2a542b14e43cdb8037ebbdbf6b63a61733d7574351d6d6de4dc9806de3c4b253",
+      "i2_people_v1(uuid,uuid,text)": "23abb9f56f8a61678a8cea4f42efd5d5dfb84aed51308c6e6ecdf1cb391f8b95",
+      "s8_roster_v1(uuid,uuid,uuid)": "678a9065d27413accd91604c3be3a080e257731f2a068eaca4710458d45d01ea",
+      "a10_roster_v1(uuid,uuid,uuid)": "28541f4caeaf56ccc8076754d824515676440cde33242177d7a68edf0d4e19b7",
+      "academy.a10_target(uuid,uuid)": "e52d54fc31d156e7c36629de646ec3475b1b224831cb18997682211d057e5dc8",
+      "academy.b11_player(uuid,uuid)": "b3d68093f2df384f9ef55b21c5322c154e7524024f3e69bf1f8eae8dcb3845ab",
+      "academy.c12_access(uuid,uuid)": "68327b7ad2de28923696a05a643c6469520ebd72b2183e1a57b9dfe1aa616faf",
+      "academy.r7_problem(uuid,date)": "d4a7a50306747c52f1c48d441cfe33b3202523682614f357a29a3eaa98a9467f",
+      "academy.s8_problem(uuid,date)": "6003903f5423ac1878e036507861302664bc3820d0b9065f3b62b97cb2d47f64",
+      "academy.x17_chain(text,jsonb)": "059dc4003d2d3023daf3000f96a434e2e80f675bcf94045b2faec82446a259a8",
+      "b11_detail_v1(uuid,uuid,uuid)": "a5c6e3e6a8d1acc42df1d503b0d8a33b7653c7097b98ec2dcbe27a898884cacc",
+      "c12_detail_v1(uuid,uuid,uuid)": "c99cee843f8d35ce3f3b9c21ff602d8a116a8eaa85983e417bbf1b2c9107cf31",
+      "e14_detail_v1(uuid,uuid,uuid)": "2a77c82ec39a8ebed96526b90438e42e0acf574dc4445f3b4912e1d5c56a1a14",
+      "e14_roster_v1(uuid,uuid,uuid)": "7076f33a46f0fe0e1e4b34334f39281f300d3bdcd43bee8b82611821695b4507",
+      "p5_read_v1(uuid,uuid,integer)": "38673497be482fc3671ff4cf62c4756e0cfa0b7f8c29d988d3f0587d4a79bb75",
+      "academy.audit_platform_grant()": "36edb716419d107fd62fccb36619ee7fb02dbda81ddb71adfedc73b8721467c1",
+      "academy.g3_approver(uuid,text)": "7454e2c1d91514e3f58e59dd7a35cdd0d646ae1f10a16ed854aa09ef9fc8e13f",
+      "academy.t4_approver(uuid,text)": "e485eac52ebe33dad8baa27580a75910732e7db90667bc38ecf4840f3d89e454",
+      "c12_context_v1(uuid,uuid,uuid)": "ae8cc6a0b37530124e3929ca6842b45aa59d5d052fa1ff72fb5b14d09240e457",
+      "academy.a10_history_immutable()": "ff46d3d419630a8413e66ca383a7d29533f7600e80547772b8e50f6debc8b391",
+      "academy.c12_authority_changed()": "cd3328a369b29bdeaffa9c8ad89368403e1dce076fb431fd4137aa62e7f48aaa",
+      "academy.c12_request_immutable()": "cfd50644ba671d3abc97b763939f66793df70646e273eb48f22391551956851b",
+      "academy.x17_receipt(text,jsonb)": "528bcfb1d1616d0878643a830a00d0f3c610d9a2cc719b0226de9783bc7f0209",
+      "q6_read_v1(uuid,uuid,date,uuid)": "6cb14fba13e4649631c7a18521cc4b6c0583a2595bf320f9f67ba0d0f75d0da3",
+      "t9_read_v1(uuid,uuid,date,uuid)": "89b5effe62478fb39c3ae1149395625a4befa7c0af0e3a378c27bf2e36eebdc0",
+      "x15_guardian_home_v1(uuid,uuid)": "b8049b8821b81a656b158e2ddbe15cf8452d0f7aa4029b04a64e8e947c89979c",
+      "a10_operation_v1(uuid,uuid,uuid)": "39bc5b84591652a47e7b467f8f622bfc5074a59d57f7ef1d104578cc34b23165",
+      "academy.x15_home(uuid,text,uuid)": "a430734764cf40bba616e56363a3ca8931d04bdc58a9e2a440386f01744f29c0",
+      "c12_operation_v1(uuid,uuid,uuid)": "4e3c31a01a224bb8fe4cd1e1910e2e6b82d845209075053a1efb8e97c5ab4028",
+      "i2_candidates_v1(uuid,text,uuid)": "f7d739de4a4a8f51352d98f687c93cf8c886a72847031dabb18982bfa32760a6",
+      "p5_dates_v1(uuid,date,date,uuid)": "6f56794c4d42354d8c42b68dd256206da7a3b1ffaa72b2a7755e42476eb1141a",
+      "q13_operation_v1(uuid,text,uuid)": "f96557808755530f290939acb102b66183803e906398b01850651ca9827418e7",
+      "t4_owner_list_v1(uuid,uuid,uuid)": "628a53cd2c46118e19ccfac6c15985fcea03f6ddb6cfa4c1372f49ee04f81046",
+      "academy.c12_assignment_revision()": "9a9b4fabeffeebcc1ad29d8033037eafd1aabfb00ab5c2bf3957d3fe976af743",
+      "academy.e14_fields(jsonb,boolean)": "979a35a1a2714f3748f733cf1d08857ae18e6a991e3694bc782967ae6b7ad4f5",
+      "academy.m1_proof(jsonb,text,text)": "c7dc8ef7a43097833276f56948c60cf6123bb0e98c8382e75361b3c9e1f2f804",
+      "academy.p5_seed(uuid,jsonb,jsonb)": "76c7978b8b06e28985ba997da3c378fc540e53a85570e79424f7d4389849fce4",
+      "academy.q6_target(uuid,uuid,date)": "94669692901f2bd3e8f6cb2c5a25ffa165fe3d0ca594948d5afb4759717ac23f",
+      "academy.x17_signature(text,jsonb)": "c6ba62f0d97a478691c126721e105d2a1989206b06d683fd0028dd6a558d2411",
+      "p5_step_v1(uuid,uuid,bigint,text)": "01a66c94a65120543b4f0ae3c27d560741385474d4f83ab6c0bc2cf1952bc2c5",
+      "s8_owner_dates_v1(uuid,uuid,date)": "db1a1952008b7823d66b9998e6a7c4ef71cb0a71db2dfb0555598d47f94e1f23",
+      "academy.e14_access(uuid,uuid,uuid)": "94213060a146225a51848ef8238ba0ab1f33f432689d63fb5cf15a6be4946e1f",
+      "academy.e14_target(uuid,uuid,uuid)": "4c394925b75875738afffbe10198e3488081714532241f183dc2d4ad90738d02",
+      "e14_family_list_v1(uuid,uuid,uuid)": "eeb5d4689b09289a22e2f1adc7c17b3aaab48dcac655a1d594857dc5e0bb3e56",
+      "academy.a10_protect(uuid,uuid,date)": "0eeb5f34173111d5920b3c924ca275f8cd016340302bd142a5976c73b3d06e0d",
+      "academy.q6_eligible(uuid,uuid,uuid)": "78dae0a99fd2b2d84768a38f751c354b4c03044e5be85259925b17cbbb8540e2",
+      "academy.x15_context(uuid,text,uuid)": "2a82576e88423354cec7505d9b10b2ac64a8835c84cea324eeb051f3d0921832",
+      "academy.x17_header_hash(uuid,jsonb)": "b5c2e2a642b37de746dc9ad7ce7defdaf395aa2d0f04c6fac36f5006bbe220e3",
+      "academy.a10_guard_published_roster()": "ea0876640963938fdc7fb8a835d8a152e7df687102e49d67663517d0e8d639f8",
+      "e14_family_detail_v1(uuid,uuid,uuid)": "60c379940990854a2af631a1ea4c53f96e2270d4ebe06f1a86551a17c5064f2e",
+      "a10_history_v1(uuid,uuid,uuid,bigint)": "0f5e69d220739a1290cb4f4ebf8b0cc31e48d5aa63b356f3bfb6958b445ca89b",
+      "academy.p5_window(jsonb,text,integer)": "131652d9cf1ad7a32a677b8ab1386deb07406efb041aec7e26b6e17b3ebfe17e",
+      "e14_history_v1(uuid,uuid,uuid,bigint)": "2741eaf6aa179ed84b98ead90bbc16a5dd673a8ba02ebb7de1f5d1de58f3cffb",
+      "e14_operation_v1(uuid,uuid,uuid,uuid)": "e9906beb9a1acd31d9823e4415a4d5566b5331e518082e8f6189e4dccfc37505",
+      "g3_owner_list_v1(uuid,uuid,uuid,uuid)": "e8b9457d73e1dca0144ac663d654d07ddcf0eaf5ae299f06979fcd30252ff6d8",
+      "q13_resolve_v1(uuid,uuid,uuid[],text)": "ab47d0754249c2a4f47a812020626099c1080cfa312f65f9806d087c1c39baed",
+      "m1_create_v1(uuid,uuid,text,text,text)": "b89db74e9366e2410e90226056c3a1b0d660c0f3653ae7ed3af77dcf5fbde533",
+      "m1_invitation_v1(uuid,text,jsonb,uuid)": "1705044fa186be97b48041b14517ba593fd439a059cac00547aa6d7fcc6367f9",
+      "academy.m1_replay(text,uuid,text,jsonb)": "d76a02e3957adff957522b50a152ecbdcc749084e6567390b125e83c0db3a84c",
+      "academy.x17_proof(jsonb,text,uuid,uuid)": "3f638b08ee3ea6363ea5cc20e1a31aa4910f1613ef6ed532496357a24921a9aa",
+      "r7_read_v1(uuid,uuid,date,integer,uuid)": "ff676c77302671ede2aaeb23aa263640672e1bf5ddba3248f443ee8f20a02e83",
+      "s8_change_v1(uuid,uuid,uuid,bigint,text)": "44a1835933fc3ef0992b414ed396ef779b9a0510f5e408afdd0102cc34f786ec",
+      "x16_owner_current_calendar_v1(uuid,text)": "b9f1487936eaf68d3316a7b29b254e7fa7ea700734a6309f0b63cbbd2e3942cd",
+      "g3_delivery_v1(uuid,jsonb,uuid,text,text)": "a7d0f06a546154128f9daeb5cf30de0322007211abe62a1209a7b13d21571e83",
+      "t4_delivery_v1(uuid,jsonb,uuid,text,text)": "f2c2c1c880146777113bd084cb47a94fb03600aa174f651fd18c3324697a3737",
+      "academy.q13_matches(uuid,uuid,uuid[],text)": "e19f46ed6edbfb25e6830cf362fbff33e4babc025e23b9ffcc3fa459b011f25e",
+      "academy.x15_rows(uuid,text,jsonb,date,date)": "88280b13de38af3b149aa68909703c45507994766f5a0df3e8bd4e12da41c5c5",
+      "g3_invitation_v1(uuid,text,jsonb,text,uuid)": "073bf506d79814457bad7af48978bcb136519af774e5cdb7c4850d7252e76432",
+      "p5_create_v1(uuid,uuid,jsonb,integer,jsonb)": "3116ca3f7f95ded2a749dc3a20e93b5286ff02ec77be9b4954d136be271b07fe",
+      "t4_invitation_v1(uuid,text,jsonb,text,uuid)": "d9f92345bbdcaf0730ac8b7aa4db744119ea83cbcb21b65b4297780382c16c6f",
+      "c12_decide_v1(uuid,uuid,uuid,text,text,uuid)": "06e8df1d23bbb70ef53071b36462a26ee6a0ab365b1655344c065346af9aee07",
+      "r7_create_v1(uuid,uuid,uuid,date,date,jsonb)": "03ff8275ecb5eeda8509306fa77676d8c076208982f3417d9be51d24f49e0c4c",
+      "academy.c12_state(academy.correction_requests)": "08139b047153c936c85803395e87a92ea7841067462d08daf2ee4f7a7df84617",
+      "academy.q13_window(academy.publication_events)": "ff6494d333deee0cc56181f4a73828baafc390c0e71e03ef9b27021a5ee16a14",
+      "c12_submit_v1(uuid,uuid,uuid,bigint,text,uuid)": "6efb342822648e95ef76d2da527b2694b0067a7163ae4171b594a2cc3883cd90",
+      "m1_save_setup_v1(uuid,uuid,integer,text,jsonb)": "78c2e9d06caa3b5adb5fdcf19a2ef949bfadc0e84d53ea5db1ddd8f225dc609f",
+      "academy.p5_review_root(jsonb,text,text,integer)": "9bb9ad3b36933b105ae78a33b77eb3736e80912f9aeece864e64de1b5f297f1f",
+      "p5_preview_v1(uuid,jsonb,integer,integer,jsonb)": "1724b02988ab75e49052a13d64a1fc275e39a7f4676f2c15614fe80215f4a7c0",
+      "q13_capture_v1(uuid,uuid,uuid[],text,uuid,uuid)": "efd5ecbae07fd7fc7dbf38be37fd2a8a79a3b1209c2fbc766f0b8930cb7fa2c0",
+      "q6_candidates_v1(uuid,uuid,date,text,text,uuid)": "03c67c96d41ed95745147c2595d62a021d4291ef8f6af5335eb6f66e997d6db8",
+      "academy.p5_projection(academy.training_programs)": "5cfb1a578b2330c837d034d9ca3d9c5f3ebc3b357bed2aa9020b4486bc25e804",
+      "academy.b11_item(academy.publication_events,uuid)": "a31173bec44323e96203165c7df93312de730f32fa61b4358d3904210a379dac",
+      "academy.x17_scan(uuid,academy.publication_events)": "370a40292230946c630f5feb2642d5c5a71028d17eb97445cbea600c3f8a4782",
+      "m1_delivery_v1(uuid,integer,jsonb,uuid,text,text)": "036a76a671176e7d324e7a877c7c4f0d677407e226704d560fe1153f493b18c3",
+      "academy.m1_receipt(text,uuid,text,uuid,jsonb,jsonb)": "8b314322035d2bd58698ff00d3b8c4c7d8ac1424a8459fcd4cf7fde35dfafe05",
+      "academy.p5_review_signature(text,text,integer,text)": "f521eb0a0f10d126901c9ef38d93e344a830945d7a585befccf7a83703e85aea",
+      "academy.q13_player(academy.publication_events,uuid)": "68cba476e58cc420806460e66f6f01f9bb3f8a263a92b4b18e368ef4c6af4fa1",
+      "q13_card_change_v1(uuid,uuid,text,bigint,text,uuid)": "0cfaa7cb04ec071c1c8e4c7fa1a15b7cac821b2f5d1c1903cfc756dbb241daab",
+      "academy.p5_instant(timestamp without time zone,text)": "700647ed8413da37c7d691741d5bf81fc521c9100d88883292021921cda38969",
+      "academy.x20_register_scope(uuid,uuid,uuid,uuid,text)": "97e665631139418b01381c5e30602f45f8ed62eb683d5f55d8b15fde554cb3f7",
+      "m1_manage_invitation_v1(uuid,uuid,integer,text,text)": "9ae47412377dffe420c6a4b22135f4fcb62c798ef5adbc20473472e1e93d17b1",
+      "s8_create_v1(uuid,uuid,uuid,text,date,date,integer[])": "8af71fa2fa872fca2403f75896413ee329b2756d77018b95c4782e7fa2163a35",
+      "i2_register_v1(uuid,uuid,uuid,text,text,bigint,boolean)": "cd4e6621897d365f793dc38d7510fd1d4f0a83e57ffcea32ead1c1b2b1b74946",
+      "s8_schedule_v1(uuid,date,timestamp with time zone,uuid)": "1b1136d1c8c3180e7629cbfa1131b376614a95f02e08766c2f4d8074c0947e85",
+      "e14_sessions_v1(uuid,date,timestamp with time zone,uuid)": "8c65f1cc64d9444504e3465f66f2ff113fef866100e12e1b2e3a419996a2d7cf",
+      "x17_register_download_v1(uuid,uuid,text,jsonb,text,uuid)": "eb3e87a3cf18612fcf05a17b9644fa32fcd01ac5d8d61456d3f06f22eadb66e4",
+      "c12_list_v1(uuid,uuid,text,timestamp with time zone,uuid)": "a40b4b848f422fb89749a9af96193f6a6ed333ef6fac91250bfd7fb3ac315f76",
+      "academy.e14_author_current(academy.development_assessments)": "092a9114b61b445fe77dfe3cfb47be89904078ea4b5735cb279aa34d2f943610",
+      "q13_window_change_v1(uuid,uuid,bigint,integer,integer,uuid)": "ec43ad0e460c2159011275e70e2ef3d131eb44f307b15ec2ef2479851b79e6b8",
+      "c12_history_v1(uuid,uuid,uuid,timestamp with time zone,uuid)": "97d5108fb4958bba250493ac5dfe6057c0471d94c806d49d57ddc253f636b485",
+      "b11_schedule_v1(uuid,uuid,date,timestamp with time zone,uuid)": "b597bc2da70d60219e9fcfadf828dc383fd4afe31ad566fea302f3a99e986af7",
+      "q13_sessions_v1(uuid,uuid,date,timestamp with time zone,uuid)": "f8947c1c7a8208be1a902525f7ab9d0a7fa84ce23475ac8d93b1af60183c19f5",
+      "x19_owner_register_key_v1(uuid,uuid,uuid,text,text,uuid,text)": "982949c7e91db293b0652fc5cafa21d807cd31eac00222977d475f058c6e3867",
+      "a10_register_v1(uuid,uuid,jsonb,timestamp with time zone,uuid)": "061c1138ea47fb909dcafe93350231a7e12b009244f54c4c3b3eb7902177e8aa",
+      "g3_command_v1(uuid,uuid,text,uuid,uuid,text,text,integer,text)": "030c6726036f07f54889a5ab6b98ba1c8eaa3782fdf2efb7585fbddd3267cc8f",
+      "q6_review_v1(uuid,uuid,date,bigint,integer,uuid,uuid[],uuid[])": "c0297eebc09bc3a8c23c6f15d3c160cb72db09a8554f527982fdd05b16e4a2f5",
+      "r7_change_v1(uuid,uuid,uuid,bigint,text,integer,uuid[],uuid[])": "a3a31c705e8b5cf2098eb04a05c3caf597d0935731dc61dc45d2faeccf250711",
+      "e14_command_v1(uuid,uuid,uuid,text,bigint,jsonb,text,text,uuid)": "411f71c0cd2d1b973c91d633c3d57da4b2db7589d645b95a63828ac684fc17b0",
+      "q6_save_v1(uuid,uuid,date,bigint,integer,uuid,uuid[],uuid[],uuid)": "53a73716e4e58bf0c4ed52c8d29f2b5511bbd85e87c00d3b76f62da64b6b4ada",
+      "academy.x17_header(uuid,academy.publication_events,integer,integer)": "987468e999403eea0488b8bd504c2ed6c1047e5023e8e6a0b5005f423c5e378d",
+      "t4_command_v1(uuid,uuid,text,uuid,uuid,text,text,text,integer,text)": "d5cae5de40c4d15265075bd871fdbe2ebfef998e9eca2cdb7d779043ea82fc3b",
+      "q6_review_v2(uuid,uuid,date,bigint,bigint,integer,uuid,uuid[],uuid[])": "913b2eb27788a1855dec6c2a5847d493d12513fdd1544ea7287d82a26802f759",
+      "x20_register_download_v1(uuid,uuid,text,jsonb,text,uuid,uuid,uuid,text)": "c8fd1d37391af0a4120fcefa5a7ebd6769755f09033914389b62c1974342a0ff",
+      "academy.q6_change(uuid,uuid,date,bigint,integer,uuid,uuid[],uuid[],uuid)": "152fb43169593b2337c8c2490bde15540cb926d4dc013827a6ec0c91f47bcc3e",
+      "q6_save_v2(uuid,uuid,date,bigint,bigint,integer,uuid,uuid[],uuid[],uuid)": "447329995848997999d715a67a94dc57208f70c8979120045945c28e087ced79",
+      "x15_owner_calendar_v1(uuid,date,date,timestamp with time zone,uuid,date)": "b5f46e08bf303a17bc82ae42250970f6a185d9a9b860fb5b747568a69ff1fb45",
+      "a10_mark_v1(uuid,uuid,uuid,text,bigint,text,timestamp with time zone,uuid)": "40b4e80c0daa7910c577638029be1e6cb968103d5f2d189b67ecf317b60f7364",
+      "x15_trainer_calendar_v1(uuid,date,date,timestamp with time zone,uuid,date)": "4925f6f5ee409eb5184550e25d3377ac654814eb7639182c78f220129b8d5a8f",
+      "x15_guardian_calendar_v1(uuid,uuid,date,date,timestamp with time zone,uuid,date)": "ee230a493817b4970f2fcf5cd464ef0038a4f8117e0c851131614c8e2a3feb56",
+      "academy.x15_calendar(uuid,text,uuid,date,date,timestamp with time zone,uuid,date)": "7e82816e8fe8f172e0f23d31d8625368fbea5ce0a3ddeb64bba2ea9520a381f4",
+      "x18_owner_register_dispatch_v1(uuid,uuid,jsonb,timestamp with time zone,uuid,text)": "13e36ab9469cfb0d061c53332534f1d551861012c5e314b3f3dc3b54def8f4ee",
+      "x20_register_dispatch_v1(uuid,uuid,jsonb,timestamp with time zone,uuid,uuid,uuid,text)": "619bb84a5ce20633943b65e6bf5771a71d1b799e4eb77dad58aedfa5b9930bfc",
+      "t9_review_v1(uuid,uuid,date,bigint,bigint,uuid,text,date,time without time zone,time without time zone,text)": "29cca80bf42789edb0681d18930389595215bc07f7929019f206d9d95cb46712",
+      "t9_save_v1(uuid,uuid,date,bigint,bigint,uuid,text,date,time without time zone,time without time zone,text,uuid)": "b52698f0fdd2c50b40d9d59ded70d5ab661fc421d73206fa821190f0ecfe9746",
+      "academy.t9_change(uuid,uuid,date,bigint,bigint,uuid,text,date,time without time zone,time without time zone,text,uuid)": "d4a96c50a201d316d836172c4d705c5f35e9bd9af5f2ca2e62adbf58e7861f55"
+    },
+    "all_tables_rls": true,
+    "gateway_has_x20": true,
+    "gateway_has_x21": false,
+    "signing_key_available": true,
+    "rows_sha256": "c3a9abc11ffbbeed8161fda78c682066f5eda5a7697b74d9717ce304f01100f8",
+    "matches_rehearsed_backup": true,
+    "fingerprint_method": {
+      "timezone": "Africa/Cairo",
+      "row_order": "to_jsonb(t)::text COLLATE C",
+      "delimiter": "newline",
+      "comparison": "Matches existing restored-backup rehearsal;live transaction settings rolled back"
+    }
+  },
+  "configuration": {
+    "provider_mutated": true,
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "team": "academy-os2",
+    "target": "production (existing synthetic staging)",
+    "root_recovered_against_trusted_digest": true,
+    "root_ciphertext_sha256": "f9efe0f1811c3619fb794d1ec4ecda5e434beebd5ead089168769dcd4e8e4a17",
+    "root_cli_return_code": 0,
+    "root_input": "in-process recovery to sensitive-variable stdin;no value in args/files/clipboard/output",
+    "admin_cli_subject": "nahrplatform-rgb",
+    "admin_cli_session": "Owner completed routine authorization;isolated private configuration",
+    "fields": [
+      {
+        "id": "zjLqfTqqlOCJlMIj",
+        "key": "LOCAL_OWNER_WORKSPACE_KEY_ENABLED",
+        "type": "plain",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "id": "6aVRR0LRAC0Clx3a",
+        "key": "OWNER_WORKSPACE_TRANSFER_ENABLED",
+        "type": "plain",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "id": "hwuwkqp1ftCrnyml",
+        "key": "OWNER_WORKSPACE_PILOT_ENABLED",
+        "type": "plain",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "id": "G9ww8llNahWaH1hv",
+        "key": "LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1",
+        "type": "sensitive",
+        "target": [
+          "production"
+        ]
+      }
+    ],
+    "flags_value": true,
+    "unrelated_metadata_unchanged": true,
+    "register_root_and_four_flags_preserved": true,
+    "preview_or_development_workspace_copies": false,
+    "application_environment": "Existing APP_ENV metadata unchanged;process-only health does not prove its value"
+  },
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "reasoning": "high",
+    "peak_helpers": 1,
+    "scope": "Read-only exact migration verification expectations;no files/provider/browser/secrets",
+    "coordinator": "Owns integration,authority,custody and mutation",
+    "usage_savings": "unmeasured"
+  },
+  "preflight_repairs": [
+    "Initial UTC live check differed from the Cairo-local rehearsal serialization. Using the same timezone/newline method matches all59 tables/605 rows exactly;no record difference.",
+    "Intermediate delimiter diagnostic discarded;final before/after uses the existing rehearsal method."
+  ],
+  "completed_at": "2026-11-05T14:00:58.933Z",
+  "after": {
+    "unchanged": true,
+    "changed": [],
+    "tables": 59,
+    "rows": 605,
+    "rows_sha256": "c3a9abc11ffbbeed8161fda78c682066f5eda5a7697b74d9717ce304f01100f8",
+    "private_tables": 61,
+    "all_tables_rls": true,
+    "new_key_rows": 0,
+    "new_revision_rows": 0,
+    "installed_validation": {
+      "passed": true,
+      "errors": [],
+      "existingFunctionChanges": [
+        "academy.verified_subject()"
+      ],
+      "verifiedTriggers": 30,
+      "relationGrants": "denied to anon/authenticated/service;no PUBLIC ACL",
+      "publicFunctions": "authenticated-only,signed gateway,current Owner+subject",
+      "catalogIsBehavioralProof": false
+    },
+    "existing_functions_unchanged": 179,
+    "verified_subject_sha256": "7994197a08835c325b4995d6921382b7f7f40119a3c80b6f607260f7ded40081",
+    "relations": [
+      {
+        "rls": true,
+        "kind": "r",
+        "name": "owner_workspace_keys",
+        "options": null,
+        "public_acl_count": 0
+      },
+      {
+        "rls": true,
+        "kind": "r",
+        "name": "workspace_revisions",
+        "options": null,
+        "public_acl_count": 0
+      },
+      {
+        "rls": false,
+        "kind": "v",
+        "name": "x21_calendar_rows",
+        "options": [
+          "security_invoker=true"
+        ],
+        "public_acl_count": 0
+      },
+      {
+        "rls": false,
+        "kind": "v",
+        "name": "x21_people_rows",
+        "options": [
+          "security_invoker=true"
+        ],
+        "public_acl_count": 0
+      }
+    ],
+    "relation_privileges": [
+      {
+        "name": "owner_workspace_keys",
+        "role": "anon",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "owner_workspace_keys",
+        "role": "authenticated",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "owner_workspace_keys",
+        "role": "service_role",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "workspace_revisions",
+        "role": "anon",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "workspace_revisions",
+        "role": "authenticated",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "workspace_revisions",
+        "role": "service_role",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_calendar_rows",
+        "role": "anon",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_calendar_rows",
+        "role": "authenticated",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_calendar_rows",
+        "role": "service_role",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_people_rows",
+        "role": "anon",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_people_rows",
+        "role": "authenticated",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      },
+      {
+        "name": "x21_people_rows",
+        "role": "service_role",
+        "delete": false,
+        "insert": false,
+        "select": false,
+        "update": false
+      }
+    ],
+    "functions": [
+      {
+        "anon": false,
+        "name": "academy.x21_chain(text,text,jsonb)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "i",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "academy.x21_proof(jsonb,text,uuid,uuid,uuid)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "s",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "academy.x21_receipt(text,jsonb)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "s",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "academy.x21_revise()",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "v",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "academy.x21_signature(text,jsonb)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "s",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "academy.x21_snapshot(text,uuid,uuid,uuid,jsonb,boolean)",
+        "config": [
+          "search_path=\"\""
+        ],
+        "schema": "academy",
+        "definer": false,
+        "owner_gate": false,
+        "volatility": "s",
+        "service_role": false,
+        "subject_gate": false,
+        "authenticated": false,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "x21_workspace_key_v1(uuid,uuid,text,text,uuid,text)",
+        "config": [
+          "search_path=\"\"",
+          "statement_timeout=3s",
+          "lock_timeout=2s"
+        ],
+        "schema": "public",
+        "definer": true,
+        "owner_gate": true,
+        "volatility": "v",
+        "service_role": false,
+        "subject_gate": true,
+        "authenticated": true,
+        "public_acl_count": 0
+      },
+      {
+        "anon": false,
+        "name": "x21_workspace_transfer_v1(uuid,uuid,uuid,text,text,jsonb,date)",
+        "config": [
+          "search_path=\"\"",
+          "statement_timeout=3s",
+          "lock_timeout=2s"
+        ],
+        "schema": "public",
+        "definer": true,
+        "owner_gate": true,
+        "volatility": "v",
+        "service_role": false,
+        "subject_gate": true,
+        "authenticated": true,
+        "public_acl_count": 0
+      }
+    ],
+    "triggers": [
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "both\\000id\\000id,name,timezone,setup_complete,setup_version\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "academies",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "both\\000id\\000id,name,timezone,setup_complete,setup_version\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "academies",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "both\\000id\\000id,name,timezone,setup_complete,setup_version\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "academies",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "both\\000academy_id\\000academy_id,id,name\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "branches",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "both\\000academy_id\\000academy_id,id,name\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "branches",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "both\\000academy_id\\000academy_id,id,name\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "branches",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,capacity,roster_count\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "date_plans",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,capacity,roster_count\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "date_plans",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,capacity,roster_count\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "date_plans",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "both\\000academy_id\\000academy_id,branch_id,sport_id\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "initial_setup",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "both\\000academy_id\\000academy_id,branch_id,sport_id\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "initial_setup",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "both\\000academy_id\\000academy_id,branch_id,sport_id\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "initial_setup",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "people\\000academy_id\\000academy_id,id,display_name,branch_id\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "players",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "people\\000academy_id\\000academy_id,id,display_name,branch_id\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "players",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "people\\000academy_id\\000academy_id,id,display_name,branch_id\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "players",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,published\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "publication_events",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,id,published\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "publication_events",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,published\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "publication_events",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,day,event_id\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "publication_heads",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,program_id,day,event_id\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "publication_heads",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,day,event_id\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "publication_heads",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,label_en,label_ar\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "sports",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,id,label_en,label_ar\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "sports",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,label_en,label_ar\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "sports",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,scheduled_date,starts_at,ends_at,canceled\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "training_dates",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,scheduled_date,starts_at,ends_at,canceled\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "training_dates",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,program_id,local_date,scheduled_date,starts_at,ends_at,canceled\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "training_dates",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": null,
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,state,branch_id,definition,timezone\\000",
+        "name": "x21_delete",
+        "type": 8,
+        "table": "training_programs",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": null,
+        "args": "calendar\\000academy_id\\000academy_id,id,state,branch_id,definition,timezone\\000",
+        "name": "x21_insert",
+        "type": 4,
+        "table": "training_programs",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      },
+      {
+        "new": "x21_new_rows",
+        "old": "x21_old_rows",
+        "args": "calendar\\000academy_id\\000academy_id,id,state,branch_id,definition,timezone\\000",
+        "name": "x21_update",
+        "type": 16,
+        "table": "training_programs",
+        "enabled": "O",
+        "function": "academy.x21_revise()"
+      }
+    ],
+    "index": "CREATE INDEX training_dates_workspace_cursor ON academy.training_dates USING btree (academy_id, scheduled_date, starts_at, program_id, local_date)",
+    "unsigned_authenticated_direct_calls": {
+      "passed": true,
+      "count": 2,
+      "behavior": "Both valid recover/manifest calls refused with42501;fake unsigned JWT;entire transaction rolled back",
+      "limit": "Not signed-in role/tenant runtime verification"
+    }
+  },
+  "advisors": {
+    "security": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 61,
+        "workspaceFindings": [
+          {
+            "name": "owner_workspace_keys",
+            "detail": "Table \\`academy.owner_workspace_keys\\` has RLS enabled, but no policies exist"
+          },
+          {
+            "name": "workspace_revisions",
+            "detail": "Table \\`academy.workspace_revisions\\` has RLS enabled, but no policies exist"
+          }
+        ],
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 3,
+        "workspaceFindings": [],
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0028_anon_security_definer_function_executable"
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 103,
+        "workspaceFindings": [
+          {
+            "name": "x21_workspace_key_v1",
+            "detail": "Function `public.x21_workspace_key_v1(a uuid, device uuid, expected_subject text, act text, ns uuid, envelope text)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/x21_workspace_key_v1`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional."
+          },
+          {
+            "name": "x21_workspace_transfer_v1",
+            "detail": "Function `public.x21_workspace_transfer_v1(a uuid, device uuid, ns uuid, expected_subject text, act text, previous jsonb, month_anchor date)` can be executed by the `authenticated` role as a `SECURITY DEFINER` function via `/rest/v1/rpc/x21_workspace_transfer_v1`. Revoke `EXECUTE` or switch it to `SECURITY INVOKER` if that is not intentional."
+          }
+        ],
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      }
+    ],
+    "performance": [
+      {
+        "name": "unindexed_foreign_keys",
+        "level": "INFO",
+        "count": 46,
+        "workspaceFindings": [],
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+      },
+      {
+        "name": "unused_index",
+        "level": "INFO",
+        "count": 23,
+        "workspaceFindings": [
+          {
+            "name": "owner_workspace_keys",
+            "detail": "Index \\`owner_workspace_keys_academy\\` on table \\`academy.owner_workspace_keys\\` has not been used"
+          },
+          {
+            "name": "training_dates",
+            "detail": "Index \\`training_dates_workspace_cursor\\` on table \\`academy.training_dates\\` has not been used"
+          }
+        ],
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index"
+      }
+    ],
+    "disposition": {
+      "rls_no_policy": "Intentional private relations;direct anon/authenticated/service access revoked,including PUBLIC;not an absence of authorization at the signed boundary",
+      "new_definers": "Intended authenticated signed gateway RPCs;locked search_path,timeouts,current Owner+subject,namespace/epoch and receipts. Unsigned calls rejected. Hosted role/tenant matrix still pending",
+      "legacy_anonymous_delivery": "Three existing proof/lease delivery RPCs unchanged;retain review backlog,no blanket grant revocation in this expansion",
+      "unused_new_indexes": "New objects/quiet fixture;retain required cursor/FK indexes pending representative measurements",
+      "legacy_fk_indexes": "46 existing hints;not proof of a workload bottleneck;no speculative index batch"
+    },
+    "independent_review": "Deferred by Owner;nonblocking;not performed"
+  },
+  "delivery": {
+    "code_source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "push_ci": 41994973878,
+    "pr_ci": 41994987996,
+    "ci_result": "both success",
+    "preview": "dpl_9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+    "preview_state": "READY",
+    "preview_url": "https://vercel.com/academy-os2/academyos-web/9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+    "staging_runtime_source": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+    "promotion": "pending Owner",
+    "agent_promoted": false,
+    "expanded_signed_in_matrix": "not executed"
+  },
+  "documentation_sources": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/changelog/supabase-cli-v3",
+    "https://supabase.com/changelog/postgres-15-19-17-11-breaking-changes",
+    "https://supabase.com/docs/guides/database/postgres/row-level-security"
+  ],
+  "documentation_checks": {
+    "execution_validator": "passed;EX-13 current,71 working-day cases",
+    "implementation_validator": "passed;68 screens,30 actions,180 requirements",
+    "continuation": "regenerated from current tracker",
+    "factual_review": "inventory-only rebuild,review-tool and freshness passed;1189 states/1163 transitions;no changed product capture input",
+    "changed_document_local_links": 309,
+    "git_diff_check": "passed"
+  }
+}

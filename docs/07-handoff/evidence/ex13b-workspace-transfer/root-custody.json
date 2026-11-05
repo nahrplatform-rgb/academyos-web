@@ -8,5 +8,8 @@
   "encrypted_backup_restored": true,
   "provider_provisioned": false,
   "note": "One V1 root; no automatic rotation or replacement. Preserve for pending ciphertext recovery.",
-  "capability": "owner-workspace-v1"
+  "capability": "owner-workspace-v1",
+  "subsequent_provider_provisioned": true,
+  "subsequent_activation_evidence": "activation.json",
+  "preparation_receipt_scope": "provider_provisioned=false describes initial archive preparation;later live install has separate evidence"
 }

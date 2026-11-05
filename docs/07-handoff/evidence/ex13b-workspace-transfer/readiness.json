@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-05T08:45:37.240096+00:00",
+  "recorded_at": "2026-11-05T14:04:36.348625+00:00",
   "source_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
@@ -124,24 +124,27 @@
     "source": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
     "deployment": "dpl_GaKbABC9eyafobc72VNfCYjQ9UNu",
     "state": "READY",
-    "migration_count": 29,
-    "x21_workspace_applied": false,
-    "workspace_configuration_mutated": false,
+    "migration_count": 30,
+    "x21_workspace_applied": true,
+    "workspace_configuration_mutated": true,
     "promotion_performed_by_agent": false,
-    "rechecked_at": "2026-11-05T08:47:28.016831+00:00"
+    "rechecked_at": "2026-11-05T08:47:28.016831+00:00",
+    "source_unchanged": true
   },
   "remaining": [
-    "applicable workspace-root/schema/provider expansion authority",
-    "sensitive staging-only workspace configuration through an approved secret-entry path",
-    "Owner-controlled promotion after applicable workspace expansion activation/configuration",
+    "Owner-controlled promotion of checked7ddc6f1",
     "signed-in hosted normal-route matrix",
     "cold Players search/selection continuity,physical device,provider cost and percentile gaps"
   ],
   "independent_review": "Deferred by Owner;nonblocking;not performed",
   "delegation": {
-    "active_helpers": 0,
-    "model": null,
-    "rationale": "Coordinator-owned capability/recovery/custody integration;configured Terra model unavailable;scripts handle repetition",
+    "active_helpers_now": 0,
+    "peak_helpers_this_activation": 1,
+    "model": "gpt-6.1-terra",
+    "reasoning": "high",
+    "scope": "bounded read-only migration verification requirements",
+    "coordinator": "integration,authority,custody,provider changes",
+    "nested_spawning": false,
     "savings_measured": false
   },
   "repairs": [
@@ -191,7 +194,7 @@
       "target": "preview",
       "private_workspace_activation_verified": false
     },
-    "staging_unchanged": true,
+    "staging_unchanged": false,
     "checked_source": "7ddc6f1332ef310914412a4ba91a344534801782",
     "ci": [
       {
@@ -208,7 +211,9 @@
         "result": "success",
         "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994987996"
       }
-    ]
+    ],
+    "staging_source_unchanged": true,
+    "schema_configuration_receipt": "activation.json"
   },
   "rendered_qa": {
     "browser": "Chromium via existing Playwright harness; Browser plugin/skill absent",
@@ -246,11 +251,12 @@
     "provider_mutated": false
   },
   "activation_request": {
-    "status": "requested_pending_owner_reply",
-    "requested_after": "both exact7ddc6f1 Foundation runs passed",
-    "scope": "x21 workspace migration,separate backed-up workspace root,three staging flags",
-    "not_included": "promotion,new accounts or roles,production or real data",
-    "policy": "docs/00-governance/staging-delivery-and-review-policy.md#permissions-and-environment-boundaries-retained"
+    "status": "authorized",
+    "owner_answer": "Authorize this workspace staging activation",
+    "recorded_at": "2026-11-05T13:44:14.308734+00:00",
+    "scope": "exact x21 workspace migration,separate prepared workspace root,three synthetic-staging flags",
+    "promotion": "Owner only",
+    "provider_apply": "schema/root/three settings applied and verified;Owner promotion pending"
   },
   "delivery_checkpoint_checks": {
     "execution_validator": "passed;current EX-13;generated continuation matches",
@@ -260,5 +266,12 @@
     "changed_document_local_links": 14,
     "git_diff_check": "passed",
     "provider_mutations": false
+  },
+  "current_configuration": {
+    "workspace_root": "sensitive;production target only;reused prepared archive",
+    "workspace_flags": 3,
+    "register_settings_preserved": true,
+    "correct_cli_account_verified": true,
+    "values_decrypted_for_evidence": false
   }
 }

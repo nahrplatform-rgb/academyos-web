@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13B activation. The [live setup packet](../../docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) now records the Owner-authorized schema/key/settings apply. This operator/documentation batch changes no product capture input; rebuild inventory from the current capture pack. Private signed-in normal-route proof follows Owner promotion of checked code `7ddc6f1`; this replay does not establish that runtime result.
+
 5 November EX-13B readiness. All 16 actual-component capture suites and this HTML were refreshed after the shared account boundary and public-startup changes. The [workspace staging packet](../../docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) links separate actual-browser cleanup/failure, encrypted-expiry and early reconnect checks, retaining the failed candidate's CI evidence. Default captures omit these gated fixtures; the replay does not establish staging activation or complete offline-state rendering.
 
 5 November EX-13B. The [normal Players and Calendar checkpoint](../../docs/07-handoff/ex13b-normal-workspace-checkpoint-2026-11-05.md) has separate Chromium evidence for the gated prepared-device and offline states. The factual HTML refreshes the normal product captures and source inventory. Its default captures omit those gated states.

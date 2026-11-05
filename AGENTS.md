@@ -43,6 +43,8 @@ Apply these instructions to this repository. Explicit current owner instructions
 
 The Owner explicitly authorized the concrete offline activation and stated that all current accounts are trials and necessary trial actions may proceed without repeated approval. Follow [SDR-06](docs/00-governance/staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority): necessary setup/restoration/ending and fixture tests for existing synthetic staging accounts are authorized. Prepare/record bounded audited changes, preserve history/originals and final intended dedicated roles; do not repeat per-test access questions. This does not authorize production/real-data/paid commitments or replace new business decisions. Owner-only promotions remain unchanged. Historical packets asking for a per-test staging grant are superseded within this scope.
 
+The Owner also explicitly authorized the exact Players/Calendar workspace staging activation on 5 November; [SDR-07](docs/00-governance/staging-delivery-and-review-policy.md#sdr-07--authorized-workspace-expansion-5-november) and the [activation receipt](docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) record its scope and actual setup. Do not re-ask that migration/root/settings authorization. Follow the tracker for Owner promotion and signed-in hosted verification; configuration alone does not complete EX-13 or authorize broader capabilities.
+
 ## Implementation boundaries
 
 - Deliver bounded end-to-end behavior: UI, authoritative operation, permission, persisted result, audit, side effects and recovery where applicable. Do not disguise placeholders or mocks as working product behavior.
