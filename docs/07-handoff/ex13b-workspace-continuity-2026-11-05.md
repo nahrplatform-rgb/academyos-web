@@ -1,0 +1,35 @@
+# EX-13B normal workspace continuity
+
+5 November 2026. Continue from the [authorized activation and entry-repair receipt](owner-workspace-staging-activation-2026-11-05.md). The Owner promoted `86d7fac`; canonical staging independently resolves Ready `dpl_FybLg1odEtcfDWnB7LrBgfouFwDR`, and its served public worker matches Git. [Scoped hosted observations](evidence/ex13b-workspace-transfer/hosted-repair.json). No migration, root, flag, account or role change belongs to this follow-up.
+
+## Retained hosted checkpoint
+
+The existing dedicated iCloud Owner entered through the normal chooser/Home/Players SPA path without the old offline-reopening warning. Prepared prefix search and summary selection required no People operating request; a separate background workspace check was observed. Normal EN Players reopened offline with four players and zero transferred bytes. Normal AR Calendar covered October/November/December grids with 9/29/24 sessions, retained Month/selection through an offline reload, and correctly identified an unprepared January period. Reconnect returned automatically to authenticated UI. A later Week5 observation remains unexplained during native external-change guards; it is not a settled reconnect-context pass. Full restart, actual access-loss/logout/rollback, changed/held transfer, device and provider percentile layers remain open. These are scoped desktop observations, not full-app acceptance.
+
+## Authorized bounded follow-up
+
+Trace: EX-13B; IMP-J06-A01/A02, IMP-J09-A01; L04–L07; WB-03/05/06/08/11/24; WD-60/61/62/68/69; NR03/04/08/14/15; G01/03/06/08/09. The accepted normal-workspace and request standards already require retained context and local feedback. No new business/design/access decision is introduced.
+
+| Before | After | Why |
+| --- | --- | --- |
+| Prepared Players search enters generic Loading and waits the online 300ms debounce | Query permitted device data without that artificial delay or generic loading presentation; keep existing results/geometry while a replacement local result is checked | Repeated local lookup should feel direct; online reads and consequential operations retain their own feedback |
+| A cold normal Players document drops query/selected summary | Restore a bounded safe per-tab view hint, then resolve any selected ID only from the compatible permitted local page | Retain the task without storing profile/contact/roster payloads or issuing an implicit full-profile request |
+| Native Calendar reconnect showed a later unexplained Week view | Add a same-tab AR Month/period/selection regression across public offline reload and settled authenticated reentry | Establish a reproducible cause before changing Calendar behavior |
+
+Safe navigation hints contain only the user-entered filter, selected record ID and validated page position, partitioned by subject/academy/Owner/route/version within this origin/tab. They do not contain records, contacts, proof/key material or an operation payload. They grant no authority or data freshness. A malformed/foreign/stale hint must degrade to the current permitted list; known denial removes the hint. Original registration recovery uses its existing separate key and takes precedence over any navigation restoration. A user beginning a form, changing selection/query or opening a full profile supersedes pending view restoration. Stored IDs never authorize a read or an action.
+
+The existing protected dataset, current server checks, dirty-input and unknown-operation guards remain canonical. Full profile reads, registration/duplicates and other online operations keep their current permissions and recovery. This is not a shared private cache, new offline writer or colour batch. Broader full-app scope remains in the [adoption plan](../06-delivery/local-data-and-sync-plan.md#full-app-adoption--5-november-2026).
+
+## Reference and checks
+
+Rechecked PYSA read-only `pysa-platform/components/manager/members/member-list.tsx`: lines93–114 keep selected IDs and filter the already-loaded set directly; it provides a useful interaction pattern but does not prove complete directory coverage or persisted navigation. Do not import its guardian/contact projection, substring search policy, broad initial array or router refreshes. AcademyOS retains canonical prefix semantics and its complete scoped dataset proof. The existing [Shift reference](../04-engineering/shift-ios-local-data-reference-review.md) remains mechanism guidance, not AcademyOS authority.
+
+The isolated Calendar fixture was extended by one explicitly configured `gpt-6.1-terra` medium worker. Only `scripts/workspace-download/normal_workspace.mjs` was write-owned; syntax passed, combined integration is pending. No worker touched production code, providers, the real browser, Git or generated evidence. Peak one helper; no nested agents; cost/usage unmeasured. Coordinator owns Players, evidence, critical integration and all final checks.
+
+Implementation/new regression, local evidence, exact-source CI/automatic build, deployment/hosted verification and Owner acceptance remain separate and pending for the follow-up until recorded. Retain the existing `86d7fac` hosted checkpoint and the 44-case/99-unit baseline. Current routing lives in the [tracker](../06-delivery/experience-execution.csv) and [generated continuation](../06-delivery/continue-academyos.md).
+
+## Local implementation checkpoint
+
+The bounded changes above are implemented. [Source-bound continuity receipt](evidence/ex13b-workspace-transfer/continuity.json) records **49** actual browser/transport cases, including **11** exact cached-shell offline document entries, zero covered operating reads, zero generic local-loading additions and same-tab Players query/summary restoration. Unknown registration recovery wins over navigation; known Owner loss removes the hint and announces denial while private records stay hidden. The anchorless same-tab AR Calendar test retains Month/period/selection through offline reload, authenticated reentry and a completed manifest check. It does not identify the cause of the native later Week observation.
+
+Build, types, lint, **101 units** and all **16** existing capture suites passed. The existing development-mode People recovery suite also passed (36 scoped fictional requests,3 simulated creates,no runtime errors); its current output is preserved under [people-development](evidence/ex13b-workspace-transfer/people-development/ui-receipt.json). The factual HTML rebuilt 1189 states/1163 transitions and passed its tool/freshness checks;execution/canonical/local-link validation passed. EN18-player desktop and AR360px legacy captures were inspected. Gated prepared states retain separate browser assertions,not a new hosted visual pass. The earlier local test/lint findings and their actual repairs remain in the receipt; no business result, request assertion or original-operation check was removed. This source still needs exact CI/build and Owner promotion, then scoped hosted verification. `86d7fac` remains the independently verified live source.

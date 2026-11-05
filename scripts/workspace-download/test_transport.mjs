@@ -29,6 +29,7 @@ const inputs=[
   'apps/web/src/lib/workspace-device.ts','apps/web/src/lib/workspace-client-transport.ts',
   'apps/web/src/lib/onboarding-server.ts','apps/web/src/lib/onboarding-gateway.ts','apps/web/src/lib/onboarding.ts',
   'apps/web/src/lib/config.ts','apps/web/src/lib/experience-format.ts','apps/web/src/lib/local-register-codec.ts',
+  'apps/web/src/lib/people-view-context.ts','apps/web/src/lib/people-view-context.test.ts',
   'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql',
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
@@ -50,12 +51,15 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=44);
+  assert.ok(receipt.checks.length>=49);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
-  assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,7);
-  assert.equal(receipt.metrics.normalWorkspace.newOfflineDocuments,7);
+  assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,11);
+  assert.equal(receipt.metrics.normalWorkspace.newOfflineDocuments,11);
   assert.equal(receipt.metrics.normalWorkspace.fixtureOriginDisconnected,true);
+  assert.equal(receipt.metrics.normalWorkspace.peopleViewRestored,true);
+  assert.equal(receipt.metrics.normalWorkspace.localLoadingFlashes,0);
+  assert.equal(receipt.metrics.normalWorkspace.calendarReconnectContext,true);
   assert.deepEqual(receipt.metrics.publicShellSpa,{
     spaClientUrlRetained:true,publicEntries:3,invalidMessages:14,offlineAssets:2,legacyNormalRoute:true,
   });

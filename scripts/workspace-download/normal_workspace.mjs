@@ -167,13 +167,26 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     assert.deepEqual(ui.calls.map(call=>call.action),['list']);
     pass('Normal Owner Players opens before device preparation and switches to the protected directory');
     const before={reads:ui.calls.length,transfers:transferCalls.length};
-    const search=page.locator('#player-search');
+    let search=page.locator('#player-search');
+    await page.evaluate(()=>{
+      window.localQueryFeedback={loading:0,removedSummary:0};
+      window.localQueryObserver=new MutationObserver(changes=>{
+        for(const change of changes){
+          for(const node of change.addedNodes)if(node.textContent?.trim()==='Loading…')window.localQueryFeedback.loading++;
+          for(const node of change.removedNodes)if(node instanceof Element&&node.matches('.directory-page-summary'))window.localQueryFeedback.removedSummary++;
+        }
+      });
+      window.localQueryObserver.observe(document.body,{childList:true,subtree:true});
+    });
     await search.fill('Synthetic player 55');
     await expect(page.getByText(/^1 players on this page/)).toBeVisible();
     await player(page).click();
     await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
     assert.equal(ui.calls.length,before.reads);
     assert.equal(transferCalls.length,before.transfers);
+    assert.deepEqual(await page.evaluate(()=>{window.localQueryObserver.disconnect();return window.localQueryFeedback;}),
+      {loading:0,removedSummary:0});
+    pass('Prepared Players search retains result geometry without generic Loading feedback');
     await page.getByRole('button',{name:'Open full profile',exact:true}).click();
     await expect(page.getByText('profile@example.invalid',{exact:true})).toBeVisible();
     assert.equal(ui.calls.length,before.reads+1);
@@ -183,6 +196,33 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
       return requests.every(request=>!/\/api\/|\/en\/workspace/.test(request.url));
     }),true);
     pass('Normal Players search and summary open use zero requests and full profile uses one online read');
+    const viewKey=`academyos:people-view:user_owner:${fixture.academy}:owner:v1`;
+    const recoveryKey=`academyos:people:user_owner:${fixture.academy}`;
+    const storedView=await page.evaluate(key=>JSON.parse(sessionStorage.getItem(key)),viewKey);
+    assert.deepEqual(Object.keys(storedView).sort(),['position','search','selection']);
+    assert.equal(storedView.search,'Synthetic player 55');
+    assert.match(storedView.selection,/^[a-f0-9-]{36}$/i);
+    const beforeReopen={reads:ui.calls.length,transfers:transferCalls.length};
+    await page.reload();
+    await expect(online(page)).toBeVisible({timeout:30000});
+    await expect(search).toHaveValue('Synthetic player 55');
+    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
+    await expect(page.getByText('profile@example.invalid',{exact:true})).toHaveCount(0);
+    assert.equal(ui.calls.length,beforeReopen.reads);
+    assert.deepEqual(transferCalls.slice(beforeReopen.transfers).map(call=>call.action),['manifest']);
+    pass('Cold normal Players restores only safe query and permitted summary without a profile read');
+    const original='fc111111-1111-4111-8111-111111111111';
+    await page.evaluate(({key,id})=>sessionStorage.setItem(key,id),{key:recoveryKey,id:original});
+    await page.reload();
+    await expect(page.getByRole('heading',{name:'Save outcome is uncertain',exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toHaveCount(0);
+    assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),recoveryKey),original);
+    await page.evaluate(key=>sessionStorage.removeItem(key),recoveryKey);
+    await page.reload();
+    await expect(online(page)).toBeVisible({timeout:30000});
+    await expect(search).toHaveValue('Synthetic player 55');
+    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
+    pass('An original registration recovery reference takes precedence over saved navigation');
     await page.goto(calendar);
     await expect(online(page)).toBeVisible({timeout:30000});
     const event=page.locator('[data-occurrence]').first();
@@ -205,16 +245,62 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     assert.equal(transferCalls.length,beforeMonth.transfers);
     pass('Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection');
 
+    const monthButton=page.getByRole('button',{name:'شهر',exact:true});
+    const calendarWithoutAnchor=scope('ar','calendar');
+    const period=await page.locator('input[type="date"]').inputValue();
+    const selectedEvent=page.locator(`[data-occurrence="${eventKey}"]`);
+    async function expectCalendarContext(){
+      await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+      await expect(monthButton).toHaveAttribute('aria-pressed','true');
+      await expect(page.locator('input[type="date"]')).toHaveValue(period);
+      await expect(selectedEvent).toHaveAttribute('aria-pressed','true');
+    }
+    await expectCalendarContext();
+    ui.setNetworkAvailable(false);
+    await browser.setOffline(true);
+    await openOffline(page,calendarWithoutAnchor);
+    await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
+    await expectCalendarContext();
+    await openOffline(page,calendarWithoutAnchor);
+    await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
+    await expectCalendarContext();
+    await reconnect(page,calendarWithoutAnchor);
+    await expectCalendarContext();
+    const reconnectCheck=transferCalls.length;
+    await checkChanges(page,'تحقّق من التغييرات');
+    await expect.poll(()=>transferCalls.length).toBe(reconnectCheck+1);
+    await expect(online(page)).toBeVisible();
+    assert.deepEqual(transferCalls.slice(reconnectCheck).map(call=>call.action),['manifest']);
+    await expectCalendarContext();
+    pass('Same-tab AR Calendar retains month, period and selection through offline reload, reentry and scoped check');
+
+    const sameTabOffline={reads:ui.calls.length,transfers:transferCalls.length};
+    ui.setNetworkAvailable(false);
+    await browser.setOffline(true);
+    await openOffline(page,players);
+    await expect(search).toHaveValue('Synthetic player 55');
+    await expect(page.getByRole('heading',{name:'Player profile',exact:true})).toBeVisible();
+    await openOffline(page,players);
+    await expect(search).toHaveValue('Synthetic player 55');
+    await expect(page.getByRole('heading',{name:'Player profile',exact:true})).toBeVisible();
+    assert.equal(ui.calls.length,sameTabOffline.reads);
+    assert.equal(transferCalls.length,sameTabOffline.transfers);
+    pass('Same-tab offline Players retains its query and permitted summary through reload');
+
     await browser.close();
     ui.setNetworkAvailable(false);
     browser=await chromium.launchPersistentContext(profile,{offline:true});
     page=await browser.newPage();await track(page);
+    search=page.locator('#player-search');
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
     await openOffline(page,calendar);
     await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
     await expect(page.locator(`[data-occurrence="${eventKey}"]`)).toBeVisible();
     await openOffline(page,players);
     await expect(page.getByText('Offline',{exact:true})).toBeVisible();
+    // Navigation is tab-scoped; a fresh tab must not inherit the earlier hint.
+    await expect(search).toHaveValue('');
+    await expect(page.getByRole('heading',{name:'Player profile',exact:true})).toHaveCount(0);
     await player(page).click();
     await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toHaveCount(0);
     await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeDisabled();
@@ -249,6 +335,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await checkChanges(page,'Check for changes');
     await expect(page.getByRole('alert').filter({hasText:'Access unavailable'})).toBeVisible();
     await expect(page.getByRole('button',{name:'Fictional renamed player',exact:true})).toHaveCount(0);
+    assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),viewKey),null);
     ui.setNetworkAvailable(false);
     await browser.setOffline(true);
     await openOffline(page,players);
@@ -263,7 +350,8 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     pass('Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial');
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
-      offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses};
+      offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
+      peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true};
   } catch (error) {
     console.error(JSON.stringify({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
       pageErrors,failedRequests:failedRequests.slice(-25),navigationEvents:navigationEvents.slice(-35)},null,2));

@@ -34,3 +34,7 @@ Use the repository's Node24 runtime. The final transport evidence records its ex
 Private operator rehearsal uses explicit PostgreSQL17 PATH for both `backup.py recover` and `rehearse_local.py`. Compare the encrypted artifact digest with trusted workflow output first; then invoke `python3 scripts/backups/rehearse_local.py <privately-recovered-payload> --migration supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql --preserve-existing-rows`. Remove the recovered payload afterward. This command accepts no hosted target. The private recovery identity and artifact paths are not copied into a public receipt.
 
 No captured private records, gateway proofs or encryption keys belong in these files. A complete backend chain is not proof that browser ciphertext exists, that a normal page opens offline or that the Owner accepted the experience.
+
+- [hosted-repair.json](hosted-repair.json): Owner-promoted86d7fac,actual chooser entry,normal EN/AR offline reads and reconnect;remaining context/device/negative-case limits remain explicit.
+
+- [continuity.json](continuity.json): bounded Players view-state/local-feedback and Calendar same-tab reconnect checks;new-source delivery/hosted layers recorded separately.

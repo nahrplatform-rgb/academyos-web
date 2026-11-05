@@ -135,6 +135,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR15 — Offline capability is absent, not silently safe
 
+Later5November: Owner-promoted `86d7fac` now has scoped normal EN/AR offline and reconnect evidence. The [continuity follow-up](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) retains the remaining context,device,negative-case and full-app limits;49 local cases are not a whole NR15 closure.
+
 5 November execution update: the bullets below retain the original no-offline baseline. The scoped EX-11 register now has hosted evidence. EX-13B on Owner-promoted `7ddc6f1` successfully prepared an Owner key/data, but its public worker rejected SPA entry because `WindowClient.url` still reported sign-in. A normal-document reload isolated the cause; it is not the delivered workflow. The focused before/after regression and repaired 44-check local suite are linked from [the live packet](../07-handoff/owner-workspace-staging-activation-2026-11-05.md). Repaired-source CI/promotion and the remaining signed-in matrix are separate; NR15 is not closed app-wide.
 
 - Priority: M/L/L; effort decision first. Source references relative to `apps/web/src/components`: `../lib/onboarding-server.ts`, `development-workspace.tsx`, `workspace-layout.tsx`.

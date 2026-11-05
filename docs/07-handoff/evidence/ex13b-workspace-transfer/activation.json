@@ -1214,5 +1214,16 @@
     "state": "READY",
     "evidence": "hosted.json",
     "result": "partial hosted data success;SPA public-shell defect;new code repair needs delivery"
+  },
+  "workspace_repair_promotion": {
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+    "state": "READY",
+    "target": "production",
+    "url": "academyos-a4e4ofz2l-academy-os2.vercel.app",
+    "canonical_alias": "staging.academy.nahr.dev",
+    "agent_promoted": false,
+    "hosted_receipt": "hosted-repair.json",
+    "schema_key_flags_reapplied": false
   }
 }

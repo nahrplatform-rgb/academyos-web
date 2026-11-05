@@ -124,21 +124,28 @@
     }
   ],
   "staging_observation": {
-    "source": "7ddc6f1332ef310914412a4ba91a344534801782",
-    "deployment": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "deployment": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
     "state": "READY",
     "migration_count": 30,
     "x21_workspace_applied": true,
     "workspace_configuration_mutated": true,
     "promotion_performed_by_agent": false,
-    "rechecked_at": "2026-11-05T14:56:24.635Z",
-    "hosted_entry": "data prepared;public SPA shell rejected retained sign-in client URL",
-    "source_transition": "Owner-promoted7ddc6f1 independently verified;new SPA repair not deployed"
+    "rechecked_at": "2026-11-05T18:55:02.213014+00:00",
+    "hosted_entry": "Scoped chooser-SPA entry,normal offline Players/AR Calendar and automatic reconnect verified;continuity gaps retained",
+    "source_transition": "Owner-promoted86d7fac independently verified"
   },
   "remaining": [
-    "Owner promotion of checked86d7fac automatic build",
-    "actual SPA preparation without manual reload and remaining signed-in matrix",
-    "cold People context,device,provider/percentile and working acceptance gaps"
+    "Preserve Players safe search/selection across same-tab reload and return without storing private payloads",
+    "Remove generic local-query busy feedback/debounce while preserving online checks,dirty input and unknown saves",
+    "Add settled Calendar offline/reconnect context regression before diagnosing late Week observation",
+    "full browser/profile restart while offline",
+    "fresh sign-in and fresh personal-device activation on repaired source",
+    "changed/removal transfer with held reply on real service",
+    "known Owner loss/logout/cross-profile cleanup and workspace-only capability rollback on this release",
+    "physical phone/Safari/zoom/accessibility matrix",
+    "provider query/egress/latency percentiles",
+    "all-app continuity and normal-route Attendance adoption"
   ],
   "independent_review": "Deferred by Owner;nonblocking;not performed",
   "delegation": {
@@ -242,10 +249,13 @@
     "offlineOperatingRequests": 0,
     "offlineRoutePayloadRequests": 0,
     "fullBrowserRestart": true,
-    "offlineShellNavigations": 7,
+    "offlineShellNavigations": 11,
     "fixtureOriginDisconnected": true,
-    "newOfflineDocuments": 7,
-    "nullGotoResponses": 0
+    "newOfflineDocuments": 11,
+    "nullGotoResponses": 0,
+    "peopleViewRestored": true,
+    "localLoadingFlashes": 0,
+    "calendarReconnectContext": true
   },
   "configuration_preflight": {
     "workspace_variables_present": [],
@@ -301,7 +311,7 @@
       "inspector_url": "https://vercel.com/academy-os2/academyos-web/AGn4QPxJSaYPdTo471QabnbTfWWo",
       "environment": "automatic Preview"
     },
-    "hosted_repaired_source": "not yet deployed",
+    "hosted_repaired_source": "Scoped hosted pass;see hosted-repair.json;not full matrix",
     "evidence": "hosted.json",
     "source_checks": "Transport44,Owner startup8,working-day8 and key15 source-bound receipts verified;no rerun of unchanged provider or schema operations",
     "delegation": {
@@ -340,7 +350,7 @@
         "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052074810"
       }
     ],
-    "owner_promotion": "pending;Owner only",
+    "owner_promotion": "Owner-reported and independently verified Ready exact86d7fac",
     "recorded_delivery_at": "2026-11-05T15:24:59.440429+00:00",
     "staging_before_repair_promotion": {
       "source": "7ddc6f1332ef310914412a4ba91a344534801782",
@@ -355,5 +365,14 @@
       "git_diff_check": "passed",
       "runtime_source_change_in_delivery_receipt": false
     }
-  }
+  },
+  "continuity_followup": {
+    "evidence": "continuity.json",
+    "transport_cases": 49,
+    "units": 101,
+    "local_status": "Build/type/lint,101units,49browser/transport,16capture suites,legacy People development and factual/structural/freshness checks passed",
+    "exact_source_ci": "pending",
+    "hosted": "not deployed;retain86d7fac scoped proof"
+  },
+  "provenance": "Retained activation/SPA snapshots are historical and scoped;continuity.json owns the latest follow-up source/checks. No aggregate full-readiness/security pass."
 }

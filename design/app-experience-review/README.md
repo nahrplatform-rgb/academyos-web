@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13B continuity. All16 actual-component capture suites and the welcome entry were refreshed after the bounded Players navigation/local-feedback and denied-inspector announcement changes. The [continuity receipt](../../docs/07-handoff/ex13b-workspace-continuity-2026-11-05.md) contains separate49-case protected normal-route evidence. Default replay captures still omit those gated prepared-device states; source freshness and legacy rendered capture coverage do not establish the new source as hosted.
+
 5 November EX-13B SPA-entry repair. The [hosted packet](../../docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) separates successful Owner data preparation from the public worker's retained sign-in URL failure. The worker/client protocol repair changes no default capture input; inventory-only freshness accepts the current pack. Its isolated real-browser regression covers the gated flow separately. The factual replay does not establish repaired-source deployment or full hosted offline acceptance.
 
 Retained pre-promotion 5 November EX-13B activation. The [live setup packet](../../docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) now records the Owner-authorized schema/key/settings apply. This operator/documentation batch changes no product capture input; rebuild inventory from the current capture pack. Private signed-in normal-route proof follows Owner promotion of checked code `7ddc6f1`; this replay does not establish that runtime result.

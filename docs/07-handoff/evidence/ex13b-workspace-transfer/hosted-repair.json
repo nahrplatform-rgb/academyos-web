@@ -1,0 +1,152 @@
+{
+  "recorded_at": "2026-11-05T18:55:02.213014+00:00",
+  "scope": "EX-13B Owner normal Players/Calendar;scoped repair verification,not full app or full hosted matrix",
+  "owner_report": "Promoted86d7fac to staging",
+  "deployment": {
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+    "state": "READY",
+    "target": "production",
+    "url": "academyos-a4e4ofz2l-academy-os2.vercel.app",
+    "canonical_alias": "staging.academy.nahr.dev",
+    "agent_promoted": false
+  },
+  "served_worker": {
+    "sha256": "6f319e1cb36593217079172efb18924ea74815d2bd07e8a774e041a61265214c",
+    "matches_git_source": true,
+    "transport": "independent public curl request with normal TLS verification;not counted as browser activity"
+  },
+  "browser": {
+    "app": "Native Google Chrome,test nahr profile",
+    "identity": "Existing moamen_ghareeb@icloud.com Owner;verified in Clerk profile",
+    "zoom_percent": 80,
+    "device": "Mac desktop",
+    "network": "DevTools target-only Offline;Mac and other profiles not disconnected",
+    "evidence": "Native accessibility and visible Network controls;no console injection,CDP attachment,HAR,cookie/header export",
+    "limits": "Manual samples,not latency percentiles or all-session/provider billing"
+  },
+  "entry": {
+    "first_document": "/en/workspace chooser",
+    "path": "chooser -> Academy A Home -> normal Players via SPA;no Players document reload to prepare code",
+    "prepared_device": "existing approved device;not a new sign-in or first-ever-device test",
+    "players": 4,
+    "phase": "Online",
+    "offline_reopening_warning": false,
+    "public_shell_request": "Observed initiated by current worker line38 during SPA entry",
+    "old_omnibox_autocompletion": "Excluded wrong attendance navigation before exact chooser document;not an app route failure"
+  },
+  "covered_players": {
+    "canonical_search": "Synthetic Registration",
+    "matches": 2,
+    "summary": "Synthetic Registration Demo,branch only;full profile not requested",
+    "operating_people_requests": 0,
+    "background_sample": {
+      "workspace_download_calls": 1,
+      "result": "200",
+      "transferred_bytes": 1180,
+      "resource_bytes": 3099
+    },
+    "selection_additional_api_calls": 0,
+    "search_semantics": "Prefix;Registration alone correctly returns no matches. No search-policy change.",
+    "local_feedback_gap": "Source still sets global busy/Loading on each keystroke and waits300ms even on prepared data;native Loading observed;no percentile measured"
+  },
+  "offline": {
+    "en_players": {
+      "normal_url": true,
+      "cold_document_reload": true,
+      "players": 4,
+      "all_requests_in_sample": 23,
+      "filtered_api_requests": 0,
+      "all_transferred_bytes": 0,
+      "search_matches": 2,
+      "summary_opened": true,
+      "local_interaction_api_requests": 0,
+      "context_gap": "Reload resets search and selected summary"
+    },
+    "calendar": {
+      "normal_en_and_ar_urls": true,
+      "current_month_grid": {
+        "month": "2026-11",
+        "sessions": 29
+      },
+      "previous_month_grid": {
+        "month": "2026-10",
+        "sessions": 9
+      },
+      "next_month_grid": {
+        "month": "2026-12",
+        "sessions": 24
+      },
+      "week": {
+        "anchor": "2026-11-05",
+        "sessions": 5
+      },
+      "ar_cold_reload": {
+        "retained_month": true,
+        "retained_selected_session": true,
+        "filtered_api_requests": 0,
+        "all_requests_in_sample": 24,
+        "all_transferred_bytes": 0
+      },
+      "uncovered_month": {
+        "month": "2027-01",
+        "message": "لم تُحضّر هذه الفترة على هذا الجهاز. افتحها عند الاتصال.",
+        "not_reported_as_empty": true
+      },
+      "counts_limit": "Current declared grid projections;not total academy/session-history counts"
+    }
+  },
+  "reconnect": {
+    "manual_reload_or_sync": false,
+    "authenticated_document_returned": true,
+    "automatic_public_to_authenticated_document_reentry": true,
+    "immediate_result": "Arabic Month29 and Online returned",
+    "first_api_sample": {
+      "workspace_download_calls": 1,
+      "transferred_bytes": 1218,
+      "all_requests": 87,
+      "all_transferred_bytes": 79282
+    },
+    "later_sample": {
+      "workspace_download_calls": 2,
+      "api_transferred_bytes": 2400,
+      "all_requests": 90,
+      "all_transferred_bytes": 83585
+    },
+    "no_people_or_legacy_calendar_api_observed": true,
+    "manifest_inference": "Protocol starts with manifest;no later dataset-page calls in sampled sequence. Request payload was not inspected.",
+    "late_view_observation": "Later view showed Week5 during native external-change guards;no causal attribution. Do not mark settled reconnect context passed. Add controlled Calendar fixture.",
+    "limits": "Further focus checks contribute to later sample;not one universal reconnect budget,all-provider count or measured blank interval"
+  },
+  "cleanup": {
+    "target_no_throttling_restored": true,
+    "keep_log_restored_to_false": true,
+    "devtools_closed": true,
+    "final_page": "Signed-in Arabic Calendar,Week5",
+    "role_or_provider_configuration_changed": false
+  },
+  "not_executed": [
+    "full browser/profile restart while offline",
+    "fresh sign-in and fresh personal-device activation on repaired source",
+    "changed/removal transfer with held reply on real service",
+    "known Owner loss/logout/cross-profile cleanup and workspace-only capability rollback on this release",
+    "physical phone/Safari/zoom/accessibility matrix",
+    "provider query/egress/latency percentiles",
+    "all-app continuity and normal-route Attendance adoption"
+  ],
+  "next_bounded_work": [
+    "Preserve Players safe search/selection across same-tab reload and return without storing private payloads",
+    "Remove generic local-query busy feedback/debounce while preserving online checks,dirty input and unknown saves",
+    "Add settled Calendar offline/reconnect context regression before diagnosing late Week observation"
+  ],
+  "acceptance": "Working Owner acceptance remains separate",
+  "independent_review": "Deferred by Owner,nonblocking,not performed",
+  "delegation": {
+    "peak_active_helpers": 1,
+    "model": "gpt-6.1-terra",
+    "reasoning": "medium",
+    "scope": "read-only Calendar context inventory and one owned fixture-file extension;no real browser/provider/Git",
+    "coordinator": "native verification,evidence,Players implementation,integration and combined validation",
+    "usage_and_savings": "unmeasured"
+  }
+}

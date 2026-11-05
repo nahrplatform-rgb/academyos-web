@@ -8,6 +8,7 @@ import { listenForVisibleResume } from '@/lib/visible-resume';
 import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
+import {decodePeopleViewContext,type PeopleViewContext} from '@/lib/people-view-context';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 type Player = {
     id: string;
@@ -80,6 +81,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const lastSearch = useRef(''), lifecycleTicket = useRef(0), profileTicket = useRef(0);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
+    const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
+    const pendingView=useRef<PeopleViewContext|null>(null);
+    const [viewRestored,setViewRestored]=useState(false);
     const unavailable = blocked;
     function errorText(code: string) { return ({ denied: t('Access unavailable. Check your workspace and account.', 'الصلاحية غير متاحة. تحقق من مساحة العمل والحساب.'), setup_required: t('Complete initial academy setup before registering players.', 'أكمل الإعداد الأولي قبل تسجيل اللاعبين.'), offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'), invalid: t('Check the name and fictional contact email.', 'تحقق من الاسم وبريد جهة الاتصال الخيالي.'), conflict: t('Operation changed or was cancelled. Check the original save.', 'تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'), limited: t('Too many requests. Wait before trying again.', 'طلبات كثيرة. انتظر قبل المحاولة.'), unavailable: t('Could not confirm this operation. Retry or check the original save.', 'تعذر تأكيد العملية. أعد المحاولة أو تحقق من الحفظ الأصلي.') } as Record<string, string>)[code] ?? t('Could not complete the request.', 'تعذر إكمال الطلب.'); }
     function forget() { try {
@@ -88,6 +92,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     catch { } operation.current = null; }
     function failure(e: unknown) { if (!active.current)
         return; const code = e instanceof RequestFailure ? e.code : 'unavailable'; setError(code); if (['denied', 'setup_required'].includes(code)) {
+        pendingView.current=null;
+        try {sessionStorage.removeItem(viewKey);} catch {}
         setBlocked(true);
         if(device.approved)void device.remove();
         setContext(null);
@@ -119,7 +125,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false) {
         let ticket=quiet?directoryTicket.current:++directoryTicket.current;
         let applied=!quiet;
-        const q=search.normalize('NFKC').trim();
+        const q=(pendingView.current?.search??search).normalize('NFKC').trim();
         if(!quiet){controllers.current.forEach(c=>c.abort());setBusy(true);setError('');}
         try {
             if(q.length===1) {
@@ -127,7 +133,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 return;
             }
             if(device.active&&!after) {
-                let cursor=position;
+                let cursor=position??pendingView.current?.position??null;
                 const local=async()=>device.read('people',q,cursor??undefined);
                 const contextTask=device.context();
                 const pageTask=local().catch(async(error:unknown)=>{
@@ -144,10 +150,18 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 if(localResult&&localContext) {
                     if(quiet){ticket=++directoryTicket.current;applied=true;}
                     setContext(localContext);
-                    setPlayers(localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]));
+                    const rows=localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]);
+                    setPlayers(rows);
                     setMore(Boolean(localResult.next));localNext.current=localResult.next;
                     localPosition.current=cursor;localSearch.current=q;
                     setMissing(false);setBlocked(false);setLocalRows(true);
+                    const restore=pendingView.current;
+                    pendingView.current=null;
+                    if(restore?.selection&&!operation.current){
+                        const selected=rows.find(row=>row.id===restore.selection);
+                        if(selected){setProfileId(selected.id);setSelected(selected);setSummaryOnly(true);setSaved(false);setStage('profile');}
+                    }
+                    setViewRestored(true);
                     return;
                 }
             }
@@ -191,10 +205,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             setBusy(false);
     } }
     function selectPlayer(player:Player) {
+        pendingView.current=null;
         if(!localRows){void openProfile(player.id);return;}
         setSaved(false);setProfileId(player.id);setSelected(player);setSummaryOnly(true);go('profile');
     }
     async function openProfile(id: string, wasSaved = false) {
+        pendingView.current=null;
         setSummaryOnly(false);
  const ticket = ++profileTicket.current; setSaved(wasSaved); setProfileId(id); setSelected(null); setStage('profile'); setBusy(true); setError(''); setNotice(''); try {
         const p = await request<Row>({ action: 'profile', player: id });
@@ -210,7 +226,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if (active.current)
             setBusy(false);
     } }
-    function go(next: Stage) { setError(''); setNotice(''); setStage(next); }
+    function go(next: Stage) { pendingView.current=null;setError(''); setNotice(''); setStage(next); }
     function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage))
         return; if (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟')))
         return; setName(''); setContact(''); go('directory'); void loadDirectory(); }
@@ -309,8 +325,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     catch { } if (pending && uuidPattern.test(pending)) {
         operation.current = pending;
         setStage('unknown');
+    } else if(prepared) {
+        try {pendingView.current=decodePeopleViewContext(sessionStorage.getItem(viewKey));} catch {}
+        const saved=pendingView.current;
+        if(saved){lastSearch.current=saved.search;setSearch(saved.search);localSearch.current=saved.search.normalize('NFKC').trim();localPosition.current=saved.position;}
     } void loadDirectory(); });
-    const refreshDirectory = useEffectEvent(() => { if (stage === 'directory')
+    const refreshDirectory = useEffectEvent(() => { if (stage === 'directory'||(stage==='profile'&&localRows&&device.active))
         void loadDirectory(); });
     const refreshVisible = useEffectEvent(() => { if (busy || document.visibilityState !== 'visible')
         return; if (stage === 'directory' || stage === 'form') {
@@ -322,7 +342,16 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     useEffect(() => { active.current = true; const ticket = ++lifecycleTicket.current; const currentControllers = controllers.current; void Promise.resolve().then(() => { if (active.current && ticket === lifecycleTicket.current)
         initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
     useEffect(() => { if (search === lastSearch.current)
-        return; lastSearch.current = search; const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search]);
+        return; lastSearch.current = search;
+        if(localRows&&device.active){let live=true;queueMicrotask(()=>{if(live)refreshDirectory();});return()=>{live=false;};}
+        const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search,localRows,device.active]);
+    useEffect(()=>{
+        if(!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
+            (stage!=='directory'&&(stage!=='profile'||!summaryOnly)))return;
+        try {sessionStorage.setItem(viewKey,JSON.stringify({search,
+            selection:stage==='profile'&&uuidPattern.test(profileId)?profileId:null,
+            position:localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null} satisfies PeopleViewContext));} catch {}
+    },[prepared,viewRestored,localRows,device.active,blocked,stage,summaryOnly,profileId,search,viewKey,players]);
     useEffect(() => listenForVisibleResume(() => refreshVisible()), []);
     const reloadLocal=useEffectEvent(()=>{
         if(!active.current)return;
@@ -408,9 +437,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
       <header className="task-header">      <h1 ref={heading} tabIndex={-1}>{title}</h1>{registrationTask && <ol className="people-steps" aria-label={t('Registration progress','مراحل التسجيل')}><li aria-current={stage==='form'?'step':undefined}>{t('Player details','بيانات اللاعب')}</li><li aria-current={stage==='duplicates'?'step':undefined}>{t('Duplicate check','فحص التكرار')}</li><li aria-current={['review','saving','unknown'].includes(stage)?'step':undefined}>{t('Review and save','المراجعة والحفظ')}</li></ol>}
       {stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}</header>
       {context && device.phase!=='denied' && (!localRows||device.active) && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
-      {!registrationTask && stage !== 'profile' && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {((!registrationTask&&stage!=='profile')||protectedViewGone) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
-      {busy && stage !== 'saving' && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
+      {busy && stage !== 'saving' && !(localRows&&device.active&&(stage==='directory'||(stage==='profile'&&summaryOnly))) && <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>}
       {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
       {unavailable||device.phase==='denied' ? <section className="journey-card">
         <h2>{error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
@@ -420,11 +449,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input ref={searchInput} id="player-search" maxLength={160} value={search} onChange={event => { directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
+          <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => { pendingView.current=null;directoryTicket.current++; setSearch(event.target.value); setBusy(true); }}/>
           {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {missing&&<p role="status">{t('Players have not been prepared for this device. Open this view when connected.','لم تُحضّر قائمة اللاعبين على هذا الجهاز. افتح العرض عند الاتصال.')}</p>}
           {!missing && !busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
-          {!busy && <p className="directory-page-summary">{players.length} {t('players on this page','لاعباً في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}{search.trim() && <Button disabled={busy} onClick={()=>{directoryTicket.current++;setSearch('');setBusy(true);searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}<table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{(!busy||localRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&!localRows} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          {(!busy||(localRows&&device.active)) && <p className="directory-page-summary">{players.length} {t('players on this page','لاعباً في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}{search.trim() && <Button disabled={busy} onClick={()=>{pendingView.current=null;directoryTicket.current++;setSearch('');setBusy(true);searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}<table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{(!busy||localRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&!localRows} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
           <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id))}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}
 
