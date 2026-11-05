@@ -14,6 +14,7 @@ import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
 import {checkCapabilityCleanup} from './capability_cleanup.mjs';
+import {checkStartupResume} from './startup_resume.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
 const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,'docs/07-handoff/evidence/ex13b-workspace-transfer');
@@ -32,6 +33,7 @@ const inputs=[
   'scripts/workspace-download/test_boundary.py',
   'scripts/workspace-download/normal_workspace.mjs',
   'scripts/workspace-download/capability_cleanup.mjs',
+  'scripts/workspace-download/startup_resume.mjs',
   'apps/web/src/components/register-account-boundary.tsx','apps/web/src/components/register-account-context.tsx',
   'apps/web/src/lib/register-device-slots.ts','apps/web/src/lib/local-register-repository.ts',
   'apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts',
@@ -46,9 +48,11 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=36);
+  assert.ok(receipt.checks.length>=38);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
+  assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,7);
+  assert.equal(receipt.metrics.normalWorkspace.fixtureOriginDisconnected,true);
   assert.deepEqual(receipt.metrics.capabilityCleanup,{
     workspaceRollbackPreservesRegister:true,registerRollbackPreservesWorkspace:true,
     pendingOriginalUnchanged:true,failedCleanupRetried:true,supersededCleanupFenced:true,
@@ -306,6 +310,7 @@ try{
   const normal=await normalWorkspaceFixture(root,normalFixture);
   let intercept;
   server=createServer(async(req,res)=>{
+    if(await normal.serve(req,res))return;
     if(req.url==='/api/workspace-download'||req.url==='/api/workspace-key'){
       try {
         const chunks=[];
@@ -328,7 +333,6 @@ try{
       } catch {if(!res.destroyed)res.writeHead(500).end();}
       return;
     }
-    if(await normal.serve(req,res))return;
     if(req.url==='/fixture.js'){
       res.setHeader('content-type','text/javascript');res.end(client.outputFiles[0].text);return;
     }
@@ -654,6 +658,7 @@ try{
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
     profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,db,pass});
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
+  await checkStartupResume(root,pass);
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
     platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');

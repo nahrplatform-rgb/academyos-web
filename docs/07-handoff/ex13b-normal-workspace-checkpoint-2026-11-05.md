@@ -1,6 +1,6 @@
 # EX-13B normal Owner Players and Calendar
 
-**Latest readiness:** the [workspace staging packet](owner-workspace-staging-activation-2026-11-05.md) records the subsequent expiry/capability-cleanup repair, 36 local transport/browser cases, purpose-bound custody tooling and exact remaining schema/configuration/release/hosted work. It supersedes the two pending local cleanup items below; it does not enable staging or close the wider findings.
+**Latest readiness:** the [workspace staging packet](owner-workspace-staging-activation-2026-11-05.md) records the subsequent expiry/capability-cleanup and public-startup repairs, 38 local transport/browser cases, purpose-bound custody tooling and exact remaining schema/configuration/release/hosted work. The stronger fixture disconnects its origin, proves cached-shell entry and actual online reentry; the two failed CI runs for89e7536 remain recorded. It supersedes the two pending local cleanup items below; it does not enable staging or close the wider findings.
 
 This checkpoint connects the existing Owner Players and Calendar screens to the protected device repository. It follows the [dataset contract](../04-engineering/owner-workspace-dataset-contract.md) and the [device lifecycle checkpoint](ex13b-workspace-lifecycle-checkpoint-2026-11-05.md). The exact starting fields are player IDs, names and branches, plus permitted schedule summaries in the current and adjacent month grids. The existing current-authority profile, registration and planning paths still apply.
 

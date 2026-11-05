@@ -1,6 +1,6 @@
 {
-  "recorded_at": "2026-11-05T06:24:49.228154+00:00",
-  "source_base": "565dcb23416b391a3aa9a7114864bacac85278c1",
+  "recorded_at": "2026-11-05T07:47:03.349861+00:00",
+  "source_base": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
   "sources": {
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
@@ -11,9 +11,12 @@
     "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
     "scripts/register-key/test_custody.py": "80ae7be0c56bd0b9371d0238fb6ec7329182433991ac5b095146f7ca9a41b5ad",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
-    "scripts/workspace-download/test_transport.mjs": "09bb1b28fa649132ac03fec9edff651d68a5afdd5163d71069bf75fcbebd7e30",
+    "scripts/workspace-download/test_transport.mjs": "17b1f2bf4e9a17dd4cb78c6afa03b26dc8264c37295cca145ba14febfdf8072a",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a"
+    "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
+    "scripts/workspace-download/normal_workspace.mjs": "35968da9963a5477824898ed04c3bf92ed09e4b31dcbe3a6d67a750103df1347",
+    "scripts/workspace-download/startup_resume.mjs": "63d6ac727211e85dee5a98bfb65dd03872b3efbf81daa178ac72ca05c4e4204b"
   },
   "checks": [
     {
@@ -39,12 +42,12 @@
     {
       "command": "npm run test:e2e",
       "status": "passed",
-      "scope": "17 foundation cases"
+      "scope": "17 foundation cases retained from89e7536;final candidate CI repeats them"
     },
     {
       "command": "node scripts/workspace-download/test_transport.mjs",
       "status": "passed",
-      "scope": "36 checks;actual built shell/normal components/storage/SDK/gateway/PG;fictional identity/legacy wire/providers"
+      "scope": "38 checks;actual cached-shell DOM on seven offline entries with fixture origin disconnected;normal components/storage/SDK/gateway/PG;four capability cleanup and two startup reconnect cases;fictional identity/legacy wire/providers"
     },
     {
       "command": "node scripts/workspace-download/test_transport.mjs --check",
@@ -79,7 +82,7 @@
     {
       "command": "node scripts/experience-review/build.mjs && node scripts/experience-review/test.mjs && node scripts/experience-review/build.mjs --check",
       "status": "passed",
-      "scope": "1189 factual captured states;1163 transitions;not gated runtime acceptance"
+      "scope": "1189 factual captured states/1163 transitions;16 refreshed suites plus welcome entry;review tool/freshness passed;gated startup remains separate runtime fixture"
     },
     {
       "command": "node scripts/navigation/test_next.mjs",
@@ -109,7 +112,7 @@
     {
       "command": "Changed-document local links and git diff --check",
       "status": "passed",
-      "scope": "159 local links at first pass;no whitespace errors;final pass repeated after added links"
+      "scope": "150 checked Markdown local links;no whitespace errors"
     }
   ],
   "staging_observation": {
@@ -136,6 +139,29 @@
     "savings_measured": false
   },
   "repairs": [
-    "Archive inspection initially selected local PG14;explicit PG17.11 PATH fixed it;plaintext removed. No provider change."
-  ]
+    "Archive inspection initially selected local PG14;explicit PG17.11 PATH fixed it;plaintext removed. No provider change.",
+    "Both89e7536 CI runs failed in normal workspace fixture;no navigation response or missing Device after logout/reconnect. Retained as failed;not promoted.",
+    "Local follow-up proved fromServiceWorker can describe network-backed HTML. Fixture now cuts origin and browser connection, asserts cached-shell marker at seven offline navigations and actual protected-document reentry. No request-budget/access/original assertion removed.",
+    "Public startup now checks online state on mount and guards one automatic reentry per URL/connection cycle;Opening state avoids false no-downloads server markup. Two controlled browser cases passed. Session-storage failure skips automatic reentry;broader device handling remains open."
+  ],
+  "delivery": {
+    "candidate_base": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
+    "push_ci_failed": 41981187485,
+    "pr_ci_failed": 41981196873,
+    "repair_exact_source_ci": "pending",
+    "repair_preview": "pending",
+    "staging_unchanged": true
+  },
+  "rendered_qa": {
+    "browser": "Chromium via existing Playwright harness; Browser plugin/skill absent",
+    "flow": "normal EN Players / AR Calendar -> cold cached-shell open -> reconnect / logout / denial",
+    "public_startup": "DOM lifecycle checks, not included in default capture pack",
+    "review_screenshots_inspected": [
+      "design/app-experience-review/evidence/review-tool-phone.png",
+      "design/app-experience-review/evidence/review-ar-desktop.png"
+    ],
+    "runtime_console": "normal-route pageerror list empty",
+    "hosted": "not yet run for expanded feature",
+    "physical_device": "not run"
+  }
 }

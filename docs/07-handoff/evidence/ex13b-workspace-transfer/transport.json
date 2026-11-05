@@ -19,18 +19,19 @@
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "09bb1b28fa649132ac03fec9edff651d68a5afdd5163d71069bf75fcbebd7e30",
+    "scripts/workspace-download/test_transport.mjs": "17b1f2bf4e9a17dd4cb78c6afa03b26dc8264c37295cca145ba14febfdf8072a",
     "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "925912671538f9aa1e79a6d39c70ad47a25ef488b05ed973fcec020a4b85f9b5",
+    "scripts/workspace-download/normal_workspace.mjs": "35968da9963a5477824898ed04c3bf92ed09e4b31dcbe3a6d67a750103df1347",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
+    "scripts/workspace-download/startup_resume.mjs": "63d6ac727211e85dee5a98bfb65dd03872b3efbf81daa178ac72ca05c4e4204b",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
     "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "apps/web/public/prepared-workspace-worker.js": "8ff71436d6fa948ca1468d1a61a9c80f43c56305f2d00b8aa5565eeaeac5b404",
     "apps/web/src/lib/workspace-public-shell.ts": "c3ee694ab01939845bd1071d51ba5b8ba655ab1a0ddda4aa1f4d8eadca2341ac",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "7212bce4a0c1d62a26933592b9be138ec73771d3a9067409d45c539bed54f194",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "5c9c2b2226042cc31a469ac4b7c460c4932b2ff54979d351d574f2130dba9f4c",
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
     "apps/web/src/components/people-workspace.tsx": "5904b072b20e11cc6bb4ddee4fcf410746dbece0163262f701081ab4de2301ca",
     "apps/web/src/components/experience-workspace.tsx": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
@@ -78,7 +79,9 @@
     "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
     "Workspace-only rollback masks failed cleanup, retries it and preserves the live register, exact pending original and signed-in account",
     "Re-enabling a capability finishes its interrupted retirement before any new preparation",
-    "Register-only rollback preserves workspace data and protected originals recover byte-identically after the register capability returns"
+    "Register-only rollback preserves workspace data and protected originals recover byte-identically after the register capability returns",
+    "A connection restored before public startup mounts retries the normal URL once without a reload loop",
+    "A later offline/online cycle clears the public reentry guard and permits the next recovery"
   ],
   "metrics": {
     "initialPeople": {
@@ -93,7 +96,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 16.401416999999128,
+      "elapsedMs": 13.634374999999636,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -118,7 +121,9 @@
       "unchangedDatasetPages": 0,
       "offlineOperatingRequests": 0,
       "offlineRoutePayloadRequests": 0,
-      "fullBrowserRestart": true
+      "fullBrowserRestart": true,
+      "offlineShellNavigations": 7,
+      "fixtureOriginDisconnected": true
     },
     "capabilityCleanup": {
       "workspaceRollbackPreservesRegister": true,

@@ -31,14 +31,22 @@ export async function normalWorkspaceFixture(root, fixture) {
   const [worker,css,publicPage]=await Promise.all(['public/prepared-workspace-worker.js','src/app/globals.css',
     '.next/server/app/prepared-workspace.html']
     .map(file=>readFile(join(root,'apps/web',file),'utf8')));
+  assert.ok(publicPage.includes('Opening your workspace'));
+  assert.ok(!publicPage.includes('This workspace has no prepared data on this device.'));
   const calls=[];
   let denyDocument=false;
+  let networkAvailable=true;
   const context={academy_name:'Synthetic online academy',branch_id:fixture.branch,branch_name:'Synthetic online branch',
     academy_id:fixture.academy,timezone:'Africa/Cairo',today:'2099-11-01'};
   return {
     calls,
     denyDocument(){denyDocument=true;},
+    setNetworkAvailable(value){networkAvailable=value;},
     async serve(req,res) {
+      // BrowserContext's offline switch does not consistently disconnect a
+      // service worker's own fetch. Cut the fixture origin too, so a successful
+      // worker response proves cached-shell recovery rather than network HTML.
+      if(!networkAvailable){req.socket.destroy();return true;}
       const url=new URL(req.url,'http://localhost');
       const reply=(body,headers={},status=200)=>res.writeHead(status,headers).end(body);
       if(url.pathname===asset){reply(output.outputFiles[0].text,{'content-type':'application/javascript'});return true;}
@@ -74,6 +82,7 @@ export async function normalWorkspaceFixture(root, fixture) {
 export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,db,pass}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[];
+  let offlineShellNavigations=0;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
   const calendar=scope('ar','calendar?anchor=2099-11-01');
@@ -90,11 +99,24 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     page.on('requestfailed',request=>failedRequests.push([request.url(),request.failure()?.errorText]));
   };
   async function openOffline(page,url){
+    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
     const reply=await page.goto(url,{waitUntil:'load'});
     assert.equal(reply?.url(),url);
     await page.waitForURL(url,{waitUntil:'commit'});
     assert.equal(page.url(),url);
     assert.ok(reply?.fromServiceWorker(),'normal route should come from the offline worker');
+    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
+    offlineShellNavigations++;
+  }
+  async function reconnect(page,url,{prepared=true}={}){
+    const navigation=page.waitForEvent('framenavigated',frame=>frame===page.mainFrame()&&frame.url()===url);
+    ui.setNetworkAvailable(true);
+    await browser.setOffline(false);
+    await navigation;
+    assert.equal(page.url(),url);
+    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
+    if(prepared)await expect(online(page)).toBeVisible({timeout:30000});
+    else await expect(page.getByText('Device',{exact:true})).toBeVisible();
   }
   let page;
   try {
@@ -149,6 +171,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     pass('Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection');
 
     await browser.close();
+    ui.setNetworkAvailable(false);
     browser=await chromium.launchPersistentContext(profile,{offline:true});
     page=await browser.newPage();track(page);
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
@@ -171,17 +194,17 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await db({action:'rename',academy:fixture.academy});
     await openOffline(page,players);
     await expect(page.getByText('Offline',{exact:true})).toBeVisible();
-    await browser.setOffline(false);
-    await expect(online(page)).toBeVisible({timeout:30000});
+    await reconnect(page,players);
     await page.locator('#player-search').fill('Fictional renamed player');
     await expect(page.getByRole('button',{name:'Fictional renamed player',exact:true})).toBeVisible();
     pass('Reconnecting the offline document returns to verified online data and applies a changed player');
 
     await page.evaluate(()=>window.clearTestAccount());
+    ui.setNetworkAvailable(false);
     await browser.setOffline(true);
     await openOffline(page,players);
     await expect(page.getByText('This workspace has no prepared data on this device.',{exact:false})).toBeVisible();
-    await browser.setOffline(false);
+    await reconnect(page,players,{prepared:false});
     await page.getByText('Device',{exact:true}).click();
     await page.getByRole('button',{name:'Use this personal device'}).click();
     await expect(online(page)).toBeVisible({timeout:30000});
@@ -191,21 +214,24 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await checkChanges(page,'Check for changes');
     await expect(page.getByRole('alert').filter({hasText:'Access unavailable'})).toBeVisible();
     await expect(page.getByRole('button',{name:'Fictional renamed player',exact:true})).toHaveCount(0);
+    ui.setNetworkAvailable(false);
     await browser.setOffline(true);
     await openOffline(page,players);
     await expect(page.getByText('This workspace has no prepared data on this device.',{exact:false})).toBeVisible();
     await openOffline(page,calendar);
     await expect(page.getByText('لا توجد بيانات محضّرة',{exact:false})).toBeVisible();
     ui.denyDocument();
+    ui.setNetworkAvailable(true);
     await browser.setOffline(false);
     await expect(page.getByText('Current access denied',{exact:true})).toBeVisible();
     assert.deepEqual(pageErrors,[]);
     pass('Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial');
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
-      unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true};
+      unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
+      offlineShellNavigations,fixtureOriginDisconnected:true};
   } catch (error) {
     console.error({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
       pageErrors,failedRequests:failedRequests.slice(-25)});
     throw error;
-  } finally {await browser.close();}
+  } finally {ui.setNetworkAvailable(true);await browser.close();}
 }

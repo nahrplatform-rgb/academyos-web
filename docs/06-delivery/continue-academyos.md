@@ -44,7 +44,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
 
-Next action: Complete exact-source closed-build delivery and the bounded workspace expansion in the linked activation packet, retaining its actual configuration authority and Owner-only promotion. Verify signed-in normal Owner Players/Calendar cold/repeat/resume,requests,reconnection,access/logout and capability rollback on staging. Preserve remaining cold People context,device/cross-app gaps and register original recovery. Then advance to EX-07 app-wide adoption.
+Next action: Finish repaired exact-source CI/build, then the bounded workspace expansion in the linked packet under applicable configuration authority and Owner-only promotion. Verify signed-in normal Players/Calendar cold/repeat/resume,requests,reconnect,access/logout and capability rollback on staging. Keep cold People context,device/cross-app gaps and register original recovery. Then advance to EX-07.
 
 Scoped dependency gate: EX-12,scoped EX-11 and local EX-13B normal-route/expiry/capability cleanup evidence retained. Exact checked build,applicable staged workspace expansion authority/configuration and signed-in hosted matrix remain. Independent external review is deferred/nonblocking;working acceptance separate.
 
@@ -212,13 +212,13 @@ Dependency gate: EX-12,scoped EX-11 and local EX-13B normal-route/expiry/capabil
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
-- Implementation: Normal Owner Players/Calendar, automatic bounded preparation, quiet checks and protected normal-URL offline reopening implemented behind closed staging gates. Expired context deletion and capability-specific rollback now preserve the other capability and register originals; purpose-bound workspace custody tooling prepared.
-- Local checks: 36 transport/browser,12 custody,99 units,17 foundation E2E,8 Owner working-day,8 Attendance startup and15 key cases passed;16 captures/factual review refreshed. Fresh staging backup restored;reviewed x21 preserved59 existing tables/605 rows. Hosted/physical/cross-app proof separate.
-- Deployment: 565dcb2 passed exact-source push/PR CI and automatic Preview is Ready;cleanup/custody follow-on locally checked and awaiting its exact-source CI. Staging remains cb00ab8. Hosted registry rechecked:29 migrations,no x21;workspace gates remain closed by default.
+- Implementation: Normal Owner Players/Calendar, bounded preparation and protected normal-URL offline reopening behind closed staging gates. Expiry/capability rollback preserves register originals. Public startup catches early reconnect with bounded reentry;purpose-bound custody tooling prepared.
+- Local checks: 38 transport/browser incl7 proven cached-shell entries and2 early/repeated reconnect cases;12 custody,99 units and retained17 foundation/8 Owner/8 Attendance/15 key checks.16 captures/factual review refreshed and passed. Recovered staging backup:x21 preserved59 tables/605 rows. Hosted/physical/cross-app separate.
+- Deployment: 89e7536 automatic Preview Ready but both CI failed in normal-route reconnect fixture;failures retained. Repaired candidate locally passed;exact-source CI/build pending. Staging remains cb00ab8;29 hosted migrations,no x21;workspace gates closed by default.
 - Hosted verification: Verified existing staging alias source only for this batch. Earlier refresh baseline and scoped EX-11 evidence retained. Expanded private Players/Calendar remain unexecuted on staging.
 - Owner acceptance: Full-app local-first direction and starting projection response recorded5November;working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Complete exact-source closed-build delivery and the bounded workspace expansion in the linked activation packet, retaining its actual configuration authority and Owner-only promotion. Verify signed-in normal Owner Players/Calendar cold/repeat/resume,requests,reconnection,access/logout and capability rollback on staging. Preserve remaining cold People context,device/cross-app gaps and register original recovery. Then advance to EX-07 app-wide adoption.
+- Next action: Finish repaired exact-source CI/build, then the bounded workspace expansion in the linked packet under applicable configuration authority and Owner-only promotion. Verify signed-in normal Players/Calendar cold/repeat/resume,requests,reconnect,access/logout and capability rollback on staging. Keep cold People context,device/cross-app gaps and register original recovery. Then advance to EX-07.
 - Evidence: docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity
