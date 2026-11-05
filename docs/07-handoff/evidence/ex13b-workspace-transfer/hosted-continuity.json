@@ -149,5 +149,16 @@
     "product_checks": "No product/UI/test input changed in this hosted/documentation batch;retain checked1347470 build/type/lint,101units,49browser/transport and16capture-suite evidence without claiming a new run",
     "git_diff_check": "Passed before commit",
     "promotion_required": false
+  },
+  "push_dependency_notice": {
+    "trigger": "GitHub push response reported one high default-branch Dependabot alert",
+    "alert": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+    "observed_state": "open",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "advisory_summary": "Withdrawn Advisory: braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+    "advisory_withdrawn_at": "2026-10-23T12:53:02Z",
+    "verification": "Read-only GitHub Dependabot API;current lockfile resolves braces3.0.3 through micromatch4.0.8 and marks both development dependencies",
+    "first_patched_version": null,
+    "disposition": "Recorded the provider notice and its withdrawal/development scope;no new hosted vulnerability or whole security pass inferred,no dependency or alert dismissal/provider mutation made"
   }
 }
