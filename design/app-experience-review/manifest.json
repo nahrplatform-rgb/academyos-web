@@ -1,10 +1,10 @@
 {
-  "source": "3cd196025733ab5f1ff8daf6791e94b6796c667e",
-  "generatedAt": "2026-11-05T03:17:49.389Z",
+  "source": "565dcb23416b391a3aa9a7114864bacac85278c1",
+  "generatedAt": "2026-11-05T06:32:49.714Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
-    "apps/web/src/app/[locale]/layout.tsx": "8b0367d49e55653cfd955b3da2b63ad7a1bf07483480c0b486795bdccccc3037",
+    "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/[locale]/page.tsx": "abfa7fb7bf2480289e242e06c119839c9cbd2f40effc505509eb0f902bb972db",
     "apps/web/src/app/[locale]/platform/page.tsx": "079627b4b65ee6224a52bbd0fc8affbd21baf9123e2e8aa75c637f862b09509d",
     "apps/web/src/app/[locale]/service-setup/page.tsx": "98e1ba1d713452610f512bc1a917ab04cf2105b5fbc0851b92057fff4eedda6f",
@@ -65,7 +65,7 @@
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
     "apps/web/src/components/qr-workspace.tsx": "d2c540c7338d859889fbf68d7490c1b7dc8aa6aec63660c743148d8f2e90cd01",
-    "apps/web/src/components/register-account-boundary.tsx": "e73913cb05ed5654c56d7ccb7af9797619492f26bfec8590f3c1500a10603760",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
     "apps/web/src/components/session-change-workspace.tsx": "d770aebe46fd9048eeb3abd0a491aad3ccfbb70b64573978d68230c2eb74ae4e",
     "apps/web/src/components/theme-toggle.tsx": "3e0ff7c20d98469ad76d8291b8431d3d7ca049359f1d683c61aad2bca8738ebf",
@@ -111,12 +111,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "d6662de2a45da3c523388e7e9e8b2f43eb23154ef7b959374682321e9ad416e9",
-  "htmlSha256": "8a19f8981f0f349ad278bc4420de7dd67649f5345fe9a23ce5f4c8704b93382c",
+  "capturePackSha256": "235a8df6216c66404321e25710f13362dc912d8da47d3682c0ee657c65d36556",
+  "htmlSha256": "a8d25a012c4bc888baaf7a90219aec4c759fdaf03558aa565a5e5c16b8dad9c5",
   "frames": 1189,
   "transitions": 1163,
   "sourceFiles": 79,
-  "sourceLiterals": 7666,
+  "sourceLiterals": 7667,
   "journeys": [
     {
       "id": "entry",

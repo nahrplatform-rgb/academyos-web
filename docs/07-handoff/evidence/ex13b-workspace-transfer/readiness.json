@@ -1,0 +1,141 @@
+{
+  "recorded_at": "2026-11-05T06:24:49.228154+00:00",
+  "source_base": "565dcb23416b391a3aa9a7114864bacac85278c1",
+  "sources": {
+    "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+    "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+    "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+    "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+    "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+    "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
+    "scripts/register-key/test_custody.py": "80ae7be0c56bd0b9371d0238fb6ec7329182433991ac5b095146f7ca9a41b5ad",
+    "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
+    "scripts/workspace-download/test_transport.mjs": "09bb1b28fa649132ac03fec9edff651d68a5afdd5163d71069bf75fcbebd7e30",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a"
+  },
+  "checks": [
+    {
+      "command": "npm run build",
+      "status": "passed",
+      "scope": "production build"
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "passed",
+      "scope": "current product types"
+    },
+    {
+      "command": "npm run lint",
+      "status": "passed",
+      "scope": "no errors or warnings"
+    },
+    {
+      "command": "npm test",
+      "status": "passed",
+      "scope": "99 unit cases"
+    },
+    {
+      "command": "npm run test:e2e",
+      "status": "passed",
+      "scope": "17 foundation cases"
+    },
+    {
+      "command": "node scripts/workspace-download/test_transport.mjs",
+      "status": "passed",
+      "scope": "36 checks;actual built shell/normal components/storage/SDK/gateway/PG;fictional identity/legacy wire/providers"
+    },
+    {
+      "command": "node scripts/workspace-download/test_transport.mjs --check",
+      "status": "passed",
+      "scope": "source-bound transport receipt current"
+    },
+    {
+      "command": "python3 scripts/register-key/test_custody.py",
+      "status": "passed",
+      "scope": "12 disposable local identity/key cases;no real new root"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_startup.mjs --record",
+      "status": "passed",
+      "scope": "8 existing startup/original recovery cases"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_next.mjs --record",
+      "status": "passed",
+      "scope": "8 existing working-day cases"
+    },
+    {
+      "command": "node scripts/register-key/test_key.mjs --record",
+      "status": "passed",
+      "scope": "15 existing key/authority cases"
+    },
+    {
+      "command": "node scripts/experience-review/collect.mjs && node scripts/experience-review/static.mjs",
+      "status": "passed",
+      "scope": "16 real-component capture suites"
+    },
+    {
+      "command": "node scripts/experience-review/build.mjs && node scripts/experience-review/test.mjs && node scripts/experience-review/build.mjs --check",
+      "status": "passed",
+      "scope": "1189 factual captured states;1163 transitions;not gated runtime acceptance"
+    },
+    {
+      "command": "node scripts/navigation/test_next.mjs",
+      "status": "passed",
+      "scope": "Actual Next production EN/AR navigation,dirty guards,selection and Back/Forward"
+    },
+    {
+      "command": "Trusted backup41980102243 plus private backup.py recover",
+      "status": "passed",
+      "scope": "Successful main-only encrypted artifact matched trusted workflow receipt/size/digest;all recovered checksums valid"
+    },
+    {
+      "command": "python3 scripts/backups/rehearse_local.py <private payload> --migration supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql --preserve-existing-rows",
+      "status": "passed",
+      "scope": "Disposable socket-only PG17.11;membership passed;59 existing academy tables/605 rows preserved;no live apply;plaintext removed"
+    },
+    {
+      "command": "python3 scripts/backups/test_backup.py && python3 scripts/backups/test_rehearsal_scope.py",
+      "status": "passed",
+      "scope": "7 backup safety and2 reviewed-file/target scope checks"
+    },
+    {
+      "command": "python3 scripts/design/validate_experience_execution.py && python3 scripts/design/validate_implementation_register.py",
+      "status": "passed",
+      "scope": "Current EX-13 routing;71 planned/evidence-linked cases;68 screens,30 stable action groups,180 requirements"
+    },
+    {
+      "command": "Changed-document local links and git diff --check",
+      "status": "passed",
+      "scope": "159 local links at first pass;no whitespace errors;final pass repeated after added links"
+    }
+  ],
+  "staging_observation": {
+    "source": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+    "deployment": "dpl_GaKbABC9eyafobc72VNfCYjQ9UNu",
+    "state": "READY",
+    "migration_count": 29,
+    "x21_workspace_applied": false,
+    "workspace_configuration_mutated": false,
+    "promotion_performed_by_agent": false
+  },
+  "remaining": [
+    "applicable workspace-root/schema/provider expansion authority",
+    "actual workspace encrypted root backup and sensitive staging-only configuration",
+    "exact-source candidate CI and Owner-controlled promotion",
+    "signed-in hosted normal-route matrix",
+    "cold Players search/selection continuity,physical device,provider cost and percentile gaps"
+  ],
+  "independent_review": "Deferred by Owner;nonblocking;not performed",
+  "delegation": {
+    "active_helpers": 0,
+    "model": null,
+    "rationale": "Coordinator-owned capability/recovery/custody integration;configured Terra model unavailable;scripts handle repetition",
+    "savings_measured": false
+  },
+  "repairs": [
+    "Archive inspection initially selected local PG14;explicit PG17.11 PATH fixed it;plaintext removed. No provider change."
+  ]
+}

@@ -104,6 +104,33 @@ class Custody(unittest.TestCase):
         digest=hashlib.sha256((self.directory/'wrap-v1.age').read_bytes()).hexdigest()
         with self.assertRaisesRegex(ValueError,'scope/version'):custody.recover_root(self.directory,self.identity,digest)
 
+    def test_workspace_archive_is_distinct_and_restores_only_for_its_capability(self):
+        register = custody.prepare(self.directory,self.identity)
+        workspace_dir = self.base/'workspace'
+        workspace = custody.prepare(workspace_dir,self.identity,'owner-workspace-v1')
+        self.assertEqual(workspace['capability'],'owner-workspace-v1')
+        self.assertTrue(custody.check(workspace_dir,self.identity,workspace['ciphertext_sha256'],
+                                     'owner-workspace-v1')['encrypted_backup_restored'])
+        self.assertNotEqual(custody.recover_root(self.directory,self.identity,register['ciphertext_sha256']),
+                            custody.recover_root(workspace_dir,self.identity,workspace['ciphertext_sha256'],
+                                                 'owner-workspace-v1'))
+        with self.assertRaisesRegex(ValueError,'scope/version'):
+            custody.recover_root(self.directory,self.identity,register['ciphertext_sha256'],'owner-workspace-v1')
+        with self.assertRaisesRegex(ValueError,'scope/version'):
+            custody.recover_root(workspace_dir,self.identity,workspace['ciphertext_sha256'])
+
+    def test_workspace_receipt_cannot_rename_the_encrypted_capability(self):
+        result = custody.prepare(self.directory,self.identity,'owner-workspace-v1')
+        receipt = self.directory/'custody.json'
+        data = json.loads(receipt.read_text());data.pop('capability');receipt.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError,'does not match'):
+            custody.check(self.directory,self.identity,result['ciphertext_sha256'],'owner-workspace-v1')
+
+    def test_unknown_capability_is_refused_before_any_archive_is_created(self):
+        with self.assertRaisesRegex(ValueError,'Unsupported recovery capability'):
+            custody.prepare(self.directory,self.identity,'foreign')
+        self.assertFalse(self.directory.exists())
+
     def test_canonical_public_recipient_matches_existing_backup(self):
         tree = ast.parse((ROOT/'scripts/backups/backup.py').read_text())
         recipient = next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign)

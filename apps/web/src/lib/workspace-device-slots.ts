@@ -67,7 +67,7 @@ export async function cleanWorkspaceSlot(context: WorkspaceDeviceContext, slot: 
   saveWorkspaceSlot(context, keepApproval ? {...cleaning, namespace: null, mode: 'reserved'} : null);
 }
 
-export async function cleanWorkspaceAccountSlots(subject: string) {
+export async function cleanWorkspaceAccountSlots(subject: string, onlyInterrupted = false) {
   const stem = prefix(subject);
   const academies: string[] = [];
   for (let index = 0; index < localStorage.length; index++) {
@@ -80,7 +80,7 @@ export async function cleanWorkspaceAccountSlots(subject: string) {
     try {
       await workspaceSlotLock(context, async () => {
         const slot = readWorkspaceSlot(context);
-        if (slot) await cleanWorkspaceSlot(context, slot);
+        if (slot && (!onlyInterrupted || slot.mode==='cleaning')) await cleanWorkspaceSlot(context, slot);
       });
     } catch { failed = true; }
   }

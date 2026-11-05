@@ -63,6 +63,24 @@ export function rememberPreparedRegister(context:RegisterContext,generation:stri
     update({...account,selection:{academy:context.academy,event:context.event}});
   });
 }
+
+/** Capability rollback leaves the shared account and other capability intact.
+ * Slot cleanup fences held work before removing reads; register originals keep
+ * the same protected recovery path used by logout. */
+export function clearDisabledPreparedCapabilities(subject:string,
+  enabled:{register:boolean;workspace:boolean}, onlyIfCurrent:()=>boolean) {
+  return lock(async()=>{
+    if(!onlyIfCurrent())return false;
+    const account=readRegisterAccount();
+    if(!account || account.subject!==subject || account.mode!=='active')return false;
+    const cleanup=await Promise.allSettled([
+      cleanRegisterAccountSlots(subject,enabled.register),
+      cleanWorkspaceAccountSlots(subject,enabled.workspace),
+    ]);
+    if(cleanup.some(result=>result.status==='rejected'))refuse('prepared_capability_cleanup_incomplete');
+    return true;
+  });
+}
 export function clearRegisterAccount(subject:string, finish?:()=>Promise<unknown>, onlyIfDeparted?:()=>boolean) {
   return lock(async () => {
     if (onlyIfDeparted && !onlyIfDeparted()) return;

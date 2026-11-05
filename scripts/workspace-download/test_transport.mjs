@@ -13,6 +13,7 @@ import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
+import {checkCapabilityCleanup} from './capability_cleanup.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
 const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,'docs/07-handoff/evidence/ex13b-workspace-transfer');
@@ -30,6 +31,9 @@ const inputs=[
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
   'scripts/workspace-download/normal_workspace.mjs',
+  'scripts/workspace-download/capability_cleanup.mjs',
+  'apps/web/src/components/register-account-boundary.tsx','apps/web/src/components/register-account-context.tsx',
+  'apps/web/src/lib/register-device-slots.ts','apps/web/src/lib/local-register-repository.ts',
   'apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts',
   'apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/components/owner-workspace-device.tsx',
   'apps/web/src/components/people-workspace.tsx','apps/web/src/components/experience-workspace.tsx',
@@ -42,9 +46,14 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=29);
+  assert.ok(receipt.checks.length>=36);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
+  assert.deepEqual(receipt.metrics.capabilityCleanup,{
+    workspaceRollbackPreservesRegister:true,registerRollbackPreservesWorkspace:true,
+    pendingOriginalUnchanged:true,failedCleanupRetried:true,supersededCleanupFenced:true,
+    providerSignOuts:0,
+  });
   const databaseReceipt=JSON.parse(await readFile(join(directory,'database.json'),'utf8'));
   assert.equal(databaseReceipt.passed,true);assert.ok(databaseReceipt.tests>=21);
   for(const [name,hash]of Object.entries(databaseReceipt.sources))assert.equal(hashes[name],hash);
@@ -249,6 +258,20 @@ try{
     window.leaveAccount=subject=>clearRegisterAccount(subject,()=>{window.providerSignedOut=true;});
     window.inspectAccount=()=>readRegisterAccount();
     window.inspectSlot=context=>readWorkspaceSlot(context);
+    window.inspectContexts=async()=>{
+      const db=await new Promise((resolve,reject)=>{
+        const req=indexedDB.open(LOCAL_WORKSPACE_DATABASE);
+        req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+      });
+      try {
+        const tx=db.transaction('control','readonly');
+        const values=await new Promise((resolve,reject)=>{
+          const req=tx.objectStore('control').getAll();
+          req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);
+        });
+        return values.filter(value=>value.context!==undefined).length;
+      } finally {db.close();}
+    };
     window.openWorkspace=async scope=>{window.repository=await openLocalWorkspace(scope)};
     window.inspectStorage=async()=>{
       const db=await new Promise((resolve,reject)=>{
@@ -444,11 +467,30 @@ try{
   assert.equal((await storage('read',dec)).count,replacement.count);
   pass('Missing staged ciphertext cannot finalize and the previous completed generation remains readable');
 
+  const privateContext={academy_id:work.academy,academy_name:'Synthetic private context',branch_id:work.branch,
+    branch_name:'Synthetic private branch',timezone:'Africa/Cairo',today:'2099-11-01'};
+  await storage('rememberContext',replacement.result.receipt.payload.scope,Date.now(),privateContext);
+  assert.deepEqual(await storage('readContext'),privateContext);
+  assert.equal(await tab.evaluate(()=>window.inspectContexts()),1);
   await tab.evaluate(()=>{const now=Date.now();Date.now=()=>now+31*86400000});
   await storage('activate',release.ticket);
+  assert.equal(await storage('readContext'),null);
   assert.equal(await storage('read','people'),null);
   assert.equal(await storage('read',dec),null);
-  pass('Thirty-day read cleanup is measured from the dataset verification and a key release cannot extend it');
+  assert.equal(await tab.evaluate(()=>window.inspectContexts()),0);
+  assert.equal((await tab.evaluate(()=>window.inspectStorage())).pageCount,0);
+  pass('Thirty-day cleanup physically removes expired context and dataset ciphertext and a key release cannot extend it');
+  await tab.evaluate(()=>{Date.now=()=>new Date().getTime()});
+  await storage('rememberContext',replacement.result.receipt.payload.scope,Date.now(),privateContext);
+  assert.equal(await tab.evaluate(()=>window.inspectContexts()),1);
+  await tab.evaluate(async scope=>{
+    window.repository.close();
+    const now=Date.now();Date.now=()=>now+31*86400000;
+    await window.openWorkspace(scope);
+  },release.scope);
+  assert.equal(await tab.evaluate(()=>window.inspectContexts()),0);
+  pass('Opening an expired workspace removes encrypted context before any private read or network check');
+  await tab.evaluate(()=>{Date.now=()=>new Date().getTime()});
   const staleTab=await browser.newPage();
   await staleTab.goto(local);
   await staleTab.evaluate(scope=>window.openWorkspace(scope),release.scope);
@@ -611,6 +653,7 @@ try{
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
     profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,db,pass});
+  metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
     platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');

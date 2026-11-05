@@ -49,7 +49,7 @@ export async function cleanRegisterSlot(subject: string, academy: string, slot: 
   writeRegisterSlot(subject,academy,{...cleaning,mode:'sealed'});
 }
 
-export async function cleanRegisterAccountSlots(subject: string) {
+export async function cleanRegisterAccountSlots(subject: string, onlyInterrupted = false) {
   const stem = prefix(subject), academies = [];
   for (let index=0;index<localStorage.length;index++) {
     const key = localStorage.key(index);
@@ -61,7 +61,9 @@ export async function cleanRegisterAccountSlots(subject: string) {
     try {
       await registerSlotLock(subject,academy,async () => {
         const slot = readRegisterSlot(subject,academy);
-        if (slot && slot.mode !== 'sealed') await cleanRegisterSlot(subject,academy,slot,'logout');
+        if (slot && slot.mode !== 'sealed' && (!onlyInterrupted || slot.mode==='cleaning')) {
+          await cleanRegisterSlot(subject,academy,slot,'logout');
+        }
       });
     } catch {failed=true;}
   }

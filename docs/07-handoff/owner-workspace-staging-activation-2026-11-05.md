@@ -1,0 +1,80 @@
+# EX-13B Owner workspace staging readiness
+
+5 November 2026. This packet follows the [normal-route checkpoint](ex13b-normal-workspace-checkpoint-2026-11-05.md) and the [Owner dataset contract](../04-engineering/owner-workspace-dataset-contract.md). It prepares the first Players/Calendar expansion of the existing synthetic staging offline feature. It does not mark that expansion enabled or hosted-verified. EX-13 remains current; the completed role separation, register pilot and Operations work remain intact.
+
+## Outcome and authority
+
+An existing Academy Owner who chooses a personal device uses the normal Players and Calendar screens from protected prepared data, online or offline. Preparation prioritizes the active task, then completes the permitted directory and current/next/previous month grids in bounded resumable passes. This slice changes no registration, planning, publication, attendance or review writer. Full profiles, settings, finance and the other modules remain in the [full-app adoption map](../06-delivery/local-data-and-sync-plan.md#full-app-adoption--5-november-2026), rather than becoming permanent exclusions.
+
+Trace: EX-13B; IMP-J06-A01/A02 and IMP-J09-A01; L04–L07; SEC-J06/J09/J16; NR01–04,07,08,13–15,17; G01,03,06,08,09. WD-59–62, WD-66 and WD-70 have scoped local evidence; their full hosted, physical-device and acceptance layers remain open.
+
+Trust boundaries: current signed-in Owner authority → purpose-bound signed transfer → protected account/academy/device workspace namespace → encrypted normal-route reads. Workspace and register wrapping roots, key registries and replicas remain separate. Account cleanup is shared; the Attendance original-operation journal retains its own recovery policy.
+
+The Owner has accepted the normal-workspace direction, first projection, ordinary sign-in, no inactivity lock, no 24-hour read cutoff and logout/30-day read-copy cleanup. Do not ask for those decisions again. [SDR-06](../00-governance/staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority) permits necessary existing synthetic-trial account and fixture tests without per-test access questions. Its concrete private activation covers the four register migrations, register root and register flags. The additional workspace migration/root/provider configuration below require their applicable expansion authority; the old register grant must not silently provision a second capability. Independent human review is deferred/nonblocking and not performed. The Owner alone promotes builds.
+
+## Exact prepared expansion
+
+| Boundary | Prepared change |
+|---|---|
+| Database | Apply only [20261105003702_owner_workspace_transfer_contract.sql](../../supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql) to `academyos-staging` / `snpphkenmvmhpjstbeul`. SHA256 `6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf`. Preserve all operating/history rows, register registrations and canonical writers. Record the provider-assigned migration version separately from the source filename. |
+| Workspace root | Generate a fresh random server-only `LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1`, distinct from `LOCAL_REGISTER_WRAP_KEY_V1` and `ONBOARDING_PROOF_KEY`. Back up encrypted to the existing Owner recovery recipient and verify recovery against an independently retained ciphertext digest before provisioning. Never replace the register root or print either root. |
+| Capability configuration | Existing Vercel project `academyos-web`, project `prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx`, team `academy-os2`: staging-only `LOCAL_OWNER_WORKSPACE_KEY_ENABLED=true`, `OWNER_WORKSPACE_TRANSFER_ENABLED=true`, `OWNER_WORKSPACE_PILOT_ENABLED=true`, with `APP_ENV=staging`. No Preview/development secret copy. The existing project's Vercel target is named `production` but serves `staging.academy.nahr.dev`; this is not authorization for a real production launch. |
+| Existing register | Preserve its four applied migrations, wrapping root, flags, key slots, stored originals and working recovery. Closing or opening workspace capability must not sign out the account, retire the live register or remove its pending operation. |
+| Release | Prepare the exact checked automatic build. Supply its source/deployment link and the existing staging destination to the Owner. An agent does not promote, assign an alias, redeploy to that live alias or operate the passkey flow. |
+
+No new account, email invitation, role power, business rule, paid service or real-data import is included.
+
+## Local cleanup and custody checkpoint
+
+Two release gaps from the previous handoff are repaired in source:
+
+- Expiry physically removes the encrypted workspace context as well as expired collection pages. Both a read in an already-open repository and a new repository open after 31 days are tested. A key release alone does not renew collection/context freshness.
+- The shared account boundary distinguishes register and workspace capability gates. Closing one retires only that capability. Failed removal leaves a persistent cleanup marker and a blocked retry; re-enabling first finishes an interrupted retirement. Work queued under an obsolete gate decision is fenced. The unaffected capability and same signed-in account survive. Register originals recover with identical bytes after register re-enablement.
+
+The [transport receipt](evidence/ex13b-workspace-transfer/transport.json) records **36 passed local transport/browser checks**, including the actual built offline shell and normal route components, zero operating requests for covered controls, zero operating/route-payload requests in the declared offline restart sequence, and four capability cleanup cases. Cleanup fixtures use actual IndexedDB, WebCrypto and the account boundary; their identity, keys and records are fictional. They do not establish hosted provider or physical-device behavior.
+
+The [custody utility](../../scripts/register-key/custody.py) now supports `--capability owner-workspace-v1`. The workspace purpose is inside the encrypted envelope as well as the nonsecret receipt. A workspace archive cannot recover as a register root or the reverse, even with a matching ciphertext digest. Legacy register recovery remains the default and preserves its existing archive format. **12 local custody tests passed**, including substitution, wrong scope, receipt changes and both purpose directions. Test identities/roots are disposable; this is not an actual workspace-root backup or provisioning receipt.
+
+Build, typecheck, lint, 99 unit tests, 17 foundation browser tests, eight existing Owner working-day checks, eight Attendance startup/recovery checks and 15 existing key/authority checks passed locally. All 16 real-component capture suites and the factual HTML were refreshed; review-tool and freshness checks passed. Default captures do not contain the gated cleanup/failure fixtures. [Source-bound evidence index](evidence/ex13b-workspace-transfer/README.md).
+
+## Fresh recovered-backup rehearsal
+
+The existing main-only encrypted backup [run41980102243](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41980102243) succeeded. Its encrypted artifact's receipt, size and digest were compared with the trusted successful workflow output before private recovery. [Nonsecret encrypted-copy receipt](evidence/ex13b-workspace-transfer/backup-readiness.json).
+
+The recovered database restored into socket-only disposable PG17.11. The unchanged x21 migration replayed in one transaction, and the current membership boundary passed. A before/after comparison verifies **all 59 existing academy tables / 605 rows unchanged**, including operating/history and register custody rows; only the new `owner_workspace_keys` and `workspace_revisions` tables are added. Counts and SHA256 fingerprints, not row values, appear in the [rehearsal receipt](evidence/ex13b-workspace-transfer/migration-readiness.json). No hosted migration was applied. The backup contains zero Storage objects; hosted Storage/service restoration is not claimed.
+
+The [existing restore helper](../../scripts/backups/rehearse_local.py) now offers `--preserve-existing-rows` for reviewed additive releases. It fails on any changed or removed pre-existing academy row and reports a nonsecret comparison. The normal socket-only target and reviewed-file guards remain. Seven backup safety tests and two existing rehearsal-scope tests passed. The first recovery attempt selected Homebrew PG14 and failed archive inspection; explicit PG17 PATH resolved it. Recovered plaintext was removed after each attempt. The encrypted artifact and trusted receipts remain private outside Git.
+
+## Observed release boundary
+
+Both Foundation runs passed for the preceding code `565dcb23416b391a3aa9a7114864bacac85278c1`: [push41961298808](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41961298808) and [PR41961306649](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41961306649). Its [automatic Preview](https://vercel.com/academy-os2/academyos-web/BX6mprg6GmxwuES952c6PYPCvoM5) is Ready. It precedes this cleanup/custody change and is not the final expanded release candidate.
+
+Read-only Vercel inspection during this checkpoint still identifies staging as `cb00ab886f2278d0f3deb9a586b0c20872e672d2`, deployment `dpl_GaKbABC9eyafobc72VNfCYjQ9UNu`, Ready. [Existing staging deployment](https://vercel.com/academy-os2/academyos-web/GaKbABC9eyafobc72VNfCYjQ9UNu). A fresh hosted registry inspection reports 29 migrations, including the four register migrations and no x21 workspace migration. No new live schema apply, key creation/configuration or alias change has occurred in this checkpoint. A successful Preview, health endpoint or GET405 does not prove the new authenticated POST capability is open or working.
+
+Record exact-source CI and automatic build results for this change separately. Do not promote the historical Preview merely because it is Ready, and do not call the workspace expansion deployed from the existing register release.
+
+## Ordered activation and rollback
+
+1. Under the applicable expansion authority, recheck exact project/source and current schema/flags without emitting secrets. The fresh recovered-backup/x21/data-preservation rehearsal above is complete. If source or relevant staging schema/state changed before application, refresh the affected rehearsal. Retain the independently trusted receipt; do not retain recovered plaintext. Record fresh live before/after operating/history fingerprints during the actual apply as well.
+2. Apply the unchanged migration with workspace app gates closed. Verify RLS/table grants, exact signed x21 action registration/current Owner checks, coherent revision coverage and unchanged register/canonical operating results. Stop closed on any mismatch. Do not invent a migration-history row.
+3. Prepare and recover the separate purpose-bound workspace root with the existing Owner identity and an independently trusted digest. Keep the archive/identity outside Git and logs. Configure the sensitive server-only root and three workspace flags solely on the existing staging target. Keep the live register and proof settings unchanged. Record nonsecret metadata and recovery proof; never copy key values into evidence.
+4. Inspect the exact automatic build and both CI results, then ask the Owner to promote that checked deployment to the existing staging domain. After Owner-reported promotion, independently resolve the canonical alias/source before real signed-in tests.
+5. Run the hosted matrix below with isolated Owner/Platform browser profiles. Record exact requests, visible behavior and unexecuted cases. Only then record the scoped hosted checkpoint and advance according to the tracker; Owner working acceptance remains separate.
+
+Rollback closes the workspace flags through a checked compatible build, promoted by the Owner. Retain the additive schema, root/archive, audit/history and register originals. On an online opening that learns the closed gate, the new shared boundary retires workspace downloads without touching the live register or account. A failed cleanup stays masked with retry. Do not roll back to source that cannot finish current cleanup or recover stored originals. A disconnected device cannot learn remote gate closure/revocation until it reconnects; closing a server flag is not remote deletion. No untested automatic key rotation is included.
+
+## Hosted matrix and remaining limits
+
+| Case | Required observation |
+|---|---|
+| Fresh personal-device Owner | First useful task appears before background completion. Real progress reflects complete coherent collections; current task/current month precede adjacent months. Record requests and bytes rather than extrapolating the local fixture. |
+| Covered repeat use | Prepared name search, summary selection and covered Week/Month use zero operating reads. Full profiles/planning still use current server authority. Quiet unchanged sync uses a manifest and zero dataset pages. |
+| Cold browser restart offline | Normal EN Players and AR Calendar URLs reopen from protected data through the public-only worker. Record prepared versus missing period, storage eviction/failure and no private API response cache. |
+| Reconnect/held reply | New player/month data updates the affected projection; held old scope replies cannot restore retired data. No replacement of an unknown register save. Record content/focus/scroll during return and loading. |
+| Authority and account | Platform-only Gmail and foreign scope receive no workspace key/data; known Owner access loss retires that scope. Logout clears downloads across tabs, retains pending register work and requires the original current Owner for recovery. |
+| Capability rollback | With an already-prepared workspace and pending Attendance save, close only workspace capability; show workspace cleanup, preserve register/current sign-in and recover the original. Keep source/configuration/Owner promotion evidence separate. |
+| Device/UX | Inspect equivalent EN/AR phone/tablet/desktop states and actual Chromium/Safari storage/worker behavior. Measure declared network/device percentiles and providers separately. No physical or hosted pass is inferred from the local harness. |
+
+Known unfinished continuity: cold document reopening/reconnect resets the Players search and selected summary; Calendar restores its matching safe coordinates. The wider WD-58–71 held-response, uncovered-online, all-route and cross-device cases remain open. Background sync while an app is closed is not guaranteed. No request-cost, service-billing, p75/p95 performance or whole-app no-refresh claim is made here.
+
+AI execution: zero helpers for this checkpoint. Capability synchronization, custody boundaries and integration stayed with the coordinator; scripts handled repeated checks. The configured Terra worker model is unavailable in this runtime, and no replacement model was spawned. Usage/cost savings are unmeasured.

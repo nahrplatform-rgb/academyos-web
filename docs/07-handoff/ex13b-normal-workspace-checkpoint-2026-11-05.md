@@ -1,5 +1,7 @@
 # EX-13B normal Owner Players and Calendar
 
+**Latest readiness:** the [workspace staging packet](owner-workspace-staging-activation-2026-11-05.md) records the subsequent expiry/capability-cleanup repair, 36 local transport/browser cases, purpose-bound custody tooling and exact remaining schema/configuration/release/hosted work. It supersedes the two pending local cleanup items below; it does not enable staging or close the wider findings.
+
 This checkpoint connects the existing Owner Players and Calendar screens to the protected device repository. It follows the [dataset contract](../04-engineering/owner-workspace-dataset-contract.md) and the [device lifecycle checkpoint](ex13b-workspace-lifecycle-checkpoint-2026-11-05.md). The exact starting fields are player IDs, names and branches, plus permitted schedule summaries in the current and adjacent month grids. The existing current-authority profile, registration and planning paths still apply.
 
 | Journey | Implementation |
@@ -32,7 +34,7 @@ Read-only Vercel lookup resolves the staging alias to Ready deployment `dpl_GaKb
 
 ## Remaining release work
 
-- Verify the exact checked closed build separately. Workspace route and transfer gates default closed, and the x21 schema and workspace key settings need their own staging readiness evidence before wider use. Rehearse scope-specific rollback and cleanup of an already-prepared workspace when the gate closes, including coexistence with the Attendance pilot. Cover physical deletion of expired encrypted workspace context alongside the existing dataset-page sweep. The Owner controls promotion.
+- Verify the exact checked closed build separately. Workspace route and transfer gates default closed, and the x21 schema and workspace key settings need their own staging readiness evidence before wider use. The subsequent linked packet now verifies local capability-specific rollback/coexistence and expired-context deletion; their hosted counterparts remain open. The Owner controls promotion.
 - Exercise deployed signed-in normal routes with isolated Owner, Platform and denied scopes, physical devices and representative network loss. Record provider counts, payloads and latency separately from local browser checks. EX-13 stays current.
 - Cold reconnect re-enters the verified route. Calendar restores matching navigation context, while a Players search and its selected summary currently live in the page and reset on a cold document reopen. Capture the remaining app-wide continuity, held response, uncovered online calendar and full-device cases against WD-58–71.
 - Preserve normal Attendance integration and the rest of the full-app local-first adoption map under EX-07. Owner acceptance remains pending and independent review remains deferred by Owner.

@@ -1,10 +1,10 @@
 'use client';
 
-import {useEffect,useRef,useState,useSyncExternalStore,type ReactNode} from 'react';
+import {useCallback,useEffect,useRef,useState,useSyncExternalStore,type ReactNode} from 'react';
 import {useClerk,useUser} from '@clerk/nextjs';
 import {Button} from './ui/controls';
 import {RegisterAccountContext} from './register-account-context';
-import {clearRegisterAccount,readRegisterAccount,REGISTER_ACCOUNT_KEY,REGISTER_DRAFT_EXIT_EVENT,subscribeRegisterAccount} from '@/lib/register-device-account';
+import {clearDisabledPreparedCapabilities,clearRegisterAccount,readRegisterAccount,REGISTER_ACCOUNT_KEY,REGISTER_DRAFT_EXIT_EVENT,subscribeRegisterAccount} from '@/lib/register-device-account';
 
 function snapshot() {
   try {return localStorage.getItem(REGISTER_ACCOUNT_KEY) ?? '';}
@@ -14,7 +14,7 @@ const serverSnapshot=()=>'' as string|null;
 
 /** Only a loaded Clerk account enters the protected lifecycle. A failed cleanup
  * leaves the account marker fenced and the provider session available to retry. */
-export default function RegisterAccountBoundary({enabled,locale,children}:{enabled:boolean;locale:string;children:ReactNode}) {
+export default function RegisterAccountBoundary({enabled,workspaceEnabled=false,locale,children}:{enabled:boolean;workspaceEnabled?:boolean;locale:string;children:ReactNode}) {
   const {isLoaded,user}=useUser(), {signOut,openUserProfile}=useClerk();
   const subject=isLoaded?user?.id??null:null;
   const source=useSyncExternalStore(subscribeRegisterAccount,snapshot,serverSnapshot);
@@ -24,16 +24,29 @@ export default function RegisterAccountBoundary({enabled,locale,children}:{enabl
     catch {invalid=true;}
   }
   const [signingOut,setSigningOut]=useState(false), [cleanupFailed,setCleanupFailed]=useState(false);
-  const guard=useRef(false), current=useRef(subject);
+  const guard=useRef(false), current=useRef(subject), capabilities=useRef({register:enabled,workspace:workspaceEnabled});
+  const anyEnabled=enabled||workspaceEnabled;
   const localSubject=local?.subject, mode=local?.mode;
+  const cleanupDisabled=useCallback(()=>{
+    const expected=capabilities.current;
+    const stillCurrent=()=>!guard.current&&current.current===localSubject&&capabilities.current===expected;
+    if(!localSubject)return;
+    void clearDisabledPreparedCapabilities(localSubject,expected,stillCurrent).then(cleared=>{
+      if(cleared&&stillCurrent())setCleanupFailed(false);
+    },()=>{if(stillCurrent())setCleanupFailed(true);});
+  },[localSubject]);
   useEffect(()=>{
     current.current=subject;
+    capabilities.current={register:enabled,workspace:workspaceEnabled};
     if (!isLoaded || !localSubject || guard.current) return;
-    if (localSubject===subject && enabled) return;
-    const departed=()=>!enabled || current.current!==localSubject;
+    if (localSubject===subject && anyEnabled) {
+      cleanupDisabled();
+      return;
+    }
+    const departed=()=>!capabilities.current.register&&!capabilities.current.workspace || current.current!==localSubject;
     void clearRegisterAccount(localSubject,undefined,departed).catch(()=>setCleanupFailed(true));
     // Storage mode changes inside cleanup must not launch another cleanup.
-  },[enabled,isLoaded,localSubject,subject]);
+  },[anyEnabled,enabled,workspaceEnabled,isLoaded,localSubject,subject,cleanupDisabled]);
 
   async function leave(locale:string) {
     if (!subject||guard.current||!window.dispatchEvent(new Event(REGISTER_DRAFT_EXIT_EVENT,{cancelable:true}))) return;
@@ -55,20 +68,21 @@ export default function RegisterAccountBoundary({enabled,locale,children}:{enabl
     } finally {guard.current=false;setSigningOut(false);}
   }
   const ar=locale==='ar', departed=Boolean(localSubject && localSubject!==subject && isLoaded);
-  if (signingOut||mode==='ending'||departed) return <main className="public-task" lang={locale} dir={ar?'rtl':'ltr'}>
+  if (signingOut||mode==='ending'||departed||cleanupFailed) return <main className="public-task" lang={locale} dir={ar?'rtl':'ltr'}>
     <h1>{ar?'مسح التنزيلات':'Clearing downloads'}</h1>
     {cleanupFailed||mode==='ending'&&!signingOut?
       <><p role="alert">{ar?'لم يكتمل مسح التنزيلات. يبقى العمل المعلّق محمياً.':
         'Downloads could not be cleared. Pending work remains protected.'}</p>
         <Button type="button" onClick={()=>{
           if(departed&&localSubject)void clearRegisterAccount(localSubject).then(()=>setCleanupFailed(false),()=>setCleanupFailed(true));
+          else if(anyEnabled&&mode==='active')cleanupDisabled();
           else void leave(locale);
         }}>{ar?'أعد المحاولة':'Retry cleanup'}</Button></>:
       <p role="status">{ar?'جارٍ إخفاء البيانات المحضّرة لهذا الحساب.':'Prepared data is hidden while this account is cleared.'}</p>}
   </main>;
   return <RegisterAccountContext value={{subject, signingOut, cleanupFailed,
-    controlled:(enabled&&source!==null)||Boolean(localSubject),
-    allowed:enabled&&isLoaded&&!!subject&&source!==null&&!invalid&&!signingOut&&
+    controlled:(anyEnabled&&source!==null)||Boolean(localSubject),
+    allowed:anyEnabled&&isLoaded&&!!subject&&source!==null&&!invalid&&!signingOut&&
       (!local || local.subject===subject&&mode==='active'),
     manage:()=>openUserProfile(),signOut:locale=>void leave(locale)}}>{children}</RegisterAccountContext>;
 }

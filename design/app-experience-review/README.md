@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13B readiness. All 16 actual-component capture suites and this HTML were refreshed after the shared account boundary changed. The [workspace staging packet](../../docs/07-handoff/owner-workspace-staging-activation-2026-11-05.md) links separate actual-browser cleanup/failure and encrypted-expiry checks. Default captures omit these gated fixtures; the replay does not establish staging activation.
+
 5 November EX-13B. The [normal Players and Calendar checkpoint](../../docs/07-handoff/ex13b-normal-workspace-checkpoint-2026-11-05.md) has separate Chromium evidence for the gated prepared-device and offline states. The factual HTML refreshes the normal product captures and source inventory. Its default captures omit those gated states.
 
 5 November EX-13B follow-on. The [protected repository checkpoint](../../docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) adds isolated key and storage evidence. The capture inventory retains the existing rendered experience.

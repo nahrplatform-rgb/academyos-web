@@ -18,6 +18,15 @@ import subprocess
 PROJECT = 'snpphkenmvmhpjstbeul'
 # Pinned existing public recovery recipient from scripts/backups/backup.py.
 RECIPIENT = 'age15ca2qpffygqeey86dlhquz23fglv9y4h5mdxx8psaqxdvlqs65ysfu5q42'
+CAPABILITIES = ('owner-register-v1', 'owner-workspace-v1')
+
+
+def scoped_fields(capability):
+    if capability not in CAPABILITIES:
+        raise ValueError('Unsupported recovery capability')
+    # Keep the already-provisioned register archive format unchanged. New
+    # workspace archives bind their distinct capability inside the ciphertext.
+    return {} if capability == 'owner-register-v1' else {'capability': capability}
 
 
 def run(args, data=None):
@@ -49,8 +58,9 @@ def exclusive_file(path, data):
         os.fsync(f.fileno())
 
 
-def recover_root(directory, identity, expected_sha256):
+def recover_root(directory, identity, expected_sha256, capability='owner-register-v1'):
     """In-process return for an authorized provider adapter; never expose in CLI/logs."""
+    extra = scoped_fields(capability)
     keyfile = verify_identity(identity)
     cipher = private_file(Path(directory)/'wrap-v1.age')
     if cipher.stat().st_size > 16384:
@@ -66,15 +76,17 @@ def recover_root(directory, identity, expected_sha256):
         payload = json.loads(run(['age', '--decrypt', '--identity', str(keyfile)], ciphertext))
     except (json.JSONDecodeError, UnicodeDecodeError):
         raise ValueError('Recovery envelope is invalid') from None
-    if (not isinstance(payload, dict) or set(payload) != {'project','environment','version','created_at','root'}
+    if (not isinstance(payload, dict) or set(payload) != {'project','environment','version','created_at','root'} | set(extra)
             or payload['project'] != PROJECT or payload['environment'] != 'staging'
+            or any(payload.get(key) != value for key, value in extra.items())
             or payload['version'] != 1 or not isinstance(payload['root'], str)
             or re.fullmatch('[0-9a-f]{64}', payload['root']) is None):
         raise ValueError('Recovery envelope scope/version/key format is invalid')
     return payload['root']
 
 
-def prepare(directory, identity):
+def prepare(directory, identity, capability='owner-register-v1'):
+    extra = scoped_fields(capability)
     verify_identity(identity)
     d = Path(directory)
     if d.is_symlink():
@@ -87,33 +99,36 @@ def prepare(directory, identity):
     root = secrets.token_hex(32)
     stamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
     payload = json.dumps(dict(project=PROJECT, environment='staging', version=1,
-                              created_at=stamp, root=root)).encode()
+                              created_at=stamp, root=root, **extra)).encode()
     cipher = run(['age', '--encrypt', '--recipient', RECIPIENT], payload)
     exclusive_file(d/'wrap-v1.age', cipher)
     digest = hashlib.sha256(cipher).hexdigest()
-    if not hmac.compare_digest(root, recover_root(d, identity, digest)):
+    if not hmac.compare_digest(root, recover_root(d, identity, digest, capability)):
         raise ValueError('Encrypted backup restore comparison failed')
     receipt = dict(project=PROJECT, environment='staging', version=1, created_at=stamp,
                    recipient=RECIPIENT, ciphertext_sha256=digest,
                    encrypted_backup_restored=True, provider_provisioned=False,
-                   note='One V1 root; no automatic rotation or replacement. Preserve for pending ciphertext recovery.')
+                   note='One V1 root; no automatic rotation or replacement. Preserve for pending ciphertext recovery.',
+                   **extra)
     exclusive_file(d/'custody.json', (json.dumps(receipt, indent=2)+'\n').encode())
     return receipt
 
 
-def check(directory, identity, expected_sha256):
+def check(directory, identity, expected_sha256, capability='owner-register-v1'):
+    extra = scoped_fields(capability)
     # Expected digest comes from a separately retained/trusted receipt, never
     # from the adjacent custody.json that could be replaced with the archive.
-    root = recover_root(directory, identity, expected_sha256)
+    root = recover_root(directory, identity, expected_sha256, capability)
     receipt = json.loads(private_file(Path(directory)/'custody.json').read_text())
     actual = hashlib.sha256(private_file(Path(directory)/'wrap-v1.age').read_bytes()).hexdigest()
     if (receipt.get('project') != PROJECT or receipt.get('version') != 1
             or receipt.get('environment') != 'staging' or receipt.get('recipient') != RECIPIENT
+            or receipt.get('capability') != extra.get('capability')
             or receipt.get('ciphertext_sha256') != actual):
         raise ValueError('Custody receipt does not match the encrypted backup')
     return dict(project=PROJECT, environment='staging', version=1,
                 encrypted_backup_restored=bool(root), ciphertext_sha256=actual,
-                provider_provisioned=False)
+                provider_provisioned=False, **extra)
 
 
 def main():
@@ -122,10 +137,12 @@ def main():
     parser.add_argument('--directory', required=True)
     parser.add_argument('--identity', required=True, help='Existing Owner age recovery identity file; never a password')
     parser.add_argument('--expected-sha256', help='Required for check; use the separately trusted receipt, not the adjacent archive receipt')
+    parser.add_argument('--capability', choices=CAPABILITIES, default='owner-register-v1',
+                        help='Workspace archives are purpose-bound and cannot replace the existing register root')
     args = parser.parse_args()
     try:
-        receipt = (prepare(args.directory, args.identity) if args.action == 'prepare'
-                   else check(args.directory, args.identity, args.expected_sha256))
+        receipt = (prepare(args.directory, args.identity, args.capability) if args.action == 'prepare'
+                   else check(args.directory, args.identity, args.expected_sha256, args.capability))
     except (ValueError, OSError) as error:
         raise SystemExit(str(error)) from None
     print(json.dumps(receipt))

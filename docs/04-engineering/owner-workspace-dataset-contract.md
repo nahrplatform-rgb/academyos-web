@@ -14,6 +14,8 @@ Trust boundaries: verified identity/current Owner authority → minimal signed c
 
 ## First backend checkpoint — EX-13B
 
+Subsequent [staging readiness](../07-handoff/owner-workspace-staging-activation-2026-11-05.md) verifies physical removal of expired encrypted context and capability-specific cleanup while preserving register originals. It defines the separate workspace-root recovery purpose and exact staged expansion. Normal sign-in/field/retention choices remain settled; actual configuration and hosted proof remain separate.
+
 The [workspace-transfer receipt](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) records the new, closed `/api/workspace-download` seam, `x21_workspace_transfer_v1`, separate workspace key metadata and transactional projection revisions. Its migration is local-only and the route defaults to disabled. The [subsequent repository checkpoint](../07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) proves real workspace wrapping and protected browser storage in isolation. The [device lifecycle checkpoint](../07-handoff/ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) verifies shared account fencing and resumable sync locally. The [normal-route checkpoint](../07-handoff/ex13b-normal-workspace-checkpoint-2026-11-05.md) joins the actual Players and Calendar components, automatic scheduling and the built offline shell. Local, closed-build and hosted evidence remain separate.
 
 ## Legacy code: what can and cannot be reused

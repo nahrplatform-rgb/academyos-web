@@ -349,10 +349,15 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
 
   async function sweepExpired() {
     await transact('readwrite',async t=>{
-      await active(t);
+      const owner=await active(t);
       const store=t.objectStore('collections');
       const keys=await request(store.getAllKeys(range([namespace])));
       const now=Date.now();
+      if(owner.context && now-owner.context.wallAt>=retentionMs){
+        const retained={...owner};
+        delete retained.context;
+        await request(t.objectStore('control').put(retained,namespace));
+      }
       for(const key of keys){
         const collection=(key as [string,Collection])[1];
         const saved=await state(t,collection);
@@ -392,7 +397,10 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
     const {key,context,serverScope}=await transact('readonly',active);
     if(!context||!serverScope)return null;
     if(Date.now()<context.wallAt)refuse('workspace_clock_verification_required');
-    if(Date.now()-context.wallAt>=retentionMs)return null;
+    if(Date.now()-context.wallAt>=retentionMs){
+      await sweepExpired();
+      return null;
+    }
     const id=JSON.stringify([serverScope,context.checkedAt,context.wallAt]);
     const decoded=fromBytes(await unseal(key,binding,'workspace-context',id,context.value)) as PreparedWorkspaceContext;
     await transact('readonly',active);

@@ -20,6 +20,6 @@ export default async function Layout({
     colorDanger:"var(--error)",borderRadius:"7px",
     fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Tahoma, sans-serif',fontSize:"15px",
   }}}>
-    <RegisterAccountBoundary locale={locale} enabled={offlineRegisterPilotEnabled(process.env)||ownerWorkspaceEnabled(process.env)}>{content}</RegisterAccountBoundary>
+    <RegisterAccountBoundary locale={locale} enabled={offlineRegisterPilotEnabled(process.env)} workspaceEnabled={ownerWorkspaceEnabled(process.env)}>{content}</RegisterAccountBoundary>
   </ClerkProvider>;
 }
