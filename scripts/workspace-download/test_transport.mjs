@@ -21,6 +21,8 @@ const inputs=[
   'apps/web/src/app/api/workspace-key/route.ts','apps/web/src/lib/workspace-key-server.ts',
   'apps/web/src/lib/local-workspace-codec.ts','apps/web/src/lib/local-workspace-repository.ts',
   'apps/web/src/lib/local-register-crypto.ts',
+  'apps/web/src/lib/register-device-account.ts','apps/web/src/lib/workspace-device-slots.ts',
+  'apps/web/src/lib/workspace-device.ts','apps/web/src/lib/workspace-client-transport.ts',
   'apps/web/src/lib/onboarding-server.ts','apps/web/src/lib/onboarding-gateway.ts','apps/web/src/lib/onboarding.ts',
   'apps/web/src/lib/config.ts','apps/web/src/lib/experience-format.ts','apps/web/src/lib/local-register-codec.ts',
   'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql',
@@ -32,7 +34,7 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=18);
+  assert.ok(receipt.checks.length>=24);
   const databaseReceipt=JSON.parse(await readFile(join(directory,'database.json'),'utf8'));
   assert.equal(databaseReceipt.passed,true);assert.ok(databaseReceipt.tests>=21);
   for(const [name,hash]of Object.entries(databaseReceipt.sources))assert.equal(hashes[name],hash);
@@ -225,6 +227,18 @@ try{
   };
   const client=await build({stdin:{contents:`
     import {openLocalWorkspace,LOCAL_WORKSPACE_DATABASE} from './apps/web/src/lib/local-workspace-repository';
+    import {armRegisterAccount,clearRegisterAccount,readRegisterAccount} from './apps/web/src/lib/register-device-account';
+    import {approveWorkspaceDevice,workspaceDevice} from './apps/web/src/lib/workspace-device';
+    import {readWorkspaceSlot} from './apps/web/src/lib/workspace-device-slots';
+    window.connectWorkspace=async (context, approve=false)=>{
+      const generation=await armRegisterAccount(context.subject);
+      if(approve)await approveWorkspaceDevice(context,generation);
+      window.connection=new AbortController();
+      window.device=workspaceDevice(context,generation,window.connection.signal);
+    };
+    window.leaveAccount=subject=>clearRegisterAccount(subject,()=>{window.providerSignedOut=true;});
+    window.inspectAccount=()=>readRegisterAccount();
+    window.inspectSlot=context=>readWorkspaceSlot(context);
     window.openWorkspace=async scope=>{window.repository=await openLocalWorkspace(scope)};
     window.inspectStorage=async()=>{
       const db=await new Promise((resolve,reject)=>{
@@ -254,7 +268,31 @@ try{
       } finally {db.close()}
     };
   `,resolveDir:root},bundle:true,platform:'browser',write:false});
-  server=createServer((req,res)=>{
+  const browserCalls=[], browserPageDatasets=[];
+  let intercept;
+  server=createServer(async(req,res)=>{
+    if(req.url==='/api/workspace-download'||req.url==='/api/workspace-key'){
+      try {
+        const chunks=[];
+        for await(const chunk of req) chunks.push(chunk);
+        const body=Buffer.concat(chunks).toString('utf8');
+        const command=JSON.parse(body);
+        const call={action:command.action,seen:command.receipt?.payload?.seen??null};
+        browserCalls.push(call);
+        if(call.action==='page') browserPageDatasets.push(command.receipt.payload.dataset);
+        const invoke=async()=>{
+          const headers=new Headers({...req.headers,origin:stage});
+          const request=new NextRequest(stage+req.url,{method:'POST',headers,body});
+          return (req.url==='/api/workspace-key'?keyPost:POST)(request);
+        };
+        const response=await (intercept?intercept(call,invoke):invoke());
+        if(!res.destroyed){
+          res.writeHead(response.status,{'content-type':response.headers.get('content-type')??'text/plain'});
+          res.end(await response.text());
+        }
+      } catch {if(!res.destroyed)res.writeHead(500).end();}
+      return;
+    }
     if(req.url==='/fixture.js'){
       res.setHeader('content-type','text/javascript');res.end(client.outputFiles[0].text);return;
     }
@@ -431,6 +469,133 @@ try{
   await db({action:'suspend',academy:work.academy});
   assert.equal((await keyRequest(recover)).status,403);
   pass('A suspended Owner cannot receive workspace key material from the real signed database boundary');
+  const connected=await db({action:'make',size:56,calendar:true,unregistered:true});
+  const context={subject:'user_owner',academy:connected.academy};
+  const sync=(page=tab,priority='people')=>page.evaluate(priority=>window.device.sync('2099-11-01',priority),priority);
+  const read=(page=tab,collection='people')=>page.evaluate(collection=>window.device.read(collection),collection);
+  await tab.evaluate(context=>window.connectWorkspace(context),context);
+  assert.equal((await sync()).kind,'approval_required');
+  assert.equal(await read(),null);
+  assert.deepEqual(browserCalls,[]);
+  await tab.evaluate(context=>window.connectWorkspace(context,true),context);
+  const follower=await browser.newPage();
+  await follower.goto(local);
+  await follower.evaluate(context=>window.connectWorkspace(context),context);
+  let seenHeld,releaseHeld;
+  const held=new Promise(resolve=>{seenHeld=resolve;});
+  const released=new Promise(resolve=>{releaseHeld=resolve;});
+  intercept=async(call,invoke)=>{
+    if(call.action==='page'&&call.seen===25) {
+      seenHeld();
+      const response=await invoke();
+      await released;
+      return response;
+    }
+    return invoke();
+  };
+  const abandoned=sync().then(result=>({result}),error=>({error}));
+  await Promise.race([held,abandoned.then(()=>{throw new Error('Leader finished before the held page');})]);
+  assert.equal((await sync(follower)).kind,'following');
+  assert.deepEqual(browserCalls.map(call=>call.action),['prepare','manifest','page','page']);
+  assert.equal(await read(follower),null);
+  await tab.evaluate(()=>window.connection.abort());
+  const stopped=await abandoned;
+  assert.match(String(stopped.error),/AbortError/);
+  intercept=undefined;
+  releaseHeld();
+  const resumeStart=browserCalls.length;
+  const resumedWork=await sync(follower);
+  assert.equal(resumedWork.kind,'current');
+  assert.deepEqual(browserCalls.slice(resumeStart, resumeStart+3),[
+    {action:'manifest',seen:null},{action:'page',seen:25},{action:'page',seen:50},
+  ]);
+  assert.equal((await read(follower)).count,56);
+  pass('Explicit device approval gates requests, one leader owns transport, and the next tab resumes its saved page after cancellation');
+
+  await tab.evaluate(context=>window.connectWorkspace(context),context);
+  const unchangedStart=browserCalls.length;
+  assert.equal((await sync()).pages,0);
+  assert.deepEqual(browserCalls.slice(unchangedStart),[{action:'manifest',seen:null}]);
+  await read();
+  await read(follower,'calendar:2099-11');
+  assert.deepEqual(browserCalls.slice(unchangedStart),[{action:'manifest',seen:null}]);
+  pass('Reopening compatible coverage checks one manifest and serves directory and Calendar interactions without further requests');
+
+  await db({action:'workspace_context_change',academy:connected.academy});
+  assert.equal((await sync()).kind,'rebuild_required');
+  assert.equal(await read(follower),null);
+  const pagePriorityStart=browserPageDatasets.length;
+  assert.equal((await sync(tab,'calendar')).kind,'current');
+  assert.equal(browserPageDatasets[pagePriorityStart],'calendar');
+  assert.equal((await read()).count,56);
+  pass('A changed scope retires old coverage before rebuilding and a Calendar entry downloads its current month first');
+
+  state.subject=null;
+  await assert.rejects(sync(),/workspace_session_missing/);
+  assert.equal((await read()).count,56);
+  state.subject='user_owner';
+  intercept=()=>new Response('<html>Edge refusal</html>',{status:403,headers:{'content-type':'text/html'}});
+  await assert.rejects(sync(),/workspace_transient/);
+  assert.equal((await read()).count,56);
+  intercept=undefined;
+  await db({action:'suspend',academy:connected.academy});
+  assert.equal((await sync()).kind,'denied');
+  assert.equal(await read(follower),null);
+  assert.equal(await tab.evaluate(context=>window.inspectSlot(context),context),null);
+  pass('An absent session and an HTML edge refusal preserve coverage while verified Owner denial retires the slot and its data');
+
+  const large=await db({action:'make',size:326,unregistered:true});
+  const largeContext={subject:context.subject,academy:large.academy};
+  await tab.evaluate(context=>window.connectWorkspace(context,true),largeContext);
+  let budgetStart=browserCalls.length;
+  const paused=await sync();
+  assert.equal(paused.kind,'partial');
+  assert.equal(paused.pages,12);
+  assert.equal(await read(),null);
+  assert.deepEqual(browserCalls.slice(budgetStart).map(call=>call.action),['prepare','manifest',...Array(12).fill('page')]);
+  intercept=async(call,invoke)=>{
+    if(call.action==='page'&&call.seen===300) {
+      intercept=undefined;
+      return Response.json({data:{error:'expired'}});
+    }
+    return invoke();
+  };
+  budgetStart=browserCalls.length;
+  assert.equal((await sync()).kind,'current');
+  assert.deepEqual(browserCalls.slice(budgetStart,budgetStart+5),[
+    {action:'manifest',seen:null},{action:'page',seen:300},{action:'resume',seen:300},
+    {action:'page',seen:300},{action:'page',seen:325},
+  ]);
+  assert.equal((await read()).count,326);
+  pass('A bounded pass checkpoints 12 pages and renews only the expired receipt before continuing its prefix');
+
+  const lateKey=await db({action:'make',size:4,unregistered:true});
+  const lateContext={subject:context.subject,academy:lateKey.academy};
+  await follower.evaluate(context=>window.connectWorkspace(context,true),lateContext);
+  let keyHeld,keyRelease;
+  const pendingKey=new Promise(resolve=>{keyHeld=resolve;});
+  const releaseKey=new Promise(resolve=>{keyRelease=resolve;});
+  intercept=async(call,invoke)=>{
+    const response=await invoke();
+    if(call.action==='prepare'){keyHeld();await releaseKey;}
+    return response;
+  };
+  const staleKeyAttempt=sync(follower).then(result=>({result}),error=>({error}));
+  await Promise.race([pendingKey,staleKeyAttempt.then(()=>{throw new Error('Key request finished before the held reply');})]);
+  try {
+    await tab.evaluate(subject=>window.leaveAccount(subject),context.subject);
+    assert.equal(await tab.evaluate(()=>window.providerSignedOut),true);
+    assert.equal(await tab.evaluate(()=>window.inspectAccount()),null);
+    assert.equal(await tab.evaluate(context=>window.inspectSlot(context),largeContext),null);
+    assert.equal(await tab.evaluate(context=>window.inspectSlot(context),lateContext),null);
+    assert.equal((await tab.evaluate(()=>window.inspectStorage())).pageCount,0);
+  } finally {intercept=undefined;keyRelease();}
+  const obsolete=await staleKeyAttempt;
+  assert.match(String(obsolete.error),/workspace_scope_changed/);
+  await assert.rejects(read(follower),/scope_changed/);
+  pass('Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network');
+  metrics.workspaceDevice={firstRequests:['prepare','manifest','page'],interruptedAt:25,renewedAt:300,pagesPerPass:12,
+    unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
     platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping and Chromium WebCrypto/IndexedDB. Fictional Clerk, limiter and PostgREST wire. No hosted data, device or latency percentile claim.'}},null,2)+'\n');

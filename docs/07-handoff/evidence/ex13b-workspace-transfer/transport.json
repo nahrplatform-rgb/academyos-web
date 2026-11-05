@@ -6,8 +6,12 @@
     "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
     "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
     "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
-    "apps/web/src/lib/local-workspace-repository.ts": "cce442ff4f74ef3a353a57a66c062db6b7a24086f1e2d27214c05002dbcab575",
+    "apps/web/src/lib/local-workspace-repository.ts": "ff9a18195337e2864abe682ea80fc97040fdfe6cd08f58d96233c9842f460040",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/register-device-account.ts": "f485b22ae1ba1e823b484b7e2ad14dfa72eca887913e2f801eb41497a6280ba2",
+    "apps/web/src/lib/workspace-device-slots.ts": "7e2f90dc7169f76dabb1dc2d89a9db12faf6d68b2090e98b4507d01ab8a83535",
+    "apps/web/src/lib/workspace-device.ts": "2bf13d5a89ebece1605bc9125cc6296b146886cf95add6aac49925b8014eb55e",
+    "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
     "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
@@ -15,8 +19,8 @@
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "f11f4b5902921e0d3ee75f023f3d7d0b661241b21052e7c75cb39d8b641ea196",
-    "scripts/workspace-download/bridge.py": "3d3587a0d51958d028924c092899c5af7bce87cc8dd6dfd82999b6b689d4e889",
+    "scripts/workspace-download/test_transport.mjs": "b2e5d6b1a7afb0d86aca12c1bf07f62903d980916add593ce103412c4a4cf5de",
+    "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
   },
   "checks": [
@@ -37,7 +41,13 @@
     "Missing staged ciphertext cannot finalize and the previous completed generation remains readable",
     "Thirty-day read cleanup is measured from the dataset verification and a key release cannot extend it",
     "Retiring the namespace removes read ciphertext and its browser key and fences late work in a second tab",
-    "A suspended Owner cannot receive workspace key material from the real signed database boundary"
+    "A suspended Owner cannot receive workspace key material from the real signed database boundary",
+    "Explicit device approval gates requests, one leader owns transport, and the next tab resumes its saved page after cancellation",
+    "Reopening compatible coverage checks one manifest and serves directory and Calendar interactions without further requests",
+    "A changed scope retires old coverage before rebuilding and a Calendar entry downloads its current month first",
+    "An absent session and an HTML edge refusal preserve coverage while verified Owner denial retires the slot and its data",
+    "A bounded pass checkpoints 12 pages and renews only the expired receipt before continuing its prefix",
+    "Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network"
   ],
   "metrics": {
     "initialPeople": {
@@ -52,8 +62,21 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 14.090457999999671,
+      "elapsedMs": 39.667875000000095,
       "operatingRequests": 0
+    },
+    "workspaceDevice": {
+      "firstRequests": [
+        "prepare",
+        "manifest",
+        "page"
+      ],
+      "interruptedAt": 25,
+      "renewedAt": 300,
+      "pagesPerPass": 12,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "coveredLocalRequests": 0
     }
   },
   "environment": {

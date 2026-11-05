@@ -1,4 +1,5 @@
 import {cleanRegisterAccountSlots, type RegisterContext} from './register-device-slots';
+import {cleanWorkspaceAccountSlots} from './workspace-device-slots';
 import {identifier, record, refuse} from './local-register-codec';
 
 export const REGISTER_ACCOUNT_KEY = 'academyos.register-account.v1';
@@ -72,7 +73,11 @@ export function clearRegisterAccount(subject:string, finish?:()=>Promise<unknown
     }
     // Fence first so tabs and a cold offline shell mask all of this account.
     update({subject,generation:crypto.randomUUID(),mode:'ending',selection:null});
-    await cleanRegisterAccountSlots(subject);
+    const cleanup = await Promise.allSettled([
+      cleanRegisterAccountSlots(subject),
+      cleanWorkspaceAccountSlots(subject),
+    ]);
+    if (cleanup.some(result => result.status === 'rejected')) refuse('prepared_account_cleanup_incomplete');
     if (finish) await finish();
     update(null);
   });

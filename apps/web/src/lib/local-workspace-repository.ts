@@ -370,5 +370,21 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
     catch(error){close();throw error;}
   }
 
-  return {activate,begin,checkpoint,renew,append,complete,refresh,read,retire,close};
+  function acceptsScope(serverScope: string) {
+    return transact('readonly', async t => {
+      const owner = await active(t);
+      return owner.serverScope === undefined || owner.serverScope === serverScope;
+    });
+  }
+  function hasKey() {
+    return transact('readonly', async t => {
+      const current = await control(t);
+      if (current?.fence !== fence || current?.retiring) refuse('workspace_scope_changed');
+      if (!current?.key) return false;
+      checkLocalKey(current.key);
+      return true;
+    });
+  }
+
+  return {activate,begin,checkpoint,renew,append,complete,refresh,read,retire,close,acceptsScope,hasKey};
 }

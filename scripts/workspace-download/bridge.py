@@ -80,6 +80,10 @@ def execute(test, command):
         program = literal(command['program'])
         test.sql(f"update academy.training_programs set definition=jsonb_set(definition,'{{name}}',to_jsonb('Synthetic changed title'::text))where id={program}")
         return True
+    if action == 'workspace_context_change':
+        academy = literal(command['academy'])
+        test.sql(f"update academy.academies set name='Synthetic changed academy' where id={academy}")
+        return True
     if action in ('rename', 'suspend'):
         academy = command['academy']
         if not isinstance(academy, str):

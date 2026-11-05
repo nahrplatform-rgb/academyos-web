@@ -44,11 +44,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-13: Normal local-first Owner Players and Calendar before app-wide adoption
 
-Next action: Continue EX-13B normal-workspace integration from the passed repository checkpoint. Wire the scoped personal-device slot, shared account/logout/denial fence, abortable transfer and one resumable cross-tab sync leader. Connect normal Owner Players and Calendar with task-first preparation, quiet refresh, missing coverage and public offline boot. Measure local actions0 operating requests, unchanged0 pages, stable context and first/repeat startup before separately verifying staging. Preserve register originals and the full-app adoption sequence. Do not redo transfer or wrapping research.
+Next action: Continue EX-13B in the normal Owner Players and Calendar routes using workspace-device. Add verified shared account/device entry, task-first local projection reads, automatic bounded preparation and quiet refresh with stable search/selection/period. Reconstruct these exact routes from a public offline shell plus protected scoped context. Check EN/AR, uncovered periods, reconnect, denial and logout. Measure normal-route covered interactions0 requests and unchanged0 pages, then verify staging separately. Preserve register originals, online command rules and full-app adoption. Do not repeat transfer/key/repository/device coordination work.
 
-Scoped dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline, EX-13B bounded server transfer and protected repository/custody fixture passed. Advance through normal-route startup, coordinated lifecycle and actual request/continuity checks before expanded staging activation. Whole-app working acceptance stays open.
+Scoped dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline and EX-13B local transfer/repository/device lifecycle checkpoints recorded. Current gate is verified normal-route Players/Calendar continuity, progressive scheduling and offline startup. Expanded hosted activation and whole-app working acceptance remain separate.
 
-Read: `docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md`
+Read: `docs/07-handoff/ex13b-workspace-lifecycle-checkpoint-2026-11-05.md`
 
 ## Ordered primary checkpoints
 
@@ -208,18 +208,18 @@ Design: Connected designs and one-register personal-device scope/current-Owner r
 
 Routing: primary / 8 / current.
 Dependencies: EX-04; EX-06; EX-09; EX-11.
-Dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline, EX-13B bounded server transfer and protected repository/custody fixture passed. Advance through normal-route startup, coordinated lifecycle and actual request/continuity checks before expanded staging activation. Whole-app working acceptance stays open.
+Dependency gate: EX-12 and scoped EX-11 passed. EX-13A baseline and EX-13B local transfer/repository/device lifecycle checkpoints recorded. Current gate is verified normal-route Players/Calendar continuity, progressive scheduling and offline startup. Expanded hosted activation and whole-app working acceptance remain separate.
 Findings: NR01; NR02; NR03; NR04; NR07; NR08; NR13; NR14; NR15; NR17; G01; G03; G06; G08; G09.
 Design: Normal-workspace/read design retained. Owner5November requests the full app including settings/finance/future modules; named Players/month projection is the first slice. Exact first collection/storage/sync specification recorded; no new writer or business rules..
 
-- Implementation: EX-13A baseline and EX-13B transfer preserved. Separate closed workspace key release and typed encrypted repository implemented locally. Device lifecycle/sync owner and normal-route UI/offline startup remain.
-- Local checks: 21 disposable PG boundary cases retained. Extended 18 actual handler/SDK/gateway/PG/Chromium checks pass including real scoped wrapping, 1000-player restart and local search, unchanged manifest, Calendar overlap, quota abort, missing ciphertext, cross-tab fencing and 30-day cleanup. Account-wide integration, device/hosted/cost evidence remain.
-- Deployment: Prior backend c616816 passed both CI runs and automatic preview. Staging alias observed on cb00ab8. Workspace schema unapplied and both gates default closed.
+- Implementation: EX-13A baseline and EX-13B transfer/repository retained. Personal-device slot, shared account fence and resumable cross-tab sync coordinator implemented. Normal-route UI, automatic scheduling and offline startup remain.
+- Local checks: 24 actual handler/SDK/gateway/PostgreSQL/Chromium checks include device approval, leader handoff, unchanged one-manifest/zero pages, bounded resume, changed scope, access denial and logout fencing. Existing 8-case attendance startup and pending-original recovery passed. Normal route, hosted and device evidence remain.
+- Deployment: Prior repository 7f9bd76 passed both CI runs. Last verified staging alias serves cb00ab8. Expanded workspace schema is unapplied and gates default closed.
 - Hosted verification: Scoped cb00ab8 Owner observations record Setup to Players document navigation and same-document Calendar/Players rechecks. Other role/write/device and cost samples remain open. Expanded private datasets are unexecuted.
 - Owner acceptance: Full-app local-first direction and starting projection response recorded5November;working Players/month acceptance pending.
 - Independent security: Deferred by Owner4November for authorized synthetic staging;nonblocking,not performed.
-- Next action: Continue EX-13B normal-workspace integration from the passed repository checkpoint. Wire the scoped personal-device slot, shared account/logout/denial fence, abortable transfer and one resumable cross-tab sync leader. Connect normal Owner Players and Calendar with task-first preparation, quiet refresh, missing coverage and public offline boot. Measure local actions0 operating requests, unchanged0 pages, stable context and first/repeat startup before separately verifying staging. Preserve register originals and the full-app adoption sequence. Do not redo transfer or wrapping research.
-- Evidence: docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md
+- Next action: Continue EX-13B in the normal Owner Players and Calendar routes using workspace-device. Add verified shared account/device entry, task-first local projection reads, automatic bounded preparation and quiet refresh with stable search/selection/period. Reconstruct these exact routes from a public offline shell plus protected scoped context. Check EN/AR, uncovered periods, reconnect, denial and logout. Measure normal-route covered interactions0 requests and unchanged0 pages, then verify staging separately. Preserve register originals, online command rules and full-app adoption. Do not repeat transfer/key/repository/device coordination work.
+- Evidence: docs/07-handoff/ex13b-workspace-lifecycle-checkpoint-2026-11-05.md
 
 ### EX-07 — Remaining Operations adoption and app-wide workflow continuity
 

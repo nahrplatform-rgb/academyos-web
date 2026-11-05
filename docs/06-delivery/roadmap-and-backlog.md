@@ -6,7 +6,7 @@
 
 **Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
 
-**Current direction — 5 November 2026:** The [EX-13B repository checkpoint](../07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) advances to scoped device lifecycle, quiet sync and normal Owner Players/Calendar. EX-07 follows with normal-route Attendance, Operations adoption and whole-app continuity checks. [Tracker](experience-execution.csv).
+**Current direction — 5 November 2026:** The [EX-13B device lifecycle](../07-handoff/ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) advances to normal Owner Players/Calendar and offline startup. EX-07 follows with normal-route Attendance, Operations adoption and whole-app continuity checks. [Tracker](experience-execution.csv).
 
 ## Latest local-first direction — LF-v3,2November2026
 

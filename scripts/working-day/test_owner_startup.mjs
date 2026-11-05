@@ -17,7 +17,8 @@ const sources=[
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
   ...['attendance-workspace','workspace-shell','prepared-register-panel','prepared-register-startup','register-account-context','register-account-boundary']
     .map(name=>`apps/web/src/components/${name}.tsx`),
-  ...['owner-register-pilot','register-device-account','register-device-slots','register-public-shell','local-register-repository','config']
+  ...['owner-register-pilot','register-device-account','register-device-slots','register-public-shell','local-register-repository','config',
+    'workspace-device-slots','local-workspace-repository']
     .map(name=>`apps/web/src/lib/${name}.ts`),
   'supabase/migrations/20261104013632_owner_register_bound_transport.sql',
 ];

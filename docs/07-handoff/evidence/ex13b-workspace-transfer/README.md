@@ -1,6 +1,6 @@
 # EX-13B backend evidence
 
-Fictional disposable PostgreSQL17 and actual local app transport and Chromium repository. Read the [checkpoint](../../ex13b-workspace-transfer-checkpoint-2026-11-05.md) for scope, current source, authority and open client/hosted work.
+Fictional disposable PostgreSQL17 and actual local app transport and Chromium repository. Read the [device lifecycle checkpoint](../../ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) and the [original transfer checkpoint](../../ex13b-workspace-transfer-checkpoint-2026-11-05.md) for scope, current source, authority and open client/hosted work.
 
 - `database.json`: final SQL-suite result and migration/test hashes.
 - `snapshot-interleaving.json`: observed writer commit between read metadata and row access; production STABLE versus fixture-only VOLATILE negative control. No production function change remains.
