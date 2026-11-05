@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13A: [refresh baseline and first dataset specification](../../docs/07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) update action/loading evidence and the full-app local-data scope. App UI/test capture inputs remain unchanged; rebuild the inventory from the existing capture pack. These current captures do not demonstrate new Players/month persistence or a fixed refresh behavior.
+
 4November role/offline checkpoint: [actual role separation and offline preparation](../../docs/07-handoff/role-first-offline-sequence-2026-11-04.md) now records Gmail Platform-only and iCloud Owner A/B, exact audited history-preserving cleanup, applied register schema and staging-only configuration. App UI/source is unchanged in this operator/tooling batch; existing capture fingerprints remain current. No private pilot capture or actual offline runtime acceptance is inferred from this factual HTML. SDR-06 supplies standing synthetic-trial test authority; Owner-only promotions remain.
 
 Current EX-07 [Owner Calendar Operations checkpoint](../../docs/07-handoff/operations-owner-calendar-checkpoint.md) follows the verified Platform release. It adds the selected weekly-board/adaptive-agenda composition and real session context with unchanged authoritative reads/commands. Local/CI/rollout/hosted/working acceptance remain separate; Today and the completed Platform checkpoint are preserved.

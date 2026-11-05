@@ -1,5 +1,7 @@
 # Local-data pilot: the choices and the connected review
 
+**5 November successor:** use the [first Owner dataset contract](../04-engineering/owner-workspace-dataset-contract.md), [EX-13A checkpoint](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) and [full-app adoption map](local-data-and-sync-plan.md#full-app-adoption--5-november-2026). The Owner's response to the exact first-field proposal requests the full experience, including settings, finance and future modules. Names/branches and three month grids are the starting tranche, not the final app boundary. Earlier passphrase/24-hour/idle-lock, optional-only adjacent preparation and general pending-first-scope statements below are historical; the latest normal-sign-in, no-idle-lock, 30-day/logout and automatic-preparation contracts govern. Do not re-ask the entire bundle.
+
 2 November 2026. **Connected read/preparation design approved; no inactivity lock; latest offline-edit direction and30day/logout retention recorded. Remaining exact field/device/key and per-command choices are pending.** This prepares the current EX-10 checkpoint from [LF-v2](local-data-and-sync-plan.md). The Owner already requested records that survive reopening, progressive player/month preparation and quiet synchronization. That direction is settled. The decisions below concern the narrower privacy and device boundaries; they do not ask whether to keep data merely in tab memory.
 
 ## Owner response — 2 November 2026

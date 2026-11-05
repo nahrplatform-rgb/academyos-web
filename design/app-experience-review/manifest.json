@@ -1,6 +1,6 @@
 {
-  "source": "dfd34682695ada4d8f38b8c867537822370de0dc",
-  "generatedAt": "2026-11-04T22:03:50.985Z",
+  "source": "43c0c9f4fbac24e6a6bc3c56d02782d2c47a4fcb",
+  "generatedAt": "2026-11-05T00:13:48.187Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -80,9 +80,9 @@
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
-    "docs/03-design/screen-data-loading-matrix.csv": "54d9903656c9f93f6f5d9c65bd80067ce70de07655c490aa765bdb21b185339b",
+    "docs/03-design/screen-data-loading-matrix.csv": "9b77896472069aef5395e8426ad9ef804007dfab35a9235287d17f553c675583",
     "docs/04-engineering/journey-security-matrix.csv": "18004174e6ddffdd172f2ed28bb86d456b8da544a2469958ab7e84ab777db3ac",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "02588466cb9e2aa4a0a6ba8c2f56a6e4772319a17b197eb57f98b1830bbe5b9f",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "0a377b480504de5af5c10ae1a235cd848760b76f5e112d12848f5c805a034208",
     "docs/06-delivery/app-implementation-requirement-links.csv": "177e8d0da01a33dca391eda61012839f34eb6279aa5287b6af60e424dde4709d",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
     "scripts/attendance/test_ui.mjs": "791f74ee3452a8d71b414b46b68c06afbe6b00988168566a24e9372920f876ee",
@@ -109,7 +109,7 @@
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
   "capturePackSha256": "65be1fd737e997b2f4b16073aee5375e929fe560c91b6dd0c564bd30a5273a0a",
-  "htmlSha256": "49fdb61f2a0691ab1cb868e99ef0ad71b8358735c510460e3083b3885b88d3fd",
+  "htmlSha256": "30e14bfc058849af89aa7fc57e2831711653dd28bed4d03fcbf4c3d38a41ac10",
   "frames": 1189,
   "transitions": 1163,
   "sourceFiles": 76,

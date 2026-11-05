@@ -111,6 +111,8 @@ for case in cases:
 assert covered == behaviours, f'Unmapped working behaviour: {behaviours - covered}'
 assert {f'WD-{i:02}' for i in range(33, 51)} <= {case['case_id'] for case in cases}, 'Persistent-local acceptance cases missing'
 assert {f'WD-{i:02}' for i in range(51, 58)} <= {case['case_id'] for case in cases}, 'Offline-edit/conflict planned cases missing'
+assert {f'WD-{i:02}' for i in range(58, 68)} <= {case['case_id'] for case in cases}, 'Normal-workspace acceptance cases missing'
+assert {f'WD-{i:02}' for i in range(68, 72)} <= {case['case_id'] for case in cases}, 'Refresh regression cases missing'
 assert (ROOT / 'docs/04-engineering/offline-edit-and-conflict-contract.md').is_file(), 'Offline command decision/design contract missing'
 for path in ['AGENTS.md', 'README.md', 'docs/06-delivery/app-implementation-plan.md',
              'docs/06-delivery/roadmap-and-backlog.md', 'docs/06-delivery/full-experience-redesign.md',

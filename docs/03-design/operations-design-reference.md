@@ -96,7 +96,7 @@ The complete connected **working** review remains required across this scope. Ba
 
 ## Next execution and reconciliation receipt
 
-The [single tracker](../06-delivery/experience-execution.csv) selects **EX-07 Operations adoption** with **EX-12 dedicated-role preflight/verification** alongside it. Complete Platform Owner and Academy Owner journeys first, using the role plan and current permitted fictional records; then extend shared patterns across other implemented roles. Preserve completed EX-10/02/06/04/03 checkpoints. EX-11 retains actual private working-day evidence, EX-09 concrete custody/authority readiness and EX-05/08 measurements. Independent reviewer assignment/disposition is deferred and is not a staging dependency. No offline acceptance or account mutation is inferred.
+The [single tracker](../06-delivery/experience-execution.csv) selects EX-13 now, then the remaining EX-07 adoption. Preserve the separated role contexts and shipped Operations work. The [normal-workspace contract](../06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) governs automatic preparation and stable task behavior. Compare both presentation and continuity in each affected journey.
 
 See [the reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) for changed documents, source limits and verification. The reusable instruction stays **“Continue from the living continuation prompt.”** Its generated current priority must reflect this route.
 

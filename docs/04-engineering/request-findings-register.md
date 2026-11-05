@@ -1,5 +1,9 @@
 # Whole-app findings and coverage register
 
+**EX-13A expansion — 5 November:** [15-family local measurement and dataset specification](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) retain controlled actual-component traces and exact source/tool hashes. This is baseline evidence, not a runtime fix or whole-finding closure. EX-13B now starts coherent versioned transfer before normal Players/Calendar integration; EX-07 applies continuity to the remaining journeys.
+
+**5 November refresh evidence:** Signed-in staging confirmed a full document load from the Setup → Players shortcut and same-document rechecks on Calendar and Players. Local controlled runs verified route screen mounts, response-time masking and the attendance receipt-to-reread path. The [refresh baseline](../07-handoff/refresh-root-causes-2026-11-05.md) maps source triggers to WD-58 and WD-68–WD-71. EX-13A continues the remaining route/action measurements and exact dataset contracts. EX-13B and EX-07 verify the fixes in their scoped order. Earlier results and open findings retain their evidence boundaries.
+
 **Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
 
 ## Persistent local data and synchronization — LF-v2,2November2026

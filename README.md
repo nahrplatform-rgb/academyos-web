@@ -1,5 +1,7 @@
 # AcademyOS application foundation
 
+**Current delivery:** EX-13 proves the normal local-first Owner Players and Calendar experience before the remaining app-wide continuity and Operations work. [normal-workspace contract](docs/06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) · [Living continuation](docs/06-delivery/continue-academyos.md).
+
 **Latest execution order4November:** [Role-first/offline checkpoint](docs/07-handoff/role-first-offline-sequence-2026-11-04.md) selects EX-12 isolated accounts/exact cleanup, then EX-11 working private register pilot, EX-13 progressive Players/month data, then remaining EX-07 redesign. Retain completed Operations work; actual access/activation/promotion authority and separate evidence remain. Older same-day EX-07-first notes below are superseded.
 
 AI delivery method: follow the [bounded Sol/Terra policy](docs/00-governance/ai-delegation-and-cost-policy.md). Scripts first; zero/one Terra helper by default, maximum two active subagents, no nested spawning; coordinator retains decisions/integration and actual evidence. This changes delivery method, not product/access authority or the current tracked priority.
