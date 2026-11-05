@@ -1,3 +1,4 @@
+import {ownerWorkspaceEnabled} from '@/lib/config';
 import { auth } from '@clerk/nextjs/server';
 import { notFound } from 'next/navigation';
 import ExperienceWorkspace from '@/components/experience-workspace';
@@ -7,5 +8,5 @@ export const dynamic='force-dynamic';
 export default async function Page({params,searchParams}:{params:Promise<{locale:string;academy:string}>;searchParams:Promise<{anchor?:string|string[]}>}){
  await auth.protect();const {locale,academy}=await params;if(!uuidPattern.test(academy))notFound();
  const {anchor}=await searchParams;
- return <ExperienceWorkspace locale={locale} academy={academy} role="owner" calendar anchor={isCivilDay(anchor)?anchor:undefined}/>;
+ return <ExperienceWorkspace prepared={ownerWorkspaceEnabled(process.env)} locale={locale} academy={academy} role="owner" calendar anchor={isCivilDay(anchor)?anchor:undefined}/>;
 }

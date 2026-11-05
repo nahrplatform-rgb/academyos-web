@@ -6,22 +6,36 @@
     "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
     "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
     "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
-    "apps/web/src/lib/local-workspace-repository.ts": "ff9a18195337e2864abe682ea80fc97040fdfe6cd08f58d96233c9842f460040",
+    "apps/web/src/lib/local-workspace-repository.ts": "f399347c37acdcb549a25ef640447c02ebfd7c2e68543a368f310933a3edac06",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
     "apps/web/src/lib/register-device-account.ts": "f485b22ae1ba1e823b484b7e2ad14dfa72eca887913e2f801eb41497a6280ba2",
     "apps/web/src/lib/workspace-device-slots.ts": "7e2f90dc7169f76dabb1dc2d89a9db12faf6d68b2090e98b4507d01ab8a83535",
-    "apps/web/src/lib/workspace-device.ts": "2bf13d5a89ebece1605bc9125cc6296b146886cf95add6aac49925b8014eb55e",
+    "apps/web/src/lib/workspace-device.ts": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
     "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
     "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
-    "apps/web/src/lib/config.ts": "b8d7d5b92bbfde395ca9d83c4ce122562597177b038fee48c45eefe95df857ac",
+    "apps/web/src/lib/config.ts": "abf3610ecf814d136d69600e2096105521d155996a25f9ccacf4d63f4a691bd5",
     "apps/web/src/lib/experience-format.ts": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "b2e5d6b1a7afb0d86aca12c1bf07f62903d980916add593ce103412c4a4cf5de",
+    "scripts/workspace-download/test_transport.mjs": "d701b0477582bcba9ff0b8077fc3413f7f96e399a2197d74b8456149fbf4475e",
     "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
-    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
+    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
+    "scripts/workspace-download/normal_workspace.mjs": "2906280f1284d8f9a25fbc1b665b33a6445c74a432df9ac8f5b7d40bd560a874",
+    "apps/web/public/prepared-workspace-worker.js": "8ff71436d6fa948ca1468d1a61a9c80f43c56305f2d00b8aa5565eeaeac5b404",
+    "apps/web/src/lib/workspace-public-shell.ts": "c3ee694ab01939845bd1071d51ba5b8ba655ab1a0ddda4aa1f4d8eadca2341ac",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "7212bce4a0c1d62a26933592b9be138ec73771d3a9067409d45c539bed54f194",
+    "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
+    "apps/web/src/components/people-workspace.tsx": "5904b072b20e11cc6bb4ddee4fcf410746dbece0163262f701081ab4de2301ca",
+    "apps/web/src/components/experience-workspace.tsx": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
+    "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
+    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/app/[locale]/layout.tsx": "8b0367d49e55653cfd955b3da2b63ad7a1bf07483480c0b486795bdccccc3037",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+    "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
   },
   "checks": [
     "Closed default performs zero authentication, limiter and database calls",
@@ -47,7 +61,14 @@
     "A changed scope retires old coverage before rebuilding and a Calendar entry downloads its current month first",
     "An absent session and an HTML edge refusal preserve coverage while verified Owner denial retires the slot and its data",
     "A bounded pass checkpoints 12 pages and renews only the expired receipt before continuing its prefix",
-    "Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network"
+    "Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network",
+    "Normal Owner Players opens before device preparation and switches to the protected directory",
+    "Normal Players search and summary open use zero requests and full profile uses one online read",
+    "Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection",
+    "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
+    "Reconnecting the offline document returns to verified online data and applies a changed player",
+    "Logout removes prepared coverage from the normal offline route before another verified preparation",
+    "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial"
   ],
   "metrics": {
     "initialPeople": {
@@ -62,7 +83,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 39.667875000000095,
+      "elapsedMs": 13.007415999998557,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -77,6 +98,17 @@
       "unchangedManifestRequests": 1,
       "unchangedDatasetPages": 0,
       "coveredLocalRequests": 0
+    },
+    "normalWorkspace": {
+      "baselinePlayersReads": 1,
+      "coveredPlayersRequests": 0,
+      "fullProfileReads": 1,
+      "coveredCalendarRequests": 0,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "offlineOperatingRequests": 0,
+      "offlineRoutePayloadRequests": 0,
+      "fullBrowserRestart": true
     }
   },
   "environment": {
@@ -84,6 +116,6 @@
     "platform": "darwin",
     "architecture": "arm64",
     "browser": "156.0.8078.4",
-    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping and Chromium WebCrypto/IndexedDB. Fictional Clerk, limiter and PostgREST wire. No hosted data, device or latency percentile claim."
+    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim."
   }
 }

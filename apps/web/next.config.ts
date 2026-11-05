@@ -12,6 +12,7 @@ const config: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
         ],
       },
+      { source: "/prepared-workspace", headers: [{ key: "X-AcademyOS-Public-Shell", value: "workspace-v1" }] },
       { source: "/prepared-register", headers: [{ key: "X-AcademyOS-Public-Shell", value: "register-v1" }] },
       { source: "/api/webhooks/clerk-email", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
       { source: "/:locale/invitation", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },

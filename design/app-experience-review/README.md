@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+5 November EX-13B. The [normal Players and Calendar checkpoint](../../docs/07-handoff/ex13b-normal-workspace-checkpoint-2026-11-05.md) has separate Chromium evidence for the gated prepared-device and offline states. The factual HTML refreshes the normal product captures and source inventory. Its default captures omit those gated states.
+
 5 November EX-13B follow-on. The [protected repository checkpoint](../../docs/07-handoff/ex13b-workspace-repository-checkpoint-2026-11-05.md) adds isolated key and storage evidence. The capture inventory retains the existing rendered experience.
 
 5 November EX-13B: [closed workspace-transfer evidence](../../docs/07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) updates action/loading inventory links. UI/copy/rendered capture inputs are unchanged; rebuild inventory only. Existing captures do not demonstrate the new backend, protected dataset storage or normal-route offline behavior.

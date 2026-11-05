@@ -62,3 +62,12 @@ export function offlineRegisterPilotEnabled(env: Record<string,string|undefined>
     env.LOCAL_REGISTER_DISPATCH_ENABLED==='true' && /^[a-f0-9]{64}$/.test(env.LOCAL_REGISTER_WRAP_KEY_V1??'') &&
     env.LOCAL_REGISTER_WRAP_KEY_V1!==env.ONBOARDING_PROOF_KEY;
 }
+
+
+/** Normal device workspace stays closed until its own staging activation. */
+export function ownerWorkspaceEnabled(env: Record<string,string|undefined>) {
+  const root=env.LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1;
+  return env.APP_ENV==='staging' && env.OWNER_WORKSPACE_PILOT_ENABLED==='true' &&
+    env.OWNER_WORKSPACE_TRANSFER_ENABLED==='true' && env.LOCAL_OWNER_WORKSPACE_KEY_ENABLED==='true' &&
+    /^[a-f0-9]{64}$/.test(root??'') && root!==env.ONBOARDING_PROOF_KEY && root!==env.LOCAL_REGISTER_WRAP_KEY_V1;
+}

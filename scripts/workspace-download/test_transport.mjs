@@ -12,6 +12,7 @@ import {join, resolve} from 'node:path';
 import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
+import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
 const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,'docs/07-handoff/evidence/ex13b-workspace-transfer');
@@ -28,13 +29,22 @@ const inputs=[
   'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql',
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
+  'scripts/workspace-download/normal_workspace.mjs',
+  'apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts',
+  'apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/components/owner-workspace-device.tsx',
+  'apps/web/src/components/people-workspace.tsx','apps/web/src/components/experience-workspace.tsx',
+  'apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx','apps/web/next.config.ts',
+  'apps/web/src/components/workspace-shell.tsx','apps/web/src/app/[locale]/layout.tsx',
+  'apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx','apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx',
 ];
 const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
   createHash('sha256').update(await readFile(join(root,name))).digest('hex')])));
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=24);
+  assert.ok(receipt.checks.length>=29);
+  assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
+  assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
   const databaseReceipt=JSON.parse(await readFile(join(directory,'database.json'),'utf8'));
   assert.equal(databaseReceipt.passed,true);assert.ok(databaseReceipt.tests>=21);
   for(const [name,hash]of Object.entries(databaseReceipt.sources))assert.equal(hashes[name],hash);
@@ -269,6 +279,8 @@ try{
     };
   `,resolveDir:root},bundle:true,platform:'browser',write:false});
   const browserCalls=[], browserPageDatasets=[];
+  const normalFixture=await db({action:'make',size:56,calendar:true,unregistered:true});
+  const normal=await normalWorkspaceFixture(root,normalFixture);
   let intercept;
   server=createServer(async(req,res)=>{
     if(req.url==='/api/workspace-download'||req.url==='/api/workspace-key'){
@@ -293,6 +305,7 @@ try{
       } catch {if(!res.destroyed)res.writeHead(500).end();}
       return;
     }
+    if(await normal.serve(req,res))return;
     if(req.url==='/fixture.js'){
       res.setHeader('content-type','text/javascript');res.end(client.outputFiles[0].text);return;
     }
@@ -596,9 +609,11 @@ try{
   pass('Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network');
   metrics.workspaceDevice={firstRequests:['prepare','manifest','page'],interruptedAt:25,renewedAt:300,pagesPerPass:12,
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
+  metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
+    profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,db,pass});
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
-    platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping and Chromium WebCrypto/IndexedDB. Fictional Clerk, limiter and PostgREST wire. No hosted data, device or latency percentile claim.'}},null,2)+'\n');
+    platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');
 }finally{
   await browser?.close();
   if(server?.listening) await new Promise(resolve=>server.close(resolve));

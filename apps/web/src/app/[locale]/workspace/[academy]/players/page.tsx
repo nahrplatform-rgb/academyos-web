@@ -1,3 +1,4 @@
+import {ownerWorkspaceEnabled} from '@/lib/config';
 import { auth } from '@clerk/nextjs/server';
 import { notFound } from 'next/navigation';
 import PeopleWorkspace from '@/components/people-workspace';
@@ -13,5 +14,5 @@ export default async function Page({ params }: {
     const { locale, academy } = await params;
     if (!uuidPattern.test(academy))
         notFound();
-    return <PeopleWorkspace locale={locale} academy={academy}/>;
+    return <PeopleWorkspace prepared={ownerWorkspaceEnabled(process.env)} locale={locale} academy={academy}/>;
 }

@@ -1,6 +1,6 @@
 import {ClerkProvider} from '@clerk/nextjs';
 import RegisterAccountBoundary from '@/components/register-account-boundary';
-import {authenticationConfigured,offlineRegisterPilotEnabled} from '@/lib/config';
+import {authenticationConfigured,offlineRegisterPilotEnabled,ownerWorkspaceEnabled} from '@/lib/config';
 import { notFound } from "next/navigation";
 export default async function Layout({
   children,
@@ -20,6 +20,6 @@ export default async function Layout({
     colorDanger:"var(--error)",borderRadius:"7px",
     fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Tahoma, sans-serif',fontSize:"15px",
   }}}>
-    <RegisterAccountBoundary locale={locale} enabled={offlineRegisterPilotEnabled(process.env)}>{content}</RegisterAccountBoundary>
+    <RegisterAccountBoundary locale={locale} enabled={offlineRegisterPilotEnabled(process.env)||ownerWorkspaceEnabled(process.env)}>{content}</RegisterAccountBoundary>
   </ClerkProvider>;
 }

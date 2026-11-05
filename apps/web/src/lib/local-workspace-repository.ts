@@ -6,9 +6,13 @@ import {readWorkspaceReceipt,sameWorkspaceVersion,verifyWorkspaceCompletion,veri
   type Collection,type WorkspaceReceipt,type WorkspaceRow,type WorkspaceScope,type WorkspaceTicket} from './local-workspace-codec';
 
 export const LOCAL_WORKSPACE_DATABASE = 'academyos-owner-workspace-v1';
+export type PreparedWorkspaceContext = {
+  academy_id: string; academy_name: string; branch_id: string; branch_name: string; timezone: string; today: string;
+};
+type VerifiedContext = {checkedAt:number; wallAt:number; value:SealedRecord};
 const retentionMs=30*86400000;
 const stores=['control','collections','pages'];
-type Control = {binding:string; fence:string; key?:CryptoKey; check?:SealedRecord; retiring?:true; serverScope?:string; calendarRevision?:string};
+type Control = {binding:string; fence:string; key?:CryptoKey; check?:SealedRecord; retiring?:true; serverScope?:string; calendarRevision?:string; context?:VerifiedContext};
 type Transfer = {generation:string; pages:number; startedAt:number; receipt:SealedRecord; seed:SealedRecord};
 type Head = Transfer & {scope:string; revision:string; first:string|null; last:string|null;
   checkedAt:number; wallAt:number; observedAt:number; count:number};
@@ -318,7 +322,7 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
         position.page<0||position.page>=head.pages||!Number.isInteger(position.offset)||position.offset<0||position.offset>=50)){
       refuse('workspace_invalid_position');
     }
-    const normalized=(value:string)=>value.normalize('NFKC').toLowerCase();
+    const normalized=(value:string)=>value.normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
     const filter=normalized(search.trim()), rows:WorkspaceRow[]=[];
     let index=position?.page??0, offset=position?.offset??0, scanned=0;
     while(index<head.pages&&rows.length<limit&&scanned<12){
@@ -327,8 +331,9 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
       scanned++;
       while(offset<saved.rows.length&&rows.length<limit){
         const row=saved.rows[offset++];
-        const text='display_name'in row?row.display_name+' '+row.branch_name:row.title+' '+row.sport+' '+row.sport_ar;
-        if(!filter||normalized(text).includes(filter)) rows.push(row);
+        const matches='display_name'in row?normalized(row.display_name).startsWith(filter):
+          normalized(row.title+' '+row.sport+' '+row.sport_ar).includes(filter);
+        if(!filter||matches) rows.push(row);
       }
       if(offset===saved.rows.length){index++;offset=0;}
     }
@@ -370,6 +375,29 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
     catch(error){close();throw error;}
   }
 
+  async function rememberContext(serverScope: string, checkedAt: number, context: PreparedWorkspaceContext) {
+    checkTime(checkedAt);
+    const value=await transact('readonly',active);
+    const wallAt=Date.now(), id=JSON.stringify([serverScope,checkedAt,wallAt]);
+    const sealed=await seal(value.key,binding,'workspace-context',id,jsonBytes(context,4096));
+    await transact('readwrite',async t=>{
+      const current=await active(t);
+      if(current.serverScope && current.serverScope!==serverScope) refuse('workspace_incompatible_manifest');
+      if(current.context && current.context.checkedAt>=checkedAt)return;
+      await request(t.objectStore('control').put({...current,serverScope,
+        context:{checkedAt,wallAt,value:sealed}},namespace));
+    });
+  }
+  async function readContext() {
+    const {key,context,serverScope}=await transact('readonly',active);
+    if(!context||!serverScope)return null;
+    if(Date.now()<context.wallAt)refuse('workspace_clock_verification_required');
+    if(Date.now()-context.wallAt>=retentionMs)return null;
+    const id=JSON.stringify([serverScope,context.checkedAt,context.wallAt]);
+    const decoded=fromBytes(await unseal(key,binding,'workspace-context',id,context.value)) as PreparedWorkspaceContext;
+    await transact('readonly',active);
+    return decoded;
+  }
   function acceptsScope(serverScope: string) {
     return transact('readonly', async t => {
       const owner = await active(t);
@@ -386,5 +414,5 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
     });
   }
 
-  return {activate,begin,checkpoint,renew,append,complete,refresh,read,retire,close,acceptsScope,hasKey};
+  return {activate,begin,checkpoint,renew,append,complete,refresh,read,retire,close,acceptsScope,hasKey,rememberContext,readContext};
 }

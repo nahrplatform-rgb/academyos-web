@@ -5,6 +5,8 @@ import {cleanWorkspaceSlot, readWorkspaceSlot, saveWorkspaceSlot, subscribeWorks
   workspaceSlotLock, workspaceSlotScope, type WorkspaceDeviceContext, type WorkspaceDeviceSlot} from './workspace-device-slots';
 import {workspaceComplete, workspaceKey, workspaceManifest, workspacePage, workspaceResume,
   WorkspaceTransportError} from './workspace-client-transport';
+import {addCivilDays,monthGridStart,shiftMonth} from './experience-format';
+import type {CalendarCursor,CalendarProjection,CalendarSession} from './experience-projections';
 import {sameWorkspaceVersion, type Collection} from './local-workspace-codec';
 
 const PAGE_BUDGET = 12;
@@ -118,7 +120,8 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
     });
   }
 
-  async function run(month: string | undefined, priority: 'people' | 'calendar', signal: AbortSignal) {
+  async function run(month: string | undefined, priority: 'people' | 'calendar', signal: AbortSignal,
+    progress?: (ready: number, total: number) => void) {
     requireAccount();
     let slot = load();
     if (!slot) return {kind: 'approval_required' as const};
@@ -140,14 +143,20 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
           discard = true;
           return {kind: 'rebuild_required' as const};
         }
+        const {academy_id,academy_name,branch_id,branch_name,timezone}=manifest.context;
+        await repo.rememberContext(manifest.scope,manifest.checked_at,
+          {academy_id,academy_name,branch_id,branch_name,timezone,today:manifest.today});
+        checked();
         const [people, current, ...adjacent] = manifest.collections;
         const tasks = priority === 'people' ? [people, current, ...adjacent] : [current, people, ...adjacent];
         const completed: Collection[] = [];
+        const report=()=>progress?.(completed.length,tasks.length);
         let pages = 0;
         for (const {id, receipt: seed} of tasks) {
           checked();
           if (await repo.refresh(id, seed, manifest.checked_at)) {
             completed.push(id);
+            report();
             continue;
           }
           if (pages >= PAGE_BUDGET) return {kind: 'partial' as const, manifest, completed, pages};
@@ -191,6 +200,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
           await repo.complete(id, generation, complete.receipt, complete.checked_at);
           checked();
           completed.push(id);
+          report();
           publishCoverage();
         }
         checked();
@@ -210,20 +220,66 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
     }
   }
 
+  async function local<T>(work: (repo: Awaited<ReturnType<typeof openLocalWorkspace>>) => Promise<T>) {
+    requireAccount();
+    const slot = load();
+    if (slot?.mode !== 'active') return null;
+    const repo = await openLocalWorkspace(workspaceSlotScope(context, slot));
+    try {
+      requireSlot(slot);
+      if(!await repo.hasKey())return null;
+      const result = await work(repo);
+      requireSlot(slot);
+      return result;
+    } finally { repo.close(); }
+  }
+  function readCalendar(month: string, first: string, last: string, after: CalendarCursor|null) {
+    return local(async repo=>{
+      const context=await repo.readContext();
+      if(!context)return null;
+      const grid=monthGridStart(month), end=addCivilDays(grid,41);
+      if(first<grid)return null;
+      const firstCollection:Collection=`calendar:${month.slice(0,7)}`;
+      const secondCollection:Collection=`calendar:${shiftMonth(month,1).slice(0,7)}`;
+      const compare=(a:CalendarCursor,b:CalendarCursor)=>a.at.localeCompare(b.at)||a.id.localeCompare(b.id)||a.day.localeCompare(b.day);
+      const items:CalendarSession[]=[];
+      let total=0, eligible=0, checkedAt=0, revision:string|undefined;
+      const ranges: {id:Collection;from:string;to:string}[]=[{id:firstCollection,from:first,to:last<end?last:end}];
+      if(last>end)ranges.push({id:secondCollection,from:addCivilDays(end,1),to:last});
+      for(const {id,from,to} of ranges){
+        if(id===secondCollection&&(from<monthGridStart(shiftMonth(month,1))||to>addCivilDays(monthGridStart(shiftMonth(month,1)),41)))return null;
+        let page=await repo.read(id,'',undefined,50);
+        if(!page||(revision&&page.revision!==revision))return null;
+        revision=page.revision;
+        checkedAt=checkedAt?Math.min(checkedAt,page.checkedAt):page.checkedAt;
+        for(;;){
+          for(const row of page.rows){
+            if(!('program'in row)||row.date<from||row.date>to)continue;
+            total++;
+            const cursor={at:row.starts_at,id:row.id,day:row.day,from:first,to:last};
+            if(after&&compare(cursor,after)<=0)continue;
+            eligible++;
+            items.push({...row,cursor});
+          }
+          items.sort((a,b)=>compare(a.cursor,b.cursor));
+          if(items.length>50)items.length=50;
+          if(!page.next)break;
+          const next=await repo.read(id,'',page.next,50);
+          if(!next||next.revision!==revision)return null;
+          page=next;
+        }
+      }
+      const result:CalendarProjection={context,as_of:new Date(checkedAt).toISOString(),from:first,to:last,
+        total,items,more:eligible>items.length,next:eligible>items.length?items.at(-1)!.cursor:null};
+      return result;
+    });
+  }
   return {
-    async read(...args: Parameters<Awaited<ReturnType<typeof openLocalWorkspace>>['read']>) {
-      requireAccount();
-      const slot = load();
-      if (slot?.mode !== 'active') return null;
-      const repo = await openLocalWorkspace(workspaceSlotScope(context, slot));
-      try {
-        requireSlot(slot);
-        const result = await repo.read(...args);
-        requireSlot(slot);
-        return result;
-      } finally { repo.close(); }
-    },
-    async sync(month?: string, priority: 'people' | 'calendar' = 'people', request = lifetime) {
+    read: (...args: Parameters<Awaited<ReturnType<typeof openLocalWorkspace>>['read']>) => local(repo=>repo.read(...args)),
+    readContext: () => local(repo=>repo.readContext()),
+    readCalendar,
+    async sync(month?: string, priority: 'people' | 'calendar' = 'people', request = lifetime,
+      progress?: (ready: number, total: number) => void) {
       requireAccount();
       const signal = AbortSignal.any([lifetime, request]);
       signal.throwIfAborted();
@@ -231,7 +287,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
       // Use a separate lock from cleanup. The account fence can cancel a held
       // request without waiting for the browser doing background preparation.
       return navigator.locks.request(`academyos.workspace-sync:${context.subject}:${context.academy}`,
-        {ifAvailable: true}, lock => lock ? run(month, priority, signal) : {kind: 'following' as const});
+        {ifAvailable: true}, lock => lock ? run(month, priority, signal, progress) : {kind: 'following' as const});
     },
     async remove() {
       requireAccount();
