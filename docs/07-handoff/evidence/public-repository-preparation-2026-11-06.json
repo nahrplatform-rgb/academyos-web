@@ -1,0 +1,189 @@
+{
+  "checkpoint": "Owner-authorized existing repository publication and remote CI preparation",
+  "observed_utc": "2026-11-06T16:10:44.108267+00:00",
+  "source_parent": "90af53d0fdc75159476d80c95fb550eb242f34ae",
+  "repository": {
+    "html_url": "https://github.com/nahrplatform-rgb/academyos-web",
+    "visibility": "public",
+    "private": false,
+    "security_and_analysis": {
+      "secret_scanning": {
+        "status": "enabled"
+      },
+      "secret_scanning_push_protection": {
+        "status": "enabled"
+      },
+      "dependabot_security_updates": {
+        "status": "enabled"
+      },
+      "secret_scanning_non_provider_patterns": {
+        "status": "disabled"
+      },
+      "secret_scanning_validity_checks": {
+        "status": "disabled"
+      }
+    }
+  },
+  "settings": {
+    "/actions/permissions": {
+      "enabled": true,
+      "allowed_actions": "selected",
+      "selected_actions_url": "https://api.github.com/repositories/1427479605/actions/permissions/selected-actions",
+      "sha_pinning_required": true
+    },
+    "/actions/permissions/selected-actions": {
+      "github_owned_allowed": true,
+      "patterns_allowed": [],
+      "verified_allowed": false
+    },
+    "/actions/permissions/fork-pr-contributor-approval": {
+      "approval_policy": "all_external_contributors"
+    },
+    "/actions/permissions/workflow": {
+      "default_workflow_permissions": "read",
+      "can_approve_pull_request_reviews": false
+    },
+    "/branches/main/protection": {
+      "required_status_checks": {
+        "url": "https://api.github.com/repos/nahrplatform-rgb/academyos-web/branches/main/protection/required_status_checks",
+        "strict": true,
+        "contexts": [
+          "verify"
+        ],
+        "contexts_url": "https://api.github.com/repos/nahrplatform-rgb/academyos-web/branches/main/protection/required_status_checks/contexts",
+        "checks": [
+          {
+            "context": "verify",
+            "app_id": 15368
+          }
+        ]
+      },
+      "required_pull_request_reviews": {
+        "url": "https://api.github.com/repos/nahrplatform-rgb/academyos-web/branches/main/protection/required_pull_request_reviews",
+        "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": false,
+        "required_approving_review_count": 0
+      },
+      "enforce_admins": {
+        "url": "https://api.github.com/repos/nahrplatform-rgb/academyos-web/branches/main/protection/enforce_admins",
+        "enabled": true
+      },
+      "allow_force_pushes": {
+        "enabled": false
+      },
+      "allow_deletions": {
+        "enabled": false
+      },
+      "required_conversation_resolution": {
+        "enabled": true
+      }
+    },
+    "/environments/staging-backups": {
+      "name": "staging-backups",
+      "protection_rules": [
+        {
+          "id": 69649356,
+          "node_id": "GA_kwDOVRWcNc4EJsPM",
+          "type": "branch_policy"
+        }
+      ],
+      "deployment_branch_policy": {
+        "protected_branches": false,
+        "custom_branch_policies": true
+      }
+    },
+    "/environments/staging-backups/deployment-branch-policies": {
+      "total_count": 1,
+      "branch_policies": [
+        {
+          "id": 63896079,
+          "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2Mzg5NjA3OQ==",
+          "name": "main",
+          "type": "branch"
+        }
+      ]
+    },
+    "/actions/artifacts?per_page=1": {
+      "total_count": 0
+    },
+    "/private-vulnerability-reporting": {
+      "enabled": true
+    },
+    "/secret-scanning/alerts?state=open": {
+      "open_alert_count": 0,
+      "types": []
+    },
+    "vercel_configuration": {
+      "project": "academyos-web",
+      "team": "academy-os2",
+      "requested": {
+        "gitForkProtection": true,
+        "publicSource": false
+      },
+      "update_api_acknowledged": true,
+      "normalized_read_does_not_expose_requested_fields": true,
+      "real_outside_fork_exercise": "not_run",
+      "existing_preview_sso": "prod_deployment_urls_and_all_previews"
+    }
+  },
+  "owner_authority": {
+    "publication": "Explicitly authorized existing repository preparation/public visibility; accepts forks and copies",
+    "promotions": "Owner only; none performed",
+    "paid_capacity": "not_authorized_or_purchased",
+    "history_rewrite": "not_performed"
+  },
+  "local_checks": {
+    "backup_safety_tests": {
+      "passed": 14,
+      "failed": 0
+    },
+    "actionlint": {
+      "version": "v1.7.12",
+      "official_archive_sha256_verified": true,
+      "exit_code": 0
+    },
+    "git_history_scan": {
+      "tool": "gitleaks v8.30.1",
+      "official_archive_sha256_verified": true,
+      "commits_reported": 310,
+      "bytes_reported": 179558808,
+      "alerts": 63,
+      "triage": {
+        "sha256_manifest_or_key_fingerprint": 57,
+        "prose_or_status": 5,
+        "synthetic_link_id": 1
+      },
+      "confirmed_credentials_among_matches": 0,
+      "hidden_remote_refs_and_images": "not_fully_examined"
+    },
+    "workflow_log_scan": {
+      "available_run_archives_requested": 55,
+      "downloaded_text_files": 108,
+      "downloaded_text_bytes": 2037954,
+      "coverage": "all inventoried non-Foundation completed runs plus four recent successful Foundation runs; one archive has zero text files",
+      "secret_alerts": 0,
+      "all_historical_Foundation_logs": "not_claimed"
+    }
+  },
+  "monitor": {
+    "environment_secret_installed": "BACKUP_MONITOR_URL in main-only staging-backups",
+    "source_change": "strict destination validation with no default endpoint/no value in errors",
+    "historical_ingestion_capability": "retained in history; not a provider administrative credential",
+    "provider_key_rotation": "not_performed",
+    "telemetry_authenticity": "not_cryptographic_backup_proof",
+    "default_main_source": "retained; revised code is on the feature branch until a separately checked merge"
+  },
+  "remote_validation": {
+    "status": "awaiting_prepared_commit_push",
+    "previous_90af53d_runs": "never executed before quota failure; not converted to pass"
+  },
+  "limitations": [
+    "Not a complete application penetration test, image/privacy audit or all-log scan",
+    "No real outside-fork workflow/deployment exercise",
+    "Vercel settings update acknowledged; normalized response omits requested gitForkProtection/publicSource fields",
+    "Zero open GitHub secret/dependency alerts is a point-in-time provider result, not a complete security review",
+    "Physical/installed/provider/Owner evidence remains separate",
+    "External independent review deferred, not performed"
+  ]
+}

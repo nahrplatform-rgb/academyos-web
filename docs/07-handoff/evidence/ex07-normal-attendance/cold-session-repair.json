@@ -73,13 +73,63 @@
   "requestBudget": "0offline operating calls/0local-filter auth checks;1eligible unchanged manifest;one in-flight session check per public boundary,15sec timeout;after an explicit401 one SDK skipCache refresh and one identical request resend;network/unknown errors do not trigger generic auto retry. SDK normal cookie maintenance and payload costs not measured here.",
   "compatibility": "No worker/root/cache prefix/public protocol/local schema/key binding/retention/server command change. Old/new public JavaScript coexist through existing checked cache generations. No full installed mixed-generation/update claim.",
   "release": {
-    "pushed": "pending",
-    "ci": "not run for changed source yet;previous account runner restriction retained",
-    "promotion": "Owner-only;not requested before exact release checks",
+    "codeCommit": "90af53d0fdc75159476d80c95fb550eb242f34ae",
+    "pushed": "verified same remote branch SHA",
+    "ci": "Both exact-code push/PR jobs failed before0steps under GitHub payment/spending restriction;not code/test failure or pass",
+    "ciRuns": [
+      {
+        "run": 42206570491,
+        "event": "push",
+        "job": 127854610663,
+        "conclusion": "failure",
+        "steps": 0,
+        "annotations": [
+          "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+        ]
+      },
+      {
+        "run": 42206579464,
+        "event": "pull_request",
+        "job": 127854640505,
+        "conclusion": "failure",
+        "steps": 0,
+        "annotations": [
+          "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+        ]
+      }
+    ],
+    "automaticDeployment": {
+      "url": "https://vercel.com/academy-os2/academyos-web/GEzruPh2QVjyqjiCJNL8MSuAi4wk",
+      "state": "completed_success",
+      "provenance": "GitHub Vercel commit status at exact90af53d reports Deployment has completed;direct canonical-staging/provider access still unavailable"
+    },
+    "promotion": "Owner-only;not requested while exact-code CI unavailable;no alias or promotion action",
     "hosted": "not run for this repair",
     "installed": "not run",
     "ownerAcceptance": "pending",
-    "independentReview": "deferred;nonblocking;not performed"
+    "independentReview": "deferred;nonblocking;not performed",
+    "providerReadLimits": "Connector requires unavailable link_id;existing CLI user moamenghareeb receives403 for AcademyOS team. No account/permission/config change.",
+    "ciEfficiencyObservation": {
+      "workflow": ".github/workflows/verify.yml",
+      "trigger": "on: [push,pull_request];no path selection or concurrency cancellation",
+      "repoVisibility": "private",
+      "repoOwner": "nahrplatform-rgb personal account",
+      "measuredPreviousSuccesses": [
+        {
+          "run": 42129623624,
+          "steps": 53,
+          "wallMinutes": 10.45
+        },
+        {
+          "run": 42129632079,
+          "steps": 53,
+          "wallMinutes": 11.17
+        }
+      ],
+      "combinedJobWallMinutes": 21.62,
+      "limits": "Sample job wall time,not an account usage/billing total. Actual included balance,payment-versus-limit cause and other-repository usage not inspected.",
+      "recommendation": "Deduplicate branch push versus PR runs,cancel superseded runs and use meaningful lightweight documentation checks while retaining full required changed-code validation. Proposal only;no workflow or billing change."
+    }
   },
   "delegation": {
     "model": "gpt-6.1-terra",
@@ -88,5 +138,12 @@
     "scope": "Only owner_fixture.mjs independent fictional-session adapter;syntax checked by helper;coordinator reviewed diff and ran integration",
     "repairs": "Coordinator integrated context instead of render callback,restored original missing-auth negative assertion as authentication_required,and repaired rapid-focus online suppression without weakening operation locks. Fixture-only UI test fixes close phone inspector before workflow and scope injection to target original.",
     "savings": "unmeasured"
+  },
+  "public_ci_preparation": {
+    "receipt": "docs/07-handoff/public-repository-preparation-2026-11-06.md",
+    "policy": "docs/00-governance/public-repository-and-ci-policy.md",
+    "repository_visibility": "public",
+    "remote_status": "new_prepared_commit_check_pending",
+    "staging_promoted": false
   }
 }

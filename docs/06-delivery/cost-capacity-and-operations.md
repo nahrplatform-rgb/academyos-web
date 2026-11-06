@@ -1,5 +1,7 @@
 # Cost, capacity and routine operations
 
+Owner-directed 6 November update: the existing repository is public for standard GitHub-hosted validation under the [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md). This avoids using the Owner's Mac as a runner and the private-repository compute allowance for those public standard jobs. Larger runners, storage, hosting, database and provider requests retain separate limits/costs. The used allowance is not reset, and private accounting resumes if visibility later changes. The [actual receipt](../07-handoff/public-repository-preparation-2026-11-06.md) separates provider settings, local checks, remote execution and remaining measurements. No paid capacity or unlimited-service promise is authorized.
+
 ## PWA storage and service-cost planning — 6 November 2026
 
 Use the [PWA readiness plan](pwa-delivery-and-readiness.md) for installed measurement. Installation adds manifest/icons/public asset delivery and update checks; a separate installed storage context may legitimately repeat bounded data/key preparation. Measure per working visit, device/container and code generation, including compatible old assets, indexes, migration temporary space and protected originals. Storage estimates and persistence grants do not reserve disk space.

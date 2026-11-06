@@ -1,5 +1,7 @@
 # Release, incident response and recovery
 
+The 6 November Owner-authorized [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md) separates source publication and free standard hosted validation from runtime release. Retain exact-commit checks and Owner-only staging promotions. One full feature-PR run replaces redundant push/PR copies when the prepared workflow is present; a green public check is not hosted, installed or security acceptance. Read the [publication receipt](../07-handoff/public-repository-preparation-2026-11-06.md) for actual settings, exposure limits and later-private checks.
+
 ## Installed PWA updates and recovery — 6 November 2026
 
 Apply the [PWA delivery/readiness contract](pwa-delivery-and-readiness.md#pw-05--service-worker-and-update-ownership) to each changed installed release. Record manifest identity/launch, worker controller/public cache revision, code/protocol and protected repository schema compatibility alongside the existing source/configuration/migration evidence. Test an open older client, dirty input, pending/unknown original, interrupted update and rollback/forward repair. Retain compatible assets and protected pending work; no blanket prefix/store wipe or unconditional focus/controllerchange reload.

@@ -1,5 +1,10 @@
 # AcademyOS engineering instructions
 
+## Public repository and remote CI — 6 November 2026
+
+- The Owner explicitly accepted public copies/forks and authorized preparing and publishing the existing repository. Follow the [public repository/CI policy](docs/00-governance/public-repository-and-ci-policy.md) and [actual preparation receipt](docs/07-handoff/public-repository-preparation-2026-11-06.md). Standard automated validation uses GitHub-hosted runners; do not install a runner on the Owner's Mac or purchase capacity. Public visibility is not application access or a production release. Later private visibility does not retract earlier copies or reset consumed allowance.
+- Preserve read-only unprivileged PR checks, outside-contributor approval, revision-pinned permitted actions, actual main/environment controls and separate backup credentials. Use one full PR validation per source update plus main/manual checks; keep historical duplicate-run evidence, required assertions, synthetic boundaries and Owner-only promotions. Do not expose credentials in logs/artifacts or treat a public telemetry key as backup authenticity. Secret-scanning results and deferred independent review remain distinct.
+
 ## Installable PWA delivery — 6 November 2026
 
 - Read the [canonical PWA delivery/readiness contract](docs/06-delivery/pwa-delivery-and-readiness.md) and [PW/WD traceability](docs/06-delivery/pwa-delivery-traceability.csv) for installation, launch, worker, storage or installed-device work. Keep the existing single primary current route; EX-14/15/16 are supporting packages alongside EX-07, with installation metadata before all future domains and installed checks after each relevant working slice. This documentation checkpoint implements no PWA code.
