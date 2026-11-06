@@ -20,5 +20,28 @@
   "providerAnnotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
   "classification": "Provider runner unavailable before execution;exact billing/payment-versus-limit cause not established",
   "localChecks": "Existing execution/canonical/link/CSV/factual review checks passed separately;not CI passes",
-  "action": "No billing,plan,limit,credential or workflow change attempted. Current staging verification continues;future exact-source CI remains unexecuted until runner availability is restored."
+  "action": "No billing,plan,limit,credential or workflow change attempted. Current staging verification continues;future exact-source CI remains unexecuted until runner availability is restored.",
+  "followup": {
+    "sha": "81ab4734afa3d20fc149e4c7c40d06d155fe9751",
+    "scope": "Hosted test/evidence and regression requirements only;no product source repair;implementation still3c34923",
+    "runs": [
+      {
+        "id": 42197053378,
+        "event": "push",
+        "conclusion": "failure",
+        "job": 127822828574,
+        "steps": 0
+      },
+      {
+        "id": 42197067128,
+        "event": "pull_request",
+        "conclusion": "failure",
+        "job": 127822873852,
+        "steps": 0
+      }
+    ],
+    "providerAnnotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+    "classification": "Provider runner unavailable before execution;exact billing/payment-versus-limit cause not established",
+    "action": "Observed only;no paid/limit/workflow change or rerun. Not a test pass or source failure."
+  }
 }
