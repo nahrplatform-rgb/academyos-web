@@ -218,17 +218,28 @@
     "interpretation": "Retain provider discrepancy and withdrawn advisory; do not equate list count with complete dependency clearance"
   },
   "canonical_staging_readback": {
+    "observed_utc": "2026-11-06T17:20:12.320509+00:00",
+    "domain": "staging.academy.nahr.dev",
+    "commit": "52d04a26caec158a1081a74f867a46ea9a60e044",
+    "deployment": "dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx",
+    "state": "READY",
+    "source": "redeploy",
+    "owner_reported_promotion": true,
+    "agent_promoted": false,
+    "signed_in_functional_verification": "pending"
+  },
+  "final_checkpoint": {
+    "implementation": "prepared_code52d04a2_pushed_and_remote_full_validation_passed",
+    "public_visibility": "independently_verified",
+    "canonical_staging": "Owner_promoted52d04a2_source_and_READY_verified",
+    "remaining": "Signed-in real Clerk cold/reconnect verification, then registration-limit/fallback and projection invalidation; EX07 remains current",
+    "new_handoff_only_source": "docs/review register updates are separate from the checked52d04a2 application build"
+  },
+  "prior_canonical_staging_readback": {
     "domain": "staging.academy.nahr.dev",
     "commit": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
     "deployment": "dpl_HVNLHnGnRzWCPNy4V2uUe2HKTotW",
     "state": "READY",
     "agent_promoted": false
-  },
-  "final_checkpoint": {
-    "implementation": "prepared_code52d04a2_pushed_and_remote_full_validation_passed",
-    "public_visibility": "independently_verified",
-    "canonical_staging": "unchanged_3c34923",
-    "remaining": "Owner promotion and real provider/installed/working evidence; current EX07 continues",
-    "new_handoff_only_source": "docs/review register updates are separate from the checked52d04a2 application build"
   }
 }

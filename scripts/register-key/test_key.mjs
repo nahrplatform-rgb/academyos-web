@@ -27,13 +27,14 @@ const sources = [
   'apps/web/src/lib/owner-register-pilot.ts', 'apps/web/src/lib/register-scope-transport.ts',
   'apps/web/src/lib/register-download-coordinator.ts', 'apps/web/src/lib/register-original-dispatch.ts',
   'supabase/migrations/20261104013632_owner_register_bound_transport.sql',
+  'supabase/migrations/20261106174606_owner_register_binding_conflict.sql',
 ];
 const hashes = Object.fromEntries(await Promise.all(sources.map(async file=>[file,
   createHash('sha256').update(await readFile(join(root,file))).digest('hex')])));
 if (process.argv.includes('--check')) {
   const receipt = JSON.parse(await readFile(evidence,'utf8'));
   assert.deepEqual(receipt.hashes,hashes);
-  assert.equal(receipt.checks.length,15);
+  assert.equal(receipt.checks.length,18);
   console.log('PASS EX-09 key receipt source fingerprints');
   process.exit(0);
 }
@@ -200,8 +201,8 @@ try {
   assert.equal((await result(recover)).ticket.material,first.ticket.material);
   pass('Concurrent preparation persists one authenticated envelope, one audit row and one stable recoverable key');
 
-  for(const wrong of [{...recover,device:randomUUID()},{...recover,namespace:randomUUID()},
-    {...recover,event:other.event},{...recover,academy:other.academy},{...prepare,device:randomUUID()},
+  for(const wrong of [{...recover,namespace:randomUUID()},
+    {...recover,academy:other.academy},
     {...prepare,event:other.event}]) assert.equal((await call(wrong)).status,403);
   state.subject='user_trainer';
   assert.equal((await call({...recover,subject:state.subject})).status,403);
@@ -210,6 +211,25 @@ try {
   state.subject=owner;
   assert.deepEqual(await db({action:'inspect',academy:f.academy}),persisted);
   pass('Wrong account, role, academy, event, browser or namespace cannot recover or replace the pilot slot');
+
+  for (const wrong of [{...prepare,device:randomUUID()},{...recover,device:randomUUID()},
+    {...recover,event:other.event}]) {
+    const response=await call(wrong);
+    assert.equal(response.status,409);
+    assert.deepEqual(await response.json(),{error:'register_binding_conflict'});
+  }
+  assert.deepEqual(await db({action:'inspect',academy:f.academy}),persisted);
+  assert.equal((await result(recover)).ticket.material,first.ticket.material);
+  pass('Different device receives the typed binding refusal without replacing the envelope or audit; original key remains recoverable');
+
+  for (const spoof of [{error:'register_binding_conflict',extra:true},{error:'register_binding_conflict',namespace:first.scope.namespace},
+    {error:'other'},'register_binding_conflict']) {
+    alterReply=()=>spoof;
+    assert.equal((await call(recover)).status,503);
+  }
+  alterReply=undefined;
+  assert.deepEqual(await db({action:'inspect',academy:f.academy}),persisted);
+  pass('Malformed or extra-field binding replies fail closed rather than impersonating the typed refusal');
 
   const second=await result({...prepare,academy:other.academy,event:other.event});
   assert.notEqual(second.ticket.material,first.ticket.material);

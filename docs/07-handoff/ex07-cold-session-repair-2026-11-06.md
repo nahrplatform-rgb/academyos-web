@@ -1,5 +1,7 @@
 # EX-07 cold Attendance session repair
 
+**6 November continuation:** the Owner's real Chrome offline reload/reconnect report and the independently captured retained marks are recorded in the [binding repair and hosted continuation](ex07-register-binding-repair-2026-11-06.md). That packet now owns the current exact-source release handoff. Earlier failures and source/CI receipts below remain historical evidence; new-original real-provider dispatch and new binding-fallback hosted verification remain separate.
+
 Authorized continuation of the [hosted failure and protected recovery](ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Trace: IMP-J12-A01; J12-A01–A03; S28; L08; AO-035/036/039–046/117–125/127/128 and corresponding AT; NR14/15/17; WD-63/66/69/71; supporting PW-03/04/08. EX-07 remains the current primary. This is an engineering repair of the approved ordinary sign-in/reconnect journey,not new business policy,scope,credentials or review approval.
 
 ## Scope and contracts
@@ -69,3 +71,9 @@ The Owner was given the current Billing & Licensing/Usage navigation and a recom
 The Owner subsequently accepted forks/copies and authorized preparing and publishing the existing repository. The [publication receipt](public-repository-preparation-2026-11-06.md) supersedes this packet's earlier investigation-only restriction for that exact work. Public visibility, real branch/Actions controls, protected monitoring configuration and source/log scans are recorded separately. No earlier unexecuted CI run is converted into a pass. The prepared branch now needs one complete public PR check; Owner-only staging promotion and actual Clerk/working-day evidence remain separate. Existing90af53d app code and original-operation recovery are preserved.
 
 Public preparation commit52d04a2 retains the90af53d application repair and has now passed its single full [public PR run42250624458](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42250624458). The exact Preview CXLoFAhMMqyi79aSG1LduFcmP2AL is READY and the canonical staging hostname independently still resolves to3c34923. The earlier connector access gap and quota blocker are resolved for this checkpoint;the hosted401 failure,confirmed original and real-Clerk follow-up remain open. Next is Owner-only promotion of checked52d04a2,not a newer handoff-only commit.
+
+## Owner promotion received and independently verified
+
+The Owner reported promotion of checked52d04a2. A fresh authenticated Vercel read of `staging.academy.nahr.dev` confirms exact source **52d04a26caec158a1081a74f867a46ea9a60e044**, deployment `dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx`, READY, source `redeploy`. The agent performed no promotion. This is release/source proof, not a signed-in repair pass. Earlier3c34923 staging reads remain historical.
+
+Next:verify the existing Owner's B register484cd1a8 on the ordinary Attendance route, including cold offline reopening and normal Clerk session restoration on reconnect. Preserve the confirmed original713d9a93,version1 marks,protected keys and account roles; do not manufacture a new pending save or clear data to obtain a clean test. Then address the global one-register conflict/safe online fallback and new-player projection invalidation before extending remaining Operations and installed-PWA evidence. EX07 remains current; working acceptance and independent review are not inferred from this promotion.

@@ -14,9 +14,10 @@ const receipt=join(output,'runtime.json');
 const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   ...['attendance-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
-  'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css'];
+  'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
+  'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,17);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,19);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -52,6 +53,38 @@ try{
   await button('Light mode').click();
  }
  pass('One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination');
+
+ // Independent fictional browser: a failed key reservation must not trap the
+ // normal register or invalidate the already prepared device's rows/key.
+ for(const scope of [a,data.sameAcademyEvent]){
+  const second=await chromium.launchPersistentContext(join(temp,`conflict-${scope.event}`),{viewport:{width:1440,height:1000}});
+  try{
+   const tab=second.pages()[0]??await second.newPage();
+   await tab.goto(url(scope));await button('Use a personal-device register',tab).click();
+   await tab.getByLabel('This is my personal device',{exact:true}).check();
+   const keyStart=state.events.length;
+   await button('Prepare register on this device',tab).click();
+   await expect(tab.locator('main').getByRole('alert')).toHaveText('A register is already prepared on another device or for another session. Its saved work is unchanged. You can use this register online.');
+   if(process.argv.includes('--record'))await tab.screenshot({path:join(output,scope.event===a.event?'binding-device-conflict-en.png':'binding-session-conflict-en.png'),fullPage:true});
+   assert.equal(apiAfter(keyStart).filter(r=>r.route==='register-key').length,1);
+   await expect(tab.getByText('Ready for offline reopening',{exact:true})).toHaveCount(0);
+   await expect(button('Recover saved work',tab)).toHaveCount(0);
+   if(scope.event===a.event){
+    await tab.getByRole('link',{name:'العربية',exact:true}).click();await tab.setViewportSize({width:390,height:844});
+    await expect(tab.locator('main').getByRole('alert')).toHaveText('يوجد سجل محضّر على جهاز آخر أو لتدريب آخر. يبقى عمله المحفوظ دون تغيير. يمكنك استخدام هذا السجل عبر الإنترنت.');
+    assert.equal(await tab.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+    if(process.argv.includes('--record'))await tab.screenshot({path:join(output,'binding-device-conflict-ar-390.png'),fullPage:true});
+    await tab.getByRole('link',{name:'English',exact:true}).click();await tab.setViewportSize({width:1440,height:1000});
+   }
+   await button('Use the online register',tab).click();
+   await expect(tab.getByText('Loaded: 18 / 18 · Selected, not saved: 0',{exact:true})).toBeVisible();
+   const reloadStart=state.events.length;await tab.reload();
+   await expect(button('Use a personal-device register',tab)).toBeVisible();
+   assert.equal(apiAfter(reloadStart).filter(r=>r.route==='register-key').length,0);
+  }finally{await second.close();}
+ }
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
+ pass('An existing event or device binding refuses key release, keeps the first prepared register intact and allows normal online use after failure and reload');
 
  let before=state.events.length;await page.reload();
  await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();await settled();
@@ -240,8 +273,10 @@ try{
  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
  await db({action:'expire',...future});fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('Needs review · Original work retained',{exact:true})).toBeVisible();
+ await expect(button('Use the online register')).toHaveCount(0);
  assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});
  pass('A capture made while locally eligible retains its original for review when the server recording deadline expires before sync');
+ pass('A retained same-session protected original cannot be bypassed through the online fallback');
 
  // A different provider identity must not be used to send or release an old
  // account's original. Exercise this on a still-retained original, not new work.
@@ -267,7 +302,7 @@ try{
  assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
  pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,17);
+ assert.deepEqual(errors,[]);assert.equal(checks.length,19);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}

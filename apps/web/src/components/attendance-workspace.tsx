@@ -35,7 +35,9 @@ function AttendanceEntry(props:Props&{subject:string}) {
      const original=sessionStorage.getItem(`attendance:${props.subject}:${props.academy}:${props.event}`);
      if(original&&/^[a-f0-9-]{36}$/i.test(original))return 'original';
      const slot=eligible?readRegisterSlot(props.subject,props.academy):null;
-     return slot?.event===props.event?'prepared':'online';
+     // A reservation without a granted namespace cannot contain local work.
+     // Keep its identity for an exact retry, but do not trap normal online use.
+     return slot?.event===props.event&&slot.namespace?'prepared':'online';
    }catch{return 'online';}
  },()=> 'opening');
  if(mode==='opening')return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale==='ar'?'جارٍ فتح الحضور…':'Opening attendance…'}</p></PublicWorkspace>;

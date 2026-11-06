@@ -59,6 +59,26 @@ export async function pilotCases({browser,origin,db,api,calls,pass,state,result,
   assert.equal((await get(page,'read')).original.state,'pending');
   assert.equal(calls.length,before+1);
   await context.setOffline(false);
+  const savedSlot=await db({action:'inspect',...work});
+  const savedWire=(await get(page,'read')).original.wire;
+  const otherDevice=await browser.newContext();
+  const otherPage=await otherDevice.newPage();
+  try {
+    await open(otherPage,work);
+    await assert.rejects(get(otherPage,'prepare'),/register_binding_conflict/);
+    assert.deepEqual(await db({action:'inspect',...work}),savedSlot);
+    assert.equal((await get(page,'read')).original.wire,savedWire);
+    assert.equal((await get(page,'read')).original.state,'pending');
+    await otherPage.route('**/api/register-key',route=>route.fulfill({status:409,
+      contentType:'application/json',body:JSON.stringify({error:'conflict'})}),{times:1});
+    await assert.rejects(get(otherPage,'prepare'),/register_unavailable/);
+    assert.deepEqual(await db({action:'inspect',...work}),savedSlot);
+    assert.equal((await get(page,'read')).original.wire,savedWire);
+    await get(page,'recover');
+    assert.equal((await get(page,'read')).original.wire,savedWire);
+    assert.deepEqual(await audit(work,original),zero);
+  } finally {await otherDevice.close();}
+  pass('Another browser gets only the typed binding refusal; generic 409 stays unavailable and the first original and key remain recoverable');
   await page.route('**/api/register-dispatch',async route=>{
     assert.equal((await route.fetch({maxRetries:0})).status(),200);
     await route.abort('failed');

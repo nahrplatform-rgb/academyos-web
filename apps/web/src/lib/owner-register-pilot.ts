@@ -41,6 +41,9 @@ async function post(path: string, body: unknown, signal: AbortSignal, scope?: Re
   signal.throwIfAborted();
   const reply = record(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes.subarray(0,size))));
   if (Object.keys(reply).length !== 1) refuse('register_response_invalid');
+  if (path === '/api/register-key' && response.status === 409 && reply.error === 'register_binding_conflict') {
+    refuse('register_binding_conflict');
+  }
   if (response.status === 410 && reply.error === 'withdrawn') throw new RegisterAuthorityLoss('withdrawn');
   if (response.status===401&&reply.error==='denied') refuse('authentication_required');
   if (response.status === 403 &&

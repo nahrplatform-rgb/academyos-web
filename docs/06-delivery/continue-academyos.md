@@ -46,11 +46,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Owner promote checked code52d04a2 using https://vercel.com/academy-os2/academyos-web/CXLoFAhMMqyi79aSG1LduFcmP2AL to staging.academy.nahr.dev;single full public PR run42250624458 passed. No agent promotion or newest-handoff substitution. Then verify exact released source and real-Clerk cold read/session renewal on existing B484cd1a8;retain confirmed original713d9a93/version1marks. Further writes need compatible canonical fixture/registration. Then global registration conflict/online fallback and post-registration directory invalidation before remaining Operations. Public CI policy/receipt retain exposure and later-private limits;no key deletion/new profile workaround.
+Next action: Finish exact-source factual/check evidence and publish binding-repair code for one public CI run. Give Owner exact checked deployment for promotion;never promote. Then verify current signed-in refusal/online fallback without clearing registrations/originals or fabricating pending work. Follow with new-player projection invalidation and remaining Operations/PWA continuity.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read: `docs/07-handoff/ex07-cold-session-repair-2026-11-06.md`
+Read: `docs/07-handoff/ex07-register-binding-repair-2026-11-06.md`
 
 ## Ordered primary checkpoints
 
@@ -231,14 +231,14 @@ Dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar fo
 Findings: NR02; NR03; NR07; NR14; NR15; NR16; NR17.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Cold normal Attendance session repair implemented locally:lazy sibling Clerk provider,current same-account SDK check,one forced refresh/identical-original retry after401,truthful authentication-required/unavailable feedback without replica cleanup;loaded different account and actual403/410 fencing retained. Rapid focus/online suppression repaired;existing operation locks/coalescing remain. No new server/schema/key/worker contract. Global registration-limit/online fallback,post-registration projection invalidation and remaining Operations open.
-- Local checks: 17normal-route actual Next/worker/IDB/API/PG cases passed;independently expired session,failed SDK refresh0writes/rows retained,sign-in-required feedback,one401refresh+same-wire retry,automatic cold reconnect/lost receipt1operation18marks18history1audit,wrong-account preserved ciphertext,paired1read,two-tab1send,dirty/unknown/confirmed-read/deadline safeguards. Existing17dispatch/8startup/8working-day/15key/49workspace checks refreshed;build/types/lint/101units pass. Capture/factual/structural results in receipt;not real Clerk or installed proof. Public CI preparation:14backup safety tests/actionlint pass;history alerts triaged and selected privileged logs scanned;receipt public-repository-preparation-2026-11-06.md.
-- Deployment: Historical90af53d runs never started under private quota. Owner-authorized public repository prepared;code52d04a2 single full PR run42250624458 passed remotely;all53steps,0failures. Exact automatic Preview CXLoFAhMMqyi79aSG1LduFcmP2AL READY/source verified. Canonical staging independently remains3c34923/dpl_HVNLHnGnRzWCPNy4V2uUe2HKTotW;no promotion. See public-repository-preparation-2026-11-06.md;newer handoff-only records separate.
-- Hosted verification: 6Nov retained ENAR A read/cold-worker/reconnect/history proof. Fresh Chrome Hiếu B register484cd1a8:2marks saved locally offline,normal-route cold reload retained original;automatic register-dispatch401 failed. Explicit normal signed-in Recover saved work committed original713d9a93 once:2marks,2history,1operation,1audit. Temporary B Trainer ended2;Gmail tenant roles absent,iCloud Owner A/B;old A key hash and original/2marks unchanged. Separate profile cannot bypass global server slot. No full hosted/installed/performance/Owner pass.
+- Implementation: Scoped normal-Attendance integration and cold-session repair retained;typed global key-binding refusal/safe existing online fallback implemented;one-event/device pilot boundary unchanged
+- Local checks: 19actual normal-route cases;18key/custody cases;8startup;8working-day;17dispatch;register-transfer receipts refreshed;build/types/lint/101units passed;16capture suites plus8welcome;factual freshness/tool/canonical/execution checks passed
+- Deployment: Owner-promoted52d04a2 independently verified at dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx;binding repair code not promoted;staging SQL20261106175259 applied and read-back verified
+- Hosted verification: 52d04a2 realOwnerB484cd1a8 session/key/read recovery shows SamAbsent/AlexPresent;Owner reports offline reload/reconnect passed;agent final captureOffline with both marks;no freshoriginal send;new binding/fallback hosted verification pending
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Owner promote checked code52d04a2 using https://vercel.com/academy-os2/academyos-web/CXLoFAhMMqyi79aSG1LduFcmP2AL to staging.academy.nahr.dev;single full public PR run42250624458 passed. No agent promotion or newest-handoff substitution. Then verify exact released source and real-Clerk cold read/session renewal on existing B484cd1a8;retain confirmed original713d9a93/version1marks. Further writes need compatible canonical fixture/registration. Then global registration conflict/online fallback and post-registration directory invalidation before remaining Operations. Public CI policy/receipt retain exposure and later-private limits;no key deletion/new profile workaround.
-- Evidence: docs/07-handoff/ex07-cold-session-repair-2026-11-06.md
+- Next action: Finish exact-source factual/check evidence and publish binding-repair code for one public CI run. Give Owner exact checked deployment for promotion;never promote. Then verify current signed-in refusal/online fallback without clearing registrations/originals or fabricating pending work. Follow with new-player projection invalidation and remaining Operations/PWA continuity.
+- Evidence: docs/07-handoff/ex07-register-binding-repair-2026-11-06.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

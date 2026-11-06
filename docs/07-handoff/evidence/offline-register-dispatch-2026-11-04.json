@@ -14,7 +14,7 @@
     "scripts/offline-register/test_dispatch.mjs": "51afb7900739467dc82e668f8aa2a43e122da254da0e7afff32a3b496ad95476",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
-    "scripts/register-key/bound_fixture.py": "c4eeff58bb210ee9f0671917905b3788a6411d25c99867e0a60c2d53ce024976",
+    "scripts/register-key/bound_fixture.py": "e03f9ac34555b8b267ae58f4271beb87ad37ed66cba4bffb36639ea8eb62fba2",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
     "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5",
@@ -41,7 +41,7 @@
     "The complete 1000-mark register settles through one POST with a bounded count receipt"
   ],
   "metrics": {
-    "replayMs": 33.95324999999957,
+    "replayMs": 35.19312499999978,
     "lostReply": {
       "httpAttempts": 2,
       "signedRpcs": 2,
@@ -52,7 +52,7 @@
       "httpAttempts": 1,
       "requestBytes": 80715,
       "receiptBytes": 132,
-      "elapsedMs": 96.92608299999847
+      "elapsedMs": 106.3903749999954
     }
   },
   "environment": {

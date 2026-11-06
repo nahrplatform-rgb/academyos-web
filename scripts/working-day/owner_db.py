@@ -65,12 +65,13 @@ def seed(test):
              f"from academy.players p where p.academy_id={literal(second)} and not exists "
              f"(select 1 from academy.publication_rosters r where r.event_id={literal(second_event)} and r.player_id=p.id);"
              f"update academy.publication_events set roster_count=18,capacity=18 where id={literal(second_event)}")
+    same_academy_event = {**events[1], 'academy': academy}
     events = [{**events[0], 'academy': academy}, {'event': second_event, 'academy': second}]
     for event in events:
         # Disposable timing setup. Canonical dispatch still uses the real server clock.
         test.retime(event['event'], 'clock_timestamp()')
     return dict(academy=academy, otherAcademy=other, program=program['id'],
-                dates=len(dates), events=events, players=len(players))
+                dates=len(dates), events=events, players=len(players), sameAcademyEvent=same_academy_event)
 
 
 def rpc(test, command):

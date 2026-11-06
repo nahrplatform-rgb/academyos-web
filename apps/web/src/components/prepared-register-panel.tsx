@@ -54,6 +54,13 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const runtime=useRef<{pilot:Pilot;generation:string}|null>(null);
   const dialog=useRef<HTMLDialogElement>(null), opener=useRef<HTMLButtonElement>(null);
   const current=useSyncExternalStore(subscribeRegisterAccount,()=>generation(subject),()=>null);
+  const onlineFallback=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,listener),()=>{
+    try {
+      const slot=readRegisterSlot(subject,academy);
+      // Never hide a same-session protected original behind an online replacement.
+      return !slot || slot.event!==event || !slot.namespace;
+    } catch {return false;}
+  },()=>false);
   const slotGeneration=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,listener),()=>{
     try {const slot=readRegisterSlot(subject,academy);return slot?.mode==='active'?slot.generation:null;}
     catch {return null;}
@@ -99,7 +106,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     const matching=slot?.event===event, id=offline?offlineGeneration:generation(subject);
     queueMicrotask(()=>{
       if(life.signal.aborted)return;
-      setKnown(matching);
+      setKnown(matching&&Boolean(slot?.namespace));
       if (!offline&&matching) void (normal?prepareWorkspaceShell().then(()=>true):registerShellAvailable()).then(ready=>{
         if(!life.signal.aborted)setShellReady(ready);
       },()=>{if(!life.signal.aborted)setNotice('shell_unavailable');});
@@ -144,9 +151,13 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     void perform(async()=>{
       if(!recover)setShellReady(false);
       const id=await armRegisterAccount(subject), p=pilot(id);
-      setKnown(true);
-      if (recover) await p.recover();
-      else await p.prepare();
+      try {
+        if (recover) await p.recover();
+        else await p.prepare();
+      } finally {
+        const slot=readRegisterSlot(subject,academy);
+        setKnown(slot?.event===event&&Boolean(slot.namespace));
+      }
       if(normal)checked.current=true;
       show(await p.read(),id);
       if (!recover) {
@@ -259,6 +270,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     account_verification_required:t('Verify access online to reopen protected work.','تحقّق من الصلاحية عبر الإنترنت لإعادة فتح العمل المحمي.'),
     withdrawn:t('This session was withdrawn. Pending work can be recovered separately.','سُحب هذا التدريب. يمكن استعادة العمل المعلّق بشكل منفصل.'),
     different_registered_event:t('Another register is already prepared for this academy.','يوجد سجل آخر محضّر لهذه الأكاديمية.'),
+    register_binding_conflict:t('A register is already prepared on another device or for another session. Its saved work is unchanged. You can use this register online.','يوجد سجل محضّر على جهاز آخر أو لتدريب آخر. يبقى عمله المحفوظ دون تغيير. يمكنك استخدام هذا السجل عبر الإنترنت.'),
     shell_unavailable:t('The register is prepared here. Reopening after browser restart is unavailable on this device.','السجل محضّر هنا. إعادة فتحه بعد تشغيل المتصفح غير متاحة على هذا الجهاز.'),
   };
   const content=<section ref={region} className="attendance-theme" aria-label={t('Personal-device register','سجل الجهاز الشخصي')}>
@@ -267,14 +279,15 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     {problem&&<p role="alert">{messages[problem]??t('The device register is unavailable. Saved work remains protected.','سجل الجهاز غير متاح. يبقى العمل المحفوظ محمياً.')}</p>}
     {problem==='authentication_required'&&<p><a href={`/${locale}/workspace/${academy}/attendance/${event}`}>
       {t('Sign in to continue','سجّل الدخول للمتابعة')}</a></p>}
-    {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&<p role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
+    {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&page&&<p role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
     {confirmed&&hasAccess&&<p role="status">{notice==='confirmed_read_failed'?t('Save confirmed; latest register unavailable. Retry reading, not saving.','تأكد الحفظ؛ تعذّرت قراءة القائمة الأحدث. أعد القراءة وليس الحفظ.'):t('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.')}</p>}
     {(!offline||normal)&&(!normal||!page||problem)&&<div className="journey-actions">
       {known===false&&<label><input type="checkbox" checked={personal} onChange={e=>setPersonal(e.target.checked)}/>
         {t('This is my personal device','هذا جهازي الشخصي')}</label>}
       <Button disabled={busy||!online||known===null||(!known&&!personal)||selections.length>0||!!pending} onClick={()=>prepare()}>
         {page?t('Retry current check','أعد التحقق'):t('Prepare register on this device','حضّر السجل على هذا الجهاز')}</Button>
-      {known===false&&onCancel&&<Button disabled={busy} onClick={onCancel}>{t('Use the online register','استخدم السجل عبر الإنترنت')}</Button>}
+      {onlineFallback&&onCancel&&!['scope_lost','scope_changed','withdrawn','register_account_cleanup_required'].includes(problem)&&
+        <Button disabled={busy||!online||selections.length>0||!!pending} onClick={onCancel}>{t('Use the online register','استخدم السجل عبر الإنترنت')}</Button>}
       {known&&!page&&<Button disabled={busy||!online} onClick={()=>prepare(true)}>{t('Recover saved work','استعد العمل المحفوظ')}</Button>}
       {!normal&&shellReady&&hasAccess&&<a href={PREPARED_REGISTER_PATH+(ar?'#ar':'')}>{t('Offline reopening link','رابط إعادة الفتح دون اتصال')}</a>}
     </div>}

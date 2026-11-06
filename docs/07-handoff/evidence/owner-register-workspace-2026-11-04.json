@@ -11,12 +11,12 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 114
+    "offlineProcessReopenMs": 131
   },
   "hashes": {
     "scripts/working-day/test_owner_startup.mjs": "31423b0029f45732c0e76d9dd9301e24c553740e039ac7efe7a464b6fae8b720",
     "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",
-    "scripts/working-day/owner_db.py": "ee1f9887274b6c58440ff99daf6c681078468ba2f7ca273b9bda1af2fc18b0b2",
+    "scripts/working-day/owner_db.py": "fc0c730fdbce63586567cbd2d99c3aa020faee33856480e53fea0be7261ee6c5",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
     "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
@@ -27,14 +27,14 @@
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
-    "apps/web/src/components/attendance-workspace.tsx": "4d8665a62618992f73d1eaf172eb0bd9d461f5e3075071e700072ac11d4642e6",
+    "apps/web/src/components/attendance-workspace.tsx": "b419434dd284a2767b32db82f6bb04c39d878af73a63ad1eb87c725b5471a469",
     "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
-    "apps/web/src/components/prepared-register-panel.tsx": "903ee12eaa440fabb143a7930e6ef832d1b775a4754a962a5741f8da08986f1b",
+    "apps/web/src/components/prepared-register-panel.tsx": "6ce874125af9a14fcdd7a9fb084e3ab8bd8206cbaf8045d77992ca30ef4ff7a8",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
-    "apps/web/src/lib/owner-register-pilot.ts": "7143e6ef63a65a6399b77053147fba530da423bc2af14a5e7b99c5e0d36f17b4",
+    "apps/web/src/lib/owner-register-pilot.ts": "7f290870a0884a07ef43d08287df17747275c21ada6bf9448439f0ae9ce53e42",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
     "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
     "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",

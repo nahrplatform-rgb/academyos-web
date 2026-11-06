@@ -46,6 +46,12 @@ export async function POST(req: NextRequest) {
         a: command.academy, ev: command.event, device: command.device, expected_subject: subject,
         act: command.action, ns: namespace, envelope: command.action === 'prepare' ? wrapRegisterKey(command,namespace,root) : null,
       });
+      // A current Owner's existing binding is not a loss of account authority.
+      // Accept only the exact, key-free refusal; malformed grants still fail closed.
+      if (result && typeof result === 'object' && !Array.isArray(result) &&
+          Object.keys(result).length === 1 && (result as Record<string,unknown>).error === 'register_binding_conflict') {
+        return respond({error:'register_binding_conflict'},409);
+      }
       return respond({data:openRegisterKey(command,result,root)});
     } finally {
       root.fill(0);

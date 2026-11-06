@@ -4,6 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 KEY = '20261104012057_owner_register_key_custody.sql'
 BOUND = '20261104013632_owner_register_bound_transport.sql'
+BINDING = '20261106174606_owner_register_binding_conflict.sql'
 
 
 def literal(value):
@@ -11,7 +12,7 @@ def literal(value):
 
 
 def apply_bound(fixture):
-    for name in (KEY, BOUND):
+    for name in (KEY, BOUND, BINDING):
         fixture.sql((ROOT / 'supabase/migrations' / name).read_text())
 
 

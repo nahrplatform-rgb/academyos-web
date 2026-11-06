@@ -144,9 +144,14 @@
     "policy": "docs/00-governance/public-repository-and-ci-policy.md",
     "repository_visibility": "public",
     "remote_status": "single_full_public_PR_run_passed",
-    "staging_promoted": false,
+    "staging_promoted": true,
     "checked_code": "52d04a26caec158a1081a74f867a46ea9a60e044",
     "run_id": 42250624458,
-    "staging_source": "3c34923e8ab4318387f905d6ff167d59ef8d30e8"
-  }
+    "staging_source": "52d04a26caec158a1081a74f867a46ea9a60e044",
+    "staging_deployment": "dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx",
+    "staging_promoted_by": "Owner",
+    "agent_promoted": false,
+    "signed_in_repair_verified": false
+  },
+  "hostedContinuation": "hosted-owner-b-reopen-2026-11-06.json;ordinary real-provider read/key recovery and Owner-reported offline reload/reconnect;new original automatic dispatch remains untested"
 }
