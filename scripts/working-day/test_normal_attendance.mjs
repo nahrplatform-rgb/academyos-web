@@ -17,7 +17,7 @@ const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
   'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,20);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,21);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -261,6 +261,32 @@ try{
  const scroll=await page.locator('.workspace-center').evaluate(el=>{el.scrollTop=240;return el.scrollTop;});
  await page.getByRole('link',{name:'العربية',exact:true}).click();await button('السجل والتصحيحات').click();
  await expect(button('تصحيح التسجيل المحفوظ')).toBeVisible();await expect(button('عرض السجل')).toBeVisible();
+ const selectedName=await page.locator('.register-person button[aria-pressed=true]').innerText();
+ const onlineQuery=page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true});
+ await onlineQuery.fill(' ');
+ const onlineScroll=await page.locator('.workspace-center').evaluate(el=>{el.scrollTop=240;return el.scrollTop;});
+ const rosterNode=await page.locator('.register-roster').elementHandle();assert.ok(rosterNode);
+ const historyStart=state.events.length;
+ let releaseHistory,historyEntered;
+ const historyHold=new Promise(r=>releaseHistory=r),historySeen=new Promise(r=>historyEntered=r);
+ const holdHistory=async route=>{
+  if(route.request().postDataJSON().action!=='history')return route.continue();
+  historyEntered();await historyHold;await route.continue();
+ };
+ await page.route('**/api/attendance',holdHistory);
+ await button('عرض السجل').click();await historySeen;
+ await expect(page.locator('.workspace-inspector').getByRole('status')).toHaveText('جارٍ تحميل السجل…');
+ await expect(page.locator('.register-roster li')).toHaveCount(18);
+ assert.equal(await rosterNode.evaluate(el=>el.isConnected&&el===document.querySelector('.register-roster')),true);
+ await expect(onlineQuery).toHaveValue(' ');
+ await expect(page.locator('.register-person button[aria-pressed=true]')).toHaveText(selectedName);
+ await expect(page.locator('.workspace-inspector').getByRole('heading',{name:selectedName,exact:true})).toBeVisible();
+ assert.ok(Math.abs(await page.locator('.workspace-center').evaluate(el=>el.scrollTop)-onlineScroll)<=1);
+ releaseHistory();await expect(page.locator('.workspace-inspector ol li')).toHaveCount(1);
+ await page.unroute('**/api/attendance',holdHistory);
+ assert.equal(apiAfter(historyStart).filter(r=>r.route==='attendance'&&r.action==='history').length,1);
+ assert.equal(apiAfter(historyStart).filter(r=>r.route==='attendance'&&r.action==='roster').length,0);
+ pass('A held history read keeps the authorized online roster, query, player and scroll while loading and issues no roster read');
  await button('العودة إلى الحضور').click();await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
  await expect(page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true})).toHaveValue(' ');
  await expect(page.locator('.register-person button').first()).toHaveAttribute('aria-pressed','true');
@@ -311,7 +337,7 @@ try{
  assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
  pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,20);
+ assert.deepEqual(errors,[]);assert.equal(checks.length,21);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}

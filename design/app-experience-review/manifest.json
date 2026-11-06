@@ -1,6 +1,6 @@
 {
-  "source": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
-  "generatedAt": "2026-11-06T22:32:43.678Z",
+  "source": "d74b027bc84b39e2de3aae63bed5308019dd9d86",
+  "generatedAt": "2026-11-06T23:09:01.238Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -45,7 +45,7 @@
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
-    "apps/web/src/components/attendance-workspace.tsx": "9084fdf141548125d2232f8180f45d56cab329e9f6154f4e9f3ea52bae2439f6",
+    "apps/web/src/components/attendance-workspace.tsx": "9edf8fc1d95444aa0d883a7bf59fff1774d73a4b90b53ec61afe5c7ee941c26f",
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
@@ -89,7 +89,7 @@
     "docs/06-delivery/app-implementation-action-matrix.csv": "ee3a30f22ccc53a7048bac257e918c88ec7c054cf9100fd9bac2ae301326284f",
     "docs/06-delivery/app-implementation-requirement-links.csv": "e8e1ccf1b72b53c619014aeacf3fa3fdb720224b85c71484fb53d0678f963b5e",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "2eb05f571500eae2748f870b32621d395d5aa0137d52e8c6c259db212858f923",
-    "scripts/attendance/test_ui.mjs": "791f74ee3452a8d71b414b46b68c06afbe6b00988168566a24e9372920f876ee",
+    "scripts/attendance/test_ui.mjs": "d1015b8db7a22ac35364d3a7c2d134dbefbf157dfe810e288a87eadca1832faf",
     "scripts/corrections/test_ui.mjs": "45a0028665122e9c04230469bab74da39a8797c7f8d99f89291cd6090d37f413",
     "scripts/development/test_ui.mjs": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0",
     "scripts/experience-projections/test_ui.mjs": "dfa7b216f213fa39afe3e2fdcecd2864c1fc53360f6852dde90da9e53f35c20b",
@@ -112,12 +112,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "8b943a4a635b772938664c9125fdcd6e88eabccc077b969a4a0384deb4921b54",
-  "htmlSha256": "6c0454cfafc700ba2f5db28daeae732db48a46eeaeb35e33af8790877fe666ff",
-  "frames": 1189,
-  "transitions": 1163,
+  "capturePackSha256": "f32d4bde68b33e39e36c98ba139774b80f646927bd624edcf6811398e3e66638",
+  "htmlSha256": "435581a578cc5c0d3ca17efbe3e57e25ff073a3f8deb5453be64308f198ffeb7",
+  "frames": 1205,
+  "transitions": 1188,
   "sourceFiles": 80,
-  "sourceLiterals": 7883,
+  "sourceLiterals": 7891,
   "journeys": [
     {
       "id": "entry",
@@ -161,7 +161,7 @@
     },
     {
       "id": "attendance",
-      "frames": 56
+      "frames": 72
     },
     {
       "id": "guardian-training",

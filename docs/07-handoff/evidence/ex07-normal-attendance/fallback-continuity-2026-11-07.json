@@ -44,12 +44,21 @@
   },
   "evidenceRepair": "Assertion targets real app-scene lang/dir rather than unchanged route document language;Arabic labels/focus/roster assertions retained",
   "release": {
-    "codeCommit": null,
-    "ci": "not started",
-    "deployment": "not promoted",
-    "hosted": "new source not verified",
+    "codeCommit": "d74b027bc84b39e2de3aae63bed5308019dd9d86",
+    "ci": "passed;53/53steps",
+    "deployment": "Owner-promoted;independently verified Ready on staging.academy.nahr.dev",
+    "hosted": "Scoped EN/AR return/focus passed;two saved marks retained;zero observed API responses in the return-action interval",
     "ownerAcceptance": "pending",
-    "independentReview": "deferred;nonblocking;not performed"
+    "independentReview": "deferred;nonblocking;not performed",
+    "pushed": true,
+    "ciRun": 42305821120,
+    "previewDeployment": "dpl_9UYTFu13RkbPLN66rogC7oNhDpXi",
+    "previewState": "READY",
+    "ciJob": 128194736800,
+    "ciUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42305821120",
+    "liveDeployment": "dpl_5f4N6UAFUZSZZxtPBfKGPaWq7NF7",
+    "liveSource": "d74b027bc84b39e2de3aae63bed5308019dd9d86",
+    "hostedEvidence": "hosted-d74b027-verification-2026-11-07.json"
   },
   "boundaries": [
     "Existing keys and originals unchanged",

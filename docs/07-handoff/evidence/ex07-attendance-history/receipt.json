@@ -1,0 +1,192 @@
+{
+  "scope": "Secondary attendance history read presentation;no domain/API/DB/private-storage change",
+  "baseline": {
+    "source": "d74b027bc84b39e2de3aae63bed5308019dd9d86",
+    "componentSha256": "9084fdf141548125d2232f8180f45d56cab329e9f6154f4e9f3ea52bae2439f6",
+    "held": {
+      "lang": "ar",
+      "rows": 0,
+      "sameNode": false,
+      "beforeScroll": 420,
+      "heldScroll": 0,
+      "rosterRequests": 0,
+      "historyRequests": 1
+    },
+    "expectedFailure": "18roster rows became0;node removed;center scroll420to0;1history0roster requests",
+    "layer": "Actual React with fictional identity/HTTP;not hosted timing"
+  },
+  "sourceHashes": {
+    "apps/web/src/components/attendance-workspace.tsx": "9edf8fc1d95444aa0d883a7bf59fff1774d73a4b90b53ec61afe5c7ee941c26f",
+    "scripts/attendance/test_ui.mjs": "d1015b8db7a22ac35364d3a7c2d134dbefbf157dfe810e288a87eadca1832faf",
+    "scripts/working-day/test_normal_attendance.mjs": "a42e92e994458a2ac223d0cb9ee65985bcbd6f733398b174ab9e425e512af1af",
+    "scripts/working-day/owner_db.py": "7be97a6d8a1546206cea3728f7d78bea90daa48120ae31387b9b7d439a4e8aad"
+  },
+  "local": {
+    "uiProduction": {
+      "scope": "Actual React with fictional held history transport;not hosted or database evidence",
+      "historyContinuity": [
+        {
+          "lang": "ar",
+          "width": 1440,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 420,
+          "heldScroll": 420,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "en",
+          "width": 1440,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 420,
+          "heldScroll": 420,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "en",
+          "width": 390,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 0,
+          "heldScroll": 0,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "ar",
+          "width": 390,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 0,
+          "heldScroll": 0,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        }
+      ],
+      "unavailableRetry": "passed;roster and2dirtychoices retained",
+      "denial": "passed;private roster and player removed;0writes"
+    },
+    "uiDevelopment": {
+      "scope": "Actual React with fictional held history transport;not hosted or database evidence",
+      "historyContinuity": [
+        {
+          "lang": "ar",
+          "width": 1440,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 420,
+          "heldScroll": 420,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "en",
+          "width": 1440,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 420,
+          "heldScroll": 420,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "en",
+          "width": 390,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 0,
+          "heldScroll": 0,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        },
+        {
+          "lang": "ar",
+          "width": 390,
+          "rows": 18,
+          "sameNode": true,
+          "beforeScroll": 0,
+          "heldScroll": 0,
+          "rosterRequests": 0,
+          "historyRequests": 1,
+          "outcome": "passed",
+          "extraRosterReads": 0
+        }
+      ],
+      "unavailableRetry": "passed;roster and2dirtychoices retained",
+      "denial": "passed;private roster and player removed;0writes"
+    },
+    "normalAttendanceCases": 21,
+    "normalReceipt": "../ex07-normal-attendance/runtime.json",
+    "startupCases": 8,
+    "workingDayCases": 8,
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "captureGroups": 16,
+    "welcomeStates": 8,
+    "factualReview": {
+      "frames": 1205,
+      "transitions": 1188,
+      "sourceFiles": 80,
+      "literals": 7891,
+      "freshness": "passed",
+      "tool": "passed",
+      "limit": "Actual fixture captures,not exhaustive hosted or installed proof"
+    },
+    "documentationValidators": "passed canonical/execution/PWA joins and generated prompt"
+  },
+  "fixtureRepair": {
+    "cause": "First signed-PG history read failed503 because isolated owner_db.py whitelist omitted existing a10_history_v1",
+    "repair": "Permit that exact existing read RPC in test fixture;retain current signed gateway and real canonical function",
+    "result": "21normal cases passed including real history row;no mock success or relaxed assertion"
+  },
+  "testLocatorRepair": "Initial label lookup for the native filter select timed out;targeted existing .register-filters select,retaining its value assertion",
+  "requests": {
+    "heldHistory": {
+      "history": 1,
+      "roster": 0,
+      "writes": 0
+    },
+    "canonicalHandoff": "Existing one-roster read retained in18-player one-page fixture",
+    "saving": "No measured provider or request saving;presentation continuity improved at unchanged history budget"
+  },
+  "limits": [
+    "Canonical prepared-to-online handoff and authority/post-save masking remain",
+    "Phone retained roster/focus verified;sample center scroll0,not a nonzero phone window-scroll measurement",
+    "No new hosted history pass,installed-device case,percentile or whole-app closure",
+    "Independent external review deferred,nonblocking,not performed;Owner acceptance separate"
+  ],
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peakHelpers": 1,
+    "work": "Read-only test inventory and bounded actual-Next history regression only",
+    "coordinator": "Product state,UI regression,fixture repair,all checks,provider/browser and integration",
+    "nested": false,
+    "savings": "unmeasured"
+  },
+  "release": {
+    "codeCommit": null,
+    "ci": "pending new code checkpoint",
+    "deployed": "d74b027 remains current;history fix not deployed",
+    "hosted": "pending",
+    "ownerAcceptance": "pending"
+  }
+}

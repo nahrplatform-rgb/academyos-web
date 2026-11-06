@@ -1,0 +1,55 @@
+{
+  "scope": "Actual React with fictional held history transport;not hosted or database evidence",
+  "historyContinuity": [
+    {
+      "lang": "ar",
+      "width": 1440,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 420,
+      "heldScroll": 420,
+      "rosterRequests": 0,
+      "historyRequests": 1,
+      "outcome": "passed",
+      "extraRosterReads": 0
+    },
+    {
+      "lang": "en",
+      "width": 1440,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 420,
+      "heldScroll": 420,
+      "rosterRequests": 0,
+      "historyRequests": 1,
+      "outcome": "passed",
+      "extraRosterReads": 0
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 0,
+      "heldScroll": 0,
+      "rosterRequests": 0,
+      "historyRequests": 1,
+      "outcome": "passed",
+      "extraRosterReads": 0
+    },
+    {
+      "lang": "ar",
+      "width": 390,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 0,
+      "heldScroll": 0,
+      "rosterRequests": 0,
+      "historyRequests": 1,
+      "outcome": "passed",
+      "extraRosterReads": 0
+    }
+  ],
+  "unavailableRetry": "passed;roster and2dirtychoices retained",
+  "denial": "passed;private roster and player removed;0writes"
+}
