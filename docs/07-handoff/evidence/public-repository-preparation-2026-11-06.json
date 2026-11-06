@@ -175,8 +175,30 @@
     "default_main_source": "retained; revised code is on the feature branch until a separately checked merge"
   },
   "remote_validation": {
-    "status": "awaiting_prepared_commit_push",
-    "previous_90af53d_runs": "never executed before quota failure; not converted to pass"
+    "prepared_code_commit": "52d04a26caec158a1081a74f867a46ea9a60e044",
+    "run_id": 42250624458,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42250624458",
+    "event": "pull_request",
+    "status": "completed",
+    "runner": "GitHub-hosted ubuntu-24.04",
+    "previous_90af53d_runs": "never executed before quota failure; not converted to pass",
+    "preview": {
+      "deployment": "dpl_CXLoFAhMMqyi79aSG1LduFcmP2AL",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/CXLoFAhMMqyi79aSG1LduFcmP2AL",
+      "provider_state": "READY",
+      "target": "preview",
+      "staging_promoted": false,
+      "exact_git_source_verified": true
+    },
+    "conclusion": "success",
+    "job_id": 128004423275,
+    "completed_steps": 53,
+    "failed_steps": 0,
+    "started_at": "2026-11-06T16:15:17Z",
+    "completed_at": "2026-11-06T16:28:06Z",
+    "job_elapsed_seconds": 769.0,
+    "job_elapsed_is_account_invoice": false,
+    "full_test_output": "GitHub job logs; no fabricated per-case aggregate"
   },
   "limitations": [
     "Not a complete application penetration test, image/privacy audit or all-log scan",
@@ -185,5 +207,28 @@
     "Zero open GitHub secret/dependency alerts is a point-in-time provider result, not a complete security review",
     "Physical/installed/provider/Owner evidence remains separate",
     "External independent review deferred, not performed"
-  ]
+  ],
+  "dependency_alert_discrepancy": {
+    "list_open_query_count": 0,
+    "direct_alert_1_state": "open",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "dependency": "braces",
+    "advisory_withdrawn_at": "2026-10-23T12:53:02Z",
+    "dismissed_or_dependency_changed": false,
+    "interpretation": "Retain provider discrepancy and withdrawn advisory; do not equate list count with complete dependency clearance"
+  },
+  "canonical_staging_readback": {
+    "domain": "staging.academy.nahr.dev",
+    "commit": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
+    "deployment": "dpl_HVNLHnGnRzWCPNy4V2uUe2HKTotW",
+    "state": "READY",
+    "agent_promoted": false
+  },
+  "final_checkpoint": {
+    "implementation": "prepared_code52d04a2_pushed_and_remote_full_validation_passed",
+    "public_visibility": "independently_verified",
+    "canonical_staging": "unchanged_3c34923",
+    "remaining": "Owner promotion and real provider/installed/working evidence; current EX07 continues",
+    "new_handoff_only_source": "docs/review register updates are separate from the checked52d04a2 application build"
+  }
 }
