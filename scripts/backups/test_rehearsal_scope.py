@@ -11,7 +11,13 @@ class RehearsalScope(unittest.TestCase):
 
     def test_complete_release_and_existing_single_file_call(self):
         files = sorted((self.repo / 'supabase/migrations').glob('*owner_register*.sql'))
-        self.assertEqual(len(files), 4)
+        self.assertEqual([path.name for path in files], [
+            '20261103165604_owner_register_download_contract.sql',
+            '20261104002448_owner_register_original_dispatch.sql',
+            '20261104012057_owner_register_key_custody.sql',
+            '20261104013632_owner_register_bound_transport.sql',
+            '20261106174606_owner_register_binding_conflict.sql',
+        ])
         self.assertEqual(reviewed_migrations(self.repo, files), files)
         self.assertEqual(reviewed_migrations(self.repo, files[0]), [files[0]])
         self.assertEqual(reviewed_migrations(self.repo, None), [])

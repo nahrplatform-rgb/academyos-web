@@ -46,7 +46,7 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Finish exact-source factual/check evidence and publish binding-repair code for one public CI run. Give Owner exact checked deployment for promotion;never promote. Then verify current signed-in refusal/online fallback without clearing registrations/originals or fabricating pending work. Follow with new-player projection invalidation and remaining Operations/PWA continuity.
+Next action: Publish corrected backup rehearsal assertion and validate new exact-source public CI. Only after full pass,give Owner the exact new deployment for staging promotion;never promote or use failed a12006c as checked release. Verify signed-in binding refusal/online fallback preserving keys/originals. Then reproduce directory freshness first,current source already calls device.refresh;remaining Operations/PWA continuity.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
@@ -233,11 +233,11 @@ Design: Full connected workflow design approved29October; later Operations selec
 
 - Implementation: Scoped normal-Attendance integration and cold-session repair retained;typed global key-binding refusal/safe existing online fallback implemented;one-event/device pilot boundary unchanged
 - Local checks: 19actual normal-route cases;18key/custody cases;8startup;8working-day;17dispatch;register-transfer receipts refreshed;build/types/lint/101units passed;16capture suites plus8welcome;factual freshness/tool/canonical/execution checks passed
-- Deployment: Owner-promoted52d04a2 independently verified at dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx;binding repair code not promoted;staging SQL20261106175259 applied and read-back verified
+- Deployment: Staging52d04a2 verified;new a12006c preview Ready but CI42266688169 failed at outdated4migration test. Exact5filename test repair local-passed;publish correction and validate next source;SQL20261106175259 verified
 - Hosted verification: 52d04a2 realOwnerB484cd1a8 session/key/read recovery shows SamAbsent/AlexPresent;Owner reports offline reload/reconnect passed;agent final captureOffline with both marks;no freshoriginal send;new binding/fallback hosted verification pending
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Finish exact-source factual/check evidence and publish binding-repair code for one public CI run. Give Owner exact checked deployment for promotion;never promote. Then verify current signed-in refusal/online fallback without clearing registrations/originals or fabricating pending work. Follow with new-player projection invalidation and remaining Operations/PWA continuity.
+- Next action: Publish corrected backup rehearsal assertion and validate new exact-source public CI. Only after full pass,give Owner the exact new deployment for staging promotion;never promote or use failed a12006c as checked release. Verify signed-in binding refusal/online fallback preserving keys/originals. Then reproduce directory freshness first,current source already calls device.refresh;remaining Operations/PWA continuity.
 - Evidence: docs/07-handoff/ex07-register-binding-repair-2026-11-06.md
 
 ### EX-05 — Rate-limit amplification and relational query work

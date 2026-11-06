@@ -29,7 +29,8 @@
       "limits": "Prepared-device/provider states outside default replay have targeted runtime images;not exhaustive render/installed proof"
     },
     "custody": 12,
-    "reactReview": "Authentication stays server-owned;hook order stable;primitive external-store snapshots;no new dependencies,waterfall,polling or shared private server cache"
+    "reactReview": "Authentication stays server-owned;hook order stable;primitive external-store snapshots;no new dependencies,waterfall,polling or shared private server cache",
+    "backupRehearsalScope": 2
   },
   "database": {
     "project": "snpphkenmvmhpjstbeul",
@@ -105,12 +106,18 @@
     "interpretation": "Existing direct-table denial and signed RPC boundary retained;not zero findings or independent review"
   },
   "release": {
-    "codeCommit": null,
-    "ci": "pending",
-    "deployment": "not promoted",
+    "codeCommit": "a12006c9807157e8196785025564555173492c90",
+    "ci": "a12006c failed at backup rehearsal test: new reviewed migration makes5,assertion expected4;no behavior tests weakened",
+    "deployment": "Owner promotion pending;canonical staging remains52d04a2",
     "hosted": "new repair not tested",
     "ownerAcceptance": "pending",
-    "independentReview": "deferred;nonblocking;not performed"
+    "independentReview": "deferred;nonblocking;not performed",
+    "pushed": true,
+    "ciRun": 42266688169,
+    "ciJob": 128060355306,
+    "previewDeployment": "dpl_AC9DDg6P9N89L682suDpX3qSpu46",
+    "previewState": "READY",
+    "next": "Explicit reviewed migration-name assertion locally passed;publish corrected source and run full CI"
   },
   "compatibility": "No local schema,worker scope/cache protocol,retention,original wire or server attendance write change;old app sees new typed refusal unavailable rather than false denial",
   "evidenceLimit": "Synthetic local SDK/provider;real-provider earlier52d04a2 read and Owner offline/reconnect evidence separate",
@@ -125,7 +132,8 @@
   "repairs": [
     "Selector constrained to main to exclude the Next route announcer;assertion retained",
     "Rehearsal predecessor migration corrected before release",
-    "Fixed-port PG collision resolved by serial fixture runs;not a product failure"
+    "Fixed-port PG collision resolved by serial fixture runs;not a product failure",
+    "CI caught the4migration rehearsal count;assert exact5reviewed filenames rather than relax the assertion"
   ],
   "observedAt": "2026-11-06 17:56:03 UTC",
   "sourceHashes": {
