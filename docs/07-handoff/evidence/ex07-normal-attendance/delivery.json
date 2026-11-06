@@ -72,5 +72,7 @@
   },
   "ownerReportedPromotion": "Promoted3c34923 to staging,6November2026",
   "hostedEvidence": "docs/07-handoff/evidence/ex07-normal-attendance/hosted.json",
-  "hostedStatus": "Scoped normal ENAR prepared reading,cold worker reopening,quiet reconnect and current online history/return verified;fresh offline capture/reopen/automatic commit pending isolated Owner profile sign-in."
+  "hostedStatus": "Scoped normal ENAR prepared reading,cold worker reopening,quiet reconnect and current online history/return verified;fresh offline capture/reopen/automatic commit pending isolated Owner profile sign-in.",
+  "followupDocumentationCommit": "5035bb04bfb109a10a4aaabd38a4aac4a26f17cb",
+  "followupDocumentationCI": "Both runs failed before any steps:provider account billing/spending restriction,not a test result. See documentation-ci.json. Original3c34923 CI passes retained;no workflow/billing changes."
 }

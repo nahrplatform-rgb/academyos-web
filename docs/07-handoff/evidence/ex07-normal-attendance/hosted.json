@@ -61,7 +61,7 @@
       "id": "H07",
       "status": "passed_scoped",
       "action": "Current signed-in AR History and corrections handoff;View history;Back to register",
-      "result": "Canonical roster200(863resource bytes,932ms),then history200(215resource bytes,955ms);retained Unmarked→Present Owner history. Back restored Arabic,Registration query and selected player;one register manifest check. The online history path still masks the roster while its required current read runs;not whole-app no-flash closure."
+      "result": "Canonical roster200(863resource bytes,932ms),then history200(215resource bytes,955ms);retained Unmarked\u2192Present Owner history. Back restored Arabic,Registration query and selected player;one register manifest check. The online history path still masks the roster while its required current read runs;not whole-app no-flash closure."
     },
     {
       "id": "H08",
@@ -69,7 +69,7 @@
       "action": "Fresh one-date fictional fixture via normal Owner program/planning/publication",
       "event": "41b88d68-4d1c-42b5-b3e4-da845c720151",
       "program": "539b78de-cd44-4979-aed6-a93b0a1ff19d",
-      "result": "6Nov03:10–03:40Africa/Cairo;2existing fictional players;1published event;0marks/history/attendance operations. Existing Casey restored19→20 and ended21 under SDR06,one audit each. Signed-in Owner saw2Unmarked and disabled marks before start. No attended-session retiming or private-store clearing."
+      "result": "6Nov03:10\u201303:40Africa/Cairo;2existing fictional players;1published event;0marks/history/attendance operations. Existing Casey restored19\u219220 and ended21 under SDR06,one audit each. Signed-in Owner saw2Unmarked and disabled marks before start. No attended-session retiming or private-store clearing."
     }
   ],
   "fixture": {
@@ -140,5 +140,12 @@
     "scope": "Read-only bounded canonical fresh-fixture source inventory;no files/providers/browser/mutations/commits/nested helpers",
     "decision": "Did not create speculative B Trainer or spoof invitation acceptance;reused A's genuine existing appointment and normal UI",
     "savings": "unmeasured"
+  },
+  "followthrough": {
+    "ownerReportedSeparateProfileReady": true,
+    "preflight": "6Nov01:16:07UTC:exact3c34923 Ready;fresh event published,window open,2roster,0marks,0operations;Casey membership/assignment ended,invitation21",
+    "nativeWindowObservation": "Nahr exposes Platform Owner;test nahr retains the old register;remaining profile reaches official AcademyOS sign-in. Fresh authenticated Owner window not yet located. Exact profile/window clarification requested;no logout or old-store clearing.",
+    "freshSaveResult": "not_executed;no new save or sync pass inferred",
+    "providerCI": "documentation-only5035bb0 jobs never started due GitHub account payment/spending restriction;see documentation-ci.json"
   }
 }

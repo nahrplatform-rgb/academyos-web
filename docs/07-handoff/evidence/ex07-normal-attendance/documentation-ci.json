@@ -1,0 +1,24 @@
+{
+  "sha": "5035bb04bfb109a10a4aaabd38a4aac4a26f17cb",
+  "scope": "Documentation/evidence only;implementation remains3c34923",
+  "runs": [
+    {
+      "id": 42142210732,
+      "event": "push",
+      "conclusion": "failure",
+      "job": 127645018022,
+      "steps": 0
+    },
+    {
+      "id": 42142220009,
+      "event": "pull_request",
+      "conclusion": "failure",
+      "job": 127645047159,
+      "steps": 0
+    }
+  ],
+  "providerAnnotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+  "classification": "Provider runner unavailable before execution;exact billing/payment-versus-limit cause not established",
+  "localChecks": "Existing execution/canonical/link/CSV/factual review checks passed separately;not CI passes",
+  "action": "No billing,plan,limit,credential or workflow change attempted. Current staging verification continues;future exact-source CI remains unexecuted until runner availability is restored."
+}
