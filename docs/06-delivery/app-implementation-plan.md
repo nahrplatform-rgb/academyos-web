@@ -1,6 +1,6 @@
 # One application implementation plan
 
-**6 November current implementation:** [EX-07 normal Attendance](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) reuses the approved Owner repository, public worker and canonical sender within the normal task. Preserve existing manual/Trainer/QR/correction behavior and scoped offline rules. The receipt owns observed results, the tracker owns next action, and deployment/hosted/working acceptance remain separate. Other implemented and future domains remain on the adoption map.
+**6 November current implementation:** Normal Attendance is deployed at3c34923; its fresh offline capture/reload passed, automatic reconnect failed401 and explicit protected same-account recovery committed once. [The canonical receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) and tracker prioritize session restoration, truthful pilot-limit/fallback handling and post-registration projection continuity before remaining Operations adoption. Preserve delivered components and pending originals; all future modules inherit the request/authentication regression standard. This is not full implementation or acceptance.
 
 ## PWA delivery alongside the existing application — 6 November 2026
 

@@ -1,5 +1,17 @@
 # Request hygiene, persistent local data and explicit offline support
 
+## Cold-session and affected-view regression standard — 6 November 2026
+
+The [hosted Attendance failure and recovery](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) adds these required checks to the existing architecture; it does not report a delivered repair:
+
+- Separate local account/replica permission, ordinary provider-session readiness and current server domain authority. After cold offline reopening, restore the supported normal session before a bounded original dispatch. Authentication missing/expired, transport unavailable, wrong account, known role denial, withdrawal and key-slot conflict need distinct truthful handling. A401 alone does not establish role revocation.
+- Preserve the exact protected original through every authentication transition. No replacement save, token/password persistence, privileged retry, generic replay queue or skipped role/version/deadline check. Keep the normal task stable; do not solve ordinary reconnect by forcing a document reload or another device setup.
+- Independently expire server/browser authentication while the local same-account marker remains. Test cold worker reopening, failed refresh, successful same-account session recovery, changed account and actual role loss. Count operating/auth calls separately; keep retries bounded/coalesced. A global fictional authenticated subject cannot prove real provider-session refresh; require declared hosted evidence too.
+- Declare actual server registration cardinality, not only client slot scope. The current first register is one event AND device per subject/academy across profiles. Refusal must not masquerade as lost access; preserve existing keys/originals and provide the safe online path. A wider transition needs a concrete custody/compatibility contract.
+- After a confirmed create/update, verify both the result and affected local directory/calendar/counts. A completed empty replica must not silently remain the asserted current collection after a successful registration. Reconcile through the collection revision/coverage protocol, preserving pending work and authority; do not fake completion counters or clear storage to obtain a pass.
+
+These are regression/acceptance requirements, not additional feature acceptance or a change to the agreed retention, offline conflict or security policies. EX-07 owns the current repair; supporting PWA cases must repeat provider-session testing in each actual installed container.
+
 ## Installed-web request and lifecycle standard — 6 November 2026
 
 Apply the [PWA contract](pwa-delivery-and-readiness.md) and PW/WD joins to new installed/startup/update work. One bounded shared sync owner serves the existing protected repositories and original operations. Separate first-container preparation from repeat launch; no unbounded preload, duplicate polling, per-page key exchange or routine focus/controllerchange reload. Installation metadata never authorizes private response caching or a generic write queue.

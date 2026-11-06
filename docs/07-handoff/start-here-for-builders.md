@@ -1,6 +1,6 @@
 # Start here for builders
 
-**Current EX-07 checkpoint — 6 November:** Continue from [normal Attendance implementation and evidence](ex07-normal-attendance-checkpoint-2026-11-06.md) and the single tracker. The normal-route integration is no longer an unstarted mechanism: preserve its protected repository, coordinated transfer/sender, offline reopening and recovery. Follow recorded CI, Owner-only promotion and hosted next steps; do not reapply schema/keys/settings or start another engine. Broader Operations and installed-PWA scope remain open.
+**Current EX-07 checkpoint — 6 November:** Read [the real-provider failure and recovery](ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Chrome Hiếu Owner B saved2marks offline and retained them through cold normal-route reload. Automatic reconnect401 failed; normal signed-in Recover saved work committed the same original once. The next work is the bounded session-readiness/error-classification repair and independent expired-auth regression,then truthful global one-register limit/online fallback and post-registration projection continuity before visual adoption. No account handoff is pending. Never clear the existing A/B bindings/originals or create another profile as a workaround. The tracker owns sequence; Owner-only promotions and separate hosted/installed/acceptance gates remain.
 
 ## PWA alongside the current primary — 6 November 2026
 

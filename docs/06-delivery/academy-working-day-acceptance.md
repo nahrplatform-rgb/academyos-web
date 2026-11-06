@@ -1,6 +1,6 @@
 # Academy working-day pilot and acceptance gate
 
-**6 November normal Attendance evidence:** [EX-07 checkpoint](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) links controlled current-component/worker/IndexedDB/API/PG evidence for ordinary-route reopen, retained input, offline restart, original retry, current denial and confirmed-save/read failure. WD-63/64/66/69/71 receive evidence links only; no whole-case, hosted, physical-device, installed or Owner pass is inferred. Existing WD-72–86 remain planned.
+**6 November normal Attendance evidence:** [The current EX-07 receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) retains12controlled storage/worker/domain cases and the fresh hosted split:local capture/cold reload passed,automatic reconnect401 failed,manual same-account recovery committed exactly once. WD-63/66 now explicitly require independent expired-session coverage; no whole case is passed. Existing WD-72–86 stay planned and must verify actual installed authentication/storage containers separately.
 
 ## Installed PWA cases — 6 November 2026
 

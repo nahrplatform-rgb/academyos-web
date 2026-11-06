@@ -1,6 +1,6 @@
 # Whole-app findings and coverage register
 
-**6 November scoped Attendance work:** [EX-07 normal-route evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) addresses NR02/03/07/16/17 in one prepared Owner register: no preliminary online roster read on reopening, one paired resume check, retained choices/context, scoped confirmed reread and exact-original recovery. Unprepared/Trainer online paths and other app journeys still have their existing current-read/loading behavior. No finding is globally closed, and provider/hosted/installed evidence remains distinct.
+**6 November scoped Attendance work:** [EX-07 real-provider evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) retains the NR02/03/07/16/17 local improvements but exposes an NR14/15/17 cold-session gap: two marks survived offline save/reload,automatic reconnect returned401 and misleadingly reported access changed;explicit same-account recovery committed once. A global key-slot conflict also reported lost access,and a confirmed registration left the local directory empty. These are open occurrences,not delivered fixes or whole-finding closure. Repair precedes further visual adoption.
 
 **5 November scoped hosted continuity:** Owner-promoted1347470 now has [normal EN/AR Players evidence](../07-handoff/ex13b-workspace-continuity-2026-11-05.md): prepared query/summary survive online/offline document entry and automatic reconnect, with zero People requests in the sampled local actions. The EX-13 foundation routing checkpoint passes alongside prior Calendar/local proof; NR03/14/15 and the remaining cross-app findings stay partial. Hosted denial, full-process restart, rollback, changed/held transfer, device and performance cases remain assigned to EX-08/05/09. EX-07 next integrates the existing Owner register into normal Attendance. No new global no-refresh or security claim follows from this scoped pass.
 
@@ -74,6 +74,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR07 — Selected-detail and bootstrap waterfalls
 
+6November hosted extension: after each of two successful B registrations,the prepared directory continued to display0/No players while canonical planning and SQL saw both. This is a confirmed affected-view inconsistency;the exact invalidation/coverage source cause is not yet traced. Reproduce and repair through the existing collection revision/completion protocol. [Evidence and current EX-07 next action](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november).
+
 - Priority: M/H/M; effort 1–3d per contract. Source references relative to `apps/web/src/components`: `development-workspace.tsx:28–42`, `correction-workspace.tsx:27–36`, `qr-workspace.tsx`, `date-planning-workspace.tsx`.
 - Mechanism / expected difference: Development context→listing→detail and selected detail→listing refresh; corrections reload selected then list; QR context→sessions. Dated planning already runs independent reads concurrently.
 - Evidence: Source and local functional suites; no all-role hosted timing attribution.
@@ -131,6 +133,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR14 — Independent fetch implementations and defaults
 
+6November source/hosted extension: public cold Attendance mounts without the locale ClerkProvider or a provider-session refresh prerequisite;its first automatic dispatch returned401. The sender maps401 to scope loss and the pilot cleans/fences the replica,producing misleading changed-access feedback. Ordinary signed-in recovery then committed the same original once. A missing/expired session is distinct from established role loss;exact cookie/JWT contents were not inspected. The fixture-wide authenticated subject did not test this boundary. [Source path,test gap and bounded repair](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Existing server checks must remain;this does not authorize a token cache or generic retry.
+
 - Priority: M/M/M; effort 2–4d pilot;3–6d adoption. Source references relative to `apps/web/src/components`: `experience-workspace.tsx`, `people-workspace.tsx`, `development-workspace.tsx`, `guardian-training-workspace.tsx`.
 - Mechanism / expected difference: Timeouts/controllers/generation guards are domain-local; no shared scoped query cache/deduper. Attendance/corrections already lock resume around dirty/unknown work.
 - Evidence: Source inventory, existing suites. Duplication of code alone is not a runtime duplicate.
@@ -138,6 +142,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 - Recommendation and safety boundary: Choose narrow coordinator before new library; never generic retries on writes, never parallel independent authority state.
 
 ### NR15 — Offline capability is absent, not silently safe
+
+6November current overlay: scoped normal-route fresh offline capture/cold reload and explicit same-original recovery have hosted proof;automatic cold-session reconnect failed401 and remains unimplemented as a seamless flow. The first-pilot server key is globally one event/device per subject/academy,not another slot per browser profile. Existing bindings must not be removed to obtain broader offline coverage. [Exact hosted evidence and correction](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). The historical absence baseline below is retained;NR15 remains open app-wide.
 
 Later5November: Owner-promoted `1347470` has scoped normal EN/AR Players search/summary restoration, zero-byte offline entries and automatic reconnect evidence. The [continuity follow-up](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) retains prior86d Calendar proof and remaining device/negative-case/full-app limits.49 local cases plus this limited hosted run do not close NR15 app-wide.
 
@@ -158,6 +164,8 @@ Later5November: Owner-promoted `1347470` has scoped normal EN/AR Players search/
 - Recommendation and safety boundary: Do not turn saves into per-keystroke autosave, skip receipts or replace absent polling with subscriptions.
 
 ### NR17 — Recovery-storage failure is handled inconsistently
+
+6November scoped recovery result: following the public cold reconnect401,the protected original survived replica fencing and explicit same-account recovery committed it once (2marks/2history/1operation/1audit). This proves that specific recovery,not seamless reconnect or universal storage/restart coverage. [Receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Add expired-auth tests without replacing the original or reclassifying401 as known role revocation.
 
 - Priority: H/L/L (UX / latency / request-load); effort1–3d after recovery contract review. Source: `onboarding-workspace.tsx:101`, `program-workspace.tsx:31`, `date-planning-workspace.tsx:15`, `program-planning-workspace.tsx:13` catch sessionStorage failures without blocking the command; `attendance-workspace.tsx:49–50`, `correction-workspace.tsx:41` and `qr-workspace.tsx:278–284` instead fail before writing when recovery storage is unavailable.
 - Evidence: source-confirmed difference. An in-memory operation identity still exists in the tolerant paths; no demonstrated duplicate commit or loss of server history. Different operations have different discoverability/status paths, so identical handling cannot be assumed necessary.
