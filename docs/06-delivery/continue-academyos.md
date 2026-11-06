@@ -46,11 +46,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Publish corrected backup rehearsal assertion and validate new exact-source public CI. Only after full pass,give Owner the exact new deployment for staging promotion;never promote or use failed a12006c as checked release. Verify signed-in binding refusal/online fallback preserving keys/originals. Then reproduce directory freshness first,current source already calls device.refresh;remaining Operations/PWA continuity.
+Next action: Finish the evidenced fallback-language/focus repair:20-case actual normal route,affected receipts and factual review;publish/check exact source then ask Owner for its new promotion only. Do not request c36e87c again or repeat its53passed steps without changes. After rollout verify Arabic fallback and preserve originals;retain live409/freshoriginal/installed gaps. Then history-loading continuity and directory freshness investigation before edits.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read: `docs/07-handoff/ex07-register-binding-repair-2026-11-06.md`
+Read: `docs/07-handoff/ex07-fallback-continuity-2026-11-07.md`
 
 ## Ordered primary checkpoints
 
@@ -231,14 +231,14 @@ Dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar fo
 Findings: NR02; NR03; NR07; NR14; NR15; NR16; NR17.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: Scoped normal-Attendance integration and cold-session repair retained;typed global key-binding refusal/safe existing online fallback implemented;one-event/device pilot boundary unchanged
-- Local checks: 19actual normal-route cases;18key/custody cases;8startup;8working-day;17dispatch;register-transfer receipts refreshed;build/types/lint/101units passed;16capture suites plus8welcome;factual freshness/tool/canonical/execution checks passed
-- Deployment: Staging52d04a2 verified;new a12006c preview Ready but CI42266688169 failed at outdated4migration test. Exact5filename test repair local-passed;publish correction and validate next source;SQL20261106175259 verified
-- Hosted verification: 52d04a2 realOwnerB484cd1a8 session/key/read recovery shows SamAbsent/AlexPresent;Owner reports offline reload/reconnect passed;agent final captureOffline with both marks;no freshoriginal send;new binding/fallback hosted verification pending
+- Implementation: c36binding/fallback delivered;follow-on ARlanguage and opener focus retained locally in existing return callback;no data/authority/worker contract change
+- Local checks: 20actual normal Attendance,8startup,8workingday passed;build/types/lint passed;unaffected source-bound key/dispatch/download/workspace-transfer fingerprints current;16capture groups and8welcome refreshed;generated factual/canonical/execution checks passed
+- Deployment: Owner-promoted c36e87c independently verified at dpl_2mif7vY7vyTYRTnVLyw2WsUqcopP;53CIsteps retained;local fallback locale/focus follow-on not deployed
+- Hosted verification: Current OwnerB normal reopen/history/return and two saved marks passed;client different-event refusal/online fallback and untrapped reload passed;server409 not exercised;ARfallback resetsEN observed;keys/5operations/6marks/8history/182audit unchanged
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Publish corrected backup rehearsal assertion and validate new exact-source public CI. Only after full pass,give Owner the exact new deployment for staging promotion;never promote or use failed a12006c as checked release. Verify signed-in binding refusal/online fallback preserving keys/originals. Then reproduce directory freshness first,current source already calls device.refresh;remaining Operations/PWA continuity.
-- Evidence: docs/07-handoff/ex07-register-binding-repair-2026-11-06.md
+- Next action: Finish the evidenced fallback-language/focus repair:20-case actual normal route,affected receipts and factual review;publish/check exact source then ask Owner for its new promotion only. Do not request c36e87c again or repeat its53passed steps without changes. After rollout verify Arabic fallback and preserve originals;retain live409/freshoriginal/installed gaps. Then history-loading continuity and directory freshness investigation before edits.
+- Evidence: docs/07-handoff/ex07-fallback-continuity-2026-11-07.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

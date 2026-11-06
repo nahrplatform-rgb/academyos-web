@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 272,
-    "calendarMs": 156,
-    "dateMs": 170,
+    "homeMs": 209,
+    "calendarMs": 146,
+    "dateMs": 184,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 220,
-    "selectReviewSaveMs": 751,
+    "firstPrepareMs": 202,
+    "selectReviewSaveMs": 777,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 223,
-    "originalReplayMs": 117,
+    "offlineRestartMs": 202,
+    "originalReplayMs": 99,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -73,14 +73,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1523
+        "responseBytes": 1526
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4531
+        "responseBytes": 4534
       },
       {
         "route": "planning",
@@ -94,7 +94,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4531
+        "responseBytes": 4534
       },
       {
         "route": "planning",
@@ -234,7 +234,7 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9589,
-    "responseBytes": 37156
+    "responseBytes": 37165
   },
   "hashes": {
     "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",

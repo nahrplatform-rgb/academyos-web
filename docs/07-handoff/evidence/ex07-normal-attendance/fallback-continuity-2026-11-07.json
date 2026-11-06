@@ -1,0 +1,69 @@
+{
+  "baseline": "c36e87c Owner-promoted;hosted-c36e87c-verification-2026-11-07.json",
+  "scope": "Retain preparation locale and restore opener focus on online fallback;no authority/storage/server/worker change",
+  "trace": [
+    "IMP-J12-A01",
+    "J12-A01\u2013A03",
+    "S28",
+    "L08",
+    "NR03",
+    "NR14",
+    "NR15",
+    "NR17",
+    "WB08",
+    "WB20",
+    "WB21"
+  ],
+  "before": "Hosted ARpreparation\u2192online returnedEN;new regression failed because Arabic trigger absent",
+  "repair": "Existing callback returns selected locale;parent restores existing preparation button focus after return",
+  "sourceHashes": {
+    "apps/web/src/components/attendance-workspace.tsx": "9084fdf141548125d2232f8180f45d56cab329e9f6154f4e9f3ea52bae2439f6",
+    "apps/web/src/components/prepared-register-panel.tsx": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
+    "scripts/working-day/test_normal_attendance.mjs": "f808d836589970a32ebfa9025b43600da3af433427f7d1e36aa050bd63770f94"
+  },
+  "local": {
+    "normalCases": 20,
+    "normalReceipt": "runtime.json",
+    "startupCases": 8,
+    "workingDayCases": 8,
+    "build": "passed",
+    "types": "passed",
+    "lint": "passed",
+    "captureGroups": 16,
+    "welcomeCaptures": 8,
+    "factualReview": {
+      "frames": 1189,
+      "transitions": 1163,
+      "sourceFiles": 80,
+      "literals": 7883,
+      "freshness": "passed",
+      "tool": "passed",
+      "limits": "Targeted local fallback capture supplements default replay;no exhaustive provider/installed render claim"
+    },
+    "limits": "Fictional SDK/provider in actual Next/Chromium/IDB/signedPG;not hosted or installed proof"
+  },
+  "evidenceRepair": "Assertion targets real app-scene lang/dir rather than unchanged route document language;Arabic labels/focus/roster assertions retained",
+  "release": {
+    "codeCommit": null,
+    "ci": "not started",
+    "deployment": "not promoted",
+    "hosted": "new source not verified",
+    "ownerAcceptance": "pending",
+    "independentReview": "deferred;nonblocking;not performed"
+  },
+  "boundaries": [
+    "Existing keys and originals unchanged",
+    "Dirty/unknown/offline/current-scope guards unchanged",
+    "No new key API request,server write or cache introduced"
+  ],
+  "delegation": {
+    "newHelpers": 0,
+    "reason": "Small serial callback and test repair;direct work cheaper;prior boundedTerra contribution retained in binding packet"
+  },
+  "ciDownloadRepair": {
+    "cause": "Prior c36e87c attempt1 official PostgreSQL key curl56;attempt2 succeeded",
+    "behavior": "2bounded retries;15sec connect and60sec transfer limits;TLS,HTTP failure,signature and all tests retained",
+    "workflowLint": "passed actionlint1.7.12",
+    "savings": "unmeasured"
+  }
+}

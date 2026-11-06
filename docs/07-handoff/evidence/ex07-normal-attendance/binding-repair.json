@@ -106,18 +106,52 @@
     "interpretation": "Existing direct-table denial and signed RPC boundary retained;not zero findings or independent review"
   },
   "release": {
-    "codeCommit": "a12006c9807157e8196785025564555173492c90",
-    "ci": "a12006c failed at backup rehearsal test: new reviewed migration makes5,assertion expected4;no behavior tests weakened",
-    "deployment": "Owner promotion pending;canonical staging remains52d04a2",
-    "hosted": "new repair not tested",
+    "codeCommit": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+    "ci": "passed;exact corrected source;53of53steps",
+    "deployment": "Owner-promoted;exact canonical c36e87c independently verified",
+    "hosted": "scoped existing OwnerB read/history/return and client different-event refusal/online fallback verified;Arabic return regression found;live HTTP409 unexecuted",
     "ownerAcceptance": "pending",
     "independentReview": "deferred;nonblocking;not performed",
     "pushed": true,
-    "ciRun": 42266688169,
-    "ciJob": 128060355306,
-    "previewDeployment": "dpl_AC9DDg6P9N89L682suDpX3qSpu46",
+    "ciRun": 42267294608,
+    "ciJob": 128178651752,
+    "previewDeployment": "dpl_FejH8JmEUKvRpnFKQoVyVi4phxnu",
     "previewState": "READY",
-    "next": "Explicit reviewed migration-name assertion locally passed;publish corrected source and run full CI"
+    "previousAttempt": {
+      "code": "a12006c9807157e8196785025564555173492c90",
+      "run": 42266688169,
+      "job": 128060355306,
+      "conclusion": "failure",
+      "step": "backup rehearsal scope:4expected,5reviewed migrations",
+      "repair": "Assert exact five reviewed source filenames;2local positive/negative cases pass"
+    },
+    "ciAttempts": [
+      {
+        "run": 42267294608,
+        "attempt": 1,
+        "job": 128062414613,
+        "result": "failed",
+        "step": "Install disposable PostgreSQL17 runtime",
+        "cause": "curl56 Failure when receiving data from peer downloading official ACCC4CF8.asc",
+        "passedPrior": "build,lint,types,101units,traceability,factual review,14backup tests,offline review,automatic keys,40typed repository cases,public shell"
+      },
+      {
+        "run": 42267294608,
+        "attempt": 2,
+        "job": 128178651752,
+        "result": "success",
+        "stepsPassed": 53,
+        "stepsTotal": 53,
+        "source": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+        "observedAtUTC": "2026-11-06T22:11:28Z"
+      }
+    ],
+    "ciAttempt": 2,
+    "ciUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42267294608/attempts/2",
+    "promotionTarget": "https://staging.academy.nahr.dev",
+    "promotionLink": "https://vercel.com/academy-os2/academyos-web/FejH8JmEUKvRpnFKQoVyVi4phxnu",
+    "stagingDeployment": "dpl_2mif7vY7vyTYRTnVLyw2WsUqcopP",
+    "followOn": "docs/07-handoff/ex07-fallback-continuity-2026-11-07.md"
   },
   "compatibility": "No local schema,worker scope/cache protocol,retention,original wire or server attendance write change;old app sees new typed refusal unavailable rather than false denial",
   "evidenceLimit": "Synthetic local SDK/provider;real-provider earlier52d04a2 read and Owner offline/reconnect evidence separate",

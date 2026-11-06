@@ -18,7 +18,7 @@ type Pilot=ReturnType<typeof ownerRegisterPilot>;
 type Read=Awaited<ReturnType<Pilot['read']>>;
 type Mark='present'|'absent';
 export type PreparedRegisterView={query:string;filter:string;selected:string|null;loaded:number;locale:string;paneScroll:number;windowScroll:number};
-type Props={locale:string;scope:RegisterContext;offline?:boolean;offlineGeneration?:string;onCancel?:()=>void;normal?:boolean;account?:ReactNode;initialView?:PreparedRegisterView;onInspect?:(player:string,view:PreparedRegisterView)=>void};
+type Props={locale:string;scope:RegisterContext;offline?:boolean;offlineGeneration?:string;onCancel?:(locale:string)=>void;normal?:boolean;account?:ReactNode;initialView?:PreparedRegisterView;onInspect?:(player:string,view:PreparedRegisterView)=>void};
 async function readVisible(pilot:Pilot,count=0) {
   let read=await pilot.read();
   while(read.page?.more&&read.page.players.length<count){
@@ -287,7 +287,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
       <Button disabled={busy||!online||known===null||(!known&&!personal)||selections.length>0||!!pending} onClick={()=>prepare()}>
         {page?t('Retry current check','أعد التحقق'):t('Prepare register on this device','حضّر السجل على هذا الجهاز')}</Button>
       {onlineFallback&&onCancel&&!['scope_lost','scope_changed','withdrawn','register_account_cleanup_required'].includes(problem)&&
-        <Button disabled={busy||!online||selections.length>0||!!pending} onClick={onCancel}>{t('Use the online register','استخدم السجل عبر الإنترنت')}</Button>}
+        <Button disabled={busy||!online||selections.length>0||!!pending} onClick={()=>onCancel(locale)}>{t('Use the online register','استخدم السجل عبر الإنترنت')}</Button>}
       {known&&!page&&<Button disabled={busy||!online} onClick={()=>prepare(true)}>{t('Recover saved work','استعد العمل المحفوظ')}</Button>}
       {!normal&&shellReady&&hasAccess&&<a href={PREPARED_REGISTER_PATH+(ar?'#ar':'')}>{t('Offline reopening link','رابط إعادة الفتح دون اتصال')}</a>}
     </div>}

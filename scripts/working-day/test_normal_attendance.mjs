@@ -17,7 +17,7 @@ const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
   'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,19);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,20);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -74,9 +74,18 @@ try{
     await expect(tab.locator('main').getByRole('alert')).toHaveText('يوجد سجل محضّر على جهاز آخر أو لتدريب آخر. يبقى عمله المحفوظ دون تغيير. يمكنك استخدام هذا السجل عبر الإنترنت.');
     assert.equal(await tab.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     if(process.argv.includes('--record'))await tab.screenshot({path:join(output,'binding-device-conflict-ar-390.png'),fullPage:true});
+    await button('استخدم السجل عبر الإنترنت',tab).click();
+    await expect(button('استخدم سجل الجهاز الشخصي',tab)).toBeFocused();
+    await expect(tab.getByText('المحمّل: 18 / 18 · مختار غير محفوظ: 0',{exact:true})).toBeVisible();
+    await expect(tab.locator('.app-scene')).toHaveAttribute('lang','ar');
+    await expect(tab.locator('.app-scene')).toHaveAttribute('dir','rtl');
+    if(process.argv.includes('--record'))await tab.screenshot({path:join(output,'binding-online-return-ar-390.png'),fullPage:true});
     await tab.getByRole('link',{name:'English',exact:true}).click();await tab.setViewportSize({width:1440,height:1000});
+    pass('Arabic online fallback retains the chosen language and restores keyboard focus to the preparation trigger');
+   }else{
+    await button('Use the online register',tab).click();
+    await expect(button('Use a personal-device register',tab)).toBeFocused();
    }
-   await button('Use the online register',tab).click();
    await expect(tab.getByText('Loaded: 18 / 18 · Selected, not saved: 0',{exact:true})).toBeVisible();
    const reloadStart=state.events.length;await tab.reload();
    await expect(button('Use a personal-device register',tab)).toBeVisible();
@@ -302,7 +311,7 @@ try{
  assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
  pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,19);
+ assert.deepEqual(errors,[]);assert.equal(checks.length,20);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}

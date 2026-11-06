@@ -1,6 +1,7 @@
 {
   "checks": [
     "One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination",
+    "Arabic online fallback retains the chosen language and restores keyboard focus to the preparation trigger",
     "An existing event or device binding refuses key release, keeps the first prepared register intact and allows normal online use after failure and reload",
     "Prepared normal reopening avoids the old preliminary roster read and uses one unchanged manifest",
     "Paired resume signals share one held freshness check while rows, filter, selection and unsaved marks remain usable",
@@ -49,11 +50,11 @@
     "concurrentConfirmedSends": 1
   },
   "hashes": {
-    "scripts/working-day/test_normal_attendance.mjs": "41e4e68834e55b764292eb19de5ba0f5ae36caba74e522e52ed8bed3e26193b0",
+    "scripts/working-day/test_normal_attendance.mjs": "f808d836589970a32ebfa9025b43600da3af433427f7d1e36aa050bd63770f94",
     "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",
     "scripts/working-day/owner_db.py": "fc0c730fdbce63586567cbd2d99c3aa020faee33856480e53fea0be7261ee6c5",
-    "apps/web/src/components/attendance-workspace.tsx": "b419434dd284a2767b32db82f6bb04c39d878af73a63ad1eb87c725b5471a469",
-    "apps/web/src/components/prepared-register-panel.tsx": "6ce874125af9a14fcdd7a9fb084e3ab8bd8206cbaf8045d77992ca30ef4ff7a8",
+    "apps/web/src/components/attendance-workspace.tsx": "9084fdf141548125d2232f8180f45d56cab329e9f6154f4e9f3ea52bae2439f6",
+    "apps/web/src/components/prepared-register-panel.tsx": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
     "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
