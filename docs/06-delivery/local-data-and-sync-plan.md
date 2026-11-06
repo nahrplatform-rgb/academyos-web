@@ -1,5 +1,7 @@
 # AcademyOS persistent local data and quiet synchronization plan
 
+**6 November hosted follow-through:** Owner-promoted **3c34923** is independently verified on staging. [The normal Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#owner-promotion-and-scoped-hosted-verification--6-november) records EN/AR prepared reading, zero-byte cold worker reopening, quiet reconnect and current history return. A fresh fictional date is published and temporary Trainer access ended; its new offline-save/automatic-commit check awaits a separate signed-in Owner browser profile. EX-07 remains current; do not infer whole-app, installed-device or working acceptance.
+
 **6 November normal Attendance:** [The EX-07 checkpoint](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) integrates the existing protected one-register mechanism at the ordinary EN/AR Attendance URL. The root public fallback now has a bounded normal-Attendance extension in source; the narrower legacy register worker remains compatible. Local original-first reconnect, quiet checks and confirmed-save/read-failure recovery do not extend the approved command/dataset scope or establish a manifest launch/installed-device result. Follow the tracker for release and hosted status.
 
 ## PWA reuse and installed-container boundary — 6 November 2026

@@ -1,5 +1,7 @@
 # Connected experience execution guide
 
+**6 November hosted follow-through:** Owner-promoted **3c34923** is independently verified on staging. [The normal Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#owner-promotion-and-scoped-hosted-verification--6-november) records EN/AR prepared reading, zero-byte cold worker reopening, quiet reconnect and current history return. A fresh fictional date is published and temporary Trainer access ended; its new offline-save/automatic-commit check awaits a separate signed-in Owner browser profile. EX-07 remains current; do not infer whole-app, installed-device or working acceptance.
+
 **6 November normal Attendance:** [The current EX-07 checkpoint](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) records normal-route protected reading, quiet revalidation, local atomic saves, offline restart and original-first automatic reconnect. EX-07 remains current. Follow its actual local/CI/promotion/hosted status; this does not close the whole redesign, refresh findings or installed-PWA matrix.
 
 ## Supporting PWA delivery — 6 November 2026

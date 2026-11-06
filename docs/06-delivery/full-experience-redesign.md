@@ -1,5 +1,7 @@
 # Full connected experience redesign
 
+**6 November hosted follow-through:** Owner-promoted **3c34923** is independently verified on staging. [The normal Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#owner-promotion-and-scoped-hosted-verification--6-november) records EN/AR prepared reading, zero-byte cold worker reopening, quiet reconnect and current history return. A fresh fictional date is published and temporary Trainer access ended; its new offline-save/automatic-commit check awaits a separate signed-in Owner browser profile. EX-07 remains current; do not infer whole-app, installed-device or working acceptance.
+
 **6 November EX-07 slice:** [Normal Attendance implementation and evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) replaces the alternate prepared-register shell in the ordinary Owner task, reuses Operations controls/panes and retains the current online history/correction workflow. Its difference ledger and evidence limits remain explicit. Full Operations parity and remaining journeys are still open; local proof is separate from release, hosted checks and Owner acceptance.
 
 ## Installed experience overlay — 6 November 2026

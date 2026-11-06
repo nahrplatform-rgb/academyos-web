@@ -37,12 +37,15 @@
     }
   ],
   "staging": {
-    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
-    "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
-    "state": "READY"
+    "source": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
+    "id": "dpl_HVNLHnGnRzWCPNy4V2uUe2HKTotW",
+    "state": "READY",
+    "url": "https://academyos-bx97sqsf5-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/HVNLHnGnRzWCPNy4V2uUe2HKTotW",
+    "verification": "Independent read-only provider lookup at canonical staging hostname;Owner performed promotion. Production-target rebuild is synthetic staging,not real-data launch."
   },
   "cause": "unconfirmed;no branch-rule,repository-plan,visibility,credential or promotion change attempted",
-  "next": "Owner promotes checked3c34923 deployment dpl_HStSWtYAoXTvvRgaMHSpuTkgCzGg to staging.academy.nahr.dev;verify effective released source and scoped signed-in journey separately",
+  "next": "Preserve old event/slot/original;finish fresh fixture41b88d68 normal-route save/reopen/auto-sync in separately signed-in regular Owner Chrome profile. Reconcile canonical result and keep EX07 current for remaining Operations/whole-app continuity. No further promotion for this documentation checkpoint.",
   "previewPublicProbe": {
     "status": 200,
     "publicShellMarker": "workspace-v1",
@@ -61,5 +64,13 @@
     "officialReason": "not practically exploitable",
     "repositoryAlertState": "open",
     "action": "read-only triage;no dismissal/dependency change/security-pass inference"
-  }
+  },
+  "stagingBeforeOwnerPromotion": {
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "state": "READY"
+  },
+  "ownerReportedPromotion": "Promoted3c34923 to staging,6November2026",
+  "hostedEvidence": "docs/07-handoff/evidence/ex07-normal-attendance/hosted.json",
+  "hostedStatus": "Scoped normal ENAR prepared reading,cold worker reopening,quiet reconnect and current online history/return verified;fresh offline capture/reopen/automatic commit pending isolated Owner profile sign-in."
 }
