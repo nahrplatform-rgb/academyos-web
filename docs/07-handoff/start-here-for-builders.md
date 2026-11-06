@@ -1,5 +1,7 @@
 # Start here for builders
 
+**Latest EX-07 implementation:** Continue from [cold-session repair](ex07-cold-session-repair-2026-11-06.md),not another browser-profile or fixture-reset attempt. The source fix and17controlled cases now exist;finish exact-code release/provider evidence and Owner-only promotion before real-Clerk verification. Keep global registration-limit/online fallback and post-registration directory invalidation next. Do not repeat completed storage/role/PYSA/PRF work.
+
 **Current EX-07 checkpoint — 6 November:** Read [the real-provider failure and recovery](ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Chrome Hiếu Owner B saved2marks offline and retained them through cold normal-route reload. Automatic reconnect401 failed; normal signed-in Recover saved work committed the same original once. The next work is the bounded session-readiness/error-classification repair and independent expired-auth regression,then truthful global one-register limit/online fallback and post-registration projection continuity before visual adoption. No account handoff is pending. Never clear the existing A/B bindings/originals or create another profile as a workaround. The tracker owns sequence; Owner-only promotions and separate hosted/installed/acceptance gates remain.
 
 ## PWA alongside the current primary — 6 November 2026

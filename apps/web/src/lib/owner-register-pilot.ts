@@ -5,6 +5,7 @@ import {registerDownloadCoordinator} from './register-download-coordinator';
 import {registerOriginalDispatch} from './register-original-dispatch';
 import {registerScopeHeaders} from './register-scope-transport';
 import {identifier, record, refuse} from './local-register-codec';
+import type {RegisterSessionCheck} from './register-session';
 import {readRegisterSlot, writeRegisterSlot, registerSlotLock, cleanRegisterSlot,
   type RegisterSlot, type RegisterCleanup, type RegisterContext} from './register-device-slots';
 
@@ -12,10 +13,16 @@ class RegisterAuthorityLoss extends Error {
   constructor(readonly reason: 'withdrawn' | 'scope_lost') {super(reason);}
 }
 
-async function post(path: string, body: unknown, signal: AbortSignal, scope?: RegisterScope) {
-  const response = await fetch(path, {method:'POST', body:JSON.stringify(body), signal,
+async function post(path: string, body: unknown, signal: AbortSignal, scope?: RegisterScope, beforeOnline?:RegisterSessionCheck) {
+  await beforeOnline?.(false,signal);
+  const send=()=>fetch(path, {method:'POST', body:JSON.stringify(body), signal,
     credentials:'same-origin', cache:'no-store', redirect:'error',
     headers:{'content-type':'application/json', ...(scope ? registerScopeHeaders(scope) : {})}});
+  let response=await send();
+  if(response.status===401&&beforeOnline){
+    await response.body?.cancel();await beforeOnline(true,signal);
+    response=await send(); // One supported session refresh; same bounded request.
+  }
   const limit = path === '/api/register-key' ? 2048 : 32768 + 32;
   const reader = response.body?.getReader();
   if (!reader || Number(response.headers.get('content-length')) > limit) {
@@ -35,13 +42,14 @@ async function post(path: string, body: unknown, signal: AbortSignal, scope?: Re
   const reply = record(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes.subarray(0,size))));
   if (Object.keys(reply).length !== 1) refuse('register_response_invalid');
   if (response.status === 410 && reply.error === 'withdrawn') throw new RegisterAuthorityLoss('withdrawn');
-  if ((response.status === 401 || response.status === 403) &&
+  if (response.status===401&&reply.error==='denied') refuse('authentication_required');
+  if (response.status === 403 &&
       (reply.error === 'denied' || reply.error === 'account_changed')) throw new RegisterAuthorityLoss('scope_lost');
   if (!response.ok || !('data' in reply)) refuse('register_unavailable');
   return reply.data;
 }
 
-export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSignal, assertAccount = () => {}) {
+export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSignal, assertAccount = () => {}, beforeOnline?:RegisterSessionCheck) {
   const ended = new AbortController(), lifetime = AbortSignal.any([scopeSignal,ended.signal]);
   const {subject, academy, event} = {...input};
   identifier(academy); identifier(event);
@@ -92,7 +100,7 @@ export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSig
     let grant: Record<string,unknown>;
     try {
       grant = record(await post('/api/register-key',{subject,academy,event,device:slot.device,...recoverScope},
-        AbortSignal.any([lifetime,AbortSignal.timeout(20000)])));
+        AbortSignal.any([lifetime,AbortSignal.timeout(20000)]),undefined,beforeOnline));
     } catch (error) {
       if (error instanceof RegisterAuthorityLoss) await lose(slot,'known_denial');
       throw error;
@@ -145,14 +153,14 @@ export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSig
     await activation(false);
     return operate(async (repo,scope,fence) => {
       const result = await registerDownloadCoordinator(repo,academy,(command,signal)=>
-        post('/api/register-download',command,AbortSignal.any([signal,AbortSignal.timeout(20000)]),scope),lifetime).prepare(event);
+        post('/api/register-download',command,AbortSignal.any([signal,AbortSignal.timeout(20000)]),scope,beforeOnline),lifetime).prepare(event);
       await repo.noteReplicaVerification(result.verifiedAt,fence);
       return result.kind;
     });
   }
   async function sync() {
     return operate(async repo => {
-      const result = await registerOriginalDispatch(repo,lifetime)(event);
+      const result = await registerOriginalDispatch(repo,lifetime,beforeOnline)(event);
       if (result.kind === 'withdrawn' || result.kind === 'scope_lost') throw new RegisterAuthorityLoss(result.kind);
       if (result.kind === 'needs_review' && result.refusal === 'denied') throw new RegisterAuthorityLoss('scope_lost');
       return result;

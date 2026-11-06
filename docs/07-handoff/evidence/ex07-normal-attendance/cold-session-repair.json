@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-06",
+  "sourceBase": "df09559652cc78c9bbf7ed45114f9f7253085a7d",
+  "scope": "EX07/IMP-J12-A01/WD63,66,69,71;local source repair,not a hosted or installed pass",
+  "productHashes": {
+    "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+    "apps/web/src/components/prepared-register-panel.tsx": "903ee12eaa440fabb143a7930e6ef832d1b775a4754a962a5741f8da08986f1b",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
+    "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
+    "apps/web/src/lib/owner-register-pilot.ts": "7143e6ef63a65a6399b77053147fba530da423bc2af14a5e7b99c5e0d36f17b4",
+    "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f"
+  },
+  "normalRouteReceipt": "runtime.json",
+  "checks": 17,
+  "metrics": {
+    "preparedReopen": {
+      "attendanceReads": 0,
+      "manifestReads": 1
+    },
+    "cachedPublicEntries": 11,
+    "offlineNormalRoute": {
+      "fullBrowserRestart": true,
+      "operatingRequests": 0,
+      "normalArabicUrl": true
+    },
+    "phoneWidthsWithoutDocumentOverflow": [
+      320,
+      360,
+      390
+    ],
+    "originalSync": {
+      "transportAttempts": 3,
+      "unauthenticatedAttempts": 1,
+      "distinctOriginals": 1,
+      "serverOperations": 1,
+      "marks": 18,
+      "history": 18,
+      "audit": 1,
+      "reconnectDocuments": 0
+    },
+    "concurrentConfirmedSends": 1
+  },
+  "baseline": "fresh-save.json;hosted3c34923 automatic cold reconnect401 failed;explicit recovery committed once",
+  "localResults": {
+    "build": "passed Next16.4.2;public prepared-workspace remains static",
+    "types": "passed",
+    "lint": "passed",
+    "units": {
+      "passed": 101,
+      "failed": 0,
+      "skipped": 0
+    },
+    "dispatch": 17,
+    "startup": 8,
+    "workingDay": 8,
+    "keyLifecycle": 15,
+    "workspaceTransfer": 49,
+    "ordinaryAttendanceDevelopment": "passed;ordinary-development-geometry.json",
+    "captureSuites": 16,
+    "welcomeCaptures": 8,
+    "factualReview": {
+      "states": 1189,
+      "transitions": 1163,
+      "sourceFiles": 80,
+      "literals": 7877,
+      "freshness": "passed",
+      "tool": "passed",
+      "themeCases": 66
+    },
+    "limits": "Gated prepared-device states remain outside default replay;separate auth-required/unavailable captures inspected. No real-provider or installed pass."
+  },
+  "providerBoundary": "Clerk/provider and server-session renewal are modeled. Actual product components/workers/IDB/API/signed PG transaction are exercised. Server-session validity independent of local account identity. Actual ordinary provider cookie renewal still requires exact-code hosted verification.",
+  "requestBudget": "0offline operating calls/0local-filter auth checks;1eligible unchanged manifest;one in-flight session check per public boundary,15sec timeout;after an explicit401 one SDK skipCache refresh and one identical request resend;network/unknown errors do not trigger generic auto retry. SDK normal cookie maintenance and payload costs not measured here.",
+  "compatibility": "No worker/root/cache prefix/public protocol/local schema/key binding/retention/server command change. Old/new public JavaScript coexist through existing checked cache generations. No full installed mixed-generation/update claim.",
+  "release": {
+    "pushed": "pending",
+    "ci": "not run for changed source yet;previous account runner restriction retained",
+    "promotion": "Owner-only;not requested before exact release checks",
+    "hosted": "not run for this repair",
+    "installed": "not run",
+    "ownerAcceptance": "pending",
+    "independentReview": "deferred;nonblocking;not performed"
+  },
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peakHelpers": 1,
+    "scope": "Only owner_fixture.mjs independent fictional-session adapter;syntax checked by helper;coordinator reviewed diff and ran integration",
+    "repairs": "Coordinator integrated context instead of render callback,restored original missing-auth negative assertion as authentication_required,and repaired rapid-focus online suppression without weakening operation locks. Fixture-only UI test fixes close phone inspector before workflow and scope injection to target original.",
+    "savings": "unmeasured"
+  }
+}

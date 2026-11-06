@@ -282,7 +282,7 @@ try {
   assert.deepEqual(await send(other.event),{kind:'scope_lost'});
   assert.equal(state.calls.length,callCount);
   assert.deepEqual(await counts(other),empty);
-  state.subject=null;assert.deepEqual(await send(other.event),{kind:'scope_lost'});
+  state.subject=null;await assert.rejects(send(other.event),/authentication_required/);
   assert.equal(state.calls.length,callCount);state.subject='user_owner';
   await db({action:'switch_owner',academy:other.academy,subject:'user_owner'});
   assert.deepEqual(await send(other.event),{kind:'confirmed'});

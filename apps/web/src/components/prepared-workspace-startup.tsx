@@ -4,6 +4,7 @@ import {useEffect,useSyncExternalStore} from 'react';
 import {readRegisterAccount,subscribeRegisterAccount} from '@/lib/register-device-account';
 import {isCivilDay} from '@/lib/experience-format';
 import PreparedRegisterPanel from './prepared-register-panel';
+import PreparedRegisterSession from './prepared-register-session';
 import {readRegisterSlot} from '@/lib/register-device-slots';
 import {readWorkspaceSlot} from '@/lib/workspace-device-slots';
 import {PeopleJourney} from './people-workspace';
@@ -92,8 +93,10 @@ export default function PreparedWorkspaceStartup() {
   </main>;
   const common={locale,academy:scope.academy,subject:scope.subject,prepared:true,publicOffline:true};
   const key=`${scope.generation}:${scope.academy}:${scope.view}`;
-  if(scope.view==='attendance'&&scope.event)return <PreparedRegisterPanel key={`${key}:${scope.event}`}
-    locale={locale} scope={{subject:scope.subject,academy:scope.academy,event:scope.event}} normal offline offlineGeneration={scope.generation}/>;
+  if(scope.view==='attendance'&&scope.event)return <PreparedRegisterSession key={`${key}:${scope.event}`}
+    subject={scope.subject} generation={scope.generation!}><PreparedRegisterPanel
+      locale={locale} scope={{subject:scope.subject!,academy:scope.academy!,event:scope.event!}}
+      normal offline offlineGeneration={scope.generation}/></PreparedRegisterSession>;
   return scope.view==='players'?<PeopleJourney key={key} {...common}/>:
     <ExperienceJourney key={key} {...common} role="owner" calendar anchor={scope.anchor}/>;
 }

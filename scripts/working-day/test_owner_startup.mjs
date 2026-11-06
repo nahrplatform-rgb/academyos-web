@@ -15,9 +15,9 @@ const sources=[
   'apps/web/next.config.ts','apps/web/public/prepared-register-worker.js','apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts','apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx',
   'apps/web/src/app/[locale]/layout.tsx','apps/web/src/app/prepared-register/page.tsx',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
-  ...['attendance-workspace','workspace-shell','prepared-register-panel','prepared-register-startup','register-account-context','register-account-boundary']
+  ...['attendance-workspace','workspace-shell','prepared-register-panel','prepared-register-session','prepared-register-startup','register-account-context','register-account-boundary']
     .map(name=>`apps/web/src/components/${name}.tsx`),
-  ...['owner-register-pilot','register-device-account','register-device-slots','register-public-shell','local-register-repository','config',
+  ...['owner-register-pilot','register-session','register-device-account','register-device-slots','register-public-shell','local-register-repository','config',
     'workspace-device-slots','local-workspace-repository']
     .map(name=>`apps/web/src/lib/${name}.ts`),
   'supabase/migrations/20261104013632_owner_register_bound_transport.sql',

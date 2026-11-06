@@ -26,7 +26,7 @@ export async function normalWorkspaceFixture(root, fixture) {
       bundle.onResolve({filter:/^(@clerk\/nextjs|next\/link)$/},({path})=>({path,namespace:'fictional'}));
       bundle.onLoad({filter:/.*/,namespace:'fictional'},({path})=>({loader:'tsx',resolveDir:root,contents:
         path==='next/link'?'export default function Link({prefetch,...props}){return <a {...props}/>;}':
-          "export const useUser=()=>({isLoaded:true,user:{id:'user_owner'}});export const useClerk=()=>({});export const UserButton=()=>null;"}));
+          "export const useUser=()=>({isLoaded:true,user:{id:'user_owner'}});export const useClerk=()=>({});export const UserButton=()=>null;export function ClerkProvider(){throw Error('Unexpected Attendance auth in Players/Calendar fixture');}export function useAuth(){throw Error('Unexpected Attendance auth in Players/Calendar fixture');}"}));
     }}]});
   const [worker,css,publicPage]=await Promise.all(['public/prepared-workspace-worker.js','src/app/globals.css',
     '.next/server/app/prepared-workspace.html']

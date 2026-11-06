@@ -41,6 +41,7 @@ const inputs=[
   'apps/web/src/lib/register-device-slots.ts','apps/web/src/lib/local-register-repository.ts',
   'apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts',
   'apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/components/owner-workspace-device.tsx',
+  'apps/web/src/components/prepared-register-session.tsx','apps/web/src/lib/register-session.ts',
   'apps/web/src/components/people-workspace.tsx','apps/web/src/components/experience-workspace.tsx',
   'apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx','apps/web/next.config.ts',
   'apps/web/src/components/workspace-shell.tsx','apps/web/src/app/[locale]/layout.tsx',

@@ -1,7 +1,8 @@
-/** Inactive Owner register sender. The workspace owns the scope lifetime. */
+/** Owner register sender. The workspace owns the scope lifetime. */
 import type {LocalRegisterRepository} from './local-register-repository';
 import {registerScopeHeaders, registerWithdrawn} from './register-scope-transport';
 import {identifier, refuse} from './local-register-codec';
+import type {RegisterSessionCheck} from './register-session';
 
 type DispatchResult = {kind: 'none' | 'confirmed' | 'unknown' | 'withdrawn' | 'scope_lost'} |
   {kind: 'needs_review'; refusal: 'conflict' | 'deadline' | 'denied'};
@@ -29,34 +30,41 @@ async function readReply(response: Response): Promise<Record<string, unknown>> {
   return body as Record<string, unknown>;
 }
 
-export function registerOriginalDispatch(repository: LocalRegisterRepository, scopeSignal: AbortSignal) {
+export function registerOriginalDispatch(repository: LocalRegisterRepository, scopeSignal: AbortSignal, beforeOnline?:RegisterSessionCheck) {
   const active = new Map<string, Promise<DispatchResult>>();
   async function run(event: string): Promise<DispatchResult> {
+    await beforeOnline?.(false,scopeSignal);
     const dispatch = await repository.beginOriginalDispatch(event, scopeSignal);
     if (dispatch.kind !== 'send') return dispatch;
     const {attempt, scope, wire} = dispatch;
     scopeSignal.throwIfAborted();
-    let response: Response, reply: Record<string, unknown>;
-    try {
-      response = await fetch('/api/register-dispatch', {
+    const send=async()=>{
+      try {
+      const response = await fetch('/api/register-dispatch', {
         method: 'POST', body: wire, credentials: 'same-origin', cache: 'no-store', redirect: 'error',
         headers: {'content-type': 'application/json', ...registerScopeHeaders(scope)},
         signal: AbortSignal.any([scopeSignal, AbortSignal.timeout(20000)]),
       });
-      reply = await readReply(response);
-    } catch {
-      scopeSignal.throwIfAborted();
-      return {kind: 'unknown'};
+      return {response,reply:await readReply(response)};
+      } catch {
+        scopeSignal.throwIfAborted();
+        return null;
+      }
+    };
+    let sent=await send();
+    if(sent?.response.status===401&&sent.reply.error==='denied'&&beforeOnline){
+      await beforeOnline(true,scopeSignal);
+      sent=await send(); // Byte-identical original, at most one auth recovery attempt.
     }
+    if(!sent)return {kind:'unknown'};
+    const {response,reply}=sent;
     scopeSignal.throwIfAborted();
     if (response.status === 410 && registerWithdrawn(reply)) {
       await repository.finishOriginalDispatch(attempt,{refusal:'denied'},scopeSignal);
       return {kind: 'withdrawn'};
     }
-    if (Object.keys(reply).length === 1 && (
-      response.status === 401 && reply.error === 'denied' ||
-      response.status === 403 && reply.error === 'account_changed'
-    )) return {kind: 'scope_lost'};
+    if(response.status===401&&Object.keys(reply).length===1&&reply.error==='denied') refuse('authentication_required');
+    if (Object.keys(reply).length===1&&response.status===403&&reply.error==='account_changed') return {kind:'scope_lost'};
     const data = reply.data;
     if (response.status === 200 && Object.keys(reply).length === 1 && data && typeof data === 'object') {
       const refusal = Object.keys(data).length === 1 && 'error' in data ? data.error : null;

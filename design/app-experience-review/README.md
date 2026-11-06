@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+**6 November local repair:** [Cold-session evidence](../../docs/07-handoff/ex07-cold-session-repair-2026-11-06.md) includes new real-component fictional Arabic sign-in-unavailable/required captures and retained17normal-route cases. Regenerate the capture pack/factual HTML for the changed components;the default replay still omits the protected prepared branch and does not establish hosted/installed success.
+
 6 November hosted verification: [Fresh normal-Attendance evidence](../../docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) records offline capture/cold reopen, a failed401 automatic reconnect and successful explicit same-original recovery. It also records misleading pilot-limit feedback and a stale directory after confirmed registrations. No app/capture input changed in this verification checkpoint; rebuild the factual inventory from the unchanged pack. The local replay is not a live hosted capture or proof those failures are repaired.
 
 **6 November EX-07 normal Attendance:** All affected actual-component captures and this factual HTML are refreshed for [the normal-route checkpoint](../../docs/07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md). The default capture replay still omits the protected prepared-device branch; the receipt links separate real-component EN/AR light/Charcoal captures and browser/API/PG recovery checks for that branch. These are fictional local fixtures, not staging or installed-PWA proof.

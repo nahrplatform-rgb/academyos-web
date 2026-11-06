@@ -15,13 +15,15 @@ export async function checkStartupResume(root,pass){
   `,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',
     tsconfig:join(root,'apps/web/tsconfig.json'),define:{'process.env.NODE_ENV':'"production"'},
     plugins:[{name:'public-startup-fixture',setup(bundle){
-      bundle.onResolve({filter:/^(\.\/people-workspace|\.\/experience-workspace|\.\/prepared-register-panel|@\/lib\/register-device-account)$/},
+      bundle.onResolve({filter:/^(\.\/people-workspace|\.\/experience-workspace|\.\/prepared-register-panel|\.\/prepared-register-session|@\/lib\/register-device-account)$/},
         ({path})=>({path,namespace:'fictional'}));
       bundle.onLoad({filter:/.*/,namespace:'fictional'},({path})=>({loader:'tsx',contents:
         path.includes('register-device-account')?
           'export const readRegisterAccount=()=>null;export const subscribeRegisterAccount=()=>()=>{};':
         path.includes('prepared-register-panel')?
           'export default function Register(){throw new Error("Unexpected private register in public no-account reachability fixture");}':
+        path.includes('prepared-register-session')?
+          'export default function Session(){throw new Error("Unexpected private session in public no-account reachability fixture");}':
           'export const PeopleJourney=()=>null;export const ExperienceJourney=()=>null;'}));
     }}]});
   let documents=0,probes=0,reachable=true,heldProbe=null,holdProbe=false;

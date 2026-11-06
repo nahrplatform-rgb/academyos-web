@@ -11,6 +11,7 @@ import {ownerRegisterPilot} from '@/lib/owner-register-pilot';
 import {armRegisterAccount,readRegisterAccount,rememberPreparedRegister,requireRegisterAccount,REGISTER_DRAFT_EXIT_EVENT,
   subscribeRegisterAccount} from '@/lib/register-device-account';
 import {readRegisterSlot,subscribeRegisterSlot,type RegisterContext} from '@/lib/register-device-slots';
+import {useRegisterSession} from '@/lib/register-session';
 import {prepareRegisterShell,registerShellAvailable,PREPARED_REGISTER_PATH} from '@/lib/register-public-shell';
 
 type Pilot=ReturnType<typeof ownerRegisterPilot>;
@@ -37,6 +38,7 @@ function generation(subject:string) {
 function subscribeConnection(listener:()=>void){window.addEventListener('online',listener);window.addEventListener('offline',listener);return()=>{window.removeEventListener('online',listener);window.removeEventListener('offline',listener);};}
 export default function PreparedRegisterPanel({locale:initialLocale,scope,offline=false,offlineGeneration,onCancel,normal=false,account,initialView,onInspect}:Props) {
   const {subject,academy,event}=scope;
+  const beforeOnline=useRegisterSession();
   const [locale,setLocale]=useState(initialView?.locale??initialLocale),ar=locale==='ar',t=(en:string,arabic:string)=>ar?arabic:en;
   const router=useRouter(),online=useSyncExternalStore(subscribeConnection,()=>navigator.onLine,()=>true);
   const [query,setQuery]=useState(initialView?.query??''),[filter,setFilter]=useState(initialView?.filter??'all'),[selected,setSelected]=useState<string|null>(initialView?.selected??null),[checking,setChecking]=useState(false);
@@ -70,7 +72,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     const life=lifetime.current;
     if (!life || life.signal.aborted) throw new Error('scope_changed');
     if (runtime.current?.generation===id) return runtime.current.pilot;
-    const instance=ownerRegisterPilot({subject,academy,event},life.signal,()=>requireRegisterAccount(subject,id));
+    const instance=ownerRegisterPilot({subject,academy,event},life.signal,()=>requireRegisterAccount(subject,id),beforeOnline);
     runtime.current={pilot:instance,generation:id};
     return instance;
   }
@@ -196,8 +198,10 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
         show(await readVisible(p,visible.page!.players.length),current);
       },true);
     };
-    const returned=()=>{
-      if(document.hidden||performance.now()-lastResume.current<1000)return;
+    const returned=(event:Event)=>{
+      // A genuine connection return must not be swallowed by the focus/visible
+      // burst throttle. The operation lock still coalesces work already running.
+      if(document.hidden||event.type!=='online'&&performance.now()-lastResume.current<1000)return;
       lastResume.current=performance.now();automatic.current=null;checked.current=false;
       resume();
     };
@@ -248,6 +252,8 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const format=(value:string)=>new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{dateStyle:'medium',timeStyle:'short',timeZone:page?.header.projection.timezone??'UTC'}).format(new Date(value));
   const label=(mark:string|null)=>mark==='present'?t('Present','حاضر'):mark==='absent'?t('Absent','غائب'):t('Unmarked','لم يُسجّل');
   const messages:Record<string,string>={
+    authentication_required:t('Sign in to sync. Your saved work stays on this device.','سجّل الدخول للمزامنة. يبقى عملك المحفوظ على هذا الجهاز.'),
+    authentication_unavailable:t('Could not check sign-in. Your work stays on this device. Try again when connected.','تعذّر التحقق من تسجيل الدخول. يبقى عملك على هذا الجهاز. أعد المحاولة عند الاتصال.'),
     scope_lost:t('Current account access changed. Sign in again to recover protected work.','تغيّرت صلاحية الحساب. سجّل الدخول مجدداً لاستعادة العمل المحمي.'),
     clock_verification_required:t('The device clock changed. Verify access online.','تغيّرت ساعة الجهاز. تحقّق من الصلاحية عبر الإنترنت.'),
     account_verification_required:t('Verify access online to reopen protected work.','تحقّق من الصلاحية عبر الإنترنت لإعادة فتح العمل المحمي.'),
@@ -259,6 +265,8 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     {!normal&&<h2>{t('Personal-device register','سجل الجهاز الشخصي')}</h2>}
     {busy&&(!normal||!page||pending)&&<p role="status">{t('Checking saved work…','جارٍ التحقق من العمل المحفوظ…')}</p>}
     {problem&&<p role="alert">{messages[problem]??t('The device register is unavailable. Saved work remains protected.','سجل الجهاز غير متاح. يبقى العمل المحفوظ محمياً.')}</p>}
+    {problem==='authentication_required'&&<p><a href={`/${locale}/workspace/${academy}/attendance/${event}`}>
+      {t('Sign in to continue','سجّل الدخول للمتابعة')}</a></p>}
     {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&<p role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
     {confirmed&&hasAccess&&<p role="status">{notice==='confirmed_read_failed'?t('Save confirmed; latest register unavailable. Retry reading, not saving.','تأكد الحفظ؛ تعذّرت قراءة القائمة الأحدث. أعد القراءة وليس الحفظ.'):t('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.')}</p>}
     {(!offline||normal)&&(!normal||!page||problem)&&<div className="journey-actions">

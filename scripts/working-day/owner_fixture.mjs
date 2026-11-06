@@ -60,7 +60,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
   const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[])];
   const bridge = pgBridge(root);
   let api, entry, app, appClosed, log = '', origin, appOrigin;
-  const state = {subject: 'user_owner', events: [], dispatchBodies: [], rpcs: [], limits: [],originReachable:true};
+  const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
+    events: [], dispatchBodies: [], rpcs: [], limits: [],originReachable:true};
   const env = {PATH:process.env.PATH, ...(process.env.TMPDIR ? {TMPDIR:process.env.TMPDIR} : {}),
     NODE_ENV:'production', NEXT_TELEMETRY_DISABLED:'1'};
   async function put(path, body) {
@@ -90,8 +91,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         import{databaseError}from'${root}/apps/web/src/lib/onboarding.ts';
         export class JourneyError extends Error{constructor(code,http=503){super(code);this.code=code;this.http=http;}}
         export async function onboardingSession(){
-          const {subject}=globalThis.ownerDayFixture;
-          if(!subject)throw new JourneyError('denied',401);
+          const {subject,sessionValid}=globalThis.ownerDayFixture;
+          if(!subject||!sessionValid)throw new JourneyError('denied',401);
           return {subject,client:{subject}};
         }
         export async function rpc({subject},name,args){
@@ -134,7 +135,7 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
       try {
         if (req.method !== 'POST' || req.headers.origin !== origin) {res.writeHead(403).end(); return;}
         const name = req.url?.slice('/api/'.length);
-        if (!req.url?.startsWith('/api/') || ![...routes,'fixture-key','fixture-signout'].includes(name)) {res.writeHead(404).end(); return;}
+        if (!req.url?.startsWith('/api/') || ![...routes,'fixture-key','fixture-signout',...(pilot?['fixture-session']:[])].includes(name)) {res.writeHead(404).end(); return;}
         const chunks = [];
         for await (const chunk of req) chunks.push(chunk);
         const body = Buffer.concat(chunks).toString('utf8');
@@ -142,7 +143,17 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         const record = {route:name, action:payload.action ?? null, requestBytes:Buffer.byteLength(body)};
         state.events.push(record);
         let reply;
-        if (name === 'fixture-key') {
+        if (name === 'fixture-session') {
+          state.sessionRefreshes++;
+          if (state.sessionRefresh === 'unavailable') reply = Response.json({error:'unavailable'},{status:503});
+          else if (state.sessionRefresh === 'signed_out' || state.sessionRefresh === 'wrong_account') {
+            state.sessionValid = false;
+            reply = Response.json({data:{subject:state.sessionRefresh === 'signed_out' ? null : 'user_other'}});
+          } else {
+            state.sessionValid = true;
+            reply = Response.json({data:{subject:state.subject}});
+          }
+        } else if (name === 'fixture-key') {
           const found = Object.values(scopes).find(candidate => candidate.binding === payload.binding &&
             candidate.scope.subject === state.subject);
           reply = found ? Response.json({data:{binding:found.binding,keyId:'fictional_recovery',material:found.material,verifiedAt:Date.now()}}) :
@@ -179,6 +190,7 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         resolveDir:root,loader:'tsx'},
       tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',
       external:['react','react/*','next/*'],banner:{js:'"use client";'},
+      define:pilot?{'process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY':JSON.stringify('pk_test_'+Buffer.from('fixture.clerk.accounts.dev$').toString('base64'))}:{},
       plugins:[{name:'fictional-clerk-presentation',setup(b){
         b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));
         b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:pilot?`
@@ -186,6 +198,22 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
           const event='fixture-clerk-identity';
           const subscribe=callback=>{window.addEventListener(event,callback);return()=>window.removeEventListener(event,callback)};
           const subject=()=>sessionStorage.getItem('fixture-signed-out')?'':sessionStorage.getItem('fixture-subject')||'user_owner';
+          export function ClerkProvider({children}){return children;}
+          export function useAuth(){
+            const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');
+            return{isLoaded:true,userId:id||null,getToken:async()=>{
+              const reply=await fetch('/api/fixture-session',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});
+              if(!reply.ok)throw new Error('Fixture session unavailable');
+              const {data}=await reply.json();
+              if(!data.subject)return null;
+              if(data.subject!==subject()){
+                sessionStorage.removeItem('fixture-signed-out');sessionStorage.setItem('fixture-subject',data.subject);
+                window.dispatchEvent(new Event(event));
+              }
+              if(data.subject==='user_other')return null;
+              return 'fictional-fixture-token';
+            }};
+          }
           export function useUser(){const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');return{isLoaded:true,user:id?{id}:null};}
           export function UserButton(){return null;}
           export function useClerk(){return{openUserProfile:()=>{},signOut:async()=>{

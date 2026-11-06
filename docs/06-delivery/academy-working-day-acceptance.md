@@ -1,5 +1,7 @@
 # Academy working-day pilot and acceptance gate
 
+**Latest local evidence:** [EX-07 cold-session repair](../07-handoff/ex07-cold-session-repair-2026-11-06.md) adds independent expired-session/missing-sign-in/account-fence cases while retaining original identity and17normal-route checks. WD-63/66/69/71 remain evidence-linked,not whole-case passes;real provider,installed and Owner layers remain open.
+
 **6 November normal Attendance evidence:** [The current EX-07 receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) retains12controlled storage/worker/domain cases and the fresh hosted split:local capture/cold reload passed,automatic reconnect401 failed,manual same-account recovery committed exactly once. WD-63/66 now explicitly require independent expired-session coverage; no whole case is passed. Existing WD-72–86 stay planned and must verify actual installed authentication/storage containers separately.
 
 ## Installed PWA cases — 6 November 2026

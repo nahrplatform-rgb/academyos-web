@@ -12,11 +12,11 @@ const root=resolve(import.meta.dirname,'../..');
 const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
 const receipt=join(output,'runtime.json');
 const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
-  ...['attendance-workspace','prepared-register-panel','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
-  ...['owner-register-pilot','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
+  ...['attendance-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
+  ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,12);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,17);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -125,28 +125,77 @@ try{
  await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
  pass('An old online unknown-operation locator takes precedence over prepared normal-route data and blocks replacement');
 
- let capturedWire;
- await page.route('**/api/register-dispatch',async route=>{capturedWire=route.request().postData();await route.fetch();await route.abort('failed');},{times:1});
+ await page.setViewportSize({width:1440,height:1000});
  const docs=[];page.on('request',r=>{if(r.isNavigationRequest()&&r.frame()===page.mainFrame())docs.push(r.url());});
+ state.sessionValid=false;state.sessionRefresh='unavailable';
+ const authBefore=state.sessionRefreshes,dispatchBefore=state.dispatchBodies.length;
  fixture.reconnect();await context.setOffline(false);
+ await expect(page.locator('main').getByRole('alert')).toHaveText('تعذّر التحقق من تسجيل الدخول. يبقى عملك على هذا الجهاز. أعد المحاولة عند الاتصال.');
+ await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة',{exact:true})).toBeVisible();
+ await expect(page.locator('.register-roster li')).toHaveCount(18);
+ assert.equal(state.sessionRefreshes-authBefore,1);assert.equal(state.dispatchBodies.length,dispatchBefore);assert.equal(docs.length,0);
+ if(process.argv.includes('--record')){
+  await page.screenshot({path:join(output,'auth-unavailable-ar-1440.png'),fullPage:true});
+  await page.setViewportSize({width:390,height:1000});
+  await page.screenshot({path:join(output,'auth-unavailable-ar-390.png'),fullPage:true});
+  await page.setViewportSize({width:1440,height:1000});
+ }
+ await page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true}).fill('لاعب');
+ await page.locator('.register-person button').first().click();
+ assert.equal(state.sessionRefreshes-authBefore,1,'Local filter/selection must not refresh authentication');
+ pass('Independent expired server session and unavailable SDK refresh preserve the pending normal task without a dispatch, false access loss or reload');
+
+ state.sessionRefresh='signed_out';await button('أعد محاولة الحفظ الأصلي').click();
+ await expect(page.locator('main').getByRole('alert')).toHaveText('سجّل الدخول للمزامنة. يبقى عملك المحفوظ على هذا الجهاز.');
+ await expect(page.getByRole('link',{name:'سجّل الدخول للمتابعة',exact:true})).toHaveAttribute('href',new URL(url(a,'ar')).pathname);
+ await expect(page.locator('.register-roster li')).toHaveCount(18);assert.equal(state.dispatchBodies.length,dispatchBefore);
+ assert.equal(docs.length,0);
+ if(process.argv.includes('--record'))await page.screenshot({path:join(output,'auth-required-ar-1440.png'),fullPage:true});
+ pass('Missing ordinary sign-in has truthful focused recovery and keeps the original and local rows instead of revoking the Owner');
+
+ state.sessionRefresh='ok';let capturedWire,attempts=0;
+ const expiredThenLost=async route=>{
+  attempts++;capturedWire??=route.request().postData();assert.equal(route.request().postData(),capturedWire);
+  if(attempts===1){state.sessionValid=false;await route.continue();}
+  else if(attempts===2){await route.fetch();await route.abort('failed');}
+  else await route.continue();
+ };
+ await page.route('**/api/register-dispatch',expiredThenLost);
+ fixture.disconnect();await context.setOffline(true);await page.reload();
+ await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة',{exact:true})).toBeVisible();
+ await page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true}).fill('لاعب');
+ await page.locator('.register-person button').first().click();
+ docs.length=0; // The intentional offline reload is outside reconnect's document budget.
+ state.sessionValid=false;fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('النتيجة غير معروفة · تحقّق من الحفظ الأصلي',{exact:true})).toBeVisible();
  assert.equal(docs.length,0);
  const original=JSON.parse(capturedWire),counts=()=>db({action:'counts',...a,op:original.op});
  assert.deepEqual(await counts(),{marks:18,history:18,operations:1,audit:1});
+ assert.equal(attempts,2);
+ assert.deepEqual(state.events.filter(r=>r.route==='register-dispatch').map(r=>r.status),[401,200]);
+ await expect(page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true})).toHaveValue('لاعب');
+ await expect(page.locator('.register-person button').first()).toHaveAttribute('aria-pressed','true');
+ pass('A real-shaped401 permits one SDK force-refresh and identical-original retry without changing the task, operation or domain checks');
  await page.route('**/api/register-download',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}),{times:1});
  await button('أعد محاولة الحفظ الأصلي').click();
  await expect(page.getByText('تأكد الحفظ؛ تعذّرت قراءة القائمة الأحدث. أعد القراءة وليس الحفظ.',{exact:true})).toBeVisible();
  await expect(page.locator('.register-summary')).toHaveCount(0);
  await button('أعد التحقق').click();
  await expect(page.getByText('تمت المزامنة · سجّل الخادم الحضور.',{exact:true})).toBeVisible();
- assert.deepEqual(state.dispatchBodies,[capturedWire,capturedWire]);
+ assert.deepEqual(state.dispatchBodies,[capturedWire,capturedWire,capturedWire]);
  assert.deepEqual(await counts(),{marks:18,history:18,operations:1,audit:1});
  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(9);
  await expect(page.locator('.register-roster .attendance-status.absent')).toHaveCount(9);
- metrics.originalSync={transportAttempts:2,distinctOriginals:1,serverOperations:1,marks:18,history:18,audit:1,reconnectDocuments:0};
+ metrics.originalSync={transportAttempts:3,unauthenticatedAttempts:1,distinctOriginals:1,serverOperations:1,marks:18,history:18,audit:1,reconnectDocuments:0};
  pass('Automatic reconnect preserves the document; a lost committed reply retries byte-identical original and records exactly one canonical result');
+ await page.unroute('**/api/register-dispatch',expiredThenLost);
 
  await page.setViewportSize({width:1440,height:1000});await prepare(b);
+ state.sessionValid=false;await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+ await expect(page.locator('main').getByRole('alert')).toHaveText('Sign in to sync. Your saved work stays on this device.');
+ await expect(page.locator('.register-roster li')).toHaveCount(18);
+ state.sessionValid=true;await button('Retry current check').click();await settled();
+ pass('An ordinary-route401 also preserves the prepared replica while actual authenticated role denial still masks it');
  fixture.disconnect();await context.setOffline(true);await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
  await button('Review register').click();await button('Save selected marks').click();
  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
@@ -194,7 +243,31 @@ try{
  assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});
  pass('A capture made while locally eligible retains its original for review when the server recording deadline expires before sync');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,12);
+ // A different provider identity must not be used to send or release an old
+ // account's original. Exercise this on a still-retained original, not new work.
+ const protectedId=JSON.parse(state.dispatchBodies.at(-1)).op;
+ const retainedOriginal=()=>page.evaluate(async op=>{
+  const request=indexedDB.open('academyos-owner-register-v1');
+  const database=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});
+  try{
+   const read=database.transaction('originals').objectStore('originals').getAll();
+   const rows=await new Promise((resolve,reject)=>{read.onsuccess=()=>resolve(read.result);read.onerror=()=>reject(read.error);});
+   return rows.find(row=>row.op===op);
+  }finally{database.close();}
+ },protectedId);
+ const protectedBefore=await retainedOriginal();assert.ok(protectedBefore);
+ fixture.disconnect();await context.setOffline(true);await page.goto(url(a));
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
+ state.sessionRefresh='wrong_account';const wrongBefore=state.events.length;
+ fixture.reconnect();await context.setOffline(false);
+ await expect(page.locator('.register-roster')).toHaveCount(0);
+ await expect(page.getByText('This workspace has no prepared data on this device. Open it when connected.',{exact:true})).toBeVisible();
+ assert.equal(state.events.slice(wrongBefore).filter(r=>['register-key','register-dispatch','register-download'].includes(r.route)).length,0);
+ assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});
+ assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
+ pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
+
+ assert.deepEqual(errors,[]);assert.equal(checks.length,17);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}
