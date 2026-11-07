@@ -1,5 +1,9 @@
 # Family fees, bills, receipts, corrections and reconciliation
 
+## Current planning integration —7 November 2026
+
+The [canonical master plan v2](../06-delivery/master-plan-v2/README.md) and [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) govern current delivery. Preserve the useful financial outcomes, canonical AO/AT and accepted controls in this workflow; legacy mechanisms and unchosen formulas are not automatically approved. Design understandable statements and one reconciled payment/correction journey, with only the steps/reviews actually required by policy. New scope choices remain explicit.
+
 ## Persistent local data and synchronization — LF-v2,2November2026
 
 Monthly local financial views are future target, not implemented finance. Separate family ledger/compensation/platform snapshots, unlock, revisions, completeness and immutable server records. No offline payment/receipt/refund approval or invented balances. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.

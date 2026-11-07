@@ -1,5 +1,9 @@
 # Full scope and proposed release map
 
+## Version2 full-scope reconciliation —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package keeps all21domains,180requirements and future scope, with richer source/reference fields, full UI/UX, multisport structures and multi-academy contexts. Release placement and accepted contracts below remain; scope presence and batch ordering are not release acceptance or invented commercial policy.
+
 ## Installable web delivery, not a separate product — 6 November 2026
 
 A properly installable PWA is planned alongside the current web/local-data/redesign work under the [canonical PWA contract](../06-delivery/pwa-delivery-and-readiness.md). Supporting EX-14/15/16 cover identity/launch,worker/storage lifecycle and actual installed proof. They add no module, role, finance rule, native rewrite or production release. Installation metadata need not wait for all future modules; offline coverage grows through the existing domain adoption map.

@@ -244,7 +244,8 @@
       "current/production/resume-held-en-1440.png",
       "current/production/resume-held-en-390.png"
     ],
-    "captureMode": "production;copied from the single final factual collection after both mode-specific test runs"
+    "captureMode": "production;copied from the single final factual collection after both mode-specific test runs",
+    "inspection": "Actual production EN1440desktop andAR390phone images viewed;existing English narrow heading wrap retained as a separate composition gap"
   },
   "delegation": {
     "newHelpers": 0,
@@ -252,12 +253,31 @@
     "savings": "unmeasured"
   },
   "release": {
-    "codeCommit": null,
-    "ci": "pending",
-    "deployed": "68b6575 independently verified;new resume source not deployed",
-    "hosted": "pending new source",
+    "codeCommit": "1e684033586acc20c79c61ce67a049edfd74e366",
+    "ci": {
+      "run": 42335635286,
+      "job": 128291808785,
+      "conclusion": "success",
+      "stepsPassed": 53,
+      "stepsTotal": 53,
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42335635286"
+    },
+    "deployed": "New candidate ready;Owner promotion to staging.academy.nahr.dev pending;live68b6575 verified separately",
+    "hosted": "New source pending Owner promotion and scoped EN/AR clean return checks",
     "ownerAcceptance": "pending",
-    "independentReview": "deferred,nonblocking,not performed"
+    "independentReview": "deferred,nonblocking,not performed",
+    "candidate": {
+      "id": "dpl_6BjKoCCfrbt91CfvqRWNsuPCJ9EK",
+      "readyState": "READY",
+      "verifiedSource": "1e684033586acc20c79c61ce67a049edfd74e366",
+      "inspector": "https://vercel.com/academy-os2/academyos-web/6BjKoCCfrbt91CfvqRWNsuPCJ9EK"
+    },
+    "stagingAtHandoff": {
+      "id": "dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds",
+      "source": "68b6575b509698c9f380b6a5f82ea362e1f6077e",
+      "state": "READY"
+    },
+    "metadata": "Post-push release status remains local until next coordinated source checkpoint;no extra documentation-only full CI run"
   },
   "limits": [
     "Initial handoff,post-save/other route continuity and directory freshness remain open",

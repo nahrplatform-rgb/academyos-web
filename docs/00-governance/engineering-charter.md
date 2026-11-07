@@ -1,5 +1,9 @@
 # AcademyOS engineering charter
 
+## Coherent delivery granularity —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package consolidates source-grounded product/reference scope and larger connected batches. Apply focused checks while editing and coordinated full regression/captures/release verification at meaningful checkpoints. Retain atomicity/access/key/migration/original checks close to their changed boundaries; do not weaken gates or mark unverified work passed. Current development may proceed independently of an Owner-deferred release under existing authority. Plan presence is no new business/privacy/production permission.
+
 ## Installed web delivery — 6 November 2026
 
 The [canonical PWA contract](../06-delivery/pwa-delivery-and-readiness.md) is an installation/update/storage delivery overlay on existing domain authority. Installation metadata may progress alongside the current primary; actual installed proof follows the relevant working slice, without waiting for future modules. A manifest or OS shortcut does not establish offline coverage, security or Owner acceptance. Keep installation readiness, per-domain offline support and whole-app completion separate.
@@ -33,7 +37,7 @@ Follow current explicit owner instructions, accepted decisions and scoped contra
 | Understand first | Inspect relevant requirements, source, callers, data boundaries and tests; state the outcome | Generate a new implementation without checking what already exists |
 | Resolve dependent policy | Identify blockers and obtain the named decision; continue independent authorized work | Invent fee formulas, consent ages, authority, retention or refund policy |
 | Reuse intentionally | Shared tokens, accessible primitives and interaction patterns; explicit domain components | Duplicate controls or a giant configurable component hiding unrelated business behavior |
-| Bound the change | Small coherent vertical slice with declared affected modules and migration/recovery effects | Unrequested rewrites, frameworks, services or dependencies |
+| Bound the change | Bounded connected user outcome, potentially spanning related screens, with declared modules and migration/recovery effects | Unrequested rewrites, frameworks, services or dependencies |
 | Build real outcomes | Connect authorized UI to canonical operations, persisted state, audit and recovery | Decorative buttons, static totals, fake success or mock providers shown as live |
 | Preserve authority | Server/data enforcement, minimal projections, scoped cache and private files | Client-only permission checks, generic privileged bypass or public cache of private data |
 | Preserve integrity | Atomic transitions, operation IDs/idempotency and explicit pending/unknown states | Duplicate effects after retries or “Saved” before consequential commit |

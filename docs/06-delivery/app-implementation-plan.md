@@ -1,5 +1,9 @@
 # One application implementation plan
 
+## Canonical version2 entry point —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). Use the new master package for current complete scope, reference-field reconciliation and larger batch definitions. This older implementation register remains a canonical-ID/evidence index and dated history. Its old current/next paragraphs do not override experience-execution.csv. No prior approval, unbuilt capability or source/hosted distinction is erased.
+
 **Current bounded delivery:** [EX-07 cold-session repair](../07-handoff/ex07-cold-session-repair-2026-11-06.md) has17local normal-route cases and unchanged atomic/server authority. Release/real-provider verification are pending. The registration-limit fallback and post-registration directory continuity remain next;full redesign/master-plan/PWA completion is not claimed.
 
 **6 November current implementation:** Normal Attendance is deployed at3c34923; its fresh offline capture/reload passed, automatic reconnect failed401 and explicit protected same-account recovery committed once. [The canonical receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) and tracker prioritize session restoration, truthful pilot-limit/fallback handling and post-registration projection continuity before remaining Operations adoption. Preserve delivered components and pending originals; all future modules inherit the request/authentication regression standard. This is not full implementation or acceptance.

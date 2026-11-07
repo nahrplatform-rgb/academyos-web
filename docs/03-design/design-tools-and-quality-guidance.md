@@ -1,6 +1,10 @@
 # Design tools and quality guidance
 
-This guide helps apply the Owner’s requested design expertise to ongoing AcademyOS work. It supports the [Operations reference](operations-design-reference.md), the [working-behaviour contract](academy-working-behavior-contract.md), and the [execution tracker](../06-delivery/experience-execution.csv); it creates no new approval stage or business rule. The selected Operations variant 2 remains the visual authority: light default and Charcoal alternative, with the accepted connected journeys. Follow the current tracker: EX-11 private pilot, EX-13 progressive datasets, then remaining EX-07 adoption. Preserve completed work.
+## Version2 verified tool register —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package design-tool register records actual local skill hashes, dated plugin availability and unselected library candidates with purpose/limits. Use current Operations composition and proportionate relevant tools. Older named builder plugins require fresh capability discovery; a name in this guide is not proof of current installation. No installation/purchase/upload or new approval stage is implied.
+
+This guide helps apply the Owner’s requested design expertise to ongoing AcademyOS work. It supports the [Operations reference](operations-design-reference.md), the [working-behaviour contract](academy-working-behavior-contract.md), and the [execution tracker](../06-delivery/experience-execution.csv); it creates no new approval stage or business rule. The selected Operations variant 2 remains the visual authority: light default and Charcoal alternative, with the accepted connected journeys. Follow the current tracker and v2 connected-batch catalog;retain qualified role/private-pilot/Players-month checkpoints and all completed work.
 
 ## Select help for the actual job
 

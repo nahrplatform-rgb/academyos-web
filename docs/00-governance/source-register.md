@@ -1,5 +1,11 @@
 # Source register and authority
 
+## Canonical master package source reconciliation —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package and its safe source/reference indexes, capability/field/adoption rows, canonical crosswalk, tool discovery and batch receipt record this planning checkpoint. PYSA remains read-only evidence; selected Operations governs visuals; AcademyOS decisions govern business/authority/recovery. Metadata and structural checks do not establish hosted behavior.
+
+The Owner supplied two PYSA chats on 7 November. The [conversation review](../06-delivery/master-plan-v2/source-conversation-review.md) records actual returned titles, inspected turns/message limits, local artifact reconciliation and evidence boundaries. Their historical counts/instructions do not become current AcademyOS status or authority. The Owner's latest product mission and criticism of unnecessary legacy finance work are captured in [outcomes/simplicity](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md) and [finance simplification](../06-delivery/master-plan-v2/finance-simplification-and-control.md).
+
 ## PWA planning and current platform references — 6 November 2026
 
 The Owner-requested [canonical PWA delivery/readiness contract](../06-delivery/pwa-delivery-and-readiness.md) applies to the existing AcademyOS app; [planning receipt](../07-handoff/evidence/pwa-planning-2026-11-06.json) records actual source/provider scope,official URLs and unchanged authority. Primary platform references were checked for manifest/install behavior,independent installed storage,worker lifecycle,storage persistence/eviction and background limits. The contract links Google/Chrome,WebKit/Apple,MDN and Next.js documentation beside supported claims. Older published guidance is qualified where newer Safari behavior differs.
@@ -38,6 +44,9 @@ Current provider documentation governs provider mechanics. It does not decide Ac
 | SRC-09 | `/Users/moamenghareeb/Pro Youth Football Academy/pysa-platform` | Read-only reference implementation; not a starter repository or source of production configuration. |
 | SRC-10 | This AcademyOS conversation | Detailed vision, plan, critique, and visual preferences: Workspace, Light, 18px card corner radius. These preferences do not approve every screen or policy. |
 | SRC-11 | `docs/assets/academyos-design-vision.fragment.html` | Archived conceptual interface source with synthetic data. It is not application code or runtime acceptance evidence. |
+| SRC-12 | `codex://threads/01a144fa-a314-7401-a86e-68bd17328c57` — Read file carefully | PYSA audit chat; latest 12 turns inspected with bounded outputs on 7 November. Older turns remain unread here; use current local findings/artifacts for exact evidence. |
+| SRC-13 | `codex://threads/01a151c8-b021-7711-9c9c-51f217f4fe96` — Describe the PYSA platform | Nine available turns, targeted relevant message sections, reviewed on 7 November. Business narration and handoff/authority context; not full working proof or new permission. |
+| SRC-14 | Latest direct Owner instruction in this AcademyOS conversation, 7 November 2026 | Purpose: easier/clearer academy operations, added value/time saving/control/delegation, separate complete Platform business. PYSA contains defects/unnecessary work, especially finance; critically simplify while retaining useful scope. Market superiority is an ambition, not verified. |
 
 The shared conversation at `https://chatgpt.com/share/6ad7c624-5ddc-83e8-9263-e414465a8d04` could not be read in the earlier attempt. Its contents have not been inferred or incorporated. If later supplied, reconcile it against this decision register before changing scope.
 

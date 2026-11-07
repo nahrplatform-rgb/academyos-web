@@ -1,5 +1,9 @@
 # AcademyOS experience, performance and data-loading plan
 
+## Version2 connected data/experience batches —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package integrates request/freshness/local/sync behavior with real module UI and larger delivery batches. Preserve measured versus estimated budgets and existing current authority. Focused checks remain during edits; actual percentiles/provider costs and installed evidence stay separately assigned.
+
 ## Installed launch and update measurement — 6 November 2026
 
 The [PWA delivery contract](../06-delivery/pwa-delivery-and-readiness.md) adds installed-container measurements to the current loading matrix, not a new data layer. Declare OS/browser/version, actual installed vs tab mode, cold/warm store, worker/code/schema generation, network and permitted dataset. Measure first OS launch and normal sign-in/useful-first preparation, repeat local launch, warm navigation/return, original save/reconnect and code/schema update. A separately stored installed app can need another legitimate first download.

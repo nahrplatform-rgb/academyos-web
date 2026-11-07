@@ -1,5 +1,9 @@
 # Delivery roadmap and dependency-ordered backlog
 
+## Canonical version2 roadmap —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package and batch catalog consolidate the complete product and larger outcome sequence. Preserve the release meanings and historical requirements below. The single execution tracker owns current priority; pending Owner release and ready independent development are separate. Catalog scope is not acceptance of unchosen business rules.
+
 **6 November EX-07 checkpoint:** [Normal Attendance evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) advances the current primary through ordinary-route local reading/saving/reopening/reconnect using the existing engine. EX-15 receives only this scoped root-worker/lifecycle contribution; EX-14 metadata/launch and EX-16 actual installed-device cases remain supporting work. Keep the remaining redesign, all-role refresh coverage and provider/device measures open.
 
 ## Supporting installed-web delivery lane — 6 November 2026

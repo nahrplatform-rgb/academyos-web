@@ -187,3 +187,5 @@ print(f'PASS: {len(pwa_rows)} PWA joins,3 supporting packages,installed WD cases
 print(f'PASS: {len(rows)} execution batches, {len(findings)} findings, G01–G09, canonical joins, dependencies and separate evidence states; current {active['work_id']}; {len(cases)} planned/evidence-linked working-day cases across {len(behaviours)} WB clauses')
 
 subprocess.run([sys.executable, str(ROOT / 'scripts/design/build_continuation_prompt.py'), '--check'], check=True)
+subprocess.run([sys.executable, str(ROOT / 'scripts/design/validate_master_plan.py')], check=True)
+subprocess.run([sys.executable, str(ROOT / 'scripts/design/test_continuation_prompt.py')], check=True)

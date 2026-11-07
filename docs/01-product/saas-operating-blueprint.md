@@ -1,5 +1,9 @@
 # AcademyOS SaaS operating blueprint
 
+## Version2 product execution —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package translates the full platform vision into detailed domain/field/workflow, multi-academy, multisport, local/sync/PWA and design specifications with larger coherent batches. It preserves global-identity/membership and financial/tenant boundaries below. The existing tracker selects actual current work.
+
 **Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
 
 **Current experience reference — 4 November 2026:** the Owner's selected [Operations contract](../03-design/operations-design-reference.md) and [full redesign plan](../06-delivery/full-experience-redesign.md) govern the working presentation: light default with Charcoal alternative, compact resizable panes, unified controls and connected role-specific tasks. This is an adoption layer over the business vision below, not a change to roles, transactions, fees or access. The [master plan](../06-delivery/app-implementation-plan.md) and [tracker](../06-delivery/experience-execution.csv) preserve both implemented journeys and unbuilt scope. Safe online redesign proceeds while private local-data activation/security remains separately gated.

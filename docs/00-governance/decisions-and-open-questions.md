@@ -1,5 +1,11 @@
 # Decisions and open questions
 
+## Version2 focused decision dependencies —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package preserves decisions and later scoped approvals in this record. Its MP-Q dependencies name only the concrete unresolved field/resource/role/finance/command choices needed by a batch; do not re-ask settled overall sign-in/local-data/retention/design direction or block unrelated work. New scope rows are planning targets, not accepted rules.
+
+**Owner product direction —7 November:** make academy work easy, understandable, valuable and efficient, with Owner control and safe delegation; give the Platform Owner complete separate business tools for academies/subscriptions/platform finance/services. PYSA finance and unnecessary mechanisms must be critically simplified rather than copied. [Outcome and simplicity contract](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md) and [finance specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) make this operational. This direction adds no fee formula, refund rule, delegated permission or scope exclusion. Existing D decisions/AO requirements and specific review controls remain; market leadership has not been demonstrated.
+
 ## Synthetic staging activation and standing trial authority —4November2026
 
 The Owner explicitly selected **“Authorize this staging offline activation”** for the [concrete one-register release](../07-handoff/owner-register-activation-2026-11-04.md), and then stated that all accounts are trials and necessary trial actions may proceed without repeated approval. [SDR-06](staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority) records the operational scope: existing synthetic staging account/membership setup, temporary restoration/ending and bounded fixture tests are authorized. Preserve audits/history/original operations and the final dedicated Gmail Platform-only / iCloud Owner-only personas. Do not re-ask covered test access changes. Owner-controlled promotions, production/real-data/paid boundaries and genuinely new business-policy choices remain separate. [Exact responses](../07-handoff/evidence/role-first-offline-2026-11-04/owner-activation-authority.json).

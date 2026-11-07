@@ -1,5 +1,9 @@
 # Architecture and platform approach
 
+## Version2 architecture mapping —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package records current source versus proposed full-product gaps, typed sport/resource extensions, tenant boundaries and the existing local/sync/PWA architecture. It does not authorize a rewrite, new schema or competing offline engine. Keep specific canonical operations, field projections and protected original contracts.
+
 ## Current local-data foundation and installed delivery — 6 November 2026
 
 The [EX-13 continuity receipt](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) and [EX-11 register evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md) supersede historical inactive descriptions for their declared implemented/deployed subsets. Current EX-07 integrates the ordinary Attendance task; broader domains remain partial.

@@ -1,5 +1,9 @@
 # AcademyOS setup record — start here
 
+## Canonical planning and continuation —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package joins product scope, source/reference inventories, UI/UX, sport/resources, tenancy, local/sync/PWA and batch delivery. Use the current tracker/prompt for exact next action; this index and older setup steps do not expand provider/account or Owner-promotion authority.
+
 ## PWA documentation and delivery index — 6 November 2026
 
 [Canonical PWA readiness/delivery](../06-delivery/pwa-delivery-and-readiness.md) · [PW requirement/action/loading/security/WD joins](../06-delivery/pwa-delivery-traceability.csv) · [planning checkpoint receipt](evidence/pwa-planning-2026-11-06.json). The existing [tracker](../06-delivery/experience-execution.csv) keeps EX-07 normal Attendance current and EX-14/15/16 supporting. [Living continuation](../06-delivery/continue-academyos.md) includes both. Install metadata/launch and actual installed verification are still planned; existing hosted local-data/register proof remains separate. No PWA code, install or new private activation is made by this documentation checkpoint.

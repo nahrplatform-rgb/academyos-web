@@ -1,5 +1,9 @@
 # Cost, capacity and routine operations
 
+## Version2 cost and batch execution —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package keeps runtime/service measurements separate from AI/CI cost and source-only estimates. Consolidate coherent pushes/captures/full runs while keeping focused engineering checks. No runner purchase/Mac runner, new paid monitor or unmeasured cost/performance saving is implied.
+
 Owner-directed 6 November update: the existing repository is public for standard GitHub-hosted validation under the [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md). This avoids using the Owner's Mac as a runner and the private-repository compute allowance for those public standard jobs. Larger runners, storage, hosting, database and provider requests retain separate limits/costs. The used allowance is not reset, and private accounting resumes if visibility later changes. The [actual receipt](../07-handoff/public-repository-preparation-2026-11-06.md) separates provider settings, local checks, remote execution and remaining measurements. No paid capacity or unlimited-service promise is authorized.
 
 ## PWA storage and service-cost planning — 6 November 2026

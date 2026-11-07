@@ -1,0 +1,1622 @@
+{
+  "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
+  "source_anchor": "1e684033586acc20c79c61ce67a049edfd74e366",
+  "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
+  "files": [
+    {
+      "path": "apps/web/package.json",
+      "sha256": "ab1fe20c188bae786a692369786455e80a45457c34ac283f48a1a3839074e2cc",
+      "bytes": 940
+    },
+    {
+      "path": "apps/web/public/prepared-register-worker.js",
+      "sha256": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
+      "bytes": 5186
+    },
+    {
+      "path": "apps/web/public/prepared-workspace-worker.js",
+      "sha256": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
+      "bytes": 7118
+    },
+    {
+      "path": "apps/web/src/app/[locale]/guardian-invitation/page.tsx",
+      "sha256": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
+      "bytes": 809
+    },
+    {
+      "path": "apps/web/src/app/[locale]/invitation/page.tsx",
+      "sha256": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
+      "bytes": 519
+    },
+    {
+      "path": "apps/web/src/app/[locale]/layout.tsx",
+      "sha256": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
+      "bytes": 1315
+    },
+    {
+      "path": "apps/web/src/app/[locale]/page.tsx",
+      "sha256": "abfa7fb7bf2480289e242e06c119839c9cbd2f40effc505509eb0f902bb972db",
+      "bytes": 3830
+    },
+    {
+      "path": "apps/web/src/app/[locale]/platform/page.tsx",
+      "sha256": "079627b4b65ee6224a52bbd0fc8affbd21baf9123e2e8aa75c637f862b09509d",
+      "bytes": 349
+    },
+    {
+      "path": "apps/web/src/app/[locale]/service-setup/check-button.tsx",
+      "sha256": "1082a4a1ca544cb43f3c599c2be985518c641a4064370a328aeabbf2d3fe3e18",
+      "bytes": 2636
+    },
+    {
+      "path": "apps/web/src/app/[locale]/service-setup/page.tsx",
+      "sha256": "98e1ba1d713452610f512bc1a917ab04cf2105b5fbc0851b92057fff4eedda6f",
+      "bytes": 679
+    },
+    {
+      "path": "apps/web/src/app/[locale]/sign-in/[[...sign-in]]/page.tsx",
+      "sha256": "73bf71aa300db70c2ad09473d36a9d4623be693ff1ce8cd1d8f8462ae611cdb3",
+      "bytes": 1101
+    },
+    {
+      "path": "apps/web/src/app/[locale]/trainer-invitation/page.tsx",
+      "sha256": "df7146a240c6e741ccdd521211391fac3f52d8d990356a2181fb1d6271c80405",
+      "bytes": 736
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx",
+      "sha256": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+      "bytes": 653
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx",
+      "sha256": "2c3dab1f05f0fca82fc9e945fce63e84c225729377153cb742226c375b64e22c",
+      "bytes": 682
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx",
+      "sha256": "04ea5bff44f27ba3b3ede3c5468db6ab7515b6e3460ca60812726906478fc545",
+      "bytes": 554
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx",
+      "sha256": "2d08fc2f98b57d4b722e797c9dffcf3fecd5bff3d3fe7c2b501b22b8a4322963",
+      "bytes": 361
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
+      "sha256": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
+      "bytes": 823
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
+      "sha256": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
+      "bytes": 756
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
+      "sha256": "4565aa2fafe394330d5e5b04016c03ed34a151bc5e278f271e9bb24e74bfd89a",
+      "bytes": 532
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
+      "sha256": "8f940e8c851f646028d6e3ffda613a0ab00758c014f5a97814aee816def3fb7b",
+      "bytes": 781
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx",
+      "sha256": "c23a376da6fe9a89a1293069bdc0639d19f58d351768b5331e5c9a122eec0c27",
+      "bytes": 523
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx",
+      "sha256": "3b7503bdf06937b81b2c7b5111addb0fa44f2f9b7b28a727790aaeb151a6e514",
+      "bytes": 631
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx",
+      "sha256": "197d48cabbee02b21fd4c863229c292efbaa1c31eaf7bfe7ffacf3f9e218a82e",
+      "bytes": 974
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx",
+      "sha256": "6b4de6c8e812d9dffa8a25c41e8d31986b75418a2ec6cf0726bdb03d30b743b0",
+      "bytes": 520
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx",
+      "sha256": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+      "bytes": 603
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/page.tsx",
+      "sha256": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
+      "bytes": 534
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx",
+      "sha256": "27cae004bebee14addf1c4c173b4b9dca067288df813f988cfc90df0ee30f83d",
+      "bytes": 407
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx",
+      "sha256": "362807ca87bbf8f65214db83c0919b52c2bfd7ddacf146d631069db8375c3b02",
+      "bytes": 628
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx",
+      "sha256": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+      "bytes": 664
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx",
+      "sha256": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
+      "bytes": 720
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx",
+      "sha256": "9a62e3033a2a1d1b7f75bcff147bcc8fb175f29e6acdcb348fbb026a28c872bd",
+      "bytes": 1274
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx",
+      "sha256": "d9cc84a8073f49eea0ab11a4174eb9101f2bc83ffdace9848febe7cd2816a97a",
+      "bytes": 537
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/plan/page.tsx",
+      "sha256": "83b10143b649ca23722ffee3358203bf47fa3723f0c3236497a87291cbcbba94",
+      "bytes": 504
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx",
+      "sha256": "05c96ae48f9138414b84e33f6c9c3bd9bc136ad018028e99effaed8a02879b47",
+      "bytes": 638
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
+      "sha256": "d699c679fa9b07784b8e86c860cada9c2900f1873960b14889d9c826611cab73",
+      "bytes": 569
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx",
+      "sha256": "d85668411ab25a19cc3256f3a61db90e19c15a704003e38a3752b9023d5e8694",
+      "bytes": 802
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
+      "sha256": "5e7f40636598396121eec6b33eeebbb2f35546a0129a02815877b18e0d46796d",
+      "bytes": 531
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
+      "sha256": "b3976daa09320788a0e2056f333588ca7df4020c37d1b15ebb00b1937a1b3509",
+      "bytes": 522
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx",
+      "sha256": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
+      "bytes": 804
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx",
+      "sha256": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
+      "bytes": 462
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/page.tsx",
+      "sha256": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+      "bytes": 348
+    },
+    {
+      "path": "apps/web/src/app/api/attendance/route.ts",
+      "sha256": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
+      "bytes": 2866
+    },
+    {
+      "path": "apps/web/src/app/api/development/route.ts",
+      "sha256": "707018b4050a3eb60eac5e68100261d43878f2dde878f94739c90751a259c138",
+      "bytes": 2827
+    },
+    {
+      "path": "apps/web/src/app/api/experience/route.ts",
+      "sha256": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
+      "bytes": 2695
+    },
+    {
+      "path": "apps/web/src/app/api/guardian-training/route.ts",
+      "sha256": "9f49c1b07da6c9de4cd45be1e7e7c6c8b7838df9c40ec4fe813e0f03e3eb5e9f",
+      "bytes": 2781
+    },
+    {
+      "path": "apps/web/src/app/api/guardians/route.ts",
+      "sha256": "75ddd6ab0513c2edcbe0569bc7d296bfd59dbba5f72257f3ececffcccbd4f7d5",
+      "bytes": 4935
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "sha256": "0344379df1eaf72222f4666ae950de21d014c20bd428e812356bb1d33384d136",
+      "bytes": 176
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/guardians/route.ts",
+      "sha256": "ff1087259bf0053ea8d78d35c72eb9b68a547c9cede811a3a5757573a6ac23a2",
+      "bytes": 1464
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/invitations/route.ts",
+      "sha256": "ac4518416f8a1ba47c0a465c5a8ef514bd44fc641bec718da2f72b0c83d9b66d",
+      "bytes": 1558
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/setup/route.ts",
+      "sha256": "4017133fa073602e192ff6c582ff1392675a0df0ad3478974f2e0f14a0812e6e",
+      "bytes": 1586
+    },
+    {
+      "path": "apps/web/src/app/api/jobs/trainers/route.ts",
+      "sha256": "34900759b79fb97552a14a4901599ca5b719101aba973aae3fac203f89f53f2b",
+      "bytes": 1459
+    },
+    {
+      "path": "apps/web/src/app/api/onboarding/route.ts",
+      "sha256": "16d124d8dceb67ab4e9104c5b4742d97c09e9f086e76f0253cb57d50f61b7ca2",
+      "bytes": 7244
+    },
+    {
+      "path": "apps/web/src/app/api/people/route.ts",
+      "sha256": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+      "bytes": 2659
+    },
+    {
+      "path": "apps/web/src/app/api/planning/route.ts",
+      "sha256": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7",
+      "bytes": 2671
+    },
+    {
+      "path": "apps/web/src/app/api/program-planning/route.ts",
+      "sha256": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
+      "bytes": 2714
+    },
+    {
+      "path": "apps/web/src/app/api/programs/route.ts",
+      "sha256": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
+      "bytes": 2668
+    },
+    {
+      "path": "apps/web/src/app/api/publication/route.ts",
+      "sha256": "7b4a786607ae0a04400d777c4f246ff44fbafe83e538bf78a5d38d74fb1d6d4b",
+      "bytes": 2689
+    },
+    {
+      "path": "apps/web/src/app/api/qr/route.ts",
+      "sha256": "34db2e0a830a8044ef9d19a2f8cb7d0a7556471635e138f4c477d47e9e0e722c",
+      "bytes": 2620
+    },
+    {
+      "path": "apps/web/src/app/api/register-dispatch/route.ts",
+      "sha256": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+      "bytes": 2969
+    },
+    {
+      "path": "apps/web/src/app/api/register-download/route.ts",
+      "sha256": "ea93ae56dd960dbf6b62366a9285cd25e391df9f9a2633dc238bc743b1e70ced",
+      "bytes": 2893
+    },
+    {
+      "path": "apps/web/src/app/api/register-key/route.ts",
+      "sha256": "1f4f382ec471b1cf184db164a1a88962cc15e0c9fc628830d6a75dc3502b09e8",
+      "bytes": 3424
+    },
+    {
+      "path": "apps/web/src/app/api/session-changes/route.ts",
+      "sha256": "b3dac8e693069c925ac9716a4bbb462c843fe6d57fac33231f750bbce93c1357",
+      "bytes": 2703
+    },
+    {
+      "path": "apps/web/src/app/api/setup/email/route.ts",
+      "sha256": "b15e4d6fefe9a984525e3960fdba9a88839916691ed4dc56a201dadf1d0f7e6e",
+      "bytes": 1078
+    },
+    {
+      "path": "apps/web/src/app/api/setup/verify/route.ts",
+      "sha256": "37e3999b3cf836a4d405e806af356d268fc8596165587873dd2e83426f659e31",
+      "bytes": 3273
+    },
+    {
+      "path": "apps/web/src/app/api/trainers/route.ts",
+      "sha256": "476c9fb7af36631d3c5a223d6d3d8bfbda2d5455c9abab253d05ca07e0662e01",
+      "bytes": 4919
+    },
+    {
+      "path": "apps/web/src/app/api/webhooks/clerk-email/route.ts",
+      "sha256": "d5ba354df9be3a28149bd1981f128d36efd1d2bf688115071e048bcb38aa36a0",
+      "bytes": 476
+    },
+    {
+      "path": "apps/web/src/app/api/workspace-download/route.ts",
+      "sha256": "b18eef0fd34eaf68731d8535fe4f1f2a8897e2270e9a17b55d313e8e7a9c771f",
+      "bytes": 2877
+    },
+    {
+      "path": "apps/web/src/app/api/workspace-key/route.ts",
+      "sha256": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
+      "bytes": 2976
+    },
+    {
+      "path": "apps/web/src/app/global-error.tsx",
+      "sha256": "b330a5d869f37a7ac638357d50c1764b797828e7a034e1e8c341f6f70ce40927",
+      "bytes": 410
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386",
+      "bytes": 89276
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+      "bytes": 612
+    },
+    {
+      "path": "apps/web/src/app/not-found.tsx",
+      "sha256": "c84deb379cf1ebe39423cbda1f936ee9a250c0480cde3f86a9e22f5bd08d0965",
+      "bytes": 231
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
+      "bytes": 98
+    },
+    {
+      "path": "apps/web/src/app/prepared-register/page.tsx",
+      "sha256": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
+      "bytes": 390
+    },
+    {
+      "path": "apps/web/src/app/prepared-workspace/page.tsx",
+      "sha256": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
+      "bytes": 376
+    },
+    {
+      "path": "apps/web/src/components/admission-directory.tsx",
+      "sha256": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
+      "bytes": 14913
+    },
+    {
+      "path": "apps/web/src/components/attendance-workspace.tsx",
+      "sha256": "de8e4d472eb46338bec4b3fde5519d8d485863f6373c7f422c19d121d3e34c17",
+      "bytes": 32815
+    },
+    {
+      "path": "apps/web/src/components/correction-workspace.tsx",
+      "sha256": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
+      "bytes": 24083
+    },
+    {
+      "path": "apps/web/src/components/date-planning-workspace.tsx",
+      "sha256": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
+      "bytes": 28204
+    },
+    {
+      "path": "apps/web/src/components/development-workspace.tsx",
+      "sha256": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
+      "bytes": 34083
+    },
+    {
+      "path": "apps/web/src/components/experience-workspace.tsx",
+      "sha256": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
+      "bytes": 46116
+    },
+    {
+      "path": "apps/web/src/components/guardian-training-workspace.tsx",
+      "sha256": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
+      "bytes": 19470
+    },
+    {
+      "path": "apps/web/src/components/guardian-workspace.tsx",
+      "sha256": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
+      "bytes": 32526
+    },
+    {
+      "path": "apps/web/src/components/onboarding-workspace.tsx",
+      "sha256": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
+      "bytes": 36250
+    },
+    {
+      "path": "apps/web/src/components/owner-navigation.ts",
+      "sha256": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
+      "bytes": 2549
+    },
+    {
+      "path": "apps/web/src/components/owner-workspace-device.tsx",
+      "sha256": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
+      "bytes": 8921
+    },
+    {
+      "path": "apps/web/src/components/people-workspace.tsx",
+      "sha256": "2d0bb9ecd3ccc66670caebda3c4a70e07f90aaec6bb267b9fd861ec8b0788015",
+      "bytes": 39458
+    },
+    {
+      "path": "apps/web/src/components/prepared-register-panel.tsx",
+      "sha256": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
+      "bytes": 29579
+    },
+    {
+      "path": "apps/web/src/components/prepared-register-session.tsx",
+      "sha256": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+      "bytes": 4832
+    },
+    {
+      "path": "apps/web/src/components/prepared-register-startup.tsx",
+      "sha256": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
+      "bytes": 3217
+    },
+    {
+      "path": "apps/web/src/components/prepared-workspace-startup.tsx",
+      "sha256": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
+      "bytes": 6427
+    },
+    {
+      "path": "apps/web/src/components/program-planning-workspace.tsx",
+      "sha256": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
+      "bytes": 34372
+    },
+    {
+      "path": "apps/web/src/components/program-workspace.tsx",
+      "sha256": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+      "bytes": 40843
+    },
+    {
+      "path": "apps/web/src/components/publication-workspace.tsx",
+      "sha256": "3b42e9a45879555e694683f4a77ca972d858d23fd94e62c8be0b9029f3815961",
+      "bytes": 36093
+    },
+    {
+      "path": "apps/web/src/components/qr-camera.tsx",
+      "sha256": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
+      "bytes": 7183
+    },
+    {
+      "path": "apps/web/src/components/qr-print-card.tsx",
+      "sha256": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
+      "bytes": 4503
+    },
+    {
+      "path": "apps/web/src/components/qr-workspace.tsx",
+      "sha256": "d2c540c7338d859889fbf68d7490c1b7dc8aa6aec63660c743148d8f2e90cd01",
+      "bytes": 38154
+    },
+    {
+      "path": "apps/web/src/components/register-account-boundary.tsx",
+      "sha256": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+      "bytes": 5065
+    },
+    {
+      "path": "apps/web/src/components/register-account-context.tsx",
+      "sha256": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
+      "bytes": 1085
+    },
+    {
+      "path": "apps/web/src/components/session-change-workspace.tsx",
+      "sha256": "d770aebe46fd9048eeb3abd0a491aad3ccfbb70b64573978d68230c2eb74ae4e",
+      "bytes": 18341
+    },
+    {
+      "path": "apps/web/src/components/theme-toggle.tsx",
+      "sha256": "3e0ff7c20d98469ad76d8291b8431d3d7ca049359f1d683c61aad2bca8738ebf",
+      "bytes": 927
+    },
+    {
+      "path": "apps/web/src/components/timezone-select.tsx",
+      "sha256": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+      "bytes": 2236
+    },
+    {
+      "path": "apps/web/src/components/trainer-workspace.tsx",
+      "sha256": "16dc4e857664b4bbb0faa9cf3a6b60ae6f0936abeca026becffad5cdfcf2d93a",
+      "bytes": 32875
+    },
+    {
+      "path": "apps/web/src/components/ui/controls.tsx",
+      "sha256": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+      "bytes": 760
+    },
+    {
+      "path": "apps/web/src/components/workspace-layout.tsx",
+      "sha256": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+      "bytes": 3108
+    },
+    {
+      "path": "apps/web/src/components/workspace-navigation.ts",
+      "sha256": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
+      "bytes": 2055
+    },
+    {
+      "path": "apps/web/src/components/workspace-panes.tsx",
+      "sha256": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
+      "bytes": 6003
+    },
+    {
+      "path": "apps/web/src/components/workspace-runtime.tsx",
+      "sha256": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+      "bytes": 1591
+    },
+    {
+      "path": "apps/web/src/components/workspace-separator.tsx",
+      "sha256": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
+      "bytes": 1951
+    },
+    {
+      "path": "apps/web/src/components/workspace-shell.tsx",
+      "sha256": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+      "bytes": 8777
+    },
+    {
+      "path": "apps/web/src/instrumentation-client.ts",
+      "sha256": "cbfc6f4acd5f896cd3cc8541af4207a9172c8e7b9efb8767cba7c5a5f0d6729a",
+      "bytes": 311
+    },
+    {
+      "path": "apps/web/src/instrumentation.ts",
+      "sha256": "f50a52808eeb75d66ff4990ecedeca4f92e0ed93ceec9bb4fb7e5205d7dbe3bb",
+      "bytes": 309
+    },
+    {
+      "path": "apps/web/src/lib/attendance.test.ts",
+      "sha256": "add9bdc048ad8434297be076d553089d3789082d0243ca390f5e6a6982883613",
+      "bytes": 2670
+    },
+    {
+      "path": "apps/web/src/lib/attendance.ts",
+      "sha256": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
+      "bytes": 4756
+    },
+    {
+      "path": "apps/web/src/lib/clerk-email.test.ts",
+      "sha256": "6b8e199c542fd7141f0a26b055494a80c70bbcba56c5974002256fa705d50fb3",
+      "bytes": 6780
+    },
+    {
+      "path": "apps/web/src/lib/clerk-email.ts",
+      "sha256": "ee49e89612d28fe27ce97fbb7eab0cdd0b96a2916c005c711ecfea8725341e11",
+      "bytes": 4733
+    },
+    {
+      "path": "apps/web/src/lib/config.test.ts",
+      "sha256": "35df31a850a3679af8c7a3797ab46d5e5674ed80e6f0a291a6077ef632b3b590",
+      "bytes": 3010
+    },
+    {
+      "path": "apps/web/src/lib/config.ts",
+      "sha256": "abf3610ecf814d136d69600e2096105521d155996a25f9ccacf4d63f4a691bd5",
+      "bytes": 2829
+    },
+    {
+      "path": "apps/web/src/lib/corrections.test.ts",
+      "sha256": "167b9d2584ebb939dabb427b40b29ed1f6e87fe5c612c6a81c3d3ee576514f6d",
+      "bytes": 2135
+    },
+    {
+      "path": "apps/web/src/lib/corrections.ts",
+      "sha256": "410fd5bc299e6356ad77e3fd31b9e854b1c1d4e956ff488bac0553eeaea0b460",
+      "bytes": 3899
+    },
+    {
+      "path": "apps/web/src/lib/development.test.ts",
+      "sha256": "996527284b38a03dc675e80d43f0c2753f274730983a3036a0e6c934d95d6be0",
+      "bytes": 3662
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "sha256": "e6cfe602fd4f68fcd768759e7a71de517a85cb56d62731d840d250742757e9cf",
+      "bytes": 5768
+    },
+    {
+      "path": "apps/web/src/lib/email.test.ts",
+      "sha256": "7acf5726917f688f159cbcb39b04f77ba26a7949516a7cd4e24b693507af2d2b",
+      "bytes": 1472
+    },
+    {
+      "path": "apps/web/src/lib/email.ts",
+      "sha256": "451f338052d97fec79fa11a475cdfef4cb2d4e2b4083ed6fae21b6d17ae9b63a",
+      "bytes": 2327
+    },
+    {
+      "path": "apps/web/src/lib/experience-format.ts",
+      "sha256": "4e685c42f8d59b4865c451169e31c0b57d394ed82eba010937b61fe5223b19fb",
+      "bytes": 1520
+    },
+    {
+      "path": "apps/web/src/lib/experience-projections.test.ts",
+      "sha256": "fba62d80a0ef7fa2562b1f04a1ed2d229ef5a130ae0a354a9083ef08fc9c0bff",
+      "bytes": 3300
+    },
+    {
+      "path": "apps/web/src/lib/experience-projections.ts",
+      "sha256": "ff9b5f8ee37245ec1d3f313db9819d43dd716769f989eac1624df224a39808c4",
+      "bytes": 4176
+    },
+    {
+      "path": "apps/web/src/lib/guardian-delivery.ts",
+      "sha256": "d481bf1c745f8c6317bcf2321bbe6b47f3c5177b025f98dcbd4a304f8aa654c7",
+      "bytes": 3867
+    },
+    {
+      "path": "apps/web/src/lib/guardian-training.test.ts",
+      "sha256": "2c359b5c96bab6f6737d470856c03b81cfe8328839c707ed1ce6f52f2e77dfe9",
+      "bytes": 1532
+    },
+    {
+      "path": "apps/web/src/lib/guardian-training.ts",
+      "sha256": "06961c449151e16d85553bd84597f6a9b1a67d2839fc67e668447581448ef122",
+      "bytes": 2811
+    },
+    {
+      "path": "apps/web/src/lib/guardians.test.ts",
+      "sha256": "a9aeabe667e4b6deedbe6ee74f62142610d6c6e0513fa7013720932a996c375a",
+      "bytes": 2916
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "sha256": "9190fee64d328eaaa61accf23be6abf6bac47c53205d17d659a47ea431d346fb",
+      "bytes": 4214
+    },
+    {
+      "path": "apps/web/src/lib/invitation-cookie.ts",
+      "sha256": "fa903b49a67dabd3d298d82b9275e8e960c55268741aa5ff5f2427a8a77ca088",
+      "bytes": 1333
+    },
+    {
+      "path": "apps/web/src/lib/jobs.test.ts",
+      "sha256": "c69c0ca277226d6f7e700b5b60bf3f481ded26d4fc9c107286ee28f7224e3945",
+      "bytes": 2168
+    },
+    {
+      "path": "apps/web/src/lib/jobs.ts",
+      "sha256": "5c636e015223c582804e83cd05dbb1d490d06cd26b2336d3b407250ac7baf74e",
+      "bytes": 1374
+    },
+    {
+      "path": "apps/web/src/lib/local-register-codec.ts",
+      "sha256": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+      "bytes": 8153
+    },
+    {
+      "path": "apps/web/src/lib/local-register-crypto.ts",
+      "sha256": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+      "bytes": 2942
+    },
+    {
+      "path": "apps/web/src/lib/local-register-repository.ts",
+      "sha256": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+      "bytes": 43932
+    },
+    {
+      "path": "apps/web/src/lib/local-register-window.test.ts",
+      "sha256": "576fbe4e668f62b80176f052af24e0d204e17fb386817a108981b7d41f0e58d0",
+      "bytes": 1721
+    },
+    {
+      "path": "apps/web/src/lib/local-workspace-codec.ts",
+      "sha256": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
+      "bytes": 7239
+    },
+    {
+      "path": "apps/web/src/lib/local-workspace-repository.ts",
+      "sha256": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+      "bytes": 22856
+    },
+    {
+      "path": "apps/web/src/lib/memberships.test.ts",
+      "sha256": "ba1f126215f62e6a272ff72987b3c14dea8a0adac5276377c59723a6556b7d82",
+      "bytes": 931
+    },
+    {
+      "path": "apps/web/src/lib/memberships.ts",
+      "sha256": "9a1339b1255822bbf7f5f111b1ab79330ff8d40083a61d7fb6508ae341b76837",
+      "bytes": 1126
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-delivery.ts",
+      "sha256": "45f56a47fade49a7a80cd359259461f4f53f521cab17968d4c9853e047e2a4ac",
+      "bytes": 3766
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-gateway.test.ts",
+      "sha256": "f883c0a06f6fcb2cbc00272c892f558e2b4be460b3e684eec301f807340a5d0e",
+      "bytes": 7857
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-gateway.ts",
+      "sha256": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+      "bytes": 4489
+    },
+    {
+      "path": "apps/web/src/lib/onboarding-server.ts",
+      "sha256": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+      "bytes": 3526
+    },
+    {
+      "path": "apps/web/src/lib/onboarding.test.ts",
+      "sha256": "c93b5422f33b1c5131a98a5d2efef74ecfd79ac2dc7b8c9315560fffbf8727ba",
+      "bytes": 2182
+    },
+    {
+      "path": "apps/web/src/lib/onboarding.ts",
+      "sha256": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+      "bytes": 2287
+    },
+    {
+      "path": "apps/web/src/lib/owner-register-pilot.ts",
+      "sha256": "7f290870a0884a07ef43d08287df17747275c21ada6bf9448439f0ae9ce53e42",
+      "bytes": 10430
+    },
+    {
+      "path": "apps/web/src/lib/people-view-context.test.ts",
+      "sha256": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
+      "bytes": 1272
+    },
+    {
+      "path": "apps/web/src/lib/people-view-context.ts",
+      "sha256": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
+      "bytes": 1330
+    },
+    {
+      "path": "apps/web/src/lib/people.test.ts",
+      "sha256": "159b4215347dafaa196b0558dd90c5b59c6a6459a6ccbe38b4d251cba4c5133f",
+      "bytes": 1755
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "sha256": "4475fdd096d84e71166494e418e75e07058885d2cdbcf8f892e77cbfbeaa5ee5",
+      "bytes": 2836
+    },
+    {
+      "path": "apps/web/src/lib/planning.test.ts",
+      "sha256": "b5c0e359f6d0274544f05fb441f4211aafe10bf93a98c8cd01d66de251ce1005",
+      "bytes": 2107
+    },
+    {
+      "path": "apps/web/src/lib/planning.ts",
+      "sha256": "fa53c334ccbb83cd2d57a52bba5b8ea9c6034bf209e34987a60d722a725b9cd8",
+      "bytes": 3621
+    },
+    {
+      "path": "apps/web/src/lib/program-planning.test.ts",
+      "sha256": "0ff6c2753be1cfb1dc6aa68c5b56097621d8a9eb66b0fbed50b4395d492595ef",
+      "bytes": 1942
+    },
+    {
+      "path": "apps/web/src/lib/program-planning.ts",
+      "sha256": "13b41caa1d981c5d1e056e60f8d914209bf01d02c3b2099d22e2d7db2700a988",
+      "bytes": 4602
+    },
+    {
+      "path": "apps/web/src/lib/programs.test.ts",
+      "sha256": "fe532b7348fd68dfe621f1bfa2b0066a71f6e90f205748d73239173e1e8f84ce",
+      "bytes": 2398
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "sha256": "de96fd5dde5900193c27a8855b135ebbd13223b00b59c4b4017175ce61b3ce09",
+      "bytes": 5936
+    },
+    {
+      "path": "apps/web/src/lib/publication.test.ts",
+      "sha256": "45cb81da15c953f53adc87feac87309452e20ad66fce11f37c453ccbdc39113e",
+      "bytes": 2052
+    },
+    {
+      "path": "apps/web/src/lib/publication.ts",
+      "sha256": "691c17e2604a4f06852efffb632c28cdde4cf08390228eec4ecf302976b03ec9",
+      "bytes": 4321
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.test.ts",
+      "sha256": "0c6e0248ce20e539d81d140b1891ef72bc71ee6a47c4c83cc103c57d54df0e6f",
+      "bytes": 2296
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "sha256": "aefe4d180ea939133b72732678f29479588765b0fbdfa03e647f81de5b99001b",
+      "bytes": 7539
+    },
+    {
+      "path": "apps/web/src/lib/rate-limit.test.ts",
+      "sha256": "bfbdddcb1199024b647aaddcb82b5f0e3ff3b3eea6b4576d4bb445f34022cd74",
+      "bytes": 626
+    },
+    {
+      "path": "apps/web/src/lib/rate-limit.ts",
+      "sha256": "abd07a83d7cf4625ae35f63452cb52033f2a7b963e48c7e0077c56b14278489b",
+      "bytes": 1217
+    },
+    {
+      "path": "apps/web/src/lib/register-device-account.ts",
+      "sha256": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+      "bytes": 4788
+    },
+    {
+      "path": "apps/web/src/lib/register-device-slots.ts",
+      "sha256": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+      "bytes": 3962
+    },
+    {
+      "path": "apps/web/src/lib/register-download-coordinator.ts",
+      "sha256": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
+      "bytes": 3784
+    },
+    {
+      "path": "apps/web/src/lib/register-download.ts",
+      "sha256": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
+      "bytes": 7029
+    },
+    {
+      "path": "apps/web/src/lib/register-key-server.ts",
+      "sha256": "87fdaf94c9e45b6fe9b7d28085efe3bcc0da4db3f3b41ffe97bfea3222d00873",
+      "bytes": 4227
+    },
+    {
+      "path": "apps/web/src/lib/register-original-dispatch.ts",
+      "sha256": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+      "bytes": 4580
+    },
+    {
+      "path": "apps/web/src/lib/register-public-shell.ts",
+      "sha256": "b4ca915bfbeb01544989d34d934abfc4a9910d1b3a5d0f359fc415af6bbb6797",
+      "bytes": 1976
+    },
+    {
+      "path": "apps/web/src/lib/register-scope-transport.ts",
+      "sha256": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
+      "bytes": 1023
+    },
+    {
+      "path": "apps/web/src/lib/register-session.ts",
+      "sha256": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
+      "bytes": 479
+    },
+    {
+      "path": "apps/web/src/lib/session-changes.test.ts",
+      "sha256": "2b75404dd49d81d94e56113b108c01c1e8b69465383f695f35b31011e03eb6e9",
+      "bytes": 1224
+    },
+    {
+      "path": "apps/web/src/lib/session-changes.ts",
+      "sha256": "55ac8bd8dea2a0873334c856995ab0b2c3a6e5acf6f903c6c632c1565cd3ef9a",
+      "bytes": 2928
+    },
+    {
+      "path": "apps/web/src/lib/supabase.ts",
+      "sha256": "57db6a6276b380238ec49112f7806fbd70eb526c224f9db6e521e2d2c2bd93fb",
+      "bytes": 373
+    },
+    {
+      "path": "apps/web/src/lib/telemetry.test.ts",
+      "sha256": "6796f26bb3aa224d4692d4c970da74509e5a5defe71034ac5872e6aafa228578",
+      "bytes": 2361
+    },
+    {
+      "path": "apps/web/src/lib/telemetry.ts",
+      "sha256": "7360e7ca5793200fb22b440405e7cb85e05ec0ea1793a5e0c7365c096efe5681",
+      "bytes": 2989
+    },
+    {
+      "path": "apps/web/src/lib/trainer-delivery.ts",
+      "sha256": "aafad72d88315521a01c72919828804053e6cc78cf8588962dabc117d5afb153",
+      "bytes": 3896
+    },
+    {
+      "path": "apps/web/src/lib/trainers.test.ts",
+      "sha256": "9a1e8173d17b88a5f511fb986e5f6afeb078aa9c4b8c2d6fb57678213f83937a",
+      "bytes": 2908
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "sha256": "ce6d7e213c0f5b8c87e0a06f421df1b93694090b2085ad9292e0879b123b496a",
+      "bytes": 4143
+    },
+    {
+      "path": "apps/web/src/lib/visible-resume.test.ts",
+      "sha256": "d4f6cd79d99824947444d4472ea001ede6546a980c166b7cc78ec8ed7a9dae99",
+      "bytes": 2155
+    },
+    {
+      "path": "apps/web/src/lib/visible-resume.ts",
+      "sha256": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+      "bytes": 1229
+    },
+    {
+      "path": "apps/web/src/lib/workspace-client-transport.ts",
+      "sha256": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
+      "bytes": 12957
+    },
+    {
+      "path": "apps/web/src/lib/workspace-device-slots.ts",
+      "sha256": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+      "bytes": 3976
+    },
+    {
+      "path": "apps/web/src/lib/workspace-device.ts",
+      "sha256": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
+      "bytes": 13144
+    },
+    {
+      "path": "apps/web/src/lib/workspace-download.ts",
+      "sha256": "0bfe6bf52ff4d238d8e2ac063ae344039697e08dd8cc5503b6b9edaba7fd16af",
+      "bytes": 4205
+    },
+    {
+      "path": "apps/web/src/lib/workspace-key-server.test.ts",
+      "sha256": "3b673ce5dce296d868571e9afeaa462e0bb6ee59a9ae2a5da6576ca7aa6da4a4",
+      "bytes": 4788
+    },
+    {
+      "path": "apps/web/src/lib/workspace-key-server.ts",
+      "sha256": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
+      "bytes": 4127
+    },
+    {
+      "path": "apps/web/src/lib/workspace-navigation.test.ts",
+      "sha256": "9317b4428f062c10e252f77b79cee9ca15fe70dd42636ce4a3f1961c2dfe8482",
+      "bytes": 1262
+    },
+    {
+      "path": "apps/web/src/lib/workspace-public-shell.ts",
+      "sha256": "793bae50dd7ce7fe90128248965b801adc2e6d64c1b7653dfc86be9a10d257c8",
+      "bytes": 2517
+    },
+    {
+      "path": "apps/web/src/lib/workspace-read-owner.test.ts",
+      "sha256": "77ce0c9d7b240f38ef454749a539a3e8476295f036bbaef8f3173e724713877e",
+      "bytes": 8917
+    },
+    {
+      "path": "apps/web/src/lib/workspace-read-owner.ts",
+      "sha256": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "bytes": 5311
+    },
+    {
+      "path": "apps/web/src/proxy.ts",
+      "sha256": "677eeac0308a6a5748eee9ae32be54fd1db9433f371225def71fd47203c02866",
+      "bytes": 1425
+    },
+    {
+      "path": "apps/web/src/sentry.edge.config.ts",
+      "sha256": "f751da650cc13273ed31c1e4852ab91c03c552ed0c7ce1e9db82c9b43f2ae506",
+      "bytes": 225
+    },
+    {
+      "path": "apps/web/src/sentry.server.config.ts",
+      "sha256": "f751da650cc13273ed31c1e4852ab91c03c552ed0c7ce1e9db82c9b43f2ae506",
+      "bytes": 225
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "0b2d7fe11be69f69dcaf62dc85ec8e195c518a6373850ba0b6c5e3e1f0232db0",
+      "bytes": 303428
+    },
+    {
+      "path": "supabase/migrations/20261021165259_identity_baseline.sql",
+      "sha256": "aeb594304a38eddf9bb93236ca1f65617827674503453e5f573cb1163efcafb1",
+      "bytes": 1429
+    },
+    {
+      "path": "supabase/migrations/20261021165332_membership_reads.sql",
+      "sha256": "d9fa723b3a0345ffe24f9b17ae9752e3114f3e313017d301fac0ea9a2b09bf39",
+      "bytes": 2098
+    },
+    {
+      "path": "supabase/migrations/20261021165645_restrict_auto_rls_trigger.sql",
+      "sha256": "2fe54d0cf87881c41b27ca708f255215988ef44114ce8d1c723d07e18945f17d",
+      "bytes": 257
+    },
+    {
+      "path": "supabase/migrations/20261021212039_private_staging_buckets.sql",
+      "sha256": "e10ba6a4f2a21e689ae05af505bbfeba07fae992f2d6eca0b9a4e74077e29abe",
+      "bytes": 746
+    },
+    {
+      "path": "supabase/migrations/20261022130955_controlled_onboarding_m1.sql",
+      "sha256": "16f1a42056322ba3fe64c3e19b27e0c59d57e1e03bca9f967e05db1a17a08dce",
+      "bytes": 23875
+    },
+    {
+      "path": "supabase/migrations/20261022133922_bounded_onboarding_conflicts.sql",
+      "sha256": "b4997254db32b9e315fece591c0b156ee5cb53a210f698671b9a17144e8f4793",
+      "bytes": 5391
+    },
+    {
+      "path": "supabase/migrations/20261023114520_m1_restore_function_execution_limits.sql",
+      "sha256": "da1f971077ba018821a12945d1ef02a831da32da2a021866c449ed3cb2e8e61b",
+      "bytes": 574
+    },
+    {
+      "path": "supabase/migrations/20261023135233_m1_require_throttled_gateway.sql",
+      "sha256": "477b6ed9f31832fa4dad27eafc0a90b1390358c65d9d87e9c76e467703a500e7",
+      "bytes": 1869
+    },
+    {
+      "path": "supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql",
+      "sha256": "1342009f1ce0b32f3559010effc7cc1bc491265930d423f422c2c449226f3eec",
+      "bytes": 11563
+    },
+    {
+      "path": "supabase/migrations/20261025111253_i2b_synthetic_guardian_appointments.sql",
+      "sha256": "dfe70ce6098a347c07c38d7c2754b982e8cbf3f5cc416b65942303e2a986a1cb",
+      "bytes": 21094
+    },
+    {
+      "path": "supabase/migrations/20261025123233_i2c_synthetic_trainer_appointments.sql",
+      "sha256": "880a030259d1819ac74588f16b756faa9d6737e79ae6be2b3e3a2e1d225a8bc7",
+      "bytes": 21779
+    },
+    {
+      "path": "supabase/migrations/20261026181240_i3a_draft_programs.sql",
+      "sha256": "29ebeb88e048106e09574df4d344c37acc129dccd677cd8445e5478edc48db2a",
+      "bytes": 23430
+    },
+    {
+      "path": "supabase/migrations/20261027004132_i3b_draft_session_planning.sql",
+      "sha256": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
+      "bytes": 16802
+    },
+    {
+      "path": "supabase/migrations/20261027022133_i3c_atomic_program_planning.sql",
+      "sha256": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+      "bytes": 23705
+    },
+    {
+      "path": "supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql",
+      "sha256": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+      "bytes": 34143
+    },
+    {
+      "path": "supabase/migrations/20261028012453_i3e_session_changes.sql",
+      "sha256": "6ccf71443c9184e7586d0ebac9f9467a9f2ee67e5f57266d6fcb302d74e595f4",
+      "bytes": 52724
+    },
+    {
+      "path": "supabase/migrations/20261028014046_i3e_effective_date_order.sql",
+      "sha256": "d02e6134f615f9721e834c630450954c1d471cfe7d75da0ae03991a3be6ae3da",
+      "bytes": 1577
+    },
+    {
+      "path": "supabase/migrations/20261028024556_i4a_online_attendance.sql",
+      "sha256": "838434b50966fbb80881d7d8dbd4013d4d26ed0915fe09399e7c1be5d28d03f0",
+      "bytes": 19072
+    },
+    {
+      "path": "supabase/migrations/20261028122658_i4b_guardian_training.sql",
+      "sha256": "57844b4f1c61b55713b5996404dae38202d1a58494c3a0e9049f280410af8441",
+      "bytes": 9353
+    },
+    {
+      "path": "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql",
+      "sha256": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+      "bytes": 24252
+    },
+    {
+      "path": "supabase/migrations/20261028184008_i4d_qr_attendance.sql",
+      "sha256": "9a6cbadce6235d105506d0f5e937c54a042864a29f61850ea708f112ac5c9b42",
+      "bytes": 27446
+    },
+    {
+      "path": "supabase/migrations/20261028233812_i5a_development_feedback.sql",
+      "sha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+      "bytes": 29846
+    },
+    {
+      "path": "supabase/migrations/20261029035928_attendance_register_batch.sql",
+      "sha256": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5",
+      "bytes": 5143
+    },
+    {
+      "path": "supabase/migrations/20261029194029_experience_home_calendar_reads.sql",
+      "sha256": "751563ee73c0727055bd320540ed010f53e6a024313962d0ed22749260cd3f82",
+      "bytes": 21080
+    },
+    {
+      "path": "supabase/migrations/20261102124518_owner_current_calendar.sql",
+      "sha256": "6702ba48a13982bae37c771de8861572b51469603dd117a4385d8006748ac750",
+      "bytes": 2026
+    },
+    {
+      "path": "supabase/migrations/20261103165604_owner_register_download_contract.sql",
+      "sha256": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
+      "bytes": 12995
+    },
+    {
+      "path": "supabase/migrations/20261104002448_owner_register_original_dispatch.sql",
+      "sha256": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
+      "bytes": 1456
+    },
+    {
+      "path": "supabase/migrations/20261104012057_owner_register_key_custody.sql",
+      "sha256": "8bb0528c58446a9afec48adc04f3191d98aa1abbdedd787f45918067bfca1af1",
+      "bytes": 3628
+    },
+    {
+      "path": "supabase/migrations/20261104013632_owner_register_bound_transport.sql",
+      "sha256": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
+      "bytes": 3850
+    },
+    {
+      "path": "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql",
+      "sha256": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+      "bytes": 28742
+    },
+    {
+      "path": "supabase/migrations/20261106174606_owner_register_binding_conflict.sql",
+      "sha256": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a",
+      "bytes": 3039
+    }
+  ],
+  "page_paths": [
+    "apps/web/src/app/[locale]/guardian-invitation/page.tsx",
+    "apps/web/src/app/[locale]/invitation/page.tsx",
+    "apps/web/src/app/[locale]/page.tsx",
+    "apps/web/src/app/[locale]/platform/page.tsx",
+    "apps/web/src/app/[locale]/service-setup/page.tsx",
+    "apps/web/src/app/[locale]/sign-in/[[...sign-in]]/page.tsx",
+    "apps/web/src/app/[locale]/trainer-invitation/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/plan/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx",
+    "apps/web/src/app/[locale]/workspace/page.tsx",
+    "apps/web/src/app/page.tsx",
+    "apps/web/src/app/prepared-register/page.tsx",
+    "apps/web/src/app/prepared-workspace/page.tsx"
+  ],
+  "api_route_paths": [
+    "apps/web/src/app/api/attendance/route.ts",
+    "apps/web/src/app/api/development/route.ts",
+    "apps/web/src/app/api/experience/route.ts",
+    "apps/web/src/app/api/guardian-training/route.ts",
+    "apps/web/src/app/api/guardians/route.ts",
+    "apps/web/src/app/api/health/route.ts",
+    "apps/web/src/app/api/jobs/guardians/route.ts",
+    "apps/web/src/app/api/jobs/invitations/route.ts",
+    "apps/web/src/app/api/jobs/setup/route.ts",
+    "apps/web/src/app/api/jobs/trainers/route.ts",
+    "apps/web/src/app/api/onboarding/route.ts",
+    "apps/web/src/app/api/people/route.ts",
+    "apps/web/src/app/api/planning/route.ts",
+    "apps/web/src/app/api/program-planning/route.ts",
+    "apps/web/src/app/api/programs/route.ts",
+    "apps/web/src/app/api/publication/route.ts",
+    "apps/web/src/app/api/qr/route.ts",
+    "apps/web/src/app/api/register-dispatch/route.ts",
+    "apps/web/src/app/api/register-download/route.ts",
+    "apps/web/src/app/api/register-key/route.ts",
+    "apps/web/src/app/api/session-changes/route.ts",
+    "apps/web/src/app/api/setup/email/route.ts",
+    "apps/web/src/app/api/setup/verify/route.ts",
+    "apps/web/src/app/api/trainers/route.ts",
+    "apps/web/src/app/api/webhooks/clerk-email/route.ts",
+    "apps/web/src/app/api/workspace-download/route.ts",
+    "apps/web/src/app/api/workspace-key/route.ts"
+  ],
+  "case_selector_index": [
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 12,
+      "case_labels": [
+        "context"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 13,
+      "case_labels": [
+        "sessions"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 18,
+      "case_labels": [
+        "roster"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 19,
+      "case_labels": [
+        "queue"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 20,
+      "case_labels": [
+        "detail"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 21,
+      "case_labels": [
+        "history"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 22,
+      "case_labels": [
+        "operation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 23,
+      "case_labels": [
+        "command"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 29,
+      "case_labels": [
+        "links"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 30,
+      "case_labels": [
+        "family_list"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/development.ts",
+      "line": 31,
+      "case_labels": [
+        "family_detail"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 31,
+      "case_labels": [
+        "owner-list"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 36,
+      "case_labels": [
+        "links"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 41,
+      "case_labels": [
+        "operation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 47,
+      "case_labels": [
+        "appoint"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 58,
+      "case_labels": [
+        "end"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 59,
+      "case_labels": [
+        "revoke"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 60,
+      "case_labels": [
+        "retry"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 70,
+      "case_labels": [
+        "review"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 71,
+      "case_labels": [
+        "accept"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/guardians.ts",
+      "line": 72,
+      "case_labels": [
+        "reconcile-accept"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 19,
+      "case_labels": [
+        "list"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 29,
+      "case_labels": [
+        "candidates"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 36,
+      "case_labels": [
+        "profile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 41,
+      "case_labels": [
+        "create"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 50,
+      "case_labels": [
+        "reconcile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/planning.ts",
+      "line": 19,
+      "case_labels": [
+        "read"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/planning.ts",
+      "line": 20,
+      "case_labels": [
+        "candidates"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/planning.ts",
+      "line": 21,
+      "case_labels": [
+        "review",
+        "save"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 34,
+      "case_labels": [
+        "list"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 35,
+      "case_labels": [
+        "dates"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 36,
+      "case_labels": [
+        "preview"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 37,
+      "case_labels": [
+        "create"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 38,
+      "case_labels": [
+        "read"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 39,
+      "case_labels": [
+        "step"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/programs.ts",
+      "line": 40,
+      "case_labels": [
+        "reconcile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 22,
+      "case_labels": [
+        "context"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 27,
+      "case_labels": [
+        "sessions"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 37,
+      "case_labels": [
+        "card"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 42,
+      "case_labels": [
+        "card_change"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 51,
+      "case_labels": [
+        "window_change"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 57,
+      "case_labels": [
+        "resolve"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 58,
+      "case_labels": [
+        "capture"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/qr-attendance.ts",
+      "line": 76,
+      "case_labels": [
+        "reconcile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 31,
+      "case_labels": [
+        "owner-list"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 36,
+      "case_labels": [
+        "profile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 41,
+      "case_labels": [
+        "operation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 47,
+      "case_labels": [
+        "appoint"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 58,
+      "case_labels": [
+        "end"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 59,
+      "case_labels": [
+        "revoke"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 60,
+      "case_labels": [
+        "retry"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 70,
+      "case_labels": [
+        "review"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 71,
+      "case_labels": [
+        "accept"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainers.ts",
+      "line": 72,
+      "case_labels": [
+        "reconcile-accept"
+      ]
+    }
+  ],
+  "counts": {
+    "source_files": 230,
+    "page_paths": 38,
+    "api_routes": 27,
+    "migrations": 31
+  },
+  "pwa_metadata": {
+    "public_manifest_present": false,
+    "scope_note": "Manifest presence alone does not establish OS installation/launch, offline coverage or acceptance"
+  },
+  "limits": [
+    "Case labels are textual navigation aids, not an AST/API contract or exposed-endpoint count",
+    "Tests/source paths do not prove passing tests, current live SHA, authorization or full feature coverage",
+    "No private records, .env, tokens, provider payloads, SQL contents or credentials copied"
+  ]
+}

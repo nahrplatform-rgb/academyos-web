@@ -1,5 +1,9 @@
 # Release, incident response and recovery
 
+## Version2 release batching —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package separates development_next_action from release_follow_up. Retain checked1e68403 and its deferred promotion; a later combined source requires its own exact checks and preserved supersession evidence. No agent promotion/alias action or production authority is added. Keep rollback/code-worker-schema/original compatibility.
+
 The 6 November Owner-authorized [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md) separates source publication and free standard hosted validation from runtime release. Retain exact-commit checks and Owner-only staging promotions. One full feature-PR run replaces redundant push/PR copies when the prepared workflow is present; a green public check is not hosted, installed or security acceptance. Read the [publication receipt](../07-handoff/public-repository-preparation-2026-11-06.md) for actual settings, exposure limits and later-private checks.
 
 ## Installed PWA updates and recovery — 6 November 2026

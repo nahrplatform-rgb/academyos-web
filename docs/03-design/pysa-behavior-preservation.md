@@ -1,5 +1,9 @@
 # PYSA → AcademyOS behavior preservation ledger
 
+## Version2 reference breadth —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package expands this historical behavior ledger with safe route/action/schema indexes, useful capability and field inventories, known-defect and uncertain-pipeline evidence, adoption destinations and explicit source limits. Existing scoped receipts/approvals below remain. Broad source inventory is not a complete runtime parity or hosted exploitability claim.
+
 Started28 October2026 after Owner requested an ongoing comparison/preservation process. This ledger preserves scope and links evidence; it is not a claim of exhaustive PYSA parity or full independent verification. Source37d8901c is read-only; accepted AcademyOS rules take precedence.
 
 | Behavior | PYSA reference / issue | AcademyOS contract and current evidence | Preserve / next work |

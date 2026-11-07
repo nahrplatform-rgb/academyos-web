@@ -1,5 +1,9 @@
 # Installable PWA delivery and readiness
 
+## Version2 batch alignment —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package keeps EX-14/15/16 supporting installation/lifecycle/device work alongside current MP-B01 and later affected domains. Manifest/launch work begins before all future modules; actual installed proof follows real working slices. Scope and prior PW/WD IDs remain unchanged.
+
 **Latest local repair:** [EX-07 cold-session checkpoint](../07-handoff/ex07-cold-session-repair-2026-11-06.md) adds ordinary SDK restoration without remounting the task or changing either worker,cache prefix,public protocol or local schema.17controlled normal-route cases support PW-03/04/08;exact deployment,real provider and all installed cases remain separate.
 
 **6 November supporting integration:** [The EX-07 normal-Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) preserves existing root/narrower public-worker ownership,version1 repositories and original sender. On Owner-promoted3c34923,a fresh normal-route offline save/cold reload passed,automatic reconnect failed401,and explicit same-account recovery committed once. Provider-session restoration is an open runtime defect,not an installed pass. Metadata/launch and all actual installed combinations remain unimplemented/unexecuted; no new worker or private-response caching is authorized.

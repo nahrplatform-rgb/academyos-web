@@ -1,5 +1,9 @@
 # Test strategy, evidence and formal acceptance
 
+## Version2 validation cadence —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package delivery/verification specification defines edit-level focused checks, coherent batch regressions/factual refresh and consolidated release/working review. Required assertions and close-to-change authority/transaction/recovery checks remain. The Owner performs promotions; deferred external review and untested combinations remain explicit.
+
 ## Actual installed-web verification — 6 November 2026
 
 The [PWA delivery contract](pwa-delivery-and-readiness.md) and [PW/WD traceability](pwa-delivery-traceability.csv) add a supporting installed track. Source/static manifest validation and normal browser tests support it; actual OS installation/launch, independent authentication/storage, covered offline entry, original save/reconnect, update/migration, quota/account cleanup, camera and EN/AR/keyboard/zoom/device checks are separately recorded. WD-72–86 remain planned. No synthetic install click, Lighthouse result, desktop emulation or existing service worker establishes a physical installed pass.

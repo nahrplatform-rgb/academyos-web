@@ -1,5 +1,11 @@
 # AcademyOS application foundation
 
+Product purpose: make academy operations clear, efficient and under the Owner's control, with safe delegation and a separate complete Platform business workspace. Use the [outcome and simplicity specification](docs/06-delivery/master-plan-v2/product-outcomes-and-simplicity.md) and [finance redesign rules](docs/06-delivery/master-plan-v2/finance-simplification-and-control.md); retain useful PYSA jobs without copying its defects or unnecessary work.
+
+## Canonical product and delivery plan —7November2026
+
+[Canonical master plan v2](docs/06-delivery/master-plan-v2/README.md). The new master package is the planning entry point for complete product/reference reconciliation, Operations redesign, sport/resource and tenant models, local/PWA behavior and coherent delivery batches. Prior source/evidence and accepted rules remain; the existing single execution tracker and living continuation select current work.
+
 ## Installable web app track — 6 November 2026
 
 Follow the [PWA delivery/readiness contract](docs/06-delivery/pwa-delivery-and-readiness.md) and [PW traceability](docs/06-delivery/pwa-delivery-traceability.csv). Installation identity/launch, worker/storage updates and installed-device verification are supporting EX-14/15/16 packages alongside normal Attendance and remaining redesign. Existing protected data/sync remains the foundation; no second app or offline engine. Manifest/icons and actual installed acceptance are still planned. The [tracker](docs/06-delivery/experience-execution.csv) and [living prompt](docs/06-delivery/continue-academyos.md) retain one current primary and separate installation, offline-coverage and whole-app results.

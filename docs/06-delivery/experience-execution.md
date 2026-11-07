@@ -1,5 +1,9 @@
 # Connected experience execution guide
 
+## Version2 connected-batch execution —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package is the planning entry point. The batch catalog defines outcomes/dependencies/exit evidence; experience-execution.csv remains the sole current-status/priority owner. Existing EX-01–16 history is preserved; queued EX-17–29 map larger future outcomes. Current EX-07 maps MP-B01 Owner day. development_next_action is separate from release_follow_up: the deferred1e68403 promotion remains recorded without freezing ready independent work. The generated continuation reads these fields and must not hand-copy a conflicting status queue.
+
 **7 November checkpoint:** Owner-promoted68b6575 is independently verified for EN/AR delayed history and retained task/focus;see the retained history receipt. Continue the bounded [Attendance resume/auth packet](../07-handoff/ex07-attendance-resume-continuity-2026-11-07.md). It preserves current server checks,dirty/unknown and real-denial fences while separating401from Owner loss. Broader findings and Owner acceptance remain open;the tracker owns exact CI/promotion/hosted routing.
 
 **Current EX-07 repair:** [Cold-session implementation/local evidence](../07-handoff/ex07-cold-session-repair-2026-11-06.md) replaces the old repair-not-started next action. It does not replace the historical hosted401 result with success. Follow the tracker for exact CI/build/provider-access/Owner-promotion and real-provider next steps;retain distinct key-limit and post-registration continuity work.

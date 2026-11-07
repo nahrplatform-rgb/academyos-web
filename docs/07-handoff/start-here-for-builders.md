@@ -1,5 +1,11 @@
 # Start here for builders
 
+## Start with canonical master version2 —7November2026
+
+Start each connected batch from [Owner value, simplicity and Platform business outcomes](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md). Use the inspected [PYSA chat review](../06-delivery/master-plan-v2/source-conversation-review.md) as historical context and the [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) for money work. Useful business parity must not reproduce unnecessary legacy fields, steps, reviews or formulas. Preserve accepted controls and exact scope; measure benefits rather than claim market superiority.
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). Read the new master entry point, current experience-execution row and generated continuation before following an older handoff. Preserve its baseline and earlier accepted rules; select the current batch and separate development/release actions. New rich Player/resource/finance/role details are target gaps requiring their exact policy/action contracts, not implemented capabilities. The planning checkpoint changes documentation/tooling only.
+
 **7 November checkpoint:** Owner-promoted68b6575 is independently verified for EN/AR delayed history and retained task/focus;see the retained history receipt. Continue the bounded [Attendance resume/auth packet](ex07-attendance-resume-continuity-2026-11-07.md). It preserves current server checks,dirty/unknown and real-denial fences while separating401from Owner loss. Broader findings and Owner acceptance remain open;the tracker owns exact CI/promotion/hosted routing.
 
 **Latest EX-07 implementation:** Continue from [cold-session repair](ex07-cold-session-repair-2026-11-06.md),not another browser-profile or fixture-reset attempt. The source fix and17controlled cases now exist;finish exact-code release/provider evidence and Owner-only promotion before real-Clerk verification. Keep global registration-limit/online fallback and post-registration directory invalidation next. Do not repeat completed storage/role/PYSA/PRF work.

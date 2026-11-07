@@ -1,6 +1,10 @@
 # AcademyOS current-experience review
 
-**7 November EX-07:** [Canonical Attendance resume/auth continuity](../../docs/07-handoff/ex07-attendance-resume-continuity-2026-11-07.md) refreshes the actual-component pack and factual HTML. Held EN/AR checks preserve the roster and context while a clean current read runs;401 masks as sign-in-required without retiring protected work. The packet links23normal-route and focused production/development checks. These remain local fictional-fixture evidence. The earlier68b6575 history release has separate scoped hosted proof;the new resume source awaits its own CI,promotion and hosted verification.
+## Version2 factual-review maintenance —7November2026
+
+[Canonical master plan v2](../../docs/06-delivery/master-plan-v2/README.md). The new master package is the product/reference/design/batch planning entry point. This checkpoint changes documentation/tooling and register metadata, with no product UI/copy/route/test-input edit; rebuild factual inventory from the unchanged actual-component capture pack. Current-versus-proposed and captured-versus-uncaptured boundaries remain. Do not claim new hosted/installed proof.
+
+**7 November EX-07:** [Canonical Attendance resume/auth continuity](../../docs/07-handoff/ex07-attendance-resume-continuity-2026-11-07.md) refreshes the actual-component pack and factual HTML. Held EN/AR checks preserve the roster and context while a clean current read runs;401 masks as sign-in-required without retiring protected work. The packet links23normal-route and focused production/development checks. These remain local fictional-fixture evidence. The earlier68b6575 history release has separate scoped hosted proof;the new resume source has passed53CIsteps and awaits Owner promotion and hosted verification.
 
 **6 November local repair:** [Cold-session evidence](../../docs/07-handoff/ex07-cold-session-repair-2026-11-06.md) includes new real-component fictional Arabic sign-in-unavailable/required captures and retained17normal-route cases. Regenerate the capture pack/factual HTML for the changed components;the default replay still omits the protected prepared branch and does not establish hosted/installed success.
 
@@ -60,7 +64,7 @@ Persistent local data and quiet synchronization are now the Owner-directed exper
 
 Owner authorized29 October2026 after reporting whole-app visual, workflow, alignment and spacing problems. This is a **faithful current baseline for review**, not a redesigned product or new business-policy acceptance.
 
-Open [the single standalone HTML](AcademyOS-experience-review.html). It embeds actual product DOM/CSS snapshots, clickable observed transitions, wording/control inventory, full UI sources with line numbers, screen/action/loading/security/requirement registers, coverage gaps and reviewer-note download. No network is required to open it in a current browser. Repository source links require the reviewer's existing repository access; the embedded sources work offline. Keep the file private to authorized project reviewers: fictional captures contain no live users or tokens, but source is proprietary.
+Open [the single standalone HTML](AcademyOS-experience-review.html). It embeds actual product DOM/CSS snapshots, clickable observed transitions, wording/control inventory, full UI sources with line numbers, screen/action/loading/security/requirement registers, coverage gaps and reviewer-note download. No network is required to open it in a current browser. Repository source links require the reviewer's existing repository access; the embedded sources work offline. The artifact follows the current public-repository policy: embed source and fictional captures only; never add credentials, live user payloads or private provider/browser data. Public source visibility does not grant application access.
 
 ## What is and is not reproduced
 

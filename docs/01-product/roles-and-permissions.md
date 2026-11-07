@@ -1,5 +1,9 @@
 # Roles, membership and permission contract
 
+## Version2 role and tenant coverage —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package includes a dedicated multi-academy/role specification, role navigation and field adoption dependencies. Existing current capability/branch/relationship authority below remains; no plan row creates Manager/Player/Platform tenant-content rights. Local namespaces and originals retain exact account/academy scope.
+
 ## Local-data planning boundary —LF-v2,2November2026
 
 Local replicas are capability/branch/relationship/field scoped, not a device-wide role grant. Owner directory, assigned Trainer roster and Guardian linked-child/published data need separate namespaces, indexes and local-access policy. No new role/business permission is accepted by the persistent-data direction. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.

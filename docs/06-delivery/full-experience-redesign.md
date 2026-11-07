@@ -1,5 +1,11 @@
 # Full connected experience redesign
 
+## Canonical version2 redesign integration —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). Use the new master package UI/UX specification with the selected Operations reference, rich module field/workflow gaps, sport/resource and tenant contexts. Larger delivery batches combine meaningful functionality, full visual/workflow adoption and local/sync behavior. Keep this plan and prior approved previews/receipts as authority/history; old dated status paragraphs do not override the tracker. A field list, palette pass or deployed build is not full redesign completion.
+
+The redesign serves [Owner clarity, saved effort, control and delegation](master-plan-v2/product-outcomes-and-simplicity.md), with distinct Platform business journeys. Explain the user job and mandatory effort in each batch. Simplify legacy machinery and [finance](master-plan-v2/finance-simplification-and-control.md) while retaining canonical useful outcomes and accepted reviews; do not reproduce PYSA's layout/administrative clutter by default. Its two [reviewed chats](master-plan-v2/source-conversation-review.md) are evidence, not visual or policy authority.
+
 **6 November repair in progress:** [Cold-session repair](../07-handoff/ex07-cold-session-repair-2026-11-06.md) is locally implemented/tested. Exact CI/build,Owner promotion and real-provider verification remain separate;the global register-limit/online fallback and post-registration projection fixes precede further Operations adoption. The preceding hosted failure remains historical evidence,not a repaired-runtime claim.
 
 **6 November fresh-save result:** Owner-promoted **3c34923** remains the verified staging source. [The current Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) records two marks saved offline and retained through cold normal-route reload. Automatic reconnect failed401; explicit normal signed-in recovery committed the same original once (2marks,2history,1operation,1audit). **EX-07 next repairs session restoration/error classification**, then the global pilot-limit/online fallback and confirmed-registration projection continuity, before further visual adoption. Preserve prior checkpoints; no full-app,installed or Owner acceptance.

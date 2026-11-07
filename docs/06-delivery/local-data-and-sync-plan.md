@@ -1,5 +1,9 @@
 # AcademyOS persistent local data and quiet synchronization plan
 
+## Version2 full-app integration —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package maps each real product domain to the existing typed local-data/sync contracts and coherent delivery batch. Rich profiles/settings/finance/media/roles remain explicit targets with exact field/command gates; current first slices are not permanent exclusions. No second engine, universal queue or timestamp-wins overwrite is introduced.
+
 **6 November local session repair:** [The new checkpoint](../07-handoff/ex07-cold-session-repair-2026-11-06.md) preserves the task and exact original while renewing ordinary sign-in;401 no longer implies revoked role in local code.17controlled cases pass,with real Clerk/rollout/installed/Owner evidence pending. Registration cardinality and affected-view invalidation remain the next bounded work;all approved data/retention policies remain.
 
 **6 November fresh-save result:** Owner-promoted **3c34923** remains the verified staging source. [The current Attendance receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) records two marks saved offline and retained through cold normal-route reload. Automatic reconnect failed401; explicit normal signed-in recovery committed the same original once (2marks,2history,1operation,1audit). **EX-07 next repairs session restoration/error classification**, then the global pilot-limit/online fallback and confirmed-registration projection continuity, before further visual adoption. Preserve prior checkpoints; no full-app,installed or Owner acceptance.

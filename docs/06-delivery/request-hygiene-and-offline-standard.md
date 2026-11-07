@@ -1,5 +1,9 @@
 # Request hygiene, persistent local data and explicit offline support
 
+## Version2 batch and continuation standard —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package joins full product/PYSA gaps, redesign, sport/tenant structures and local/sync behavior. Apply focused changed-boundary checks and consolidated batch verification; separate ready development from deferred release. Preserve current server authority, dirty/unknown guards, original recovery and all existing NR/G evidence.
+
 ## Cold-session and affected-view regression standard — 6 November 2026
 
 The [hosted Attendance failure and recovery](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november) adds these required checks to the existing architecture; it does not report a delivered repair:
