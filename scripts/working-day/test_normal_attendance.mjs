@@ -11,7 +11,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 const root=resolve(import.meta.dirname,'../..');
 const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
 const receipt=join(output,'runtime.json');
-const sources=['scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
+const sources=['apps/web/src/lib/experience-format.ts','scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   ...['attendance-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
@@ -76,7 +76,7 @@ try{
     if(process.argv.includes('--record'))await tab.screenshot({path:join(output,'binding-device-conflict-ar-390.png'),fullPage:true});
     await button('استخدم السجل عبر الإنترنت',tab).click();
     await expect(button('استخدم سجل الجهاز الشخصي',tab)).toBeFocused();
-    await expect(tab.getByText('المحمّل: 18 / 18 · مختار غير محفوظ: 0',{exact:true})).toBeVisible();
+    await expect(tab.getByText('المحمّل: ١٨ / ١٨ · مختار غير محفوظ: ٠',{exact:true})).toBeVisible();
     await expect(tab.locator('.app-scene')).toHaveAttribute('lang','ar');
     await expect(tab.locator('.app-scene')).toHaveAttribute('dir','rtl');
     if(process.argv.includes('--record'))await tab.screenshot({path:join(output,'binding-online-return-ar-390.png'),fullPage:true});
@@ -142,7 +142,7 @@ try{
  const response=await page.goto(url(a,'ar'));assert.ok(response.fromServiceWorker());
  await expect(page.getByRole('heading',{name:'حضور التدريب',exact:true})).toBeVisible();
  await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة',{exact:true})).toBeVisible();
- await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
  assert.equal(state.events.length,before);metrics.offlineNormalRoute={fullBrowserRestart:true,operatingRequests:0,normalArabicUrl:true};
  const widths=[];
  for(const width of [320,360,390]){
@@ -164,7 +164,7 @@ try{
  await expect(page.locator('.register-roster')).toHaveCount(0);
  await expect(page.getByRole('link',{name:'تحقق من الحفظ الأصلي عبر الإنترنت',exact:true})).toHaveAttribute('href',new URL(url(a,'ar')).pathname);
  await page.evaluate(key=>sessionStorage.removeItem(key),key);await page.reload();
- await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
  pass('An old online unknown-operation locator takes precedence over prepared normal-route data and blocks replacement');
 
  await page.setViewportSize({width:1440,height:1000});
@@ -210,6 +210,8 @@ try{
  docs.length=0; // The intentional offline reload is outside reconnect's document budget.
  state.sessionValid=false;fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('النتيجة غير معروفة · تحقّق من الحفظ الأصلي',{exact:true})).toBeVisible();
+ await expect(page.locator('.toolbar-actions [role=status]')).toContainText('نتيجة الخادم غير معروفة');
+ await expect(page.locator('.register-heading')).toContainText('محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة');
  assert.equal(docs.length,0);
  const original=JSON.parse(capturedWire),counts=()=>db({action:'counts',...a,op:original.op});
  assert.deepEqual(await counts(),{marks:18,history:18,operations:1,audit:1});
@@ -319,7 +321,7 @@ try{
  pass('An independently expired canonical read session masks the task without treating401asOwnerloss or retiring the prepared register');
  const localReturnStart=state.events.length;
 
- await button('العودة إلى الحضور').click();await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ await button('العودة إلى الحضور').click();await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
  await expect(page.getByLabel('البحث في اللاعبين المحمّلين',{exact:true})).toHaveValue(' ');
  await expect(page.locator('.register-person button').first()).toHaveAttribute('aria-pressed','true');
  assert.ok(Math.abs(await page.locator('.workspace-center').evaluate(el=>el.scrollTop)-scroll)<=1);
@@ -330,7 +332,7 @@ try{
  pass('Saved-mark history/correction handoff uses the existing current online task and returns to the same prepared register');
 
  before=state.events.length;await db({action:'role',...b});await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
- await expect(page.locator('main').getByRole('alert')).toHaveText('Current account access changed. Sign in again to recover protected work.');
+ await expect(page.locator('main').getByRole('alert')).toHaveText('Access to this register changed. Check your current account and workspace. Saved work remains protected.');
  await expect(page.locator('.register-roster')).toHaveCount(0);
  assert.equal(apiAfter(before).filter(r=>r.route==='register-download').length,1);
  pass('Current Owner loss on resume masks the prepared roster and keeps the canonical refusal visible');
@@ -342,6 +344,8 @@ try{
  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
  await db({action:'expire',...future});fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('Needs review · Original work retained',{exact:true})).toBeVisible();
+ await expect(page.locator('.toolbar-actions [role=status]')).toContainText('Needs review');
+ await expect(page.locator('.register-heading')).toContainText('Saved on this device · Needs review');
  await expect(button('Use the online register')).toHaveCount(0);
  assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});
  pass('A capture made while locally eligible retains its original for review when the server recording deadline expires before sync');

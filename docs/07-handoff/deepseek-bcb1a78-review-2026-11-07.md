@@ -54,7 +54,13 @@ The exact current receipt is [transport.json](evidence/ex13b-workspace-transfer/
 | Factual review |inventory-only refresh and freshness passed; unchanged source/capture pack,1224frames/1213transitions; no new UI capture or hosted claim |
 | Product/schema/provider boundary |no `apps/web`, migration, worker, workflow, dependency, account or hosted configuration change |
 
-Unaffected prior 101 unit/build/type/lint results remain historical; automatic CI for a new candidate is separate.
+Unaffected prior 101 unit/build/type/lint results remain historical. The following exact-source CI is separate from those earlier results.
+
+## Exact-source Git and CI
+
+Reviewed corrections and task tracking were committed and pushed together as **`3be2d41`**. [Foundation run 42381781289](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42381781289), job [128430747012](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42381781289/job/128430747012), completed **success, 53/53 steps**. This includes the repaired workspace/People transport suite and the existing application regressions under the pinned Node 24 toolchain. No hosted or installed-device result is inferred.
+
+This post-push CI receipt is retained locally for the next coherent batch; it is not another pushed source revision or a reason to repeat the suite. No deployment promotion was performed or requested by this review.
 
 ## Outstanding work and next tracked task
 

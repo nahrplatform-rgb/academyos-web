@@ -1,4 +1,23 @@
 /** Persisted instants + explicit branch IANA zone; civil-day arithmetic never uses the host zone. */
+export function formatCount(locale: string, count: number) {
+ if(!Number.isSafeInteger(count)||count<0)return locale==='ar'?'غير متاح':'Unavailable';
+ return new Intl.NumberFormat(locale==='ar'?'ar-EG':'en-GB').format(count);
+}
+
+/** Count words only: callers still own scope, completeness and saved state. */
+export function formatQuantity(locale: string, count: number, noun: 'player'|'session'|'change') {
+ const value=formatCount(locale,count);
+ if(!Number.isSafeInteger(count)||count<0)return value;
+ if(locale!=='ar')return `${value} ${noun}${count===1?'':'s'}`;
+ const words={
+  player:{zero:'لا يوجد لاعبون',one:'لاعب واحد',two:'لاعبان',few:'لاعبين',many:'لاعبًا',other:'لاعب'},
+  session:{zero:'لا تدريبات',one:'تدريب واحد',two:'تدريبان',few:'تدريبات',many:'تدريبًا',other:'تدريب'},
+  change:{zero:'لا تغييرات',one:'تغيير واحد',two:'تغييران',few:'تغييرات',many:'تغييرًا',other:'تغيير'},
+ }[noun];
+ const rule=new Intl.PluralRules('ar-EG').select(count);
+ return rule==='zero'||rule==='one'||rule==='two'?words[rule]:`${value} ${words[rule]}`;
+}
+
 export function addCivilDays(day: string, days: number) {
   const date = new Date(`${day}T12:00:00Z`); date.setUTCDate(date.getUTCDate() + days);
   return date.toISOString().slice(0,10);

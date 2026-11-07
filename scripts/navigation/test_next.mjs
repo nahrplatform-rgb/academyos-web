@@ -109,7 +109,7 @@ try{
     const actionableMs=Math.round(performance.now()-begin),expected=['hint','stored-period'].includes(scenario)?['owner_calendar']:['owner_current_calendar'];assert.deepEqual(events.map(x=>x.action),expected);
     if(expected.length===2)assert.ok(events[1].started-events[0].started>=250,'Calendar is serially dependent on delayed Home response');
     const first=scenario==='stored-period'?'2026-11-08':day;if(expected[0]==='owner_calendar'){assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='stored-period'?'2026-11-14':'2026-11-07');}else{assert.equal(events.at(-1).from,null);assert.equal(events.at(-1).to,null);}
-    await expect(p.getByLabel(ar?'أول تاريخ معروض':'First visible date',{exact:true})).toHaveValue(first);
+    await expect(p.getByLabel(ar?'انتقل إلى تاريخ':'Go to date',{exact:true})).toHaveValue(first);
     // Resolved anchor application must not start a second request. A real period change must.
     await p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true}).click();await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();assert.equal(events.length,2);assert.equal(events[1].action,'owner_calendar');
     cold.push({locale,scenario,initialActions:events.slice(0,1).map(x=>x.action),events,actionableMs,syntheticDelayPerReadMs:250});
@@ -167,23 +167,26 @@ try{
   }
   await writeFile(join(evidence,'workspace-read-owner.json'),JSON.stringify({status:'passed',inputs,scope:'actual Next production layout/client components;fictional identity and read-only API;no hosted Clerk/DB/cost proof;no private disk or settled-result cache',cases},null,2));
  }
- // Local interaction survives a held authority read; private projections stay masked.
+ // Clean Owner resume retains the checked task while current actions stay gated.
+ // Required first/failed/changed-authority reads retain their separate fences.
  const localControls=[];
  for(const view of ['home','calendar']){
   const pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage();let hold=false,release;const calls=[];
   await p.route('**/api/experience',async route=>{calls.push(route.request().postDataJSON().action);if(hold)await new Promise(r=>{release=r;});await route.continue();});
   const url=`${origin}/en/workspace/${academy}/${view}${view==='calendar'?'?anchor='+day:''}`;
   await p.goto(url);await expect(p.locator('.experience-session')).toHaveCount(1);
+  await p.locator('.experience-session').evaluate(el=>{el.dataset.resumeProbe='original';});
   const input=p.getByRole('searchbox',{name:'Search this loaded page',exact:true});await input.fill('Fictional');
   await input.evaluate(el=>{el.dataset.continuityProbe='original';});hold=true;const before=calls.length;
-  await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect.poll(()=>calls.length).toBe(before+1);await expect(p.locator('.experience-session')).toHaveCount(0);
+  await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect.poll(()=>calls.length).toBe(before+1);await expect(p.locator('.experience-session')).toHaveCount(localControlsBaseline?0:1);
+  if(!localControlsBaseline){await expect(p.locator('.experience-session')).toHaveAttribute('data-resume-probe','original');await expect(p.locator('.experience-reload')).toBeDisabled();}
   const inputRetained=await input.count()===1;
-  assert.equal(inputRetained,!localControlsBaseline,'local search presence while private results are masked');
+  assert.equal(inputRetained,!localControlsBaseline,'local search stays mounted during clean Owner resume');
   if(!localControlsBaseline){assert.equal(await input.getAttribute('data-continuity-probe'),'original');assert.equal(await input.evaluate(el=>el===document.activeElement),true);await input.press('End');await input.pressSequentially(' Routing');await expect(input).toHaveValue('Fictional Routing');}
   const beforeLanguage=p.url();await p.getByRole('link',{name:'العربية',exact:true}).click();await expect(p.getByRole('heading',{name:view==='calendar'?'تقويم التدريب':'عمليات الأكاديمية',exact:true})).toBeVisible();
   const languageChangedUrl=p.url()!==beforeLanguage;if(!localControlsBaseline)assert.equal(languageChangedUrl,false,'local locale control adds no hash/router navigation');
-  assert.equal(calls.length,before+1,'typing/locale adds no business read');await p.screenshot({path:join(evidence,`local-controls-${view}.png`),fullPage:true});hold=false;release();await expect(p.locator('.experience-session')).toHaveCount(1);
-  localControls.push({view,inputRetained,languageChangedUrl,readStarts:calls.length-before,privateRowsMasked:true});await pc.close();
+  assert.equal(calls.length,before+1,'typing/locale adds no business read');await p.screenshot({path:join(evidence,`local-controls-${view}.png`),fullPage:true});hold=false;release();await expect(p.locator('.experience-reload')).toBeEnabled();await expect(p.locator('.experience-session')).toHaveCount(1);
+  localControls.push({view,inputRetained,languageChangedUrl,readStarts:calls.length-before,privateRowsMasked:localControlsBaseline,checkedRowsRetained:!localControlsBaseline});await pc.close();
  }
  {
   const pc=await browser.newContext(),p=await pc.newPage();let hold=false,release;const calls=[];

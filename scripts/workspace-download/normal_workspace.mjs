@@ -206,9 +206,12 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
       window.localQueryObserver.observe(document.body,{childList:true,subtree:true});
     });
     await search.fill('Synthetic player 55');
-    await expect(page.getByText(/^1 players on this page/)).toBeVisible();
+    await expect(page.getByText(/^1 player on this page/)).toBeVisible();
     await player(page).click();
     await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
+    await expect(page.getByText('Player summary on this device',{exact:true})).toBeVisible();
+    await expect(page.getByText('Not included in this summary',{exact:true})).toBeVisible();
+    await expect(page.getByText('Not provided',{exact:true})).toHaveCount(0);
     assert.equal(ui.calls.length,before.reads);
     assert.equal(transferCalls.length,before.transfers);
     assert.deepEqual(await page.evaluate(()=>{window.localQueryObserver.disconnect();return window.localQueryFeedback;}),
@@ -395,7 +398,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await expect(page.getByRole('heading',{name:'Save outcome is uncertain',exact:true})).toBeVisible();
     const lost=ui.registrations.at(-1);
     assert.equal(lost.status,200);
-    await page.getByRole('button',{name:'Check original operation',exact:true}).click();
+    await page.getByRole('button',{name:'Check original save',exact:true}).click();
     await expect(page.getByText('Registration saved',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Back to players',exact:true}).click();
     await page.locator('#player-search').fill('Synthetic lost registration');

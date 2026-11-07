@@ -122,7 +122,7 @@ jobs:
           node scripts/working-day/test_normal_attendance.mjs
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
-      - name: Verify scroll continuity while private results are masked
+      - name: Verify Owner return continuity and failed-read privacy fences
         run: node scripts/navigation/measure_geometry.mjs
       - name: Verify offline experience-review navigation and boundaries
         run: node scripts/experience-review/test.mjs

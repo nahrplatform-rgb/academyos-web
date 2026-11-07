@@ -10,7 +10,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const evidence=join(root,'docs/07-handoff/evidence/owner-register-workspace-2026-11-04.json');
-const sources=[
+const sources=['apps/web/src/lib/experience-format.ts',
   'scripts/working-day/test_owner_startup.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   'apps/web/next.config.ts','apps/web/public/prepared-register-worker.js','apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts','apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx',
   'apps/web/src/app/[locale]/layout.tsx','apps/web/src/app/prepared-register/page.tsx',
@@ -115,7 +115,7 @@ try {
   const response=await page.goto(origin+'/prepared-register#ar');
   assert.ok(response.fromServiceWorker());
   await expect(page.getByRole('heading',{name:'سجل الحضور المحضّر'})).toBeVisible();
-  await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+  await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
   assert.equal(state.events.length,recorded);
   metrics.offlineProcessReopenMs=Math.round(performance.now()-start);
   pass('Actual public worker reopens the latest prepared Arabic register after a full browser restart with zero API calls');
@@ -128,7 +128,7 @@ try {
   const online=await context.newPage();
   await online.goto(origin+'/prepared-register#ar');
   await expect(online.getByText(/افتح مساحة العمل بعد الاتصال/)).toBeVisible();
-  await expect(online.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toHaveCount(0);
+  await expect(online.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toHaveCount(0);
   await button('راجع الحضور').click();
   await button('احفظ على هذا الجهاز').click();
   await expect(page.getByText('محفوظ على هذا الجهاز · بانتظار المزامنة',{exact:true})).toBeVisible();
@@ -150,7 +150,7 @@ try {
   await online.getByText('Account',{exact:true}).click();
   await button('Sign out',online).click();
   await expect(online.locator('main').getByRole('alert')).toHaveText('Downloads could not be cleared. Pending work remains protected.');
-  await expect(page.getByText('18 / 18 محمّلون من هذا الجهاز',{exact:true})).toHaveCount(0);
+  await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toHaveCount(0);
   assert.equal(state.events.filter(x=>x.route==='fixture-signout').length,signOutBefore);
   assert.equal(await online.evaluate(key=>JSON.parse(localStorage.getItem(key)).mode,accountKey),'ending');
 

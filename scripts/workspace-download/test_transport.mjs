@@ -24,6 +24,7 @@ const inputs=[
   'apps/web/src/app/api/workspace-download/route.ts','apps/web/src/lib/workspace-download.ts',
   'apps/web/src/app/api/workspace-key/route.ts','apps/web/src/lib/workspace-key-server.ts',
   'apps/web/src/app/api/people/route.ts','apps/web/src/lib/people.ts',
+  'apps/web/src/lib/experience-format.ts',
   'supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql',
   'apps/web/src/lib/local-workspace-codec.ts','apps/web/src/lib/local-workspace-repository.ts',
   'apps/web/src/lib/local-register-crypto.ts',

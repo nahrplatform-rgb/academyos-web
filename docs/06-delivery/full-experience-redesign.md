@@ -2,6 +2,8 @@
 
 ## Canonical version2 redesign integration —7November2026
 
+Follow the later [MP-B01 Owner feedback/return checkpoint](../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) and the execution tracker for actual source, checks and release status. It integrates reviewed wording/state findings with stable checked Owner return views, rather than another palette change. Remaining journeys, Operations density, handoffs and wider device/hosted acceptance remain open.
+
 [Canonical master plan v2](master-plan-v2/README.md). Use the new master package UI/UX specification with the selected Operations reference, rich module field/workflow gaps, sport/resource and tenant contexts. Larger delivery batches combine meaningful functionality, full visual/workflow adoption and local/sync behavior. Keep this plan and prior approved previews/receipts as authority/history; old dated status paragraphs do not override the tracker. A field list, palette pass or deployed build is not full redesign completion.
 
 The redesign serves [Owner clarity, saved effort, control and delegation](master-plan-v2/product-outcomes-and-simplicity.md), with distinct Platform business journeys. Explain the user job and mandatory effort in each batch. Simplify legacy machinery and [finance](master-plan-v2/finance-simplification-and-control.md) while retaining canonical useful outcomes and accepted reviews; do not reproduce PYSA's layout/administrative clutter by default. Its two [reviewed chats](master-plan-v2/source-conversation-review.md) are evidence, not visual or policy authority.

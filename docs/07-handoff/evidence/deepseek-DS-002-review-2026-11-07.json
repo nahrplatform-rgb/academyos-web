@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-07",
+  "task_id": "DS-002",
+  "parent": "EX-07 / MP-B01",
+  "inspected_commit": "3be2d4168bef1f58c5664f5daf3f038b6c602459",
+  "source_hashes": {
+    "apps/web/src/components/experience-workspace.tsx": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
+    "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
+    "apps/web/src/components/people-workspace.tsx": "2d0bb9ecd3ccc66670caebda3c4a70e07f90aaec6bb267b9fd861ec8b0788015"
+  },
+  "worker_items": 85,
+  "disposition_items": 85,
+  "disposition_counts": {
+    "ready_copy_fix": 19,
+    "retain_synthetic_boundary": 6,
+    "retain_source_copy": 22,
+    "amend_count_proposal": 3,
+    "defer_optional_copy": 3,
+    "ready_state_presentation_fix": 13,
+    "amend_retry_consolidation": 1,
+    "amend_denial_proposal": 2,
+    "amend_coverage_proposal": 2,
+    "retain_current_stage_semantics": 1,
+    "record_coverage_limit": 2,
+    "amend_revalidation_claim": 2,
+    "amend_date_label": 2,
+    "amend_count_evidence": 1,
+    "amend_visual_suggestion": 1,
+    "reject_publication_reclassification": 2,
+    "retain_with_route_correction": 2,
+    "amend_remove_consequence": 1
+  },
+  "source_review": "All85 rows assigned source/contract disposition;proposals corrected in separate coordinator output;worker reports unchanged",
+  "product_changes": false,
+  "runtime_browser_hosted_installed_tests": "Not performed by this review",
+  "NR07": "Open;the loading/zero-player symptoms are not closed by copy review",
+  "independent_review": "Deferred;not performed;not claimed by this coordinator assessment",
+  "next_worker": "DS-003ready for manual handoff;not launched by coordinator",
+  "native_helpers": 0,
+  "cost_savings": "Not measured",
+  "outputs": [
+    "docs/07-handoff/deepseek-DS-002-disposition-2026-11-07.csv",
+    "docs/07-handoff/deepseek-DS-002-review-2026-11-07.md"
+  ],
+  "local_tracking_checks": {
+    "continuation_contract_tests": 17,
+    "master_execution_joins": "passed;one current EX-07 / MP-B01;3registered worker rows",
+    "disposition_IDs": "85/85unique joined to original report",
+    "relative_markdown_links": "18checked;0broken",
+    "continuation_freshness": "passed",
+    "factual_inventory_freshness": "passed;unchanged actual-component capture pack1224frames/1213transitions",
+    "product_schema_dependency_workflow_diff": "empty",
+    "full_runtime_regression_or_new_CI": "Not rerun for this documentation/tooling checkpoint;earlier3be2d41 CI remains historical"
+  },
+  "git_checkpoint": "Local documentation/tooling updates retained for next coherent batch;no commit,push or promotion in this turn",
+  "report_line_endings": [
+    {
+      "path": "docs/07-handoff/deepseek/DS-002-copy-state-audit.csv",
+      "returned_sha256": "434dfd8f929356305de2718504cf129f411497eec1a12041b59d8e84b5307204",
+      "repository_sha256": "d855e3267840e19282eeb1849a4817ca3fc1db3dd62f36eeb3dd88d35887f995",
+      "change": "CRLF to LF only;all CSV cells and record order equal"
+    }
+  ]
+}

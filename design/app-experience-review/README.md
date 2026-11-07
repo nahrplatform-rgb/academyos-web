@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+7 November MP-B01: [Owner feedback and return continuity](../../docs/07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) refreshes the actual-component pack, static entry and factual HTML after Players, Home/Calendar and Attendance state/copy changes. The packet also links separate protected normal-route evidence; the default replay still does not prove those gated states, real-provider sessions, staging or installed-device behavior. Current-versus-proposed and source-versus-hosted boundaries remain.
+
 ## Version2 factual-review maintenance —7November2026
 
 [Canonical master plan v2](../../docs/06-delivery/master-plan-v2/README.md). The new master package is the product/reference/design/batch planning entry point. This checkpoint changes documentation/tooling and register metadata, with no product UI/copy/route/test-input edit; rebuild factual inventory from the unchanged actual-component capture pack. Current-versus-proposed and captured-versus-uncaptured boundaries remain. Do not claim new hosted/installed proof.

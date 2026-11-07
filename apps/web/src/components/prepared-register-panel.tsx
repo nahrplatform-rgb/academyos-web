@@ -5,6 +5,7 @@ import {Button,Input,Select} from './ui/controls';
 import WorkspaceShell from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import {useRouter} from 'next/navigation';
+import {formatCount,formatQuantity} from '@/lib/experience-format';
 import {prepareWorkspaceShell} from '@/lib/workspace-public-shell';
 import type {RegisterPacket} from '@/lib/local-register-codec';
 import {ownerRegisterPilot} from '@/lib/owner-register-pilot';
@@ -265,7 +266,8 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const messages:Record<string,string>={
     authentication_required:t('Sign in to sync. Your saved work stays on this device.','سجّل الدخول للمزامنة. يبقى عملك المحفوظ على هذا الجهاز.'),
     authentication_unavailable:t('Could not check sign-in. Your work stays on this device. Try again when connected.','تعذّر التحقق من تسجيل الدخول. يبقى عملك على هذا الجهاز. أعد المحاولة عند الاتصال.'),
-    scope_lost:t('Current account access changed. Sign in again to recover protected work.','تغيّرت صلاحية الحساب. سجّل الدخول مجدداً لاستعادة العمل المحمي.'),
+    scope_lost:t('Access to this register changed. Check your current account and workspace. Saved work remains protected.','تغيّرت صلاحية هذا السجل. تحقّق من الحساب ومساحة العمل الحاليين. يبقى عملك المحفوظ محميًا.'),
+    register_account_cleanup_required:t('The device account must be checked before this register can open. Saved work remains protected.','يجب التحقق من حساب الجهاز قبل فتح هذا السجل. يبقى عملك المحفوظ محميًا.'),
     clock_verification_required:t('The device clock changed. Verify access online.','تغيّرت ساعة الجهاز. تحقّق من الصلاحية عبر الإنترنت.'),
     account_verification_required:t('Verify access online to reopen protected work.','تحقّق من الصلاحية عبر الإنترنت لإعادة فتح العمل المحمي.'),
     withdrawn:t('This session was withdrawn. Pending work can be recovered separately.','سُحب هذا التدريب. يمكن استعادة العمل المعلّق بشكل منفصل.'),
@@ -299,12 +301,12 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     </div>}
     {page&&<>
       <h3>{page.header.projection.name}</h3><p><bdi>{format(page.header.starts_at)} — {format(page.header.ends_at)}</bdi></p>
-      {normal&&<>{page.needsCurrentRead?<p role="status">{t('Latest marks are unavailable until this register is checked.','التسجيلات الأحدث غير متاحة حتى التحقق من هذه القائمة.')}</p>:<><div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(mark=><div key={mark} className={mark}><strong>{counts[mark]}</strong>{label(mark)}</div>)}</div><p>{t(page.more?'Counts cover loaded players only.':'Counts include unsaved selections.',page.more?'الأعداد تخص اللاعبين المحمّلين فقط.':'الأعداد تشمل الاختيارات غير المحفوظة.')} {t('Unmarked never means Absent.','عدم التسجيل لا يعني الغياب.')}</p></>}<div className="register-filters"><label>{t('Find a loaded player','البحث في اللاعبين المحمّلين')}<Input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>{t('Show','عرض')}<Select disabled={page.needsCurrentRead} value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">{t('All loaded players','كل اللاعبين المحمّلين')}</option><option value="unmarked">{label(null)}</option><option value="selected">{t('Selected, not saved','مختار غير محفوظ')}</option><option value="saved">{t('Saved','محفوظ')}</option></Select></label></div></>}
+      {normal&&<>{page.needsCurrentRead?<p role="status">{t('Latest marks are unavailable until this register is checked.','التسجيلات الأحدث غير متاحة حتى التحقق من هذه القائمة.')}</p>:<><div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(mark=><div key={mark} className={mark}><strong>{formatCount(locale,counts[mark])}</strong>{label(mark)}</div>)}</div><p>{t(page.more?'Counts cover loaded players only.':'Counts include unsaved selections.',page.more?'الأعداد تخص اللاعبين المحمّلين فقط.':'الأعداد تشمل الاختيارات غير المحفوظة.')} {t('Unmarked never means Absent.','عدم التسجيل لا يعني الغياب.')}</p></>}<div className="register-filters"><label>{t('Find a loaded player','البحث في اللاعبين المحمّلين')}<Input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>{t('Show','عرض')}<Select disabled={page.needsCurrentRead} value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">{t('All loaded players','كل اللاعبين المحمّلين')}</option><option value="unmarked">{label(null)}</option><option value="selected">{t('Selected, not saved','مختار غير محفوظ')}</option><option value="saved">{t('Saved','محفوظ')}</option></Select></label></div></>}
       <p>{page.header.projection.branch} · <bdi>{page.header.projection.timezone}</bdi></p>
-      <p>{page.players.length} / {page.header.count} {t('loaded from this device','محمّلون من هذا الجهاز')}</p>
+      <p>{formatCount(locale,page.players.length)} / {formatCount(locale,page.header.count)} {t('loaded from this device','محمّلون من هذا الجهاز')}</p>
       {!page.captureWindow.open&&<p role="status">{page.captureWindow.state==='before'?
         t('This session has not started yet.','لم يبدأ هذا التدريب بعد.'):
-        t('The recording window has closed. Unsaved choices are retained.','انتهت مهلة التسجيل. الاختيارات غير المحفوظة محفوظة هنا.')}</p>}
+        t('The recording window has closed. Unsaved choices are retained.','انتهت مهلة التسجيل. تبقى اختياراتك غير المحفوظة كما هي.')}</p>}
       <ul className="register-roster">{page.players.filter(player=>player.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())&&(filter==='all'||filter==='saved'&&player.version>0||filter==='selected'&&!!draft[player.id]||filter==='unmarked'&&!player.version)).map(player=><li key={player.id}>
         {normal?<div className="register-person"><span className="register-avatar" aria-hidden="true">{player.name.slice(0,1)}</span><Button aria-pressed={selected===player.id} onClick={e=>{playerOpener.current=e.currentTarget;setSelected(player.id);}}>{player.name}</Button></div>:<span>{player.name}</span>}{page.needsCurrentRead?<span>{t('Current mark unavailable','التسجيل الحالي غير متاح')}</span>:pendingChoices.has(player.id)?<span className="attendance-status unsaved">{label(pendingChoices.get(player.id)!)} · {t('Saved on this device','محفوظ على هذا الجهاز')}</span>:player.version?<span className={`attendance-status ${player.status}`}>{label(player.status)}</span>:
           <div className="register-options" role="group" aria-label={player.name}>{(['present','absent',null] as const).map(status=>
@@ -317,7 +319,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
         {player.version>0&&draft[player.id]&&<Button onClick={()=>setDraft(previous=>{const next={...previous};delete next[player.id];return next;})}>{t('Review newer saved mark; remove unsaved choice','مراجعة التسجيل الأحدث وإزالة الاختيار غير المحفوظ')}</Button>}
       </li>)}</ul>
       {page.more&&<Button disabled={busy||checking} onClick={nextPage}>{t('Load more players','حمّل المزيد من اللاعبين')}</Button>}
-      <div className="register-savebar"><p>{selections.length} {t('selected changes. Unmarked never means Absent.','اختيارات. عدم التسجيل لا يعني الغياب.')}</p><Button className="register-primary" ref={opener} disabled={busy||checking||!selections.length||!!pending||page.needsCurrentRead||!page.captureWindow.open||page.players.some(player=>!!draft[player.id]&&player.version>0)}
+      <div className="register-savebar"><p>{t('Selected','المحدد')}: {formatQuantity(locale,selections.length,'change')}. {t('Unmarked never means Absent.','عدم التسجيل لا يعني الغياب.')}</p><Button className="register-primary" ref={opener} disabled={busy||checking||!selections.length||!!pending||page.needsCurrentRead||!page.captureWindow.open||page.players.some(player=>!!draft[player.id]&&player.version>0)}
         onClick={()=>setReviewing(true)}>{t('Review register','راجع الحضور')}</Button></div>
     </>}
     <dialog ref={dialog} className="register-dialog" aria-labelledby="prepared-review" onCancel={e=>{e.preventDefault();dismiss();}}>
@@ -348,12 +350,12 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   return <div className="attendance-theme"><WorkspaceShell role="owner" module="attendance" locale={locale}
     context={t('Academy Owner workspace','مساحة مالك الأكاديمية')} title={t('Session attendance','حضور التدريب')}
     homeHref={`/${locale}/workspace/${academy}/home`} languageHref="#language" onNavigate={navigate}
-    prefetch={false} account={account} tools={<span role="status">{status}{pending?' · '+(pending.state==='needs_review'?t('Needs review','تحتاج مراجعة'):t('1 save pending','حفظ واحد معلّق')):''}</span>}
+    prefetch={false} account={account} tools={<span role="status">{status}{pending?' · '+(pending.state==='needs_review'?t('Needs review','تحتاج مراجعة'):pending.state==='unknown'?t('Server result unknown','نتيجة الخادم غير معروفة'):t('1 save pending','حفظ واحد معلّق')):''}</span>}
     navigation={[{href:backHref,label:t('Calendar','التقويم')},{href:`/${locale}/workspace/${academy}/attendance/${event}`,label:t('Attendance','الحضور'),current:true}]}>
     <WorkspacePanes modalOnPhone title={t('Player attendance','حضور اللاعب')} arabic={ar} selected={!!picked}
       selectionKey={selected??''} contextLabel={t('Session / player details','تفاصيل التدريب / اللاعب')} inspector={details}
       onBack={()=>{setSelected(null);requestAnimationFrame(()=>playerOpener.current?.focus());}}>
-      <div className="register-heading"><h1>{t('Session attendance','حضور التدريب')}</h1><span className={`attendance-status ${selections.length?'unsaved':''}`}>{selections.length?t('Unsaved choices','اختيارات غير محفوظة'):pending?t('Saved on this device','محفوظ على هذا الجهاز'):t('Current register','القائمة الحالية')}</span></div>
+      <div className="register-heading"><h1>{t('Session attendance','حضور التدريب')}</h1><span className={`attendance-status ${selections.length?'unsaved':''}`}>{selections.length?t('Unsaved choices','اختيارات غير محفوظة'):pending?pending.state==='needs_review'?t('Saved on this device · Needs review','محفوظ على هذا الجهاز · يحتاج مراجعة'):pending.state==='unknown'?t('Saved on this device · Server result unknown','محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة'):t('Saved on this device','محفوظ على هذا الجهاز'):t('Current register','القائمة الحالية')}</span></div>
       {content}
     </WorkspacePanes>
   </WorkspaceShell></div>;

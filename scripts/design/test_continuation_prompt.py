@@ -96,9 +96,11 @@ class ContinuationTests(unittest.TestCase):
 
     def test_worker_handoff_keeps_parent_priority_and_requires_review(self):
         before = copy.deepcopy(self.rows)
+        with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+            tasks = list(csv.DictReader(stream))
+        task = next(item for item in tasks if item['task_id'] == 'DS-002')
         result = render(self.rows, self.batches)
-        self.assertIn('DS-002', result)
-        self.assertIn('ready_for_handoff', result)
+        self.assertIn(f"**DS-002** ({task['status']})", result)
         self.assertIn('not Owner feature acceptance', result)
         self.assertEqual(before, self.rows)
 
@@ -109,7 +111,7 @@ class ContinuationTests(unittest.TestCase):
         self.active['delivery_batch'] = 'MP-B99'
         result = render(self.rows, self.batches)
         self.assertIn('Delivery batch: **MP-B99', result)
-        self.assertNotIn('**DS-002** (ready_for_handoff)', result)
+        self.assertNotIn('**DS-002** (', result)
 
     def test_unknown_worker_parent_is_rejected(self):
         with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
@@ -121,10 +123,12 @@ class ContinuationTests(unittest.TestCase):
     def test_overlapping_worker_output_ownership_is_rejected(self):
         with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
             tasks = list(csv.DictReader(stream))
+        # Exercise two active workers regardless of the ledger's historical status.
+        tasks[-1]['status'] = 'running'
         other = copy.deepcopy(tasks[-1])
-        other['task_id'] = 'DS-003'
+        other['task_id'] = f"DS-{max(int(item['task_id'][3:]) for item in tasks) + 1:03}"
         tasks.append(other)
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'Worker output ownership overlaps'):
             render(self.rows, self.batches, work_items=tasks)
 
     def test_worker_cannot_submit_missing_report_files(self):

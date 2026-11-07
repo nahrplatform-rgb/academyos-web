@@ -29,7 +29,18 @@
     "master_external_reference_canonical_execution_factual": "passed",
     "source_fresh_receipt": "passed"
   },
-  "new_source_ci": "Not yet run for this review;original bcb1a78 CI53/53 is historical and not transferred to new source",
+  "new_source_ci": {
+    "source": "3be2d4168bef1f58c5664f5daf3f038b6c602459",
+    "pushed": true,
+    "run_id": 42381781289,
+    "job_id": 128430747012,
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42381781289",
+    "conclusion": "success",
+    "successful_steps": 53,
+    "total_steps": 53,
+    "boundary": "Automated synthetic/source checks;not hosted,installed,Owner or independent security acceptance",
+    "post_push_receipt": "Retained locally for next coherent batch;no extra commit/push to record its own result"
+  },
   "hosted_NR07": "Open;not reproduced or fixed by these local cases;zero-player first-registration coverage remains separate",
   "field_policy": "Proposed/investigate only;no new field/role/write/retention acceptance",
   "DS_002": "ready_for_handoff;two isolated source-audit reports;no launch by coordinator;review before adoption",

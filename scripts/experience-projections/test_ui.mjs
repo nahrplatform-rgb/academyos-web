@@ -12,12 +12,12 @@ function rows(role,from,to){return Array.from({length:55},(_,i)=>{const id=`0000
 await page.route('**/api/guardians',route=>route.fulfill({json:{data:{items:denied?[]:[{id:link,display_name:'Alex Demo',branch_name:'Main Demo Branch'}],more:false}}}));
 await page.route('**/api/experience',async route=>{const b=route.request().postDataJSON();reads.push(b);if(readDelay)await new Promise(r=>setTimeout(r,readDelay));if(invalidCursor&&b.cursor)return route.fulfill({status:422,json:{error:'invalid'}});if(denied||unavailable)return route.fulfill({status:denied?403:503,json:{error:denied?'denied':'unavailable'}});const role=b.action.split('_')[0];if(b.action.endsWith('_home'))return route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:training?'ready':'unavailable',count:emptyToday?0:55,items:training?(emptyToday?[]:rows(role,context.today,context.today).slice(0,5)):undefined,more:!emptyToday},...(role==='owner'?{unfinished_programs:{state:'ready',count:4},feedback_reviews:{state:'ready',count:3,tasks:[{id:link,event:link,player:link,kind:'feedback'}]},incomplete_attendance:{state:'ready',count:2,tasks:[{id:link,title:'Synthetic register',kind:'attendance'}]},private_publication_reviews:{state:'ready',count:1,tasks:[{id:link,program:link,title:'publish',kind:'publication'}]}}:role==='trainer'?{feedback_drafts:{state:'ready',count:2}}:{next_session:{state:training?'ready':'unavailable',item:training?{id:link,title:'Synthetic Next Session',starts_at:'2099-11-01T15:00:00Z',ends_at:'2099-11-01T16:00:00Z',timezone:'Africa/Cairo',status:null}:null},latest_feedback:{state:'ready',item:{id:link,title:'Synthetic published feedback'}}})}}}});if(role==='guardian'&&!training)return route.fulfill({status:403,json:{error:'denied'}});if(b.action==='owner_current_calendar'){b.from=b.view==='month'?'2026-11-01':context.today;b.to=b.view==='month'?'2026-12-12':'2026-11-07';}const all=rows(role,b.from,b.to).filter((_,i)=>!omitFirst||i!==0),start=b.cursor?50:0,items=all.slice(start,start+50);return route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',anchor:context.today,from:b.from,to:b.to,total:55,items,more:start===0,next:start===0?items.at(-1).cursor:null}}});});
 const out=resolve(process.env.UI_EVIDENCE_DIR??resolve(tmpdir(),'academyos-experience-projections-ui'));await mkdir(out,{recursive:true});
-async function open(query=''){await page.goto(`http://127.0.0.1:${server.address().port}/?`+query);await page.getByRole('button',{name:/Reload current view|إعادة تحميل العرض الحالي/}).waitFor();await expect(page.getByRole('status')).toHaveCount(0);}
+async function open(query=''){await page.goto(`http://127.0.0.1:${server.address().port}/?`+query);await expect(page.locator('.experience-reload')).toBeEnabled();await expect(page.getByRole('status')).toHaveCount(0);}
 try{
  // A date hint selects a query, never authority or private payload reuse.
  for(const [anchor,expected] of [['2026-11-08',['owner_calendar']],['2026-02-30',['owner_current_calendar']]]){
   await page.goto(`http://127.0.0.1:${server.address().port}/?authProbe`);await expect(page.getByRole('status')).toHaveCount(0);await page.evaluate(()=>sessionStorage.clear());const start=reads.length;
-  await open('calendar&anchor='+anchor);await expect(page.getByText(/55 sessions in the complete scoped period/)).toBeVisible();assert.deepEqual(reads.slice(start).map(x=>x.action),expected,'civil hint/fallback request budget');
+  await open('calendar&anchor='+anchor);await expect(page.getByText(/55 sessions in this period/)).toBeVisible();assert.deepEqual(reads.slice(start).map(x=>x.action),expected,'civil hint/fallback request budget');
  }
  await page.evaluate(()=>sessionStorage.setItem('academyos:experience:user_synthetic:00000000-0000-4000-8000-000000000001:owner:calendar',JSON.stringify({from:'2026-12-06',view:'week',filter:'',selection:null})));
  let hintStart=reads.length;await open('calendar&anchor=2026-11-01');assert.equal(reads[hintStart].from,'2026-12-06','saved return period wins over initial hint');assert.equal(reads.length-hintStart,1);
@@ -38,14 +38,14 @@ try{
  await expect(page.locator('.operations-session').first()).toContainText('18');
  const beforeLayoutReads=reads.length;await page.locator('.layout-menu summary').click();await page.getByRole('button',{name:'Compact navigation',exact:true}).click();await expect(page.locator('.app-scene')).toHaveAttribute('data-navigation','compact');await page.getByRole('button',{name:'Reset layout',exact:true}).click();await page.locator('.layout-menu summary').click();assert.equal(reads.length,beforeLayoutReads,'Layout preferences must make no business requests');
  await page.locator('.experience-session').filter({hasText:'Synthetic Session 1'}).first().click();await expect(page.getByRole('link',{name:'Open this date',exact:true})).toHaveAttribute('href',/\/programs\/.*\/2026-11-01\?from=2026-11-01&return=home$/);await page.getByRole('button',{name:'Back',exact:true}).click();await expect(page.locator('.experience-session').first()).toBeFocused();
- await open('calendar=1');await expect(page.getByText(/55 sessions in the complete scoped period/)).toBeVisible();assert.equal(await page.locator('.experience-session').count(),50);
- await page.getByRole('button',{name:'More sessions',exact:true}).click();await expect(page.getByText(/5 on this page/)).toBeVisible();assert.equal(await page.locator('.experience-session').count(),5);await expect(page.getByText(/55 sessions in the complete scoped period/)).toBeVisible();
+ await open('calendar=1');await expect(page.getByText(/55 sessions in this period/)).toBeVisible();assert.equal(await page.locator('.experience-session').count(),50);
+ await page.getByRole('button',{name:'More sessions',exact:true}).click();await expect(page.getByText(/5 on this page/)).toBeVisible();assert.equal(await page.locator('.experience-session').count(),5);await expect(page.getByText(/55 sessions in this period/)).toBeVisible();
  await page.getByRole('button',{name:'Previous page',exact:true}).click();await expect(page.locator('.experience-session')).toHaveCount(50);
  await page.getByRole('searchbox').fill('Not a session');await expect(page.getByText(/No match on this page/)).toBeVisible();await page.getByRole('searchbox').fill('');
  await page.locator('.experience-session').filter({hasText:'Synthetic Session 1'}).first().click();await expect(page.getByRole('link',{name:'Open this date',exact:true})).toHaveAttribute('href',/&return=calendar$/);await page.getByRole('button',{name:'Back',exact:true}).click();
  await page.getByRole('button',{name:'Month',exact:true}).click();await expect(page.locator('.calendar-day')).toHaveCount(42);assert.ok(reads.some(r=>r.from==='2026-11-01'&&r.to==='2026-12-12'));
  await page.screenshot({path:resolve(out,'owner-calendar-en-1440.png'),fullPage:true});
- await page.reload();await expect(page.locator('.calendar-day')).toHaveCount(42);assert.equal(await page.evaluate(()=>Object.entries(sessionStorage).some(([k,v])=>k.startsWith('academyos:experience:')&&v.includes('Synthetic Session'))),false,'Navigation context never stores session payloads');invalidCursor=true;await page.getByRole('button',{name:'More sessions',exact:true}).click();await expect(page.getByRole('alert')).toBeVisible();await page.getByRole('button',{name:'Return to the current period',exact:true}).click();await expect(page.getByText(/55 sessions in the complete scoped period/)).toBeVisible();invalidCursor=false;
+ await page.reload();await expect(page.locator('.calendar-day')).toHaveCount(42);assert.equal(await page.evaluate(()=>Object.entries(sessionStorage).some(([k,v])=>k.startsWith('academyos:experience:')&&v.includes('Synthetic Session'))),false,'Navigation context never stores session payloads');invalidCursor=true;await page.getByRole('button',{name:'More sessions',exact:true}).click();await expect(page.getByRole('alert')).toBeVisible();await page.getByRole('button',{name:'Return to the current period',exact:true}).click();await expect(page.getByText(/55 sessions in this period/)).toBeVisible();invalidCursor=false;
  for(const role of ['owner','trainer','guardian'])for(const locale of ['en','ar'])for(const width of [320,390,768,1440]){
   await page.setViewportSize({width,height:1000});await open(`role=${role}&locale=${locale}`);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`${role} ${locale} ${width} overflow`);
@@ -63,9 +63,10 @@ try{
  await expect(page.locator('.operations-summary')).toHaveCount(0);
  unavailable=false;
  training=false;await open('role=guardian');await expect(page.getByText(/Training view unavailable for this link/)).toBeVisible();assert.equal(await page.locator('.experience-session').count(),0);training=true;
- unavailable=true;await page.getByRole('button',{name:'Reload current view',exact:true}).click();await expect(page.getByRole('alert')).toContainText('unavailable');assert.equal(await page.locator('.experience-session').count(),0);unavailable=false;
- await open('role=trainer');denied=true;await page.getByRole('button',{name:'Reload current view',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Access is no longer available');assert.equal(await page.locator('.experience-session').count(),0);denied=false;
- // EX-01: actual component resume continuity with delayed synthetic reads, no private stale display.
+ unavailable=true;await page.locator('.experience-reload').click();await expect(page.getByRole('alert')).toContainText('unavailable');assert.equal(await page.locator('.experience-session').count(),0);unavailable=false;
+ await open('role=trainer');denied=true;await page.locator('.experience-reload').click();await expect(page.getByRole('alert')).toContainText('Access is no longer available');assert.equal(await page.locator('.experience-session').count(),0);denied=false;
+ // MP-B01: Owner-only same-scope checked content survives a bounded clean resume.
+ // Initial/changed-scope/failed/denied reads keep the existing private fences.
  await open('role=owner&calendar=1');
  await expect(page.locator('.experience-session').first()).toBeVisible();
  await page.locator('.experience-session').first().click();
@@ -74,21 +75,22 @@ try{
  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
  await expect(page.getByRole('button',{name:'Week',exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'Week',exact:true})).toBeDisabled();
- await expect(page.locator('.experience-session')).toHaveCount(0);
- await expect(page.getByText('Checking current access…',{exact:true})).toBeVisible();
+ await expect(page.locator('.experience-session')).toHaveCount(50);
+ await expect(page.getByText('Checking for changes…',{exact:true})).toBeVisible();
+ await expect(page.getByRole('link',{name:'Open this date',exact:true})).toHaveAttribute('aria-disabled','true');
  await page.waitForTimeout(40);await page.evaluate(()=>{document.dispatchEvent(new Event('visibilitychange'));window.dispatchEvent(new Event('focus'));});
  await expect(page.locator('.experience-session[aria-pressed="true"]')).toHaveAttribute('data-occurrence',selectedKey);
  assert.equal(reads.length-beforeResume,1,'separated visible/focus and in-flight focus share one current read');
  const stored=await page.evaluate(()=>Object.entries(sessionStorage).filter(([k])=>k.startsWith('academyos:experience:')));
  assert.ok(stored.every(([,v])=>!v.includes('Synthetic Session')),'navigation persistence contains identifiers, never private sessions');
  readDelay=0;await page.reload();await expect(page.locator('.experience-session[aria-pressed="true"]')).toHaveAttribute('data-occurrence',selectedKey);
- omitFirst=true;await page.getByRole('button',{name:'Reload current view',exact:true}).click();
- await expect(page.getByRole('button',{name:'Reload current view',exact:true})).toBeEnabled();
+ omitFirst=true;await page.locator('.experience-reload').click();
+ await expect(page.locator('.experience-reload')).toBeEnabled();
  await expect(page.locator('.experience-session[aria-pressed="true"]')).toHaveCount(0);
  await expect(page.getByRole('link',{name:'Open this date',exact:true})).toHaveCount(0);
  omitFirst=false;denied=true;await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
  await expect(page.getByRole('alert')).toContainText('Access is no longer available');
  await expect(page.locator('.experience-session')).toHaveCount(0);denied=false;
  await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:null})));await expect(page.getByRole('link',{name:'Sign in',exact:true})).toBeVisible();assert.equal(await page.getByText('Synthetic Session 1',{exact:true}).count(),0);
- assert.deepEqual(errors,[]);await writeFile(resolve(out,'receipt.json'),JSON.stringify({mode,scope:'actual component with synthetic bounded read adapters; no hosted/database permission proof',cases:'EX-01: separated resume events coalesce; controls retained while private payload masked; selected ID restored from current projection and scoped navigation storage; missing/denied selection cleared; Owner/Trainer/Guardian home; week/month;50+5 paging authoritative55 count; filtered empty; unavailable; disabled link panel; revoked; account change; ENAR3203907681440',reads:reads.length},null,2));console.log('PASS actual role homes and calendar UI '+mode);
+ assert.deepEqual(errors,[]);await writeFile(resolve(out,'receipt.json'),JSON.stringify({mode,scope:'actual component with synthetic bounded read adapters; no hosted/database permission proof',cases:'EX-01: separated resume events coalesce; last checked Owner task retained only during bounded clean resume;initial/failed/denied/scope-change data fenced; selected ID restored from current projection and scoped navigation storage; missing/denied selection cleared; Owner/Trainer/Guardian home; week/month;50+5 paging authoritative55 count; filtered empty; unavailable; disabled link panel; revoked; account change; ENAR3203907681440',reads:reads.length},null,2));console.log('PASS actual role homes and calendar UI '+mode);
 }finally{await browser.close();await new Promise(r=>server.close(r));}

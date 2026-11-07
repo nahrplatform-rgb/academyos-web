@@ -54,15 +54,15 @@ Product value for this batch:
 
 ### Ready development action
 
-Continue MP-B01 ready Owner-day work:measure initial-handoff and zero-player first-registration behavior,then repair proven continuity/Operations differences with exact before/after evidence. NR07 hosted zero-player diagnosis is open;inspect actual current staging source/worker/account/coverage when available without assuming another promotion is required. Use the corrected42-field Player reconciliation and focused MP-Q01 groups only for their dependent new fields/commands;retain the permitted rich-profile/local direction. DS-002 is an optional ready manual DeepSeek wording/state audit with two owned reports;review its output before adoption and keep parent EX-07 current.
+Continue MP-B01 with initial-handoff and genuinely empty-directory first-registration measurement;repair proven continuity/Operations differences against the accepted normal-workspace contract. Preserve the combined Owner feedback/return repair and all critical authority/dirty/original checks. NR07 hosted zero-player diagnosis stays open;inspect actual source/worker/account/coverage when available. Rich Player additions use focused MP-Q01 decisions only for their dependent fields/commands. DS-001/002/003 are reviewed;no active external audit or new helper task is required. Keep EX-07 current and release follow-up separate.
 
 ### Separate release follow-up
 
-Owner deferred checked1e68403 promotion;CI42335635286 passed53/53;candidate https://vercel.com/academy-os2/academyos-web/6BjKoCCfrbt91CfvqRWNsuPCJ9EK to staging.academy.nahr.dev. Do not promote or re-ask on every continuation. If Owner promotes,verify exactSHA and scoped EN/AR resume;or check a later combined candidate under its own exact-source CI and preserve supersession evidence. Live68b6575 evidence remains separate.
+Owner deferred1e68403;preserve CI42335635286 and https://vercel.com/academy-os2/academyos-web/6BjKoCCfrbt91CfvqRWNsuPCJ9EK as historical checked preview. Prepare one later combined MP-B01 candidate under its own exact-source CI/build;agents do not promote or re-ask the old release on each continuation. After an Owner promotion,verify exactSHA and scoped EN/AR resume,confirmed/unknown feedback and normal prepared routes;hosted/Owner acceptance remain separate.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read current evidence: `docs/07-handoff/deepseek-bcb1a78-review-2026-11-07.md`.
+Read current evidence: `docs/07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md`.
 
 Batch includes: Rich Player field/pipeline and grouped-profile contract;approved continuity repairs;Operations geometry;useful exact navigation;first install identity supporting work
 
@@ -73,9 +73,9 @@ Policy boundary: Prepare focused choices for newly sensitive fields/edit/archive
 ## Actual delivery status for the current family
 
 - Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review.
-- Implementation: Recorded68b6575 product proof and checked1e68403 resume repair retained. DS-001 coordinator reviewed all13bcb1a78 paths;repaired test-only People handler/original-ID evidence and replaced unsupported Player assumptions with42explicit proposed dispositions. No new product field,component,writer,migration or offline capability implemented.
-- Local checks: Prior scoped source/CI/capture proof retained. DS-001:53/53 actual-handler/workspace transport cases on Node24.14.0 and disposablePG17,including original-ID replay,committed-unavailable-response reconcile and unassigned-caller refusal. Existing workspace boundary21 and app101unit/build/type/lint results belong to earlier exact-source receipts;latest master/canonical/execution/task/field/factual checks and17continuation tests passed;People API15budget/3invalid/cross-origin cases passed. No new hosted or installed proof.
-- Deployment: 68b6575 remains independently live/verified. New1e68403 pushed;CI42335635286 job128291808785 passed53/53;candidate dpl_6BjKoCCfrbt91CfvqRWNsuPCJ9EK independently Ready for exactSHA;Owner promotion pending
+- Implementation: Combined MP-B01 working source retains checked Owner Home/Calendar and canonical Players on clean resume;clarifies registration/Attendance confirmed-read failure and unknown originals;honest prepared summaries;upcoming timing plus canonical publication;EN/AR counts and prepared sync states. DS-002/003 have85/83corrected dispositions with selected adoption. Prior68b6575/1e68403 and DS-001 proof retained. No new field,writer,migration,key,worker,account or offline command.
+- Local checks: 53workspace transport;23normal Attendance;8startup;20EN/AR held Owner Home/Calendar cases;24Calendar layouts;103units;production build/types/lint;16actual-component capture suites/static/factual build/review tool;actual Next EN/AR navigation;17continuation tests and master/canonical/execution/source-receipt validators pass. Final generated factual inventory refreshed after tracking update. No new hosted/installed/performance/native-language acceptance.
+- Deployment: Recorded68b6575 live/history proof retained;Owner-deferred1e68403 checked preview retained. Combined MP-B01 source is local and not yet committed,pushed,CI-checked or released at this evidence entry;do not infer a new staging deployment.
 - Hosted verification: 68b6575 EN/AR delayed history retains2rows/query/filter/selection;1history0roster per action;Back0requests/restoredfocus;no operating writes. Dirty/nonzero-scroll/denial proofs local;broader handoff/resume/save/installed gaps remain;new1e68403 resume/auth source not yet hosted-verified
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
@@ -85,7 +85,8 @@ Policy boundary: Prepare focused choices for newly sensitive fields/edit/archive
 Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole current priority. A ready handoff is not a running worker or an accepted implementation.
 
 - **DS-001** (reviewed_corrected): Review prior registration regression and rich Player packet;retain useful proof and correct unsupported claims/contracts. Brief: `docs/07-handoff/mp-b01-owner-day-continuity-2026-11-07.md`. Review: `docs/07-handoff/deepseek-bcb1a78-review-2026-11-07.md`. Outputs stay within its recorded ownership; coordinator controls shared updates.
-- **DS-002** (ready_for_handoff): Audit current Players/Calendar EN/AR wording and state feedback with exact source anchors and useful proposed copy. Brief: `docs/07-handoff/deepseek-task-DS-002.md`. Review: `none_yet`. Outputs stay within its recorded ownership; coordinator controls shared updates.
+- **DS-002** (reviewed_corrected): Audit current Players/Calendar EN/AR wording and state feedback with exact source anchors and useful proposed copy. Brief: `docs/07-handoff/deepseek-task-DS-002.md`. Review: `docs/07-handoff/deepseek-DS-002-review-2026-11-07.md`. Outputs stay within its recorded ownership; coordinator controls shared updates.
+- **DS-003** (reviewed_corrected): Audit current normal/prepared Attendance EN/AR wording and state feedback while coordinator reviews Players/Calendar. Brief: `docs/07-handoff/deepseek-task-DS-003.md`. Review: `docs/07-handoff/deepseek-DS-003-review-2026-11-07.md`. Outputs stay within its recorded ownership; coordinator controls shared updates.
 
 ## Coherent batch catalog
 

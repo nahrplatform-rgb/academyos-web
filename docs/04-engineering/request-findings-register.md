@@ -44,6 +44,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR03 — Task erasure during revalidation
 
+7 November MP-B01: [Owner feedback/return evidence](../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) compares 20 EN/AR Home/Calendar cases before/after: checked rows disappear during the original held read and remain during the repaired clean Owner resume. Failed/denied checks still clear private data; current reads and action gates remain. Canonical Players directory/profile gets separate held-read DOM/request checks. This is scoped source/local evidence, not hosted verification, a new access lease, all-role parity or closure of NR03. The earlier observations below describe their inspected baseline.
+
 4 November scoped Platform result: [Operations admission checkpoint](../07-handoff/operations-admission-checkpoint.md) compares actual baseline/current components and fixes selected-academy loss after recheck, retaining new loaded-data search/filter and focus without private payload reuse. Required recheck remains1 read and retains its existing checking replacement. This does not close other routes, continuous-content, scroll, hosted or full NR03 coverage.
 
 - Priority: H/M/L; effort 2–4d. Source references relative to `apps/web/src/components`: `experience-workspace.tsx:35,48`, `guardian-training-workspace.tsx:98`, `program-workspace.tsx:40–54`.

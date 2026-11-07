@@ -43,19 +43,19 @@ try{
   async function snapshot(){return page.evaluate(()=>{const el=document.querySelector('.workspace-center'),input=document.querySelector('input[type=search]');return {sameCenter:el.dataset.geometryProbe==='same-center',scrollTop:el.scrollTop,scrollHeight:el.scrollHeight,clientHeight:el.clientHeight,overflowY:getComputedStyle(el).overflowY,windowY:window.scrollY,documentHeight:document.documentElement.scrollHeight,inputY:input?.getBoundingClientRect().top,privateRows:document.querySelectorAll('.experience-session').length,blocks:Object.fromEntries(['.task-header','.task-header>div','.experience-reload','.task-header>div>p:last-child','.experience-task-grid','.calendar-toolbar','.experience-sessions>header','.experience-sessions>p'].map(selector=>{const node=document.querySelector(selector),rect=node?.getBoundingClientRect();return [selector,rect?{top:rect.top,height:rect.height,marginTop:getComputedStyle(node).marginTop,marginBottom:getComputedStyle(node).marginBottom}:null]}))};});}
   const before=await snapshot();const start=reads;held=true;
   await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
-  await expect.poll(()=>reads).toBe(start+1);await expect(page.locator('.experience-session')).toHaveCount(0);
+  await expect.poll(()=>reads).toBe(start+1);await expect(page.locator('.experience-session')).toHaveCount(before.privateRows);
   const during=await snapshot();
-  await expect(page.locator('.experience-task-card')).toHaveCount(0);
-  await expect(page.getByText('Fictional geometry academy',{exact:true})).toHaveCount(0);
-  if(process.env.EX02_HEADER_BASELINE!=='1'){assert.ok(Math.abs(during.inputY-before.inputY)<=1,`loaded-page search does not move while private context/counts are checked (${view} ${locale} ${width}: ${before.inputY} → ${during.inputY})`);assert.ok(Math.abs(during.blocks['.experience-reload'].top-before.blocks['.experience-reload'].top)<=1,'disabled reload stays in its original position');}assert.ok(during.sameCenter,'same center DOM node; no shell-remount inference');
+  if(view==='home')await expect(page.locator('.experience-task-card').first()).toBeVisible();
+  assert.equal(await page.getByText('Fictional geometry academy',{exact:true}).evaluateAll(nodes=>nodes.some(node=>node.getClientRects().length>0)),true,'checked same-scope academy context remains visible');
+  if(process.env.EX02_HEADER_BASELINE!=='1'){assert.ok(Math.abs(during.inputY-before.inputY)<=1,`loaded-page search does not move while the last checked task stays visible (${view} ${locale} ${width}: ${before.inputY} → ${during.inputY})`);assert.ok(Math.abs(during.blocks['.experience-reload'].top-before.blocks['.experience-reload'].top)<=1,'disabled reload stays in its original position');}assert.ok(during.sameCenter,'same center DOM node; no shell-remount inference');
   if(process.env.EX02_GEOMETRY_BASELINE!=='1'){
    const status=page.getByRole('status');await expect(status).toHaveCount(1);
    const bounds=await status.boundingBox();assert.ok(bounds&&bounds.y>=0&&bounds.y+bounds.height<=900,'checking feedback stays in view at the retained scroll position');assert.ok(await status.evaluate(el=>{const r=el.getBoundingClientRect(),front=document.elementFromPoint(r.left+Math.min(16,r.width/2),r.top+r.height/2);return front===el||el.contains(front);}), 'checking feedback is not occluded by the sticky toolbar');
   }
-  if(width===1440||width===320)await page.screenshot({path:join(out,`${view}-${locale}${width===320?'-320':''}-masked.png`),fullPage:width!==320});
+  if(width===1440||width===320)await page.screenshot({path:join(out,`${view}-${locale}${width===320?'-320':''}-checking.png`),fullPage:width!==320});
   held=false;release();await expect(page.locator('.experience-session')).toHaveCount(view==='home'?5:40);const after=await snapshot();
   if(process.env.EX02_GEOMETRY_BASELINE!=='1'){
-   assert.equal(during.scrollTop,before.scrollTop,'pending read preserves center scroll without private rows');
+   assert.equal(during.scrollTop,before.scrollTop,'pending same-scope check preserves rows and center scroll');
    assert.equal(during.windowY,before.windowY,'pending read preserves phone document scroll');
    assert.equal(after.scrollTop,before.scrollTop,'same-size completed result retains center scroll');
    assert.equal(after.windowY,before.windowY,'same-size completed result retains phone document scroll');
@@ -69,7 +69,7 @@ try{
   const failures=[];
   for(const failure of ['unavailable','denied']){
    phase=failure;await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
-   await expect(page.getByRole('alert')).toBeVisible();await expect(page.locator('.experience-session')).toHaveCount(0);
+   await expect(page.getByRole('alert')).toBeVisible();await expect(page.locator('.experience-session')).toHaveCount(0);await expect(page.getByText('Fictional geometry academy',{exact:true})).toHaveCount(0);
    const result=await snapshot();assert.ok(result.scrollHeight<before.scrollHeight,'failure releases geometry; no stale result retained');
    failures.push({failure,...result});
   }

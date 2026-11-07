@@ -56,6 +56,8 @@ Use native semantic dialogs or an established accessible primitive: labelled tit
 
 ## Required state and continuity contract
 
+The [MP-B01 feedback/return checkpoint](../../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) applies these existing requirements to clean Owner Home/Calendar and canonical Players resume, read-versus-save feedback and prepared Attendance sync labels. Its DS-002/003 dispositions retain rejected/deferred proposals. Scoped local proof is not full redesign parity, hosted verification or Owner acceptance; the tracker owns release state.
+
 | State | Required behavior |
 |---|---|
 | First load | Stable shell, useful task-first progress; distinguish provider identity/setup/data dependencies |

@@ -1,6 +1,8 @@
 # DS-002 — Players and Calendar wording/state audit
 
-**Registered task:** DS-002 in [AI work items](../06-delivery/ai-work-items.csv). Parent EX-07 / MP-B01; outcomes VAL-01/02/09. Status: ready for Owner handoff, not started. The Owner can paste the short instruction at the end into DeepSeek Harness. This file does not launch a worker or grant it global implementation ownership.
+**Registered task:** DS-002 in [AI work items](../06-delivery/ai-work-items.csv). Parent EX-07 / MP-B01; outcomes VAL-01/02/09. Initial assignment status: ready for Owner handoff, not started. The original copyable instruction is retained below; the return checkpoint and task register own current status. This file does not launch a worker or grant it global implementation ownership.
+
+**Return checkpoint, 7 November:** the Owner returned both reports and reported the worker stopped. [Coordinator intake](deepseek-DS-002-intake-2026-11-07.md) records structural/source checks; the task register now says `submitted_for_review`. The initial assignment above is retained as provenance. Do not rerun or overwrite the returned reports; no suggestion is accepted by submission alone.
 
 ## Useful outcome
 

@@ -11,10 +11,11 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 116
+    "offlineProcessReopenMs": 122
   },
   "hashes": {
-    "scripts/working-day/test_owner_startup.mjs": "31423b0029f45732c0e76d9dd9301e24c553740e039ac7efe7a464b6fae8b720",
+    "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+    "scripts/working-day/test_owner_startup.mjs": "1fdf7b0b41a24fa48ef19c4452dc3c2fd75c286031b3251e54b0c44f6735e073",
     "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",
     "scripts/working-day/owner_db.py": "7be97a6d8a1546206cea3728f7d78bea90daa48120ae31387b9b7d439a4e8aad",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
@@ -27,9 +28,9 @@
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
-    "apps/web/src/components/attendance-workspace.tsx": "de8e4d472eb46338bec4b3fde5519d8d485863f6373c7f422c19d121d3e34c17",
+    "apps/web/src/components/attendance-workspace.tsx": "90cfd38923892fc836d911bec6a6d472d85463be937c3e70cdec00735070b041",
     "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
-    "apps/web/src/components/prepared-register-panel.tsx": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
+    "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",

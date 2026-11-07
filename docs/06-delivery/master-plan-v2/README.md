@@ -2,6 +2,8 @@
 
 Owner-authorized planning checkpoint: **7 November 2026**. This package consolidates the complete product, reference reconciliation, approved experience and larger delivery sequence. It changes documentation and documentation tooling only. Product code, schema, accounts, provider configuration and installations are unchanged by this checkpoint. No deployment promotion or live-alias change was performed; a Git push may trigger automatic validation/preview builds.
 
+Later implementation checkpoints are recorded in the [single execution tracker](../experience-execution.csv). The [MP-B01 Owner feedback/return batch](../../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) follows this planning checkpoint and links the reviewed DS-002/003 reports, working-source changes and scoped checks. It does not complete the master plan or establish a new live release.
+
 ## Start here
 
 AcademyOS is a **multi-academy, multisport operating platform** for Platform Owners, Academy Owners, permitted Managers, Trainers, Guardians and Players. Its purpose is to make academy management easy to understand, save time, give Owners control and enable safe delegation. The Platform Owner has a distinct complete business workspace for academies, subscriptions, platform finance, services and operating tools. The target is a complete useful operating product: rich people records, scheduling, attendance, development, three separate financial domains, communications, media, reporting, privacy and service operations. A prepared personal device serves permitted local data in the normal workspace and synchronizes supported work through canonical server operations. These are product targets; coverage and acceptance must be evidenced separately.
@@ -24,7 +26,7 @@ The package replaces the accumulated execution narrative in the older [implement
 | [Requirements crosswalk](requirements-crosswalk.csv) · [scope extensions](scope-extensions.csv) · [decision dependencies](decision-dependencies.csv) | Canonical joins and concrete unresolved choices; catalog presence is not business approval |
 | [Maintenance and continuation](traceability-and-maintenance.md) | Ownership, generators, update protocol and structural checks |
 | [Single execution tracker](../experience-execution.csv) · [living continuation](../continue-academyos.md) | The sole current priority, exact next development action, release follow-up and actual evidence states |
-| [Scoped AI work items](../ai-work-items.csv) · [DS-001 review](../../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-002 brief](../../07-handoff/deepseek-task-DS-002.md) | Coordinator-reviewed worker scope, owned outputs and handoff/review state under the same EX/batch; no second current queue |
+| [Scoped AI work items](../ai-work-items.csv) · [DS-001 review](../../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-002 review](../../07-handoff/deepseek-DS-002-review-2026-11-07.md) · [DS-003 review](../../07-handoff/deepseek-DS-003-review-2026-11-07.md) | Coordinator-reviewed worker scope, owned outputs and handoff/review state under the same EX/batch; no second current queue |
 
 ## Authority and stable scope
 
