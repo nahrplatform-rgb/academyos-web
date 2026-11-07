@@ -1,5 +1,6 @@
 // Chromium exercises the real Owner components and public worker. Existing
-// online People/Calendar reads use fictional responses; transfers use real handlers.
+// baseline online People/Calendar reads use fictional responses. Registration
+// scenarios explicitly switch People to its real handler and signed DB boundary.
 import assert from 'node:assert/strict';
 import {build} from 'esbuild';
 import {expect,chromium} from '@playwright/test';
@@ -9,8 +10,8 @@ import {join} from 'node:path';
 const asset='/_next/static/workspace-fixture.js';
 const shell='/prepared-workspace';
 export async function normalWorkspaceFixture(root, fixture, options={}) {
-  const register=options.register??null;
-  const created=new Map();
+  let realPeople=false, loseCreateReply=false;
+  const registrations=[];
   const output=await build({stdin:{contents:`
     import{createRoot}from'react-dom/client';
     import People from './apps/web/src/components/people-workspace';
@@ -42,6 +43,9 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
     academy_id:fixture.academy,timezone:'Africa/Cairo',today:'2099-11-01'};
   return {
     calls,
+    registrations,
+    useRealPeople(value=true){realPeople=value;},
+    loseNextCreateReply(){loseCreateReply=true;},
     denyDocument(){denyDocument=true;},
     setNetworkAvailable(value){networkAvailable=value;},
     async serve(req,res) {
@@ -63,20 +67,30 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
         for await(const chunk of req)chunks.push(chunk);
         const body=JSON.parse(Buffer.concat(chunks).toString());
         calls.push({path:url.pathname,action:body.action});
+        if(url.pathname==='/api/people'&&realPeople){
+          assert.ok(options.people,'A real People handler is required for registration scenarios');
+          const response=await options.people(body);
+          const text=await response.text();
+          if(body.action==='create')registrations.push({body:structuredClone(body),status:response.status,
+            result:JSON.parse(text).data});
+          if(body.action==='create'&&loseCreateReply){
+            assert.equal(response.status,200,'Lose the reply only after the real write committed');
+            // Replace the committed success with a deterministic unavailable
+            // response. A TCP reset can be transparently retried by Chromium.
+            loseCreateReply=false;reply(JSON.stringify({error:'unavailable'}),{'content-type':'application/json'},503);return true;
+          }
+          reply(text,{'content-type':'application/json'},response.status);return true;
+        }
         let data;
         if(url.pathname==='/api/experience') {
           data={context,as_of:new Date().toISOString(),anchor:context.today,total:0,items:[],more:false,next:null};
         } else if(body.action==='create') {
-          if(!register){reply(JSON.stringify({error:'unavailable'}),{'content-type':'application/json'},503);return true;}
-          const result=await register(body.name);
-          created.set(result.player_id,body.name);
-          data={player_id:result.player_id,version:1};
+          throw new Error('Registration must use the real People scenario');
         } else if(body.action==='profile') {
-          data={id:body.player,display_name:created.get(body.player)??'Fictional full profile',
+          data={id:body.player,display_name:'Fictional full profile',
             branch_name:context.branch_name,contact_email:'profile@example.invalid'};
         } else {
-          data={...context,items:[...created].map(([id,display_name])=>({id,display_name,branch_name:context.branch_name})),
-            revision:created.size,more:false};
+          data={...context,items:[],revision:0,more:false};
         }
         reply(JSON.stringify({data}),{'content-type':'application/json'});return true;
       }
@@ -92,7 +106,7 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
   };
 }
 
-export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,db,pass}) {
+export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,rpcCalls,db,pass}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[], navigationEvents=[];
   let offlineShellNavigations=0, nullGotoResponses=0, postRegistration=null;
@@ -336,18 +350,17 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     // Post-registration continuity: the saved player must become discoverable in
     // the prepared directory through the existing collection revision protocol,
     // without a second online directory read or a cleared protected store.
+    ui.useRealPeople();
     const registration='Synthetic new registration';
     const beforeSave={reads:ui.calls.length,transfers:transferCalls.length};
-    await page.getByRole('button',{name:'Register player',exact:true}).click();
-    await page.getByLabel('Player display name (required)',{exact:true}).fill(registration);
-    await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
-    await expect.poll(async()=>(await page.getByRole('checkbox').count())+
-      (await page.getByRole('button',{name:'Save registration',exact:true}).count())).toBeGreaterThan(0);
-    if(await page.getByRole('checkbox').count()){
-      await page.getByRole('checkbox').check();
-      await page.getByRole('button',{name:'Review new registration',exact:true}).click();
+    async function submitRegistration(name){
+      await page.getByRole('button',{name:'Register player',exact:true}).click();
+      await page.getByLabel('Player display name (required)',{exact:true}).fill(name);
+      await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
+      await expect(page.getByRole('button',{name:'Save registration',exact:true})).toBeVisible();
+      await page.getByRole('button',{name:'Save registration',exact:true}).click();
     }
-    await page.getByRole('button',{name:'Save registration',exact:true}).click();
+    await submitRegistration(registration);
     await expect(page.getByText('Registration saved',{exact:true})).toBeVisible();
     const afterSave=ui.calls.slice(beforeSave.reads).map(call=>call.action);
     assert.deepEqual(afterSave,['candidates','create','profile'],
@@ -361,8 +374,42 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     assert.equal(postSaveTransfers[0],'manifest');
     assert.ok(postSaveTransfers.includes('complete'),
       'the people collection must complete a replacement transfer after the registration');
-    postRegistration={peopleCalls:afterSave,transferActions:postSaveTransfers};
+    const savedRegistration=ui.registrations.at(-1);
+    assert.equal(savedRegistration.status,200);
+    const createdRpc=rpcCalls.filter(call=>call.rpc==='i2_register_v1'&&call.op===savedRegistration.body.op);
+    assert.equal(createdRpc.length,1,'The browser save ID reaches the actual signed registration RPC');
+    postRegistration={peopleCalls:afterSave,transferActions:postSaveTransfers,realPeopleHandler:true,originalIdForwarded:true};
     pass('A confirmed registration becomes discoverable from the prepared directory without an online list read');
+
+    const replay=await page.request.post(base+'/api/people',{data:savedRegistration.body});
+    assert.equal(replay.status(),200);
+    assert.deepEqual((await replay.json()).data,savedRegistration.result);
+    assert.deepEqual(await db({action:'registration_snapshot',academy:fixture.academy,op:savedRegistration.body.op}),
+      {operations:1,audits:1,players:1,result:savedRegistration.result});
+    postRegistration.replay={sameResult:true,operations:1,audits:1,players:1};
+    pass('The original browser save ID replays through the real People handler with one player, receipt and audit');
+
+    const beforeLost={reads:ui.calls.length,transfers:transferCalls.length};
+    ui.loseNextCreateReply();
+    await submitRegistration('Synthetic lost registration');
+    await expect(page.getByRole('heading',{name:'Save outcome is uncertain',exact:true})).toBeVisible();
+    const lost=ui.registrations.at(-1);
+    assert.equal(lost.status,200);
+    await page.getByRole('button',{name:'Check original operation',exact:true}).click();
+    await expect(page.getByText('Registration saved',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Back to players',exact:true}).click();
+    await page.locator('#player-search').fill('Synthetic lost registration');
+    await expect(page.getByRole('button',{name:'Synthetic lost registration',exact:true})).toBeVisible({timeout:20000});
+    const lostActions=ui.calls.slice(beforeLost.reads).map(call=>call.action);
+    assert.deepEqual(lostActions,['candidates','create','reconcile','profile']);
+    assert.equal(rpcCalls.filter(call=>call.rpc==='i2_register_v1'&&call.op===lost.body.op).length,1);
+    assert.equal(rpcCalls.filter(call=>call.rpc==='i2_operation_v1'&&call.op===lost.body.op).length,1);
+    assert.deepEqual(await db({action:'registration_snapshot',academy:fixture.academy,op:lost.body.op}),
+      {operations:1,audits:1,players:1,result:lost.result});
+    postRegistration.lostReply={peopleCalls:lostActions,originalIdReconciled:true,operations:1,audits:1,players:1,
+      transferActions:transferCalls.slice(beforeLost.transfers).map(call=>call.action)};
+    pass('A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row');
+    ui.useRealPeople(false);
 
     await page.evaluate(()=>window.clearTestAccount());
     ui.setNetworkAvailable(false);

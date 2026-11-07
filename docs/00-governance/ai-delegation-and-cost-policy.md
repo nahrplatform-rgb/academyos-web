@@ -6,6 +6,16 @@ The zero/one default and ceiling of two below are the conservative engineering i
 
 ## Operating rule
 
+### Owner-requested external DeepSeek trial —7 November 2026
+
+The Owner requested coordinator review/correction of DeepSeek's `bcb1a78` batch and simple meaningful tracked work for that assistant. [AI work items](../06-delivery/ai-work-items.csv) and the exact [DS-002 brief](../07-handoff/deepseek-task-DS-002.md) record the manual DeepSeek Harness handoff. This does not change the native Terra default below, install an integration, launch a worker or authorize a new API purchase/provider setting.
+
+External workers count in the same project cap: default one helper total; no nested agents or extra coordinator. One worker owns only its assigned files. The coordinator owns architecture/authority/sync/recovery, shared trackers/generators, source integration and publishing; the Owner still promotes. A worker can read its parent EX/batch, but cannot change priority, declare its own acceptance or turn a report into a business rule. The task ledger is a child-work register, not another primary execution queue or a runtime permission system.
+
+For DS-002, product/source is read-only and only two new report files may be written. No tests/builds are needed for a static wording audit. The worker reports exact source/model and evidence limits; the coordinator checks actual files/diff before adopting suggestions or updating shared state. A ready handoff means not started; no completion/usage is inferred. A blocked optional report does not freeze independent parent work. Later tasks need their own explicit scope/ownership/checks before starting.
+
+The observed first session used alias `deepseek-flash`; its scoped regression/doc result supports a trial, not a measured model hierarchy or cheaper whole-task cost. Review quality, repairs, elapsed work including tests/CI, actual charges when exposed and coordinator effort. No savings or five-hour allowance effect is promised. The [DS-001 receipt](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) records source corrections and outstanding limits.
+
 **Use scripts for deterministic repetition, a bounded Terra worker when delegation is worthwhile, and the Sol coordinator for decisions, complex reasoning and integration. Default to zero or one helper; never exceed two active subagents in the coordinated batch without a later explicit Owner instruction.**
 
 Choose by expected cost of a correctly completed result, including context, coordination, validation and repairs. A lower token rate does not establish a lower whole-task cost. Do not force every task into a delegation workflow or invent a target percentage of work that must use Terra. These are initial routing choices, not a benchmark proving a capability hierarchy between the models.

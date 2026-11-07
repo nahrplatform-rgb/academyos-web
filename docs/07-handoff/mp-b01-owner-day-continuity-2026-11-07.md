@@ -1,6 +1,8 @@
 # MP-B01 Owner working day — continuity baseline and Player contract checkpoint
 
-7 November 2026. Implementation continuation of [MP-B01](../06-delivery/master-plan-v2/delivery-batches.csv) under the [living continuation prompt](../06-delivery/continue-academyos.md). This checkpoint adds **no product behavior**: it closes the open post-registration investigation with a real-handler regression, records the measured post-save request path, and delivers the [rich Player field/action/difference packet](mp-b01-rich-player-contract-2026-11-07.md) that MP-Q01 requires before any new field or writer. No migration, endpoint, component, permission, provider setting or account changed. No deployment promotion occurred.
+7 November 2026. Implementation continuation of [MP-B01](../06-delivery/master-plan-v2/delivery-batches.csv) under the [living continuation prompt](../06-delivery/continue-academyos.md). This checkpoint adds **no product behavior**: it adds one scoped local post-registration regression without closing the hosted investigation, records the measured post-save request path, and delivers the [rich Player field/action/difference packet](mp-b01-rich-player-contract-2026-11-07.md) that MP-Q01 requires before any new field or writer. No migration, endpoint, component, permission, provider setting or account changed. No deployment promotion occurred.
+
+**Coordinator correction:** the registration test boundary and Player packet were reviewed/repaired under [DS-001](deepseek-bcb1a78-review-2026-11-07.md). Original counts below describe `bcb1a78`; the new receipt records53 scoped cases. NR07 remains open.
 
 Trace: EX-07; IMP-J06-A01/A02; IMP-J01-A01; J06; D05; AO-013/016/023; NR07/NR14/NR15; WB-02/05/07/09/10/11/18/20; WD-58/60/62/68–71. Outcomes **VAL-01/02/04/09**.
 
@@ -18,12 +20,12 @@ That is a post-save continuity case in the current batch, so it was addressed fi
 
 ## Reproduction attempt and result
 
-The existing EX-13B harness already runs the real Next handler, the real Supabase SDK, the real signed gateway and a disposable PostgreSQL 17, with Chromium driving the actual production-built Owner components. It did not exercise a registration.
+The existing EX-13B harness runs the real workspace-download/key Next handlers, Supabase SDK, signed gateway and disposable PostgreSQL17. Its original People HTTP responses were fictional. The bcb1a78 registration bridge invoked canonical SQL with a new fixture UUID rather than the browser save ID; it did not exercise the real People HTTP handler. The later DS-001 repair closes that fixture gap, not the hosted defect.
 
 Added to that harness (test code only):
 
-1. A bridge action that performs the **real** `i2_register_v1` registration through the signed caller, so the insert and the `workspace_revisions` trigger are the canonical ones.
-2. A create/profile branch in the fictional online People transport, so the prepared workspace transfer stays real while only the legacy online read is fictional (the harness's declared boundary).
+1. Original bcb1a78: a bridge calls canonical `i2_register_v1` SQL with fixture-generated arguments/UUID. The insert/revision trigger is real, while browser-to-HTTP original-ID fidelity was not established by that version.
+2. Original bcb1a78: create/profile HTTP responses are fictional around that SQL bridge; the prepared workspace transfer remains real. Do not label the whole People journey a real-handler end-to-end test.
 3. One new case: from a prepared Owner Players task, register a fictional player, confirm the saved profile, return to the directory, and find the new player **through the prepared replica**.
 
 Result: the case **passes**; the hosted symptom did **not** reproduce.
@@ -36,16 +38,16 @@ Measured on that synthetic 57-row directory:
 | People operating calls during registration | `candidates`, `create`, `profile` — one each, no second read of the same intent |
 | People calls to show the new player in the directory | **0** (no online `list` after returning) |
 | Workspace transfer actions after the save | `manifest`, `page`, `page`, `page`, `complete` — the people collection performed one replacement transfer because the revision changed |
-| Guarded behaviour retained | duplicate review, idempotent `op`, confirmed-then-profile ordering, no protected-store clearing |
+| Evidence boundary | Existing product guards unchanged; this original case proves one prepared-directory result, not full duplicate/original-ID recovery |
 
-So the current source **does** invalidate the prepared people projection after a registration through the existing revision/completion protocol, and does not need a new cache, epoch or repair. The hosted 6 November observation therefore remains **undiagnosed rather than fixed**. Candidate explanations that this fixture cannot distinguish, listed so the next hosted attempt can test them instead of guessing:
+This one nonempty fixture invalidates its prepared projection as expected. It neither proves every entry/empty state correct nor establishes that no repair is needed elsewhere. No speculative cache/schema change is justified by this sample alone. The hosted 6 November observation therefore remains **undiagnosed rather than fixed**. Candidate explanations that this fixture cannot distinguish, listed so the next hosted attempt can test them instead of guessing:
 
 - the observing tab held an earlier-session worker/app build, or a second tab owned the transfer;
 - the workspace device was not approved at that moment for that academy, which would make the directory an online read whose result was not the prepared projection;
 - the observation happened before the `20261105135304` migration containing `workspace_revisions`/`x21_revise` was applied to the hosted project (the local fixture always has it);
 - a hosted-only rate limit or transfer refusal that the fixture's fictional limiter does not reproduce.
 
-A hosted reproduction needs a fresh signed-in document on the current deployed source, one registration, and a recorded network/transfer trace from that same tab. It requires a new Owner-promoted source, so it is deferred with the release follow-up.
+A hosted reproduction needs the actual source/worker/account/coverage identity and a network/transfer trace from the same signed-in tab. Current staging can be investigated under the standing synthetic-trial authority; a new promotion is necessary only if required instrumentation or a real repair needs deployment. The agent never promotes. No hosted attempt was performed in this checkpoint or inferred from the local pass.
 
 ## Request baseline recorded for the Owner day
 
@@ -84,10 +86,16 @@ No `apps/web` source, SQL migration, worker, flag or provider configuration chan
 | ESLint | passed (`eslint .`) |
 | Independent human security review | deferred by Owner; nonblocking; not performed |
 
-Limitations: the fixture uses a fictional Clerk session, fictional online legacy responses and a fictional limiter; identity, network, device and provider behaviour are not hosted. This machine runs Node v26.9.0 while CI pins Node 24 and the repository declares `>=24 <25`; the local result is therefore a source-level pass, not a toolchain-identical CI replay. Exact-source CI runs on the push of this commit.
+Limitations: the fixture uses a fictional Clerk session, fictional online legacy responses and a fictional limiter; identity, network, device and provider behaviour are not hosted. This machine runs Node v26.9.0 while CI pins Node 24 and the repository declares `>=24 <25`; the local result is therefore a source-level pass, not a toolchain-identical CI replay.
+
+## Exact-source CI
+
+Commit **`bcb1a7863116b88a3d2bb5299d0fb3317a7d25da`** was pushed. [Foundation run 42373030694](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42373030694), job [128404876667](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42373030694/job/128404876667), completed **success with 53/53 steps**, including the regenerated workspace transfer `--check`, the disposable-PostgreSQL suites, every synthetic app regression and `test:e2e` under the pinned Node 24 toolchain. This is automated source/fixture evidence under the documented fictional boundaries; it is not hosted, installed-device, Owner or security acceptance, and no deployment was promoted.
+
+Post-push metadata is recorded locally for the next coherent batch instead of pushing another documentation-only commit that would repeat the full suite to record its own result.
 
 ## Next action
 
-1. Owner answers the [MP-Q01 field/action questions](mp-b01-rich-player-contract-2026-11-07.md#field-level-decisions-requested-mp-q01); each answer unblocks only its dependent writer. Until then, no rich field, edit, archive or import is implemented.
+1. Use the corrected [focused MP-Q01 packet](mp-b01-rich-player-contract-2026-11-07.md#focused-decisions-not-a-global-stop) for selected new fields/commands. Continue accepted work without waiting for every future field, archive or import choice.
 2. Continue the remaining MP-B01 continuity and Operations-adoption work that needs no new decision: initial-handoff continuity for the Owner day, the People directory's empty-state shape, and Calendar/Players density against the selected Operations states.
-3. Release follow-up is unchanged and separate: `1e68403` remains Owner-deferred with its passed exact-source CI; a later combined candidate needs its own CI and preserved supersession evidence. Hosted reproduction of the 6 November directory observation belongs with that candidate, not with this documentation checkpoint.
+3. Release follow-up is unchanged and separate: `1e68403` remains Owner-deferred with its passed exact-source CI; a later combined candidate needs its own CI and preserved supersession evidence. Current-source hosted diagnosis is not automatically blocked by the deferred candidate; a source-changing repair has its own exact release proof.

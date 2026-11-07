@@ -23,6 +23,8 @@ const evidence=join(directory,'transport.json');
 const inputs=[
   'apps/web/src/app/api/workspace-download/route.ts','apps/web/src/lib/workspace-download.ts',
   'apps/web/src/app/api/workspace-key/route.ts','apps/web/src/lib/workspace-key-server.ts',
+  'apps/web/src/app/api/people/route.ts','apps/web/src/lib/people.ts',
+  'supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql',
   'apps/web/src/lib/local-workspace-codec.ts','apps/web/src/lib/local-workspace-repository.ts',
   'apps/web/src/lib/local-register-crypto.ts',
   'apps/web/src/lib/register-device-account.ts','apps/web/src/lib/workspace-device-slots.ts',
@@ -52,7 +54,14 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  assert.ok(receipt.checks.length>=49);
+  assert.ok(receipt.checks.length>=53);
+  const registration=receipt.metrics.normalWorkspace.postRegistration;
+  assert.equal(registration.realPeopleHandler,true);
+  assert.equal(registration.originalIdForwarded,true);
+  assert.deepEqual(registration.replay,{sameResult:true,operations:1,audits:1,players:1});
+  assert.equal(registration.lostReply.originalIdReconciled,true);
+  assert.deepEqual(registration.lostReply.peopleCalls,['candidates','create','reconcile','profile']);
+  assert.equal(receipt.metrics.peopleUnauthorizedCreateDenied,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,11);
@@ -101,6 +110,7 @@ try{
   };
   const output=await build({stdin:{contents:`export{POST}from'./apps/web/src/app/api/workspace-download/route.ts';
     export{POST as keyPost}from'./apps/web/src/app/api/workspace-key/route.ts';
+    export{POST as peoplePost}from'./apps/web/src/app/api/people/route.ts';
     export{NextRequest}from'next/server';`,resolveDir:root},bundle:true,platform:'node',format:'esm',write:false,
     packages:'external',plugins:[{name:'isolated-provider-fixtures',setup(b){
       b.onResolve({filter:/^(next\/server|@supabase\/supabase-js)$/},v=>({path:require.resolve(v.path),external:true}));
@@ -110,7 +120,7 @@ try{
       b.onLoad({filter:/.*/,namespace:'fixture'},v=>({contents:adapters[v.path],loader:'js'}));
     }}]});
   const file=join(tmp,'route.mjs');await writeFile(file,output.outputFiles[0].text);
-  const {POST,keyPost,NextRequest}=await import(pathToFileURL(file));
+  const {POST,keyPost,peoplePost,NextRequest}=await import(pathToFileURL(file));
   globalThis.workspaceTransferFixture=state;
   Object.assign(process.env,{APP_ENV:'staging',ONBOARDING_PROOF_KEY:'a'.repeat(64),
     NEXT_PUBLIC_SUPABASE_URL:database,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'synthetic-publishable-key'});
@@ -136,7 +146,7 @@ try{
   globalThis.fetch=async(input,init)=>{
     const url=new URL(String(input));assert.equal(url.origin,database);
     const target=url.pathname.replace('/rest/v1/rpc/','');
-    assert.ok([rpcName,'x21_workspace_key_v1'].includes(target));assert.equal(url.search,'');
+    assert.ok([rpcName,'x21_workspace_key_v1','i2_people_v1','i2_candidates_v1','i2_profile_v1','i2_register_v1','i2_operation_v1'].includes(target));assert.equal(url.search,'');
     assert.equal(init.method,'POST');assert.equal(init.cache,'no-store');
     const proof=new Headers(init.headers).get('x-academyos-gateway');
     assert.ok(proof);const subject=JSON.parse(proof).subject;
@@ -144,7 +154,8 @@ try{
     const response=await db({action:'rpc',target,subject,proof,args:JSON.parse(init.body)});
     const result=response.error?Response.json({code:response.error,message:'Synthetic refusal'},
       {status:response.error==='42501'?403:409}):Response.json(response.data);
-    state.calls.push({requestBytes:Buffer.byteLength(init.body),responseBytes:Buffer.byteLength(await result.clone().text())});
+    state.calls.push({requestBytes:Buffer.byteLength(init.body),responseBytes:Buffer.byteLength(await result.clone().text()),
+      rpc:target,op:JSON.parse(init.body).op??null});
     return result;
   };
   const fixture=await db({action:'make',size:56});
@@ -318,8 +329,21 @@ try{
   `,resolveDir:root},bundle:true,platform:'browser',write:false});
   const browserCalls=[], browserPageDatasets=[];
   const normalFixture=await db({action:'make',size:56,calendar:true,unregistered:true});
+  const peopleRequest=body=>peoplePost(new NextRequest(stage+'/api/people',{
+    method:'POST',headers:{origin:stage,'content-type':'application/json'},body:JSON.stringify(body)}));
+  state.subject='user_unassigned';
+  try {
+    const op=randomUUID();
+    const refused=await peopleRequest({action:'create',academy:normalFixture.academy,branch:normalFixture.branch,
+      op,name:'Synthetic refused registration',contact:'',revision:0,different:false});
+    assert.equal(refused.status,403);
+    assert.deepEqual(await db({action:'registration_snapshot',academy:normalFixture.academy,op}),
+      {operations:0,audits:0,players:0,result:null});
+    metrics.peopleUnauthorizedCreateDenied=true;
+    pass('The real People handler refuses an unassigned signed caller without a registration receipt or audit');
+  } finally {state.subject='user_owner';}
   const normal=await normalWorkspaceFixture(root,normalFixture,{
-    register:name=>db({action:'register_player',academy:normalFixture.academy,branch:normalFixture.branch,name})});
+    people:peopleRequest});
   let intercept;
   server=createServer(async(req,res)=>{
     if(await normal.serve(req,res))return;
@@ -668,7 +692,7 @@ try{
   metrics.workspaceDevice={firstRequests:['prepare','manifest','page'],interruptedAt:25,renewedAt:300,pagesPerPass:12,
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
-    profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,db,pass});
+    profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,rpcCalls:state.calls,db,pass});
   console.log('NORMAL_WORKSPACE_METRICS '+JSON.stringify(metrics.normalWorkspace));
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await checkStartupResume(root,pass);
@@ -677,7 +701,7 @@ try{
   finally {await shellBrowser.close();}
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
-    platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');
+    platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual workspace/key and registration-scenario People Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, baseline legacy read responses, limiter and PostgREST wire. Registration create/candidates/profile/reconcile use real People handlers; browser save IDs reach canonical RPCs. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');
 }finally{
   await browser?.close();
   if(server?.listening) await new Promise(resolve=>server.close(resolve));

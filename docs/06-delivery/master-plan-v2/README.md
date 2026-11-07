@@ -15,6 +15,7 @@ The package replaces the accumulated execution narrative in the older [implement
 | [PYSA reference audit](pysa-reference-audit.md) · [capabilities](pysa-capabilities.csv) · [fields](pysa-fields.csv) · [capability adoption](pysa-adoption-map.csv) · [field adoption](field-adoption-map.csv) · [route coverage](pysa-route-coverage.csv) | Useful legacy detail, defects, source anchors and explicit adoption/gap disposition |
 | [Reference conversations](source-conversation-review.md) · [finance simplification](finance-simplification-and-control.md) | Historical business/audit context and a deliberate finance redesign; preserve useful scope without legacy clutter |
 | [Product and module specifications](product-and-module-specifications.md) · [domain coverage](domain-coverage.csv) | Full product scope, field groups, connected workflows and implementation gaps |
+| [Player field reconciliation](player-field-reconciliation.csv) · [focused Player packet](../../07-handoff/mp-b01-rich-player-contract-2026-11-07.md) | All42 individual legacy create inputs, current-versus-proposed fields and exact dependent decisions; no silent scope exclusion |
 | [UI/UX and redesign](ui-ux-and-redesign.md) · [design-tool register](design-tool-register.csv) | Approved visual authority, interaction/state specifications and proportionate tools |
 | [Multisport and resources](multisport-and-resources.md) | Terminology, typed field groups, facilities, allocations and sport-specific behavior |
 | [Multi-academy and roles](multi-academy-and-roles.md) | Global identity, tenant/branch/capability separation, role journeys and safe context changes |
@@ -23,6 +24,7 @@ The package replaces the accumulated execution narrative in the older [implement
 | [Requirements crosswalk](requirements-crosswalk.csv) · [scope extensions](scope-extensions.csv) · [decision dependencies](decision-dependencies.csv) | Canonical joins and concrete unresolved choices; catalog presence is not business approval |
 | [Maintenance and continuation](traceability-and-maintenance.md) | Ownership, generators, update protocol and structural checks |
 | [Single execution tracker](../experience-execution.csv) · [living continuation](../continue-academyos.md) | The sole current priority, exact next development action, release follow-up and actual evidence states |
+| [Scoped AI work items](../ai-work-items.csv) · [DS-001 review](../../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-002 brief](../../07-handoff/deepseek-task-DS-002.md) | Coordinator-reviewed worker scope, owned outputs and handoff/review state under the same EX/batch; no second current queue |
 
 ## Authority and stable scope
 

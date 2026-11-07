@@ -94,6 +94,47 @@ class ContinuationTests(unittest.TestCase):
         render(self.rows, self.batches)
         self.assertEqual(before, self.rows)
 
+    def test_worker_handoff_keeps_parent_priority_and_requires_review(self):
+        before = copy.deepcopy(self.rows)
+        result = render(self.rows, self.batches)
+        self.assertIn('DS-002', result)
+        self.assertIn('ready_for_handoff', result)
+        self.assertIn('not Owner feature acceptance', result)
+        self.assertEqual(before, self.rows)
+
+    def test_historical_worker_records_survive_a_later_parent_batch(self):
+        later = copy.deepcopy(next(b for b in self.batches if b['batch_id'] == self.active['delivery_batch']))
+        later['batch_id'] = 'MP-B99'
+        self.batches.append(later)
+        self.active['delivery_batch'] = 'MP-B99'
+        result = render(self.rows, self.batches)
+        self.assertIn('Delivery batch: **MP-B99', result)
+        self.assertNotIn('**DS-002** (ready_for_handoff)', result)
+
+    def test_unknown_worker_parent_is_rejected(self):
+        with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+            tasks = list(csv.DictReader(stream))
+        tasks[-1]['parent_work_id'] = 'EX-99'
+        with self.assertRaises(ValueError):
+            render(self.rows, self.batches, work_items=tasks)
+
+    def test_overlapping_worker_output_ownership_is_rejected(self):
+        with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+            tasks = list(csv.DictReader(stream))
+        other = copy.deepcopy(tasks[-1])
+        other['task_id'] = 'DS-003'
+        tasks.append(other)
+        with self.assertRaises(ValueError):
+            render(self.rows, self.batches, work_items=tasks)
+
+    def test_worker_cannot_submit_missing_report_files(self):
+        with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+            tasks = list(csv.DictReader(stream))
+        tasks[-1]['status'] = 'submitted_for_review'
+        tasks[-1]['owned_write_paths'] = 'docs/07-handoff/deepseek/not-created-test-report.md'
+        with self.assertRaises(ValueError):
+            render(self.rows, self.batches, work_items=tasks)
+
 
 if __name__ == '__main__':
     unittest.main()

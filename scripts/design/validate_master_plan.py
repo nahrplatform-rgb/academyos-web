@@ -8,7 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from build_continuation_prompt import execution_route
+from build_continuation_prompt import execution_route, validate_worker_assignments
 from build_master_plan import refs
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,6 +53,9 @@ def validate(reference_root=None):
     with (ROOT / 'docs/06-delivery/experience-execution.csv').open(newline='') as stream:
         execution = list(csv.DictReader(stream))
     active, _ = execution_route(execution)
+    with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+        work_items = list(csv.DictReader(stream))
+    validate_worker_assignments(work_items, execution, batches)
     exids = {r['work_id'] for r in execution}
     assert {f'EX-{i:02}' for i in range(1, 17)} <= exids, 'Existing EX history lost'
     for row in execution:
@@ -101,6 +104,13 @@ def validate(reference_root=None):
     fields = table('pysa-fields.csv', 'reference_field_id')
     capids = {r['reference_id'] for r in caps}
     pfids = {r['reference_field_id'] for r in fields}
+    player_fields = table('player-field-reconciliation.csv', 'reference_field_id')
+    expected_player = {r['reference_field_id']: r for r in fields if r['reference_field_id'] in {f'PF-{i:03}' for i in range(1, 43)}}
+    assert {r['reference_field_id'] for r in player_fields} == expected_player.keys(), 'Retain every individually inspected Player input'
+    for row in player_fields:
+        source = expected_player[row['reference_field_id']]
+        assert row['legacy_field_key'] == source['field_key'] and row['source_evidence'] == source['legacy_evidence']
+        assert row['authority_state'] == 'Proposed/investigate only;no new field or exclusion accepted'
     assert {r['domain_id'] for r in caps} == dids, 'Reference investigation must address every domain,including unknowns'
     adoption = table('pysa-adoption-map.csv', 'reference_id')
     field_adoption = table('field-adoption-map.csv', 'reference_field_id')

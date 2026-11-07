@@ -2,6 +2,8 @@
 
 ## Start with canonical master version2 —7November2026
 
+For the current MP-B01 source, read [DS-001 coordinator review](deepseek-bcb1a78-review-2026-11-07.md) and the corrected [Player packet](mp-b01-rich-player-contract-2026-11-07.md). The [AI child ledger](../06-delivery/ai-work-items.csv) tracks DS-002's isolated report ownership and review state; it does not replace EX routing, authorize worker publishing or start a helper automatically.
+
 Start each connected batch from [Owner value, simplicity and Platform business outcomes](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md). Use the inspected [PYSA chat review](../06-delivery/master-plan-v2/source-conversation-review.md) as historical context and the [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) for money work. Useful business parity must not reproduce unnecessary legacy fields, steps, reviews or formulas. Preserve accepted controls and exact scope; measure benefits rather than claim market superiority.
 
 [Canonical master plan v2](../06-delivery/master-plan-v2/README.md). Read the new master entry point, current experience-execution row and generated continuation before following an older handoff. Preserve its baseline and earlier accepted rules; select the current batch and separate development/release actions. New rich Player/resource/finance/role details are target gaps requiring their exact policy/action contracts, not implemented capabilities. The planning checkpoint changes documentation/tooling only.

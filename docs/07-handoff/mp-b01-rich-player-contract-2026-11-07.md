@@ -1,95 +1,80 @@
-# MP-B01 rich Player field, action and difference packet
+# MP-B01 Player field, action and difference packet
 
-7 November 2026. Prepared under **MP-B01 — Complete the Owner working day** for [decision MP-Q01](../06-delivery/master-plan-v2/decision-dependencies.csv). This packet **implements no new Player field, writer, permission or local projection.** It inventories the legacy Player detail through the [PYSA field map](../06-delivery/master-plan-v2/pysa-fields.csv)/[field adoption map](../06-delivery/master-plan-v2/field-adoption-map.csv), states the exact current AcademyOS contract, proposes one grouped profile and minimum-input create, and asks only the questions that block a dependent command.
+7 November 2026. Coordinator revision after review of DeepSeek commit `bcb1a78`. The original proposal remains in Git history; [the review receipt](deepseek-bcb1a78-review-2026-11-07.md) records corrections. This packet selects no new business rule and implements no field, writer, permission or local projection. Trace: EX-07 / MP-B01, D05, J06, IMP-J06-A01/A02, AO-013/016/023/118 and VAL-01/02/09. Existing accepted rules remain.
 
-Trace: D05; J06; IMP-J06-A01/A02; AO-013/016/023/118; AT counterparts; NR07/NR14/NR15; WB-02/05/09/10/11/12/20/23; WD-58/60/62/68–71. Outcomes: **VAL-01** (understand today and the next action), **VAL-02** (record once and find a useful player profile), **VAL-09** (keep working smoothly through connection/application changes). Legacy Player rows are PF-001–PF-042 ([capability adoption](../06-delivery/master-plan-v2/pysa-adoption-map.csv)). Reference source is read-only; field presence in PYSA is evidence of a legacy input, not accepted AcademyOS policy.
+## Current working contract
 
-## Current implemented contract (verified in source)
-
-| Layer | Exact current behavior | Source |
+| Layer | Verified behavior | Source |
 |---|---|---|
-| Create input | `display_name` (required, ≤160, whitespace-normalized), `contact_email` (optional, must match `@example.invalid` in this fictional slice), branch taken from the loaded academy context | [people.ts](../../apps/web/src/lib/people.ts); `i2_register_v1` in [i2a migration](../../supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql) |
-| Create guards | Actor must be the current Academy Owner; branch must be the academy's setup branch; duplicate-name review with `reviewed_revision` + explicit `different_person`; idempotent `op` receipt; `player.register` audit; no auto-merge | same migration; [duplicate review](../../apps/web/src/components/people-workspace.tsx) |
-| List | Bounded page of 25 (`display_name`, `branch_name`, `created_at`), prefix search ≥2 characters, same-academy rows only | `i2_people_v1` |
-| Profile | `display_name`, `branch_name`, `contact_email`, `version`, `created_at` — one online read per profile open | `i2_profile_v1` |
-| Edit / archive / restore / import | **Not implemented.** No update command, no status column in the projection, no import path | — |
-| Unknown outcome | Original `op` retained in tab storage, `i2_operation_v1` reconcile, no replacement create; a confirmed save with a failed follow-up read stays confirmed | people-workspace; [i2a contract] |
-| Prepared device | Directory rows are `id`, `display_name`, `branch_id`, `branch_name` only; the rich profile is an **online** read; `field_epoch = 1` and exact-field codec checks reject widened rows | [codec](../../apps/web/src/lib/local-workspace-codec.ts); [workspace key contract](../../supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql) |
-| Localized | EN/AR labels; profile is a list-attached inspector pane, so returning does not lose the directory | people-workspace |
+| Create | One required Unicode `display_name`, up to160 characters, whitespace normalized; optional fictional `contact_email`; branch from loaded initial setup | [parser](../../apps/web/src/lib/people.ts), [SQL](../../supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql) |
+| Names | No English/Latin-only restriction; no structured first/last or Arabic alias fields in this writer | Same parser/SQL |
+| Contact | Unverified contact string; no verified Guardian relationship, family payer or access grant follows | SQL and [People UI](../../apps/web/src/components/people-workspace.tsx) |
+| Guards | Current Academy Owner; correct initial branch; duplicate revision/different-person review; original save ID; atomic receipt/audit; no auto-merge | `i2_register_v1` |
+| Directory | Bounded25-row canonical pages and same-academy name search; prepared directory has its separately complete bounded dataset | `i2_people_v1`, [dataset contract](../04-engineering/owner-workspace-dataset-contract.md) |
+| Profile | Canonical ID/name/branch/contact/version/created-at; current full-profile implementation reads online | `i2_profile_v1` |
+| Edit/archive/restore/import | Not implemented by this Player slice | Current parser/SQL |
+| Prepared fields | ID, display name, branch ID/name, exact codec/epoch1; richer profile not yet replicated | [codec](../../apps/web/src/lib/local-workspace-codec.ts) |
+| Unknown save | Retained browser original; reconcile before replacement; confirmed save stays confirmed if its follow-up read fails | People UI and `i2_operation_v1` |
 
-Consequences worth stating plainly: the Owner can register a fictional player and inspect one saved profile, but **cannot correct a misspelt name, move a player between branches, add a second contact, or retire a player** without a new writer. That is the real gap; adding columns without an edit path would not close it.
+“One field to type” assumes a permitted branch is already selected/configured. Multi-branch selection remains explicit scope. This baseline does not choose a new name structure or permit missing branch authority.
 
-## Proposed grouped Player profile
+## Every legacy field has a disposition
 
-Presentation follows the [Operations contract](../03-design/operations-design-reference.md): row selection updates the inspector without moving the list, groups are labelled sections, and consequential actions are explicit. Groups below are a **proposal for decision**, not accepted fields.
+The [42-row reconciliation](../06-delivery/master-plan-v2/player-field-reconciliation.csv) gives **PF-001–PF-042** individual source keys, purposes, proposed dispositions, groups, create/edit implications, policy dependencies, local targets and remaining evidence. It includes school, grade, water confidence, swimming restrictions and the disabled session selector. No field is silently excluded or approved.
 
-| Group | Fields | Create | Profile | Edit | Why it earns its place |
-|---|---|---|---|---|---|
-| Identity | Display name EN (required, ≤160); display name AR (optional, ≤160) | Required / optional | Yes | Yes | Recognising one child among 18 on a register, in the language the Owner reads. Arabic name is what Arabic staff recognise; an English-only record forces transliteration errors. |
-| Identity | Date of birth | Optional | Yes | Yes | Age band and safety decisions; avoids asking staff to compute age. Optional at create keeps a live registration to one required field. |
-| Identity | Gender | Optional, only if a group rule needs it | Yes | Yes | Only justified once MP-B02 group/allocation rules exist. Otherwise it adds a sensitive attribute with no operational use. |
-| Identity | Photo | Deferred to MP-B10 | Placeholder | Deferred | Media needs consent, retention and lifecycle decisions (MP-B10). Not a profile-writer field now. |
-| Identity | National ID / ID expiry / nationality | **Not collected by default** | No | No | High-sensitivity identifier with no day-of operating need. If a federation/registration requirement arrives, it needs its own purpose, masking, view scope and audit decision (PF-010/011/009). |
-| Placement | Branch (required); sport participation; group/squad; start date; end date | Branch required; start date defaults to today | Yes | Branch by separate consequential command | Branch is already required for scoped rows and roster references (AO-023). Sport/group need the multisport and resource rules from MP-B02; enrollment end date is produced by archive, not typed at create. |
-| Contacts | Guardian contact email (optional, unverified) | Optional | Yes | Yes | Operational contact without granting access (existing rule). |
-| Contacts | Guardian contact phone | Optional | Yes | Yes | The number a trainer actually calls; needs a decision because it is stored private data and must not imply SMS capability. |
-| Contacts | Emergency contact name + phone | Optional at create, prompted for active players | Yes | Yes | Safety duty. Optional keeps a first registration to one field; the profile shows a completion prompt instead of a hard block. |
-| Contacts | Player phone, address | Not collected now | No | No | A child may have no phone; address has no operating use in this slice (PF-012/013). |
-| Sport | Typed per-sport attribute schema (e.g. football position/dominant foot/number; swimming level/stroke/lane group; martial-arts rank/style; racket hand/level) | Optional | Yes, typed | Yes | Multisport requires different fields, not one generic column set (PF-018–029). Rendering is driven by the academy's sport schema, not per-sport hardcoding. |
-| Sport | Height / weight with unit and measured date | Optional | Yes | Yes | Only meaningful with a date and unit; free text would corrupt development metrics (PF-016/017). |
-| Safety | Allergy / restriction **flag**; blood type; medical notes | Optional | Flag always; detail behind an explicit reveal | Yes, with audit | A trainer must know a child has a restriction before a session; the detail is sensitive and should not sit in the default profile projection (PF-033–035, FND-0014). |
-| Kit | Jersey/shorts/socks size | Optional, non-swimming | Yes | Yes | Equipment ordering; low sensitivity, cheap to store (PF-030–032). |
-| Notes | Internal staff notes; enrollment status | Status yes; free notes **deferred** | Yes | Archive/restore only | Status is needed to retire a player without deleting history. Free-form internal notes duplicate development feedback and create a private narrative with unclear retention. |
+“Investigate” means establish usefulness and the complete safe pipeline. “Adapt” preserves a useful goal under AcademyOS contracts. A deferred mechanism retains its outcome in the named batch. These are proposals, not Owner acceptance. [Original field evidence](../06-delivery/master-plan-v2/pysa-fields.csv) keeps its layer limits and validation defects.
 
-### Minimum input and reduced Owner effort
+## Proposed profile composition
 
-- **One required field to register** (display name) plus an already-selected branch. Arabic name, date of birth and every contact/safety field stay optional and can be completed from the profile later.
-- Grouped profile answers "who is this child and what do I need before the session" in one place instead of a flat 40-field form.
-- A safety flag on the row means the Owner does not reopen every profile before a session.
-- No field is added merely because PYSA had it: national ID, address, player phone, free internal notes and photo are explicitly **not** adopted in this slice.
+Use the [Operations reference](../03-design/operations-design-reference.md): useful sections, optional inspector, coherent controls, EN/AR and stable list return. The sections organize future permitted data; they do not require everything at registration.
 
-## Actions and differences
+| Section | Candidate content and purpose | Boundary |
+|---|---|---|
+| Recognition | Current display name; chosen bilingual/structured representation; justified birth/identity context | Players can be adults or minors. No assumed child status, legal age or mandatory English name |
+| Participation | Branch, sport enrollments/groups, status and effective intervals | Player archive, enrollment end and account/link ending are distinct; archive does not automatically supply an end date |
+| Relationships/contact | Unverified contact, verified Guardian links, justified emergency methods | Typed contacts grant no access and do not automatically become Trainer-visible |
+| Sport | Individually justified football/swimming/martial/racket attributes | Include water confidence/restrictions explicitly; lane-group text is not a lane reservation |
+| Safety | Selected necessary instructions and separately justified health fields | A flag can itself be private; server field authority is required; collapsed detail is not authorization |
+| Measurements/kit/education | Justified measured values with units/time, equipment and school/grade context | Nationality is not a document number; swimming does not automatically exclude kit; address/phone/school may have a valid purpose |
+| Activity/history | Permitted authoritative sessions, attendance, development and financial context | No duplicate editable balances or rewritten histories |
+| Media/staff context | Purpose-specific notes and photo lifecycle if selected | Notes are not automatically duplicates of published feedback; photos need consent/retention handling |
 
-| Action | Current | Proposed minimum | Consequence boundary |
+Use the smallest justified required set, optional/conditional completion later and useful read-only inspection. Do not add compulsory safety prompts, audited-reveal clicks, universal sport schemas or date defaults without purpose and dependent policy. Current duplicate/confirmation/recovery rules remain.
+
+## Normal local-data direction
+
+The agreed target is the **same useful prepared workspace online and offline**, including permitted rich profiles and supported edits as domains are built. The current minimal directory plus online profile is a baseline, not an accepted permanent limit.
+
+For each selected field, MP-B01 defines its exact role/device projection, freshness/retention and compatible local-schema/revision transition. Version/epoch work is an engineering task; avoiding it does not justify reducing the agreed experience. Never widen the codec silently. Normal sign-in, known-denial fencing, logout/30-day replica cleanup and separately protected originals remain.
+
+New offline commands need exact version, applicable deadline, conflict and recovery semantics. This does not reopen the overall direction or add an unlock ritual. Sensitive fields can have different projections/lifecycles; full-app local adoption is not blanket download of all legacy fields to all roles.
+
+## Focused decisions, not a global stop
+
+The former ten-question list mixed product/privacy choices, engineering work and future scope. Prepare one concrete field-set packet under the following groups. They are pending proposals; each blocks only dependent new behavior. Continue accepted continuity work meanwhile.
+
+| Group | Owner choice to prepare | Engineering work within the settled direction | Blocks |
 |---|---|---|---|
-| Create | Name + optional contact, duplicate review, receipt, audit | Same fields plus the optional groups chosen above | Keep idempotent `op`, duplicate review, no auto-merge |
-| Edit | Absent | Correct allowed fields on one player; save with expected `version` | Renaming into an existing normalized name needs the same duplicate confirmation; unknown outcome keeps its original `op`; no partial write |
-| Archive | Absent | Status change with reason; row stays readable in history | Never delete roster/attendance/development history; archived players stay visible to permitted staff filters |
-| Restore | Absent | Reverse an archive with a new version | Restored player must not silently reacquire training slots that were reassigned |
-| Import | Absent | Bounded file with preview and per-row result | Decide all-or-none versus partial-with-report; no silent duplicates; no import into the branch of another academy |
+| MP-Q01-A Recognition/contact | Exact useful fields, requiredness, name representation, birth/education/contact purpose and read/edit roles | Reuse Unicode name, grouped form, duplicate/recovery controls; give exact examples | Selected new field/writer/projection |
+| MP-Q01-B Safety/privacy | Which medical/restriction fields are necessary; who sees them; session context, local inclusion and lifecycle | Minimal server projections; compare flag/instruction without assuming public visibility | Dependent sensitive behavior |
+| MP-Q01-C Lifecycle/authority | Who edits/archives/restores; future roster/link/enrollment consequences and retained discovery | Preserve records; separate archive, effective dates and money effects | Affected new command |
 
-Every proposed write keeps the current pattern: caller-bound server authority, expected version, atomic receipt keyed by the original operation ID, audit event, and unknown-outcome reconciliation before replacement.
+MP-Q02/03/19/20 govern new sport/group/resource/metric structures. MP-Q21 governs import commit/error policy before its writer, without blocking unrelated simple work. MP-Q13 names concrete local field/command details, not another vote on whether the app works locally. No Manager power, Guardian visibility, minimum age or fee effect is inferred.
 
-## Field-level decisions requested (MP-Q01)
+## Complete actions and recovery
 
-Answer with a choice letter per question; each answer unblocks only its dependent writer.
+| Action | Required contract |
+|---|---|
+| Create | Exact fields → validation → original → atomic result/audit → correct permitted profile/directory; no discarded inputs |
+| Edit | Editable set/clear semantics; expected version; duplicate rename; historical effects; current scope and original reconciliation |
+| Archive | Exact eligibility and future effects; retained history; default/archived discovery and prepared removal under chosen policy |
+| Restore | New version and explicit future participation; no silent return of reassigned places or ended access |
+| Import | Versioned template, bounded complete preview, duplicates/ambiguities, chosen atomic/per-row results and original commit |
 
-1. **Names.** (a) Keep one display name plus optional Arabic display name *(recommended)*, or (b) split first/last in each language as PYSA does. Splitting multiplies required input and validation; (a) matches how staff say a child's name.
-2. **Date of birth.** (a) Optional, shown on the profile *(recommended)*; (b) required at create; (c) not collected. This is the first genuinely new identity field and needs its view scope (staff roles) and local-inclusion answer before implementation.
-3. **Gender.** (a) Defer until group rules exist *(recommended)*; (b) collect now; (c) collect only when the academy's sport/group config uses it.
-4. **Contacts.** Which of guardian phone and emergency contact (name + phone) are adopted, and are they optional or prompted? Recommendation: both optional at create, prompted on the profile; no SMS/call capability implied.
-5. **Safety fields.** (a) Flag-only projection with detail behind an audited reveal *(recommended)*; (b) full detail in the ordinary profile for Owner/Manager only; (c) detail visible to every permitted role. Also state whether reading medical detail is audited.
-6. **Sport attributes.** Confirm the per-sport schema set for the sports enabled at this academy, and whether an attribute is required for an active player. Recommendation: optional, typed, defined by the sport schema in MP-B02.
-7. **Archive/restore.** Confirm archive reasons, who may archive (Owner only or Owner + Manager), whether archived players stay in prepared directory data, and whether archive is refused while an unresolved original or open correction exists. Recommendation: Owner-only in this batch, archived rows excluded from the default directory but retained and searchable by staff.
-8. **Import.** Confirm whether import is in scope for MP-B01/MP-B02, and whether a failed row cancels the whole file. Recommendation: defer import to MP-B02 with all-or-none validation and a preview.
-9. **Local projection.** Recommendation: **keep the prepared people dataset minimal** (id, name, branch) and keep the rich profile an online read. Widening the encrypted dataset would require a `field_epoch` bump, a codec change and an LF-P02 field decision; it is not needed for the first useful Owner day.
-10. **Edit authorization.** Confirm Owner-only editing in this batch or Owner + Manager (needs the Manager role definition from MP-B02). Recommendation: Owner-only until Manager authority is decided.
+For each field trace create → validation → storage → permitted read → edit → import/export → local/sync → clear/history/recovery. A schema or UI control alone does not complete that pipeline.
 
-## Verification plan once decided
+## Required evidence
 
-Adversarial and continuity cases to add with the dependent writer — no case is claimed passed here:
+Retain nonempty-directory proof and separately test zero-player first registration, real HTTP validation/authority, original-ID replay, committed-but-unavailable reply recovery, stale edit, duplicate rename, scope changes and confirmed/read-failure presentation. Demonstrate selected fields in EN/AR and realistic phone/desktop layouts, including permitted normal-profile reading online/offline. Mark unsupported fields/actions clearly.
 
-1. Create with only a name; optional groups absent; profile shows unknown, not blank-zero.
-2. Create duplicate name → review; rename into an existing normalized name → explicit confirmation or refusal; no auto-merge.
-3. Edit with a stale `version` → conflict, current values shown, no partial write.
-4. Edit with a lost reply → unknown outcome with the original `op`; reconcile finds the committed value; no second write.
-5. Edit while a second tab holds the same player → one commit, other tab refreshes to the committed version.
-6. Archive → player leaves the default directory, history and past registers stay readable; restore → new version, no automatic schedule reassignment.
-7. Branch move with committed attendance → past attendance keeps its branch; no historical rewrite.
-8. Safety detail reveal → audited, denied for a role without the permission, and absent from the prepared directory projection.
-9. EN/AR, 320/390/1440, RTL labels and long names; focus and scroll retained after edit and archive.
-10. Prepared device: a rich-field edit does not corrupt the minimal prepared row or break the exact-field codec; offline edit stays unavailable unless an offline field policy is accepted.
-
-## Boundaries and status
-
-No migration, endpoint, component, field or permission changed by this packet. It answers **what the Owner must decide**, not what has been approved. Independent human security review remains deferred and nonblocking and is not performed here. Production, real-child data, paid commitments and Owner-only promotions are untouched. The current minimal writer, its duplicate review, its original-operation recovery and the prepared minimal directory remain the working contract until a decision above is recorded and its dependent implementation is checked end to end.
+This packet/CSV are preparation outputs. No new field or command is implemented or accepted by their existence. External human security review remains deferred/nonblocking/not performed; engineering checks and Owner-only promotion remain.

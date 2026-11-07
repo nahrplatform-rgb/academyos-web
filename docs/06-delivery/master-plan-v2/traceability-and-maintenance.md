@@ -12,6 +12,7 @@
 | [Domain coverage](domain-coverage.csv) | Whole-domain current-versus-target scope, source anchors and delivery assignment |
 | [Batch catalog](delivery-batches.csv) | Outcome/scope/dependency/exit definition only, no second mutable current-status queue |
 | [Single execution tracker](../experience-execution.csv) | Sole current priority and actual implementation/local/deployment/hosted/acceptance state; development action separate from release follow-up |
+| [Scoped AI work items](../ai-work-items.csv) | Worker/parent/batch, exact owned outputs, brief and coordinator-review state; never an independent priority or Owner acceptance |
 | Per-batch handoff/receipt | Exact source/results/failures/limits and original acceptance evidence |
 | Generated [continuation](../continue-academyos.md) | Copyable projection of current tracker/catalog/authority; no new permission or hand-edited status |
 | Factual [HTML/manifest/capture pack](../../../design/app-experience-review/README.md) | Actual source/component review artifact with captured/uncaptured and local/hosted distinction |
@@ -26,6 +27,7 @@ Earlier master/roadmap/redesign narratives remain historical indexes. Their date
 - `MP-Qxx` identifies a focused planning dependency. Accepted scope/design is distinguished from exact unchosen business/private field/command policy.
 - `PY-xxx` and `PF-xxx` are legacy reference rows. Their source evidence/layer and adoption mapping must survive refinements; do not renumber because sorting changed.
 - `VAL-xx` defines additive product outcomes and candidate measures. Batch/capability/field joins identify the job and simplicity question, not implementation, a new mandatory field or a measured improvement. Keep canonical AO/AT scope intact.
+- `DS-xxx` identifies scoped external DeepSeek work under an existing EX/batch. Record before handoff, verify parent/current scope, keep output ownership separate and review actual reports before shared updates. Ready is not running; reviewed is not Owner feature acceptance. The generator projects records from the child ledger without advancing a parent.
 - Every canonical AO/AT stays in the generated crosswalk even if its old action mapping is broad/unmapped. A module's blank source cell is not enough to infer absence; inspect source and record the limit.
 
 ## Commands

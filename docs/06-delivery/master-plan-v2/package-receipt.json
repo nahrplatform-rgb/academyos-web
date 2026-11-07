@@ -22,7 +22,7 @@
     "product_outcomes": 12,
     "reference_conversations": 2,
     "finance_findings_reviewed": 10,
-    "package_files": 30
+    "package_files_at_MP_B00": 30
   },
   "delegation": {
     "worker": "gpt-6.1-terra",
@@ -80,5 +80,10 @@
     "url": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
     "local_read_only_audit": "npm audit on this checkout reports 12 moderate, 0 high, 0 critical, 0 low across 580 dependencies (glob/minimatch chain via @sentry and typescript-eslint);the two results may describe different lockfiles or advisory severities and are not reconciled",
     "status": "Reported and locally checked only;the provider alert detail was not authenticated,fetched or closed;no dependency change,workflow change or vulnerability claim"
+  },
+  "later_reviews": {
+    "DS-001": "docs/07-handoff/deepseek-bcb1a78-review-2026-11-07.md",
+    "player_fields": "player-field-reconciliation.csv;42individual proposed dispositions;no new accepted field",
+    "worker_register": "docs/06-delivery/ai-work-items.csv;DS-002ready for manual Owner handoff;no auto-launch or second priority queue"
   }
 }

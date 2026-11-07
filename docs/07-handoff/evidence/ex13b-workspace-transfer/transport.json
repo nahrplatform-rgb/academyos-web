@@ -5,6 +5,9 @@
     "apps/web/src/lib/workspace-download.ts": "0bfe6bf52ff4d238d8e2ac063ae344039697e08dd8cc5503b6b9edaba7fd16af",
     "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
     "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
+    "apps/web/src/app/api/people/route.ts": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+    "apps/web/src/lib/people.ts": "4475fdd096d84e71166494e418e75e07058885d2cdbcf8f892e77cbfbeaa5ee5",
+    "supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql": "1342009f1ce0b32f3559010effc7cc1bc491265930d423f422c2c449226f3eec",
     "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
     "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
@@ -21,10 +24,10 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "f136336ca84c31556dbcdd27d694c40642ef396620ed262e8f92ef359c229b7e",
-    "scripts/workspace-download/bridge.py": "f5bb438b2b419a0cbe0575855000df60b95d605d36b049cfeab29590bace9f6f",
+    "scripts/workspace-download/test_transport.mjs": "e4d8c3be83839b7c285cee61d42cc6a6d71e9f1b8ab8bfbce4cf6ae31bab1548",
+    "scripts/workspace-download/bridge.py": "afb9f8dfb482ea5397f5c12f66c8ec2985565b2ab3925caf7d30476c3a127a0c",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "2100f47956ad88a376cc8212df8684d7fc0519e610156b7d9cc160c402b243c3",
+    "scripts/workspace-download/normal_workspace.mjs": "7156a112361587361d7c23a29369583d8173081dade1eadf8d1eeb9b4dbbda0e",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
     "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
     "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
@@ -58,6 +61,7 @@
     "Current PostgreSQL authority denies a Platform-only account and a suspended Academy Owner",
     "All observed wire packets stay within the declared request and response limits",
     "Actual key route and signed database binding reuse one wrapped key and deny foreign origin, wrong actor, namespace and wrapping root",
+    "The real People handler refuses an unassigned signed caller without a registration receipt or audit",
     "Actual row hash rejects tampering and a failed checkpoint write rolls back its encrypted page without publishing partial data",
     "Two tabs cannot advance the same checkpoint twice and a browser process restart resumes at the saved page",
     "A complete 1000-player directory searches in bounded encrypted slices with zero operating requests or readable name indexes",
@@ -85,6 +89,8 @@
     "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
     "Reconnecting the offline document returns to verified online data and applies a changed player",
     "A confirmed registration becomes discoverable from the prepared directory without an online list read",
+    "The original browser save ID replays through the real People handler with one player, receipt and audit",
+    "A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row",
     "Logout removes prepared coverage from the normal offline route before another verified preparation",
     "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
     "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
@@ -109,11 +115,12 @@
       "requestBytes": 3305,
       "responseBytes": 15442
     },
+    "peopleUnauthorizedCreateDenied": true,
     "localDirectory": {
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 17.089584000001196,
+      "elapsedMs": 15.785625000000437,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -158,7 +165,34 @@
           "page",
           "page",
           "complete"
-        ]
+        ],
+        "realPeopleHandler": true,
+        "originalIdForwarded": true,
+        "replay": {
+          "sameResult": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1
+        },
+        "lostReply": {
+          "peopleCalls": [
+            "candidates",
+            "create",
+            "reconcile",
+            "profile"
+          ],
+          "originalIdReconciled": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1,
+          "transferActions": [
+            "manifest",
+            "page",
+            "page",
+            "page",
+            "complete"
+          ]
+        }
       }
     },
     "capabilityCleanup": {
@@ -178,10 +212,10 @@
     }
   },
   "environment": {
-    "node": "v26.9.0",
+    "node": "v24.14.0",
     "platform": "darwin",
     "architecture": "arm64",
     "browser": "156.0.8078.4",
-    "scope": "Actual Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, online legacy read responses, limiter and PostgREST wire. No hosted data, physical device or latency percentile claim."
+    "scope": "Actual workspace/key and registration-scenario People Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, baseline legacy read responses, limiter and PostgREST wire. Registration create/candidates/profile/reconcile use real People handlers; browser save IDs reach canonical RPCs. No hosted data, physical device or latency percentile claim."
   }
 }

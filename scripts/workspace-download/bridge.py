@@ -13,6 +13,11 @@ literal = module['literal']
 TARGETS = {
     'x21_workspace_transfer_v1': ('a', 'device', 'ns', 'expected_subject', 'act', 'previous', 'month_anchor'),
     'x21_workspace_key_v1': ('a', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
+    'i2_people_v1': ('a', 'after_id', 'query'),
+    'i2_candidates_v1': ('a', 'display_name', 'after_id'),
+    'i2_profile_v1': ('a', 'player'),
+    'i2_register_v1': ('a', 'branch', 'op', 'display_name', 'contact', 'reviewed_revision', 'different_person'),
+    'i2_operation_v1': ('a', 'op'),
 }
 
 
@@ -29,8 +34,12 @@ def rpc(test, command):
     if args.get('previous') is not None and not isinstance(args['previous'], dict):
         raise ValueError('Invalid receipt')
     for field in fields:
-        if field != 'previous' and args[field] is not None and not isinstance(args[field], str):
+        if field not in ('previous', 'reviewed_revision', 'different_person') and args[field] is not None and not isinstance(args[field], str):
             raise ValueError('Invalid argument')
+    if 'reviewed_revision' in args and (type(args['reviewed_revision']) is not int or not 0 <= args['reviewed_revision'] <= 9007199254740991):
+        raise ValueError('Invalid revision')
+    if 'different_person' in args and type(args['different_person']) is not bool:
+        raise ValueError('Invalid duplicate decision')
     sql_args = []
     for field in fields:
         value = args[field]
@@ -38,6 +47,10 @@ def rpc(test, command):
             sql_args.append('null')
         elif field == 'previous':
             sql_args.append(literal(json.dumps(value)) + '::jsonb')
+        elif field == 'reviewed_revision':
+            sql_args.append(str(value))
+        elif field == 'different_person':
+            sql_args.append('true' if value else 'false')
         else:
             sql_args.append(literal(value))
     claims = json.dumps({'iss': 'https://immune-grizzly-7875.clerk.accounts.dev',
@@ -85,13 +98,16 @@ def execute(test, command):
         academy = literal(command['academy'])
         test.sql(f"update academy.academies set name='Synthetic changed academy' where id={academy}")
         return True
-    if action == 'register_player':
-        academy, branch, name = command.get('academy'), command.get('branch'), command.get('name')
-        if not all(isinstance(value, str) and value for value in (academy, branch, name)) or len(name) > 120:
-            raise ValueError('Invalid registration')
-        query = (f"select public.i2_register_v1({literal(academy)},{literal(branch)},"
-                 f"{literal(str(uuid.uuid4()))},{literal(name)},null,0,false)")
-        return json.loads(test.sql(query, 'user_owner'))
+    if action == 'registration_snapshot':
+        # A read-only observer of this disposable fixture, not an application API.
+        academy, op = str(uuid.UUID(command['academy'])), str(uuid.UUID(command['op']))
+        a, original = literal(academy), literal(op)
+        query = ("select jsonb_build_object("
+                 f"'operations',(select count(*) from academy.people_operations where academy_id={a} and id={original}),"
+                 f"'audits',(select count(*) from academy.audit_events where academy_id={a} and action='player.register' and operation_id={original}),"
+                 f"'players',(select count(*) from academy.players where academy_id={a} and id=(select(result->>'player_id')::uuid from academy.people_operations where academy_id={a} and id={original})),"
+                 f"'result',(select result from academy.people_operations where academy_id={a} and id={original}))")
+        return json.loads(test.sql(query))
     if action in ('rename', 'suspend'):
         academy = command['academy']
         if not isinstance(academy, str):

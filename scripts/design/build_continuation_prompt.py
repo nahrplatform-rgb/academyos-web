@@ -8,6 +8,45 @@ TRACKER = ROOT / 'docs/06-delivery/experience-execution.csv'
 OUTPUT = ROOT / 'docs/06-delivery/continue-academyos.md'
 
 
+def validate_worker_assignments(items, rows, batches):
+    """Validate scoped work records without creating another execution queue."""
+    parents = {r['work_id']: r for r in rows}
+    catalog = {b['batch_id']: b for b in batches}
+    allowed = {'ready_for_handoff', 'running', 'submitted_for_review', 'in_review',
+               'reviewed_corrected', 'reviewed_retained', 'blocked', 'cancelled'}
+    seen, owned = set(), {}
+    for item in items:
+        task = item.get('task_id', '')
+        if not task.startswith('DS-') or not task[3:].isdigit() or task in seen:
+            raise ValueError('Worker task needs a stable unique DS ID')
+        seen.add(task)
+        parent = parents.get(item.get('parent_work_id'))
+        batch = catalog.get(item.get('delivery_batch'))
+        if parent is None or batch is None or batch['execution_work_id'] != item['parent_work_id']:
+            raise ValueError('Worker task must join its existing EX/batch')
+        if item.get('status') not in allowed or any(not str(value).strip() for value in item.values()):
+            raise ValueError('Worker task status/fields missing')
+        paths = [p.strip() for p in item['owned_write_paths'].split(';') if p.strip()]
+        for raw in paths + [item['brief']]:
+            path = Path(raw)
+            if path.is_absolute() or '..' in path.parts:
+                raise ValueError('Worker paths must stay in the repository')
+        if not (ROOT / item['brief']).is_file():
+            raise ValueError('Worker task brief missing')
+        if item['status'] == 'submitted_for_review' or item['status'].startswith('reviewed_'):
+            if not paths or any(not (ROOT / path).is_file() for path in paths):
+                raise ValueError('Submitted/reviewed worker task needs its actual output files')
+        if item['status'] in {'ready_for_handoff', 'running', 'submitted_for_review'}:
+            for path in paths:
+                if path in owned:
+                    raise ValueError('Worker output ownership overlaps')
+                owned[path] = task
+        evidence = item['review_evidence']
+        if item['status'].startswith('reviewed_') and (evidence == 'none_yet' or not (ROOT / evidence).is_file()):
+            raise ValueError('Reviewed worker task needs coordinator evidence')
+    return items
+
+
 def execution_route(rows):
     """Choose only an explicit tracker priority, never the first unfinished ID."""
     if not rows:
@@ -46,7 +85,7 @@ def execution_route(rows):
     return active, primary
 
 
-def render(rows, batches=None, outcomes=None):
+def render(rows, batches=None, outcomes=None, work_items=None):
     """Keep ready development independent of a deferred Owner release."""
     active, primary = execution_route(rows)
     if batches is None:
@@ -57,6 +96,10 @@ def render(rows, batches=None, outcomes=None):
     if batch_id not in catalog:
         raise ValueError(f'Current tracker has no known delivery batch: {batch_id}')
     batch = catalog[batch_id]
+    if work_items is None:
+        with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
+            work_items = list(csv.DictReader(stream))
+    validate_worker_assignments(work_items, rows, batches)
     if outcomes is None:
         with (ROOT / 'docs/06-delivery/master-plan-v2/product-outcomes.csv').open(newline='') as stream:
             outcomes = list(csv.DictReader(stream))
@@ -109,6 +152,8 @@ Owner-only promotions remain strict. Never promote, reassign live aliases or ope
 
 Use scripts for mechanical work and one bounded explicitly configured gpt-6.1-terra helper when worthwhile, maximum two with an explained independence benefit. No nested workers, duplicate work or shared-file/browser contention. Coordinator owns architecture/authority/sync/recovery/integration/providers. Record actual model/count/checks/repairs; unmeasured usage/savings stay unmeasured.
 
+Owner-requested DeepSeek work is recorded in `docs/06-delivery/ai-work-items.csv`. Its scoped task briefs own only their declared outputs and do not create another current priority. Manual DeepSeek Harness handoff does not launch a native subagent or change the Terra default. Count external workers in the same cap; keep one default worker, no nested agents, no shared-file writes or independent publishing. The coordinator reviews evidence before integration. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding.
+
 """
     lines = [
         f"## Current priority — {active['work_id']}: {active['scope']}", '',
@@ -129,6 +174,11 @@ Use scripts for mechanical work and one bounded explicitly configured gpt-6.1-te
               ('hosted_status', 'Hosted verification'), ('owner_acceptance_status', 'Owner acceptance'),
               ('independent_security_status', 'Independent security')]
     lines.extend(f"- {label}: {active[key]}" for key, label in fields)
+    lines += ['', '## Registered scoped worker work', '',
+              'Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole current priority. A ready handoff is not a running worker or an accepted implementation.', '']
+    for item in work_items:
+        if item['parent_work_id'] == active['work_id'] and item['delivery_batch'] == batch_id:
+            lines.append(f"- **{item['task_id']}** ({item['status']}): {item['goal']}. Brief: `{item['brief']}`. Review: `{item['review_evidence']}`. Outputs stay within its recorded ownership; coordinator controls shared updates.")
     lines += ['', '## Coherent batch catalog', '']
     for item in batches:
         lines.append(f"- **{item['batch_id']} — {item['outcome']}**. Tracker family: {item['execution_work_id']}; dependencies: {item['depends_on_batches']}. Scope/exit/policy: `docs/06-delivery/master-plan-v2/delivery-batches.csv`.")

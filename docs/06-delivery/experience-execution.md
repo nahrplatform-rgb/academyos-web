@@ -1,5 +1,7 @@
 # Connected experience execution guide
 
+Scoped external work is recorded in [AI work items](ai-work-items.csv), with [DS-001 review/corrections](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) and the [DS-002 handoff](../07-handoff/deepseek-task-DS-002.md). These are child outputs of EX-07 / MP-B01, not another current-priority queue. The coordinator reviews returned files before updating this tracker or adopting copy; a ready manual handoff launches nothing and does not block independent work.
+
 ## Version2 connected-batch execution —7November2026
 
 [Canonical master plan v2](master-plan-v2/README.md). The new master package is the planning entry point. The batch catalog defines outcomes/dependencies/exit evidence; experience-execution.csv remains the sole current-status/priority owner. Existing EX-01–16 history is preserved; queued EX-17–29 map larger future outcomes. Current EX-07 maps MP-B01 Owner day. development_next_action is separate from release_follow_up: the deferred1e68403 promotion remains recorded without freezing ready independent work. The generated continuation reads these fields and must not hand-copy a conflicting status queue.
