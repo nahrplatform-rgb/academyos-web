@@ -10,6 +10,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 const root = resolve(import.meta.dirname, '../..');
 const evidence = join(root, 'docs/07-handoff/evidence/owner-working-day-next-2026-11-04.json');
 const sources = [
+  'apps/web/src/lib/experience-format.ts',
   'scripts/working-day/owner_fixture.mjs', 'scripts/working-day/owner-register.tsx',
   'scripts/working-day/owner_db.py', 'scripts/working-day/test_owner_next.mjs',
   'scripts/experience-projections/test_boundary.py', 'scripts/offline-register/dispatch_bridge.py',
@@ -81,7 +82,7 @@ try {
   await page.waitForURL(origin+calendarHref);
   const published = page.locator(`[data-occurrence="${data.program}:${first.day}"]`).filter({hasText:'Published'});
   await expect(published).toBeVisible({timeout:10000});
-  const period = await page.getByLabel('First visible date',{exact:true}).inputValue();
+  const period = await page.getByLabel('Go to date',{exact:true}).inputValue();
   measure('calendarMs',start);
   start=now();
   await published.click();
@@ -92,7 +93,7 @@ try {
   await button('Back to calendar').click();
   await page.waitForURL(url=>url.pathname===base+'/calendar');
   await expect(published).toHaveAttribute('aria-pressed','true');
-  await expect(page.getByLabel('First visible date',{exact:true})).toHaveValue(period);
+  await expect(page.getByLabel('Go to date',{exact:true})).toHaveValue(period);
   await link('Open this date').click();
   await expect(link('Open attendance')).toHaveAttribute('href',firstPath);
   const beforeEntry=state.events.length;

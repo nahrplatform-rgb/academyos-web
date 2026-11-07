@@ -24,10 +24,12 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "decd8728d7f5de525136d5d00b50aafde2153c0eec33be0ac4af8a51012c9a12",
+    "scripts/workspace-download/test_transport.mjs": "342f65d85115e82815537035c0eb5587a190f8c9675e82a50110ee18e34918d6",
     "scripts/workspace-download/bridge.py": "afb9f8dfb482ea5397f5c12f66c8ec2985565b2ab3925caf7d30476c3a127a0c",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "8dacb408306ce8e7aec3b405c187a098fd5d26442f2f924291107abad619842d",
+    "scripts/workspace-download/normal_workspace.mjs": "7323cc8c3923909c559e8b2285ce444fde94231cc091ae7c5bf8e7c0f39621df",
+    "scripts/verification/web-build.mjs": "44beda1bfb838f5149ef84942f3033b736639a721a6f4bc8b34a3caaa13503ca",
+    "package.json": "7229c534ef4cc67947312f268402721ce84e0a82ac4671c3435e8f7ba82dfcc3",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
     "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
     "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
@@ -120,7 +122,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 15.93670899999961,
+      "elapsedMs": 16.012415999999575,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -193,6 +195,11 @@
             "complete"
           ]
         }
+      },
+      "compiledBuild": {
+        "node": "v24.14.0",
+        "sourceHash": "39707b3012476fde0494734ac57ed537dc26e54a6ece0b6459e096b10149a794",
+        "artifactHash": "06cecb0ead5b6aa5ed10473f06c3ba45cb415c8baa58acdeccca20d3657ba1c7"
       }
     },
     "capabilityCleanup": {

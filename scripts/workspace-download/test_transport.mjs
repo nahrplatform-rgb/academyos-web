@@ -13,6 +13,7 @@ import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
+import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 import {checkCapabilityCleanup} from './capability_cleanup.mjs';
 import {checkStartupResume} from './startup_resume.mjs';
 import {checkPublicShellSpa} from './public_shell_spa.mjs';
@@ -37,6 +38,7 @@ const inputs=[
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
   'scripts/workspace-download/normal_workspace.mjs',
+  'scripts/verification/web-build.mjs','package.json',
   'scripts/workspace-download/capability_cleanup.mjs',
   'scripts/workspace-download/startup_resume.mjs',
   'scripts/workspace-download/public_shell_spa.mjs',
@@ -55,6 +57,8 @@ const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
+  assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
+    (await assertCurrentWebBuild(root)).sourceHash,'Recorded offline UI must belong to the current compiled source');
   assert.ok(receipt.checks.length>=53);
   const registration=receipt.metrics.normalWorkspace.postRegistration;
   assert.equal(registration.realPeopleHandler,true);
@@ -694,6 +698,7 @@ try{
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
     profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,rpcCalls:state.calls,db,pass});
+  metrics.normalWorkspace.compiledBuild=normal.buildProof;
   console.log('NORMAL_WORKSPACE_METRICS '+JSON.stringify(metrics.normalWorkspace));
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await checkStartupResume(root,pass);

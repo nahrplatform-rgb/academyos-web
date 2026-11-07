@@ -6,10 +6,12 @@ import {build} from 'esbuild';
 import {expect,chromium} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 
 const asset='/_next/static/workspace-fixture.js';
 const shell='/prepared-workspace';
 export async function normalWorkspaceFixture(root, fixture, options={}) {
+  const buildProof=await assertCurrentWebBuild(root);
   let realPeople=false, loseCreateReply=false;
   const registrations=[];
   const output=await build({stdin:{contents:`
@@ -42,6 +44,7 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
   const context={academy_name:'Synthetic online academy',branch_id:fixture.branch,branch_name:'Synthetic online branch',
     academy_id:fixture.academy,timezone:'Africa/Cairo',today:'2099-11-01'};
   return {
+    buildProof,
     calls,
     registrations,
     useRealPeople(value=true){realPeople=value;},
@@ -337,7 +340,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     assert.equal(ui.calls.length,offlineStart.reads);
     assert.equal(transferCalls.length,offlineStart.transfers);
     await openOffline(page,scope('en','calendar?anchor=2099-08-01'));
-    await expect(page.getByText('This period has not been prepared on this device.',{exact:false})).toBeVisible();
+    await expect(page.getByText('This period is not on this device yet. Connect to prepare it.',{exact:true})).toBeVisible();
     assert.equal(requests.slice(offlineStart.attempted).filter(url=>new URL(url).pathname.startsWith('/api/')).length,0);
     const offlineRoutePayloadRequests=requests.slice(offlineStart.attempted).filter(url=>new URL(url).searchParams.has('_rsc')).length;
     pass('Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates');

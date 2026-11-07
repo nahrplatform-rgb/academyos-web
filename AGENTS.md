@@ -87,6 +87,7 @@ The Owner explicitly performs deployment promotions. Agents may prepare/test/com
 - Use meaningful tests appropriate to changed behavior, including relevant negative access, concurrency and recovery cases. Do not remove assertions, weaken policy or alter expected business results merely to make a test pass.
 - Follow [security journey gates](docs/04-engineering/journey-security-review.md). A green foundation workflow is not a complete security review or proof of every journey.
 - Run relevant existing checks and documentation link/CSV validation when those artifacts change. Record skipped, failed or unavailable evidence honestly. Repeat checks when changes or unresolved failures justify it.
+- For tests that consume root `.next` public HTML/chunks, run root `npm run build` first and retain its compiled-source/asset receipt. `scripts/verification/web-build.mjs --check` and the workspace fixture reject missing, stale or mixed builds; a source-only receipt hash is not compiled-runtime proof. Do not bypass this guard, hand-edit a receipt or reuse older assets to satisfy an outdated label. See the 8 November correction in the [MP-B01 checkpoint](docs/07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md).
 - Report changed behavior, why, evidence, limitations and remaining decisions. Separate design, implementation, local tests, hosted verification, deployment and owner acceptance.
 - Update contracts, traceability and handoff with actual results. No evidence fabrication, unsupported completion claim or silent scope retirement.
 

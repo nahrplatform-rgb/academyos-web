@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "npm run dev --workspace @academyos/web",
-    "build": "npm run build --workspace @academyos/web",
+    "build": "node scripts/verification/web-build.mjs --build",
     "start": "npm run start --workspace @academyos/web",
     "typecheck": "npm run typecheck --workspace @academyos/web",
     "lint": "npm run lint --workspace @academyos/web",

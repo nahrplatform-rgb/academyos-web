@@ -22,6 +22,8 @@ Existing required CI assertions and public-repository workflow protections remai
 
 Do not postpone discovery of a broken permission, atomic write, crypto/key transition, migration or original-operation boundary until after many dependent changes. These checks stay close to the edit. Once unchanged checks pass, repeat them only for a new change, failure or unresolved risk. A broad regression at the checkpoint is still required where the source release gate requires it.
 
+For a harness consuming root `.next` HTML/chunks, first run root `npm run build`. The build wrapper records unchanged-before/after source hashes and compiled public-shell/static-asset hashes; the consuming fixture rejects a missing, stale or mixed build. The four negative/freshness checks run in the existing CI traceability step. Source-only receipt freshness cannot certify compiled assets. The [8 November MP-B01 correction](../../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md#8-november-corrected-compiled-runtime-evidence) records the observed mixed-build gap and repair. This adds no second build to a successful CI run and is not a signed security/release attestation.
+
 ## Pending release is not the whole development queue
 
 The Owner deferred `1e68403` promotion. Record exact source/CI/candidate and pending hosted proof in its existing receipt and tracker `release_follow_up`. The separate `development_next_action` selects ready independent work. Ordinary continuation must not repeat the promotion request as its only action or operate the release UI itself.

@@ -60,7 +60,9 @@
     "production_build_types_lint": "passed",
     "actual_next_navigation": "passed;EN/AR internal documents0,dirty guards,selection and Back/Forward",
     "factual_review": "16capture suites,static entry,factual build/offline tool passed;inventory regeneration follows final tracking-only update",
-    "structural": "master with actual PYSA path/line checks;implementation;execution;17continuation tests;source-bound transport/startup/normal-Attendance freshness pass"
+    "structural": "master with actual PYSA path/line checks;implementation;execution;17continuation tests;source-bound transport/startup/normal-Attendance freshness pass",
+    "working_day": 8,
+    "compiled_build_guard": 4
   },
   "request_limits": {
     "canonical_people_directory_resume": 1,
@@ -77,5 +79,17 @@
     "No native Arabic or screen-reader acceptance",
     "No production, new data/command/field policy, service-quota saving or performance percentile claim",
     "Parent NR and EX/MP completion remain open;Owner-only promotion separate"
-  ]
+  ],
+  "compiled_runtime_correction": {
+    "failed_candidate": "93750850b85ebf67ae33e0cd78fe7b156bd29f39",
+    "failed_ci": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42417981253",
+    "failure": "Cold offline public shell displayed current uncovered-period copy but assertion expected old copy;local prior run mixed older compiled shell with current bundled source",
+    "correction": "Fresh root build with unchanged-input and artifact hashes;fixture and receipt checks reject missing/stale/mixed build;four negative/match tests;53transfer and8working-day cases rerun",
+    "product_changes": "none beyond9375085;verification tooling/source receipt correction",
+    "compiled_proof": {
+      "node": "v24.14.0",
+      "sourceHash": "39707b3012476fde0494734ac57ed537dc26e54a6ece0b6459e096b10149a794",
+      "artifactHash": "06cecb0ead5b6aa5ed10473f06c3ba45cb415c8baa58acdeccca20d3657ba1c7"
+    }
+  }
 }

@@ -30,6 +30,8 @@ jobs:
       - run: npm test
       - name: Check implementation and experience execution traceability
         run: |
+          node --test scripts/verification/web-build.test.mjs
+          node scripts/verification/web-build.mjs --check
           python3 scripts/design/validate_implementation_register.py
           python3 scripts/design/validate_experience_execution.py
       - name: Check living experience-review freshness
