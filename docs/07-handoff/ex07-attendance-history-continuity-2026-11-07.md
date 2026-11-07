@@ -40,4 +40,20 @@ The first extended actual-Next run exposed a test-fixture omission: `owner_db.py
 
 ## Status
 
-Design requirement accepted by existing continuity approvals. Baseline staging d74b027 is independently verified for locale/focus and retained marks. The bounded history fix is implemented and locally verified; exact-source CI, new Owner promotion and hosted history proof remain pending. No finding, whole redesign, installed matrix or Owner acceptance is closed. Rollback changes only presentation and restores the known mask; records/keys/originals remain untouched.
+Design requirement accepted by existing continuity approvals. Baseline staging d74b027 is independently verified for locale/focus and retained marks. The bounded history fix is implemented and locally verified; exact-source CI now passes53steps; Owner promotion and scoped live history checks are now independently verified below. No finding, whole redesign, installed matrix or Owner acceptance is closed. Rollback changes only presentation and restores the known mask; records/keys/originals remain untouched.
+
+
+## Release handoff
+
+Code `68b6575b509698c9f380b6a5f82ea362e1f6077e` is pushed. [Exact candidate deployment](https://vercel.com/academy-os2/academyos-web/C1uXVMut7W1g5K41yoG1FArkpnGK), `dpl_C1uXVMut7W1g5K41yoG1FArkpnGK`, is Ready for that exact source. [CI42310041412](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42310041412), job128208926047, passed all53steps for this exact source. The Owner promoted68b6575; canonical staging now independently resolves Ready to `dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds` for that exact source. Agents must not promote or reassign its alias. Request Owner promotion only after exact-source full CI and preview readiness; verify released source/history behavior afterward. Post-push status metadata remains local until a coordinated source checkpoint, avoiding another duplicate documentation-only full run.
+
+The push printed an existing high-severity default-branch Dependabot notice. Read-only inspection identified GHSA-vfj7-8cjw-p6xm for `braces`; the [official advisory](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) is withdrawn at2026-10-23T12:53:02Z and states it is not practically exploitable. The repository alert is still open. No alert dismissal, dependency update, provider change or independent security approval was inferred or performed.
+
+Read-only directory preflight on live d74b027: the same Owner profile shows4canonical online players,while Device offers preparation rather than an active Players/Calendar dataset. It therefore does not reproduce or close the historical post-registration local-directory issue. No new registration,device enrollment,grant,storage reset or speculative refresh was added. Reproduce that case in an approved active dataset before changing the existing `device.refresh()` path.
+
+
+## Scoped hosted verification
+
+[Hosted receipt](evidence/ex07-attendance-history/hosted-68b6575.json) records EN/AR history on the existing Owner's2-player,closed register. Temporary2.5s target-tab latency showed the specific loading status while both rows,search Synthetic,filter Saved and selected player remained. Each action completed200with1history/0roster reads; no new document. Arabic keptlang/dir; Back retained query/filter/marks and restored the originating Details button with0API/document requests. Network overrides were restored in finally. No operating write,key reset,grant or credential step occurred. [Live English](evidence/ex07-attendance-history/hosted-68b6575-loading-en.jpg) and [live Arabic](evidence/ex07-attendance-history/hosted-68b6575-loading-ar.jpg) show that in-flight state,not a simulation.
+
+This closes only the declared scoped history-read implementation/rollout checkpoint.18row420px/dirty-choice/negative-case proofs remain local; current hosted scroll is0. Broader resume/initial-handoff/post-save loading,private original/installed cases,Owner acceptance and independent review remain separate. Continue the bounded resume-read packet; no repeated68b6575 promotion is needed.

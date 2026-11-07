@@ -183,10 +183,36 @@
     "savings": "unmeasured"
   },
   "release": {
-    "codeCommit": null,
-    "ci": "pending new code checkpoint",
-    "deployed": "d74b027 remains current;history fix not deployed",
-    "hosted": "pending",
-    "ownerAcceptance": "pending"
+    "codeCommit": "68b6575b509698c9f380b6a5f82ea362e1f6077e",
+    "ci": "passed;53/53steps",
+    "deployed": "Owner-promoted;independently verified on canonical staging",
+    "hosted": "Scoped EN/AR delayed history and Back passed",
+    "ownerAcceptance": "pending",
+    "pushed": true,
+    "ciRun": 42310041412,
+    "ciJob": 128208926047,
+    "preview": "dpl_C1uXVMut7W1g5K41yoG1FArkpnGK",
+    "previewState": "READY",
+    "previewUrl": "https://vercel.com/academy-os2/academyos-web/C1uXVMut7W1g5K41yoG1FArkpnGK",
+    "pushNotice": {
+      "repoAlert": 1,
+      "ghsa": "GHSA-vfj7-8cjw-p6xm",
+      "notice": "GitHub push emitted1high default-branch advisory",
+      "verified": "GitHub official advisory metadata says withdrawn2026-10-23T12:53:02Z;not a practically exploitable vulnerability per publisher",
+      "source": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+      "action": "Read-only inspection;no dependency change or alert dismissal;not independent review"
+    },
+    "ciUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42310041412",
+    "promotion": "Owner performed;independently verified",
+    "liveDeployment": "dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds",
+    "hostedEvidence": "hosted-68b6575.json"
+  },
+  "directoryPreflight": {
+    "source": "d74b027 live",
+    "actor": "Same existing Chrome Owner profile",
+    "result": "4canonical online player rows;Device menu says Prepare Players and Calendar on this personal device",
+    "localDatasetPrepared": false,
+    "operatingWrites": 0,
+    "conclusion": "This sample cannot reproduce or close earlier local post-registration freshness finding;no refresh,grant or code change added"
   }
 }

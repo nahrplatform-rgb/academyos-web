@@ -1,0 +1,70 @@
+{
+  "source": "68b6575b509698c9f380b6a5f82ea362e1f6077e",
+  "deployment": "dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds",
+  "canonicalHost": "staging.academy.nahr.dev",
+  "state": "READY",
+  "actor": "Existing Chrome Hieu Academy Owner;same profile,fresh regular tab",
+  "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+  "event": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+  "scenario": "Read-only2-player closed register;EN andAR history under temporary2.5s added latency",
+  "during": {
+    "en": {
+      "rows": 2,
+      "query": "Synthetic",
+      "filter": "saved",
+      "selected": "Synthetic Registration Demo",
+      "paneScroll": 0,
+      "historyLoading": true
+    },
+    "ar": {
+      "rows": 2,
+      "query": "Synthetic",
+      "filter": "saved",
+      "selected": "Synthetic Registration Demo",
+      "lang": "ar",
+      "dir": "rtl",
+      "historyLoading": true
+    }
+  },
+  "after": {
+    "rows": 2,
+    "query": "Synthetic",
+    "filter": "saved",
+    "selected": "Synthetic Registration Demo",
+    "historyItems": 1,
+    "retainedMarks": "1Present,1Absent,0Unmarked,2saved"
+  },
+  "requests": {
+    "en": {
+      "history": 1,
+      "status": 200,
+      "roster": 0
+    },
+    "ar": {
+      "history": 1,
+      "status": 200,
+      "roster": 0
+    },
+    "back": {
+      "api": 0,
+      "document": 0,
+      "focus": "Details for Synthetic Registration Demo inArabic"
+    },
+    "documentAcrossHistoryChecks": 0,
+    "truncated": false,
+    "hasMore": false,
+    "limits": "Starts after initial roster/selection;not whole-visit or provider SQL/Redis accounting"
+  },
+  "networkOverride": "Restored in finally after each check;online,0added latency,unlimited throughput",
+  "captures": [
+    "hosted-68b6575-loading-en.jpg",
+    "hosted-68b6575-loading-ar.jpg"
+  ],
+  "operatingWrites": 0,
+  "limits": [
+    "No new unsaved marks on hosted read-only register;dirty-choice proof remains local",
+    "Hosted center scroll0;18-row420px continuity remains local",
+    "No new denial/account mutation/fresh-original/installed-device/percentile proof",
+    "Independent review deferred,not performed;Owner acceptance separate"
+  ]
+}

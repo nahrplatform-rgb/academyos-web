@@ -16,6 +16,8 @@
     "An ordinary-route401 also preserves the prepared replica while actual authenticated role denial still masks it",
     "Two normal tabs share dispatch leadership; confirmed-save read failure stays confirmed and retry reads only",
     "A held history read keeps the authorized online roster, query, player and scroll while loading and issues no roster read",
+    "A clean canonical resume burst keeps the checked roster and context while one current signed roster read finishes",
+    "An independently expired canonical read session masks the task without treating401asOwnerloss or retiring the prepared register",
     "Saved-mark history/correction handoff uses the existing current online task and returns to the same prepared register",
     "Current Owner loss on resume masks the prepared roster and keeps the canonical refusal visible",
     "A capture made while locally eligible retains its original for review when the server recording deadline expires before sync",
@@ -51,10 +53,10 @@
     "concurrentConfirmedSends": 1
   },
   "hashes": {
-    "scripts/working-day/test_normal_attendance.mjs": "a42e92e994458a2ac223d0cb9ee65985bcbd6f733398b174ab9e425e512af1af",
+    "scripts/working-day/test_normal_attendance.mjs": "340943583c3060199a3d8d7214e20f438d238489ad78300d84e64a84882a8dda",
     "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",
     "scripts/working-day/owner_db.py": "7be97a6d8a1546206cea3728f7d78bea90daa48120ae31387b9b7d439a4e8aad",
-    "apps/web/src/components/attendance-workspace.tsx": "9edf8fc1d95444aa0d883a7bf59fff1774d73a4b90b53ec61afe5c7ee941c26f",
+    "apps/web/src/components/attendance-workspace.tsx": "de8e4d472eb46338bec4b3fde5519d8d485863f6373c7f422c19d121d3e34c17",
     "apps/web/src/components/prepared-register-panel.tsx": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",

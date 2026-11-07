@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "reactMode": "production",
+  "saves": 4,
+  "scope": "Actual product React, synthetic identity/HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode one initial read",
+    "bounded load preserves selected set",
+    "exact multi-player review/cancel focus",
+    "lost reply reload original reconcile once",
+    "Trainer cannot replace mark",
+    "Owner required reason and retained history",
+    "stale selection retained; no partial success",
+    "not-committed original fence",
+    "confirmed write failed read hides roster",
+    "EN/AR320/360/926/1440 no overflow",
+    "unexpected receipt reconciliation",
+    "closed window read only",
+    "denial clears private state",
+    "account remount",
+    "held EN/AR history retains roster/search/selection/scroll/dirty choices with1history0roster reads",
+    "history unavailable retry retains task",
+    "history denial clears private task without a write",
+    "held EN/AR clean resume retains checked task and coalesces focus/online",
+    "dirty resume sends nothing;changed result applied",
+    "failed or denied resume retains existing mask/retry",
+    "canonical401write retains exact original reference and draft until reconciliation"
+  ],
+  "errors": []
+}

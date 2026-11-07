@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**7 November checkpoint:** Owner-promoted d74b027 is independently verified for EN/AR fallback and initiator focus; keys and saved-work boundaries remain. Continue the bounded [Attendance history-loading packet](../07-handoff/ex07-attendance-history-continuity-2026-11-07.md), not another promotion of that build. It retains the canonical online handoff and denial/original fences; broader findings and Owner acceptance remain open. The tracker owns current routing.
+**7 November checkpoint:** Owner-promoted68b6575 is independently verified for EN/AR delayed history and retained task/focus;see the retained history receipt. Continue the bounded [Attendance resume/auth packet](../07-handoff/ex07-attendance-resume-continuity-2026-11-07.md). It preserves current server checks,dirty/unknown and real-denial fences while separating401from Owner loss. Broader findings and Owner acceptance remain open;the tracker owns exact CI/promotion/hosted routing.
 
 **Current EX-07 repair:** [Cold-session implementation/local evidence](../07-handoff/ex07-cold-session-repair-2026-11-06.md) replaces the old repair-not-started next action. It does not replace the historical hosted401 result with success. Follow the tracker for exact CI/build/provider-access/Owner-promotion and real-provider next steps;retain distinct key-limit and post-registration continuity work.
 

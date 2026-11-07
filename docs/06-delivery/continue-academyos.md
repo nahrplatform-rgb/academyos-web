@@ -46,11 +46,11 @@ After every checkpoint, update the tracker/evidence and affected plan/handoff, m
 
 ## Current priority — EX-07: Remaining Operations adoption and app-wide workflow continuity
 
-Next action: Finish factual/document checks and exact-source history-loading CI;Owner controls any later promotion. Verify new source and held/ordinary history behavior on staging separately,preserving keys/originals. Initial canonical handoff and focus/post-save masks remain scoped follow-ons;then reproduce directory freshness before changing its existing refresh call. Do not repeat d74promotion.
+Next action: Commit/push current resume/auth source with completed local/factual evidence;follow exact-source CI and Ready candidate. Owner controls its promotion;verify actual source and delayed focus/online behavior separately. Keep real expired-Clerk/installed and initial-handoff/post-save gaps explicit. Then reproduce directory freshness in an approved active dataset,not the inactive preflight context. Do not repeat68b6575 promotion.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read: `docs/07-handoff/ex07-attendance-history-continuity-2026-11-07.md`
+Read: `docs/07-handoff/ex07-attendance-resume-continuity-2026-11-07.md`
 
 ## Ordered primary checkpoints
 
@@ -231,14 +231,14 @@ Dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar fo
 Findings: NR02; NR03; NR07; NR14; NR15; NR16; NR17.
 Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review..
 
-- Implementation: d74binding/fallback/ARreturn retained;secondary history read now retains checked roster and targeted loading;no domain/storage/authority change
-- Local checks: 21normal,8startup,8workingday passed;EN/AR1440/390 held-history UI production/development with unchanged node/choices,1history0roster;failure/retry/denial passed;build/types/lint passed;16capture groups and8welcome refreshed;1205frame factual review/freshness and canonical/execution/PWA validators passed
-- Deployment: Owner-promoted d74b027 independently Ready on dpl_5f4N6UAFUZSZZxtPBfKGPaWq7NF7;CI42305821120 passed53steps;no promotion pending for that source
-- Hosted verification: d74 EN/AR preparation return retains locale/RTL,opener focus and both saved marks;observed return interval0APIresponses;current history loading still masks roster;live server409/freshoriginal/installed gaps retained
+- Implementation: 68b6575 history live;clean canonical resume now retains checked task in flight;401masked as sign-in required without false slot retirement;actual denial/unknown fences preserved
+- Local checks: 23normal,8startup,8workingday passed;UI prod/dev EN/AR1440/390 selected/unselected held resume,dirty/failure/denial/auth and original-reference checks passed;build/types/lint and16capture groups/8welcome passed;factual1224frames/1213transitions,review/freshness,canonical/execution/PWA validators passed
+- Deployment: Owner-promoted68b6575 independently Ready on dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds;CI42310041412 passed53steps;no promotion pending for that source
+- Hosted verification: 68b6575 EN/AR delayed history retains2rows/query/filter/selection;1history0roster per action;Back0requests/restoredfocus;no operating writes. Dirty/nonzero-scroll/denial proofs local;broader handoff/resume/save/installed gaps remain
 - Owner acceptance: per-journey approvals; not full redesign
 - Independent security: Deferred by Owner4November for currently authorized synthetic staging; nonblocking, not performed; production/real-data authority separate
-- Next action: Finish factual/document checks and exact-source history-loading CI;Owner controls any later promotion. Verify new source and held/ordinary history behavior on staging separately,preserving keys/originals. Initial canonical handoff and focus/post-save masks remain scoped follow-ons;then reproduce directory freshness before changing its existing refresh call. Do not repeat d74promotion.
-- Evidence: docs/07-handoff/ex07-attendance-history-continuity-2026-11-07.md
+- Next action: Commit/push current resume/auth source with completed local/factual evidence;follow exact-source CI and Ready candidate. Owner controls its promotion;verify actual source and delayed focus/online behavior separately. Keep real expired-Clerk/installed and initial-handoff/post-save gaps explicit. Then reproduce directory freshness in an approved active dataset,not the inactive preflight context. Do not repeat68b6575 promotion.
+- Evidence: docs/07-handoff/ex07-attendance-resume-continuity-2026-11-07.md
 
 ### EX-05 — Rate-limit amplification and relational query work
 

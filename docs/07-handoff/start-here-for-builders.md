@@ -1,6 +1,6 @@
 # Start here for builders
 
-**7 November checkpoint:** Owner-promoted d74b027 is independently verified for EN/AR fallback and initiator focus; keys and saved-work boundaries remain. Continue the bounded [Attendance history-loading packet](ex07-attendance-history-continuity-2026-11-07.md), not another promotion of that build. It retains the canonical online handoff and denial/original fences; broader findings and Owner acceptance remain open. The tracker owns current routing.
+**7 November checkpoint:** Owner-promoted68b6575 is independently verified for EN/AR delayed history and retained task/focus;see the retained history receipt. Continue the bounded [Attendance resume/auth packet](ex07-attendance-resume-continuity-2026-11-07.md). It preserves current server checks,dirty/unknown and real-denial fences while separating401from Owner loss. Broader findings and Owner acceptance remain open;the tracker owns exact CI/promotion/hosted routing.
 
 **Latest EX-07 implementation:** Continue from [cold-session repair](ex07-cold-session-repair-2026-11-06.md),not another browser-profile or fixture-reset attempt. The source fix and17controlled cases now exist;finish exact-code release/provider evidence and Owner-only promotion before real-Clerk verification. Keep global registration-limit/online fallback and post-registration directory invalidation next. Do not repeat completed storage/role/PYSA/PRF work.
 
