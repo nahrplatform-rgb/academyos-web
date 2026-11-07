@@ -10,7 +10,7 @@
       "calendarRequests": [
         "owner_calendar"
       ],
-      "calendarActionableMs": 861,
+      "calendarActionableMs": 841,
       "syntheticDelayPerExperienceReadMs": 250,
       "planningRequests": [
         "read"

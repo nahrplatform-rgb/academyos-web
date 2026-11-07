@@ -62,7 +62,8 @@
     "factual_review": "16capture suites,static entry,factual build/offline tool passed;inventory regeneration follows final tracking-only update",
     "structural": "master with actual PYSA path/line checks;implementation;execution;17continuation tests;source-bound transport/startup/normal-Attendance freshness pass",
     "working_day": 8,
-    "compiled_build_guard": 4
+    "compiled_build_guard": 4,
+    "actual_next_ci_variant": "EX02_READ_OWNER_MEASURE=1 passed;2locales;one shared owner/no additional document throughHome-Calendar-date-return;current reads and identity masks;concurrent readersdeduplicate"
   },
   "request_limits": {
     "canonical_people_directory_resume": 1,
@@ -91,5 +92,22 @@
       "sourceHash": "39707b3012476fde0494734ac57ed537dc26e54a6ece0b6459e096b10149a794",
       "artifactHash": "06cecb0ead5b6aa5ed10473f06c3ba45cb415c8baa58acdeccca20d3657ba1c7"
     }
-  }
+  },
+  "ci_history": [
+    {
+      "commit": "9375085",
+      "run": 42417981253,
+      "status": "failed",
+      "step": "workspace transfer",
+      "cause": "outdated uncovered-period text plus earlier local mixed compiled/source evidence;corrected with source/artifact guard"
+    },
+    {
+      "commit": "641e9f5",
+      "run": 42419045300,
+      "status": "failed",
+      "step": "real Next read-owner variant",
+      "cause": "probe still used Home Reload current view label on Calendar;currentroute labels now exact;allidentity andrequest assertions kept",
+      "local_exact_variant": "passed after correction"
+    }
+  ]
 }

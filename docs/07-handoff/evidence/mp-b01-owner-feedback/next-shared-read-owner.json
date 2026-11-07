@@ -1,0 +1,195 @@
+{
+  "status": "passed",
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+    "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+    "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+    "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
+    "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "scope": "actual Next production layout/client components;fictional identity and read-only API;no hosted Clerk/DB/cost proof;no private disk or settled-result cache",
+  "cases": [
+    {
+      "locale": "en",
+      "steps": [
+        {
+          "label": "home",
+          "reads": [
+            "owner_home"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "calendar",
+          "reads": [
+            "owner_home",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "date",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "return",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "different-subject",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar",
+            "owner_current_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 2,
+            "unmounts": 1
+          }
+        },
+        {
+          "label": "explicit-current-read",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar",
+            "owner_current_calendar",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 2,
+            "unmounts": 1
+          }
+        }
+      ],
+      "controlledTwoConsumersReadStarts": 1,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "steps": [
+        {
+          "label": "home",
+          "reads": [
+            "owner_home"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "calendar",
+          "reads": [
+            "owner_home",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "date",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "return",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 1,
+            "unmounts": 0
+          }
+        },
+        {
+          "label": "different-subject",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar",
+            "owner_current_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 2,
+            "unmounts": 1
+          }
+        },
+        {
+          "label": "explicit-current-read",
+          "reads": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "owner_calendar",
+            "owner_current_calendar",
+            "owner_calendar"
+          ],
+          "documents": 1,
+          "owner": {
+            "mounts": 2,
+            "unmounts": 1
+          }
+        }
+      ],
+      "controlledTwoConsumersReadStarts": 1,
+      "errors": []
+    }
+  ]
+}

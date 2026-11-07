@@ -149,7 +149,7 @@ try{
    const ar=locale==='ar',pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),reads=[],docs=[],faults=[];
    p.on('pageerror',e=>faults.push(e.message));p.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')docs.push(new URL(r.url()).pathname);if(r.url().includes('/api/'))reads.push(r.postDataJSON()?.action)});
    const base=`${origin}/${locale}/workspace/${academy}`,steps=[];
-   async function ready(label){await expect(p.getByRole('button',{name:ar?'إعادة تحميل العرض الحالي':'Reload current view',exact:true})).toBeEnabled();await expect(p.getByRole('status')).toHaveCount(0);await expect(p.locator('.experience-session')).toHaveCount(1);steps.push({label,reads:[...reads],documents:docs.length,owner:await p.evaluate(()=>({...window.__readOwnerProbe}))});}
+   async function ready(label){const calendar=new URL(p.url()).pathname.endsWith('/calendar');const name=calendar?(ar?'تحديث':'Refresh'):(ar?'إعادة تحميل العرض الحالي':'Reload current view');await expect(p.getByRole('button',{name,exact:true})).toBeEnabled();await expect(p.getByRole('status')).toHaveCount(0);await expect(p.locator('.experience-session')).toHaveCount(1);steps.push({label,reads:[...reads],documents:docs.length,owner:await p.evaluate(()=>({...window.__readOwnerProbe}))});}
    await p.goto(base+'/home');await ready('home');
    await p.getByRole('link',{name:ar?'فتح التقويم':'Open calendar',exact:true}).click();await p.waitForURL(/\/calendar/);await expect(p.getByRole('heading',{name:ar?'تقويم التدريب':'Training calendar',exact:true})).toBeVisible();await ready('calendar');
    await p.locator('.experience-session').click();await p.getByRole('link',{name:ar?'فتح هذا التاريخ':'Open this date',exact:true}).click();await expect(p.getByRole('button',{name:ar?'تخطيط هذا التاريخ':'Plan this date',exact:true})).toBeEnabled();steps.push({label:'date',reads:[...reads],documents:docs.length,owner:await p.evaluate(()=>({...window.__readOwnerProbe}))});
@@ -159,7 +159,7 @@ try{
    await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:false})));await expect(p.locator('.public-task')).toBeVisible();assert.equal(await p.locator('.experience-session').count(),0,'uncertain identity masks old private views');
    await expect.poll(()=>p.evaluate(()=>window.__readOwnerProbe.unmounts)).toBe(1);
    await p.evaluate(()=>window.dispatchEvent(new CustomEvent('fixture-identity',{detail:'user_second_synthetic'})));await ready('different-subject');assert.equal(steps.at(-1).owner.mounts,2);assert.equal(reads.length,5,'new identity checks current data once');
-   const before=reads.length;await p.getByRole('button',{name:ar?'إعادة تحميل العرض الحالي':'Reload current view',exact:true}).click();await ready('explicit-current-read');assert.equal(reads.length,before+1,'settled read is never a freshness/authority cache');
+   const before=reads.length;await p.getByRole('button',{name:ar?'تحديث':'Refresh',exact:true}).click();await ready('explicit-current-read');assert.equal(reads.length,before+1,'settled read is never a freshness/authority cache');
    await p.screenshot({path:join(evidence,`read-owner-calendar-${locale}.png`),fullPage:true});
    // Controlled same-resource consumers,not an allegation that current user routes render two tasks.
    await p.goto(base+'/read-probe');await expect(p.locator('.experience-session')).toHaveCount(2);assert.equal(reads.length,before+2,'two concurrent actual consumers share one current transport');
