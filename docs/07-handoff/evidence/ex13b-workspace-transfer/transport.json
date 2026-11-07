@@ -21,10 +21,10 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "0d3c9e6f82dcddbb279329032d7f3cb17af81ee720674c6fdf4cb43129c4903c",
-    "scripts/workspace-download/bridge.py": "bdb79af91b97568cc7e9ef16324cfbb8d17abd54ac62c1622120518a80ca34e1",
+    "scripts/workspace-download/test_transport.mjs": "f136336ca84c31556dbcdd27d694c40642ef396620ed262e8f92ef359c229b7e",
+    "scripts/workspace-download/bridge.py": "f5bb438b2b419a0cbe0575855000df60b95d605d36b049cfeab29590bace9f6f",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "2691ca829a5f65090cede0c4126714a93a19912d623287dad491f04404440c73",
+    "scripts/workspace-download/normal_workspace.mjs": "2100f47956ad88a376cc8212df8684d7fc0519e610156b7d9cc160c402b243c3",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
     "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
     "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
@@ -84,6 +84,7 @@
     "Same-tab offline Players retains its query and permitted summary through reload",
     "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
     "Reconnecting the offline document returns to verified online data and applies a changed player",
+    "A confirmed registration becomes discoverable from the prepared directory without an online list read",
     "Logout removes prepared coverage from the normal offline route before another verified preparation",
     "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
     "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
@@ -112,7 +113,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 14.605207999999948,
+      "elapsedMs": 17.089584000001196,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -144,7 +145,21 @@
       "nullGotoResponses": 0,
       "peopleViewRestored": true,
       "localLoadingFlashes": 0,
-      "calendarReconnectContext": true
+      "calendarReconnectContext": true,
+      "postRegistration": {
+        "peopleCalls": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "page",
+          "page",
+          "complete"
+        ]
+      }
     },
     "capabilityCleanup": {
       "workspaceRollbackPreservesRegister": true,
@@ -163,7 +178,7 @@
     }
   },
   "environment": {
-    "node": "v24.14.0",
+    "node": "v26.9.0",
     "platform": "darwin",
     "architecture": "arm64",
     "browser": "156.0.8078.4",

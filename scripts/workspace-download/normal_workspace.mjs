@@ -8,7 +8,9 @@ import {join} from 'node:path';
 
 const asset='/_next/static/workspace-fixture.js';
 const shell='/prepared-workspace';
-export async function normalWorkspaceFixture(root, fixture) {
+export async function normalWorkspaceFixture(root, fixture, options={}) {
+  const register=options.register??null;
+  const created=new Map();
   const output=await build({stdin:{contents:`
     import{createRoot}from'react-dom/client';
     import People from './apps/web/src/components/people-workspace';
@@ -61,10 +63,21 @@ export async function normalWorkspaceFixture(root, fixture) {
         for await(const chunk of req)chunks.push(chunk);
         const body=JSON.parse(Buffer.concat(chunks).toString());
         calls.push({path:url.pathname,action:body.action});
-        const data=url.pathname==='/api/people'
-          ?body.action==='profile'?{id:body.player,display_name:'Fictional full profile',branch_name:context.branch_name,
-              contact_email:'profile@example.invalid'}:{...context,items:[],revision:0,more:false}
-          :{context,as_of:new Date().toISOString(),anchor:context.today,total:0,items:[],more:false,next:null};
+        let data;
+        if(url.pathname==='/api/experience') {
+          data={context,as_of:new Date().toISOString(),anchor:context.today,total:0,items:[],more:false,next:null};
+        } else if(body.action==='create') {
+          if(!register){reply(JSON.stringify({error:'unavailable'}),{'content-type':'application/json'},503);return true;}
+          const result=await register(body.name);
+          created.set(result.player_id,body.name);
+          data={player_id:result.player_id,version:1};
+        } else if(body.action==='profile') {
+          data={id:body.player,display_name:created.get(body.player)??'Fictional full profile',
+            branch_name:context.branch_name,contact_email:'profile@example.invalid'};
+        } else {
+          data={...context,items:[...created].map(([id,display_name])=>({id,display_name,branch_name:context.branch_name})),
+            revision:created.size,more:false};
+        }
         reply(JSON.stringify({data}),{'content-type':'application/json'});return true;
       }
       if(url.pathname!==shell&&!/^\/(en|ar)\/workspace\/[a-f0-9-]+\/(players|calendar)$/.test(url.pathname))return false;
@@ -82,7 +95,7 @@ export async function normalWorkspaceFixture(root, fixture) {
 export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,db,pass}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[], navigationEvents=[];
-  let offlineShellNavigations=0, nullGotoResponses=0;
+  let offlineShellNavigations=0, nullGotoResponses=0, postRegistration=null;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
   const calendar=scope('ar','calendar?anchor=2099-11-01');
@@ -320,6 +333,37 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await expect(page.getByRole('button',{name:'Fictional renamed player',exact:true})).toBeVisible();
     pass('Reconnecting the offline document returns to verified online data and applies a changed player');
 
+    // Post-registration continuity: the saved player must become discoverable in
+    // the prepared directory through the existing collection revision protocol,
+    // without a second online directory read or a cleared protected store.
+    const registration='Synthetic new registration';
+    const beforeSave={reads:ui.calls.length,transfers:transferCalls.length};
+    await page.getByRole('button',{name:'Register player',exact:true}).click();
+    await page.getByLabel('Player display name (required)',{exact:true}).fill(registration);
+    await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
+    await expect.poll(async()=>(await page.getByRole('checkbox').count())+
+      (await page.getByRole('button',{name:'Save registration',exact:true}).count())).toBeGreaterThan(0);
+    if(await page.getByRole('checkbox').count()){
+      await page.getByRole('checkbox').check();
+      await page.getByRole('button',{name:'Review new registration',exact:true}).click();
+    }
+    await page.getByRole('button',{name:'Save registration',exact:true}).click();
+    await expect(page.getByText('Registration saved',{exact:true})).toBeVisible();
+    const afterSave=ui.calls.slice(beforeSave.reads).map(call=>call.action);
+    assert.deepEqual(afterSave,['candidates','create','profile'],
+      'a confirmed registration reads its own profile once after duplicate review');
+    await page.getByRole('button',{name:'Back to players',exact:true}).click();
+    await page.locator('#player-search').fill(registration);
+    await expect(page.getByRole('button',{name:registration,exact:true})).toBeVisible({timeout:20000});
+    assert.deepEqual(ui.calls.slice(beforeSave.reads).map(call=>call.action),afterSave,
+      'the prepared directory must not re-read the online list to show a confirmed registration');
+    const postSaveTransfers=transferCalls.slice(beforeSave.transfers).map(call=>call.action);
+    assert.equal(postSaveTransfers[0],'manifest');
+    assert.ok(postSaveTransfers.includes('complete'),
+      'the people collection must complete a replacement transfer after the registration');
+    postRegistration={peopleCalls:afterSave,transferActions:postSaveTransfers};
+    pass('A confirmed registration becomes discoverable from the prepared directory without an online list read');
+
     await page.evaluate(()=>window.clearTestAccount());
     ui.setNetworkAvailable(false);
     await browser.setOffline(true);
@@ -351,7 +395,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
       offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
-      peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true};
+      peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration};
   } catch (error) {
     console.error(JSON.stringify({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
       pageErrors,failedRequests:failedRequests.slice(-25),navigationEvents:navigationEvents.slice(-35)},null,2));

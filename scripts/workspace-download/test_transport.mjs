@@ -318,7 +318,8 @@ try{
   `,resolveDir:root},bundle:true,platform:'browser',write:false});
   const browserCalls=[], browserPageDatasets=[];
   const normalFixture=await db({action:'make',size:56,calendar:true,unregistered:true});
-  const normal=await normalWorkspaceFixture(root,normalFixture);
+  const normal=await normalWorkspaceFixture(root,normalFixture,{
+    register:name=>db({action:'register_player',academy:normalFixture.academy,branch:normalFixture.branch,name})});
   let intercept;
   server=createServer(async(req,res)=>{
     if(await normal.serve(req,res))return;

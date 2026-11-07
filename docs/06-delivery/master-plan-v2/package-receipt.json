@@ -45,10 +45,20 @@
     "execution_and_PWA": "passed with integrated master validator and12continuation tests",
     "master_plan_and_external_reference": "passed",
     "factual_refresh": "final inventory-only build and freshness passed;1224frames/1213transitions from unchanged source/capture pack;earlier offline review-tool test passed in same docs checkpoint",
-    "product_runtime_suites": "not rerun;product source unchanged;existing receipts retained",
+    "product_runtime_suites": "Not rerun locally for this docs-only change;the automatic GitHub workflow ran the existing full synthetic regression suite and passed all53steps for29293f0",
     "product_diff": "empty for apps/web,supabase,.github and package/lockfiles",
     "changed_markdown_links": "169new/changed relative links passed",
-    "preserved_canonical_cells": "30action rows,68screen rows and180requirement-link rows retain every pre-existing cell;only pointer column added"
+    "preserved_canonical_cells": "30action rows,68screen rows and180requirement-link rows retain every pre-existing cell;only pointer column added",
+    "remote_ci": {
+      "commit": "29293f0b39d9218c7e4b002e8ab92201a687ca94",
+      "run_id": 42368140849,
+      "job_id": 128390475290,
+      "conclusion": "success",
+      "passed_steps": 53,
+      "total_steps": 53,
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42368140849",
+      "limit": "Automated source/local fixture validation;not new hosted/installed/Owner acceptance or security closure"
+    }
   },
   "limits": [
     "103legacy page mappings are metadata-level;9page/import source inspections;not112semantic/runtime tests",
@@ -58,9 +68,17 @@
     "External human security review remains deferred/nonblocking/not performed",
     "68component-key matches are candidate navigation aids,not proven schema-to-control bindings;42traced Player create controls retain stronger source evidence"
   ],
-  "git": "Included in the canonical documentation/tooling checkpoint;consult Git history for exact SHA rather than self-embedding it. Product source remains anchored at1e68403;no promotion status changed.",
+  "git": "Canonical package/tooling29293f0 committed and pushed;post-push CI receipt/clarification saved locally for the next coherent batch to avoid another full run solely for its own result. Product source remains anchored at1e68403;Owner-deferred promotion unchanged.",
   "official_docs": "React Aria,TanStack Table,Playwright accessibility pages read;Supabase changelog markdown unavailable via web and direct read;no new Supabase API implemented",
   "handoff": "docs/07-handoff/master-plan-v2-checkpoint-2026-11-07.md",
   "owner_value_integration": "Explicit Owner ease/clarity/time/control/delegation and separate complete Platform business;12VAL outcomes linked to all15batches and50capability/300field maps;legacy finance critically simplified without retiring canonical outcomes",
-  "conversation_review": "source-conversation-review.md and source-conversation-receipt.json;12audit turns and9description turns within recorded output/inspection limits"
+  "conversation_review": "source-conversation-review.md and source-conversation-receipt.json;12audit turns and9description turns within recorded output/inspection limits",
+  "untriaged_notification": {
+    "source": "GitHub push response",
+    "target": "default branch Dependabot alert1",
+    "severity_reported": "high",
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+    "local_read_only_audit": "npm audit on this checkout reports 12 moderate, 0 high, 0 critical, 0 low across 580 dependencies (glob/minimatch chain via @sentry and typescript-eslint);the two results may describe different lockfiles or advisory severities and are not reconciled",
+    "status": "Reported and locally checked only;the provider alert detail was not authenticated,fetched or closed;no dependency change,workflow change or vulnerability claim"
+  }
 }

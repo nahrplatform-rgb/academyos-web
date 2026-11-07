@@ -4,6 +4,7 @@ import re
 import runpy
 import subprocess
 import sys
+import uuid
 from pathlib import Path
 
 module = runpy.run_path(str(Path(__file__).with_name('test_boundary.py')))
@@ -84,6 +85,13 @@ def execute(test, command):
         academy = literal(command['academy'])
         test.sql(f"update academy.academies set name='Synthetic changed academy' where id={academy}")
         return True
+    if action == 'register_player':
+        academy, branch, name = command.get('academy'), command.get('branch'), command.get('name')
+        if not all(isinstance(value, str) and value for value in (academy, branch, name)) or len(name) > 120:
+            raise ValueError('Invalid registration')
+        query = (f"select public.i2_register_v1({literal(academy)},{literal(branch)},"
+                 f"{literal(str(uuid.uuid4()))},{literal(name)},null,0,false)")
+        return json.loads(test.sql(query, 'user_owner'))
     if action in ('rename', 'suspend'):
         academy = command['academy']
         if not isinstance(academy, str):

@@ -52,7 +52,7 @@ Product value for this batch:
 
 ### Ready development action
 
-On the next implementation continuation, start MP-B01 as one connected Academy Owner working-day batch. Inspect Home/Calendar/Players/Attendance against the v2 source and PYSA inventories; baseline remaining initial, return and post-save reads, then refactor ready accepted continuity work with before/after evidence. Alongside that, prepare one rich Player create/edit/profile field/action/difference packet for genuinely new behavior. Link VAL-01/02/04/09 and justify minimum input and reduced Owner effort; simplify legacy machinery without dropping canonical business scope. Preserve current authority, local/sync, dirty input and unknown originals. Group connected changes before consolidated full checks, captures and release. Resolve only decisions that actually block the dependent command; this completed planning checkpoint changes documentation/tooling only.
+MP-Q01 answers unblock rich Player field/edit/archive/import work;continue ready MP-B01 initial-handoff and empty-directory continuity plus Operations density for Calendar/Players with before/after evidence;no new field or writer before that decision
 
 ### Separate release follow-up
 
@@ -60,7 +60,7 @@ Owner deferred checked1e68403 promotion;CI42335635286 passed53/53;candidate http
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
-Read current evidence: `docs/07-handoff/ex07-attendance-resume-continuity-2026-11-07.md`.
+Read current evidence: `docs/07-handoff/mp-b01-owner-day-continuity-2026-11-07.md`.
 
 Batch includes: Rich Player field/pipeline and grouped-profile contract;approved continuity repairs;Operations geometry;useful exact navigation;first install identity supporting work
 
@@ -71,8 +71,8 @@ Policy boundary: Prepare focused choices for newly sensitive fields/edit/archive
 ## Actual delivery status for the current family
 
 - Design: Full connected workflow design approved29October; later Operations selection/refinements reconciled4November: light default, Charcoal alternative, compact resizable panes and unified controls; new patterns get focused review.
-- Implementation: 68b6575 history live;clean canonical resume now retains checked task in flight;401masked as sign-in required without false slot retirement;actual denial/unknown fences preserved;7Nov canonical master-plan reconciliation added;no new product behavior implemented by that documentation checkpoint
-- Local checks: 23normal,8startup,8workingday passed;UI prod/dev EN/AR1440/390 selected/unselected held resume,dirty/failure/denial/auth and original-reference checks passed;build/types/lint and16capture groups/8welcome passed;factual1224frames/1213transitions,review/freshness,canonical/execution/PWA validators passed;master-plan-v2 documentation/generator/canonical/execution/PWA and12continuation checks passed;no new product runtime test in this checkpoint
+- Implementation: 68b6575 history live;clean canonical resume now retains checked task in flight;401 masked as sign-in required without false slot retirement;actual denial/unknown fences preserved;7Nov canonical master-plan reconciliation added;MP-B01 checkpoint adds no product behavior:post-registration prepared-People continuity regression (no hosted defect reproduced),measured post-save request path and the rich Player field/action packet awaiting MP-Q01
+- Local checks: 23normal,8startup,8workingday passed;UI prod/dev EN/AR1440/390 resume,dirty/failure/denial/auth and original-reference checks passed;build/types/lint and16capture groups/8welcome passed;factual1224frames/1213transitions and review/freshness/canonical/execution/PWA validators passed;MP-B01:50/50 workspace transport cases including new post-registration continuity,21/21 disposable PG17,101units,build/types/lint passed;new case not yet in a promoted/hosted source
 - Deployment: 68b6575 remains independently live/verified. New1e68403 pushed;CI42335635286 job128291808785 passed53/53;candidate dpl_6BjKoCCfrbt91CfvqRWNsuPCJ9EK independently Ready for exactSHA;Owner promotion pending
 - Hosted verification: 68b6575 EN/AR delayed history retains2rows/query/filter/selection;1history0roster per action;Back0requests/restoredfocus;no operating writes. Dirty/nonzero-scroll/denial proofs local;broader handoff/resume/save/installed gaps remain;new1e68403 resume/auth source not yet hosted-verified
 - Owner acceptance: per-journey approvals; not full redesign

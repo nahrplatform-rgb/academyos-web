@@ -1,6 +1,6 @@
 # AcademyOS canonical master plan — version 2
 
-Owner-authorized planning checkpoint: **7 November 2026**. This package consolidates the complete product, reference reconciliation, approved experience and larger delivery sequence. It changes documentation and documentation tooling only. Product code, schema, accounts, provider configuration, installations and deployments are unchanged by this checkpoint.
+Owner-authorized planning checkpoint: **7 November 2026**. This package consolidates the complete product, reference reconciliation, approved experience and larger delivery sequence. It changes documentation and documentation tooling only. Product code, schema, accounts, provider configuration and installations are unchanged by this checkpoint. No deployment promotion or live-alias change was performed; a Git push may trigger automatic validation/preview builds.
 
 ## Start here
 
