@@ -1,0 +1,35 @@
+{
+  "checked_at_utc": "2026-11-04T13:45:28.385291+00:00",
+  "scope": "Local temporary fake roots/identities;no provider changes",
+  "tests_passed": 9,
+  "cases": [
+    "encrypted backup restore;only cipher and nonsecret receipt remain",
+    "refuse replacement of original material",
+    "wrong identity/public file refusal",
+    "tampered cipher/receipt refusal",
+    "foreign project envelope refusal",
+    "canonical recipient matches existing backup"
+  ],
+  "sources": {
+    "scripts/register-key/custody.py": "c4fda265d8139ac2066c13c0f62e7f1756a1810c7db8530fde3284a9532ed466",
+    "scripts/register-key/test_custody.py": "6903103367dfe8969fc186e20bff69fd3d53d914160c94f9c38e62b0e3d1f901"
+  },
+  "existing_owner_identity_preflight": {
+    "matching_public_recipient": true,
+    "new_real_root_created": false,
+    "private_key_logged": false
+  },
+  "limits": [
+    "No real wrapping root created",
+    "No hosted custody provision or new private activation",
+    "No automated V1 rotation or rewrap supported"
+  ],
+  "latest_check_utc": "2026-11-04T14:47:18.458874+00:00",
+  "peer_review": "One Terra engineering helper found trusted-digest binding gap; repaired before provider provisioning. Not independent human audit.",
+  "new_cases": [
+    "missing trusted digest refusal",
+    "valid replacement archive plus co-modified adjacent receipt refusal",
+    "archive path replacement after check cannot alter decrypted verified bytes"
+  ],
+  "review_disposition": "Terra helper confirmed trusted-digest repair addresses its finding; reread only, no provider or independent audit claim."
+}

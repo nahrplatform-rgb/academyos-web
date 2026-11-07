@@ -1,0 +1,428 @@
+{
+  "status": "passed",
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+    "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+    "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+    "apps/web/src/components/experience-workspace.tsx": "d15ee510c987d9f42d41c29d5a7ae9c8dfc9a77c5fcd107c5d5c79ff8dbefa3b",
+    "apps/web/src/components/date-planning-workspace.tsx": "caa608bd214c267a7a0106f2d92aff9fcaa75bfd66b04f69b9d4268031fd2092",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "scope": "actual Next production components; fictional Owner identity/read-only API; controlled 250ms transport delay; no hosted latency, SQL, service cost or backend cancellation proof",
+  "cases": [
+    {
+      "locale": "en",
+      "scenario": "cold",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 5167,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 5504,
+          "status": 200
+        }
+      ],
+      "actionableMs": 404,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "hint",
+      "initialActions": [
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 5914,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 6228,
+          "status": 200
+        }
+      ],
+      "actionableMs": 351,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "invalid-hint",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 6618,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 6933,
+          "status": 200
+        }
+      ],
+      "actionableMs": 353,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "stored-period",
+      "initialActions": [
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 7329,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-15",
+          "to": "2026-11-21",
+          "started": 7641,
+          "status": 200
+        }
+      ],
+      "actionableMs": 353,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "cold-month",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 8038,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-29",
+          "to": "2027-01-09",
+          "started": 8352,
+          "status": 200
+        }
+      ],
+      "actionableMs": 355,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "current-failure",
+      "failedActions": [
+        "owner_current_calendar"
+      ],
+      "recoveryActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 8740,
+          "status": 503
+        },
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 9089,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "en",
+      "scenario": "explicit-failure",
+      "failedActions": [
+        "owner_calendar"
+      ],
+      "recoveryActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 9482,
+          "status": 503
+        },
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 9845,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "en",
+      "scenario": "setup-required",
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 10236,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "scenario": "leave-during-current",
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 10629,
+          "releasedAfterDeparture": true
+        }
+      ],
+      "scope": "departure releases held fixture response; no database cancellation claim"
+    },
+    {
+      "locale": "ar",
+      "scenario": "cold",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 10765,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 11083,
+          "status": 200
+        }
+      ],
+      "actionableMs": 381,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "hint",
+      "initialActions": [
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 11503,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 11824,
+          "status": 200
+        }
+      ],
+      "actionableMs": 379,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "invalid-hint",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 12248,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 12566,
+          "status": 200
+        }
+      ],
+      "actionableMs": 381,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "stored-period",
+      "initialActions": [
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 12985,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-15",
+          "to": "2026-11-21",
+          "started": 13303,
+          "status": 200
+        }
+      ],
+      "actionableMs": 378,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "cold-month",
+      "initialActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 13723,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-29",
+          "to": "2027-01-09",
+          "started": 14044,
+          "status": 200
+        }
+      ],
+      "actionableMs": 377,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "current-failure",
+      "failedActions": [
+        "owner_current_calendar"
+      ],
+      "recoveryActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 14462,
+          "status": 503
+        },
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 14817,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "ar",
+      "scenario": "explicit-failure",
+      "failedActions": [
+        "owner_calendar"
+      ],
+      "recoveryActions": [
+        "owner_current_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 15242,
+          "status": 503
+        },
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 15592,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "ar",
+      "scenario": "setup-required",
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 16017,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "scenario": "leave-during-current",
+      "events": [
+        {
+          "action": "owner_current_calendar",
+          "from": null,
+          "to": null,
+          "started": 16444,
+          "releasedAfterDeparture": true
+        }
+      ],
+      "scope": "departure releases held fixture response; no database cancellation claim"
+    }
+  ]
+}

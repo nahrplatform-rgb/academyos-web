@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory React design simulation only; not real authority, database atomicity, concurrency or hosted proof",
+  "cases": [
+    "request leaves canonical mark unchanged; different Owner approval agrees with history; Guardian minimal projection",
+    "rejection retains original mark and zero attendance changes",
+    "Owner has no request action; Unmarked is never default Absent",
+    "expired blocks Owner decision",
+    "ineligible blocks Owner decision",
+    "self blocks Owner decision",
+    "before blocks Owner decision",
+    "stale blocks conflicting decision",
+    "reviewed blocks conflicting decision",
+    "simulated duplicate resolves one retained pending request",
+    "request lost recovery",
+    "request lost-none recovery",
+    "request read-failed recovery",
+    "request failure recovery",
+    "decision lost recovery",
+    "decision lost-none recovery",
+    "decision read-failed recovery",
+    "decision failure recovery",
+    "dirty paging cancellation and language preserve input; loading/failed/denied clear private result",
+    "all retained requests paginate without dropping earlier decisions",
+    "Owner review and Guardian result EN/AR screenshots",
+    "EN/AR responsive shared panes, phone Back/focus, reload reset and no overflow"
+  ],
+  "errors": [],
+  "external": []
+}

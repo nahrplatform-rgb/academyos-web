@@ -1,0 +1,270 @@
+{
+  "security": {
+    "before": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 47
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 3
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 71
+      }
+    ],
+    "after": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 52
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 3
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 79
+      }
+    ],
+    "qrFindings": [
+      {
+        "lint": "rls_enabled_no_policy",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_card_heads",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "lint": "rls_enabled_no_policy",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_cards",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "lint": "rls_enabled_no_policy",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_operations",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "lint": "rls_enabled_no_policy",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_window_overrides",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "lint": "rls_enabled_no_policy",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_window_settings",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_capture_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, b uuid, events uuid[], code text, chosen uuid, op uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_card_change_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, pid uuid, act text, expected bigint, code text, op uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_card_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, pid uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_context_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_operation_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, context text, op uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_resolve_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, b uuid, events uuid[], code text",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_sessions_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, b uuid, on_day date, after_at timestamp with time zone, after_id uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      },
+      {
+        "lint": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "metadata": {
+          "name": "q13_window_change_v1",
+          "schema": "public",
+          "language": "plpgsql",
+          "arguments": "a uuid, ev uuid, expected bigint, before_minutes integer, after_minutes integer, op uuid",
+          "security_definer": true
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"
+      }
+    ]
+  },
+  "performance": {
+    "before": [
+      {
+        "name": "unindexed_foreign_keys",
+        "level": "INFO",
+        "count": 33
+      },
+      {
+        "name": "unused_index",
+        "level": "INFO",
+        "count": 21
+      }
+    ],
+    "after": [
+      {
+        "name": "unindexed_foreign_keys",
+        "level": "INFO",
+        "count": 36
+      },
+      {
+        "name": "unused_index",
+        "level": "INFO",
+        "count": 23
+      }
+    ],
+    "qrFindings": [
+      {
+        "lint": "unindexed_foreign_keys",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_card_heads",
+          "type": "table",
+          "schema": "academy",
+          "fkey_name": "qr_card_heads_card_id_academy_id_player_id_fkey",
+          "fkey_columns": [
+            4,
+            1,
+            2
+          ]
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+      },
+      {
+        "lint": "unindexed_foreign_keys",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_cards",
+          "type": "table",
+          "schema": "academy",
+          "fkey_name": "qr_cards_player_id_academy_id_fkey",
+          "fkey_columns": [
+            3,
+            2
+          ]
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+      },
+      {
+        "lint": "unindexed_foreign_keys",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_window_overrides",
+          "type": "table",
+          "schema": "academy",
+          "fkey_name": "qr_window_overrides_program_id_day_fkey",
+          "fkey_columns": [
+            2,
+            3
+          ]
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys"
+      },
+      {
+        "lint": "unused_index",
+        "level": "INFO",
+        "metadata": {
+          "name": "qr_operations",
+          "type": "table",
+          "schema": "academy"
+        },
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "people": {
+    "indexes": [
+      "players_academy_cursor"
+    ],
+    "returned_rows": 26,
+    "source_rows_visited": 26,
+    "planning_ms": 0.387,
+    "execution_ms": 0.057,
+    "shared_hit_blocks": 29,
+    "shared_read_blocks": 0
+  },
+  "calendar": {
+    "indexes": [
+      "training_dates_workspace_cursor",
+      "training_programs_pkey",
+      "publication_events_trainer_time"
+    ],
+    "returned_rows": 1,
+    "source_rows_visited": 51,
+    "planning_ms": 1.393,
+    "execution_ms": 2.99,
+    "shared_hit_blocks": 250,
+    "shared_read_blocks": 0
+  },
+  "profile": {
+    "directory_rows": 10001,
+    "calendar_programs": 301,
+    "calendar_dates": 12040,
+    "scope": "Private People projection and exact Calendar page SQL from the migration after ANALYZE on disposable PG17. Not the complete RPC, hosted service timing or a percentile."
+  }
+}

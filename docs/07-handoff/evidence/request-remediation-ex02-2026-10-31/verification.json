@@ -1,0 +1,35 @@
+{
+  "base": "5d59244",
+  "runtime": "v26.9.0",
+  "inputs": {
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
+    "scripts/navigation/test_next.mjs": "b6209ab10a5530569f2618351a201e143b746820eac2bbb60c69a1c480475dc3"
+  },
+  "beforeAfter": {
+    "visibleReturnReads": [
+      2,
+      1
+    ],
+    "programDateDocumentsEN": [
+      1,
+      0
+    ],
+    "programDateDocumentsAR": [
+      1,
+      0
+    ]
+  },
+  "local": "passed; see linked source-fixture receipts",
+  "deployment": "pending",
+  "hosted": "pending",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "limitations": [
+    "synthetic identity/API in local browser suites",
+    "no hosted precise request timing yet",
+    "native dirty history not fixed",
+    "remaining domain occurrences open"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "recorded_at_utc": "2026-11-04T14:43:52.392300+00:00",
+  "phase": "settings provisioned; existing fc1b5ee runtime before new Owner promotion",
+  "requests": [
+    {
+      "route": "/api/register-key",
+      "status": 503,
+      "body": {
+        "error": "unavailable"
+      }
+    },
+    {
+      "route": "/api/register-download",
+      "status": 503,
+      "body": {
+        "error": "unavailable"
+      }
+    },
+    {
+      "route": "/api/register-dispatch",
+      "status": 503,
+      "body": {
+        "error": "unavailable"
+      }
+    }
+  ],
+  "transport": "macOS curl with default TLS verification; Python urllib lacked its local issuer trust and was not weakened"
+}

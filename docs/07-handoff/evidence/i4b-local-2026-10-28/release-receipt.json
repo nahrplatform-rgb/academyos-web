@@ -1,0 +1,19 @@
+{
+  "implementation_source": "ac7ed0a643842d8a768e779e5a514d7275735288",
+  "ci": {
+    "push": 40688075587,
+    "pr": 40688081089,
+    "status": "success"
+  },
+  "preview": {
+    "deployment": "dpl_3Wxf4qRm7fYVGBGi3znNYdqcUgBP",
+    "ready": true,
+    "duration_seconds": 46
+  },
+  "staging_app_promotion": "Awaiting Owner Touch ID; not verified complete",
+  "schema": "20261028122658_i4b_guardian_training",
+  "enabled_link_optins": 0,
+  "hosted_guardian_test": "Prepared, separate explicit authorization pending; no link restored",
+  "working_acceptance": "pending",
+  "independent_security_device_load_cost": "open"
+}

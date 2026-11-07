@@ -1,0 +1,272 @@
+[
+  {
+    "jsonb_build_object": {
+      "sizes": [
+        {
+          "bytes": 131072,
+          "relname": "publication_events"
+        },
+        {
+          "bytes": 122880,
+          "relname": "training_dates"
+        },
+        {
+          "bytes": 106496,
+          "relname": "date_plans"
+        },
+        {
+          "bytes": 98304,
+          "relname": "trainer_people"
+        },
+        {
+          "bytes": 98304,
+          "relname": "guardian_links"
+        },
+        {
+          "bytes": 98304,
+          "relname": "correction_requests"
+        },
+        {
+          "bytes": 98304,
+          "relname": "trainer_invitations"
+        },
+        {
+          "bytes": 98304,
+          "relname": "development_assessments"
+        },
+        {
+          "bytes": 90112,
+          "relname": "guardian_people"
+        },
+        {
+          "bytes": 90112,
+          "relname": "audit_events"
+        }
+      ],
+      "function_stats": null,
+      "statement_stats": [
+        {
+          "rows": 682189,
+          "calls": 682189,
+          "mean_ms": 0.02,
+          "queryid": "1061789016636581695",
+          "total_ms": 13584.83,
+          "rpc_family": null,
+          "fingerprint": "256e4b1cf897091d06981b7677669560",
+          "shared_blks_hit": 6480,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 21528,
+          "calls": 36,
+          "mean_ms": 231.545,
+          "queryid": "-7726440967385220442",
+          "total_ms": 8335.61,
+          "rpc_family": null,
+          "fingerprint": "3bc4ec6801de6c4cd0af95b1b0ee4e15",
+          "shared_blks_hit": 0,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 58,
+          "calls": 58,
+          "mean_ms": 66.918,
+          "queryid": "5560794782088282279",
+          "total_ms": 3881.23,
+          "rpc_family": "x15_owner_home_v1",
+          "fingerprint": "b0fab827bbc59f2976e648f082f10470",
+          "shared_blks_hit": 137962,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 780,
+          "calls": 10,
+          "mean_ms": 330.47,
+          "queryid": "-2647655532108368607",
+          "total_ms": 3304.7,
+          "rpc_family": null,
+          "fingerprint": "ae75381d38b754549c487c75ea1cdddb",
+          "shared_blks_hit": 60,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 111,
+          "calls": 111,
+          "mean_ms": 28.496,
+          "queryid": "-7440415706442815842",
+          "total_ms": 3163.03,
+          "rpc_family": null,
+          "fingerprint": "6272f33bb3fb8b04b1ae3e0490f434a0",
+          "shared_blks_hit": 82180,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 412,
+          "calls": 412,
+          "mean_ms": 6.26,
+          "queryid": "7840821508906767083",
+          "total_ms": 2579.2,
+          "rpc_family": "m1_setup_v1",
+          "fingerprint": "cf6864fc794f51cd9eecd91c12b38997",
+          "shared_blks_hit": 75528,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 12134,
+          "calls": 68,
+          "mean_ms": 26.99,
+          "queryid": "1795822111904855936",
+          "total_ms": 1835.34,
+          "rpc_family": null,
+          "fingerprint": "ca9dcd5c5f97530eb80b694c2ae72c71",
+          "shared_blks_hit": 61499,
+          "shared_blks_read": 7
+        },
+        {
+          "rows": 93,
+          "calls": 93,
+          "mean_ms": 18.659,
+          "queryid": "8833722729895382895",
+          "total_ms": 1735.26,
+          "rpc_family": "m1_context_v1",
+          "fingerprint": "e059c367b6dcf026af6a71bb946c607e",
+          "shared_blks_hit": 54651,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 75,
+          "calls": 75,
+          "mean_ms": 21.347,
+          "queryid": "8747940887076200973",
+          "total_ms": 1601.02,
+          "rpc_family": null,
+          "fingerprint": "cc3a7cb65c2cccce544bc6b0287c9fad",
+          "shared_blks_hit": 70981,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 58,
+          "calls": 58,
+          "mean_ms": 27.076,
+          "queryid": "2362234621454796162",
+          "total_ms": 1570.41,
+          "rpc_family": "x15_owner_calendar_v1",
+          "fingerprint": "f1d62ba0d00f9e7eef2c05a6d044195e",
+          "shared_blks_hit": 74678,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 8754,
+          "calls": 40,
+          "mean_ms": 37.943,
+          "queryid": "8580411586163530256",
+          "total_ms": 1517.74,
+          "rpc_family": null,
+          "fingerprint": "7c411574be0203f6f70b1e794f498c46",
+          "shared_blks_hit": 104748,
+          "shared_blks_read": 12
+        },
+        {
+          "rows": 1082,
+          "calls": 36,
+          "mean_ms": 41.362,
+          "queryid": "-6340671216805360367",
+          "total_ms": 1489.03,
+          "rpc_family": null,
+          "fingerprint": "af0693e2edfed13d73f7ad36a265784b",
+          "shared_blks_hit": 67593,
+          "shared_blks_read": 392
+        },
+        {
+          "rows": 51,
+          "calls": 51,
+          "mean_ms": 28.98,
+          "queryid": "2990994825586919898",
+          "total_ms": 1477.97,
+          "rpc_family": null,
+          "fingerprint": "bb6ea0262f8ef376df8e1674d63d2cf6",
+          "shared_blks_hit": 76689,
+          "shared_blks_read": 1
+        },
+        {
+          "rows": 78,
+          "calls": 78,
+          "mean_ms": 18.785,
+          "queryid": "-1482775614163562759",
+          "total_ms": 1465.23,
+          "rpc_family": "m1_platform_list_v1",
+          "fingerprint": "f56065379ba73040d1116b192dd5d1ed",
+          "shared_blks_hit": 44057,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 37,
+          "calls": 37,
+          "mean_ms": 39.523,
+          "queryid": "8325170606587756392",
+          "total_ms": 1462.34,
+          "rpc_family": "m1_save_setup_v1",
+          "fingerprint": "074d514d3e54f8b0693982a9faacc916",
+          "shared_blks_hit": 5819,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 10,
+          "calls": 10,
+          "mean_ms": 138.697,
+          "queryid": "4868794970434878014",
+          "total_ms": 1386.97,
+          "rpc_family": null,
+          "fingerprint": "3d03c5e62cf090ab6a1c1902ea103c43",
+          "shared_blks_hit": 0,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 360876,
+          "calls": 68,
+          "mean_ms": 19.773,
+          "queryid": "-3853304512339224630",
+          "total_ms": 1344.59,
+          "rpc_family": null,
+          "fingerprint": "8634b9681e5a8c5dc8f56bf4c37a69d8",
+          "shared_blks_hit": 3332,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 47,
+          "calls": 47,
+          "mean_ms": 24.684,
+          "queryid": "-4772297720329940617",
+          "total_ms": 1160.15,
+          "rpc_family": null,
+          "fingerprint": "06915ead8092c10bef977928a3882dda",
+          "shared_blks_hit": 49795,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 64,
+          "calls": 64,
+          "mean_ms": 17.212,
+          "queryid": "-3226595324930884897",
+          "total_ms": 1101.59,
+          "rpc_family": "q13_context_v1",
+          "fingerprint": "b148612b5ec7940b425cf4883a2a11ce",
+          "shared_blks_hit": 32529,
+          "shared_blks_read": 0
+        },
+        {
+          "rows": 57,
+          "calls": 57,
+          "mean_ms": 18.655,
+          "queryid": "1942040669768663800",
+          "total_ms": 1063.31,
+          "rpc_family": null,
+          "fingerprint": "a8ab85c6a8505b03214627b5e8452aef",
+          "shared_blks_hit": 38133,
+          "shared_blks_read": 1
+        }
+      ],
+      "track_functions": "none"
+    }
+  }
+]

@@ -1,0 +1,97 @@
+{
+  "source": "7e32557ceaecc9ecf9606764fe3303377da81492",
+  "deployment": "dpl_6DzdgUMjxiLWrBeuex8umLd8dYas",
+  "domain": "staging.academy.nahr.dev",
+  "provider_slot": "Production; existing synthetic APP_ENV staging",
+  "ci_runs": [
+    40617402838,
+    40617395884
+  ],
+  "program": "8fca9113-2b85-462f-9148-8ab85513a8c4",
+  "fixture": "Synthetic I3e Change Demo",
+  "range": [
+    "2026-11-01",
+    "2026-11-08"
+  ],
+  "saved_move": {
+    "original": "2026-11-01",
+    "effective": "2026-11-15",
+    "local_start": "19:30",
+    "local_end": "20:30",
+    "timezone": "Africa/Cairo",
+    "utc_start": "2026-11-15T17:30:00Z",
+    "utc_end": "2026-11-15T18:30:00Z",
+    "capacity": 2,
+    "roster_count": 1,
+    "trainer": null
+  },
+  "final": {
+    "canceled": true,
+    "schedule_version": 3,
+    "plan_version": 3,
+    "roster_rows": 1,
+    "history_entries": 2,
+    "operation_receipts": 2,
+    "change_audits": 2,
+    "currently_published": 0,
+    "other_occurrence": "2026-11-08 19:00\u201320:00; schedule_version1; no plan; unchanged"
+  },
+  "history_ids": [
+    "f1e72c46-d449-411a-9961-eb7ab88c423a",
+    "2e95c0b0-8117-4543-a7b1-2376bc5304d4"
+  ],
+  "existing_data_before": {
+    "dates": {
+      "n": 58,
+      "fingerprint": "5e7457b0f9f8f45dc122d4a449ceea03"
+    },
+    "plans": {
+      "n": 41,
+      "fingerprint": "99a6e261b5b4e03c9a74840d4b3d05c0"
+    },
+    "roster": {
+      "n": 40,
+      "fingerprint": "144631f55f737a5bfb3515761c935c23"
+    },
+    "memberships": {
+      "n": 4,
+      "fingerprint": "e435fe3440223d60a863ee733ee88955"
+    },
+    "assignments": {
+      "n": 1,
+      "fingerprint": "7dd223a4028457f14e9dc34d07e2621d"
+    }
+  },
+  "existing_data_after_excluding_new_program": {
+    "dates": {
+      "n": 58,
+      "fingerprint": "5e7457b0f9f8f45dc122d4a449ceea03"
+    },
+    "plans": {
+      "n": 41,
+      "fingerprint": "99a6e261b5b4e03c9a74840d4b3d05c0"
+    },
+    "roster": {
+      "n": 40,
+      "fingerprint": "144631f55f737a5bfb3515761c935c23"
+    },
+    "memberships": {
+      "n": 4,
+      "fingerprint": "e435fe3440223d60a863ee733ee88955"
+    },
+    "assignments": {
+      "n": 1,
+      "fingerprint": "7dd223a4028457f14e9dc34d07e2621d"
+    }
+  },
+  "existing_fingerprints_match": true,
+  "checks": [
+    "Real Owner program create, single-date plan and one fictional player",
+    "EN/AR review and confirmation",
+    "Move outside original period, current-date discovery and reopen roster",
+    "Cancellation, reload persistence, disabled plan/edit controls",
+    "Cross-academy signed-in denial without private session data",
+    "No invitation or membership/assignment change; Casey remains ended"
+  ],
+  "acceptance": "Moamen explicitly accepted working session-change wording/usability EN/AR28 October2026; independent security/physical-device/load gates remain open"
+}

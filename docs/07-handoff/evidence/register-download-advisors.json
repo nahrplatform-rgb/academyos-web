@@ -1,0 +1,13 @@
+{
+  "scope": "Explicit disposable loopback PG17 without TLS; never linked/hosted. Plain harness lacks Supabase platform schemas; this is not independent security approval.",
+  "priorAttempt": {
+    "command": "supabase db advisors --db-url explicit disposable loopback database --output json",
+    "exit": 1,
+    "scope": "Plain disposable PG17, not hosted Supabase services; existing project baseline retained. No independent audit.",
+    "stdout": "",
+    "stderr": "Connecting to remote database...\nfailed to connect to postgres: failed to connect to `host=127.0.0.1 user=moamenghareeb database=postgres`: tls error (server refused TLS connection)\nTry rerunning the command with --debug to troubleshoot the error.\n"
+  },
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Connecting to remote database...\nfailed to connect to postgres: failed to connect to `host=127.0.0.1 user=moamenghareeb database=postgres`: tls error (server refused TLS connection)\nTry rerunning the command with --debug to troubleshoot the error.\n"
+}

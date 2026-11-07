@@ -1,0 +1,84 @@
+{
+  "as_of": "2026-10-27",
+  "environment": "Existing AcademyOS synthetic staging only; Vercel serving slot is named Production",
+  "source": "ef9a87e564144a8b7871d9d1fd4753c2448d3655",
+  "deployment": {
+    "id": "dpl_2sUyztivHesF4Tu9GR4mnh71697n",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/2sUyztivHesF4Tu9GR4mnh71697n",
+    "url": "https://academyos-dc53ai0tr-academy-os2.vercel.app",
+    "alias": "https://staging.academy.nahr.dev",
+    "status": "Ready",
+    "build_seconds": 43,
+    "build_warnings": 3,
+    "method": "Existing signed-in Vercel dashboard promotion; exact source and existing staging domains confirmed. Connector remained404."
+  },
+  "ci": [
+    {
+      "id": 40438991081,
+      "conclusion": "success"
+    },
+    {
+      "id": 40438863594,
+      "conclusion": "success"
+    }
+  ],
+  "owner_ui": {
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "program": "5c1d13f7-83f4-4637-a9fe-2081938b1ab7",
+    "proposal": "f6479b53-6354-4362-9256-59c11ffa11e8",
+    "scope": "2026-11-01 through2027-01-31,40 saved dates",
+    "capacity": 2,
+    "trainer": null,
+    "fictional_player": "Synthetic Registration Demo",
+    "before": {
+      "memberships": 4,
+      "dates": 58,
+      "date_plans": 2,
+      "date_rosters": 1,
+      "proposals": 0
+    },
+    "private_preparation": {
+      "prepared": 25,
+      "total": 40,
+      "date_plans": 2,
+      "date_rosters": 1,
+      "reload_and_resume": "passed"
+    },
+    "activation": {
+      "state": "committed",
+      "proposal_version": 4,
+      "preserved": 1,
+      "new_date_plans": 39,
+      "new_rosters": 39,
+      "activation_audit": 1,
+      "total_date_plans": 41,
+      "total_rosters": 40,
+      "program_plans": 40,
+      "program_rosters": 40,
+      "memberships": 4,
+      "dates": 58
+    },
+    "two_existing_plan_projections": "Unchanged including capacity/version/UTC bounds/roster count; unrelated program plan preserved. See activation.json.",
+    "reviewed_dates": "Both bounded pages:25 then15; final confirmation initially disabled until explicitly checked.",
+    "reopened_after_reload": "Committed39 count and saved list entry retained",
+    "individual_date": "2026-11-03 reopened via Plan this date; capacity2, unassigned Trainer, roster1, fictional name persisted",
+    "foreign_academy": "Same authenticated Owner request with academy B path denied; no private academy/program/player projection",
+    "responsive": {
+      "actual_browser": "EN/AR360\u00d7800 and default1280\u00d7720 desktop; both phone document scroll widths360; shell RTL scoped dir verified; Arabic Back/list/reopen passed",
+      "physical_device": "not tested"
+    },
+    "access_changes": "none; no invitations, restored Trainer or account/membership mutations"
+  },
+  "remaining": [
+    "Reverse actual-account/direct-RPC and hosted whole-operation concurrency/failure cases beyond this smoke",
+    "Independent human security review",
+    "Physical device/screen-reader",
+    "Declared network sustained load, larger roster/date cross-product p95, multi-academy fairness/WAL/memory/cost"
+  ],
+  "limits": "Actual UI/API/database persisted result and one audited activation are verified; no claim that a browser smoke independently proves transaction atomicity. Local injected rollback/race evidence is separate.",
+  "owner_working_acceptance": {
+    "date": "2026-10-27",
+    "answer": "Accept the working whole-program planning flow",
+    "scope": "Working wording/usability EN/AR;40 reviewed dates,39 saved together, preserved individual plan and Plan this date connection; no broader security/device/load approval"
+  }
+}

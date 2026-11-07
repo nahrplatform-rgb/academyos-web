@@ -1,0 +1,185 @@
+{
+  "date": "2026-11-06",
+  "implementationCommit": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
+  "staging": {
+    "host": "staging.academy.nahr.dev",
+    "id": "dpl_HVNLHnGnRzWCPNy4V2uUe2HKTotW",
+    "state": "READY",
+    "target": "production",
+    "url": "academyos-bx97sqsf5-academy-os2.vercel.app",
+    "commit": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
+    "createdAt": 1793925067767,
+    "authority": "Owner reported promotion;independently read-only provider verified. Vercel production target hosts synthetic staging;no real-data production launch."
+  },
+  "method": {
+    "browser": "Existing separate regular Chrome profile test nahr on Mac",
+    "zoom": "80%;exact CSS viewport and OS/browser versions not measured",
+    "control": "Native CUA accessibility/screenshot observations and visible Chrome Network/Application tools;no private HAR,cookies,tokens or key material exported",
+    "database": "Read-only privileged SQL verification is separate from signed-in app authority",
+    "sourceChanged": false,
+    "followup": "Separate regular Chrome Hiếu,iCloud identity verified,Academy B fresh two-player fixture;retained H01-H08 remain earlier test nahr/A observations."
+  },
+  "verifiedSubject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+  "observations": [
+    {
+      "id": "H01",
+      "status": "passed_after_recovery",
+      "action": "Open retained normal EN Attendance",
+      "event": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+      "result": "Initial prepared view had no rows;Recover saved work followed by Prepare register rebuilt its read copy. Then ordinary Owner shell showed2/2 rows,1Present,1Absent,0Unmarked;closed window prevented new choices. Underlying initial copy/slot state not diagnosed;not an untouched seamless cold-open pass."
+    },
+    {
+      "id": "H02",
+      "status": "passed_scoped",
+      "action": "Prepared current AR entry",
+      "result": "1 /api/register-download200,1219resource bytes,954transferred bytes,782ms in this sample;0 /api/attendance until explicit history handoff. Not a percentile or all-service count."
+    },
+    {
+      "id": "H03",
+      "status": "passed_scoped",
+      "action": "Check/focus while roster search and selection exist",
+      "result": "Background check retained roster,Registration query and Synthetic Registration Demo selection. No surrounding document replacement observed. Not a held hosted response,dirty-mark or all-role proof."
+    },
+    {
+      "id": "H04",
+      "status": "passed_scoped",
+      "action": "Cold normal EN URL with visible DevTools Offline and Disable cache=1;native Reload button",
+      "result": "AcademyOS Workspace public fallback displayed2/2 retained rows and closed deadline in ordinary shell. Filtered operating calls0;full log25entries,0transferred bytes,1087291resource bytes. Browser resource Load95ms;not time-to-first-useful percentile or physical offline/restart proof."
+    },
+    {
+      "id": "H05",
+      "status": "passed_scoped",
+      "action": "Direct cold AR normal Attendance URL under the same Offline/cache-disabled setting",
+      "result": "Arabic RTL ordinary shell,2saved rows,1Present/1Absent,0operating API calls;25entries,0transferred bytes,1087291resource bytes. In-place language switch also preserved query/selection."
+    },
+    {
+      "id": "H06",
+      "status": "passed_scoped",
+      "action": "Reconnect public AR document with Registration search and selected player",
+      "result": "Same document/task remained;status Checking changes then Online;1register-download200,1219resource bytes,976transferred bytes,847ms. Search and selection retained. No full dataset pages or /api/attendance call in that observed reconnect."
+    },
+    {
+      "id": "H07",
+      "status": "passed_scoped",
+      "action": "Current signed-in AR History and corrections handoff;View history;Back to register",
+      "result": "Canonical roster200(863resource bytes,932ms),then history200(215resource bytes,955ms);retained Unmarked→Present Owner history. Back restored Arabic,Registration query and selected player;one register manifest check. The online history path still masks the roster while its required current read runs;not whole-app no-flash closure."
+    },
+    {
+      "id": "H08",
+      "status": "prepared_not_saved",
+      "action": "Fresh one-date fictional fixture via normal Owner program/planning/publication",
+      "event": "41b88d68-4d1c-42b5-b3e4-da845c720151",
+      "program": "539b78de-cd44-4979-aed6-a93b0a1ff19d",
+      "result": "6Nov03:10–03:40Africa/Cairo;2existing fictional players;1published event;0marks/history/attendance operations. Existing Casey restored19→20 and ended21 under SDR06,one audit each. Signed-in Owner saw2Unmarked and disabled marks before start. No attended-session retiming or private-store clearing."
+    },
+    {
+      "id": "H09",
+      "status": "failed;source_confirmed_pilot_limit",
+      "action": "Prepare unused A event in Hiếu",
+      "result": "Register-key403 despite active Owner;global PK(subject,academy_id) binds existing A event/device;UI misleading access-change message. No A key/original changed."
+    },
+    {
+      "id": "H10",
+      "status": "open_observation;cause_not_yet_diagnosed",
+      "action": "Canonical new B player registration versus prepared directory",
+      "result": "Both registrations confirmed and planning/SQL returned players;prepared directory still0/No players. NR07 invalidation/completeness follow-up."
+    },
+    {
+      "id": "H11",
+      "status": "passed_scoped",
+      "action": "Normal B two-mark offline capture and cold reload",
+      "result": "2rows/1pending original survived worker cold normal-route reload;0filtered operating API calls,0network bytes. See fresh-save.json."
+    },
+    {
+      "id": "H12",
+      "status": "failed",
+      "action": "Automatic B original dispatch after cold public document reconnect",
+      "result": "401;incorrect account-access-changed UI;server0marks/history/operations. Missing ordinary provider-session restoration;exact cookie/token contents not inspected."
+    },
+    {
+      "id": "H13",
+      "status": "passed_after_manual_recovery",
+      "action": "Normal signed-in URL re-entry;Recover saved work;Arabic result",
+      "result": "Same protected original713d9a93 confirmed once:2marks,2history,1operation,1audit;not automatic-sync success. Settings restored. See fresh-save.json."
+    }
+  ],
+  "fixture": {
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "program": "539b78de-cd44-4979-aed6-a93b0a1ff19d",
+    "event": "41b88d68-4d1c-42b5-b3e4-da845c720151",
+    "startsAt": "2026-11-06T01:10:00Z",
+    "endsAt": "2026-11-06T01:40:00Z",
+    "canonicalRecordingDeadline": "2026-11-07T01:40:00Z",
+    "name": "Synthetic EX07 Normal Register 6 November",
+    "players": [
+      "29f7a113-cffd-455d-bef5-44995bc23cfe",
+      "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635"
+    ],
+    "restoreAudit": "f4f7f603-44ee-4517-8e4f-393ea9c537be",
+    "endingAudit": "6c4b0209-ff18-47e5-9398-b8498bbb5f32",
+    "setup": "Normal authenticated Owner UI;only temporary existing appointment restore/end used guarded operator SQL,rehearsed together then rolled back before actual separate commits.",
+    "status": "retained_unused_A_fixture;preparation refused by global Owner/academy event/device key binding;0marks/history/operations after B test"
+  },
+  "finalDatabase": {
+    "casey": {
+      "assignment": "ended",
+      "membership": "ended",
+      "invitation_version": 21
+    },
+    "checked_at": "2026-11-06T01:05:23.400021+00:00",
+    "active_roles": [
+      {
+        "role": "owner",
+        "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+        "subject": "user_3L5mZMvNN95teSpCPM233gzC06S"
+      },
+      {
+        "role": "owner",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "subject": "user_3L5mZMvNN95teSpCPM233gzC06S"
+      }
+    ],
+    "old_register": {
+      "marks": 2,
+      "history": 2,
+      "operations": 1,
+      "original_retained": true
+    },
+    "fresh_register": {
+      "event": "41b88d68-4d1c-42b5-b3e4-da845c720151",
+      "marks": 0,
+      "history": 0,
+      "operations": 0
+    }
+  },
+  "diagnosticLimits": [
+    "First cache-enabled Cmd+R attempt briefly served ordinary sign-in/loading path before rows returned;that setup did not establish a worker-only cold test. Cause not classified. Subsequent explicitly confirmed Offline/cache-disabled native reload and AR direct entry produced the public fallback and0network bytes. Do not erase this observation or infer all startup paths pass.",
+    "The old event's recording deadline is past;do not alter it or remove its protected device locator/original to obtain a fresh write pass.",
+    "Physical browser/OS restart,installed-PWA,other roles,held/failing hosted responses,committed-response loss,denial/deadline/local-disk injection,accessibility and representative performance/provider costs remain open. Existing controlled local evidence is retained separately.",
+    "Correction:server primary key(subject,academy_id) binds one event AND device across all profiles;separate profile cannot authorize another A registration. No existing key/slot/original was cleared.",
+    "Fresh B hosted offline local capture/cold reload passed;automatic dispatch401 failed and was falsely presented as changed access. Explicit normal signed-in re-entry and Recover saved work committed the existing original once. See fresh-save.json;not a seamless automatic-sync pass."
+  ],
+  "restoredBrowserSettings": {
+    "network": "No throttling confirmed",
+    "disableOrdinaryCache": false
+  },
+  "ownerWorkingAcceptance": "pending;no new approval inferred",
+  "independentReview": "Deferred by Owner,nonblocking,not performed",
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peakHelpers": 1,
+    "scope": "Read-only bounded canonical fresh-fixture source inventory;no files/providers/browser/mutations/commits/nested helpers",
+    "decision": "Did not create speculative B Trainer or spoof invitation acceptance;reused A's genuine existing appointment and normal UI",
+    "savings": "unmeasured"
+  },
+  "followthrough": {
+    "ownerReportedSeparateProfileReady": true,
+    "nativeWindowObservation": "Hiếu confirmed ordinary iCloud Owner;Gmail Platform and test nahr old A register sessions/stores preserved.",
+    "A_registration": "Failed403 on fresh A event while current Owner active;server binding is global per subject/academy. Earlier separate-profile instruction incorrect.",
+    "freshSaveResult": "B484cd1a8 offline2marks/cold reload passed;automatic reconnect401 failed;explicit same-account recovery committed original713d9a93 once.",
+    "evidence": "fresh-save.json",
+    "providerCI": "documentation-only5035bb0 jobs never started under GitHub account payment/spending restriction;see documentation-ci.json;no paid/workflow/config changes."
+  },
+  "currentCheckpoint": "fresh-save.json;offline capture/cold reload passed,automatic cold reconnect401 failed;explicit same-account recovery committed once. No new product fix."
+}

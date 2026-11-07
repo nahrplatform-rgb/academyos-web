@@ -1,5 +1,39 @@
 # Decisions and open questions
 
+## Version2 focused decision dependencies —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package preserves decisions and later scoped approvals in this record. Its MP-Q dependencies name only the concrete unresolved field/resource/role/finance/command choices needed by a batch; do not re-ask settled overall sign-in/local-data/retention/design direction or block unrelated work. New scope rows are planning targets, not accepted rules.
+
+**Owner product direction —7 November:** make academy work easy, understandable, valuable and efficient, with Owner control and safe delegation; give the Platform Owner complete separate business tools for academies/subscriptions/platform finance/services. PYSA finance and unnecessary mechanisms must be critically simplified rather than copied. [Outcome and simplicity contract](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md) and [finance specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) make this operational. This direction adds no fee formula, refund rule, delegated permission or scope exclusion. Existing D decisions/AO requirements and specific review controls remain; market leadership has not been demonstrated.
+
+## Synthetic staging activation and standing trial authority —4November2026
+
+The Owner explicitly selected **“Authorize this staging offline activation”** for the [concrete one-register release](../07-handoff/owner-register-activation-2026-11-04.md), and then stated that all accounts are trials and necessary trial actions may proceed without repeated approval. [SDR-06](staging-delivery-and-review-policy.md#sdr-06--standing-synthetic-trial-account-and-test-authority) records the operational scope: existing synthetic staging account/membership setup, temporary restoration/ending and bounded fixture tests are authorized. Preserve audits/history/original operations and the final dedicated Gmail Platform-only / iCloud Owner-only personas. Do not re-ask covered test access changes. Owner-controlled promotions, production/real-data/paid boundaries and genuinely new business-policy choices remain separate. [Exact responses](../07-handoff/evidence/role-first-offline-2026-11-04/owner-activation-authority.json).
+
+The exact earlier A ownership transfer and unused Guardian ending were separately authorized and have now executed with one audit and preserved operating/history hashes. Four register schema sources and staging-only server settings are provisioned; activation in a new checked/promoted runtime, actual offline working-day proof and Owner acceptance remain separately tracked. Independent review is deferred/nonblocking, not passed.
+
+## First private Owner register scope accepted for implementation — 4 November 2026
+
+The Owner approved one published register on an existing Academy Owner's personal device. The stored fields are session details, roster names and IDs, and marks and versions. Logout or 30 days without an online access check clears downloaded rows. The same account can recover protected pending work through ordinary sign-in while its Owner access is current. If access ends, recovery waits until it is restored. Private activation and independent security remain separate. [Exact approval](../07-handoff/evidence/owner-register-private-policy-2026-11-04.json) and [EX-09 contract](../04-engineering/owner-register-private-readiness.md).
+
+## Normal sign-in without extra local credentials —3November2026
+
+After a successful localhost PRF diagnostic, the Owner rejected mandatory passkey setup/reopening as confusing and directed ordinary email/password sign-in on the personal device. [Exact response](../07-handoff/evidence/local-data-login-only-direction-2026-11-03.json) and [revised device/key contract](../04-engineering/offline-register-device-key-contract.md). Preserve the approved local-data/register workflows, no inactivity lock,30day/logout replica cleanup and separately protected same-account pending recovery. This selects the user experience; automatic key custody/account binding still need implementation and independent security proof. It does not authorize storing passwords, weakening confidentiality, another real credential, access grant or promotion. Do not ask for the rejected passkey product choice again.
+
+## First offline-save policy accepted for design —3November2026
+
+Owner selected the first **Academy Owner register** offline policy: atomic selected new marks on a personal device; upload together under the original save ID; current server access/version/recording deadline; conflicting/refused uploads keep local work as Needs review, with no timestamp overwrite. Pending edits remain separately protected for the same verified account after logout/30day read-replica cleanup; another account cannot open/send them. [Accepted scope](../04-engineering/offline-edit-and-conflict-contract.md) and [exact replies](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json). Connected offline-write design, device/key/field implementation and security remain separate. Do not repeat these policy questions or infer new recording exceptions, role grants, other queues or runtime completion.
+
+## LF-v3 decisions —2November2026
+
+Owner explicitly rejects automatic inactivity locking; wants retained prepared data readable offline without the proposed24hour cutoff; requests local offline edits and reconnect synchronization; selects30day-without-online-verification or explicit-logout cleanup of read replicas. Month/three-month finite coverage and app-wide role-scoped adoption are the direction. [Exact responses](../07-handoff/evidence/local-first-owner-direction-2026-11-02.json), [canonical plan](../06-delivery/local-data-and-sync-plan.md) and [offline-edit/conflict packet](../04-engineering/offline-edit-and-conflict-contract.md) govern. Timestamps were suggested by the Owner; expected server versions plus immutable IDs/retained conflicts are the engineering recommendation, not a silently accepted overwrite rule. Per-command timing, conflict authority, pending-work/logout and remaining device/key/field choices are open. Read-only design approval is retained; new offline-edit states need focused review. No new grant, real data, financial functionality, production or security clearance. Older entries below retain their dated scope.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Owner clarified on2November2026: data must remain locally saved between portal visits; permitted player-directory pages, monthly schedules and later financial data should prepare in sequences and synchronize quietly. Owner requested a deep staging iOS Shift review and adjustment of AcademyOS documentation. This selects the durable local-data **direction**, not every field/lease/retention/offline-write policy.
+
+[local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) owns LD datasets and exact pending LF-P01–LF-P06. The unaccepted WB-P01–WB-P04 summary-only/30second/5minute/intent-only proposal and its changed-state storyboard are superseded. Do not infer their acceptance from misunderstanding replies or re-ask whether the Owner means tab memory. No real data, new grant, production or offline mutation authority is included. Older entries below remain dated history.
+
 Version 1.0 · 21 October 2026
 
 ## Selected direction
@@ -22,6 +56,8 @@ Version 1.0 · 21 October 2026
 | ADR-014 | Private EU Cloudflare R2 is the independent encrypted staging backup destination; owner activated billing and retains the age recovery key in the vault. | Owner activation/custody confirmation and backup/restore proof |
 
 | ADR-015 | Staging backup prefix `staging/` uses a reversible seven-day overwrite/deletion lock and owner-approved 30-day object expiry. This does not accept production/customer data retention or a legal hold. | Owner explicitly approved 30-day cleanup on 22 October 2026; configured rules and actual lock-denial test verified |
+
+| ADR-016 | Direct AcademyOS sign-in at the canonical staging domain; Vercel Standard Protection keeps preview/generated deployment URLs protected. Clerk identity, server/data authorization and synthetic-only staging scope remain enforced. This replaces the earlier all-URLs Vercel gate; it is not a customer-production launch. | Moamen explicitly approved on 23 October 2026; [applied configuration and verification](../07-handoff/staging-direct-access.md) |
 
 ## Proposed technical defaults
 
@@ -56,7 +92,7 @@ Owner for product/business decisions: Moamen. Technical lead supplies consequenc
 | D-008 | Trainer earnings | Per session, hourly, monthly, attendance share or mixed contract; decide late cancellation, substitution, leave, rounding and approval rules. | Before payroll calculations |
 | D-009 | Platform commercial plans | Prices, limits, trial length, grace period, overage, billing cadence, refund policy and restricted-state access. No invented prices are treated as accepted. | Before entitlements and sales |
 | D-010 | Payment providers | Stripe where the actual entity is eligible; evaluate Paymob/Kashier for the intended market. Decide separate platform and academy merchant arrangements and money flow. | Before gateway coding |
-| D-011 | Offline authority | Propose attendance capture only; maximum cache/lease duration, sensitive fields, device revocation and conflict approver remain explicit choices. | Before offline implementation |
+| D-011 | Offline authority | LF-v3 persistent local reads/sync and offline edits are the Owner-directed target. First Owner-register atomic/original-ID/current-check/retained-conflict policy and connected design accepted3November; protected same-account pending recovery selected. Exact device/unlock/key/field readiness and other commands remain separate. See local-data-and-sync-plan.md LF-P01–LF-P06. | Before dependent private storage/offline capability |
 | D-012 | Attendance rules | Session windows, grace/late states, early arrival, check-out, excused absence, correction deadlines and QR validity. | Before attendance business logic |
 | D-013 | Evaluations | Trainer self-publish versus manager review; player/guardian visibility; metric scales per sport; revision and rejection policies. Propose review before initial publication. | Before evaluation implementation |
 | D-014 | Communications | Transactional channels, optional marketing consent, guardian recipients, quiet hours, emergency notices and delivery budgets. Propose in-app plus transactional email for initial release. | Before external messaging |
@@ -71,8 +107,80 @@ Owner for product/business decisions: Moamen. Technical lead supplies consequenc
 
 ## How to close a decision
 
+The [M1 decision/design packet](../06-delivery/onboarding-m1-decision-design-packet.md) supplies concrete D-002/D-003 recommendations, invitation/setup choices and a connected prototype for review. The M1 selections were accepted by Moamen on 22 October 2026 as recorded below; broader later policy remains open. Design approval does not itself authorize a privileged Platform Owner grant.
+
 Record ID, selected alternative, rationale, accepted-by/date, effective date, affected requirements and any migration/recovery consequence. Do not mark a policy accepted because a mockup shows a number. If a decision blocks only finance, continue permitted work on identity, design or scheduling that does not depend on that policy.
 
 ## Operating blueprint and decision packets
 
 The [SaaS operating blueprint](../01-product/saas-operating-blueprint.md) expands lifecycle, ownership recovery, identity/guardian/payer separation, subscription restrictions, data lifecycle, support, tenant fairness and pilot scenarios. Its recommendations remain proposed. Resolve D-002/D-003 first for onboarding, then D-004/D-015 for relationships and the dependent domain policies before their modules; detailed examples do not close decisions without recorded owner acceptance.
+
+## M1 bounded acceptance — 22 October 2026
+
+Moamen explicitly accepted the proposed [M1 policy packet](../06-delivery/onboarding-m1-decision-design-packet.md) and approved its connected design for implementation in this chat. D-002 invite-led synthetic admission and D-003 fixed roles/explicit branch scope, one initial owner and audited separate platform provisioning are accepted for M1. Invitation expiry is 72 hours, with verified-recipient acceptance; first branch/sport/timezone saves complete initial setup only. Other roles have no M1 setup writes. Public admission, custom delegation, multi-owner/transfer/recovery automation and operational/commercial activation remain later decisions. This does not authorize executing the initial privileged grant.
+
+## Compact blue visual replacement — 24 October 2026
+
+The owner explicitly selected the supplied compact blue HTML reference and subsequently instructed replacement of the old functional-app visual design using a shared component library. This supersedes ADR-010's teal/18px visual defaults for new application work. Preserve its historical wording. Blue/neutral compact desktop styling and dedicated phone touch targets are now the implementation direction; business policy, permission and real-operation contracts remain unchanged. Source progress and unexecuted review gates are recorded in the [first application design-foundation receipt](../07-handoff/compact-blue-design-foundation.md). This is not deployment or blanket screen/owner/security acceptance.
+
+## Web toolbar correction — 24 October 2026
+
+The owner likes the compact blue M1 direction but explicitly excludes the red/yellow/green macOS close/minimize/window controls from the web app. Remove those decorative dots from the shared app shell and active design prototype. Keep the compact blue system and actual web navigation/account controls. Historical reference assets and prior screenshots remain unchanged as evidence; their window controls are not the current visual requirement. This is scoped visual direction, not full M1 acceptance or deployment.
+
+## Compact blue M1 design accepted — 24 October 2026
+
+Moamen explicitly approved the compact blue M1 design after removal of the macOS window controls. [Approval receipt and reviewed source](../07-handoff/compact-blue-integration-verification.md) cover the shared foundation and shown M1 journey only. Broader prototype domains, authenticated staging verification, full M1 acceptance and independent security review retain their own gates.
+
+## I2a synthetic player registration policy accepted — 24 October 2026
+
+Moamen accepted the explained [first player-registration flow](../06-delivery/i2-people-first-slice-decisions.md): existing Academy Owner, fictional player name, academy-scoped duplicate review without automatic merging, explicit different-person confirmation or existing profile, saved profile; optional unverified parent contact grants no access and sends no invitation. Initial branch context remains explicit. This is the narrow synthetic I2a policy only. D-003 manager capabilities, D-004 guardian/player-access evidence and D-015 real-data retention/privacy remain open for their dependent slices. Design, implementation, staging verification and acceptance are separate.
+
+## I3a draft-program policy accepted for design — 25 October2026
+
+Moamen selected “Accept this draft-program policy” in the [I3a recommendation](../06-delivery/i3a-program-dates-decisions.md): current Academy Owner, saved initial branch/sport, explicit weekdays/same-day local times and inclusive date range, complete preview, initial28-day/20-date generation bound, rejection of ambiguous/nonexistent local times and overnight sessions, atomic draft save/read only. Drafts remain invisible to Trainers/families; no assignment, enrollment, publication, financial effect or notification. Broader scheduling/edit/history/capacity/fee/Manager rules remain open. This is policy for design preparation only; the connected design has its own review and product source/hosted/security/acceptance gates. No new grant or invitation authorized.
+
+I5a scoped D-013/D-004 decision28October2026: Moamen explicitly accepted [reviewed narrative feedback policy for design](../06-delivery/i5a-development-feedback-decisions.md). Assigned Trainer drafts after an ended published rostered session; different-account Owner returns/publishes; active approved and separately enabled Guardian link sees only its player's retained publication; amendments/withdrawal preserve history. No automatic access expansion or account grant. Connected design review pending; scored metrics, Player access, Manager/direct publication, notification/export and other D-004 policy remain unresolved.
+
+## Charcoal spectrum / dark default —29 October2026
+
+Owner explicitly chose “Charcoal spectrum with darkmode as the default for our platform” after light/dark palette exploration. This supersedes the24October compact-blue palette/light-default direction for the next redesign; historical receipts and functional approvals remain valid within their original scope. Preserve the three-column desktop architecture, role-specific experiences, EN/AR and semantic status distinction. Light is shown as an alternative in the design preview; production preference storage/provider styling is not implemented or inferred from a static sample. [Connected attendance redesign contract](../06-delivery/attendance-refresh-design-contract.md). This records visual selection, not deployed styling, batch-attendance policy approval or security acceptance.
+
+Attendance redesign policy29October2026: Moamen explicitly accepted all-or-nothing register saving **for design**: all new selected Present/Absent marks together, no new marks if any current permission/version/window check fails, retained selections, unchanged Unmarked and protected correction rules for saved marks. [Current contract](../06-delivery/attendance-refresh-design-contract.md). Connected-design review, transaction feasibility, implementation and working acceptance remain separate.
+
+## Academy working-day execution direction —2November2026
+
+The Owner requested detailed updates to all required plans/documents after the working-day analysis. Selected execution direction: preserve completed fixes/accepted Charcoal journeys, establish one connected operating-behaviour contract, bring shared loading/read coordination forward, integrate confirmed/unknown-save recovery, and add explicit working-day acceptance before broad adoption. [EX-10 contract](../03-design/academy-working-behavior-contract.md), [EX-11 acceptance](../06-delivery/academy-working-day-acceptance.md), [execution guide/tracker](../06-delivery/experience-execution.md) and [generated prompt](../06-delivery/continue-academyos.md) govern that process. The existing nine EX IDs and all business-family scope remain; two explicit gates are added without renumbering canonical journeys/actions/requirements.
+
+This accepts preparing/documenting the approach; it is not a runtime cache/privacy/access grant or working-feature acceptance. **WB-P01 private displayed-age/revocation trade-off, WB-P02 bounded private preparation, WB-P03 memory lifetime versus persistence/offline, and WB-P04 new cross-reload/crash operation discovery remain proposed.** Their concrete options/current boundaries live in the contract; record exact scoped Owner answers there and link the result here, rather than duplicating accepted values. Candidate30s/5min/one-background-read values are not enabled or accepted. Existing authorization, online-only operating writes, opaque recovery fences and independent security gates remain.
+
+No Manager/Player capability, finance/communications/media rule, production launch, real data, telemetry, paid commitment or privileged access restoration is inferred. Preserve the source/local/hosted/Owner/security distinctions when executing this direction.
+
+EX-10 decision-preparation checkpoint2November2026: [pilot source/architecture and exact WB-P recommendations](../04-engineering/working-day-pilot-architecture.md). Proposed policy and changed-state review remain pending; this pointer does not accept private caching or advance runtime delivery. Current work remains selected by the execution tracker.
+
+## Scoped D-011/D-012 decision —3November2026
+
+The Owner approved the [connected Owner offline-register design](../06-delivery/offline-register-decision-design.md) for implementation after accepting its first-slice policy. [Exact design receipt](../07-handoff/evidence/offline-register-design-2026-11-03.json). This does not close all offline or attendance policies, change the existing recording deadline, grant Trainer offline/Owner powers, or approve private key custody. [Runtime/key and exact command-readiness](../04-engineering/offline-register-runtime-readiness.md) is the current EX-10 dependency. Do not ask for the accepted policy/design again.
+
+## Operations presentation and complete working review — reconciled 4 November 2026
+
+The Owner selected/refined Operations in the [design chat](codex://threads/01a16a57-9fa0-73f0-a6d5-33df9119e86b), then requested full-app adoption and continuation in this implementation chat. The [canonical reference contract](../03-design/operations-design-reference.md) records exact Owner turns, unchanged selected files/fingerprints and limits. Current visual direction is **Operations, light default with Charcoal alternative**, consistent blue primary/neutral supporting/red destructive actions, meaningful module colours, compact resizable navigation and detail (initial 220px/276px), role-specific workflow and precise typography/spacing. These later selections supersede prior dark-default/compact-blue/teal presentation values while preserving earlier business and scoped working approvals.
+
+The target is one complete signed-in connected working review against the real backend with dedicated fictional staging records, delivered in verified batches. Four studio destinations or a factual screen replay do not establish full implementation/acceptance. Preserve delivered Owner shell/Today and accepted transaction, authorization, recovery and scope rules. A mailbox supplied in discussion grants no invitation/role restoration authority. New analytics/data definitions, new business behavior and account grants keep their own gates.
+
+The Owner's current request authorizes reconciling master/redesign/dependent plans. Safe online Operations adoption is routed through EX-07; private EX-11 acceptance and EX-09 custody/independent review remain open. [Reconciliation receipt](../07-handoff/operations-plan-reconciliation-2026-11-04.md). This routing is not security approval, private activation, production release or an Owner-acceptance claim for unseen runtime views.
+
+
+## Staging review deferral and dedicated role accounts —4November2026
+
+The Owner explicitly clarified “i dont want the security review to stop anything,” agreed to the controlled two-account approach, and then requested updating all affected documents. [SDR-01–SDR-05](staging-delivery-and-review-policy.md) are the current canonical decisions. Independent human/external security review is deferred and nonblocking for all currently authorized synthetic staging work, including otherwise-authorized private offline activation. It is not performed or passed. Do not wait for reviewer assignment/signature/disposition. Concrete engineering security checks, actual defects, custody/configuration, current authority, recovery and honest evidence remain required. Production/real-data release and access/configuration/destructive changes retain their explicit authority.
+
+The [dedicated-role plan](../06-delivery/staging-role-separation-plan.md) records the exact Platform Owner and Academy Owner target emails, separate browser profiles, controlled active-role cleanup preserving identity/history/pending work, and the Owner-first journey sequence. Prefer existing verified logins; do not automatically purge accounts or create email-based authority. Avoid an ownerless active academy. This is accepted direction and a documentation update, not an executed account/permission change or an approved mutation list.
+
+The Owner's review clarification concerns independent security review. Continue the accepted Operations design without repeating settled choices; retain the existing consolidated working-feedback/acceptance sequence and scoped handling of genuinely new business/design decisions. No new working acceptance is inferred. EX-07 remains current, EX-12 supports role preparation, EX-09 retains actual key/custody readiness and EX-11 actual private operating evidence. [Latest checkpoint](../07-handoff/staging-role-and-review-update-2026-11-04.md).
+
+
+## Bounded Sol/Terra delivery method —4November2026
+
+The Owner requested careful selective delegation to Terra for suitable work, embedded throughout project documentation, and explicitly asked for few simultaneous subagents. The [AI delegation/cost policy](ai-delegation-and-cost-policy.md) records the adopted engineering method: scripts/direct tools for deterministic repetition, explicitly configured Terra for bounded independent work, and coordinator ownership of decisions, difficult authority/synchronization/recovery boundaries and integration. A conservative zero/one-helper default and maximum two active subagents apply to the coordinated batch; no nested spawning or duplicate work. The numeric cap is an engineering implementation of the Owner's qualitative limit, not a quoted Owner number or a measured optimum.
+
+Use concise task-specific handoffs, one writer/resource owner, bounded repair/escalation and actual evidence. Record whole-batch cost/quality where observable; published half-rate tokens do not guarantee half total cost or twice the included allowance. No new model billing/credentials/global configuration, feature stage, provider access, independent-audit gate, account grant or production authority is introduced. Current EX-07/EX-12 priorities remain. [Policy checkpoint](../07-handoff/ai-delegation-policy-2026-11-04.md).

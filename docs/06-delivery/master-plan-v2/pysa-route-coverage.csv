@@ -1,0 +1,113 @@
+route_path,role_context,reference_ids,domain_ids,inspection_scope,disposition,evidence_notes
+pysa-platform/app/(admin)/super-admin/academies/page.tsx,admin,PY-003,D02,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/audit/page.tsx,admin,PY-029,D20,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/billing/page.tsx,admin,PY-006,D04,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/invitations/page.tsx,admin,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/messages/[id]/page.tsx,admin,PY-024,D15,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/messages/page.tsx,admin,PY-024,D15,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/page.tsx,admin,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/plans/page.tsx,admin,PY-005; PY-033,D03,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/product-audit/page.tsx,admin,PY-029,D20,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/settings/page.tsx,admin,PY-049,D20,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(admin)/super-admin/users/[id]/page.tsx,admin,PY-002,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(admin)/super-admin/users/page.tsx,admin,PY-002,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/attendance/page.tsx,guardian,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/consents/page.tsx,guardian,PY-048,D17,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(guardian)/guardian/financials/page.tsx,guardian,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/media/page.tsx,guardian,PY-023,D14,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/notifications/page.tsx,guardian,PY-025,D16,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/page.tsx,guardian,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/performance/page.tsx,guardian,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/privacy/page.tsx,guardian,PY-026; PY-046,D17,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(guardian)/guardian/qr/page.tsx,guardian,PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(guardian)/guardian/schedule/page.tsx,guardian,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/[sessionId]/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/audit/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/history/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/issues/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/reports/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/scan/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/staff/page.tsx,manager,PY-016,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/staff/scan/page.tsx,manager,PY-016,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/stats/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/attendance/terminal/page.tsx,manager,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/branches/page.tsx,manager,PY-004,D02,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/communications/groups/page.tsx,manager,PY-025,D16,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/communications/page.tsx,manager,PY-025,D16,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/evaluations/[id]/edit/page.tsx,manager,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/evaluations/new/page.tsx,manager,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/evaluations/page.tsx,manager,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/approvals/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/billing-models/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/invoices/[id]/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/new/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/reconciliation/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/reports/page.tsx,manager,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/financials/staff/page.tsx,manager,PY-020,D11,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/inventory/page.tsx,manager,PY-030,D21,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/media/page.tsx,manager,PY-023,D14,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/members/[id]/page.tsx,manager,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/members/[id]/qr/page.tsx,manager,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/members/new/page.tsx,manager,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/members/page.tsx,manager,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/members/print/page.tsx,manager,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/page.tsx,manager,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/reports/page.tsx,manager,PY-022; PY-044,D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/[id]/edit/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/[id]/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/extra/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/instance/[id]/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/new/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/schedule/page.tsx,manager,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/settings/page.tsx,manager,PY-003,D02,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/settings/privacy/page.tsx,manager,PY-026; PY-047; PY-048,D17,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(manager)/manager/staff/[id]/page.tsx,manager,PY-010,D06,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/staff/[id]/qr/page.tsx,manager,PY-016,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/staff/page.tsx,manager,PY-010,D06,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(manager)/manager/support/[id]/page.tsx,manager,PY-024,D15,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(manager)/manager/support/page.tsx,manager,PY-024,D15,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(owner)/academy/owner/attendance/page.tsx,owner,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/branches/page.tsx,owner,PY-004,D02,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/financials/page.tsx,owner,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/page.tsx,owner,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/reports/page.tsx,owner,PY-022; PY-044,D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/settings/page.tsx,owner,PY-003,D02,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/settings/privacy/page.tsx,owner,PY-026; PY-047; PY-048,D17,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/settings/subscription/page.tsx,owner,PY-005; PY-033,D03,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(owner)/academy/owner/subscription/page.tsx,owner,PY-005; PY-033,D03,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/account/page.tsx,player,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/attendance/page.tsx,player,PY-014; PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/card/page.tsx,player,PY-015,D08,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/financials/page.tsx,player,PY-018; PY-019,D10,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/media/page.tsx,player,PY-023,D14,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/page.tsx,player,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/performance/page.tsx,player,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(player)/player/privacy/page.tsx,player,PY-026; PY-046,D17,page imports and selected component or action references,source mapped; further verification,"Source page inspected at import/render level; runtime, complete inputs and authorization unverified"
+pysa-platform/app/(player)/player/schedule/page.tsx,player,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(protected)/change-password/page.tsx,protected,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/forgot-password/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/invite/[token]/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/login/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/page.tsx,public,PY-028,D19,route metadata only,map for investigation,Public root path only; inspect product purpose and access
+pysa-platform/app/(public)/pending/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/reset-password/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(public)/signup/page.tsx,public,PY-001,D01,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/evaluations/[id]/page.tsx,trainer,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/evaluations/new/page.tsx,trainer,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/evaluations/page.tsx,trainer,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/financials/page.tsx,trainer,PY-020,D11,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/page.tsx,trainer,PY-028; PY-022,D19; D13,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/players/[id]/page.tsx,trainer,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/players/page.tsx,trainer,PY-007,D05,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/profile/page.tsx,trainer,PY-010,D06,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/schedule/page.tsx,trainer,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/session/[id]/evaluate/[memberId]/page.tsx,trainer,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/session/[id]/evaluate/page.tsx,trainer,PY-021,D12,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/session/[id]/page.tsx,trainer,PY-011; PY-012,D07,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/(trainer)/trainer/session/[id]/scan/page.tsx,trainer,PY-011; PY-012; PY-015,D07; D08,Page source lines1-85 and imported scanner/session props inspected;callback authority/runtime not verified,page_inspected,Source resolves dated academy instances and supplies scanner session/instance context;do not infer current assignment enforcement from page props
+pysa-platform/app/m/[id]/page.tsx,Public salt-link visitor,PY-050,D08,Page source lines1-100 inspected;downstream client and runtime not verified,intentional_difference,Source public QR/member projection and possible request-time card insert;AcademyOS accepted no public card page
+pysa-platform/app/maintenance/page.tsx,public or shared,PY-029,D20,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/public/gallery/[token]/page.tsx,public or shared,PY-043,D14,route metadata only,map for investigation,Path and historical page map only; semantic page behavior not inspected
+pysa-platform/app/sentry-example-page/page.tsx,public or shared,PY-029,D20,route metadata only,map for investigation,Diagnostic example path only; do not treat as product workflow

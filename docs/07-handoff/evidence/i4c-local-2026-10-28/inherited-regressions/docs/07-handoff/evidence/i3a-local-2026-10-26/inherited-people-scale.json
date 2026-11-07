@@ -1,0 +1,25 @@
+{
+  "scope": "Disposable local PG17 function execution only; excludes HTTP, identity, limiter, cold starts and physical devices",
+  "players": 1000,
+  "sameNamePlayers": 800,
+  "measurements": [
+    {
+      "operation": "i2_people_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 4.08,
+      "responseBytes": 5657
+    },
+    {
+      "operation": "i2_people_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 4.103,
+      "responseBytes": 5629
+    },
+    {
+      "operation": "i2_candidates_v1",
+      "observations": 50,
+      "serverExecutionP95Ms": 4.113,
+      "responseBytes": 4142
+    }
+  ]
+}

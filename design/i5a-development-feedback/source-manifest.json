@@ -1,0 +1,11 @@
+{
+  "scope": "Design simulation only; no product API/DB/provider",
+  "sources": {
+    "design/i5a-development-feedback/review.tsx": "270445dba6b17f9f638599c89ad4cef840347918c95702d99919d2c7e8203c7a",
+    "design/i5a-development-feedback/review.css": "6657d5cbe862f98a80c4459c517d92dbef5cc046da8c008106a857906ec0615e",
+    "apps/web/src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "apps/web/src/components/workspace-panes.tsx": "897063f088ac7713ccad420affbc759a608c387750b692e4e54e221c3ee3c6b3",
+    "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "apps/web/src/app/globals.css": "32de1dc37f74fa5caacd45c9690f3f5736f74fc078ae88d137c228b0d4474bc4"
+  }
+}

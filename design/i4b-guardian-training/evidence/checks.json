@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory design simulation only; no real relationship, publication, API, database or hosted authority proof",
+  "cases": [
+    "two same-day occurrences and paged coverage",
+    "retained pre-link session",
+    "current corrected result with no internal history or write controls",
+    "Unmarked distinct from Absent",
+    "moved effective time",
+    "functional seven-day calendar/list and period controls",
+    "player switch clears selection",
+    "simulated obsolete response discarded",
+    "selected withdrawal and active-view link ending",
+    "loading/empty/failure/retry distinct",
+    "EN/AR320/360/926/1440 no overflow",
+    "phone Back/reopen and reload reset"
+  ],
+  "errors": [],
+  "external": []
+}

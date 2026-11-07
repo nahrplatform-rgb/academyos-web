@@ -1,0 +1,22 @@
+{
+  "run_id": 40583574353,
+  "trusted_source": "a475dadda5294510e43c7a64c14f29603bfa8748",
+  "cipher_sha256": "08324e3857ebd0faff6efbb007b75792f288daad0bc535122ccc50ce3caefcc4",
+  "cipher_bytes": 430376,
+  "rehearsal": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "f18417c8-fb83-4cba-80ad-09aaf42d996b",
+    "database_restore_passed": true,
+    "membership_boundary_passed": true,
+    "migration_rehearsed": "20261027141745_i3d_published_trainer_schedule.sql",
+    "counts": {
+      "identities": 2,
+      "academies": 2,
+      "memberships": 4,
+      "private_tables_with_rls": 38
+    },
+    "hosted_storage_restore_tested": false
+  },
+  "object_count": 0,
+  "plaintext_removed": true
+}

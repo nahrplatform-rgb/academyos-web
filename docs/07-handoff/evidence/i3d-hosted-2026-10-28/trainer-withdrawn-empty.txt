@@ -1,0 +1,51 @@
+Window: "Shopify — AcademyOS · Staging", App: Safari.
+0 standard window Shopify — AcademyOS · Staging, ID: SafariWindow?IsSecure=true&UUID=CFDC26F0-FD7B-4E7B-94FE-EF4E3D54E645, Secondary Actions: Raise
+	1 split group
+		2 splitter (disabled, settable, float) -1
+		3 tab group
+			4 scroll area
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+					6 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#main
+					7 container
+						8 text جدول المدربCasey Demo نسخة تجريبية
+						9 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+						13 text Casey Demo
+						14 container التنقل في مساحة العمل
+							15 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+							16 link الملف الوظيفي, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer
+							17 link التدريب, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						18 text بيئة اختبار · بيانات اصطناعية فقط
+					19 container
+						20 heading جدول تدريبك, Value: 1
+							21 text جدول تدريبك
+						22 text Africa/Cairo
+
+اليوم
+التواريخ القادمة
+أول تاريخ لعرض سبعة أيامعرض التواريخ
+لا توجد تواريخ منشورة ومخصصة لك في هذا العرض.
+
+تعيينات تواريخك المنشورة الحالية فقط. لا تسجيل حضور أو تقييم بعد.
+
+
+						23 toggle button اليوم, Value: off
+						24 toggle button التواريخ القادمة, Value: on
+						25 container
+							26 text أول تاريخ لعرض سبعة أيام
+							27 date time area أول تاريخ لعرض سبعة أيام, Value: 28/10/2026
+								28 container
+									29 stepper (settable, float) day, Value: 28
+									30 text /
+									31 stepper (settable, float) month, Value: 10
+									32 text /
+									33 stepper (settable, float) year, Value: 2026
+						34 button عرض التواريخ
+						35 text لا توجد تواريخ منشورة ومخصصة لك في هذا العرض. تعيينات تواريخك المنشورة الحالية فقط. لا تسجيل حضور أو تقييم بعد.
+						36 container التفاصيل والإجراءات السياقية
+							37 heading تفاصيل التدريب, Value: 2
+								38 text تفاصيل التدريب
+							39 text اختر تاريخاً منشوراً ومخصصاً لك.
+	40 

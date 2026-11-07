@@ -1,0 +1,44 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development#main
+					7 container
+						8 text Guardian workspaceDevelopment feedback Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Guardian workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+							17 link Development, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Player development, Value: 1
+							21 text Player development
+						22 button Refresh view
+						23 text Published feedback for your approved linked player.
+						24 button Choose linked player
+						25 heading Published feedback, Value: 2
+							26 text Published feedback
+						27 toggle button Synthetic I4d QR Attendance Demo 10/28/2026, 10:10:00 PM, Value: on
+						28 button (disabled) Previous page
+						29 button (disabled) Next page
+						30 container Contextual details and actions
+							31 container
+								32 heading Feedback details, Value: 2
+									33 text Feedback details
+								34 button Back
+							35 heading Synthetic Registration Demo, Value: 3
+								36 text Synthetic Registration Demo
+							37 text Synthetic I4d QR Attendance Demo · Synthetic Main Branch · Synthetic Football
+							38 text 10/28/2026, 10:10:00 PM · Africa/Cairo
+							39 text Published 10/29/2026, 2:53:20 AM · Revision 2
+							40 heading Strengths, Value: 3
+								41 text Strengths
+							42 text Synthetic feedback: controlled short passes during the fictional drill.
+							43 heading Improvement focus, Value: 3
+								44 text Improvement focus
+							45 text Synthetic feedback: improve the first touch before passing.
+							46 heading Next steps, Value: 3
+								47 text Next steps
+							48 text Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.

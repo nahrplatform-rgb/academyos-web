@@ -1,0 +1,22 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan
+					6 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan#main
+					7 container
+						8 text ماسح الجلساتمساحة الأكاديمية نسخة تجريبية
+						9 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+						13 text مساحة الأكاديمية
+						14 container التنقل في مساحة العمل
+							15 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+							16 link ماسح الجلسات, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan
+						17 text بيئة اختبار · بيانات اصطناعية فقط
+					18 container
+						19 heading ماسح الجلسات, Value: 1
+							20 text ماسح الجلسات
+						21 text الوصول غير متاح. أُزيلت التفاصيل الخاصة. الوصول غير متاح. أُزيلت التفاصيل الخاصة.
+						22 container التفاصيل والإجراءات السياقية
+							23 heading التفاصيل والإجراءات, Value: 2
+								24 text التفاصيل والإجراءات
+							25 text الوصول غير متاح. أُزيلت التفاصيل الخاصة.
+				26 scroll bar (settable, float) 0

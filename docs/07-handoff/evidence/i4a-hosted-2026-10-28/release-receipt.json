@@ -1,0 +1,27 @@
+{
+  "scope": "Actual deployment/browser/process-health and post-release zero-count observations; not a hosted attendance happy path or independent security approval",
+  "deployment": "dpl_B6kFNoy4Z5N9cKJ9K6RNF9HXt82p",
+  "source": "fa1fff83e4286a4dc80389741db769951f2a1ae6",
+  "status": "Ready",
+  "duration_seconds": 52,
+  "domain": "staging.academy.nahr.dev",
+  "application_environment": "Existing synthetic staging; provider slot is named Production",
+  "health": {
+    "status": "ok",
+    "scope": "process-only"
+  },
+  "authenticated_checks": [
+    "Owner workspaces loads the permitted academy",
+    "Nonexistent attendance event denies without session or roster in EN/AR"
+  ],
+  "counts": {
+    "marks": 0,
+    "history": 0,
+    "receipts": 0,
+    "memberships": 4,
+    "active_trainers": 0,
+    "published": 0
+  },
+  "working_acceptance": "pending",
+  "temporary_trainer_test": "separate authorization requested; not executed"
+}

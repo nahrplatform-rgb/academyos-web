@@ -1,0 +1,11 @@
+{
+  "scope": "Design simulation only; no product API/DB/provider",
+  "sources": {
+    "design/i3d-trainer-schedule/review.tsx": "db925574c759ad319f73948fd78fc4d8647f0624e076b2f711683b941db3de0d",
+    "design/i3d-trainer-schedule/review.css": "d1485f6aa781bae0e03181424d2466863de352539fee0c5f932d777d1072d006",
+    "apps/web/src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "apps/web/src/components/workspace-panes.tsx": "897063f088ac7713ccad420affbc759a608c387750b692e4e54e221c3ee3c6b3",
+    "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "apps/web/src/app/globals.css": "f3c53928f50ce55c0da4f18143451ac3d496c2df0aec0ff705f7eb5edce346fc"
+  }
+}

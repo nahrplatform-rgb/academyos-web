@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-04T21:20:15.354Z",
+  "scope": "Inactive typed Owner-register adapter; actual Chromium IndexedDB/WebCrypto; fictional HTTP authority; not product/Clerk/provider/independent-security proof",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Import has no database, network, credential or product activation side effects",
+      "status": "passed"
+    },
+    {
+      "name": "Future-prepared register crosses its start offline after repository reopening and captures locally without another request",
+      "status": "passed"
+    },
+    {
+      "name": "Originally open prepared register closes locally at its deadline and refuses a new capture",
+      "status": "passed"
+    },
+    {
+      "name": "18-player basis and 17-mark original/local overlay commit together; exact canonical wire and IDs retained",
+      "status": "passed"
+    },
+    {
+      "name": "Private roster, names, captured time and original payload encrypted at rest; persisted keys non-extractable",
+      "status": "passed"
+    },
+    {
+      "name": "30 covered actual local reads while disconnected use zero key or operating requests",
+      "status": "passed"
+    },
+    {
+      "name": "Actual browser-process restart automatically reopens encrypted rows and original without another credential/key exchange",
+      "status": "passed"
+    },
+    {
+      "name": "Replacement, foreign academy, duplicate players and saved-mark wire versions cannot alter the original",
+      "status": "passed"
+    },
+    {
+      "name": "Dispatch is journalled Unknown first; retries use byte-identical wire; wrong count/event/op/extra receipt fields cannot settle it",
+      "status": "passed"
+    },
+    {
+      "name": "Exact count-only receipt settles once and invalidates current basis without fabricating fresh marks/totals; confirmed outcome survives absent follow-up read",
+      "status": "passed"
+    },
+    {
+      "name": "Indexed original discovery survives reopening without a remembered operation ID; confirmed originals remain discoverable",
+      "status": "passed"
+    },
+    {
+      "name": "Definitive deadline refusal retains Needs review and blocks blind retry/replacement while unrelated events remain usable",
+      "status": "passed"
+    },
+    {
+      "name": "Active event lookup supplies the exact local marks/display basis separately from server records and retained refusal",
+      "status": "passed"
+    },
+    {
+      "name": "A transfer begun before a confirmed save cannot later replace its invalidated basis with pre-save rows",
+      "status": "passed"
+    },
+    {
+      "name": "Paged import resumes across reload with durable cursor; bad cursor/header preserve prior complete generation; final page switches coverage atomically",
+      "status": "passed"
+    },
+    {
+      "name": "Abandoning only a staged transfer preserves the active generation and removes its staged rows without touching pending work",
+      "status": "passed"
+    },
+    {
+      "name": "Bounded local pages can combine smaller byte-bounded API pages without falsely rejecting long Arabic names",
+      "status": "passed"
+    },
+    {
+      "name": "Complete-empty and not-prepared data are distinct; counts are validated from the complete transfer",
+      "status": "passed"
+    },
+    {
+      "name": "Non-Owner projections, closed bases and already-saved roster players cannot become a new offline register",
+      "status": "passed"
+    },
+    {
+      "name": "Duplicate rows, incomplete terminal pages and unexpected private fields never activate coverage",
+      "status": "passed"
+    },
+    {
+      "name": "Real page and original transactions abort without false local acknowledgement, partial coverage or partial pending overlay",
+      "status": "passed"
+    },
+    {
+      "name": "Aborted settlement preserves Unknown and prior basis; receipt/invalidated projection commit together on retry",
+      "status": "passed"
+    },
+    {
+      "name": "1000 Unicode players prepare in 20 bounded server-shaped pages, reopen in at most 50 rows and preserve the full 1000-mark canonical packet",
+      "status": "passed"
+    },
+    {
+      "name": "Competing connections capture exactly one unsettled original for the same event without duplicate partial writes",
+      "status": "passed"
+    },
+    {
+      "name": "Cleanup failure leaves a durable Cleaning fence across reload; completed logout removes replica material and retains protected original",
+      "status": "passed"
+    },
+    {
+      "name": "Independent stored-key inspection after cleanup finds no read/recovery key; remaining device key opens only the outer wrap and cannot unwrap the retained data key",
+      "status": "passed"
+    },
+    {
+      "name": "Other fictional account is refused by HTTP authority; wrong recovery material fails cryptographically; original account recovers pending work without restoring removed replicas",
+      "status": "passed"
+    },
+    {
+      "name": "Invoked 30-day cleanup uses the same protected-recovery boundary; no idle lock, expiry timer or automatic purge of pending work",
+      "status": "passed"
+    },
+    {
+      "name": "First-ever activation reserves a durable fence before key delivery; logout rejects a late valid reply even before downloads exist",
+      "status": "passed"
+    },
+    {
+      "name": "Wrong academy, subject, device and field epoch cannot open, activate or clean another scope; ciphertext is retained",
+      "status": "passed"
+    },
+    {
+      "name": "Known denial quarantines current replicas and pending access; old handles cannot use retained cached material",
+      "status": "passed"
+    },
+    {
+      "name": "Disposal during asynchronous decryption prevents a late private value from returning to the old workspace",
+      "status": "passed"
+    },
+    {
+      "name": "Scope disposal immediately after a disk commit suppresses the obsolete acknowledgement while durable original discovery survives reopening",
+      "status": "passed"
+    },
+    {
+      "name": "Ciphertext tampering is rejected without resetting or deleting retained operation discovery",
+      "status": "passed"
+    },
+    {
+      "name": "Missing persisted key refuses opening/reactivation and never replaces keys over existing work",
+      "status": "passed"
+    },
+    {
+      "name": "Missing control metadata with orphaned encrypted data refuses destructive reinitialization",
+      "status": "passed"
+    },
+    {
+      "name": "Injected storage unavailability produces no plaintext fallback or false local acknowledgement; real quota exhaustion remains unmeasured",
+      "status": "passed"
+    },
+    {
+      "name": "Write acknowledgement requires supported strict transaction durability; a weaker reported mode is refused without fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Two independently activated fictional academy/account namespaces retain separate roster and original indexes without cross-reading",
+      "status": "passed"
+    },
+    {
+      "name": "Newer schema fences an older adapter without database reset; actual forward migration is not claimed",
+      "status": "passed"
+    }
+  ],
+  "browser": "156.0.8078.4",
+  "node": "v26.9.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "metrics": {
+    "initialPrepareCaptureMs": 11.163916000000029,
+    "initialCiphertextBytes": 9823,
+    "coveredReads": 30,
+    "coveredReadKeyExchanges": 0,
+    "localReadP50Ms": 2.0190410000000156,
+    "localReadP95Ms": 3.2505409999999983,
+    "thousandPlayerPrepareMs": 114.86300000000006,
+    "thousandMarkCaptureMs": 40.5145,
+    "thousandMarkWireBytes": 80712,
+    "thousandPlayerCiphertextBytes": 734266,
+    "maxLocalPagePlayers": 50,
+    "keyExchanges": 22,
+    "allowedKeyExchanges": 21,
+    "deniedKeyExchanges": 1,
+    "keyResponseJsonBytes": 6041,
+    "credentialAPICalls": 0,
+    "bundleBytes": 61578
+  },
+  "errors": [],
+  "externalRequests": [],
+  "hashes": {
+    "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
+    "apps/web/src/lib/corrections.ts": "410fd5bc299e6356ad77e3fd31b9e854b1c1d4e956ff488bac0553eeaea0b460",
+    "scripts/local-data/test_register_repository.mjs": "2127ad99e4ccc75b40b4a33b254b98feca17fdef90d7f6702debaeb3eb748895"
+  },
+  "limitations": [
+    "No product route imports or private activation; no actual account/Clerk/current Owner/device registration or protected server key custody",
+    "Paged current API has no globally coherent snapshot; complete local transfer is not simultaneous freshness",
+    "No automatic 30-day trusted-clock trigger, forward schema migration, real disk exhaustion/eviction recovery, cross-device or hosted cold offline boot",
+    "Local timing includes Playwright round trips on isolated loopback; no app/provider p75/p95 or achieved quota savings",
+    "Same-origin scripts with available keys can use them; no hardware isolation or secure-erasure claim",
+    "No live command upload, background scheduler, cancellation reconcile, private enablement, access grant or production release; independent security remains open"
+  ]
+}

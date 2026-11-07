@@ -1,0 +1,30 @@
+{
+  "scope": "Three actual hosted unauthenticated fail-closed API requests; no identity, card code or writes; timings are smoke observations not p95 performance",
+  "transport": "System curl with TLS verification; local Python trust-store mismatch was not bypassed",
+  "cases": [
+    {
+      "case": "unauthenticated_current_origin",
+      "status": 401,
+      "cache_control": "no-store",
+      "referrer_policy": "no-referrer",
+      "elapsed_ms": 449.0,
+      "body": "{\"error\":\"denied\"}"
+    },
+    {
+      "case": "foreign_origin",
+      "status": 403,
+      "cache_control": "no-store",
+      "referrer_policy": "no-referrer",
+      "elapsed_ms": 485.7,
+      "body": "{\"error\":\"denied\"}"
+    },
+    {
+      "case": "wrong_content_type",
+      "status": 403,
+      "cache_control": "no-store",
+      "referrer_policy": "no-referrer",
+      "elapsed_ms": 546.7,
+      "body": "{\"error\":\"denied\"}"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{"case":"anonymous-invitation","status":200,"vercel_gate":false,"academy_html":true,"private_setup_present":false}
+{"case":"anonymous-sign-in","status":200,"vercel_gate":false,"academy_html":true,"private_setup_present":false}
+{"case":"anonymous-workspace","status":404,"vercel_gate":false,"academy_html":true,"private_setup_present":false}
+{"case":"anonymous-platform","status":404,"vercel_gate":false,"academy_html":true,"private_setup_present":false}
+{"case":"anonymous-api-context","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"error":"denied","cache_control":"no-store"}
+{"case":"anonymous-api-platform","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"error":"denied","cache_control":"no-store"}
+{"case":"anonymous-api-setup","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"error":"denied","cache_control":"no-store"}
+{"case":"anonymous-api-create","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"error":"denied","cache_control":"no-store"}
+{"case":"anonymous-api-accept","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"error":"denied","cache_control":"no-store"}
+{"case":"unsigned-worker","status":401,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"cache_control":"public, max-age=0, must-revalidate"}
+{"case":"generated-deployment","status":302,"vercel_gate":true,"academy_html":false,"private_setup_present":false,"redirect_kind":"vercel"}
+{"case":"preview-deployment","status":302,"vercel_gate":true,"academy_html":false,"private_setup_present":false,"redirect_kind":"vercel"}
+{"case":"browser-navigation-workspace","status":307,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"redirect_kind":"clerk"}
+{"case":"browser-navigation-platform","status":307,"vercel_gate":false,"academy_html":false,"private_setup_present":false,"redirect_kind":"clerk"}

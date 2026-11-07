@@ -1,0 +1,43 @@
+{
+  "recorded_at_utc": "2026-11-04T15:20:01.536Z",
+  "source": "50a2ae149bfeff56af94108cb2e04f26e4be075c",
+  "candidate": {
+    "id": "dpl_GPbZ3zDJVzRSAx8Av5HsUkWnd22M",
+    "url": "academyos-me643903a-academy-os2.vercel.app",
+    "inspector": "https://vercel.com/academy-os2/academyos-web/GPbZ3zDJVzRSAx8Av5HsUkWnd22M",
+    "state": "READY",
+    "target": "Preview; private staging root/flags not exposed"
+  },
+  "ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 41851866155,
+      "event": "pull_request",
+      "status": "completed",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41851866155"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41851855395,
+      "event": "push",
+      "status": "completed",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41851855395"
+    }
+  ],
+  "canonical_last_observed": {
+    "alias": "staging.academy.nahr.dev",
+    "deployment": "dpl_8hiwQ93Y5bf9axQLLjvJo1DeYhzu",
+    "source": "fc1b5ee76260ac96dfdd212f98a64c413246e548"
+  },
+  "schema_and_configuration": "Applied and checked; see schema-hosted.json and configuration-hosted.json",
+  "owner_promotion": "Requested for exact code 50a2ae1; pending. Agent performed no promotion/alias/redeploy/passkey action.",
+  "actual_offline_runtime": "Not yet verified; existing build's three endpoints remain closed503 until new runtime",
+  "trial_setup": "Casey membership/assignment ended, accepted invitation version15; no temporary restoration yet",
+  "continuation": "After Owner promotion verify canonical source/runtime, then use SDR06 to prepare fresh session through real Owner journey, run private offline test, end temporary Trainer and retain evidence",
+  "incidental_repository_alert": {
+    "package": "braces",
+    "ghsa": "GHSA-vfj7-8cjw-p6xm",
+    "withdrawn_at": "2026-10-23T12:53:02Z",
+    "context": "Default branch push warning; current dependency is dev ESLint chain. No new exploit claim, dependency change or full-security pass."
+  }
+}

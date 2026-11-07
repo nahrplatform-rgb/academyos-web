@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "journeyGroups": 17,
+  "checks": [
+    "standalone file URL opens offline",
+    "all journey groups have visible captured states",
+    "actual recorded button replays its exact observed target",
+    "Arabic and360px source captures selectable",
+    "review notes and JSON download",
+    "source wording lookup",
+    "all68 screens and180 requirements remain in coverage",
+    "review tool390px no horizontal document overflow",
+    "no HTTP network request",
+    "no page errors"
+  ],
+  "errors": [],
+  "network": []
+}

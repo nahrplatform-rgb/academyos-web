@@ -1,0 +1,54 @@
+{
+  "source": "06fbce04ee761dcf676e8640f6fa6446ed92bf51",
+  "ci": [
+    {
+      "id": 41285750580,
+      "conclusion": "success"
+    },
+    {
+      "id": 41285746786,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_2KwDCdFWLeD84R5E1R3FVzXyYhHp",
+    "state": "Ready",
+    "durationSeconds": 37
+  },
+  "staging": {
+    "state": "Ready; exact source and staging alias verified natively",
+    "previousServing": "dpl_8hAmNAi7zDaXNtyFoPvf86NDEQey",
+    "id": "dpl_EbDAys1ExutPsATPGLNtmJAH56Sf",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "accountCheck": "Continue with Passkey completed; Vercel created deployment; no credentials logged",
+    "durationSeconds": 44,
+    "source": "06fbce04ee761dcf676e8640f6fa6446ed92bf51"
+  },
+  "hosted": {
+    "date": "2026-11-01",
+    "method": "native Chrome; existing Platform/Owner; read-only plus unsaved fictional drafts",
+    "observed": [
+      "Trainer EN review/tab return retained name/email and cleared approval; Arabic draft return retained input",
+      "Guardian EN review/tab return retained email and cleared approval; Arabic draft return retained input",
+      "Platform clean directory return settled; EN/AR academy-name drafts retained on tab return",
+      "dirty admission language exit prompted discard; Cancel preserved draft; cleared before AR check",
+      "foreign B Trainer and Guardian appointments denied without prior tenant data",
+      "agent-entered drafts cleared; no Submit/Create/Confirm appointment used",
+      "original EN Owner Home restored"
+    ],
+    "limits": [
+      "request reductions synthetic only; no hosted counters/query costs/percentiles",
+      "no new live pending/unknown/concurrency or positive recipient-role checks",
+      "native controls/input/tab actions needed retries; G01 unresolved",
+      "admission dirty locale navigation differs from appointments; EX07 follow-up",
+      "not physical-device/accessibility/independent security proof"
+    ]
+  },
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "operatingWrites": false,
+  "accessRestored": false
+}

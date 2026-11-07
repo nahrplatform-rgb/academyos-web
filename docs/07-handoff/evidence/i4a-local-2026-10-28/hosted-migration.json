@@ -1,0 +1,134 @@
+{
+  "scope": "Hosted staging metadata and unchanged preexisting fingerprints only; not signed-in attendance proof",
+  "before": {
+    "dates": {
+      "hash": "eebbbe34ae3cdfc8d26ceb05340937c6",
+      "count": 60
+    },
+    "plans": {
+      "hash": "6ff44572bf083b1cb434644b70740513",
+      "count": 42
+    },
+    "rosters": {
+      "hash": "0bf943f289a37fabdd2133b57a4da917",
+      "count": 41
+    },
+    "assignments": {
+      "hash": "421869f389eacd3521e6e16d58a846f2",
+      "count": 1
+    },
+    "memberships": {
+      "hash": "9bb2da9be0272f4ed25ccacb28dbc5fe",
+      "count": 4
+    }
+  },
+  "dates": {
+    "hash": "eebbbe34ae3cdfc8d26ceb05340937c6",
+    "count": 60
+  },
+  "marks": 0,
+  "plans": {
+    "hash": "6ff44572bf083b1cb434644b70740513",
+    "count": 42
+  },
+  "tables": [
+    {
+      "rls": true,
+      "table": "attendance_history",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "table": "attendance_marks",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "table": "attendance_operations",
+      "insert": false,
+      "select": false
+    }
+  ],
+  "history": 0,
+  "rosters": {
+    "hash": "0bf943f289a37fabdd2133b57a4da917",
+    "count": 41
+  },
+  "receipts": 0,
+  "functions": [
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_guard_published_roster",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_guard_session",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_history_immutable",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "schema": "public",
+      "function": "a10_history_v1",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "schema": "public",
+      "function": "a10_mark_v1",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "schema": "public",
+      "function": "a10_operation_v1",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_owner",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_protect",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "schema": "public",
+      "function": "a10_roster_v1",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "schema": "academy",
+      "function": "a10_target",
+      "authenticated": false
+    }
+  ],
+  "migration": {
+    "name": "i4a_online_attendance",
+    "version": "20261028024556"
+  },
+  "assignments": {
+    "hash": "421869f389eacd3521e6e16d58a846f2",
+    "count": 1
+  },
+  "memberships": {
+    "hash": "9bb2da9be0272f4ed25ccacb28dbc5fe",
+    "count": 4
+  }
+}

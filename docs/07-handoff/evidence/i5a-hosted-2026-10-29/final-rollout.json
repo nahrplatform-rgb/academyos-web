@@ -1,0 +1,21 @@
+{
+  "source": "73ab5d4cead5d8c418d561aa03aed6874e33ef39",
+  "applicationSource": "9d4f9bb98b09880f903a6d00ddf7e58990f04274",
+  "deployment": "dpl_CHW3FTE8m1yZwhwdJojDQNL2GJQx",
+  "url": "academyos-6u9pesr7k-academy-os2.vercel.app",
+  "domain": "staging.academy.nahr.dev",
+  "state": "Ready",
+  "pushCI": 40791876840,
+  "pullRequestCI": 40791884512,
+  "bothCI": "success",
+  "scope": "Existing synthetic staging; provider production slot is not commercial launch",
+  "hostedFollowup": "Existing Owner reopened withdrawn revision2 and history in EN/AR; no access restoration or new feedback write repeated",
+  "noticeFix": "Production/development actual React regression covers current-language notice; confirmed shown only after successful reads; failed reads do not show completed result",
+  "workingAcceptance": "pending",
+  "remaining": [
+    "independent human/security review",
+    "broader hosted direct API and races",
+    "physical devices/accessibility",
+    "stable-network load and cost"
+  ]
+}

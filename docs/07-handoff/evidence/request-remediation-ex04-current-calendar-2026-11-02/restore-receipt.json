@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "600ac887-cc35-4d69-a479-0e33de662db4", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261102120000_owner_current_calendar.sql", "counts": {"identities": 2, "academies": 2, "memberships": 4, "private_tables_with_rls": 58}, "hosted_storage_restore_tested": false}

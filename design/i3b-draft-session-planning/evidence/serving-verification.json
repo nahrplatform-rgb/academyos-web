@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "scope": "Loopback artifact readback only; native non-submit-button semantics corrected after design approval without policy/layout change",
+  "url": "http://127.0.0.1:3209/",
+  "html_sha256": "df40091a818a15d368e98ded803db4f8194b2e2a0ef572ea8488a69a89ca8ff6",
+  "assets": {
+    "app.css?v=30d7f443ccb2": "d571e74e82f8883947bcb23f1489bf425f79f0356ca527a7dfdc50dc2f0e24fc",
+    "review.js?v=30d7f443ccb2": "2940923b2ae298345c00057e07cd529f7144066d1f85e099c94e44a44f3c3f53"
+  }
+}

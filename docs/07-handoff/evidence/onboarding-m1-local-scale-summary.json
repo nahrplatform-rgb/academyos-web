@@ -1,0 +1,175 @@
+{
+  "architecture": "arm64",
+  "cache_profile": "warm shared buffers after fixture verification; no physical shared reads expected, no cold profile",
+  "collected_at_utc": "2026-10-23T15:02:46.557264+00:00",
+  "competing_writers": {
+    "audits_added": 1,
+    "committed": 1,
+    "connections": 10,
+    "operations_added": 1,
+    "samples": [
+      {
+        "driver_wall_ms": 59.099,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 58.808,
+        "outcome": "committed"
+      },
+      {
+        "driver_wall_ms": 59.546,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 59.274,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 59.423,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 58.4,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 59.482,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 55.22,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 59.411,
+        "outcome": "version_conflict"
+      },
+      {
+        "driver_wall_ms": 60.583,
+        "outcome": "version_conflict"
+      }
+    ],
+    "unrelated_unchanged": true,
+    "version_conflicts": 9
+  },
+  "concurrent_readers": {
+    "academy_count": 3,
+    "actor_count": 3,
+    "connections": 20,
+    "driver_wall": {
+      "maximum_ms": 87.45700004510581,
+      "minimum_ms": 62.69475002773106,
+      "p50_ms": 77.84529100172222,
+      "p95_ms": 87.22416695673019,
+      "samples": 20
+    },
+    "successes": 20
+  },
+  "driver": "new psql process/backend per observation; wall time includes launch and scheduling",
+  "fixtures": {
+    "skew_branches": 60,
+    "skew_memberships": 30,
+    "skew_sports": 60,
+    "total_academies": 33
+  },
+  "negative_access": {
+    "all_denied": true,
+    "foreign_owners": 2,
+    "lower_role": 1
+  },
+  "os": "Darwin",
+  "os_release": "27.0.0",
+  "plan_scope": "outer function scan; no nested query row-examination attribution",
+  "postgres": "17.11 (Homebrew)",
+  "profiles": {
+    "context_first_page": {
+      "driver_wall": {
+        "maximum_ms": 35.363,
+        "minimum_ms": 23.499,
+        "p50_ms": 25.294,
+        "p95_ms": 31.625,
+        "samples": 50
+      },
+      "execution": {
+        "maximum_ms": 6.578,
+        "minimum_ms": 3.121,
+        "p50_ms": 3.536,
+        "p95_ms": 4.398,
+        "samples": 50
+      },
+      "payload_bytes": 4021
+    },
+    "platform_first_page": {
+      "driver_wall": {
+        "maximum_ms": 45.63,
+        "minimum_ms": 23.382,
+        "p50_ms": 25.834,
+        "p95_ms": 36.048,
+        "samples": 50
+      },
+      "execution": {
+        "maximum_ms": 5.58,
+        "minimum_ms": 2.944,
+        "p50_ms": 3.382,
+        "p95_ms": 5.008,
+        "samples": 50
+      },
+      "payload_bytes": 7816
+    },
+    "skew_c": {
+      "driver_wall": {
+        "maximum_ms": 35.45,
+        "minimum_ms": 23.562,
+        "p50_ms": 25.482,
+        "p95_ms": 30.273,
+        "samples": 50
+      },
+      "execution": {
+        "maximum_ms": 6.089,
+        "minimum_ms": 3.157,
+        "p50_ms": 3.509,
+        "p95_ms": 4.382,
+        "samples": 50
+      },
+      "payload_bytes": 335
+    },
+    "small_a": {
+      "driver_wall": {
+        "maximum_ms": 37.302,
+        "minimum_ms": 23.728,
+        "p50_ms": 25.878,
+        "p95_ms": 35.081,
+        "samples": 50
+      },
+      "execution": {
+        "maximum_ms": 6.242,
+        "minimum_ms": 3.189,
+        "p50_ms": 3.537,
+        "p95_ms": 5.463,
+        "samples": 50
+      },
+      "payload_bytes": 335
+    },
+    "small_b": {
+      "driver_wall": {
+        "maximum_ms": 72.662,
+        "minimum_ms": 25.203,
+        "p50_ms": 28.11,
+        "p95_ms": 66.862,
+        "samples": 50
+      },
+      "execution": {
+        "maximum_ms": 15.731,
+        "minimum_ms": 3.351,
+        "p50_ms": 3.995,
+        "p95_ms": 9.858,
+        "samples": 50
+      },
+      "payload_bytes": 335
+    }
+  },
+  "python": "3.13.1",
+  "runner_sha256": "c9252664f073ebefef2d05ded9da22adb3394a3cc980ce6b1e275413a921c832",
+  "sample_source_commit": "a4bccdd0e8dbb7477f650dbefa1bb9fac3d6eebc",
+  "scope": "disposable local PostgreSQL; simulated JWT/gateway; no HTTP/Redis/Clerk/device/cost acceptance"
+}

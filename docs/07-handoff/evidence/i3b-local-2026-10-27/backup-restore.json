@@ -1,0 +1,29 @@
+{
+  "recover": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "9bb47d81-8483-4872-8ac9-6a6b7e97f790",
+    "checksums_valid": true,
+    "objects": 0,
+    "database_restore_tested": false
+  },
+  "rehearsal": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "9bb47d81-8483-4872-8ac9-6a6b7e97f790",
+    "database_restore_passed": true,
+    "membership_boundary_passed": true,
+    "migration_rehearsed": "20261027001751_i3b_draft_session_planning.sql",
+    "counts": {
+      "identities": 2,
+      "academies": 2,
+      "memberships": 4,
+      "private_tables_with_rls": 28
+    },
+    "hosted_storage_restore_tested": false
+  },
+  "plaintext_removed": true,
+  "run_id": 40426869192,
+  "trusted_source": "a475dadda5294510e43c7a64c14f29603bfa8748",
+  "cipher_sha256": "0f03e150f2a51ddfa18d37cc4cc4e92d3c10ce881c3bb34cb680a418498091fb",
+  "cipher_bytes": 358680,
+  "object_count": 0
+}

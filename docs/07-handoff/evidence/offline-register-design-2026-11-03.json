@@ -1,0 +1,31 @@
+{
+  "recordedAtUTC": "2026-11-02T23:52:16.304984+00:00",
+  "ownerAnswer": "Approve this connected offline-register design for implementation",
+  "scope": "Connected Owner offline-register design only;existing policy retained;no privileged grant,private enablement,encryption approval,working acceptance or security approval",
+  "reviewURL": "http://127.0.0.1:3237/design/offline-register-preview/index.html",
+  "approvedHTMLSha256": "9029c93d69d8a7f261ab67bae4a79c8c029e68d298fc018d4d2710f193a18fe9",
+  "sourceHashes": {
+    "src/index.html": "9900cae6ee6452184d26400adf5fe1e7e755369044ff2e5b47ffcc71cdca8a9e",
+    "src/style.css": "72685af8c770729fbe07ade074fd0b7e5b609dec5033a9f347eda6e248330192",
+    "src/repository.mjs": "0f582756c9f5b09cabaa07a4f8086119b3bf1baf551dd6ee24a910c0250710cd",
+    "src/fixtures.mjs": "170df1a3e54f64dec60ae96085b659f5bbd5fc0e1013da33b8c3f6d9145c73a0",
+    "src/app.mjs": "3594f5e99400bb43bb72a929ccabeed34b9acd1fa928beb7aafd43700f3751a4"
+  },
+  "approvalPreserves": [
+    "Original immutable operation identity and whole-register atomicity",
+    "Current authority/version/publication/deadline checks",
+    "Retained Needs review and unknown-original reconciliation",
+    "Protected same-account pending recovery after logout/30day replica cleanup",
+    "No inactivity lock or proposed24hour read cutoff"
+  ],
+  "remaining": [
+    "Exact private key/unlock/device/fields engineering and security readiness",
+    "Canonical runtime roster/basis/receipt/noncancelling original outcome or replay contract",
+    "Private implementation/local checks/deployment/hosted verification/Owner working acceptance"
+  ],
+  "unlockResearchChoice": {
+    "recordedAtUTC": "2026-11-03T00:04:53.067800+00:00",
+    "answer": "Investigate device/passkey unlocking first",
+    "scope": "Research direction only;no separate passphrase acceptance,real credential creation,private enablement or security approval"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "scope": "Actual disposable PG17 follow-up; current Manager/Guardian/Player roles in the same academy, foreign academy/player, wrong same-academy branch, current window and revoked appointment; not hosted proof",
+  "test": "test_zz_attendance_02_denials_fence_eligibility_and_window",
+  "seconds": 4.174
+}

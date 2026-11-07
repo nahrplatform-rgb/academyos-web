@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Button } from "@/components/ui/controls";
 import { SETUP_ERROR } from "@/lib/telemetry";
 
 export default function CheckButton() {
@@ -63,17 +64,17 @@ export default function CheckButton() {
   }
   return (
     <>
-      <button type="button" disabled={busy} onClick={check}>
+      <Button type="button" disabled={busy} onClick={check}>
         {busy ? "Checking…" : "Run synthetic service checks"}
-      </button>
+      </Button>
       {receipt && (
-        <button type="button" disabled={busy} onClick={checkReceipt}>
+        <Button type="button" disabled={busy} onClick={checkReceipt}>
           Check callback receipt
-        </button>
+        </Button>
       )}
-      <button type="button" disabled={busy} onClick={emailCheck}>
+      <Button type="button" disabled={busy} onClick={emailCheck}>
         Send one setup email to the configured test mailbox
-      </button>
+      </Button>
       <pre
         role="status"
         style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}

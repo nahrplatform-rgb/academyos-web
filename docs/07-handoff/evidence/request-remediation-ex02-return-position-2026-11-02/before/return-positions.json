@@ -1,0 +1,57 @@
+{
+  "scope": "actual Next production;fictional40-row Calendar;read-only APIs",
+  "returnPositions": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "center": 3204,
+        "document": 0
+      },
+      "after": {
+        "center": 0,
+        "document": 0
+      },
+      "reads": 2
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "center": 0,
+        "document": 6062
+      },
+      "after": {
+        "center": 0,
+        "document": 0
+      },
+      "reads": 2
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "center": 3216,
+        "document": 0
+      },
+      "after": {
+        "center": 0,
+        "document": 0
+      },
+      "reads": 2
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "center": 0,
+        "document": 6033
+      },
+      "after": {
+        "center": 0,
+        "document": 0
+      },
+      "reads": 2
+    }
+  ]
+}

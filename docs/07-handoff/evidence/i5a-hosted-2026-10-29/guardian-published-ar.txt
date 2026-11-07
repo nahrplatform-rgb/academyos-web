@@ -1,0 +1,59 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+					6 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development#main
+					7 container
+						8 text ملاحظات التطورمساحة ولي الأمر نسخة تجريبية
+						9 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+						13 text مساحة ولي الأمر
+						14 container التنقل في مساحة العمل
+							15 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+							16 link التدريبات والحضور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+							17 link التطور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						18 text بيئة اختبار · بيانات اصطناعية فقط
+					19 container
+						20 heading تطور اللاعبين, Value: 1
+							21 text تطور اللاعبين
+						22 button تحديث العرض
+						23 text الملاحظات المنشورة للاعب المرتبط بك والمعتمد.
+						24 button اختيار اللاعب المرتبط
+						25 heading ملاحظات منشورة, Value: 2
+							26 text ملاحظات منشورة
+						27 toggle button Synthetic I4d QR Attendance Demo 28‏/10‏/2026، 10:10:00 م, Value: on
+						28 button (disabled) الصفحة السابقة
+						29 button (disabled) الصفحة التالية
+						30 container التفاصيل والإجراءات السياقية
+							31 container
+								32 heading تفاصيل الملاحظات, Value: 2
+									33 text تفاصيل الملاحظات
+								34 button رجوع
+							35 heading Synthetic Registration Demo, Value: 3
+								36 text Synthetic Registration Demo
+							37 text Synthetic I4d QR Attendance Demo · Synthetic Main Branch · Synthetic Football
+							38 text Africa/Cairo
+نُشر 29‏/10‏/2026، 2:53:20 ص · الإصدار 2
+نقاط القوة
+Synthetic feedback: controlled short passes during the fictional drill.
+محور التحسين
+Synthetic feedback: improve the first touch before passing.
+الخطوات القادمة
+Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.
+
+							39 text 2
+نقاط القوة
+Synthetic feedback: controlled short passes during the fictional drill.
+محور التحسين
+Synthetic feedback: improve the first touch before passing.
+الخطوات القادمة
+Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.
+
+							40 heading نقاط القوة, Value: 3
+								41 text نقاط القوة
+							42 text Synthetic feedback: controlled short passes during the fictional drill.
+							43 heading محور التحسين, Value: 3
+								44 text محور التحسين
+							45 text Synthetic feedback: improve the first touch before passing.
+							46 heading الخطوات القادمة, Value: 3
+								47 text الخطوات القادمة
+							48 text Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.

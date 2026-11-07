@@ -1,0 +1,9 @@
+{
+  "scope": "Actual disposable PG17,1000 fictional players/cards and50 warm indexed resolve reads; excludes hosted HTTP/camera/Upstash/cost/WAL acceptance",
+  "metrics": {
+    "max_ms": 6.931,
+    "p95_ms": 0.9764999999999993,
+    "samples": 50
+  },
+  "response_bytes": 1131
+}

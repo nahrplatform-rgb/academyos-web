@@ -1,0 +1,4 @@
+There has been no change in the accessibility tree for Window: "AcademyOS · Staging".
+The focused UI element is 327 heading Correction details, Value: 2
+
+Contemporaneous tool observation summary: actual Chrome Owner view Saved. Current result shown; Present version3; Approved; original Absent to Present version2; both reasons retained. Full screenshot is authoritative visual evidence.

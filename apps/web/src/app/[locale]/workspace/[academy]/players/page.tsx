@@ -1,0 +1,18 @@
+import {ownerWorkspaceEnabled} from '@/lib/config';
+import { auth } from '@clerk/nextjs/server';
+import { notFound } from 'next/navigation';
+import PeopleWorkspace from '@/components/people-workspace';
+import { uuidPattern } from '@/lib/onboarding';
+export const dynamic = 'force-dynamic';
+export default async function Page({ params }: {
+    params: Promise<{
+        locale: string;
+        academy: string;
+    }>;
+}) {
+    await auth.protect();
+    const { locale, academy } = await params;
+    if (!uuidPattern.test(academy))
+        notFound();
+    return <PeopleWorkspace prepared={ownerWorkspaceEnabled(process.env)} locale={locale} academy={academy}/>;
+}

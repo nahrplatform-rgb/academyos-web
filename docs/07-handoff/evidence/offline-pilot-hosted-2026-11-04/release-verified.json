@@ -1,0 +1,53 @@
+{
+  "owner_reported_promotion": true,
+  "verified_source": "50a2ae149bfeff56af94108cb2e04f26e4be075c",
+  "deployment": "dpl_2U7kunsyuuF5ozMe5K2Jtqo8joDj",
+  "deployment_url": "academyos-hkglhv074-academy-os2.vercel.app",
+  "state": "READY",
+  "canonical": "staging.academy.nahr.dev",
+  "agent_promoted": false,
+  "public_empty_json_probes": {
+    "register-key": 422,
+    "register-download": 422,
+    "register-dispatch": 422
+  },
+  "probe_response": {
+    "error": "invalid"
+  },
+  "probe_limit": "Shows active validators only, not authenticated custody or working offline proof",
+  "key_slots_before": 0,
+  "rechecked_at": "2026-11-04T17:42:43.430079+00:00",
+  "unauthenticated_empty_json_http_checks": {
+    "register-key": {
+      "status": 422,
+      "cache_control": [
+        "no-store"
+      ],
+      "body_sha256": "5402f431c7780ce4ec7364228d4e239fd481a112a7b3b4bf30bcfd5ad3e406a4",
+      "body": {
+        "error": "invalid"
+      }
+    },
+    "register-download": {
+      "status": 422,
+      "cache_control": [
+        "no-store"
+      ],
+      "body_sha256": "5402f431c7780ce4ec7364228d4e239fd481a112a7b3b4bf30bcfd5ad3e406a4",
+      "body": {
+        "error": "invalid"
+      }
+    },
+    "register-dispatch": {
+      "status": 422,
+      "cache_control": [
+        "no-store"
+      ],
+      "body_sha256": "5402f431c7780ce4ec7364228d4e239fd481a112a7b3b4bf30bcfd5ad3e406a4",
+      "body": {
+        "error": "invalid"
+      }
+    }
+  },
+  "http_check_transport": "System curl with normal TLS verification; initial Python urllib attempt could not find its local issuer bundle and sent no successful probe."
+}

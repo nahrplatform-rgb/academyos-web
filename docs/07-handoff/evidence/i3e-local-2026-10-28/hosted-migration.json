@@ -1,0 +1,20 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "version": "20261028012453",
+  "name": "i3e_session_changes",
+  "migration_sha256": "6ccf71443c9184e7586d0ebac9f9467a9f2ee67e5f57266d6fcb302d74e595f4",
+  "before_and_after": {
+    "academies": 2,
+    "memberships": 4,
+    "dates": 58,
+    "plans": 41,
+    "roster": 40,
+    "published": 0,
+    "casey_state": "ended"
+  },
+  "backfilled": 58,
+  "history_after": 0,
+  "tables_private": true,
+  "helpers_private": true,
+  "scope": "Provider migration and read-only schema/count/ACL checks; no signed-in application smoke"
+}

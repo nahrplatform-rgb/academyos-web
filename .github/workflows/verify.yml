@@ -1,12 +1,23 @@
 name: Foundation checks
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: foundation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Public PR checks use disposable fixtures and no protected environment.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
@@ -17,10 +28,191 @@ jobs:
       - run: npm run build
       - run: npm run typecheck
       - run: npm test
+      - name: Check implementation and experience execution traceability
+        run: |
+          python3 scripts/design/validate_implementation_register.py
+          python3 scripts/design/validate_experience_execution.py
+      - name: Check living experience-review freshness
+        run: node scripts/experience-review/build.mjs --check
       - name: Verify backup safety with pinned runtime dependencies
         run: |
           python3 -m venv "$RUNNER_TEMP/backup-tests"
           "$RUNNER_TEMP/backup-tests/bin/pip" install --require-hashes --requirement scripts/backups/requirements.txt
           "$RUNNER_TEMP/backup-tests/bin/python" -m unittest discover -s scripts/backups -v
       - run: npx playwright install --with-deps chromium
+      - name: Verify fictional offline-register review freshness and browser recovery
+        run: |
+          node scripts/design/build_offline_register_preview.mjs --check
+          node scripts/design/test_offline_register_preview.mjs
+          node scripts/design/check_device_unlock_probe.mjs
+          node scripts/design/test_device_unlock_probe.mjs
+      - name: Verify no-extra-credential local key mechanism with fictional authority
+        run: |
+          node scripts/local-data/test_automatic_key.mjs --check
+          node scripts/local-data/test_automatic_key.mjs
+      - name: Verify inactive typed Owner register storage and original recovery
+        run: |
+          node scripts/local-data/test_register_repository.mjs --check
+          node scripts/local-data/test_register_repository.mjs
+      - name: Verify public offline-code updates and failed-build recovery
+        run: |
+          node scripts/local-data/test_public_shell.mjs --check
+          node scripts/local-data/test_public_shell.mjs
+      - name: Install disposable PostgreSQL 17 test runtime
+        run: |
+          if [ ! -x /usr/lib/postgresql/17/bin/initdb ]; then
+            sudo install -d /usr/share/postgresql-common/pgdg
+            sudo curl --fail --silent --show-error --retry 2 --retry-all-errors --retry-delay 2 --connect-timeout 15 --max-time 60 -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+            echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
+            sudo apt-get update
+            sudo apt-get install -y postgresql-17
+          fi
+      - name: Verify inactive coherent download from current database to encrypted browser storage
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/register-download/test_browser.mjs --check
+          python3 scripts/register-download/test_boundary.py
+          node scripts/register-download/test_browser.mjs
+      - name: Verify closed Owner workspace transfer and protected repository
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/workspace-download/test_transport.mjs --check
+          WORKSPACE_TRANSFER_EVIDENCE_DIR="$RUNNER_TEMP/owner-workspace-transfer" python3 scripts/workspace-download/test_boundary.py
+          node scripts/workspace-download/test_api.mjs
+          WORKSPACE_TRANSFER_EVIDENCE_DIR="$RUNNER_TEMP/owner-workspace-transfer" node scripts/workspace-download/test_transport.mjs
+      - name: Verify prepared staging role transaction and protected root backup tooling
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          sudo apt-get install -y age
+          python3 scripts/staging/test_role_separation.py
+          python3 scripts/register-key/test_custody.py
+          python3 scripts/backups/test_rehearsal_scope.py
+      - name: Verify inactive Owner original dispatch and restart recovery
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/offline-register/test_dispatch.mjs --check
+          node scripts/offline-register/test_dispatch.mjs
+      - name: Verify connected fictional Owner working day
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/working-day/test_owner_next.mjs --check
+          node scripts/working-day/test_owner_next.mjs
+      - name: Verify inactive register key, registered transport and browser lifecycle
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/register-key/test_key.mjs --check
+          node scripts/register-key/test_key.mjs
+      - name: Verify gated Owner workspace startup and account cleanup
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/working-day/test_owner_startup.mjs --check
+          node scripts/working-day/test_owner_startup.mjs
+      - name: Verify normal Attendance local save, reconnect and original recovery
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/working-day/test_normal_attendance.mjs --check
+          node scripts/working-day/test_normal_attendance.mjs
+      - name: Verify real Next task navigation and guarded return
+        run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
+      - name: Verify scroll continuity while private results are masked
+        run: node scripts/navigation/measure_geometry.mjs
+      - name: Verify offline experience-review navigation and boundaries
+        run: node scripts/experience-review/test.mjs
+      - name: Verify onboarding API budgets before provider calls
+        run: node scripts/onboarding/test_api_budget.mjs
+      - name: Verify synthetic onboarding UI interaction and recovery
+        run: |
+          node scripts/onboarding/test_ui.mjs
+          UI_REACT_MODE=development node scripts/onboarding/test_ui.mjs
+      - name: Verify scoped player API validation and fail-closed budgets
+        run: node scripts/people/test_api.mjs
+      - name: Verify player registration UI and interrupted-save recovery
+        run: |
+          node scripts/people/test_ui.mjs
+          UI_REACT_MODE=development node scripts/people/test_ui.mjs
+      - name: Verify guardian validation, recipient gate and fail-closed budgets
+        run: |
+          node scripts/guardians/test_api.mjs
+          node scripts/guardians/test_delivery.mjs
+      - name: Verify guardian appointment UI and recovery
+        run: |
+          node scripts/guardians/test_ui.mjs
+          UI_REACT_MODE=development node scripts/guardians/test_ui.mjs
+      - name: Verify trainer validation, delivery and fail-closed budgets
+        run: |
+          node scripts/trainers/test_api.mjs
+          node scripts/trainers/test_delivery.mjs
+      - name: Verify trainer appointment UI and recovery
+        run: |
+          node scripts/trainers/test_ui.mjs
+          UI_REACT_MODE=development node scripts/trainers/test_ui.mjs
+      - name: Verify draft program API boundaries and interrupted preparation
+        run: |
+          node scripts/programs/test_api.mjs
+          node scripts/programs/test_ui.mjs
+          UI_REACT_MODE=development node scripts/programs/test_ui.mjs
+      - name: Verify private dated planning API and recovery
+        run: |
+          node scripts/planning/test_api.mjs
+          node scripts/planning/test_ui.mjs
+          UI_REACT_MODE=development node scripts/planning/test_ui.mjs
+      - name: Verify atomic program planning API and actual UI recovery
+        run: |
+          node scripts/program-planning/test_api.mjs
+          node scripts/program-planning/test_ui.mjs
+          UI_REACT_MODE=development node scripts/program-planning/test_ui.mjs
+      - name: Verify session-change requests and recovery
+        run: |
+          node scripts/session-changes/test_api.mjs
+          node scripts/session-changes/test_ui.mjs
+          UI_REACT_MODE=development node scripts/session-changes/test_ui.mjs
+      - name: Verify publication boundaries and role-specific recovery
+        run: |
+          node scripts/publication/test_api.mjs
+          node scripts/publication/test_ui.mjs
+          UI_REACT_MODE=development node scripts/publication/test_ui.mjs
+      - name: Verify attendance API and actual register recovery
+        run: |
+          node scripts/attendance/test_api.mjs
+          node scripts/attendance/test_ui.mjs
+          UI_REACT_MODE=development node scripts/attendance/test_ui.mjs
+      - name: Verify Guardian training read boundary and actual UI recovery
+        run: |
+          node scripts/guardian-training/test_api.mjs
+          node scripts/guardian-training/test_ui.mjs
+          UI_REACT_MODE=development node scripts/guardian-training/test_ui.mjs
+      - name: Verify correction request and decision API and recovery
+        run: |
+          node scripts/corrections/test_api.mjs
+          node scripts/corrections/test_ui.mjs
+          UI_REACT_MODE=development node scripts/corrections/test_ui.mjs
+      - name: Verify QR card/windows/automatic capture and local decoder
+        run: |
+          node scripts/qr-attendance/test_api.mjs
+          node scripts/qr-attendance/test_decode.mjs
+          node scripts/qr-attendance/test_ui.mjs
+          UI_REACT_MODE=development node scripts/qr-attendance/test_ui.mjs
       - run: npm run test:e2e
+      - name: Development feedback API and actual React recovery contracts
+        run: |
+          node scripts/development/test_api.mjs
+          node scripts/development/test_ui.mjs
+          UI_REACT_MODE=development node scripts/development/test_ui.mjs
+      - name: Verify role-home and calendar read API and UI
+        run: |
+          node scripts/experience-projections/test_api.mjs
+          node scripts/experience-projections/test_ui.mjs
+          UI_REACT_MODE=development node scripts/experience-projections/test_ui.mjs
+          node scripts/experience-projections/test_operations_calendar.mjs
+      - name: Verify adaptive layout scrolling sizing and responsive focus
+        run: |
+          node scripts/workspace-layout/test_ui.mjs
+          UI_REACT_MODE=development node scripts/workspace-layout/test_ui.mjs

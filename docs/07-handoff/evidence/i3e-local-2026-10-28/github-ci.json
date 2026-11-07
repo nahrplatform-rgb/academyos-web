@@ -1,0 +1,12 @@
+{
+  "conclusion": "success",
+  "headSha": "a1ef8f7b693195d1098a22a479f049108f17038d",
+  "jobs": [
+    {
+      "name": "verify",
+      "conclusion": "success"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40616768130"
+}

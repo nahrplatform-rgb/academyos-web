@@ -1,0 +1,85 @@
+npm warn Unknown user config "allow-scripts". This will stop working in the next major version of npm.
+
+> academyos@0.1.0 build
+> npm run build --workspace @academyos/web
+
+npm warn Unknown env config "allow-scripts". This will stop working in the next major version of npm.
+npm warn Unknown user config "allow-scripts". This will stop working in the next major version of npm.
+
+> @academyos/web@0.1.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+✓ Running next.config.ts took 278ms
+- Experiments (use with caution):
+  · clientTraceMetadata
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1720ms
+  Running next.config.js provided runAfterProductionCompile ...
+✓ Completed runAfterProductionCompile in 814ms
+  Running TypeScript ...
+  Finished TypeScript in 1685ms ...
+  Collecting page data using 10 workers ...
+  Generating static pages using 10 workers (0/10) ...
+  Generating static pages using 10 workers (2/10)
+  Generating static pages using 10 workers (4/10)
+  Generating static pages using 10 workers (7/10)
+✓ Generating static pages using 10 workers (10/10) in 290ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /[locale]
+├ ƒ /[locale]/guardian-invitation
+├ ƒ /[locale]/invitation
+├ ƒ /[locale]/platform
+├ ƒ /[locale]/service-setup
+├ ƒ /[locale]/sign-in/[[...sign-in]]
+├ ƒ /[locale]/trainer-invitation
+├ ƒ /[locale]/workspace
+├ ƒ /[locale]/workspace/[academy]
+├ ƒ /[locale]/workspace/[academy]/attendance/[event]
+├ ƒ /[locale]/workspace/[academy]/attendance/corrections
+├ ƒ /[locale]/workspace/[academy]/attendance/scan
+├ ƒ /[locale]/workspace/[academy]/attendance/settings
+├ ƒ /[locale]/workspace/[academy]/guardian
+├ ƒ /[locale]/workspace/[academy]/guardian/training
+├ ƒ /[locale]/workspace/[academy]/players
+├ ƒ /[locale]/workspace/[academy]/players/[player]/card
+├ ƒ /[locale]/workspace/[academy]/players/[player]/guardians
+├ ƒ /[locale]/workspace/[academy]/programs
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/[day]
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/[day]/change
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/plan
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/publish
+├ ƒ /[locale]/workspace/[academy]/staff
+├ ƒ /[locale]/workspace/[academy]/trainer
+├ ƒ /[locale]/workspace/[academy]/trainer/schedule
+├ ƒ /api/attendance
+├ ƒ /api/guardian-training
+├ ƒ /api/guardians
+├ ƒ /api/health
+├ ƒ /api/jobs/guardians
+├ ƒ /api/jobs/invitations
+├ ƒ /api/jobs/setup
+├ ƒ /api/jobs/trainers
+├ ƒ /api/onboarding
+├ ƒ /api/people
+├ ƒ /api/planning
+├ ƒ /api/program-planning
+├ ƒ /api/programs
+├ ƒ /api/publication
+├ ƒ /api/qr
+├ ƒ /api/session-changes
+├ ƒ /api/setup/email
+├ ƒ /api/setup/verify
+├ ƒ /api/trainers
+└ ƒ /api/webhooks/clerk-email
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

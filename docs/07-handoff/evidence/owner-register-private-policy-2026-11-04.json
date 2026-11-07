@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-04",
+  "response": "Approve this first-pilot scope and recovery rule",
+  "approvedForImplementation": [
+    "An existing Academy Owner prepares one published attendance register on a personal device.",
+    "Local copies contain only session details, roster names and IDs, and attendance marks and versions.",
+    "Logout or 30 days without an online access check clears the downloaded rows.",
+    "Pending work remains protected. The same account can recover it through normal sign-in while it has current Owner access.",
+    "When Owner access ends, pending work stays protected until access is restored."
+  ],
+  "separateGates": ["Private activation", "Independent security review"]
+}

@@ -1,0 +1,15 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "version": "20261028014046",
+  "name": "i3e_effective_date_order",
+  "sha256": "d02e6134f615f9721e834c630450954c1d471cfe7d75da0ae03991a3be6ae3da",
+  "post_apply": {
+    "dates": 58,
+    "plans": 41,
+    "history": 0,
+    "memberships": 4,
+    "casey_state": "ended",
+    "effective_order": true
+  },
+  "scope": "Read-only counts and authoritative function-definition check; signed-in flow pending"
+}

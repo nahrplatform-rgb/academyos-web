@@ -1,0 +1,13 @@
+import { build } from 'esbuild';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { resolve } from 'node:path';
+const root=resolve(import.meta.dirname,'../..');
+const target=resolve(root,'design/i2b-guardian-review');
+await build({entryPoints:[resolve(target,'review.tsx')],bundle:true,minify:true,jsx:'automatic',format:'iife',outfile:resolve(target,'review.js'),define:{'process.env.NODE_ENV':'"production"'},plugins:[{name:'local-review-link',setup(b){b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'review'}));b.onLoad({filter:/.*/,namespace:'review'},()=>({contents:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}]});
+const css=await readFile(resolve(root,'apps/web/src/app/globals.css'),'utf8');
+await writeFile(resolve(target,'app.css'),css+'\n.review-controls{padding:16px 24px;background:#e8f0ff;border-bottom:2px solid #075bea}.review-controls label{display:block;margin-block:10px 4px}.review-controls select{max-width:460px;margin-bottom:10px}.review-controls p{margin:8px 0 0}.review-check{display:flex!important;align-items:center;gap:10px;min-height:44px}.review-check input{width:22px;min-width:22px;min-height:22px;height:22px}\n');
+await writeFile(resolve(target,'index.html'),'<!doctype html><html lang="en" dir="ltr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcademyOS I2b — fictional guardian design review</title><link rel="stylesheet" href="app.css"><div id="root"></div><script src="review.js"></script></html>\n');
+const files=['design/i2b-guardian-review/review.tsx','apps/web/src/components/workspace-shell.tsx','apps/web/src/components/ui/controls.tsx','apps/web/src/app/globals.css'];
+await writeFile(resolve(target,'source-manifest.json'),JSON.stringify({scope:'Design preview only; no API, database, login or email',sources:Object.fromEntries(await Promise.all(files.map(async file=>[file,createHash('sha256').update(await readFile(resolve(root,file))).digest('hex')])) )},null,2)+'\n');
+console.log('Built local I2b review from shared app controls; no product/provider changes.');

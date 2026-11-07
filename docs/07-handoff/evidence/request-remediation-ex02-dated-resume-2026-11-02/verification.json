@@ -1,0 +1,16 @@
+{
+  "sourceBase": "8e32c7c",
+  "inputs": {
+    "apps/web/src/components/date-planning-workspace.tsx": "caa608bd214c267a7a0106f2d92aff9fcaa75bfd66b04f69b9d4268031fd2092",
+    "scripts/navigation/test_next.mjs": "183dd10bdae5b7e6d08a10e7e76b2d00eea0ac139c0b888eafe6966e2f02b952",
+    "scripts/planning/test_ui.mjs": "bb353c0aae9f1debb5049ad1bc6f3ecc29ae0c7dcd927edbdf5bab7aeebbaf6b"
+  },
+  "before": "EN/AR detail+dirty return2reads",
+  "after": "EN/AR detail+dirty return1read;distinct new return1read",
+  "local": "77units;actual Next;planning production/development dirty-review/directory/unknown/denied and API18budget/3body/cross-origin;build/type/lint;17foundation passed",
+  "capture": "16component suites+8welcome;1052frames/1055transitions/65sourcefiles/6876literals;offline/freshness passed",
+  "deployment": "127352b staging dpl_46SQeUGWGxVr3i5ugARk3nWcCHdj Ready48s;source/alias verified;both exact CI green",
+  "hosted": "Owner native EN saved-detail and AR dirty tab-return each1planning200;capacity7 retained then discarded;saved2 rechecked;no operating save",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

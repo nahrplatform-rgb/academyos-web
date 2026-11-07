@@ -1,0 +1,8 @@
+{
+  "scope": "Actual disposable PG17,1000 requests,50 warm SQL queue reads; not HTTP, hosted device/load/cost proof",
+  "metrics": {
+    "samples": 50,
+    "p95_ms": 1.6533
+  },
+  "unique_requests": 1000
+}

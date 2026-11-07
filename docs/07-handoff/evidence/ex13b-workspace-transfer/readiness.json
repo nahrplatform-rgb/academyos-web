@@ -1,0 +1,446 @@
+{
+  "recorded_at": "2026-11-05T15:02:41.780850+00:00",
+  "source_base": "db11fd36fe2bb462efdd22e53aa649a280fe809c",
+  "sources": {
+    "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+    "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+    "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+    "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+    "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+    "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
+    "scripts/register-key/test_custody.py": "80ae7be0c56bd0b9371d0238fb6ec7329182433991ac5b095146f7ca9a41b5ad",
+    "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
+    "scripts/workspace-download/test_transport.mjs": "9b78736b3c5629a0b34cc89b681c1ef7519eecb7308d54f3415a9f712a969931",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/backups/rehearse_local.py": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
+    "scripts/workspace-download/normal_workspace.mjs": "3a2bad16c021b590073ef53a5db05dc0102a3bcdce73429522e7fa01e8e6d5db",
+    "scripts/workspace-download/startup_resume.mjs": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3",
+    "apps/web/public/prepared-workspace-worker.js": "6f319e1cb36593217079172efb18924ea74815d2bd07e8a774e041a61265214c",
+    "apps/web/src/lib/workspace-public-shell.ts": "36e66633aedc5f13f4aba4e6e00aacdb2e856022bee5667647cff330df79744e",
+    "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a"
+  },
+  "checks": [
+    {
+      "command": "npm run build",
+      "status": "passed",
+      "scope": "production build"
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "passed",
+      "scope": "current product types"
+    },
+    {
+      "command": "npm run lint",
+      "status": "passed",
+      "scope": "no errors or warnings"
+    },
+    {
+      "command": "npm test",
+      "status": "passed",
+      "scope": "99 unit cases"
+    },
+    {
+      "command": "npm run test:e2e",
+      "status": "passed",
+      "scope": "17 foundation cases retained from89e7536;final candidate CI repeats them"
+    },
+    {
+      "command": "node scripts/workspace-download/test_transport.mjs",
+      "status": "passed",
+      "scope": "44cases;retained40plus4SPA caller/public-only cache/14invalid message/offline-asset cases"
+    },
+    {
+      "command": "node scripts/workspace-download/test_transport.mjs --check",
+      "status": "passed",
+      "scope": "source-bound transport receipt current"
+    },
+    {
+      "command": "python3 scripts/register-key/test_custody.py",
+      "status": "passed",
+      "scope": "12 disposable local identity/key cases;no real new root"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_startup.mjs --record",
+      "status": "passed",
+      "scope": "8 existing startup/original recovery cases"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_next.mjs --record",
+      "status": "passed",
+      "scope": "8 existing working-day cases"
+    },
+    {
+      "command": "node scripts/register-key/test_key.mjs --record",
+      "status": "passed",
+      "scope": "15 existing key/authority cases"
+    },
+    {
+      "command": "node scripts/experience-review/collect.mjs && node scripts/experience-review/static.mjs",
+      "status": "passed",
+      "scope": "Prior16real-component captures retained;no changed default capture input in this public-worker/client repair"
+    },
+    {
+      "command": "node scripts/experience-review/build.mjs && node scripts/experience-review/test.mjs && node scripts/experience-review/build.mjs --check",
+      "status": "passed",
+      "scope": "1189 factual captured states/1163 transitions;16 refreshed suites plus welcome entry;review tool/freshness passed;public recovery fixture separate"
+    },
+    {
+      "command": "node scripts/navigation/test_next.mjs",
+      "status": "passed",
+      "scope": "Actual Next production EN/AR navigation,dirty guards,selection and Back/Forward"
+    },
+    {
+      "command": "Trusted backup41980102243 plus private backup.py recover",
+      "status": "passed",
+      "scope": "Successful main-only encrypted artifact matched trusted workflow receipt/size/digest;all recovered checksums valid"
+    },
+    {
+      "command": "python3 scripts/backups/rehearse_local.py <private payload> --migration supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql --preserve-existing-rows",
+      "status": "passed",
+      "scope": "Disposable socket-only PG17.11;membership passed;59 existing academy tables/605 rows preserved;no live apply;plaintext removed"
+    },
+    {
+      "command": "python3 scripts/backups/test_backup.py && python3 scripts/backups/test_rehearsal_scope.py",
+      "status": "passed",
+      "scope": "7 backup safety and2 reviewed-file/target scope checks"
+    },
+    {
+      "command": "python3 scripts/design/validate_experience_execution.py && python3 scripts/design/validate_implementation_register.py",
+      "status": "passed",
+      "scope": "Current EX-13 routing;71 planned/evidence-linked cases;68 screens,30 stable action groups,180 requirements"
+    },
+    {
+      "command": "Changed-document local links and git diff --check",
+      "status": "passed",
+      "scope": "17 changed-document local links;no whitespace errors"
+    },
+    {
+      "command": "purpose-bound workspace custody prepare/check with separately retained digest",
+      "status": "passed",
+      "scope": "Actual new root encrypted/recovered on this Mac;not provisioned;no plaintext key emitted"
+    }
+  ],
+  "staging_observation": {
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "deployment": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+    "state": "READY",
+    "migration_count": 30,
+    "x21_workspace_applied": true,
+    "workspace_configuration_mutated": true,
+    "promotion_performed_by_agent": false,
+    "rechecked_at": "2026-11-05T18:55:02.213014+00:00",
+    "hosted_entry": "Scoped chooser-SPA entry,normal offline Players/AR Calendar and automatic reconnect verified;continuity gaps retained",
+    "source_transition": "Owner-promoted86d7fac independently verified"
+  },
+  "remaining": [
+    "Preserve Players safe search/selection across same-tab reload and return without storing private payloads",
+    "Remove generic local-query busy feedback/debounce while preserving online checks,dirty input and unknown saves",
+    "Add settled Calendar offline/reconnect context regression before diagnosing late Week observation",
+    "full browser/profile restart while offline",
+    "fresh sign-in and fresh personal-device activation on repaired source",
+    "changed/removal transfer with held reply on real service",
+    "known Owner loss/logout/cross-profile cleanup and workspace-only capability rollback on this release",
+    "physical phone/Safari/zoom/accessibility matrix",
+    "provider query/egress/latency percentiles",
+    "all-app continuity and normal-route Attendance adoption"
+  ],
+  "independent_review": "Deferred by Owner;nonblocking;not performed",
+  "delegation": {
+    "active_helpers_now": 0,
+    "peak_helpers_this_activation": 1,
+    "model": "gpt-6.1-terra",
+    "reasoning": "high",
+    "scope": "bounded read-only migration verification requirements",
+    "coordinator": "integration,authority,custody,provider changes",
+    "nested_spawning": false,
+    "savings_measured": false
+  },
+  "repairs": [
+    "Archive inspection initially selected local PG14;explicit PG17.11 PATH fixed it;plaintext removed. No provider change.",
+    "Both89e7536 CI runs failed in normal workspace fixture;no navigation response or missing Device after logout/reconnect. Retained as failed;not promoted.",
+    "Local follow-up proved fromServiceWorker can describe network-backed HTML. Fixture now cuts origin and browser connection, asserts cached-shell marker at seven offline navigations and actual protected-document reentry. No request-budget/access/original assertion removed.",
+    "Public startup now checks online state on mount and guards one automatic reentry per URL/connection cycle;Opening state avoids false no-downloads server markup. Two controlled browser cases passed. Session-storage failure skips automatic reentry;broader device handling remains open.",
+    "ca48e2b push passed but PR failed with null goto before the requested offline destination was observed. Exact CDP cause unmeasured. Fixture now waits for actual requested main-frame response, destination, new document and cached shell;seven entries passed,zero observed null convenience returns. No retry or weakened budget.",
+    "Actual public startup now verifies reachable marked public HEAD before reentry,coalesces events and cancels on timeout/offline/departure/unmount. Four actual-component cases passed;forty full transport checks passed. Historical CI trace remains incomplete;extra CDP session affected emulation and was removed from the fixture."
+  ],
+  "delivery": {
+    "candidate_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+    "previous_attempts": [
+      {
+        "source": "89e7536993cdf18472c759df34aa8eb2fe28f8a6",
+        "push": 41981187485,
+        "push_result": "failure",
+        "pr": 41981196873,
+        "pr_result": "failure"
+      },
+      {
+        "source": "ca48e2be0aa73825fbcc84f393161792bedad05c",
+        "push": 41990052014,
+        "push_result": "success",
+        "pr": 41990060670,
+        "pr_result": "failure",
+        "preview": "dpl_7MjynusnyQPCTzDWrwJD87euzqQP",
+        "preview_result": "READY"
+      },
+      {
+        "source": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+        "push": 41991839581,
+        "push_result": "failure",
+        "pr": 41991849102,
+        "pr_result": "success",
+        "preview": "dpl_BJY7d4Fxmjuijid41tpGnfAHLPGk",
+        "preview_result": "READY"
+      }
+    ],
+    "repair_exact_source_ci": "passed_both",
+    "repair_preview": {
+      "id": "dpl_9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+      "state": "READY",
+      "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+      "url": "https://academyos-5htz8xinj-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/9pEn4qY2T9SgczUNgMCUyvZ2UqP7",
+      "target": "preview",
+      "private_workspace_activation_verified": false
+    },
+    "staging_unchanged": false,
+    "checked_source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "ci": [
+      {
+        "id": 41994973878,
+        "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+        "event": "push",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994973878"
+      },
+      {
+        "id": 41994987996,
+        "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+        "event": "pull_request",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41994987996"
+      }
+    ],
+    "staging_source_unchanged": false,
+    "schema_configuration_receipt": "activation.json",
+    "provenance": "Retained7ddc6f1 delivery;current86d7fac repair delivery is in spa_repair"
+  },
+  "rendered_qa": {
+    "browser": "Chromium via existing Playwright harness; Browser plugin/skill absent",
+    "flow": "normal EN Players / AR Calendar -> cold cached-shell open -> reconnect / logout / denial",
+    "public_startup": "DOM lifecycle checks, not included in default capture pack",
+    "review_screenshots_inspected": [
+      "design/app-experience-review/evidence/review-tool-phone.png",
+      "design/app-experience-review/evidence/review-ar-desktop.png"
+    ],
+    "runtime_console": "normal-route pageerror list empty",
+    "hosted": "Owner7ddc6f1 data preparation observed;public SPA-entry defect diagnosed;repaired-source retest pending",
+    "physical_device": "not run"
+  },
+  "normal_workspace_metrics": {
+    "baselinePlayersReads": 1,
+    "coveredPlayersRequests": 0,
+    "fullProfileReads": 1,
+    "coveredCalendarRequests": 0,
+    "unchangedManifestRequests": 1,
+    "unchangedDatasetPages": 0,
+    "offlineOperatingRequests": 0,
+    "offlineRoutePayloadRequests": 0,
+    "fullBrowserRestart": true,
+    "offlineShellNavigations": 11,
+    "fixtureOriginDisconnected": true,
+    "newOfflineDocuments": 11,
+    "nullGotoResponses": 0,
+    "peopleViewRestored": true,
+    "localLoadingFlashes": 0,
+    "calendarReconnectContext": true
+  },
+  "configuration_preflight": {
+    "workspace_variables_present": [],
+    "register_root_retained_as": "sensitive;production target only",
+    "register_flags_retained": 4,
+    "values_decrypted": false,
+    "cli_account_has_academyos_team": false,
+    "provider_mutated": false,
+    "provenance": "Historical pre-activation inspection;current applied state is in current_configuration and activation.json"
+  },
+  "activation_request": {
+    "status": "authorized",
+    "owner_answer": "Authorize this workspace staging activation",
+    "recorded_at": "2026-11-05T13:44:14.308734+00:00",
+    "scope": "exact x21 workspace migration,separate prepared workspace root,three synthetic-staging flags",
+    "promotion": "Owner only",
+    "provider_apply": "completed;Owner promoted7ddc6f1;new SPA code repair pending separate checked release"
+  },
+  "delivery_checkpoint_checks": {
+    "execution_validator": "passed;current EX-13;generated continuation matches",
+    "implementation_validator": "passed;68 screens,30 action groups,180 requirements",
+    "factual_inventory": "rebuilt from unchanged current capture pack;1189 states,1163 transitions",
+    "review_tool_and_freshness": "passed",
+    "changed_document_local_links": 14,
+    "git_diff_check": "passed",
+    "provider_mutations": false,
+    "provenance": "Retained earlier checkpoint;current repair documentation/tool checks recorded separately after execution"
+  },
+  "current_configuration": {
+    "workspace_root": "sensitive;production target only;reused prepared archive",
+    "workspace_flags": 3,
+    "register_settings_preserved": true,
+    "correct_cli_account_verified": true,
+    "values_decrypted_for_evidence": false
+  },
+  "spa_repair": {
+    "source_base": "db11fd36fe2bb462efdd22e53aa649a280fe809c",
+    "transport_checks": 44,
+    "public_shell_spa": {
+      "spaClientUrlRetained": true,
+      "publicEntries": 3,
+      "invalidMessages": 14,
+      "offlineAssets": 2,
+      "legacyNormalRoute": true
+    },
+    "exact_source_ci": "passed_both",
+    "automatic_build": {
+      "id": "dpl_AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+      "state": "READY",
+      "target": null,
+      "url": "https://academyos-p9mv4ecn2-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "environment": "automatic Preview"
+    },
+    "hosted_repaired_source": "Scoped hosted pass;see hosted-repair.json;not full matrix",
+    "evidence": "hosted.json",
+    "source_checks": "Transport44,Owner startup8,working-day8 and key15 source-bound receipts verified;no rerun of unchanged provider or schema operations",
+    "delegation": {
+      "model": "gpt-6.1-terra",
+      "reasoning": "high",
+      "peak_helpers": 1,
+      "scope": "source observation map and one isolated browser regression file",
+      "coordinator": "native hosted diagnosis,production fix,integration,validation and evidence",
+      "nested_spawning": false,
+      "savings_measured": false
+    },
+    "documentation_checks": {
+      "recorded_at": "2026-11-05T15:08:58.904164+00:00",
+      "execution_validator": "passed;current EX-13 and generated prompt current",
+      "implementation_validator": "passed;68 screens,30 action groups,180 requirements",
+      "factual_inventory": "1189states,1163transitions,79sources,7685literals;unchanged capture pack accepted",
+      "review_tool_and_freshness": "passed;EN/AR desktop and phone tool captures inspected",
+      "changed_markdown_link_targets": "10 changed documents;all local destinations exist",
+      "git_diff_check": "passed",
+      "provider_mutations_during_public_code_repair": false
+    },
+    "checked_source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "ci": [
+      {
+        "id": 42052062395,
+        "event": "push",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052062395"
+      },
+      {
+        "id": 42052074810,
+        "event": "pull_request",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052074810"
+      }
+    ],
+    "owner_promotion": "Owner-reported and independently verified Ready exact86d7fac",
+    "recorded_delivery_at": "2026-11-05T15:24:59.440429+00:00",
+    "staging_before_repair_promotion": {
+      "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+      "id": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
+      "state": "READY"
+    },
+    "delivery_documentation_checks": {
+      "execution_and_canonical": "passed;13 batches,17 findings,71 planned/evidence-linked cases;68screens/30actions/180requirements",
+      "continuation_prompt": "generated and freshness passed;EX-13 remains current",
+      "factual_html": "inventory rebuilt;1189states/1163transitions;review tool and freshness passed",
+      "changed_markdown_links": "7 documents;all local targets exist",
+      "git_diff_check": "passed",
+      "runtime_source_change_in_delivery_receipt": false
+    }
+  },
+  "continuity_followup": {
+    "evidence": "continuity.json",
+    "transport_cases": 49,
+    "units": 101,
+    "local_status": "Build/type/lint,101units,49browser/transport,16capture suites,legacy People development and factual/structural/freshness checks passed",
+    "exact_source_ci": "passed_both1347470",
+    "hosted": "Scoped native EN/AR continuity on promoted1347470 verified; actual denial/restart/device/performance matrix open",
+    "delivery": {
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "ci": [
+        {
+          "id": 42109504375,
+          "event": "push",
+          "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+          "status": "completed",
+          "result": "success",
+          "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109504375"
+        },
+        {
+          "id": 42109517422,
+          "event": "pull_request",
+          "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+          "status": "completed",
+          "result": "success",
+          "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109517422"
+        }
+      ],
+      "preview": {
+        "id": "dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "state": "READY",
+        "url": "https://academyos-9ye7zxwfn-academy-os2.vercel.app",
+        "inspector_url": "https://vercel.com/academy-os2/academyos-web/Ez85kxkPEz4VDNYbCGntnsYXowTd"
+      },
+      "owner_promotion": "Owner reported Promoted1347470 to staging; independently verified exact source and canonical alias",
+      "new_people_ui_hosted": "Scoped EN/AR search/summary retention, offline document entries and automatic reconnect passed; live denial not run",
+      "staging_before_promotion": {
+        "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "state": "READY"
+      },
+      "staging_after_promotion": {
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+        "state": "READY",
+        "target": "production",
+        "url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+        "inspector_url": "https://vercel.com/academy-os2/academyos-web/35UAsn5THBRHhtWLY6DuWBw3u7Br",
+        "canonical_alias": "staging.academy.nahr.dev",
+        "verification": "Read-only Vercel deployment lookup independently identifies the exact promoted source and staging alias",
+        "agent_promoted": false,
+        "schema_key_flags_reapplied": false
+      },
+      "prepromotion_documentation_checks": {
+        "generated_continuation": "At the checked-code handoff: EX-13 was current; latest routing follows hosted-continuity.json and the regenerated tracker",
+        "execution_and_canonical": "passed",
+        "factual_inventory_tool_and_freshness": "passed",
+        "changed_markdown_links": 5,
+        "git_diff_check": "passed",
+        "product_or_test_change_since_checked1347470": false
+      },
+      "hosted_checkpoint_documentation": {
+        "execution_validator": "Passed:13 batches,17 findings,G01-G09,71 planned/evidence-linked cases;single current EX-07",
+        "canonical_validator": "Passed:68screens,30stable action groups,180preserved requirements",
+        "continuation": "Regenerated and freshness passed;EX-07 normal Attendance handoff current;EX-13 scoped checkpoint retained",
+        "local_markdown_links": "Passed:11 changed/new Markdown files,377 local targets",
+        "json_and_generator": "Changed JSON parses;generator AST valid;exact-source and retained-gap assertions passed",
+        "factual_review": "Inventory rebuilt from unchanged capture pack;1189states,1163transitions,79sources,7696literals;offline review-tool and fingerprint/freshness checks passed",
+        "rendered_review": "Generated phone review and Arabic desktop replay inspected;gated prepared-device states still outside default pack",
+        "product_checks": "No product/UI/test input changed in this hosted/documentation batch;retain checked1347470 build/type/lint,101units,49browser/transport and16capture-suite evidence without claiming a new run",
+        "git_diff_check": "Passed before commit",
+        "promotion_required": false
+      }
+    },
+    "hosted_receipt": "hosted-continuity.json"
+  },
+  "provenance": "Retained activation/SPA snapshots are historical and scoped;continuity.json owns the latest follow-up source/checks. No aggregate full-readiness/security pass."
+}

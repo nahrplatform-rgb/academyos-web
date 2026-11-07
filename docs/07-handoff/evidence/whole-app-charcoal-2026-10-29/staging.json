@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-29",
+  "environment": "AcademyOS staging",
+  "domain": "https://staging.academy.nahr.dev",
+  "source": "6a6ba11144fc52eab3b6cd2ce8f958edfb24d97c",
+  "preview": {
+    "id": "dpl_G3hpTg4BDUzUBaJhX8nSHJmvzWue",
+    "status": "Ready"
+  },
+  "staging": {
+    "id": "dpl_GcrmyfA78pB1tggoe5BUdeLaqxj8",
+    "url": "https://academyos-6izvxncc5-academy-os2.vercel.app",
+    "status": "Ready",
+    "buildSeconds": 69,
+    "postBuildSeconds": 49
+  },
+  "ci": [
+    {
+      "id": 40829811053,
+      "event": "push",
+      "conclusion": "success"
+    },
+    {
+      "id": 40829817373,
+      "event": "pull_request",
+      "conclusion": "success"
+    }
+  ],
+  "hostedReadOnlyChecks": [
+    "Attendance retained saved Present/read-only state, dark tokens and no overflow at observed892px viewport",
+    "Workspace picker light alternative survived client navigation; dark restored",
+    "Platform admission EN/AR existing two academy records and inspector",
+    "Embedded account menu foreground/background adapts to dark and light; no account action submitted",
+    "Academy setup AR retained branch/sport/timezone",
+    "Training directory EN/AR retained40-date draft; dark tokens and no overflow at observed1278px viewport",
+    "Players EN retained four synthetic records",
+    "Owner development-feedback directory retains withdrawn synthetic assessment"
+  ],
+  "changesDuringChecks": "Presentation preference and read-only navigation only; no domain write, new access grant or invitation",
+  "limits": [
+    "No fresh hosted Trainer/Guardian private-content verification because test access remains ended",
+    "Not every conditional/provider state or physical device is verified",
+    "Broader independent security/accessibility/load/cost gates and separate atomic-register hosted test remain open"
+  ],
+  "acceptance": "Whole-app working acceptance pending"
+}

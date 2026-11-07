@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-02",
+  "authority": "Direct Product Owner replies in this chat",
+  "responses": {
+    "coverage": "what happenes if all data is loaded into local storage , in sequences with month or three months worth of data, ??, instead of make the load on data from every read , right ?",
+    "offline": "i think what ever data saved can be accessed , but save new data will be saved in local data and when the internet c\\back it will sync with conflic resolver using time stamp",
+    "retention": "i think that is good , 30 days or logout"
+  },
+  "recordedDirection": [
+    "Prepare permitted datasets progressively and retain covered month or three-month ranges rather than fetching the same data per read",
+    "Read retained prepared records while disconnected;the proposed24hour cutoff is not selected",
+    "Persist new offline work locally and synchronize on reconnect;exact per-command rules/design remain to prepare",
+    "30days without successful online verification or explicit logout for read-replica cleanup;original unresolved operations remain separate",
+    "Earlier explicit rejection of automatic inactivity locking remains binding"
+  ],
+  "timestampRequest": "Owner suggested timestamps for conflict resolution;engineering recommends base server revisions and immutable operation IDs as well;no silent last-device-clock-wins",
+  "notInferred": [
+    "Every private field,role or device policy accepted",
+    "New offline attendance deadlines or bypass of signed/current review",
+    "Automatic conflict overwrites,access grants,approval or financial authority",
+    "Deletion of unsent offline work at logout or retention expiry",
+    "Private encryption,offline cold launch,app implementation,staging deployment,working acceptance or independent security proof"
+  ],
+  "acceptedFirstSlice2026_11_03": {
+    "authority": "Direct Product Owner replies in this chat",
+    "registerPolicyResponse": "Accept this first offline-save policy for design",
+    "registerScope": "Existing Academy Owner;personal device;selected new attendance marks saved/uploaded atomically with original save ID;current server access,versions and recording deadline;conflicting/refused uploads Needs review with local work retained;no timestamp overwrite",
+    "pendingWorkResponse": "Keep protected pending work for recovery",
+    "pendingWorkScope": "Logout/30day cleanup removes read replicas;pending edits separately protected for same verified account;other accounts cannot open/send",
+    "notInferred": [
+      "Connected offline-write design approved",
+      "Private implementation or encryption/unlock/key security approval",
+      "Trainer/new role grants",
+      "Changed recording deadline,offline saved-mark correction or automatic overwrite",
+      "Financial or other domain queue approval",
+      "Vercel reauthentication/promotion completed"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+# EX-01 — navigation, resume and task continuity
+
+31 October 2026. Owner authorized execution after the whole-app diagnosis. Bounded first batch; not closure of all NR01–03 occurrences or full redesign. Source baseline7a6be974, prior analysis/evidence documentation preserved. [Single tracker](../06-delivery/experience-execution.csv).
+
+## Outcome / joins / boundaries
+
+Owner Home → Calendar → dated task → return uses client navigation. Returning to the tab coalesces paired lifecycle events and restores selection only from newly authorized results. Preserve nonprivate calendar controls and safe period/filter/selected identifiers while private results are masked during revalidation; no stale-private cache or TTL. Existing scoped navigation storage now also remembers a validated program/day identifier, never a private session payload.
+
+Joins: IMP-J01-A01/J01-A01, S03/L01/AO-002/003/004/009/AT-002/003/004/009; IMP-J09-A01/J09-A01, S22/S23/S25, L04/L07, AO-021/022/027/029 and matching AT cases. Parent requirements remain open. Security: existing SEC-J01/SEC-J09 and journey security gate; server/gateway/query untouched. Trust changes are browser navigation/lifecycle and safe context only. No schema, API authority, signed receipt, idempotency, telemetry, private store or provider change.
+
+PYSA read-only reference: current `pysa-platform/components/shared/loading-link.tsx` uses Next Link, respects modifier actions and separates intent from completion; useful navigation continuity. It also uses a global loading provider and a protected-prefetch policy whose assumptions are not copied. The saved scheduling review and behavior ledger retain translation, timezone, subset/search and false-success cautions. No hosted PYSA proof.
+
+## Implementation / verification plan
+
+Use existing Next routing rather than new framework/dependency. Keep dated-task busy/unknown/dirty/review guards and exact internal return targets. Use one domain-owned resume lifecycle, suppress paired focus/visibility starts and join active reads; never delay authority with a broad TTL. During recheck, mask private payload, keep nonprivate task orientation, restore selected occurrence only if returned and permitted; denial clears identifiers/private state. Do not persist rosters or session payloads.
+
+Tests: actual Next document-vs-client navigation (synthetic identity/data explicitly), EN/AR, dirty cancellation, unknown fence, real native Back/Forward where available, synchronous/40ms-separated/in-flight resume, revoked/foreign actor and removed occurrence, saved filter/period, no stale payload during blocked read, selected task restore and read failure. Existing production React/regression, lint/type/build/foundation checks and affected factual captures/freshness must pass. No weakening of old assertions.
+
+Rollback: presentation-only code rollback; existing operation IDs/versions remain canonical. No data migration/reversal required. New helper state is ephemeral. Unavailable hosted browser/source evidence is recorded rather than guessed; no access restoration or operating writes.
+
+## Local implementation and evidence
+
+Experience task destinations now use existing Next Link with prefetch disabled on the converted links; no new speculative task reads are introduced. Existing shell prefetch remains NR08/EX-02 measurement work. Dated-task return/menu destinations use existing Next router while retaining explicit dirty-cancel, review Back, busy and unknown fences; modifier/middle clicks preserve browser semantics. The scoped experience navigation entry stores only period/view/filter and selected program/day identifiers. Revalidation clears private results, retains nonprivate calendar controls and an access-checking inspector, then restores selection only if the new permitted page still contains it. Denial clears selected identity; a removed occurrence cannot leave an actionable inspector.
+
+A small visibility listener pairs visible/focus returns without a TTL. The Experience request owner joins active reads rather than abort/restart on every focus. No current-authority API, gateway, SQL, grant, signed preview, writer or operation identity changed. Other domains' lifecycle occurrences stay open under EX-02. No general stale-while-revalidate private cache or offline capability was added.
+
+[Local evidence](evidence/request-remediation-ex01-2026-10-31/verification.json) records checks and input hashes. The real Next production routing fixture uses actual product components and framework routing, with fictional identity and read-only API responses: EN/AR Home→Calendar→date→dirty cancel/confirmed return→clean browser Back/Forward adds **zero document requests**; middle-click opens a separate tab; the selected occurrence returns from a fresh permitted projection. This is not hosted permission proof. The component test adds delayed-read privacy masking, separated/in-flight resume=one read, safe identifier-only persistence, removed selection and denial clearing.
+
+Local lint/typecheck, production build,75 unit tests,17 foundation E2E and16 actual-component capture suites passed during this batch; final capture freshness and CI are recorded separately below. Node26 was the available local runtime; CI is pinned to24. An attempt to obtain a temporary Node24 runtime exited unsuccessfully; no dependency/lockfile changed. Passing on26 is not substituted for the24 CI result.
+
+## Remaining scope and release status
+
+No whole finding is closed across the app. Program/People/Guardian/Development routing and lifecycle adoption, crash-recovery storage guarantees, query optimization and the remaining redesign are EX-02 onward. Browser Back/Forward here was tested on clean tasks; native history/unload during dirty or unknown operating states remains a specific G01/EX-02 case, not a passed guard claim. Private stale display, private persistence/offline writes and broader role/device/performance gates remain open.
+
+Deployment, current-alias hosted verification and Owner acceptance are pending until the exact checked source is pushed and verified. No account restoration, operating write or provider configuration change is part of this batch.
+
+
+## Initial push and follow-up check
+
+Source2788044 was pushed to the existing codex branch; automatic Preview deployment `dpl_GFByKgBXLBWtmg6bX23Myg4LbfLa` is Ready (35s), with no staging-domain alias. Both GitHub runs completed:41158249559 passed;41158245377 failed because the new-tab test inspected its initial blank URL on Linux. The assertion is retained and now waits for the exact intended destination; the revised real Next test passes locally. Converted task links explicitly disable prefetch, avoiding new speculative task requests. The revised source must pass exact-source CI before staging promotion. No failed check is treated as passed or bypassed.
+
+Vercel connector403 and CLI scope-unavailable were confirmed; native Chrome can read the existing project. The promotion dialog names only the existing default Vercel domain and staging.academy.nahr.dev. No promotion applied at this checkpoint. The Git push also reported an existing default-branch braces alert; its advisory GHSA-vfj7-8cjw-p6xm is marked withdrawn by GitHub (23October). No dependency change or automatic alert dismissal; independent security remains open.
+
+## Checked staging release and scoped native verification —31October2026
+
+App source `776043f8149694c1bb8a54b8ca169456c6cc7594` passed both exact-source Node24 CI runs [41166052777](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41166052777) and [41166048538](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41166048538). Automatic Preview HotJFajeG258n5ewjFg7ujDHt1DE was Ready33s. After those checks, the existing staging promotion completed its account reauthentication and rebuilt as [H98x3MWLTJXXdfSjpG3Zz8KoC4Gm](https://vercel.com/academy-os2/academyos-web/H98x3MWLTJXXdfSjpG3Zz8KoC4Gm), Ready43s with the staging.academy.nahr.dev alias and the exact776043f source visible. The provider calls this project's serving environment Production; this is the already-authorized staging domain, not a new production launch. No provider setting, account grant or operating write.
+
+[Sanitized release/case evidence](evidence/request-remediation-ex01-2026-10-31/hosted-release.json), [deployment capture](evidence/request-remediation-ex01-2026-10-31/staging-deployment.jpg), [EN resumed context](evidence/request-remediation-ex01-2026-10-31/hosted-en-resumed.jpg), [AR resumed context](evidence/request-remediation-ex01-2026-10-31/hosted-ar-resumed.jpg) and [foreign-scope denial](evidence/request-remediation-ex01-2026-10-31/hosted-foreign-denied.jpg). Native Chrome/macOS, existing synthetic-academy-A Owner, uncalibrated desktop. Home→Calendar→selected1November→date→Back retains Month, search and selected occurrence. Real about:blank tab-away/close-return retained them in EN and AR. The known other-academy route denied access without carrying A's sessions; returning to A reloaded its own permitted selection. No plan, roster, attendance or access write was submitted by this walkthrough; only browser navigation preferences were changed.
+
+**Retained limitation:** one Arabic click coincided with revalidation and did not complete immediately; after retry, the Arabic dated route and return completed. No event timestamps/complete network trace were collected to attribute this precisely. G01/EX-02 explicitly retains single-click/focus overlap, native dirty/unknown history and broader domain adoption. Hosted zero-document counts or latency percentiles are not claimed; the zero-document proof is the isolated actual Next fixture. Positive live Trainer/Guardian, broader device/accessibility, independent security and load/cost gates remain open. Owner working-feature acceptance is pending. The UI is left on the authorized A English Calendar for review.
+
+The Vercel build log also displayed the existing Sentry build-plugin telemetry notice. Runtime tracing/replay privacy settings were not changed; they do not establish whether the SDK's build tooling emits separate telemetry. That distinction is added to G05 for source/config/meter review, without enabling or disabling monitoring here.

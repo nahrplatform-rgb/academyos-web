@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-25",
+  "deploymentBeforeRepair": "dpl_G9dwFFNUejopeCMBnaAWTaWxWFq4",
+  "sourceBeforeRepair": "e84d51bb96b44964033bc493b65bcb8862f18752",
+  "baseline": {
+    "players": 2,
+    "registrationAudits": 2,
+    "testNameMatches": 0,
+    "memberships": 2,
+    "invitations": 2
+  },
+  "sameNameTwoForm": {
+    "bothReachedConfirmationBeforeEitherSave": true,
+    "bothSaveControlsClicked": true,
+    "savedForms": 1,
+    "reviewRequiredForms": 1,
+    "distinctionCheckboxReset": true,
+    "databasePlayers": 1,
+    "databaseNameRevision": 1,
+    "databaseRegistrationReceipts": 1,
+    "databaseRegistrationAudits": 1,
+    "scope": "Hosted two-form same-name conflict; does not assert exact database statement overlap timing"
+  },
+  "interruptedBeforeSend": {
+    "perTabOfflineEmulation": true,
+    "networkRestoredInFinally": true,
+    "uncertainUiShown": true,
+    "reconcileCancelled": true,
+    "databasePlayersWithTestName": 0,
+    "cancellationReceipts": 1,
+    "cancellationAudits": 1
+  },
+  "responseLostAfterCommit": {
+    "saveFetchResponsePausedAtStage": "Response",
+    "responseStatus": 200,
+    "responseFailedWith": "ConnectionReset",
+    "interceptionCleared": true,
+    "uncertainUiShown": true,
+    "originalOperationRecoveredProfile": true,
+    "databasePlayersWithTestName": 1,
+    "databaseRegistrationReceipts": 1,
+    "databaseRegistrationAudits": 1
+  },
+  "finding": {
+    "oldCancellationNoticeSurvivedIntoNextIntent": true,
+    "localRegressionFailedBeforeFix": true,
+    "repair": "Clear previous operation notices at candidate review, save, reconcile and profile loading; preserve fresh pagination-conflict notice",
+    "productionAndDevelopmentRegressionPassedAfterFix": true,
+    "repairDeploymentVerification": "passed new-intent candidate lookup and confirmation; zero old cancellation notices"
+  },
+  "afterTests": {
+    "players": 4,
+    "memberships": 2,
+    "invitations": 2
+  },
+  "notProven": [
+    "Independent human security approval",
+    "Reverse-account direct HTTP checks",
+    "Hosted membership suspension/reinstatement for I2a",
+    "Full hosted performance/cost workload",
+    "Physical devices and screen readers"
+  ],
+  "privacy": "Fictional names only; no contact entered; no token/cookie/request header export; no new account or membership grant",
+  "repair": {
+    "source": "623d415d3d58478909cd6422b2c82c1e0d269235",
+    "deployment": "dpl_ZQuAi2sCpr1yNtRQKdPEaobGmzAr",
+    "ciPassed": [
+      40185570597,
+      40185567326
+    ],
+    "postRepairExtraPlayerCreated": false,
+    "postRepairCancellationReceipts": 2,
+    "finalPlayerCount": 4,
+    "unsubmittedNewIntentPlayers": 0
+  }
+}

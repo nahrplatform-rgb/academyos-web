@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "cases": 85,
+  "scope": "Actual disposable PG17, full inherited suite plus7 attendance groups; synthetic data and modeled signed gateway claims; not hosted identity/HTTP proof",
+  "summary": [
+    "----------------------------------------------------------------------",
+    "Ran 85 tests in 229.799s",
+    "",
+    "OK"
+  ]
+}

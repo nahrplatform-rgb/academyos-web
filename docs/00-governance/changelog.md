@@ -1,5 +1,25 @@
 # Documentation changelog
 
+## 4 November 2026 — role-first/offline execution correction
+
+Owner directs isolated role journeys and exact cleanup, then working private register activation, progressive Players/month datasets and remaining redesign. [Checkpoint](../07-handoff/role-first-offline-sequence-2026-11-04.md) records fresh read-only state, nine local operator-transaction and six custody-tool cases. No hosted grant/migration/configuration/activation ran; normal iCloud sign-in and exact access authorization are pending. Existing Calendar source is now provider-observed on staging; new Owner promotion report and full hosted verification remain separate.
+
+## Owner Calendar Operations adoption — 4 November 2026
+
+Implemented the existing Owner Calendar as a weekly board/adaptive agenda with compact view/date controls and structured selected-session context. [Source, comparison and evidence](../07-handoff/operations-owner-calendar-checkpoint.md) retain authoritative paging/totals, timezone/original-occurrence routing,0 local/1 recheck requests and all operating contracts. Local regression,actual Next/PG recovery and refreshed factual review pass; exact-source rollout/hosted/working acceptance stay separate. One bounded read-only Terra helper; no account/provider/schema/private activation or agent promotion.
+
+## Operations admission Owner promotion and hosted checkpoint — 4 November 2026
+
+Read-only provider inspection confirms checked12b9a99 on canonical staging after the Owner reported promotion. Existing signed-in EN/AR search/filter/selection/recheck/Back and Arabic390CSS-px/light/Charcoal checks passed; untruncated samples show1 recheck request and0 local-action requests; the initial reload buffer was truncated, so its exact total remains unmeasured. [Receipt and limits](../07-handoff/operations-admission-checkpoint.md) keep prior Preview/freshness history, actual hosted scope and working acceptance separate. No operating write, invitation, role change, private activation or agent promotion. Tracker/continuation now route the next Academy Operations adoption; no source change or new factual capture was required.
+
+## Operations Platform admission and read-only role inventory — 4 November 2026
+
+Implemented the bounded Operations admission directory/status/inspector and account-scoped search/selection retention. Actual-component comparison reproduces baseline selection loss and verifies retention with unchanged1-read recheck;24 EN/AR/theme/viewport cases preserve zero-read local interaction. Existing invitation/authority/original-operation contracts remain. [Implementation and evidence](../07-handoff/operations-admission-checkpoint.md) separates local source from rollout/acceptance. [EX-12 preflight](../07-handoff/staging-role-preflight-2026-11-04.md) records current mixed roles and sole-Owner cleanup dependencies through SELECT-only inspection; no account or data mutation. Updated tracker, joins and continuation; no finding or full redesign closed from deployment.
+
+## Persistent local-data clarification and Shift iOS reference — 2 November2026
+
+Owner clarified progressive permitted datasets retained across visits and quiet synchronization. Added [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md), [canonical LF-v2 plan](../06-delivery/local-data-and-sync-plan.md) and [reconciliation/evidence map](../07-handoff/local-data-sync-reconciliation.md). Updated mandatory guidance, product/workflow/architecture/privacy/API/data/service/implementation/redesign/roadmap/loading/test/handoff records and generated continuation routing. Retired the unaccepted summary-only v1 proposal without overwriting its historical receipts. Added18 persistent-local planned cases to the original32; all50 remain planned/future, not runtime passes. Isolated reference tests:54 passed,1 hosted-fixture skip,0 failures. No Shift changes, AcademyOS runtime/schema/private store, provider/access change, offline-write approval, production release or persistent-memory update.
+
 ## Engineering charter and continuous security — 22 October 2026
 
 Owner explicitly requested disciplined engineering and journey/milestone security gates. Added engineering charter, root AGENTS.md, PR review template, journey security packet and 28-family planned coverage matrix; linked design/performance, architecture security, delivery, tests and handoff. Added planned AO-177–180/AT-177–180. Distinguished process/instruction enforcement from existing CI, unverified branch protections and independent review. No runtime security control, provider setting, account access or production release changed.
@@ -79,3 +99,15 @@ Completed incoming database SSL enforcement, scheduled uptime review, independen
 ## Platform Owner Services & Operations plan — 22 October 2026
 
 Added the detailed owner-facing administration vision, S51–S58 screen extension and AO-161–168/AT-161–168 planned acceptance requirements. Linked roles, roadmap, cost operations and setup index. Owner selected free Sentry Developer; immediate transition is blocked by provider trial cancellation eligibility and is recorded pending, with no paid plan change.
+
+
+## Independent-review deferral and dedicated role journeys —4November2026
+
+Recorded the Owner's explicit nonblocking synthetic-staging independent-review policy, including otherwise-authorized private offline activation. Updated charter, security/readiness packets, master/redesign/roadmap, test/loading/working-day standards, builder entry points, security-matrix scheduling metadata and generated continuation. Added supporting EX-12 for the two named role personas, read-only preflight, controlled cleanup preserving history and distinct Platform/Academy journeys first. Preserved original implementation, local/deployment/hosted/Owner evidence and meaningful tests; independent review is deferred, not passed. No app/account/grant/database/provider/activation/promotion change. [Policy](staging-delivery-and-review-policy.md) · [Role plan](../06-delivery/staging-role-separation-plan.md) · [Evidence checkpoint](../07-handoff/staging-role-and-review-update-2026-11-04.md).
+
+
+## Cost-aware bounded AI delegation —4November2026
+
+Added the Owner-requested [Sol/Terra delivery policy](ai-delegation-and-cost-policy.md), linked through AGENTS, charter, master/redesign/roadmap, cost/test/execution workflow, PR template and builder entry points. Default zero/one helper, ceiling two active subagents, no nested spawning; scripts first, exact scopes, coordinator decisions/integration, bounded repairs and honest usage evidence. Updated the generator and structural policy-pointer checks; current tracker priority and product/test/deployment/acceptance records remain. No workers needed for this policy-only checkpoint, no runtime cap/global setting or measured savings claimed, and no app/provider/account/deployment change. [Evidence](../07-handoff/ai-delegation-policy-2026-11-04.md).
+
+-4November2026: exact audited synthetic Owner transfer/Guardian ending executed after explicit authorization; all55 operating fingerprints and prior audit preserved. EX12 checkpoint passed, EX11 current. Owner authorized concrete offline activation and standing existing trial-account/test actions (SDR-06), retaining Owner-only promotions. Four-source schema release applied; actual protected root/configuration/build and offline working proof tracked separately.

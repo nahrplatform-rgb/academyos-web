@@ -1,0 +1,3 @@
+import{auth}from'@clerk/nextjs/server';import{notFound}from'next/navigation';import{uuidPattern}from'@/lib/onboarding';import DevelopmentWorkspace from'@/components/development-workspace';
+export const dynamic='force-dynamic';
+export default async function Page({params,searchParams}:{params:Promise<{locale:string;academy:string}>;searchParams:Promise<{link?:string;assessment?:string}>}){await auth.protect();const p=await params,q=await searchParams;if(!uuidPattern.test(p.academy)||!['en','ar'].includes(p.locale)||(q.link!==undefined&&!uuidPattern.test(q.link))||(q.assessment!==undefined&&!uuidPattern.test(q.assessment))||Boolean(q.link)!==Boolean(q.assessment))notFound();return <DevelopmentWorkspace {...p} family initialLink={q.link} initialAssessment={q.assessment}/>;}

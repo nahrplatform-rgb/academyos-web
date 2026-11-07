@@ -1,0 +1,29 @@
+{
+  "schemaChecks": [
+    {
+      "enabled_links": 0,
+      "assessments": 0,
+      "rls_tables": 6,
+      "authenticated_direct_grant": false,
+      "scoped_rpcs": 11
+    }
+  ],
+  "advisorsAfter": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 58
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 3
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 90
+    }
+  ],
+  "scope": "Additive hosted schema check; no role or link enabled. Definer warnings require reviewed current-authority predicates and are not an independent security pass."
+}

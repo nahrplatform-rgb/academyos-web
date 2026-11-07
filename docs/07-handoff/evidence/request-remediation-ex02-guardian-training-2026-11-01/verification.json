@@ -1,0 +1,111 @@
+{
+  "scope": "Actual product React; synthetic identity/HTTP; not hosted database/quota proof",
+  "before": {
+    "pairedReturn": {
+      "reads": 6,
+      "actions": [
+        "links",
+        "schedule",
+        "detail",
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "laterFocus": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "reconnect": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "stalledLinks": {
+      "reads": 3,
+      "privateContentMasked": true,
+      "selectedSessionRestored": true
+    }
+  },
+  "after": {
+    "pairedReturn": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "laterFocus": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "reconnect": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "stalledLinks": {
+      "reads": 3,
+      "privateContentMasked": true,
+      "selectedSessionRestored": true
+    }
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "unit": 75,
+    "foundation_e2e": 17,
+    "api": {
+      "budgetFailures": 9,
+      "invalidBodies": 3,
+      "crossOriginDenied": true
+    },
+    "ui_modes": [
+      "production",
+      "development"
+    ]
+  },
+  "node": "26.9.0; CI Node24 separate",
+  "inputs": {
+    "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/guardian-training/test_ui.mjs": "5ec96eec6aa730e419cd230c10390ecdb08594f7fbbf9dadfd9f457661cfc71b"
+  },
+  "open": [
+    "G02 positive hosted Guardian access",
+    "hosted counters/percentiles",
+    "EX04 links chain",
+    "EX03 recovery elsewhere",
+    "Owner acceptance",
+    "independent security"
+  ],
+  "factual_review": {
+    "capture_suites": 16,
+    "frames": 1041,
+    "transitions": 1050,
+    "theme_snapshots": 33,
+    "integrity": "passed",
+    "freshness": "passed",
+    "visual_inspection": [
+      "AR360 session detail",
+      "EN1440 session detail"
+    ],
+    "scope": "fictional actual-component captures; not hosted/device/exhaustive proof"
+  }
+}

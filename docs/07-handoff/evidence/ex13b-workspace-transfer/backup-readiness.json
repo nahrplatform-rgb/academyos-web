@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "project": "snpphkenmvmhpjstbeul",
+  "key": "staging/2026-11-05/ef5522db-9163-4e7f-a780-e9a23bdafe10/backup.tar.age",
+  "sha256": "c06edae28491b00b4ec50ca177ac40de32b744f11e1cd9183c6c4e25d52ea86c",
+  "bytes": 809352,
+  "object_count": 0,
+  "verified_at": "2026-11-05T06:25:15.148071+00:00",
+  "status": "encrypted_upload_download_verified",
+  "storage_api_credential_verified": true,
+  "restore_tested": false,
+  "verified_against_workflow": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41980102243"
+}

@@ -1,0 +1,55 @@
+{
+  "recorded_at": "2026-11-04T22:03:49.691233+00:00",
+  "staging": {
+    "host": "staging.academy.nahr.dev",
+    "deployment": "dpl_GaKbABC9eyafobc72VNfCYjQ9UNu",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/GaKbABC9eyafobc72VNfCYjQ9UNu",
+    "state": "READY",
+    "sha": "cb00ab886f2278d0f3deb9a586b0c20872e672d2"
+  },
+  "worker_sha256_matches_git": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
+  "public_shell": {
+    "http": 200,
+    "marker": "register-v1"
+  },
+  "event": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+  "chrome": {
+    "existing_profile": "test nahr",
+    "online_check_download": "completed",
+    "offline_tab_reload": true,
+    "http_cache_disabled_for_test": true,
+    "network_log_entries": 18,
+    "network_bytes_transferred": 0,
+    "resource_kb_displayed": 826,
+    "operating_api_requests": 0,
+    "rows": 2,
+    "marks": [
+      "absent",
+      "present"
+    ],
+    "browser_restored_online": true
+  },
+  "updated_window_bundle": {
+    "path": "/_next/static/immutable/chunks/0oygdo8cph9gt.js",
+    "sha256": "3cbb25ca7bf850197b33dfbc1b36f066e739a224960c948910c13b460d26045a",
+    "observed_from_service_worker": true
+  },
+  "database": {
+    "checked_at": "2026-11-04T21:56:21.906396Z",
+    "recording_window_open": true,
+    "version_1_marks": 2,
+    "history_rows": 2,
+    "operations": 1,
+    "exact_original_matches": 1,
+    "original_audits": 1,
+    "existing_slot_matches": 1,
+    "casey_membership": "ended"
+  },
+  "routing": "EX-11 scoped checkpoint passed; EX-13 next",
+  "open_evidence": [
+    "Hosted pre-start boundary",
+    "Physical browser restart and broader recovery/device coverage",
+    "Owner working acceptance",
+    "Independent human review deferred"
+  ]
+}

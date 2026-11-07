@@ -1,0 +1,15 @@
+{
+  "scope": "Actual Next production chunks containing QR code; includes shared app wrappers where applicable",
+  "chunks": [
+    {
+      "file": "39fgiytt47ohq.js",
+      "bytes": 129980,
+      "gzip_bytes": 46214
+    },
+    {
+      "file": "1r26t6ejl-cef.js",
+      "bytes": 46743,
+      "gzip_bytes": 16405
+    }
+  ]
+}

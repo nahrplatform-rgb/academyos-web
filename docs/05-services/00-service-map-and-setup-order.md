@@ -1,5 +1,9 @@
 # Service directory and setup order
 
+## Local-data planning boundary —LF-v2,2November2026
+
+Durable local storage and quiet synchronization are application architecture, not a request to rebuild hosting or buy another service. Browser storage/key/access design and versioned signed data contracts are reviewed in the existing stack; native apps remain optional. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 > Current execution status (22 October 2026): see [the ordered setup index](../07-handoff/setup-index.md) and [actual configuration register](../07-handoff/configuration-status.md). The runbook/proposals below were prepared before implementation; they are not a current completion dashboard.
 
 Prepared and public guidance checked 21 October 2026. **All setup steps are instructions for future execution, not changes made by this task.** Account names, IDs, regions, DNS targets and credentials must be obtained from the actual account. Proposed choices are subject to the decision register.

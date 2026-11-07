@@ -1,8 +1,56 @@
 # Delivery roadmap and dependency-ordered backlog
 
+## Canonical version2 roadmap —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package and batch catalog consolidate the complete product and larger outcome sequence. Preserve the release meanings and historical requirements below. The single execution tracker owns current priority; pending Owner release and ready independent development are separate. Catalog scope is not acceptance of unchosen business rules.
+
+**6 November EX-07 checkpoint:** [Normal Attendance evidence](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md) advances the current primary through ordinary-route local reading/saving/reopening/reconnect using the existing engine. EX-15 receives only this scoped root-worker/lifecycle contribution; EX-14 metadata/launch and EX-16 actual installed-device cases remain supporting work. Keep the remaining redesign, all-role refresh coverage and provider/device measures open.
+
+## Supporting installed-web delivery lane — 6 November 2026
+
+The [PWA contract](pwa-delivery-and-readiness.md#work-packages-and-delivery-lanes) defines supporting EX-14 installation identity/launch, EX-15 worker/storage/offline lifecycle and EX-16 actual installed-device evidence. Preserve the existing EX-13 foundation → remaining EX-07 primary sequence and one current row. Metadata can progress now; installed-only proof follows EX-14, while offline/update/command cases additionally follow their relevant domain/EX-15 slice. Do not wait for future finance or every EX-07 journey before the first install test.
+
+Broader offline coverage still follows the domain adoption map. Optional push/shortcuts/native distribution are assessed separately and are not new installation prerequisites. Keep device availability, exact supported versions and unexecuted installed checks visible. The tracker owns status; this roadmap does not promote a worker or prototype to installed acceptance.
+
+**Full-app adoption — 5 November:** the Owner requests settings, finance and future modules in the same local-data/sync experience. Follow the [canonical domain adoption map](local-data-and-sync-plan.md#full-app-adoption--5-november-2026): EX-13B Players/month foundation → EX-07 normal Attendance and remaining implemented domains/settings → the real future finance/reporting/communications/portal modules with local behavior included in their creation. Do not call first-slice summary exclusions permanent. The [EX-13A evidence](../07-handoff/ex13a-baseline-and-dataset-checkpoint-2026-11-05.md) and [dataset contract](../04-engineering/owner-workspace-dataset-contract.md) start the next engineering slice without claiming a new runtime release.
+
+**Latest Owner execution order — 4 November 2026:** [Role-first/offline sequence](../07-handoff/role-first-offline-sequence-2026-11-04.md) supersedes the earlier EX-07-first order: **EX-12 isolated accounts and exact role cleanup → EX-11 working private register pilot with EX-09 custody/activation → EX-13 progressive permitted Players/month datasets → remaining EX-07 Operations redesign.** Retain all completed source/tests/releases and earlier approvals. Independent review is deferred/nonblocking. Do not substitute further visual batches or tab-memory reuse for these outcomes; actual grants, ownership changes and promotions retain their specific authority. The tracker/generated continuation own exact current state.
+
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
+**Current direction — 5 November 2026:** The [EX-13B device lifecycle](../07-handoff/ex13b-workspace-lifecycle-checkpoint-2026-11-05.md) advances to normal Owner Players/Calendar and offline startup. EX-07 follows with normal-route Attendance, Operations adoption and whole-app continuity checks. [Tracker](experience-execution.csv).
+
+## Latest local-first direction — LF-v3,2November2026
+
+Owner now requests retained permitted month/three-month datasets **and locally saved offline edits with reconnect synchronization**. No inactivity lock or proposed24hour read cutoff. Read-replica cleanup after30days without successful online verification or explicit logout is selected; pending operations/unsent edits are a separate recovery class. Read [the canonical plan](local-data-and-sync-plan.md) and [offline-edit/conflict contract](../04-engineering/offline-edit-and-conflict-contract.md). Exact device/key/field and per-command deadline/conflict/logout design remain gated; timestamps alone cannot decide competing edits. Current online commands and prior business/security evidence remain unchanged until each accepted slice is implemented. Historical online-only-target statements below are superseded at the direction layer, not retroactively changed runtime facts.
+
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day acceptance](academy-working-day-acceptance.md) and [planned cases](academy-working-day-cases.csv) with the current tracker.
+
+Owner clarified persistent permitted datasets across normal visits, progressive player-directory/month preparation and quiet change synchronization. This is now core experience architecture, not a memory-only summary pilot or an optional native-app prerequisite. Read [local-data and sync plan](local-data-and-sync-plan.md) and [Shift staging iOS source review](../04-engineering/shift-ios-local-data-reference-review.md).
+
+Follow the single current row in [experience-execution.csv](experience-execution.csv). EX-13 prepares and reopens scoped data inside the normal workspace. EX-07 applies the same behavior to remaining journeys. Future installed-app packages inherit the device-data, sync and recovery contracts. Platform packaging, operating-system lifecycle and actual device verification belong to their own delivery stages. [normal-workspace contract](local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026).
+
+The unaccepted WB-P01–P04 summary-only/30second/5minute/intent-only recommendations are superseded. LF-P01–LF-P06 exact field/device/access/retention/sync choices still need review; offline writes, finance, new roles, production, real data and access grants are not inferred. No runtime persistence exists from this documentation update. Older dated source/evidence notes below remain historical within their own scope.
+
+
+## Historical bounded slice — 26 October 2026
+
+The approved Owner-only I3a full-period/weekday-time draft-program implementation is locally verified. [Current source/evidence and separate rollout/acceptance status](../07-handoff/i3a-program-implementation.md). Assignments, enrollment/capacity, publication and attendance remain later steps; no whole scheduling requirement is closed.
+
+## Historical initial implementation plan — 24 October 2026
+
+Use [the unified app implementation plan](app-implementation-plan.md), [screen register](app-implementation-screen-matrix.csv), [action register](app-implementation-action-matrix.csv) and [requirement joins](app-implementation-requirement-links.csv) for the next slices. These connect the compact-blue design to actual source/evidence, preserve all scope and keep design, implementation, verification, deployment and owner approval separate. The older proposed backlog below remains historical planning; assess existing M1 work before repeating it.
+
 The objective is a fully working, accepted web application against an agreed release scope, followed by the retained expansion/native vision. “100% working” means every in-scope workflow has accepted behavior, evidence and recovery; it cannot honestly mean a guarantee of zero future defects.
 
 ## Delivery approach
+
+Use the [bounded Sol/Terra delivery method](../00-governance/ai-delegation-and-cost-policy.md) throughout these work packages: scripts first, selective explicitly configured Terra helpers, zero/one by default and two maximum with no nested agents. Preserve one coordinator for scope, difficult boundaries and integration; retain actual validation and honest usage evidence. This is cross-cutting delivery practice, not an added feature milestone or a reason to defer the two Owner journeys.
+
+Initial M1 work item: [repository assessment and first decision/design packet](onboarding-m1-decision-design-packet.md), with a connected synthetic prototype. Policy/design accepted by Moamen on 22 October 2026; [M1 implementation evidence](../07-handoff/onboarding-m1-implementation.md) retains its dated progress. Later receipts and the current master plan/tracker supersede its old next-step status. Do not rebuild infrastructure or repeat completed M1 work from this initial backlog.
 
 Build vertical slices that include screen, permission, database operation, audit, recovery and tests. Do not finish a large collection of disconnected screens and then add the business rules. Resolve the policy for the next slice before its implementation; unrelated unresolved future choices do not stop safe foundation work.
 
@@ -78,3 +126,7 @@ Use the [operating blueprint](../01-product/saas-operating-blueprint.md) with ea
 ## Engineering charter and continuous security
 
 Apply the [engineering charter](../00-governance/engineering-charter.md) at every work package. The [security milestone matrix](../04-engineering/journey-security-review.md) adds design/build/verification/staging/acceptance/release and post-change gates; expand [journey security coverage](../04-engineering/journey-security-matrix.csv) to action-level cases. Documentation/PR review is a process gate; existing CI checks only its actual suites. Do not claim required branch protections or full security enforcement without verifying configuration.
+
+I5a29 October 2026: reviewed narrative development feedback implemented and deployed to synthetic staging; scoped two-account hosted publication/withdrawal and exact temporary-access cleanup passed. [Implementation/evidence](../07-handoff/i5a-development-feedback-implementation.md). Working acceptance pending; AO-085–092 broader metrics/Player/export/notification requirements are not fully closed. Independent security/device/load/cost gates remain open.
+
+I5a working-feature acceptance29 October 2026: Moamen explicitly accepted the working I5a development-feedback journey’s EN/AR wording and usability on 29 October 2026. Acceptance covers Trainer draft/submission, Owner return/publication, Guardian published-only reading and withdrawal. Independent human/security, broader hosted API/race, physical-device/accessibility and load/cost gates remain open. This grants no new access and does not close broader scored/Player/export/notification scope. Earlier acceptance-pending notes are historical checkpoints.

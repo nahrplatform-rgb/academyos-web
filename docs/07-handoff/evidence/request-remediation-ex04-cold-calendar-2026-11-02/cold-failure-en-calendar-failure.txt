@@ -1,0 +1,56 @@
+Skip to content
+A
+AcademyOS
+Academy workspace / Training calendarAcademy Owner
+Staging
+العربية
+Light mode
+Layout
+Fictional routing test account
+
+Academy workspace
+
+Academy Owner
+Switch workspace
+
+Workspace
+
+Today
+Academy setup
+
+People
+
+Players
+Trainer appointments
+
+Training
+
+Calendar
+Training programs
+
+Attendance
+
+Session scanner
+Attendance settings
+Correction requests
+
+Development
+
+Development feedback
+
+Staging · Synthetic data only
+
+Hide details
+
+Academy Owner
+
+Training calendar
+Reload current view
+
+This view is unavailable. Reload to try again; no empty result is assumed.
+
+Return to the current period
+Session details
+A useful next step
+
+Choose a session to see its context and open the right task.

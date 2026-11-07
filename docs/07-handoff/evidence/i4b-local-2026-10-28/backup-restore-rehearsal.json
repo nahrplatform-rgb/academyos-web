@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "5f59cfc4-cf5b-4634-ab0f-ec44ed143acb", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261028120747_i4b_guardian_training.sql", "counts": {"identities": 2, "academies": 2, "memberships": 4, "private_tables_with_rls": 44}, "hosted_storage_restore_tested": false}

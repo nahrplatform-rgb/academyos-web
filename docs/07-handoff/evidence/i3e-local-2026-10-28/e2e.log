@@ -1,0 +1,29 @@
+
+> academyos@0.1.0 test:e2e
+> npm run test:e2e --workspace @academyos/web
+
+
+> @academyos/web@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:15911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:15914) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/foundation.spec.ts:2:5 › English and Arabic starter pages truthfully show pending setup (392ms)
+  ✓   2 tests/foundation.spec.ts:19:5 › phone layout does not overflow (118ms)
+  ✓   3 tests/foundation.spec.ts:30:5 › unconfigured workspace fails closed and health is process only (76ms)
+  ✓   4 tests/foundation.spec.ts:46:5 › onboarding fails closed without identity and rejects forged callbacks (29ms)
+  ✓   5 tests/foundation.spec.ts:61:5 › Clerk email callback denies unsigned requests without exposing payload or caching (5ms)
+  ✓   6 tests/foundation.spec.ts:68:5 › guardian entry fails closed and unsigned delivery cannot send (13ms)
+  ✓   7 tests/foundation.spec.ts:78:5 › trainer entry fails closed and unsigned delivery cannot send (13ms)
+  ✓   8 tests/foundation.spec.ts:88:5 › draft program entry denies untrusted requests and an unconfigured page fails closed (6ms)
+  ✓   9 tests/foundation.spec.ts:96:5 › private dated planning rejects an untrusted caller and unconfigured access fails closed (6ms)
+  ✓  10 tests/foundation.spec.ts:102:5 › atomic program planning denies untrusted entry and unconfigured protected access (6ms)
+  ✓  11 tests/foundation.spec.ts:109:5 › publication and Trainer schedule reject untrusted entry and unconfigured access (7ms)
+  ✓  12 tests/foundation.spec.ts:115:5 › session changes deny untrusted writes and unconfigured protected entry (6ms)
+
+  12 passed (2.0s)

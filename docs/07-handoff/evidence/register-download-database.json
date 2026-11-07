@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "hashes": {
+    "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
+    "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
+    "scripts/attendance-register/test_boundary.py": "06bf06a9ba469ddb9d01223dd7f443ffa6f5a441c877de04c0d15be60b8fe21f",
+    "scripts/onboarding/test_boundary.py": "c6ffec292d0fa20d784fb7df68133b214d78687fd19bede204ce7c3cd7c98e9f"
+  },
+  "scope": "Actual disposable PostgreSQL17; fictional current-subject gateway proofs. No hosted schema, Clerk, PostgREST, provider quotas, access grant or independent security approval."
+}

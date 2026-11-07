@@ -1,0 +1,9 @@
+{
+  "scope": "Actual qrcode1.5.4/jsqr1.4.0; synthetic image, not physical camera",
+  "frame_pixels": 246,
+  "samples": 50,
+  "p95_ms": 3.040707999999995,
+  "max_ms": 17.312582999999997,
+  "roundtrip": true,
+  "blank_rejected": true
+}

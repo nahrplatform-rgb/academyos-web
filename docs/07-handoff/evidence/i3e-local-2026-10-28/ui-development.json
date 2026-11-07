@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "saves": 3,
+  "scope": "Actual product React, synthetic identity/HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode one initial read",
+    "move lost reply reload reconcile once",
+    "cancel retained history and disabled edits",
+    "stale explicit rereview",
+    "uncommitted original fence",
+    "confirmed write failed read",
+    "domain failures retain reason and block confirmation",
+    "published withdrawal first",
+    "EN/AR320/360/926/1440 no horizontal overflow",
+    "denied clears private state",
+    "account remount"
+  ],
+  "errors": []
+}

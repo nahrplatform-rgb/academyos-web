@@ -1,5 +1,9 @@
 # Optional services and future operating-system platforms
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Durable web/PWA local read/sync is core experience work now, independent of optional native/desktop apps. Service-worker offline shell/unlock and per-domain offline writes still need explicit design/security review; native packaging alone does not solve them. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).
+
 These services are intentionally deferred until a defined product requirement and budget justify them. Record a decision before activation; “many services” should mean complete preparation, not unnecessary subscriptions.
 
 ## Optional web capabilities
