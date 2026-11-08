@@ -19,8 +19,21 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
     import People from './apps/web/src/components/people-workspace';
     import Experience from './apps/web/src/components/experience-workspace';
     import{clearRegisterAccount}from './apps/web/src/lib/register-device-account';
+    import{readRegisterAccount}from './apps/web/src/lib/register-device-account';
+    import{readWorkspaceSlot,workspaceSlotScope}from './apps/web/src/lib/workspace-device-slots';
+    import{openLocalWorkspace}from './apps/web/src/lib/local-workspace-repository';
     window.clearTestAccount=()=>clearRegisterAccount('user_owner',()=>{});
     const [,locale,,academy,view]=location.pathname.split('/');
+    window.inspectPreparedPeople=async()=>{
+      const account=readRegisterAccount();
+      const slot=readWorkspaceSlot({subject:'user_owner',academy});
+      if(account?.mode!=='active'||slot?.mode!=='active')return null;
+      const repo=await openLocalWorkspace(workspaceSlotScope({subject:'user_owner',academy},slot));
+      try {
+        const result=await repo.read('people');
+        return result?{count:result.count,revision:result.revision,updating:result.updating,ids:result.rows.map(row=>row.id)}:null;
+      }finally{repo.close();}
+    };
     const props={locale,academy,prepared:true};
     createRoot(document.querySelector('#root')).render(
       view==='players'?<People {...props}/>:<Experience {...props} role="owner" calendar

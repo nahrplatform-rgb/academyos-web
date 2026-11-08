@@ -3,7 +3,7 @@
   "execution": "EX-07",
   "date": "2026-11-08",
   "source_base": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
-  "state": "locally_verified;release_and_hosted_pending",
+  "state": "committed_pushed_CI_passed_Owner_promoted_exact_staging_source_verified;scoped_signed_in_EN_AR_positive_checks_passed",
   "outcomes": [
     "VAL-02",
     "VAL-09"
@@ -35,7 +35,7 @@
     "authentication-required-en.png",
     "authentication-required-ar-360.png"
   ],
-  "workspace_receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
+  "workspace_receipt": "docs/07-handoff/evidence/mp-b01-people-auth-empty/transport-6d9d3f6.json",
   "workspace_checks": 56,
   "people_authentication": {
     "expiredServerSession": true,
@@ -118,12 +118,12 @@
     "provider_runtime_publish_actions": false
   },
   "limits": [
-    "No hosted or installed verification for this candidate.",
+    "Scoped signed-in EN/AR positive Players states verified on staging;hosted fault injections and installed/device matrix remain untested.",
     "No real Clerk expiration/refresh proof;server session is independently removed in a fictional provider adapter.",
     "No service quota saving or latency percentile claimed.",
     "Prepared-empty first save/lost reply and failed people-transfer remain separate next tests.",
     "NR07 hosted zero-player symptom remains undiagnosed.",
-    "No migration,field,write rule,key,account,provider setting or promotion."
+    "No migration,field,write rule,key,account or provider change;promotion performed by Owner,not agent."
   ],
   "live_before": {
     "observed_date": "2026-11-08",
@@ -135,5 +135,16 @@
     "source_sha": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
     "branch": "codex/onboarding-decision-design-packet",
     "limits": "Deployment/source metadata only;no signed-in flow or Owner-report inferred;no release action by agent."
-  }
+  },
+  "implementation_commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "ci": {
+    "run": 42471548556,
+    "job": 128703257199,
+    "passed_steps": 53,
+    "source_sha": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "receipt": "ci-6d9d3f6.json"
+  },
+  "release_receipt": "release.json",
+  "hosted_receipt": "hosted.json",
+  "hosted_positive_cases": 6
 }

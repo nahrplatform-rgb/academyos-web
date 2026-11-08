@@ -14,6 +14,7 @@ import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
 import {checkEmptyOnlineRegistration} from './empty_online_registration.mjs';
+import {checkEmptyPreparedRegistration} from './empty_prepared_registration.mjs';
 import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 import {checkCapabilityCleanup} from './capability_cleanup.mjs';
 import {checkStartupResume} from './startup_resume.mjs';
@@ -40,6 +41,7 @@ const inputs=[
   'scripts/workspace-download/test_boundary.py',
   'scripts/workspace-download/normal_workspace.mjs',
   'scripts/workspace-download/empty_online_registration.mjs',
+  'scripts/workspace-download/empty_prepared_registration.mjs',
   'scripts/verification/web-build.mjs','package.json',
   'scripts/workspace-download/capability_cleanup.mjs',
   'scripts/workspace-download/startup_resume.mjs',
@@ -61,7 +63,7 @@ if(process.argv.includes('--check')){
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
   assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
     (await assertCurrentWebBuild(root)).sourceHash,'Recorded offline UI must belong to the current compiled source');
-  assert.ok(receipt.checks.length>=56);
+  assert.ok(receipt.checks.length>=64);
   const registration=receipt.metrics.normalWorkspace.postRegistration;
   assert.equal(registration.realPeopleHandler,true);
   assert.equal(registration.originalIdForwarded,true);
@@ -78,6 +80,17 @@ if(process.argv.includes('--check')){
   assert.deepEqual(empty.peopleActions,['list','candidates','create','profile','list']);
   assert.equal(empty.originalIdForwarded,true);
   assert.deepEqual(empty.rpcCounts,{i2_people_v1:2,i2_candidates_v1:1,i2_profile_v1:1,i2_register_v1:1,i2_operation_v1:0});
+  for(const variant of ['confirmed','lost_reply','transfer_failure']){
+    const prepared=receipt.metrics.emptyPreparedRegistration[variant];
+    assert.equal(prepared.initial.totalPlayers,0);assert.equal(prepared.final.totalPlayers,1);
+    assert.equal(BigInt(prepared.final.peopleRevision),BigInt(prepared.initial.peopleRevision)+1n);
+    assert.equal(prepared.oneCanonicalResult,true);assert.equal(prepared.originalIdForwarded,true);
+    assert.deepEqual(prepared.peopleActions,variant==='lost_reply'?['candidates','create','reconcile','profile']:['candidates','create','profile']);
+    assert.deepEqual(prepared.transferActions,variant==='transfer_failure'?['manifest','page','manifest','page','manifest','page','complete']:['manifest','page','complete']);
+    assert.deepEqual(prepared.pageErrors,[]);
+  }
+  assert.deepEqual(receipt.metrics.emptyPreparedRegistration.confirmed.offlineReopening,
+    {serviceWorkerDocument:true,operatingRequests:0,unchangedTransferActions:['manifest']});
   assert.equal(receipt.metrics.peopleUnauthorizedCreateDenied,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
@@ -379,7 +392,7 @@ try{
           const request=new NextRequest(stage+req.url,{method:'POST',headers,body});
           return (req.url==='/api/workspace-key'?keyPost:POST)(request);
         };
-        const response=await (intercept?intercept(call,invoke):invoke());
+        const response=await (intercept?intercept(call,invoke,command):invoke());
         if(!res.destroyed){
           res.writeHead(response.status,{'content-type':response.headers.get('content-type')??'text/plain'});
           res.end(await response.text());
@@ -724,6 +737,22 @@ try{
     metrics.emptyOnlineRegistration=await checkEmptyOnlineRegistration({page,ui:emptyUI,fixture:emptyFixture,base:local,
       rpcCalls:state.calls,observe:args=>db({action:'people_snapshot',...args}),pass});
   } finally {emptyUI.useRealPeople(false);await emptyBrowser.close();}
+  metrics.emptyPreparedRegistration={};
+  const preparedEmptyBrowser=await chromium.launch();
+  try {
+    for(const variant of ['confirmed','lost_reply','transfer_failure']){
+      const fixture=await db({action:'make',size:0,unregistered:true});
+      const ui=await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
+      activeNormal=ui;
+      metrics.emptyPreparedRegistration[variant]=await checkEmptyPreparedRegistration({browser:preparedEmptyBrowser,
+        fixture,ui,base:local,transferCalls:browserCalls,rpcCalls:state.calls,
+        observe:args=>db({action:'people_snapshot',...args}),pass,variant,
+        setPeopleTransferFailure:enabled=>{intercept=enabled?async(call,invoke,command)=>
+          call.action==='page'&&command.receipt?.payload?.dataset==='people'
+            ?Response.json({error:'unavailable'},{status:503}):invoke():undefined;},
+        evidenceDirectory:join(directory,'empty-prepared')});
+    }
+  }finally{intercept=undefined;await preparedEmptyBrowser.close();}
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await checkStartupResume(root,pass);
   const shellBrowser=await chromium.launch({headless:true});

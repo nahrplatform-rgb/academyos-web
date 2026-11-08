@@ -1,0 +1,42 @@
+{
+  "variant": "lost_reply",
+  "message": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Back to players', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"ui-button\">Back to players</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> from <header class=\"window-toolbar\">…</header> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> from <header class=\"window-toolbar\">…</header> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div>…</div> from <header class=\"window-toolbar\">…</header> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "peopleActions": [
+    "list",
+    "candidates",
+    "create",
+    "reconcile",
+    "profile"
+  ],
+  "transferActions": [
+    "prepare",
+    "manifest",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "manifest",
+    "page",
+    "complete"
+  ],
+  "canonical": {
+    "registration": {
+      "audits": 1,
+      "result": {
+        "version": 1,
+        "player_id": "b995799c-d27c-4be2-9c64-e271a3be3853"
+      },
+      "players": 1,
+      "operations": 1
+    },
+    "totalPlayers": 1,
+    "peopleRevision": "11"
+  },
+  "text": "Skip to content\nA\nAcademyOS\nHide navigation\nSynthetic Academy / PlayersAcademy Owner\nStaging\nالعربية\nDark mode\nLayout\nOnline\nCheck for changes\nRemove downloads\n\nSynthetic Academy\n\nAcademy Owner\nSwitch workspace\n\nWorkspace\n\nToday\nAcademy setup\n\nPeople\n\nPlayers\nTrainer appointments\n\nTraining\n\nCalendar\nTraining programs\n\nAttendance\n\nSession scanner\nAttendance settings\nCorrection requests\n\nDevelopment\n\nDevelopment feedback\n\nStaging · Synthetic data only\n\nHide details\nPlayers\n\nSynthetic Academy · Synthetic branch\n\nPlayer directory\nRegister player\nFind a player by name\n\n1 player on this page\n\nPlayer directory\nPlayer\tBranch\nSynthetic empty lost_reply\tSynthetic branch\nFirst page\nUp to 25 players per page. Contact details appear only in profiles.\nPlayer profile\nBack to players\nRefresh view\nSynthetic empty lost_reply\n\nRegistration saved\n\nBranch\nSynthetic branch\nUnverified contact\nNot provided\n\nSaving contact details does not create guardian access. Manage appointments separately.\n\nPlayer QR card\nGuardian appointments",
+  "pageErrors": [],
+  "disposition": "Harness left the initial device details open;close it through its real summary after approval. No forced click or product geometry repair claimed."
+}

@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-08",
+  "execution": "EX-07",
+  "batch": "MP-B01",
+  "source_base": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "state": "implemented_locally_verified;coherent_candidate_preparation",
+  "outcomes": [
+    "VAL-02",
+    "VAL-09"
+  ],
+  "canonical_work": [
+    "IMP-J06-A01"
+  ],
+  "findings": [
+    "NR07",
+    "NR14",
+    "NR15",
+    "NR17"
+  ],
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "9059622fce25f819481a7efabb7b084106bc10fcc4df6db15ea10990110a229c",
+    "apps/web/src/lib/local-workspace-repository.ts": "489f36aae0aab1a7644eab96f43edb57272791a7ce1c4f0b9a0e306e56a4e18e",
+    "scripts/workspace-download/normal_workspace.mjs": "327a0101125913a85dfd6e95a9ad2ffa2bdc74db2b755efed05f73177d7ccb71",
+    "scripts/workspace-download/empty_prepared_registration.mjs": "c449dfe60539f366cc1bfe965f7cba9dcaf9bce2cfce7ba0d1e78a36c46452a6",
+    "scripts/workspace-download/test_transport.mjs": "a858a20ae09e87938325739c8cfc2246feb7771d4ddfd60b927a534dcb805243"
+  },
+  "baseline": "before.json",
+  "harness_observation": "harness-menu.json",
+  "workspace_receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
+  "workspace_checks": 64,
+  "compiled_build": {
+    "node": "v24.14.0",
+    "sourceHash": "8523cd61e25907c98390c8483c9c8e7c11611aba1096da33c41a2bb45ac3ac8f",
+    "artifactHash": "d7658e6c0c289e0357a97b761fe2a8c21ebf30992ccc380794907e563c887aa2"
+  },
+  "empty_prepared_cases": {
+    "confirmed": {
+      "variant": "confirmed",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "9abb7cb9-ee3c-48d2-9a04-0419aa050fad"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": {
+        "serviceWorkerDocument": true,
+        "operatingRequests": 0,
+        "unchangedTransferActions": [
+          "manifest"
+        ]
+      },
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "lost_reply": {
+      "variant": "lost_reply",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "831b3680-5f83-48a9-90d7-bb21ce6650b8"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "reconcile",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": true,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "transfer_failure": {
+      "variant": "transfer_failure",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "5c8eef57-58be-440f-b00f-80fda0f18140"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "manifest",
+        "page",
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    }
+  },
+  "checks": {
+    "build": true,
+    "types": true,
+    "lint": true,
+    "library_units": 103,
+    "people_development": {
+      "requests": 54,
+      "mock_creates": 4,
+      "page_errors": []
+    },
+    "capture_refresh": "passed_all16;protected_pause_states_separate",
+    "documentation": "passed",
+    "people_production": {
+      "peopleUi": "passed",
+      "reactMode": "production",
+      "creates": 4,
+      "errors": [],
+      "scopedRequests": 54
+    },
+    "actual_component_capture_families": 16,
+    "compiled_source_asset_guard_tests": 4,
+    "welcome_entry_captures": 8,
+    "continuation_generator_tests": 17,
+    "canonical_execution_validators": true,
+    "factual_review_freshness": true,
+    "offline_review_tool": true
+  },
+  "local_contract_change": "Read-only updating hint derives from existing final-fenced transfer state;no persisted schema/epoch/writer change",
+  "release": {
+    "new_source": "local;not committed/pushed/deployed yet",
+    "staging": "6d9d3f6 source and scoped positive EN/AR verified in prior packet;not this repair",
+    "agent_promotion": false
+  },
+  "limits": [
+    "Local changed-page503 reproduction does not identify the earlier hosted NR07 cause.",
+    "Manifest failure before any replacement checkpoint is not exercised.",
+    "Zero-directory incompatible-scope/auth combinations,real Clerk expiry,hosted fault/installed/device/performance/Owner acceptance remain separate.",
+    "No request/cost/latency percentile savings claimed;existing exact budgets retained."
+  ],
+  "delegation": {
+    "active_helpers": 0,
+    "reason": "Coordinator-owned sync/read metadata and original integration;bounded direct edits avoided handoff overhead",
+    "usage_savings": "unmeasured"
+  }
+}

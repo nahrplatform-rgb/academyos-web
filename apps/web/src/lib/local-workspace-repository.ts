@@ -337,13 +337,14 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
       }
       if(offset===saved.rows.length){index++;offset=0;}
     }
-    await transact('readonly',async t=>{
+    const updating=await transact('readonly',async t=>{
       await active(t);
       const now=await state(t,collection);
       if(now?.head?.generation!==head.generation||now.head.wallAt!==head.wallAt||
           Date.now()<now.head.observedAt||Date.now()-head.wallAt>=retentionMs) refuse('workspace_generation_changed');
+      return Boolean(now.transfer);
     });
-    return {rows,count:head.count,checkedAt:head.checkedAt,revision:head.revision,scanned,
+    return {rows,count:head.count,checkedAt:head.checkedAt,revision:head.revision,updating,scanned,
       next:index<head.pages?{generation:head.generation,page:index,offset}:null};
   }
 

@@ -1,0 +1,116 @@
+- link "انتقل إلى المحتوى":
+  - /url: "#main"
+- banner:
+  - link "AcademyOS":
+    - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+    - generic: A
+    - text: AcademyOS
+  - button "إخفاء التنقل" [expanded]
+  - navigation "مسار التنقل":
+    - link "رئيسية مساحة العمل":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+      - text: AcademyOS M1 Synthetic Academy
+    - text: /
+    - strong: اللاعبون
+    - generic: مالك الأكاديمية
+  - generic: نسخة تجريبية
+  - link "English":
+    - /url: "#language"
+  - button "الوضع الداكن"
+  - generic "التخطيط"
+  - generic "الجهاز"
+  - generic "الحساب"
+- complementary:
+  - paragraph: AcademyOS M1 Synthetic Academy
+  - strong: مالك الأكاديمية
+  - link "تبديل مساحة العمل":
+    - /url: /ar/workspace
+  - navigation "التنقل في مساحة العمل":
+    - paragraph: مساحة العمل
+    - link "اليوم":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+      - generic: اليوم
+    - link "إعداد الأكاديمية":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e
+      - generic: إعداد الأكاديمية
+    - paragraph: الأشخاص
+    - link "اللاعبون":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players
+      - generic: اللاعبون
+    - link "تعيينات المدربين":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+      - generic: تعيينات المدربين
+    - paragraph: التدريب
+    - link "التقويم":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar
+      - generic: التقويم
+    - link "برامج التدريب":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+      - generic: برامج التدريب
+    - paragraph: الحضور
+    - link "ماسح الجلسات":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan
+      - generic: ماسح الجلسات
+    - link "إعدادات الحضور":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/settings
+      - generic: إعدادات الحضور
+    - link "طلبات التصحيح":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections
+      - generic: طلبات التصحيح
+    - paragraph: التطور
+    - link "ملاحظات التطور":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+      - generic: ملاحظات التطور
+  - paragraph: بيئة اختبار · بيانات اصطناعية فقط
+- separator "تغيير عرض التنقل"
+- main:
+  - button "إخفاء التفاصيل" [expanded]
+  - heading "اللاعبون" [level=1]
+  - paragraph: AcademyOS M1 Synthetic Academy · Synthetic Main Branch
+  - heading "قائمة اللاعبين" [level=2]
+  - button "تسجيل لاعب"
+  - generic: البحث عن لاعب بالاسم
+  - textbox "البحث عن لاعب بالاسم"
+  - paragraph: ٤ لاعبين في هذه الصفحة
+  - table "قائمة اللاعبين":
+    - caption: قائمة اللاعبين
+    - rowgroup:
+      - row "اللاعب الفرع":
+        - columnheader "اللاعب"
+        - columnheader "الفرع"
+    - rowgroup:
+      - row "Synthetic Response Drop 2026-10-25 Synthetic Main Branch":
+        - rowheader "Synthetic Response Drop 2026-10-25":
+          - button "Synthetic Response Drop 2026-10-25"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Race 2026-10-25 Synthetic Main Branch":
+        - rowheader "Synthetic Race 2026-10-25":
+          - button "Synthetic Race 2026-10-25"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Registration Demo 2 Synthetic Main Branch":
+        - rowheader "Synthetic Registration Demo 2":
+          - button "Synthetic Registration Demo 2"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Registration Demo Synthetic Main Branch":
+        - rowheader "Synthetic Registration Demo":
+          - button "Synthetic Registration Demo"
+        - cell "Synthetic Main Branch"
+  - button "الصفحة الأولى"
+  - generic: حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.
+  - separator "تغيير عرض التفاصيل"
+  - complementary "التفاصيل والإجراءات السياقية":
+    - heading "ملف اللاعب" [active] [level=2]
+    - button "العودة للاعبين"
+    - button "تحديث العرض"
+    - heading "Synthetic Registration Demo" [level=2]
+    - status: ملف اللاعب المحفوظ
+    - term: الفرع
+    - definition: Synthetic Main Branch
+    - term: جهة اتصال غير موثقة
+    - definition: demo-contact@example.invalid
+    - paragraph: حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.
+    - link "بطاقة QR للاعب":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/card
+    - link "دعوات أولياء الأمور":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians
+- alert

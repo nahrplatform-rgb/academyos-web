@@ -70,6 +70,8 @@ This protocol is an engineering design for a collection with concurrent writers.
 
 ## Scheduling, budgets and visible feedback
 
+8 November [prepared-empty/confirmed-save checkpoint](../07-handoff/mp-b01-empty-prepared-continuity-2026-11-08.md): a completed empty head is valid coverage. When a later signed replacement has begun, the local read exposes an `updating` hint alongside the older completed rows/count/revision. This derives from the existing transfer metadata in the final fenced transaction; it is not a new completed generation, stored schema field or current-server authority. Keep the older compatible view useful while labelling its unfinished replacement. A confirmed save must not be contradicted by pristine-empty copy or resubmitted because a dataset page failed. The named local page-failure/reload tests do not prove manifest-before-checkpoint or whole-provider/device coverage.
+
 | Scenario | Declared target; validate before claiming achieved |
 |---|---|
 | First entry with no compatible replica | Load the requested useful task first. Coalesce current identity/context and one workspace capability/manifest exchange where safe. Then one background collection page at a time; active navigation preempts it. Prepare current month and the permitted directory, then next month, then previous month. Never hold Today behind three complete months. |

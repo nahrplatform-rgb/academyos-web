@@ -1,0 +1,42 @@
+{
+  "variant": "transfer_failure",
+  "message": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByText('No players registered yet. Register the first fictional player.', { exact: true })\nExpected: 0\nReceived: 1\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveCount\" getByText('No players registered yet. Register the first fictional player.', { exact: true }) with timeout 5000ms\n  - waiting for getByText('No players registered yet. Register the first fictional player.', { exact: true })\n    14 × locator resolved to 1 element\n       - unexpected value \"1\"\n",
+  "peopleActions": [
+    "list",
+    "candidates",
+    "create",
+    "profile"
+  ],
+  "transferActions": [
+    "prepare",
+    "manifest",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "manifest",
+    "page"
+  ],
+  "canonical": {
+    "registration": {
+      "audits": 1,
+      "result": {
+        "version": 1,
+        "player_id": "c1787216-b28d-41d9-83b2-8a8f21c1a45d"
+      },
+      "players": 1,
+      "operations": 1
+    },
+    "totalPlayers": 1,
+    "peopleRevision": "11"
+  },
+  "text": "Skip to content\nA\nAcademyOS\nHide navigation\nSynthetic Academy / PlayersAcademy Owner\nStaging\nالعربية\nDark mode\nLayout\nSync paused\n\nSynthetic Academy\n\nAcademy Owner\nSwitch workspace\n\nWorkspace\n\nToday\nAcademy setup\n\nPeople\n\nPlayers\nTrainer appointments\n\nTraining\n\nCalendar\nTraining programs\n\nAttendance\n\nSession scanner\nAttendance settings\nCorrection requests\n\nDevelopment\n\nDevelopment feedback\n\nStaging · Synthetic data only\n\nHide details\nPlayers\n\nSynthetic Academy · Synthetic branch\n\nPlayer directory\nRegister player\nFind a player by name\n\nNo players registered yet. Register the first fictional player.\n\n0 players on this page\n\nPlayer directory\nPlayer\tBranch\nFirst page\nUp to 25 players per page. Contact details appear only in profiles.\nPlayer profile\nBack to players\nRefresh view\nSynthetic empty transfer_failure\n\nRegistration saved\n\nBranch\nSynthetic branch\nUnverified contact\nNot provided\n\nSaving contact details does not create guardian access. Manage appointments separately.\n\nPlayer QR card\nGuardian appointments",
+  "pageErrors": [],
+  "application_source": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "people_source_sha256": "d5bd99d0cbc52f5793da78daca6377f1be243ae7ecba32f9244d63a7a05e9d36",
+  "scope": "Local real component/People handler/signed disposable PG17;not hosted reproduction or complete NR07 diagnosis"
+}
