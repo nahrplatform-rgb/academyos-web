@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useId, useRef, type ComponentProps, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useId, useRef, type ComponentProps, type CSSProperties, type ReactNode } from "react";
 import { workspaceNavigation } from "./workspace-navigation";
 import ThemeToggle from "./theme-toggle";
 import { WorkspaceLayoutProvider, navigationMin, navigationMax, useWorkspaceLayout } from "./workspace-layout";
@@ -20,6 +20,21 @@ function NavIcon({ href }: { href: string }) {
 function WorkspaceShellContent({ locale, context, title, homeHref, languageHref, navigation, onNavigate, account, children, tools, module='operations', role='workspace', toolbarMinHeight=0, scopeLabel, prefetch }: Props) {
   const {preferences,update,reset}=useWorkspaceLayout();
   const navigationId = useId();
+  const shell=useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    const root=shell.current;if(!root)return;
+    const openMenus=()=>root.querySelectorAll<HTMLDetailsElement>('details.layout-menu[open]');
+    const outside=(event:Event)=>{if(!(event.target instanceof Node))return;for(const menu of openMenus())if(!menu.contains(event.target))menu.open=false;};
+    const escape=(event:KeyboardEvent)=>{
+      if(event.key!=='Escape')return;
+      const menus=[...openMenus()];if(!menus.length)return;
+      event.preventDefault();event.stopPropagation();
+      menus.forEach(menu=>menu.open=false);
+      menus.at(-1)?.querySelector('summary')?.focus({preventScroll:true});
+    };
+    root.addEventListener('pointerdown',outside,true);root.addEventListener('focusin',outside,true);root.addEventListener('keydown',escape,true);
+    return()=>{root.removeEventListener('pointerdown',outside,true);root.removeEventListener('focusin',outside,true);root.removeEventListener('keydown',escape,true);};
+  },[]);
   const ar=locale==='ar',drawer=useRef<HTMLDialogElement>(null),opener=useRef<HTMLButtonElement>(null);
   const academy=navigation.map(item=>item.href.match(/^\/(?:en|ar)\/workspace\/([a-f0-9-]{36})(?:\/|$)/i)?.[1]).find(Boolean);
   const scopedRole=role==='owner'||role==='trainer'||role==='guardian'?role:null;
@@ -29,7 +44,7 @@ function WorkspaceShellContent({ locale, context, title, homeHref, languageHref,
   const switcher=<Link prefetch={prefetch} className="workspace-switch" href={`/${locale}/workspace`} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}}>{ar?'تبديل مساحة العمل':'Switch workspace'}</Link>;
   function close(){drawer.current?.close();opener.current?.focus();}
   const links=(bottom=false)=><nav className={bottom?'workspace-bottom-nav':'workspace-navigation'} aria-label={ar?'التنقل في مساحة العمل':'Workspace navigation'}>{menu.map((item,i)=><div key={item.href} className="nav-entry" data-module={item.module}>{!bottom&&item.group&&menu[i-1]?.group!==item.group&&<p className="nav-group">{item.group}</p>}<Link prefetch={prefetch} href={item.href} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}} aria-label={item.label} title={item.label} className={item.current?'selected':undefined} aria-current={item.current?'page':undefined}><NavIcon href={item.href}/><span>{item.label}</span></Link></div>)}</nav>;
-  return <div className="app-scene" lang={locale} dir={ar?'rtl':'ltr'} data-module={module} data-workspace-role={role} data-navigation={preferences.navigationHidden?'closed':preferences.compact?'compact':'expanded'} style={{'--navigation-width':`${preferences.navigationWidth}px`} as CSSProperties}>
+  return <div ref={shell} className="app-scene" lang={locale} dir={ar?'rtl':'ltr'} data-module={module} data-workspace-role={role} data-navigation={preferences.navigationHidden?'closed':preferences.compact?'compact':'expanded'} style={{'--navigation-width':`${preferences.navigationWidth}px`} as CSSProperties}>
     <a className="skip-link" href="#main">{ar?'انتقل إلى المحتوى':'Skip to content'}</a>
     <div className="workspace-window">
       <header className="window-toolbar" style={{minHeight:toolbarMinHeight>0?toolbarMinHeight:undefined}}>

@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "5d8707fd8d60043078b48b128acb60206e3e0469",
+  "source_anchor": "c73bdf89af2a1884afd284a9f4f544039947436a",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -350,8 +350,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386",
-      "bytes": 89276
+      "sha256": "37e87062c74c26e4fefc1c85242a463ed8cc4c6a994e0fa153e237c5ad11fbbc",
+      "bytes": 89372
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -435,8 +435,8 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
-      "bytes": 44246
+      "sha256": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
+      "bytes": 45336
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
@@ -550,8 +550,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-shell.tsx",
-      "sha256": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
-      "bytes": 8777
+      "sha256": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
+      "bytes": 9804
     },
     {
       "path": "apps/web/src/instrumentation-client.ts",

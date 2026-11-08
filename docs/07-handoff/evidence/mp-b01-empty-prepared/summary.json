@@ -3,7 +3,7 @@
   "execution": "EX-07",
   "batch": "MP-B01",
   "source_base": "6d9d3f675a1433c488926f46024d738de66b0491",
-  "state": "current_product_code_verified;startup_receipt_refreshed_after_CI_guard_failure",
+  "state": "Owner_promoted_exact_source_and_scoped_EN_AR_online_Players_verified;prepared_fault_paths_local_CI_only",
   "outcomes": [
     "VAL-02",
     "VAL-09"
@@ -26,7 +26,7 @@
   },
   "baseline": "before.json",
   "harness_observation": "harness-menu.json",
-  "workspace_receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
+  "workspace_receipt": "docs/07-handoff/evidence/mp-b01-empty-prepared/transport-c73bdf8.json",
   "workspace_checks": 70,
   "compiled_build": {
     "node": "v24.14.0",
@@ -254,12 +254,24 @@
     "offline_review_tool": true,
     "startup_runtime_cases": 8,
     "all_CI_receipt_guards": 13,
-    "receipt_preflight": "receipt-preflight.json"
+    "receipt_preflight": "receipt-preflight.json",
+    "exact_candidate_CI": {
+      "run": 42508723109,
+      "job": 128816926411,
+      "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+      "passed_steps": 53,
+      "receipt": "ci-c73bdf8.json"
+    },
+    "hosted_positive": {
+      "receipt": "hosted-c73bdf8.json",
+      "scope": "EN/AR online Players directory/profile/short-search return",
+      "prepared_fault_paths_hosted": false
+    }
   },
   "local_contract_change": "Read-only updating hint derives from existing final-fenced transfer state;no persisted schema/epoch/writer change",
   "release": {
-    "new_source": "9ec9d87 passed workspace runtime in CI but failed stale startup receipt;actual8-case startup rerun recorded and13guards pass;replacement release commit pending",
-    "staging": "6d9d3f6 source and scoped positive EN/AR verified in prior packet;not this repair",
+    "new_source": "c73bdf8 pushed;exact-run/job CI42508723109 passed53/53;previewReady and Owner-promoted staging source independently verified.",
+    "staging": "Owner promoted c73bdf8;read-only lookup confirms exact c73bdf89af2a1884afd284a9f4f544039947436a/Ready dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E. Scoped positive EN/AR online Players checked;not hosted failure/race proof.",
     "agent_promotion": false
   },
   "limits": [
@@ -279,5 +291,6 @@
   "prior_local64_receipt": "transport-5d8707f-local64.json",
   "race_before_page_baseline": "replacement-before-page-before.json",
   "code_commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
-  "startup_ci_failure": "ci-9ec9d87-stale-startup.json"
+  "startup_ci_failure": "ci-9ec9d87-stale-startup.json",
+  "release_commit": "c73bdf89af2a1884afd284a9f4f544039947436a"
 }

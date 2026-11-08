@@ -61,7 +61,7 @@
     "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
-    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
     "apps/web/src/components/workspace-panes.tsx": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
     "apps/web/src/lib/owner-register-pilot.ts": "7f290870a0884a07ef43d08287df17747275c21ada6bf9448439f0ae9ce53e42",
@@ -74,7 +74,7 @@
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
-    "apps/web/src/app/globals.css": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386",
+    "apps/web/src/app/globals.css": "37e87062c74c26e4fefc1c85242a463ed8cc4c6a994e0fa153e237c5ad11fbbc",
     "apps/web/src/app/api/register-key/route.ts": "1f4f382ec471b1cf184db164a1a88962cc15e0c9fc628830d6a75dc3502b09e8",
     "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a"
   },

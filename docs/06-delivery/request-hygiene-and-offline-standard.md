@@ -112,6 +112,8 @@ Earlier navigation/visible-return/cold Calendar fixes remain useful but do not i
 
 ## Definition of Done
 
+- Secondary detail reads own their pending state,controller and generation separately from the checked list and consequential operation. Verify cancellation/Back/typing and both late success and failure;current401/403 must still mask. Toolbar presentation dismissal must not bypass dirty/unknown guards or issue operating requests. [Profile/handoff regression](../07-handoff/mp-b01-profile-continuity-2026-11-08.md).
+
 - For every affected implemented page and common action, record cold entry, warm Back/Forward, return/reconnect, routine local click and confirmed/unknown save where applicable. Count document transitions separately from API work and record blank intervals, visible feedback, focus, scroll, selection and input continuity. An online-only journey has the same stable-view obligation.
 - Exercise held responses with the [working-day cases](academy-working-day-cases.csv) for navigation, return, local versus server-backed controls and post-save updates (WD-68–WD-71). Preserve dirty/unknown guards and distinguish required authority masking, revalidation and first loading. Check that an obsolete response cannot replace the current view.
 - Classify secondary history/detail reads separately from roster authority checks and consequential operations. Hold the actual response and verify the existing list DOM, input, selected record and position remain; the same denied response must still fence private data. Keep per-action request counts and initial handoff checks explicit. [Observed baseline and bounded repair](../07-handoff/ex07-attendance-history-continuity-2026-11-07.md).

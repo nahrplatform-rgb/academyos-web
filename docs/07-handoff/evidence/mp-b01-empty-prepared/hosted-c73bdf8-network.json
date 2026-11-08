@@ -1,0 +1,46 @@
+{
+  "scope": "After initial reload settled:Device menu,EN profile,Back+one-character search,AR switch,clear search,AR profile,EN switch",
+  "operatingRequests": 3,
+  "documentRequests": 0,
+  "backAndShortSearchOperatingRequests": 0,
+  "events": [
+    {
+      "kind": "Network.requestWillBeSent",
+      "path": "/api/people",
+      "type": "Fetch",
+      "method": "POST"
+    },
+    {
+      "kind": "Network.responseReceived",
+      "path": "/api/people",
+      "type": "Fetch",
+      "status": 200
+    },
+    {
+      "kind": "Network.requestWillBeSent",
+      "path": "/api/people",
+      "type": "Fetch",
+      "method": "POST"
+    },
+    {
+      "kind": "Network.responseReceived",
+      "path": "/api/people",
+      "type": "Fetch",
+      "status": 200
+    },
+    {
+      "kind": "Network.requestWillBeSent",
+      "path": "/api/people",
+      "type": "Fetch",
+      "method": "POST"
+    },
+    {
+      "kind": "Network.responseReceived",
+      "path": "/api/people",
+      "type": "Fetch",
+      "status": 200
+    }
+  ],
+  "incomplete": false,
+  "timingPercentilesMeasured": false
+}

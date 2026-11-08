@@ -77,10 +77,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [more, setMore] = useState(false), [candidateMore, setCandidateMore] = useState(false), [revision, setRevision] = useState(0);
     const [name, setName] = useState(''), [contact, setContact] = useState(''), [search, setSearch] = useState(''), [different, setDifferent] = useState(false);
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
+    const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
     const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
     const lastSearch = useRef(''), lifecycleTicket = useRef(0), profileTicket = useRef(0);
+    const profileController=useRef<AbortController|null>(null);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
     const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
@@ -121,9 +123,10 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         setName('');
         setContact('');
     } }
-    async function request<T>(body: Record<string, unknown>): Promise<T> {
+    async function request<T>(body: Record<string, unknown>, profileRead=false): Promise<T> {
         if(device.offline)throw new RequestFailure('offline');
         const controller = new AbortController();
+        if(profileRead)profileController.current=controller;
         controllers.current.add(controller);
         const timeout = setTimeout(() => controller.abort(), 15000);
         try {
@@ -140,6 +143,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         finally {
             clearTimeout(timeout);
             controllers.current.delete(controller);
+            if(profileController.current===controller)profileController.current=null;
         }
     }
     async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, resume=false) {
@@ -231,14 +235,26 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     function selectPlayer(player:Player) {
         pendingView.current=null;
         if(!localRows){void openProfile(player.id);return;}
+        cancelProfileRead();
         setSaved(false);setProfileId(player.id);setSelected(player);setSummaryOnly(true);go('profile');
+    }
+    function cancelProfileRead() {
+        profileTicket.current++;
+        profileController.current?.abort();
+        profileController.current=null;
+        setProfileBusy(false);setProfileChecking(false);
     }
     async function openProfile(id: string, wasSaved = false, resume=false) {
         pendingView.current=null;
         setSummaryOnly(false);
- const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
- const ticket = ++profileTicket.current; setChecking(keep); setSaved(wasSaved); setProfileId(id); if(!keep)setSelected(null); setStage('profile'); setBusy(true); setError(authenticationRequired.current?'authentication_required':''); setNotice(''); try {
-        const p = await request<Row>({ action: 'profile', player: id });
+        const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
+        profileController.current?.abort();
+        const ticket = ++profileTicket.current;
+        setProfileChecking(keep);setProfileBusy(true);setSaved(wasSaved);setProfileId(id);
+        if(!keep)setSelected(null);
+        setStage('profile');setError(authenticationRequired.current?'authentication_required':'');setNotice('');
+        try {
+        const p = await request<Row>({ action: 'profile', player: id },true);
         if (ticket !== profileTicket.current)
             return;
         authenticationRequired.current=false;setBlocked(false);setError('');
@@ -246,13 +262,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         setStage('profile');
     }
     catch (e) {
-        if(ticket===profileTicket.current)setSelected(null);
-        failure(e);
+        if(active.current&&ticket===profileTicket.current){setSelected(null);failure(e);}
     }
     finally {
-        if (active.current&&ticket===profileTicket.current){setBusy(false);setChecking(false);}
+        if (active.current&&ticket===profileTicket.current){setProfileBusy(false);setProfileChecking(false);}
     } }
-    function go(next: Stage) { pendingView.current=null;setError(''); setNotice(''); setStage(next); }
+    function go(next: Stage) { if(next!=='profile')cancelProfileRead();pendingView.current=null;setError(''); setNotice(''); setStage(next); }
     function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage))
         return; if (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟')))
         return; setName(''); setContact(''); go('directory'); void loadDirectory(); }
@@ -361,7 +376,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     } void loadDirectory(); });
     const refreshDirectory = useEffectEvent(() => { if (stage === 'directory'||(stage==='profile'&&localRows&&device.active))
         void loadDirectory(); });
-    const refreshVisible = useEffectEvent(() => { if (busy || document.visibilityState !== 'visible')
+    const refreshVisible = useEffectEvent(() => { if (busy || profileBusy || document.visibilityState !== 'visible')
         return; if (stage === 'directory' || stage === 'form') {
         if(!device.active)void loadDirectory(undefined,null,false,stage==='directory');
     }
@@ -407,7 +422,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const registrationTask = !['directory','profile'].includes(stage);
     const protectedViewGone=blocked||device.phase==='denied'||(localRows&&!device.active);
     const inspector = protectedViewGone?null:<>
-      {stage === 'profile' && selected && !device.offline && <div className="read-toolbar"><Button disabled={busy} onClick={() => void openProfile(profileId, saved)}>{summaryOnly?t('Open full profile','فتح الملف الكامل'):checking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
+      {stage==='profile'&&profileBusy&&<p role="status" className={profileChecking?'visually-hidden':'notice'}>{profileChecking?t('Checking current player…','جارٍ التحقق من بيانات اللاعب…'):t('Loading profile…','جارٍ تحميل الملف…')}</p>}
+      {stage === 'profile' && selected && !device.offline && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{summaryOnly?t('Open full profile','فتح الملف الكامل'):profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
 
       {(stage === 'profile' || registrationTask) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {(stage === 'profile' || registrationTask) && notice && <p className="notice" role="status">{notice}</p>}
@@ -441,8 +457,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Please wait while the registration is saved. Repeated submission is disabled.', 'يرجى الانتظار حتى يتم حفظ التسجيل. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
         {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('We could not confirm whether the save completed. Check the original save before trying again.', 'تعذّر تأكيد إتمام الحفظ. تحقّق من الحفظ الأصلي قبل المحاولة مجددًا.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original save', 'التحقق من الحفظ الأصلي')}</Button></section>}
 
-        {stage === 'profile' && saved && !selected && !busy && !error && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
-        {stage === 'profile' && !selected && !busy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
+        {stage === 'profile' && saved && !selected && !busy && !profileBusy && !error && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
+        {stage === 'profile' && !selected && !busy && !profileBusy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
         {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
           <p role="status">{saved ? t('Registration saved', 'حُفظ التسجيل') : summaryOnly?t('Player summary on this device','ملخص اللاعب على هذا الجهاز'):t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
           <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{summaryOnly?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div></dl>
@@ -470,25 +486,25 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
       {((!registrationTask&&stage!=='profile')||protectedViewGone) && error && !blocked && device.phase!=='denied' && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
       {checking&&<p role="status" className="visually-hidden">{t('Checking current players…','جارٍ التحقق من بيانات اللاعبين…')}</p>}
-      {busy && !checking && stage !== 'saving' && !(localRows&&device.active&&(stage==='directory'||(stage==='profile'&&summaryOnly))) && <p role="status">{checking?t('Checking current players…','جارٍ التحقق من بيانات اللاعبين…'):stage==='profile'?t('Loading profile…','جارٍ تحميل الملف…'):t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
+      {busy && !checking && stage !== 'saving' && stage !== 'profile' && !(localRows&&device.active&&stage==='directory') && <p role="status">{t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
       {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
       {unavailable||device.phase==='denied' ? <section className="journey-card" role="alert">
         <h2>{error==='authentication_required'?t('Sign-in required','تسجيل الدخول مطلوب'):error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
         <p>{errorText(error||'denied')}</p>
-        <Button disabled={busy} onClick={() => {if(error==='authentication_required'&&stage==='unknown')void reconcile();else if(error==='authentication_required'&&stage==='profile'&&profileId)void openProfile(profileId,saved);else void loadDirectory();}}>{error==='authentication_required'&&stage==='unknown'?t('Check original save','التحقق من الحفظ الأصلي'):error==='authentication_required'&&stage==='profile'?t('Retry loading profile','إعادة تحميل الملف'):t('Try again', 'إعادة المحاولة')}</Button>
+        <Button disabled={busy||profileBusy} onClick={() => {if(error==='authentication_required'&&stage==='unknown')void reconcile();else if(error==='authentication_required'&&stage==='profile'&&profileId)void openProfile(profileId,saved);else void loadDirectory();}}>{error==='authentication_required'&&stage==='unknown'?t('Check original save','التحقق من الحفظ الأصلي'):error==='authentication_required'&&stage==='profile'?t('Retry loading profile','إعادة تحميل الملف'):t('Try again', 'إعادة المحاولة')}</Button>
       </section> : <>
-        {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
+        {(stage === 'directory' || stage === 'profile') && <section className="journey-card people-directory">
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => { pendingView.current=null;directoryTicket.current++; setChecking(false); setSearch(event.target.value); setBusy(true); }}/>
+          <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => { if(stage==='profile')go('directory');pendingView.current=null;directoryTicket.current++; setChecking(false); setSearch(event.target.value); setBusy(true); }}/>
           {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {missing&&<p role="status">{t('Players are not on this device yet.','قائمة اللاعبين غير متاحة على هذا الجهاز بعد.')}</p>}
           {localRows&&localUpdating&&<p role="status">{t('Showing the last downloaded directory. Recent changes are not available here yet.','تُعرض آخر نسخة منزّلة من قائمة اللاعبين. التغييرات الأخيرة غير متاحة هنا بعد.')}</p>}
           {!missing && !busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{localRows&&(localUpdating||registrationCommitted)
             ?t('The downloaded directory has not updated yet. Check for changes.','لم تتحدّث قائمة اللاعبين المنزّلة بعد. تحقّق من التغييرات.')
             :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
-          {(!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}{search.trim() && <Button disabled={busy} onClick={()=>{pendingView.current=null;directoryTicket.current++;setSearch('');setBusy(true);searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}<table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{(!busy||checking||localRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
-          <Button disabled={busy} onClick={() => void loadDirectory()}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id))}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+          {(!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}{search.trim() && <Button disabled={busy} onClick={()=>{if(stage==='profile')go('directory');pendingView.current=null;directoryTicket.current++;setSearch('');setBusy(true);searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}<table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{(!busy||checking||localRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}
 
       </>}

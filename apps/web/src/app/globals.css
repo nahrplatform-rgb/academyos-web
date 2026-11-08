@@ -191,6 +191,9 @@ h1[tabindex]:focus { outline: none; }
 .workspace-table tr.selected { background:var(--accent-soft); }
 .workspace-table th button { border:0;background:transparent;text-align:start;justify-content:start;padding:0;color:var(--accent); }
 .workspace-table caption { text-align:start;font-weight:700;padding-block:12px; }
+@media(min-width:721px) {
+ .people-directory .workspace-table :is(th,td) {padding-block:8px;}
+}
 .checkbox-row,.journey-card .checkbox-row { display:flex;align-items:center;gap:10px;min-height:44px; }
 .checkbox-row input { width:20px;min-width:20px;height:20px;min-height:20px; }
 button.primary { background:var(--accent);border-color:var(--accent);color:white; }

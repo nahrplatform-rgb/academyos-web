@@ -45,12 +45,12 @@
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
-    "apps/web/src/components/people-workspace.tsx": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
+    "apps/web/src/components/people-workspace.tsx": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
     "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
-    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
@@ -141,7 +141,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 15.433874999998807,
+      "elapsedMs": 17.423209000000497,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -231,8 +231,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "1b82bb19135b70eb9517c6fbdfe935f4569f6249b8bf5b61f7bf389c67fce651",
-        "artifactHash": "c5cb0b53c20b82b9672740493af78c62aa2db3be3321635db11b5b24c0476921"
+        "sourceHash": "20db9ba95ce0bd940dd077f119fb86bacbed7d8a99a10db98a7740f624c49592",
+        "artifactHash": "b53be04e39b0e13a2c2e1a2c9c3d075e54e844096f26243e3f8b13c3b194b2c3"
       }
     },
     "emptyOnlineRegistration": {
@@ -266,7 +266,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "4afce080-b386-40d2-a3a4-03923c27fed9"
+          "player_id": "adeee0fe-b2a3-4d57-93dd-f43eb7cf7267"
         }
       }
     },
@@ -283,7 +283,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "8c6117a7-a9a4-4311-a9db-a329cc52f945"
+              "player_id": "31dc1936-fa11-4425-9be9-f73c8b58102c"
             },
             "players": 1,
             "operations": 1
@@ -325,7 +325,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "03c70221-2fa6-4e3a-8c1e-854d32527e09"
+              "player_id": "d02c1036-b690-419b-aed0-679e34e79c38"
             },
             "players": 1,
             "operations": 1
@@ -362,7 +362,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "35bce036-a457-4241-bc14-fc3c62419c11"
+              "player_id": "10bf455b-0983-487d-9d7a-332abd925dd1"
             },
             "players": 1,
             "operations": 1
@@ -402,7 +402,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "6382e7a5-d9b2-4c06-81ef-a0d9cf97254a"
+              "player_id": "f5a4dece-e191-4e77-ad25-e2466a37562b"
             },
             "players": 1,
             "operations": 1
@@ -438,7 +438,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "ce450d5a-181e-4b15-b006-62000f2306d2"
+              "player_id": "cc935ee3-9bf7-4a03-99d8-9027bc28283b"
             },
             "players": 1,
             "operations": 1

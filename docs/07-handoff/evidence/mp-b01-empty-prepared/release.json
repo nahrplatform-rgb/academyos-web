@@ -1,31 +1,38 @@
 {
-  "commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+  "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
   "pushed": true,
   "ci": {
-    "run": 42507593836,
-    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42507593836",
+    "run": 42508723109,
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42508723109",
     "status": "completed",
-    "job": 128813493113,
-    "conclusion": "failure",
-    "receipt": "ci-9ec9d87-stale-startup.json"
+    "conclusion": "success",
+    "job": 128816926411,
+    "passed_steps": 53,
+    "receipt": "ci-c73bdf8.json",
+    "exact_run_and_job_sha_verified": true
   },
   "preview": {
-    "deployment": "dpl_7oz6jE1GvwKEyijkkUDRE3EgFWZV",
-    "dashboard": "https://vercel.com/academy-os2/academyos-web/7oz6jE1GvwKEyijkkUDRE3EgFWZV",
-    "url": "https://academyos-3s9x5lx0q-academy-os2.vercel.app",
-    "state": "READY"
+    "deployment": "dpl_9jbHJ8QD2rMEYACB7e8x45eu7F3r",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/9jbHJ8QD2rMEYACB7e8x45eu7F3r",
+    "url": "https://academyos-dw93km77u-academy-os2.vercel.app",
+    "state": "READY",
+    "source_sha_verified": true
   },
   "staging": {
-    "commit": "6d9d3f675a1433c488926f46024d738de66b0491",
-    "deployment": "dpl_BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+    "deployment": "dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E",
     "host": "staging.academy.nahr.dev",
-    "evidence": "docs/07-handoff/evidence/mp-b01-people-auth-empty/hosted.json"
+    "state": "READY",
+    "owner_reported_promotion": true,
+    "source_rechecked_at": "2026-11-08T20:25:24.663791+00:00",
+    "evidence": "docs/07-handoff/evidence/mp-b01-empty-prepared/hosted-c73bdf8.json",
+    "hosted_verification": "scoped_positive_EN_AR_online_Players;new_fault_paths_local_CI_only"
   },
   "agent_promotion": false,
   "owner_acceptance": "not_recorded_for_new_repair",
   "post_push_metadata": "Kept local for next coherent batch;no extra full CI push solely for receipts.",
-  "release_eligible": false,
-  "supersession": "9ec9d87 product-code checks passed but startup receipt was stale;replacement evidence-bound candidate required after actual8-case --record and13guard pass.",
+  "release_eligible": true,
+  "supersession": "c73bdf8 includes9ec9d87 product code plus actual regenerated startup receipt and complete13-guard preflight;failed5d8707f and9ec9d87 remain ineligible.",
   "failed_candidate": {
     "commit": "5d8707fd8d60043078b48b128acb60206e3e0469",
     "ci": {
@@ -44,5 +51,33 @@
     },
     "release_eligible": false,
     "receipt": "ci-5d8707f-failure.json"
-  }
+  },
+  "startup_receipt_candidate": {
+    "commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+    "ci": {
+      "run": 42507593836,
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42507593836",
+      "status": "completed",
+      "job": 128813493113,
+      "conclusion": "failure",
+      "receipt": "ci-9ec9d87-stale-startup.json"
+    },
+    "preview": {
+      "deployment": "dpl_7oz6jE1GvwKEyijkkUDRE3EgFWZV",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/7oz6jE1GvwKEyijkkUDRE3EgFWZV",
+      "url": "https://academyos-3s9x5lx0q-academy-os2.vercel.app",
+      "state": "READY"
+    },
+    "release_eligible": false
+  },
+  "code_commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+  "observed_at": "2026-11-08T20:25:24.663791+00:00",
+  "release_readiness": "Owner promoted c73bdf8;live staging exact SHA/Ready and scoped EN/AR online Players checks independently verified. Fault-path hosted proof and working acceptance remain separate.",
+  "previous_staging": {
+    "commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "deployment": "dpl_BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "evidence": "docs/07-handoff/evidence/mp-b01-people-auth-empty/hosted.json"
+  },
+  "owner_reported_promotion": true,
+  "hosted_evidence": "hosted-c73bdf8.json"
 }

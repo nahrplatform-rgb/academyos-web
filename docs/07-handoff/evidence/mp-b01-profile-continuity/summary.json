@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-08",
+  "batch": "MP-B01",
+  "execution": "EX-07",
+  "base": "c73bdf89af2a1884afd284a9f4f544039947436a",
+  "state": "combined local checks passed;ready for one coherent commit/push and exact-head CI",
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
+    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
+    "apps/web/src/app/globals.css": "37e87062c74c26e4fefc1c85242a463ed8cc4c6a994e0fa153e237c5ad11fbbc",
+    "scripts/people/profile_continuity.mjs": "6888f37561d537006e81b8fc4159a93ca7c920faabf2d22c38f87e88b173abdc",
+    "scripts/people/test_ui.mjs": "4feb37182eacb6a2c88c050c9ba5d9f8243dc5dc94cf900f46bcb27bf11614b0"
+  },
+  "baseline": {
+    "profile": "profile-continuity/before.json",
+    "menu": "profile-continuity/before-menu.json",
+    "source": "c73bdf8 for People/profile baseline;menu/CSS baseline unchanged at c73 while profile repair was being tested"
+  },
+  "ui": {
+    "production": "profile-production.json",
+    "development": "profile-development.json",
+    "cases_per_mode": 10,
+    "original_suite_requests_per_mode": 54,
+    "original_suite_mock_creates": 4,
+    "creates_in_new_continuity_cases": 0
+  },
+  "checks": {
+    "build": true,
+    "types": true,
+    "lint": true,
+    "library_units": 103,
+    "workspace_transport": 70,
+    "actual_shared_regressions": {
+      "startup": 8,
+      "Owner_working_day": 8,
+      "normal_Attendance": 23,
+      "receipt": "shared-regressions.json"
+    },
+    "actual_component_capture_families": 16,
+    "entry_captures": 8,
+    "factual_review_tool": true,
+    "all_CI_receipt_guards": 13,
+    "continuation_tests": 17,
+    "canonical_validators": true,
+    "factual_review": {
+      "frames": 1292,
+      "transitions": 1281,
+      "source_files": 80,
+      "literals": 8034,
+      "scope": "Captured states and source inventory;not exhaustive runtime/hosted coverage"
+    }
+  },
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peak_helpers": 1,
+    "scope": "Frozen reference/PYSA inventory;only reference-review.md",
+    "review": "Coordinator checked source anchors and recommendations;product/authority/integration retained here",
+    "repairs": 0,
+    "usage_and_savings": "unmeasured"
+  },
+  "trust_boundary": "No server,SQL,API/key/worker/local-schema/epoch/command change;current403/401 masks and original saves retained",
+  "release": {
+    "candidate": "not committed yet",
+    "staging": "c73bdf8 verified separately;does not include these changes",
+    "hosted_for_new_source": false,
+    "Owner_acceptance": false,
+    "external_review": "Deferred/nonblocking;not performed"
+  },
+  "compiled_build": {
+    "node": "v24.14.0",
+    "sourceHash": "20db9ba95ce0bd940dd077f119fb86bacbed7d8a99a10db98a7740f624c49592",
+    "artifactHash": "b53be04e39b0e13a2c2e1a2c9c3d075e54e844096f26243e3f8b13c3b194b2c3"
+  }
+}

@@ -5,6 +5,7 @@ import {createServer} from 'node:http';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import assert from 'node:assert/strict';
+import {checkProfileContinuity} from './profile_continuity.mjs';
 const root=resolve(import.meta.dirname,'../..'),reactMode=process.env.UI_REACT_MODE==='development'?'development':'production';
 const adapter=`import React from 'react';let subject='user_A';const listeners=new Set();window.addEventListener('synthetic-session',e=>{subject=e.detail;listeners.forEach(f=>f());});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>subject);return{isLoaded:!new URLSearchParams(location.search).has('authPending'),user:id?{id}:null}}export function UserButton(){return <span>Test account</span>}`;
 const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Workspace from '${root}/apps/web/src/components/people-workspace.tsx';createRoot(document.getElementById('root')).render(<React.StrictMode><Workspace locale="en" academy="00000000-0000-4000-8000-000000000001"/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'synthetic-ui-only',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':JSON.stringify(reactMode)}});
@@ -30,6 +31,9 @@ async function visible(name){await page.getByRole('heading',{name,exact:true}).w
 async function freshForm(name='Alex Demo'){await page.getByRole('button',{name:'Register player',exact:true}).click();await page.getByLabel('Player display name (required)',{exact:true}).fill(name);}
 const evidence=(process.env.UI_EVIDENCE_DIR||process.env.PEOPLE_REVIEW_DIR)?resolve(process.env.UI_EVIDENCE_DIR||process.env.PEOPLE_REVIEW_DIR):resolve(root,'docs/07-handoff/evidence/workflow-clarity-2026-10-25/people');await mkdir(evidence,{recursive:true});
 try{
+ const continuity=await checkProfileContinuity({browser,url:`http://127.0.0.1:${server.address().port}`,evidence:resolve(evidence,'profile-continuity'),reactMode,baseline:process.env.PEOPLE_PROFILE_BASELINE==='1',menuBaseline:process.env.PEOPLE_MENU_BASELINE==='1'});
+ if(process.env.PEOPLE_PROFILE_ONLY==='1')console.log(JSON.stringify({profileContinuity:continuity}));
+ else {
  await page.goto(`http://127.0.0.1:${server.address().port}`);await page.getByRole('button',{name:'Register player',exact:true}).waitFor();await page.getByRole('button',{name:'Register player',exact:true}).isEnabled();
  await expect(page.locator('tbody tr')).toHaveCount(18);await page.getByLabel('Find a player by name',{exact:true}).fill('No such player');await page.getByText('No matching players. Try another name.',{exact:true}).waitFor();await page.getByRole('button',{name:'Clear search',exact:true}).click();await expect(page.locator('tbody tr')).toHaveCount(18);await page.screenshot({path:resolve(evidence,'directory-en-18.png'),fullPage:true});
  await page.getByLabel('Find a player by name',{exact:true}).fill('a');await page.getByText('Enter at least two characters to search.',{exact:true}).waitFor();await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeEnabled();assert.equal(calls.some(c=>c.action==='list'&&c.query==='a'),false);await page.getByLabel('Find a player by name',{exact:true}).fill('Alex');await expect(page.getByRole('button',{name:'Alex Demo',exact:true})).toBeVisible();await page.getByLabel('Find a player by name',{exact:true}).fill('');await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeEnabled();
@@ -53,7 +57,9 @@ try{
  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
  await expect.poll(()=>calls.length).toBe(heldProfileStart+1);
  await expect(page.getByText('contact@example.invalid',{exact:true})).toHaveAttribute('data-resume-probe','profile-contact');
- await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeDisabled();
+ // A secondary read may be cancelled; consequential save/unknown guards below
+ // remain disabled and the same current refusal must still mask private data.
+ await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeEnabled();
  await expect.poll(()=>typeof releaseRead).toBe('function');readHold=null;releaseRead();
  await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeEnabled();
  assert.equal(calls.length-heldProfileStart,1,'retained profile adds no check request');
@@ -191,4 +197,5 @@ try{
  await page.clock.install();const beforeAuthCalls=calls.length;await page.goto(`http://127.0.0.1:${server.address().port}/?authPending`);await page.getByRole('status').waitFor();await page.clock.fastForward(16000);await visible('Could not load sign-in');await expect(page.getByRole('button',{name:'Retry loading page',exact:true})).toBeVisible();assert.equal(calls.length,beforeAuthCalls);
  assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['API401 distinct from denial;EN/AR mask and one profile retry','same-account draft fields survive API401 without a create','unknown original survives401 and reconciles the same ID without a second create','held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
  console.log(JSON.stringify({peopleUi:'passed',reactMode,creates,errors,scopedRequests:calls.length}));
+ }
 }finally{await browser.close();await new Promise(r=>server.close(r));}

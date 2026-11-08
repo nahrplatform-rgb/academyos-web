@@ -1,5 +1,9 @@
 # Whole-app request and service impact — 31 October 2026
 
+## Scoped profile presentation measurement —8November2026
+
+[MP-B01 profile evidence](../07-handoff/mp-b01-profile-continuity-2026-11-08.md) retains one operating read per selected full profile and zero extra list reads for its cancelled Back/locale path. Controlled detail retry uses two profile attempts;new selection uses two intentional profile reads. The held18-row DOM no longer blanks or resets scroll. This changes presentation and request ownership,not SQL/index/limiter/provider plans;no monthly quota saving or latency percentile follows. Browser abort cannot prove already-dispatched database/limiter work was avoided.
+
 ## PWA measurement scope — 6 November 2026
 
 The [PWA plan](../06-delivery/pwa-delivery-and-readiness.md) adds install/container/update dimensions to future samples. Count manifest/icons and public shell generations separately from authenticated preparation, changed-data transport and original-command retries. A new installed store may need its own bootstrap; repeat compatible launch should reuse data under the existing scoped checks. Installed multi-window/shared stores and independent browser containers need distinct ownership/count evidence. No additional API, database, provider quota, pricing, savings or background execution was measured or changed by this documentation request. Retain all prior dated observations and EX-05/08 gaps; EX-16 adds actual installed evidence.
