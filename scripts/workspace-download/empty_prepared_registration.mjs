@@ -11,8 +11,8 @@ const online=page=>page.locator('summary').filter({hasText:/^Online$/});
 const actions=(calls,start)=>calls.slice(start).map(call=>call.action);
 
 export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,transferCalls,rpcCalls,
-  observe,pass,variant,setPeopleTransferFailure,evidenceDirectory}) {
-  assert.ok(['confirmed','lost_reply','transfer_failure'].includes(variant));
+  observe,pass,variant,setPeopleTransferFailure,holdPeopleCompletion,evidenceDirectory}) {
+  assert.ok(['confirmed','lost_reply','transfer_failure','replacement_race','replacement_before_page'].includes(variant));
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   const page=await context.newPage();
   const route=`${base}/en/workspace/${fixture.academy}/players`;
@@ -22,7 +22,7 @@ export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,tr
   page.on('request',request=>requests.push(request.url()));
   page.on('pageerror',error=>pageErrors.push(error.message));
   const entryStart={people:ui.calls.length,transfers:transferCalls.length,rpcs:rpcCalls.length};
-  let offlineReopening=null,created=null;
+  let offlineReopening=null,created=null,completion;
   ui.useRealPeople();
   try {
     const before=await observe({academy:fixture.academy});
@@ -75,6 +75,7 @@ export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,tr
     const saveStart={people:ui.calls.length,transfers:transferCalls.length,rpcs:rpcCalls.length};
     if(variant==='lost_reply')ui.loseNextCreateReply();
     if(variant==='transfer_failure')setPeopleTransferFailure(true);
+    if(variant.startsWith('replacement_'))completion=holdPeopleCompletion();
     await page.getByRole('button',{name:'Register player',exact:true}).click();
     await page.getByLabel('Player display name (required)',{exact:true}).fill(name);
     await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
@@ -97,7 +98,34 @@ export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,tr
     assert.equal(BigInt(after.peopleRevision),BigInt(before.peopleRevision)+1n);
     assert.deepEqual(after.registration,{operations:1,audits:1,players:1,result:created.result});
 
-    if(variant==='transfer_failure') {
+    if(variant.startsWith('replacement_')) {
+      await completion.seen;
+      await page.evaluate(purpose=>{
+        const original=SubtleCrypto.prototype.decrypt;
+        let release;
+        const held=new Promise(resolve=>{release=resolve;});
+        window.releaseDirectoryRead=()=>release();
+        window.directoryReadHeld=false;
+        SubtleCrypto.prototype.decrypt=function(algorithm,...args){
+          const aad=algorithm.additionalData&&JSON.parse(new TextDecoder().decode(algorithm.additionalData));
+          if(aad?.[2]!==purpose)return original.call(this,algorithm,...args);
+          const decrypted=original.call(this,algorithm,...args);
+          SubtleCrypto.prototype.decrypt=original;
+          window.directoryReadHeld=true;
+          return decrypted.then(async bytes=>{await held;return bytes;});
+        };
+      },variant==='replacement_before_page'?'workspace-checkpoint':'workspace-page');
+      await page.getByRole('button',{name:'Back to players',exact:true}).click();
+      await page.waitForFunction(()=>window.directoryReadHeld);
+      completion.release();
+      await expect.poll(()=>page.evaluate(()=>window.inspectPreparedPeople())).toEqual(
+        {count:1,revision:after.peopleRevision,updating:false,ids:[created.result.player_id]});
+      await page.evaluate(()=>window.releaseDirectoryRead());
+      await expect(page.locator('table.workspace-table tbody tr')).toHaveCount(1);
+      assert.deepEqual(actions(ui.calls,saveStart.people),['candidates','create','profile'],
+        'a replaced local generation must retry locally,not fall through to an online directory list');
+      pass(`A directory read ${variant} retries the new local generation without an online list`);
+    }else if(variant==='transfer_failure') {
       await expect(page.getByText('Sync paused',{exact:true})).toBeVisible();
       assert.deepEqual(await page.evaluate(()=>window.inspectPreparedPeople()),{...head,updating:true},
         'the failed replacement must not publish partial rows over the old complete empty head');
@@ -167,6 +195,7 @@ export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,tr
       text:await page.locator('body').innerText().catch(()=>''),pageErrors},null,2)+'\n');
     throw error;
   }finally{
+    completion?.release();
     setPeopleTransferFailure(false);ui.setNetworkAvailable(true);ui.useRealPeople(false);await context.close();
   }
 }

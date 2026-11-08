@@ -158,7 +158,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
                 const contextTask=device.context();
                 const pageTask=local().catch(async(error:unknown)=>{
-                    if(cursor&&error instanceof Error&&/workspace_invalid_position|workspace_generation_changed/.test(error.message)){
+                    if(error instanceof Error&&(error.message==='workspace_generation_changed'||
+                        (cursor&&error.message==='workspace_invalid_position'))){
                         cursor=null;
                         return local();
                     }

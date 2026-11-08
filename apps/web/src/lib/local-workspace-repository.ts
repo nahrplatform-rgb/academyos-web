@@ -317,33 +317,39 @@ export async function openLocalWorkspace(scopeInput:WorkspaceScope) {
     });
     if(!selected)return null;
     const {key,head}=selected;
-    await loadReceipt(key,collection,head,true);
-    if(position&&(position.generation!==head.generation||!Number.isInteger(position.page)||
-        position.page<0||position.page>=head.pages||!Number.isInteger(position.offset)||position.offset<0||position.offset>=50)){
-      refuse('workspace_invalid_position');
-    }
-    const normalized=(value:string)=>value.normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
-    const filter=normalized(search.trim()), rows:WorkspaceRow[]=[];
-    let index=position?.page??0, offset=position?.offset??0, scanned=0;
-    while(index<head.pages&&rows.length<limit&&scanned<12){
-      const saved=await page(key,collection,head.generation,index);
-      if(offset>saved.rows.length) refuse('workspace_invalid_position');
-      scanned++;
-      while(offset<saved.rows.length&&rows.length<limit){
-        const row=saved.rows[offset++];
-        const matches='display_name'in row?normalized(row.display_name).startsWith(filter):
-          normalized(row.title+' '+row.sport+' '+row.sport_ar).includes(filter);
-        if(!filter||matches) rows.push(row);
-      }
-      if(offset===saved.rows.length){index++;offset=0;}
-    }
-    const updating=await transact('readonly',async t=>{
+    const currentHead=()=>transact('readonly',async t=>{
       await active(t);
       const now=await state(t,collection);
       if(now?.head?.generation!==head.generation||now.head.wallAt!==head.wallAt||
           Date.now()<now.head.observedAt||Date.now()-head.wallAt>=retentionMs) refuse('workspace_generation_changed');
       return Boolean(now.transfer);
     });
+    const normalized=(value:string)=>value.normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
+    const filter=normalized(search.trim()), rows:WorkspaceRow[]=[];
+    let index=position?.page??0, offset=position?.offset??0, scanned=0;
+    try {
+      await loadReceipt(key,collection,head,true);
+      if(position&&(position.generation!==head.generation||!Number.isInteger(position.page)||
+          position.page<0||position.page>=head.pages||!Number.isInteger(position.offset)||position.offset<0||position.offset>=50)){
+        refuse('workspace_invalid_position');
+      }
+      while(index<head.pages&&rows.length<limit&&scanned<12){
+        const saved=await page(key,collection,head.generation,index);
+        if(offset>saved.rows.length) refuse('workspace_invalid_position');
+        scanned++;
+        while(offset<saved.rows.length&&rows.length<limit){
+          const row=saved.rows[offset++];
+          const matches='display_name'in row?normalized(row.display_name).startsWith(filter):
+            normalized(row.title+' '+row.sport+' '+row.sport_ar).includes(filter);
+          if(!filter||matches) rows.push(row);
+        }
+        if(offset===saved.rows.length){index++;offset=0;}
+      }
+    } catch(error) {
+      await currentHead();
+      throw error;
+    }
+    const updating=await currentHead();
     return {rows,count:head.count,checkedAt:head.checkedAt,revision:head.revision,updating,scanned,
       next:index<head.pages?{generation:head.generation,page:index,offset}:null};
   }

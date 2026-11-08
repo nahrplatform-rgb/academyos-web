@@ -1,0 +1,29 @@
+{
+  "commit": "5d8707fd8d60043078b48b128acb60206e3e0469",
+  "pushed": true,
+  "ci": {
+    "run": 42474882390,
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42474882390",
+    "status": "completed",
+    "job": 128713870457,
+    "conclusion": "failure",
+    "receipt": "ci-5d8707f-failure.json"
+  },
+  "preview": {
+    "deployment": "dpl_5n25NWYgr3BHhVa9QPCjAUGSgVTZ",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/5n25NWYgr3BHhVa9QPCjAUGSgVTZ",
+    "url": "https://academyos-i1qum6627-academy-os2.vercel.app",
+    "state": "READY"
+  },
+  "staging": {
+    "commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "deployment": "dpl_BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "host": "staging.academy.nahr.dev",
+    "evidence": "docs/07-handoff/evidence/mp-b01-people-auth-empty/hosted.json"
+  },
+  "agent_promotion": false,
+  "owner_acceptance": "not_recorded_for_new_repair",
+  "post_push_metadata": "Kept local for next coherent batch;no extra full CI push solely for receipts.",
+  "release_eligible": false,
+  "supersession": "Needs coordinator replacement-generation race diagnosis/repair;not proposed for Owner promotion."
+}

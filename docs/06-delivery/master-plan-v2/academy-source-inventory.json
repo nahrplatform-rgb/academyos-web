@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "source_anchor": "5d8707fd8d60043078b48b128acb60206e3e0469",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -435,8 +435,8 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "9059622fce25f819481a7efabb7b084106bc10fcc4df6db15ea10990110a229c",
-      "bytes": 44202
+      "sha256": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
+      "bytes": 44246
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
@@ -710,8 +710,8 @@
     },
     {
       "path": "apps/web/src/lib/local-workspace-repository.ts",
-      "sha256": "489f36aae0aab1a7644eab96f43edb57272791a7ce1c4f0b9a0e306e56a4e18e",
-      "bytes": 22916
+      "sha256": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
+      "bytes": 23074
     },
     {
       "path": "apps/web/src/lib/memberships.test.ts",

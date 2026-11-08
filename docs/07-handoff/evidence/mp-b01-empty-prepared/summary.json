@@ -3,7 +3,7 @@
   "execution": "EX-07",
   "batch": "MP-B01",
   "source_base": "6d9d3f675a1433c488926f46024d738de66b0491",
-  "state": "implemented_locally_verified;coherent_candidate_preparation",
+  "state": "both_replacement_read_races_reproduced_repaired_and_locally_verified;corrected_candidate_preparation",
   "outcomes": [
     "VAL-02",
     "VAL-09"
@@ -18,20 +18,20 @@
     "NR17"
   ],
   "source_hashes": {
-    "apps/web/src/components/people-workspace.tsx": "9059622fce25f819481a7efabb7b084106bc10fcc4df6db15ea10990110a229c",
-    "apps/web/src/lib/local-workspace-repository.ts": "489f36aae0aab1a7644eab96f43edb57272791a7ce1c4f0b9a0e306e56a4e18e",
+    "apps/web/src/components/people-workspace.tsx": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
+    "apps/web/src/lib/local-workspace-repository.ts": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
     "scripts/workspace-download/normal_workspace.mjs": "327a0101125913a85dfd6e95a9ad2ffa2bdc74db2b755efed05f73177d7ccb71",
-    "scripts/workspace-download/empty_prepared_registration.mjs": "c449dfe60539f366cc1bfe965f7cba9dcaf9bce2cfce7ba0d1e78a36c46452a6",
-    "scripts/workspace-download/test_transport.mjs": "a858a20ae09e87938325739c8cfc2246feb7771d4ddfd60b927a534dcb805243"
+    "scripts/workspace-download/empty_prepared_registration.mjs": "8de49c719d77a27891b326438f2786035e2faa68899f63895264835ccd830fc5",
+    "scripts/workspace-download/test_transport.mjs": "a453914b3f276475affdce1ac7d85413a6cdc0aa291c979707d64cde1416b056"
   },
   "baseline": "before.json",
   "harness_observation": "harness-menu.json",
   "workspace_receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
-  "workspace_checks": 64,
+  "workspace_checks": 70,
   "compiled_build": {
     "node": "v24.14.0",
-    "sourceHash": "8523cd61e25907c98390c8483c9c8e7c11611aba1096da33c41a2bb45ac3ac8f",
-    "artifactHash": "d7658e6c0c289e0357a97b761fe2a8c21ebf30992ccc380794907e563c887aa2"
+    "sourceHash": "1b82bb19135b70eb9517c6fbdfe935f4569f6249b8bf5b61f7bf389c67fce651",
+    "artifactHash": "c5cb0b53c20b82b9672740493af78c62aa2db3be3321635db11b5b24c0476921"
   },
   "empty_prepared_cases": {
     "confirmed": {
@@ -46,7 +46,7 @@
           "audits": 1,
           "result": {
             "version": 1,
-            "player_id": "9abb7cb9-ee3c-48d2-9a04-0419aa050fad"
+            "player_id": "8c6117a7-a9a4-4311-a9db-a329cc52f945"
           },
           "players": 1,
           "operations": 1
@@ -88,7 +88,7 @@
           "audits": 1,
           "result": {
             "version": 1,
-            "player_id": "831b3680-5f83-48a9-90d7-bb21ce6650b8"
+            "player_id": "03c70221-2fa6-4e3a-8c1e-854d32527e09"
           },
           "players": 1,
           "operations": 1
@@ -125,7 +125,7 @@
           "audits": 1,
           "result": {
             "version": 1,
-            "player_id": "5c8eef57-58be-440f-b00f-80fda0f18140"
+            "player_id": "35bce036-a457-4241-bc14-fc3c62419c11"
           },
           "players": 1,
           "operations": 1
@@ -152,6 +152,78 @@
       "originalReconciled": false,
       "oneCanonicalResult": true,
       "pageErrors": []
+    },
+    "replacement_race": {
+      "variant": "replacement_race",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "6382e7a5-d9b2-4c06-81ef-a0d9cf97254a"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "replacement_before_page": {
+      "variant": "replacement_before_page",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "ce450d5a-181e-4b15-b006-62000f2306d2"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
     }
   },
   "checks": {
@@ -164,7 +236,7 @@
       "mock_creates": 4,
       "page_errors": []
     },
-    "capture_refresh": "passed_all16;protected_pause_states_separate",
+    "capture_refresh": "passed_all16_for_final_UI_source;protected_pause_states_separate",
     "documentation": "passed",
     "people_production": {
       "peopleUi": "passed",
@@ -183,7 +255,7 @@
   },
   "local_contract_change": "Read-only updating hint derives from existing final-fenced transfer state;no persisted schema/epoch/writer change",
   "release": {
-    "new_source": "local;not committed/pushed/deployed yet",
+    "new_source": "Initial5d8707f failed CI;corrected70-check source is ready for replacement exact-source commit/CI",
     "staging": "6d9d3f6 source and scoped positive EN/AR verified in prior packet;not this repair",
     "agent_promotion": false
   },
@@ -197,5 +269,10 @@
     "active_helpers": 0,
     "reason": "Coordinator-owned sync/read metadata and original integration;bounded direct edits avoided handoff overhead",
     "usage_savings": "unmeasured"
-  }
+  },
+  "implementation_commit": "5d8707f_initial_candidate_failed_CI;corrected_commit_pending",
+  "ci_failure": "ci-5d8707f-failure.json",
+  "race_baseline": "replacement-race-before.json",
+  "prior_local64_receipt": "transport-5d8707f-local64.json",
+  "race_before_page_baseline": "replacement-before-page-before.json"
 }

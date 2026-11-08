@@ -63,7 +63,7 @@ if(process.argv.includes('--check')){
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
   assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
     (await assertCurrentWebBuild(root)).sourceHash,'Recorded offline UI must belong to the current compiled source');
-  assert.ok(receipt.checks.length>=64);
+  assert.ok(receipt.checks.length>=70);
   const registration=receipt.metrics.normalWorkspace.postRegistration;
   assert.equal(registration.realPeopleHandler,true);
   assert.equal(registration.originalIdForwarded,true);
@@ -80,7 +80,7 @@ if(process.argv.includes('--check')){
   assert.deepEqual(empty.peopleActions,['list','candidates','create','profile','list']);
   assert.equal(empty.originalIdForwarded,true);
   assert.deepEqual(empty.rpcCounts,{i2_people_v1:2,i2_candidates_v1:1,i2_profile_v1:1,i2_register_v1:1,i2_operation_v1:0});
-  for(const variant of ['confirmed','lost_reply','transfer_failure']){
+  for(const variant of ['confirmed','lost_reply','transfer_failure','replacement_race','replacement_before_page']){
     const prepared=receipt.metrics.emptyPreparedRegistration[variant];
     assert.equal(prepared.initial.totalPlayers,0);assert.equal(prepared.final.totalPlayers,1);
     assert.equal(BigInt(prepared.final.peopleRevision),BigInt(prepared.initial.peopleRevision)+1n);
@@ -740,7 +740,7 @@ try{
   metrics.emptyPreparedRegistration={};
   const preparedEmptyBrowser=await chromium.launch();
   try {
-    for(const variant of ['confirmed','lost_reply','transfer_failure']){
+    for(const variant of ['confirmed','lost_reply','transfer_failure','replacement_race','replacement_before_page']){
       const fixture=await db({action:'make',size:0,unregistered:true});
       const ui=await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
       activeNormal=ui;
@@ -750,6 +750,19 @@ try{
         setPeopleTransferFailure:enabled=>{intercept=enabled?async(call,invoke,command)=>
           call.action==='page'&&command.receipt?.payload?.dataset==='people'
             ?Response.json({error:'unavailable'},{status:503}):invoke():undefined;},
+        holdPeopleCompletion:()=>{
+          let seen,release;
+          const observed=new Promise(resolve=>{seen=resolve;});
+          const released=new Promise(resolve=>{release=resolve;});
+          intercept=async(call,invoke,command)=>{
+            const result=await invoke();
+            if(call.action==='complete'&&command.receipt?.payload?.dataset==='people'){
+              seen();await released;
+            }
+            return result;
+          };
+          return{seen:observed,release};
+        },
         evidenceDirectory:join(directory,'empty-prepared')});
     }
   }finally{intercept=undefined;await preparedEmptyBrowser.close();}
