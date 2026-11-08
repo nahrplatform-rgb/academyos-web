@@ -1,5 +1,7 @@
 # Coherent delivery batches and proportional verification
 
+Shared-library checkpoint preflight: run all read-only `--check` commands in the current `.github/workflows/verify.yml` before publishing. Dependency arrays may construct source paths; a literal search alone is insufficient. If a receipt is stale, run its actual owning test with the supported recording option and then check it again. Preserve guards and prior failures. The [8 November correction](../../07-handoff/mp-b01-empty-prepared-continuity-2026-11-08.md) records why passing runtime suites and stale receipt metadata must be handled separately. These quick checks supplement the selected runtime regression scope and consolidated CI; they do not require repeating every unchanged runtime suite.
+
 Owner direction7 November: advance substantial connected work instead of pausing for a full test/capture/promotion cycle after every small change. Preserve meaningful boundary checks and separate release/hosted/acceptance evidence. This is a change in delivery granularity, not permission to ignore failures or ship unverified source.
 
 ## Batch contract

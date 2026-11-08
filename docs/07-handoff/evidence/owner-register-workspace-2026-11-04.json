@@ -11,7 +11,7 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 122
+    "offlineProcessReopenMs": 121
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
@@ -43,7 +43,7 @@
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "apps/web/src/lib/config.ts": "abf3610ecf814d136d69600e2096105521d155996a25f9ccacf4d63f4a691bd5",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
-    "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+    "apps/web/src/lib/local-workspace-repository.ts": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9"
   }
 }
