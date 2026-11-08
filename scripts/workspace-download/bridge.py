@@ -21,6 +21,14 @@ TARGETS = {
 }
 
 
+def registration_snapshot_sql(academy, original):
+    return ("jsonb_build_object("
+            f"'operations',(select count(*) from academy.people_operations where academy_id={academy} and id={original}),"
+            f"'audits',(select count(*) from academy.audit_events where academy_id={academy} and action='player.register' and operation_id={original}),"
+            f"'players',(select count(*) from academy.players where academy_id={academy} and id=(select(result->>'player_id')::uuid from academy.people_operations where academy_id={academy} and id={original})),"
+            f"'result',(select result from academy.people_operations where academy_id={academy} and id={original}))")
+
+
 def rpc(test, command):
     target = command.get('target')
     if target not in TARGETS:
@@ -102,11 +110,17 @@ def execute(test, command):
         # A read-only observer of this disposable fixture, not an application API.
         academy, op = str(uuid.UUID(command['academy'])), str(uuid.UUID(command['op']))
         a, original = literal(academy), literal(op)
+        return json.loads(test.sql('select ' + registration_snapshot_sql(a, original)))
+    if action == 'people_snapshot':
+        # One read-only SQL statement observes the academy total and collection
+        # revision together, independently from the per-operation player count.
+        a = literal(str(uuid.UUID(command['academy'])))
+        original = command.get('op')
+        registration = registration_snapshot_sql(a, literal(str(uuid.UUID(original)))) if original else 'null'
         query = ("select jsonb_build_object("
-                 f"'operations',(select count(*) from academy.people_operations where academy_id={a} and id={original}),"
-                 f"'audits',(select count(*) from academy.audit_events where academy_id={a} and action='player.register' and operation_id={original}),"
-                 f"'players',(select count(*) from academy.players where academy_id={a} and id=(select(result->>'player_id')::uuid from academy.people_operations where academy_id={a} and id={original})),"
-                 f"'result',(select result from academy.people_operations where academy_id={a} and id={original}))")
+                 f"'totalPlayers',(select count(*) from academy.players where academy_id={a}),"
+                 f"'peopleRevision',coalesce((select people from academy.workspace_revisions where academy_id={a}),0)::text,"
+                 f"'registration',{registration})")
         return json.loads(test.sql(query))
     if action in ('rename', 'suspend'):
         academy = command['academy']

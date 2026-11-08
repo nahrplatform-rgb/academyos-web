@@ -13,6 +13,7 @@ import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
+import {checkEmptyOnlineRegistration} from './empty_online_registration.mjs';
 import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 import {checkCapabilityCleanup} from './capability_cleanup.mjs';
 import {checkStartupResume} from './startup_resume.mjs';
@@ -38,6 +39,7 @@ const inputs=[
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
   'scripts/workspace-download/normal_workspace.mjs',
+  'scripts/workspace-download/empty_online_registration.mjs',
   'scripts/verification/web-build.mjs','package.json',
   'scripts/workspace-download/capability_cleanup.mjs',
   'scripts/workspace-download/startup_resume.mjs',
@@ -59,13 +61,23 @@ if(process.argv.includes('--check')){
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
   assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
     (await assertCurrentWebBuild(root)).sourceHash,'Recorded offline UI must belong to the current compiled source');
-  assert.ok(receipt.checks.length>=53);
+  assert.ok(receipt.checks.length>=56);
   const registration=receipt.metrics.normalWorkspace.postRegistration;
   assert.equal(registration.realPeopleHandler,true);
   assert.equal(registration.originalIdForwarded,true);
   assert.deepEqual(registration.replay,{sameResult:true,operations:1,audits:1,players:1});
   assert.equal(registration.lostReply.originalIdReconciled,true);
   assert.deepEqual(registration.lostReply.peopleCalls,['candidates','create','reconcile','profile']);
+  assert.deepEqual(receipt.metrics.normalWorkspace.peopleAuthentication,{
+    expiredServerSession:true,browserSubjectUnchanged:true,namespaceRetained:true,maskedDuringFailure:true,
+    peopleActions:['profile','profile','profile'],domainRpcs:['i2_profile_v1'],
+  });
+  const empty=receipt.metrics.emptyOnlineRegistration;
+  assert.equal(empty.initial.totalPlayers,0);assert.equal(empty.final.totalPlayers,1);
+  assert.equal(BigInt(empty.final.peopleRevision),BigInt(empty.initial.peopleRevision)+1n);
+  assert.deepEqual(empty.peopleActions,['list','candidates','create','profile','list']);
+  assert.equal(empty.originalIdForwarded,true);
+  assert.deepEqual(empty.rpcCounts,{i2_people_v1:2,i2_candidates_v1:1,i2_profile_v1:1,i2_register_v1:1,i2_operation_v1:0});
   assert.equal(receipt.metrics.peopleUnauthorizedCreateDenied,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
@@ -349,9 +361,10 @@ try{
   } finally {state.subject='user_owner';}
   const normal=await normalWorkspaceFixture(root,normalFixture,{
     people:peopleRequest});
+  let activeNormal=normal;
   let intercept;
   server=createServer(async(req,res)=>{
-    if(await normal.serve(req,res))return;
+    if(await activeNormal.serve(req,res))return;
     if(req.url==='/api/workspace-download'||req.url==='/api/workspace-key'){
       try {
         const chunks=[];
@@ -697,9 +710,20 @@ try{
   metrics.workspaceDevice={firstRequests:['prepare','manifest','page'],interruptedAt:25,renewedAt:300,pagesPerPass:12,
     unchangedManifestRequests:1,unchangedDatasetPages:0,coveredLocalRequests:0};
   metrics.normalWorkspace=await checkNormalWorkspace({fixture:normalFixture,ui:normal,base:local,
-    profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,rpcCalls:state.calls,db,pass});
+    profile:join(tmp,'normal-chromium'),transferCalls:browserCalls,rpcCalls:state.calls,db,pass,
+    setSubject:subject=>{state.subject=subject;}});
   metrics.normalWorkspace.compiledBuild=normal.buildProof;
   console.log('NORMAL_WORKSPACE_METRICS '+JSON.stringify(metrics.normalWorkspace));
+  const emptyFixture=await db({action:'make',size:0,unregistered:true});
+  const emptyUI=await normalWorkspaceFixture(root,emptyFixture,{people:peopleRequest});
+  activeNormal=emptyUI;
+  const emptyBrowser=await chromium.launch();
+  try {
+    const context=await emptyBrowser.newContext({viewport:{width:1440,height:1000}});
+    const page=await context.newPage();
+    metrics.emptyOnlineRegistration=await checkEmptyOnlineRegistration({page,ui:emptyUI,fixture:emptyFixture,base:local,
+      rpcCalls:state.calls,observe:args=>db({action:'people_snapshot',...args}),pass});
+  } finally {emptyUI.useRealPeople(false);await emptyBrowser.close();}
   metrics.capabilityCleanup=await checkCapabilityCleanup(root,pass);
   await checkStartupResume(root,pass);
   const shellBrowser=await chromium.launch({headless:true});

@@ -24,10 +24,11 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "342f65d85115e82815537035c0eb5587a190f8c9675e82a50110ee18e34918d6",
-    "scripts/workspace-download/bridge.py": "afb9f8dfb482ea5397f5c12f66c8ec2985565b2ab3925caf7d30476c3a127a0c",
+    "scripts/workspace-download/test_transport.mjs": "2d3398ff18b1ff98d3d5d68803905e480941aadc8788f7cdaa4df8078701aa3f",
+    "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "7323cc8c3923909c559e8b2285ce444fde94231cc091ae7c5bf8e7c0f39621df",
+    "scripts/workspace-download/normal_workspace.mjs": "2724be8814f00bbf110400a40c62dfe025d6ad0b7826e3271beafba86211b08d",
+    "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
     "scripts/verification/web-build.mjs": "44beda1bfb838f5149ef84942f3033b736639a721a6f4bc8b34a3caaa13503ca",
     "package.json": "7229c534ef4cc67947312f268402721ce84e0a82ac4671c3435e8f7ba82dfcc3",
     "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
@@ -43,7 +44,7 @@
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
-    "apps/web/src/components/people-workspace.tsx": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+    "apps/web/src/components/people-workspace.tsx": "d5bd99d0cbc52f5793da78daca6377f1be243ae7ecba32f9244d63a7a05e9d36",
     "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
@@ -93,8 +94,11 @@
     "A confirmed registration becomes discoverable from the prepared directory without an online list read",
     "The original browser save ID replays through the real People handler with one player, receipt and audit",
     "A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row",
+    "Players API401 masks private content without retiring prepared data;one same-account profile retry restores it",
     "Logout removes prepared coverage from the normal offline route before another verified preparation",
     "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
+    "Online genuine-empty entry shows zero players and one list without filtered-empty, missing or denial states",
+    "First confirmed online registration returns to a discovered single player",
     "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
     "Workspace-only rollback masks failed cleanup, retries it and preserves the live register, exact pending original and signed-in account",
     "Re-enabling a capability finishes its interrupted retirement before any new preparation",
@@ -122,7 +126,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 16.012415999999575,
+      "elapsedMs": 13.316624999999476,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -196,10 +200,59 @@
           ]
         }
       },
+      "peopleAuthentication": {
+        "expiredServerSession": true,
+        "browserSubjectUnchanged": true,
+        "namespaceRetained": true,
+        "maskedDuringFailure": true,
+        "peopleActions": [
+          "profile",
+          "profile",
+          "profile"
+        ],
+        "domainRpcs": [
+          "i2_profile_v1"
+        ]
+      },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "39707b3012476fde0494734ac57ed537dc26e54a6ece0b6459e096b10149a794",
-        "artifactHash": "06cecb0ead5b6aa5ed10473f06c3ba45cb415c8baa58acdeccca20d3657ba1c7"
+        "sourceHash": "a0dabe06461b25fcfd0ba83af836fce9eecc65ce92c9515be74fb208bde37a62",
+        "artifactHash": "cc51f5df35ed370cbcbe8d72d16852dfb0eb4144fa80d24a272cccaa75bd8f55"
+      }
+    },
+    "emptyOnlineRegistration": {
+      "scenario": "online empty-directory first registration",
+      "initial": {
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "peopleActions": [
+        "list",
+        "candidates",
+        "create",
+        "profile",
+        "list"
+      ],
+      "originalIdForwarded": true,
+      "rpcCounts": {
+        "i2_people_v1": 2,
+        "i2_candidates_v1": 1,
+        "i2_profile_v1": 1,
+        "i2_register_v1": 1,
+        "i2_operation_v1": 0
+      },
+      "registrationSnapshot": {
+        "operations": 1,
+        "audits": 1,
+        "players": 1,
+        "result": {
+          "version": 1,
+          "player_id": "2df4c9a2-d33d-4f41-8e6a-3b0225824b72"
+        }
       }
     },
     "capabilityCleanup": {

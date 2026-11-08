@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-Scoped external work is recorded in [AI work items](ai-work-items.csv), with [DS-001 review/corrections](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) and the [DS-002 handoff](../07-handoff/deepseek-task-DS-002.md). These are child outputs of EX-07 / MP-B01, not another current-priority queue. The coordinator reviews returned files before updating this tracker or adopting copy; a ready manual handoff launches nothing and does not block independent work.
+Scoped external work is recorded in [AI work items](ai-work-items.csv), with [DS-001 review/corrections](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md), [DS-004's corrected regression plan](../07-handoff/deepseek-DS-004-review-2026-11-08.md) and the [DS-005 test-only handoff](../07-handoff/deepseek-task-DS-005.md). These are child outputs of EX-07 / MP-B01, not another current-priority queue. The coordinator reviews returned files before adoption and owns canonical observer/harness integration, auth, sync and recovery. A helper syntax check is not a runtime pass; a ready manual handoff launches nothing and does not block independent work.
 
 ## Version2 connected-batch execution —7November2026
 

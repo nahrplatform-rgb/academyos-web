@@ -109,10 +109,10 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
   };
 }
 
-export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,rpcCalls,db,pass}) {
+export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,rpcCalls,db,pass,setSubject}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[], navigationEvents=[];
-  let offlineShellNavigations=0, nullGotoResponses=0, postRegistration=null;
+  let offlineShellNavigations=0, nullGotoResponses=0, postRegistration=null,peopleAuthentication=null;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
   const calendar=scope('ar','calendar?anchor=2099-11-01');
@@ -415,6 +415,42 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     postRegistration.lostReply={peopleCalls:lostActions,originalIdReconciled:true,operations:1,audits:1,players:1,
       transferActions:transferCalls.slice(beforeLost.transfers).map(call=>call.action)};
     pass('A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row');
+
+    // Expire only the server session. Browser identity and the protected store
+    // remain unchanged, so HTTP401 must not trigger role-loss retirement.
+    const slotKey=`academyos.workspace-slot.v1:user_owner:${fixture.academy}`;
+    const readSlot=()=>page.evaluate(key=>localStorage.getItem(key),slotKey);
+    const beforeSlot=await readSlot();
+    assert.equal(JSON.parse(beforeSlot).mode,'active');
+    await page.getByRole('button',{name:'Synthetic lost registration',exact:true}).click();
+    await page.getByRole('button',{name:'Open full profile',exact:true}).click();
+    await expect(page.getByRole('heading',{name:'Synthetic lost registration',exact:true})).toBeVisible();
+    const authStart={reads:ui.calls.length,rpcs:rpcCalls.length};
+    setSubject(null);
+    try {
+      await page.getByRole('button',{name:'Refresh view',exact:true}).click();
+      await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+      await expect(page.getByRole('heading',{name:'Synthetic lost registration',exact:true})).toHaveCount(0);
+      assert.equal(await readSlot(),beforeSlot,'API401 retains the existing approved namespace');
+      assert.equal(rpcCalls.length,authStart.rpcs,'missing server authentication never reaches a domain RPC');
+      const resumedProfile=page.waitForResponse(response=>new URL(response.url()).pathname==='/api/people'&&
+        response.request().method()==='POST'&&response.request().postDataJSON().action==='profile');
+      await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));});
+      assert.equal((await resumedProfile).status(),401);
+      await expect.poll(()=>ui.calls.length).toBe(authStart.reads+2);
+      await expect(page.locator('summary').filter({hasText:'Sync paused'})).toBeVisible();
+      await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+      await expect(page.locator('table.workspace-table tbody tr')).toHaveCount(0);
+      assert.equal(await readSlot(),beforeSlot,'background/local coverage cannot clear or unmask after API401');
+    } finally {setSubject('user_owner');}
+    await page.getByRole('button',{name:'Retry loading profile',exact:true}).click();
+    await expect(page.getByRole('heading',{name:'Synthetic lost registration',exact:true})).toBeVisible();
+    assert.equal(await readSlot(),beforeSlot);
+    assert.deepEqual(ui.calls.slice(authStart.reads).map(call=>call.action),['profile','profile','profile']);
+    assert.deepEqual(rpcCalls.slice(authStart.rpcs).map(call=>call.rpc),['i2_profile_v1']);
+    peopleAuthentication={expiredServerSession:true,browserSubjectUnchanged:true,namespaceRetained:true,
+      maskedDuringFailure:true,peopleActions:['profile','profile','profile'],domainRpcs:['i2_profile_v1']};
+    pass('Players API401 masks private content without retiring prepared data;one same-account profile retry restores it');
     ui.useRealPeople(false);
 
     await page.evaluate(()=>window.clearTestAccount());
@@ -448,7 +484,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
       offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
-      peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration};
+      peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration,peopleAuthentication};
   } catch (error) {
     console.error(JSON.stringify({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),
       pageErrors,failedRequests:failedRequests.slice(-25),navigationEvents:navigationEvents.slice(-35)},null,2));

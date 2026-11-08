@@ -1,6 +1,6 @@
 {
-  "source": "641e9f56f181c2689b3a374849f153996c79e0ea",
-  "generatedAt": "2026-11-07T22:18:02.261Z",
+  "source": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "generatedAt": "2026-11-08T10:22:20.348Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -55,7 +55,7 @@
     "apps/web/src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
-    "apps/web/src/components/people-workspace.tsx": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+    "apps/web/src/components/people-workspace.tsx": "d5bd99d0cbc52f5793da78daca6377f1be243ae7ecba32f9244d63a7a05e9d36",
     "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
@@ -84,9 +84,9 @@
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
-    "docs/03-design/screen-data-loading-matrix.csv": "9bc426ef7cb4cae37fc53bfb20e930e881abd5f18c7dc35f58c153206d32f217",
-    "docs/04-engineering/journey-security-matrix.csv": "2877f18d536e05a4482f82529c6e9a55c1be82ac9db4426594a28eca74eadfb1",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "78cfd39811a5acc27eecd3cb5e44646595ad5b2fffd0dd1ba0d325a3f8797376",
+    "docs/03-design/screen-data-loading-matrix.csv": "e0b10896f16b475c24b7a50c94bed8d9a24335c0a5539cf9fdf03c3b88f5601e",
+    "docs/04-engineering/journey-security-matrix.csv": "5f087f534c2df5af4fa4e63f53dcd6f25846bbd9f8631a4a433e7b9dd0995036",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "2f954f672093f78de7252dad61b5d10c021f264e6415200c14fa40c498a75cb3",
     "docs/06-delivery/app-implementation-requirement-links.csv": "c0e8b976d404521c4405ad15f7bd36fe75f1ea393561ebaee4afc656e815f2dd",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "7430ae17f3970f14b3c2a9e51851c11e35c552b81368d8b61bde04f2f16abea5",
     "scripts/attendance/test_ui.mjs": "0676e70a87b935b442d80e5b847151cb85de3fdae2db40e08941872325f19e11",
@@ -102,7 +102,7 @@
     "scripts/guardian-training/test_ui.mjs": "5ec96eec6aa730e419cd230c10390ecdb08594f7fbbf9dadfd9f457661cfc71b",
     "scripts/guardians/test_ui.mjs": "3b326fb0800baf571bb6b0b37b70788f8c105973f3aec4750c145a995f8f3959",
     "scripts/onboarding/test_ui.mjs": "28b0544d059ec2e5d7d2c157b91413c5b9f4710dc89a6a224ecdca4e614087c0",
-    "scripts/people/test_ui.mjs": "3edb6fe956eb3704ee5bfe68830a4da8607a6a3e8fdb2a4b55c9095e9f96bc31",
+    "scripts/people/test_ui.mjs": "afd19da627f5c8f0a52c31a558b861c166554b7882774466ce385328f270caa2",
     "scripts/planning/test_ui.mjs": "a67dddb9f4a8b01608bd40e8c785c86b6f986e21d0bc9689ebbcc692a8ea2fb4",
     "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
     "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
@@ -112,12 +112,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "d5f3b723a77304a40c9231b331c3cf239704211e9cc3af9662aa1183d4b59269",
-  "htmlSha256": "7b2f5e8a48b461f41668de1596602905696da29165343b1da457875053ab73c0",
-  "frames": 1233,
-  "transitions": 1226,
+  "capturePackSha256": "d1a2c7081e896ea367a9b6473b4eeaa1d54525890b42f294c71f7927c84aa346",
+  "htmlSha256": "45c81bfd003688ded010209e6137662f33f7ddb43aec184a18be4313961581de",
+  "frames": 1251,
+  "transitions": 1247,
   "sourceFiles": 80,
-  "sourceLiterals": 7980,
+  "sourceLiterals": 8006,
   "journeys": [
     {
       "id": "entry",
@@ -129,7 +129,7 @@
     },
     {
       "id": "people",
-      "frames": 63
+      "frames": 81
     },
     {
       "id": "guardians",

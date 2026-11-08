@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+8 November MP-B01: [Players authentication/context and online-empty registration](../../docs/07-handoff/mp-b01-people-auth-empty-registration-2026-11-08.md) refreshes all16actual-component families and8entry captures after the scoped401/context repair. New EN/AR authentication masks retain task recovery;the separate protected runner proves its named namespace/first-registration assertions. These local fixtures do not establish real-provider,staging or installed behavior. Regenerate factual HTML from the current capture outputs and maintain source/hosted boundaries.
+
 7 November MP-B01: [Owner feedback and return continuity](../../docs/07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) refreshes the actual-component pack, static entry and factual HTML after Players, Home/Calendar and Attendance state/copy changes. The packet also links separate protected normal-route evidence; the default replay still does not prove those gated states, real-provider sessions, staging or installed-device behavior. Current-versus-proposed and source-versus-hosted boundaries remain.
 
 ## Version2 factual-review maintenance —7November2026

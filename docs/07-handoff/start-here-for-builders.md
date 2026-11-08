@@ -1,8 +1,10 @@
 # Start here for builders
 
+8 November current MP-B01: [Players authentication/context and first registration](mp-b01-people-auth-empty-registration-2026-11-08.md) has56scoped local workspace checks and reviewed/integrated DS-005 proof. The earlier quota interruption is provenance;do not wait for DeepSeek or rerun its brief. The tracker now routes ready development to prepared-empty/failed-transfer cases while exact-source release/hosted verification remains separate.
+
 ## Start with canonical master version2 —7November2026
 
-For the current MP-B01 source, read [DS-001 coordinator review](deepseek-bcb1a78-review-2026-11-07.md) and the corrected [Player packet](mp-b01-rich-player-contract-2026-11-07.md). The [AI child ledger](../06-delivery/ai-work-items.csv) tracks DS-002's isolated report ownership and review state; it does not replace EX routing, authorize worker publishing or start a helper automatically.
+For the current MP-B01 source, read [DS-001 coordinator review](deepseek-bcb1a78-review-2026-11-07.md), the corrected [Player packet](mp-b01-rich-player-contract-2026-11-07.md) and [DS-004's corrected regression plan](deepseek-DS-004-review-2026-11-08.md). The [AI child ledger](../06-delivery/ai-work-items.csv) tracks returned DS-002/003/004 evidence and [DS-005's integrated coordinator review](deepseek-DS-005-review-2026-11-08.md). The earlier quota interruption is retained as provenance;do not wait for quota or rerun that brief. Worker ownership excludes canonical observer/harness integration,auth,sync and recovery. A syntax check is not a runtime test;the review supplies the actual later integration result. The ledger does not replace EX routing,authorize worker publishing or start a helper automatically.
 
 Start each connected batch from [Owner value, simplicity and Platform business outcomes](../06-delivery/master-plan-v2/product-outcomes-and-simplicity.md). Use the inspected [PYSA chat review](../06-delivery/master-plan-v2/source-conversation-review.md) as historical context and the [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) for money work. Useful business parity must not reproduce unnecessary legacy fields, steps, reviews or formulas. Preserve accepted controls and exact scope; measure benefits rather than claim market superiority.
 

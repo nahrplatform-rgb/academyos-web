@@ -13,10 +13,10 @@ const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/b
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch(),page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const academy='00000000-0000-4000-8000-000000000001',branch='00000000-0000-4000-8000-000000000002';
-let players=[{id:'00000000-0000-4000-8000-000000000010',display_name:'Alex Demo',branch_name:'Main Demo Branch',contact_email:'contact@example.invalid'}],profileFails=false,revision=1,denied=false,lost=false,dropBefore=false,stale=false,creates=0,hold=false,release;
+let players=[{id:'00000000-0000-4000-8000-000000000010',display_name:'Alex Demo',branch_name:'Main Demo Branch',contact_email:'contact@example.invalid'}],profileFails=false,revision=1,denied=false,authMissing=false,lost=false,dropBefore=false,stale=false,creates=0,hold=false,release;
 players.push(...Array.from({length:17},(_,i)=>({id:`00000000-0000-4000-8000-${String(i+200).padStart(12,'0')}`,display_name:`Fictional Player ${i+1}`,branch_name:'Main Demo Branch'})));
 const receipts=new Map(),calls=[];let readHold=null,releaseRead;
-await page.route('**/api/people',async route=>{const b=route.request().postDataJSON();calls.push(b);if(readHold===b.action)await new Promise(resolve=>{releaseRead=resolve;});if(denied){await route.fulfill({status:403,json:{error:'denied'}});return;}let data;
+await page.route('**/api/people',async route=>{const b=route.request().postDataJSON();calls.push(b);if(readHold===b.action)await new Promise(resolve=>{releaseRead=resolve;});if(authMissing){await route.fulfill({status:401,json:{error:'denied'}});return;}if(denied){await route.fulfill({status:403,json:{error:'denied'}});return;}let data;
  switch(b.action){
  case'list':data={academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',items:players.filter(p=>p.display_name.toLowerCase().startsWith(b.query?.toLowerCase()||'')).map(({contact_email,...p})=>p),more:false};break;
  case'candidates':data={items:players.filter(p=>p.display_name.toLowerCase()===b.name.trim().toLowerCase()).map(({contact_email,...p})=>p),revision:b.name.trim().toLowerCase()==='alex demo'?revision:0,more:false};break;
@@ -100,11 +100,95 @@ try{
  assert.equal(calls.length,beforeLanguage,'changing error language never repeats a confirmed registration');
  await page.getByRole('link',{name:'English',exact:true}).click();
  profileFails=false;await page.getByRole('button',{name:'Retry loading profile',exact:true}).click();await visible('Player profile');assert.equal(creates,afterConfirmed,'Read retry must not repeat confirmed registration');
+ // An API401 is not role loss. Mask the checked profile without losing the
+ // original actor's task; retry only its current read after authentication.
+ const beforeAuth=calls.length;authMissing=true;
+ await page.getByRole('button',{name:/^(Refresh view|Retry current read)$/}).click();
+ await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+ await expect(page.getByText('Sign in again to check these players. Saved work stays protected.',{exact:true})).toBeVisible();
+ await expect(page.getByText('contact@example.invalid',{exact:true})).toHaveCount(0);
+ await expect(page.getByRole('heading',{name:'Access unavailable',exact:true})).toHaveCount(0);
+ assert.deepEqual(calls.slice(beforeAuth).map(c=>c.action),['profile']);
+ await page.screenshot({path:resolve(evidence,'authentication-required-en.png'),fullPage:true});
+ await page.getByRole('link',{name:'العربية',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'تسجيل الدخول مطلوب',exact:true})).toBeVisible();
+ await expect(page.getByRole('alert')).toContainText('يبقى العمل المحفوظ محميًا.');
+ await page.setViewportSize({width:360,height:800});
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await page.screenshot({path:resolve(evidence,'authentication-required-ar-360.png'),fullPage:true});
+ await page.setViewportSize({width:1440,height:1000});
+ await page.getByRole('link',{name:'English',exact:true}).click();
+ assert.deepEqual(calls.slice(beforeAuth).map(c=>c.action),['profile'],'language changes do not retry a failed sign-in check');
+ authMissing=false;
+ await page.getByRole('button',{name:'Retry loading profile',exact:true}).click();
+ await visible('Player profile');
+ assert.deepEqual(calls.slice(beforeAuth).map(c=>c.action),['profile','profile']);
+ assert.equal(creates,afterConfirmed);
+ // Keep draft intent in the same actor's memory behind an authentication mask.
+ await page.getByRole('button',{name:'Back to players',exact:true}).click();
+ await freshForm('Authentication retained draft');
+ await page.getByLabel('Parent/guardian contact email (optional)',{exact:true}).fill('retained@example.invalid');
+ const draftAuthStart=calls.length;authMissing=true;
+ await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+ await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+ await expect(page.getByLabel('Player display name (required)',{exact:true})).toHaveCount(0);
+ authMissing=false;await page.getByRole('button',{name:'Try again',exact:true}).click();
+ await visible('New player draft');
+ assert.equal(await page.getByLabel('Player display name (required)',{exact:true}).inputValue(),'Authentication retained draft');
+ assert.equal(await page.getByLabel('Parent/guardian contact email (optional)',{exact:true}).inputValue(),'retained@example.invalid');
+ assert.deepEqual(calls.slice(draftAuthStart).map(c=>c.action),['list','list']);
+ assert.equal(creates,afterConfirmed);
+ // The original remains the sole resolution target while sign-in is missing.
+ await page.getByLabel('Player display name (required)',{exact:true}).fill('Authentication original demo');
+ await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
+ lost=true;await page.getByRole('button',{name:'Save registration',exact:true}).click();
+ await visible('Save outcome is uncertain');
+ const originalKey=`academyos:people:user_A:${academy}`;
+ const original=await page.evaluate(key=>sessionStorage.getItem(key),originalKey);
+ assert.match(original,/^[a-f0-9-]{36}$/i);
+ const unknownAuthStart=calls.length,unknownCreates=creates;authMissing=true;
+ await page.getByRole('button',{name:'Check original save',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+ assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),originalKey),original);
+ await expect(page.getByRole('button',{name:'Register player',exact:true})).toHaveCount(0);
+ authMissing=false;await page.getByRole('button',{name:'Check original save',exact:true}).click();
+ await visible('Player profile');
+ assert.equal(creates,unknownCreates);
+ assert.deepEqual(calls.slice(unknownAuthStart).map(c=>c.action),['reconcile','reconcile','profile']);
+ assert.ok(calls.slice(unknownAuthStart).filter(c=>c.action==='reconcile').every(c=>c.op===original));
+ assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),originalKey),null);
+ // A pre-commit401 still keeps its original until a canonical cancellation;
+ // recovering that cancelled original restores scope before another review.
+ readHold='list';releaseRead=null;
+ await page.getByRole('button',{name:'Back to players',exact:true}).click();
+ await expect.poll(()=>typeof releaseRead).toBe('function');
+ const releaseReturningList=releaseRead;readHold=null;
+ await page.getByLabel('Find a player by name',{exact:true}).fill('a');
+ await expect(page.getByText('Enter at least two characters to search.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeEnabled();
+ releaseReturningList();
+ await freshForm('Authentication before commit demo');
+ await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
+ const beforeUncommitted=creates,uncommittedStart=calls.length;authMissing=true;
+ await page.getByRole('button',{name:'Save registration',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Sign-in required',exact:true})).toBeVisible();
+ const uncommittedOriginal=await page.evaluate(key=>sessionStorage.getItem(key),originalKey);
+ assert.match(uncommittedOriginal,/^[a-f0-9-]{36}$/i);
+ assert.equal(creates,beforeUncommitted);
+ authMissing=false;await page.getByRole('button',{name:'Check original save',exact:true}).click();
+ await visible('New player draft');
+ await expect(page.getByText('Synthetic A · Main Demo Branch',{exact:true})).toBeVisible();
+ assert.equal(await page.getByLabel('Player display name (required)',{exact:true}).inputValue(),'Authentication before commit demo');
+ assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),originalKey),null);
+ assert.equal(creates,beforeUncommitted);
+ assert.deepEqual(calls.slice(uncommittedStart).map(c=>c.action),['create','reconcile','list']);
+ assert.equal(calls[uncommittedStart+1].op,uncommittedOriginal);
+ assert.equal(calls.at(-1).query,'','scope recovery never sends an unsupported one-character server search');
  // A new identity remount must remove all prior actor projections and drafts.
  denied=true;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_B'})));await page.getByRole('alert').waitFor();assert.equal(await page.getByText('New Demo',{exact:true}).count(),0);assert.equal(await page.getByText('contact@example.invalid',{exact:true}).count(),0);
  // Refresh a saved profile after revocation clears it.
  denied=false;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_A'})));await page.getByRole('button',{name:'Alex Demo',exact:true}).first().click();await visible('Player profile');denied=true;await page.getByRole('button',{name:/^(Refresh view|Retry current read)$/}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByText('contact@example.invalid',{exact:true}).count(),0);
  await page.clock.install();const beforeAuthCalls=calls.length;await page.goto(`http://127.0.0.1:${server.address().port}/?authPending`);await page.getByRole('status').waitFor();await page.clock.fastForward(16000);await visible('Could not load sign-in');await expect(page.getByRole('button',{name:'Retry loading page',exact:true})).toBeVisible();assert.equal(calls.length,beforeAuthCalls);
- assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
+ assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['API401 distinct from denial;EN/AR mask and one profile retry','same-account draft fields survive API401 without a create','unknown original survives401 and reconciles the same ID without a second create','held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
  console.log(JSON.stringify({peopleUi:'passed',reactMode,creates,errors,scopedRequests:calls.length}));
 }finally{await browser.close();await new Promise(r=>server.close(r));}

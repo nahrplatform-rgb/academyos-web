@@ -84,6 +84,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const storageKey = `academyos:people:${subject}:${academy}`;
     const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
     const pendingView=useRef<PeopleViewContext|null>(null);
+    const authenticationRequired=useRef(false);
     const [viewRestored,setViewRestored]=useState(false);
     const unavailable = blocked;
     function errorText(code: string) {
@@ -92,14 +93,22 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             :stage==='profile'&&saved
                 ?t('Registration saved. The profile could not load. Try again.','حُفظ التسجيل. تعذّر تحميل الملف. أعد المحاولة.')
                 :t('Could not load the current view. Try again.','تعذّر تحميل العرض الحالي. أعد المحاولة.');
-        return ({denied:t('These player records are unavailable to this account. Choose an available workspace.','لا تتوفر سجلات اللاعبين لهذا الحساب. اختر مساحة عمل متاحة.'),setup_required:t('Complete initial academy setup before registering players.','أكمل الإعداد الأولي قبل تسجيل اللاعبين.'),offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'),invalid:t('Check the name and fictional contact email.','تحقق من الاسم وبريد جهة الاتصال الخيالي.'),conflict:t('Operation changed or was cancelled. Check the original save.','تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'),limited:t('Too many requests. Wait before trying again.','طلبات كثيرة. انتظر قبل المحاولة.')} as Record<string,string>)[code]??t('Could not complete the request.','تعذر إكمال الطلب.');
+        return ({authentication_required:t('Sign in again to check these players. Saved work stays protected.','سجّل الدخول مجددًا للتحقق من بيانات اللاعبين. يبقى العمل المحفوظ محميًا.'),denied:t('These player records are unavailable to this account. Choose an available workspace.','لا تتوفر سجلات اللاعبين لهذا الحساب. اختر مساحة عمل متاحة.'),setup_required:t('Complete initial academy setup before registering players.','أكمل الإعداد الأولي قبل تسجيل اللاعبين.'),offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'),invalid:t('Check the name and fictional contact email.','تحقق من الاسم وبريد جهة الاتصال الخيالي.'),conflict:t('Operation changed or was cancelled. Check the original save.','تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'),limited:t('Too many requests. Wait before trying again.','طلبات كثيرة. انتظر قبل المحاولة.')} as Record<string,string>)[code]??t('Could not complete the request.','تعذر إكمال الطلب.');
     }
     function forget() { try {
         sessionStorage.removeItem(storageKey);
     }
     catch { } operation.current = null; }
     function failure(e: unknown) { if (!active.current)
-        return; const code = e instanceof RequestFailure ? e.code : 'unavailable'; setError(code); if (['denied', 'setup_required'].includes(code)) {
+        return; const code = e instanceof RequestFailure ? e.code : 'unavailable'; setError(code);
+        if(code==='authentication_required') {
+            authenticationRequired.current=true;
+            setBlocked(true);setContext(null);setPlayers([]);setCandidates([]);setSelected(null);
+            setDifferent(false);
+            if(!operation.current&&(stage==='duplicates'||stage==='review'))setStage('form');
+            return;
+        }
+        if (['denied', 'setup_required'].includes(code)) {
         pendingView.current=null;
         try {sessionStorage.removeItem(viewKey);} catch {}
         setBlocked(true);
@@ -118,6 +127,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         const timeout = setTimeout(() => controller.abort(), 15000);
         try {
             const res = await fetch('/api/people', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: controller.signal, body: JSON.stringify({ ...body, academy }) });
+            if(!active.current||controller.signal.aborted)throw new RequestFailure('stale');
+            if(res.status===401)throw new RequestFailure('authentication_required');
             const json = await res.json();
             if (!active.current || controller.signal.aborted)
                 throw new RequestFailure('stale');
@@ -131,18 +142,19 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         }
     }
     async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, resume=false) {
+        if(quiet&&authenticationRequired.current)return;
         let ticket=quiet?directoryTicket.current:++directoryTicket.current;
         let applied=!quiet;
         const q=(pendingView.current?.search??search).normalize('NFKC').trim();
-        if(!quiet){controllers.current.forEach(c=>c.abort());setChecking(resume&&stage==='directory'&&Boolean(context)&&!blocked&&!missing&&!error);setBusy(true);setError('');}
+        if(!quiet){controllers.current.forEach(c=>c.abort());setChecking(resume&&stage==='directory'&&Boolean(context)&&!blocked&&!missing&&!error);setBusy(true);setError(authenticationRequired.current?'authentication_required':'');}
         try {
-            if(q.length===1) {
+            if(q.length===1&&context&&!authenticationRequired.current) {
                 setPlayers([]);setMore(false);localNext.current=null;
                 return;
             }
-            if(device.active&&!after) {
+            if(device.active&&!after&&!authenticationRequired.current) {
                 let cursor=position??pendingView.current?.position??null;
-                const local=async()=>device.read('people',q,cursor??undefined);
+                const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
                 const contextTask=device.context();
                 const pageTask=local().catch(async(error:unknown)=>{
                     if(cursor&&error instanceof Error&&/workspace_invalid_position|workspace_generation_changed/.test(error.message)){
@@ -154,13 +166,13 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 let localResult:Awaited<typeof pageTask>=null;
                 let localContext:Awaited<typeof contextTask>=null;
                 try {[localResult,localContext]=await Promise.all([pageTask,contextTask]);} catch { /* Use an authorized online read if storage is unavailable. */ }
-                if(ticket!==directoryTicket.current||!active.current)return;
+                if(ticket!==directoryTicket.current||!active.current||authenticationRequired.current)return;
                 if(localResult&&localContext) {
                     if(quiet){ticket=++directoryTicket.current;applied=true;}
                     setContext(localContext);
-                    const rows=localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]);
+                    const rows=q.length===1?[]:localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]);
                     setPlayers(rows);
-                    setMore(Boolean(localResult.next));localNext.current=localResult.next;
+                    setMore(q.length!==1&&Boolean(localResult.next));localNext.current=q.length===1?null:localResult.next;
                     localPosition.current=cursor;localSearch.current=q;
                     setMissing(false);setBlocked(false);setLocalRows(true);
                     const restore=pendingView.current;
@@ -181,9 +193,10 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 return;
             }
             if(quiet)return;
-            const result=await request<Page>({action:'list',query:q,...(after?{after}:{})});
+            const result=await request<Page>({action:'list',query:q.length===1?'':q,...(after?{after}:{})});
             if(ticket!==directoryTicket.current)return;
-            setContext(result);setPlayers(result.items.map(playerRow));setMore(result.more);
+            authenticationRequired.current=false;setError('');
+            setContext(result);setPlayers(q.length===1?[]:result.items.map(playerRow));setMore(q.length!==1&&result.more);
             setMissing(false);setLocalRows(false);setBlocked(false);
         } catch(e) {
             if(!quiet&&ticket===directoryTicket.current){setPlayers([]);setBlocked(true);failure(e);}
@@ -221,10 +234,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         pendingView.current=null;
         setSummaryOnly(false);
  const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
- const ticket = ++profileTicket.current; setChecking(keep); setSaved(wasSaved); setProfileId(id); if(!keep)setSelected(null); setStage('profile'); setBusy(true); setError(''); setNotice(''); try {
+ const ticket = ++profileTicket.current; setChecking(keep); setSaved(wasSaved); setProfileId(id); if(!keep)setSelected(null); setStage('profile'); setBusy(true); setError(authenticationRequired.current?'authentication_required':''); setNotice(''); try {
         const p = await request<Row>({ action: 'profile', player: id });
         if (ticket !== profileTicket.current)
             return;
+        authenticationRequired.current=false;setBlocked(false);setError('');
         setSelected(playerRow(p));
         setStage('profile');
     }
@@ -299,7 +313,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         }
     }
     async function reconcile() { if (locked.current || !operation.current)
-        return; locked.current = true; setBusy(true); setError(''); setNotice(''); try {
+        return; locked.current = true; setBusy(true); setError(authenticationRequired.current?'authentication_required':''); setNotice(''); try {
         const r = await request<{
             player_id?: string;
             cancelled?: boolean;
@@ -316,8 +330,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             forget();
             setStage(name ? 'form' : 'directory');
             setNotice(t('The original save did not commit and is now cancelled. You may register again.', 'لم يُحفظ الطلب الأصلي وأُلغي الآن. يمكنك التسجيل مجدداً.'));
-            if (!name)
+            if (!name||!context)
                 await loadDirectory();
+            else {authenticationRequired.current=false;setBlocked(false);setError('');}
         }
     }
     catch (e) {
@@ -453,12 +468,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
       {busy && !checking && stage !== 'saving' && !(localRows&&device.active&&(stage==='directory'||(stage==='profile'&&summaryOnly))) && <p role="status">{checking?t('Checking current players…','جارٍ التحقق من بيانات اللاعبين…'):stage==='profile'?t('Loading profile…','جارٍ تحميل الملف…'):t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
       {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
       {unavailable||device.phase==='denied' ? <section className="journey-card" role="alert">
-        <h2>{error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
+        <h2>{error==='authentication_required'?t('Sign-in required','تسجيل الدخول مطلوب'):error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
         <p>{errorText(error||'denied')}</p>
-        <Button onClick={() => void loadDirectory()}>{t('Try again', 'إعادة المحاولة')}</Button>
+        <Button disabled={busy} onClick={() => {if(error==='authentication_required'&&stage==='unknown')void reconcile();else if(error==='authentication_required'&&stage==='profile'&&profileId)void openProfile(profileId,saved);else void loadDirectory();}}>{error==='authentication_required'&&stage==='unknown'?t('Check original save','التحقق من الحفظ الأصلي'):error==='authentication_required'&&stage==='profile'?t('Retry loading profile','إعادة تحميل الملف'):t('Try again', 'إعادة المحاولة')}</Button>
       </section> : <>
         {(stage === 'directory' || stage === 'profile') && <section className="journey-card">
-          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
+          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
           <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => { pendingView.current=null;directoryTicket.current++; setChecking(false); setSearch(event.target.value); setBusy(true); }}/>
           {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}

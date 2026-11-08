@@ -59,7 +59,7 @@
     "component_capture_suites": 16,
     "production_build_types_lint": "passed",
     "actual_next_navigation": "passed;EN/AR internal documents0,dirty guards,selection and Back/Forward",
-    "factual_review": "16capture suites,static entry,factual build/offline tool passed;inventory regeneration follows final tracking-only update",
+    "factual_review": "16capture suites/static/factual build/offline tool passed;finalpost-CI tracking-only inventory regenerated",
     "structural": "master with actual PYSA path/line checks;implementation;execution;17continuation tests;source-bound transport/startup/normal-Attendance freshness pass",
     "working_day": 8,
     "compiled_build_guard": 4,
@@ -109,5 +109,14 @@
       "cause": "probe still used Home Reload current view label on Calendar;currentroute labels now exact;allidentity andrequest assertions kept",
       "local_exact_variant": "passed after correction"
     }
-  ]
+  ],
+  "final_candidate": {
+    "commit": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+    "ci": 42419990329,
+    "passed_steps": 53,
+    "preview_ready": true,
+    "promotion": "Owner pending",
+    "staging_source": "68b6575 confirmed independently",
+    "receipt": "docs/07-handoff/evidence/mp-b01-owner-feedback/release.json"
+  }
 }
