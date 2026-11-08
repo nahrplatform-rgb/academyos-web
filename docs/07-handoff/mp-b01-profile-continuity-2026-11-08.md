@@ -46,3 +46,14 @@ One helper was used: configured gpt-6.1-terra, medium effort, frozen reference/P
 ## Release checkpoint
 
 Local combined checks are complete. The next exact commit,CI run and preview must be recorded here/the execution tracker after publishing. This source is not yet hosted verified;the previous c73bdf8 Owner promotion is complete and must not be requested again. Final metadata-only post-push receipts stay local for the next coherent batch.
+
+Combined candidate **9c1efd04cc4ec8329bc0671f8a26d66c50e7c453** is pushed. [CI42522403859](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859) and [preview DcC8hxFtwHgNMn1boGs3TWjFvFKn](https://vercel.com/academy-os2/academyos-web/DcC8hxFtwHgNMn1boGs3TWjFvFKn) are in progress at this observation. Current exact results belong to [release.json](evidence/mp-b01-profile-continuity/release.json)/the tracker. No new promotion or hosted proof follows.
+
+The push surfaced default-branch Dependabot alert1. A primary GitHub advisory lookup confirms GHSA-vfj7-8cjw-p6xm was withdrawn23October2026;the locked braces3.0.3 entry is development-only. The alert itself remains open. [Disposition/source](evidence/mp-b01-profile-continuity/dependency-notice.json) records these facts without claiming a dependency fix,runtime exploitability,full audit or independent review. No package/provider setting changed.
+
+
+### First CI failure and corrected settlement wait
+
+Initial candidate9c1efd0 failed [CI42522403859](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859) at the retained one-profile-read-per-visible-return assertion (actual0,expected1). [Exact failure](evidence/mp-b01-profile-continuity/ci-9c1efd0-failure.json). The test still treated Back becoming enabled as proof that the held read had settled. Back is now deliberately enabled while the response is held;the next focus therefore correctly coalesced with that pending read. The coordinator missed this completion-signal dependency.
+
+The test now waits for the profile refresh control to become ready before measuring a distinct return. The exact one-read expectation remains;no sleep,budget relaxation or product edit was added. Both React modes again pass the10new cases and original54-request/4-create sequence. Only People captures need refresh because app/CSS/helper sources and the other15groups are unchanged. The current compiled build,70real-boundary and39shared-runtime cases remain current;all13freshness guards are rerun. The Ready9c1efd0 preview is ineligible for promotion. A replacement exact-source CI is required.

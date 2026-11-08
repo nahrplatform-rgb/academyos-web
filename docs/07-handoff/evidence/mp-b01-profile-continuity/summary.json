@@ -3,13 +3,13 @@
   "batch": "MP-B01",
   "execution": "EX-07",
   "base": "c73bdf89af2a1884afd284a9f4f544039947436a",
-  "state": "combined local checks passed;ready for one coherent commit/push and exact-head CI",
+  "state": "initial CI failed on outdated test settlement signal;corrected test passes both React modes,production source unchanged",
   "source_hashes": {
     "apps/web/src/components/people-workspace.tsx": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
     "apps/web/src/app/globals.css": "37e87062c74c26e4fefc1c85242a463ed8cc4c6a994e0fa153e237c5ad11fbbc",
     "scripts/people/profile_continuity.mjs": "6888f37561d537006e81b8fc4159a93ca7c920faabf2d22c38f87e88b173abdc",
-    "scripts/people/test_ui.mjs": "4feb37182eacb6a2c88c050c9ba5d9f8243dc5dc94cf900f46bcb27bf11614b0"
+    "scripts/people/test_ui.mjs": "2109eb8e8a6bf26547f182cd5a9a65459fdb8f7e9b25e4edb0451c1a82981662"
   },
   "baseline": {
     "profile": "profile-continuity/before.json",
@@ -48,7 +48,8 @@
       "source_files": 80,
       "literals": 8034,
       "scope": "Captured states and source inventory;not exhaustive runtime/hosted coverage"
-    }
+    },
+    "profile_settlement_wait": "Explicit own-refresh-control readiness;one-read assertion unchanged"
   },
   "delegation": {
     "model": "gpt-6.1-terra",
@@ -61,15 +62,22 @@
   },
   "trust_boundary": "No server,SQL,API/key/worker/local-schema/epoch/command change;current403/401 masks and original saves retained",
   "release": {
-    "candidate": "not committed yet",
+    "candidate": "replacement not committed yet",
     "staging": "c73bdf8 verified separately;does not include these changes",
     "hosted_for_new_source": false,
     "Owner_acceptance": false,
-    "external_review": "Deferred/nonblocking;not performed"
+    "external_review": "Deferred/nonblocking;not performed",
+    "pushed": true,
+    "CI_run": 42522403859,
+    "preview": "dpl_DcC8hxFtwHgNMn1boGs3TWjFvFKn",
+    "status_receipt": "release.json",
+    "failed_candidate": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
+    "failed_CI_receipt": "ci-9c1efd0-failure.json"
   },
   "compiled_build": {
     "node": "v24.14.0",
     "sourceHash": "20db9ba95ce0bd940dd077f119fb86bacbed7d8a99a10db98a7740f624c49592",
     "artifactHash": "b53be04e39b0e13a2c2e1a2c9c3d075e54e844096f26243e3f8b13c3b194b2c3"
-  }
+  },
+  "dependency_notice": "dependency-notice.json"
 }

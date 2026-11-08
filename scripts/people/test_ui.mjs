@@ -61,6 +61,9 @@ try{
  // remain disabled and the same current refusal must still mask private data.
  await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeEnabled();
  await expect.poll(()=>typeof releaseRead).toBe('function');readHold=null;releaseRead();
+ // Back is intentionally usable in flight. The profile's own refresh control
+ // signals settlement before testing a distinct subsequent visible return.
+ await expect(page.getByRole('button',{name:'Refresh view',exact:true})).toBeEnabled();
  await expect(page.getByRole('button',{name:'Back to players',exact:true})).toBeEnabled();
  assert.equal(calls.length-heldProfileStart,1,'retained profile adds no check request');
  const profileStart=calls.length;await visibleReturn();const profileResumeReads=calls.length-profileStart;assert.equal(profileResumeReads,baseline?2:1,'one selected-profile read per visible return');await expect(page.getByText('contact@example.invalid',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Back to players',exact:true}).click();await expect(page.getByRole('button',{name:'Alex Demo',exact:true})).toBeFocused();
