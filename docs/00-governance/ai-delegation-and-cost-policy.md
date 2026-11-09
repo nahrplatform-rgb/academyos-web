@@ -1,36 +1,33 @@
 # AI delegation, concurrency and delivery cost
 
-Owner-directed project policy, recorded 4 November 2026. The Owner requested embedding selective Sol/Terra delegation throughout AcademyOS and explicitly limited how many subagents should run together. This is a delivery method for existing authorized work; it does not add product scope, alter business rules, reopen settled decisions or change access/release authority.
+Owner-directed project policy, recorded 4 November and updated 9 November 2026. Apply it to each AcademyOS batch. The execution tracker and existing contracts govern the scope, decisions and release authority.
 
 The zero/one default and ceiling of two below are the conservative engineering interpretation of “not too many,” not a measured optimum or a numeric limit quoted from the Owner.
 
 ## Operating rule
 
-### Owner-requested external DeepSeek trial —7 November 2026
+**Use GPT-6.1 Sol to coordinate and GPT-6.1 Terra for new bounded helper assignments. Use scripts directly for deterministic work.**
 
-The Owner requested coordinator review/correction of DeepSeek's `bcb1a78` batch and simple meaningful tracked work for that assistant. [AI work items](../06-delivery/ai-work-items.csv) and the exact [DS-002 brief](../07-handoff/deepseek-task-DS-002.md) record the manual DeepSeek Harness handoff. This does not change the native Terra default below, install an integration, launch a worker or authorize a new API purchase/provider setting.
-
-External workers count in the same project cap: default one helper total; no nested agents or extra coordinator. One worker owns only its assigned files. The coordinator owns architecture/authority/sync/recovery, shared trackers/generators, source integration and publishing; the Owner still promotes. A worker can read its parent EX/batch, but cannot change priority, declare its own acceptance or turn a report into a business rule. The task ledger is a child-work register, not another primary execution queue or a runtime permission system.
-
-For DS-002, product/source is read-only and only two new report files may be written. No tests/builds are needed for a static wording audit. The worker reports exact source/model and evidence limits; the coordinator checks actual files/diff before adopting suggestions or updating shared state. A ready handoff means not started; no completion/usage is inferred. A blocked optional report does not freeze independent parent work. Later tasks need their own explicit scope/ownership/checks before starting.
-
-The observed first session used alias `deepseek-flash`; its scoped regression/doc result supports a trial, not a measured model hierarchy or cheaper whole-task cost. Review quality, repairs, elapsed work including tests/CI, actual charges when exposed and coordinator effort. No savings or five-hour allowance effect is promised. The [DS-001 receipt](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) records source corrections and outstanding limits.
-
-On 8 November the Owner asked for further DeepSeek tasks and whether to keep dispatching until its allowance finishes. Use completed useful work as the objective, not consumed allowance. Prepare one bounded task for the current batch, review its output and integrate the useful result before building a queue of more reports. If integration/review is falling behind or there is no independent useful work, pause dispatch and continue implementation. DS-002/003 supplied useful evidence but required corrections; do not repeat their audits merely to occupy the worker. The returned [DS-004 plan](../07-handoff/deepseek-task-DS-004.md) now has [six corrected dispositions](../07-handoff/deepseek-DS-004-review-2026-11-08.md). Its proposals are not passed tests. The next prepared [DS-005 task](../07-handoff/deepseek-task-DS-005.md) writes one isolated online empty-registration browser test helper and a short report, with only a syntax check allowed before coordinator integration. Its explicit observer/runner contract leaves actual SQL/API wiring and runtime verification here. This is a manual handoff, not a running assistant or a new primary stage. Architecture/authority/sync/recovery and shared integration remain with the coordinator; do not treat a helper's syntax pass as runtime or security proof.
-
-DS-005 subsequently stopped when the Owner's DeepSeek quota ran out: the [interruption receipt](../07-handoff/deepseek-DS-005-interruption-2026-11-08.md) records one module and an absent report at that time. One bounded native Terra helper then amended only its module/report;the coordinator supplied the observer/runner and verified the actual online-empty scenario. [Current DS-005 review](../07-handoff/deepseek-DS-005-review-2026-11-08.md) records `reviewed_corrected`,with parent and hosted limits retained. Quota availability is not a primary-project dependency;preserve partial work and continue here without buying capacity or relaunching an existing-output brief. The prior interruption is not rewritten into a completed external delivery.
-
-**Use scripts for deterministic repetition, a bounded Terra worker when delegation is worthwhile, and the Sol coordinator for decisions, complex reasoning and integration. Default to zero or one helper; never exceed two active subagents in the coordinated batch without a later explicit Owner instruction.**
+1. **Route.** Select the current batch from the execution tracker. Use a script for known commands, CI waiting, routine metadata checks and generation. Sol handles decisions, architecture, authority, synchronization, recovery, integration and release readiness.
+2. **Assign.** If the task meets the scope and cost test below, give one explicitly configured Terra worker a fresh brief with exact ownership, acceptance cases, evidence and a stop condition. A second helper requires a documented independent scope and benefit. Keep a single coordinator.
+3. **Verify.** Apply the same acceptance criteria regardless of model. The coordinator checks the diff and the evidence for the changed behavior and runs the affected integration checks. Run consolidated validation at the coherent checkpoint. Revisit a specific result when the evidence is incomplete, the source has changed or a regression needs investigation.
+4. **Record.** Put the model, scope, result and verification in the existing batch receipt. Keep development, release evidence and Owner acceptance separate. Link the receipt from the tracker and regenerate the continuation at the checkpoint.
 
 Choose by expected cost of a correctly completed result, including context, coordination, validation and repairs. A lower token rate does not establish a lower whole-task cost. Do not force every task into a delegation workflow or invent a target percentage of work that must use Terra. These are initial routing choices, not a benchmark proving a capability hierarchy between the models.
 
-The Owner's instruction and the root [AGENTS.md](../../AGENTS.md) authorize suitable bounded delegation within this policy during ordinary continuation. No separate approval is needed for each eligible helper. The coordinator may use none when the task is small, serial, deterministic, sensitive or cheaper to complete directly. Delegation remains subordinate to the current [execution tracker](../06-delivery/experience-execution.csv), charter and applicable tool limits.
+The Owner's instruction authorizes suitable bounded delegation during ordinary continuation. The coordinator may work directly when a task is small, serial, deterministic, sensitive or cheaper to complete without a handoff. Follow the charter, applicable tool limits and the current batch. [Agent instructions](../../AGENTS.md) · [Execution tracker](../06-delivery/experience-execution.csv)
+
+### Historical DeepSeek trial — 7–8 November 2026
+
+The external trial produced a registration regression and focused audit reports. Keep their exact scopes, returned evidence and coordinator corrections in the child-work register. The 9 November Sol/Terra rule governs new assignments. [AI work items](../06-delivery/ai-work-items.csv) · [DS-001 review](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-004 corrected dispositions](../07-handoff/deepseek-DS-004-review-2026-11-08.md)
+
+DeepSeek stopped DS-005 after writing a partial helper. Terra completed the two owned outputs, and the coordinator integrated the observer and runner and verified the online empty-directory scenario. The record retains separate external, native, integrated and hosted evidence. [Interruption receipt](../07-handoff/deepseek-DS-005-interruption-2026-11-08.md) · [DS-005 review](../07-handoff/deepseek-DS-005-review-2026-11-08.md)
 
 ## Models and bounded concurrency
 
 | Item | Project instruction |
 |---|---|
-| Coordinator | Prefer `gpt-6.1-sol` for coordination when selected/available. The running main agent retains accountability; do not silently change the Owner's selected main model or account settings. |
+| Coordinator | Use `gpt-6.1-sol` for coordination. The running main agent retains accountability and respects the Owner's model selection. |
 | Delegated worker | Explicitly choose `gpt-6.1-terra` for eligible work; do not assume the worker inherits that model. If unavailable, continue with the existing coordinator and state the limitation; do not purchase access or silently substitute another paid model. |
 | Normal active helpers | Zero for small/serial/mechanical work; one Terra helper for a worthwhile bounded task. |
 | Maximum active helpers | Two, excluding the coordinator, only for genuinely independent work with non-overlapping ownership and a recorded benefit. This is a ceiling, not a target. |
@@ -47,7 +44,7 @@ This document and its references are **project instructions**, not a provider-le
 
 | Work | Default owner | Boundary |
 |---|---|---|
-| Generating registers/prompts, formatting, validators, known commands and simple file searches | Script/tool directly | Do not start an LLM worker merely to invoke a command the coordinator can run. Batch independent reads and keep output bounded. |
+| CI waiting, generating registers/prompts, formatting, validators, known commands and simple file searches | Script/tool directly | Run one bounded command and use its result. Batch independent reads and keep output bounded. |
 | Focused source inventory, reference comparison, exact-path documentation updates following settled decisions, copy/terminology consistency | Terra candidate | Give the exact question/pattern, authoritative references and file set. No new policy interpretation, grant or acceptance claim. |
 | Applying an approved component pattern to a bounded independent surface; targeted test investigation | Terra candidate | Real contracts/acceptance cases must already be clear. Preserve assertions, operation semantics and domain boundaries; no speculative abstraction or unrelated rewrite. |
 | Visual comparison or fixture-based UI checks | Terra candidate when tools/resources can be isolated | Match reference/data/role/locale/theme/viewport. Do not compete for the real browser or infer backend/security proof from screenshots. |
@@ -58,6 +55,18 @@ This document and its references are **project instructions**, not a provider-le
 | Deployment promotion | Owner only | Neither coordinator nor worker promotes, reassigns the live alias or operates the passkey/promotion flow. |
 
 This routing does not prohibit Terra from being capable of demanding work. It controls risk and coordination while AcademyOS collects real delivery evidence. Revisit routing using observed quality/cost, without changing accepted product rules or silently substituting models.
+
+## CI and deployment evidence
+
+At a release checkpoint, use the full candidate SHA and its Foundation checks run ID. Find the run once from the existing PR or use `gh run list --repo nahrplatform-rgb/academyos-web --workflow verify.yml --commit "$candidate_sha" --json databaseId,headSha,event,status,conclusion,url`.
+
+```sh
+python3 scripts/verification/wait_for_candidate.py --commit "$candidate_sha" --run-id "$foundation_run_id"
+```
+
+The [CI waiter](../../scripts/verification/wait_for_candidate.py) uses the GitHub CLI to read one named run every 30 seconds until it completes, with a default one-hour wait window. It checks the repository, workflow, source and run attempt, then prints one JSON result with the verdict, run and job links, step counts and the first failed step when available. Exit `0` means the expected checks passed, `1` means CI finished without success, and `2` means verification could not be completed. Only inspect a targeted log excerpt when needed to diagnose a failure. After a rerun, verify the new attempt and record it in the existing release receipt.
+
+When a release needs a preview, make one separate read-only Vercel lookup for the candidate. Check the AcademyOS project, exact source SHA, deployment ID and ready state. Use the connected read tool or an already authorized CLI session. The Owner promotes the checked deployment. Afterward, verify the live staging source and signed-in behavior separately. [Coherent delivery and verification](../06-delivery/master-plan-v2/delivery-and-verification.md)
 
 ## Delegation decision before spawning
 
@@ -123,7 +132,7 @@ Published Terra credit rates are half Sol's for these categories. The same page 
 
 Measure **cost per verified completed batch**, not number of agents, files or cheap-model tokens alone. Include coordinator context, worker context/output/reasoning where exposed, tool-related work, integration, repairs and discarded attempts. Keep AI development cost separate from AcademyOS runtime Supabase/Redis/hosting/email costs; delegation can itself issue more application/provider requests and does not waive their budgets.
 
-For initial representative eligible batches, record model/effort, active count, exact scope, wall time, changed paths, validation result, repair cycles and any actually exposed token/credit usage. Compare with a genuinely comparable prior single-agent task if available. Do not duplicate a whole production task just to create a benchmark, claim savings from task count, infer a worker's bill from account-wide usage shared with other chats, or turn elapsed time into an invented token estimate. If per-agent usage is unavailable, say **not measured** and report the available quality/time evidence only.
+For eligible batches, record model/effort, active count, exact scope, wall time, changed paths, validation result, repair cycles and available token or credit usage. Judge the work against its acceptance cases. Keep the same assignment with one owner and record missing usage as **not measured**.
 
 Do not add paid telemetry, API credentials, automatic billing polling or service upgrades for this policy. Recheck official rates when making a new pricing claim or revising the model strategy; do not repeatedly browse/reload pricing for every unchanged task.
 
@@ -136,6 +145,7 @@ Coordinator model if known:
 Worker(s), exact configured model/effort, scope and active peak (or none):
 Why delegation/serial/script execution was chosen:
 Write/resource ownership and validation:
+Exact CI run/attempt and preview source evidence when applicable:
 Time, repairs and available usage (actual / modeled / unavailable):
 Cost/quality conclusion and limits; next routing adjustment if justified:
 ```

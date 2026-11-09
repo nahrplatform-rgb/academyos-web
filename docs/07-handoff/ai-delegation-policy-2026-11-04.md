@@ -34,3 +34,12 @@ Checks passed on 4 November 2026:
 No app runtime, role, database, provider, performance, security or live worker-count enforcement was tested or newly established. No subagent trial, savings measurement or deployment is implied by these structural results. Future delegated batches must record their actual configured workers, resources, checks and available usage.
 
 The reusable instruction remains **“Continue from the living continuation prompt.”** The generated text must carry the delegation cap and routing alongside existing roles, privacy, recovery and Owner-controlled promotion rules.
+
+## 9 November 2026 — operating workflow and CI waiter
+
+The Owner selected Sol 6.1 for coordination and Terra 6.1 for new bounded helper assignments. Scripts take deterministic work, including CI waiting. The delegation policy, agent instructions, verification guide and regenerated continuation carry the same acceptance criteria and concurrency limit. The work-item register retains the DeepSeek trial and its dispositions. [Operating policy](../00-governance/ai-delegation-and-cost-policy.md) · [Living continuation](../06-delivery/continue-academyos.md)
+
+- The waiter reported `passed` for `5e837dd` on attempt 1 with 53 of 53 steps passing. It reported `ci_failed` for `9c1efd0` on attempt 1 and named the registration and interrupted-save recovery step. It rejected a mismatched SHA/run pair and a shortened SHA. These runs validate the waiter against existing CI evidence. [Passing run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42523458608) · [Failed run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859)
+- Simulated responses covered queued-to-complete, wait timeout, stale attempt, missing verify job and cancellation. The implementation and execution validators, 17 continuation tests, factual review freshness and whitespace checks passed.
+- Vercel readiness remains a separate read-only check. The local CLI did not resolve the AcademyOS team. The Owner promotes the checked deployment, and the coordinator verifies the live staging source and journey afterward. [Release evidence procedure](../00-governance/ai-delegation-and-cost-policy.md#ci-and-deployment-evidence)
+- The coordinator handled this serial tooling and documentation update directly. Helpers assigned to this checkpoint: zero. Token and credit savings are unmeasured.

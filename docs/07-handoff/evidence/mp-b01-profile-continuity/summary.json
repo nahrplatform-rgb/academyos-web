@@ -3,7 +3,7 @@
   "batch": "MP-B01",
   "execution": "EX-07",
   "base": "c73bdf89af2a1884afd284a9f4f544039947436a",
-  "state": "initial CI failed on outdated test settlement signal;corrected test passes both React modes,production source unchanged",
+  "state": "exact corrected candidate CI passed and preview ready;Owner promotion and hosted verification pending",
   "source_hashes": {
     "apps/web/src/components/people-workspace.tsx": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
@@ -49,7 +49,14 @@
       "literals": 8034,
       "scope": "Captured states and source inventory;not exhaustive runtime/hosted coverage"
     },
-    "profile_settlement_wait": "Explicit own-refresh-control readiness;one-read assertion unchanged"
+    "profile_settlement_wait": "Explicit own-refresh-control readiness;one-read assertion unchanged",
+    "exact_candidate_CI": {
+      "commit": "5e837dd5ad6d3de86f6014c928249e0a2dec1637",
+      "run": 42523458608,
+      "job": 128861768572,
+      "passed_steps": 53,
+      "receipt": "ci-5e837dd.json"
+    }
   },
   "delegation": {
     "model": "gpt-6.1-terra",
@@ -62,17 +69,18 @@
   },
   "trust_boundary": "No server,SQL,API/key/worker/local-schema/epoch/command change;current403/401 masks and original saves retained",
   "release": {
-    "candidate": "replacement not committed yet",
-    "staging": "c73bdf8 verified separately;does not include these changes",
+    "candidate": "5e837dd5ad6d3de86f6014c928249e0a2dec1637",
+    "staging": "c73bdf8 exact live source independently rechecked;new work not hosted verified",
     "hosted_for_new_source": false,
     "Owner_acceptance": false,
     "external_review": "Deferred/nonblocking;not performed",
     "pushed": true,
-    "CI_run": 42522403859,
-    "preview": "dpl_DcC8hxFtwHgNMn1boGs3TWjFvFKn",
+    "CI_run": 42523458608,
+    "preview": "dpl_6hBshiYx23hjGEmxoG8EMq3Fb3ne",
     "status_receipt": "release.json",
     "failed_candidate": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
-    "failed_CI_receipt": "ci-9c1efd0-failure.json"
+    "failed_CI_receipt": "ci-9c1efd0-failure.json",
+    "status": "Ready for Owner-only staging promotion"
   },
   "compiled_build": {
     "node": "v24.14.0",

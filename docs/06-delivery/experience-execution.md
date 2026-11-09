@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-Scoped external work is recorded in [AI work items](ai-work-items.csv), with [DS-001 review/corrections](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md), [DS-004's corrected regression plan](../07-handoff/deepseek-DS-004-review-2026-11-08.md) and the [DS-005 test-only handoff](../07-handoff/deepseek-task-DS-005.md). These are child outputs of EX-07 / MP-B01, not another current-priority queue. The coordinator reviews returned files before adoption and owns canonical observer/harness integration, auth, sync and recovery. A helper syntax check is not a runtime pass; a ready manual handoff launches nothing and does not block independent work.
+The DeepSeek trial and coordinator dispositions are historical EX-07 / MP-B01 evidence. Use the 9 November Sol/Terra policy below for new work and the EX tracker for priority. [AI work items](ai-work-items.csv) · [DS-001 review](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-004 corrected plan](../07-handoff/deepseek-DS-004-review-2026-11-08.md) · [DS-005 integration review](../07-handoff/deepseek-DS-005-review-2026-11-08.md)
 
 ## Version2 connected-batch execution —7November2026
 
@@ -101,7 +101,7 @@ The original nine work IDs and EX-10/EX-11 checkpoints remain, with additive EX-
 
 ## Continuation and checkpoint maintenance
 
-Apply the [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) within each existing batch, not as a new stage: direct scripts for mechanical work, a bounded explicitly configured Terra helper where worthwhile, default zero/one and maximum two active subagents with no nested spawning. The coordinator owns decisions/integration and shared stateful resources. Add a proportional model/count/rationale/checks/repair/available-usage note to the normal receipt; unobserved savings stay unmeasured. This does not reorder EX-07/EX-12 or stall work for a benchmark. [Policy checkpoint](../07-handoff/ai-delegation-policy-2026-11-04.md).
+Apply the Sol/Terra workflow within each existing batch. Use scripts for mechanical work and one bounded Terra helper when worthwhile. Sol owns decisions, integration and shared resources. Apply the same acceptance criteria and record the checks, exact CI attempt and available usage in the existing receipt. [AI delegation and cost policy](../00-governance/ai-delegation-and-cost-policy.md)
 
 1. Read the single `current` row, its latest next action, this contract and applicable evidence. Historical packets explain prior results; their old next-step text cannot override current routing.
 2. Name the bounded outcome and existing IMP/J/S/AO/AT/L/SEC joins. Reuse compatible baseline results and inspect current source; do not repeat an investigation-only checkpoint without a new question or changed evidence.

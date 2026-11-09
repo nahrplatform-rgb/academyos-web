@@ -44,6 +44,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR03 — Task erasure during revalidation
 
+9 November Owner Players component check: paired visible-return signals now keep the checked filtered second page with one current list read. Manual refresh also retains its five rows while held, then removes them on an authoritative `403`. Search focus stayed in place during the visible return. Wider route, real-device and hosted checks remain open. [Directory return comparison](../07-handoff/mp-b01-directory-return-2026-11-09.md#before-and-after)
+
 8 November [profile/toolbar checkpoint](../07-handoff/mp-b01-profile-continuity-2026-11-08.md) reproduces a distinct initial online detail read that removes18checked directory rows and resets scroll. Separate detail pending/cancellation now retains the same DOM and position;current401/403 still mask private content. It also fixes verified Escape/outside toolbar handoff and applies scoped Operations row density. This is new local evidence;previous c73bdf8 hosted proof is the baseline,not this repair. Post-save/search/auth-recovery and broader roles remain open.
 
 7 November MP-B01: [Owner feedback/return evidence](../07-handoff/mp-b01-owner-feedback-continuity-2026-11-07.md) compares 20 EN/AR Home/Calendar cases before/after: checked rows disappear during the original held read and remain during the repaired clean Owner resume. Failed/denied checks still clear private data; current reads and action gates remain. Canonical Players directory/profile gets separate held-read DOM/request checks. This is scoped source/local evidence, not hosted verification, a new access lease, all-role parity or closure of NR03. The earlier observations below describe their inspected baseline.
@@ -81,6 +83,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 - Recommendation and safety boundary: Reviewed minimal anchor/context or default-window calendar contract; do not use browser timezone as branch authority.
 
 ### NR07 — Selected-detail and bootstrap waterfalls
+
+9 November Owner Players component check: the same-mounted-workspace `401` path preserves confirmed registration through one directory retry. Retrying a profile still reads only that profile. If its earlier `401` cleared the directory, Back performs the missing current list and a zero count only appears after a checked result. The separately reported hosted prepared-directory symptom remains undiagnosed. [Registration and directory evidence](../07-handoff/mp-b01-directory-return-2026-11-09.md)
 
 8 November follow-on: [prepared-empty and failed-page evidence](../07-handoff/mp-b01-empty-prepared-continuity-2026-11-08.md) reproduces a local contradiction after a real committed registration: a503 changed-directory page retains the correct old empty replica, but the UI claims no players were registered. The scoped repair labels the unfinished replacement and retains confirmation through reload/retry without another create or online list.70actual-boundary checks pass, including isolated successful/lost-reply first registrations and both forced completed-generation/read race timings. The initial candidate failed CI on an extra online list;one bounded local retry handles that obsolete generation without weakening the budget. This is one local occurrence, not diagnosis of the earlier hosted symptom or full NR07 closure; manifest-before-checkpoint, exact hosted source and broader context/role/device/performance cases remain separate.
 

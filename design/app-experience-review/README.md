@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+9 November MP-B01 recaptures People registration return, same-workspace sign-in recovery and filtered page checks. The comparison reports synthetic component observations and retains prior hosted evidence separately. [Directory return checkpoint](../../docs/07-handoff/mp-b01-directory-return-2026-11-09.md)
+
 8November follow-on: [profile/toolbar continuity](../../docs/07-handoff/mp-b01-profile-continuity-2026-11-08.md) changes People read feedback,scoped row density and shared native-menu dismissal. Refresh all16component families plus8entry captures;the imported People helper is now fingerprinted as a capture dependency. Held profile/menu tests and70protected-boundary regressions remain separately scoped evidence.
 
 8 November follow-on: [prepared-empty/failed-download continuity](../../docs/07-handoff/mp-b01-empty-prepared-continuity-2026-11-08.md) changes Players feedback and adds a read-only local replacement hint. Refresh the conservative all16component capture set and factual HTML. The protected real-handler runner supplies separate EN/AR paused-transfer captures and70checks;the default replay does not demonstrate those protected states. The earlier6d9d3f6 hosted positive proof remains distinct from this newer local source.

@@ -1,6 +1,6 @@
 {
-  "source": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
-  "generatedAt": "2026-11-08T21:04:43.833Z",
+  "source": "5e837dd5ad6d3de86f6014c928249e0a2dec1637",
+  "generatedAt": "2026-11-09T01:10:23.481Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -55,7 +55,7 @@
     "apps/web/src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
-    "apps/web/src/components/people-workspace.tsx": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
+    "apps/web/src/components/people-workspace.tsx": "03f2c963b9e1881f6b293d5168876b11642366591ee2e7c9e5c2ec2bdfef2b26",
     "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
@@ -84,7 +84,7 @@
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
-    "docs/03-design/screen-data-loading-matrix.csv": "f6736d8b82b1f4d28019601fe67eea4d9721c2c80b8c2727a83d8b53e2117283",
+    "docs/03-design/screen-data-loading-matrix.csv": "5cd9a83d47644916ee1894f7b62eabf928bc31b6553c49d35453cfe8ea977297",
     "docs/04-engineering/journey-security-matrix.csv": "817835861f9e1f032d51ea762e0efbbb5c589451fb584b571c4eda79b3d35775",
     "docs/06-delivery/app-implementation-action-matrix.csv": "b2fa84636dabbee8064dc391f09ecf777db0d293bb1e641e8f522de7493a0c40",
     "docs/06-delivery/app-implementation-requirement-links.csv": "c0e8b976d404521c4405ad15f7bd36fe75f1ea393561ebaee4afc656e815f2dd",
@@ -103,7 +103,7 @@
     "scripts/guardians/test_ui.mjs": "3b326fb0800baf571bb6b0b37b70788f8c105973f3aec4750c145a995f8f3959",
     "scripts/onboarding/test_ui.mjs": "28b0544d059ec2e5d7d2c157b91413c5b9f4710dc89a6a224ecdca4e614087c0",
     "scripts/people/profile_continuity.mjs": "6888f37561d537006e81b8fc4159a93ca7c920faabf2d22c38f87e88b173abdc",
-    "scripts/people/test_ui.mjs": "2109eb8e8a6bf26547f182cd5a9a65459fdb8f7e9b25e4edb0451c1a82981662",
+    "scripts/people/test_ui.mjs": "9ceb6855312dfb87d47d1042734959f45d8b1d1f002b9e7e9114f6fd79bdd88f",
     "scripts/planning/test_ui.mjs": "a67dddb9f4a8b01608bd40e8c785c86b6f986e21d0bc9689ebbcc692a8ea2fb4",
     "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
     "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
@@ -113,12 +113,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "e73e321ad404cf6322eafe36b61b35d025e532c0ea3ece9d98265cfa596d44d6",
-  "htmlSha256": "d076e2e16aed413e756725be31ae97b7908a230a090d9f6d59188ea79068d481",
-  "frames": 1292,
-  "transitions": 1281,
+  "capturePackSha256": "3a948efc0f2f3d62e923453b030feeb3fe5514781bdcb80d691d540f48bb7d28",
+  "htmlSha256": "39c9dcacc575a03be5d512b18e6efe0a0ac53ee5f9121c16ce34106e26142b2f",
+  "frames": 1316,
+  "transitions": 1301,
   "sourceFiles": 80,
-  "sourceLiterals": 8034,
+  "sourceLiterals": 8047,
   "journeys": [
     {
       "id": "entry",
@@ -130,7 +130,7 @@
     },
     {
       "id": "people",
-      "frames": 122
+      "frames": 146
     },
     {
       "id": "guardians",

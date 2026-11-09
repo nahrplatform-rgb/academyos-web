@@ -19,7 +19,10 @@ players.push(...Array.from({length:17},(_,i)=>({id:`00000000-0000-4000-8000-${St
 const receipts=new Map(),calls=[];let readHold=null,releaseRead;
 await page.route('**/api/people',async route=>{const b=route.request().postDataJSON();calls.push(b);if(readHold===b.action)await new Promise(resolve=>{releaseRead=resolve;});if(authMissing){await route.fulfill({status:401,json:{error:'denied'}});return;}if(denied){await route.fulfill({status:403,json:{error:'denied'}});return;}let data;
  switch(b.action){
- case'list':data={academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',items:players.filter(p=>p.display_name.toLowerCase().startsWith(b.query?.toLowerCase()||'')).map(({contact_email,...p})=>p),more:false};break;
+ case'list':{
+ const matching=players.filter(p=>p.id>(b.after??'')&&p.display_name.toLowerCase().startsWith(b.query?.toLowerCase()||'')).sort((a,b)=>a.id.localeCompare(b.id));
+ data={academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',items:matching.slice(0,25).map(({contact_email,...p})=>p),more:matching.length>25};break;
+ }
  case'candidates':data={items:players.filter(p=>p.display_name.toLowerCase()===b.name.trim().toLowerCase()).map(({contact_email,...p})=>p),revision:b.name.trim().toLowerCase()==='alex demo'?revision:0,more:false};break;
  case'profile':if(profileFails){await route.fulfill({status:503,json:{error:'unavailable'}});return;}data=players.find(p=>p.id===b.player);break;
  case'create':if(dropBefore){dropBefore=false;await route.abort('failed');return;}if(hold)await new Promise(r=>{release=r;});if(stale){stale=false;await route.fulfill({status:409,json:{error:'review_required'}});return;}creates++;const p={id:`00000000-0000-4000-8000-${String(creates+100).padStart(12,'0')}`,display_name:b.name,contact_email:b.contact,branch_name:'Main Demo Branch'};players.push(p);revision++;data={player_id:p.id,version:1};receipts.set(b.op,data);if(lost){lost=false;await route.abort('failed');return;}break;
@@ -29,6 +32,117 @@ await page.route('**/api/people',async route=>{const b=route.request().postDataJ
 });
 async function visible(name){await page.getByRole('heading',{name,exact:true}).waitFor();}
 async function freshForm(name='Alex Demo'){await page.getByRole('button',{name:'Register player',exact:true}).click();await page.getByLabel('Player display name (required)',{exact:true}).fill(name);}
+async function checkDirectoryReturn(url, evidence){
+ denied=false;
+ players=[];
+ const name='First Return Demo', originalKey=`academyos:people:user_A:${academy}`;
+ const empty=page.getByText('No players registered yet. Register the first fictional player.',{exact:true});
+ const summary=page.locator('.directory-page-summary'), rows=page.locator('.people-directory tbody tr');
+ const search=page.getByRole('textbox',{name:'Find a player by name',exact:true});
+ const register=page.getByRole('button',{name:'Register player',exact:true});
+ const confirmed=page.getByText('Registration saved',{exact:true});
+ await page.goto(url);await expect(empty).toBeVisible();await expect(summary).toHaveText('0 players on this page');
+ const saveStart=calls.length, createStart=creates;
+ await freshForm(name);await page.getByRole('button',{name:'Continue to duplicate review',exact:true}).click();
+ await page.getByRole('button',{name:'Save registration',exact:true}).click();
+ await visible(name);await expect(confirmed).toBeVisible();
+
+ readHold='list';releaseRead=null;
+ await page.getByRole('button',{name:'Back to players',exact:true}).click();
+ await expect.poll(()=>typeof releaseRead).toBe('function');
+ const confirmedDuringReturn=await confirmed.isVisible();
+ await expect(empty).toHaveCount(0);await expect(summary).toHaveCount(0);
+ authMissing=true;readHold=null;releaseRead();
+ await visible('Sign-in required');
+ const confirmedBehindSignIn=await confirmed.isVisible();
+ await expect(rows).toHaveCount(0);await expect(empty).toHaveCount(0);await expect(summary).toHaveCount(0);
+ await expect(register).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Retry current read',exact:true})).toHaveCount(0);
+ const beforeLanguage=calls.length;
+ await page.getByRole('link',{name:'العربية',exact:true}).click();
+ await page.setViewportSize({width:360,height:800});
+ await visible('تسجيل الدخول مطلوب');
+ const arabicConfirmation=await page.getByText('حُفظ التسجيل',{exact:true}).isVisible();
+ await expect(page.getByRole('button',{name:'إعادة المحاولة',exact:true})).toHaveCount(1);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await page.screenshot({path:resolve(evidence,'confirmed-directory-sign-in-ar-360.png'),fullPage:true});
+ await page.setViewportSize({width:1440,height:1000});await page.getByRole('link',{name:'English',exact:true}).click();
+ assert.equal(calls.length,beforeLanguage);
+ authMissing=false;await page.getByRole('button',{name:'Try again',exact:true}).click();
+ await expect(summary).toHaveText('1 player on this page');
+ const savedPlayer=page.getByRole('button',{name,exact:true});await expect(savedPlayer).toBeVisible();
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ const focusAfterRetry=await savedPlayer.evaluate(el=>document.activeElement===el);
+ const saveActions=calls.slice(saveStart).map(c=>c.action);
+ assert.deepEqual(saveActions,['candidates','create','profile','list','list']);
+ assert.equal(creates,createStart+1);
+ assert.equal(await page.evaluate(key=>sessionStorage.getItem(key),originalKey),null);
+
+ const profileRecoveryStart=calls.length;
+ await savedPlayer.click();await visible(name);
+ authMissing=true;await page.getByRole('button',{name:'Refresh view',exact:true}).click();
+ await visible('Sign-in required');
+ authMissing=false;await page.getByRole('button',{name:'Retry loading profile',exact:true}).click();
+ await visible(name);
+ const afterProfileRecovery={falseEmpty:await empty.isVisible(),summary:await summary.count(),
+  actions:calls.slice(profileRecoveryStart).map(c=>c.action)};
+ await page.getByRole('button',{name:'Back to players',exact:true}).click();
+ await expect(summary).toHaveText('1 player on this page');
+ const profileReturnActions=calls.slice(profileRecoveryStart+3).map(c=>c.action);
+
+ const fixtures=Array.from({length:30},(_,index)=>({
+  id:`00000000-0000-4000-8000-${String(300+index).padStart(12,'0')}`,
+  display_name:`Group Demo ${index+1}`,branch_name:'Main Demo Branch',
+ }));
+ players.push(...fixtures);
+ await search.fill('Group Demo');await expect(rows).toHaveCount(25);
+ const next=page.getByRole('button',{name:'Next page',exact:true});
+ await next.click();await expect(rows).toHaveCount(5);await expect(register).toBeEnabled();
+ const cursor=fixtures[24].id;
+ assert.equal(calls.at(-1).after,cursor);
+ const pageKeys=()=>rows.getByRole('button').allTextContents();
+ const secondPage=await pageKeys();
+ await search.focus();
+ readHold='list';releaseRead=null;const resumeStart=calls.length;
+ await page.evaluate(()=>{document.dispatchEvent(new Event('visibilitychange'));window.dispatchEvent(new Event('focus'));});
+ await expect.poll(()=>typeof releaseRead).toBe('function');
+ await expect(rows).toHaveCount(5);await expect(search).toBeFocused();
+ readHold=null;releaseRead();await expect(register).toBeEnabled();
+ const resume={requests:calls.length-resumeStart,query:calls.at(-1).query,after:calls.at(-1).after??null,rows:await pageKeys()};
+ const refreshStart=calls.length;readHold='list';releaseRead=null;
+ await page.getByRole('button',{name:'Refresh view',exact:true}).click();
+ await expect.poll(()=>typeof releaseRead).toBe('function');
+ const heldRefreshRows=await pageKeys();
+ denied=true;readHold=null;releaseRead();
+ await visible('Access unavailable');await expect(rows).toHaveCount(0);await expect(summary).toHaveCount(0);
+ const refresh={requests:calls.length-refreshStart,query:calls.at(-1).query,after:calls.at(-1).after??null,rows:heldRefreshRows};
+ denied=false;
+ const retryStart=calls.length;
+ await page.getByRole('button',{name:'Try again',exact:true}).click();
+ await expect(rows).toHaveCount(25);await expect(search).toHaveValue('Group Demo');
+ const retryAfterDenial=calls.slice(retryStart).map(c=>[c.action,c.query,c.after??null]);
+
+ await page.getByRole('link',{name:'العربية',exact:true}).click();
+ await page.getByRole('button',{name:'الصفحة التالية',exact:true}).click();await expect(rows).toHaveCount(5);
+ players=players.filter(player=>player.id<=cursor);
+ const emptyTailStart=calls.length;
+ await page.getByRole('button',{name:'تحديث العرض',exact:true}).click();
+ await expect(page.getByText('لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.',{exact:true})).toBeVisible();
+ await expect(page.getByText('لا يوجد لاعبون مطابقون. جرّب اسماً آخر.',{exact:true})).toHaveCount(0);
+ const emptyTail=calls.slice(emptyTailStart).map(c=>[c.action,c.query,c.after??null]);
+ await page.getByRole('button',{name:'الصفحة الأولى',exact:true}).click();await expect(rows).toHaveCount(25);
+ assert.deepEqual(calls.slice(emptyTailStart+1).map(c=>[c.action,c.query,c.after??null]),[['list','Group Demo',null]]);
+ const result={confirmedDuringReturn,confirmedBehindSignIn,arabicConfirmation,focusAfterRetry,saveActions,afterProfileRecovery,profileReturnActions,resume,refresh,retryAfterDenial,emptyTail};
+ await writeFile(resolve(evidence,'directory-return.json'),JSON.stringify(result,null,2)+'\n');
+ assert.deepEqual([confirmedDuringReturn,confirmedBehindSignIn,arabicConfirmation,focusAfterRetry],[true,true,true,true]);
+ assert.deepEqual(afterProfileRecovery,{falseEmpty:false,summary:0,actions:['profile','profile','profile']});
+ assert.deepEqual(profileReturnActions,['list']);
+ assert.deepEqual(resume,{requests:1,query:'Group Demo',after:cursor,rows:secondPage});
+ assert.deepEqual(refresh,{requests:1,query:'Group Demo',after:cursor,rows:secondPage});
+ assert.deepEqual(retryAfterDenial,[['list','Group Demo',null]]);
+ assert.deepEqual(emptyTail,[['list','Group Demo',cursor]]);
+ return result;
+}
 const evidence=(process.env.UI_EVIDENCE_DIR||process.env.PEOPLE_REVIEW_DIR)?resolve(process.env.UI_EVIDENCE_DIR||process.env.PEOPLE_REVIEW_DIR):resolve(root,'docs/07-handoff/evidence/workflow-clarity-2026-10-25/people');await mkdir(evidence,{recursive:true});
 try{
  const continuity=await checkProfileContinuity({browser,url:`http://127.0.0.1:${server.address().port}`,evidence:resolve(evidence,'profile-continuity'),reactMode,baseline:process.env.PEOPLE_PROFILE_BASELINE==='1',menuBaseline:process.env.PEOPLE_MENU_BASELINE==='1'});
@@ -197,8 +311,10 @@ try{
  denied=true;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_B'})));await page.getByRole('alert').waitFor();assert.equal(await page.getByText('New Demo',{exact:true}).count(),0);assert.equal(await page.getByText('contact@example.invalid',{exact:true}).count(),0);
  // Refresh a saved profile after revocation clears it.
  denied=false;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_A'})));await page.getByRole('button',{name:'Alex Demo',exact:true}).first().click();await visible('Player profile');denied=true;await page.getByRole('button',{name:/^(Refresh view|Retry current read)$/}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByText('contact@example.invalid',{exact:true}).count(),0);
+ const priorRequests=calls.length,priorCreates=creates;
+ const directoryReturn=await checkDirectoryReturn(`http://127.0.0.1:${server.address().port}`,evidence);
  await page.clock.install();const beforeAuthCalls=calls.length;await page.goto(`http://127.0.0.1:${server.address().port}/?authPending`);await page.getByRole('status').waitFor();await page.clock.fastForward(16000);await visible('Could not load sign-in');await expect(page.getByRole('button',{name:'Retry loading page',exact:true})).toBeVisible();assert.equal(calls.length,beforeAuthCalls);
  assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['API401 distinct from denial;EN/AR mask and one profile retry','same-account draft fields survive API401 without a create','unknown original survives401 and reconciles the same ID without a second create','held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
- console.log(JSON.stringify({peopleUi:'passed',reactMode,creates,errors,scopedRequests:calls.length}));
+ console.log(JSON.stringify({peopleUi:'passed',reactMode,creates:priorCreates,errors,scopedRequests:priorRequests,directoryReturn}));
  }
 }finally{await browser.close();await new Promise(r=>server.close(r));}
