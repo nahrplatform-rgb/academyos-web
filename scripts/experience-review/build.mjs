@@ -3,7 +3,7 @@ const root=resolve(import.meta.dirname,'../..'),target=resolve(root,'design/app-
 async function walk(dir){return(await Promise.all((await readdir(resolve(root,dir),{withFileTypes:true})).map(x=>x.isDirectory()?walk(dir+'/'+x.name):dir+'/'+x.name))).flat()}
 const registers=['docs/06-delivery/app-implementation-screen-matrix.csv','docs/06-delivery/app-implementation-action-matrix.csv','docs/06-delivery/app-implementation-requirement-links.csv','docs/03-design/journey-register.csv','docs/03-design/screen-data-loading-matrix.csv','docs/04-engineering/journey-security-matrix.csv'];
 const uiFiles=[...(await walk('apps/web/src/components')),...(await walk('apps/web/src/app')).filter(x=>/(?:page|layout)\.tsx$|globals\.css$/.test(x)),'apps/web/src/lib/visible-resume.ts','apps/web/src/lib/experience-format.ts','apps/web/src/lib/workspace-read-owner.ts'].sort();
-const testDependencies={people:['scripts/people/profile_continuity.mjs']};
+const testDependencies={people:['scripts/people/profile_continuity.mjs','scripts/people/changed_query.mjs']};
 const tests=execFileSync('git',['ls-files','scripts/*/test_ui.mjs'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean);
 const inputs=[...new Set([...uiFiles,...registers,...tests,...Object.values(testDependencies).flat(),'scripts/experience-review/static.mjs','scripts/experience-review/test.mjs','scripts/experience-review/capture.mjs','scripts/experience-review/collect.mjs','scripts/experience-review/build.mjs','scripts/experience-review/reviewer.html','design/app-experience-review/journeys.json'])].sort();
 const hashes=Object.fromEntries(await Promise.all(inputs.map(async p=>[p,createHash('sha256').update(await readFile(resolve(root,p))).digest('hex')])));

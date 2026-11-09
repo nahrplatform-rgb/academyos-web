@@ -1,0 +1,86 @@
+{
+  "batch": "EX-07 / MP-B01",
+  "scope": "Actual People React and Chromium with held synthetic HTTP, 1440px English and 360px Arabic. Only current query settles; provider and hosted proof are separate.",
+  "baseline": {
+    "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+    "observations": {
+      "baseline": true,
+      "reactMode": "production",
+      "held": {
+        "rows": 0,
+        "originalMounted": null,
+        "countVisible": 0,
+        "loadingVisible": true,
+        "clearEnabled": false,
+        "focus": true,
+        "requests": [
+          {
+            "query": "Alex",
+            "after": null
+          }
+        ]
+      },
+      "short": {
+        "loadingVisible": true,
+        "countVisible": 1,
+        "requests": 0
+      },
+      "scope": "Actual React, synthetic held HTTP response"
+    }
+  },
+  "candidate": {
+    "inputs": {
+      "apps/web/src/components/people-workspace.tsx": "15770a315614bcbf452448f71ed7a74a4e90ce110c160ef05c0c8be1410c6221",
+      "apps/web/src/app/globals.css": "92914166ea41e4f807399e824a2cecec185c1701b2791194d020874ef46f9d4f",
+      "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
+      "scripts/people/test_ui.mjs": "9aa8e86940b93372c1f9353b133c2218dca7292699d1bb5c4c8363c3a8b1885f",
+      "scripts/people/profile_continuity.mjs": "b4b0b5f15a47c470611bad04024514e4978f3568f2e99da93b1ef88c02137ca0"
+    },
+    "matchingReactModes": [
+      "production",
+      "development"
+    ],
+    "observations": {
+      "baseline": false,
+      "reactMode": "production",
+      "held": {
+        "rows": 3,
+        "originalMounted": "original",
+        "countVisible": 0,
+        "loadingVisible": false,
+        "clearEnabled": true,
+        "focus": true,
+        "requests": [
+          {
+            "query": "Alex",
+            "after": null
+          }
+        ]
+      },
+      "short": {
+        "loadingVisible": false,
+        "countVisible": 0,
+        "requests": 0
+      },
+      "clear": [
+        {
+          "query": "Avery",
+          "after": null
+        },
+        {
+          "query": "",
+          "after": null
+        }
+      ],
+      "checks": [
+        "held checked rows remain mounted, disabled and scoped without count or full loading",
+        "obsolete refusal cannot replace newer query",
+        "equivalent normalized input sends no request",
+        "one-character guidance sends no request or false count",
+        "Arabic 360 clear cancels pending search and requests blank first page",
+        "current 403 masks private rows"
+      ],
+      "scope": "Actual React/Chromium with synthetic HTTP transport; not provider, database or hosted proof"
+    }
+  }
+}

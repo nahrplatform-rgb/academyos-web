@@ -74,7 +74,7 @@
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
-    "apps/web/src/app/globals.css": "37e87062c74c26e4fefc1c85242a463ed8cc4c6a994e0fa153e237c5ad11fbbc",
+    "apps/web/src/app/globals.css": "92914166ea41e4f807399e824a2cecec185c1701b2791194d020874ef46f9d4f",
     "apps/web/src/app/api/register-key/route.ts": "1f4f382ec471b1cf184db164a1a88962cc15e0c9fc628830d6a75dc3502b09e8",
     "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a"
   },

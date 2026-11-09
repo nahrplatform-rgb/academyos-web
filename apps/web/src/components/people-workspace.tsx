@@ -77,12 +77,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [more, setMore] = useState(false), [candidateMore, setCandidateMore] = useState(false), [revision, setRevision] = useState(0);
     const [onlinePage,setOnlinePage] = useState<{query: string; after?: string} | null>(null);
     const [name, setName] = useState(''), [contact, setContact] = useState(''), [search, setSearch] = useState(''), [different, setDifferent] = useState(false);
+    const [searchMode,setSearchMode]=useState<'device'|'online'|null>(null);
+    const searchPending=searchMode!==null;
+    const searchQuery=search.normalize('NFKC').trim(), shortSearch=searchQuery.length===1;
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
     const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
     const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
-    const lastSearch = useRef(''), lifecycleTicket = useRef(0), profileTicket = useRef(0);
+    const lifecycleTicket = useRef(0), profileTicket = useRef(0);
     const profileController=useRef<AbortController|null>(null);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
@@ -160,10 +163,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             setBusy(true);setError(authenticationRequired.current?'authentication_required':'');
         }
         try {
-            if(q.length===1&&context&&!authenticationRequired.current) {
-                setPlayers([]);setMore(false);localNext.current=null;
-                return;
-            }
+            if(q.length===1&&context&&!authenticationRequired.current)return;
             if(device.active&&!after&&!authenticationRequired.current) {
                 let cursor=position??pendingView.current?.position??null;
                 const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
@@ -208,6 +208,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 return;
             }
             if(quiet)return;
+            if(searchPending)setSearchMode('online');
             const cursor=recheck&&onlinePage?.query===q ? onlinePage.after : after;
             const result=await request<Page>({action:'list',query:q.length===1?'':q,...(cursor?{after:cursor}:{})});
             if(ticket!==directoryTicket.current)return;
@@ -218,7 +219,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         } catch(e) {
             if(!quiet&&ticket===directoryTicket.current){setContext(null);setPlayers([]);setMore(false);setBlocked(true);failure(e);}
         } finally {
-            if(applied&&active.current&&ticket===directoryTicket.current&&(!quiet||stage==='directory')){setBusy(false);setChecking(false);}
+            if(applied&&active.current&&ticket===directoryTicket.current&&(!quiet||stage==='directory')){
+                setBusy(false);setChecking(false);setSearchMode(null);
+            }
         }
     }
     async function reviewCandidates(after?: string) { setBusy(true); setError(''); setNotice(''); try {
@@ -382,10 +385,20 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     } else if(prepared) {
         try {pendingView.current=decodePeopleViewContext(sessionStorage.getItem(viewKey));} catch {}
         const saved=pendingView.current;
-        if(saved){lastSearch.current=saved.search;setSearch(saved.search);localSearch.current=saved.search.normalize('NFKC').trim();localPosition.current=saved.position;}
+        if(saved){setSearch(saved.search);localSearch.current=saved.search.normalize('NFKC').trim();localPosition.current=saved.position;}
     } void loadDirectory(); });
-    const refreshDirectory = useEffectEvent(() => { if (stage === 'directory'||(stage==='profile'&&localRows&&device.active))
-        void loadDirectory(); });
+    const searchDirectory=useEffectEvent(()=>{
+        if(searchPending&&stage==='directory'&&!unavailable)void loadDirectory();
+    });
+    const queueSearch=useEffectEvent(()=>{
+        if(localRows&&device.active){
+            let live=true;
+            queueMicrotask(()=>{if(live)searchDirectory();});
+            return ()=>{live=false;};
+        }
+        const timer=setTimeout(searchDirectory,300);
+        return ()=>clearTimeout(timer);
+    });
     const refreshVisible = useEffectEvent(() => { if (busy || profileBusy || document.visibilityState !== 'visible')
         return; if (stage === 'directory' || stage === 'form') {
         if(!device.active)void loadDirectory(undefined,null,false,stage==='directory');
@@ -395,10 +408,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     else if (['duplicates', 'review'].includes(stage)) { setDifferent(false); setStage('form'); setNotice(t('Draft retained. Recheck matching records before confirming.', 'حُفظت المسودة في الذاكرة. أعد مراجعة السجلات المطابقة قبل التأكيد.')); } });
     useEffect(() => { active.current = true; const ticket = ++lifecycleTicket.current; const currentControllers = controllers.current; void Promise.resolve().then(() => { if (active.current && ticket === lifecycleTicket.current)
         initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
-    useEffect(() => { if (search === lastSearch.current)
-        return; lastSearch.current = search;
-        if(localRows&&device.active){let live=true;queueMicrotask(()=>{if(live)refreshDirectory();});return()=>{live=false;};}
-        const timer = setTimeout(() => refreshDirectory(), 300); return () => clearTimeout(timer); }, [search,localRows,device.active]);
+    useEffect(()=>{if(searchPending)return queueSearch();},[searchQuery,searchPending]);
     useEffect(()=>{
         if(!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
             (stage!=='directory'&&(stage!=='profile'||!summaryOnly)))return;
@@ -410,10 +420,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const reloadLocal=useEffectEvent(()=>{
         if(!active.current)return;
         if(device.phase==='denied'){
+            if(searchPending){
+                directoryTicket.current++;
+                controllers.current.forEach(controller=>controller.abort());
+                setSearchMode(null);setBusy(false);
+            }
             failure(new RequestFailure('denied'));
             return;
         }
-        if(stage!=='directory'&&stage!=='profile')return;
+        if(searchPending||(stage!=='directory'&&stage!=='profile'))return;
         if(localRows&&!device.active){
             setPlayers([]);setSelected(null);setContext(null);setLocalRows(false);
             if(device.offline)setMissing(true);
@@ -425,7 +440,10 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     useEffect(()=>{if(prepared)queueMicrotask(reloadLocal);},[prepared,device.active,device.coverage,device.phase,device.offline]);
 
     useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
-    useEffect(() => { if (!['profile','review','saving','unknown'].includes(stage)) heading.current?.focus(); }, [stage]);
+    useEffect(() => {
+        if (!['profile','review','saving','unknown'].includes(stage)&&document.activeElement!==searchInput.current)
+            heading.current?.focus();
+    }, [stage]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
         return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
     function restoreDirectoryFocus(ticket=directoryTicket.current) {
@@ -448,9 +466,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         else restoreDirectoryFocus();
     }
     function changeSearch(value:string) {
+        const nextQuery=value.normalize('NFKC').trim();
+        setSearch(value);
+        if(nextQuery===searchQuery)return;
         if(stage==='profile')go('directory');
         setOnlinePage(null);pendingView.current=null;directoryTicket.current++;
-        setChecking(false);setSaved(false);setSearch(value);setBusy(true);
+        controllers.current.forEach(controller=>controller.abort());
+        const needsRead=nextQuery.length!==1||!context||authenticationRequired.current;
+        setChecking(false);setSaved(false);setBusy(needsRead);
+        setSearchMode(needsRead?(localRows&&device.active?'device':'online'):null);
     }
     function retryBlockedView() {
         if(error==='authentication_required'&&stage==='unknown')void reconcile();
@@ -460,6 +484,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     }
     const registrationTask = !['directory','profile'].includes(stage);
     const protectedViewGone=unavailable||(localRows&&!device.active);
+    const previousSearchRows=searchMode==='online'&&!shortSearch&&!protectedViewGone&&Boolean(context)&&players.length>0;
     const registrationSaved=t('Registration saved','حُفظ التسجيل');
     const showSavedResult=saved&&device.phase!=='denied'&&error!=='denied'&&error!=='setup_required'&&
         (stage==='directory'||(stage==='profile'&&error==='authentication_required'));
@@ -529,7 +554,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
       {((!registrationTask&&stage!=='profile')||protectedViewGone) && error && !blocked && device.phase!=='denied' && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
       {checking&&<p role="status" className="visually-hidden">{t('Checking current players…','جارٍ التحقق من بيانات اللاعبين…')}</p>}
-      {busy && !checking && stage !== 'saving' && stage !== 'profile' && !(localRows&&device.active&&stage==='directory') && <p role="status">{t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
+      {busy && !checking && !searchPending && stage !== 'saving' && stage !== 'profile' && !(localRows&&device.active&&stage==='directory') && <p role="status">{t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
       {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
       {unavailable ? <section className="journey-card" role="alert">
         <h2>{error==='authentication_required'?t('Sign-in required','تسجيل الدخول مطلوب'):error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
@@ -540,18 +565,21 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
           <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
           <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
           <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => changeSearch(event.target.value)}/>
-          {search.normalize('NFKC').trim().length === 1 && <p>{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
+          {shortSearch && <p className="directory-search-status" role="status">{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
+          {searchMode==='online'&&!shortSearch && <p className="directory-search-status" role="status">{previousSearchRows
+            ?t('Updating results… Showing previous results.','جارٍ تحديث النتائج… تُعرض النتائج السابقة.')
+            :t('Updating results…','جارٍ تحديث النتائج…')}</p>}
           {missing&&<p role="status">{t('Players are not on this device yet.','قائمة اللاعبين غير متاحة على هذا الجهاز بعد.')}</p>}
           {localRows&&localUpdating&&<p role="status">{t('Showing the last downloaded directory. Recent changes are not available here yet.','تُعرض آخر نسخة منزّلة من قائمة اللاعبين. التغييرات الأخيرة غير متاحة هنا بعد.')}</p>}
           {!context&&!missing&&!busy&&stage==='profile'&&!profileBusy&&<p role="status">{t('Return to players to check the directory.','ارجع إلى قائمة اللاعبين للتحقّق منها.')}</p>}
-          {context && !missing && !busy && !players.length && search.normalize('NFKC').trim().length !== 1 && <p>{localRows&&(localUpdating||registrationCommitted)
+          {context && !missing && !busy && !players.length && !shortSearch && <p>{localRows&&(localUpdating||registrationCommitted)
             ?t('The downloaded directory has not updated yet. Check for changes.','لم تتحدّث قائمة اللاعبين المنزّلة بعد. تحقّق من التغييرات.')
             :!localRows&&onlinePage?.after?t('No players on this page. Go to the first page.','لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.')
             :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
-          {context && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
-          {search.trim() && <Button disabled={busy} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
-          <table className="workspace-table"><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{(!busy||checking||localRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
-          {context && <><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+          {context && searchMode!=='online' && !shortSearch && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
+          {search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
+          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          {context && !shortSearch && <><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
         </section>}
 
       </>}

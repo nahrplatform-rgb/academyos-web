@@ -35,3 +35,15 @@ The same-mounted-workspace `401` scenario is synthetic. Actual Clerk expiry, phy
 One configured `gpt-6.1-terra` helper at medium effort reviewed page/query return against the Operations reference at `5e837dd`. Peak helper count was one. Its scope was read-only, with no browser or provider contention. The coordinator reproduced the findings, owned the authority and save handoff, implemented the repair and verified both modes. Token savings are unmeasured.
 
 The previous checked `5e837dd` candidate and `c73bdf8` hosted evidence are retained. Exact CI and preview readiness for the combined candidate are recorded separately from the Owner's staging promotion and signed-in verification. [Earlier release receipt](evidence/mp-b01-profile-continuity/release.json)
+
+## Checked candidate
+
+Combined commit **`5a7bebc29ba156d3cced28b6f780f6ebc56458b8`** is pushed. One scripted wait reported **53 of 53 Foundation steps passed** on run `42544204255`, attempt 1, job `128925557190`. The AcademyOS preview is **Ready** with the same full source SHA. [Foundation result](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42544204255) · [Exact Vercel preview](https://vercel.com/academy-os2/academyos-web/HovhkKS9ce4bfwZU8zJmjG9gdciY)
+
+The staging alias still resolves to the Owner-promoted `c73bdf8` source. The Owner can promote the checked combined candidate to `staging.academy.nahr.dev`, then the live source and signed-in EN/AR Players journey can be verified. The tracker carries the ready changed-query work separately. [Release receipt](evidence/mp-b01-directory-return/release.json) · [Living continuation](../06-delivery/continue-academyos.md)
+
+## Owner promotion and signed-in check
+
+The Owner reported promoting `5a7bebc`. A read-only deployment lookup for `staging.academy.nahr.dev` confirmed Ready deployment `dpl_AKBdytKRozd6Ygd2KDYVz6YRwdQB` at the exact checked source. In a separate Chrome tab on the existing signed-in Owner account, synthetic Academy B showed two players. In English the checked directory stayed in place while a profile loaded, Back restored focus to its row, and Escape closed the Layout menu. In Arabic the single-character hint held input focus, a valid prefix found one player and Clear restored two rows and search focus. [Verified release receipt](evidence/mp-b01-directory-return/release.json)
+
+This was a read-only hosted journey with two existing players. Registration, actual provider expiry, current revocation, later pages, prepared-device state changes and working acceptance retain their separate evidence requirements.

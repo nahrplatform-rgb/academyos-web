@@ -44,6 +44,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR03 — Task erasure during revalidation
 
+9 November changed-query Players check: a held valid query now keeps the same three checked rows under a previous-results label and leaves Clear available. The query still takes one list. Short input sends zero requests and shows only the length hint. Current refusal still masks protected data. [Players search comparison](../07-handoff/mp-b01-players-search-2026-11-09.md#before-and-after)
+
 9 November Owner Players component check: paired visible-return signals now keep the checked filtered second page with one current list read. Manual refresh also retains its five rows while held, then removes them on an authoritative `403`. Search focus stayed in place during the visible return. Wider route, real-device and hosted checks remain open. [Directory return comparison](../07-handoff/mp-b01-directory-return-2026-11-09.md#before-and-after)
 
 8 November [profile/toolbar checkpoint](../07-handoff/mp-b01-profile-continuity-2026-11-08.md) reproduces a distinct initial online detail read that removes18checked directory rows and resets scroll. Separate detail pending/cancellation now retains the same DOM and position;current401/403 still mask private content. It also fixes verified Escape/outside toolbar handoff and applies scoped Operations row density. This is new local evidence;previous c73bdf8 hosted proof is the baseline,not this repair. Post-save/search/auth-recovery and broader roles remain open.

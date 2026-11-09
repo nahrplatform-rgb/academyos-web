@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+9 November MP-B01 captures the held Players search with previous rows, focused input, current refusal and Arabic phone-width Clear. The online and protected device search checks retain separate evidence. [Players search checkpoint](../../docs/07-handoff/mp-b01-players-search-2026-11-09.md)
+
 9 November MP-B01 recaptures People registration return, same-workspace sign-in recovery and filtered page checks. The comparison reports synthetic component observations and retains prior hosted evidence separately. [Directory return checkpoint](../../docs/07-handoff/mp-b01-directory-return-2026-11-09.md)
 
 8November follow-on: [profile/toolbar continuity](../../docs/07-handoff/mp-b01-profile-continuity-2026-11-08.md) changes People read feedback,scoped row density and shared native-menu dismissal. Refresh all16component families plus8entry captures;the imported People helper is now fingerprinted as a capture dependency. Held profile/menu tests and70protected-boundary regressions remain separately scoped evidence.

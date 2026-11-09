@@ -116,6 +116,7 @@ export async function checkProfileContinuity({browser,url,evidence,reactMode,bas
   await expect(page.locator('tbody tr')).toHaveCount(1);
   await expect(page.getByRole('heading',{name:'Current task',exact:true})).toBeVisible();
   searched.release(200);await expect(nameInput()).toHaveValue('Alex');
+  await expect(nameInput()).toBeFocused();
   assert.deepEqual(calls.slice(searchStart).map(c=>c.action),['profile','list']);
   checks.push('typing during profile load cancels obsolete detail;one debounced directory search');
   await page.getByRole('button',{name:'Clear search',exact:true}).click();await directory();

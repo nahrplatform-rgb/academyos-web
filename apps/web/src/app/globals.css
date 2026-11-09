@@ -565,7 +565,7 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 
 .people-check{display:flex!important;min-height:44px;align-items:center;gap:12px;font-size:15px!important;font-weight:400!important;margin-block:24px 16px}
 .people-check input[type=checkbox]{width:24px;min-width:24px;height:24px;margin:0;flex:0 0 24px}
-.directory-page-summary{color:var(--muted);margin-block:16px 8px}
+.directory-page-summary,.directory-search-status{color:var(--muted);margin-block:16px 8px}
 
 /* Adaptive shell: viewport owns structure; only useful content regions scroll. */
 .layout-menu{position:relative;font-size:14px;flex-shrink:0}
