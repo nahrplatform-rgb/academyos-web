@@ -11,13 +11,14 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 125
+    "offlineProcessReopenMs": 116
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "scripts/working-day/test_owner_startup.mjs": "1fdf7b0b41a24fa48ef19c4452dc3c2fd75c286031b3251e54b0c44f6735e073",
-    "scripts/working-day/owner_fixture.mjs": "cefd0c10437d8afe56f4d2a92e303a46d0252823d85a7bfab73ed47cb036754f",
-    "scripts/working-day/owner_db.py": "7be97a6d8a1546206cea3728f7d78bea90daa48120ae31387b9b7d439a4e8aad",
+    "apps/web/src/lib/owner-session-navigation.ts": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
+    "scripts/working-day/test_owner_startup.mjs": "b2abcf4355d65353ae9fd6737d178c6bfb38e820f2f897f13601bea6f6a4f047",
+    "scripts/working-day/owner_fixture.mjs": "73c96cfb22217ea4737d4f2bf3abcf56c7986e89948e609b6259243a9222c8cf",
+    "scripts/working-day/owner_db.py": "2626e5363344e94d95975a148a71f4d6d2bc0c9d3a8f000bf3e08eaf308f37b7",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
     "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
@@ -28,9 +29,9 @@
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
-    "apps/web/src/components/attendance-workspace.tsx": "90cfd38923892fc836d911bec6a6d472d85463be937c3e70cdec00735070b041",
+    "apps/web/src/components/attendance-workspace.tsx": "e20f273edbdcb5eaa91984b63f633a7d7226283427f5bd3f9a8c0e42d4e0d04f",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
-    "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
+    "apps/web/src/components/prepared-register-panel.tsx": "aa9e0b310540baf37a0c82b64aae575a182251c379b691179ad190175a686cba",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",

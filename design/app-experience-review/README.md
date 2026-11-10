@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+10 November MP-B01 checks the actual Today and Calendar return through dated planning and Attendance. The separate signed synthetic fixture verifies the 18-player route, guarded return and an offline reopen of the same linked URL. Its captures supplement the standard component replay. [Owner session return](../../docs/07-handoff/mp-b01-owner-return-2026-11-10.md)
+
 9 November MP-B01 captures the held Players search with previous rows, focused input, current refusal and Arabic phone-width Clear. The online and protected device search checks retain separate evidence. [Players search checkpoint](../../docs/07-handoff/mp-b01-players-search-2026-11-09.md)
 
 9 November MP-B01 recaptures People registration return, same-workspace sign-in recovery and filtered page checks. The comparison reports synthetic component observations and retains prior hosted evidence separately. [Directory return checkpoint](../../docs/07-handoff/mp-b01-directory-return-2026-11-09.md)

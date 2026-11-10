@@ -32,3 +32,13 @@ The final Node 24 build, types, lint and 103 unit tests passed. The 70-check wor
 The living review refreshed 16 real-component groups and eight entry captures. Its source and dependency fingerprints include the changed-query fixture. Review-tool, execution, implementation and continuation checks passed. [Current experience review](../../design/app-experience-review/AcademyOS-experience-review.html)
 
 The signed-in baseline belongs to `5a7bebc`. Exact CI, preview, Owner promotion and signed-in checks for the new search candidate are separate. The next development check covers the connected Today → Calendar → session → Attendance → exact return journey. [Living continuation](../06-delivery/continue-academyos.md)
+
+## Checked candidate
+
+Commit **`b0e9ffc8ebf211489728a7a544cbac465cb44bec`** is pushed. One scripted wait reported **53 of 53 Foundation steps passed** on run `42574730746`, attempt 1, job `129019773879`. The automatic Vercel preview reports **Ready** for the same full commit. [Foundation result](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42574730746) · [Exact Vercel preview](https://vercel.com/academy-os2/academyos-web/BUAZYmFbFDoesJZbeM8JbnLXFSJr)
+
+## Signed-in staging verification
+
+On 10 November Vercel resolved `staging.academy.nahr.dev` to Ready deployment `dpl_Amei3x4jNEJbg3GTAmwjQJCk83yh` with exact commit `b0e9ffc8ebf211489728a7a544cbac465cb44bec`. The signed-in Academy B Owner opened its two-player synthetic directory in an existing Chrome profile. In EN and AR a single letter gave the minimum-length hint. A valid name search kept the previous rows visible while the check ran and disabled the earlier row actions. One matching row appeared. Clear restored both rows, emptied the field and returned focus to it. No registration or test access change was needed. Hosted requests and timings were outside this browser check. [Release and browser receipt](evidence/mp-b01-players-search/release.json)
+
+The next connected batch is the [Owner session return](mp-b01-owner-return-2026-11-10.md).

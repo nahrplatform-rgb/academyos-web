@@ -10,7 +10,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 const root = resolve(import.meta.dirname, '../..');
 const evidence = join(root, 'docs/07-handoff/evidence/owner-working-day-next-2026-11-04.json');
 const sources = [
-  'apps/web/src/lib/experience-format.ts',
+  'apps/web/src/lib/experience-format.ts', 'apps/web/src/lib/owner-session-navigation.ts',
   'scripts/working-day/owner_fixture.mjs', 'scripts/working-day/owner-register.tsx',
   'scripts/working-day/owner_db.py', 'scripts/working-day/test_owner_next.mjs',
   'scripts/experience-projections/test_boundary.py', 'scripts/offline-register/dispatch_bridge.py',
@@ -42,6 +42,7 @@ try {
   const {origin, data, state, db, paths, registerPaths} = fixture;
   const [first, second] = data.events;
   const base = `/en/workspace/${data.academy}`, firstPath = registerPaths[0], secondPath = registerPaths[3];
+  const linkedPath = `${firstPath}#from=${first.day}&return=calendar`;
   const counts = (event, op = randomUUID()) => db({action:'counts', academy:data.events.find(item=>item.event===event).academy, event, op});
   const noWrites = {marks:0,history:0,operations:0,audit:0};
   const errors = [], external = [];
@@ -88,14 +89,14 @@ try {
   await published.click();
   await link('Open this date').click();
   await page.waitForURL('**/programs/**');
-  await expect(link('Open attendance')).toHaveAttribute('href',firstPath);
+  await expect(link('Open attendance')).toHaveAttribute('href',linkedPath);
   measure('dateMs',start);
   await button('Back to calendar').click();
   await page.waitForURL(url=>url.pathname===base+'/calendar');
   await expect(published).toHaveAttribute('aria-pressed','true');
   await expect(page.getByLabel('Go to date',{exact:true})).toHaveValue(period);
   await link('Open this date').click();
-  await expect(link('Open attendance')).toHaveAttribute('href',firstPath);
+  await expect(link('Open attendance')).toHaveAttribute('href',linkedPath);
   const beforeEntry=state.events.length;
   await link('Open attendance').click();
   await expect(button('Prepare register on this device')).toBeEnabled();
@@ -146,7 +147,7 @@ try {
   for(let i=0;i<18;i++) await rows.nth(i).getByRole('button',{name:i%2?'Absent':'Present',exact:true}).click();
   page.once('dialog', dialog => dialog.dismiss());
   await link('Back to calendar').click();
-  assert.equal(page.url(),origin+firstPath);
+  assert.equal(page.url(),origin+linkedPath);
   await expect(page.locator('.register-options [aria-pressed=true]')).toHaveCount(18);
   await button('Review register').click();
   await expect(page.getByRole('dialog').locator('li')).toHaveCount(18);

@@ -7,17 +7,21 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
+import {checkOwnerDayReturn} from './owner_day_return.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
 const receipt=join(output,'runtime.json');
-const sources=['apps/web/src/lib/experience-format.ts','scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
-  ...['attendance-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
+const returnCaptures=join(root,'docs/07-handoff/evidence/mp-b01-owner-return');
+const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
+  'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
+  'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
+  ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
   'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,23);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,24);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -25,6 +29,13 @@ const pass=name=>{checks.push(name);console.log('PASS '+name);};
 try{
  fixture=await ownerFixture(root,join(temp,'app'),{pilot:true});
  const {origin,state,data,db}=fixture,[a,b]=data.events;
+ const captureReturn=process.argv.includes('--record')?returnCaptures:undefined;
+ if(captureReturn)await mkdir(captureReturn,{recursive:true});
+ const returnBrowser=await chromium.launch();
+ try{
+  metrics.ownerDayReturn={browser:returnBrowser.version(),node:process.version,os:process.platform,
+    cases:await checkOwnerDayReturn(fixture,returnBrowser,captureReturn)};
+ }finally{await returnBrowser.close();}
  const url=(scope,locale='en')=>`${origin}/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
  const button=(name,tab=page)=>tab.getByRole('button',{name,exact:true});
  const apiAfter=start=>state.events.slice(start);
@@ -43,6 +54,52 @@ try{
   await settled();
  }
  await browser();await prepare(a);
+ const sourceHint=`?from=${a.day}&return=calendar`;
+ const linkedAttendance=url(a)+'#'+sourceHint.slice(1);
+ await page.goto(linkedAttendance);
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
+ await settled();
+ const preparedBack=page.getByRole('link',{name:'Back to session',exact:true});
+ const linkedDate=`/en/workspace/${a.academy}/programs/${data.program}/${a.day}${sourceHint}`;
+ await expect(preparedBack).toHaveAttribute('href',linkedDate);
+ const firstMark=page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true});
+ await firstMark.click();
+ await expect(firstMark).toHaveAttribute('aria-pressed','true');
+ const confirm=page.waitForEvent('dialog').then(dialog=>dialog.dismiss());
+ await preparedBack.click();
+ await confirm;
+ assert.equal(page.url(),linkedAttendance);
+ await expect(firstMark).toHaveAttribute('aria-pressed','true');
+ const discard=page.waitForEvent('dialog').then(dialog=>dialog.accept());
+ await preparedBack.click();
+ await discard;
+ await page.waitForURL(origin+linkedDate);
+ await button('Back to calendar').click();
+ await expect(page.getByRole('heading',{name:'Training calendar',exact:true})).toBeVisible();
+ await page.goto(linkedAttendance);
+ await expect(preparedBack).toHaveAttribute('href',linkedDate);
+ await settled();
+ const beforeLinkedReopen=state.events.length;
+ fixture.disconnect();
+ await context.setOffline(true);
+ const linkedOffline=await page.reload();
+ assert.ok(linkedOffline.fromServiceWorker());
+ assert.equal(page.url(),linkedAttendance);
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
+ await expect(preparedBack).toHaveCount(0);
+ assert.equal(state.events.length,beforeLinkedReopen);
+ fixture.reconnect();
+ await context.setOffline(false);
+ await settled();
+ await expect(preparedBack).toHaveAttribute('href',linkedDate);
+ await preparedBack.click();
+ await page.waitForURL(origin+linkedDate);
+ await expect(button('Back to calendar')).toBeEnabled();
+ metrics.ownerDayReturn.linkedOffline={players:18,apiRequests:0,workerResponse:true,sourceAfterReconnect:true};
+ await page.goto(url(a));
+ await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
+ await settled();
+ pass('Owner Calendar and Today regain the checked session in EN/AR, including after linked offline reopen with dirty choices guarded');
  await expect(page.locator('.app-scene')).toHaveCount(1);
  await expect(page.getByRole('heading',{name:'Personal-device register',exact:true})).toHaveCount(0);
  await expect(page.getByRole('link',{name:'Offline reopening link',exact:true})).toHaveCount(0);
@@ -375,7 +432,7 @@ try{
  assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
  pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,23);
+ assert.deepEqual(errors,[]);assert.equal(checks.length,24);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}

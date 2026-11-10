@@ -10,7 +10,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const evidence=join(root,'docs/07-handoff/evidence/owner-register-workspace-2026-11-04.json');
-const sources=['apps/web/src/lib/experience-format.ts',
+const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
   'scripts/working-day/test_owner_startup.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   'apps/web/next.config.ts','apps/web/public/prepared-register-worker.js','apps/web/public/prepared-workspace-worker.js','apps/web/src/lib/workspace-public-shell.ts','apps/web/src/components/prepared-workspace-startup.tsx','apps/web/src/app/prepared-workspace/page.tsx','apps/web/src/app/layout.tsx',
   'apps/web/src/app/[locale]/layout.tsx','apps/web/src/app/prepared-register/page.tsx',

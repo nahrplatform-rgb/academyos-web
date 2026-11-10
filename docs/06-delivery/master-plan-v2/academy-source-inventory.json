@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+  "source_anchor": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -385,8 +385,8 @@
     },
     {
       "path": "apps/web/src/components/attendance-workspace.tsx",
-      "sha256": "90cfd38923892fc836d911bec6a6d472d85463be937c3e70cdec00735070b041",
-      "bytes": 33450
+      "sha256": "e20f273edbdcb5eaa91984b63f633a7d7226283427f5bd3f9a8c0e42d4e0d04f",
+      "bytes": 33637
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
@@ -395,8 +395,8 @@
     },
     {
       "path": "apps/web/src/components/date-planning-workspace.tsx",
-      "sha256": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
-      "bytes": 28204
+      "sha256": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+      "bytes": 28344
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
@@ -440,8 +440,8 @@
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
-      "sha256": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
-      "bytes": 30485
+      "sha256": "aa9e0b310540baf37a0c82b64aae575a182251c379b691179ad190175a686cba",
+      "bytes": 31110
     },
     {
       "path": "apps/web/src/components/prepared-register-session.tsx",
@@ -757,6 +757,11 @@
       "path": "apps/web/src/lib/owner-register-pilot.ts",
       "sha256": "7f290870a0884a07ef43d08287df17747275c21ada6bf9448439f0ae9ce53e42",
       "bytes": 10430
+    },
+    {
+      "path": "apps/web/src/lib/owner-session-navigation.ts",
+      "sha256": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
+      "bytes": 1225
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",
@@ -1610,7 +1615,7 @@
     }
   ],
   "counts": {
-    "source_files": 231,
+    "source_files": 232,
     "page_paths": 38,
     "api_routes": 27,
     "migrations": 31

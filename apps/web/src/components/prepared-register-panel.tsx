@@ -6,6 +6,7 @@ import WorkspaceShell from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import {useRouter} from 'next/navigation';
 import {formatCount,formatQuantity} from '@/lib/experience-format';
+import {ownerSessionSourceSuffix,useOwnerSessionSource} from '@/lib/owner-session-navigation';
 import {prepareWorkspaceShell} from '@/lib/workspace-public-shell';
 import type {RegisterPacket} from '@/lib/local-register-codec';
 import {ownerRegisterPilot} from '@/lib/owner-register-pilot';
@@ -39,6 +40,7 @@ function generation(subject:string) {
 function subscribeConnection(listener:()=>void){window.addEventListener('online',listener);window.addEventListener('offline',listener);return()=>{window.removeEventListener('online',listener);window.removeEventListener('offline',listener);};}
 export default function PreparedRegisterPanel({locale:initialLocale,scope,offline=false,offlineGeneration,onCancel,normal=false,account,initialView,onInspect}:Props) {
   const {subject,academy,event}=scope;
+  const sessionSource=useOwnerSessionSource();
   const beforeOnline=useRegisterSession();
   const [locale,setLocale]=useState(initialView?.locale??initialLocale),ar=locale==='ar',t=(en:string,arabic:string)=>ar?arabic:en;
   const router=useRouter(),online=useSyncExternalStore(subscribeConnection,()=>navigator.onLine,()=>true);
@@ -338,6 +340,9 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   }
   const status=!online?t('Offline','غير متصل'):busy||checking?t('Online · Checking changes','متصل · التحقق من التغييرات'):t('Online','متصل');
   const backHref=`/${locale}/workspace/${academy}/calendar`;
+  const sessionHref=online&&hasAccess&&page&&sessionSource&&!problem
+    ?`/${locale}/workspace/${academy}/programs/${page.header.program}/${page.header.day}${ownerSessionSourceSuffix('?',sessionSource)}`
+    :null;
   const details=<section><h2>{picked?.name??t('Keep the roster in view','احتفظ بالقائمة أمامك')}</h2>
     {picked?<><p>{label(picked.status??pendingChoices.get(picked.id)??draft[picked.id]?.status??null)}</p>
       <p>{page?.header.projection.name} · {page?.header.projection.branch}</p>
@@ -356,6 +361,10 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
       selectionKey={selected??''} contextLabel={t('Session / player details','تفاصيل التدريب / اللاعب')} inspector={details}
       onBack={()=>{setSelected(null);requestAnimationFrame(()=>playerOpener.current?.focus());}}>
       <div className="register-heading"><h1>{t('Session attendance','حضور التدريب')}</h1><span className={`attendance-status ${selections.length?'unsaved':''}`}>{selections.length?t('Unsaved choices','اختيارات غير محفوظة'):pending?pending.state==='needs_review'?t('Saved on this device · Needs review','محفوظ على هذا الجهاز · يحتاج مراجعة'):pending.state==='unknown'?t('Saved on this device · Server result unknown','محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة'):t('Saved on this device','محفوظ على هذا الجهاز'):t('Current register','القائمة الحالية')}</span></div>
+      {sessionHref&&<p className="register-links"><a href={sessionHref} aria-disabled={busy||checking} onClick={e=>{
+        if(busy||checking)e.preventDefault();
+        else navigate(e);
+      }}>{t('Back to session','الرجوع إلى التدريب')}</a></p>}
       {content}
     </WorkspacePanes>
   </WorkspaceShell></div>;

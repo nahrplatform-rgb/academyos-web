@@ -248,7 +248,7 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
       return <Experience {...p} role="owner" calendar={${view==='calendar'}} anchor={q.anchor}/>}`);
     await page('programs/[program]/[day]/page.jsx',`import{Planning}from'__CLIENT__';
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
-      return <Planning {...p} from={q.from} returnTo={q.return==='calendar'?'calendar':undefined}/>}`);
+      return <Planning {...p} from={q.from} returnTo={q.return==='calendar'||q.return==='home'?q.return:undefined}/>}`);
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
     if (pilot) {
       const eventRoute=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx'),'utf8');
