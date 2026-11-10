@@ -6,7 +6,7 @@ import WorkspaceShell from './workspace-shell';
 import WorkspacePanes from './workspace-panes';
 import {useRouter} from 'next/navigation';
 import {formatCount,formatQuantity} from '@/lib/experience-format';
-import {ownerSessionSourceSuffix,useOwnerSessionSource} from '@/lib/owner-session-navigation';
+import {ownerSessionReturn,ownerSessionSourceSuffix,useOwnerSessionSource} from '@/lib/owner-session-navigation';
 import {prepareWorkspaceShell} from '@/lib/workspace-public-shell';
 import type {RegisterPacket} from '@/lib/local-register-codec';
 import {ownerRegisterPilot} from '@/lib/owner-register-pilot';
@@ -283,7 +283,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     {problem&&<p role="alert">{messages[problem]??t('The device register is unavailable. Saved work remains protected.','سجل الجهاز غير متاح. يبقى العمل المحفوظ محمياً.')}</p>}
     {problem==='authentication_required'&&<p><a href={`/${locale}/workspace/${academy}/attendance/${event}`}>
       {t('Sign in to continue','سجّل الدخول للمتابعة')}</a></p>}
-    {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&page&&<p role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
+    {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&page&&<p className="register-device-ready" role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
     {confirmed&&hasAccess&&<p role="status">{notice==='confirmed_read_failed'?t('Save confirmed; latest register unavailable. Retry reading, not saving.','تأكد الحفظ؛ تعذّرت قراءة القائمة الأحدث. أعد القراءة وليس الحفظ.'):t('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.')}</p>}
     {(!offline||normal)&&(!normal||!page||problem)&&<div className="journey-actions">
       {known===false&&<label><input type="checkbox" checked={personal} onChange={e=>setPersonal(e.target.checked)}/>
@@ -302,10 +302,12 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
       {(!offline||normal)&&pending.state!=='needs_review'&&<Button disabled={busy||!online} onClick={sync}>{normal?t('Retry original save','أعد محاولة الحفظ الأصلي'):t('Sync original','زامن الحفظ الأصلي')}</Button>}
     </div>}
     {page&&<>
-      <h3>{page.header.projection.name}</h3><p><bdi>{format(page.header.starts_at)} — {format(page.header.ends_at)}</bdi></p>
-      {normal&&<>{page.needsCurrentRead?<p role="status">{t('Latest marks are unavailable until this register is checked.','التسجيلات الأحدث غير متاحة حتى التحقق من هذه القائمة.')}</p>:<><div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(mark=><div key={mark} className={mark}><strong>{formatCount(locale,counts[mark])}</strong>{label(mark)}</div>)}</div><p>{t(page.more?'Counts cover loaded players only.':'Counts include unsaved selections.',page.more?'الأعداد تخص اللاعبين المحمّلين فقط.':'الأعداد تشمل الاختيارات غير المحفوظة.')} {t('Unmarked never means Absent.','عدم التسجيل لا يعني الغياب.')}</p></>}<div className="register-filters"><label>{t('Find a loaded player','البحث في اللاعبين المحمّلين')}<Input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>{t('Show','عرض')}<Select disabled={page.needsCurrentRead} value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">{t('All loaded players','كل اللاعبين المحمّلين')}</option><option value="unmarked">{label(null)}</option><option value="selected">{t('Selected, not saved','مختار غير محفوظ')}</option><option value="saved">{t('Saved','محفوظ')}</option></Select></label></div></>}
-      <p>{page.header.projection.branch} · <bdi>{page.header.projection.timezone}</bdi></p>
-      <p>{formatCount(locale,page.players.length)} / {formatCount(locale,page.header.count)} {t('loaded from this device','محمّلون من هذا الجهاز')}</p>
+      {normal?<p className="register-meta">
+        <strong>{page.header.projection.name}</strong> · {page.header.projection.branch} · <bdi>{format(page.header.starts_at)} — {format(page.header.ends_at)}</bdi> · <bdi>{page.header.projection.timezone}</bdi>
+      </p>:<><h3>{page.header.projection.name}</h3><p><bdi>{format(page.header.starts_at)} — {format(page.header.ends_at)}</bdi></p></>}
+      {normal&&<>{page.needsCurrentRead?<p role="status">{t('Latest marks are unavailable until this register is checked.','التسجيلات الأحدث غير متاحة حتى التحقق من هذه القائمة.')}</p>:<><div className="register-summary" role="status">{(['present','absent','unmarked'] as const).map(mark=><div key={mark} className={mark}><strong>{formatCount(locale,counts[mark])}</strong>{label(mark)}</div>)}</div><p className="register-counts">{t(page.more?'Counts cover loaded players only.':'Counts include unsaved selections.',page.more?'الأعداد تخص اللاعبين المحمّلين فقط.':'الأعداد تشمل الاختيارات غير المحفوظة.')} {t('Unmarked never means Absent.','عدم التسجيل لا يعني الغياب.')}</p></>}<div className="register-filters"><label>{t('Find a loaded player','البحث في اللاعبين المحمّلين')}<Input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>{t('Show','عرض')}<Select disabled={page.needsCurrentRead} value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">{t('All loaded','كل المحمّلين')}</option><option value="unmarked">{label(null)}</option><option value="selected">{t('Unsaved','غير محفوظ')}</option><option value="saved">{t('Saved','محفوظ')}</option></Select></label></div></>}
+      {!normal&&<p>{page.header.projection.branch} · <bdi>{page.header.projection.timezone}</bdi></p>}
+      <p className="register-loaded">{formatCount(locale,page.players.length)} / {formatCount(locale,page.header.count)} {t('loaded from this device','محمّلون من هذا الجهاز')}</p>
       {!page.captureWindow.open&&<p role="status">{page.captureWindow.state==='before'?
         t('This session has not started yet.','لم يبدأ هذا التدريب بعد.'):
         t('The recording window has closed. Unsaved choices are retained.','انتهت مهلة التسجيل. تبقى اختياراتك غير المحفوظة كما هي.')}</p>}
@@ -343,6 +345,11 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const sessionHref=online&&hasAccess&&page&&sessionSource&&!problem
     ?`/${locale}/workspace/${academy}/programs/${page.header.program}/${page.header.day}${ownerSessionSourceSuffix('?',sessionSource)}`
     :null;
+  const sourceReturn=sessionHref?ownerSessionReturn(locale,academy,sessionSource):null;
+  function returnToSession(e:MouseEvent<HTMLAnchorElement>){
+    if(busy||checking)e.preventDefault();
+    else navigate(e);
+  }
   const details=<section><h2>{picked?.name??t('Keep the roster in view','احتفظ بالقائمة أمامك')}</h2>
     {picked?<><p>{label(picked.status??pendingChoices.get(picked.id)??draft[picked.id]?.status??null)}</p>
       <p>{page?.header.projection.name} · {page?.header.projection.branch}</p>
@@ -358,13 +365,13 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     prefetch={false} account={account} tools={<span role="status">{status}{pending?' · '+(pending.state==='needs_review'?t('Needs review','تحتاج مراجعة'):pending.state==='unknown'?t('Server result unknown','نتيجة الخادم غير معروفة'):t('1 save pending','حفظ واحد معلّق')):''}</span>}
     navigation={[{href:backHref,label:t('Calendar','التقويم')},{href:`/${locale}/workspace/${academy}/attendance/${event}`,label:t('Attendance','الحضور'),current:true}]}>
     <WorkspacePanes modalOnPhone title={t('Player attendance','حضور اللاعب')} arabic={ar} selected={!!picked}
-      selectionKey={selected??''} contextLabel={t('Session / player details','تفاصيل التدريب / اللاعب')} inspector={details}
+      selectionKey={selected??''} contextLabel={t('Details','التفاصيل')} inspector={details}
+      paneActions={sourceReturn&&sessionHref&&<div className="register-controls">
+        <a href={sourceReturn.href} aria-disabled={busy||checking} onClick={returnToSession}>{sourceReturn.label}</a>
+        <a href={sessionHref} aria-disabled={busy||checking} onClick={returnToSession}>{t('Open session','فتح التدريب')}</a>
+      </div>}
       onBack={()=>{setSelected(null);requestAnimationFrame(()=>playerOpener.current?.focus());}}>
-      <div className="register-heading"><h1>{t('Session attendance','حضور التدريب')}</h1><span className={`attendance-status ${selections.length?'unsaved':''}`}>{selections.length?t('Unsaved choices','اختيارات غير محفوظة'):pending?pending.state==='needs_review'?t('Saved on this device · Needs review','محفوظ على هذا الجهاز · يحتاج مراجعة'):pending.state==='unknown'?t('Saved on this device · Server result unknown','محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة'):t('Saved on this device','محفوظ على هذا الجهاز'):t('Current register','القائمة الحالية')}</span></div>
-      {sessionHref&&<p className="register-links"><a href={sessionHref} aria-disabled={busy||checking} onClick={e=>{
-        if(busy||checking)e.preventDefault();
-        else navigate(e);
-      }}>{t('Back to session','الرجوع إلى التدريب')}</a></p>}
+      <div className="register-heading"><h1>{t('Session attendance','حضور التدريب')}</h1><span className={`attendance-status ${selections.length?'unsaved':pending?'':'register-idle'}`}>{selections.length?t('Unsaved choices','اختيارات غير محفوظة'):pending?pending.state==='needs_review'?t('Saved on this device · Needs review','محفوظ على هذا الجهاز · يحتاج مراجعة'):pending.state==='unknown'?t('Saved on this device · Server result unknown','محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة'):t('Saved on this device','محفوظ على هذا الجهاز'):t('Current register','القائمة الحالية')}</span></div>
       {content}
     </WorkspacePanes>
   </WorkspaceShell></div>;

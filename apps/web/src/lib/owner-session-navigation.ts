@@ -3,6 +3,15 @@ import {isCivilDay} from './experience-format';
 
 type OwnerSessionSource = {returnTo:'home'|'calendar';from?:string};
 
+export function ownerSessionReturn(locale:string,academy:string,source?:OwnerSessionSource) {
+  if(!source)return null;
+  const calendar=source.returnTo==='calendar';
+  return {
+    href:`/${locale}/workspace/${academy}/${source.returnTo}`,
+    label:locale==='ar'?(calendar?'العودة إلى التقويم':'العودة إلى اليوم'):(calendar?'Back to calendar':'Back to Today'),
+  };
+}
+
 export function ownerSessionSourceSuffix(prefix:'?'|'#',source?:OwnerSessionSource) {
   if(!source)return '';
   const {from,returnTo}=source;

@@ -1,6 +1,6 @@
 {
-  "source": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
-  "generatedAt": "2026-11-10T13:28:33.755Z",
+  "source": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
+  "generatedAt": "2026-11-10T14:13:05.895Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -39,13 +39,13 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "92914166ea41e4f807399e824a2cecec185c1701b2791194d020874ef46f9d4f",
+    "apps/web/src/app/globals.css": "45676e7c178305ca917272aeeb188a058e9d5b1064e703b1ceff3c78b3a62c07",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
-    "apps/web/src/components/attendance-workspace.tsx": "e20f273edbdcb5eaa91984b63f633a7d7226283427f5bd3f9a8c0e42d4e0d04f",
+    "apps/web/src/components/attendance-workspace.tsx": "f8134ae6dd30e04c2e6e13c6404c2f6c170843a3e358034c7dc1f4a47f027c15",
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
@@ -56,7 +56,7 @@
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
     "apps/web/src/components/people-workspace.tsx": "15770a315614bcbf452448f71ed7a74a4e90ce110c160ef05c0c8be1410c6221",
-    "apps/web/src/components/prepared-register-panel.tsx": "aa9e0b310540baf37a0c82b64aae575a182251c379b691179ad190175a686cba",
+    "apps/web/src/components/prepared-register-panel.tsx": "be69e4fb6216708b12cae006c06b2c4eb776009635ab90ef030378e8f03db11c",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
@@ -75,12 +75,12 @@
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
     "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
     "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
-    "apps/web/src/components/workspace-panes.tsx": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
+    "apps/web/src/components/workspace-panes.tsx": "5b3cf9cb18e534f136cc6670bc65cefce69f6060cd7fe9e41fa961ad701358ce",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
+    "apps/web/src/lib/owner-session-navigation.ts": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
@@ -115,12 +115,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "92e14aca75e03e800fc84cba21232e2d1cc31678faaed2fcc305b895995a8ff1",
-  "htmlSha256": "2cd709e7158d0fd75a93c4555b49e5053a387018c925cad4402eb38d81d0c1ca",
-  "frames": 1327,
+  "capturePackSha256": "8ad8cf9011cc23115fa1755a306821ac3a7f4849a8554004d125ac7a147b9645",
+  "htmlSha256": "aecd26c3c1df9d6bbd0456a660831daf96c8987ef2c708a7d57370bee5a2c2ec",
+  "frames": 1322,
   "transitions": 1310,
   "sourceFiles": 81,
-  "sourceLiterals": 8068,
+  "sourceLiterals": 8073,
   "journeys": [
     {
       "id": "entry",
@@ -128,11 +128,11 @@
     },
     {
       "id": "onboarding",
-      "frames": 233
+      "frames": 231
     },
     {
       "id": "people",
-      "frames": 157
+      "frames": 155
     },
     {
       "id": "guardians",
@@ -144,7 +144,7 @@
     },
     {
       "id": "programs",
-      "frames": 211
+      "frames": 210
     },
     {
       "id": "planning",

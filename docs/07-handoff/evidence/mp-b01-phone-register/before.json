@@ -1,0 +1,59 @@
+{
+  "commit": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "cases": [
+    {
+      "mode": "canonical",
+      "locale": "en",
+      "width": 390,
+      "firstRowTop": 790,
+      "markBottom": 925,
+      "minimumMarkHeight": 48,
+      "minimumMarkWidth": 107,
+      "reviewTop": 660,
+      "viewportHeight": 844,
+      "horizontalOverflow": 0,
+      "actionable": true
+    },
+    {
+      "mode": "canonical",
+      "locale": "ar",
+      "width": 390,
+      "firstRowTop": 759,
+      "markBottom": 894,
+      "minimumMarkHeight": 48,
+      "minimumMarkWidth": 107,
+      "reviewTop": 691,
+      "viewportHeight": 844,
+      "horizontalOverflow": 0,
+      "actionable": true
+    },
+    {
+      "mode": "prepared",
+      "locale": "en",
+      "width": 390,
+      "firstRowTop": 804,
+      "markBottom": 921,
+      "minimumMarkHeight": 48,
+      "minimumMarkWidth": 107,
+      "reviewTop": 660,
+      "viewportHeight": 844,
+      "horizontalOverflow": 0,
+      "actionable": true
+    },
+    {
+      "mode": "prepared",
+      "locale": "ar",
+      "width": 390,
+      "firstRowTop": 791,
+      "markBottom": 908,
+      "minimumMarkHeight": 48,
+      "minimumMarkWidth": 107,
+      "reviewTop": 691,
+      "viewportHeight": 844,
+      "horizontalOverflow": 0,
+      "actionable": true
+    }
+  ]
+}

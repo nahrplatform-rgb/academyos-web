@@ -50,6 +50,7 @@ try {
     return context.pages()[0]??context.newPage();
   }
   function button(name,tab=page){return tab.getByRole('button',{name,exact:true});}
+  const openActions=(tab=page)=>tab.locator('.register-action-menu > summary').click();
   async function recordMark(tab=page){
     await tab.getByRole('group').filter({has:button('Present',tab)}).first().getByRole('button',{name:'Present',exact:true}).click();
     await button('Review register',tab).click();
@@ -58,6 +59,7 @@ try {
   }
   async function prepare(scope,tab=page){
     await tab.goto(url(scope));
+    await openActions(tab);
     await button('Use a personal-device register',tab).click();
     const prepare=button('Prepare register on this device',tab);
     await expect(prepare).toBeDisabled();
@@ -71,6 +73,7 @@ try {
 
   page=await browser();
   await page.goto(url(a));
+  await openActions();
   await expect(button('Use a personal-device register')).toBeVisible();
   const before=state.events.length;
   await button('Use a personal-device register').click();
@@ -201,6 +204,7 @@ try {
   const boundary=await context.newPage();
   await boundary.clock.install({time:Date.now()});
   await boundary.goto(url(future));
+  await openActions(boundary);
   await button('Use a personal-device register',boundary).click();
   await boundary.getByLabel('This is my personal device',{exact:true}).check();
   await button('Prepare register on this device',boundary).click();

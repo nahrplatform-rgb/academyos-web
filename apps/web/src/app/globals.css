@@ -359,7 +359,6 @@ input[dir="ltr"] { text-align:left; }
 .attendance-theme input,.attendance-theme select {padding:10px;background:var(--canvas);font-size:15px;}
 .attendance-theme :is(button,a,input,select):focus-visible {outline:3px solid var(--accent);outline-offset:3px;}
 .register-heading {display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
-.attendance-theme .register-breadcrumb {font-size:12px;color:var(--muted);margin:0 0 8px;}
 .attendance-theme .register-meta {color:var(--muted);font-size:12px;margin:12px 0;}
 .attendance-theme .register-meta strong {font-weight:500;}
 .attendance-theme .register-summary {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:23px 0;}
@@ -368,8 +367,19 @@ input[dir="ltr"] { text-align:left; }
 .register-summary>div.absent {background:var(--red-bg);color:var(--red);}
 .register-summary strong {display:block;font-size:25px;margin-bottom:0;}
 .attendance-theme .register-counts {font-size:12px;color:var(--muted);}
-.register-links {display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:16px 0;}
-.attendance-theme .register-links p {margin:0;font-size:12px;}
+.attendance-theme .pane-controls:has(.register-controls) {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-block-end:8px;
+}
+.attendance-theme .pane-controls:has(.register-controls)>:is(.context-toggle,.inspector-toggle) {margin-block-end:0;}
+.register-controls {position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.register-controls a {display:inline-flex;align-items:center;min-height:44px;padding-inline:8px;font-size:14px;}
+.register-controls a[aria-disabled=true] {opacity:.6;}
+.register-controls .register-action-menu {position:static;}
+.register-controls .register-action-menu>div {inset-inline-start:0;inset-inline-end:auto;min-width:228px;}
 .attendance-theme .register-filters {display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:18px 0;}
 .attendance-theme .register-filters label {display:grid;gap:6px;font-size:13px;}
 .attendance-theme .register-filters label:first-child {flex:1;min-width:150px;}
@@ -969,3 +979,43 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 [dir="rtl"] .operations-period-actions .directional { transform:scaleX(-1); }
 
 .operations-calendar .app-scene .operations-calendar-event:hover { background:var(--sky-bg); }
+
+@media (max-width:767px) {
+  .attendance-theme .app-scene .toolbar-actions {gap:6px;}
+  .attendance-theme .app-scene .toolbar-actions>button,
+  .attendance-theme .app-scene .toolbar-actions>details>summary {padding-inline:8px;}
+  .attendance-theme .app-scene .toolbar-context .workspace-role {display:none;}
+  .attendance-theme .app-scene .toolbar-actions>[role=status] {font-size:13px;}
+  .attendance-theme .pane-controls:has(.register-controls) {gap:6px;}
+  .attendance-theme .pane-controls:has(.register-controls)>.context-toggle {padding-inline:8px;}
+  .register-controls {gap:4px;}
+  .register-controls a {padding-inline:4px;}
+  .register-controls .register-action-menu>summary {padding-inline:8px;}
+  .attendance-theme .app-scene .register-heading {gap:6px 10px;}
+  .attendance-theme .app-scene .register-heading h1 {margin-block:0;}
+  .attendance-theme .app-scene .register-meta {margin-block:8px;}
+  .attendance-theme .app-scene .register-device-ready {font-size:13px;margin-block:4px;}
+  .attendance-theme .app-scene .register-summary {gap:6px;margin-block:10px;}
+  .attendance-theme .app-scene .register-summary>div {padding:8px 10px;}
+  .attendance-theme .app-scene .register-summary strong {font-size:22px;}
+  .attendance-theme .app-scene .register-filters {margin-block:10px 6px;}
+  .attendance-theme .app-scene .register-filters label {gap:4px;}
+  .attendance-theme .app-scene .register-roster {margin-block-start:8px;}
+  .attendance-theme .app-scene .register-roster li {padding:8px 10px;gap:6px;}
+  .attendance-theme .app-scene .register-savebar {
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:8px;
+    margin-block-start:10px;
+    padding:8px 0;
+  }
+  .attendance-theme .app-scene .register-savebar p {flex:1;min-width:0;margin:0;}
+  .attendance-theme .app-scene .register-savebar .register-primary {flex:0 1 auto;}
+  .attendance-theme .app-scene[data-workspace-role=owner] .register-savebar {
+    bottom:0;
+    padding-block-end:max(8px,env(safe-area-inset-bottom));
+  }
+}
+@media (max-width:374px) {
+  .attendance-theme .app-scene .register-heading .register-idle {display:none;}
+}

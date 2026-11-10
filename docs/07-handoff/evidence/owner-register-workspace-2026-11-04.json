@@ -11,12 +11,12 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 116
+    "offlineProcessReopenMs": 117
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
-    "scripts/working-day/test_owner_startup.mjs": "b2abcf4355d65353ae9fd6737d178c6bfb38e820f2f897f13601bea6f6a4f047",
+    "apps/web/src/lib/owner-session-navigation.ts": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
+    "scripts/working-day/test_owner_startup.mjs": "33aca8636d5909862a39638550eba7985dd173534afbf80ba68264158ce2bc3b",
     "scripts/working-day/owner_fixture.mjs": "73c96cfb22217ea4737d4f2bf3abcf56c7986e89948e609b6259243a9222c8cf",
     "scripts/working-day/owner_db.py": "2626e5363344e94d95975a148a71f4d6d2bc0c9d3a8f000bf3e08eaf308f37b7",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
@@ -29,9 +29,9 @@
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
-    "apps/web/src/components/attendance-workspace.tsx": "e20f273edbdcb5eaa91984b63f633a7d7226283427f5bd3f9a8c0e42d4e0d04f",
+    "apps/web/src/components/attendance-workspace.tsx": "f8134ae6dd30e04c2e6e13c6404c2f6c170843a3e358034c7dc1f4a47f027c15",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
-    "apps/web/src/components/prepared-register-panel.tsx": "aa9e0b310540baf37a0c82b64aae575a182251c379b691179ad190175a686cba",
+    "apps/web/src/components/prepared-register-panel.tsx": "be69e4fb6216708b12cae006c06b2c4eb776009635ab90ef030378e8f03db11c",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",

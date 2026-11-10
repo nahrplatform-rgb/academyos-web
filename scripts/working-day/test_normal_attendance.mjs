@@ -8,13 +8,14 @@ import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
 import {checkOwnerDayReturn} from './owner_day_return.mjs';
+import {checkPhoneRegister} from './register_geometry.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
 const receipt=join(output,'runtime.json');
-const returnCaptures=join(root,'docs/07-handoff/evidence/mp-b01-owner-return');
+const returnCaptures=join(root,'docs/07-handoff/evidence/mp-b01-phone-register');
 const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
-  'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
+  'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/register_geometry.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
   ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
@@ -38,6 +39,7 @@ try{
  }finally{await returnBrowser.close();}
  const url=(scope,locale='en')=>`${origin}/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
  const button=(name,tab=page)=>tab.getByRole('button',{name,exact:true});
+ const openActions=(tab=page)=>tab.locator('.register-action-menu > summary').click();
  const apiAfter=start=>state.events.slice(start);
  const settled=()=>expect(page.locator('.toolbar-actions [role=status]')).toHaveText('Online');
  async function browser(offline=false,width=1440){
@@ -46,7 +48,7 @@ try{
   page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));
  }
  async function prepare(scope,count=18){
-  await page.goto(url(scope));await button('Use a personal-device register').click();
+  await page.goto(url(scope));await openActions();await button('Use a personal-device register').click();
   await page.getByLabel('This is my personal device',{exact:true}).check();
   await button('Prepare register on this device').click();
   await expect(page.getByText(`${count} / ${count} loaded from this device`,{exact:true})).toBeVisible();
@@ -56,26 +58,51 @@ try{
  await browser();await prepare(a);
  const sourceHint=`?from=${a.day}&return=calendar`;
  const linkedAttendance=url(a)+'#'+sourceHint.slice(1);
- await page.goto(linkedAttendance);
+ const calendarPath=`/en/workspace/${a.academy}/calendar`;
+ await page.goto(origin+calendarPath);
+ await button('Month').click();
+ const calendarSelection=page.locator(`[data-occurrence="${data.program}:${a.day}"][data-state="published"]`).first();
+ await calendarSelection.waitFor({state:'visible'});
+ const calendarFilter=page.getByRole('searchbox',{name:'Search this loaded page',exact:true});
+ await calendarFilter.fill('Fictional working-day');
+ await calendarSelection.click();
+ await page.getByRole('link',{name:'Open this date',exact:true}).click();
+ await page.getByRole('link',{name:'Open attendance',exact:true}).click();
+ await page.waitForURL(linkedAttendance);
  await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
  await settled();
- const preparedBack=page.getByRole('link',{name:'Back to session',exact:true});
+ metrics.preparedPhoneRegister=await checkPhoneRegister(page,'prepared','en',captureReturn);
+ await page.goto(url(a,'ar')+'#'+sourceHint.slice(1));
+ await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
+ await expect(page.locator('.toolbar-actions [role=status]')).toHaveText('متصل');
+ metrics.preparedPhoneRegister.push(...await checkPhoneRegister(page,'prepared','ar',captureReturn));
+ await page.goto(linkedAttendance);
+ await settled();
+ const preparedBack=page.getByRole('link',{name:'Open session',exact:true});
+ const preparedReturn=page.getByRole('link',{name:'Back to calendar',exact:true});
  const linkedDate=`/en/workspace/${a.academy}/programs/${data.program}/${a.day}${sourceHint}`;
  await expect(preparedBack).toHaveAttribute('href',linkedDate);
+ await expect(preparedReturn).toHaveAttribute('href',calendarPath);
  const firstMark=page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true});
  await firstMark.click();
  await expect(firstMark).toHaveAttribute('aria-pressed','true');
  const confirm=page.waitForEvent('dialog').then(dialog=>dialog.dismiss());
- await preparedBack.click();
+ await preparedReturn.click();
  await confirm;
  assert.equal(page.url(),linkedAttendance);
  await expect(firstMark).toHaveAttribute('aria-pressed','true');
+ const preparedDeparture=state.events.length;
  const discard=page.waitForEvent('dialog').then(dialog=>dialog.accept());
- await preparedBack.click();
+ await preparedReturn.click();
  await discard;
- await page.waitForURL(origin+linkedDate);
- await button('Back to calendar').click();
- await expect(page.getByRole('heading',{name:'Training calendar',exact:true})).toBeVisible();
+ await page.waitForURL(origin+calendarPath);
+ await expect(page.locator('.calendar-toolbar')).toHaveAttribute('aria-busy','false');
+ await expect(button('Month')).toHaveAttribute('aria-pressed','true');
+ await expect(calendarSelection).toHaveAttribute('aria-pressed','true');
+ await expect(calendarFilter).toHaveValue('Fictional working-day');
+ await expect(page.getByRole('heading',{name:'Session details',exact:true})).toBeFocused();
+ assert.deepEqual(apiAfter(preparedDeparture).map(({route,action,status})=>[route,action,status]),
+   [['experience','owner_calendar',200]]);
  await page.goto(linkedAttendance);
  await expect(preparedBack).toHaveAttribute('href',linkedDate);
  await settled();
@@ -87,19 +114,22 @@ try{
  assert.equal(page.url(),linkedAttendance);
  await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
  await expect(preparedBack).toHaveCount(0);
+ await expect(preparedReturn).toHaveCount(0);
  assert.equal(state.events.length,beforeLinkedReopen);
  fixture.reconnect();
  await context.setOffline(false);
  await settled();
  await expect(preparedBack).toHaveAttribute('href',linkedDate);
+ await expect(preparedReturn).toHaveAttribute('href',calendarPath);
  await preparedBack.click();
  await page.waitForURL(origin+linkedDate);
  await expect(button('Back to calendar')).toBeEnabled();
+ metrics.ownerDayReturn.prepared={directRead:'owner_calendar',dirtyCancelPreservedChoice:true,contextRestored:true};
  metrics.ownerDayReturn.linkedOffline={players:18,apiRequests:0,workerResponse:true,sourceAfterReconnect:true};
  await page.goto(url(a));
  await expect(page.getByText('18 / 18 loaded from this device',{exact:true})).toBeVisible();
  await settled();
- pass('Owner Calendar and Today regain the checked session in EN/AR, including after linked offline reopen with dirty choices guarded');
+ pass('One-step Owner return, exact date alternative, guarded choices and usable normal/prepared phone register in EN/AR');
  await expect(page.locator('.app-scene')).toHaveCount(1);
  await expect(page.getByRole('heading',{name:'Personal-device register',exact:true})).toHaveCount(0);
  await expect(page.getByRole('link',{name:'Offline reopening link',exact:true})).toHaveCount(0);
@@ -117,7 +147,7 @@ try{
   const second=await chromium.launchPersistentContext(join(temp,`conflict-${scope.event}`),{viewport:{width:1440,height:1000}});
   try{
    const tab=second.pages()[0]??await second.newPage();
-   await tab.goto(url(scope));await button('Use a personal-device register',tab).click();
+   await tab.goto(url(scope));await openActions(tab);await button('Use a personal-device register',tab).click();
    await tab.getByLabel('This is my personal device',{exact:true}).check();
    const keyStart=state.events.length;
    await button('Prepare register on this device',tab).click();
@@ -145,6 +175,7 @@ try{
    }
    await expect(tab.getByText('Loaded: 18 / 18 · Selected, not saved: 0',{exact:true})).toBeVisible();
    const reloadStart=state.events.length;await tab.reload();
+   await openActions(tab);
    await expect(button('Use a personal-device register',tab)).toBeVisible();
    assert.equal(apiAfter(reloadStart).filter(r=>r.route==='register-key').length,0);
   }finally{await second.close();}

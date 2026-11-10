@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+  "source_anchor": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -350,8 +350,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "92914166ea41e4f807399e824a2cecec185c1701b2791194d020874ef46f9d4f",
-      "bytes": 89397
+      "sha256": "45676e7c178305ca917272aeeb188a058e9d5b1064e703b1ceff3c78b3a62c07",
+      "bytes": 91963
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -385,8 +385,8 @@
     },
     {
       "path": "apps/web/src/components/attendance-workspace.tsx",
-      "sha256": "e20f273edbdcb5eaa91984b63f633a7d7226283427f5bd3f9a8c0e42d4e0d04f",
-      "bytes": 33637
+      "sha256": "f8134ae6dd30e04c2e6e13c6404c2f6c170843a3e358034c7dc1f4a47f027c15",
+      "bytes": 34005
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
@@ -440,8 +440,8 @@
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
-      "sha256": "aa9e0b310540baf37a0c82b64aae575a182251c379b691179ad190175a686cba",
-      "bytes": 31110
+      "sha256": "be69e4fb6216708b12cae006c06b2c4eb776009635ab90ef030378e8f03db11c",
+      "bytes": 31735
     },
     {
       "path": "apps/web/src/components/prepared-register-session.tsx",
@@ -535,8 +535,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-panes.tsx",
-      "sha256": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
-      "bytes": 6003
+      "sha256": "5b3cf9cb18e534f136cc6670bc65cefce69f6060cd7fe9e41fa961ad701358ce",
+      "bytes": 6054
     },
     {
       "path": "apps/web/src/components/workspace-runtime.tsx",
@@ -760,8 +760,8 @@
     },
     {
       "path": "apps/web/src/lib/owner-session-navigation.ts",
-      "sha256": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
-      "bytes": 1225
+      "sha256": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
+      "bytes": 1626
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",

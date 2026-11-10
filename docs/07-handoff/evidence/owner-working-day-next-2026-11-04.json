@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 221,
-    "calendarMs": 148,
-    "dateMs": 174,
+    "homeMs": 205,
+    "calendarMs": 130,
+    "dateMs": 146,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 218,
-    "selectReviewSaveMs": 756,
+    "firstPrepareMs": 217,
+    "selectReviewSaveMs": 753,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 191,
-    "originalReplayMs": 111,
+    "offlineRestartMs": 195,
+    "originalReplayMs": 130,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -238,7 +238,7 @@
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "fc2d5bb6a0dc7f7daa6aa8bc218b28c95ed87cc4792b8e52d0af6157db273bde",
+    "apps/web/src/lib/owner-session-navigation.ts": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
     "scripts/working-day/owner_fixture.mjs": "73c96cfb22217ea4737d4f2bf3abcf56c7986e89948e609b6259243a9222c8cf",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
     "scripts/working-day/owner_db.py": "2626e5363344e94d95975a148a71f4d6d2bc0c9d3a8f000bf3e08eaf308f37b7",
@@ -262,7 +262,7 @@
     "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
     "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
-    "apps/web/src/app/globals.css": "92914166ea41e4f807399e824a2cecec185c1701b2791194d020874ef46f9d4f",
+    "apps/web/src/app/globals.css": "45676e7c178305ca917272aeeb188a058e9d5b1064e703b1ceff3c78b3a62c07",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
