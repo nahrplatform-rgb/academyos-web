@@ -270,7 +270,8 @@ try{
    await expect(p.getByText('Fictional Routing Academy',{exact:true})).toHaveCount(0);hold=false;release();
    await expect.poll(position).toEqual(before);await expect(p.locator('.experience-session[aria-pressed="true"]')).toHaveCount(1);
    const saved=await p.evaluate(()=>JSON.parse(sessionStorage.getItem(Object.keys(sessionStorage).find(k=>k.startsWith('academyos:experience:')))));
-   assert.deepEqual(Object.keys(saved).sort(),['filter','from','position','selection','view'],'navigation store contains only safe context');
+   assert.deepEqual(Object.keys(saved).sort(),['attendanceTask','filter','from','position','selection','view'],'navigation store contains only safe context');
+   assert.equal(saved.attendanceTask,null,'Calendar never carries an Owner Today attendance task');
    assert.ok(!JSON.stringify(saved).includes('Fictional Routing'),'no private projection persisted');
    phase='short';await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await expect(p.locator('.experience-session')).toHaveCount(3);
    const shortened=await position();assert.ok(shortened.center<before.center||shortened.document<before.document,'current shorter result naturally clamps');

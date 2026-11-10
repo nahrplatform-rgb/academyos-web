@@ -42,3 +42,17 @@ The added held-read test initially assumed the static attention heading would di
 ## Evidence boundaries
 
 No account, provider setting, schema, worker, key, field epoch or offline command changes are included. The promoted `ce5a324` source and its limited English signed-in observation are recorded in the previous checkpoint. This new queue journey needs its own exact candidate, CI, Owner promotion and separate signed-in EN/AR proof. Browser extensions were unavailable and the native Chrome check was interrupted; it does not establish a full bilingual or device result. MP-B01, broad NR03/NR07 closure, installed-device readiness and Owner acceptance remain open.
+
+## Remaining Owner-day source inventory
+
+While the exact candidate's CI ran, the same Terra helper inspected the next correction/development handoffs without editing or executing the app. The coordinator checked the relevant page validation and loading functions. At `7b81d99`, `experience-workspace.tsx:255` supplies event/player links for both tasks. `attendance/corrections/page.tsx` validates those identifiers; `correction-workspace.tsx:26–32` reads the list and then player context, with a separate View existing pending request action. Its existing dirty reason guard, stored original-operation locator and reconciliation remain. There is no explicit Today return in that component. This is a source observation, requiring a real pending-request runtime baseline before repair.
+
+`development/page.tsx` validates event/player as a pair. `development-workspace.tsx:30` loads the queue then that exact detail. Its guard and pending-operation state differ from corrections, so the next scoped journey should prove correction handoff/return first, with Development as follow-on. No new recovery guarantee or hosted defect is inferred from this inventory. The generated continuation records that next runtime baseline; no second worker or next product edit was started.
+
+## Release validation repair
+
+Candidate `7b81d990baa5f25d57313cb76178285788f9d5c3` produced a Ready preview, but Foundation run `42869190876`, attempt 1, stopped after 28/53 successful steps at Verify real Next task navigation and guarded return. The navigation test's exact safe-key list predated `attendanceTask`. The actual Calendar entry contained the new marker with a null value. The log did not demonstrate an app navigation failure or establish the unexecuted later assertions. That Ready preview is not promotion-ready.
+
+The same Terra helper retrieved the failed-step log once and traced `scripts/navigation/test_next.mjs:273`. The coordinator verified that assertion, added the safe key and explicitly asserted its null Calendar value. The no-private-projection, held-response, scroll, denial and exact read-count assertions remain. This repair changes that test and delivery evidence only. The failed candidate/run/preview stay in the release receipt; the replacement needs its own complete CI result before an Owner promotion.
+
+The corrected actual Next production navigation suite passes in EN/AR, including guarded edits, selection and Back/Forward. The geometry suite reports 20 cases with zero temporary clamps. These are local synthetic-transport observations. Earlier signed database/offline/source-freshness results still apply because the repair changes no product input. The execution/continuation checks pass; full replacement CI remains a distinct gate.

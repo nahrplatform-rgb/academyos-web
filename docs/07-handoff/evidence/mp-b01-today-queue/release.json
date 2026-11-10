@@ -1,9 +1,40 @@
 {
   "sourceBase": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
-  "candidate": "not_committed",
-  "ci": "pending exact candidate",
-  "preview": "pending exact candidate",
-  "promotion": "Owner only; not performed",
+  "candidate": "repair_not_committed",
+  "ci": "pending exact repaired candidate",
+  "preview": "pending exact repaired candidate",
+  "promotion": "Owner only after exact repaired candidate checks",
   "hosted": "pending new source; prior ce5a324 source and partial English observation retained in phone-register release receipt",
-  "ownerAcceptance": "pending scoped working review"
+  "ownerAcceptance": "pending scoped working review",
+  "lastVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_6JNDzB6p9zo8A3orNJ1TBLqSYeQD",
+    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+    "state": "READY",
+    "checkedDate": "2026-11-10"
+  },
+  "priorFailedCandidate": {
+    "commit": "7b81d990baa5f25d57313cb76178285788f9d5c3",
+    "ci": {
+      "commit": "7b81d990baa5f25d57313cb76178285788f9d5c3",
+      "run_id": 42869190876,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42869190876",
+      "run_attempt": 1,
+      "run_conclusion": "failure",
+      "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42869190876/job/130015556388",
+      "job_conclusion": "failure",
+      "steps_passed": 28,
+      "step_count": 53,
+      "first_failed_step": "Verify real Next task navigation and guarded return",
+      "verdict": "ci_failed"
+    },
+    "preview": {
+      "deploymentId": "dpl_HHQAGMN84WaUFKm6YH3WFpxKtjit",
+      "commit": "7b81d990baa5f25d57313cb76178285788f9d5c3",
+      "project": "academyos-web",
+      "state": "READY",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/HHQAGMN84WaUFKm6YH3WFpxKtjit"
+    },
+    "repair": "Safe navigation-key assertion permits attendanceTask and requires null on Calendar; no product source change"
+  }
 }
