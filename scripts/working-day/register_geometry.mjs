@@ -41,7 +41,8 @@ export async function checkPhoneRegister(page,mode,locale,captures) {
       assert.equal(measure.horizontalOverflow,0);
       assert.equal(measure.actionable,true);
       assert.ok(measure.minimumMarkHeight>=44&&measure.minimumMarkWidth>=44);
-      assert.ok(measure.markBottom<=measure.reviewTop,JSON.stringify(measure));
+      assert.ok(measure.markBottom<=Math.min(measure.reviewTop,measure.viewportHeight),
+        JSON.stringify({mode,locale,width,...measure}));
       assert.equal(measure.visibleMarkTargets,3);
       if(width===390&&captures)await page.screenshot({path:join(captures,`${mode}-${locale}-390.png`)});
       if(width===320&&mode==='canonical'){

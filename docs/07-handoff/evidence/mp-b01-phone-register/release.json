@@ -1,0 +1,32 @@
+{
+  "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+  "ci": {
+    "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+    "run_id": 42832093649,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649",
+    "run_attempt": 1,
+    "run_conclusion": "failure",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649/job/129884505070",
+    "job_conclusion": "failure",
+    "steps_passed": 27,
+    "step_count": 53,
+    "first_failed_step": "Verify normal Attendance local save, reconnect and original recovery",
+    "verdict": "ci_failed"
+  },
+  "preview": {
+    "deploymentId": "dpl_Hq1fumGMWke4294SQWhf69FP5429",
+    "project": "academyos-web",
+    "state": "READY",
+    "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/Hq1fumGMWke4294SQWhf69FP5429"
+  },
+  "lastVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_5YsH6C1Z1WYN9goWNLXo8U6VXDgF",
+    "commit": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
+    "state": "READY"
+  },
+  "signedInVerification": "pending promotion of this candidate",
+  "OwnerAcceptance": "pending working review",
+  "promotion": "candidate failed CI and requires a layout repair"
+}

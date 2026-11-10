@@ -24,7 +24,7 @@ Local Chromium 156 with Node 24 and disposable PostgreSQL 17 on loopback. Each p
 |---|---:|---:|---:|
 | Online EN | 790 → 515 | 925 → 639 | 779 |
 | Online AR | 759 → 522 | 894 → 646 | 779 |
-| Prepared EN | 804 → 557 | 921 → 663 | 779 |
+| Prepared EN | 804 → 539 | 921 → 645 | 779 |
 | Prepared AR | 791 → 545 | 908 → 651 | 779 |
 
 At widths 320, 360 and 390 with the same 844 px height, all three first-row choices were hit-testable above Review in both modes and languages. Their targets stayed at least 48 px high and 86 px wide. The last row remained reachable, and the narrow actions disclosure stayed inside the viewport. These are desktop browser measurements. Physical touch, smaller viewport heights, installed mode and hosted mark behavior have separate evidence requirements. [Online English](evidence/mp-b01-phone-register/canonical-en-390.png) · [Prepared Arabic](evidence/mp-b01-phone-register/prepared-ar-390.png)
@@ -36,6 +36,12 @@ One configured `gpt-6.1-terra` helper at medium effort traced the phone density 
 ## Local checkpoint
 
 The compiled build, type and lint checks, 103 unit cases, 24 normal Attendance cases, eight Owner-day cases, eight startup cases and 70 workspace transport cases passed. The living factual HTML was rebuilt from 16 current real-component capture groups and eight entry captures. The local tests exercise actual signed application handlers and disposable data with a fictional identity wire. The previous hosted check used an existing signed-in staging session. [Living factual review](../../design/app-experience-review/AcademyOS-experience-review.html) · [Transport evidence](evidence/ex13b-workspace-transfer/transport.json)
+
+## Narrow layout repair after CI
+
+The first candidate `910352f` passed on the local browser. Foundation attempt 1 on the Linux runner stopped in the 320 px geometry check. The mark controls ended at 786 px, below a Review bar that began at 749 px. No first-row mark was hit-testable. The Ready preview of that candidate did not qualify for promotion. [Failed Foundation run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649)
+
+The repair allows the action labels to wrap within their row, keeps the review copy compact, and uses a locale-aware date/time range to avoid repeating the date when both times share it. The same timestamp and branch timezone supply the range. A duplicate absence note was removed from the prepared summary and remains visible by Review. The geometric assertions still require all three mark controls above Review. In an additional local 320 × 844 test with wider fallback fonts, the smallest clearance was 48 CSS px. All four EN/AR normal and prepared cases had zero horizontal overflow and all three targets received hits. This stress check exercises text wrapping, with the actual Linux result recorded by the next exact run.
 
 ## Next scoped work
 

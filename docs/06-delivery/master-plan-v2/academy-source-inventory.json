@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
+  "source_anchor": "910352fb025451e7945375d8b66c23ddbf7c6d11",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -350,8 +350,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "45676e7c178305ca917272aeeb188a058e9d5b1064e703b1ceff3c78b3a62c07",
-      "bytes": 91963
+      "sha256": "5dce428f0dcf5909be0915d54659bc72b51efae4ecc63d3ac3284b69d54d7891",
+      "bytes": 92711
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -385,8 +385,8 @@
     },
     {
       "path": "apps/web/src/components/attendance-workspace.tsx",
-      "sha256": "f8134ae6dd30e04c2e6e13c6404c2f6c170843a3e358034c7dc1f4a47f027c15",
-      "bytes": 34005
+      "sha256": "828d0915622d4cfebc40c23841021c03dab0aceea20085734d1c1d17c560d0e0",
+      "bytes": 34057
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
@@ -440,8 +440,8 @@
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
-      "sha256": "be69e4fb6216708b12cae006c06b2c4eb776009635ab90ef030378e8f03db11c",
-      "bytes": 31735
+      "sha256": "c8048b7bade2c2de0ab054fd72f563cd4f3c5c8486aabd665a01c9e9ed4f42a6",
+      "bytes": 31700
     },
     {
       "path": "apps/web/src/components/prepared-register-session.tsx",

@@ -1017,5 +1017,15 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
   }
 }
 @media (max-width:374px) {
+  .attendance-theme .app-scene .window-toolbar {padding-block:6px;gap:6px;}
+  .attendance-theme .app-scene .toolbar-actions {gap:4px;}
+  .attendance-theme .app-scene .toolbar-actions>button,
+  .attendance-theme .app-scene .toolbar-actions>details>summary {padding-inline:6px;}
+  .attendance-theme .pane-controls:has(.register-controls) {flex-wrap:nowrap;}
+  .register-controls {flex-wrap:nowrap;min-width:0;}
+  .register-controls>a,.register-controls .register-action-menu {min-width:0;flex-shrink:1;}
+  .register-controls .register-action-menu>summary {padding:6px 8px;line-height:1.2;}
   .attendance-theme .app-scene .register-heading .register-idle {display:none;}
+  .attendance-theme .app-scene .register-savebar p {line-height:1.35;}
+  .attendance-theme .app-scene .register-savebar .register-primary {padding-inline:8px;}
 }

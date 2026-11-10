@@ -26,8 +26,8 @@
       "roster": 18
     },
     "homeMs": 205,
-    "calendarMs": 130,
-    "dateMs": 146,
+    "calendarMs": 148,
+    "dateMs": 167,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 217,
-    "selectReviewSaveMs": 753,
+    "firstPrepareMs": 200,
+    "selectReviewSaveMs": 747,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 195,
-    "originalReplayMs": 130,
+    "offlineRestartMs": 181,
+    "originalReplayMs": 98,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -262,7 +262,7 @@
     "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
     "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
-    "apps/web/src/app/globals.css": "45676e7c178305ca917272aeeb188a058e9d5b1064e703b1ceff3c78b3a62c07",
+    "apps/web/src/app/globals.css": "5dce428f0dcf5909be0915d54659bc72b51efae4ecc63d3ac3284b69d54d7891",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
