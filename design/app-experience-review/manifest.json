@@ -1,6 +1,6 @@
 {
-  "source": "910352fb025451e7945375d8b66c23ddbf7c6d11",
-  "generatedAt": "2026-11-10T14:38:07.772Z",
+  "source": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+  "generatedAt": "2026-11-10T17:46:20.690Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -49,7 +49,7 @@
     "apps/web/src/components/correction-workspace.tsx": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
     "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
-    "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
+    "apps/web/src/components/experience-workspace.tsx": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
     "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
     "apps/web/src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
@@ -80,7 +80,7 @@
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
+    "apps/web/src/lib/owner-session-navigation.ts": "68d6bfcebda39aac7f66dc09f252fae6d8136acf4d19e5ad1742edeb7490cfd2",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
@@ -93,7 +93,7 @@
     "scripts/attendance/test_ui.mjs": "0676e70a87b935b442d80e5b847151cb85de3fdae2db40e08941872325f19e11",
     "scripts/corrections/test_ui.mjs": "45a0028665122e9c04230469bab74da39a8797c7f8d99f89291cd6090d37f413",
     "scripts/development/test_ui.mjs": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0",
-    "scripts/experience-projections/test_ui.mjs": "08d2c1a66f541a24dfe88393a6f9537d91f39485f6618eb82d439f13024bda74",
+    "scripts/experience-projections/test_ui.mjs": "a4858e5970f8a49cbf1e4bcec74af6ccd504a003dcb60ab4455b32e0025c7c5b",
     "scripts/experience-review/build.mjs": "4b8b3e0c7642be31522d73180027b1afea6231ef5ece71cc17e0aa2e24bed68f",
     "scripts/experience-review/capture.mjs": "12c6a4db77bf897ee10d6aa49799b88a7e0d21a8440008850f57d6ca7239c380",
     "scripts/experience-review/collect.mjs": "0320eac9105e72e73ec53119b0fb2a91f4b1df85845031805ba02b813cfce513",
@@ -115,12 +115,12 @@
     "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
     "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
   },
-  "capturePackSha256": "ac05baf6f732c1013fd52a0480a116d461cefb52b1c8c634e4db8307b3aada19",
-  "htmlSha256": "d09e83cb3b090caee7f7d2633ff2550595fa38cfc715682357462cd751c6644a",
-  "frames": 1322,
+  "capturePackSha256": "41eb122657d36a552206f285f44d832bf01aeefc88adabfa81a9a4d70a5d115d",
+  "htmlSha256": "e9a8a799723758364b4fde6bf07a2294c6591c98b1725239b40f7fbb2eef73e4",
+  "frames": 1323,
   "transitions": 1310,
   "sourceFiles": 81,
-  "sourceLiterals": 8071,
+  "sourceLiterals": 8085,
   "journeys": [
     {
       "id": "entry",
@@ -156,7 +156,7 @@
     },
     {
       "id": "publication",
-      "frames": 54
+      "frames": 55
     },
     {
       "id": "session-changes",

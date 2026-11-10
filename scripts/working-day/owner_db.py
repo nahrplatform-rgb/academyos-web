@@ -17,7 +17,7 @@ literal = dispatch['literal']
 ROUTES = {
     'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
     'p5_dates_v1', 'q6_read_v1', 'x20_register_download_v1', 'x20_register_dispatch_v1',
-    'x19_owner_register_key_v1', 'a10_roster_v1', 'a10_history_v1',
+    'x19_owner_register_key_v1', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
 }
 
 
@@ -110,7 +110,20 @@ if __name__ == '__main__':
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] == 'future_fixture':
+                if command['action'] == 'queue_fixture':
+                    academy, branch, event, _, _ = dispatch['Boundary'].pair(test)
+                    test.sql("insert into academy.players(academy_id,branch_id,display_name,normalized_name) "
+                             f"select {literal(academy)},{literal(branch)},'Synthetic queue player '||n,"
+                             "'synthetic queue player '||n from generate_series(1,16)n")
+                    test.sql("insert into academy.publication_rosters "
+                             f"select {literal(event)},id,display_name from academy.players p "
+                             f"where academy_id={literal(academy)} and not exists "
+                             "(select 1 from academy.publication_rosters r "
+                             f"where r.event_id={literal(event)} and r.player_id=p.id);"
+                             f"update academy.publication_events set roster_count=18,capacity=18 where id={literal(event)}")
+                    test.retime(event)
+                    value = {'academy': academy, 'event': event}
+                elif command['action'] == 'future_fixture':
                     # Disposable fixture only: exercise a download before its window.
                     academy, _, event, _, _ = dispatch['Boundary'].pair(test)
                     test.retime(event,"clock_timestamp()+interval '60 seconds'",

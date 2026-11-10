@@ -1,5 +1,6 @@
 {
   "checks": [
+    "Today queue entry returns to the checked task or finished-work heading with retained context and one source read",
     "One-step Owner return, exact date alternative, guarded choices and usable normal/prepared phone register in EN/AR",
     "One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination",
     "Arabic online fallback retains the chosen language and restores keyboard focus to the preparation trigger",
@@ -209,6 +210,214 @@
         "sourceAfterReconnect": true
       }
     },
+    "ownerQueueReturn": [
+      {
+        "locale": "en",
+        "width": 1440,
+        "height": 900,
+        "resolved": false,
+        "handoff": [
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "",
+          "task": "d71782a5-8f4c-4d35-b455-56c49d6bcb23"
+        },
+        "dirtyCancelPreservedChoice": true,
+        "heldReturnMasksUncheckedQueue": true
+      },
+      {
+        "locale": "en",
+        "width": 1440,
+        "height": 900,
+        "resolved": true,
+        "handoff": [
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "saveCalls": [
+          [
+            "attendance",
+            "register",
+            200
+          ],
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "owner-today-attention",
+          "task": null
+        },
+        "dirtyCancelPreservedChoice": true,
+        "heldReturnMasksUncheckedQueue": true
+      },
+      {
+        "locale": "ar",
+        "width": 390,
+        "height": 844,
+        "resolved": false,
+        "handoff": [
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "",
+          "task": "f53f6066-94a8-439d-bced-68d708c68aa4"
+        },
+        "dirtyCancelPreservedChoice": true,
+        "heldReturnMasksUncheckedQueue": true
+      },
+      {
+        "locale": "ar",
+        "width": 390,
+        "height": 844,
+        "resolved": true,
+        "handoff": [
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "saveCalls": [
+          [
+            "attendance",
+            "register",
+            200
+          ],
+          [
+            "attendance",
+            "roster",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "owner-today-attention",
+          "task": null
+        },
+        "dirtyCancelPreservedChoice": true,
+        "heldReturnMasksUncheckedQueue": true
+      },
+      {
+        "locale": "en",
+        "width": 1440,
+        "currentOwnerDenied": true,
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            403
+          ]
+        ],
+        "documents": 1,
+        "privateTaskVisible": false
+      },
+      {
+        "locale": "ar",
+        "width": 390,
+        "currentOwnerDenied": true,
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            403
+          ]
+        ],
+        "documents": 1,
+        "privateTaskVisible": false
+      },
+      {
+        "locale": "en",
+        "width": 1440,
+        "unrelatedVisit": true,
+        "interactionDuringReturn": false,
+        "automaticFocusSuppressed": true
+      },
+      {
+        "locale": "en",
+        "width": 1440,
+        "unrelatedVisit": false,
+        "interactionDuringReturn": true,
+        "automaticFocusSuppressed": true
+      }
+    ],
     "preparedPhoneRegister": [
       {
         "mode": "prepared",
@@ -330,16 +539,17 @@
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
-    "scripts/working-day/test_normal_attendance.mjs": "377cef8f32e662aff347c3258a8baa1a7cde71b6bbaab40898051cf14d7adaae",
+    "apps/web/src/lib/owner-session-navigation.ts": "68d6bfcebda39aac7f66dc09f252fae6d8136acf4d19e5ad1742edeb7490cfd2",
+    "scripts/working-day/test_normal_attendance.mjs": "66c3c069ca247d01ac84fd98a774c6ae3d282e787d688ea92ee226ba5e315a1f",
     "scripts/working-day/owner_day_return.mjs": "b771ae38218d7be0da0c862c98be825d44ea1354895f42eedd41af5bb2f42fd5",
+    "scripts/working-day/owner_queue_return.mjs": "9aec9ee260ea87c92edfa93c6f05946a1644755361a1496380a16b8beaf00f0b",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
     "scripts/working-day/owner_fixture.mjs": "73c96cfb22217ea4737d4f2bf3abcf56c7986e89948e609b6259243a9222c8cf",
-    "scripts/working-day/owner_db.py": "2626e5363344e94d95975a148a71f4d6d2bc0c9d3a8f000bf3e08eaf308f37b7",
+    "scripts/working-day/owner_db.py": "9d52ecdef3a62b79460ac94212072dc47e511b38a57aceaa85d1e616d5649acb",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/components/attendance-workspace.tsx": "828d0915622d4cfebc40c23841021c03dab0aceea20085734d1c1d17c560d0e0",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
-    "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
+    "apps/web/src/components/experience-workspace.tsx": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
     "apps/web/src/components/prepared-register-panel.tsx": "c8048b7bade2c2de0ab054fd72f563cd4f3c5c8486aabd665a01c9e9ed4f42a6",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",

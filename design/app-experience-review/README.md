@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+10 November MP-B01 connects the exact Today attendance queue to the normal 18-player register and back. Separate signed synthetic EN/AR captures show retained and completed tasks. The return waits for current authority, consumes its focus hint and yields to new user input. The existing register phone/offline cases retain their own evidence. [Today attendance queue](../../docs/07-handoff/mp-b01-today-queue-2026-11-10.md)
+
 10 November MP-B01 updates the Attendance toolbar and phone register. The signed synthetic fixture supplies separate EN/AR captures for direct return, 18 markable rows and the prepared device route. The default component replay covers the shared presentation. [Phone register and direct return](../../docs/07-handoff/mp-b01-phone-register-2026-11-10.md)
 
 10 November MP-B01 checks the actual Today and Calendar return through dated planning and Attendance. The separate signed synthetic fixture verifies the 18-player route, guarded return and an offline reopen of the same linked URL. Its captures supplement the standard component replay. [Owner session return](../../docs/07-handoff/mp-b01-owner-return-2026-11-10.md)

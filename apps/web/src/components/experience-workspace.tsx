@@ -10,6 +10,7 @@ import WorkspacePanes from './workspace-panes';
 import { Button, Select } from './ui/controls';
 import { ownerNavigation } from './owner-navigation';
 import { addCivilDays, monthGridStart, shiftMonth, sessionTime, isCivilDay, formatCount, formatQuantity } from '@/lib/experience-format';
+import {ownerAttendanceReturnTask,ownerSessionSourceSuffix} from '@/lib/owner-session-navigation';
 import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
 import type { CalendarCursor, CurrentCalendarProjection, CalendarProjection, CalendarSession, ExperienceContext } from '@/lib/experience-projections';
 type Role='owner'|'trainer'|'guardian';
@@ -41,24 +42,54 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  const ar=locale==='ar',t=(en:string,a:string)=>ar?a:en,base=`/${locale}/workspace/${academy}`,roleBase=role==='owner'?base:`${base}/${role}`,generation=useRef(0),rowOpener=useRef<HTMLButtonElement|null>(null),selectionRef=useRef<{program:string;day:string}|null>(null),reading=useRef(false),controllers=useRef(new Set<AbortController>());
  const scene=useRef<HTMLDivElement|null>(null),taskHeader=useRef<HTMLElement|null>(null),headerContent=useRef<HTMLDivElement|null>(null),resultsRegion=useRef<HTMLDivElement|null>(null),headerContext=useRef<HTMLParagraphElement|null>(null),periodSummary=useRef<HTMLParagraphElement|null>(null),operationsSummary=useRef<HTMLElement|null>(null),taskGrid=useRef<HTMLElement|null>(null),[checkingHeight,setCheckingHeight]=useState(0),[checkingRegions,setCheckingRegions]=useState({context:0,summary:0,operationsSummary:0,tasks:0,header:0,headerWidth:0,toolbar:0});
  const scrollPosition=useRef({center:0,document:0}),pendingPosition=useRef<{center:number;document:number}|null>(null),departurePosition=useRef<{center:number;document:number}|null>(null);
+ const queueReturn=useRef<string|null>(null);
  const reserveGeometry=useCallback(()=>{setCheckingHeight(resultsRegion.current?.getBoundingClientRect().height??0);setCheckingRegions({headerWidth:headerContent.current?.getBoundingClientRect().width??0,header:taskHeader.current?.getBoundingClientRect().height??0,toolbar:scene.current?.querySelector('.window-toolbar')?.getBoundingClientRect().height??0,context:headerContext.current?.getBoundingClientRect().height??0,summary:periodSummary.current?.getBoundingClientRect().height??0,operationsSummary:operationsSummary.current?.getBoundingClientRect().height??0,tasks:taskGrid.current?.getBoundingClientRect().height??0});},[]);
  const rememberSelection=useCallback((value:{program:string;day:string}|null)=>{selectionRef.current=value;setSelectedKey(value);},[]);
  const request=useCallback(async<T,>(path:string,body:Record<string,unknown>,signal:AbortSignal):Promise<T>=>{
   return readOwner.read<T>(role,path,body,signal);
  },[readOwner,role]);
  useEffect(()=>{document.documentElement.lang=locale;document.documentElement.dir=ar?'rtl':'ltr';},[locale,ar]);
- useEffect(()=>{let live=true;queueMicrotask(()=>{if(!live)return;try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');if(saved&&(!prepared||!isCivilDay(anchor)||saved.entryAnchor===anchor)){if(saved.position&&['center','document'].every(key=>Number.isFinite(saved.position[key])&&saved.position[key]>=0&&saved.position[key]<=1000000)){scrollPosition.current={center:saved.position.center,document:saved.position.document};pendingPosition.current={...scrollPosition.current};}if(isCivilDay(saved.from))setFrom(saved.from);if(saved.view==='week'||saved.view==='month')setView(saved.view);if(typeof saved.filter==='string'&&saved.filter.length<=80)setFilter(saved.filter);if(typeof saved.selection?.program==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(saved.selection.program)&&typeof saved.selection.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.selection.day))rememberSelection({program:saved.selection.program,day:saved.selection.day});}}catch{}setRestored(true);});return()=>{live=false;};},[cacheKey,rememberSelection,anchor,prepared]);
- useEffect(()=>{if(!restored)return;try{sessionStorage.setItem(cacheKey,JSON.stringify({entryAnchor:anchor,from:displayedFrom,view,filter,selection:selectionRef.current,position:scrollPosition.current}));}catch{}},[cacheKey,restored,anchor,displayedFrom,view,filter,selectedKey]);
+ useEffect(()=>{let live=true;queueMicrotask(()=>{if(!live)return;try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');if(saved&&(!prepared||!isCivilDay(anchor)||saved.entryAnchor===anchor)){if(role==='owner'&&!calendar&&ownerAttendanceReturnTask(window.location.hash)===saved.attendanceTask)queueReturn.current=saved.attendanceTask;if(saved.position&&['center','document'].every(key=>Number.isFinite(saved.position[key])&&saved.position[key]>=0&&saved.position[key]<=1000000)){scrollPosition.current={center:saved.position.center,document:saved.position.document};pendingPosition.current={...scrollPosition.current};}if(isCivilDay(saved.from))setFrom(saved.from);if(saved.view==='week'||saved.view==='month')setView(saved.view);if(typeof saved.filter==='string'&&saved.filter.length<=80)setFilter(saved.filter);if(typeof saved.selection?.program==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(saved.selection.program)&&typeof saved.selection.day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.selection.day))rememberSelection({program:saved.selection.program,day:saved.selection.day});}}catch{}if(role==='owner'&&!calendar&&ownerAttendanceReturnTask(window.location.hash))window.history.replaceState(window.history.state,'',window.location.pathname+window.location.search);setRestored(true);});return()=>{live=false;};},[cacheKey,rememberSelection,anchor,prepared,role,calendar]);
+ useEffect(()=>{if(!restored)return;try{sessionStorage.setItem(cacheKey,JSON.stringify({entryAnchor:anchor,from:displayedFrom,view,filter,selection:selectionRef.current,attendanceTask:queueReturn.current,position:scrollPosition.current}));}catch{}},[cacheKey,restored,anchor,displayedFrom,view,filter,selectedKey]);
  // Navigation coordinates only: never persist the projection or restore before authority.
  useEffect(()=>{if(!restored)return;const node=scene.current;
-  const remember=()=>{try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');if(saved)sessionStorage.setItem(cacheKey,JSON.stringify({...saved,position:departurePosition.current??scrollPosition.current}));}catch{}};
+  const remember=()=>{try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');if(saved)sessionStorage.setItem(cacheKey,JSON.stringify({...saved,attendanceTask:queueReturn.current,position:departurePosition.current??scrollPosition.current}));}catch{}};
   const track=(event:Event)=>{if(pendingPosition.current)return;const target=event.target;if(target instanceof HTMLElement&&target.classList.contains('workspace-center'))scrollPosition.current.center=target.scrollTop;else if(event.target===document)scrollPosition.current.document=window.scrollY;};
   node?.addEventListener('scroll',track,true);window.addEventListener('scroll',track,{passive:true});window.addEventListener('pagehide',remember);
   return()=>{remember();node?.removeEventListener('scroll',track,true);window.removeEventListener('scroll',track);window.removeEventListener('pagehide',remember);};
  },[cacheKey,restored]);
  useEffect(()=>{if(busy||!restored||!pendingPosition.current)return;if(error){pendingPosition.current=null;scrollPosition.current={center:0,document:0};return;}const position=pendingPosition.current;
-  const frame=requestAnimationFrame(()=>{const center=scene.current?.querySelector<HTMLElement>('.workspace-center');if(center)center.scrollTop=position.center;window.scrollTo({top:position.document,behavior:'instant'});pendingPosition.current=null;scrollPosition.current={center:center?.scrollTop??0,document:window.scrollY};});return()=>cancelAnimationFrame(frame);
+  const frame=requestAnimationFrame(()=>{if(pendingPosition.current!==position)return;const center=scene.current?.querySelector<HTMLElement>('.workspace-center');if(center)center.scrollTop=position.center;window.scrollTo({top:position.document,behavior:'instant'});pendingPosition.current=null;scrollPosition.current={center:center?.scrollTop??0,document:window.scrollY};});return()=>cancelAnimationFrame(frame);
  },[busy,error,restored]);
+ useEffect(()=>{
+  if(busy||!restored||role!=='owner'||calendar||error||!home||home.setup_required||!queueReturn.current)return;
+  const id=queueReturn.current;
+  const frame=requestAnimationFrame(()=>{
+   if(queueReturn.current!==id)return;
+   const item=scene.current?.querySelector<HTMLAnchorElement>(`[data-owner-attendance-task="${id}"]`);
+   const destination=item??scene.current?.querySelector<HTMLElement>('#owner-today-attention');
+   destination?.focus({preventScroll:Boolean(item)});
+   queueReturn.current=null;
+   try{
+    const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');
+    if(saved)sessionStorage.setItem(cacheKey,JSON.stringify({...saved,attendanceTask:null}));
+   }catch{}
+  });
+  return()=>cancelAnimationFrame(frame);
+ },[busy,restored,role,calendar,error,home,cacheKey]);
+ useEffect(()=>{
+  const cancelReturn=()=>{
+   if(!queueReturn.current)return;
+   queueReturn.current=null;pendingPosition.current=null;
+   try{
+    const saved=JSON.parse(sessionStorage.getItem(cacheKey)??'null');
+    if(saved)sessionStorage.setItem(cacheKey,JSON.stringify({...saved,attendanceTask:null}));
+   }catch{}
+  };
+  const events=['pointerdown','keydown','wheel','touchstart'] as const;
+  for(const event of events)window.addEventListener(event,cancelReturn,{capture:true,passive:true});
+  return()=>{for(const event of events)window.removeEventListener(event,cancelReturn,true);};
+ },[cacheKey]);
  useEffect(()=>{const pending=controllers.current;return()=>{for(const c of pending)c.abort();pending.clear();};},[]);
  useEffect(()=>{
   function refresh(){
@@ -221,7 +252,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   incomplete_attendance:t('Open calendar','فتح التقويم'),
  };
  function taskLabel(task:HomeTask){if(task.kind==='publication')return task.title==='withdraw'?t('Review withdrawal','مراجعة سحب النشر'):t('Review publication','مراجعة النشر');if(task.title)return task.title;return ({program:t('Resume this program','متابعة هذا البرنامج'),correction:t('Review requested correction','مراجعة التصحيح المطلوب'),feedback:role==='trainer'?t('Continue feedback','متابعة الملاحظات'):t('Review submitted feedback','مراجعة الملاحظات المقدمة'),attendance:t('Open this register','فتح سجل الحضور')})[task.kind];}
- function exactTask(task:HomeTask){if(task.kind==='program')return `${base}/programs/${task.id}`;if(task.kind==='publication')return `${base}/programs/${task.program}/publish?job=${task.id}`;if(task.kind==='attendance')return `${base}/attendance/${task.id}`;if(task.kind==='correction')return `${base}/attendance/corrections?event=${task.event}&player=${task.player}`;return `${base}/development?event=${task.event}&player=${task.player}`;}
+ function exactTask(task:HomeTask){if(task.kind==='program')return `${base}/programs/${task.id}`;if(task.kind==='publication')return `${base}/programs/${task.program}/publish?job=${task.id}`;if(task.kind==='attendance')return `${base}/attendance/${task.id}${ownerToday?ownerSessionSourceSuffix('#',{returnTo:'home',attendanceTask:task.id}):''}`;if(task.kind==='correction')return `${base}/attendance/corrections?event=${task.event}&player=${task.player}`;return `${base}/development?event=${task.event}&player=${task.player}`;}
  const today=home?.panels?.today;
  const registerAttention=home?.panels?.incomplete_attendance;
  const displayCount=(panel:Panel|undefined)=>panel?.state==='ready'&&typeof panel.count==='number'
@@ -248,7 +279,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
    ? <p>{t('Cancelled. Retained history stays available to the Owner.','ملغى. يبقى السجل المحفوظ متاحاً للمالك.')}</p>
    : offline?<p>{t('Connect to open planning for this date.','اتصل بالإنترنت لفتح التخطيط لهذا التاريخ.')}</p>:<Link prefetch={false} className="button" href={destination(selected)} aria-disabled={busy} onClick={e=>{if(busy)e.preventDefault();}}>{t('Open this date','فتح هذا التاريخ')}</Link>}
  </div>;
- return <div ref={scene} className={ownerCalendar ? "owner-operations operations-calendar" : ownerToday ? "owner-operations" : undefined} onClickCapture={event=>{const anchor=event.target instanceof Element?event.target.closest('a[href]'):null;if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!(anchor instanceof HTMLAnchorElement)||anchor.target==='_blank'||anchor.getAttribute('href')?.startsWith('#'))return;const center=scene.current?.querySelector<HTMLElement>('.workspace-center');departurePosition.current={center:center?.scrollTop??0,document:window.scrollY};}}><WorkspaceShell prefetch={prepared?false:undefined} scopeLabel={ownerToday?home?.context.branch_name:undefined} toolbarMinHeight={busy?checkingRegions.toolbar:0} locale={locale} role={role} module={role==='guardian'?'family':calendar?'training':'operations'} context={(!protectedViewGone&&home?.context.academy_name)||t('Academy workspace','مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={e=>{if(e.currentTarget.getAttribute('href')==='#language'){e.preventDefault();setLocale(ar?'en':'ar');}
+ return <div ref={scene} className={ownerCalendar ? "owner-operations operations-calendar" : ownerToday ? "owner-operations" : undefined} onClickCapture={event=>{const anchor=event.target instanceof Element?event.target.closest('a[href]'):null;if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!(anchor instanceof HTMLAnchorElement)||anchor.target==='_blank'||anchor.getAttribute('href')?.startsWith('#'))return;const task=anchor.getAttribute('data-owner-attendance-task');if(ownerToday&&task){queueReturn.current=task;rememberSelection(null);}const center=scene.current?.querySelector<HTMLElement>('.workspace-center');departurePosition.current={center:center?.scrollTop??0,document:window.scrollY};}}><WorkspaceShell prefetch={prepared?false:undefined} scopeLabel={ownerToday?home?.context.branch_name:undefined} toolbarMinHeight={busy?checkingRegions.toolbar:0} locale={locale} role={role} module={role==='guardian'?'family':calendar?'training':'operations'} context={(!protectedViewGone&&home?.context.academy_name)||t('Academy workspace','مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={e=>{if(e.currentTarget.getAttribute('href')==='#language'){e.preventDefault();setLocale(ar?'en':'ar');}
  else if(publicOffline){e.preventDefault();const path=new URL(e.currentTarget.href);if(path.pathname.endsWith('/players')||path.pathname.endsWith('/calendar'))window.location.assign(path.href);}}}
  account={publicOffline?null:<UserButton/>} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(home&&!home.setup_required)&&!error&&!accessRevoked}/>} navigation={nav}>
  <WorkspacePanes arabic={ar} title={t('Session details','تفاصيل التدريب')} selected={!!selectedKey&&!error&&!protectedViewGone} blocked={busy} selectionKey={selectedKey?`${selectedKey.program}:${selectedKey.day}`:''} onBack={()=>{const key=selectionRef.current?`${selectionRef.current.program}:${selectionRef.current.day}`:'';rememberSelection(null);setSelected(null);requestAnimationFrame(()=>{const opener=rowOpener.current?.isConnected?rowOpener.current:document.querySelector<HTMLButtonElement>(`[data-occurrence="${CSS.escape(key)}"]`);opener?.focus({preventScroll:true});});}} inspector={selected&&!protectedViewGone?(ownerOperations?ownerInspector:<><h3>{selected.title}</h3><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).date}</p><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).time} · <bdi>{selected.timezone}</bdi></p><p>{selected.branch} · {ar?selected.sport_ar:selected.sport}</p>{role!=='guardian'&&<p>{t('Roster','قائمة اللاعبين')}: {selected.roster_count} / {selected.capacity??'—'}</p>}{selected.state==='cancelled'?<p>{t('Cancelled. Retained history stays available to the Owner.','ملغى. يبقى السجل المحفوظ متاحاً للمالك.')}</p>:<Link prefetch={false} className="button" href={destination(selected)} aria-disabled={busy} onClick={e=>{if(busy)e.preventDefault();}}>{role==='trainer'?t('Open register','فتح سجل الحضور'):t('Open player training','فتح تدريبات اللاعب')}</Link>}</>):busy&&selectedKey?<p role="status">{t('Checking current access…','جارٍ التحقق من الصلاحية الحالية…')}</p>:<div className="inspector-empty"><h3>{t('A useful next step','خطوتك التالية')}</h3><p>{t('Choose a session to see its context and open the right task.','اختر تدريباً لعرض سياقه وفتح المهمة المناسبة.')}</p></div>}>
@@ -323,7 +354,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
       : <><h3>{labels[key]}</h3><strong>{displayCount(panel)}</strong></>}
     {ownerToday&&showGroupAction&&<Link prefetch={false} className="operations-task-destination" href={taskHref[key]}>{ownerTaskAction[key]} <span aria-hidden="true" className="task-arrow">→</span></Link>}
     {!!taskCount&&<ul>{panel.tasks?.map(task=><li key={task.id}>
-     <Link prefetch={false} href={exactTask(task)}>{ownerToday&&task.kind==='attendance'
+     <Link prefetch={false} href={exactTask(task)} data-owner-attendance-task={ownerToday&&task.kind==='attendance'?task.id:undefined}>{ownerToday&&task.kind==='attendance'
       ? <><strong>{taskLabel(task)}</strong><span>{t('Open register','فتح سجل الحضور')}</span></>
       : taskLabel(task)}</Link>
     </li>)}</ul>}

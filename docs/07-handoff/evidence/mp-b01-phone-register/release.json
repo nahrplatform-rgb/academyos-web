@@ -1,32 +1,80 @@
 {
-  "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+  "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
   "ci": {
-    "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
-    "run_id": 42832093649,
-    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649",
+    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+    "run_id": 42836207878,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42836207878",
     "run_attempt": 1,
-    "run_conclusion": "failure",
-    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649/job/129884505070",
-    "job_conclusion": "failure",
-    "steps_passed": 27,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42836207878/job/129898960921",
+    "job_conclusion": "success",
+    "steps_passed": 53,
     "step_count": 53,
-    "first_failed_step": "Verify normal Attendance local save, reconnect and original recovery",
-    "verdict": "ci_failed"
+    "verdict": "passed"
   },
   "preview": {
-    "deploymentId": "dpl_Hq1fumGMWke4294SQWhf69FP5429",
+    "deploymentId": "dpl_CrjMRu8Vyp68MXpqUhR7Z3ehXRTu",
+    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
     "project": "academyos-web",
     "state": "READY",
-    "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
-    "dashboard": "https://vercel.com/academy-os2/academyos-web/Hq1fumGMWke4294SQWhf69FP5429"
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/CrjMRu8Vyp68MXpqUhR7Z3ehXRTu"
   },
   "lastVerifiedStaging": {
     "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_6JNDzB6p9zo8A3orNJ1TBLqSYeQD",
+    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+    "state": "READY",
+    "checkedDate": "2026-11-10"
+  },
+  "signedInVerification": {
+    "date": "2026-11-10",
+    "scope": "Synthetic Academy B Owner in existing Chrome test nahr profile, desktop native accessibility",
+    "checked": [
+      "Month and Normal Register filter to existing published occurrence",
+      "linked exact Attendance event",
+      "English Back to calendar control",
+      "Session actions disclosure",
+      "two saved marks and recording-window context"
+    ],
+    "pending": [
+      "direct return to filtered Calendar",
+      "Arabic flow",
+      "hosted phone and offline behavior"
+    ],
+    "interruption": "Chrome switched to another active window during the menu check",
+    "hostedRequestsMeasured": false
+  },
+  "OwnerAcceptance": "pending working review",
+  "promotion": "Owner reported promoted; exact staging source independently verified",
+  "priorFailedCandidate": {
+    "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+    "ci": {
+      "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+      "run_id": 42832093649,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649",
+      "run_attempt": 1,
+      "run_conclusion": "failure",
+      "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42832093649/job/129884505070",
+      "job_conclusion": "failure",
+      "steps_passed": 27,
+      "step_count": 53,
+      "first_failed_step": "Verify normal Attendance local save, reconnect and original recovery",
+      "verdict": "ci_failed"
+    },
+    "preview": {
+      "deploymentId": "dpl_Hq1fumGMWke4294SQWhf69FP5429",
+      "project": "academyos-web",
+      "state": "READY",
+      "commit": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/Hq1fumGMWke4294SQWhf69FP5429"
+    },
+    "promotion": "candidate failed CI and requires a layout repair"
+  },
+  "previousVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
     "deploymentId": "dpl_5YsH6C1Z1WYN9goWNLXo8U6VXDgF",
     "commit": "07c92aec06ebdebfc2c3bcfd74b05b25f2571896",
-    "state": "READY"
-  },
-  "signedInVerification": "pending promotion of this candidate",
-  "OwnerAcceptance": "pending working review",
-  "promotion": "candidate failed CI and requires a layout repair"
+    "state": "READY",
+    "checkedDate": "2026-11-10"
+  }
 }

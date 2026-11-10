@@ -43,6 +43,14 @@ The first candidate `910352f` passed on the local browser. Foundation attempt 1 
 
 The repair allows the action labels to wrap within their row, keeps the review copy compact, and uses a locale-aware date/time range to avoid repeating the date when both times share it. The same timestamp and branch timezone supply the range. A duplicate absence note was removed from the prepared summary and remains visible by Review. The geometric assertions still require all three mark controls above Review. In an additional local 320 × 844 test with wider fallback fonts, the smallest clearance was 48 CSS px. All four EN/AR normal and prepared cases had zero horizontal overflow and all three targets received hits. This stress check exercises text wrapping, with the actual Linux result recorded by the next exact run.
 
+## Checked release candidate
+
+The repaired commit `ce5a3247889b9afa275bd42e2b71eecc2d48ee6d` passed all 53 Foundation steps on run `42836207878`, attempt 1. This includes the same 320 px layout assertion. The exact Vercel preview `dpl_CrjMRu8Vyp68MXpqUhR7Z3ehXRTu` is Ready. The canonical staging alias still resolves to the Owner-promoted `07c92ae`, whose earlier two-step signed-in return is verified. The Owner can promote the repaired preview to `staging.academy.nahr.dev`, followed by separate signed-in verification. [Foundation result](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42836207878) · [Exact Vercel preview](https://vercel.com/academy-os2/academyos-web/CrjMRu8Vyp68MXpqUhR7Z3ehXRTu) · [Release receipt](evidence/mp-b01-phone-register/release.json)
+
 ## Next scoped work
 
 Today’s exact attendance work-queue link currently opens the register without a source hint. Continue MP-B01 by testing that entry and restoring its initiating queue task and focus through the same checked Today route. Keep the existing register/date behavior and proceed independently of rich Player field choices. [Living continuation](../06-delivery/continue-academyos.md)
+
+## Owner promotion and partial hosted check
+
+The Owner reported promotion of `ce5a324`. The staging alias independently resolved to Ready deployment `dpl_6JNDzB6p9zo8A3orNJ1TBLqSYeQD` with the exact source. In the existing `test nahr` Chrome Owner profile, Academy B Month filtered by `Normal Register` opened the published occurrence and linked Attendance event. The English online register showed its two retained saved marks, the direct Back to calendar control and Session actions disclosure. Chrome switched to another active window before the menu/return and Arabic walkthrough completed. Those checks remain pending, alongside hosted phone/offline coverage. [Release receipt](evidence/mp-b01-phone-register/release.json)

@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "910352fb025451e7945375d8b66c23ddbf7c6d11",
+  "source_anchor": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -405,8 +405,8 @@
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
-      "bytes": 47560
+      "sha256": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
+      "bytes": 49877
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
@@ -760,8 +760,8 @@
     },
     {
       "path": "apps/web/src/lib/owner-session-navigation.ts",
-      "sha256": "14bde591392b951976f8c2c774d549e84e285b5508ea4a74396046b3742eb86d",
-      "bytes": 1626
+      "sha256": "68d6bfcebda39aac7f66dc09f252fae6d8136acf4d19e5ad1742edeb7490cfd2",
+      "bytes": 2301
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",
@@ -970,8 +970,8 @@
     },
     {
       "path": "apps/web/src/lib/workspace-navigation.test.ts",
-      "sha256": "9317b4428f062c10e252f77b79cee9ca15fe70dd42636ce4a3f1961c2dfe8482",
-      "bytes": 1262
+      "sha256": "365ed6f2e72d831dbf7f0829de5bcee258f5c6d89d3720fe132ad629130f3503",
+      "bytes": 2352
     },
     {
       "path": "apps/web/src/lib/workspace-public-shell.ts",

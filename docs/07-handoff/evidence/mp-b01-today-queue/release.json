@@ -1,0 +1,9 @@
+{
+  "sourceBase": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+  "candidate": "not_committed",
+  "ci": "pending exact candidate",
+  "preview": "pending exact candidate",
+  "promotion": "Owner only; not performed",
+  "hosted": "pending new source; prior ce5a324 source and partial English observation retained in phone-register release receipt",
+  "ownerAcceptance": "pending scoped working review"
+}

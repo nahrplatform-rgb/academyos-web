@@ -29,7 +29,7 @@ try{
  const metricReads=reads.length;
  await metrics.getByRole('link',{name:/2 Registers needing marks/}).press('Enter');
  await expect(page.getByRole('heading',{name:'Needs your attention',exact:true})).toBeFocused();
- await expect(page.getByRole('link',{name:/Synthetic register Open register/})).toHaveAttribute('href',new RegExp('/attendance/'+link+'$'));
+ await expect(page.getByRole('link',{name:/Synthetic register Open register/})).toHaveAttribute('href',new RegExp('/attendance/'+link+'#return=home&attendance='+link+'$'));
  const attention=page.getByRole('region',{name:'Needs your attention',exact:true});
  await expect(attention.getByRole('link',{name:/Open workspace/})).toHaveCount(0);
  await expect(attention.getByRole('link',{name:'Open programs',exact:true}).first()).toHaveAttribute('href',/\/programs$/);

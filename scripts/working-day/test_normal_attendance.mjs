@@ -8,21 +8,23 @@ import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
 import {checkOwnerDayReturn} from './owner_day_return.mjs';
+import {checkOwnerQueueReturn} from './owner_queue_return.mjs';
 import {checkPhoneRegister} from './register_geometry.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const output=join(root,'docs/07-handoff/evidence/ex07-normal-attendance');
 const receipt=join(output,'runtime.json');
 const returnCaptures=join(root,'docs/07-handoff/evidence/mp-b01-phone-register');
+const queueCaptures=join(root,'docs/07-handoff/evidence/mp-b01-today-queue');
 const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
-  'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/register_geometry.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
+  'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/owner_queue_return.mjs','scripts/working-day/register_geometry.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
   ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
   'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
-if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,24);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
+if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,25);console.log('PASS normal Attendance receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));
 let fixture,context,page;
 const checks=[],metrics={},errors=[];
@@ -36,6 +38,9 @@ try{
  try{
   metrics.ownerDayReturn={browser:returnBrowser.version(),node:process.version,os:process.platform,
     cases:await checkOwnerDayReturn(fixture,returnBrowser,captureReturn)};
+  if(captureReturn)await mkdir(queueCaptures,{recursive:true});
+  metrics.ownerQueueReturn=await checkOwnerQueueReturn(fixture,returnBrowser,captureReturn?queueCaptures:undefined);
+  pass('Today queue entry returns to the checked task or finished-work heading with retained context and one source read');
  }finally{await returnBrowser.close();}
  const url=(scope,locale='en')=>`${origin}/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
  const button=(name,tab=page)=>tab.getByRole('button',{name,exact:true});
@@ -463,7 +468,7 @@ try{
  assert.deepEqual(await retainedOriginal(),protectedBefore,'Account fencing must not replace or delete protected original ciphertext');
  pass('A loaded different SDK account fences the cold local task before any key release, download or original send');
 
- assert.deepEqual(errors,[]);assert.equal(checks.length,24);
+ assert.deepEqual(errors,[]);assert.equal(checks.length,25);
  if(process.argv.includes('--record'))await writeFile(receipt,JSON.stringify({checks,metrics,hashes,errors,scope:'Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof'},null,2)+'\n');
 }catch(error){if(page)console.error('Normal Attendance failed',new URL(page.url()).pathname,await page.locator('body').innerText({timeout:1200}).catch(()=>''));if(fixture)console.error('Fixture calls',fixture.state.events,'RPCs',fixture.state.rpcs);throw error;}
 finally{await context?.close();await fixture?.close();await rm(temp,{recursive:true,force:true});}
