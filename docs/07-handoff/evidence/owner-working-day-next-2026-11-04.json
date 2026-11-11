@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 257,
-    "calendarMs": 203,
-    "dateMs": 172,
+    "homeMs": 240,
+    "calendarMs": 144,
+    "dateMs": 165,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 206,
-    "selectReviewSaveMs": 759,
+    "firstPrepareMs": 207,
+    "selectReviewSaveMs": 758,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 307,
-    "originalReplayMs": 138,
+    "offlineRestartMs": 228,
+    "originalReplayMs": 123,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -73,35 +73,35 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1529
+        "responseBytes": 1516
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4537
+        "responseBytes": 4488
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4537
+        "responseBytes": 4488
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "fixture-key",
@@ -115,28 +115,28 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1194
+        "responseBytes": 1188
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 633,
         "status": 200,
-        "responseBytes": 3869
+        "responseBytes": 3863
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 672,
         "status": 200,
-        "responseBytes": 1211
+        "responseBytes": 1205
       },
       {
         "route": "register-download",
         "action": "manifest",
         "requestBytes": 208,
         "status": 200,
-        "responseBytes": 1193
+        "responseBytes": 1187
       },
       {
         "route": "register-dispatch",
@@ -157,21 +157,21 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1195
+        "responseBytes": 1189
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 634,
         "status": 200,
-        "responseBytes": 3952
+        "responseBytes": 3946
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 674,
         "status": 200,
-        "responseBytes": 1213
+        "responseBytes": 1207
       },
       {
         "route": "fixture-key",
@@ -234,14 +234,14 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9589,
-    "responseBytes": 37174
+    "responseBytes": 36997
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "3b668000fdd5794ce2d687bae75afbbe160782bac6c53e7e32bc4e9ad9f0e989",
-    "scripts/working-day/owner_fixture.mjs": "bf706e4c92e254fb65783bd6f0c27678bb7c869049e1d90fdd0be226494f1d63",
+    "apps/web/src/lib/owner-session-navigation.ts": "e0210e73687ee24c36a04b70c92346e4bd58e425717695a1c211c723ab47668c",
+    "scripts/working-day/owner_fixture.mjs": "7c05e2573018f370be71a3449f2344196ea986ebe51ac24343285ded017871e1",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
-    "scripts/working-day/owner_db.py": "ddbcfccaeab47688027b753d2325c62a475673f18b92da7d01725b8f674c172d",
+    "scripts/working-day/owner_db.py": "0693bc6fe1f1d9670cd62dc479d9e85b2197f1aa22a7b608764a1667bf4a7481",
     "scripts/working-day/test_owner_next.mjs": "03f9e93229e2b6126457b95a7aa4b26f007b78e971f89cf776197478add47918",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
@@ -251,7 +251,7 @@
     "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
-    "apps/web/src/components/experience-workspace.tsx": "c7e83eddb352aae5a03aadc003636ad4db9dc92430ff0f65cc7f0c5492d7b55f",
+    "apps/web/src/components/experience-workspace.tsx": "5ddef223983995edbced5e8c5d2875e2d1537d87f5dae81f9cac3337ab24cdc7",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",

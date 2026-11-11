@@ -1,5 +1,7 @@
 # Whole-app findings and coverage register
 
+**11 November publication checkpoint.** The exact Today preparation opens before supporting lists, keeps the current review present while checking, and restores checked Today context after one Home read. Same-tab original recovery precedes replacement. NR02/03/07/13/16/17 retain broader scope. The local evidence covers both initial job states, dirty scope, denied sign-in and lost reply. Hosted journey evidence remains open. [Publication preparation checkpoint](../07-handoff/mp-b01-owner-publication-2026-11-11.md)
+
 **7 November checkpoint:** Owner-promoted68b6575 is independently verified for EN/AR delayed history and retained task/focus;see the retained history receipt. Continue the bounded [Attendance resume/auth packet](../07-handoff/ex07-attendance-resume-continuity-2026-11-07.md). It preserves current server checks,dirty/unknown and real-denial fences while separating401from Owner loss. Broader findings and Owner acceptance remain open;the tracker owns exact CI/promotion/hosted routing.
 
 **Later6November local repair:** [EX-07 cold-session implementation](../07-handoff/ex07-cold-session-repair-2026-11-06.md) separates missing authentication from known authority loss,retains the original and fixes a rapid focus/online lost-signal case.17controlled normal-route tests pass;the provider session is modeled. Exact-code release/real-Clerk/installed/Owner evidence is open;global key-limit feedback and post-registration collection invalidation remain unfixed. No NR finding is globally closed.

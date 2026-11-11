@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+  "source_anchor": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -170,8 +170,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx",
-      "sha256": "05c96ae48f9138414b84e33f6c9c3bd9bc136ad018028e99effaed8a02879b47",
-      "bytes": 638
+      "sha256": "01ba7db3c7a17f99bb15f2b5903396d80c905d32b7c89c1dbbdae1ef280bb97f",
+      "bytes": 653
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
@@ -405,8 +405,8 @@
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "c7e83eddb352aae5a03aadc003636ad4db9dc92430ff0f65cc7f0c5492d7b55f",
-      "bytes": 50621
+      "sha256": "5ddef223983995edbced5e8c5d2875e2d1537d87f5dae81f9cac3337ab24cdc7",
+      "bytes": 50663
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
@@ -470,8 +470,8 @@
     },
     {
       "path": "apps/web/src/components/publication-workspace.tsx",
-      "sha256": "3b42e9a45879555e694683f4a77ca972d858d23fd94e62c8be0b9029f3815961",
-      "bytes": 36093
+      "sha256": "268cf8c3556174bfd8407b4a70e4988cec9346287ac8d4aed3d383faea72293d",
+      "bytes": 41145
     },
     {
       "path": "apps/web/src/components/qr-camera.tsx",
@@ -760,8 +760,8 @@
     },
     {
       "path": "apps/web/src/lib/owner-session-navigation.ts",
-      "sha256": "3b668000fdd5794ce2d687bae75afbbe160782bac6c53e7e32bc4e9ad9f0e989",
-      "bytes": 3162
+      "sha256": "e0210e73687ee24c36a04b70c92346e4bd58e425717695a1c211c723ab47668c",
+      "bytes": 3188
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",
@@ -820,8 +820,8 @@
     },
     {
       "path": "apps/web/src/lib/publication.ts",
-      "sha256": "691c17e2604a4f06852efffb632c28cdde4cf08390228eec4ecf302976b03ec9",
-      "bytes": 4321
+      "sha256": "a01dbcd3ad8c9d9a92afe398ca856e843240c5590f27f4fd9b662b6beb8c9600",
+      "bytes": 4360
     },
     {
       "path": "apps/web/src/lib/qr-attendance.test.ts",

@@ -286,15 +286,15 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  function taskLabel(task:HomeTask){if(task.kind==='publication')return task.title==='withdraw'?t('Review withdrawal','مراجعة سحب النشر'):t('Review publication','مراجعة النشر');if(task.title)return task.title;return ({program:t('Resume this program','متابعة هذا البرنامج'),correction:t('Review requested correction','مراجعة التصحيح المطلوب'),feedback:role==='trainer'?t('Continue feedback','متابعة الملاحظات'):t('Review submitted feedback','مراجعة الملاحظات المقدمة'),attendance:t('Open this register','فتح سجل الحضور')})[task.kind];}
  function exactTask(task:HomeTask){
   if(task.kind==='program')return `${base}/programs/${task.id}`;
-  if(task.kind==='publication')return `${base}/programs/${task.program}/publish?job=${task.id}`;
-  if(task.kind==='attendance')return `${base}/attendance/${task.id}${ownerToday?ownerSessionSourceSuffix('#',{returnTo:'home',attendanceTask:task.id}):''}`;
   const reviewSource=ownerToday?ownerTodayReviewSource(task.id):'';
+  if(task.kind==='publication')return `${base}/programs/${task.program}/publish?job=${task.id}${reviewSource}`;
+  if(task.kind==='attendance')return `${base}/attendance/${task.id}${ownerToday?ownerSessionSourceSuffix('#',{returnTo:'home',attendanceTask:task.id}):''}`;
   if(task.kind==='correction')return `${base}/attendance/corrections?event=${task.event}&${ownerToday?`request=${task.id}`:`player=${task.player}`}${reviewSource}`;
   return `${base}/development?event=${task.event}&player=${task.player}${reviewSource}`;
  }
  function todayTaskHint(task:HomeTask){
   if(!ownerToday)return undefined;
-  if(task.kind==='attendance'||task.kind==='correction')return ownerTodayTaskHint(task.kind,task.id)??undefined;
+  if(task.kind==='attendance'||task.kind==='correction'||task.kind==='publication')return ownerTodayTaskHint(task.kind,task.id)??undefined;
   if(task.kind==='feedback')return ownerTodayTaskHint('development',task.id)??undefined;
   return undefined;
  }

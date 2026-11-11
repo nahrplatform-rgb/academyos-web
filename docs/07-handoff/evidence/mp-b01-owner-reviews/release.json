@@ -1,12 +1,49 @@
 {
-  "candidate": "pending commit",
-  "ci": "pending exact run",
-  "preview": "pending exact preview",
-  "promotion": "Owner promotion pending successful release checks",
+  "candidate": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+  "ci": {
+    "commit": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+    "run_id": 42955280942,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42955280942",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42955280942/job/130308797044",
+    "job_conclusion": "success",
+    "steps_passed": 53,
+    "step_count": 53,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deploymentId": "dpl_5gRfkB6vxrMwEj7KJVA1A3nPtsx3",
+    "commit": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+    "project": "academyos-web",
+    "state": "READY",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/5gRfkB6vxrMwEj7KJVA1A3nPtsx3"
+  },
+  "promotion": "Owner reported promoted. Exact staging source independently verified.",
   "previousVerifiedStaging": {
     "domain": "staging.academy.nahr.dev",
     "deploymentId": "dpl_2w5sYqKiAQPzooHyrws14oqU7stW",
     "commit": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+    "state": "READY",
+    "checkedDate": "2026-11-11"
+  },
+  "publicationBaseline": "docs/07-handoff/evidence/mp-b01-publication-entry/before.json",
+  "hosted": {
+    "date": "2026-11-11",
+    "scope": "Existing signed-in Academy A Owner Chrome desktop session, read-only",
+    "observed": [
+      "English Today showed zero pending correction requests and zero feedback submissions awaiting review"
+    ],
+    "pending": [
+      "Signed-in EN/AR exact reviews and return with existing actionable records",
+      "Hosted timing and physical-device checks"
+    ]
+  },
+  "ownerAcceptance": "Pending scoped working-feature review",
+  "lastVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_Dy8EYQHhfoKcH1N3PYL5Nfpp6QEk",
+    "commit": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
     "state": "READY",
     "checkedDate": "2026-11-11"
   }

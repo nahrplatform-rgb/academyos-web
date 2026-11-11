@@ -57,7 +57,7 @@ async function listen(server) {
 }
 
 export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development']:[])];
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development','publication']:[])];
   const bridge = pgBridge(root);
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -184,7 +184,8 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}
         export{default as Planning}from'./apps/web/src/components/date-planning-workspace.tsx';
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
-        export{default as Development}from'./apps/web/src/components/development-workspace.tsx';`:''}
+        export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
+        export{default as Publication}from'./apps/web/src/components/publication-workspace.tsx';`:''}
         ${pilot?`export{default as Attendance}from'./apps/web/src/components/attendance-workspace.tsx';
         export{default as RegisterAccountBoundary}from'./apps/web/src/components/register-account-boundary.tsx';
         export{default as PreparedRegisterStartup}from'./apps/web/src/components/prepared-register-startup.tsx';
@@ -258,6 +259,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}
       for (const [path, localName, exportName, file] of [
         ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
         ['development', 'DevelopmentWorkspace', 'Development', 'development-workspace'],
+        ['programs/[program]/publish', 'PublicationWorkspace', 'Publication', 'publication-workspace'],
       ]) {
         const route=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]',path,'page.tsx'),'utf8');
         await page(path+'/page.tsx',route

@@ -12,6 +12,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[2]
 module = runpy.run_path(str(ROOT / 'scripts/experience-projections/test_boundary.py'))
 Boundary = module['ExperienceBoundary']
+PublicationBoundary = runpy.run_path(str(ROOT / 'scripts/publication/test_boundary.py'))['PublicationBoundary']
 dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.py'))
 literal = dispatch['literal']
 ROUTES = {
@@ -20,6 +21,8 @@ ROUTES = {
     'x19_owner_register_key_v1', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
     'c12_list_v1', 'c12_context_v1', 'c12_detail_v1', 'c12_decide_v1', 'c12_operation_v1',
     'e14_context_v1', 'e14_queue_v1', 'e14_detail_v1', 'e14_command_v1', 'e14_operation_v1',
+    'p5_read_v1', 's8_owner_dates_v1', 's8_jobs_v1', 's8_read_v1', 's8_create_v1',
+    's8_change_v1', 's8_operation_v1',
 }
 
 
@@ -137,6 +140,13 @@ if __name__ == '__main__':
                     else:
                         raise ValueError('Unknown review fixture')
                     value = {'academy': academy, 'event': event, 'player': player, 'id': item}
+                elif command['action'] == 'publication_fixture':
+                    academy, _, program, *_ = PublicationBoundary.fixture(test)
+                    job = PublicationBoundary.pub(test, academy, program)
+                    if command['state'] == 'ready':
+                        job = PublicationBoundary.prepare_pub(test, academy, job)
+                    assert job['state'] == command['state']
+                    value = {'academy': academy, 'program': program['id'], 'job': job['job']}
                 elif command['action'] == 'future_fixture':
                     # Disposable fixture only: exercise a download before its window.
                     academy, _, event, _, _ = dispatch['Boundary'].pair(test)

@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+11 November MP-B01 captures the exact saved publication preparation from Today with its contextual return and deliberate Browse action. Signed browser evidence also covers Preparing, cancelled and retained returns and the Arabic phone layout. [Publication preparation checkpoint](../../docs/07-handoff/mp-b01-owner-publication-2026-11-11.md)
+
 11 November MP-B01 captures exact Owner correction and development review from Today. The main task area places review actions ahead of supporting navigation. Signed fixture captures and request receipts verify return focus and recovery with fictional records. [Owner reviews and recovery](../../docs/07-handoff/mp-b01-owner-reviews-2026-11-11.md)
 
 10 November MP-B01 connects the exact Today attendance queue to the normal 18-player register and back. Separate signed synthetic EN/AR captures show retained and completed tasks. The return waits for current authority, consumes its focus hint and yields to new user input. The existing register phone/offline cases retain their own evidence. [Today attendance queue](../../docs/07-handoff/mp-b01-today-queue-2026-11-10.md)

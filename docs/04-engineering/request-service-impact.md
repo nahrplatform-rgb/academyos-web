@@ -1,5 +1,7 @@
 # Whole-app request and service impact — 31 October 2026
 
+11 November publication preparation measurement. Today opens the exact Ready or Preparing job with one signed read. Both baseline cases took four reads. The exact task checks one job on visible return and rereads only the current job after the existing command. Today return uses one current Home read. These are scoped application counts from the disposable fixture. Provider usage and hosted latency remain open. [Publication preparation evidence](../07-handoff/mp-b01-owner-publication-2026-11-11.md)
+
 11 November Owner review measurement. Today now reaches an exact correction or submitted development detail in one operating read. Each needed three reads in the baseline, including an extra list selection for correction. In the signed local fixture, a decision uses one write and one current result read, followed by one Home read when requested. The records show named application requests. Hosted timings and provider quota use remain open. [Owner review request evidence](../07-handoff/mp-b01-owner-reviews-2026-11-11.md)
 
 ## Scoped profile presentation measurement —8November2026

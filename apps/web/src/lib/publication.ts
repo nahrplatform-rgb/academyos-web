@@ -1,7 +1,7 @@
 /** Exact public command shapes; identity/authority and publication snapshots are server derived. */
 export class PublicationInputError extends Error{}
-const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
-function id(v:unknown){if(typeof v!=='string'||!uuid.test(v))throw new PublicationInputError();return v.toLowerCase();}
+export const publicationIdPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
+function id(v:unknown){if(typeof v!=='string'||!publicationIdPattern.test(v))throw new PublicationInputError();return v.toLowerCase();}
 function date(v:unknown){if(typeof v!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(v)||v.startsWith('0000')||!Number.isFinite(Date.parse(v+'T00:00:00Z'))||new Date(v+'T00:00:00Z').toISOString().slice(0,10)!==v)throw new PublicationInputError();return v;}
 export function publicationRequest(v:unknown){if(!v||typeof v!=='object'||Array.isArray(v))throw new PublicationInputError();const b=v as Record<string,unknown>,a=id(b.academy);let keys:string[],rpc:string,args:Record<string,unknown>,mutating=false;
  if(b.action==='context'){keys=['action','academy','program'];rpc='p5_read_v1';args={a,program:id(b.program),idx:0};}

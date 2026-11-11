@@ -3,14 +3,14 @@ import {isCivilDay} from './experience-format';
 
 type OwnerSessionSource = {returnTo:'home'|'calendar';from?:string;attendanceTask?:string};
 const taskId=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
-type OwnerTodayTaskKind='attendance'|'correction'|'development';
+type OwnerTodayTaskKind='attendance'|'correction'|'development'|'publication';
 
 export function ownerTodayTaskHint(kind:OwnerTodayTaskKind,id:string) {
   return taskId.test(id)?`#${kind}-return=${id}`:null;
 }
 
 export function ownerTodayReturnHint(fragment:string) {
-  const match=/^#(attendance|correction|development)-return=(.+)$/.exec(fragment);
+  const match=/^#(attendance|correction|development|publication)-return=(.+)$/.exec(fragment);
   return match&&taskId.test(match[2])?fragment:null;
 }
 
