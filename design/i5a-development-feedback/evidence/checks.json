@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory React design simulation; not real permissions, database, concurrency, hosted or physical-device proof",
+  "cases": [
+    "complete return, revision, exact publication and minimal Guardian projection",
+    "successor remains private until publication; withdrawal removes current family view; old snapshots retained internally",
+    "lost committed reply reconciles exactly once without replacement",
+    "uncommitted loss retains input without claiming save",
+    "confirmed write with failed read requires reload; no duplicate write",
+    "concurrent draft preserves unsaved text and reloads expected version",
+    "missing public text and rejected write do not simulate success",
+    "current assignment, ended session and different-account review denial simulations",
+    "empty, loading and read failure are distinct and recoverable",
+    "dirty navigation guard and EN/AR preserve draft; desktop/phone layout and screenshots"
+  ],
+  "errors": [],
+  "external": []
+}

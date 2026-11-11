@@ -1,0 +1,33 @@
+{
+  "source": "1e8a6e48e7c2819d8f07f68444067eab8fd20838",
+  "deployment": "dpl_9hKXY9GUYmkQrGkNC5jJkhQjyJ3A",
+  "environment": "existing synthetic staging",
+  "ci": [
+    40194398666,
+    40194401099
+  ],
+  "migration": "i2c_synthetic_trainer_appointments",
+  "checks": [
+    "Owner A existing branch/empty list EN/AR",
+    "Owner without Trainer appointment denied Trainer profile",
+    "unauthenticated API 401",
+    "unsigned delivery 401",
+    "invitation 200 no-store/no-referrer",
+    "six function ACL/execution limits read back",
+    "zero Trainer records; existing counts unchanged",
+    "Trainer recipient default closed"
+  ],
+  "advisors": {
+    "rls_no_policy_info": 22,
+    "anon_definer_warnings": 3,
+    "authenticated_definer_warnings": 26
+  },
+  "not_verified": [
+    "actual hosted Trainer acceptance/end lifecycle",
+    "broader direct API/races/recovery",
+    "named network performance/provider meters",
+    "physical device/screen reader",
+    "independent human review",
+    "working feature acceptance"
+  ]
+}

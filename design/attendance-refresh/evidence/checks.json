@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "Proposed design simulation only; no app/API/database/security/device proof",
+  "cases": [
+    "18-player full roster; draft review/cancel; explicit simulated commit; saved badge",
+    "Trainer request leaves saved attendance until separate Owner decision; retained reason/history",
+    "lost-commit recovery/guard",
+    "lost-none recovery/guard",
+    "read-after recovery/guard",
+    "stale recovery/guard",
+    "deadline recovery/guard",
+    "Read failure distinct from empty; retry; denial clears names",
+    "Before/closed/cancelled read-only; genuine empty; reasoned Owner direct correction",
+    "Bounded50/120 load more; search retains draft; navigation discard guard",
+    "ENAR320/360/390/926/1440; RTL retains choices; phone details dialog and Escape; review-cancel focus; optional light"
+  ],
+  "errors": [],
+  "network": []
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "layer": "Node VM model/template checks; not rendered browser tests",
+  "passed": 20,
+  "checks": [
+    "Initial queue renders synthetic selected academy and distinct checkbox",
+    "Inspector close actually removes detail panel",
+    "Row inspection does not select a bulk item",
+    "Required academy input rejects empty values",
+    "Nonfictional email rejected without creating academy",
+    "Review keeps correct new academy and requires consequence confirmation",
+    "Creation saves pending appointment without owner membership",
+    "Recipient handoff retains academy and exact synthetic destination",
+    "Acceptance cannot occur before explicit confirmation",
+    "Verified-recipient simulation yields only selected academy membership",
+    "Setup cannot complete with missing required records",
+    "Branch and timezone save as a separate resumable step",
+    "Sport labels required and separately saved",
+    "Final explicit review completes initial setup only",
+    "Refresh persistence contains synthetic saved steps and no unsaved draft",
+    "Owner view has no platform queue navigation",
+    "Arabic mirrors document and retains mixed-direction isolation",
+    "Restricted scenario denies setup simulation",
+    "Every declared route and exceptional state generates valid output without exception",
+    "No external resources or outbound API operations in working prototype"
+  ],
+  "browser": "Pending: local browser use disabled in Work settings",
+  "acceptance": "Not owner approved"
+}

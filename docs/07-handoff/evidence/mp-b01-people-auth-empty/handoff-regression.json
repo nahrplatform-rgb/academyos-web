@@ -1,0 +1,8 @@
+{
+  "source": "actual intermediate real-component test failures during the added one-character search case",
+  "failure": "Confirmation showed an empty Branch and Save did not produce the expected401 state;source save guard returned without a context.",
+  "repair_scope": "Keep exact query;bootstrap compatible local/current context before registration;canonical recovery uses a neutral bounded list for unsupported one-character search.",
+  "test": "Held returning list is released after new context readiness;one-character search and pre-commit401 recovery remain usable without a second create.",
+  "intermediate_results": "Production and development failed the new assertion before the context fix. Raw per-step request count was not captured for those failures.",
+  "final_status": "See final UI receipts and packet;not a hosted observation."
+}

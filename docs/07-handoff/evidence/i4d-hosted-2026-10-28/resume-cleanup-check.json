@@ -1,0 +1,15 @@
+{
+  "test_mark": {
+    "status": "present",
+    "version": 1
+  },
+  "checked_at": "2026-10-28T19:27:40.539787+00:00",
+  "test_history": 1,
+  "scan_defaults": {
+    "after": 30,
+    "before": 30
+  },
+  "guardian_optins": 0,
+  "active_test_cards": 0,
+  "active_test_trainers": 0
+}

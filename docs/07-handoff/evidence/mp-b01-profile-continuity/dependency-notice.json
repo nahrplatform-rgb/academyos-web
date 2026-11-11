@@ -1,0 +1,12 @@
+{
+  "source": "GitHub push notice followed by authenticated alert1 and public advisory API",
+  "alert": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+  "alert_state": "open",
+  "package": "braces",
+  "installed_version": "3.0.3",
+  "dependency_scope": "development",
+  "advisory": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+  "summary": "Withdrawn Advisory: braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+  "withdrawn_at": "2026-10-23T12:53:02Z",
+  "disposition": "The open default-branch alert refers to a withdrawn development advisory;no package/provider change or security-pass claim. Retained for engineering tracking;not a newly demonstrated runtime vulnerability."
+}

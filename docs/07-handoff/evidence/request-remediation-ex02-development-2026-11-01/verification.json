@@ -1,0 +1,88 @@
+{
+  "scope": "Actual product React with synthetic identity/HTTP; not hosted database or quota proof",
+  "before": {
+    "selected": {
+      "reads": 4,
+      "actions": [
+        "detail",
+        "roster",
+        "detail",
+        "roster"
+      ],
+      "writes": 0
+    },
+    "dirty": {
+      "reads": 4,
+      "actions": [
+        "detail",
+        "roster",
+        "detail",
+        "roster"
+      ],
+      "writes": 0
+    },
+    "unknown": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "after": {
+    "selected": {
+      "reads": 2,
+      "actions": [
+        "detail",
+        "roster"
+      ],
+      "writes": 0
+    },
+    "dirty": {
+      "reads": 2,
+      "actions": [
+        "detail",
+        "roster"
+      ],
+      "writes": 0
+    },
+    "unknown": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "unit": 75,
+    "foundation_e2e": 17,
+    "build": "passed",
+    "development_api": "passed",
+    "development_ui_production": 12,
+    "development_ui_development": 12
+  },
+  "node": "26.9.0; required CI24 separate",
+  "inputs": {
+    "apps/web/src/components/development-workspace.tsx": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/development/test_ui.mjs": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0"
+  },
+  "open": [
+    "EX03 crash identity",
+    "EX04 waterfall",
+    "hosted counts and percentiles",
+    "Guardian-training adoption",
+    "independent security",
+    "Owner acceptance"
+  ],
+  "factual_review": {
+    "capture_suites": 16,
+    "frames": 1041,
+    "transitions": 1050,
+    "theme_snapshots": 33,
+    "integrity": "passed",
+    "freshness": "passed",
+    "visual_inspection": [
+      "AR360 editor",
+      "EN1440 inspector"
+    ],
+    "scope": "fictional actual-component captures; not hosted or exhaustive rendering"
+  }
+}

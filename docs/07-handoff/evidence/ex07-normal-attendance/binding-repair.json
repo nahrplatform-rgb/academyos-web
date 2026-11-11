@@ -1,0 +1,180 @@
+{
+  "sourceMigration": "supabase/migrations/20261106174606_owner_register_binding_conflict.sql",
+  "authorizedScope": "EX-07 existing synthetic staging repair;SDR-06 retained;Owner-only promotions",
+  "implementation": "typed binding refusal and safe existing online fallback;no namespace/key replacement",
+  "local": {
+    "key": 18,
+    "normalAttendance": 19,
+    "unit": 101,
+    "types": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "normalReceipt": "runtime.json",
+    "keyReceipt": "../owner-register-key-2026-11-04.json",
+    "affectedReceipts": {
+      "startup": 8,
+      "workingDay": 8,
+      "dispatch": 17,
+      "registerDownload": "passed;source-bound receipt refreshed"
+    },
+    "factualReview": {
+      "groups": 16,
+      "welcomeStates": 8,
+      "frames": 1189,
+      "transitions": 1163,
+      "sourceFiles": 80,
+      "literals": 7883,
+      "freshness": "passed",
+      "tool": "passed",
+      "limits": "Prepared-device/provider states outside default replay have targeted runtime images;not exhaustive render/installed proof"
+    },
+    "custody": 12,
+    "reactReview": "Authentication stays server-owned;hook order stable;primitive external-store snapshots;no new dependencies,waterfall,polling or shared private server cache",
+    "backupRehearsalScope": 2
+  },
+  "database": {
+    "project": "snpphkenmvmhpjstbeul",
+    "postgres": "17.11",
+    "migrationVersion": "20261106175259",
+    "before": {
+      "owner": "postgres",
+      "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+      "settings": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "definition_hash": "27d16d8872a3760d6618b67a174edef5",
+      "key_fingerprint": "d8ab6206047954acd57582d9f861ac60",
+      "registrations": 2,
+      "attendance_operations": 5,
+      "marks": 6,
+      "history": 8,
+      "audit": 182
+    },
+    "after": {
+      "definition_hash": "a2134b9dbde67f5bbe72a00fcef2f71c",
+      "owner": "postgres",
+      "acl": "{postgres=X/postgres,authenticated=X/postgres}",
+      "settings": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "key_fingerprint": "d8ab6206047954acd57582d9f861ac60",
+      "registrations": 2,
+      "attendance_operations": 5,
+      "marks": 6,
+      "history": 8,
+      "audit": 182,
+      "migration_version": "20261106175259"
+    },
+    "preserved": [
+      "owner",
+      "acl",
+      "settings",
+      "key_fingerprint",
+      "registrations",
+      "attendance_operations",
+      "marks",
+      "history",
+      "audit"
+    ],
+    "backup": "private scoped function rollback and metadata outside Git",
+    "rehearsal": "Actual hosted function restored to identical27d16d8872a3760d6618b67a174edef5 in disposable PG17,then reapplied to identicala2134b9dbde67f5bbe72a00fcef2f71c;anon denied",
+    "scopeLimit": "Custody/attendance/audit checks;not all-table fingerprint;no keys/root values exported",
+    "unsignedHostedCall": "42501 Invalid identity under authenticated role without signed subject;no key released"
+  },
+  "advisor": {
+    "beforeAfterCounts": [
+      {
+        "name": "rls_enabled_no_policy",
+        "level": "INFO",
+        "count": 61
+      },
+      {
+        "name": "anon_security_definer_function_executable",
+        "level": "WARN",
+        "count": 3
+      },
+      {
+        "name": "authenticated_security_definer_function_executable",
+        "level": "WARN",
+        "count": 103
+      }
+    ],
+    "interpretation": "Existing direct-table denial and signed RPC boundary retained;not zero findings or independent review"
+  },
+  "release": {
+    "codeCommit": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+    "ci": "passed;exact corrected source;53of53steps",
+    "deployment": "Owner-promoted;exact canonical c36e87c independently verified",
+    "hosted": "scoped existing OwnerB read/history/return and client different-event refusal/online fallback verified;Arabic return regression found;live HTTP409 unexecuted",
+    "ownerAcceptance": "pending",
+    "independentReview": "deferred;nonblocking;not performed",
+    "pushed": true,
+    "ciRun": 42267294608,
+    "ciJob": 128178651752,
+    "previewDeployment": "dpl_FejH8JmEUKvRpnFKQoVyVi4phxnu",
+    "previewState": "READY",
+    "previousAttempt": {
+      "code": "a12006c9807157e8196785025564555173492c90",
+      "run": 42266688169,
+      "job": 128060355306,
+      "conclusion": "failure",
+      "step": "backup rehearsal scope:4expected,5reviewed migrations",
+      "repair": "Assert exact five reviewed source filenames;2local positive/negative cases pass"
+    },
+    "ciAttempts": [
+      {
+        "run": 42267294608,
+        "attempt": 1,
+        "job": 128062414613,
+        "result": "failed",
+        "step": "Install disposable PostgreSQL17 runtime",
+        "cause": "curl56 Failure when receiving data from peer downloading official ACCC4CF8.asc",
+        "passedPrior": "build,lint,types,101units,traceability,factual review,14backup tests,offline review,automatic keys,40typed repository cases,public shell"
+      },
+      {
+        "run": 42267294608,
+        "attempt": 2,
+        "job": 128178651752,
+        "result": "success",
+        "stepsPassed": 53,
+        "stepsTotal": 53,
+        "source": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+        "observedAtUTC": "2026-11-06T22:11:28Z"
+      }
+    ],
+    "ciAttempt": 2,
+    "ciUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42267294608/attempts/2",
+    "promotionTarget": "https://staging.academy.nahr.dev",
+    "promotionLink": "https://vercel.com/academy-os2/academyos-web/FejH8JmEUKvRpnFKQoVyVi4phxnu",
+    "stagingDeployment": "dpl_2mif7vY7vyTYRTnVLyw2WsUqcopP",
+    "followOn": "docs/07-handoff/ex07-fallback-continuity-2026-11-07.md"
+  },
+  "compatibility": "No local schema,worker scope/cache protocol,retention,original wire or server attendance write change;old app sees new typed refusal unavailable rather than false denial",
+  "evidenceLimit": "Synthetic local SDK/provider;real-provider earlier52d04a2 read and Owner offline/reconnect evidence separate",
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peakHelpers": 1,
+    "scope": "bounded inventory and3register-key test files",
+    "coordinator": "architecture/source/UI/migration/provider/integration/evidence",
+    "savings": "unmeasured"
+  },
+  "repairs": [
+    "Selector constrained to main to exclude the Next route announcer;assertion retained",
+    "Rehearsal predecessor migration corrected before release",
+    "Fixed-port PG collision resolved by serial fixture runs;not a product failure",
+    "CI caught the4migration rehearsal count;assert exact5reviewed filenames rather than relax the assertion"
+  ],
+  "observedAt": "2026-11-06 17:56:03 UTC",
+  "sourceHashes": {
+    "apps/web/src/app/api/register-key/route.ts": "1f4f382ec471b1cf184db164a1a88962cc15e0c9fc628830d6a75dc3502b09e8",
+    "apps/web/src/lib/owner-register-pilot.ts": "7f290870a0884a07ef43d08287df17747275c21ada6bf9448439f0ae9ce53e42",
+    "apps/web/src/components/attendance-workspace.tsx": "b419434dd284a2767b32db82f6bb04c39d878af73a63ad1eb87c725b5471a469",
+    "apps/web/src/components/prepared-register-panel.tsx": "6ce874125af9a14fcdd7a9fb084e3ab8bd8206cbaf8045d77992ca30ef4ff7a8",
+    "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a"
+  }
+}

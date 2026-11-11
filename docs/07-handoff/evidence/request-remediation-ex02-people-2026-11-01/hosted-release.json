@@ -1,0 +1,52 @@
+{
+  "source": "07abdf9388420c446437b8ab755257e19c8c6d98",
+  "ci": [
+    {
+      "id": 41259202931,
+      "conclusion": "success"
+    },
+    {
+      "id": 41259197024,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_HaF9huN8eDmmjJbHFe8AfBtZsDJT",
+    "state": "Ready",
+    "durationSeconds": 30
+  },
+  "staging": {
+    "state": "Ready; existing staging alias verified",
+    "previousServing": "dpl_2UvAG1MXZUf6KzhZTs4912fzChZk",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "id": "dpl_GqgAG4c8uLEVAPsicb6i3a6B6eC7",
+    "durationSeconds": 37,
+    "source": "07abdf9388420c446437b8ab755257e19c8c6d98",
+    "accountCheck": "Owner completed Touch ID; native source/alias verified"
+  },
+  "hosted": {
+    "date": "2026-11-01",
+    "method": "native Chrome; existing Owner synthetic academy; read-only plus unsaved draft",
+    "observed": [
+      "existing Synthetic Registration Demo profile reloaded after real tab return",
+      "EN duplicate review explicitly checked, tab away/return retained name and invalidated confirmation",
+      "AR duplicate review explicitly checked, tab return retained name and invalidated confirmation",
+      "test draft discarded via existing confirmation; no save",
+      "foreign academy People denied without old private profile",
+      "original EN Owner Home restored"
+    ],
+    "limits": [
+      "no precise hosted document/API counters or latency percentiles",
+      "no new hosted unknown-write/concurrency/revocation or positive other-role test",
+      "not calibrated phone/device/accessibility evidence",
+      "native dirty browser Back and G01 remain open"
+    ]
+  },
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "accessRestored": false,
+  "operatingWrites": false
+}

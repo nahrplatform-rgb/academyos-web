@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25",
+  "scope": "Manual browser checks of in-memory guardian design only; no real API, email or grants",
+  "cases": [
+    "Owner explicit confirmation and exact access review",
+    "Pending operation disables submission",
+    "Unknown appointment result reconciles original simulated appointment",
+    "Unverified recipient has zero player/email matches",
+    "Verified recipient explicitly accepts before minimal player view",
+    "Guardian minimal view excludes other player and recipient email",
+    "Owner required reason and ending review",
+    "Ended guardian view contains no player projection",
+    "Wrong account hides player",
+    "Other child, revoked, expired, ended and load-failed modes contain no player names",
+    "Expired invitation requires fresh unchecked approval",
+    "Delivery failure retries the same simulated appointment",
+    "EN/AR localized controls and RTL shell"
+  ],
+  "viewport": {
+    "requestedWidth": 360,
+    "observedWidth": 400,
+    "documentWidth": 400,
+    "direction": "rtl",
+    "horizontalOverflow": false,
+    "resetBeforeFinish": true
+  },
+  "browserErrorsAtCheck": [],
+  "limits": [
+    "Exact 360px not verified by this in-app viewport",
+    "No physical-device or screen-reader acceptance",
+    "No backend, auth, SQL, delivery, real race, performance or security approval"
+  ]
+}

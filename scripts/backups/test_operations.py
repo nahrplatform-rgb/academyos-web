@@ -2,6 +2,7 @@ import base64
 import unittest
 from unittest.mock import patch
 import io
+import os
 import verify_r2_protection
 from backup import BackupError, PROJECT
 import monitor
@@ -9,6 +10,29 @@ import storage_rehearsal as rehearsal
 
 
 class OperationSafetyTests(unittest.TestCase):
+    def test_monitor_url_requires_exact_staging_destination(self):
+        valid = ('https://o4512294688260096.ingest.de.sentry.io/api/4512294699728976/'
+                 'cron/academyos-staging-backup/' + 'a' * 32 + '/')
+        with patch.dict(os.environ, {'BACKUP_MONITOR_URL': valid}):
+            self.assertEqual(monitor.monitor_url(), valid)
+        invalid = [
+            '', valid.replace('https://', 'http://'),
+            valid.replace('https://', 'https://user@'),
+            valid.replace('.sentry.io/', '.sentry.io.evil.example/'),
+            valid.replace('/api/4512294699728976/', '/api/1/'),
+            valid.replace('academyos-staging-backup', 'other'),
+            valid.replace('a' * 32, 'g' * 32), valid.replace('a' * 32, 'a' * 31),
+            valid + '?query=1', valid + '#fragment', valid.rstrip('/'), valid + '\n',
+        ]
+        with patch.dict(os.environ, {}, clear=True), self.assertRaises(BackupError):
+            monitor.monitor_url()
+        for destination in invalid:
+            with self.subTest(destination=destination), patch.dict(os.environ, {'BACKUP_MONITOR_URL': destination}):
+                with self.assertRaises(BackupError) as error:
+                    monitor.monitor_url()
+                if destination:
+                    self.assertNotIn(destination, str(error.exception))
+
     def test_success_checkin_requires_verified_copy_from_correct_project(self):
         good = {'project': PROJECT, 'status': 'encrypted_upload_download_verified', 'storage_api_credential_verified': True}
         for invalid in [None, {}, dict(good, project='other'), dict(good, status='started'), dict(good, storage_api_credential_verified=False)]:

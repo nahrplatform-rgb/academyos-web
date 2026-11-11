@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory design simulation only; no auth/API/DB/time-window/atomicity/hosted proof",
+  "cases": [
+    "schedule to paged complete roster and per-player detail",
+    "explicit Present/Absent review and acknowledgment",
+    "Trainer cannot replace committed mark",
+    "Owner required reason and retained correction history",
+    "attended session change protection explanation",
+    "before/closed/canceled read-only states",
+    "pending guard and original committed/not-committed reconciliation",
+    "stale result preserved without overwrite",
+    "confirmed save/read failure",
+    "loading/failure/empty/denial distinct",
+    "EN/AR320/360/926/1440 no horizontal overflow",
+    "phone Back and reload reset"
+  ],
+  "errors": [],
+  "external": []
+}

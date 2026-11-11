@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "runtime": "v26.9.0",
+  "baseline": false,
+  "planningBaseline": false,
+  "continuityBaseline": false,
+  "continuity": [
+    {
+      "locale": "en",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 326,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    },
+    {
+      "locale": "ar",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 326,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    }
+  ],
+  "localControlsBaseline": false,
+  "localControls": [
+    {
+      "view": "home",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "calendar",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "dated",
+      "singleLocaleClickAccepted": true,
+      "readStarts": 1
+    }
+  ],
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+    "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+    "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+    "apps/web/src/components/experience-workspace.tsx": "d15ee510c987d9f42d41c29d5a7ae9c8dfc9a77c5fcd107c5d5c79ff8dbefa3b",
+    "apps/web/src/components/date-planning-workspace.tsx": "caa608bd214c267a7a0106f2d92aff9fcaa75bfd66b04f69b9d4268031fd2092",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "speculativeDatePrefetches": 0,
+  "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+  "results": [
+    {
+      "locale": "en",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "ar",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "en",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "ar",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "en",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    },
+    {
+      "locale": "ar",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    }
+  ],
+  "errors": []
+}

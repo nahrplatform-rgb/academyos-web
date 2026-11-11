@@ -1,5 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
-import Link from "next/link";
+import WorkspaceShell from "@/components/workspace-shell";
 import { authenticationConfigured } from "@/lib/config";
 export default async function Page({
   params,
@@ -8,8 +8,11 @@ export default async function Page({
 }) {
   const { locale } = await params;
   return (
-    <main className="auth">
-      <Link href={`/${locale}`}>← AcademyOS</Link>
+    <WorkspaceShell locale={locale} context={locale === "ar" ? "حساب AcademyOS" : "AcademyOS account"}
+      title={locale === "ar" ? "تسجيل الدخول" : "Sign in"} homeHref={`/${locale}`}
+      languageHref={`/${locale === "ar" ? "en" : "ar"}/sign-in`}
+      navigation={[{ href: `/${locale}`, label: locale === "ar" ? "البداية" : "Overview" }]}>
+      <section className="auth">
       {authenticationConfigured(process.env) ? (
         <SignIn
           routing="path"
@@ -17,8 +20,9 @@ export default async function Page({
           forceRedirectUrl={`/${locale}/workspace`}
         />
       ) : (
-        <p>Sign-in is not configured yet.</p>
+        <p className="notice">{locale === "ar" ? "تسجيل الدخول غير متاح حالياً." : "Sign-in is not configured yet."}</p>
       )}
-    </main>
+      </section>
+    </WorkspaceShell>
   );
 }

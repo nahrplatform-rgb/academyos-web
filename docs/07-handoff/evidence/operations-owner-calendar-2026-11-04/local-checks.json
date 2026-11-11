@@ -1,0 +1,29 @@
+{
+  "scope": "Current working tree; local isolated/synthetic checks, not hosted identity or private activation",
+  "passed": [
+    "Production build including TypeScript",
+    "Lint",
+    "93 unit tests",
+    "17 foundation browser tests",
+    "Experience read API:24 budget-failure cases,3 invalid bodies and cross-origin denial",
+    "Original role-home/calendar React UI in production and development",
+    "Operations Calendar same-fixture baseline/current comparison and24 ENAR/theme/viewport cases,each week/month",
+    "In-place EN/AR switch retains Calendar filter/selection with zero operating reads",
+    "16 actual-component capture suites plus static entry captures",
+    "Actual Next production routing ENAR with dirty guards,selection,Back/Forward and scoped read owner",
+    "20 actual-component revalidation geometry cases,0 temporary clamps",
+    "8 disposable Next/Chromium/PG17 working-day cases,recorded via supported --record",
+    "7 disposable gated Owner startup/account cleanup cases",
+    "9 linked source/evidence freshness checks",
+    "Factual HTML freshness and offline review-tool checks",
+    "66 representative captured theme/contrast checks",
+    "Canonical/execution/continuation validators"
+  ],
+  "limits": [
+    "No new hosted UI or operating proof",
+    "No latency percentile,physical phone,screen-reader or real200percent zoom result",
+    "Current private feature activation/gates unchanged",
+    "Independent external review deferred/nonblocking/not performed",
+    "Owner working acceptance pending"
+  ]
+}

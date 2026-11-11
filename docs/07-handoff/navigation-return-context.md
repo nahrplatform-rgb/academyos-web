@@ -1,0 +1,44 @@
+# Navigation continuation — return destination and existing academy labels
+
+30 October 2026. Authorized by continued full redesign/navigation work. Bounded scope: existing Owner Home/Calendar → dated planning → return (IMP-J01-A01/J09/J10 joins), and Guardian training header (J15 existing published own-player read). Preserve accepted permission, publication, capacity, atomic-save and unknown-operation contracts; no new roles, access grant, API, schema, cache payload or provider change.
+
+Inspected actual experience period/filter cache, calendar destinations, dated planning route/back/dirty/unknown guards and Guardian FamilySchedule.context. Retained PYSA scheduling review/preservation ledger and role-navigation reference: connected calendar → dated task → original period is useful; subset-only navigation/counts and stale authority cannot be imported. PYSA remains read-only historical source/audit evidence, not hosted proof.
+
+Existing period/view/filter retention is already subject/academy/role scoped and is presentation only. Add a fixed `return=home|calendar` hint to Owner session links and accept only those values at the dated route. Return uses the same academy and currently selected locale; never an arbitrary URL or another academy. Existing dirty/unknown guards still control exit, review still returns to editing first, and every destination reloads current authority. Direct or older date links retain their existing dated-directory Back behavior. Guardian header uses the academy name already present in the current authorized schedule; unavailable/denied reads retain generic wording and clear private data as before.
+
+Acceptance: Home and Calendar links carry exact return hint; fixed destinations respect academy/locale; malicious/unknown return hints cannot create an external destination; no return during busy/unknown; review/edit dirty guards retained; Calendar period/filter retention and current-denial clearing preserved; Guardian label cleared after revocation; EN/AR responsive regressions. Pagination/selection/scroll restoration and academy names absent from other legacy projections remain separate open work, not silently completed. Revert the client/route presentation plus matching review captures to roll back; no schema rollback.
+
+Requirement anchors retain IMP-J01-A01 (AO-002/003/004/009; AT-002/003/004/009) and IMP-J09-A01 (AO-021/022/027/029; AT-021/022/027/029), existing dated-planning and Guardian publication/read-security joins. No parent requirement is closed by this narrow return fix.
+
+## Local checkpoint
+
+Implemented fixed Home/Calendar return hints, server-route allowlisting and a guarded return action in the original dated-planning component. Review Back remains an editing step before exit; direct date links keep the dated directory. Guardian training displays only the academy name from its current authorized schedule. No new request, field storage, endpoint, schema or writer changed.
+
+Production/development planning tests passed: fixed same-academy destinations in EN/AR, dirty-draft cancellation, unknown return hint staying local, and unchanged save count. Experience tests verify Home and Calendar link hints and retain period/filter reload, no private session payload in navigation cache, pagination/revocation cases. Guardian tests verify the provided academy name and its removal on denial. All 16 actual component groups recaptured and passed; build/lint,74 units,17 foundation checks, static entry, offline/freshness,33 theme renders and14 contrast checks passed. Factual review has1020 recorded frames/1008 transitions; this is declared fixture coverage, not exhaustive or hosted evidence. New navigation test URLs prove destination construction in an isolated component harness, not actual Next.js routing; staging verification remains separate.
+
+Exact-source CI, rollout, hosted verification and Owner working acceptance are pending until recorded below. Remaining broader return-state and missing-name projection work is explicit above.
+
+## CI timing investigation
+
+Initial source79e601c passed run41098801188 but failed run41098810716 in the unchanged development correction test, waiting for Review decision. Promotion withheld. Its synthetic Owner switch dispatched focus immediately after clicking Submit, while the canonical operation/result reads could still hold the product lock. That refresh is intentionally ignored during an in-flight operation. The harness now waits for the original submit form to exit and the busy result-read status to finish before switching its synthetic actor. A fixed-snapshot delayed detail response exercises this ordering in the rejection case. No product correction code, timeout, retry, permission or expected result was changed; all original save-count/canonical-mark/approval/rejection assertions remain. Follow-up exact-source CI is separate.
+
+## Checked build and account handoff
+
+Follow-up source `e950b41ca7b682210e7a74b6bdc1dea1990ec9b8` passed both exact-source CI runs [41112422297](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41112422297) and [41112411169](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41112411169). The app change remains source79e601c; the follow-up only fixes synthetic actor-switch ordering/evidence output. Correction production/development checks, including a delayed fixed snapshot, passed with all original assertions. The older harness ignored the evidence override; tracked historical screenshots were restored and an override added to keep new output in this batch.
+
+Git-triggered candidate `dpl_HvzTM3tpwRFwNKUUcydGybQMngUR` is Ready. Staging promotion was requested only after both checks passed, targeting existing `staging.academy.nahr.dev`. Vercel requested fresh account reauthentication; Chrome has the existing nahrplatform-rgb passkey selected and is waiting for user Touch ID. No new credential/grant or security weakening is authorized. [Rollout receipt](evidence/navigation-return-2026-10-30/rollout.json). Until confirmed, the staging alias and hosted Calendar-return/Guardian-label proof remain pending.
+
+Resume: complete account check → verify rebuilt source and staging alias → use the existing Owner session to open Calendar, choose a dated session and return using Back to calendar; verify saved period/view/filter, EN/AR and no writes. Guardian positive hosted proof requires an active authorized link; do not restore ended test access under this batch. Record deployment/hosted/Owner acceptance separately; do not retire pagination/selection/scroll or other missing-name work.
+
+Account-check follow-up: the passkey request timed out before completion. Timeout dialog was dismissed; Chrome is left on Vercel Reauthenticate with Continue with Passkey available. Promotion and hosted verification remain pending. Retry this account check before claiming a rebuilt staging deployment; no operating records or access changed.
+
+
+## Hosted checkpoint after account handoff
+
+Owner completed Touch ID. The authenticated Vercel dashboard shows rebuilt deployment `dpl_CRx3e9GiTdPuWLCWNaPH4QhLRRQ3` Ready, source `e950b41ca7b682210e7a74b6bdc1dea1990ec9b8`, with existing `staging.academy.nahr.dev` alias. This supersedes the pending promotion entries above. Vercel labels this project environment Production; the verified target is AcademyOS staging, not a production launch.
+
+Read-only hosted Owner walkthrough passed in EN and AR: Calendar → select Synthetic I3a Full-period Demo on 1 November → Open this date (fixed `return=calendar`) → Back to calendar / العودة إلى التقويم. The return stayed in academy A and current locale. Month remained selected, first visible date remained 2026-10-30, complete visible period remained 2026-09-27–2026-11-07, and filter remained Synthetic I3a. Scope was reloaded on return. No operating save, invitation, grant or account change was performed. Session selection and scroll are not restored by this change.
+
+Full-size actual staging captures: [EN date](evidence/navigation-return-2026-10-30/hosted-en-date.png), [EN returned calendar](evidence/navigation-return-2026-10-30/hosted-en-calendar.png), [AR date](evidence/navigation-return-2026-10-30/hosted-ar-date.png), [AR returned calendar](evidence/navigation-return-2026-10-30/hosted-ar-calendar.png). These demonstrate the declared desktop states, not phone/zoom completeness or full redesign parity. Native Chrome thumbnails are not used as visual proof.
+
+Guardian positive hosted name check remains pending because its test link is ended; local provided-name/denial-clearing checks passed. Home-specific return remains locally verified, not freshly hosted-tested in this Calendar walkthrough. Owner working acceptance of this continuation remains pending. Pagination/selected-row/scroll restoration, absent academy-name projections and broader security/device/load gates remain open.

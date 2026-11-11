@@ -1,0 +1,27 @@
+{
+  "source": "a17f4ffb91b00879c5535d70ab4cadcf989696a5",
+  "ci": {
+    "41398154682": "success",
+    "41398145643": "success"
+  },
+  "preview": {
+    "id": "dpl_E8bHwwYFvPQTAv5WwARQiAeAbYEH",
+    "url": "academyos-hhcr0jkbk-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 40,
+    "sourceVerified": true,
+    "method": "existing native AcademyOS project dashboard"
+  },
+  "staging": {
+    "id": "dpl_DQfZX9xW967XNVqWNecUX9XWBQ9w",
+    "url": "academyos-fgu8zz0t9-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 59,
+    "sourceVerified": true,
+    "aliasVerified": "staging.academy.nahr.dev",
+    "method": "native authenticated project dashboard; user completed passkey check during promotion"
+  },
+  "hosted": "Existing Owner Home EN/AR revalidation and Calendar EN reload, retained search/selection, Arabic Home\u2192Calendar\u2192date\u2192Calendar return observed; numeric held-read geometry remains local controlled evidence, not hosted percentile proof",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

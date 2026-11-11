@@ -1,0 +1,4 @@
+There has been no change in the accessibility tree for Window: "Shopify — AcademyOS · Staging".
+The focused UI element is 284 heading Correction details, Value: 2
+
+Contemporaneous tool observation (summary; repeated snapshot above is a diff, not a full tree): Trainer workspace; request Pending; current attendance Absent version2; original Absent to proposed Present; Waiting for the Owner. Attendance remains unchanged. Canonical SQL was checked before approval.

@@ -1,0 +1,67 @@
+{
+  "commit": "5e837dd5ad6d3de86f6014c928249e0a2dec1637",
+  "code_commit": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
+  "pushed": true,
+  "ci": {
+    "run": 42523458608,
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42523458608",
+    "status": "completed",
+    "job": 128861768572,
+    "conclusion": "success",
+    "passed_steps": 53,
+    "receipt": "ci-5e837dd.json",
+    "exact_run_and_job_sha_verified": true
+  },
+  "preview": {
+    "deployment": "dpl_6hBshiYx23hjGEmxoG8EMq3Fb3ne",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/6hBshiYx23hjGEmxoG8EMq3Fb3ne",
+    "url": "https://academyos-bhqx3plhk-academy-os2.vercel.app",
+    "state": "READY",
+    "source_sha_verified": true
+  },
+  "staging": {
+    "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+    "deployment": "dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E",
+    "host": "staging.academy.nahr.dev",
+    "evidence": "docs/07-handoff/evidence/mp-b01-empty-prepared/hosted-c73bdf8.json",
+    "source_rechecked_at": "2026-11-09T02:13:02.927914+02:00"
+  },
+  "failed_candidate": {
+    "observed_at": "2026-11-08T20:55:02.041508+00:00",
+    "commit": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
+    "pushed": true,
+    "ci": {
+      "run": 42522403859,
+      "job": 128858558178,
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859",
+      "status": "completed",
+      "conclusion": "failure",
+      "receipt": "ci-9c1efd0-failure.json"
+    },
+    "preview": {
+      "deployment": "dpl_DcC8hxFtwHgNMn1boGs3TWjFvFKn",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/DcC8hxFtwHgNMn1boGs3TWjFvFKn",
+      "url": "https://academyos-5e80qhij6-academy-os2.vercel.app",
+      "state": "READY"
+    },
+    "staging": {
+      "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+      "deployment": "dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E",
+      "host": "staging.academy.nahr.dev",
+      "evidence": "docs/07-handoff/evidence/mp-b01-empty-prepared/hosted-c73bdf8.json"
+    },
+    "agent_promotion": false,
+    "new_source_hosted": false,
+    "Owner_acceptance": false,
+    "release_eligible": false,
+    "post_push_metadata": "Retained locally for next coherent batch;no metadata-only full-suite push.",
+    "reason": "Outdated read-settled test signal;Back is intentionally available in flight. Corrected observable wait passes locally;replacement candidate required."
+  },
+  "agent_promotion": false,
+  "new_source_hosted": false,
+  "Owner_acceptance": false,
+  "release_eligible": true,
+  "post_push_metadata": "Kept local for next coherent batch;no metadata-only full-suite push.",
+  "observed_at": "2026-11-09T02:13:02.927914+02:00",
+  "release_readiness": "All53exact-source CI steps pass and the matching preview isReady. Staging still serves c73bdf8. Owner-only promotion and new-source hosted verification remain pending."
+}

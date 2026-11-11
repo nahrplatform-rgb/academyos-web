@@ -1,0 +1,27 @@
+{
+  "source": "033322f3c693dba844d560460a61acd032b92c12",
+  "ci": {
+    "41411200972": "success",
+    "41411191876": "success"
+  },
+  "preview": {
+    "id": "dpl_LJgmSuVzVrfWat41Hni2AGKgFNwA",
+    "url": "academyos-3x7cqgqrc-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 38,
+    "sourceVerified": true,
+    "method": "existing native authenticated Vercel dashboard"
+  },
+  "staging": {
+    "id": "dpl_9LZX2qr7yjqcEvTtm8YEGshAEzNy",
+    "url": "academyos-5corxxatw-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 45,
+    "sourceVerified": true,
+    "aliasVerified": "staging.academy.nahr.dev",
+    "method": "native authenticated dashboard after user TouchID;duration detail45s/build log46s"
+  },
+  "hosted": "Existing Owner EN/AR monthly Calendar26scoped sessions;1Nov\u201312Dec;Synthetic I3a filter;selected10Dec date\u2192Back restored period/filter/selection and lower calendar orientation observed;no operating writes;exact pixel position remains local proof",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

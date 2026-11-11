@@ -1,5 +1,9 @@
 # Player evaluations and development history
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Published family feedback and private staff draft/reason have separate persistence/access policy. Retain review/publication/withdrawal/different-account rules; no automatic offline publication. Local drafts require their own confidential retention decision. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-085–092. Review authority, metrics, publication and age-appropriate visibility remain D-013/D-004.
 
 ## Model and authoring
@@ -27,3 +31,5 @@ On mobile, use concise cards and expandable detail. In Arabic, metric labels and
 ## Acceptance and recovery
 
 Test revoked trainer access with a stale page, foreign player IDs, entitlement denial through alternate write paths, concurrent drafts, partial save failure, missing metrics, unpublished guardian access, changed guardian link and amendment history. Verify one publication generates one logical notification per eligible recipient, despite job retries. An export must agree with the published snapshot even if a draft is edited while it runs.
+
+I5a scoped continuation29October2026: [accepted narrative policy](../06-delivery/i5a-development-feedback-decisions.md), [approved connected design](../06-delivery/i5a-development-feedback-design-contract.md) and [implementation checkpoint](../07-handoff/i5a-development-feedback-implementation.md). This adds reviewed session-bound narrative feedback only. Scored metrics/period assessments, Player access, notification/export and broader correction rationale remain pending. Existing Guardian links gain no automatic development fields; hosted verification and working acceptance are separate.

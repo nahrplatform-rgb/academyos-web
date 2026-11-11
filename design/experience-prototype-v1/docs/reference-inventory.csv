@@ -1,0 +1,32 @@
+reference_view_id,title,roles,coverage_status,evidence
+overview,Overview,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+requests,Requests,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+academies,Academies,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+subscriptions,Subscriptions,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+platformFinance,Platform billing,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+services,Service operations,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+support,Support cases,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+audit,Access & audit,platform,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+ownerHome,Home,owner,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+setup,Setup,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+branches,Branches,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+programs,Programs,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+schedule,Schedule,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+people,Players & families,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+staff,Staff & access,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+attendance,Attendance,owner; manager; trainer,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+evaluations,Evaluations,owner; manager; trainer,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+familyFinance,Family finance,owner,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+compensation,Trainer compensation,owner,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+communications,Messages,owner; manager; trainer; guardian,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+inventory,Inventory,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+reports,Reports,owner; manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+privacy,Privacy requests,owner,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+managerHome,Today & coverage,manager,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+today,Today,trainer,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+guardianHome,Home,guardian,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+guardianSchedule,Schedule,guardian; player,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+guardianProgress,Published progress,guardian; player,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+guardianPayments,Payments,guardian,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+guardianConsent,Consent requests,guardian,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json
+playerHome,Home,player,Present visual reference; workflow/state completion required,reference/inspection/source-inspection.json

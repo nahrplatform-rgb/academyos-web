@@ -1,0 +1,12 @@
+{
+  "menuBaseline": true,
+  "reactMode": "production",
+  "geometry": {
+    "rowHeight": 68.5,
+    "paddingBlock": "12px",
+    "buttonHeight": 44
+  },
+  "stillOpenAfterEscape": true,
+  "stillOpenAfterOutside": true,
+  "operatingRequests": 0
+}

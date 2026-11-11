@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-11-03T18:43:17.103132+00:00",
+  "implementationCommit": "a1054795a3ae537921cec517ecd8e044ab77df35",
+  "checkedCommit": "ac485f6b15a29c69d32d6ecab9cafd257b291261",
+  "testFollowup": "Controlled actual-tab contention replaces scheduling assumption; product code unchanged from implementation commit",
+  "branch": "codex/onboarding-decision-design-packet",
+  "ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 41694194844,
+      "event": "push",
+      "headSha": "ac485f6b15a29c69d32d6ecab9cafd257b291261",
+      "status": "completed",
+      "updatedAt": "2026-11-03T18:40:53Z",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41694194844"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41694223560,
+      "event": "pull_request",
+      "headSha": "ac485f6b15a29c69d32d6ecab9cafd257b291261",
+      "status": "completed",
+      "updatedAt": "2026-11-03T18:40:55Z",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41694223560"
+    }
+  ],
+  "automaticBuildReportedByGitHub": [
+    {
+      "context": "Vercel",
+      "state": "success",
+      "description": "Deployment has completed",
+      "target_url": "https://vercel.com/academy-os2/academyos-web/D1N4EwDdJFXeq7j4exD2a64qMfX1"
+    }
+  ],
+  "independentVercelInspection": {
+    "connector": "403 forbidden for same AcademyOS team/project",
+    "mappedCliFallback": "scope not existent for current CLI account",
+    "verifiedLiveAlias": false,
+    "promotionPerformed": false
+  },
+  "privateRelease": {
+    "migrationAppliedByThisCheckpoint": false,
+    "flagEnabledByThisCheckpoint": false,
+    "productCallerAdded": false,
+    "hostedPrivateJourneyVerified": false,
+    "ownerWorkingAcceptanceRequested": false,
+    "independentSecurity": "open",
+    "noPromotionNeededForInactiveCheckpoint": true
+  },
+  "localEvidence": {
+    "database": "register-download-database.json",
+    "browser": "register-download-browser.json",
+    "retainedStorage": "local-register-repository-2026-11-03.json",
+    "advisor": "register-download-advisors.json",
+    "counts": {
+      "database": 11,
+      "connectedBrowser": 20,
+      "retainedStorage": 38,
+      "units": 92
+    },
+    "otherPassed": [
+      "build",
+      "typecheck",
+      "lint",
+      "canonical/execution CSV and continuation freshness",
+      "factual inventory/review-tool/freshness",
+      "actual Next EN/AR dirty/selection/history navigation"
+    ]
+  },
+  "retainedDependencyAlert": {
+    "number": 1,
+    "ghsa": "GHSA-vfj7-8cjw-p6xm",
+    "package": "braces",
+    "scope": "development",
+    "state": "open",
+    "withdrawnAt": "2026-10-23T12:53:02Z",
+    "action": "Read-only recheck; no dismissal/dependency change or security waiver"
+  },
+  "routing": "EX04 declared one-event coherent-transfer checkpoint passed; EX03 immutable original transport current; no whole-finding or working-day closure"
+}

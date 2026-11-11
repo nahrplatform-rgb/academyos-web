@@ -1,0 +1,66 @@
+[
+  {
+    "case": "duplicate review initially blocked",
+    "pass": true
+  },
+  {
+    "case": "checkbox alone cannot skip remaining matching page",
+    "pass": true
+  },
+  {
+    "case": "entered player retained through review",
+    "pass": true
+  },
+  {
+    "case": "registration connects to profile",
+    "pass": true
+  },
+  {
+    "case": "appointment confirm blocked before exact scope checkbox",
+    "pass": true
+  },
+  {
+    "case": "guardian confirmation returns to appointment fixture",
+    "pass": true
+  },
+  {
+    "case": "Trainer recipient connects to own narrow profile",
+    "pass": true
+  },
+  {
+    "case": "Ended Trainer fixture next read removes staff name and branch",
+    "pass": true
+  },
+  {
+    "case": "unknown has one explicit original-operation action and no Refresh view",
+    "pass": true
+  },
+  {
+    "case": "explicit prototype reconciliation returns recovered profile fixture",
+    "pass": true
+  },
+  {
+    "case": "locale change preserves draft player name",
+    "pass": true
+  },
+  {
+    "case": "admission through Owner acceptance and chooser reaches resumable setup",
+    "pass": true
+  },
+  {
+    "case": "branch/timezone save returns to resumable setup without completing",
+    "pass": true
+  },
+  {
+    "case": "separate bilingual sport save and setup completion connect to next tasks",
+    "pass": true
+  },
+  {
+    "case": "reused admission inspection focuses detail heading",
+    "pass": true
+  },
+  {
+    "case": "reused admission Back restores opener focus",
+    "pass": true
+  }
+]

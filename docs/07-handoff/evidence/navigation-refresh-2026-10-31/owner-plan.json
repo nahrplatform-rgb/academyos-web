@@ -1,0 +1,92 @@
+[
+  {
+    "QUERY PLAN": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 5.95,
+          "Total Cost": 6,
+          "Plan Rows": 22,
+          "Plan Width": 28,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 5.95,
+              "Total Cost": 6,
+              "Plan Rows": 22,
+              "Plan Width": 28,
+              "Sort Key": [
+                "d.starts_at",
+                "d.program_id",
+                "d.local_date"
+              ],
+              "Plans": [
+                {
+                  "Node Type": "Hash Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 2.38,
+                  "Total Cost": 5.46,
+                  "Plan Rows": 22,
+                  "Plan Width": 28,
+                  "Inner Unique": true,
+                  "Hash Cond": "(d.program_id = p.id)",
+                  "Plans": [
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Relation Name": "training_dates",
+                      "Alias": "d",
+                      "Startup Cost": 0,
+                      "Total Cost": 3.02,
+                      "Plan Rows": 24,
+                      "Plan Width": 44,
+                      "Filter": "((scheduled_date >= '2026-11-01'::date) AND (scheduled_date <= '2026-12-12'::date) AND (academy_id = 'b2c7920d-d467-4e9f-9a68-809ac627399e'::uuid))"
+                    },
+                    {
+                      "Node Type": "Hash",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 2.37,
+                      "Total Cost": 2.37,
+                      "Plan Rows": 1,
+                      "Plan Width": 32,
+                      "Plans": [
+                        {
+                          "Node Type": "Index Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Scan Direction": "Forward",
+                          "Index Name": "training_programs_cursor",
+                          "Relation Name": "training_programs",
+                          "Alias": "p",
+                          "Startup Cost": 0.14,
+                          "Total Cost": 2.37,
+                          "Plan Rows": 1,
+                          "Plan Width": 32,
+                          "Index Cond": "(academy_id = 'b2c7920d-d467-4e9f-9a68-809ac627399e'::uuid)",
+                          "Filter": "(state = 'ready'::text)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

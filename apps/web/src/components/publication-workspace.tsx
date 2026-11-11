@@ -1,0 +1,229 @@
+"use client";
+import Link from 'next/link';
+import { ownerNavigation } from './owner-navigation';
+import{useEffect,useRef,useState,type MouseEvent}from'react';
+import{useUser,UserButton}from'@clerk/nextjs';
+import WorkspaceShell,{PublicWorkspace}from'./workspace-shell';import WorkspacePanes from'./workspace-panes';import{Button,Input}from'./ui/controls';
+import {publicationIdPattern as uuidPattern,type PublicationDate,type PublicationJob,type PublishedHeader,type PublishedRoster}from'@/lib/publication';
+import type{ProgramContext,ProgramRecord}from'@/lib/programs';
+import {ownerTodayTaskReturn,useOwnerTodayReviewSource} from '@/lib/owner-session-navigation';
+import {listenForVisibleResume} from '@/lib/visible-resume';
+import {formatCount} from '@/lib/experience-format';
+type Props={locale:string;academy:string;program?:string;initialJob?:string;mode:'owner'|'trainer'};
+type OriginalPreparation={op:string;job?:string};
+class Failure extends Error{constructor(public code:string){super(code);}}
+const accessFailure=(code:string)=>['sign_in','denied','setup_required'].includes(code);
+
+function storedOriginal(key:string):OriginalPreparation|null {
+ const raw=sessionStorage.getItem(key);
+ if(!raw)return null;
+ const value:unknown=JSON.parse(raw);
+ if(!value||typeof value!=='object'||!('op' in value)||typeof value.op!=='string'||!uuidPattern.test(value.op))throw new Failure('storage');
+ const job='job' in value?value.job:undefined;
+ if(job!==undefined&&(typeof job!=='string'||!uuidPattern.test(job)))throw new Failure('storage');
+ return {op:value.op,job};
+}
+
+function useTransport(academy:string){
+ const[busy,setBusy]=useState(false),[error,setError]=useState('');const lock=useRef(false),live=useRef(false),controllers=useRef(new Set<AbortController>());
+ useEffect(()=>{live.current=true;const set=controllers.current;return()=>{live.current=false;set.forEach(c=>c.abort());};},[]);
+ async function call<T>(body:Record<string,unknown>):Promise<T>{
+  const c=new AbortController();controllers.current.add(c);
+  try{
+   const r=await fetch('/api/publication',{method:'POST',headers:{'Content-Type':'application/json'},cache:'no-store',signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)]),body:JSON.stringify({...body,academy})});
+   if(r.status===401)throw new Failure('sign_in');
+   const data=await r.json().catch(e=>{if(r.status===403)throw new Failure('denied');throw e;});
+   if(!live.current)throw new Failure('aborted');
+   if(r.status===403)throw new Failure(data?.error==='setup_required'?'setup_required':'denied');
+   if(!r.ok||data.error||data.data?.error)throw new Failure(data.error??data.data?.error??'unavailable');
+   return data.data as T;
+  }finally{controllers.current.delete(c);}
+ }
+ async function run(action:()=>Promise<void>,fail:(e:unknown)=>void){if(lock.current)return;lock.current=true;setBusy(true);setError('');try{await action();}catch(e){if(live.current)fail(e);}finally{lock.current=false;if(live.current)setBusy(false);}}
+ return{busy,error,setError,call,run,lock,live};
+}
+const errorText=(code:string,ar:boolean)=>({sign_in:ar?'سجّل الدخول مجدداً للتحقق من التجهيز أو استعادة العملية الأصلية.':'Sign in again to check the preparation or recover the original operation.',storage:ar?'تعذر حفظ مرجع الاستعادة في هذا المتصفح. لم يُرسل شيء.':'This browser could not keep a recovery reference. Nothing was submitted.',canceled:ar?'تاريخ ملغى؛ السجل محفوظ.':'Canceled date; history retained.',denied:ar?'الصلاحية غير متاحة. تحقق من الحساب ومساحة العمل.':'Access unavailable. Check your account and workspace.',setup_required:ar?'أكمل الإعداد واختر برنامجاً جاهزاً.':'Complete setup and choose a ready program.',invalid:ar?'تحقق من نطاق التواريخ والاختيارات.':'Check the date range and choices.',limited:ar?'طلبات كثيرة. انتظر ثم أعد المحاولة.':'Too many requests. Wait and retry.',stale:ar?'تغيرت الخطة أو حالة النشر. ابدأ مراجعة جديدة.':'The plan or publication changed. Start a fresh review.',conflict:ar?'تعارض في العملية أو خطة منشورة مقفلة. تحقق من العملية الأصلية أو اسحب النشر قبل التعديل.':'Operation conflict or published plan locked. Check the original operation or withdraw before editing.',not_ready:ar?'لم تُجهز كل التواريخ أو يوجد تعارض. لا يمكن الحفظ.':'Not all dates are ready, or a date is blocked. Nothing can save.',trainer_unavailable:ar?'المدرب غير معيّن أو تعيينه غير نشط. صحح التخطيط الخاص ثم راجع مجدداً.':'Trainer is unassigned or inactive. Correct private planning and review again.',started:ar?'بدأ تاريخ مشمول بالفعل. لا يمكن نشر أو سحب هذا النطاق.':'An included date has started. This set cannot be published or withdrawn.',full:ar?'تجاوزت القائمة السعة. صحح التخطيط الخاص.':'Roster exceeds capacity. Correct private planning.',overlap:ar?'يوجد تداخل مع خطة أخرى. صحح التخطيط الخاص.':'Another dated plan overlaps. Correct private planning.',empty:ar?'لا توجد تغييرات للتطبيق. افحص التواريخ أو اختر نطاقاً آخر.':'No changes to apply. Inspect dates or choose another scope.'}[code]??(ar?'الخدمة غير متاحة. لم يُفترض نجاح العملية.':'Service unavailable. No success is assumed.'));
+export default function PublicationWorkspace(props:Props){const session=useUser(),[expired,setExpired]=useState(false);useEffect(()=>{if(session.isLoaded)return;const timer=setTimeout(()=>setExpired(true),15000);return()=>clearTimeout(timer);},[session.isLoaded]);if(!session.isLoaded)return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale==='ar'?(expired?'تعذر تحميل تسجيل الدخول. أعد المحاولة.':'تحميل تسجيل الدخول…'):(expired?'Sign-in unavailable. Retry.':'Loading sign-in…')}</p>{expired&&<Button onClick={()=>window.location.reload()}>{props.locale==='ar'?'إعادة المحاولة':'Retry'}</Button>}</PublicWorkspace>;if(!session.user)return <PublicWorkspace locale={props.locale} title="AcademyOS"><a href={`/${props.locale}/sign-in`}>{props.locale==='ar'?'تسجيل الدخول':'Sign in again'}</a></PublicWorkspace>;const key=`${session.user.id}:${props.academy}:${props.program}:${props.mode}:${props.initialJob??''}`;return props.mode==='owner'?<OwnerPublication {...props} key={key} program={props.program!} subject={session.user.id}/>:<TrainerSchedule {...props} key={key}/>;}
+function OwnerPublication({locale:initialLocale,academy,program,subject,initialJob}:Props&{program:string;subject:string}){
+ const api=useTransport(academy),[locale,setLocale]=useState(initialLocale),ar=locale==='ar',t=(en:string,a:string)=>ar?a:en;
+ const reviewSource=useOwnerTodayReviewSource(),exactTask=!!initialJob;
+ const[ctx,setCtx]=useState<ProgramContext|null>(null),[record,setRecord]=useState<ProgramRecord|null>(null),[dates,setDates]=useState<PublicationDate[]>([]),[datesMore,setDatesMore]=useState(false),[datesAfter,setDatesAfter]=useState<string|null>(null),[datesError,setDatesError]=useState(false),[jobs,setJobs]=useState<{id:string;kind:string;state:string;version:number}[]>([]),[jobsMore,setJobsMore]=useState(false),[jobsError,setJobsError]=useState(false);
+ const[job,setJob]=useState<PublicationJob|null>(null),[stage,setStage]=useState<'overview'|'scope'|'review'|'unknown'>('overview'),[kind,setKind]=useState<'publish'|'withdraw'>('publish'),[from,setFrom]=useState(''),[to,setTo]=useState(''),[weekdays,setWeekdays]=useState<number[]>([]),[cursor,setCursor]=useState<string|null>(null),[ack,setAck]=useState(false),[notice,setNotice]=useState(''),[readFailed,setReadFailed]=useState(false),[denied,setDenied]=useState(false),[pending,setPending]=useState<OriginalPreparation|null>(null);
+ const [preparing,setPreparing]=useState(false),[pausing,setPausing]=useState(false),pause=useRef(false),latestJob=useRef<PublicationJob|null>(null);
+ const target=useRef<string|undefined>(undefined),key=`publication:${subject}:${academy}:${program}`,unknown=!!pending||stage==='unknown',dirty=stage==='scope';
+ const refresh=useRef(()=>{});
+ const todayReturn=initialJob&&reviewSource===initialJob?ownerTodayTaskReturn(locale,academy,'publication',initialJob):null;
+ const overviewHref=`/${locale}/workspace/${academy}/programs/${program}/publish`;
+ function forget(original:OriginalPreparation){
+  try{if(storedOriginal(key)?.op===original.op)sessionStorage.removeItem(key);}catch{/* A confirmed original can still be checked on reopen. */}
+  setPending(null);
+ }
+ function fail(e:unknown){
+  const code=e instanceof Failure?e.code:'unavailable';api.setError(code);setAck(false);
+  if(!accessFailure(code))return;
+  setDenied(true);setReadFailed(false);setNotice('');setCtx(null);setRecord(null);
+  setDates([]);setJobs([]);latestJob.current=null;setJob(null);
+  if(code!=='sign_in'){setStage('overview');setFrom('');setTo('');setWeekdays([]);}
+ }
+ const run=(fn:()=>Promise<void>)=>void api.run(fn,fail);
+ async function loadDates(after:string|null=null){try{const r=await api.call<{items:PublicationDate[];more:boolean}>({action:'dates',program,after_day:after});setDates(r.items);setDatesMore(r.more);setDatesAfter(after);setDatesError(false);}catch(e){setDatesError(true);if(e instanceof Failure&&accessFailure(e.code))throw e;}}
+ async function loadJobs(after?:string){try{const r=await api.call<{items:typeof jobs;more:boolean}>({action:'jobs',program,after});setJobs(after?old=>[...old,...r.items]:r.items);setJobsMore(r.more);setJobsError(false);}catch(e){setJobsError(true);if(e instanceof Failure&&accessFailure(e.code))throw e;}}
+ async function context(){
+  const r=await api.call<{context:ProgramContext;program:ProgramRecord}>({action:'context',program});
+  setCtx(r.context);setRecord(r.program);setDenied(false);return r.program;
+ }
+ async function loadOverview(){await context();await loadDates();await loadJobs();}
+ async function read(id=target.current??initialJob,after:string|null=cursor){
+  if(!id)return;
+  target.current=id;
+  try{
+   const result=await api.call<PublicationJob>({action:'read',job:id,after_day:after});
+   if(result.program!==program.toLowerCase()||result.job!==id)throw new Failure('denied');
+   latestJob.current=result;setJob(result);setCursor(after);setStage('review');setAck(false);setDenied(false);setReadFailed(false);
+  }catch(e){setReadFailed(true);throw e;}
+ }
+ async function readResult(id:string){
+  setStage('review');
+  await read(id,null);
+  if(!exactTask){if(!ctx)await context();await loadDates();await loadJobs();}
+ }
+ async function command(body:Record<string,unknown>,id?:string){
+  setNotice('');
+  const original={op:crypto.randomUUID(),job:id};
+  try{
+   const existing=storedOriginal(key);
+   if(existing){setPending(existing);setStage('unknown');return;}
+   sessionStorage.setItem(key,JSON.stringify(original));
+   if(storedOriginal(key)?.op!==original.op)throw new Failure('storage');
+  }catch{throw new Failure('storage');}
+  setPending(original);
+  let result:{job:string};
+  try{
+   result=await api.call<{job:string}>({...body,op:original.op});
+   if(!result?.job||!uuidPattern.test(result.job))throw new Failure('unavailable');
+  }catch(e){
+   const code=e instanceof Failure?e.code:'unavailable';
+   if(['invalid','setup_required','limited','stale','conflict','not_ready','trainer_unavailable','started','full','overlap','empty'].includes(code))forget(original);
+   else setStage('unknown');
+   fail(e);return;
+  }
+  forget(original);
+  setNotice(body.act==='activate'?'committed':'updated');
+  await readResult(result.job);
+ }
+ async function reconcile(){
+  if(!pending)return;
+  const result=await api.call<{cancelled?:boolean;job?:string}>({action:'reconcile',op:pending.op});
+  if(!result?.cancelled&&(!result?.job||!uuidPattern.test(result.job)))throw new Failure('unavailable');
+  forget(pending);setNotice(result.cancelled?'cancelled':'confirmed');setDenied(false);
+  if(result.cancelled&&!pending.job&&record&&from&&to&&weekdays.length){setStage('scope');return;}
+  const id=result.cancelled?(pending.job??initialJob):result.job;
+  if(id)await readResult(id);
+  else{setStage('overview');await loadOverview();}
+ }
+ async function prepareAll(initial:PublicationJob){
+  pause.current=false;setPausing(false);setPreparing(true);
+  let current=initial;
+  try{
+   while(api.live.current&&current.state==='preparing'&&current.prepared<current.total&&!pause.current){
+    await command({action:'change',job:current.job,version:current.version,act:'prepare'},current.job);
+    const next=latestJob.current;
+    // Only a new authoritative read can advance this private sequence.
+    // Failed/unknown operations retain the old version and stop here.
+    if(!next||next.job!==current.job||next.version<=current.version)break;
+    if(next.prepared<=current.prepared){api.setError('unavailable');break;}
+    current=next;
+   }
+  }finally{if(api.live.current){setPreparing(false);setPausing(false);}}
+ }
+ async function reviewScope(){
+  const before=latestJob.current?.job;
+  await command({action:'create',program,kind,from,to,weekdays});
+  const fresh=latestJob.current;
+  if(fresh&&fresh.job!==before)await prepareAll(fresh);
+ }
+ useEffect(()=>{let mounted=true;queueMicrotask(()=>{if(!mounted)return;run(async()=>{
+  try{const original=storedOriginal(key);if(original){setPending(original);setStage('unknown');return;}}
+  catch{/* Keep any unreadable reference intact. Command submission checks storage again. */}
+  if(initialJob)await read(initialJob,null);
+  else await loadOverview();
+ });});return()=>{mounted=false;};
+ // Actor/academy/program and exact-job remount own this initial read.
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[]);
+ useEffect(()=>{refresh.current=()=>{
+  if(api.lock.current||unknown)return;
+  run(async()=>{
+   if(dirty){await context();return;}
+   if(exactTask){await read();return;}
+   setAck(false);if(job)await read();await loadDates(datesAfter);await loadJobs();
+  });
+ };});
+ useEffect(()=>listenForVisibleResume(()=>refresh.current()),[]);
+ useEffect(()=>{
+  if(!dirty&&!unknown)return;
+  const onLeave=(e:BeforeUnloadEvent)=>e.preventDefault();
+  window.addEventListener('beforeunload',onLeave);return()=>window.removeEventListener('beforeunload',onLeave);
+ },[dirty,unknown]);
+ function mayLeave(){return !api.lock.current&&!unknown&&(!dirty||window.confirm(t('Leave these unsaved scope choices?','مغادرة اختيارات النطاق غير المحفوظة؟')));}
+ async function checkAccess(){
+  if(dirty)await context();
+  else if(exactTask||target.current)await read();
+  else await loadOverview();
+ }
+ function navigate(e:MouseEvent<HTMLAnchorElement>){
+  if(e.currentTarget.getAttribute('href')==='#language'){e.preventDefault();setLocale(ar?'en':'ar');}
+  else if(!mayLeave())e.preventDefault();
+ }
+ function start(k:'publish'|'withdraw',day?:string){
+  if(unknown||api.lock.current)return;
+  run(async()=>{
+   const current=record??await context();
+   setKind(k);setFrom(day??current.definition.from);setTo(day??current.definition.to);
+   setWeekdays(current.definition.rules.map(x=>x.day));latestJob.current=null;setJob(null);target.current=undefined;
+   setReadFailed(false);setNotice('');setStage('scope');setAck(false);
+  });
+ }
+ const dateLink=(day:string,scheduled=day)=>`/${locale}/workspace/${academy}/programs/${program}/${day}?from=${scheduled}`;
+ const count=(n:number)=>exactTask?formatCount(locale,n):n;
+ const reviewedDates=job&&<details className="review-date-inspection" open={job.blocked>0}><summary>{t('Inspect reviewed dates','فحص التواريخ المراجعة')} · {count(job.items.length)} {t('on this page','في هذه الصفحة')}{job.more&&t(' · more available',' · توجد صفحات أخرى')}</summary><table className="workspace-table"><thead><tr><th>{t('Date / time','التاريخ / الوقت')}</th><th>{t('Current plan / reviewed change','الخطة الحالية / التغيير المراجع')}</th></tr></thead><tbody>{job.items.map(d=><tr key={d.day}><th><bdi>{d.scheduled_day??d.day}</bdi>{d.scheduled_day&&d.scheduled_day!==d.day&&<p>{t('Original occurrence:','التدريب الأصلي:')} <bdi>{d.day}</bdi></p>}<p><bdi>{d.start}–{d.finish}</bdi></p></th><td>{d.problem?<details className="date-exception"><summary>{d.problem==='trainer_unavailable'?t('Trainer assignment needs attention','تعيين المدرب يحتاج مراجعة'):d.problem==='overlap'?t('Schedule conflict','تعارض في المواعيد'):t('Date needs attention','التاريخ يحتاج مراجعة')}</summary><p>{errorText(d.problem,ar)}</p></details>:!d.changing?t('Unchanged','دون تغيير'):d.prepared?t('Ready','جاهز'):t('Not yet validated','لم يُتحقق بعد')}<p>{d.trainer??t('Unassigned','غير معيّن')} · {d.roster_count??0}/{d.capacity??'—'}</p><Link href={dateLink(d.day,d.scheduled_day)} prefetch={false} onClick={navigate}>{t('Inspect this date','فحص هذا التاريخ')}</Link></td></tr>)}</tbody></table><div className="journey-actions"><Button disabled={api.busy||!cursor} onClick={()=>run(()=>read(job.job,null))}>{t('First date page','أول صفحة تواريخ')}</Button>{job.more&&<Button disabled={api.busy} onClick={()=>run(()=>read(job.job,job.items.at(-1)?.day))}>{t('More dates','تواريخ أخرى')}</Button>}</div></details>;
+ const reviewActions=job&&<div className="publication-final-actions">{!['committed','cancelled'].includes(job.state)&&<>{job.prepared<job.total?<><progress max={job.total} value={job.prepared} aria-label={t('Dates checked','التواريخ المفحوصة')}/>{preparing?<><p role="status">{pausing?t('Pausing after the current check…','جارٍ الإيقاف بعد الفحص الحالي…'):t('Checking dates. Nothing is published or withdrawn yet.','جارٍ فحص التواريخ. لم يُنشر أو يُسحب أي تاريخ بعد.')}</p><Button disabled={pausing} onClick={()=>{pause.current=true;setPausing(true);}}>{t('Pause checking','إيقاف الفحص مؤقتاً')}</Button></>:<Button disabled={api.busy||readFailed} className={exactTask?'primary':'button'} onClick={()=>run(()=>prepareAll(job))}>{t('Resume checking dates','استئناف فحص التواريخ')}</Button>}</>:<><label className="checkbox-row"><input type="checkbox" disabled={api.busy||readFailed||!!job.blocked||job.state!=='ready'} checked={ack} onChange={e=>setAck(e.target.checked)}/>{t('I reviewed the changes, exceptions and exact audience.','راجعت التغييرات والاستثناءات والجمهور المسموح له.')}</label><Button className={exactTask?'primary':'button'} disabled={api.busy||readFailed||!ack||!!job.blocked||job.state!=='ready'} onClick={()=>run(()=>command({action:'change',job:job.job,version:job.version,act:'activate'},job.job))}>{job.kind==='publish'?t(`Publish ${count(job.changes)} dates together`,`نشر ${count(job.changes)} تاريخاً معاً`):t(`Withdraw ${count(job.changes)} dates together`,`سحب ${count(job.changes)} تاريخاً معاً`)}</Button></>}<Button disabled={api.busy||readFailed} onClick={()=>run(async()=>{if(window.confirm(t('Cancel preparation? No visibility will change.','إلغاء التجهيز؟ لن يتغير الظهور.')))await command({action:'change',job:job.job,version:job.version,act:'cancel'},job.job);})}>{t('Cancel preparation','إلغاء التجهيز')}</Button></>}<Button disabled={api.busy||readFailed} onClick={()=>start(job.kind)}>{t('Start fresh review','بدء مراجعة جديدة')}</Button></div>;
+ const inspector=(stage==='unknown'||(!!pending&&!api.busy))?<><h3>{t('Outcome unknown','النتيجة غير معروفة')}</h3><p>{t('Check the original operation before replacing it.','تحقق من العملية الأصلية قبل استبدالها.')}</p><Button className="button" disabled={api.busy} onClick={()=>run(reconcile)}>{t('Check original operation','التحقق من العملية الأصلية')}</Button></>:denied?null:stage==='scope'?<><h3>{kind==='publish'?t('Choose publication scope','اختر نطاق النشر'):t('Choose withdrawal scope','اختر نطاق السحب')}</h3><p>{t('Scope selects original occurrences, including any dates moved outside the original period. Canceled dates are excluded. Review each current date below.','يحدد النطاق التدريبات الأصلية، بما فيها ما نُقل خارج الفترة الأصلية. تُستبعد التواريخ الملغاة. راجع كل تاريخ حالي أدناه.')}</p><div className="publication-scope"><label>{t('First date','أول تاريخ')}<Input type="date" disabled={api.busy} value={from} onChange={e=>setFrom(e.target.value)}/></label><label>{t('Last date','آخر تاريخ')}<Input type="date" disabled={api.busy} value={to} onChange={e=>setTo(e.target.value)}/></label></div><fieldset disabled={api.busy}><legend>{t('Weekdays','أيام الأسبوع')}</legend>{record?.definition.rules.map(r=><label key={r.day} className="checkbox-row"><input type="checkbox" checked={weekdays.includes(r.day)} onChange={e=>setWeekdays(e.target.checked?[...weekdays,r.day]:weekdays.filter(x=>x!==r.day))}/>{(ar?['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'])[r.day]}</label>)}</fieldset><p>{kind==='publish'?t('Only the assigned active Trainer can see these dates, capacity and fictional player names. No family access or notifications.','المدرب النشط المعيّن فقط سيرى هذه التواريخ والسعة وأسماء اللاعبين الوهميين. لا ظهور للأسرة أو إشعارات.'):t('Withdrawal removes Trainer access on the next request. Private plans and history are preserved.','السحب يزيل صلاحية المدرب عند الطلب التالي. تبقى الخطط الخاصة والسجل.')}</p><Button className="button" disabled={api.busy||!from||!to||from>to||!weekdays.length} onClick={()=>run(reviewScope)}>{t('Check visibility changes','فحص تغييرات الظهور')}</Button></>:readFailed&&!api.busy?<><p role={notice?'status':'alert'}>{notice?t('The current result could not be loaded. Check it before continuing.','تعذر تحميل النتيجة الحالية. تحقق منها قبل المتابعة.'):t('Could not load the saved preparation.','تعذر تحميل التجهيز المحفوظ.')}</p><Button onClick={()=>run(()=>read())}>{t('Load saved preparation','تحميل التجهيز المحفوظ')}</Button></>:job?<><h3>{t('Review exact visibility changes','مراجعة تغييرات الظهور المحددة')}</h3><p>{job.kind==='publish'?t('Publish','نشر'):t('Withdraw','سحب')} · <bdi>{job.from} — {job.to}</bdi></p><p>{job.kind==='publish'?t('Audience: only the current assigned Trainer for each published date. Families receive no new access.','الجمهور: المدرب المعيّن والنشط لكل تاريخ منشور فقط. لا تُمنح الأسر صلاحية جديدة.'):t('These dates leave the assigned Trainer’s schedule. Private plans and history stay saved.','تُزال هذه التواريخ من جدول المدرب المعيّن. تبقى الخطط الخاصة والسجل محفوظين.')}</p><dl className="publication-summary" aria-label={t('Visibility change summary','ملخص تغييرات الظهور')}><div><dt>{job.state==='committed'?t('Recorded changes','تغييرات مسجلة'):job.state==='cancelled'?t('Cancelled changes','تغييرات ملغاة'):job.kind==='publish'?t('Proposed publication','نشر مقترح'):t('Proposed withdrawal','سحب مقترح')}</dt><dd>{count(job.changes)}</dd></div><div><dt>{t('Unchanged','دون تغيير')}</dt><dd>{count(job.total-job.changes)}</dd></div><div><dt>{t('Blocked','متعارض')}</dt><dd>{count(job.blocked)}</dd></div></dl>{exactTask
+  ?<p role="status">{t(`${count(job.prepared)} of ${count(job.total)} dates checked`,`فُحص ${count(job.prepared)} من ${count(job.total)} تاريخاً`)}</p>
+  :<p role="status">{job.changes} {t('changes together','تغييراً معاً')} · {job.total-job.changes} {t('unchanged','دون تغيير')} · {job.prepared}/{job.total} {t('prepared','مجهز')} · {job.blocked} {t('blocked','متعارض')}</p>}<p>{job.state==='committed'?t('All included changes committed together. This is the operation record; current date summaries may differ.','حُفظت كل التغييرات المشمولة معاً. هذا سجل العملية؛ قد تختلف ملخصات التواريخ الحالية.'):job.state==='cancelled'?t('Preparation cancelled. No visibility changed.','أُلغي التجهيز. لم يتغير الظهور.'):t('Private preparation. No visibility changes until final save.','تجهيز خاص. لا تغييرات ظهور حتى الحفظ النهائي.')}</p>{exactTask&&job.state==='preparing'?<>{reviewActions}{reviewedDates}</>:<>{reviewedDates}{reviewActions}</>}</>:<p>{t('Select publication or withdrawal, or reopen a saved preparation.','اختر النشر أو السحب، أو افتح تجهيزاً محفوظاً.')}</p>;
+ return <div className="publication-layout"><WorkspaceShell role="owner" module="training" locale={locale} context={ctx?.academy_name??t('Academy workspace','مساحة الأكاديمية')} title={t('Training publication','نشر التدريب')} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={navigate} account={<UserButton/>} navigation={ownerNavigation(locale,academy,'training')} prefetch={false}>
+ <WorkspacePanes task={exactTask||stage!=='overview'||readFailed} title={exactTask?t('Saved preparation','التجهيز المحفوظ'):t('Publication review','مراجعة النشر')} arabic={ar}
+  selected={stage!=='overview'||readFailed} selectionKey={`${stage}:${job?.job}`} blocked={api.busy||unknown}
+  onBack={exactTask?undefined:()=>{if(mayLeave()){setStage('overview');setAck(false);}}} inspector={<>{api.busy&&<p role="status">{t('Loading current state…','تحميل الحالة الحالية…')}</p>}{notice&&<p role="status">{notice==='committed'?t('All reviewed visibility changes committed together.','حُفظت كل تغييرات الظهور المراجعة معاً.'):notice==='cancelled'?t('Original operation cancelled; no delayed commit can follow.','أُلغيت العملية الأصلية؛ لن يلحقها حفظ متأخر.'):notice==='confirmed'?t('Original operation confirmed.','تأكدت العملية الأصلية.'):t('Preparation change confirmed.','تأكد تغيير التجهيز.')}</p>}{api.error&&!denied&&!(readFailed&&api.error==='unavailable')&&<p role="alert">{errorText(api.error,ar)}</p>}{inspector}</>}>
+ <header className="task-header">
+  <h1>{exactTask?(job?.kind==='withdraw'?t('Review withdrawal','مراجعة سحب النشر'):t('Review publication','مراجعة النشر')):t('Publish training dates','نشر مواعيد التدريب')}</h1>
+  {exactTask&&<div className="journey-actions">
+   {todayReturn&&<Link className="ui-button" href={todayReturn.href} prefetch={false} aria-disabled={api.busy||unknown} onClick={navigate}>{todayReturn.label}</Link>}
+   <Link className="ui-button" href={overviewHref} prefetch={false} aria-disabled={api.busy||unknown} onClick={navigate}>{t('Browse preparations','استعراض التجهيزات')}</Link>
+  </div>}
+ </header>
+ {denied&&<div role="alert"><p>{errorText(api.error||'denied',ar)}</p>{!unknown&&<Button disabled={api.busy} onClick={()=>run(checkAccess)}>{t('Check current access','التحقق من الصلاحية الحالية')}</Button>}</div>}
+ {!exactTask&&!ctx&&!denied&&!unknown&&<Button disabled={api.busy} onClick={()=>run(loadOverview)}>{t('Load program','تحميل البرنامج')}</Button>}
+ {!exactTask&&ctx&&record&&stage==='overview'&&<><h2>{record.definition.name}</h2><p><bdi>{record.definition.from} — {record.definition.to}</bdi> · {record.total} {t('dates','تاريخاً')}</p><p>{ctx.branch_name} · {ar?ctx.sport_name_ar:ctx.sport_name} · <bdi>{record.timezone}</bdi></p><p>{t('Draft plans remain private until explicitly published. Publishing does not record attendance, charge fees or send notifications.','تبقى الخطط خاصة حتى نشرها صراحة. النشر لا يسجل حضوراً أو يفرض رسوماً أو يرسل إشعارات.')}</p><div className="journey-actions"><Button className="button" disabled={api.busy||unknown} onClick={()=>start('publish')}>{t('Publish planned dates','نشر التواريخ المخططة')}</Button><Button disabled={api.busy||unknown} onClick={()=>start('withdraw')}>{t('Withdraw published dates','سحب التواريخ المنشورة')}</Button></div>{datesError?<><p role="alert">{t('Dates unavailable. No empty result is assumed.','التواريخ غير متاحة. لا نفترض عدم وجود تواريخ.')}</p><Button disabled={api.busy||unknown} onClick={()=>run(()=>loadDates(datesAfter))}>{t('Retry dates','إعادة تحميل التواريخ')}</Button></>:<table className="workspace-table"><thead><tr><th>{t('Date / time','التاريخ / الوقت')}</th><th>{t('Visibility / coverage','الظهور / التغطية')}</th></tr></thead><tbody>{dates.map(d=><tr key={d.day}><th><bdi>{d.scheduled_day??d.day}</bdi>{d.scheduled_day&&d.scheduled_day!==d.day&&<p>{t('Original occurrence:','التدريب الأصلي:')} <bdi>{d.day}</bdi></p>}<p><bdi>{d.start}–{d.finish}</bdi></p></th><td>{d.canceled?t('Canceled · history retained','ملغى · السجل محفوظ'):d.published?t('Published · edit locked','منشور · التعديل مقفل'):t('Private','خاص')}<p>{d.trainer??t('Unassigned','غير معيّن')} · {!d.eligible?t('Coverage unavailable','التغطية غير متاحة'):t('Eligible Trainer','مدرب مؤهل')} · {d.roster_count??0}/{d.capacity??'—'}</p><div className="journey-actions"><Button disabled={api.busy||unknown||d.canceled} onClick={()=>start(d.published?'withdraw':'publish',d.day)}>{d.published?t('Withdraw this date','سحب هذا التاريخ'):t('Publish this date','نشر هذا التاريخ')}</Button><a href={dateLink(d.day,d.scheduled_day)} onClick={navigate}>{t('Inspect this date','فحص هذا التاريخ')}</a></div></td></tr>)}</tbody></table>}<div className="journey-actions">{datesAfter&&<Button disabled={api.busy||unknown} onClick={()=>run(()=>loadDates())}>{t('First dates','أول التواريخ')}</Button>}{datesMore&&<Button disabled={api.busy||unknown} onClick={()=>run(()=>loadDates(dates.at(-1)?.day))}>{t('More planned dates','تواريخ مخططة أخرى')}</Button>}</div><h3>{t('Saved preparations','التجهيزات المحفوظة')}</h3>{jobsError?<><p role="alert">{t('Preparations unavailable; date actions remain available.','التجهيزات غير متاحة؛ إجراءات التواريخ متاحة.')}</p><Button disabled={api.busy||unknown} onClick={()=>run(()=>loadJobs())}>{t('Load preparations','تحميل التجهيزات')}</Button></>:jobs.length?<ul>{jobs.map(j=><li key={j.id}><Button disabled={api.busy||unknown} onClick={()=>run(()=>read(j.id,null))}>{j.kind==='publish'?t('Publication','نشر'):t('Withdrawal','سحب')} · {j.state==='committed'?t('Saved together','محفوظ معاً'):j.state==='cancelled'?t('Cancelled','ملغى'):t('Resume preparation','استئناف التجهيز')} · {j.id.slice(0,8)}</Button></li>)}</ul>:<p>{t('No saved preparations yet.','لا تجهيزات محفوظة بعد.')}</p>}{jobsMore&&<Button disabled={api.busy||unknown} onClick={()=>run(()=>loadJobs(jobs.at(-1)?.id))}>{t('More preparations','تجهيزات أخرى')}</Button>}<p><a onClick={navigate} href={`/${locale}/workspace/${academy}/programs`}>{t('Back to programs','العودة للبرامج')}</a></p></>}</WorkspacePanes></WorkspaceShell></div>;
+}
+
+function TrainerSchedule({locale:initialLocale,academy}:Props){
+ const api=useTransport(academy),[locale,setLocale]=useState(initialLocale),ar=locale==='ar',t=(en:string,a:string)=>ar?a:en;
+ type Schedule={context:{name:string;branch:string;timezone:string};today:string;from:string;to:string;items:PublishedHeader[];more:boolean};
+ const[data,setData]=useState<Schedule|null>(null),[detail,setDetail]=useState<PublishedRoster|null>(null),[selected,setSelected]=useState<string|null>(null),[from,setFrom]=useState(''),[tab,setTab]=useState('today'),[listError,setListError]=useState(false),[detailError,setDetailError]=useState(false),[denied,setDenied]=useState(false);
+ const target=useRef<string|null>(null);
+ function fail(e:unknown){const code=e instanceof Failure?e.code:'unavailable';api.setError(code);if(accessFailure(code)){setData(null);setDetail(null);setSelected(null);target.current=null;setFrom('');setDenied(true);}}
+ const run=(fn:()=>Promise<void>)=>void api.run(fn,fail);
+ async function list(start?:string,after?:PublishedHeader){setListError(true);const r=await api.call<Schedule>({action:'schedule',from:start,after_at:after?.starts_at,after_program:after?.program});setData(r);setFrom(r.from);setListError(false);setDenied(false);}
+ async function roster(id:string,after?:string){target.current=id;setSelected(id);setDetail(null);setDetailError(true);const r=await api.call<PublishedRoster>({action:'roster',event:id,after});if(target.current!==id)return;setDetail(r);setDetailError(false);}
+ useEffect(()=>{let mounted=true;queueMicrotask(()=>{if(mounted)run(()=>list());});return()=>{mounted=false;};
+ // Session/academy remount discards all private state.
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ },[]);
+ useEffect(()=>{const focus=()=>{if(api.lock.current)return;run(async()=>{setDetail(null);if(selected)await roster(selected);await list(from||undefined);});};window.addEventListener('focus',focus);return()=>window.removeEventListener('focus',focus);});
+ function navigate(e:MouseEvent<HTMLAnchorElement>){if(api.busy){e.preventDefault();return;}if(e.currentTarget.getAttribute('href')==='#language'){e.preventDefault();setLocale(ar?'en':'ar');}}
+ const headers=data?.items.filter(r=>tab!=='today'||r.day===data.today)??[];
+ const format=(instant:string,zone:string)=>new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{timeZone:zone,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(instant));
+ const inspector=denied?<p role="alert">{errorText(api.error||'denied',ar)}</p>:selected?api.busy?<p role="status">{t('Loading current roster…','تحميل القائمة الحالية…')}</p>:detailError?<><p role="alert">{t('Session or roster unavailable. No private result is assumed.','التدريب أو القائمة غير متاح. لا نفترض نتيجة خاصة.')}</p><Button disabled={api.busy} onClick={()=>run(()=>roster(selected))}>{t('Retry roster','إعادة تحميل القائمة')}</Button></>:detail?<><h3>{detail.projection.name}</h3><p><bdi>{detail.day} · {format(detail.starts_at,detail.projection.timezone)}–{format(detail.ends_at,detail.projection.timezone)}</bdi></p><p>{detail.projection.branch} · {ar?detail.projection.sport_ar:detail.projection.sport} · <bdi>{detail.projection.timezone}</bdi></p><h3>{t('Dated roster','قائمة هذا التاريخ')}</h3><p>{detail.count}/{detail.capacity} {t('places','أماكن')}</p>{detail.players.length?<ul>{detail.players.map(p=><li key={p.id}>{p.name}</li>)}</ul>:<p>{t('No players on this saved roster.','لا لاعبون في هذه القائمة المحفوظة.')}</p>}<p>{t('Display names only. No contact details or player profiles.','أسماء العرض فقط. لا بيانات اتصال أو ملفات لاعبين.')}</p><div className="journey-actions"><Button disabled={api.busy} onClick={()=>run(()=>roster(selected))}>{t('First roster page','أول صفحة لاعبين')}</Button>{detail.more&&<Button disabled={api.busy} onClick={()=>run(()=>roster(selected,detail.players.at(-1)?.id))}>{t('More roster members','لاعبون آخرون')}</Button>}</div><p><a onClick={navigate} href={`/${locale}/workspace/${academy}/attendance/${detail.id}`}>{t('Open attendance','فتح الحضور')}</a></p></>:null:<p>{t('Select an assigned published date.','اختر تاريخاً منشوراً ومخصصاً لك.')}</p>;
+ return <WorkspaceShell role="trainer" module="training" locale={locale} context={data?.context.name??t('Trainer workspace','مساحة المدرب')} title={t('Trainer schedule','جدول المدرب')} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={navigate} account={<UserButton/>} navigation={[{href:`/${locale}/workspace/${academy}/trainer/home`,label:t('Home','الرئيسية')},{href:`/${locale}/workspace/${academy}/trainer/calendar`,label:t('Calendar','التقويم')},{href:`/${locale}/workspace`,label:t('Your workspaces','مساحاتك')},{href:`/${locale}/workspace/${academy}/trainer`,label:t('Staff profile','الملف الوظيفي')},{href:`/${locale}/workspace/${academy}/trainer/schedule`,label:t('Training','التدريب'),current:true}]}><WorkspacePanes title={t('Session details','تفاصيل التدريب')} arabic={ar} selected={!!selected} selectionKey={selected??''} blocked={api.busy} onBack={()=>{if(!api.busy){target.current=null;setSelected(null);setDetail(null);setDetailError(false);}}} inspector={<>{api.busy&&<p role="status">{t('Loading authorized data…','تحميل البيانات المسموح بها…')}</p>}{api.error&&<p role="alert">{errorText(api.error,ar)}</p>}{inspector}</>}><h1>{t('Your training schedule','جدول تدريبك')}</h1>{denied?<><p role="alert">{errorText(api.error||'denied',ar)}</p><Button disabled={api.busy} onClick={()=>run(()=>list())}>{t('Check current schedule','التحقق من الجدول الحالي')}</Button></>:<>{data&&<p>{data.context.name} · {data.context.branch} · <bdi>{data.context.timezone}</bdi></p>}<div className="journey-actions"><Button disabled={api.busy} aria-pressed={tab==='today'} onClick={()=>{setTab('today');target.current=null;setSelected(null);setDetail(null);run(()=>list());}}>{t('Today','اليوم')}</Button><Button disabled={api.busy} aria-pressed={tab==='upcoming'} onClick={()=>{setTab('upcoming');target.current=null;setSelected(null);setDetail(null);run(()=>list());}}>{t('Upcoming dates','التواريخ القادمة')}</Button></div>{tab==='upcoming'&&<form onSubmit={e=>{e.preventDefault();target.current=null;setSelected(null);setDetail(null);run(()=>list(from));}}><label>{t('First date of seven-day view','أول تاريخ لعرض سبعة أيام')}<Input type="date" value={from} required disabled={api.busy} onChange={e=>setFrom(e.target.value)}/></label><Button disabled={api.busy}>{t('Show dates','عرض التواريخ')}</Button></form>}{api.busy&&!data&&<p role="status">{t('Loading authorized dates…','تحميل التواريخ المسموح بها…')}</p>}{listError&&!api.busy?<><p role="alert">{t('Schedule unavailable. No empty result is assumed.','الجدول غير متاح. لا نفترض عدم وجود تدريبات.')}</p><Button onClick={()=>run(()=>list(from||undefined))}>{t('Retry schedule','إعادة تحميل الجدول')}</Button></>:data&&<>{headers.length?<table className="workspace-table"><caption><bdi>{tab==='today'?data.today:`${data.from} — ${data.to}`}</bdi></caption><thead><tr><th>{t('Date / program','التاريخ / البرنامج')}</th><th>{t('Time / places','الوقت / الأماكن')}</th></tr></thead><tbody>{headers.map(r=><tr key={r.id}><th><Button disabled={api.busy} onClick={()=>run(()=>roster(r.id))}>{r.projection.name} · <bdi>{r.day}</bdi></Button><p>{r.projection.branch} · {ar?r.projection.sport_ar:r.projection.sport}</p></th><td><bdi>{format(r.starts_at,r.projection.timezone)}–{format(r.ends_at,r.projection.timezone)}</bdi><p>{r.roster_count}/{r.capacity}</p></td></tr>)}</tbody></table>:<p role="status">{t('No published assigned dates in this view.','لا توجد تواريخ منشورة ومخصصة لك في هذا العرض.')}</p>}{data.more&&<Button disabled={api.busy} onClick={()=>run(()=>list(data.from,data.items.at(-1)))}>{t('More dates','تواريخ أخرى')}</Button>}</>}<p>{t('Only your current published dated assignments. Open a session for attendance.','تعيينات تواريخك المنشورة الحالية فقط. افتح التدريب للحضور.')}</p></>}</WorkspacePanes></WorkspaceShell>;
+}

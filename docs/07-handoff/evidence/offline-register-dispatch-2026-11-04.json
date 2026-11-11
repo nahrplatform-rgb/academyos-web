@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "hashes": {
+    "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+    "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
+    "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+    "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+    "scripts/offline-register/test_dispatch.mjs": "51afb7900739467dc82e668f8aa2a43e122da254da0e7afff32a3b496ad95476",
+    "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
+    "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
+    "scripts/register-key/bound_fixture.py": "e03f9ac34555b8b267ae58f4271beb87ad37ed66cba4bffb36639ea8eb62fba2",
+    "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
+    "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
+    "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5",
+    "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
+    "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e"
+  },
+  "checks": [
+    "Closed default, foreign origin, invalid/oversized packets and anonymous RPC permission all fail before an operating call",
+    "Offline capture and lost reply survive browser process restart; exact replay records one 18-player batch and invalidates the old roster without reloading it",
+    "A failed pre-send disk commit stops transport and a failed receipt commit preserves the exact recoverable Unknown original",
+    "A wrong-count or oversized reply cannot settle; a later correlated receipt confirms the same operation",
+    "Another current Owner and a missing session cannot dispatch this account’s original; the original account can recover",
+    "A signed request from the eligible assigned Trainer is refused by the new current Owner gate",
+    "Server role retains the original for denied review and creates no batch side effects or repeat request",
+    "Server withdraw retains the original for denied review and creates no batch side effects or repeat request",
+    "Server expire retains the original for deadline review and creates no batch side effects or repeat request",
+    "Server cancel retains the original for conflict review and creates no batch side effects or repeat request",
+    "Server mark retains the original for conflict review and creates no batch side effects or repeat request",
+    "Database wrapper refuses a foreign academy, unsigned caller and signed Owner with a mismatched original account",
+    "Both write budgets fail closed on timeout and preserve the same original for deliberate retry",
+    "Overlapping calls coalesce, and departing scope refuses a late acknowledgement after a real commit",
+    "Logout and same-account reactivation fence the previous receipt; recovery works after read replicas were removed",
+    "Two tabs replaying the same Unknown original accept one durable receipt with one database effect",
+    "The complete 1000-mark register settles through one POST with a bounded count receipt"
+  ],
+  "metrics": {
+    "replayMs": 35.19312499999978,
+    "lostReply": {
+      "httpAttempts": 2,
+      "signedRpcs": 2,
+      "requestBytes": 1664,
+      "receiptBytes": 130
+    },
+    "fullRegister": {
+      "httpAttempts": 1,
+      "requestBytes": 80715,
+      "receiptBytes": 132,
+      "elapsedMs": 106.3903749999954
+    }
+  },
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "browser": "156.0.8078.4",
+    "scope": "Loopback actual Next handler, Supabase SDK and signed gateway, disposable PG17, persistent Chromium. Fictional Clerk, limiter, key custody and PostgREST bridge. No hosted or physical-device verification."
+  }
+}

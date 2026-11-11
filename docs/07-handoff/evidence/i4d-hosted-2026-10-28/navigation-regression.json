@@ -1,0 +1,18 @@
+{
+  "scope": "QR denied-settings navigation regression; actual product React with synthetic identity/HTTP; no new database/camera claim",
+  "previous_source_result": "Regression failed: denied settings prevented beforeunload (true !== false)",
+  "fixed_result": "15 cases passed in production and development; real unsaved edits remain protected",
+  "runtime": "Node24.14.0 for successful verification",
+  "lint": "passed",
+  "build": "passed",
+  "typecheck": "passed; see completed command log",
+  "database_change": false,
+  "commit": "22274f073f86d8c0bf448ecc1dac4cb8c26e1fec",
+  "ci": {
+    "push": 40755718931,
+    "pull_request": 40755725636,
+    "conclusion": "both success"
+  },
+  "promotion_created": "dpl_GqVX3PRz1z1yrivznxjBoTB6Gpij",
+  "promotion_status": "Ready; staging.academy.nahr.dev resolves to this deployment"
+}

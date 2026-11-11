@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+import re
 import sys
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener
@@ -11,11 +12,20 @@ import uuid
 
 from backup import NoRedirect, PROJECT, BackupError
 
-ENDPOINT = ('https://o4512294688260096.ingest.de.sentry.io/api/4512294699728976/'
-            'cron/academyos-staging-backup/e417cb373ff53c8f98931c86bde5f67a/')
+ENDPOINT_PATTERN = re.compile(
+    r'https://o4512294688260096\.ingest\.de\.sentry\.io/api/4512294699728976/'
+    r'cron/academyos-staging-backup/[0-9a-fA-F]{32}/'
+)
 CONFIG = {'schedule': {'type': 'crontab', 'value': '17 2 * * *'},
           'timezone': 'UTC', 'checkin_margin': 90, 'max_runtime': 30,
           'failure_issue_threshold': 1, 'recovery_threshold': 1}
+
+
+def monitor_url():
+    endpoint = os.environ.get('BACKUP_MONITOR_URL', '')
+    if not ENDPOINT_PATTERN.fullmatch(endpoint):
+        raise BackupError('Backup monitor configuration is missing or invalid')
+    return endpoint
 
 
 def payload(status, run, receipt=None):
@@ -43,7 +53,7 @@ def main():
     if a.controlled_probe:
         run += '/controlled-probe'
     receipt = json.loads(a.receipt.read_text()) if a.receipt else None
-    request = Request(ENDPOINT, data=json.dumps(payload(a.status, run, receipt)).encode(),
+    request = Request(monitor_url(), data=json.dumps(payload(a.status, run, receipt)).encode(),
                       headers={'Content-Type': 'application/json'}, method='POST')
     try:
         with build_opener(NoRedirect()).open(request, timeout=20) as response:

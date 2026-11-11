@@ -1,0 +1,20 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036#main
+					7 container
+						8 text Academy workspaceTraining · Attendance Staging
+						9 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Academy workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						17 text Staging · Synthetic data only
+					18 container
+						19 heading Session attendance, Value: 1
+							20 text Session attendance
+						21 text Access unavailable. Check your current account and workspace.
+						22 container Contextual details and actions
+							23 heading Player attendance, Value: 2
+								24 text Player attendance

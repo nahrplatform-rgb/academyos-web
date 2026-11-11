@@ -1,0 +1,1394 @@
+{
+  "purpose": "Safe source metadata index; paths and exported function declarations only; not runtime or permission evidence",
+  "root": "Pro Youth Football Academy",
+  "application_commit": "37d8901ca1cde805c126f6f3ac83d996ece953a0",
+  "method": "Python pathlib rglob page.tsx under pysa-platform/app; rglob *.ts under actions; glob *.ts under lib/validations; regex exported function declarations with optional async; no wildcard or alias expansion",
+  "counts": {
+    "page_paths": 112,
+    "action_ts_paths": 31,
+    "exported_function_declarations": 234,
+    "validation_ts_paths": 11,
+    "distinct_inspected_sources": 46
+  },
+  "page_paths": [
+    "pysa-platform/app/(admin)/super-admin/academies/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/audit/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/billing/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/invitations/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/messages/[id]/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/messages/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/plans/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/product-audit/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/settings/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/users/[id]/page.tsx",
+    "pysa-platform/app/(admin)/super-admin/users/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/attendance/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/consents/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/financials/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/media/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/notifications/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/performance/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/privacy/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/qr/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/schedule/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/[sessionId]/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/audit/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/history/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/issues/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/reports/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/scan/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/staff/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/staff/scan/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/stats/page.tsx",
+    "pysa-platform/app/(manager)/manager/attendance/terminal/page.tsx",
+    "pysa-platform/app/(manager)/manager/branches/page.tsx",
+    "pysa-platform/app/(manager)/manager/communications/groups/page.tsx",
+    "pysa-platform/app/(manager)/manager/communications/page.tsx",
+    "pysa-platform/app/(manager)/manager/evaluations/[id]/edit/page.tsx",
+    "pysa-platform/app/(manager)/manager/evaluations/new/page.tsx",
+    "pysa-platform/app/(manager)/manager/evaluations/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/approvals/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/billing-models/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/invoices/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/new/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/reconciliation/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/reports/page.tsx",
+    "pysa-platform/app/(manager)/manager/financials/staff/page.tsx",
+    "pysa-platform/app/(manager)/manager/inventory/page.tsx",
+    "pysa-platform/app/(manager)/manager/media/page.tsx",
+    "pysa-platform/app/(manager)/manager/members/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/members/[id]/qr/page.tsx",
+    "pysa-platform/app/(manager)/manager/members/new/page.tsx",
+    "pysa-platform/app/(manager)/manager/members/page.tsx",
+    "pysa-platform/app/(manager)/manager/members/print/page.tsx",
+    "pysa-platform/app/(manager)/manager/page.tsx",
+    "pysa-platform/app/(manager)/manager/reports/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/[id]/edit/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/extra/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/instance/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/new/page.tsx",
+    "pysa-platform/app/(manager)/manager/schedule/page.tsx",
+    "pysa-platform/app/(manager)/manager/settings/page.tsx",
+    "pysa-platform/app/(manager)/manager/settings/privacy/page.tsx",
+    "pysa-platform/app/(manager)/manager/staff/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/staff/[id]/qr/page.tsx",
+    "pysa-platform/app/(manager)/manager/staff/page.tsx",
+    "pysa-platform/app/(manager)/manager/support/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/support/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/attendance/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/branches/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/financials/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/reports/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/settings/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/settings/privacy/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/settings/subscription/page.tsx",
+    "pysa-platform/app/(owner)/academy/owner/subscription/page.tsx",
+    "pysa-platform/app/(player)/player/account/page.tsx",
+    "pysa-platform/app/(player)/player/attendance/page.tsx",
+    "pysa-platform/app/(player)/player/card/page.tsx",
+    "pysa-platform/app/(player)/player/financials/page.tsx",
+    "pysa-platform/app/(player)/player/media/page.tsx",
+    "pysa-platform/app/(player)/player/page.tsx",
+    "pysa-platform/app/(player)/player/performance/page.tsx",
+    "pysa-platform/app/(player)/player/privacy/page.tsx",
+    "pysa-platform/app/(player)/player/schedule/page.tsx",
+    "pysa-platform/app/(protected)/change-password/page.tsx",
+    "pysa-platform/app/(public)/forgot-password/page.tsx",
+    "pysa-platform/app/(public)/invite/[token]/page.tsx",
+    "pysa-platform/app/(public)/login/page.tsx",
+    "pysa-platform/app/(public)/page.tsx",
+    "pysa-platform/app/(public)/pending/page.tsx",
+    "pysa-platform/app/(public)/reset-password/page.tsx",
+    "pysa-platform/app/(public)/signup/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/evaluations/[id]/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/evaluations/new/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/evaluations/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/financials/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/players/[id]/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/players/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/profile/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/schedule/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/session/[id]/evaluate/[memberId]/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/session/[id]/evaluate/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/session/[id]/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/session/[id]/scan/page.tsx",
+    "pysa-platform/app/m/[id]/page.tsx",
+    "pysa-platform/app/maintenance/page.tsx",
+    "pysa-platform/app/public/gallery/[token]/page.tsx",
+    "pysa-platform/app/sentry-example-page/page.tsx"
+  ],
+  "action_ts_paths": [
+    "pysa-platform/actions/academies.ts",
+    "pysa-platform/actions/admin/cleanup.ts",
+    "pysa-platform/actions/admin.ts",
+    "pysa-platform/actions/attendance.ts",
+    "pysa-platform/actions/auth.ts",
+    "pysa-platform/actions/billing-models.ts",
+    "pysa-platform/actions/communications.ts",
+    "pysa-platform/actions/cron.ts",
+    "pysa-platform/actions/financials.ts",
+    "pysa-platform/actions/front-desk-attendance.ts",
+    "pysa-platform/actions/global-search.ts",
+    "pysa-platform/actions/impersonation.ts",
+    "pysa-platform/actions/inventory.ts",
+    "pysa-platform/actions/invitations.ts",
+    "pysa-platform/actions/media.ts",
+    "pysa-platform/actions/members/core.ts",
+    "pysa-platform/actions/members/guardians.ts",
+    "pysa-platform/actions/members/portal.ts",
+    "pysa-platform/actions/members.ts",
+    "pysa-platform/actions/messages.ts",
+    "pysa-platform/actions/notifications.ts",
+    "pysa-platform/actions/onboarding.ts",
+    "pysa-platform/actions/performance.ts",
+    "pysa-platform/actions/platform-subscriptions.ts",
+    "pysa-platform/actions/player-finance.ts",
+    "pysa-platform/actions/product-audit.ts",
+    "pysa-platform/actions/reports.ts",
+    "pysa-platform/actions/scheduling.ts",
+    "pysa-platform/actions/staff-attendance.ts",
+    "pysa-platform/actions/staff.ts",
+    "pysa-platform/actions/trainer-finance.ts"
+  ],
+  "exported_function_declarations": [
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 39,
+      "name": "resolveAppUrl"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 116,
+      "name": "createAcademy"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 200,
+      "name": "inviteAcademyOwner"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 386,
+      "name": "createDemoAcademyWithOwner"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 592,
+      "name": "archiveExpiredDemoAcademy"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 673,
+      "name": "convertDemoOwnerToRealOwner"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 831,
+      "name": "getAcademySports"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 841,
+      "name": "toggleAcademySport"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 894,
+      "name": "setPrimarySport"
+    },
+    {
+      "path": "pysa-platform/actions/academies.ts",
+      "line": 921,
+      "name": "softDeleteAcademy"
+    },
+    {
+      "path": "pysa-platform/actions/admin/cleanup.ts",
+      "line": 11,
+      "name": "cleanupOrphanedMedia"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 32,
+      "name": "createUserByAdmin"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 189,
+      "name": "createGlobalUserByAdmin"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 386,
+      "name": "resetPasswordByAdmin"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 470,
+      "name": "toggleUserStatus"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 516,
+      "name": "softDeleteUser"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 574,
+      "name": "updateUserEmailByAdmin"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 650,
+      "name": "getGlobalMetrics"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 678,
+      "name": "getAcademies"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 761,
+      "name": "getPlatformAuditLogs"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 784,
+      "name": "getGlobalUsers"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 812,
+      "name": "getPlatformSettings"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 830,
+      "name": "generatePlatformSubscriptionInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 845,
+      "name": "toggleAcademyStatus"
+    },
+    {
+      "path": "pysa-platform/actions/admin.ts",
+      "line": 876,
+      "name": "updatePlatformSetting"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 235,
+      "name": "recordQrAttendanceInternal"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 324,
+      "name": "recordQrAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 413,
+      "name": "recordAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 543,
+      "name": "syncAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 798,
+      "name": "searchMembersForAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 888,
+      "name": "getAttendanceForSession"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 896,
+      "name": "getAttendanceHistory"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 904,
+      "name": "getAttendanceOverview"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 913,
+      "name": "overrideAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 989,
+      "name": "checkOutAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 1056,
+      "name": "searchEntities"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 1089,
+      "name": "requestAttendanceCorrection"
+    },
+    {
+      "path": "pysa-platform/actions/attendance.ts",
+      "line": 1158,
+      "name": "reviewAttendanceCorrection"
+    },
+    {
+      "path": "pysa-platform/actions/auth.ts",
+      "line": 17,
+      "name": "signIn"
+    },
+    {
+      "path": "pysa-platform/actions/auth.ts",
+      "line": 84,
+      "name": "signOut"
+    },
+    {
+      "path": "pysa-platform/actions/auth.ts",
+      "line": 93,
+      "name": "forcedPasswordChange"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 113,
+      "name": "getBillingModelsWorkspaceData"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 155,
+      "name": "createBillingModel"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 196,
+      "name": "updateBillingModel"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 225,
+      "name": "archiveBillingModel"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 242,
+      "name": "assignMemberSubscription"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 289,
+      "name": "updateMemberSubscriptionStatus"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 308,
+      "name": "adjustPackageBalance"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 312,
+      "name": "previewBillingRun"
+    },
+    {
+      "path": "pysa-platform/actions/billing-models.ts",
+      "line": 323,
+      "name": "importLegacyBillingSubscriptions"
+    },
+    {
+      "path": "pysa-platform/actions/communications.ts",
+      "line": 28,
+      "name": "getCommunications"
+    },
+    {
+      "path": "pysa-platform/actions/communications.ts",
+      "line": 37,
+      "name": "sendMessage"
+    },
+    {
+      "path": "pysa-platform/actions/communications.ts",
+      "line": 140,
+      "name": "sendPaymentReminder"
+    },
+    {
+      "path": "pysa-platform/actions/cron.ts",
+      "line": 12,
+      "name": "runSystemWideBilling"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 62,
+      "name": "getInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 68,
+      "name": "getInvoice"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 74,
+      "name": "getMemberInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 79,
+      "name": "getMemberTransactions"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 84,
+      "name": "getOverdue"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 90,
+      "name": "getRevenue"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 96,
+      "name": "createInvoice"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 131,
+      "name": "bulkCreateInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 135,
+      "name": "recordPayment"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 175,
+      "name": "requestRefund"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 179,
+      "name": "refundPayment"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 183,
+      "name": "approveRefund"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 187,
+      "name": "runFinancialReconciliation"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 210,
+      "name": "closeAccountingPeriod"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 214,
+      "name": "requestReopenAccountingPeriod"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 218,
+      "name": "decidePeriodReopenApproval"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 222,
+      "name": "postRevenueRecognition"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 226,
+      "name": "retryWebhookEvent"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 242,
+      "name": "cancelInvoice"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 260,
+      "name": "markOverdueInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 267,
+      "name": "getPayments"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 272,
+      "name": "getPayouts"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 278,
+      "name": "createStaffPayout"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 307,
+      "name": "updatePayoutStatusAction"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 323,
+      "name": "updateStaffPayout"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 341,
+      "name": "generateStaffPayouts"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 381,
+      "name": "generateAutoInvoices"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 396,
+      "name": "createSetupIntent"
+    },
+    {
+      "path": "pysa-platform/actions/financials.ts",
+      "line": 431,
+      "name": "updateMemberPaymentMethod"
+    },
+    {
+      "path": "pysa-platform/actions/front-desk-attendance.ts",
+      "line": 76,
+      "name": "recordFrontDeskQrScan"
+    },
+    {
+      "path": "pysa-platform/actions/global-search.ts",
+      "line": 15,
+      "name": "globalSearch"
+    },
+    {
+      "path": "pysa-platform/actions/impersonation.ts",
+      "line": 17,
+      "name": "startImpersonating"
+    },
+    {
+      "path": "pysa-platform/actions/impersonation.ts",
+      "line": 38,
+      "name": "startAcademyPreviewAction"
+    },
+    {
+      "path": "pysa-platform/actions/impersonation.ts",
+      "line": 55,
+      "name": "switchPortalAction"
+    },
+    {
+      "path": "pysa-platform/actions/impersonation.ts",
+      "line": 69,
+      "name": "stopImpersonating"
+    },
+    {
+      "path": "pysa-platform/actions/inventory.ts",
+      "line": 17,
+      "name": "createInventoryItem"
+    },
+    {
+      "path": "pysa-platform/actions/inventory.ts",
+      "line": 53,
+      "name": "updateInventoryStock"
+    },
+    {
+      "path": "pysa-platform/actions/invitations.ts",
+      "line": 26,
+      "name": "createInvite"
+    },
+    {
+      "path": "pysa-platform/actions/invitations.ts",
+      "line": 104,
+      "name": "revokeInvite"
+    },
+    {
+      "path": "pysa-platform/actions/invitations.ts",
+      "line": 127,
+      "name": "resendInvite"
+    },
+    {
+      "path": "pysa-platform/actions/invitations.ts",
+      "line": 185,
+      "name": "getInvites"
+    },
+    {
+      "path": "pysa-platform/actions/invitations.ts",
+      "line": 198,
+      "name": "acceptInvite"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 30,
+      "name": "uploadMedia"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 51,
+      "name": "uploadMediaBatch"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 211,
+      "name": "getMedia"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 282,
+      "name": "permanentlyDeleteMedia"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 335,
+      "name": "tagMediaItems"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 403,
+      "name": "generateSessionShareLink"
+    },
+    {
+      "path": "pysa-platform/actions/media.ts",
+      "line": 439,
+      "name": "getPublicGallery"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 42,
+      "name": "createMember"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 236,
+      "name": "updateMember"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 427,
+      "name": "archiveMember"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 451,
+      "name": "getMembers"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 471,
+      "name": "getMember"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 483,
+      "name": "getMemberFull"
+    },
+    {
+      "path": "pysa-platform/actions/members/core.ts",
+      "line": 495,
+      "name": "toggleMemberStatusAction"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 50,
+      "name": "linkGuardian"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 148,
+      "name": "quickCreateGuardian"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 301,
+      "name": "updateGuardian"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 419,
+      "name": "unlinkGuardian"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 454,
+      "name": "getGuardians"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 462,
+      "name": "findGuardians"
+    },
+    {
+      "path": "pysa-platform/actions/members/guardians.ts",
+      "line": 474,
+      "name": "getAvailableGuardians"
+    },
+    {
+      "path": "pysa-platform/actions/members/portal.ts",
+      "line": 44,
+      "name": "regenerateQR"
+    },
+    {
+      "path": "pysa-platform/actions/members/portal.ts",
+      "line": 80,
+      "name": "invitePlayerToPortal"
+    },
+    {
+      "path": "pysa-platform/actions/messages.ts",
+      "line": 27,
+      "name": "getInboxMessagesResult"
+    },
+    {
+      "path": "pysa-platform/actions/messages.ts",
+      "line": 80,
+      "name": "getInboxMessages"
+    },
+    {
+      "path": "pysa-platform/actions/messages.ts",
+      "line": 84,
+      "name": "getThreadMessages"
+    },
+    {
+      "path": "pysa-platform/actions/messages.ts",
+      "line": 163,
+      "name": "sendMessage"
+    },
+    {
+      "path": "pysa-platform/actions/messages.ts",
+      "line": 374,
+      "name": "markMessageRead"
+    },
+    {
+      "path": "pysa-platform/actions/notifications.ts",
+      "line": 6,
+      "name": "getNotifications"
+    },
+    {
+      "path": "pysa-platform/actions/notifications.ts",
+      "line": 38,
+      "name": "markAsRead"
+    },
+    {
+      "path": "pysa-platform/actions/notifications.ts",
+      "line": 57,
+      "name": "markAllAsRead"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 119,
+      "name": "getAcademySetupProgress"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 141,
+      "name": "completeAcademySetupStep"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 169,
+      "name": "getUserOnboardingProgress"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 267,
+      "name": "completeOnboardingStep"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 275,
+      "name": "dismissOnboardingStep"
+    },
+    {
+      "path": "pysa-platform/actions/onboarding.ts",
+      "line": 283,
+      "name": "resetOnboardingFlow"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 23,
+      "name": "getMetrics"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 42,
+      "name": "createEvaluation"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 89,
+      "name": "submitEvaluationForm"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 163,
+      "name": "updateEvaluationForm"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 213,
+      "name": "getEvaluations"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 223,
+      "name": "publishEvaluation"
+    },
+    {
+      "path": "pysa-platform/actions/performance.ts",
+      "line": 256,
+      "name": "rejectEvaluation"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 270,
+      "name": "verifyPlatformFeatureBinding"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 280,
+      "name": "activateVerifiedPlatformFeatures"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 299,
+      "name": "upsertPlatformSellerEntity"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 312,
+      "name": "approvePlatformTaxRule"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 322,
+      "name": "setPlatformProviderAvailability"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 332,
+      "name": "approvePlatformEnterpriseSalesFloor"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 341,
+      "name": "verifyPlatformInfrastructure"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 350,
+      "name": "setPlatformSubscriptionRuntimeActivation"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 367,
+      "name": "createPlatformPlanVersionDraft"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 393,
+      "name": "upsertPlatformPlanPriceDraft"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 409,
+      "name": "createPlatformAddonVersionDraft"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 433,
+      "name": "upsertPlatformAddonPriceDraft"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 449,
+      "name": "publishPlatformAddonVersion"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 462,
+      "name": "publishPlatformPlanVersion"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 475,
+      "name": "assignAcademyPlatformSubscription"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 519,
+      "name": "createPlatformSubscriptionChangeRequest"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 603,
+      "name": "approvePlatformPaymentProof"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 618,
+      "name": "reviewPlatformSubscriptionChangeRequest"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 635,
+      "name": "rejectPlatformPaymentProof"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 650,
+      "name": "upsertPlatformPaymentDestination"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 671,
+      "name": "upsertPlatformFeature"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 697,
+      "name": "upsertPlatformUsageMeter"
+    },
+    {
+      "path": "pysa-platform/actions/platform-subscriptions.ts",
+      "line": 714,
+      "name": "createPlatformUsageRate"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 40,
+      "name": "createOrUpdatePlayerBillingPlan"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 72,
+      "name": "checkPlanUsageAction"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 84,
+      "name": "createOrUpdatePlayerSubscription"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 118,
+      "name": "resumePlayerSubscriptionAction"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 144,
+      "name": "previewPlayerMonthlyBilling"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 162,
+      "name": "generatePlayerMonthlyBills"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 182,
+      "name": "generatePlayerBillsForSelectedPeriod"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 214,
+      "name": "collectPaymentAction"
+    },
+    {
+      "path": "pysa-platform/actions/player-finance.ts",
+      "line": 257,
+      "name": "correctPaymentAction"
+    },
+    {
+      "path": "pysa-platform/actions/product-audit.ts",
+      "line": 164,
+      "name": "createProductAuditComment"
+    },
+    {
+      "path": "pysa-platform/actions/product-audit.ts",
+      "line": 210,
+      "name": "updateProductAuditComment"
+    },
+    {
+      "path": "pysa-platform/actions/product-audit.ts",
+      "line": 260,
+      "name": "resolveProductAuditComment"
+    },
+    {
+      "path": "pysa-platform/actions/product-audit.ts",
+      "line": 309,
+      "name": "saveProductAuditDraft"
+    },
+    {
+      "path": "pysa-platform/actions/product-audit.ts",
+      "line": 383,
+      "name": "restoreProductAuditBaseline"
+    },
+    {
+      "path": "pysa-platform/actions/reports.ts",
+      "line": 123,
+      "name": "getRevenueReport"
+    },
+    {
+      "path": "pysa-platform/actions/reports.ts",
+      "line": 160,
+      "name": "getAttendanceReport"
+    },
+    {
+      "path": "pysa-platform/actions/reports.ts",
+      "line": 191,
+      "name": "getMembersReport"
+    },
+    {
+      "path": "pysa-platform/actions/reports.ts",
+      "line": 221,
+      "name": "exportToExcel"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 553,
+      "name": "getSessions"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 559,
+      "name": "getSessionInstances"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 565,
+      "name": "getSession"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 571,
+      "name": "getTodaySessions"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 578,
+      "name": "getTrainerSessions"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 583,
+      "name": "createSession"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 712,
+      "name": "updateSession"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 870,
+      "name": "updateSessionInstance"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 932,
+      "name": "createExtraSession"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1071,
+      "name": "updateSessionInstanceAssignments"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1524,
+      "name": "rescheduleSessionInstance"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1528,
+      "name": "createMakeupSessionFromInstance"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1532,
+      "name": "broadcastSessionMessage"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1558,
+      "name": "deleteSession"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1587,
+      "name": "deleteProgram"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1646,
+      "name": "setSessionEndDate"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1702,
+      "name": "getRoster"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1707,
+      "name": "getRosterForTrainer"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1712,
+      "name": "getEnrollmentCount"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1717,
+      "name": "bulkEnroll"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1794,
+      "name": "enrollMember"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1858,
+      "name": "unenrollMember"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1895,
+      "name": "getBranches"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1901,
+      "name": "createBranch"
+    },
+    {
+      "path": "pysa-platform/actions/scheduling.ts",
+      "line": 1965,
+      "name": "getSessionInstancesRange"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 157,
+      "name": "recordStaffAttendanceInternal"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 278,
+      "name": "recordStaffAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 350,
+      "name": "recordStaffCrossBranchTransfer"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 484,
+      "name": "searchStaffForAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 513,
+      "name": "syncStaffAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 614,
+      "name": "regenerateStaffQR"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 646,
+      "name": "getStaffAttendance"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 655,
+      "name": "getStaffAttendanceOverview"
+    },
+    {
+      "path": "pysa-platform/actions/staff-attendance.ts",
+      "line": 664,
+      "name": "getStaffAttendanceLogHistory"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 43,
+      "name": "getStaff"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 52,
+      "name": "getTrainers"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 61,
+      "name": "inviteStaff"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 234,
+      "name": "updateStaff"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 349,
+      "name": "archiveStaff"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 386,
+      "name": "assignTrainer"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 423,
+      "name": "revokeAssignment"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 448,
+      "name": "getMyAssignments"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 456,
+      "name": "getTrainersForSession"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 464,
+      "name": "getStaffBranchesAction"
+    },
+    {
+      "path": "pysa-platform/actions/staff.ts",
+      "line": 473,
+      "name": "getStaffSportsAction"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 37,
+      "name": "createOrUpdateTrainerContract"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 81,
+      "name": "grantTrainerExceptionApproval"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 97,
+      "name": "revokeTrainerExceptionApproval"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 113,
+      "name": "generateTrainerEarningsAction"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 134,
+      "name": "requestTrainerExceptionAction"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 157,
+      "name": "decideTrainerExceptionAction"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 204,
+      "name": "approveTrainerEarningAction"
+    },
+    {
+      "path": "pysa-platform/actions/trainer-finance.ts",
+      "line": 220,
+      "name": "markTrainerEarningPaidAction"
+    }
+  ],
+  "validation_ts_paths": [
+    "pysa-platform/lib/validations/academies.ts",
+    "pysa-platform/lib/validations/attendance.ts",
+    "pysa-platform/lib/validations/communications.ts",
+    "pysa-platform/lib/validations/financials.ts",
+    "pysa-platform/lib/validations/media.ts",
+    "pysa-platform/lib/validations/members.ts",
+    "pysa-platform/lib/validations/performance.ts",
+    "pysa-platform/lib/validations/player-finance.ts",
+    "pysa-platform/lib/validations/scheduling.ts",
+    "pysa-platform/lib/validations/staff.ts",
+    "pysa-platform/lib/validations/trainer-finance.ts"
+  ],
+  "inspected_sources": [
+    "engineering-audit/00-project-overview/feature-inventory.md",
+    "engineering-audit/02-findings/findings-register.md",
+    "platform-description/PYSA-current-surface-reference.md",
+    "platform-description/PYSA-platform-brief-for-another-AI.md",
+    "pysa-platform/actions/billing-models.ts",
+    "pysa-platform/actions/financials.ts",
+    "pysa-platform/actions/inventory.ts",
+    "pysa-platform/actions/media.ts",
+    "pysa-platform/actions/members/core.ts",
+    "pysa-platform/actions/messages.ts",
+    "pysa-platform/actions/performance.ts",
+    "pysa-platform/actions/player-finance.ts",
+    "pysa-platform/actions/reports.ts",
+    "pysa-platform/actions/scheduling.ts",
+    "pysa-platform/actions/staff.ts",
+    "pysa-platform/app/(admin)/super-admin/settings/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/consents/page.tsx",
+    "pysa-platform/app/(guardian)/guardian/privacy/page.tsx",
+    "pysa-platform/app/(manager)/manager/settings/privacy/page.tsx",
+    "pysa-platform/app/(manager)/manager/support/[id]/page.tsx",
+    "pysa-platform/app/(manager)/manager/support/page.tsx",
+    "pysa-platform/app/(player)/player/privacy/page.tsx",
+    "pysa-platform/app/(trainer)/trainer/session/[id]/scan/page.tsx",
+    "pysa-platform/app/m/[id]/page.tsx",
+    "pysa-platform/components/academy/settings-form.tsx",
+    "pysa-platform/components/communications/message-compose.tsx",
+    "pysa-platform/components/manager/financials/create-invoice-form.tsx",
+    "pysa-platform/components/manager/financials/create-payout-modal.tsx",
+    "pysa-platform/components/manager/financials/dashboard/payment-modal.tsx",
+    "pysa-platform/components/manager/members/add-member-form.tsx",
+    "pysa-platform/components/manager/schedule/add-session-form.tsx",
+    "pysa-platform/components/media/upload-zone.tsx",
+    "pysa-platform/components/privacy/guardian-consent-center.tsx",
+    "pysa-platform/components/privacy/privacy-admin-center.tsx",
+    "pysa-platform/components/privacy/privacy-request-center.tsx",
+    "pysa-platform/lib/validations/academies.ts",
+    "pysa-platform/lib/validations/attendance.ts",
+    "pysa-platform/lib/validations/communications.ts",
+    "pysa-platform/lib/validations/financials.ts",
+    "pysa-platform/lib/validations/media.ts",
+    "pysa-platform/lib/validations/members.ts",
+    "pysa-platform/lib/validations/performance.ts",
+    "pysa-platform/lib/validations/player-finance.ts",
+    "pysa-platform/lib/validations/scheduling.ts",
+    "pysa-platform/lib/validations/staff.ts",
+    "pysa-platform/lib/validations/trainer-finance.ts"
+  ],
+  "limits": "Paths and declarations do not establish reachability, semantics, permissions, runtime, exhaustive callable exports or provider status. No environment, seed, export or private-record content indexed."
+}

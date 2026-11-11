@@ -1,0 +1,41 @@
+// Actual component with synthetic scoped read adapters; not hosted/RLS evidence.
+import {build} from '../../../../node_modules/esbuild/lib/main.js';import{chromium,expect}from'../../../../node_modules/@playwright/test/index.mjs';import{createServer}from'node:http';import{readFile,mkdir,writeFile}from'node:fs/promises';import{resolve}from'node:path';import{tmpdir}from'node:os';import assert from'node:assert/strict';
+const root=resolve(import.meta.dirname,'../../../..'),mode=process.env.UI_REACT_MODE==='development'?'development':'production';
+const adapter=`import React from 'react';let actor='user_synthetic';const listeners=new Set();window.addEventListener('synthetic-session',e=>{actor=e.detail;listeners.forEach(f=>f());});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>actor);return {isLoaded:true,user:id?{id}:null};}export function UserButton(){return <button>Test account</button>}`;
+const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Experience from '${root}/apps/web/src/components/experience-workspace.tsx';const p=new URLSearchParams(location.search);createRoot(document.getElementById('root')).render(<React.StrictMode><Experience locale={p.get('locale')||'en'} academy="00000000-0000-4000-8000-000000000001" role={p.get('role')||'owner'} calendar={p.has('calendar')}/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,format:'iife',jsx:'automatic',plugins:[{name:'test-adapters',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,resolveDir:root,loader:'tsx'}));}}],define:{'process.env.NODE_ENV':JSON.stringify(mode)}});
+const css=await readFile(root+'/apps/web/src/app/globals.css','utf8');
+const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/bundle.js'?'text/javascript':'text/html');res.end(req.url==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html lang="${new URL(req.url,'http://localhost').searchParams.get('locale')==='ar'?'ar':'en'}" dir="${new URL(req.url,'http://localhost').searchParams.get('locale')==='ar'?'rtl':'ltr'}"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div id="root"></div><script src="/bundle.js"></script>`);});await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch(),page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const academy='00000000-0000-4000-8000-000000000001',link='00000000-0000-4000-8000-000000000002',context={academy_id:academy,academy_name:'Synthetic Academy',branch_name:'Main Demo Branch',timezone:'Africa/Cairo',today:'2026-11-01'};
+let denied=false,unavailable=false,invalidCursor=false,training=true,reads=[];
+function rows(role,from,to){return Array.from({length:55},(_,i)=>{const id=`00000000-0000-4000-8000-${String(i+10).padStart(12,'0')}`,day='2026-11-01';return{id,program:id,day,date:day,starts_at:'2026-11-01T15:00:00Z',ends_at:'2026-11-01T16:00:00Z',title:`Synthetic Session ${i+1}`,branch:'Main Demo Branch',sport:'Football',sport_ar:'كرة القدم',timezone:'Africa/Cairo',state:'published',published:true,capacity:role==='guardian'?null:18,roster_count:role==='guardian'?null:18,cursor:{at:'2026-11-01T15:00:00+00:00',id,day,from,to}};});}
+await page.route('**/api/guardians',route=>route.fulfill({json:{data:{items:denied?[]:[{id:link,display_name:'Alex Demo',branch_name:'Main Demo Branch'}],more:false}}}));
+await page.route('**/api/experience',async route=>{const b=route.request().postDataJSON();reads.push(b);await new Promise(r=>setTimeout(r,250));if(invalidCursor&&b.cursor)return route.fulfill({status:422,json:{error:'invalid'}});if(denied||unavailable)return route.fulfill({status:denied?403:503,json:{error:denied?'denied':'unavailable'}});const role=b.action.split('_')[0];if(b.action.endsWith('_home'))return route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:training?'ready':'unavailable',count:55,items:training?rows(role,context.today,context.today).slice(0,5):undefined,more:true},...(role==='owner'?{unfinished_programs:{state:'ready',count:4},feedback_reviews:{state:'ready',count:3,tasks:[{id:link,event:link,player:link,kind:'feedback'}]},incomplete_attendance:{state:'ready',count:2},private_publication_reviews:{state:'ready',count:1,tasks:[{id:link,program:link,title:'publish',kind:'publication'}]}}:role==='trainer'?{feedback_drafts:{state:'ready',count:2}}:{next_session:{state:training?'ready':'unavailable',item:training?{id:link,title:'Synthetic Next Session',starts_at:'2099-11-01T15:00:00Z',ends_at:'2099-11-01T16:00:00Z',timezone:'Africa/Cairo',status:null}:null},latest_feedback:{state:'ready',item:{id:link,title:'Synthetic published feedback'}}})}}}});if(role==='guardian'&&!training)return route.fulfill({status:403,json:{error:'denied'}});const all=rows(role,b.from,b.to),start=b.cursor?50:0,items=all.slice(start,start+50);return route.fulfill({json:{data:{context,as_of:'2026-11-01T12:00:00Z',from:b.from,to:b.to,total:55,items,more:start===0,next:start===0?items.at(-1).cursor:null}}});});
+const out=resolve(process.env.UI_EVIDENCE_DIR??resolve(tmpdir(),'academyos-experience-projections-ui'));await mkdir(out,{recursive:true});
+async function open(query=''){await page.goto(`http://127.0.0.1:${server.address().port}/?`+query);await page.getByRole('button',{name:/Reload current view|إعادة تحميل العرض الحالي/}).waitFor();await expect(page.getByRole('status')).toHaveCount(0);}
+const results=[];
+try{
+ for(let repeat=1;repeat<=2;repeat++){
+  await open('calendar=1');
+  await page.locator('.experience-session').filter({hasText:'Synthetic Session 1'}).first().click();
+  const before=reads.length;
+  await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));});
+  await expect(page.getByRole('status')).toContainText('Loading your current tasks');
+  results.push({case:'focus-selected-calendar',repeat,during:{rows:await page.locator('.experience-session').count(),selectedTask:await page.getByRole('link',{name:'Open this date',exact:true}).count()}});
+  await expect(page.getByRole('status')).toHaveCount(0);
+  results.at(-1).readStarts=reads.length-before;
+  results.at(-1).selectedAfter=await page.getByRole('link',{name:'Open this date',exact:true}).count();
+  const sync=reads.length;
+  await page.evaluate(()=>{window.dispatchEvent(new Event('focus'));document.dispatchEvent(new Event('visibilitychange'));});
+  await expect(page.getByRole('status')).toHaveCount(0);
+  results.push({case:'same-task-focus-visible',repeat,readStarts:reads.length-sync});
+  const separated=reads.length;
+  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+  await page.waitForTimeout(40);
+  await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));
+  await expect(page.getByRole('status')).toHaveCount(0);
+  results.push({case:'separated-focus-visible-40ms',repeat,readStarts:reads.length-separated});
+ }
+ await writeFile(resolve(out,'diagnostic.json'),JSON.stringify({scope:'temporary actual-component diagnostic; synthetic identity/read transport, 250ms artificial response delay; events dispatched rather than real OS lifecycle; not hosted performance',results},null,2));
+ console.log(JSON.stringify(results));
+}finally{await browser.close();await new Promise(r=>server.close(r));}

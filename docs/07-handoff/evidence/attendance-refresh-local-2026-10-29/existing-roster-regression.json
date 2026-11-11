@@ -1,0 +1,10 @@
+{
+  "scope": "Actual disposable PG17,1000-player Unicode roster,50 warm SQL reads; excludes hosted/HTTP/physical-device/WAL/cost proof",
+  "metrics": {
+    "samples": 50,
+    "p95_ms": 1.12845,
+    "max_ms": 5.237
+  },
+  "roster_count": 1000,
+  "history_events": 25
+}

@@ -1,0 +1,12 @@
+{
+  "commit": "5d8707fd8d60043078b48b128acb60206e3e0469",
+  "run": 42474882390,
+  "job": 128713870457,
+  "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42474882390",
+  "conclusion": "failure",
+  "failed_step": "Verify closed Owner workspace transfer and protected repository",
+  "passed_steps": 21,
+  "assertion": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n2026-11-08T11:18:06.1845541Z + actual - expected\n2026-11-08T11:18:06.1845624Z \n2026-11-08T11:18:06.1845674Z   [\n2026-11-08T11:18:06.1845792Z     'candidates',\n2026-11-08T11:18:06.1845945Z     'create',\n2026-11-08T11:18:06.1846064Z     'reconcile',\n2026-11-08T11:18:06.1846226Z     'profile',\n2026-11-08T11:18:06.1846344Z +   'list'\n2026-11-08T11:18:06.1846452Z   ]\n2026-11-08T11:18:06.1846829Z \n2026-11-08T11:18:06.1847127Z     at checkNormalWorkspace (file:///home/runner/work/academyos-web/academyos-web/scripts/workspace-download/normal_workspace.mjs:423:12)\n2026-11-08T11:18:06.1847643Z     at async file:///home/runner/work/academyos-web/academyos-web/scripts/workspace-download/test_transport.mjs:725:27 {\n2026-11-08T11:18:06.1847954Z   generatedMessage: true,\n2026-11-08T11:18:06.1848100Z   code: 'ERR_ASSERTION',\n2026-11-08T11:18:06.1848309Z   actual: [ 'candidates', 'create', 'reconcile', 'profile', 'list' ],\n2026-11-08T11:18:06.1848582Z   expected: [ 'candidates', 'create', 'reconcile', 'profile' ],\n2026-11-08T11:18:06.1848799Z   operator: 'deepStrictEqual',\n2026-11-08T11:18:06.1848946Z   diff: 'simple'\n2026-11-08T11:18:06.1849070Z }\n2026-11-08T11:18:06.1849129Z \n2026-11-08T11:18:06.1849180Z Node.js v24.22.2\n2",
+  "scope": "Public Ubuntu24.04/Node24.22.2 CI;populated prepared lost-reply sequence observed one unexpected People list after candidates/create/reconcile/profile;not a hosted failure.",
+  "disposition": "Preserve request assertion. Reproduce an overlapping completed-generation read before repair;do not retry the same commit or expand its expected budget."
+}

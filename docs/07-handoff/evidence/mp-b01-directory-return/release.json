@@ -1,0 +1,42 @@
+{
+  "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+  "ci": {
+    "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+    "run_id": 42544204255,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42544204255",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42544204255/job/128925557190",
+    "job_conclusion": "success",
+    "steps_passed": 53,
+    "step_count": 53,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deploymentId": "dpl_HovhkKS9ce4bfwZU8zJmjG9gdciY",
+    "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+    "project": "academyos-web",
+    "state": "READY",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/HovhkKS9ce4bfwZU8zJmjG9gdciY"
+  },
+  "staging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_AKBdytKRozd6Ygd2KDYVz6YRwdQB",
+    "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+    "state": "READY"
+  },
+  "promotion": "Owner reported, live source independently verified",
+  "signedInVerification": {
+    "scope": "Existing signed-in Academy Owner, synthetic Academy B, Chrome desktop, separate tab. Two existing synthetic players.",
+    "checks": [
+      "EN held initial profile showed its loading status while directory stayed in place",
+      "EN saved profile loaded and Back restored its row focus",
+      "Layout opened and Escape collapsed it with focus restored",
+      "AR one-character guidance preserved input focus",
+      "AR valid prefix returned one matching player",
+      "AR clear restored two scoped rows and input focus"
+    ],
+    "evidenceLimits": "Normal signed-in read-only use. Confirmed registration, real provider expiry, current revocation, a second page, device preparation, physical phone and installed use remain separate."
+  },
+  "OwnerAcceptance": "pending working review"
+}

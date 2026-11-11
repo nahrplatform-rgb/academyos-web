@@ -1,0 +1,18 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/guardian/training
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/guardian/training#main
+					7 container
+						8 text Guardian workspaceTraining & attendance Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/guardian/training
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Guardian workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Linked players, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/guardian
+							17 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/guardian/training
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Training & attendance, Value: 1
+							21 text Training & attendance
+						22 text Access unavailable. Check your current workspace with your academy.

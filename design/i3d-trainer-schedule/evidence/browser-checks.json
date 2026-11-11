@@ -1,0 +1,12 @@
+{
+  "scope": "Actual in-app browser driving local fictional simulation; not hosted/API/database proof",
+  "owner": "Reviewed40 dates;25+15 simulated preparation,0 visible before final publish; published40 locally",
+  "trainer": "Casey dated-only assignment opened with two fictional display names and restricted dated context",
+  "arabic": "Language switch and phone-style Back/list/reopen inspected",
+  "viewport_limit": "Requested360px override reported537px innerWidth and scrollWidth537 in this in-app session; do not count it as360px proof. Automated local Chromium separately passed320/360/926/1440 EN/AR. Temporary override reset.",
+  "screenshots": [
+    "browser-trainer.jpg",
+    "browser-trainer-ar-phone.jpg"
+  ],
+  "review_state": "Reset to fresh Owner view; design approval pending"
+}

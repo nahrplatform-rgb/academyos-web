@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "Actual disposable PG17 activation; outer3s timeout, process-inclusive elapsed, no HTTP/hosted proof",
+  "dates": 40,
+  "players_each": 1001,
+  "roster_rows": 40040,
+  "elapsed_ms": 723.0297919886652,
+  "observations": 1
+}

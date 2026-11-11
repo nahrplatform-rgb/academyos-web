@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-11-04T14:49:39.642482+00:00",
+  "operator_transaction_cases": 9,
+  "custody_cases": 9,
+  "rehearsal_scope_cases": 2,
+  "fresh_hosted_backup_local_restore": "passed",
+  "complete_four_source_local_migration_transaction": "passed",
+  "execution_tracker_and_generated_prompt": "passed EX11 current,13 work items",
+  "implementation_register": "passed 68screen IDs,30action groups,180requirements",
+  "relative_links": "648 passed",
+  "factual_review_source_freshness": "passed unchanged app capture inputs",
+  "git_diff_check": "passed",
+  "app_source_changes": false,
+  "ui_capture_regeneration": "not required; actual product components/styles unchanged",
+  "node_for_local_freshness": "26.9.0; CI pinned24",
+  "peer_review": {
+    "model": "gpt-6.1-terra",
+    "reasoning": "medium",
+    "maximum_active_helpers": 1,
+    "tasks": [
+      "bounded read-only release inventory",
+      "custody/transaction/restore engineering review",
+      "digest-binding repair reread"
+    ],
+    "finding": "valid substituted archive not bound to independent digest",
+    "repair": "required trusted digest and exact verified-byte decryption; refused replacement/missing digest and race regression pass",
+    "limitations": "No helper provider/browser writes or tests. Not independent human audit. No measured usage or cost savings."
+  },
+  "hosted_offline_working_day": "not yet executed; requires new checked Owner-promoted build",
+  "plaintext_recovery_copy_removed_after_checks": true,
+  "ciphertext_and_trusted_receipts_retained": true,
+  "exact_source_CI": "Both Foundation runs passed for50a2ae1; release-handoff.json"
+}

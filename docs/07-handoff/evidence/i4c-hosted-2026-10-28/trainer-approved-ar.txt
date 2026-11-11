@@ -1,0 +1,4 @@
+There has been no change in the accessibility tree for Window: "Shopify — AcademyOS · Staging".
+The focused UI element is 275 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635#language
+
+Contemporaneous tool observation (summary, not a reconstructed full accessibility dump): Trainer Arabic result showed حالة الطلب: موافق عليه, الحضور الحالي: حاضر version3, original version2 and retained request/decision reasons.

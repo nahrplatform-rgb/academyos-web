@@ -1,0 +1,5914 @@
+{
+  "status": "measured",
+  "runtime": "v24.14.0",
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "4224f6607323d4fa104c7e14202ec2f1698e1400ea17577cf0e0f6e8867714eb",
+    "apps/web/src/components/workspace-panes.tsx": "c74384e398e591aed77ef74c345b66aa79635c4368ee1e6bab2be0288e2ae71f",
+    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/app/globals.css": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386"
+  },
+  "scope": "actual production components/CSS; fictional bounded Home and40-row Calendar; native hosted not inferred",
+  "results": [
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 290.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 83,
+        "scrollHeight": 922,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 300.234375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": 43,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": 43,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": 47.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": 77,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 232.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 274.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 133,
+        "scrollHeight": 961,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 284.734375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": 27.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": 27.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": 32.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": 61.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 216.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 440.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 80.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 440.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1189,
+        "clientHeight": 1189,
+        "overflowY": "visible",
+        "windowY": 469,
+        "documentHeight": 1369,
+        "inputY": 129.484375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -208.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -208.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -143.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -170.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 61.546875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 360,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 440.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 80.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1333,
+        "clientHeight": 1333,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1513,
+        "inputY": -1.515625,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 440.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -69.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1189,
+        "clientHeight": 1189,
+        "overflowY": "visible",
+        "windowY": 469,
+        "documentHeight": 1369,
+        "inputY": 129.484375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -208.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -208.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -143.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -170.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 61.546875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 320,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1385,
+        "clientHeight": 1385,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1565,
+        "inputY": 50.484375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 165.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -222.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 492.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -17.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1385,
+        "clientHeight": 1385,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1565,
+        "inputY": 50.484375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 165.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -222.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 132.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -17.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1385,
+        "clientHeight": 1385,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1565,
+        "inputY": 50.484375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 165.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -222.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 492.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -17.453125,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1241,
+        "clientHeight": 1241,
+        "overflowY": "visible",
+        "windowY": 521,
+        "documentHeight": 1421,
+        "inputY": 129.484375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -260.5,
+            "height": 165.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -260.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -143.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -222.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.484375,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 61.546875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 282,
+          "clientHeight": 282,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 290.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 171,
+        "scrollHeight": 1010,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 212.234375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -45,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -40.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -11,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 144.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 83,
+        "scrollHeight": 922,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 300.234375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": 43,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": 43,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": 47.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": 77,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 544.234375,
+            "height": 274.9375,
+            "marginTop": "16px",
+            "marginBottom": "16px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 232.296875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 274.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 225,
+        "scrollHeight": 1053,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 192.734375,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -64.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -59.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -30.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 124.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 133,
+        "scrollHeight": 961,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 284.734375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": 27.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": 27.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": 32.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": 61.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 538.734375,
+            "height": 274.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 216.796875,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1295,
+        "clientHeight": 1295,
+        "overflowY": "visible",
+        "windowY": 575,
+        "documentHeight": 1475,
+        "inputY": 6.53125,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -314.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -314.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -245.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -272.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 448.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -61.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1295,
+        "clientHeight": 1295,
+        "overflowY": "visible",
+        "windowY": 575,
+        "documentHeight": 1475,
+        "inputY": 6.53125,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -314.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -314.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -245.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -272.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 88.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -61.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1295,
+        "clientHeight": 1295,
+        "overflowY": "visible",
+        "windowY": 575,
+        "documentHeight": 1475,
+        "inputY": 6.53125,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -314.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -314.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -245.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -272.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 448.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -61.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1151,
+        "clientHeight": 1151,
+        "overflowY": "visible",
+        "windowY": 431,
+        "documentHeight": 1331,
+        "inputY": 150.53125,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -170.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -170.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -101.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -128.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 448.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 82.59375,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 286,
+          "clientHeight": 286,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 290.796875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 265,
+          "clientHeight": 265,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 290.796875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 360,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1316,
+        "clientHeight": 1316,
+        "overflowY": "visible",
+        "windowY": 596,
+        "documentHeight": 1496,
+        "inputY": -14.46875,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -335.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -335.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -266.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -293.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -82.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1316,
+        "clientHeight": 1316,
+        "overflowY": "visible",
+        "windowY": 596,
+        "documentHeight": 1496,
+        "inputY": -14.46875,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -335.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -335.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -266.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -293.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 67.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -82.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1316,
+        "clientHeight": 1316,
+        "overflowY": "visible",
+        "windowY": 596,
+        "documentHeight": 1496,
+        "inputY": -14.46875,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -335.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -335.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -266.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -293.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -82.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1172,
+        "clientHeight": 1172,
+        "overflowY": "visible",
+        "windowY": 452,
+        "documentHeight": 1352,
+        "inputY": 129.53125,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -191.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -191.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -122.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -149.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 61.59375,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 286,
+          "clientHeight": 286,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 290.796875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 265,
+          "clientHeight": 265,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 290.796875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 320,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1389,
+        "clientHeight": 1389,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1569,
+        "inputY": 54.53125,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 169.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -218.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 496.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -13.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1389,
+        "clientHeight": 1389,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1569,
+        "inputY": 54.53125,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 169.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -218.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 136.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -13.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1389,
+        "clientHeight": 1389,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1569,
+        "inputY": 54.53125,
+        "privateRows": 5,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 169.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -218.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 496.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": -13.40625,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1245,
+        "clientHeight": 1245,
+        "overflowY": "visible",
+        "windowY": 525,
+        "documentHeight": 1425,
+        "inputY": 129.53125,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -264.5,
+            "height": 169.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -264.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -143.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -222.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": {
+            "top": 427.53125,
+            "height": 364.9375,
+            "marginTop": "24px",
+            "marginBottom": "24px"
+          },
+          ".calendar-toolbar": null,
+          ".experience-sessions>header": {
+            "top": 61.59375,
+            "height": 22.9375,
+            "marginTop": "0px",
+            "marginBottom": "16px"
+          },
+          ".experience-sessions>p": null
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 286,
+          "clientHeight": 286,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 310.296875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 265,
+          "clientHeight": 265,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 97.796875,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 310.296875,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 7390,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 7390,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 7390,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 299,
+        "scrollHeight": 1138,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 97.640625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -173,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -173,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -168.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -139,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -95.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": 3.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 36.140625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 274,
+        "scrollHeight": 1102,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 157.140625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -113.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -113.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -108.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -79.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -36,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": 63,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 95.640625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4699,
+        "clientHeight": 4699,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4880,
+        "inputY": 33.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -258.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -80.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -47.609375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4699,
+        "clientHeight": 4699,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4880,
+        "inputY": 33.390625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -258.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -80.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -47.609375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4699,
+        "clientHeight": 4699,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4880,
+        "inputY": 33.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -258.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -80.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -47.609375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1028,
+        "clientHeight": 1028,
+        "overflowY": "visible",
+        "windowY": 309,
+        "documentHeight": 1209,
+        "inputY": 304.890625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -48.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -48.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -48.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -10.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": 32.75,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 210.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 243.390625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 360,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4755,
+        "clientHeight": 4755,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4936,
+        "inputY": 89.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -24.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 8.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4755,
+        "clientHeight": 4755,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4936,
+        "inputY": 89.390625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -24.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 8.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4755,
+        "clientHeight": 4755,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4936,
+        "inputY": 89.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -24.25,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 8.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1104,
+        "clientHeight": 1104,
+        "overflowY": "visible",
+        "windowY": 384,
+        "documentHeight": 1284,
+        "inputY": 305.390625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -123.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -123.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -58.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -85.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": 13.75,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 191.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 224.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 260.5,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 260.5,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 320,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4815,
+        "clientHeight": 4815,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4996,
+        "inputY": 149.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 35.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 68.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4815,
+        "clientHeight": 4815,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4996,
+        "inputY": 149.390625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 35.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 68.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4815,
+        "clientHeight": 4815,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4996,
+        "inputY": 149.390625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -274.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -301.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -202.25,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 35.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 68.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1164,
+        "clientHeight": 1164,
+        "overflowY": "visible",
+        "windowY": 444,
+        "documentHeight": 1344,
+        "inputY": 305.390625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -183.5,
+            "height": 113.25,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -183.5,
+            "height": 57.25,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -118.25,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -145.75,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -46.25,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 191.75,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 224.390625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 330,
+          "clientHeight": 330,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 330,
+          "clientHeight": 330,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 260.5,
+              "height": 93.75,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 260.5,
+              "height": 37.75,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 306.25,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 8086,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 8086,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 8086,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -203.359375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -474,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -469.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -440,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -396.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -297.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -264.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 351,
+        "scrollHeight": 1190,
+        "clientHeight": 839,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 45.640625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -225,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -225,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -220.25,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -191,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -147.5,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -48.5,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -15.859375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 839,
+          "clientHeight": 839,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 131,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 126,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 6562,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -168.859375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -439.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -434.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -405.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -362,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": -263,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -230.359375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 274,
+        "scrollHeight": 1102,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 157.140625,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -113.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -113.5,
+            "height": 53.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -108.75,
+            "height": 44,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -79.5,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -36,
+            "height": 75,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".experience-sessions>header": {
+            "top": 63,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 95.640625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 162,
+              "height": 34,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 157,
+              "height": 44,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4663,
+        "clientHeight": 4663,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4824,
+        "inputY": -1.5625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -359,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -317.203125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -273.703125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -95.703125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -63.0625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4663,
+        "clientHeight": 4663,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4824,
+        "inputY": -1.5625,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -359,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -317.203125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -273.703125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -95.703125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -63.0625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4663,
+        "clientHeight": 4663,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4824,
+        "inputY": -1.5625,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -359,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -359,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -317.203125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -273.703125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -95.703125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -63.0625,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1012,
+        "clientHeight": 1012,
+        "overflowY": "visible",
+        "windowY": 273,
+        "documentHeight": 1173,
+        "inputY": 325.4375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -32,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -32,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -32,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": 9.796875,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": 53.296875,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 231.296875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 263.9375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 263,
+          "clientHeight": 263,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 360,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4703,
+        "clientHeight": 4703,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4884,
+        "inputY": 37.4375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -254.203125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -76.203125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -43.5625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4703,
+        "clientHeight": 4703,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4884,
+        "inputY": 37.4375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -254.203125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -76.203125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -43.5625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4703,
+        "clientHeight": 4703,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 4884,
+        "inputY": 37.4375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -339.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -254.203125,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": -76.203125,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": -43.5625,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1033,
+        "clientHeight": 1033,
+        "overflowY": "visible",
+        "windowY": 313,
+        "documentHeight": 1213,
+        "inputY": 304.9375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -52.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -52.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -52.5,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -10.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": 32.796875,
+            "height": 158,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 210.796875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 243.4375,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 263,
+          "clientHeight": 263,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 320,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4819,
+        "clientHeight": 4819,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 5000,
+        "inputY": 153.4375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -270.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -198.203125,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 39.796875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 72.4375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4819,
+        "clientHeight": 4819,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 5000,
+        "inputY": 153.4375,
+        "privateRows": 0,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -270.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -198.203125,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 39.796875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 72.4375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 4819,
+        "clientHeight": 4819,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 5000,
+        "inputY": 153.4375,
+        "privateRows": 40,
+        "blocks": {
+          ".task-header": {
+            "top": -339.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -339.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -270.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -297.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -198.203125,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 39.796875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 72.4375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1168,
+        "clientHeight": 1168,
+        "overflowY": "visible",
+        "windowY": 449,
+        "documentHeight": 1349,
+        "inputY": 304.4375,
+        "privateRows": 3,
+        "blocks": {
+          ".task-header": {
+            "top": -188.5,
+            "height": 117.296875,
+            "marginTop": "0px",
+            "marginBottom": "24px"
+          },
+          ".task-header>div": {
+            "top": -188.5,
+            "height": 61.296875,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-reload": {
+            "top": -119.203125,
+            "height": 48,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".task-header>div>p:last-child": {
+            "top": -146.703125,
+            "height": 19.5,
+            "marginTop": "0px",
+            "marginBottom": "0px"
+          },
+          ".experience-task-grid": null,
+          ".calendar-toolbar": {
+            "top": -47.203125,
+            "height": 218,
+            "marginTop": "0px",
+            "marginBottom": "20px"
+          },
+          ".experience-sessions>header": {
+            "top": 190.796875,
+            "height": 24.640625,
+            "marginTop": "0px",
+            "marginBottom": "8px"
+          },
+          ".experience-sessions>p": {
+            "top": 223.4375,
+            "height": 39,
+            "marginTop": "0px",
+            "marginBottom": "13px"
+          }
+        }
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 284,
+          "clientHeight": 284,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 263,
+          "clientHeight": 263,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0,
+          "blocks": {
+            ".task-header": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "24px"
+            },
+            ".task-header>div": {
+              "top": 241,
+              "height": 41.796875,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".experience-reload": {
+              "top": 241,
+              "height": 48,
+              "marginTop": "0px",
+              "marginBottom": "0px"
+            },
+            ".task-header>div>p:last-child": null,
+            ".experience-task-grid": null,
+            ".calendar-toolbar": null,
+            ".experience-sessions>header": null,
+            ".experience-sessions>p": null
+          }
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    }
+  ],
+  "errors": []
+}

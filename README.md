@@ -1,6 +1,38 @@
 # AcademyOS application foundation
 
-Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Operational modules and production launch are still to be built and accepted.
+Product purpose: make academy operations clear, efficient and under the Owner's control, with safe delegation and a separate complete Platform business workspace. Use the [outcome and simplicity specification](docs/06-delivery/master-plan-v2/product-outcomes-and-simplicity.md) and [finance redesign rules](docs/06-delivery/master-plan-v2/finance-simplification-and-control.md); retain useful PYSA jobs without copying its defects or unnecessary work.
+
+## Canonical product and delivery plan —7November2026
+
+[Canonical master plan v2](docs/06-delivery/master-plan-v2/README.md). The new master package is the planning entry point for complete product/reference reconciliation, Operations redesign, sport/resource and tenant models, local/PWA behavior and coherent delivery batches. Prior source/evidence and accepted rules remain; the existing single execution tracker and living continuation select current work.
+
+## Installable web app track — 6 November 2026
+
+Follow the [PWA delivery/readiness contract](docs/06-delivery/pwa-delivery-and-readiness.md) and [PW traceability](docs/06-delivery/pwa-delivery-traceability.csv). Installation identity/launch, worker/storage updates and installed-device verification are supporting EX-14/15/16 packages alongside normal Attendance and remaining redesign. Existing protected data/sync remains the foundation; no second app or offline engine. Manifest/icons and actual installed acceptance are still planned. The [tracker](docs/06-delivery/experience-execution.csv) and [living prompt](docs/06-delivery/continue-academyos.md) retain one current primary and separate installation, offline-coverage and whole-app results.
+
+**Current delivery:** The EX-13 Owner Players/Calendar foundation has scoped source/local/hosted proof on promoted1347470. **EX-07 normal Attendance integration is current**, with wider evidence and app-wide Operations work retained. [Current handoff](docs/07-handoff/ex07-normal-attendance-integration-2026-11-05.md) · [normal-workspace contract](docs/06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) · [living continuation](docs/06-delivery/continue-academyos.md).
+
+**Latest execution order4November:** [Role-first/offline checkpoint](docs/07-handoff/role-first-offline-sequence-2026-11-04.md) selects EX-12 isolated accounts/exact cleanup, then EX-11 working private register pilot, EX-13 progressive Players/month data, then remaining EX-07 redesign. Retain completed Operations work; actual access/activation/promotion authority and separate evidence remain. Older same-day EX-07-first notes below are superseded.
+
+AI delivery method: follow the [bounded Sol/Terra policy](docs/00-governance/ai-delegation-and-cost-policy.md). Scripts first; zero/one Terra helper by default, maximum two active subagents, no nested spawning; coordinator retains decisions/integration and actual evidence. This changes delivery method, not product/access authority or the current tracked priority.
+
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](docs/00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](docs/06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
+**Current design and continuation — 4 November 2026:** use the [Operations reference](docs/03-design/operations-design-reference.md), [full redesign plan](docs/06-delivery/full-experience-redesign.md) and [master implementation plan](docs/06-delivery/app-implementation-plan.md). Operations is light by default with a Charcoal alternative; the complete working experience, including controls, density, flow and recovery, is the target. Existing Owner shell/Today is preserved. The [tracker](docs/06-delivery/experience-execution.csv) routes safe online EX-07 adoption while private offline acceptance stays gated. Continue with **“Continue from the living continuation prompt.”** [Reconciliation/evidence](docs/07-handoff/operations-plan-reconciliation-2026-11-04.md).
+
+Latest2November2026 local-first clarification: retained month/three-month datasets and offline local edits/reconnect are the Owner-directed target; no inactivity lock or proposed24hour cutoff;30day/logout replica cleanup selected. Read the [offline-edit/conflict contract](docs/04-engineering/offline-edit-and-conflict-contract.md) and current generated continuation for remaining exact domain/device/security gates. Current online commands are unchanged until the corresponding slice is implemented.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The intended experience now retains permitted datasets on the device across visits, opens covered tasks locally and synchronizes changed data quietly. [local-data and sync plan](docs/06-delivery/local-data-and-sync-plan.md) is the canonical current target; exact private-field/device/retention/offline-write choices remain gated. Current app functionality and deployed evidence are unchanged by this planning checkpoint. Continue using the generated continuation prompt; the old summary-only storyboard is superseded.
+
+Working-day continuation —2November2026: use **“Continue from the living continuation prompt.”** The [generated instruction](docs/06-delivery/continue-academyos.md) derives its single current priority from the [execution tracker](docs/06-delivery/experience-execution.csv). The ordered route includes [EX-10 working-behaviour/architecture readiness](docs/03-design/academy-working-behavior-contract.md), the scoped shared-loading pilot and [EX-11 operating acceptance](docs/06-delivery/academy-working-day-acceptance.md). Use the tracker's current row rather than restarting those checkpoints. The [case register](docs/06-delivery/academy-working-day-cases.csv) is planned coverage, not executed proof. Private caching/persistence/offline choices remain explicitly pending.
+
+Current delivery priority: [connected experience execution and finding closure](docs/06-delivery/experience-execution.md). This joins the master plan, approved redesign and request-hygiene remediation; it does not mark the redesign complete.
+
+Current design-to-build tracking: [the application implementation plan](docs/06-delivery/app-implementation-plan.md) connects the accepted Charcoal spectrum design, existing source, shared components and per-action acceptance gates. Its screen/action/requirement registers preserve separate implementation, verification, deployment and owner-approval status.
+
+Private English/Arabic staging is deployed at https://staging.academy.nahr.dev. Clerk sign-in and the initial Supabase identity/membership boundary work; no academy access is granted by signup alone. Implemented operational subsets and remaining feature/verification/acceptance gates are recorded in the current tracker and action matrix; production launch remains separately authorized.
 
 **Current setup documentation starts at [the ordered setup index](docs/07-handoff/setup-index.md).** It links the execution history, actual configuration/credential-name register, evidence and remaining work. Older handbook/onboarding statements below are historical and must not override current receipts.
 
@@ -67,3 +99,7 @@ This is the starting point for building AcademyOS. It brings the product vision,
 Every implementation slice should name its requirement IDs, affected workflows, permission checks and acceptance cases. Record evidence against the actual commit, migration state, environment and provider mode. Keep proposed configurations separate from actual settings. Never store passwords, API keys, recovery codes, real child records or authenticated browser state in these documents.
 
 The pack is detailed enough to plan and review implementation. Open decisions, account-specific identifiers, provider eligibility and unexecuted acceptance checks remain explicit. It does not certify a working or production-ready application.
+
+Staging sign-in: [staging.academy.nahr.dev](https://staging.academy.nahr.dev/en/sign-in) now opens directly under owner-approved Vercel Standard Protection. AcademyOS still enforces identity and academy permissions; preview/generated deployment URLs remain protected. See [current access evidence](docs/07-handoff/staging-direct-access.md).
+
+Whole-app experience review: [one offline HTML baseline](design/app-experience-review/AcademyOS-experience-review.html), [coverage and update instructions](design/app-experience-review/README.md). Actual component captures use fictional local adapters; provider-owned and uncaptured states remain explicit.

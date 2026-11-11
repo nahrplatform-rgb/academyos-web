@@ -1,5 +1,9 @@
 # Notifications, privacy requests, reporting and exports
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Local replica deletion/retention/key/index/backup and disconnected devices must join privacy workflows. A signed download URL does not grant indefinite local access. Exports/frozen reports remain scoped, explicit and coverage-aware; no private database backup disguised as cache. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-105–116. Retention and legal policy remain D-015; channels and quiet hours remain D-014. Country-specific legal review follows D-001/D-019 and is not replaced by this engineering plan.
 
 ## Notification intent and delivery

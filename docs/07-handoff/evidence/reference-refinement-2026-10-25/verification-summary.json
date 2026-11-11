@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "node": "24.14.0",
+  "source_sha256": {
+    "apps/web/src/components/workspace-panes.tsx": "a1004fa3c8499c872e18a9a49c9ed1f0cc46bd04c70dd6ee0a1f09567a1f5d14",
+    "apps/web/src/components/onboarding-workspace.tsx": "dd5b04f28ac68247d87c8140675b854d98e12cf8ea619c53ae3cc848ba700665",
+    "apps/web/src/components/people-workspace.tsx": "995956da350e821a880a6ccf16d16bdaf9a54915b6d3b17eda15443d669bee54",
+    "apps/web/src/components/workspace-shell.tsx": "5a5a955e0a318d362ab5cea963a762bb1e5a09280c4a4c4a3888bc46cfe5512f",
+    "apps/web/src/components/trainer-workspace.tsx": "d536acb36c068f9ae4de8e87544c7ff11ef942986c43a4e16fb04648b17fac6d",
+    "apps/web/src/components/guardian-workspace.tsx": "e494879177bc6d41553bf0069ba80d9799ce79637838377189e799038c084733",
+    "apps/web/src/components/admission-directory.tsx": "76aa25944af6d1781785b0d6c04b9103d4c5d5cc5c3545abd0b5f1f4785a9d0f",
+    "apps/web/src/app/globals.css": "9e15a602b84934854d51afcc573cfa1010cbfd99f1bd2ffd8dfcafbd31a56d5b",
+    "scripts/onboarding/test_ui.mjs": "6b8fec1b077a19434dd66199772d9fc375642713769e2611d7676fcbf4f83812",
+    "scripts/people/test_ui.mjs": "7f8d6ab0fde271f766a16e9b9f64c796ee030820eb8cd67994799eb9e6883be7",
+    "scripts/guardians/test_ui.mjs": "d4c3014e786315523cbd8486660e7517867a8b98bcde3cdce66a4854101efb50",
+    "scripts/trainers/test_ui.mjs": "4ce2c3e2a567949c10e7916d312f8b7ee4d874cf081dc27eec4bcb57605cff8e"
+  },
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": "passed; zero warnings",
+    "unit": "39 passed",
+    "foundation_e2e": "7 passed",
+    "ui": "onboarding, people, guardian, trainer production and development passed",
+    "matrices": "68 screens, 30 action groups, 180 preserved requirement joins",
+    "markdown": "651 relative targets; zero missing"
+  },
+  "evidence_scope": "Actual components with synthetic identity/HTTP adapters; no hosted security or physical device acceptance",
+  "original_reference_sha256": "6941598aa7ecfe25b8f44e5b81ba20ee4fc4acaf119626a3c92e93f08d68ccb9"
+}

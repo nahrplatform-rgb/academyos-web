@@ -1,0 +1,66 @@
+[
+  {
+    "case": "desktop keyboard selection retains directory and focuses inspector",
+    "pass": true
+  },
+  {
+    "case": "Back returns to originating player row",
+    "pass": true
+  },
+  {
+    "case": "checkbox cannot skip remaining matching-candidate page",
+    "pass": true
+  },
+  {
+    "case": "new registration review does not show proposed draft as saved row",
+    "pass": true
+  },
+  {
+    "case": "confirmed demo registration connects to selected profile in three-pane frame",
+    "pass": true
+  },
+  {
+    "case": "Escape cannot abandon unknown original operation",
+    "pass": true
+  },
+  {
+    "case": "inspector Close cannot abandon unknown original operation",
+    "pass": true
+  },
+  {
+    "case": "explicit original-operation check recovers demo profile",
+    "pass": true
+  },
+  {
+    "case": "phone contextual summary opens full width and focuses heading",
+    "pass": true,
+    "initialExactEqualityResult": false,
+    "assertionCorrection": "Use <1 CSS pixel tolerance for fractional bounding rectangles; verified again at actual 320px CSS width"
+  },
+  {
+    "case": "phone context Back restores context opener",
+    "pass": true
+  },
+  {
+    "case": "phone selection becomes full-width detail without squeezed columns",
+    "pass": true,
+    "initialExactEqualityResult": false,
+    "assertionCorrection": "Use <1 CSS pixel tolerance for fractional bounding rectangles; verified again at actual 320px CSS width"
+  },
+  {
+    "case": "phone selected detail Back returns focus to list row",
+    "pass": true
+  },
+  {
+    "case": "Owner appointment inspector deliberately reveals exact fictional recipient",
+    "pass": true
+  },
+  {
+    "case": "restricted Trainer view adds no academy name or player roster",
+    "pass": true
+  },
+  {
+    "case": "EN and RTL desktop regions follow opposite reference order",
+    "pass": true
+  }
+]

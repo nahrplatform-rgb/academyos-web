@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Actual disposable PG17 functions; excludes HTTP/identity/provider/hosted/device cost",
+  "roster": 1001,
+  "response_bytes": 2476,
+  "measurements": {
+    "read": {
+      "samples": 50,
+      "p95_ms": 1.0033999999999998,
+      "max_ms": 8.785
+    },
+    "review": {
+      "samples": 50,
+      "p95_ms": 1.0636999999999996,
+      "max_ms": 6.899
+    },
+    "save_rolled_back": {
+      "samples": 50,
+      "p95_ms": 1.4429999999999998,
+      "max_ms": 8.612
+    }
+  }
+}

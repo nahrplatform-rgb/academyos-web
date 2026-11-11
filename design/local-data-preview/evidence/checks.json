@@ -1,0 +1,370 @@
+{
+  "scope": "Synthetic connected design preview; real browser IndexedDB transactions/process restart; simulated source/sign-in/lease/denial/write receipt",
+  "browserPath": "Browser plugin and browser skill not listed; regular Playwright used for local synthetic preview",
+  "htmlSha256": "9e3b0a77b2359267d8459d8989810152a3a7d1f3b7a05bce39b9681914dcf150",
+  "checks": [
+    {
+      "name": "Shared-device online demonstration retains no player/session rows",
+      "status": "passed"
+    },
+    {
+      "name": "First page and resumable cursor commit together; partial is not complete",
+      "status": "passed",
+      "storedRows": 50,
+      "total": 64
+    },
+    {
+      "name": "Reload stays locked, then resumes original snapshot without repeating first page",
+      "status": "passed",
+      "remainingSnapshotPages": 7
+    },
+    {
+      "name": "Browser process restart reopens real persisted rows; unchanged check transfers zero dataset pages",
+      "status": "passed",
+      "retainedRows": 192,
+      "versionChecks": 2,
+      "snapshotPages": 0
+    },
+    {
+      "name": "Covered navigation, indexed late-page name search, day selection and inspector cause zero fixture exchanges",
+      "status": "passed"
+    },
+    {
+      "name": "Aborted change transaction preserves rows plus revision and unsaved input",
+      "status": "passed",
+      "failure": "Injected real IDB transaction abort, not a physical quota fault"
+    },
+    {
+      "name": "Sparse changes move/update/remove exactly four records, advance checked revisions and retain focus/selection/input",
+      "status": "passed"
+    },
+    {
+      "name": "Failed version check retains last-checked data and dirty input",
+      "status": "passed"
+    },
+    {
+      "name": "Dirty navigation has native dialog, Escape preserves task and explicit leave discards",
+      "status": "passed"
+    },
+    {
+      "name": "Already-open disconnected tab reads covered local records without a fetch; commands/checks unavailable",
+      "status": "passed"
+    },
+    {
+      "name": "Missing period differs from checked-empty; empty completion prevents repeated snapshot download",
+      "status": "passed"
+    },
+    {
+      "name": "Separate Academy B namespace remains complete-empty and never renders A records",
+      "status": "passed"
+    },
+    {
+      "name": "Original synthetic save identity survives refresh and replica removal; reconciliation uses the same ID",
+      "status": "passed"
+    },
+    {
+      "name": "Two-tab preparation uses Web Locks and committed-data invalidation",
+      "status": "passed",
+      "combinedNewSnapshotPages": 8,
+      "expectedSingleBootstrapPages": 8,
+      "limitation": "Does not establish product cross-tab authority or leader-crash correctness"
+    },
+    {
+      "name": "Simulated expiry/clock uncertainty locks private views pending simulated online verification",
+      "status": "passed"
+    },
+    {
+      "name": "Known simulated denial survives reopening and cannot be unlocked by a late local result",
+      "status": "passed"
+    },
+    {
+      "name": "Expired partial snapshot discards staged directory only, preserves completed month, then rebases bounded pages",
+      "status": "passed"
+    },
+    {
+      "name": "Locale change preserves typed search; Arabic name-prefix index returns covered rows",
+      "status": "passed"
+    },
+    {
+      "name": "Quiet snapshot commit preserves focused Calendar result control",
+      "status": "passed"
+    },
+    {
+      "name": "Review reset accurately declares and removes all fictional scopes and synthetic operation references",
+      "status": "passed"
+    },
+    {
+      "name": "Removed focused result falls back to current task instead of lost body focus",
+      "status": "passed"
+    },
+    {
+      "name": "EN/AR dark/light layout matrix has no document overflow",
+      "status": "passed",
+      "combinations": 24,
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        1280,
+        1440
+      ]
+    },
+    {
+      "name": "Settled dark/light body and representative action contrast exceeds 4.5:1",
+      "status": "passed",
+      "spotChecks": [
+        {
+          "mode": "dark",
+          "selector": "body",
+          "ratio": 14.621975737524789
+        },
+        {
+          "mode": "dark",
+          "selector": "#mode",
+          "ratio": 11.272570831103991
+        },
+        {
+          "mode": "dark",
+          "selector": "#sync",
+          "ratio": 11.527762787959967
+        },
+        {
+          "mode": "light",
+          "selector": "body",
+          "ratio": 13.673706715238147
+        },
+        {
+          "mode": "light",
+          "selector": "#mode",
+          "ratio": 12.701243887997734
+        },
+        {
+          "mode": "light",
+          "selector": "#sync",
+          "ratio": 14.231286785468608
+        }
+      ]
+    },
+    {
+      "name": "Phone navigation contains/restores keyboard focus and optional details close with Escape to the opener",
+      "status": "passed"
+    },
+    {
+      "name": "Unavailable IndexedDB fails closed; no volatile result is labelled durable",
+      "status": "passed"
+    },
+    {
+      "name": "Page identity, meaningful content, no framework overlay/runtime errors, no external or operating-service requests",
+      "status": "passed"
+    }
+  ],
+  "layouts": [
+    {
+      "locale": "en",
+      "width": 320,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "mode": "light"
+    },
+    {
+      "locale": "en",
+      "width": 360,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 360,
+      "mode": "light"
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "mode": "light"
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "mode": "light"
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "mode": "light"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "mode": "dark"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 1280,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 1280,
+      "mode": "light"
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "mode": "dark"
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "mode": "light"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "operatingServiceRequests": 0,
+  "measures": {
+    "interruptedPreparation": {
+      "checks": 3,
+      "pages": 8,
+      "bytes": 64273,
+      "storedRows": 192
+    },
+    "unchangedReopen": {
+      "manifests": 2,
+      "pages": 0,
+      "deltas": 0,
+      "bytes": 249
+    },
+    "localQuerySamples": [
+      1.2999999523162842,
+      0.800000011920929,
+      1,
+      0.6000000238418579,
+      1.300000011920929,
+      1.300000011920929,
+      1.4000000357627869,
+      1.300000011920929,
+      0.9000000357627869,
+      1.5,
+      0.5,
+      0.5,
+      0.800000011920929,
+      0.6000000238418579,
+      0.800000011920929,
+      1.300000011920929,
+      1.399999976158142,
+      1.199999988079071,
+      1,
+      1.2999999523162842,
+      0.9000000357627869,
+      1.100000023841858,
+      0.8999999761581421,
+      0.8999999761581421,
+      0.800000011920929,
+      0.8999999761581421,
+      1.0999999642372131,
+      1.2000000476837158,
+      0.9000000357627869,
+      1,
+      1,
+      1,
+      1.100000023841858,
+      1.2999999523162842,
+      1,
+      1.199999988079071,
+      1.100000023841858,
+      1.5,
+      1.100000023841858,
+      1.100000023841858,
+      1.100000023841858,
+      0.699999988079071,
+      0.800000011920929,
+      0.699999988079071,
+      0.699999988079071,
+      0.800000011920929,
+      1.300000011920929,
+      2,
+      0.5
+    ],
+    "profile": {
+      "node": "v24.14.0",
+      "browser": "156.0.8078.4",
+      "viewport": "1440x1000 and declared responsive matrix",
+      "source": "all fixture exchanges in same browser process; no artificial network comparison",
+      "dataset": "128 players;64 November sessions;24 each adjacent month;empty February",
+      "latency": "500ms per synthetic snapshot page;450ms per synthetic change page, expressly not network performance"
+    }
+  },
+  "captures": "/var/folders/pg/dj4sr3bn5yx7gy5kk39gp03w0000gn/T/academyos-local-data-preview",
+  "limits": [
+    "Not app/source/API/DB/hosted verification",
+    "No production, real account/data or access change",
+    "Unlock and lease are simulations; rows unencrypted fictional data",
+    "No physical quota/eviction, Safari/iOS/Android or assistive technology proof",
+    "No offline cold app shell or closed-tab background guarantee",
+    "No product offline write queue/security approval",
+    "40-date program and18-player register remain existing reference cases, not implemented by this preview"
+  ]
+}

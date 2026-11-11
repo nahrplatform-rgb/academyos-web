@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{attendanceRequest,isAttendanceReceipt}from'./attendance';import{gatewayRequest}from'./onboarding-gateway';
+const a='00000000-0000-4000-8000-000000000001',event='00000000-0000-4000-8000-000000000002';
+const mark={action:'mark',academy:a,event,player:a,status:'present',version:0,reason:null,captured_at:'2026-10-28T12:00:00.000Z',op:a};
+test('attendance fixed command shapes and signed read/write classification',()=>{for(const body of[{action:'roster',academy:a,event},{action:'history',academy:a,event,player:a},mark,{action:'reconcile',academy:a,event,op:a}]){const r=attendanceRequest(body);assert.equal(r.mutating,['mark','reconcile'].includes(body.action));assert.equal(gatewayRequest('https://snpphkenmvmhpjstbeul.supabase.co/rest/v1/rpc/'+r.rpc,{method:'POST'}).mutating,r.mutating);}assert.equal(attendanceRequest(mark).args.reason,null);});
+test('attendance rejects authority injection, invalid intents, windows and cursors',()=>{for(const patch of[{role:'owner'},{subject:'user_owner'},{status:'late'},{status:null},{version:-1},{version:Infinity},{reason:''},{reason:'x'.repeat(501)},{captured_at:'not-time'},{captured_at:'infinity'},{captured_at:'2026-02-30T12:00:00Z'},{player:'foreign'},{op:null},{event:null},{published:true}])assert.throws(()=>attendanceRequest({...mark,...patch}));for(const before of[0,-1,1.5,'2'])assert.throws(()=>attendanceRequest({action:'history',academy:a,event,player:a,before}));assert.throws(()=>attendanceRequest({action:'roster',academy:a,event,after:'unsafe'}));});
+
+test('only correlated committed attendance receipts authorize client success',()=>{const r={event,player:a,status:'present',version:1};assert.equal(isAttendanceReceipt(r,event),true);for(const bad of[null,{},[],{...r,event:a},{...r,player:'bad'},{...r,status:'late'},{...r,version:0},{cancelled:true}])assert.equal(isAttendanceReceipt(bad,event),false);});
+
+test('register validates the full bounded changed-only set and fixed gateway authority',()=>{
+ const body={action:'register',academy:a,event,marks:[{player:a,status:'present',version:0}],captured_at:mark.captured_at,op:a};
+ const r=attendanceRequest(body);assert.equal(r.rpc,'a10_register_v1');assert.equal(r.mutating,true);assert.equal(gatewayRequest('https://snpphkenmvmhpjstbeul.supabase.co/rest/v1/rpc/'+r.rpc,{method:'POST'}).mutating,true);
+ for(const marks of[[],[{player:a,status:'present',version:1}],[{player:a,status:'late',version:0}],[{player:a,status:'present',version:0,role:'owner'}],[body.marks[0],body.marks[0]],Array(1001).fill(body.marks[0])])assert.throws(()=>attendanceRequest({...body,marks}));
+});

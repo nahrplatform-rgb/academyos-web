@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "reactMode": "production",
+  "scope": "Actual product React with synthetic identity/HTTP; not database/hosted proof",
+  "requests": 38,
+  "resumeMetrics": {
+    "pairedReturn": {
+      "reads": 6,
+      "actions": [
+        "links",
+        "schedule",
+        "detail",
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "laterFocus": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "reconnect": {
+      "reads": 3,
+      "actions": [
+        "links",
+        "schedule",
+        "detail"
+      ]
+    },
+    "stalledLinks": {
+      "reads": 3,
+      "privateContentMasked": true,
+      "selectedSessionRestored": true
+    }
+  },
+  "cases": [
+    "own corrected mark and unmarked distinction",
+    "no attendance capture controls",
+    "paged sessions/calendar coverage",
+    "player switch clears details",
+    "actual delayed fetch discarded on switch",
+    "period/detail failure and retry",
+    "EN/AR320/360/926/1440 layout",
+    "focus revalidates and denial clears private view",
+    "account remount",
+    "EX02 paired return counts",
+    "later focus and reconnect remain fresh",
+    "stalled links mask private content then restore selected session",
+    "read-only actions only"
+  ],
+  "errors": []
+}

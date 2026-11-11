@@ -1,0 +1,233 @@
+{
+  "ui": "passed",
+  "reactMode": "development",
+  "resumeMetrics": {
+    "cleanPairedReads": 1,
+    "laterFocusReads": 1,
+    "unknownReturnRequests": 0,
+    "dirtyReturnRequests": 0
+  },
+  "admissionMetrics": {
+    "localFilterReads": 0,
+    "layouts": [
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 320,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 360,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 390,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 768,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 1280,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "light",
+        "width": 1600,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 320,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 360,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 390,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 768,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 1280,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "en",
+        "theme": "dark",
+        "width": 1600,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 320,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 360,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 390,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 768,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 1280,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "light",
+        "width": 1600,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 320,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 360,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 390,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 768,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 1280,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      },
+      {
+        "locale": "ar",
+        "theme": "dark",
+        "width": 1600,
+        "localInteractionReads": 0,
+        "pairedResumeReads": 1
+      }
+    ]
+  },
+  "browserVersion": "156.0.8078.4",
+  "harnessSha256": "28b0544d059ec2e5d7d2c157b91413c5b9f4710dc89a6a224ecdca4e614087c0",
+  "implementationSha256": {
+    "src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
+    "src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
+    "src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+    "src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
+    "src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "src/app/globals.css": "944cd2b848fb59fe41668080e288968f551ac1346edc744d46d8a68c7e5a2b5c",
+    "src/lib/timezones.json": "3f4d86e1bb7e60b749260489dd7cd0665550b291562e442bbf2ee922301d9e6d"
+  },
+  "handoffRace": "zero early reviews; one exchange across identity resolution; failed exchange stays failed",
+  "path": "create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh",
+  "admission": "central EN/AR creation 320/390/768/1440; native review Escape/contained focus/trigger restore; lost-create receipt closes form without second create; two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details",
+  "authEntry": "EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery",
+  "phone": "EN/AR 360px no overflow",
+  "keyboardProfiles": [
+    {
+      "locale": "en",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    }
+  ],
+  "keyboardScope": "Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified",
+  "revocation": "private setup removed after denial",
+  "identityRace": "delayed A response and unsaved A draft excluded after B identity change",
+  "scope": "synthetic transport/identity; not hosted security evidence"
+}

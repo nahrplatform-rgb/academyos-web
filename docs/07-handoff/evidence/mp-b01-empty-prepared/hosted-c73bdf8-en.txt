@@ -1,0 +1,116 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "AcademyOS":
+    - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+    - generic: A
+    - text: AcademyOS
+  - button "Hide navigation" [expanded]
+  - navigation "Breadcrumb":
+    - link "Workspace home":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+      - text: AcademyOS M1 Synthetic Academy
+    - text: /
+    - strong: Players
+    - generic: Academy Owner
+  - generic: Staging
+  - link "العربية" [active]:
+    - /url: "#language"
+  - button "Dark mode"
+  - generic "Layout"
+  - generic "Device"
+  - generic "Account"
+- complementary:
+  - paragraph: AcademyOS M1 Synthetic Academy
+  - strong: Academy Owner
+  - link "Switch workspace":
+    - /url: /en/workspace
+  - navigation "Workspace navigation":
+    - paragraph: Workspace
+    - link "Today":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/home
+      - generic: Today
+    - link "Academy setup":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e
+      - generic: Academy setup
+    - paragraph: People
+    - link "Players":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players
+      - generic: Players
+    - link "Trainer appointments":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+      - generic: Trainer appointments
+    - paragraph: Training
+    - link "Calendar":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar
+      - generic: Calendar
+    - link "Training programs":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+      - generic: Training programs
+    - paragraph: Attendance
+    - link "Session scanner":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/scan
+      - generic: Session scanner
+    - link "Attendance settings":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/settings
+      - generic: Attendance settings
+    - link "Correction requests":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections
+      - generic: Correction requests
+    - paragraph: Development
+    - link "Development feedback":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+      - generic: Development feedback
+  - paragraph: Staging · Synthetic data only
+- separator "Resize navigation"
+- main:
+  - button "Hide details" [expanded]
+  - heading "Players" [level=1]
+  - paragraph: AcademyOS M1 Synthetic Academy · Synthetic Main Branch
+  - heading "Player directory" [level=2]
+  - button "Register player"
+  - generic: Find a player by name
+  - textbox "Find a player by name"
+  - paragraph: 4 players on this page
+  - table "Player directory":
+    - caption: Player directory
+    - rowgroup:
+      - row "Player Branch":
+        - columnheader "Player"
+        - columnheader "Branch"
+    - rowgroup:
+      - row "Synthetic Response Drop 2026-10-25 Synthetic Main Branch":
+        - rowheader "Synthetic Response Drop 2026-10-25":
+          - button "Synthetic Response Drop 2026-10-25"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Race 2026-10-25 Synthetic Main Branch":
+        - rowheader "Synthetic Race 2026-10-25":
+          - button "Synthetic Race 2026-10-25"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Registration Demo 2 Synthetic Main Branch":
+        - rowheader "Synthetic Registration Demo 2":
+          - button "Synthetic Registration Demo 2"
+        - cell "Synthetic Main Branch"
+      - row "Synthetic Registration Demo Synthetic Main Branch":
+        - rowheader "Synthetic Registration Demo":
+          - button "Synthetic Registration Demo"
+        - cell "Synthetic Main Branch"
+  - button "First page"
+  - generic: Up to 25 players per page. Contact details appear only in profiles.
+  - separator "Resize details"
+  - complementary "Contextual details and actions":
+    - heading "Player profile" [level=2]
+    - button "Back to players"
+    - button "Refresh view"
+    - heading "Synthetic Registration Demo" [level=2]
+    - status: Saved player profile
+    - term: Branch
+    - definition: Synthetic Main Branch
+    - term: Unverified contact
+    - definition: demo-contact@example.invalid
+    - paragraph: Saving contact details does not create guardian access. Manage appointments separately.
+    - link "Player QR card":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/card
+    - link "Guardian appointments":
+      - /url: /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians
+- alert

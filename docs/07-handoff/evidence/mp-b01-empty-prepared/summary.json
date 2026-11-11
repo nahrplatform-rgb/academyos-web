@@ -1,0 +1,296 @@
+{
+  "date": "2026-11-08",
+  "execution": "EX-07",
+  "batch": "MP-B01",
+  "source_base": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "state": "Owner_promoted_exact_source_and_scoped_EN_AR_online_Players_verified;prepared_fault_paths_local_CI_only",
+  "outcomes": [
+    "VAL-02",
+    "VAL-09"
+  ],
+  "canonical_work": [
+    "IMP-J06-A01"
+  ],
+  "findings": [
+    "NR07",
+    "NR14",
+    "NR15",
+    "NR17"
+  ],
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
+    "apps/web/src/lib/local-workspace-repository.ts": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
+    "scripts/workspace-download/normal_workspace.mjs": "327a0101125913a85dfd6e95a9ad2ffa2bdc74db2b755efed05f73177d7ccb71",
+    "scripts/workspace-download/empty_prepared_registration.mjs": "8de49c719d77a27891b326438f2786035e2faa68899f63895264835ccd830fc5",
+    "scripts/workspace-download/test_transport.mjs": "a453914b3f276475affdce1ac7d85413a6cdc0aa291c979707d64cde1416b056"
+  },
+  "baseline": "before.json",
+  "harness_observation": "harness-menu.json",
+  "workspace_receipt": "docs/07-handoff/evidence/mp-b01-empty-prepared/transport-c73bdf8.json",
+  "workspace_checks": 70,
+  "compiled_build": {
+    "node": "v24.14.0",
+    "sourceHash": "1b82bb19135b70eb9517c6fbdfe935f4569f6249b8bf5b61f7bf389c67fce651",
+    "artifactHash": "c5cb0b53c20b82b9672740493af78c62aa2db3be3321635db11b5b24c0476921"
+  },
+  "empty_prepared_cases": {
+    "confirmed": {
+      "variant": "confirmed",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "8c6117a7-a9a4-4311-a9db-a329cc52f945"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": {
+        "serviceWorkerDocument": true,
+        "operatingRequests": 0,
+        "unchangedTransferActions": [
+          "manifest"
+        ]
+      },
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "lost_reply": {
+      "variant": "lost_reply",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "03c70221-2fa6-4e3a-8c1e-854d32527e09"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "reconcile",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": true,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "transfer_failure": {
+      "variant": "transfer_failure",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "35bce036-a457-4241-bc14-fc3c62419c11"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "manifest",
+        "page",
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "replacement_race": {
+      "variant": "replacement_race",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "6382e7a5-d9b2-4c06-81ef-a0d9cf97254a"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    },
+    "replacement_before_page": {
+      "variant": "replacement_before_page",
+      "initial": {
+        "registration": null,
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "registration": {
+          "audits": 1,
+          "result": {
+            "version": 1,
+            "player_id": "ce450d5a-181e-4b15-b006-62000f2306d2"
+          },
+          "players": 1,
+          "operations": 1
+        },
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "offlineReopening": null,
+      "peopleActions": [
+        "candidates",
+        "create",
+        "profile"
+      ],
+      "transferActions": [
+        "manifest",
+        "page",
+        "complete"
+      ],
+      "originalIdForwarded": true,
+      "originalReconciled": false,
+      "oneCanonicalResult": true,
+      "pageErrors": []
+    }
+  },
+  "checks": {
+    "build": true,
+    "types": true,
+    "lint": true,
+    "library_units": 103,
+    "people_development": {
+      "requests": 54,
+      "mock_creates": 4,
+      "page_errors": []
+    },
+    "capture_refresh": "passed_all16_for_final_UI_source;protected_pause_states_separate",
+    "documentation": "passed",
+    "people_production": {
+      "peopleUi": "passed",
+      "reactMode": "production",
+      "creates": 4,
+      "errors": [],
+      "scopedRequests": 54
+    },
+    "actual_component_capture_families": 16,
+    "compiled_source_asset_guard_tests": 4,
+    "welcome_entry_captures": 8,
+    "continuation_generator_tests": 17,
+    "canonical_execution_validators": true,
+    "factual_review_freshness": true,
+    "offline_review_tool": true,
+    "startup_runtime_cases": 8,
+    "all_CI_receipt_guards": 13,
+    "receipt_preflight": "receipt-preflight.json",
+    "exact_candidate_CI": {
+      "run": 42508723109,
+      "job": 128816926411,
+      "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+      "passed_steps": 53,
+      "receipt": "ci-c73bdf8.json"
+    },
+    "hosted_positive": {
+      "receipt": "hosted-c73bdf8.json",
+      "scope": "EN/AR online Players directory/profile/short-search return",
+      "prepared_fault_paths_hosted": false
+    }
+  },
+  "local_contract_change": "Read-only updating hint derives from existing final-fenced transfer state;no persisted schema/epoch/writer change",
+  "release": {
+    "new_source": "c73bdf8 pushed;exact-run/job CI42508723109 passed53/53;previewReady and Owner-promoted staging source independently verified.",
+    "staging": "Owner promoted c73bdf8;read-only lookup confirms exact c73bdf89af2a1884afd284a9f4f544039947436a/Ready dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E. Scoped positive EN/AR online Players checked;not hosted failure/race proof.",
+    "agent_promotion": false
+  },
+  "limits": [
+    "Local changed-page503 reproduction does not identify the earlier hosted NR07 cause.",
+    "Manifest failure before any replacement checkpoint is not exercised.",
+    "Zero-directory incompatible-scope/auth combinations,real Clerk expiry,hosted fault/installed/device/performance/Owner acceptance remain separate.",
+    "No request/cost/latency percentile savings claimed;existing exact budgets retained."
+  ],
+  "delegation": {
+    "active_helpers": 0,
+    "reason": "Coordinator-owned sync/read metadata and original integration;bounded direct edits avoided handoff overhead",
+    "usage_savings": "unmeasured"
+  },
+  "implementation_commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+  "ci_failure": "ci-5d8707f-failure.json",
+  "race_baseline": "replacement-race-before.json",
+  "prior_local64_receipt": "transport-5d8707f-local64.json",
+  "race_before_page_baseline": "replacement-before-page-before.json",
+  "code_commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+  "startup_ci_failure": "ci-9ec9d87-stale-startup.json",
+  "release_commit": "c73bdf89af2a1884afd284a9f4f544039947436a"
+}

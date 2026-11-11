@@ -1,0 +1,73 @@
++																384 cell https://staging.academy.nahr.dev/prepared-register
++																	385 text prepared-register
++																386 cell 200 OK
++																392 cell Served from ServiceWorker, resource size: 6.8 kB
++																397 cell https://staging.academy.nahr.dev/prepared-register
++																	399 text ⚙ prepared-register
++																400 cell (failed) net::ERR_INTERNET_DISCONNECTED
++																	401 text (failed) net::ERR_INTERNET_DISCONNECTED
++																407 cell 0.0 kB transferred over network, resource size: 0.0 kB
++																414 cell 200 OK
++																	419 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																421 cell Served from ServiceWorker, resource size: 81.4 kB
++																428 cell 200 OK
++																	433 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																435 cell Served from ServiceWorker, resource size: 2.1 kB
++																442 cell 200 OK
++																	447 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																449 cell Served from ServiceWorker, resource size: 32.9 kB
++																456 cell 200 OK
++																	461 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																463 cell Served from ServiceWorker, resource size: 34.7 kB
++																470 cell 200 OK
++																	475 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																477 cell Served from ServiceWorker, resource size: 145 kB
++																484 cell 200 OK
++																	489 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																491 cell Served from ServiceWorker, resource size: 130 kB
++																498 cell 200 OK
++																	503 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																505 cell Served from ServiceWorker, resource size: 45.1 kB
++																512 cell 200 OK
++																	517 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																519 cell Served from ServiceWorker, resource size: 34.9 kB
++																526 cell 200 OK
++																	531 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																533 cell Served from ServiceWorker, resource size: 208 kB
++																540 cell 200 OK
++																	545 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																547 cell Served from ServiceWorker, resource size: 10.4 kB
++																554 cell 200 OK
++																	559 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																561 cell Served from ServiceWorker, resource size: 14.1 kB
++																568 cell 200 OK
++																	573 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																575 cell Served from ServiceWorker, resource size: 8.1 kB
++																582 cell 200 OK
++																	587 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																589 cell Served from ServiceWorker, resource size: 21.5 kB
++																596 cell 200 OK
++																	601 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																603 cell Served from ServiceWorker, resource size: 41.1 kB
++																610 cell 200 OK
++																	615 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
++																617 cell Served from ServiceWorker, resource size: 8.4 kB
++																625 cell (failed) net::ERR_INTERNET_DISCONNECTED
++																	626 text (failed) net::ERR_INTERNET_DISCONNECTED
++																632 cell 0.0 kB transferred over network, resource size: 0.0 kB
++													636 container 18 requests
++														637 text 18 requests
++													638 container 0 B transferred over network
++														639 text 0 B transferred
++													640 container 824333 B resources loaded by the page
++					650 HTML content AcademyOS · Prepared register, URL: staging.academy.nahr.dev/prepared-register
++								657 heading Synthetic EX11 Offline Register 21:30, Value: 3
++									658 text Synthetic EX11 Offline Register 21:30
++									662 text 2  /  2 loaded from this device
++											667 toggle button (disabled) Present, Value: 0
++											668 toggle button (disabled) Absent, Value: 0
++											669 toggle button (disabled) Unmarked, Value: 1
++											673 toggle button (disabled) Present, Value: 0
++											674 toggle button (disabled) Absent, Value: 0
++											675 toggle button (disabled) Unmarked, Value: 1
++								676 button (disabled) Review register

@@ -1,0 +1,62 @@
+					19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						20 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development#main
+						21 container
+							22 text مساحة مالك الأكاديمية ملاحظات التطور نسخة تجريبية
+							23 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							24 pop up button Open user menu
+						25 container
+							26 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+							27 text مساحة مالك الأكاديمية
+							28 container التنقل في مساحة العمل
+								29 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+								30 link التدريبات والحضور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+								31 link التطور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							32 text بيئة اختبار · بيانات اصطناعية فقط
+						33 container
+							34 heading تطور اللاعبين, Value: 1
+								35 text تطور اللاعبين
+							36 button تحديث العرض
+							37 text اكتب بعد التدريب وراجع الإصدار بالتحديد ثم شارك المنشور مع الأسرة المعتمدة.
+							38 button التقييمات
+							39 button لاعبو التدريب
+							40 container
+								41 text تصفية المراجعة
+								42 pop up button تصفية المراجعة, Value: كل التقييمات المحفوظة
+							43 heading التقييمات, Value: 2
+								44 text التقييمات
+							45 content list
+								46 toggle button Synthetic Registration Demo مسحوب, Value: 1
+									47 text Synthetic Registration Demo
+									48 text مسحوب
+							49 button (disabled) الصفحة السابقة
+							50 button (disabled) الصفحة التالية
+							51 container التفاصيل والإجراءات السياقية
+								52 container
+									53 heading تفاصيل الملاحظات, Value: 2
+										54 text تفاصيل الملاحظات
+									55 button رجوع
+								56 heading Synthetic Registration Demo, Value: 3
+									57 text Synthetic Registration Demo
+								58 container
+									59 text Synthetic I4d QR Attendance Demo  ·  Synthetic Main Branch  ·  Synthetic Football
+								60 container
+									61 text 28‏/10‏/2026، 10:10:00 م  ·  Africa/Cairo
+								62 container
+									63 text مسحوب  ·  الإصدار 2
+								64 container
+									65 text سبب المراجعة الداخلي Synthetic test finished; retain history.
+								66 container
+									67 heading نقاط القوة, Value: 3
+										68 text نقاط القوة
+									69 text Synthetic feedback: controlled short passes during the fictional drill.
+								70 container
+									71 heading محور التحسين, Value: 3
+										72 text محور التحسين
+									73 text Synthetic feedback: improve the first touch before passing.
+								74 container
+									75 heading الخطوات القادمة, Value: 3
+										76 text الخطوات القادمة
+									77 text Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.
+								78 container
+									79 text ملاحظة الطاقم الخاصة PRIVATE SYNTHETIC STAFF NOTE — excluded from the Guardian publication.
+								80 button سجل الإصدارات الداخلي

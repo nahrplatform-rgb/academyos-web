@@ -1,0 +1,66 @@
+{
+  "recorded_at": "2026-11-04T19:21:20.659677+00:00",
+  "runtime": "50a2ae1",
+  "event": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+  "program": "807a58b0-09aa-47e1-bc4b-5571d2e2ec94",
+  "publication_job": "76ef6a22-d658-44ec-896b-44e7a24a06a6",
+  "local_window": "2026-11-04 21:30–22:30 Africa/Cairo",
+  "first_preparation": "actual signed-in iCloud Owner;2/2 fictional rows loaded",
+  "registered_device": "a63c714f-7822-4f1a-ad5a-7613c0d34764",
+  "registered_namespace": "b5200de7-e70c-4350-849e-d639d0d8cf07",
+  "cold_tab_reload": "offline with Disable cache checked;document and assets ServiceWorker;18 requests,0 network bytes,824kB resources;one failed Sentry attempt;not full physical browser-process restart",
+  "storage": "2 indexed row objects with sealed envelopes;17 public cache entries,only prepared-register and static assets",
+  "old_publication_cancelled": "51759d01 confirmed cancelled/version3 through UI and SQL",
+  "temporary_trainer": {
+    "restore_operation": "bee52194-6bc6-48b3-815b-4b1933a2d506",
+    "end_operation": "f57c7497-01e9-4693-8ab4-0f49e6a6c60b",
+    "membership": "ended",
+    "assignment": "ended",
+    "invitation_version": 19,
+    "restore_audits": 1,
+    "end_audits": 1
+  },
+  "new_defect": {
+    "server_window_open_at": "2026-11-04T19:30:00.139125Z",
+    "offline_before_start_snapshot_after_start": "Present, Absent and Review remained disabled",
+    "test_workaround": "Explicit online Check download after start, then disconnected again",
+    "candidate": "Local estimated window and public code refresh tested separately"
+  },
+  "sync": {
+    "operation": "045f09c7-1c3f-45d4-96f0-2642d3ba79f8",
+    "retained_originals_on_offline_reload": 1,
+    "local_only_checked_at": "2026-11-04T19:44:26.998291Z",
+    "local_only_server_counts": {
+      "marks": 0,
+      "operations": 0,
+      "history": 0
+    },
+    "interrupted_status": "Outcome unknown; network disconnected before server commit",
+    "interruption_checked_at": "2026-11-04T19:53:29.598949Z",
+    "interrupted_server_counts": {
+      "marks": 0,
+      "operations": 0
+    },
+    "confirmed_at": "2026-11-04T19:54:50.989163Z",
+    "confirmed_server_counts": {
+      "marks": 2,
+      "operations": 1,
+      "history": 2,
+      "attendance_audits": 1
+    },
+    "marks": [
+      {
+        "player": "29f7a113-cffd-455d-bef5-44995bc23cfe",
+        "status": "absent",
+        "version": 1
+      },
+      {
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "status": "present",
+        "version": 1
+      }
+    ],
+    "confirmation": "Actual Owner view and hosted SQL agree after explicit Check download"
+  },
+  "browser_end_state": "Network restored, cache enabled, request blocking disabled, DevTools closed"
+}

@@ -1,0 +1,19 @@
+{
+  "marks": 1,
+  "history": 1,
+  "test_card": {
+    "active": false,
+    "version": 5
+  },
+  "checked_at": "2026-10-28T19:52:21.967815+00:00",
+  "scan_defaults": {
+    "after": 30,
+    "before": 30
+  },
+  "active_trainers": 0,
+  "guardian_optins": 0,
+  "other_user_card": {
+    "active": true,
+    "version": 1
+  }
+}

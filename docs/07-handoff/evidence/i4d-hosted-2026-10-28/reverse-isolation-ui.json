@@ -1,0 +1,9 @@
+{
+  "scope": "Actual Chrome signed in as academy-B Owner moamen_ghareeb@icloud.com; read-only route checks",
+  "ownAcademy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+  "foreignAcademy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+  "ownScanner": "Academy Owner workspace; test iCloud branch; empty published sessions and disabled scanner",
+  "foreignScannerDenied": true,
+  "foreignSettingsDenied": true,
+  "limits": "Browser route checks, not arbitrary direct API/write/race tests. Player-card check interrupted by denied-settings unsaved-navigation prompt; regression fix in progress. No writes or access changes."
+}

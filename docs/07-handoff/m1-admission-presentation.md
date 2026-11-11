@@ -1,0 +1,39 @@
+# I1 — admission list and detail presentation
+
+24 October 2026. Owner's instruction to continue the implementation plan authorizes this bounded M1 presentation continuation after the compact-blue staging release. J02-A01, J03-A01–A03; related S06/S07/S21 (proposed additive S59/S61/S62 remain scoped design IDs); AO-118/120/121/122/123/124/127/129 presentation portions. Existing accepted invite-led admission, fixed role/branch rules,72-hour verified-recipient invitation and setup-only completion remain unchanged.
+
+## Contract before implementation
+
+Replace repeated admission cards with a semantic table and explicit named row inspection. Desktop: list plus a secondary detail panel. Phone: name/status list, then full-width detail with explicit back control. Selecting a row only reads an already-loaded projection; it never accepts, withdraws, reissues or retries anything. No checkboxes/bulk actions, fake totals/search, invented owner identity or audit history. Only the current projection's name, owner acceptance/revocation, delivery, expiry and setup status may be shown.
+
+Reuse native Button and existing `setReview`/`mutate` operation handlers. Consequential actions remain in details and keep their existing review/idempotency/server authorization. The detail panel must not turn queued/provider-accepted/unknown email into successful delivery. Review names the academy and consequence. Keyboard activation opens details and moves focus to its heading; closing returns focus to the row button. EN/AR use real localized labels and mirrored layout. Selection is ephemeral within the keyed identity/route; current loading/remount and denied-access clearing remove it. Do not persist details or payloads in shared storage.
+
+L02/L03: retain current authenticated25-row cursor page, existing explicit more control and POST/no-store transport. Detail opening adds zero reads. No count implies whole-directory size. Existing class-A refresh/commit authority, epoch/late-response protection and operation reconciliation remain. No new cache, dependency, provider, telemetry, schema, API or grant. A new query or cross-academy detail expansion would require a separate contract.
+
+Security: platform projection stays behind current server/data capability. Selection cannot expose an unloaded record; derive details from current items each render and reset with identity. Existing denial wipe and signed-out rendering must exclude the table/details. Disable actions during pending/unknown/denied states; old generation/role changes remain checked at commit by existing operations. This is proportional engineering review, not independent human approval.
+
+Checks: existing M1 production/development suites and source checks; two synthetic rows with distinct invitation generations verify inspection targets the intended row, inspection sends no request, keyboard open/back focus, revoked/redeemed action visibility, phone/RTL no overflow, preserved unknown/conflict/revocation/account-handoff behavior. Capture actual-component visual evidence. Five dimensions: usable explicit inspection, zero added detail retrieval, unchanged authoritative operation correctness, no provider cost additions and preserved recovery. Physical-device/screen-reader, hosted/runtime and owner acceptance remain separate. Forward repair is presentation-only; no data rollback.
+
+## Results
+
+AdmissionDirectory is implemented as a domain presentation component, reusing native shared controls and current authorized projection. Desktop renders list plus detail; phone hides the creation form/list only while inspecting, preserving mounted form state and restoring both on Back. The review heading receives focus; cancelling returns focus to details. Setup/invitation/operation behavior remains connected to the existing workspace and handlers.
+
+Supported Node24 production build (including TypeScript) and lint pass. Production/development actual-React M1 harness passes with all previous assertions retained. New cases verify two distinct rows, zero detail reads, no mutation on inspection/review, exact invitation/generation7 on confirmation, unknown delivery without blind retry, revoked/redeemed action visibility, current denial clearing detail, EN/AR360px no overflow, one-task phone layout and Back focus. [Sixteen review frames](evidence/m1-admission-i1-approved-baseline-2026-10-24/index.html) and [source/test receipt](evidence/m1-admission-i1-approved-baseline-2026-10-24/source-and-test-receipt.json) identify the final source. The artifact folder's approved-baseline name means the accepted compact blue baseline; it does not claim owner approval of this I1 iteration.
+
+Initial new-test failures were fixture synchronization: navigation occurred before the synthetic reissue confirmation (correctly showing recovered-operation UI), and a focus wait accepted BODY text before the return-focus frame. Tests now wait for the confirmed operation and the exact focused row. No authority/business assertion was removed. Screenshot review also prompted hiding the creation form while phone details are active. The harness now sets HTML direction from its locale URL, matching actual route semantics; the earlier partial AR capture without that wrapper is not retained as final evidence.
+
+No API/schema/provider/grant/data change. Current checks are synthetic rendering/interaction evidence, not hosted reissue/access proof. Git/CI/staging/runtime and owner acceptance receipts will follow. I2 policy proposal is separate and remains unaccepted until the owner answers.
+
+## Source and staging release checkpoint
+
+Committed/pushed `b57dfdb841d68f3984efc8fac5fdc6c5b20fe2ae`. All five local foundation E2E tests pass. The complete [PR workflow40037619752](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40037619752) passed before staging release; the duplicate push workflow was still running and is tracked separately.
+
+Requested `dpl_7XgyhKgQC3UApx1ZSBn26BhqMNjk` for that exact source in existing AcademyOS project/team, Vercel Production target = synthetic staging. Canonical alias before request was the approved-blue `dpl_23WqtJTfMpQhBxKYGuohuVbGzqBb` rollback target. No environment/protection/configuration changes. READY/alias and actual-session runtime receipts still need confirmation.
+
+## Hosted I1 presentation verified
+
+`dpl_7XgyhKgQC3UApx1ZSBn26BhqMNjk` is READY for exact `b57dfdb841d68f3984efc8fac5fdc6c5b20fe2ae`; an independent alias read confirms canonical staging points to it in the intended project. Actual existing Platform Owner session sees the two current synthetic academies in the new table. Opening B shows only the existing platform projection, owner-accepted/setup-complete and provider-accepted/inbox-unverified states; no pending-invitation action appears for this redeemed record. Detail heading focus was observed. [Desktop](evidence/m1-admission-i1-staging-2026-10-24/platform-detail-en.png) and [Arabic phone](evidence/m1-admission-i1-staging-2026-10-24/platform-detail-ar-phone.png) show hosted rendering.
+
+At observed360px CSS width, Arabic detail has no horizontal overflow and hides the creation form/list while open. Back restores the creation form/list and focus to B's row button. Temporary viewport override reset. No create, invitation change, retry, setup save, account/grant/provider change was executed on staging. This verifies current-session rendering/navigation only, not every historical denial/concurrency/provider case. Synthetic tests establish the zero-added-read and exact mutation-payload assertions; no hosted mutation was performed to repeat them.
+
+Implementation, source/PR CI and scoped staging presentation are verified; owner approval of this I1 iteration and broader M1 security/performance/cost/recovery/physical-device acceptance remain separate. I2a is the next proposed bounded business slice and still requires its named policy decision.

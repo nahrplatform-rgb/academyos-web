@@ -1,0 +1,220 @@
+{
+  "sourceBase": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+  "runtimeReceipt": "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json",
+  "runtimeSha256": "96d522500b1fbec04972f6260526379de95d5c8928de6af6571efe8edacc48af",
+  "environment": {
+    "browser": "156.0.8078.4",
+    "node": "v24.14.0",
+    "os": "darwin"
+  },
+  "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof",
+  "cases": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "resolved": false,
+      "handoff": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "",
+        "task": "d71782a5-8f4c-4d35-b455-56c49d6bcb23"
+      },
+      "dirtyCancelPreservedChoice": true,
+      "heldReturnMasksUncheckedQueue": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "resolved": true,
+      "handoff": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "saveCalls": [
+        [
+          "attendance",
+          "register",
+          200
+        ],
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "owner-today-attention",
+        "task": null
+      },
+      "dirtyCancelPreservedChoice": true,
+      "heldReturnMasksUncheckedQueue": true
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "resolved": false,
+      "handoff": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "",
+        "task": "f53f6066-94a8-439d-bced-68d708c68aa4"
+      },
+      "dirtyCancelPreservedChoice": true,
+      "heldReturnMasksUncheckedQueue": true
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "resolved": true,
+      "handoff": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "saveCalls": [
+        [
+          "attendance",
+          "register",
+          200
+        ],
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "owner-today-attention",
+        "task": null
+      },
+      "dirtyCancelPreservedChoice": true,
+      "heldReturnMasksUncheckedQueue": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "currentOwnerDenied": true,
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          403
+        ]
+      ],
+      "documents": 1,
+      "privateTaskVisible": false
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "currentOwnerDenied": true,
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          403
+        ]
+      ],
+      "documents": 1,
+      "privateTaskVisible": false
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "unrelatedVisit": true,
+      "interactionDuringReturn": false,
+      "automaticFocusSuppressed": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "unrelatedVisit": false,
+      "interactionDuringReturn": true,
+      "automaticFocusSuppressed": true
+    }
+  ],
+  "timingPercentiles": "not measured; request counts are exact named fixture calls"
+}

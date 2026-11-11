@@ -16,3 +16,7 @@ __pycache__/
 *.pyc
 *.age
 *.dump
+
+# Regenerable local DOM capture streams; compressed review pack is versioned.
+design/app-experience-review/captures/
+scripts/*/.experience-capture.mjs

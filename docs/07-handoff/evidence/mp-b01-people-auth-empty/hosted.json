@@ -1,0 +1,81 @@
+{
+  "observed_at": "2026-11-08T10:53:03.301Z",
+  "checked_commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "owner_report": "Promoted 6d9d3f6 to staging",
+  "source_verification": {
+    "observedAt": "2026-11-08T10:48:41.912Z",
+    "id": "dpl_BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "url": "academyos-5d3qdqn6q-academy-os2.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "sha": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "ref": "codex/onboarding-decision-design-packet",
+    "aliases": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev",
+      "academyos-web-academy-os2.vercel.app",
+      "academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app"
+    ],
+    "method": "Read-only Vercel get_deployment for staging.academy.nahr.dev",
+    "owner_performed_promotion": true,
+    "agent_release_action": false
+  },
+  "browser": {
+    "name": "Chrome",
+    "profile": "Hiếu",
+    "route": "https://staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+    "scope": "Existing signed-in Academy Owner,synthetic academy A",
+    "viewport_css_width": 1971,
+    "viewport_css_height": 1200,
+    "browser_zoom_percent": 80,
+    "viewport_override": false
+  },
+  "observed_cases": [
+    {
+      "id": "HOSTED-01",
+      "state": "passed",
+      "observation": "Fresh normal Players entry rendered four existing synthetic players and Synthetic Main Branch."
+    },
+    {
+      "id": "HOSTED-02",
+      "state": "passed",
+      "observation": "Opened Synthetic Registration Demo profile in English and Arabic;correct branch and fictional example.invalid contact remained available;Arabic document lang ar/dir rtl;document width and scrollWidth both1971."
+    },
+    {
+      "id": "HOSTED-03",
+      "state": "passed",
+      "observation": "Back to players followed immediately by a one-character S search retained S,minimum-length feedback and current branch;Register player became enabled after the bounded current read and draft header retained the branch."
+    },
+    {
+      "id": "HOSTED-04",
+      "state": "passed",
+      "observation": "Typed an unsaved fictional draft;EN to AR to EN retained that value and branch. No duplicate review or registration submit was invoked."
+    },
+    {
+      "id": "HOSTED-05",
+      "state": "passed",
+      "observation": "Arabic Players navigation displayed the native unsaved-draft confirmation;dismissal kept the draft. Browser automation briefly timed out around the modal/focus;native Chrome observation then confirmed the retained draft."
+    },
+    {
+      "id": "HOSTED-06",
+      "state": "passed",
+      "observation": "Discard draft returned to Players with S retained;Clear search restored the same four players. Reopened the existing profile in Arabic. No new registration was submitted."
+    }
+  ],
+  "captures": [
+    "hosted-profile-en.png",
+    "hosted-draft-ar.png",
+    "hosted-profile-ar.png"
+  ],
+  "dom_snapshot": "hosted-profile-ar.txt",
+  "residual_observation": "Initial entry,profile open and list return showed focused loading;the current list rows temporarily disappeared during some reads. No duration or request count was measured. This positive release check does not close app-wide loading continuity.",
+  "not_exercised": [
+    "Actual Clerk session expiry/refresh or hosted401 recovery",
+    "Hosted real role revocation or cross-academy negative injection",
+    "Hosted unknown save/reconciliation,empty first registration or post-save transfer failure",
+    "Offline/restart/installed mode,mobile/zoom/accessibility matrix,performance percentiles",
+    "Owner working-feature acceptance and independent human security review"
+  ],
+  "mutations": "Only an unsaved fictional in-memory draft was typed and discarded;no browser registration submit,account/role/key/flag/database/provider configuration or promotion by the agent.",
+  "next_development": "Keep EX-07/MP-B01 current;prepared-empty reopening/first-save,isolated empty lost-reply and confirmed-save/failed people-transfer remain the ready independent development sequence."
+}

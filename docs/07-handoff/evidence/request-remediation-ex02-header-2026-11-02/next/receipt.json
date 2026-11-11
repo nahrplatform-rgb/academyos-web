@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "runtime": "v26.9.0",
+  "baseline": false,
+  "planningBaseline": false,
+  "continuityBaseline": false,
+  "continuity": [
+    {
+      "locale": "en",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 358,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    },
+    {
+      "locale": "ar",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 334,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    }
+  ],
+  "localControlsBaseline": false,
+  "localControls": [
+    {
+      "view": "home",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "calendar",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": true
+    },
+    {
+      "view": "dated",
+      "singleLocaleClickAccepted": true,
+      "readStarts": 1
+    }
+  ],
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "08f86fdcf3c06513c051177b64636b3b01d0fc4cb648a70240904274f9e2bbc4",
+    "apps/web/src/components/date-planning-workspace.tsx": "c7d14cb2acd28bf469f4ded10d1d1f4b0ec3004357375173e79b62ccec9d5252",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "speculativeDatePrefetches": 0,
+  "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+  "results": [
+    {
+      "locale": "en",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "ar",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "en",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "ar",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "en",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    },
+    {
+      "locale": "ar",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    }
+  ],
+  "errors": []
+}

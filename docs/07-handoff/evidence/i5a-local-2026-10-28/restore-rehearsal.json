@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "1a26f7b6-8371-4d42-9488-333c19e2c2ab", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261028202856_i5a_development_feedback.sql", "counts": {"identities": 2, "academies": 2, "memberships": 4, "private_tables_with_rls": 58}, "hosted_storage_restore_tested": false}

@@ -1,0 +1,37 @@
+{
+  "academy": "e306c6c5-e8a4-4ea9-936f-3c8d7ad473e3",
+  "header": {
+    "day": "2099-11-01",
+    "open": true,
+    "count": 60,
+    "event": "5bfc343f-3bc5-41f8-9daf-29599cc3f9af",
+    "owner": true,
+    "saved": 0,
+    "ends_at": "2026-11-03T18:45:56.240247Z",
+    "program": "0c752c71-2769-4cbf-9730-1399f8d7599e",
+    "closes_at": "2026-11-04T18:45:56.240247Z",
+    "protected": false,
+    "starts_at": "2026-11-03T17:45:56.240247Z",
+    "projection": {
+      "name": "برنامج \"quoted\"\\n é 🏊  ",
+      "sport": "Synthetic Sport",
+      "branch": "فرع خيالي",
+      "sport_ar": "رياضة",
+      "timezone": "Africa/Cairo"
+    },
+    "server_now": "2026-11-03T18:00:56.340686Z",
+    "scheduled_day": "2099-11-01"
+  },
+  "head": "1328f771e29f7eb85ebc1d8b2d6f366134a686646cfb601789e9638d4f777d78",
+  "seed": "cb6995cee476db5fc9a24cd19b084c74bc9bd0089298609c81cb7b113a9b9af3",
+  "players": [
+    {
+      "id": "58b71f4a-3b56-4165-bbc9-9b913497e90e",
+      "name": "سطر\\n \"界\" é 🏊",
+      "status": null,
+      "version": 0
+    }
+  ],
+  "acc": "d761671421e0afed7cea75e15aaad969246db90157f8af21526556658df3618b",
+  "revision": "0b4cedca467d20648ffeffa2b618757f643edeaefb08f7c69ffb719f8018b5af"
+}

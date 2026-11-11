@@ -1,0 +1,32 @@
+{
+  "scope": "single read-only EN staging loop,central Open calendar;side-menu follow-up pending;sanitized counts/status/timings,not percentiles",
+  "source": "6a6b78095253cf995efc8ab135fc79bc8d1dcca5",
+  "stages": [
+    {
+      "label": "after-6a6b780-calendar-entry",
+      "requests": [
+        {
+          "endpoint": "/api/experience",
+          "action": "owner_calendar",
+          "status": 200,
+          "responseMs": 1736
+        }
+      ],
+      "documentRequests": 0,
+      "truncated": false
+    },
+    {
+      "label": "after-6a6b780-date-entry",
+      "requests": [
+        {
+          "endpoint": "/api/planning",
+          "action": "read",
+          "status": 200,
+          "responseMs": 1708
+        }
+      ],
+      "documentRequests": 0,
+      "truncated": false
+    }
+  ]
+}

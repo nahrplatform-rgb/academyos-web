@@ -1,0 +1,52 @@
+{
+  "source": "8b8a2e4d5bc4f31801b839acc6aa02ea2dd39819",
+  "ci": [
+    {
+      "id": 41260821293,
+      "conclusion": "success"
+    },
+    {
+      "id": 41260816142,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_nmadxGH3ko54Ho2ADB9arckwUM74",
+    "state": "Ready",
+    "durationSeconds": 36
+  },
+  "staging": {
+    "state": "Ready; native exact source and staging alias verified",
+    "previousServing": "dpl_GqgAG4c8uLEVAPsicb6i3a6B6eC7",
+    "id": "dpl_HQhdA1uVepcqkXsKtTcZJczRKSAi",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "accountCheck": "existing verification reused; no new prompt",
+    "durationSeconds": 39,
+    "source": "8b8a2e4d5bc4f31801b839acc6aa02ea2dd39819"
+  },
+  "hosted": {
+    "date": "2026-11-01",
+    "method": "native Chrome; existing Owner/synthetic academy; read-only",
+    "observed": [
+      "existing retained withdrawn feedback opened",
+      "real about:blank tab return retained selected record in EN and AR; current read settled",
+      "Arabic internal revision history opened",
+      "foreign academy-B Development denied with no previous record/private note/history",
+      "original EN Owner Home restored"
+    ],
+    "limits": [
+      "no exact hosted request counters, payload/query costs or latency percentiles",
+      "dirty/unknown/revocation/other-role positive cases synthetic component only this checkpoint",
+      "no physical phone/accessibility or independent security proof",
+      "native focus/click G01 and dirty browser Back remain open",
+      "denied shell still labels unclassified context Trainer workspace; EX07 presentation follow-up"
+    ]
+  },
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "accessRestored": false,
+  "operatingWrites": false
+}

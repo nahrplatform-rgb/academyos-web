@@ -1,0 +1,454 @@
+{
+  "scope": "Actual local captured DOM/CSS only; chosen representative frames, not every state or hosted permission proof",
+  "contrastChecks": [
+    {
+      "mode": "dark",
+      "fg": "ink",
+      "bg": "canvas",
+      "ratio": 14.621975737524789
+    },
+    {
+      "mode": "dark",
+      "fg": "muted",
+      "bg": "surface",
+      "ratio": 7.090699424638877
+    },
+    {
+      "mode": "dark",
+      "fg": "green",
+      "bg": "green-bg",
+      "ratio": 7.507739686155384
+    },
+    {
+      "mode": "dark",
+      "fg": "red",
+      "bg": "red-bg",
+      "ratio": 7.384140321731526
+    },
+    {
+      "mode": "dark",
+      "fg": "neutral",
+      "bg": "neutral-bg",
+      "ratio": 7.158708562255898
+    },
+    {
+      "mode": "dark",
+      "fg": "warning",
+      "bg": "warning-bg",
+      "ratio": 7.466089237706586
+    },
+    {
+      "mode": "dark",
+      "fg": "primary-ink",
+      "bg": "primary",
+      "ratio": 11.527762787959967
+    },
+    {
+      "mode": "light",
+      "fg": "ink",
+      "bg": "canvas",
+      "ratio": 13.673706715238147
+    },
+    {
+      "mode": "light",
+      "fg": "muted",
+      "bg": "surface",
+      "ratio": 5.767703643288984
+    },
+    {
+      "mode": "light",
+      "fg": "green",
+      "bg": "green-bg",
+      "ratio": 6.592227940190408
+    },
+    {
+      "mode": "light",
+      "fg": "red",
+      "bg": "red-bg",
+      "ratio": 5.897394869587774
+    },
+    {
+      "mode": "light",
+      "fg": "neutral",
+      "bg": "neutral-bg",
+      "ratio": 5.6230989165082175
+    },
+    {
+      "mode": "light",
+      "fg": "warning",
+      "bg": "warning-bg",
+      "ratio": 5.946911405586153
+    },
+    {
+      "mode": "light",
+      "fg": "primary-ink",
+      "bg": "primary",
+      "ratio": 14.231286785468608
+    }
+  ],
+  "results": [
+    {
+      "journey": "attendance",
+      "frame": "attendance-83",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session attendance"
+    },
+    {
+      "journey": "attendance",
+      "frame": "attendance-111",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session attendance"
+    },
+    {
+      "journey": "corrections",
+      "frame": "corrections-125",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Correction requests"
+    },
+    {
+      "journey": "corrections",
+      "frame": "corrections-27",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Correction requests"
+    },
+    {
+      "journey": "development",
+      "frame": "development-255",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Player development"
+    },
+    {
+      "journey": "development",
+      "frame": "development-55",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Player development"
+    },
+    {
+      "journey": "entry",
+      "frame": "entry-3",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Your academy, connected."
+    },
+    {
+      "journey": "entry",
+      "frame": "entry-2",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Your academy, connected."
+    },
+    {
+      "journey": "experience-projections",
+      "frame": "experience-projections-13",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Training calendar"
+    },
+    {
+      "journey": "guardian-training",
+      "frame": "guardian-training-42",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "التدريبات والحضور"
+    },
+    {
+      "journey": "guardian-training",
+      "frame": "guardian-training-38",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "التدريبات والحضور"
+    },
+    {
+      "journey": "guardians",
+      "frame": "guardians-71",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Guardian appointments"
+    },
+    {
+      "journey": "guardians",
+      "frame": "guardians-38",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Guardian appointments"
+    },
+    {
+      "journey": "onboarding",
+      "frame": "onboarding-117",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Initial academy setup"
+    },
+    {
+      "journey": "onboarding",
+      "frame": "onboarding-63",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Initial academy setup"
+    },
+    {
+      "journey": "people",
+      "frame": "people-101",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Players"
+    },
+    {
+      "journey": "people",
+      "frame": "people-28",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Players"
+    },
+    {
+      "journey": "planning",
+      "frame": "planning-123",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Draft dates"
+    },
+    {
+      "journey": "planning",
+      "frame": "planning-101",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Draft dates"
+    },
+    {
+      "journey": "program-planning",
+      "frame": "program-planning-167",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Plan the program"
+    },
+    {
+      "journey": "program-planning",
+      "frame": "program-planning-157",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Plan the program"
+    },
+    {
+      "journey": "programs",
+      "frame": "programs-387",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Training programs"
+    },
+    {
+      "journey": "programs",
+      "frame": "programs-249",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Training programs"
+    },
+    {
+      "journey": "publication",
+      "frame": "publication-101",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Publish training dates"
+    },
+    {
+      "journey": "publication",
+      "frame": "publication-77",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Publish training dates"
+    },
+    {
+      "journey": "qr-attendance",
+      "frame": "qr-attendance-166",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session scanner"
+    },
+    {
+      "journey": "qr-attendance",
+      "frame": "qr-attendance-155",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session scanner"
+    },
+    {
+      "journey": "session-changes",
+      "frame": "session-changes-118",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session date"
+    },
+    {
+      "journey": "session-changes",
+      "frame": "session-changes-25",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Session date"
+    },
+    {
+      "journey": "trainers",
+      "frame": "trainers-41",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Trainer appointments"
+    },
+    {
+      "journey": "trainers",
+      "frame": "trainers-50",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Trainer appointments"
+    },
+    {
+      "journey": "workspace-layout",
+      "frame": "workspace-layout-95",
+      "lang": "ar",
+      "width": 360,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "قائمة العمل الطويلة"
+    },
+    {
+      "journey": "workspace-layout",
+      "frame": "workspace-layout-2",
+      "lang": "ar",
+      "width": 1440,
+      "canvas": "#1a1e27",
+      "surface": "#242a35",
+      "scheme": "dark",
+      "overflow": false,
+      "heading": "Long working list"
+    }
+  ]
+}

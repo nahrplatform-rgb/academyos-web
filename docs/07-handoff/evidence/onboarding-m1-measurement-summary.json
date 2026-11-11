@@ -1,0 +1,49 @@
+{
+  "deployment": "dpl_HvqWcKskiiBpkGjCAsWoiTKfU1N7",
+  "commit": "549de6d3227cac653fb5106a170f6ff85f507add",
+  "scope": "Existing single synthetic academy; warm setup refresh, not full navigation or large-tenant workload",
+  "profiles": [
+    {
+      "label": "setup-desktop-en-refresh",
+      "samples": 50,
+      "successful_single_request_refreshes": 50,
+      "failed_or_ambiguous_samples": 0,
+      "phase_p95_ms": {
+        "request": 0.4,
+        "session": 2.9,
+        "rate-limit": 82.1,
+        "operation": 574.4,
+        "total": 658.9
+      },
+      "server_read_under_800ms": true,
+      "wire_bytes_observed_samples": 50,
+      "wire_bytes_p95": 532,
+      "automation_refresh_upper_bound_p75_ms": 2830
+    },
+    {
+      "label": "setup-phone-ar-150ms-4cpu-refresh",
+      "samples": 50,
+      "successful_single_request_refreshes": 50,
+      "failed_or_ambiguous_samples": 0,
+      "phase_p95_ms": {
+        "request": 0.5,
+        "session": 2.7,
+        "rate-limit": 82.4,
+        "operation": 409.4,
+        "total": 492.4
+      },
+      "server_read_under_800ms": true,
+      "wire_bytes_observed_samples": 50,
+      "wire_bytes_p95": 526,
+      "automation_refresh_upper_bound_p75_ms": 2786
+    }
+  ],
+  "offline_recovery": {
+    "runs": 20,
+    "passed": 20
+  },
+  "evidence_sha256": {
+    "onboarding-m1-timing-samples.jsonl": "81d612bfc945505ba3738706bcf419fec79c710e0b711a463568646ec10d6b7b",
+    "onboarding-m1-read-recovery.jsonl": "7b26b5c230a2ebf94d8ae2579dfa651c9563ae828163be6cef33c8cf627a89ed"
+  }
+}

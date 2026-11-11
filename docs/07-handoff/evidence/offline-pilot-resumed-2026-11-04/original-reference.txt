@@ -1,0 +1,2 @@
++																	874 row    {namespace: 'b5200de7-e70c-4350-849e-d639d0d8cf07', event: 'ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6', op: '045f09c7-1c3f-45d4-96f0-2642d3ba79f8', revision: 1, active: Array(2), …}
++													883 text Total entries: 1

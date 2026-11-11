@@ -1,0 +1,207 @@
+{
+  "checked_at": "2026-11-04 02:44:15 UTC",
+  "source": {
+    "id": "dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM",
+    "url": "academyos-owvi80kqg-academy-os2.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "aliases": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev",
+      "academyos-web-academy-os2.vercel.app",
+      "academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app"
+    ],
+    "sha": "ef73a36537228461f80aecf1084bd1429b2ebb8c"
+  },
+  "owner_reported_promotion": true,
+  "database": {
+    "project": "academyos-staging",
+    "count": 25,
+    "last": {
+      "version": "20261102124518",
+      "name": "owner_current_calendar"
+    },
+    "catalog": {
+      "key_table": false,
+      "unbound_download": false,
+      "unbound_dispatch": false,
+      "key_rpc": false,
+      "bound_download": false,
+      "bound_dispatch": false
+    }
+  },
+  "browser": {
+    "runtime": "Codex in-app browser, existing authorized synthetic Owner session",
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "home": {
+      "locales": [
+        "en",
+        "ar"
+      ],
+      "retained_operations": true,
+      "today_sessions": 0,
+      "publicationPreparations": 1
+    },
+    "attendance": {
+      "locales": [
+        "en",
+        "ar"
+      ],
+      "event": "4f204959-b23e-42ac-8b68-858409972036",
+      "loaded": 1,
+      "recordedPresent": 1,
+      "window": "read-only",
+      "personalDeviceActions": 0
+    },
+    "publicShell": {
+      "onlineGuidance": true,
+      "registerWorkers": 0,
+      "registerCaches": 0,
+      "accountLocator": false
+    },
+    "console": {
+      "appErrorsObserved": 0,
+      "expectedWarning": "Clerk test instance development keys",
+      "logLimit": 20
+    }
+  },
+  "limits": [
+    "Existing session only, new sign-in and sign-out not exercised",
+    "1600x900 IAB viewport, physical devices and offline behavior not exercised on hosted source",
+    "No private activation, schema apply, wrapping root provisioning or access grant in this verification",
+    "Eight single public HTTP samples do not establish percentiles or provider cost",
+    "Independent security review and working private acceptance remain open"
+  ],
+  "public_http": [
+    {
+      "route": "/api/health",
+      "status": 200,
+      "elapsed_seconds": 0.458,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 64,
+      "sha256": "41a1905da2b94f8fafb666e7a3fda710704a8255d008594d804f072aa4a5d880",
+      "body": {
+        "status": "ok",
+        "service": "academyos-web",
+        "scope": "process-only"
+      }
+    },
+    {
+      "route": "/prepared-register",
+      "status": 200,
+      "elapsed_seconds": 0.741645,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-academyos-public-shell": "register-v1",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 6792,
+      "sha256": "999808a11e903f8eeee23718dbcb8a3b6151c44f3d0b0d906bdd1d59abde2dde",
+      "shell_marker": true,
+      "identity_in_shell": false
+    },
+    {
+      "route": "/prepared-register-worker.js",
+      "status": 200,
+      "elapsed_seconds": 0.511602,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "application/javascript; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 4611,
+      "sha256": "66617d5f542e680af6406191cf9aa9dceb07f89337ae3da454c1475d392af3cb"
+    },
+    {
+      "route": "/en",
+      "status": 200,
+      "elapsed_seconds": 0.847483,
+      "headers": {
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 16824,
+      "sha256": "f555d58ca8b99dcfe24090fdbd7d2d3aea98a3d45687a470863a1bb36bf0467e"
+    },
+    {
+      "route": "/ar",
+      "status": 200,
+      "elapsed_seconds": 0.614276,
+      "headers": {
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 17864,
+      "sha256": "c6970d4d089814ce4df4e45a38b6cd8a86438a767b893cc3e8054ac36682bb64"
+    },
+    {
+      "route": "/api/register-key",
+      "status": 503,
+      "elapsed_seconds": 0.549454,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json",
+        "referrer-policy": "no-referrer",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 23,
+      "sha256": "a1a6c296f5ac79c18cb90eb6125de374e4238319ca1e1d295fec10d6c9794f54",
+      "body": {
+        "error": "unavailable"
+      }
+    },
+    {
+      "route": "/api/register-download",
+      "status": 503,
+      "elapsed_seconds": 0.446925,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json",
+        "referrer-policy": "no-referrer",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 23,
+      "sha256": "a1a6c296f5ac79c18cb90eb6125de374e4238319ca1e1d295fec10d6c9794f54",
+      "body": {
+        "error": "unavailable"
+      }
+    },
+    {
+      "route": "/api/register-dispatch",
+      "status": 503,
+      "elapsed_seconds": 0.480282,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json",
+        "referrer-policy": "no-referrer",
+        "x-content-type-options": "nosniff"
+      },
+      "bytes": 23,
+      "sha256": "a1a6c296f5ac79c18cb90eb6125de374e4238319ca1e1d295fec10d6c9794f54",
+      "body": {
+        "error": "unavailable"
+      }
+    }
+  ],
+  "captures": {
+    "attendance-ar.jpg": "3fd0c4a502939c8563ef2e6bdd24ef488601c25dc5b4203c4c08237103937c61",
+    "attendance-en.jpg": "735d741bf9d5e364cc04a6d0d295086f1452fddb85392c926f962e3b02cbf2ae",
+    "owner-home-en.jpg": "40c945ad01d294e947c0b03985b4c862314d623e8f808eb3d76e5147218d5e1d",
+    "public-shell.jpg": "77d067822a3ce91d057f7bd46fa6d5721c87fc6f69ad9005d09f389aef8a8f27"
+  }
+}

@@ -1,0 +1,3 @@
+import{auth}from'@clerk/nextjs/server';import{notFound}from'next/navigation';import PublicationWorkspace from'@/components/publication-workspace';import{uuidPattern}from'@/lib/onboarding';
+export const dynamic='force-dynamic';
+export default async function Page({params,searchParams}:{params:Promise<{locale:string;academy:string;program:string}>;searchParams:Promise<{job?:string}>}){await auth.protect();const p=await params,q=await searchParams;if(!uuidPattern.test(p.academy)||!uuidPattern.test(p.program)||q.job!==undefined&&!uuidPattern.test(q.job))notFound();return <PublicationWorkspace {...p} initialJob={q.job?.toLowerCase()} mode="owner"/>;}

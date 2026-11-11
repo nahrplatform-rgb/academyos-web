@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "d2647e6b-1667-46ad-ad06-2c281f093ca9", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261029181435_experience_home_calendar_reads.sql", "counts": {"identities": 2, "academies": 2, "memberships": 4, "private_tables_with_rls": 58}, "hosted_storage_restore_tested": false}

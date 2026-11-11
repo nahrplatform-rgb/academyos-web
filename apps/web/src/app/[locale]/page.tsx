@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WorkspaceShell from "@/components/workspace-shell";
 import { authenticationConfigured } from "@/lib/config";
 export default async function Page({
   params,
@@ -22,33 +23,9 @@ export default async function Page({
         "Evaluations & communication",
       ];
   return (
-    <div className="shell">
-      <aside>
-        <Link className="brand" href={`/${locale}`}>
-          <span className="mark">A</span>AcademyOS
-        </Link>
-        <p className="eyebrow">
-          {ar ? "مساحة الأكاديمية" : "ACADEMY WORKSPACE"}
-        </p>
-        <nav aria-label={ar ? "التنقل" : "Navigation"}>
-          <Link className="selected" href={`/${locale}`}>
-            {ar ? "البداية" : "Overview"}
-          </Link>
-        </nav>
-        <div className="sidebar-note">
-          {ar
-            ? "بيئة تجريبية · بيانات اختبار فقط"
-            : "Staging workspace · Test data only"}
-        </div>
-      </aside>
-      <div className="main">
-        <header>
-          <span className="badge">{ar ? "نسخة تجريبية" : "Staging"}</span>
-          <Link href={ar ? "/en" : "/ar"} hrefLang={ar ? "en" : "ar"}>
-            {ar ? "English" : "العربية"}
-          </Link>
-        </header>
-        <main id="main">
+    <WorkspaceShell locale={locale} context={ar ? "مساحة الأكاديمية" : "Academy workspace"}
+      title={ar ? "البداية" : "Overview"} homeHref={`/${locale}`} languageHref={ar ? "/en" : "/ar"}
+      navigation={[{ href: `/${locale}`, label: ar ? "البداية" : "Overview", current: true }]}>
           <p className="eyebrow">
             {ar ? "مرحباً بك في أكاديمي أو إس" : "WELCOME TO ACADEMYOS"}
           </p>
@@ -111,8 +88,6 @@ export default async function Page({
               ? "هذه نسخة تأسيسية. لم تتم إضافة أكاديميات أو سجلات حقيقية."
               : "Foundation preview. No real academies or operational records have been added."}
           </footer>
-        </main>
-      </div>
-    </div>
+    </WorkspaceShell>
   );
 }

@@ -1,0 +1,30 @@
+{
+  "scope": "EX10 proposed source/architecture/state review; no product/hosted/DB execution",
+  "sourceBaseline": "da24885ec77e31870b76b5c169cb6d3bb616c460",
+  "current": "EX-10",
+  "sourceAnchorChecks": 28,
+  "localMarkdownTargetsChecked": 263,
+  "markdownLimits": "existence only; external links/anchor semantics not exhaustive",
+  "storyboardCases": 72,
+  "storyboardOnly": true,
+  "policyStatus": "WB-P01\u2013P04 pending exact Owner review",
+  "designStatus": "targeted changed-state review pending",
+  "productChanged": false,
+  "newOperatingTests": 0,
+  "newHostedTests": 0,
+  "checks": [
+    "source hashes and anchors",
+    "72 bilingual responsive fictional cases",
+    "execution tracker and generated prompt validation",
+    "canonical implementation register validation",
+    "factual review inventory rebuild and freshness",
+    "factual review tool",
+    "git diff whitespace"
+  ],
+  "limitations": [
+    "No operating latency/query/bytes/bundle measurements",
+    "No new app/schema deployment",
+    "No independent security or Owner acceptance",
+    "No private data reuse/persistence policy enabled"
+  ]
+}

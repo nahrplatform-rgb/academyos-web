@@ -1,0 +1,13 @@
+{
+  "scope": "Disposable local PostgreSQL17 functions only; excludes app/HTTP/identity/network/hosted/WAL cost",
+  "programs": 31,
+  "scoped_dates": 558,
+  "pages": 20,
+  "samples": {
+    "samples": 30,
+    "p95_ms": 23.588649999999998,
+    "max_ms": 24.924
+  },
+  "page_limit": 50,
+  "utf8_payload_limit": 32768
+}

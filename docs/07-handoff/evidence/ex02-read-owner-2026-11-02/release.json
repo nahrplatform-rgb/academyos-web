@@ -1,0 +1,119 @@
+{
+  "observedAtUTC": "2026-11-02T22:01:54Z",
+  "localDate": "2026-11-03",
+  "codeCommit": "1e7008f388e82c225a7b1e50f4e7319469dbfede",
+  "branch": "codex/onboarding-decision-design-packet",
+  "push": "confirmed",
+  "ci": [
+    {
+      "run": 41531516588,
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531516588"
+    },
+    {
+      "run": 41531507290,
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41531507290"
+    }
+  ],
+  "preview": {
+    "id": "dpl_7MRnExdKzvVagCzBF4hna6kzfJWo",
+    "status": "Ready",
+    "durationSeconds": 56,
+    "url": "https://academyos-p7gwbiacl-academy-os2.vercel.app",
+    "inspection": "Vercel signed-in UI shows Preview and exact1e7008f source;Git commit status success"
+  },
+  "canonicalStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "promotion": "performed by Owner;read-only provider confirmation complete",
+    "reviewedTargetDomains": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "verifiedRelease": true,
+    "releaseSpecificHostedCheck": "Scoped read-only Owner Home/Calendar/dated return,Arabic Calendar and known foreign-academy denial observed3November;no writes/grants/network percentiles",
+    "servingDeploymentId": "dpl_8VRWuibdYQWGSiiAhfjgCinnPPro"
+  },
+  "accountCheck": {
+    "state": "Historical pending handoff superseded:Owner reported promoted;current exact source/Ready/alias verified;no agent promotion or credentials entry this checkpoint",
+    "tabUrl": "https://vercel.com/academy-os2/academyos-web/7MRnExdKzvVagCzBF4hna6kzfJWo",
+    "captureOutsideGit": "/private/tmp/academyos-ex02-staging-passkey.png",
+    "noCredentialsOrCodesRecorded": true
+  },
+  "notClaimed": [
+    "Private local persistence or offline writes enabled",
+    "Whole-app loading/findings closure",
+    "Working Owner acceptance",
+    "Independent security approval",
+    "Provider usage/latency savings",
+    "All-role/physical-device proof"
+  ],
+  "connector": "get_project with explicit AcademyOS team scope returned404;used existing authenticated browser UI;no provider settings changed",
+  "releaseSelectionAdvice": {
+    "date": "2026-11-03",
+    "ownerQuestion": "there is two , which one and i promote them ? 58eee46 / 1e7008f",
+    "verifiedDifference": [
+      "docs/06-delivery/continue-academyos.md",
+      "docs/06-delivery/experience-execution.csv",
+      "docs/07-handoff/evidence/ex02-read-owner-2026-11-02/release.json",
+      "docs/07-handoff/request-remediation-ex02-read-owner.md"
+    ],
+    "recommendation": "Promote1e7008f only;58eee46 is documentation/evidence follow-up with identical application source;do not promote both",
+    "reauthenticationOrPromotionCompletion": "not confirmed by this clarification"
+  },
+  "ownerPromotedCheckpoint": {
+    "observedAtUTC": "2026-11-02T23:36:22.403221+00:00",
+    "ownerReply": "promoted",
+    "deploymentId": "dpl_8VRWuibdYQWGSiiAhfjgCinnPPro",
+    "url": "https://academyos-hdazyw30j-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/8VRWuibdYQWGSiiAhfjgCinnPPro",
+    "source": "1e7008f388e82c225a7b1e50f4e7319469dbfede",
+    "status": "Ready",
+    "providerEnvironment": "Production / Current",
+    "academyOSEnvironment": "existing staging only;provider label is not customer-production release",
+    "durationSeconds": 61,
+    "createdAtProviderUI": "2026-11-03 01:07:38 GMT+2",
+    "inspection": "Existing authenticated native Chrome Vercel UI;exact source/Ready/current staging domain visible;no promotion action performed by agent"
+  },
+  "hostedCheckpoint": {
+    "method": "Native Chrome UI read-only;temporary test tab closed;original Owner tabs retained",
+    "checks": [
+      {
+        "case": "Owner Home",
+        "result": "Today/tasks/current-day synthetic session visible;no domain save"
+      },
+      {
+        "case": "Home to Calendar",
+        "result": "First visible date2026-11-03;week ends2026-11-09;5 scoped sessions"
+      },
+      {
+        "case": "Selected date and Back",
+        "result": "Synthetic I3a Full-period Demo2026-11-03 opened authoritative dated roster read;Back restored same period and selected session"
+      },
+      {
+        "case": "Arabic Calendar",
+        "result": "Arabic navigation/date/time/selected inspector and dated destination shown"
+      },
+      {
+        "case": "Known foreign academy B",
+        "result": "Access is no longer available;no session rows/private payload shown"
+      }
+    ],
+    "notMeasured": [
+      "Hosted transport counts and SQL/RPC/Redis/Clerk work",
+      "p75/p95 or physical phone/zoom",
+      "Trainer/Guardian roles",
+      "Offline private operation",
+      "Independent security"
+    ]
+  },
+  "promotionControl": {
+    "ownerInstructionDate": "2026-11-03",
+    "rule": "Owner performs promotions;agent only hands off exact tested source/deployment/staging destination;ordinary continue is not promotion permission",
+    "savedIn": [
+      "AGENTS.md",
+      "scripts/design/build_continuation_prompt.py"
+    ],
+    "thisCheckpointAgentPromotion": false
+  }
+}

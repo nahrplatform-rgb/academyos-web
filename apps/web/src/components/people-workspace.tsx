@@ -1,0 +1,588 @@
+"use client";
+import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from 'react';
+import { UserButton, useUser } from '@clerk/nextjs';
+import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
+import WorkspacePanes from './workspace-panes';
+import { ownerNavigation } from './owner-navigation';
+import { listenForVisibleResume } from '@/lib/visible-resume';
+import {formatQuantity} from '@/lib/experience-format';
+import Link from 'next/link';
+import { Button, Input } from './ui/controls';
+import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
+import {decodePeopleViewContext,type PeopleViewContext} from '@/lib/people-view-context';
+const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
+type Player = {
+    id: string;
+    name: string;
+    branch: string;
+    contact?: string;
+};
+type Row = {
+    id: string;
+    display_name: string;
+    branch_name: string;
+    contact_email?: string;
+};
+type Context = {
+    academy_name: string;
+    branch_id: string;
+    branch_name: string;
+};
+type Page = {
+    items: Row[];
+    more: boolean;
+    revision: number;
+} & Context;
+type Stage = 'directory' | 'form' | 'duplicates' | 'review' | 'saving' | 'unknown' | 'profile';
+class RequestFailure extends Error {
+    constructor(public code: string) { super(code); }
+}
+const playerRow = (p: Row): Player => ({ id: p.id, name: p.display_name, branch: p.branch_name, contact: p.contact_email });
+export default function PeopleWorkspace(props: {
+    locale: string;
+    academy: string;
+    prepared?: boolean;
+}) {
+    const session = useUser();
+    const [initializationExpired, setInitializationExpired] = useState(false);
+    useEffect(() => {
+        if (session.isLoaded) return;
+        const timer = setTimeout(() => setInitializationExpired(true), 15000);
+        return () => clearTimeout(timer);
+    }, [session.isLoaded]);
+    if (!session.isLoaded && initializationExpired)
+        return <PublicWorkspace locale={props.locale} title={props.locale === 'ar' ? 'تسجيل الدخول والصلاحية' : 'Sign-in and access'}><section className="journey-card"><h1>{props.locale === 'ar' ? 'تعذر تحميل تسجيل الدخول' : 'Could not load sign-in'}</h1><p role="alert">{props.locale === 'ar' ? 'لم تُحمّل بيانات اللاعبين. أعد تحميل الصفحة للمحاولة مجدداً.' : 'No player data was loaded. Reload the page to try again.'}</p><Button onClick={() => window.location.reload()}>{props.locale === 'ar' ? 'إعادة تحميل الصفحة' : 'Retry loading page'}</Button></section></PublicWorkspace>;
+    if (!session.isLoaded)
+        return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{props.locale === 'ar' ? 'جارٍ التحميل…' : 'Loading…'}</p></PublicWorkspace>;
+    if (!session.user)
+        return <PublicWorkspace locale={props.locale} title="AcademyOS"><p>{props.locale === 'ar' ? 'سجّل الدخول للمتابعة.' : 'Sign in to continue.'}</p></PublicWorkspace>;
+    return <PeopleJourney key={`${session.user.id}:${props.academy}`} {...props} subject={session.user.id}/>;
+}
+export function PeopleJourney({ locale: initialLocale, academy, subject,prepared,publicOffline }: {
+    locale: string;
+    academy: string;
+    subject: string;
+    prepared?: boolean;
+    publicOffline?: boolean;
+}) {
+    const [locale, setLocale] = useState(initialLocale), ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
+    const device=useOwnerWorkspaceDevice({subject,academy,priority:'people',prepared,publicOffline});
+    const [localRows,setLocalRows]=useState(false), [summaryOnly,setSummaryOnly]=useState(false);
+    const [localUpdating,setLocalUpdating]=useState(false),[registrationCommitted,setRegistrationCommitted]=useState(false);
+    type LocalPosition=NonNullable<Awaited<ReturnType<typeof device.read>>>['next'];
+    const localNext=useRef<LocalPosition>(null), localPosition=useRef<LocalPosition>(null), localSearch=useRef('');
+    const [missing,setMissing]=useState(false);
+    const [stage, setStage] = useState<Stage>('directory'), [context, setContext] = useState<Context | null>(null);
+    const [players, setPlayers] = useState<Player[]>([]), [candidates, setCandidates] = useState<Player[]>([]);
+    const [more, setMore] = useState(false), [candidateMore, setCandidateMore] = useState(false), [revision, setRevision] = useState(0);
+    const [onlinePage,setOnlinePage] = useState<{query: string; after?: string} | null>(null);
+    const [name, setName] = useState(''), [contact, setContact] = useState(''), [search, setSearch] = useState(''), [different, setDifferent] = useState(false);
+    const [searchMode,setSearchMode]=useState<'device'|'online'|null>(null);
+    const searchPending=searchMode!==null;
+    const searchQuery=search.normalize('NFKC').trim(), shortSearch=searchQuery.length===1;
+    const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
+    const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
+    const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
+    const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
+    const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
+    const lifecycleTicket = useRef(0), profileTicket = useRef(0);
+    const profileController=useRef<AbortController|null>(null);
+    const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
+    const storageKey = `academyos:people:${subject}:${academy}`;
+    const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
+    const pendingView=useRef<PeopleViewContext|null>(null);
+    const authenticationRequired=useRef(false);
+    const [viewRestored,setViewRestored]=useState(false);
+    const unavailable = blocked || device.phase==='denied';
+    function errorText(code: string) {
+        if(code==='unavailable')return stage==='unknown'
+            ?t('The save is not confirmed. Check the original save before trying again.','لم يتأكد الحفظ. تحقّق من الحفظ الأصلي قبل المحاولة مجددًا.')
+            :stage==='profile'&&saved
+                ?t('Registration saved. The profile could not load. Try again.','حُفظ التسجيل. تعذّر تحميل الملف. أعد المحاولة.')
+                :t('Could not load the current view. Try again.','تعذّر تحميل العرض الحالي. أعد المحاولة.');
+        return ({authentication_required:t('Sign in again to check these players. Saved work stays protected.','سجّل الدخول مجددًا للتحقق من بيانات اللاعبين. يبقى العمل المحفوظ محميًا.'),denied:t('These player records are unavailable to this account. Choose an available workspace.','لا تتوفر سجلات اللاعبين لهذا الحساب. اختر مساحة عمل متاحة.'),setup_required:t('Complete initial academy setup before registering players.','أكمل الإعداد الأولي قبل تسجيل اللاعبين.'),offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'),invalid:t('Check the name and fictional contact email.','تحقق من الاسم وبريد جهة الاتصال الخيالي.'),conflict:t('Operation changed or was cancelled. Check the original save.','تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'),limited:t('Too many requests. Wait before trying again.','طلبات كثيرة. انتظر قبل المحاولة.')} as Record<string,string>)[code]??t('Could not complete the request.','تعذر إكمال الطلب.');
+    }
+    function forget() { try {
+        sessionStorage.removeItem(storageKey);
+    }
+    catch { } operation.current = null; }
+    function failure(e: unknown) { if (!active.current)
+        return; const code = e instanceof RequestFailure ? e.code : 'unavailable'; setError(code);
+        if(code==='authentication_required') {
+            authenticationRequired.current=true;
+            setBlocked(true);setContext(null);setPlayers([]);setCandidates([]);setSelected(null);
+            setDifferent(false);
+            if(!operation.current&&(stage==='duplicates'||stage==='review'))setStage('form');
+            return;
+        }
+        if (['denied', 'setup_required'].includes(code)) {
+        pendingView.current=null;
+        setOnlinePage(null);
+        try {sessionStorage.removeItem(viewKey);} catch {}
+        setBlocked(true);
+        if(device.approved)void device.remove();
+        setContext(null);
+        setPlayers([]);
+        setCandidates([]);
+        setSelected(null);
+        setSaved(false);
+        setName('');
+        setContact('');
+    } }
+    async function request<T>(body: Record<string, unknown>, profileRead=false): Promise<T> {
+        if(device.offline)throw new RequestFailure('offline');
+        const controller = new AbortController();
+        if(profileRead)profileController.current=controller;
+        controllers.current.add(controller);
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        try {
+            const res = await fetch('/api/people', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: controller.signal, body: JSON.stringify({ ...body, academy }) });
+            if(!active.current||controller.signal.aborted)throw new RequestFailure('stale');
+            if(res.status===401)throw new RequestFailure('authentication_required');
+            const json = await res.json();
+            if (!active.current || controller.signal.aborted)
+                throw new RequestFailure('stale');
+            if (!res.ok)
+                throw new RequestFailure(json.error ?? 'unavailable');
+            return json.data as T;
+        }
+        finally {
+            clearTimeout(timeout);
+            controllers.current.delete(controller);
+            if(profileController.current===controller)profileController.current=null;
+        }
+    }
+    async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, recheck=false) {
+        if(quiet&&authenticationRequired.current)return;
+        let ticket=quiet?directoryTicket.current:++directoryTicket.current;
+        let applied=!quiet;
+        const q=(pendingView.current?.search??search).normalize('NFKC').trim();
+        if(!quiet){
+            controllers.current.forEach(c=>c.abort());
+            setChecking(recheck&&Boolean(context)&&!blocked&&!missing&&!error&&(!saved||players.length>0));
+            setBusy(true);setError(authenticationRequired.current?'authentication_required':'');
+        }
+        try {
+            if(q.length===1&&context&&!authenticationRequired.current)return;
+            if(device.active&&!after&&!authenticationRequired.current) {
+                let cursor=position??pendingView.current?.position??null;
+                const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
+                const contextTask=device.context();
+                const pageTask=local().catch(async(error:unknown)=>{
+                    if(error instanceof Error&&(error.message==='workspace_generation_changed'||
+                        (cursor&&error.message==='workspace_invalid_position'))){
+                        cursor=null;
+                        return local();
+                    }
+                    throw error;
+                });
+                let localResult:Awaited<typeof pageTask>=null;
+                let localContext:Awaited<typeof contextTask>=null;
+                try {[localResult,localContext]=await Promise.all([pageTask,contextTask]);} catch { /* Use an authorized online read if storage is unavailable. */ }
+                if(ticket!==directoryTicket.current||!active.current||authenticationRequired.current)return;
+                if(localResult&&localContext) {
+                    if(quiet){ticket=++directoryTicket.current;applied=true;}
+                    setOnlinePage(null);
+                    setContext(localContext);
+                    const rows=q.length===1?[]:localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]);
+                    setPlayers(rows);
+                    setMore(q.length!==1&&Boolean(localResult.next));localNext.current=q.length===1?null:localResult.next;
+                    localPosition.current=cursor;localSearch.current=q;
+                    setMissing(false);setBlocked(false);setLocalRows(true);setLocalUpdating(localResult.updating);
+                    if(localResult.count>0)setRegistrationCommitted(false);
+                    const restore=pendingView.current;
+                    pendingView.current=null;
+                    if(restore?.selection&&!operation.current){
+                        const selected=rows.find(row=>row.id===restore.selection);
+                        if(selected){setProfileId(selected.id);setSelected(selected);setSummaryOnly(true);setSaved(false);setStage('profile');}
+                    }
+                    setViewRestored(true);
+                    return;
+                }
+            }
+            if(quiet&&!localRows)return;
+            if(device.offline){
+                if(ticket!==directoryTicket.current)return;
+                applied=true;
+                setLocalRows(false);setLocalUpdating(false);setMissing(true);setBlocked(false);setPlayers([]);setMore(false);setContext(null);
+                return;
+            }
+            if(quiet)return;
+            if(searchPending)setSearchMode('online');
+            const cursor=recheck&&onlinePage?.query===q ? onlinePage.after : after;
+            const result=await request<Page>({action:'list',query:q.length===1?'':q,...(cursor?{after:cursor}:{})});
+            if(ticket!==directoryTicket.current)return;
+            setOnlinePage({query:q,after:cursor});
+            authenticationRequired.current=false;setError('');
+            setContext(result);setPlayers(q.length===1?[]:result.items.map(playerRow));setMore(q.length!==1&&result.more);
+            setMissing(false);setLocalRows(false);setLocalUpdating(false);setBlocked(false);
+        } catch(e) {
+            if(!quiet&&ticket===directoryTicket.current){setContext(null);setPlayers([]);setMore(false);setBlocked(true);failure(e);}
+        } finally {
+            if(applied&&active.current&&ticket===directoryTicket.current&&(!quiet||stage==='directory')){
+                setBusy(false);setChecking(false);setSearchMode(null);
+            }
+        }
+    }
+    async function reviewCandidates(after?: string) { setBusy(true); setError(''); setNotice(''); try {
+        const result = await request<Page>({ action: 'candidates', name, ...(after ? { after } : {}) });
+        if (after && result.revision !== revision) {
+            setDifferent(false);
+            await reviewCandidates();
+            setNotice(t('Matching records changed. Review again from the first page.', 'تغيرت السجلات المطابقة. راجع من الصفحة الأولى.'));
+            return;
+        }
+        setCandidates(result.items.map(playerRow));
+        setCandidateMore(result.more);
+        setRevision(result.revision);
+        setDifferent(false);
+        setStage(result.revision > 0 ? 'duplicates' : 'review');
+    }
+    catch (e) {
+        failure(e);
+    }
+    finally {
+        if (active.current)
+            setBusy(false);
+    } }
+    function selectPlayer(player:Player) {
+        pendingView.current=null;
+        if(!localRows){void openProfile(player.id);return;}
+        cancelProfileRead();
+        setSaved(false);setProfileId(player.id);setSelected(player);setSummaryOnly(true);go('profile');
+    }
+    function cancelProfileRead() {
+        profileTicket.current++;
+        profileController.current?.abort();
+        profileController.current=null;
+        setProfileBusy(false);setProfileChecking(false);
+    }
+    async function openProfile(id: string, wasSaved = false, resume=false) {
+        pendingView.current=null;
+        setSummaryOnly(false);
+        const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
+        profileController.current?.abort();
+        const ticket = ++profileTicket.current;
+        setProfileChecking(keep);setProfileBusy(true);setSaved(wasSaved);setProfileId(id);
+        if(!keep)setSelected(null);
+        setStage('profile');setError(authenticationRequired.current?'authentication_required':'');setNotice('');
+        try {
+        const p = await request<Row>({ action: 'profile', player: id },true);
+        if (ticket !== profileTicket.current)
+            return;
+        authenticationRequired.current=false;setBlocked(false);setError('');
+        setSelected(playerRow(p));
+        setStage('profile');
+    }
+    catch (e) {
+        if(active.current&&ticket===profileTicket.current){setSelected(null);failure(e);}
+    }
+    finally {
+        if (active.current&&ticket===profileTicket.current){setProfileBusy(false);setProfileChecking(false);}
+    } }
+    function go(next: Stage) { if(next!=='profile')cancelProfileRead();pendingView.current=null;setError(''); setNotice(''); setStage(next); }
+    function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage))
+        return; if (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟')))
+        return; setName(''); setContact(''); go('directory'); void loadDirectory(); }
+    async function continueDraft(event: FormEvent) { event.preventDefault(); if (!name.trim()) {
+        setError('invalid');
+        nameInput.current?.focus();
+        return;
+    } if (contact && !/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@example\.invalid$/i.test(contact.trim())) {
+        setError('invalid');
+        return;
+    } setSaved(false); await reviewCandidates(); }
+    async function save() {
+        if (locked.current || stage !== 'review' || !context)
+            return;
+        locked.current = true;
+        setBusy(true);
+        setStage('saving');
+        setError('');
+        setNotice('');
+        const op = crypto.randomUUID();
+        operation.current = op;
+        try {
+            sessionStorage.setItem(storageKey, op);
+        }
+        catch { }
+        try {
+            const r = await request<{
+                player_id: string;
+            }>({ action: 'create', branch: context.branch_id, op, name, contact, revision, different });
+            setSaved(true);
+            setRegistrationCommitted(true);
+            forget();
+            setName('');
+            setContact('');
+            if(device.approved)device.refresh();
+            await openProfile(r.player_id, true);
+        }
+        catch (e) {
+            if (!active.current)
+                return;
+            const code = e instanceof RequestFailure ? e.code : 'unavailable';
+            if (code === 'review_required') {
+                forget();
+                setDifferent(false);
+                await reviewCandidates();
+                setNotice(t('A matching record changed. Review again before saving.', 'تغير سجل مطابق. راجع مجدداً قبل الحفظ.'));
+            }
+            else if (['invalid', 'limited', 'denied', 'setup_required'].includes(code)) {
+                forget();
+                setStage('review');
+                failure(e);
+            }
+            else {
+                setStage('unknown');
+                failure(e);
+            }
+        }
+        finally {
+            locked.current = false;
+            if (active.current)
+                setBusy(false);
+        }
+    }
+    async function reconcile() { if (locked.current || !operation.current)
+        return; locked.current = true; setBusy(true); setError(authenticationRequired.current?'authentication_required':''); setNotice(''); try {
+        const r = await request<{
+            player_id?: string;
+            cancelled?: boolean;
+        }>({ action: 'reconcile', op: operation.current });
+        if (r.player_id) {
+            forget();
+            setSaved(true);
+            setRegistrationCommitted(true);
+            setName('');
+            setContact('');
+            if(device.approved)device.refresh();
+            await openProfile(r.player_id, true);
+        }
+        else if (r.cancelled) {
+            forget();
+            setStage(name ? 'form' : 'directory');
+            setNotice(t('The original save did not commit and is now cancelled. You may register again.', 'لم يُحفظ الطلب الأصلي وأُلغي الآن. يمكنك التسجيل مجدداً.'));
+            if (!name||!context)
+                await loadDirectory();
+            else {authenticationRequired.current=false;setBlocked(false);setError('');}
+        }
+    }
+    catch (e) {
+        failure(e);
+    }
+    finally {
+        locked.current = false;
+        if (active.current)
+            setBusy(false);
+    } }
+    const initialize = useEffectEvent(() => { let pending: string | null = null; try {
+        pending = sessionStorage.getItem(storageKey);
+    }
+    catch { } if (pending && uuidPattern.test(pending)) {
+        operation.current = pending;
+        setStage('unknown');
+    } else if(prepared) {
+        try {pendingView.current=decodePeopleViewContext(sessionStorage.getItem(viewKey));} catch {}
+        const saved=pendingView.current;
+        if(saved){setSearch(saved.search);localSearch.current=saved.search.normalize('NFKC').trim();localPosition.current=saved.position;}
+    } void loadDirectory(); });
+    const searchDirectory=useEffectEvent(()=>{
+        if(searchPending&&stage==='directory'&&!unavailable)void loadDirectory();
+    });
+    const queueSearch=useEffectEvent(()=>{
+        if(localRows&&device.active){
+            let live=true;
+            queueMicrotask(()=>{if(live)searchDirectory();});
+            return ()=>{live=false;};
+        }
+        const timer=setTimeout(searchDirectory,300);
+        return ()=>clearTimeout(timer);
+    });
+    const refreshVisible = useEffectEvent(() => { if (busy || profileBusy || document.visibilityState !== 'visible')
+        return; if (stage === 'directory' || stage === 'form') {
+        if(!device.active)void loadDirectory(undefined,null,false,stage==='directory');
+    }
+    else if (stage === 'profile' && profileId && !summaryOnly && !device.offline)
+        void openProfile(profileId,saved,true);
+    else if (['duplicates', 'review'].includes(stage)) { setDifferent(false); setStage('form'); setNotice(t('Draft retained. Recheck matching records before confirming.', 'حُفظت المسودة في الذاكرة. أعد مراجعة السجلات المطابقة قبل التأكيد.')); } });
+    useEffect(() => { active.current = true; const ticket = ++lifecycleTicket.current; const currentControllers = controllers.current; void Promise.resolve().then(() => { if (active.current && ticket === lifecycleTicket.current)
+        initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
+    useEffect(()=>{if(searchPending)return queueSearch();},[searchQuery,searchPending]);
+    useEffect(()=>{
+        if(!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
+            (stage!=='directory'&&(stage!=='profile'||!summaryOnly)))return;
+        try {sessionStorage.setItem(viewKey,JSON.stringify({search,
+            selection:stage==='profile'&&uuidPattern.test(profileId)?profileId:null,
+            position:localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null} satisfies PeopleViewContext));} catch {}
+    },[prepared,viewRestored,localRows,device.active,blocked,stage,summaryOnly,profileId,search,viewKey,players]);
+    useEffect(() => listenForVisibleResume(() => refreshVisible()), []);
+    const reloadLocal=useEffectEvent(()=>{
+        if(!active.current)return;
+        if(device.phase==='denied'){
+            if(searchPending){
+                directoryTicket.current++;
+                controllers.current.forEach(controller=>controller.abort());
+                setSearchMode(null);setBusy(false);
+            }
+            failure(new RequestFailure('denied'));
+            return;
+        }
+        if(searchPending||(stage!=='directory'&&stage!=='profile'))return;
+        if(localRows&&!device.active){
+            setPlayers([]);setSelected(null);setContext(null);setLocalRows(false);
+            if(device.offline)setMissing(true);
+            else void loadDirectory();
+            return;
+        }
+        if(device.active)void loadDirectory(undefined,localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null,true);
+    });
+    useEffect(()=>{if(prepared)queueMicrotask(reloadLocal);},[prepared,device.active,device.coverage,device.phase,device.offline]);
+
+    useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
+    useEffect(() => {
+        if (!['profile','review','saving','unknown'].includes(stage)&&document.activeElement!==searchInput.current)
+            heading.current?.focus();
+    }, [stage]);
+    useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
+        return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
+    function restoreDirectoryFocus(ticket=directoryTicket.current) {
+        requestAnimationFrame(() => {
+            if(active.current&&ticket===directoryTicket.current)
+                (profileOpeners.current.get(profileId)??searchInput.current)?.focus();
+        });
+    }
+    function reloadReturnedDirectory() {
+        const read=loadDirectory(undefined,null,false,!localRows);
+        const ticket=directoryTicket.current;
+        void read.then(()=>restoreDirectoryFocus(ticket));
+    }
+    function closeProfile() {
+        if (busy || stage === 'unknown' || stage === 'saving') return;
+        if (stage === 'review' || stage === 'duplicates') { go('form'); return; }
+        if(stage === 'form' && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) return;
+        go('directory');
+        if(saved||!context)reloadReturnedDirectory();
+        else restoreDirectoryFocus();
+    }
+    function changeSearch(value:string) {
+        const nextQuery=value.normalize('NFKC').trim();
+        setSearch(value);
+        if(nextQuery===searchQuery)return;
+        if(stage==='profile')go('directory');
+        setOnlinePage(null);pendingView.current=null;directoryTicket.current++;
+        controllers.current.forEach(controller=>controller.abort());
+        const needsRead=nextQuery.length!==1||!context||authenticationRequired.current;
+        setChecking(false);setSaved(false);setBusy(needsRead);
+        setSearchMode(needsRead?(localRows&&device.active?'device':'online'):null);
+    }
+    function retryBlockedView() {
+        if(error==='authentication_required'&&stage==='unknown')void reconcile();
+        else if(error==='authentication_required'&&stage==='profile'&&profileId)void openProfile(profileId,saved);
+        else if(stage==='directory'&&saved)reloadReturnedDirectory();
+        else void loadDirectory(undefined,null,false,stage==='directory'&&!localRows);
+    }
+    const registrationTask = !['directory','profile'].includes(stage);
+    const protectedViewGone=unavailable||(localRows&&!device.active);
+    const previousSearchRows=searchMode==='online'&&!shortSearch&&!protectedViewGone&&Boolean(context)&&players.length>0;
+    const registrationSaved=t('Registration saved','حُفظ التسجيل');
+    const showSavedResult=saved&&device.phase!=='denied'&&error!=='denied'&&error!=='setup_required'&&
+        (stage==='directory'||(stage==='profile'&&error==='authentication_required'));
+    const inspector = protectedViewGone?null:<>
+      {stage==='profile'&&profileBusy&&<p role="status" className={profileChecking?'visually-hidden':'notice'}>{profileChecking?t('Checking current player…','جارٍ التحقق من بيانات اللاعب…'):t('Loading profile…','جارٍ تحميل الملف…')}</p>}
+      {stage === 'profile' && selected && !device.offline && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{summaryOnly?t('Open full profile','فتح الملف الكامل'):profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
+
+      {(stage === 'profile' || registrationTask) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {(stage === 'profile' || registrationTask) && notice && <p className="notice" role="status">{notice}</p>}
+        {stage === 'form' && <section className="journey-card"><h2>{t('New player draft', 'مسودة لاعب جديد')}</h2>
+          <p>{t('Use fictional details only. Saving a contact sends no invitation and grants no access.', 'استخدم بيانات خيالية فقط. حفظ جهة اتصال لا يرسل دعوة ولا يمنح صلاحية.')}</p>
+          <form onSubmit={continueDraft}><fieldset disabled={busy}><legend>{t('Fictional player details', 'بيانات اللاعب الخيالية')}</legend>
+            <label htmlFor="player-name">{t('Player display name (required)', 'اسم عرض اللاعب (مطلوب)')}</label>
+            <Input ref={nameInput} id="player-name" required maxLength={160} value={name} onChange={event => setName(event.target.value)}/>
+            <label htmlFor="contact-email">{t('Parent/guardian contact email (optional)', 'بريد جهة اتصال ولي الأمر (اختياري)')}</label>
+            <Input id="contact-email" type="email" dir="ltr" maxLength={254} value={contact} onChange={event => setContact(event.target.value)} aria-describedby="contact-help"/>
+            <small id="contact-help">{t('Unverified contact only. Use @example.invalid. No parent account, invitation or child access.', 'جهة اتصال غير موثقة فقط. استخدم @example.invalid. لا حساب لولي الأمر أو دعوة أو وصول لبيانات الطفل.')}</small>
+            <div className="journey-actions"><Button disabled={busy} type="submit" className="button">{t('Continue to duplicate review', 'المتابعة لمراجعة التكرار')}</Button><Button type="button" onClick={() => { if (window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) {
+                setName('');
+                setContact('');
+                go('directory');
+                void loadDirectory();
+            } }}>{t('Discard draft', 'تجاهل المسودة')}</Button></div>
+          </fieldset></form>
+        </section>}
+        {stage === 'duplicates' && <section className="journey-card"><h2>{t('Review possible duplicates', 'مراجعة السجلات المتشابهة')}</h2>
+          <p>{t('Matching names do not establish identity. Open an existing record, or explicitly confirm a different person. No automatic merge.', 'تشابه الاسم لا يثبت الهوية. افتح سجلاً موجوداً أو أكد أنه شخص مختلف. لا دمج تلقائياً.')}</p>
+          <div className="people-comparison"><section className="people-proposal"><h3>{t('New registration','التسجيل الجديد')}</h3><strong>{name.trim()}</strong><p>{context?.branch_name}</p><p><bdi dir="ltr">{contact || t('No contact supplied','لم تُضف جهة اتصال')}</bdi></p><span className="badge">{t('Not saved','غير محفوظ')}</span></section><section><h3>{t('Possible existing players','لاعبون موجودون محتملون')}</h3><ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul></section></div>
+          {candidateMore && <Button disabled={busy} onClick={() => void reviewCandidates(candidates.at(-1)?.id)}>{t('Next matching page (up to 25)', 'الصفحة المطابقة التالية (حتى 25)')}</Button>}<label className="people-check"><input type="checkbox" checked={different} onChange={event => setDifferent(event.target.checked)}/>{t('I reviewed these records. This is a different fictional person.', 'راجعت هذه السجلات. هذا شخص خيالي مختلف.')}</label>
+          <div className="journey-actions"><Button disabled={!different || busy || candidateMore} className="button" onClick={() => go('review')}>{t('Review new registration', 'مراجعة التسجيل الجديد')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
+        </section>}
+        {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
+          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجلًا للاعب وجهة اتصال اختيارية غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
+          <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
+        </section>}
+        {stage === 'saving' && <section className="journey-card" role="status"><h2>{t('Saving… awaiting confirmation', 'جارٍ الحفظ… بانتظار التأكيد')}</h2><p>{t('Please wait while the registration is saved. Repeated submission is disabled.', 'يرجى الانتظار حتى يتم حفظ التسجيل. إعادة الإرسال معطلة.')}</p><Button disabled>{t('Saving…', 'جارٍ الحفظ…')}</Button></section>}
+        {stage === 'unknown' && <section className="journey-card"><h2>{t('Save outcome is uncertain', 'نتيجة الحفظ غير مؤكدة')}</h2><p>{t('We could not confirm whether the save completed. Check the original save before trying again.', 'تعذّر تأكيد إتمام الحفظ. تحقّق من الحفظ الأصلي قبل المحاولة مجددًا.')}</p><Button className="button" disabled={busy} onClick={() => void reconcile()}>{t('Check original save', 'التحقق من الحفظ الأصلي')}</Button></section>}
+
+        {stage === 'profile' && saved && !selected && !busy && !profileBusy && !error && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
+        {stage === 'profile' && !selected && !busy && !profileBusy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
+        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
+          <p role="status">{saved ? registrationSaved : summaryOnly?t('Player summary on this device','ملخص اللاعب على هذا الجهاز'):t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
+          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{summaryOnly?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div></dl>
+          <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
+          {summaryOnly&&<p className="notice">{device.offline?t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.'):t('Open the full profile for contact details and further actions.','افتح الملف الكامل لبيانات الاتصال والإجراءات الأخرى.')}</p>}
+          {!device.offline&&!summaryOnly&&<div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>}
+        </section>}
+
+      {stage === 'directory' && <><h3>{t('Working with players','إدارة اللاعبين')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
+    </>;
+    const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
+    return <>
+    <WorkspaceShell prefetch={prepared?false:undefined} role="owner" module="people" locale={locale} context={(!protectedViewGone&&context?.academy_name)||t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={ownerNavigation(locale,academy,'people')} onNavigate={event => { if(publicOffline&&event.currentTarget.hash!=='#language'){event.preventDefault();const path=new URL(event.currentTarget.href);if(path.pathname.endsWith('/players')||path.pathname.endsWith('/calendar'))window.location.assign(path.href);return;} if (event.currentTarget.hash === '#language') {
+        event.preventDefault();
+        setLocale(ar ? 'en' : 'ar');
+    }
+    else if (event.currentTarget.hash === '#directory')
+        guard(event);
+    else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
+        event.preventDefault(); }} account={publicOffline?null:<UserButton />} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(context)&&!blocked}/>}>
+      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
+      <header className="task-header">      <h1 ref={heading} tabIndex={-1}>{title}</h1>{registrationTask && <ol className="people-steps" aria-label={t('Registration progress','مراحل التسجيل')}><li aria-current={stage==='form'?'step':undefined}>{t('Player details','بيانات اللاعب')}</li><li aria-current={stage==='duplicates'?'step':undefined}>{t('Duplicate check','فحص التكرار')}</li><li aria-current={['review','saving','unknown'].includes(stage)?'step':undefined}>{t('Review and save','المراجعة والحفظ')}</li></ol>}
+      {!unavailable && stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(undefined,null,false,stage==='directory'&&!localRows); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{checking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}</header>
+      {context && !protectedViewGone && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
+      {showSavedResult && <p className="notice" role="status">{registrationSaved}</p>}
+      {((!registrationTask&&stage!=='profile')||protectedViewGone) && error && !blocked && device.phase!=='denied' && <p className="journey-error" role="alert">{errorText(error)}</p>}
+      {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
+      {checking&&<p role="status" className="visually-hidden">{t('Checking current players…','جارٍ التحقق من بيانات اللاعبين…')}</p>}
+      {busy && !checking && !searchPending && stage !== 'saving' && stage !== 'profile' && !(localRows&&device.active&&stage==='directory') && <p role="status">{t('Loading players…','جارٍ تحميل اللاعبين…')}</p>}
+      {error === 'setup_required' && <a href={`/${locale}/workspace/${academy}`}>{t('Complete initial setup', 'أكمل الإعداد الأولي')}</a>}
+      {unavailable ? <section className="journey-card" role="alert">
+        <h2>{error==='authentication_required'?t('Sign-in required','تسجيل الدخول مطلوب'):error === 'denied' ? t('Access unavailable', 'الصلاحية غير متاحة') : t('Could not load players', 'تعذر تحميل اللاعبين')}</h2>
+        <p>{errorText(error||'denied')}</p>
+        <Button disabled={busy||profileBusy} onClick={retryBlockedView}>{error==='authentication_required'&&stage==='unknown'?t('Check original save','التحقق من الحفظ الأصلي'):error==='authentication_required'&&stage==='profile'?t('Retry loading profile','إعادة تحميل الملف'):t('Try again', 'إعادة المحاولة')}</Button>
+      </section> : <>
+        {(stage === 'directory' || stage === 'profile') && <section className="journey-card people-directory">
+          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
+          <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
+          <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => changeSearch(event.target.value)}/>
+          {shortSearch && <p className="directory-search-status" role="status">{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
+          {searchMode==='online'&&!shortSearch && <p className="directory-search-status" role="status">{previousSearchRows
+            ?t('Updating results… Showing previous results.','جارٍ تحديث النتائج… تُعرض النتائج السابقة.')
+            :t('Updating results…','جارٍ تحديث النتائج…')}</p>}
+          {missing&&<p role="status">{t('Players are not on this device yet.','قائمة اللاعبين غير متاحة على هذا الجهاز بعد.')}</p>}
+          {localRows&&localUpdating&&<p role="status">{t('Showing the last downloaded directory. Recent changes are not available here yet.','تُعرض آخر نسخة منزّلة من قائمة اللاعبين. التغييرات الأخيرة غير متاحة هنا بعد.')}</p>}
+          {!context&&!missing&&!busy&&stage==='profile'&&!profileBusy&&<p role="status">{t('Return to players to check the directory.','ارجع إلى قائمة اللاعبين للتحقّق منها.')}</p>}
+          {context && !missing && !busy && !players.length && !shortSearch && <p>{localRows&&(localUpdating||registrationCommitted)
+            ?t('The downloaded directory has not updated yet. Check for changes.','لم تتحدّث قائمة اللاعبين المنزّلة بعد. تحقّق من التغييرات.')
+            :!localRows&&onlinePage?.after?t('No players on this page. Go to the first page.','لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.')
+            :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
+          {context && searchMode!=='online' && !shortSearch && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
+          {search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
+          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          {context && !shortSearch && <><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+        </section>}
+
+      </>}
+    </WorkspacePanes></WorkspaceShell>
+  </>;
+}

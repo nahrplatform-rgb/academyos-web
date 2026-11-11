@@ -12,6 +12,7 @@ import {
 } from "./lib/config";
 const protectedRoute = createRouteMatcher([
   "/:locale/workspace(.*)",
+  "/:locale/platform(.*)",
   "/:locale/service-setup(.*)",
 ]);
 const handler = clerkMiddleware(

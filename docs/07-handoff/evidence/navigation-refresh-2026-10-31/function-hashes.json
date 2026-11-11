@@ -1,0 +1,1150 @@
+[
+  {
+    "schema": "academy",
+    "proname": "a10_guard_published_roster",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "053936349a90b5c301fdd4acc1195116"
+  },
+  {
+    "schema": "academy",
+    "proname": "a10_guard_session",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "7408a24852ed592b291ff6415d7edcaf"
+  },
+  {
+    "schema": "academy",
+    "proname": "a10_history_immutable",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "36d60889ee3d42f5009eb0b11be57bb5"
+  },
+  {
+    "schema": "academy",
+    "proname": "a10_owner",
+    "prosecdef": false,
+    "args": "a uuid, s text",
+    "definition_md5": "7d2a7b1c3703bdc59978f0755ad716ee"
+  },
+  {
+    "schema": "academy",
+    "proname": "a10_protect",
+    "prosecdef": false,
+    "args": "a uuid, p uuid, d date",
+    "definition_md5": "9e8ecb094a9a2f56bc6d32158cfea4aa"
+  },
+  {
+    "schema": "academy",
+    "proname": "a10_target",
+    "prosecdef": false,
+    "args": "a uuid, ev uuid",
+    "definition_md5": "40ef4f8091fe56914cfaa14d1ebb90f8"
+  },
+  {
+    "schema": "academy",
+    "proname": "audit_platform_grant",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "9258346370757d4ab56a3211df8ebec2"
+  },
+  {
+    "schema": "academy",
+    "proname": "b11_item",
+    "prosecdef": false,
+    "args": "e academy.publication_events, player uuid",
+    "definition_md5": "787b499f06a2f0f856f4bd24d6fa0bcd"
+  },
+  {
+    "schema": "academy",
+    "proname": "b11_player",
+    "prosecdef": false,
+    "args": "a uuid, link uuid",
+    "definition_md5": "a18643ffce7ffa704a2ca2725317cda9"
+  },
+  {
+    "schema": "academy",
+    "proname": "c12_access",
+    "prosecdef": false,
+    "args": "a uuid, ev uuid",
+    "definition_md5": "dfb7f2d63a75d81fc13dbc61388d0bdb"
+  },
+  {
+    "schema": "academy",
+    "proname": "c12_assignment_revision",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "0c91f84a0e0276a89e56d1c4f776ee39"
+  },
+  {
+    "schema": "academy",
+    "proname": "c12_authority_changed",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "80b2ce53cfd4a0e6f30bdaf87cc6fd68"
+  },
+  {
+    "schema": "academy",
+    "proname": "c12_request_immutable",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "e3722ce7f0406a72871e8892b2ae7bf8"
+  },
+  {
+    "schema": "academy",
+    "proname": "c12_state",
+    "prosecdef": false,
+    "args": "r academy.correction_requests",
+    "definition_md5": "8d69b7f5a3b39e28057112da05a71382"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_access",
+    "prosecdef": false,
+    "args": "a uuid, ev uuid, player uuid",
+    "definition_md5": "e6800dc3ab764a689d1470412ec69e5a"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_author_current",
+    "prosecdef": false,
+    "args": "r academy.development_assessments",
+    "definition_md5": "6c6a255a5b0bec0d23a7187af4368daf"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_fields",
+    "prosecdef": false,
+    "args": "f jsonb, complete boolean",
+    "definition_md5": "61eb7889b29f0e04be1d2fe593b9ec24"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_link",
+    "prosecdef": false,
+    "args": "a uuid, link uuid",
+    "definition_md5": "fe1df6af3ff5bd6d48d84f8d15f5d19f"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_lock",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "c401d0f3512fa748de81fb90fb89ee4b"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_staff",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "2f32ee104282be849d82018b84cbc61d"
+  },
+  {
+    "schema": "academy",
+    "proname": "e14_target",
+    "prosecdef": false,
+    "args": "a uuid, ev uuid, player uuid",
+    "definition_md5": "abf9e46286ff0bd7e694757d4d4fbf1d"
+  },
+  {
+    "schema": "academy",
+    "proname": "g3_approver",
+    "prosecdef": false,
+    "args": "a uuid, subject text",
+    "definition_md5": "00ab239f0ddf06a9b2bff7df55fdb787"
+  },
+  {
+    "schema": "academy",
+    "proname": "g3_guardian",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "bc513fe7beaf71a9eb5ff658a298139c"
+  },
+  {
+    "schema": "academy",
+    "proname": "g3_lock",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "e4414b769bd86155a1ebc1f5336935ad"
+  },
+  {
+    "schema": "academy",
+    "proname": "i2_normalize",
+    "prosecdef": false,
+    "args": "value text",
+    "definition_md5": "7832db407f7eaa6ad2dc4ce0f7142726"
+  },
+  {
+    "schema": "academy",
+    "proname": "i2_owner",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "103f21dddccb398ccf019aa267fb188e"
+  },
+  {
+    "schema": "academy",
+    "proname": "m1_owner",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "50ad811156b342734b9bf308aae9dad9"
+  },
+  {
+    "schema": "academy",
+    "proname": "m1_platform",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "392873e62e8fc293c3a33f36cbf01276"
+  },
+  {
+    "schema": "academy",
+    "proname": "m1_proof",
+    "prosecdef": false,
+    "args": "p jsonb, purpose text, target text",
+    "definition_md5": "aee0395221bdd736ebee6975b965573a"
+  },
+  {
+    "schema": "academy",
+    "proname": "m1_receipt",
+    "prosecdef": false,
+    "args": "s text, op uuid, act text, a uuid, payload jsonb, result jsonb",
+    "definition_md5": "05d49a220e1d658893f0783428e1b154"
+  },
+  {
+    "schema": "academy",
+    "proname": "m1_replay",
+    "prosecdef": false,
+    "args": "s text, op uuid, act text, payload jsonb",
+    "definition_md5": "0ba672d6c03459ee689d46376b20863c"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_chain",
+    "prosecdef": false,
+    "args": "previous text, dates jsonb",
+    "definition_md5": "1a18563d1f198be249c696fef11f8d40"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_context",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "18b795a28faaa8cc7fc73237a06b8b75"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_count",
+    "prosecdef": false,
+    "args": "d jsonb",
+    "definition_md5": "253aeac0f3f5c058e8ea7a6b95cb23f9"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_definition",
+    "prosecdef": false,
+    "args": "d jsonb",
+    "definition_md5": "b1af0414297807708cbcb0b381156db9"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_instant",
+    "prosecdef": false,
+    "args": "w timestamp without time zone, z text",
+    "definition_md5": "a4bbaef6ae9db9ad335e66e237ca5243"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_projection",
+    "prosecdef": false,
+    "args": "p academy.training_programs",
+    "definition_md5": "52778968c2381848e27381ff95c0a8cd"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_review_root",
+    "prosecdef": false,
+    "args": "receipt jsonb, subject text, seed text, through integer",
+    "definition_md5": "35395ef490f13d333767732a49537c64"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_review_signature",
+    "prosecdef": false,
+    "args": "subject text, seed text, through integer, digest text",
+    "definition_md5": "3c56ace19849323a53d3abe32b05d58d"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_seed",
+    "prosecdef": false,
+    "args": "a uuid, d jsonb, c jsonb",
+    "definition_md5": "c0c148aa97cb747c4672e2668519e597"
+  },
+  {
+    "schema": "academy",
+    "proname": "p5_window",
+    "prosecdef": false,
+    "args": "d jsonb, z text, idx integer",
+    "definition_md5": "9b73550092db8e19d1ac70b84fb046f2"
+  },
+  {
+    "schema": "academy",
+    "proname": "q13_matches",
+    "prosecdef": false,
+    "args": "a uuid, b uuid, events uuid[], code text",
+    "definition_md5": "1233083371f8ed4640d1868fb82c88c7"
+  },
+  {
+    "schema": "academy",
+    "proname": "q13_player",
+    "prosecdef": false,
+    "args": "e academy.publication_events, pid uuid",
+    "definition_md5": "a8bfe22e9fdb4bacd81d13351f572b32"
+  },
+  {
+    "schema": "academy",
+    "proname": "q13_scope",
+    "prosecdef": false,
+    "args": "a uuid, b uuid",
+    "definition_md5": "44ae82a9f5875101470d3c6abe5b864c"
+  },
+  {
+    "schema": "academy",
+    "proname": "q13_window",
+    "prosecdef": false,
+    "args": "e academy.publication_events",
+    "definition_md5": "050d5e2a5588cdcdcc5c8a6d6bdcf3a1"
+  },
+  {
+    "schema": "academy",
+    "proname": "q6_change",
+    "prosecdef": false,
+    "args": "a uuid, p uuid, day date, expected_version bigint, capacity integer, trainer uuid, add_ids uuid[], remove_ids uuid[], op uuid",
+    "definition_md5": "15e6d1ff4719f0a65db17bae4643dd55"
+  },
+  {
+    "schema": "academy",
+    "proname": "q6_eligible",
+    "prosecdef": false,
+    "args": "a uuid, b uuid, staff uuid",
+    "definition_md5": "ecc6551d20e62f352873b35168dd2d34"
+  },
+  {
+    "schema": "academy",
+    "proname": "q6_target",
+    "prosecdef": false,
+    "args": "a uuid, p uuid, day date",
+    "definition_md5": "5ae1538101f2404ec354421ddc661dd7"
+  },
+  {
+    "schema": "academy",
+    "proname": "r7_job",
+    "prosecdef": false,
+    "args": "a uuid, j uuid",
+    "definition_md5": "d104f15d0f3f082da381e397e1a0cf5f"
+  },
+  {
+    "schema": "academy",
+    "proname": "r7_problem",
+    "prosecdef": false,
+    "args": "j uuid, day_date date",
+    "definition_md5": "bf6dce51fa6d79dcc7001079b32a4c29"
+  },
+  {
+    "schema": "academy",
+    "proname": "s8_guard_plan",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "2442f8b58a3ef57a3c14de3abd223334"
+  },
+  {
+    "schema": "academy",
+    "proname": "s8_job",
+    "prosecdef": false,
+    "args": "a uuid, j uuid",
+    "definition_md5": "a10ae49a9677c45c13b1a4ec6e596f92"
+  },
+  {
+    "schema": "academy",
+    "proname": "s8_problem",
+    "prosecdef": false,
+    "args": "j uuid, target_day date",
+    "definition_md5": "66ef7cd297ca0f8475ad9a9a8889f263"
+  },
+  {
+    "schema": "academy",
+    "proname": "t4_approver",
+    "prosecdef": false,
+    "args": "a uuid, subject text",
+    "definition_md5": "9569ed95710be4006a7e06975aae1cfe"
+  },
+  {
+    "schema": "academy",
+    "proname": "t4_lock",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "c07da80f33a629ee6a6787ae1c3b26ee"
+  },
+  {
+    "schema": "academy",
+    "proname": "t4_trainer",
+    "prosecdef": false,
+    "args": "a uuid",
+    "definition_md5": "115e6fdac9ab22687916e45915e95ae9"
+  },
+  {
+    "schema": "academy",
+    "proname": "t9_change",
+    "prosecdef": false,
+    "args": "a uuid, p uuid, day date, sv bigint, pv bigint, head uuid, kind text, new_day date, new_start time without time zone, new_end time without time zone, reason text, op uuid",
+    "definition_md5": "3d35c4c5e5374dbaf811607188a66981"
+  },
+  {
+    "schema": "academy",
+    "proname": "t9_date_default",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "c30c43288bbeced631c28f31412865d6"
+  },
+  {
+    "schema": "academy",
+    "proname": "t9_guard_date",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "1e09268212e9cb2d05db3e206c640c05"
+  },
+  {
+    "schema": "academy",
+    "proname": "verified_subject",
+    "prosecdef": false,
+    "args": "",
+    "definition_md5": "44b49f9d0054bd60fc12b50c51ef0909"
+  },
+  {
+    "schema": "academy",
+    "proname": "x15_calendar",
+    "prosecdef": false,
+    "args": "a uuid, actor text, link uuid, first_date date, last_date date, after_at timestamp with time zone, after_id uuid, after_day date",
+    "definition_md5": "fea7e5824e052a7993bc75bc41bd3ce0"
+  },
+  {
+    "schema": "academy",
+    "proname": "x15_context",
+    "prosecdef": false,
+    "args": "a uuid, actor text, link uuid",
+    "definition_md5": "e440ef0d1ec42dad1e5eda638e844445"
+  },
+  {
+    "schema": "academy",
+    "proname": "x15_home",
+    "prosecdef": false,
+    "args": "a uuid, actor text, link uuid",
+    "definition_md5": "c7a5f76254f5236dbf8f11613bd5bc00"
+  },
+  {
+    "schema": "academy",
+    "proname": "x15_rows",
+    "prosecdef": false,
+    "args": "a uuid, actor text, ctx jsonb, first_date date, last_date date",
+    "definition_md5": "4141303fef5e98e4949ee5f417cb71c6"
+  },
+  {
+    "schema": "public",
+    "proname": "a10_history_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, before_version bigint",
+    "definition_md5": "6e1f4c2982d0963e79c4a751d42f8b1f"
+  },
+  {
+    "schema": "public",
+    "proname": "a10_mark_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, new_status text, expected_version bigint, reason text, captured_at timestamp with time zone, op uuid",
+    "definition_md5": "5af3d747f909e429ca826583f16d3347"
+  },
+  {
+    "schema": "public",
+    "proname": "a10_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, op uuid",
+    "definition_md5": "10db2d27bf489939f188d56368b4cc68"
+  },
+  {
+    "schema": "public",
+    "proname": "a10_register_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, marks jsonb, captured_at timestamp with time zone, op uuid",
+    "definition_md5": "36e914ca582fc3c2f16c7ddaa0ed76d4"
+  },
+  {
+    "schema": "public",
+    "proname": "a10_roster_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, after_id uuid",
+    "definition_md5": "39b40e83d3722a328f89cef1b0f01c81"
+  },
+  {
+    "schema": "public",
+    "proname": "b11_detail_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid, event uuid",
+    "definition_md5": "30d465de6b45062bfc86f15bf002ccae"
+  },
+  {
+    "schema": "public",
+    "proname": "b11_links_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid",
+    "definition_md5": "0f1c29ea2772c7043dcdee24525dbac5"
+  },
+  {
+    "schema": "public",
+    "proname": "b11_schedule_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid, first_date date, after_at timestamp with time zone, after_event uuid",
+    "definition_md5": "236e051dd93471e03d13475f613e8d6b"
+  },
+  {
+    "schema": "public",
+    "proname": "bootstrap_identity_v1",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "5d8f5191df617716db1a2efd3db6a57d"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_context_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid",
+    "definition_md5": "6d23cb280fd0eb238efa0fd34d8c7bb7"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_decide_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, rid uuid, choice text, reason text, op uuid",
+    "definition_md5": "50f72fb868ebe36f37dd554a34b2803c"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_detail_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, rid uuid",
+    "definition_md5": "56b3ab4c575d0f4d0c713f1c10f25bc3"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_history_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, rid uuid, after_at timestamp with time zone, after_id uuid",
+    "definition_md5": "6c2d94e2d377444e1030a71e52a90b93"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, scope text, after_at timestamp with time zone, after_id uuid",
+    "definition_md5": "652b8fd56c83564adab1c96ab73cf76c"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, op uuid",
+    "definition_md5": "809640c7aa8dd2c171042663b4081b12"
+  },
+  {
+    "schema": "public",
+    "proname": "c12_submit_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, expected_version bigint, reason text, op uuid",
+    "definition_md5": "ee0217f4fc49765e1a7e26375c56a0f8"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_command_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, act text, expected bigint, f jsonb, lang text, reason text, op uuid",
+    "definition_md5": "a6e9449db6bfd741a7317a34817ac662"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_context_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "beb6054baa426bdc5de7eedc2a618c4f"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_detail_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid",
+    "definition_md5": "9e99a892fbb0c910a71be232a1468546"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_family_detail_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid, assessment uuid",
+    "definition_md5": "28ae1039db511fba6181ff2c04f49a95"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_family_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid, after_id uuid",
+    "definition_md5": "c356f9eec2ed136d553a39a3835d47c5"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_history_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, before_version bigint",
+    "definition_md5": "5582e92815ceb0d926dab093546029af"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_links_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid",
+    "definition_md5": "32c51971e1edc7f055dd5e1cc6d72352"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, player uuid, op uuid",
+    "definition_md5": "812cd05621496d95cdc35c7856c48480"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_queue_v1",
+    "prosecdef": true,
+    "args": "a uuid, scope text, after_id uuid",
+    "definition_md5": "ebc0bcc108823bd2e86b27d592f7c9ca"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_roster_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, after_id uuid",
+    "definition_md5": "98ae4172d0a7b06bb91dea62d9a3ce59"
+  },
+  {
+    "schema": "public",
+    "proname": "e14_sessions_v1",
+    "prosecdef": true,
+    "args": "a uuid, first_date date, after_at timestamp with time zone, after_id uuid",
+    "definition_md5": "9f8003cb3b1490f0b16b2e298ea93ffb"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_command_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid, act text, invitation uuid, player uuid, recipient text, token_hash text, expected_version integer, reason text",
+    "definition_md5": "7ef3367e7abe31284cf55089f68dd4a4"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_delivery_v1",
+    "prosecdef": true,
+    "args": "invitation uuid, proof jsonb, lease uuid, outcome text, provider text",
+    "definition_md5": "e4a74bb2eaa48fa9fb850ab0cb806f3d"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_invitation_v1",
+    "prosecdef": true,
+    "args": "invitation uuid, token text, proof jsonb, act text, op uuid",
+    "definition_md5": "c88edb0efe06c0b6ff82f0c0c4643063"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_links_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid, link uuid",
+    "definition_md5": "40819f25e798950534a7471ac706f12a"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "82ab4c440b00430a3b39491a544cdddf"
+  },
+  {
+    "schema": "public",
+    "proname": "g3_owner_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, player uuid, after_id uuid, inspect_id uuid",
+    "definition_md5": "a08e2a95b36860775f2f97a8d8623f6c"
+  },
+  {
+    "schema": "public",
+    "proname": "i2_candidates_v1",
+    "prosecdef": true,
+    "args": "a uuid, display_name text, after_id uuid",
+    "definition_md5": "cf7434424f40ee6d2c789c3579708914"
+  },
+  {
+    "schema": "public",
+    "proname": "i2_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "658571a5b4e4e897e5e8093fe513aa3d"
+  },
+  {
+    "schema": "public",
+    "proname": "i2_people_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid, query text",
+    "definition_md5": "b7f0b4af7ed0b86774e42faffbaf1b1d"
+  },
+  {
+    "schema": "public",
+    "proname": "i2_profile_v1",
+    "prosecdef": true,
+    "args": "a uuid, player uuid",
+    "definition_md5": "0a1ddd3115a24f6e98bb421d0453be98"
+  },
+  {
+    "schema": "public",
+    "proname": "i2_register_v1",
+    "prosecdef": true,
+    "args": "a uuid, branch uuid, op uuid, display_name text, contact text, reviewed_revision bigint, different_person boolean",
+    "definition_md5": "b5354eb249a5f88e184fbe4171ece85f"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_context_v1",
+    "prosecdef": true,
+    "args": "after_id uuid",
+    "definition_md5": "3155f9f55d6f63fb358b30c9d68e0c4c"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_create_v1",
+    "prosecdef": true,
+    "args": "op uuid, invitation_id uuid, academy_name text, recipient text, token_hash text",
+    "definition_md5": "d35e81d3a6fa17e0461a479713d5be25"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_delivery_v1",
+    "prosecdef": true,
+    "args": "invitation_id uuid, generation integer, proof jsonb, lease uuid, outcome text, provider text",
+    "definition_md5": "f68e85e4e9e1b6f4a00b01291527b5a3"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_invitation_v1",
+    "prosecdef": true,
+    "args": "invitation_id uuid, token text, proof jsonb, accept_op uuid",
+    "definition_md5": "99c624bd5a99b5292614a57059706996"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_manage_invitation_v1",
+    "prosecdef": true,
+    "args": "invitation_id uuid, op uuid, expected_generation integer, act text, token_hash text",
+    "definition_md5": "7e6a484597a31856612d77d26f894235"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_operation_v1",
+    "prosecdef": true,
+    "args": "op uuid",
+    "definition_md5": "84c9f5fbf2076792c2c582b43838e800"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_platform_list_v1",
+    "prosecdef": true,
+    "args": "after_id uuid",
+    "definition_md5": "1cd5445162a7d6d3e6c002367fe9942a"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_save_setup_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid, expected_version integer, step text, fields jsonb",
+    "definition_md5": "26d936ba638cce3f1e3cc9179c0e380b"
+  },
+  {
+    "schema": "public",
+    "proname": "m1_setup_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "f26a76d7427ed2baa984298581a303f3"
+  },
+  {
+    "schema": "public",
+    "proname": "my_academy_memberships_v1",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "448e63759a6dfd50fb0e7f8428c9ba0a"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_create_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid, definition jsonb, expected_context integer, review jsonb",
+    "definition_md5": "ef14f6b4ea918e002bb0030b819bc31a"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_dates_v1",
+    "prosecdef": true,
+    "args": "a uuid, day_start date, after_day date, after_program uuid",
+    "definition_md5": "b174eb7e7c86e9e8597f18fa8e773489"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid",
+    "definition_md5": "6929d1203c4520eada961f68900a7c39"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "2570f6b0ea4824305f58908831b63fd5"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_preview_v1",
+    "prosecdef": true,
+    "args": "a uuid, definition jsonb, expected_context integer, idx integer, previous jsonb",
+    "definition_md5": "037f00b4b87dbf89d4a7b811607fbc11"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_read_v1",
+    "prosecdef": true,
+    "args": "a uuid, program uuid, idx integer",
+    "definition_md5": "dd987c88279185d105d337dbefbb3289"
+  },
+  {
+    "schema": "public",
+    "proname": "p5_step_v1",
+    "prosecdef": true,
+    "args": "a uuid, program uuid, expected_version bigint, act text",
+    "definition_md5": "59a4ea3e2c543ad4f51b198b2bb09087"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_capture_v1",
+    "prosecdef": true,
+    "args": "a uuid, b uuid, events uuid[], code text, chosen uuid, op uuid",
+    "definition_md5": "5a0ddea26f90c62302e5afca78c13c8c"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_card_change_v1",
+    "prosecdef": true,
+    "args": "a uuid, pid uuid, act text, expected bigint, code text, op uuid",
+    "definition_md5": "234b130f4a73b2a34507b0f38ba14478"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_card_v1",
+    "prosecdef": true,
+    "args": "a uuid, pid uuid",
+    "definition_md5": "d7562c26d266f700c7afc948cc48d063"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_context_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "a24600f0ffa8781ddb96bfac0f958f02"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, context text, op uuid",
+    "definition_md5": "c7796b86bd56b862f5df179ccbe5c7bd"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_resolve_v1",
+    "prosecdef": true,
+    "args": "a uuid, b uuid, events uuid[], code text",
+    "definition_md5": "8c28eb0acd218a8e47117be9b048489f"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_sessions_v1",
+    "prosecdef": true,
+    "args": "a uuid, b uuid, on_day date, after_at timestamp with time zone, after_id uuid",
+    "definition_md5": "fabb9c9d01d03324712bc684aef011b5"
+  },
+  {
+    "schema": "public",
+    "proname": "q13_window_change_v1",
+    "prosecdef": true,
+    "args": "a uuid, ev uuid, expected bigint, before_minutes integer, after_minutes integer, op uuid",
+    "definition_md5": "cfbb4fac6e254af64b613347e025f66f"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_candidates_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, kind text, query text, after_id uuid",
+    "definition_md5": "6edb79ca033076269a0a6876d80cc496"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "1485b8e636870e450230c64465a0291e"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_read_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, after_id uuid",
+    "definition_md5": "65929442e5755703539133a0cd3a723e"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_review_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, expected_version bigint, capacity integer, trainer uuid, add_ids uuid[], remove_ids uuid[]",
+    "definition_md5": "9a8dc5e97adb12bee48bc26cd4c6063d"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_review_v2",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, sv bigint, expected_version bigint, capacity integer, trainer uuid, add_ids uuid[], remove_ids uuid[]",
+    "definition_md5": "b0ee0b4a1e11e7e19fee69520a28f8f8"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_save_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, expected_version bigint, capacity integer, trainer uuid, add_ids uuid[], remove_ids uuid[], op uuid",
+    "definition_md5": "2dc19aa275740e87c02065ede93d6645"
+  },
+  {
+    "schema": "public",
+    "proname": "q6_save_v2",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, sv bigint, expected_version bigint, capacity integer, trainer uuid, add_ids uuid[], remove_ids uuid[], op uuid",
+    "definition_md5": "93adf0e8e901cbc502e3e21f0c72750e"
+  },
+  {
+    "schema": "public",
+    "proname": "r7_change_v1",
+    "prosecdef": true,
+    "args": "a uuid, j uuid, op uuid, expected_version bigint, act text, weekday integer, add_ids uuid[], remove_ids uuid[]",
+    "definition_md5": "e54f03bca0243fa95753adb71fed1959"
+  },
+  {
+    "schema": "public",
+    "proname": "r7_create_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, op uuid, first_date date, last_date date, rules jsonb",
+    "definition_md5": "1846f70172efa0e527cfcb2d9dbfe9bf"
+  },
+  {
+    "schema": "public",
+    "proname": "r7_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, after_id uuid",
+    "definition_md5": "fd9753a346d7fcda8f9727247e38a2dd"
+  },
+  {
+    "schema": "public",
+    "proname": "r7_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "f90b035ecaf4bfe8467e6be5465a80aa"
+  },
+  {
+    "schema": "public",
+    "proname": "r7_read_v1",
+    "prosecdef": true,
+    "args": "a uuid, j uuid, after_day date, weekday integer, after_player uuid",
+    "definition_md5": "3b743979692472be8b1400f1a58fb0b1"
+  },
+  {
+    "schema": "public",
+    "proname": "rls_auto_enable",
+    "prosecdef": true,
+    "args": "",
+    "definition_md5": "846ec2fbff751d24b890656d63c3a9bf"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_change_v1",
+    "prosecdef": true,
+    "args": "a uuid, j uuid, op uuid, expected_version bigint, act text",
+    "definition_md5": "d5c4a0fb0a6cc7e7b2694b3d3fcca07f"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_create_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, op uuid, kind text, first_date date, last_date date, weekdays integer[]",
+    "definition_md5": "1a0c22c5be71d0feb2f87b6d3de4b73c"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_jobs_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, after_id uuid",
+    "definition_md5": "6638323ced9dd03aaceec9dbbb59dc46"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "a124a20b54828d5f4353ea551685cf89"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_owner_dates_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, after_day date",
+    "definition_md5": "57cc8bcf25608486c3360a6d9ef371ef"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_read_v1",
+    "prosecdef": true,
+    "args": "a uuid, j uuid, after_day date",
+    "definition_md5": "fa9d1be1c6abe87531cb71c1b0e98bd5"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_roster_v1",
+    "prosecdef": true,
+    "args": "a uuid, event uuid, after_id uuid",
+    "definition_md5": "8dcb91ad3ac1c24cf9d0b699a50ab671"
+  },
+  {
+    "schema": "public",
+    "proname": "s8_schedule_v1",
+    "prosecdef": true,
+    "args": "a uuid, first_date date, after_at timestamp with time zone, after_program uuid",
+    "definition_md5": "c760cb5f37aef66c5ccae8bbce01adfc"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_command_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid, act text, invitation uuid, branch uuid, display_name text, recipient text, token_hash text, expected_version integer, reason text",
+    "definition_md5": "46031219afe31d4b64c2a655faebf2a2"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_delivery_v1",
+    "prosecdef": true,
+    "args": "invitation uuid, proof jsonb, lease uuid, outcome text, provider text",
+    "definition_md5": "5419d2f7bc1a4029db5f054e5b497a9f"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_invitation_v1",
+    "prosecdef": true,
+    "args": "invitation uuid, token text, proof jsonb, act text, op uuid",
+    "definition_md5": "b703204ce7d361bdd02406d392a249a5"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "fdea0d1e2c234e82a4c1342670137140"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_owner_list_v1",
+    "prosecdef": true,
+    "args": "a uuid, after_id uuid, inspect_id uuid",
+    "definition_md5": "0405d9c2d2d76b76f5af4a43ca008969"
+  },
+  {
+    "schema": "public",
+    "proname": "t4_profile_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "d22c6eb9b3a9aafe20385ebc97bfa724"
+  },
+  {
+    "schema": "public",
+    "proname": "t9_operation_v1",
+    "prosecdef": true,
+    "args": "a uuid, op uuid",
+    "definition_md5": "8652c32cc33f2748ab849016062086eb"
+  },
+  {
+    "schema": "public",
+    "proname": "t9_read_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, after_id uuid",
+    "definition_md5": "3d1c309e920da927599dc3800b1aa15b"
+  },
+  {
+    "schema": "public",
+    "proname": "t9_review_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, sv bigint, pv bigint, head uuid, kind text, new_day date, new_start time without time zone, new_end time without time zone, reason text",
+    "definition_md5": "e46db5620cf4581a2e2f65d108606d82"
+  },
+  {
+    "schema": "public",
+    "proname": "t9_save_v1",
+    "prosecdef": true,
+    "args": "a uuid, p uuid, day date, sv bigint, pv bigint, head uuid, kind text, new_day date, new_start time without time zone, new_end time without time zone, reason text, op uuid",
+    "definition_md5": "1b5ae45bd59bf002c165bd5e1794f2c3"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_guardian_calendar_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid, first_date date, last_date date, after_at timestamp with time zone, after_id uuid, after_day date",
+    "definition_md5": "3ec389423f2c44ae3696443107f3cc73"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_guardian_home_v1",
+    "prosecdef": true,
+    "args": "a uuid, link uuid",
+    "definition_md5": "d26c4b5e15f08f45175dc2afccec3dfd"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_owner_calendar_v1",
+    "prosecdef": true,
+    "args": "a uuid, first_date date, last_date date, after_at timestamp with time zone, after_id uuid, after_day date",
+    "definition_md5": "62fa09d8f763c7b8aa4ecccb558a0f5c"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_owner_home_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "b7aeeacb0b3c57701641da988db7d4b5"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_trainer_calendar_v1",
+    "prosecdef": true,
+    "args": "a uuid, first_date date, last_date date, after_at timestamp with time zone, after_id uuid, after_day date",
+    "definition_md5": "efc33c7d38fdaf795ca6b8eb04ebd420"
+  },
+  {
+    "schema": "public",
+    "proname": "x15_trainer_home_v1",
+    "prosecdef": true,
+    "args": "a uuid",
+    "definition_md5": "3a270730d9734b9544b590e362766476"
+  }
+]

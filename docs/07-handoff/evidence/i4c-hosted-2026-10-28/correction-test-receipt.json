@@ -1,0 +1,292 @@
+{
+  "before": [
+    {
+      "observation": {
+        "now": "2026-10-28T17:29:53.865457+00:00",
+        "marks": [
+          {
+            "day": "2026-10-28",
+            "status": "absent",
+            "version": 2,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92"
+          }
+        ],
+        "requests": 0,
+        "appointment": [
+          {
+            "role": "trainer",
+            "state": "ended",
+            "status": "ended",
+            "version": 7,
+            "staff_id": "562e1a3a-378c-4ea9-84ec-93b071de4670",
+            "assignment_id": "b36a5526-55d5-4783-81dc-70cc68578898",
+            "clerk_subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "invitation_id": "29d99cd2-5a51-4754-986c-42b4b9c52a0a",
+            "membership_id": "bc3dcbd0-59b6-4a49-8fea-9f128ad7bcc0",
+            "invitation_state": "accepted",
+            "authority_revision": "b99d7b5b-8b97-434d-8058-1b43cbe52a85"
+          }
+        ],
+        "attendance_history": 2,
+        "other_memberships_hash": "270bb1a940c741d9947e3d83fe8ebe67"
+      }
+    }
+  ],
+  "approved": [
+    {
+      "approved_observation": {
+        "marks": [
+          {
+            "day": "2026-10-28",
+            "status": "present",
+            "version": 3,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92"
+          }
+        ],
+        "request": {
+          "id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86",
+          "day": "2026-10-28",
+          "reason": "Synthetic I4c verification: fictional player attended; request Owner review.",
+          "decision": "approved",
+          "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+          "proposed": "present",
+          "reviewer": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+          "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "requester": "user_3L5mZMvNN95teSpCPM233gzC06S",
+          "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+          "created_at": "2026-10-28T17:31:20.156486+00:00",
+          "decided_at": "2026-10-28T17:32:47.399838+00:00",
+          "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+          "base_version": 2,
+          "assignment_id": "b36a5526-55d5-4783-81dc-70cc68578898",
+          "before_status": "absent",
+          "decision_reason": "Synthetic I4c Owner verification: reviewed fictional attendance and approved Present.",
+          "authority_revision": "fbd4bbe8-7912-4060-b6d3-8d8c80977c11"
+        },
+        "operations": [
+          {
+            "id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86",
+            "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "result": {
+              "event": "4f204959-b23e-42ac-8b68-858409972036",
+              "state": "pending",
+              "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+              "request": "e34032c8-3f8e-424d-abbf-027fbcb0fc86"
+            },
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:31:20.185482+00:00",
+            "fingerprint": "dfadbd5ce7d037cec5679907f2f07d1780f8a0c0f6032c445295433c13774118"
+          },
+          {
+            "id": "9e081195-9fe6-452c-99e2-5b61e6d2cee0",
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "result": {
+              "event": "4f204959-b23e-42ac-8b68-858409972036",
+              "state": "approved",
+              "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+              "request": "e34032c8-3f8e-424d-abbf-027fbcb0fc86"
+            },
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:32:47.402078+00:00",
+            "fingerprint": "c3b2edab424da846a48d7637ca85da39697c82af628b0c8a4038780a29b1fac7"
+          }
+        ],
+        "attendance_history": [
+          {
+            "id": "fe61f3a6-030d-4c4f-a723-6f68ae3a417e",
+            "day": "2026-10-28",
+            "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "reason": null,
+            "status": "present",
+            "version": 1,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "actor_role": "trainer",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+            "captured_at": "2026-10-28T05:30:41.371+00:00",
+            "received_at": "2026-10-28T05:30:42.500883+00:00",
+            "before_status": null
+          },
+          {
+            "id": "70bcb7e8-6f5c-4713-b1b2-150fc14685f5",
+            "day": "2026-10-28",
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "reason": "Authorized synthetic I4a correction test: demonstrate retained Present to Absent history.",
+            "status": "absent",
+            "version": 2,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "actor_role": "owner",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+            "captured_at": "2026-10-28T05:50:58.858+00:00",
+            "received_at": "2026-10-28T05:50:59.736163+00:00",
+            "before_status": "present"
+          },
+          {
+            "id": "9e081195-9fe6-452c-99e2-5b61e6d2cee0",
+            "day": "2026-10-28",
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "reason": "Synthetic I4c Owner verification: reviewed fictional attendance and approved Present.",
+            "status": "present",
+            "version": 3,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "actor_role": "owner",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92",
+            "captured_at": "2026-10-28T17:32:47.39593+00:00",
+            "received_at": "2026-10-28T17:32:47.39593+00:00",
+            "before_status": "absent"
+          }
+        ],
+        "correction_history": [
+          {
+            "id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86",
+            "kind": "requested",
+            "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "reason": "Synthetic I4c verification: fictional player attended; request Owner review.",
+            "created_at": "2026-10-28T17:31:20.178222+00:00",
+            "request_id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86"
+          },
+          {
+            "id": "9e081195-9fe6-452c-99e2-5b61e6d2cee0",
+            "kind": "approved",
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "reason": "Synthetic I4c Owner verification: reviewed fictional attendance and approved Present.",
+            "created_at": "2026-10-28T17:32:47.401613+00:00",
+            "request_id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86"
+          }
+        ]
+      }
+    }
+  ],
+  "after": [
+    {
+      "observation": {
+        "now": "2026-10-28T17:34:16.888234+00:00",
+        "marks": [
+          {
+            "day": "2026-10-28",
+            "status": "present",
+            "version": 3,
+            "event_id": "4f204959-b23e-42ac-8b68-858409972036",
+            "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "program_id": "ee84fbfd-aedf-49f6-83a5-d100aec89d92"
+          }
+        ],
+        "requests": 1,
+        "appointment": [
+          {
+            "role": "trainer",
+            "state": "ended",
+            "status": "ended",
+            "version": 9,
+            "staff_id": "562e1a3a-378c-4ea9-84ec-93b071de4670",
+            "assignment_id": "b36a5526-55d5-4783-81dc-70cc68578898",
+            "clerk_subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "invitation_id": "29d99cd2-5a51-4754-986c-42b4b9c52a0a",
+            "membership_id": "bc3dcbd0-59b6-4a49-8fea-9f128ad7bcc0",
+            "invitation_state": "accepted",
+            "authority_revision": "bb21ceaf-399b-4fa1-b5e6-b4f3423ad8d2"
+          }
+        ],
+        "attendance_history": 3,
+        "other_memberships_hash": "270bb1a940c741d9947e3d83fe8ebe67"
+      }
+    }
+  ],
+  "audit": [
+    {
+      "final_audit": {
+        "audit": [
+          {
+            "id": 114,
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "action": "operator.i4c.trainer.restore",
+            "details": {
+              "to": "active",
+              "from": "ended",
+              "basis": "Moamen explicit I4c temporary Trainer test and ending authorization 28Oct2026; existing synthetic recipient only",
+              "staff_id": "562e1a3a-378c-4ea9-84ec-93b071de4670",
+              "membership_id": "bc3dcbd0-59b6-4a49-8fea-9f128ad7bcc0"
+            },
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:30:09.608117+00:00",
+            "operation_id": "c142397f-8289-42f9-945c-12588fb129ab"
+          },
+          {
+            "id": 115,
+            "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+            "action": "attendance.correction_request",
+            "details": {
+              "event": "4f204959-b23e-42ac-8b68-858409972036",
+              "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+              "request": "e34032c8-3f8e-424d-abbf-027fbcb0fc86",
+              "version": 2
+            },
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:31:20.02873+00:00",
+            "operation_id": "e34032c8-3f8e-424d-abbf-027fbcb0fc86"
+          },
+          {
+            "id": 116,
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "action": "attendance.correction_decision",
+            "details": {
+              "event": "4f204959-b23e-42ac-8b68-858409972036",
+              "request": "e34032c8-3f8e-424d-abbf-027fbcb0fc86",
+              "decision": "approved"
+            },
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:32:47.332058+00:00",
+            "operation_id": "9e081195-9fe6-452c-99e2-5b61e6d2cee0"
+          },
+          {
+            "id": 117,
+            "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+            "action": "trainer.end",
+            "details": {
+              "state": "ended",
+              "version": 9,
+              "invitation_id": "29d99cd2-5a51-4754-986c-42b4b9c52a0a"
+            },
+            "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+            "created_at": "2026-10-28T17:34:12.639799+00:00",
+            "operation_id": "8b4c5b18-749a-44bb-b9a3-6ed7b96be5f8"
+          }
+        ],
+        "active_trainers": 0,
+        "guardian_training_access": [
+          {
+            "enabled": false,
+            "link_id": "3eec2f21-b0d1-4cf7-89cd-84fd829f69c3"
+          }
+        ]
+      }
+    }
+  ],
+  "pending_observation": {
+    "source": "Actual Trainer UI and contemporaneous SQL observed before approval",
+    "mark": "absent",
+    "version": 2,
+    "attendance_history": 2,
+    "requests": 1,
+    "request_history": 1,
+    "operations": 1
+  },
+  "limits": [
+    "Full unrelated-domain pre/post fingerprints were not captured for this test; other membership hash matches, current Guardian access disabled",
+    "Safari native screenshots are low resolution; accessibility text and SQL provide behavioral evidence; no physical-device visual acceptance inferred"
+  ]
+}

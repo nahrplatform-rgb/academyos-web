@@ -1,0 +1,81 @@
+Window: "Shopify — AcademyOS · Staging", App: Safari.
+0 standard window Shopify — AcademyOS · Staging, ID: SafariWindow?IsSecure=true&UUID=C035FD46-12AB-47C8-93BD-DD30EB4F7FC9, Secondary Actions: Raise
+	1 split group
+		2 splitter (disabled, settable, float) -1
+		3 tab group
+			4 scroll area
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635#main
+					7 container
+						8 text Academy workspaceAttendance corrections Staging
+						9 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Academy workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036
+							17 link Correction requests, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading My correction requests, Value: 1
+							21 text My correction requests
+						22 text Access unavailable. Check your current account and workspace.
+						23 container Contextual details and actions
+							24 heading Correction details, Value: 2
+								25 text Correction details
+	26 toolbar
+		27 button Description: Toggle sidebar, ID: SidebarButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		28 menu button ID: TabGroupPickerButton?TabGroup=Shopify&Icon=person.fill, Secondary Actions: Move next, Remove from toolbar
+		29 button Description: Go back, Help: Show the previous page, ID: BackButton
+		30 button Description: FireShot - Capture page, ID: WebExtension-com.getfireshot.fireshot.extension (83PVANDQL9), Secondary Actions: Move previous, Move next, Remove from toolbar
+		31 tab group Description: Tab bar, 15 tabs, ID: TabBar?isSeparate=false
+			32 tab جدول أنشطة ابني الشهري, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				33 image FaviconImageView
+			34 tab Signor — Infrastructure for frontier AI, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				35 image Description: B876395A0BE19173B5908C62574910, ID: FaviconImageView
+			36 tab moamenghareeb, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				37 image Description: A20369854C414145AF806113E65BE7, ID: FaviconImageView
+			38 tab Supabase, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				39 image Description: A99E56EC2E991EF57FB7B9802E7B64, ID: FaviconImageView
+			40 tab shift-super-app-staging - Overview – Vercel, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				41 image FaviconImageView
+			42 tab Shift Super App, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				43 image FaviconImageView
+			44 tab Shift Super App, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				45 image FaviconImageView
+			46 tab POMS v2 | Operations Hub, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				47 image Description: D400EC70A15F230743F1651F4DFA82, ID: FaviconImageView
+			48 tab ChatGPT, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				49 image Description: 299BDAEE1EC6116371B6451D1BDBD6, ID: FaviconImageView
+			50 tab Cloudflare Dashboard | Manage Your Account, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				51 image Description: FA4B9185868B8A6A1AFBF0BE95EC5A, ID: FaviconImageView
+			52 tab Open Source Is Beating Paid Mac Apps - YouTube, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				53 image Description: 2F7D1517642C517528C9F9B2129158, ID: FaviconImageView
+			54 tab https://www.amazon.eg/-/en/cart?ref_=ox_ewc_ret_gtc_dsk_eg, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				55 image Description: 767DDD885152C50F5628772C552B5B, ID: FaviconImageView
+			56 tab Smart Phones, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				57 image Description: E00C9D3F9BC1647C2F8E3D774DACCA, ID: FaviconImageView
+			58 tab AcademyOS · Staging, Help: To interact with the items in this button, press Control-Option-Shift-Down Arrow., Value: on, Secondary Actions: close tab, ID: TabBarTab?isNarrow=false&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=true
+				59 text field (settable) Description: smart search field, ID: WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD, Value: https://staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635
+				60 image Description: Website icon, ID: UnifiedFieldIcon?IsSymbolImage=true
+				61 button More options, ID: AssistantButton
+			62 tab Tank Pro Line, Value: off, Secondary Actions: close tab, ID: TabBarTab?isNarrow=true&isExpanded=false&tabCount=&isPinned=false&isCluster=false&clusterID=&isActive=false
+				63 image Description: 340CC47840032C61E2035A85F86A7D, ID: FaviconImageView
+		64 button Description: Share, ID: ShareButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		65 button Description: New Tab, ID: NewTabButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		66 button Description: Tab Overview, ID: TabOverviewButton, Secondary Actions: Move previous, Remove from toolbar
+	67 menu button Window sharing
+68 menu bar
+	69 Safari
+	70 File
+	71 Edit
+	72 View, ID: SafariViewMenu
+	73 History
+	74 Bookmarks, ID: SafariBookmarksMenu
+	75 Develop
+	76 Window, ID: SafariWindowMenu
+	77 Help, ID: SafariHelpMenu
+
+The focused UI element is 5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections?event=4f204959-b23e-42ac-8b68-858409972036&player=95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "Actual product React component; synthetic identity/HTTP state adapters. Not SQL/hosted proof.",
+  "reactMode": "development",
+  "resumeReads": 1,
+  "creates": 6,
+  "apiCalls": 126,
+  "cases": [
+    "StrictMode one initial read",
+    "failed directory is not empty and offers retry",
+    "full period and weekday times",
+    "4 automatic authoritative preview windows with carried receipts",
+    "intermediate preview failure blocks create",
+    "changed context during preview blocks create",
+    "4 preparation chunks and separate finalization",
+    "confirmation follows current language after save",
+    "confirmed ready with failed read never becomes unknown",
+    "429 stops before another chunk",
+    "ready date read",
+    "ready-only bounded date directory",
+    "lost create reply recovers incomplete original",
+    "pause/reopen/resume",
+    "pre-send fence and retained draft",
+    "lost chunk reply no duplicate dates",
+    "stale context invalidates preview",
+    "EN/AR320/360/926/1440",
+    "focus authority denial wipes draft",
+    "identity remount clears fields"
+  ],
+  "errors": []
+}

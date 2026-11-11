@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-23",
+  "local_markdown_links_checked": 69,
+  "csv_data_rows": {
+    "coverage-journeys.csv": 28,
+    "requirement-coverage.csv": 180,
+    "page-action-matrix.csv": 30,
+    "coverage-screens.csv": 68,
+    "reference-inventory.csv": 31,
+    "batch-status.csv": 6
+  },
+  "reference_files_rehashed": 12,
+  "prototype_assets_present": true,
+  "errors": [],
+  "status": "passed"
+}
