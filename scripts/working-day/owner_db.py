@@ -18,6 +18,8 @@ ROUTES = {
     'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
     'p5_dates_v1', 'q6_read_v1', 'x20_register_download_v1', 'x20_register_dispatch_v1',
     'x19_owner_register_key_v1', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
+    'c12_list_v1', 'c12_context_v1', 'c12_detail_v1', 'c12_decide_v1', 'c12_operation_v1',
+    'e14_context_v1', 'e14_queue_v1', 'e14_detail_v1', 'e14_command_v1', 'e14_operation_v1',
 }
 
 
@@ -123,6 +125,18 @@ if __name__ == '__main__':
                              f"update academy.publication_events set roster_count=18,capacity=18 where id={literal(event)}")
                     test.retime(event)
                     value = {'academy': academy, 'event': event}
+                elif command['action'] == 'review_fixture':
+                    kind = command['kind']
+                    if kind == 'correction':
+                        academy, _, _, _, _, player, _, event = test.attendance_fixture()
+                        assert test.mark(academy, event, player)['version'] == 1
+                        item = test.request(academy, event, player)['request']
+                    elif kind == 'development':
+                        academy, _, _, _, player, event, _ = test.development_fixture()
+                        item = test.cmd(academy, event, player)['id']
+                    else:
+                        raise ValueError('Unknown review fixture')
+                    value = {'academy': academy, 'event': event, 'player': player, 'id': item}
                 elif command['action'] == 'future_fixture':
                     # Disposable fixture only: exercise a download before its window.
                     academy, _, event, _, _ = dispatch['Boundary'].pair(test)

@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+  "source_anchor": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -70,8 +70,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx",
-      "sha256": "2c3dab1f05f0fca82fc9e945fce63e84c225729377153cb742226c375b64e22c",
-      "bytes": 682
+      "sha256": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
+      "bytes": 910
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx",
@@ -390,8 +390,8 @@
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
-      "sha256": "1c479fdee67191e370850081f451f34fcfdf2fad18366467c34831a833dc6500",
-      "bytes": 24083
+      "sha256": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+      "bytes": 25884
     },
     {
       "path": "apps/web/src/components/date-planning-workspace.tsx",
@@ -400,13 +400,13 @@
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
-      "sha256": "4874933c3326cef1b62191ffc532559e871be8807ceedebd1daaa5e019af7415",
-      "bytes": 34083
+      "sha256": "2c57015e29624a4af8d497b9473c5f6039a6d1218cb1e89aaf519a589b47e0b0",
+      "bytes": 39727
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
-      "bytes": 49877
+      "sha256": "c7e83eddb352aae5a03aadc003636ad4db9dc92430ff0f65cc7f0c5492d7b55f",
+      "bytes": 50621
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
@@ -760,8 +760,8 @@
     },
     {
       "path": "apps/web/src/lib/owner-session-navigation.ts",
-      "sha256": "68d6bfcebda39aac7f66dc09f252fae6d8136acf4d19e5ad1742edeb7490cfd2",
-      "bytes": 2301
+      "sha256": "3b668000fdd5794ce2d687bae75afbbe160782bac6c53e7e32bc4e9ad9f0e989",
+      "bytes": 3162
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",
@@ -970,8 +970,8 @@
     },
     {
       "path": "apps/web/src/lib/workspace-navigation.test.ts",
-      "sha256": "365ed6f2e72d831dbf7f0829de5bcee258f5c6d89d3720fe132ad629130f3503",
-      "bytes": 2352
+      "sha256": "23c7bf4ef271985301670eec27e20cd91c369e39b5711d37eb2c5e151106c5d8",
+      "bytes": 2361
     },
     {
       "path": "apps/web/src/lib/workspace-public-shell.ts",

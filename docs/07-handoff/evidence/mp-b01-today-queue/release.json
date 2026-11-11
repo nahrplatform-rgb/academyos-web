@@ -1,17 +1,47 @@
 {
   "sourceBase": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
-  "candidate": "repair_not_committed",
-  "ci": "pending exact repaired candidate",
-  "preview": "pending exact repaired candidate",
-  "promotion": "Owner only after exact repaired candidate checks",
-  "hosted": "pending new source; prior ce5a324 source and partial English observation retained in phone-register release receipt",
-  "ownerAcceptance": "pending scoped working review",
+  "candidate": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+  "ci": {
+    "commit": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+    "run_id": 42870987746,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42870987746",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42870987746/job/130021890799",
+    "job_conclusion": "success",
+    "steps_passed": 53,
+    "step_count": 53,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deploymentId": "dpl_5mWm7ogAJmX2iNPmq6S8MtbTLSU9",
+    "commit": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+    "project": "academyos-web",
+    "state": "READY",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/5mWm7ogAJmX2iNPmq6S8MtbTLSU9"
+  },
+  "promotion": "Owner reported promoted. Exact staging source verified.",
+  "hosted": {
+    "date": "2026-11-11",
+    "scope": "Existing signed-in Academy B Owner Chrome profile on desktop, read-only",
+    "observed": [
+      "EN Today loaded with zero registers needing marks",
+      "EN and AR prepared register showed one saved Present and one saved Absent",
+      "Direct Back to calendar reached the correct localized Calendar"
+    ],
+    "pending": [
+      "Hosted Today queue retained/resolved focus with an actual pending register",
+      "Canonical online Session actions menu",
+      "Hosted phone, offline restart and timed request checks"
+    ]
+  },
+  "ownerAcceptance": "pending scoped working review; broader redesign not accepted as complete",
   "lastVerifiedStaging": {
     "domain": "staging.academy.nahr.dev",
-    "deploymentId": "dpl_6JNDzB6p9zo8A3orNJ1TBLqSYeQD",
-    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+    "deploymentId": "dpl_2w5sYqKiAQPzooHyrws14oqU7stW",
+    "commit": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
     "state": "READY",
-    "checkedDate": "2026-11-10"
+    "checkedDate": "2026-11-11"
   },
   "priorFailedCandidate": {
     "commit": "7b81d990baa5f25d57313cb76178285788f9d5c3",
@@ -36,5 +66,12 @@
       "dashboard": "https://vercel.com/academy-os2/academyos-web/HHQAGMN84WaUFKm6YH3WFpxKtjit"
     },
     "repair": "Safe navigation-key assertion permits attendanceTask and requires null on Calendar; no product source change"
+  },
+  "previousVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_6JNDzB6p9zo8A3orNJ1TBLqSYeQD",
+    "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+    "state": "READY",
+    "checkedDate": "2026-11-10"
   }
 }

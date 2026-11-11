@@ -149,6 +149,8 @@ The [working-behaviour contract](../03-design/academy-working-behavior-contract.
 
 ### NR13 — Development operation lost across document/crash
 
+11 November scoped evidence. A lost publication reply followed by reload reproduced the missing original check. The current Development source stores three identifiers in the same account and academy tab before command submission. The signed browser fixture reloads, finds that original and explicitly reconciles it. A missing sign-in preserves the reference. A storage refusal leaves the reason available and sends zero commands. Ended tabs, evicted storage, other devices and hosted behavior remain open. [Owner review checkpoint](../07-handoff/mp-b01-owner-reviews-2026-11-11.md)
+
 - Priority: H/L/L; effort 1–3d + recovery tests. Source references relative to `apps/web/src/components`: `development-workspace.tsx:13,43–47`.
 - Mechanism / expected difference: Pending contains operation identity in React state; beforeunload protects ordinary leave, but no persistent recovery locator. In-visit reconcile exists.
 - Evidence: Source-confirmed; crash/remount outcome not reproduced. No proven duplicate commit.
@@ -192,6 +194,8 @@ Later5November: Owner-promoted `1347470` has scoped normal EN/AR Players search/
 - Recommendation and safety boundary: Do not turn saves into per-keystroke autosave, skip receipts or replace absent polling with subscriptions.
 
 ### NR17 — Recovery-storage failure is handled inconsistently
+
+11 November Development check. The command requires a verified tab recovery reference. A simulated storage quota failure retains the reason and issues zero Development commands. The finding remains tracked for other writers. [Owner review checkpoint](../07-handoff/mp-b01-owner-reviews-2026-11-11.md)
 
 6November scoped recovery result: following the public cold reconnect401,the protected original survived replica fencing and explicit same-account recovery committed it once (2marks/2history/1operation/1audit). This proves that specific recovery,not seamless reconnect or universal storage/restart coverage. [Receipt](../07-handoff/ex07-normal-attendance-checkpoint-2026-11-06.md#fresh-offline-save-session-failure-and-recovery--6-november). Add expired-auth tests without replacing the original or reclassifying401 as known role revocation.
 

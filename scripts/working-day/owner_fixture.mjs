@@ -56,8 +56,8 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[])];
+export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}) {
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development']:[])];
   const bridge = pgBridge(root);
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -183,6 +183,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
         export{default as Experience}from'./apps/web/src/components/experience-workspace.tsx';
         export{default as Planning}from'./apps/web/src/components/date-planning-workspace.tsx';
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
+        ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
+        export{default as Development}from'./apps/web/src/components/development-workspace.tsx';`:''}
         ${pilot?`export{default as Attendance}from'./apps/web/src/components/attendance-workspace.tsx';
         export{default as RegisterAccountBoundary}from'./apps/web/src/components/register-account-boundary.tsx';
         export{default as PreparedRegisterStartup}from'./apps/web/src/components/prepared-register-startup.tsx';
@@ -216,6 +218,7 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
           }
           export function useUser(){const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');return{isLoaded:true,user:id?{id}:null};}
           export function UserButton(){return null;}
+          export function SignInButton({children}){return children;}
           export function useClerk(){return{openUserProfile:()=>{},signOut:async()=>{
             const reply=await fetch('/api/fixture-signout',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});
             if(!reply.ok)throw new Error('Fixture sign-out failed');
@@ -223,7 +226,8 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
           }}}
           `:`
           export function useUser(){return{isLoaded:true,user:{id:'user_owner'}};}
-          export function UserButton(){return null;}`,loader:'js',resolveDir:root}));
+          export function UserButton(){return null;}
+          export function SignInButton({children}){return children;}`,loader:'js',resolveDir:root}));
       }}],
     });
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
@@ -250,6 +254,19 @@ export async function ownerFixture(root, temp, {pilot=false} = {}) {
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
       return <Planning {...p} from={q.from} returnTo={q.return==='calendar'||q.return==='home'?q.return:undefined}/>}`);
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
+    if (reviews) {
+      for (const [path, localName, exportName, file] of [
+        ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
+        ['development', 'DevelopmentWorkspace', 'Development', 'development-workspace'],
+      ]) {
+        const route=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]',path,'page.tsx'),'utf8');
+        await page(path+'/page.tsx',route
+          .replace("import{auth}from'@clerk/nextjs/server';","const auth={protect:async()=>({userId:'user_owner'})};")
+          .replace("import {auth}from'@clerk/nextjs/server';","const auth={protect:async()=>({userId:'user_owner'})};")
+          .replace(new RegExp(`import\\s*${localName}\\s*from\\s*'@/components/${file}';`),`import {${exportName} as ${localName}} from '__CLIENT__';`)
+          .replace(/import\s*\{uuidPattern\}\s*from\s*'@\/lib\/onboarding';/,"const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;"));
+      }
+    }
     if (pilot) {
       const eventRoute=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx'),'utf8');
       await page('attendance/[event]/page.tsx',eventRoute

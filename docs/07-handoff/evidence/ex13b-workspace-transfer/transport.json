@@ -46,7 +46,7 @@
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
     "apps/web/src/components/people-workspace.tsx": "15770a315614bcbf452448f71ed7a74a4e90ce110c160ef05c0c8be1410c6221",
-    "apps/web/src/components/experience-workspace.tsx": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
+    "apps/web/src/components/experience-workspace.tsx": "c7e83eddb352aae5a03aadc003636ad4db9dc92430ff0f65cc7f0c5492d7b55f",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
@@ -141,7 +141,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 18.265124999999898,
+      "elapsedMs": 16.266499999999724,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -231,8 +231,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "3d8be0b9dc9caf0b0d79cb9ac4d553b533847a2bc45c466205db30a6a30e6eb1",
-        "artifactHash": "38fd7f8f0b3179c0f041542cb3006f0fb6176e7a6719610220f46d9ed6b0504d"
+        "sourceHash": "ec8eca4dc85860f401e0b21b714d2112e0dd8a4eab24507ace2cb4bad24047dd",
+        "artifactHash": "297d58f9325579d48ae70c31ee3be769ea95119cc751645b59cbbfb6b1843a10"
       }
     },
     "emptyOnlineRegistration": {
@@ -266,7 +266,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "079d1eda-dcbd-4e3a-8507-4856876748c8"
+          "player_id": "ec2f991c-ab75-48a3-9e5d-fda21e6f8a17"
         }
       }
     },
@@ -283,7 +283,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "3c3262d6-5956-435e-bd04-e8078f9ad88b"
+              "player_id": "8c223534-9c6c-4f9c-9f37-4a17e88c6890"
             },
             "players": 1,
             "operations": 1
@@ -325,7 +325,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "0c1a4916-cf95-4653-99f9-4f526dac1232"
+              "player_id": "8d46fabb-b2f0-4947-b0e6-5d7149d5840c"
             },
             "players": 1,
             "operations": 1
@@ -362,7 +362,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "6536e0da-8452-4f70-a09d-91828e8b87b0"
+              "player_id": "d2056d3f-45ac-4492-8185-acd71491bdd4"
             },
             "players": 1,
             "operations": 1
@@ -402,7 +402,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "31fd5648-b1a6-4e54-8ac6-e1a5d50b3ec4"
+              "player_id": "5899c624-0634-4139-934c-026e321a92c8"
             },
             "players": 1,
             "operations": 1
@@ -438,7 +438,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "f550f833-f125-40c6-863b-02e8f042d7be"
+              "player_id": "5f0c9a9e-ebbb-4d22-ab59-6481c05def87"
             },
             "players": 1,
             "operations": 1

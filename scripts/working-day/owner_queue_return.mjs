@@ -29,7 +29,7 @@ export async function checkOwnerQueueReturn(fixture, browser, captures) {
       const button = name => page.getByRole('button', {name, exact:true});
       const base = `/${test.locale}/workspace/${academy}`;
       const attendance = `${base}/attendance/${event}#return=home&attendance=${event}`;
-      const task = page.locator(`[data-owner-attendance-task="${event}"]`);
+      const task = page.locator(`[data-owner-today-task="#attendance-return=${event}"]`);
       const heading = page.locator('#owner-today-attention');
       const filter = page.getByRole('searchbox', {name:test.search, exact:true});
       const position = () => page.evaluate(() => ({center:document.querySelector('.workspace-center')?.scrollTop ?? 0, document:window.scrollY}));
@@ -104,7 +104,7 @@ export async function checkOwnerQueueReturn(fixture, browser, captures) {
       assert.equal(documents.length,1);
       assert.deepEqual(errors,[]);
       const afterScroll = await position();
-      const focus = await page.evaluate(() => ({id:document.activeElement?.id ?? '', task:document.activeElement?.getAttribute('data-owner-attendance-task')}));
+      const focus = await page.evaluate(() => ({id:document.activeElement?.id ?? '', task:document.activeElement?.getAttribute('data-owner-today-task')}));
       if (captures) await page.screenshot({path:join(captures,`queue-return-${test.locale}-${resolved?'resolved':'retained'}.png`)});
       results.push({locale:test.locale, width:test.width, height:test.height, resolved, handoff, saveCalls, returned,
         documents:documents.length, beforeScroll, afterScroll, focus, dirtyCancelPreservedChoice:true,
@@ -119,7 +119,7 @@ export async function checkOwnerQueueReturn(fixture, browser, captures) {
       page.on('pageerror',e=>errors.push(e.message));
       page.on('request',r=>{if(r.isNavigationRequest()&&r.frame()===page.mainFrame())documents.push(r.url());});
       const base=`/${test.locale}/workspace/${scope.academy}`;
-      const task=page.locator(`[data-owner-attendance-task="${scope.event}"]`);
+      const task=page.locator(`[data-owner-today-task="#attendance-return=${scope.event}"]`);
       await page.goto(origin+base+'/home');
       await task.click();
       await expect(page.locator('.register-roster > li')).toHaveCount(18);
@@ -145,7 +145,7 @@ export async function checkOwnerQueueReturn(fixture, browser, captures) {
     const scope=await db({action:'queue_fixture'}),context=await browser.newContext({viewport:{width:1440,height:900}});
     try {
       const page=await context.newPage(),base=`/en/workspace/${scope.academy}`;
-      const task=page.locator(`[data-owner-attendance-task="${scope.event}"]`);
+      const task=page.locator(`[data-owner-today-task="#attendance-return=${scope.event}"]`);
       await page.goto(origin+base+'/home');
       await task.click();
       await expect(page.locator('.register-roster > li')).toHaveCount(18);

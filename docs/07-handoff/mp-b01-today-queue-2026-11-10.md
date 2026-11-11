@@ -31,6 +31,8 @@ All four ordinary return cases stay in one browser document and perform one chec
 
 The eight added queue scenarios pass inside the 25-case normal Attendance suite. Captures cover EN desktop and AR phone retained/completed states. They show the scoped task composition rather than claiming full cross-app visual parity. The existing EN/AR 320/360/390 px normal/prepared register geometry, offline restart, original reconciliation and denial tests remain required in that same suite.
 
+The new queue cases exercise the canonical online register. The prepared route shares the validated return helper; its existing Calendar return and linked offline-reopen checks still pass. This checkpoint does not newly prove prepared queue focus or a local/offline Today task projection.
+
 The final local checkpoint passes the compiled build guard, types/lint, 104 unit cases, 25 normal Attendance checks, eight connected Owner-day checks, eight startup checks and 70 protected workspace transport checks. All 16 current component capture families and eight entry captures were refreshed, and factual review navigation passed. The master-plan, canonical implementation and execution validators plus 17 continuation tests pass. These checks preserve earlier offline/account/original assertions; they do not establish real-provider or installed-device behavior. [Living factual review](../../design/app-experience-review/AcademyOS-experience-review.html)
 
 ## Delegation and review
@@ -56,3 +58,13 @@ Candidate `7b81d990baa5f25d57313cb76178285788f9d5c3` produced a Ready preview, b
 The same Terra helper retrieved the failed-step log once and traced `scripts/navigation/test_next.mjs:273`. The coordinator verified that assertion, added the safe key and explicitly asserted its null Calendar value. The no-private-projection, held-response, scroll, denial and exact read-count assertions remain. This repair changes that test and delivery evidence only. The failed candidate/run/preview stay in the release receipt; the replacement needs its own complete CI result before an Owner promotion.
 
 The corrected actual Next production navigation suite passes in EN/AR, including guarded edits, selection and Back/Forward. The geometry suite reports 20 cases with zero temporary clamps. These are local synthetic-transport observations. Earlier signed database/offline/source-freshness results still apply because the repair changes no product input. The execution/continuation checks pass; full replacement CI remains a distinct gate.
+
+## Checked replacement and promotion handoff
+
+Replacement `78126d1f84c0e28fd918c03027bf3bf37b05f7d3` passed all 53 Foundation steps on run `42870987746`, attempt 1, verify job `130021890799`. This includes the repaired navigation assertion and the subsequent geometry/API/UI checks. The exact preview `dpl_5mWm7ogAJmX2iNPmq6S8MtbTLSU9` independently reports Ready for the same source. [Successful Foundation run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42870987746) · [Exact replacement deployment](https://vercel.com/academy-os2/academyos-web/5mWm7ogAJmX2iNPmq6S8MtbTLSU9) · [Complete release receipt](evidence/mp-b01-today-queue/release.json)
+
+The Owner can promote that exact deployment to `staging.academy.nahr.dev`. No agent promotion or alias change was performed. New signed-in EN/AR Today queue proof follows the Owner's promotion; the previous `ce5a324` partial hosted observation remains separate. The next ready development action is the correction handoff runtime baseline, preserving current permissions, dirty reasons and original recovery. Release-result metadata is retained locally for the next coherent checkpoint, avoiding a new full run for metadata alone.
+
+## Owner promotion verified on 11 November
+
+Staging resolves to Ready `dpl_2w5sYqKiAQPzooHyrws14oqU7stW` for `78126d1`. The signed-in Academy B Owner opened the existing prepared register with one Present and one Absent mark and used the direct return to Calendar in English and Arabic. Today showed zero registers needing marks in Academy B, so the retained and completed queue scenarios remain evidenced by the signed local fixture. [Release receipt](evidence/mp-b01-today-queue/release.json) · [Next review checkpoint](mp-b01-owner-reviews-2026-11-11.md)

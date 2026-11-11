@@ -1,6 +1,8 @@
 {
   "checks": [
     "Today queue entry returns to the checked task or finished-work heading with retained context and one source read",
+    "Today opens the exact correction or feedback with one read and restores the checked queue after review",
+    "Review reload reconciles the same original and unavailable recovery storage prevents submission",
     "One-step Owner return, exact date alternative, guarded choices and usable normal/prepared phone register in EN/AR",
     "One ordinary Owner Attendance shell reuses explicit personal-device preparation without an offline-mode destination",
     "Arabic online fallback retains the chosen language and restores keyboard focus to the preparation trigger",
@@ -241,7 +243,7 @@
         },
         "focus": {
           "id": "",
-          "task": "d71782a5-8f4c-4d35-b455-56c49d6bcb23"
+          "task": "#attendance-return=5ff49c0c-9d34-4951-a071-32099da6d4d0"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -323,7 +325,7 @@
         },
         "focus": {
           "id": "",
-          "task": "f53f6066-94a8-439d-bced-68d708c68aa4"
+          "task": "#attendance-return=a454ba17-93cd-409e-9e8e-ccce75e61a7c"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -416,6 +418,308 @@
         "unrelatedVisit": false,
         "interactionDuringReturn": true,
         "automaticFocusSuppressed": true
+      }
+    ],
+    "ownerReviewReturn": [
+      {
+        "kind": "correction",
+        "locale": "en",
+        "width": 1440,
+        "height": 900,
+        "resolved": false,
+        "entry": [
+          [
+            "attendance",
+            "correction_detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "",
+          "task": "#correction-return=9c89968c-6766-4e74-a262-a92c06ad1a12"
+        },
+        "dirtyCancelPreserved": true
+      },
+      {
+        "kind": "correction",
+        "locale": "ar",
+        "width": 390,
+        "height": 844,
+        "resolved": true,
+        "entry": [
+          [
+            "attendance",
+            "correction_detail",
+            200
+          ]
+        ],
+        "decision": [
+          [
+            "attendance",
+            "correction_decide",
+            200
+          ],
+          [
+            "attendance",
+            "correction_detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "owner-today-attention",
+          "task": null
+        },
+        "dirtyCancelPreserved": false
+      },
+      {
+        "kind": "development",
+        "locale": "en",
+        "width": 1440,
+        "height": 900,
+        "resolved": false,
+        "entry": [
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "",
+          "task": "#development-return=4cbeb06c-c9fc-47d5-affb-e599472dc005"
+        },
+        "dirtyCancelPreserved": true
+      },
+      {
+        "kind": "development",
+        "locale": "en",
+        "width": 1440,
+        "height": 900,
+        "resolved": true,
+        "entry": [
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "decision": [
+          [
+            "development",
+            "command",
+            200
+          ],
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 0
+        },
+        "focus": {
+          "id": "owner-today-attention",
+          "task": null
+        },
+        "dirtyCancelPreserved": false
+      },
+      {
+        "kind": "development",
+        "locale": "ar",
+        "width": 390,
+        "height": 844,
+        "resolved": false,
+        "entry": [
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 31
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 31
+        },
+        "focus": {
+          "id": "",
+          "task": "#development-return=a7d5d507-4e5c-452b-8af1-f8a2d49bc4e0"
+        },
+        "dirtyCancelPreserved": true
+      },
+      {
+        "kind": "development",
+        "locale": "ar",
+        "width": 390,
+        "height": 844,
+        "resolved": true,
+        "entry": [
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "decision": [
+          [
+            "development",
+            "command",
+            200
+          ],
+          [
+            "development",
+            "detail",
+            200
+          ]
+        ],
+        "returned": [
+          [
+            "experience",
+            "owner_home",
+            200
+          ]
+        ],
+        "documents": 1,
+        "beforeScroll": {
+          "center": 0,
+          "document": 31
+        },
+        "afterScroll": {
+          "center": 0,
+          "document": 31
+        },
+        "focus": {
+          "id": "owner-today-attention",
+          "task": null
+        },
+        "dirtyCancelPreserved": false
+      }
+    ],
+    "ownerReviewRecovery": [
+      {
+        "kind": "correction",
+        "trace": [
+          [
+            "attendance",
+            "correction_decide",
+            200
+          ],
+          [
+            "attendance",
+            "correction_reconcile",
+            200
+          ]
+        ],
+        "sameOriginal": true,
+        "noRequestBeforeExplicitRecovery": true,
+        "privatePayloadStored": false,
+        "locatorClearedAfterKnownResult": true,
+        "missingSignInRetainedOriginal": false
+      },
+      {
+        "kind": "development",
+        "trace": [
+          [
+            "development",
+            "command",
+            200
+          ],
+          [
+            "development",
+            "operation",
+            401
+          ],
+          [
+            "development",
+            "operation",
+            200
+          ]
+        ],
+        "sameOriginal": true,
+        "noRequestBeforeExplicitRecovery": true,
+        "privatePayloadStored": false,
+        "locatorClearedAfterKnownResult": true,
+        "missingSignInRetainedOriginal": true
+      },
+      {
+        "kind": "development",
+        "storageWriteRefused": true,
+        "reasonRetained": true,
+        "commands": 0,
+        "nonJsonExpiredSessionMasked": true
       }
     ],
     "preparedPhoneRegister": [
@@ -539,17 +843,26 @@
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "68d6bfcebda39aac7f66dc09f252fae6d8136acf4d19e5ad1742edeb7490cfd2",
-    "scripts/working-day/test_normal_attendance.mjs": "66c3c069ca247d01ac84fd98a774c6ae3d282e787d688ea92ee226ba5e315a1f",
+    "apps/web/src/lib/owner-session-navigation.ts": "3b668000fdd5794ce2d687bae75afbbe160782bac6c53e7e32bc4e9ad9f0e989",
+    "scripts/working-day/test_normal_attendance.mjs": "45aed2537bb7ca590507604243966693321e69699a2d96a70d7b0e9c98e54d5e",
     "scripts/working-day/owner_day_return.mjs": "b771ae38218d7be0da0c862c98be825d44ea1354895f42eedd41af5bb2f42fd5",
-    "scripts/working-day/owner_queue_return.mjs": "9aec9ee260ea87c92edfa93c6f05946a1644755361a1496380a16b8beaf00f0b",
+    "scripts/working-day/owner_queue_return.mjs": "6b6f0ef4fbe8a2a9f8982bbf81d3c5099cce5d7564fde9e01c005264df929e3c",
+    "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "73c96cfb22217ea4737d4f2bf3abcf56c7986e89948e609b6259243a9222c8cf",
-    "scripts/working-day/owner_db.py": "9d52ecdef3a62b79460ac94212072dc47e511b38a57aceaa85d1e616d5649acb",
+    "scripts/working-day/owner_fixture.mjs": "bf706e4c92e254fb65783bd6f0c27678bb7c869049e1d90fdd0be226494f1d63",
+    "scripts/working-day/owner_db.py": "ddbcfccaeab47688027b753d2325c62a475673f18b92da7d01725b8f674c172d",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+    "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
+    "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
+    "apps/web/src/components/correction-workspace.tsx": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+    "apps/web/src/components/development-workspace.tsx": "2c57015e29624a4af8d497b9473c5f6039a6d1218cb1e89aaf519a589b47e0b0",
+    "apps/web/src/app/api/attendance/route.ts": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
+    "apps/web/src/app/api/development/route.ts": "707018b4050a3eb60eac5e68100261d43878f2dde878f94739c90751a259c138",
+    "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+    "supabase/migrations/20261028233812_i5a_development_feedback.sql": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
     "apps/web/src/components/attendance-workspace.tsx": "828d0915622d4cfebc40c23841021c03dab0aceea20085734d1c1d17c560d0e0",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
-    "apps/web/src/components/experience-workspace.tsx": "5291a5ec88de75ab61534b3c33f054fe75e2ae0c1d07617204d581cf30253860",
+    "apps/web/src/components/experience-workspace.tsx": "c7e83eddb352aae5a03aadc003636ad4db9dc92430ff0f65cc7f0c5492d7b55f",
     "apps/web/src/components/prepared-register-panel.tsx": "c8048b7bade2c2de0ab054fd72f563cd4f3c5c8486aabd665a01c9e9ed4f42a6",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",

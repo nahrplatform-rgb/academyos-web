@@ -1,5 +1,7 @@
 # Whole-app request and service impact — 31 October 2026
 
+11 November Owner review measurement. Today now reaches an exact correction or submitted development detail in one operating read. Each needed three reads in the baseline, including an extra list selection for correction. In the signed local fixture, a decision uses one write and one current result read, followed by one Home read when requested. The records show named application requests. Hosted timings and provider quota use remain open. [Owner review request evidence](../07-handoff/mp-b01-owner-reviews-2026-11-11.md)
+
 ## Scoped profile presentation measurement —8November2026
 
 [MP-B01 profile evidence](../07-handoff/mp-b01-profile-continuity-2026-11-08.md) retains one operating read per selected full profile and zero extra list reads for its cancelled Back/locale path. Controlled detail retry uses two profile attempts;new selection uses two intentional profile reads. The held18-row DOM no longer blanks or resets scroll. This changes presentation and request ownership,not SQL/index/limiter/provider plans;no monthly quota saving or latency percentile follows. Browser abort cannot prove already-dispatched database/limiter work was avoided.

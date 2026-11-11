@@ -1,0 +1,13 @@
+{
+  "candidate": "pending commit",
+  "ci": "pending exact run",
+  "preview": "pending exact preview",
+  "promotion": "Owner promotion pending successful release checks",
+  "previousVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_2w5sYqKiAQPzooHyrws14oqU7stW",
+    "commit": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+    "state": "READY",
+    "checkedDate": "2026-11-11"
+  }
+}
