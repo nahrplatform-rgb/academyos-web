@@ -34,3 +34,15 @@ One configured `gpt-6.1-terra` helper wrote the bounded publication return test.
 ## Previous staging release
 
 The Owner reported promoting `47d1eb0`. The staging alias resolved to Ready deployment `dpl_Dy8EYQHhfoKcH1N3PYL5Nfpp6QEk` for that exact source. The signed-in English Academy A Today queue showed zero correction requests and feedback submissions awaiting review. The promoted exact review and return journeys still need a hosted fixture with pending work. [Staging release receipt](evidence/mp-b01-owner-reviews/release.json)
+
+## Next tracked program handoff
+
+The read-only signed baseline reached the exact 40-date unfinished program from Today with one program read and one browser document. The English Preparing case had zero dates prepared. The Arabic Paused case had 12 prepared dates. Both exposed Resume original program and lacked a direct Back to Today. Back to programs loaded the directory with one list read while the address still identified the exact program. The next work is the guarded return and checked focus restoration, with a clear program-directory destination. Keep the current single-read entry and original program recovery. [Unfinished program baseline](evidence/mp-b01-program-entry/before.json)
+
+GitHub reported an open advisory for the existing development-only `braces` dependency used by linting. The lockfile resolves `3.0.3` through the Next ESLint configuration, and the repository alert reported no patched version. The publication candidate leaves dependency versions unchanged. [GitHub advisory](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm)
+
+## Release closure and client handoff — 12 November 2026
+
+Candidate `aedb3adcf58b083f3463b4b2b652f720dff6604a` passed all 53 Foundation steps on attempt 1. On 12 November the canonical staging alias returned Ready deployment `dpl_A7mRPuXHo1kypPParYMp36qpqEdu` for that exact commit. Signed-in EN/AR publication review and return remain open. The next development task is the recorded unfinished-program return. [Foundation result](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42968202542) · [Live deployment](https://vercel.com/academy-os2/academyos-web/A7mRPuXHo1kypPParYMp36qpqEdu) · [Release receipt](evidence/mp-b01-publication-entry/release.json)
+
+The Owner requested continuing in OpenCode. The portable handoff records the workspace, source, next task and existing authority. The generated continuation remains tied to the same tracker. Existing uncommitted `AGENTS.md` edits and draft AI context/decision files were present at handoff and were preserved. [OpenCode handoff](opencode-project-handoff-2026-11-12.md)

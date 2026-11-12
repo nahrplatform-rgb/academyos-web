@@ -153,3 +153,9 @@ Cost/quality conclusion and limits; next routing adjustment if justified:
 The [master plan](../06-delivery/app-implementation-plan.md), [execution guide](../06-delivery/experience-execution.md), [cost plan](../06-delivery/cost-capacity-and-operations.md) and [generated continuation](../06-delivery/continue-academyos.md) carry this policy forward. Preserve EX-07 and EX-12 priorities, dedicated roles, accepted Operations design, local-data direction and existing authorization boundaries. This is not a reason to pause implementation for a model benchmark.
 
 Initial [documentation checkpoint](../07-handoff/ai-delegation-policy-2026-11-04.md): no worker was needed for writing governance and running deterministic documentation checks. No measured delegation savings, runtime concurrency enforcement, model-setting change or application release is claimed.
+
+## Continuing in OpenCode — 12 November 2026
+
+The Owner requested a move to OpenCode and a portable continuation handoff. The current tracker, accepted contracts and exact receipts remain the delivery authority. The Codex chat link supplies historical context. The handoff and generated continuation give the receiving client an actionable entry point. [Portable handoff](../07-handoff/opencode-project-handoff-2026-11-12.md)
+
+Keep one coordinator for the active checkout and apply the existing helper cap and ownership rules. Verify the receiving client's actual model and tool availability. Record those facts in the affected batch receipt. Tools and authentication configured in Codex require their own availability check in the receiving client. An unavailable connector permits work that does not depend on it, using the existing authorization and evidence standards. The client change supplies no additional account, schema, production or promotion authority.

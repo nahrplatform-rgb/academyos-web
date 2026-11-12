@@ -1,0 +1,52 @@
+{
+  "sourceBase": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+  "candidate": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+  "ci": {
+    "commit": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "run_id": 42968202542,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42968202542",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42968202542/job/130350264214",
+    "job_conclusion": "success",
+    "steps_passed": 53,
+    "step_count": 53,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deploymentId": "dpl_HR7LUqJpwkX383H1mkL7gZVTEnmM",
+    "commit": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "project": "academyos-web",
+    "state": "READY",
+    "target": null,
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/HR7LUqJpwkX383H1mkL7gZVTEnmM"
+  },
+  "previousVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_Dy8EYQHhfoKcH1N3PYL5Nfpp6QEk",
+    "commit": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+    "state": "READY",
+    "checkedDate": "2026-11-11"
+  },
+  "promotion": "Promotion to staging independently confirmed by the canonical alias on 12 November 2026",
+  "hosted": "Exact deployed source is verified. Signed-in EN/AR publication preparation and return, hosted timings and device verification remain open.",
+  "ownerAcceptance": "Pending scoped working-feature review",
+  "programBaseline": "docs/07-handoff/evidence/mp-b01-program-entry/before.json",
+  "developmentDependencyAdvisory": {
+    "source": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "package": "braces",
+    "lockedVersion": "3.0.3",
+    "lockDevOnly": true,
+    "path": "eslint-config-next → @next/eslint-plugin-next → fast-glob → micromatch → braces",
+    "severity": "high",
+    "firstPatchedVersionReported": null
+  },
+  "lastVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_A7mRPuXHo1kypPParYMp36qpqEdu",
+    "commit": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "state": "READY",
+    "checkedDate": "2026-11-12"
+  }
+}

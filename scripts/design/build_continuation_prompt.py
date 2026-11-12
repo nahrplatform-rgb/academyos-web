@@ -119,6 +119,8 @@ Reusable instruction: **Continue from the living continuation prompt.**
 
 Continue AcademyOS in `/Users/moamenghareeb/AcademyOS`. Inspect the actual tree/source and retain pre-existing edits, completed work, accepted rules, stable IDs and exact evidence.
 
+When changing AI clients, start from [the portable handoff](../07-handoff/opencode-project-handoff-2026-11-12.md), then use this generated prompt and the current tracker. The handoff's dated release snapshot is historical after later checkpoints. One coordinator owns the working checkout. Record actual available tools and configured models. Keep the same delivery and promotion authority across clients.
+
 ## Read in this order
 
 1. `AGENTS.md`, `docs/06-delivery/master-plan-v2/README.md` and `product-outcomes-and-simplicity.md` in that package.

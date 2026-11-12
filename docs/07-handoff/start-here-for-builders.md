@@ -1,5 +1,7 @@
 # Start here for builders
 
+12 November client handoff. [OpenCode project continuation](opencode-project-handoff-2026-11-12.md) records the checked publication release, the next unfinished-program return task, evidence boundaries and the reusable continuation instruction. The generated prompt and single current tracker row supply subsequent priorities. Earlier dated directions below retain their historical scope.
+
 8 November current MP-B01: [Players authentication/context and first registration](mp-b01-people-auth-empty-registration-2026-11-08.md) has56scoped local workspace checks and reviewed/integrated DS-005 proof. The earlier quota interruption is provenance;do not wait for DeepSeek or rerun its brief. The tracker now routes ready development to prepared-empty/failed-transfer cases while exact-source release/hosted verification remains separate.
 
 ## Start with canonical master version2 —7November2026
