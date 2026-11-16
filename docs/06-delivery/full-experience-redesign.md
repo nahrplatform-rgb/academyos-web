@@ -68,7 +68,9 @@ Use the [design tools and quality guidance](../03-design/design-tools-and-qualit
 
 ## Design contract
 
-The top bar communicates connection, background preparation and pending saves with compact text. **Preparing your academy** shows actual progress on first device setup or a needed rebuild. Today becomes useful before background preparation finishes. Normal Players, Calendar and Attendance destinations handle covered online and offline work. Missing data or a server-only operation explains the boundary beside the affected control.
+The [14 November shared layout](../03-design/operations-design-reference.md#shared-layout-refinement--14-november-2026) moves the desktop brand and navigation icon to the navigation panel and the detail icon to the details heading. The main task no longer carries a shared header or pane control row. Narrow widths use a compact menu, on-demand details and a bottom utility bar. [Checkpoint](../07-handoff/mp-b01-workspace-layout-2026-11-14.md)
+
+The workspace navigation footer communicates connection, background preparation and pending saves with compact text. **Preparing your academy** shows actual progress on first device setup or a needed rebuild. Today becomes useful before background preparation finishes. Normal Players, Calendar and Attendance destinations handle covered online and offline work. Missing data or a server-only operation explains the boundary beside the affected control.
 
 Keep the workspace, scroll, focus, selection, open dialog and dirty input stable during eligible background checks. Use feedback in the affected pane or action. After a confirmed save, update affected rows and counts. Preserve the original recovery action when the outcome is unknown. Known denial or a changed account or scope takes precedence. Verify continuity in each redesigned journey, including online-only actions. [Working-day acceptance](academy-working-day-acceptance.md#normal-workspace-acceptance--5-november-2026).
 

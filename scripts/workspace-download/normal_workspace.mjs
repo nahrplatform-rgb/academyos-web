@@ -1,6 +1,7 @@
 // Chromium exercises the real Owner components and public worker. Existing
 // baseline online People/Calendar reads use fictional responses. Registration
 // scenarios explicitly switch People to its real handler and signed DB boundary.
+import {checkPreparedCalendarControls} from './calendar_controls.mjs';
 import assert from 'node:assert/strict';
 import {build} from 'esbuild';
 import {expect,chromium} from '@playwright/test';
@@ -273,6 +274,8 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await expect(online(page)).toBeVisible({timeout:30000});
     const event=page.locator('[data-occurrence]').first();
     await expect(event).toBeVisible();
+    const calendarControls=await checkPreparedCalendarControls({page,scope,ui,transferCalls});
+    pass('WD-70 prepared Calendar filter, Week/Month and period controls make zero operating or transfer requests in EN/AR');
     const eventKey=await event.getAttribute('data-occurrence');
     await event.click();
     await expect(event).toHaveAttribute('aria-pressed','true');
@@ -305,10 +308,10 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     ui.setNetworkAvailable(false);
     await browser.setOffline(true);
     await openOffline(page,calendarWithoutAnchor);
-    await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
+    await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^غير متصل$/})).toBeVisible();
     await expectCalendarContext();
     await openOffline(page,calendarWithoutAnchor);
-    await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
+    await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^غير متصل$/})).toBeVisible();
     await expectCalendarContext();
     await reconnect(page,calendarWithoutAnchor);
     await expectCalendarContext();
@@ -337,13 +340,17 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     ui.setNetworkAvailable(false);
     browser=await chromium.launchPersistentContext(profile,{offline:true});
     page=await browser.newPage();await track(page);
+    const originalViewport=page.viewportSize();
+    assert.ok(originalViewport,'the cold-offline page has a restorable viewport');
+    await page.setViewportSize({width:390,height:844});
     search=page.locator('#player-search');
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
     await openOffline(page,calendar);
-    await expect(page.getByText('غير متصل',{exact:true})).toBeVisible();
+    await expect(page.getByRole('status').filter({hasText:/^غير متصل$/})).toBeVisible();
     await expect(page.locator(`[data-occurrence="${eventKey}"]`)).toBeVisible();
     await openOffline(page,players);
-    await expect(page.getByText('Offline',{exact:true})).toBeVisible();
+    await expect(page.getByRole('status').filter({hasText:/^Offline$/})).toBeVisible();
+    await page.setViewportSize(originalViewport);
     // Navigation is tab-scoped; a fresh tab must not inherit the earlier hint.
     await expect(search).toHaveValue('');
     await expect(page.getByRole('heading',{name:'Player profile',exact:true})).toHaveCount(0);
@@ -360,7 +367,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
 
     await db({action:'rename',academy:fixture.academy});
     await openOffline(page,players);
-    await expect(page.getByText('Offline',{exact:true})).toBeVisible();
+    await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^Offline$/})).toBeVisible();
     await reconnect(page,players);
     await page.locator('#player-search').fill('Fictional renamed player');
     await expect(page.getByRole('button',{name:'Fictional renamed player',exact:true})).toBeVisible();
@@ -494,7 +501,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await expect(page.getByText('Current access denied',{exact:true})).toBeVisible();
     assert.deepEqual(pageErrors,[]);
     pass('Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial');
-    return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,
+    return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,calendarControls,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
       offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
       peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration,peopleAuthentication};

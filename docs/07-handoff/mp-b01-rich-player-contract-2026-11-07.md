@@ -51,7 +51,7 @@ New offline commands need exact version, applicable deadline, conflict and recov
 
 ## Focused decisions, not a global stop
 
-The former ten-question list mixed product/privacy choices, engineering work and future scope. Prepare one concrete field-set packet under the following groups. They are pending proposals; each blocks only dependent new behavior. Continue accepted continuity work meanwhile.
+The former ten-question list mixed product/privacy choices, engineering work and future scope. The [focused A/B/C Player review](mp-b01-player-decisions-2026-11-14.md) gives the Owner a concrete proposal with registration, visibility, device and archive examples. Each open choice blocks its dependent new behavior. Continue accepted continuity work meanwhile.
 
 | Group | Owner choice to prepare | Engineering work within the settled direction | Blocks |
 |---|---|---|---|

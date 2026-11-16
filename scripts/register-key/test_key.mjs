@@ -13,6 +13,7 @@ import {createInterface} from 'node:readline';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
 import {pilotCases} from './pilot_cases.mjs';
+import {additiveCases} from './additive_cases.mjs';
 
 const root = resolve(import.meta.dirname,'../..'), require = createRequire(import.meta.url);
 const evidence = join(root,'docs/07-handoff/evidence/owner-register-key-2026-11-04.json');
@@ -28,19 +29,21 @@ const sources = [
   'apps/web/src/lib/register-download-coordinator.ts', 'apps/web/src/lib/register-original-dispatch.ts',
   'supabase/migrations/20261104013632_owner_register_bound_transport.sql',
   'supabase/migrations/20261106174606_owner_register_binding_conflict.sql',
+  'supabase/migrations/20261114130000_owner_register_additive_scopes.sql',
+  'apps/web/src/lib/register-device-slots.ts', 'scripts/register-key/additive_cases.mjs',
 ];
 const hashes = Object.fromEntries(await Promise.all(sources.map(async file=>[file,
   createHash('sha256').update(await readFile(join(root,file))).digest('hex')])));
 if (process.argv.includes('--check')) {
   const receipt = JSON.parse(await readFile(evidence,'utf8'));
   assert.deepEqual(receipt.hashes,hashes);
-  assert.equal(receipt.checks.length,18);
+  assert.equal(receipt.checks.length,23);
   console.log('PASS EX-09 key receipt source fingerprints');
   process.exit(0);
 }
 
 const stage = 'https://staging.academy.nahr.dev';
-const targets = new Set(['x19_owner_register_key_v1','x20_register_download_v1','x20_register_dispatch_v1']);
+const targets = new Set(['x19_owner_register_key_v1','x23_owner_register_key_v2','x20_register_download_v1','x20_register_dispatch_v1']);
 const owner = 'user_owner', key = 'a'.repeat(64);
 const state = {subject:owner, hasToken:true, sessions:0, calls:0, deniedBudget:false, limits:[]};
 const checks = [];
@@ -86,6 +89,7 @@ try {
     LOCAL_REGISTER_WRAP_KEY_V1:wrappingKey, NEXT_PUBLIC_SUPABASE_URL:'https://snpphkenmvmhpjstbeul.supabase.co',
     NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'synthetic-publishable-key'});
   delete process.env.LOCAL_REGISTER_KEY_ENABLED;
+  delete process.env.LOCAL_REGISTER_MULTI_SCOPE_ENABLED;
 
   pg = spawn('python3',['-u',join(root,'scripts/register-key/key_bridge.py')],{stdio:['pipe','pipe','inherit']});
   const pending = new Map();
@@ -293,8 +297,10 @@ try {
   browser=await chromium.launch();
   const lifecycle = await pilotCases({browser,origin:`http://127.0.0.1:${server.address().port}`,db,api,calls,
     pass,state,result,owner});
+  const additive = await additiveCases({browser,origin:`http://127.0.0.1:${server.address().port}`,db,api,calls,
+    pass,state,result,owner});
   const receipt={checks, hashes, measurements:{rpcAttempts:state.calls,logicalLimiterChecks:state.limits.length,
-    storedEnvelopeBytes:60, browserMaterialBytes:32, lifecycle}};
+    storedEnvelopeBytes:60, browserMaterialBytes:32, lifecycle,additive}};
   if(process.argv.includes('--record')) await writeFile(evidence,JSON.stringify(receipt,null,2)+'\n');
 } finally {
   await browser?.close();

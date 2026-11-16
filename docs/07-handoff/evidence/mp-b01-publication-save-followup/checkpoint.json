@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-11-16T12:01:46.083220+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "runtime": "Node v24.14.0; production/development React",
+  "helpers": 0,
+  "coordinator": "Current Codex session; exact backend model and usage not exposed",
+  "inputs": {
+    "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+    "scripts/publication/test_ui.mjs": "f98883eed2afa299083fec54285e308f6a4fa02aa02c538adb62ba3c411cceea",
+    "scripts/publication/save_followup.mjs": "33b5d5fecf33ed09667f68f4c1cb8d3ae8dc7ac6a42bf37a812a992d25e4b2d6",
+    "scripts/publication/test_api.mjs": "b48e22be46be86e7a25fe1e95c2b42d7a14de5d5209082a6b09d314462afe59c",
+    "scripts/publication/test_boundary.py": "584fcbbbd2123ec35764aaad9ba864883b9983c12885c0ac93883eb9d6081926",
+    "apps/web/src/lib/publication.ts": "a01dbcd3ad8c9d9a92afe398ca856e843240c5590f27f4fd9b662b6beb8c9600",
+    "apps/web/src/app/api/publication/route.ts": "7b4a786607ae0a04400d777c4f246ff44fbafe83e538bf78a5d38d74fb1d6d4b",
+    "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+    "supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+    "scripts/experience-review/build.mjs": "c53600cb4c1a0ae5f13ee13f82bca95836e0d3f989833dc5dc6f9029cb13e5e3",
+    "scripts/experience-review/collect.mjs": "ec8f9518eb9fe8c98ff13f12ba4905940d8b48b216bdba6e8f0b4540bb982ef1"
+  },
+  "negativeControl": {
+    "cases": 20,
+    "gaps": 20,
+    "productSourceSha256": "268cf8c3556174bfd8407b4a70e4988cec9346287ac8d4aed3d383faea72293d",
+    "restorePatch": "before-source.patch"
+  },
+  "checks": {
+    "actualComponentCases": 40,
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "kinds": [
+      "publish",
+      "withdraw"
+    ],
+    "outcomes": [
+      "success",
+      "read_failure",
+      "lost_reply",
+      "denied_read",
+      "context_failure"
+    ],
+    "api": {
+      "budgetFailures": 27,
+      "invalidBodies": 3,
+      "crossOriginDenied": true
+    },
+    "sql": {
+      "passed": 4,
+      "database": "disposable PostgreSQL17",
+      "tests": [
+        "test_publication_01_publish_snapshot_freeze_withdraw_republish",
+        "test_publication_02_invalid_stale_atomic_child_audit_rollback",
+        "test_publication_03_roles_scope_fence_and_current_appointment",
+        "test_publication_04_competing_activation_and_edit_serialization"
+      ]
+    },
+    "workingDay": "28 signed Next/Chromium/PG cases passed; exact Today entry/return,recovery,storage refusal and existing normal Attendance boundaries",
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "managed local production restart/build and exact instance verified",
+    "captureFamilies": 16,
+    "reviewFrames": 1440,
+    "reviewTransitions": 1411,
+    "reviewTool": "passed"
+  },
+  "failures": [
+    {
+      "kind": "new test locator",
+      "initial": "saved job label is Publication rather than Publish; broad Withdraw regex matched both scope action and saved job",
+      "repair": "Use the exact scope control and saved-row label; no product assertion weakened"
+    },
+    {
+      "kind": "new test synchronization",
+      "initial": "context retry assertion read request history while dates/jobs chain was still active",
+      "repair": "Wait for expected jobs read and loading completion before exact action comparison"
+    }
+  ],
+  "commands": [
+    "PUBLICATION_SAVE_BASELINE=1 PUBLICATION_SAVE_REFERENCE=test-results/wd71-publication/before.tsx UI_EVIDENCE_DIR=test-results/wd71-publication/negative-final node scripts/publication/test_ui.mjs",
+    "UI_EVIDENCE_DIR=test-results/wd71-publication/final node scripts/publication/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=test-results/wd71-publication/final node scripts/publication/test_ui.mjs",
+    "node scripts/publication/test_api.mjs",
+    "python3 scripts/publication/test_boundary.py PublicationBoundary.test_publication_01_publish_snapshot_freeze_withdraw_republish PublicationBoundary.test_publication_02_invalid_stale_atomic_child_audit_rollback PublicationBoundary.test_publication_03_roles_scope_fence_and_current_appointment PublicationBoundary.test_publication_04_competing_activation_and_edit_serialization",
+    "node scripts/working-day/test_normal_attendance.mjs",
+    "node scripts/working-day/test_normal_attendance.mjs --record",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "npm test",
+    "npm run typecheck",
+    "npm run lint",
+    "npm run local:production -- --restart",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs"
+  ],
+  "limits": [
+    "New held-response cases use fictional HTTP receipts; actual SQL tests separately prove named canonical effects. Signed Today recovery fixture is a separate evidence layer.",
+    "No live connected publication/withdrawal,hosted fault injection,installed-device or Owner acceptance.",
+    "No schema,visibility rule,writer,worker,role,key or provider change; no commit,push or promotion."
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "domain": "guardians",
+  "baseline": false,
+  "cases": [
+    {
+      "locale": "en",
+      "action": "appoint",
+      "outcome": "success",
+      "original": "efb329f4-0aa0-4c88-a3c8-d330b9f60f52",
+      "invitation": "eb15c707-802c-4a73-8de8-e1a62e21b159",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "appoint",
+      "outcome": "read_failure",
+      "original": "1fe6c280-08b1-495c-bc85-b736711511b2",
+      "invitation": "0749ebf1-4fca-4f27-8270-1a9d5883bfee",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "appoint",
+      "outcome": "lost_reply",
+      "original": "c16794a6-c4d0-46e9-82ae-0cabfb81f072",
+      "invitation": "07fdb84d-126e-435a-90f0-b19c3036c817",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list",
+        "operation",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "appoint",
+      "outcome": "denied",
+      "original": "550aadc3-35cd-4d19-890a-6b568c7a6b20",
+      "invitation": "c26fcafc-258a-4d40-b451-23aca7e892f7",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "end",
+      "outcome": "success",
+      "original": "aa4a819a-3fa4-44e8-9639-2292b396bad0",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "end",
+      "outcome": "read_failure",
+      "original": "68e5f54a-46bf-4abb-94d5-9e122e4e9d1e",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "end",
+      "outcome": "lost_reply",
+      "original": "2c1a108d-7ee3-496e-829e-e37705eb021d",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list",
+        "operation",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "end",
+      "outcome": "denied",
+      "original": "7cdd80a8-d94a-4fd4-9185-b3341baa4a4e",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "accept",
+      "outcome": "success",
+      "original": "573a66c7-68f6-4037-ae46-6d09b0c82cca",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "accept",
+      "outcome": "read_failure",
+      "original": "6a8f8630-2b9f-4b4d-b96d-4a11f2556420",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "accept",
+      "outcome": "lost_reply",
+      "original": "79505fea-c4e1-4264-93d8-227d8acc0dae",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review",
+        "reconcile-accept",
+        "review",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "action": "accept",
+      "outcome": "denied",
+      "original": "2c88925b-9f74-4f5d-a55c-3656b948a970",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "appoint",
+      "outcome": "success",
+      "original": "99f050a8-ac1a-46b5-a5a7-95974fcba9ec",
+      "invitation": "f8bccade-2dbc-40ff-92cf-bafbcaccfd6a",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "appoint",
+      "outcome": "read_failure",
+      "original": "7ce80d2d-54bb-4a92-88bb-c44bf3c927d3",
+      "invitation": "d7ecedf1-2d28-4901-a821-0d14b7aafe19",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "appoint",
+      "outcome": "lost_reply",
+      "original": "cec23210-755f-4ec6-8558-74342853746a",
+      "invitation": "96ff48ea-5084-4288-adbf-87aad33edfe4",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list",
+        "operation",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "appoint",
+      "outcome": "denied",
+      "original": "84fb0a83-17b1-4553-95ad-52042a1308be",
+      "invitation": "116ab6c4-f696-4358-ae2d-326fe1e7c0d5",
+      "version": 1,
+      "effects": 1,
+      "sequence": [
+        "appoint",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "end",
+      "outcome": "success",
+      "original": "6a0442df-566f-4571-b362-bd759a7a50d2",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "end",
+      "outcome": "read_failure",
+      "original": "13144690-b9df-452f-b64c-079818237df2",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "end",
+      "outcome": "lost_reply",
+      "original": "486299e4-ee84-42e5-88f0-dc7e358363f9",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list",
+        "operation",
+        "owner-list",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "end",
+      "outcome": "denied",
+      "original": "0f6f0bbe-9c16-4784-9e3c-fb1edc245bf1",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "end",
+        "owner-list"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "accept",
+      "outcome": "success",
+      "original": "3bd47159-cf16-469c-8407-8bf49f61bdba",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "accept",
+      "outcome": "read_failure",
+      "original": "f928c6ec-7a38-4c52-9de1-1c668bc202a8",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "accept",
+      "outcome": "lost_reply",
+      "original": "cdc31f35-0efc-4a0e-93fa-34158d0a41f3",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review",
+        "reconcile-accept",
+        "review",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "action": "accept",
+      "outcome": "denied",
+      "original": "abeaa11f-b63c-4d40-9c63-97bb3318b6dd",
+      "invitation": "00000000-0000-4000-8000-000000000010",
+      "version": 8,
+      "effects": 1,
+      "sequence": [
+        "accept",
+        "review"
+      ],
+      "knownLoading": true,
+      "ambiguous": false,
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "scope": "Actual React; fictional identity/HTTP. Not database, delivery, routed or hosted proof."
+}

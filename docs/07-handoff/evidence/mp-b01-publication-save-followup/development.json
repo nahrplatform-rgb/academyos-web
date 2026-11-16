@@ -1,0 +1,485 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "saveFollowup": {
+    "baseline": false,
+    "cases": [
+      {
+        "locale": "en",
+        "kind": "publish",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "681e9be5-fbb4-4e15-a800-d8590b2c03be",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "3d48d806-8273-4115-a23f-e8e943742ad7",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "435ec71b-38fe-4c38-859f-9d58db8e7f74",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "2b264007-0eae-4890-b55b-ff97954d0606",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "c02f624c-5fe6-4ac3-8a46-e484ea689776",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "de4d29e8-76b6-412e-9ad0-7585222a7395",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "0063c59d-5bd2-4507-8806-9b4658e5999c",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "805d38db-75f5-49f3-bc76-ee2bcec20339",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "b61493b4-890b-4601-a4c8-fc4514a6feed",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "07fba313-d889-47b1-8bc7-da0f8be328c4",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "2a0d388c-3879-4d12-9f2f-6cd01d7b316d",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "8ccd3c98-8afb-44e3-8b98-57d83a9d6c9c",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "b494c6a4-1656-45e3-8f8e-68777433b858",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "aa5deb07-ac4e-4617-8a1d-7828642f9835",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "92cdfc94-97a5-4007-97ac-8e88b17740ba",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "e0ed4bf5-9aae-4453-bf70-a3b6abbbdde7",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "dbb2e3f2-51d1-4998-ba15-1664f54adc8c",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "c3e76496-378f-43e0-ab0c-9f58ac6a7916",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "1b7a6848-797e-429b-ad06-04c7af5ddd48",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "652dcea0-a697-4f43-ae6c-b08c7e8c87e4",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      }
+    ],
+    "gaps": [],
+    "scope": "actual publication React; fictional publish/withdraw receipts and held HTTP; SQL effects separate"
+  },
+  "scope": "Actual production React with synthetic identity and HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode boot once",
+    "independent dates/jobs failure recovery",
+    "automatic bounded private preparation with authoritative version chain",
+    "pause after in-flight check and explicit resume",
+    "lost preparation reply fences continuation until reconciliation",
+    "central review with exact39/1 counts and audience",
+    "private preparation and explicit final audience confirmation",
+    "committed lost reply reload/reconcile without duplicate",
+    "uncommitted fence and retry",
+    "confirmed save/read failure retries read",
+    "stale definitive response not unknown",
+    "minimal Trainer roster failure/retry",
+    "withdrawal removes open names on next read",
+    "denied appointment clears private context",
+    "new identity remount",
+    "Owner/Trainer EN/AR320/360/926/1440",
+    "direct Today preparation uses only the checked read and offers contextual return"
+  ],
+  "errors": [],
+  "activations": 3
+}

@@ -59,7 +59,7 @@ export function ownerRegisterPilot(input: RegisterContext, scopeSignal: AbortSig
   if (!/^user_[a-zA-Z0-9_]{1,120}$/.test(subject)) refuse('invalid_scope');
   if (!navigator.locks) refuse('protected_storage_unavailable');
   const underLock = <T>(work: () => T | Promise<T>) => registerSlotLock(subject,academy,work);
-  const load = () => readRegisterSlot(subject,academy);
+  const load = () => readRegisterSlot(subject,academy,event);
   const save = (slot: RegisterSlot) => writeRegisterSlot(subject,academy,slot);
   function scopeOf(slot: RegisterSlot): RegisterScope {
     return {environment:'staging', subject, academy, device:slot.device,

@@ -1,0 +1,41 @@
+# WD-71 · Trainer and Guardian appointment confirmation/read follow-up
+
+16 November 2026 · EX-07 / MP-B01 · J03/J05/J07/J08 · IMP-J05-A01/IMP-J07-A01 (implemented appointment subsets) · L03/L05/L06 · SEC-J03/J05/J07/J08 · WB-09/10/11/12/20/24 · VAL-05/09. Prior [draft-program checkpoint](mp-b01-program-create-followup-2026-11-16.md), save/recovery and runtime evidence remains retained.
+
+The two appointment components now show **Operation confirmed. Loading current access…** after a write acknowledgement or successful original reconciliation. Previously they continued to say **Loading… awaiting confirmation** until the current read finished. Confirmed/read-failed feedback also stays known during explicit read-only retry. No account, invitation delivery, role/link policy, canonical command, schema or locator format changed.
+
+## Active request and contract
+
+The living continuation selected Trainer appointment and Guardian-link appoint/end/accept held writes and follow-up reads. The accepted [Trainer contract](../06-delivery/i2c-trainer-design-contract.md), [Guardian contract](../06-delivery/i2b-guardian-design-contract.md), [Trainer implementation](i2c-trainer-implementation.md) and [Guardian implementation](i2b-guardian-implementation.md) retain explicit reviewed scope, exact intended recipient, server authority, version, one original and historical access boundaries. Existing full component tests still execute recipient exchange, loss/cancellation, scope, own-view, end-access, denial, remount, dirty input and original keyboard/pointer checks.
+
+The component load function accepts the already-known result notice. Commit/reconcile pass it before awaiting the current read. A derived flag suppresses generic awaiting-confirmation copy only during that known result. Retry carries the known notice through another current read. Other initial reads, unknown outcomes, cancellation and domain errors retain existing behavior. No receipt is treated as current permission. The same data clearing, access masking, request ordering, session storage and operation locks remain.
+
+## Executed matrix and negative control
+
+[Source/checkpoint](evidence/mp-b01-appointment-followup/checkpoint.json) · [shared test helper](../../scripts/appointments/save_followup.mjs) · [Trainer production](evidence/mp-b01-appointment-followup/trainer-production.json) / [development](evidence/mp-b01-appointment-followup/trainer-development.json) · [Guardian production](evidence/mp-b01-appointment-followup/guardian-production.json) / [development](evidence/mp-b01-appointment-followup/guardian-development.json).
+
+**96 cases**: two domains × appoint/end/accept × EN desktop1440 / AR phone390 × success/read503/lost reply/current403 × production/development React. Actual product components with controlled fictional identity/HTTP. The two24-case pre-repair runs detect **48 gaps**: every held confirmed read lacks known-result loading and still says awaiting confirmation. [Trainer negative control](evidence/mp-b01-appointment-followup/trainer-negative-control.json), [Guardian negative control](evidence/mp-b01-appointment-followup/guardian-negative-control.json), reverse source patches and hashes preserve the exact old components. Reference substitution requires explicit baseline mode; ordinary runs require zero gaps.
+
+| Scenario | Executed assertions |
+| --- | --- |
+| Held original write | Exact reviewed recipient/branch or player for appointment; exact invitation/version7/reason for end; synthetic invitation exchange ID/token before explicit accept. Focus+Enter sends one original. Confirmation disabled, locator retained, zero fictional effect before release and no premature confirmed copy. |
+| Held follow-up | Acknowledged result clears original and unknown controls, displays known/loading copy and removes ambiguous awaiting-confirmation status. Paired focus/visibility adds zero requests. |
+| Current read503 | Known commit and failed current access remain distinct. Focus+Enter Retry current read reads only, with no replacement write or reconciliation. |
+| Lost reply/reload | Same original survives reload. Existing bootstrap current read happens while unknown; it does not settle the original. Check original operation reconciles the same op, then a held/failed current read transitions to read-only retry. Invitation fragment consumption is retained; fixture mode/locale now lives in path so reload remains the same invitation component. |
+| Current403 | Follow-up masks private name/branch and removes unknown action; confirmation does not restore access. This is fictional client denial, not new SQL permission proof. |
+
+Post-review sequences are `write → owner-list/review`, with one extra read for read503. Lost reply/reload uses `write → bootstrap read → operation/reconcile-accept → current read → retry read`. One fictional effect and original per case, exact target version, expected pending/ended/accepted result and zero page errors. These counters establish client protocol, not database audit uniqueness or delivery success.
+
+## Verification and limits
+
+Actual API tests pass30 budget refusals and three invalid bodies per domain plus cross-origin denial using synthetic session/limiter adapters.119 units, typecheck, lint and managed production rebuild/restart pass with Node24.14.0. Existing28-check normal Attendance receipt remains source-current, retained at its original timestamp; it was not rerun or used to infer appointment routing. Application build fingerprint and both local runtime status checks pass. Local frontend settings target shared synthetic staging, but every new write here used fictional HTTP; no live invitation/access mutation occurred.
+
+All16 component families were regenerated under the conservative shared input-fingerprint contract, followed by eight static captures. The factual review contains1608 frames and1843 transitions with zero capture gaps; review-tool and source-freshness checks pass. These counts describe the captured states, not exhaustive journey acceptance. Master/continuation generation, execution validation (including20 continuation tests), implementation-register validation and diff whitespace checks pass. Selected Arabic390px failed-read capture was inspected: explicit confirmed/read-failed feedback, read-only Retry, no private result or replacement save. Existing Operations composition/type/spacing/colours remain; no redesign parity claim is made.
+
+Read-only PYSA reference inspected `actions/staff.ts` managed-account creation and EV-0066 Guardian provisioning recovery plus EV-0053 Trainer onboarding destinations. The source/synthetic audit shows why identity provisioning, link completion and recovery must remain separate and routes must be exercised. No historical mock outcome is promoted to live exploitability or copied as AcademyOS policy; PYSA remains unchanged. AcademyOS acceptance/recovery contracts govern. React review retained derived state, existing locks/lifecycle guards, no new listener/effect/dependency, and current authority masking.
+
+Initial fixture issues were corrected without weakening acceptance: broad status locator selected two loading messages; Guardian Arabic review wording differs; query-only invitation fixture reload changed mode after fragment consumption; baseline imports needed the actual app resolution context. A scripted syntax error failed typecheck and was corrected before passing runs. The receipt retains failures and resolutions.
+
+One coordinator, zero helpers; exact backend model/usage unavailable. Existing edits preserved. No commit, push, promotion, provider/key/account change, new SQL/domain execution, hosted/installed-device proof, Owner acceptance or independent human security review. Existing SQL transaction/authority evidence remains historical. External review is deferred, not passed. WD-71 remains evidence-linked with broader role/device/hosted scope open.
+
+Next permitted connected work: remaining WD-71 QR register credential/record and Attendance setting confirmation with delayed/failed follow-up reads. Reconcile their existing component/API/domain evidence, freeze exact original/version/current-authority cases, then add bounded EN/AR held-response proof and repair only reproduced defects. MP-Q01 A/B/C Player choices remain dependent Owner decisions.

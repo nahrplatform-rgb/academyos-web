@@ -1,0 +1,251 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "saveFollowup": {
+    "baseline": false,
+    "cases": [
+      {
+        "locale": "en",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "list"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "efe7dcd4-f747-4c26-a6a1-8d88486eaabb",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "f0c95ca3-90d1-4642-bc30-edc7ac7f1ecc",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "context",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "e8fd1429-6b1d-4a06-98d3-01300d45274f",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "56ce389d-26ca-4063-b0f9-9c6d30f5ae7e",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "context",
+          "context",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "f3da9112-2370-4a37-bac7-857f337fea2c",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "list"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "0c49a8af-be79-496f-bb84-5f4f91f763d4",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "cbcd5ecc-9ab6-4ee9-be4c-b243199be360",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "context",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "7c0e4238-7379-45db-831d-a82dea749234",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "7e452cad-c15b-4beb-823b-88385af5a504",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "context",
+          "context",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "5aebbfa3-6523-4344-b129-9eb0a7260bca",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      }
+    ],
+    "gaps": [],
+    "scope": "actual React component; fictional 40-date reviewed job and HTTP responses; no hosted/SQL activation proof"
+  },
+  "visibleOnlyReads": 1,
+  "pairedResumeReads": 1,
+  "dirtyResumeReads": 0,
+  "scope": "Actual product React; synthetic identity/HTTP adapters, not SQL or hosted proof",
+  "cases": [
+    "StrictMode coalesced bootstrap",
+    "directory failure does not hide new proposal",
+    "preserved plan current capacity",
+    "shared and weekday capacity/Trainer choices retained",
+    "40 distinct dates with bounded25/15 inspection",
+    "central task and authoritative sequential checks",
+    "pause after current check and resume",
+    "lost preparation reply stops until reconciliation",
+    "stale and blocked checks never activate",
+    "private roster edits invalidate preparation",
+    "all-or-none overlap denial",
+    "committed lost reply/reload recovery",
+    "uncommitted fence and deliberate retry",
+    "confirmed activation/read failure retries read",
+    "EN/AR320/360/926/1440",
+    "focus revocation clears data and actor remount"
+  ],
+  "activations": 5,
+  "errors": []
+}

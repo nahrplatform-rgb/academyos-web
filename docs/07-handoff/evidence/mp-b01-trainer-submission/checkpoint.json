@@ -1,0 +1,134 @@
+{
+  "timestamp": "2026-11-16T14:14:42.450884+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/correction-workspace.tsx": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
+    "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+    "scripts/review-decisions/trainer_submission.mjs": "dc917a60bb3e20828017fff2f9fdb6586a90b605db64067598fdf38f4051bede",
+    "scripts/corrections/test_ui.mjs": "a263af6d56d61ea651d7394568d77a8d6bf0cd7b1ee300952f525b699200b243",
+    "scripts/development/test_ui.mjs": "561900acc12696d9c1a422139d6af8bad42d4e801b5fe4ea846ba3469cca3443",
+    "scripts/corrections/test_api.mjs": "5ca3ff514a6f5a98aab5d570977dd538f1dd20dfe84d84572382b16d3b3e9a43",
+    "scripts/development/test_api.mjs": "1fe9950c45c182ca77f4c19da4172fc0c494c9b6e497109490c87d5e67ca93a4",
+    "scripts/experience-review/collect.mjs": "b93069a7f52d0cd5614303fe5848fc4b2806ef857e9e93363b0f1b1c3b1f1af6",
+    "scripts/experience-review/build.mjs": "085069c1947faf5a9db2404aae910ed98da5e606f70f48a2d9c98e545a282bd3"
+  },
+  "beforeSource": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+  "coordinator": "Current Codex; exact backend model/usage unavailable",
+  "helpers": 0,
+  "checks": {
+    "trainerComponentCases": 60,
+    "gaps": 0,
+    "negativeControlCases": 4,
+    "negativeControlGaps": 4,
+    "existingCorrectionSuite": "passed both React modes; existing Owner held matrix also executed",
+    "existingFeedbackSuite": "13 cases each React mode; existing Owner held matrix also executed",
+    "apiBudgetRefusals": {
+      "correction": 21,
+      "feedback": 33
+    },
+    "invalidBodiesPerDomain": 3,
+    "crossOriginDeniedBoth": true,
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "managedProduction": "verified ecOgt3Pk8VrPIvD9TwYra / 57d917a2-b0da-482b-82d1-d73baf200bbe",
+    "compiledSourceAssets": "passed",
+    "localProcesses": "dev3000/production3100 current; not signed-in readiness",
+    "normalAttendance": "passed28 actual owning --record checks and source-current --check",
+    "review": {
+      "componentFamilies": 16,
+      "staticCaptures": 8,
+      "frames": 1683,
+      "transitions": 2181,
+      "captureGaps": 0,
+      "tool": "passed",
+      "freshness": "passed"
+    },
+    "canonical": {
+      "masterGeneration": "passed",
+      "continuationGeneration": "passed",
+      "executionValidator": "passed; includes20 continuation tests",
+      "implementationRegister": "passed",
+      "diffWhitespace": "passed"
+    }
+  },
+  "assertions": [
+    "Exact Trainer academy/event/player/version7; correction reason and feedback fields/language match review",
+    "Focus+Enter original control; disabled pending; zero fictional effects before release",
+    "Opaque original persists on lost reply/reload; no bootstrap or signal-triggered requests until explicit reconciliation",
+    "Known confirmation while current read held; no premature read-failure message; focus/online/visibility adds zero requests",
+    "503 in detail or supporting list uses focused Enter read-only retry; exact request/event-player; no replacement command",
+    "Current403 hides private player/staff content and removes unknown original control",
+    "Exact action sequences include list refresh; lost feedback reload has no list query, so exact-detail retry only",
+    "Correction remains Pending with canonical Present/version7; fictional feedback draft/submitted version8 retains fields and no publication; one fictional effect and zero page errors"
+  ],
+  "limits": [
+    "Actual product React with fictional identity/HTTP; counters are not SQL/audit/idempotency or hosted authority proof",
+    "No new standalone domain SQL run; existing domain receipts stay historical; separate28-check routed fixture rerun passed",
+    "No actual family read/privacy projection, installed-device, physical device, Next destination/return or Owner acceptance from new matrix",
+    "No live staging writes, account/provider/configuration changes, commit, push or promotion"
+  ],
+  "failuresAndResolution": [
+    {
+      "failure": "Old correction retry fell back to player context after failed confirmed detail read, including reconciliation after reload",
+      "resolution": "Retain exact confirmed receipt in component ref until its detail and supporting list complete; clear on selection reset/denial"
+    },
+    {
+      "failure": "Feedback textarea label includes field-limit hint",
+      "resolution": "Use actual label prefix; no product change"
+    },
+    {
+      "failure": "Correction messages/retry appear in both main and detail contexts; first retry can be behind phone dialog",
+      "resolution": "Target final active detail retry and assert keyboard focus before Enter; scoped same action remains required"
+    },
+    {
+      "failure": "Initial fictional context reply included request-only keys after submission",
+      "resolution": "Keep context separate from detail; exact retry regression now detects wrong-target read rather than fabricated request detail"
+    }
+  ],
+  "commands": [
+    "node scripts/corrections/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/corrections/test_ui.mjs",
+    "node scripts/development/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/development/test_ui.mjs",
+    "TRAINER_SUBMISSION_BASELINE=1 TRAINER_SUBMISSION_REFERENCE=test-results/wd71-trainer-submission/correction-before.tsx TRAINER_SUBMISSION_OUTCOME=lost node scripts/corrections/test_ui.mjs",
+    "TRAINER_SUBMISSION_BASELINE=1 TRAINER_SUBMISSION_REFERENCE=test-results/wd71-trainer-submission/correction-before.tsx TRAINER_SUBMISSION_OUTCOME=detail503 node scripts/corrections/test_ui.mjs",
+    "node scripts/corrections/test_api.mjs",
+    "node scripts/development/test_api.mjs",
+    "npm run typecheck",
+    "npm run lint",
+    "npm test",
+    "npm run local:production -- --restart",
+    "node scripts/verification/web-build.mjs --check",
+    "npm run local:status",
+    "node scripts/working-day/test_normal_attendance.mjs --record",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "git diff --check"
+  ],
+  "ignoredLogs": "test-results/wd71-trainer-submission",
+  "reviewArtifacts": {
+    "design/app-experience-review/manifest.json": "132447a9591c9b5caa326d497e66a2a4c376394634273c9712a3dd0cc3eeb10e",
+    "design/app-experience-review/capture-pack.json.gz": "322dccd9390dc5283445d9cd3e1253a11bd21d6f7a659b8326a1cff58eaa8617"
+  },
+  "evidenceHashes": {
+    "correction-baseline-lost.json": "47abfb78337b2d6bd66374c0c93fce217e7f501bfb65da40e49bd3dba8e957ff",
+    "correction-baseline-read.json": "9e0eec6e5baf0f074af0241bce6758058f625c0a91679eb533aee2efe657b851",
+    "correction-before-source.patch": "e6cc6a87b977b96a837d13e1b40ac4be9252dd69ffd1af424b1f46adbde323c5",
+    "correction-development.json": "d853356bb4107bddebf131888b5eee15d60ca2fe5d4610aa65be276ec793e022",
+    "correction-production.json": "d853356bb4107bddebf131888b5eee15d60ca2fe5d4610aa65be276ec793e022",
+    "correction-read-failed-ar.png": "2ce707e0384da0cd6d8d6b18f9a4a5f9540c2c3324424e6e61d4aa9531ca3cf8",
+    "development-development.json": "1cf7db1fe0d042c72299f19aee061aeaf08ca7809847e0f8b114e0542a8782d8",
+    "development-production.json": "1cf7db1fe0d042c72299f19aee061aeaf08ca7809847e0f8b114e0542a8782d8",
+    "feedback-list-failed-ar.png": "da0889b9f30ebf635bee5eba250eee0230a8b3f523a071d6aa288f0efdfe6cad"
+  }
+}

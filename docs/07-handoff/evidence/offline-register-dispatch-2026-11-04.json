@@ -9,12 +9,12 @@
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/attendance.ts": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
-    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+    "apps/web/src/lib/onboarding-gateway.ts": "446994c75c44a18161e7d3b60eeaed85271a85f4ccabeba0cdfb91d3acf162d2",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
     "scripts/offline-register/test_dispatch.mjs": "51afb7900739467dc82e668f8aa2a43e122da254da0e7afff32a3b496ad95476",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
-    "scripts/register-key/bound_fixture.py": "e03f9ac34555b8b267ae58f4271beb87ad37ed66cba4bffb36639ea8eb62fba2",
+    "scripts/register-key/bound_fixture.py": "d8c4ff2f06ec58faf7d392cdb7fc3c72c13816e9c445c6bab33f19e92d59160b",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
     "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5",
@@ -41,7 +41,7 @@
     "The complete 1000-mark register settles through one POST with a bounded count receipt"
   ],
   "metrics": {
-    "replayMs": 35.19312499999978,
+    "replayMs": 42.07970800000021,
     "lostReply": {
       "httpAttempts": 2,
       "signedRpcs": 2,
@@ -52,7 +52,7 @@
       "httpAttempts": 1,
       "requestBytes": 80715,
       "receiptBytes": 132,
-      "elapsedMs": 106.3903749999954
+      "elapsedMs": 107.57558399999834
     }
   },
   "environment": {

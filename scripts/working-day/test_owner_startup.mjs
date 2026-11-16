@@ -40,7 +40,6 @@ try {
   const [a,b]=data.events;
   const url=(scope,locale='en')=>`${origin}/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
   const accountKey='academyos.register-account.v1';
-  const slotStem='academyos.register-slot.v1:user_owner:';
   async function browser(offline=false){
     context=await chromium.launchPersistentContext(join(temp,'profile'),{viewport:{width:1200,height:900}});
     if(offline)fixture.disconnect();else fixture.reconnect();
@@ -150,7 +149,7 @@ try {
     };
   });
   const signOutBefore=state.events.filter(x=>x.route==='fixture-signout').length;
-  await online.getByText('Account',{exact:true}).click();
+  await online.locator('.workspace-dock').getByLabel('Account',{exact:true}).click();
   await button('Sign out',online).click();
   await expect(online.locator('main').getByRole('alert')).toHaveText('Downloads could not be cleared. Pending work remains protected.');
   await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toHaveCount(0);
@@ -159,18 +158,23 @@ try {
 
   let clean;
   await online.route('**/api/fixture-signout',async route=>{
-    clean=await online.evaluate(async stem=>{
+    clean=await online.evaluate(async scopes=>{
       const opening=indexedDB.open('academyos-owner-register-v1');
       const db=await new Promise((resolve,reject)=>{opening.onsuccess=()=>resolve(opening.result);opening.onerror=()=>reject(opening.error);});
       try {
-        const t=db.transaction(['rows','originals','keys']), modes=Object.keys(localStorage).filter(key=>key.startsWith(stem))
-          .map(key=>JSON.parse(localStorage.getItem(key)).mode);
+        const t=db.transaction(['rows','originals','keys']);
+        const modes=scopes.map(({academy,event})=>{
+          const legacy=JSON.parse(localStorage.getItem('academyos.register-slot.v1:user_owner:'+academy)??'null');
+          const current=JSON.parse(localStorage.getItem('academyos.register-slot.v2:user_owner:'+academy+':'+event)??'null');
+          const matches=[legacy,current].filter(slot=>slot?.event===event);
+          return matches.length===1?matches[0].mode:null;
+        });
         const counts=await Promise.all(['rows','originals','keys'].map(name=>new Promise((resolve,reject)=>{
           const request=t.objectStore(name).count();request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);
         })));
         return {modes,counts};
       } finally {db.close();}
-    },slotStem);
+    },[a,b].map(({academy,event})=>({academy,event})));
     await route.continue();
   });
   await button('Retry cleanup',online).click();

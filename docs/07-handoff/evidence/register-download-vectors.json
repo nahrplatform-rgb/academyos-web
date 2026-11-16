@@ -1,17 +1,17 @@
 {
-  "academy": "e306c6c5-e8a4-4ea9-936f-3c8d7ad473e3",
+  "academy": "b3b2340e-2ea7-490f-a4e8-8b7f590a30ce",
   "header": {
     "day": "2099-11-01",
     "open": true,
     "count": 60,
-    "event": "5bfc343f-3bc5-41f8-9daf-29599cc3f9af",
+    "event": "be27e5ad-a2d6-415c-b222-d829e845e920",
     "owner": true,
     "saved": 0,
-    "ends_at": "2026-11-03T18:45:56.240247Z",
-    "program": "0c752c71-2769-4cbf-9730-1399f8d7599e",
-    "closes_at": "2026-11-04T18:45:56.240247Z",
+    "ends_at": "2026-11-14T18:52:56.661159Z",
+    "program": "7a7f364c-11f9-4c81-80c3-f3de7d7973db",
+    "closes_at": "2026-11-15T18:52:56.661159Z",
     "protected": false,
-    "starts_at": "2026-11-03T17:45:56.240247Z",
+    "starts_at": "2026-11-14T17:52:56.661158Z",
     "projection": {
       "name": "برنامج \"quoted\"\\n é 🏊  ",
       "sport": "Synthetic Sport",
@@ -19,19 +19,19 @@
       "sport_ar": "رياضة",
       "timezone": "Africa/Cairo"
     },
-    "server_now": "2026-11-03T18:00:56.340686Z",
+    "server_now": "2026-11-14T18:07:56.764770Z",
     "scheduled_day": "2099-11-01"
   },
-  "head": "1328f771e29f7eb85ebc1d8b2d6f366134a686646cfb601789e9638d4f777d78",
-  "seed": "cb6995cee476db5fc9a24cd19b084c74bc9bd0089298609c81cb7b113a9b9af3",
+  "head": "5aa000f2ef8efee59bf47f7b92c1878bc13c899dfebf96cec4979d2752e0f548",
+  "seed": "66374bc25167ae57693f6a50b35f771dd4cf8c1709618965b8d8ee14b36588e5",
   "players": [
     {
-      "id": "58b71f4a-3b56-4165-bbc9-9b913497e90e",
+      "id": "a1580f98-f785-4545-97ee-b5d85f4a885f",
       "name": "سطر\\n \"界\" é 🏊",
       "status": null,
       "version": 0
     }
   ],
-  "acc": "d761671421e0afed7cea75e15aaad969246db90157f8af21526556658df3618b",
-  "revision": "0b4cedca467d20648ffeffa2b618757f643edeaefb08f7c69ffb719f8018b5af"
+  "acc": "5e251e28ca4311c078a6fd9be7f412d604a5a205a48aa12fbe264fd64b7f658c",
+  "revision": "2169b75f74bc605857a0a4e622c61172127ed8b597fe93c5793f48371d1ca3ab"
 }

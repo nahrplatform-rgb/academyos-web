@@ -1,0 +1,263 @@
+{
+  "cases": [
+    {
+      "locale": "en",
+      "command": "register",
+      "outcome": "success",
+      "actions": [
+        "register",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "register",
+      "outcome": "read503",
+      "actions": [
+        "register",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "register",
+      "outcome": "lost",
+      "actions": [
+        "register",
+        "roster",
+        "reconcile",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "register",
+      "outcome": "denied",
+      "actions": [
+        "register",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "mark",
+      "outcome": "success",
+      "actions": [
+        "mark",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "mark",
+      "outcome": "read503",
+      "actions": [
+        "mark",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "mark",
+      "outcome": "lost",
+      "actions": [
+        "mark",
+        "roster",
+        "reconcile",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "mark",
+      "outcome": "denied",
+      "actions": [
+        "mark",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "register",
+      "outcome": "success",
+      "actions": [
+        "register",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "register",
+      "outcome": "read503",
+      "actions": [
+        "register",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "register",
+      "outcome": "lost",
+      "actions": [
+        "register",
+        "roster",
+        "reconcile",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "register",
+      "outcome": "denied",
+      "actions": [
+        "register",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        1,
+        1
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "mark",
+      "outcome": "success",
+      "actions": [
+        "mark",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "mark",
+      "outcome": "read503",
+      "actions": [
+        "mark",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "mark",
+      "outcome": "lost",
+      "actions": [
+        "mark",
+        "roster",
+        "reconcile",
+        "roster",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "mark",
+      "outcome": "denied",
+      "actions": [
+        "mark",
+        "roster"
+      ],
+      "writes": 1,
+      "versions": [
+        8,
+        0
+      ],
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "baseline": false,
+  "scope": "Actual canonical online Attendance component; fictional identity/HTTP. Not database atomicity, private prepared-register or hosted proof."
+}

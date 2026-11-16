@@ -1,0 +1,31 @@
+--- a/apps/web/src/components/onboarding-workspace.tsx
++++ b/apps/web/src/components/onboarding-workspace.tsx
+@@ -129,6 +129,8 @@
+   const errorText = contextReadInterrupted
+     ? t('We couldn’t check your workspaces. Try again.', 'تعذر التحقق من مساحات عملك. حاول مرة أخرى.')
+     : messages[error] ?? messages.unavailable;
++  const confirmed = !pending && !uncertain && (notice === t('Operation confirmed. Saved progress is shown below.', 'تم تأكيد العملية. يظهر التقدم المحفوظ أدناه.') || notice === t('The original operation was committed once.', 'حُفظت العملية الأصلية مرة واحدة.'));
++  const confirmationText = confirmed && (busy || loading) ? t('Operation confirmed. Loading current saved progress…','تأكدت العملية. جارٍ تحميل التقدم المحفوظ الحالي…') : confirmed && error ? t('Operation confirmed; current progress could not be loaded. Retry reading.','تأكدت العملية؛ تعذر تحميل التقدم الحالي. أعد القراءة.') : notice;
+   const disabled = busy || loading || uncertain || pending !== null || error === 'denied';
+   const authReturn = `/${locale}/${mode === 'invitation' ? 'invitation' : 'workspace'}`;
+   const createPanel = <>            <section className="journey-card admission-create">
+@@ -182,8 +184,8 @@
+           }}>{loading ? t('Checking…', 'جارٍ التحقق…') : error ? t('Try again', 'حاول مرة أخرى') : t('Refresh view', 'تحديث العرض')}</Button>
+         </div>}
+         {error && <div className="journey-error" role="alert">{errorText}</div>}
+-        {notice && <p className="notice" role="status">{notice}</p>}
+-        {busy && <p role="status">{t('Saving… waiting for confirmation.', 'جارٍ الحفظ… بانتظار التأكيد.')}</p>}
++        {notice && <p className="notice" role="status">{confirmationText}</p>}
++        {busy && !confirmed && <p role="status">{t('Saving… waiting for confirmation.', 'جارٍ الحفظ… بانتظار التأكيد.')}</p>}
+         {uncertain && <section className="journey-card">
+           <h2>{t('Check the original operation', 'التحقق من العملية الأصلية')}</h2>
+           <p>{t('Do not create a replacement. Your request keeps its original reference.', 'لا تنشئ طلباً بديلاً. يحتفظ الطلب بمرجعه الأصلي.')}</p>
+@@ -227,7 +229,7 @@
+           {mode === 'platform' && error !== 'denied' && <>
+             <AdmissionDirectory heading={<h1 tabIndex={-1} ref={heading}>{t('Academy admission', 'قبول الأكاديمية')}</h1>} toolbar={<Button disabled={busy} onClick={() => void load()}>{t(error ? 'Retry current read' : editing || review ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : editing || review ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button>} footer={more && <Button disabled={disabled} onClick={() => void load(true)}>{t('More academies', 'المزيد من الأكاديميات')}</Button>} items={items} arabic={ar} disabled={disabled} hasError={Boolean(error)} hasMore={more} view={admissionView} onViewChange={patch => setAdmissionView(previous => ({...previous,...patch}))}
+               onReview={setReview} onRetry={body => void mutate(body)} creation={createPanel} changeReview={changePanel} creating={createOpen} reviewing={Boolean(review && review.action !== 'create')}
+-              onCancelReview={() => setReview(null)} feedback={<>{error && <p className="journey-error" role="alert">{messages[error] ?? messages.unavailable}</p>}{busy && <p role="status">{t('Saving… waiting for confirmation.', 'جارٍ الحفظ… بانتظار التأكيد.')}</p>}</>} onCreate={() => setCreateOpen(true)} onClose={() => {setCreateOpen(false);setReview(null);}} />
++              onCancelReview={() => setReview(null)} feedback={<>{error && <p className="journey-error" role="alert">{messages[error] ?? messages.unavailable}</p>}{busy && !confirmed && <p role="status">{t('Saving… waiting for confirmation.', 'جارٍ الحفظ… بانتظار التأكيد.')}</p>}</>} onCreate={() => setCreateOpen(true)} onClose={() => {setCreateOpen(false);setReview(null);}} />
+           </>}
+           {mode === 'invitation' && invite && <section className="journey-card">
+             <h2>{invite.name}</h2>

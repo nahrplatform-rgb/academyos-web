@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-11-16T13:18:09.324031+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/trainer-workspace.tsx": "291cc5f1f8ee6553808325447dbd9f82e24d60e9cdbcc03798248c966f41c84b",
+    "apps/web/src/components/guardian-workspace.tsx": "13a5ec6c5be6aaaf7a67918360ca89d265afca4383d03b66fed3150db7df9989",
+    "scripts/appointments/save_followup.mjs": "01daf6d9d9bae734cad95eab942931d26c02ff979e002741c92662b1f65fff8c",
+    "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
+    "scripts/guardians/test_ui.mjs": "a8651c26f208c5a0a6f9bd8d06084b731a7f45c97ad050d94effc6fa82f189fa",
+    "scripts/trainers/test_api.mjs": "f110cd428ec86f313b2a9858cda90cc16c63480662725306c1339230597cbc1d",
+    "scripts/guardians/test_api.mjs": "e27a2f5ba7324f4ae64b152f9be8814c4fb67856545a1a0b67143c8df02caf48",
+    "scripts/experience-review/build.mjs": "0372bd2e3688fe4cd65e6e77066860cba70768d30d1170de7e75478553e177b3",
+    "scripts/experience-review/collect.mjs": "370331eef10609707b934eb1d54651bb51fa89805f09d17bce80e66adca2ff8e"
+  },
+  "runtime": "Node24.14.0; isolated Chromium; production and development React; managed local production build",
+  "helpers": 0,
+  "coordinator": "Current Codex; exact backend model/usage unavailable",
+  "checks": {
+    "componentCases": 96,
+    "componentGaps": 0,
+    "negativeControlCases": 48,
+    "negativeControlGaps": 48,
+    "apiBudgetRefusalsPerDomain": 30,
+    "invalidBodiesPerDomain": 3,
+    "crossOriginDeniedBoth": true,
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "managedBuild": "passed",
+    "retainedAttendance": "28-check receipt passes --check; not rerun",
+    "review": {
+      "componentFamilies": 16,
+      "staticCaptures": 8,
+      "frames": 1608,
+      "transitions": 1843,
+      "captureGaps": 0,
+      "tool": "passed",
+      "freshness": "passed"
+    },
+    "canonical": {
+      "masterGeneration": "passed",
+      "continuationGeneration": "passed",
+      "executionValidator": "passed; includes 20 continuation tests",
+      "implementationRegister": "passed",
+      "diffWhitespace": "passed"
+    }
+  },
+  "negativeControl": {
+    "trainer": {
+      "sha256": "16dc4e857664b4bbb0faa9cf3a6b60ae6f0936abeca026becffad5cdfcf2d93a",
+      "patch": "trainer-before-source.patch",
+      "command": "APPOINTMENT_BASELINE=1 APPOINTMENT_REFERENCE=test-results/wd71-appointments/trainer-before.tsx UI_EVIDENCE_DIR=... node scripts/trainers/test_ui.mjs"
+    },
+    "guardian": {
+      "sha256": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
+      "patch": "guardian-before-source.patch",
+      "command": "APPOINTMENT_BASELINE=1 APPOINTMENT_REFERENCE=test-results/wd71-appointments/guardian-before.tsx UI_EVIDENCE_DIR=... node scripts/guardians/test_ui.mjs"
+    }
+  },
+  "assertions": [
+    "Keyboard Enter on original confirm while held: disabled and zero effect, opaque original retained",
+    "Exact actor-scoped recipient, initial branch/player, invitation and version7/reason for end; explicit invitation exchange binds synthetic token/id before accept",
+    "Acknowledged or reconciled operation: locator clears, known confirmation shown during held current read, no ambiguous awaiting-confirmation status",
+    "Focus/visibility while held adds zero requests",
+    "Read503 retains known confirmation; keyboard Retry current read issues no replacement write",
+    "Lost reply survives same-path reload; current bootstrap read does not settle unknown; explicit original reconciliation then failed current-read retry",
+    "403 current read removes private name/branch and unknown action",
+    "One fictional effect per case; exact protocol sequence and no page errors"
+  ],
+  "limits": [
+    "Actual product React with fictional identity/HTTP effects; actual API uses fictional session/limiter",
+    "No new SQL/domain suite; existing transaction/audit/role receipts retained at historical timestamps",
+    "No real invitation, email delivery, connected account/link/access or provider mutation",
+    "No routed destination/return, hosted/installed/Owner acceptance or external human security proof"
+  ],
+  "failuresAndResolution": [
+    {
+      "failure": "Initial helper queried broad status role with two simultaneous loading statuses",
+      "resolution": "Wait for exact known-result status instead; no assertion weakened"
+    },
+    {
+      "failure": "Invitation component strips query while consuming fragment, so query-only fixture mode reloaded owner route",
+      "resolution": "Fixture recognizes stable locale/mode path; same invitation reload now tests actual component recovery"
+    },
+    {
+      "failure": "Guardian Arabic Review appointment differs from Trainer label",
+      "resolution": "Use actual domain-specific label"
+    },
+    {
+      "failure": "Reference component under ignored directory could not resolve relative imports/alias",
+      "resolution": "Explicit existing app tsconfig and baseline-only component resolveDir; no application substitution in normal mode"
+    },
+    {
+      "failure": "Initial scripted edit omitted JSX brace and translator closing parenthesis; typecheck failed",
+      "resolution": "Corrected syntax; typecheck passes; behavioral checks retained"
+    }
+  ],
+  "reviewNotes": {
+    "react": "Derived confirmation/loading state; existing lifecycle guards and request lock remain; no new listeners, state effect, dependency or abstraction",
+    "design": "Existing geometry/controls retained; status distinguishes command acknowledgement from current read. Selected AR390 failed-read state inspected."
+  },
+  "commands": [
+    "node scripts/trainers/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/trainers/test_ui.mjs",
+    "node scripts/guardians/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/guardians/test_ui.mjs",
+    "node scripts/trainers/test_api.mjs",
+    "node scripts/guardians/test_api.mjs",
+    "npm run typecheck",
+    "npm run lint",
+    "npm test",
+    "npm run local:production -- --restart",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "node scripts/verification/web-build.mjs --check",
+    "npm run local:status",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "git diff --check"
+  ],
+  "ignoredLogs": "test-results/wd71-appointments/",
+  "reviewArtifacts": {
+    "design/app-experience-review/manifest.json": "2f97e9f1bf51a675aa75b85409589e90be5e922c3a7d7cff706af58d1727300f",
+    "design/app-experience-review/capture-pack.json.gz": "2f18f96fe20795df0fc9d43cb4d9cece63f1b3ad8954f8455a29156c9a2eeef6"
+  },
+  "evidenceHashes": {
+    "guardian-before-source.patch": "9dc838b9bed14838bbdfcec7389e05e2f4cd38f5b56efa3a0e6c4daffd0a22ff",
+    "guardian-development-ar-failed.png": "cb3ae57e111422f8cae894c809303ff28765001f2b5b71065713fe5e2aa9bfb0",
+    "guardian-development.json": "07173e75c942529c5d7efe1e3992b0cb9214c5333ff9afcdf4e160f387b9794a",
+    "guardian-negative-control.json": "80b4f952d96455b1fb71693945979ef81131cc46565a6dbe3b57e2458601be1c",
+    "guardian-production-ar-failed.png": "cb3ae57e111422f8cae894c809303ff28765001f2b5b71065713fe5e2aa9bfb0",
+    "guardian-production.json": "96328ff3dfd7149ca8171ee372a5c9c1d945f3b6ca1e2687f3e7d40a9fbcda67",
+    "trainer-before-source.patch": "cc83352e7caaa7b5e62dd57cce0bb1b0f1a607a6e8691a2d42fa2a8c9a060741",
+    "trainer-development-ar-failed.png": "74e214eea31bc8570fd43887498bf8f5d306e0040ca001f013283722e344a5b0",
+    "trainer-development.json": "fc61f48fd8de16e150e3b51bc7a0c4f7ead00f9fadb543fa5a8bf19af3776a45",
+    "trainer-negative-control.json": "25b6f6035a38ab03edf46a7fbcb75d88813a94255fc8a3960f3a65b392ccf202",
+    "trainer-production-ar-failed.png": "74e214eea31bc8570fd43887498bf8f5d306e0040ca001f013283722e344a5b0",
+    "trainer-production.json": "1f5e33b1c1a5b2b6f6753a84c0b4b55712e9b1cbb43879d4ea32921f640a8787"
+  }
+}

@@ -2,13 +2,16 @@
   "status": "passed",
   "scope": "Actual product React component; synthetic identity/HTTP state adapters. Not SQL/hosted proof.",
   "reactMode": "development",
+  "resumeReads": 1,
   "creates": 6,
   "apiCalls": 126,
   "cases": [
     "StrictMode one initial read",
     "failed directory is not empty and offers retry",
     "full period and weekday times",
-    "4 authoritative preview windows",
+    "4 automatic authoritative preview windows with carried receipts",
+    "intermediate preview failure blocks create",
+    "changed context during preview blocks create",
     "4 preparation chunks and separate finalization",
     "confirmation follows current language after save",
     "confirmed ready with failed read never becomes unknown",
@@ -22,7 +25,9 @@
     "stale context invalidates preview",
     "EN/AR320/360/926/1440",
     "focus authority denial wipes draft",
-    "identity remount clears fields"
+    "identity remount clears fields",
+    "Back to Today EN/AR href on unfinished program",
+    "Back to Today on completed program preserves program-return marker"
   ],
   "errors": []
 }

@@ -1,0 +1,260 @@
+{
+  "kind": "correction",
+  "baseline": false,
+  "cases": [
+    {
+      "locale": "en",
+      "decision": "approved",
+      "outcome": "success",
+      "original": "33a199ec-5ba1-4a25-ac99-d14b014227e8",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "approved",
+      "outcome": "read_failure",
+      "original": "c1af079c-9d8d-490b-80d4-2f24e3a9b6fb",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "approved",
+      "outcome": "lost_reply",
+      "original": "862e9592-7b2d-4fca-aa67-49872547be17",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "approved",
+      "outcome": "denied_read",
+      "original": "9e0202a2-a113-42d4-b3b8-2e84ec05f584",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "rejected",
+      "outcome": "success",
+      "original": "438af3a1-3313-4fb6-882d-a5bc44598256",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "rejected",
+      "outcome": "read_failure",
+      "original": "3b5e31d1-38a7-4ff4-98b0-28da777abe11",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "rejected",
+      "outcome": "lost_reply",
+      "original": "8d4eb6de-f81f-4e89-820a-5d3c07cc2804",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "rejected",
+      "outcome": "denied_read",
+      "original": "ea06260c-3b14-42f9-b937-4c620345d4a1",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "approved",
+      "outcome": "success",
+      "original": "e6fca69d-11cf-45ba-8d4f-f0cbfcd78d57",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "approved",
+      "outcome": "read_failure",
+      "original": "48b3e79e-883d-41e1-b885-d4f7d1ceed9b",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "approved",
+      "outcome": "lost_reply",
+      "original": "8d6c458a-00a3-495e-88a5-00c0eee4ae28",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "approved",
+      "outcome": "denied_read",
+      "original": "926dff85-45d2-43ec-aaa7-3e4820af9d8c",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "rejected",
+      "outcome": "success",
+      "original": "25dbcfd8-ce1b-485e-bc75-455a2a783bed",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "rejected",
+      "outcome": "read_failure",
+      "original": "12bda7e8-3856-4ab4-8b32-6139613e8413",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "rejected",
+      "outcome": "lost_reply",
+      "original": "eb28e609-9c5e-4a88-9312-d4def2422dba",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "rejected",
+      "outcome": "denied_read",
+      "original": "8631ac63-0c8d-4f5e-9275-c8a229014365",
+      "reviewedVersion": 7,
+      "resultVersion": 7,
+      "actions": [
+        "correction_decide",
+        "correction_detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "scope": "Actual product React; fictional current-owner/different-author HTTP. Not hosted identity, SQL effects or route-return proof."
+}

@@ -9,6 +9,7 @@ export const STAGING_AUTH_ORIGINS = [
   STAGING_ORIGIN,
   "https://academyos-web.vercel.app",
   "http://localhost:3000",
+  "http://localhost:3100",
   "http://127.0.0.1:3100",
 ];
 
@@ -42,6 +43,7 @@ export function validateStaging(env: Record<string, string | undefined>) {
     ![
       STAGING_ORIGIN,
       "http://localhost:3000",
+      "http://localhost:3100",
       "http://127.0.0.1:3100",
     ].includes(env.NEXT_PUBLIC_APP_URL)
   )

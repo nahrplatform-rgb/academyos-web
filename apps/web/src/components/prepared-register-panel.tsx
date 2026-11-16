@@ -57,15 +57,15 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const runtime=useRef<{pilot:Pilot;generation:string}|null>(null);
   const dialog=useRef<HTMLDialogElement>(null), opener=useRef<HTMLButtonElement>(null);
   const current=useSyncExternalStore(subscribeRegisterAccount,()=>generation(subject),()=>null);
-  const onlineFallback=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,listener),()=>{
+  const onlineFallback=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,event,listener),()=>{
     try {
-      const slot=readRegisterSlot(subject,academy);
+      const slot=readRegisterSlot(subject,academy,event);
       // Never hide a same-session protected original behind an online replacement.
       return !slot || slot.event!==event || !slot.namespace;
     } catch {return false;}
   },()=>false);
-  const slotGeneration=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,listener),()=>{
-    try {const slot=readRegisterSlot(subject,academy);return slot?.mode==='active'?slot.generation:null;}
+  const slotGeneration=useSyncExternalStore(listener=>subscribeRegisterSlot(subject,academy,event,listener),()=>{
+    try {const slot=readRegisterSlot(subject,academy,event);return slot?.mode==='active'?slot.generation:null;}
     catch {return null;}
   },()=>null);
   const selections=Object.entries(draft);
@@ -73,7 +73,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   const visible=hasAccess?snapshot?.read:null;
   function show(read:Read,id:string) {
     requireRegisterAccount(subject,id);
-    const slot=readRegisterSlot(subject,academy);
+    const slot=readRegisterSlot(subject,academy,event);
     if (!slot || slot.event!==event || slot.mode!=='active' || slot.generation!==read.slotGeneration) throw new Error('scope_changed');
     if (!lifetime.current?.signal.aborted) setSnapshot({read,owner:id,slot:slot.generation});
   }
@@ -104,7 +104,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   useEffect(()=>{
     const life=new AbortController();lifetime.current=life;
     let slot:ReturnType<typeof readRegisterSlot>=null;
-    try {slot=readRegisterSlot(subject,academy);}
+    try {slot=readRegisterSlot(subject,academy,event);}
     catch {queueMicrotask(()=>{if(!life.signal.aborted)setProblem('register_unavailable');});}
     const matching=slot?.event===event, id=offline?offlineGeneration:generation(subject);
     queueMicrotask(()=>{
@@ -158,7 +158,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
         if (recover) await p.recover();
         else await p.prepare();
       } finally {
-        const slot=readRegisterSlot(subject,academy);
+        const slot=readRegisterSlot(subject,academy,event);
         setKnown(slot?.event===event&&Boolean(slot.namespace));
       }
       if(normal)checked.current=true;

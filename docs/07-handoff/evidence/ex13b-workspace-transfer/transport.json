@@ -17,40 +17,42 @@
     "apps/web/src/lib/workspace-device.ts": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
     "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
     "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
-    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+    "apps/web/src/lib/onboarding-gateway.ts": "446994c75c44a18161e7d3b60eeaed85271a85f4ccabeba0cdfb91d3acf162d2",
     "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
-    "apps/web/src/lib/config.ts": "abf3610ecf814d136d69600e2096105521d155996a25f9ccacf4d63f4a691bd5",
+    "apps/web/src/lib/config.ts": "549cb8148482222f7ffd637ea5c8c39f9370142929f7081361c368a9988a5153",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "a453914b3f276475affdce1ac7d85413a6cdc0aa291c979707d64cde1416b056",
+    "scripts/workspace-download/test_transport.mjs": "71402d6930ff3e4f3086c4f09ff4a275b45168e3e1f0d95c94e2dcc75eea40ea",
     "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "327a0101125913a85dfd6e95a9ad2ffa2bdc74db2b755efed05f73177d7ccb71",
+    "scripts/workspace-download/normal_workspace.mjs": "7192b9eb026ede7fa2a4381984c721a85653f8deb62c8702842ebdafcb7bdf89",
+    "scripts/workspace-download/calendar_controls.mjs": "efad0f72579cfcac27039d3c91a2cde37aa032d6ec824728474654c54a487cc4",
     "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
-    "scripts/workspace-download/empty_prepared_registration.mjs": "8de49c719d77a27891b326438f2786035e2faa68899f63895264835ccd830fc5",
-    "scripts/verification/web-build.mjs": "44beda1bfb838f5149ef84942f3033b736639a721a6f4bc8b34a3caaa13503ca",
-    "package.json": "7229c534ef4cc67947312f268402721ce84e0a82ac4671c3435e8f7ba82dfcc3",
-    "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
+    "scripts/workspace-download/empty_prepared_registration.mjs": "54470e9143f8db99ca9bc60a2a51a091d3284463a60e16ba8a594daa49cbfb47",
+    "scripts/workspace-download/duplicate_registration.mjs": "448847783a4991017eeb5bbea678130fbf67c4ee0cb1b42a7c30c4b3ea1df4ae",
+    "scripts/verification/web-build.mjs": "3d234f949ded13bd1eb836b666ca88bb1e6f1bf418d6d04dd2e188fc25c88fd2",
+    "package.json": "20d5e1336952b114f0b438e811f937505dcc8a48e6aa674521f498b52c5a8d14",
+    "scripts/workspace-download/capability_cleanup.mjs": "03826a637bcd36175f368b70eb41a07079e87ebe9025b9f00ec329403b99a37a",
     "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
     "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
-    "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
-    "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+    "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+    "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
-    "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
-    "apps/web/src/lib/workspace-public-shell.ts": "793bae50dd7ce7fe90128248965b801adc2e6d64c1b7653dfc86be9a10d257c8",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
-    "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
+    "apps/web/public/prepared-workspace-worker.js": "aa1ec38d52db8ffd4b3b3adbec120fa2acba2bce93c0fdf42002df0b0e3ff4f8",
+    "apps/web/src/lib/workspace-public-shell.ts": "ae7447c30f81106ec5604898777b9c75b9b350038eea3013b355de5f1e241cff",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "8a3b76d3ed647062dfaeb0404f9e578e80b8147743926711358e64fbf271c2c4",
+    "apps/web/src/components/owner-workspace-device.tsx": "f99dbeba8e59bf1dba1eccea445104dbcc1f4610055b5c653d6040703d965f2f",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
-    "apps/web/src/components/people-workspace.tsx": "15770a315614bcbf452448f71ed7a74a4e90ce110c160ef05c0c8be1410c6221",
-    "apps/web/src/components/experience-workspace.tsx": "5ddef223983995edbced5e8c5d2875e2d1537d87f5dae81f9cac3337ab24cdc7",
+    "apps/web/src/components/people-workspace.tsx": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
+    "apps/web/src/components/experience-workspace.tsx": "1de436a55893fd757b7f3972f1494bb536e4aae2d38329d146b200288c8a5291",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
-    "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
-    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
+    "apps/web/next.config.ts": "21e3c4308afc2c431bbb658d487d77353e045897d5bd1f8f6180b1cc390d5fc9",
+    "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
@@ -87,6 +89,7 @@
     "Normal Players search and summary open use zero requests and full profile uses one online read",
     "Cold normal Players restores only safe query and permitted summary without a profile read",
     "An original registration recovery reference takes precedence over saved navigation",
+    "WD-70 prepared Calendar filter, Week/Month and period controls make zero operating or transfer requests in EN/AR",
     "Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection",
     "Same-tab AR Calendar retains month, period and selection through offline reload, reentry and scoped check",
     "Same-tab offline Players retains its query and permitted summary through reload",
@@ -100,6 +103,8 @@
     "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
     "Online genuine-empty entry shows zero players and one list without filtered-empty, missing or denial states",
     "First confirmed online registration returns to a discovered single player",
+    "WD-27 en retains the searched directory and saves one distinct same-name player through the signed People route",
+    "WD-27 ar retains the searched directory and saves one distinct same-name player through the signed People route",
     "Prepared empty confirmed: a completed zero-row head renders empty,not missing coverage",
     "A completed empty directory reopens at its normal offline URL and reconnects without another directory read",
     "Prepared empty confirmed: first registration is discoverable with one original,one audit and no online list",
@@ -141,7 +146,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 19.061500000001615,
+      "elapsedMs": 15.100916999999754,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -162,6 +167,24 @@
       "coveredPlayersRequests": 0,
       "fullProfileReads": 1,
       "coveredCalendarRequests": 0,
+      "calendarControls": [
+        {
+          "locale": "en",
+          "operatingReads": 0,
+          "transfers": 0,
+          "keyboardMonth": true,
+          "filterFocus": true,
+          "coveredPeriod": true
+        },
+        {
+          "locale": "ar",
+          "operatingReads": 0,
+          "transfers": 0,
+          "keyboardMonth": true,
+          "filterFocus": true,
+          "coveredPeriod": true
+        }
+      ],
       "unchangedManifestRequests": 1,
       "unchangedDatasetPages": 0,
       "offlineOperatingRequests": 0,
@@ -231,8 +254,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "cbea1731cf887806dbba33b3619abd080b4261fa42c580dde94978fefe73e8b4",
-        "artifactHash": "e5b05262e1f88b2d670f5caf0fda647792c88f54ec3c437502d365ff0f9e71e7"
+        "sourceHash": "7bd7ba959e4703906e756d76e3c6d7dcb5735dc6f3366662db092f2d3bd12768",
+        "artifactHash": "1c1670e0f3737777132509435699586ca174a461cd891b8f6568cad6ea77e6ce"
       }
     },
     "emptyOnlineRegistration": {
@@ -266,10 +289,66 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "0d5f3fcc-d4cb-4a24-b9f7-71ff4d106d1e"
+          "player_id": "7fe279db-4d62-4411-af30-e8b01e3026b1"
         }
       }
     },
+    "duplicateRegistration": [
+      {
+        "locale": "en",
+        "position": 731,
+        "returnedPosition": 731,
+        "actions": [
+          "candidates",
+          "profile",
+          "candidates",
+          "create",
+          "profile",
+          "list"
+        ],
+        "rpcActions": [
+          "i2_candidates_v1",
+          "i2_profile_v1",
+          "i2_candidates_v1",
+          "i2_register_v1",
+          "i2_profile_v1",
+          "i2_people_v1"
+        ],
+        "internalDocuments": 0,
+        "recordsBefore": 23,
+        "recordsAfter": 24,
+        "operation": 1,
+        "audit": 1,
+        "focus": "registered player"
+      },
+      {
+        "locale": "ar",
+        "position": 738,
+        "returnedPosition": 738,
+        "actions": [
+          "candidates",
+          "profile",
+          "candidates",
+          "create",
+          "profile",
+          "list"
+        ],
+        "rpcActions": [
+          "i2_candidates_v1",
+          "i2_profile_v1",
+          "i2_candidates_v1",
+          "i2_register_v1",
+          "i2_profile_v1",
+          "i2_people_v1"
+        ],
+        "internalDocuments": 0,
+        "recordsBefore": 23,
+        "recordsAfter": 24,
+        "operation": 1,
+        "audit": 1,
+        "focus": "registered player"
+      }
+    ],
     "emptyPreparedRegistration": {
       "confirmed": {
         "variant": "confirmed",
@@ -283,7 +362,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "338cb6f9-00f3-4d1a-a68e-5f488f7a67f2"
+              "player_id": "c295be76-ad71-4f92-9391-7113289eae31"
             },
             "players": 1,
             "operations": 1
@@ -325,7 +404,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "5890492d-43af-407e-91b8-44469e7f7fff"
+              "player_id": "93c2769f-5c7d-4bee-aedf-609cdf37c819"
             },
             "players": 1,
             "operations": 1
@@ -362,7 +441,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "aa1d6945-09aa-4da5-b762-51b5c7368111"
+              "player_id": "83df71bc-99a3-4a4b-ba59-589d1c973a6e"
             },
             "players": 1,
             "operations": 1
@@ -402,7 +481,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "e9e270c9-8d10-48e4-a537-d6d8028ddd83"
+              "player_id": "7e52df50-9efc-496d-8abc-7fa2eee264ba"
             },
             "players": 1,
             "operations": 1
@@ -438,7 +517,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "c431bb87-74fc-466c-bd53-0b7c68aad7a5"
+              "player_id": "c185edb3-676f-41e9-9e6d-6d91dd3115fe"
             },
             "players": 1,
             "operations": 1

@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "recordedUtc": "2026-11-13T15:00:08.526243+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "checkpoint": "EX-07 / MP-B01 local functional environment",
+  "status": "Local read/reconnect evidence retained; Trainer release/delivery/acceptance verified; additive register scope prerequisite for fresh local offline write",
+  "source_sha256": {
+    "scripts/local/workflow.mjs": "1464e13acd1cc2b89d965768ccb4871c97d15926be816f3a225ff1bebb2aa6fb",
+    "scripts/local/workflow.test.mjs": "d499b4fdcdc55f505ca3cc0281cb26a5ba205fc7d104d72ed1e40f7495fd0aa7",
+    "scripts/local/runtime_keys.py": "cedfa5c790a3473907fb85f745723f361a903cfe1d03169db47b24017a103ae5",
+    "scripts/local/test_runtime_keys.py": "2c22120a9d893e7f9bbbde5b29b0f2bb865aea0e71f5125f3b236fca26bee310",
+    "scripts/register-key/custody.py": "ce516084e97dd1b34f7b2b499ba2436100bf0671548b8ce2de31b52b48e87585",
+    "apps/web/.env.example": "274034c31a0d0d4df2a07de0865a17891642fa5445d748de3209d9430078cdf6",
+    ".github/workflows/verify.yml": "d8ac914a6039429919479de179bd936d8bed329c4d5b7817fcad1d771c41ca60",
+    "scripts/design/build_continuation_prompt.py": "ca883cc2e0d769bdb49a6c02434b8955650ac80bb3c97c5cb42694fe9a5a02f9",
+    "scripts/design/test_continuation_prompt.py": "d8055d0423c130434fc8deb0477a0d3c139d7b736800bdcb18406e8e20531f98"
+  },
+  "runtime": {
+    "node": "v24.14.0",
+    "launcher_npm": "11.19.1"
+  },
+  "private_setup": {
+    "core_settings_present": true,
+    "encrypted_archives_recovered": true,
+    "root_channel": "inherited descriptor3 only;server process environment",
+    "plaintext_wrapping_roots_in_env_file": false,
+    "env_mode": "0o600",
+    "foreign_backend_or_root_replacement_allowed": false,
+    "remote_settings_changed": false,
+    "scope": "Initial13November local setup facts; later14November project-setting edits are recorded in latest_checkpoint."
+  },
+  "live_browser": {
+    "scope": "Existing Chrome Nahr window;localhost3000;Academy A Owner",
+    "observed": [
+      "Owner Home current data",
+      "Four saved synthetic Players",
+      "Use this personal device entered Preparing"
+    ],
+    "server_successes": {
+      "experience": 2,
+      "people": 1,
+      "workspace_key": 1,
+      "workspace_download": 9
+    },
+    "native_production_entry": "aborted before observation",
+    "verified_offline_completion": false,
+    "canonical_attendance_written": false
+  },
+  "checks": {
+    "node_tooling_units": 10,
+    "python_adapter_units": 6,
+    "custody_units": 12,
+    "application_units": 114,
+    "typecheck": "passed",
+    "lint": "passed",
+    "compiled_build_guard": "passed",
+    "execution_master_continuation_pwa_validators": "passed",
+    "continuation_units": 20,
+    "implementation_register": "passed",
+    "factual_html_freshness": "passed",
+    "git_diff_check": "passed",
+    "pinned_quality_commands": [
+      {
+        "check": "typecheck",
+        "exitCode": 0,
+        "durationMs": 1663,
+        "node": "v24.14.0",
+        "npm": "11.19.1",
+        "log": "test-results/local-workflow/functional-parity/pinned-typecheck.log"
+      },
+      {
+        "check": "lint",
+        "exitCode": 0,
+        "durationMs": 10122,
+        "node": "v24.14.0",
+        "npm": "11.19.1",
+        "log": "test-results/local-workflow/functional-parity/pinned-lint.log"
+      },
+      {
+        "check": "units",
+        "exitCode": 0,
+        "durationMs": 963,
+        "node": "v24.14.0",
+        "npm": "11.19.1",
+        "log": "test-results/local-workflow/functional-parity/pinned-units.log"
+      }
+    ]
+  },
+  "offline_fixture_runs": [
+    {
+      "suite": "workspace",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 41467,
+      "log": "test-results/local-workflow/functional-parity/workspace.log"
+    },
+    {
+      "suite": "attendance",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 96327,
+      "log": "test-results/local-workflow/functional-parity/attendance.log"
+    },
+    {
+      "suite": "startup",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 18638,
+      "log": "test-results/local-workflow/functional-parity/startup.log"
+    },
+    {
+      "suite": "normal-attendance-refresh",
+      "status": "passed",
+      "checks": 28,
+      "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG; fictional provider wire; not installed or hosted proof",
+      "receipt": "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json"
+    }
+  ],
+  "refreshed_fixture_receipts": [
+    {
+      "name": "workspace",
+      "receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
+      "sha256": "d1b5e00a250fc413d9b346e1ea9ca4738913bc43590860ad081c6d2e6352da47",
+      "checks": 70,
+      "source_inputs": 53,
+      "source_mismatches": [],
+      "scope": "Disposable signed fixtures and Chromium/storage/workers;fictional identity/provider boundary;not live offline proof"
+    },
+    {
+      "name": "attendance",
+      "receipt": "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json",
+      "sha256": "130cbd5cab5050d795a20dde3b3d3d7e4dfb25fd37e6321b9ce7d2dcff6174a8",
+      "checks": 28,
+      "source_inputs": 47,
+      "source_mismatches": [],
+      "scope": "Disposable signed fixtures and Chromium/storage/workers;fictional identity/provider boundary;not live offline proof"
+    },
+    {
+      "name": "startup",
+      "receipt": "docs/07-handoff/evidence/owner-register-workspace-2026-11-04.json",
+      "sha256": "f7d6e8c3250b0c25f28214df642efc4fb7f26b21b5cdd56b83458900c9e6391f",
+      "checks": 8,
+      "source_inputs": 32,
+      "source_mismatches": [],
+      "scope": "Disposable signed fixtures and Chromium/storage/workers;fictional identity/provider boundary;not live offline proof"
+    }
+  ],
+  "execution": {
+    "coordinator": "Codex",
+    "helper_configured": "gpt-6.1-terra / medium",
+    "max_active_helpers": 1,
+    "nested_helpers": 0,
+    "actual_provider_telemetry": "not exposed",
+    "token_or_cost_savings": "not measured"
+  },
+  "git_release": {
+    "new_commit": false,
+    "new_push": false,
+    "new_remote_ci": false,
+    "promotion": false,
+    "existing_edits_preserved": true,
+    "scope": "Initial13November setup facts;14November agent-created auto-aliased deployments and their correction are recorded in latest_checkpoint."
+  },
+  "limitations": [
+    "Connected backend remains synthetic staging;not wholly local DB/auth/Redis",
+    "Global register slot and attendance deadline remain;no binding reset or pending-original loss",
+    "Email/payments/public callback configuration remains disabled or incomplete;unbuilt modules remain unbuilt",
+    "No installed-device,real OS eviction,hosted acceptance or independent review claim",
+    "Real local production Attendance write remains open because the currently visible published sessions are outside the recording window; the normal Attendance fixture covers the supported offline save/reconciliation contract."
+  ],
+  "public_smokes": [
+    {
+      "origin": "http://localhost:3000",
+      "status": "passed",
+      "durationMs": 2828,
+      "completed": "2026-11-13T15:01:23.021Z",
+      "local_artifacts": "test-results/local-workflow/2026-11-13T15-01-20-166Z-public-u2ntEU/artifacts",
+      "artifact_hashes": {
+        "public-ar-phone.png": "3d6571bdfa82246514b5e375ef863b6fd64a7a2578ecabb36883577aa36502b8",
+        "public-ar.png": "2bb5c35fcf0daffc6ffc2b2e86820871a6fe852c756dc8a63a51aae0edf004e7",
+        "public-en.png": "5563f6c362581e27e80dd295e3431a91c58d96c1430531aff3d1326590c7f915",
+        "receipt.json": "acd1ec73df670683466a8ead1148cb2270d67cccfe300f08cdfe526b66512f79",
+        "trace.zip": "24ba21610e55e722cfba2b4790af1d19f95b0950ee26d66b22531367a8f9e8f0"
+      },
+      "scope": "Actual local public frontend; no signed-in/data/hosted proof."
+    },
+    {
+      "origin": "http://127.0.0.1:3100",
+      "status": "passed",
+      "durationMs": 2261,
+      "completed": "2026-11-13T15:02:57.968Z",
+      "local_artifacts": "test-results/local-workflow/2026-11-13T15-02-55-686Z-public-ryRBWd/artifacts",
+      "artifact_hashes": {
+        "public-ar-phone.png": "5eb3590084f904794b74d32660cd0d1bbff1a1c85ba6d72ae8c3efc8b017759e",
+        "public-ar.png": "07e7af93043c202774a8f4356c87c51d9dd466e94cf328892f17230f8abc3e93",
+        "public-en.png": "2727dc65704d70ddd3e44a912db4761328a71629d9139a4f560215153267f274",
+        "receipt.json": "4ed5c9f9a9489b42be8f250f4640a1abd9a4715c02c8fbcff1c09dfabe74703f",
+        "trace.zip": "3838a7a3cf1ff67bebcf31d7c222223aa05b27bff6fff1405d56977e0d99823c"
+      },
+      "scope": "Actual local public frontend; no signed-in/data/hosted proof."
+    }
+  ],
+  "invalid_evidence": [
+    {
+      "path": "test-results/local-workflow/2026-11-13T14-58-56-372Z-public",
+      "reason": "Concurrent public runs collided before unique-directory/atomic-latest repair;do not use mixed captures",
+      "replacement": "Two serial public smokes in this receipt"
+    }
+  ],
+  "future_session_eligibility": {
+    "status": "Trainer now eligible; old register scope prevents new offline preparation",
+    "receipt": "docs/07-handoff/evidence/local-functional-environment/future-session-blocked-2026-11-13.json",
+    "reason": "The same invitation is accepted with active Trainer assignment. Both existing Owner academies already have historical singleton key bindings; do not reset them. Follow additive-scope contract."
+  },
+  "latest_checkpoint": {
+    "recordedUtc": "2026-11-14T12:34:41.658416+00:00",
+    "receipt": "docs/07-handoff/evidence/local-functional-environment/trainer-delivery-repair-2026-11-14.json",
+    "handoff": "docs/07-handoff/trainer-delivery-repair-2026-11-14.md",
+    "status": "Owner redeploy verified; provider delivery and recipient Trainer acceptance verified; local offline write blocked by legacy singleton register scope"
+  }
+}

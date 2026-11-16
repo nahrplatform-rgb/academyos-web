@@ -62,7 +62,7 @@ export async function checkCapabilityCleanup(root,pass) {
       writeRegisterSlot(subject,academy,{device:regScope.device,event,namespace:regScope.namespace,generation:1,mode:'active'});
       await window.seedWorkspace();
     };
-    window.inspectCapabilities=async()=>({account:readRegisterAccount(),register:readRegisterSlot(subject,academy),
+    window.inspectCapabilities=async()=>({account:readRegisterAccount(),register:readRegisterSlot(subject,academy,event),
       workspace:readWorkspaceSlot(context)});
     window.readRegister=async()=>({wire:(await register.readOriginal(packet.op)).wire,
       rows:(await register.readPage(event)).players.length});

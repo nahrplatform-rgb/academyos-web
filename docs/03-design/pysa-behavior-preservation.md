@@ -1,5 +1,9 @@
 # PYSA → AcademyOS behavior preservation ledger
 
+## Owner Calendar and Players — 14 November 2026
+
+The [MP-B01 Operations checkpoint](../07-handoff/mp-b01-calendar-players-operations-2026-11-14.md) rechecks the delivered journeys against the earlier PYSA comparisons. Calendar retains period navigation, dated selection and exact return. Players retains quick search and a useful profile handoff. The checkpoint records presentation changes, the fields and behaviors carried forward, and the distinction between scoped local verification and PYSA source inspection.
+
 ## Version2 reference breadth —7November2026
 
 [Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package expands this historical behavior ledger with safe route/action/schema indexes, useful capability and field inventories, known-defect and uncertain-pipeline evidence, adoption destinations and explicit source limits. Existing scoped receipts/approvals below remain. Broad source inventory is not a complete runtime parity or hosted exploitability claim.

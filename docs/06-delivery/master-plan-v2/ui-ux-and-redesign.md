@@ -19,6 +19,8 @@ Apply the [product value/simplicity test](product-outcomes-and-simplicity.md) to
 | Phone | One focused task; Owner drawer; labelled Trainer/Guardian bottom navigation where appropriate | Accessible sheet/full-screen detail; keyboard-safe controls and useful Back; no forced desktop inspector |
 | Zoom/long text | Reflow based on available usable space, not device brand |200% zoom and long EN/AR labels must not hide primary actions or focus |
 
+Use the [14 November shared layout](../../03-design/operations-design-reference.md#shared-layout-refinement--14-november-2026). Desktop pane controls stay within their own panels, and global utilities live in the navigation footer. Narrow layouts retain a compact menu, accessible on-demand details and a bottom utility bar that stays clear of task actions.
+
 Record exact geometry/type/spacing from the versioned Operations sample and actual implementation in each difference ledger. Do not revive the old fixed224/336 or dark-default assumptions without checking the later compact/resizable selection. Resize is a preference, not permission to shrink content below usable bounds; provide accessible non-drag equivalents and reset defaults. Store only presentation preferences, never private profile/roster payloads in navigation state.
 
 Use clear scroll ownership: ordinary content has a predictable primary scroll; navigation/details scroll only when their own overflow requires it. Avoid nested scrolling inside a form or per-row card. Keep useful list position and inspector selection on return. On phone, avoid body-plus-sheet scroll competition and controls hidden behind the virtual keyboard. The existing narrow English inspector-heading wrap remains a recorded gap, not evidence of acceptable final geometry.
@@ -64,11 +66,11 @@ The [MP-B01 feedback/return checkpoint](../../07-handoff/mp-b01-owner-feedback-c
 | Returning/revalidating | Keep compatible permitted content, query/filter/selection/position/draft; quiet affected-area checking; current actions gated as appropriate |
 | Secondary history/detail | Main task stays mounted; specific panel loading/retry; denied response still fences private data |
 | Saving | Local immediate feedback and preserved input; prevent duplicate consequential action; no false server Saved |
-| Saved locally/pending | Durable local acknowledgement only after record+original committed; shared top-bar pending state and per-record detail |
+| Saved locally/pending | Durable local acknowledgement only after record+original committed; pending state in the navigation footer and per-record detail |
 | Confirmed save/read failure | Retain confirmation; retry reading or reconcile original, never invite duplicate saving |
 | Unknown outcome | Preserve original ID/payload; block replacement until authoritative reconciliation |
 | Empty/filtered-empty/partial | Explain successful empty versus filter versus incomplete coverage; failed panels are Unavailable, not zero |
-| Offline/reconnect | Same normal screens and Save semantics for supported coverage; top-bar connection/sync/pending indicator; no repeated Prepare/Recover ritual |
+| Offline/reconnect | Same normal screens and Save semantics for supported coverage; connection, sync and pending status in the navigation footer; no repeated Prepare/Recover ritual |
 | Stale/conflict | Apply safe nonconflicting results automatically; preserve genuine conflicting work and explain the specific affected decision |
 | Missing authentication | Restore ordinary provider sign-in;401 is not proof of ended role; protect originals/local slots |
 | Known denial/account change | Fence affected private state and authority; preserve separately protected recoverable originals; no cross-account/academy exposure |

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { workspaceNavigation } from '../components/workspace-navigation';
-import {ownerTodayReturnHint,ownerSessionReturn,ownerSessionSourceSuffix} from './owner-session-navigation';
+import {ownerTodayReturnHint,ownerTodayTaskHint,ownerTodayTaskReturn,ownerSessionReturn,ownerSessionSourceSuffix} from './owner-session-navigation';
 const academy='00000000-0000-4000-8000-000000000001',path=`/en/workspace/${academy}/calendar`;
 test('canonical Owner menu preserves only a valid same-academy Calendar civil hint',()=>{
  const menu=(href:string)=>workspaceNavigation('en',academy,'owner',[{href,label:'Calendar',current:true}]);
@@ -27,4 +27,13 @@ test('attendance queue return is a bounded one-use focus hint and retains the or
  for(const fragment of ['',`#attendance-return=${event}&extra=1`,'#attendance-return=/platform','#attendance-return=invalid'])
   assert.equal(ownerTodayReturnHint(fragment),null);
  assert.equal(ownerSessionSourceSuffix('#',{returnTo:'home',attendanceTask:'/platform'}),'#return=home');
+});
+
+test('unfinished program return is a bounded one-use Today focus hint',()=>{
+ const program='00000000-0000-4000-8000-000000000003';
+ assert.equal(ownerTodayTaskHint('program',program),`#program-return=${program}`);
+ assert.equal(ownerTodayReturnHint(`#program-return=${program}`),`#program-return=${program}`);
+ assert.equal(ownerTodayTaskReturn('en',academy,'program',program)?.href,`/en/workspace/${academy}/home#program-return=${program}`);
+ assert.equal(ownerTodayTaskHint('program','/platform'),null);
+ assert.equal(ownerTodayReturnHint(`#program-return=${program}&extra=1`),null);
 });

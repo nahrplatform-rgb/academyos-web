@@ -1,5 +1,17 @@
 # AcademyOS current-experience review
 
+16 November WD-71 coverage checkpoint refreshes all 16 component families and eight entry variants, including private-proposal create/roster/prepare and publication create recovery. The [coverage audit](../../docs/07-handoff/mp-b01-wd71-coverage-2026-11-16.md) separates controlled assertions from connected/browser acceptance.
+
+16 November feedback amendment/withdrawal checks preserve the existing publication and original-operation rules. The development family is refreshed; other unchanged families retain their capture timestamps. [Feedback lifecycle checkpoint](../../docs/07-handoff/mp-b01-feedback-lifecycle-2026-11-16.md)
+
+16 November Trainer submission follow-up retains the confirmed correction request through failed-read recovery. Captures include correction and feedback held detail/supporting-list reads; hosted/installed acceptance remains separate. [Trainer checkpoint](../../docs/07-handoff/mp-b01-trainer-submission-2026-11-16.md)
+
+16 November QR follow-up distinguishes confirmed operations from pending/failed current reads and retains read-only recovery after lost scan/settings replies. Actual-component captures include the held EN/AR states; physical-camera and hosted evidence remain separate. [QR checkpoint](../../docs/07-handoff/mp-b01-qr-followup-2026-11-16.md)
+
+14 November shared layout puts the brand, collapse icon and global utilities in the navigation panel. The detail toggle sits at the edge of its own panel. Refreshed fixture captures document the desktop shell and the narrow drawer and utility bar. The linked checkpoint also records the signed-in local Calendar and Players comparison. [Shared workspace layout](../../docs/07-handoff/mp-b01-workspace-layout-2026-11-14.md)
+
+14 November MP-B01 updates the Owner Calendar period controls and compact Month grid and the Players directory search, registration and paging layout. The [Operations checkpoint](../../docs/07-handoff/mp-b01-calendar-players-operations-2026-11-14.md) links the earlier design and PYSA comparisons and the separate local journey evidence.
+
 11 November MP-B01 captures the exact saved publication preparation from Today with its contextual return and deliberate Browse action. Signed browser evidence also covers Preparing, cancelled and retained returns and the Arabic phone layout. [Publication preparation checkpoint](../../docs/07-handoff/mp-b01-owner-publication-2026-11-11.md)
 
 11 November MP-B01 captures exact Owner correction and development review from Today. The main task area places review actions ahead of supporting navigation. Signed fixture captures and request receipts verify return focus and recovery with fictional records. [Owner reviews and recovery](../../docs/07-handoff/mp-b01-owner-reviews-2026-11-11.md)

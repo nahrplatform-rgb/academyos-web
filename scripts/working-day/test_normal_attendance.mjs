@@ -33,7 +33,7 @@ const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-s
   'scripts/publication/test_boundary.py','supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql',
   'supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql',
   'supabase/migrations/20261028233812_i5a_development_feedback.sql',
-  ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
+  ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','workspace-panel-icon','theme-toggle','register-account-context','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
   'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
@@ -69,7 +69,7 @@ try{
  const button=(name,tab=page)=>tab.getByRole('button',{name,exact:true});
  const openActions=(tab=page)=>tab.locator('.register-action-menu > summary').click();
  const apiAfter=start=>state.events.slice(start);
- const settled=()=>expect(page.locator('.toolbar-actions [role=status]')).toHaveText('Online');
+ const settled=()=>expect(page.locator('.workspace-connection-tools [role=status]')).toHaveText('Online');
  async function browser(offline=false,width=1440){
   context=await chromium.launchPersistentContext(join(temp,'profile'),{viewport:{width,height:1000}});
   await context.setOffline(offline);page=context.pages()[0]??await context.newPage();
@@ -102,7 +102,7 @@ try{
  metrics.preparedPhoneRegister=await checkPhoneRegister(page,'prepared','en',captureReturn);
  await page.goto(url(a,'ar')+'#'+sourceHint.slice(1));
  await expect(page.getByText('١٨ / ١٨ محمّلون من هذا الجهاز',{exact:true})).toBeVisible();
- await expect(page.locator('.toolbar-actions [role=status]')).toHaveText('متصل');
+ await expect(page.locator('.workspace-connection-tools [role=status]')).toHaveText('متصل');
  metrics.preparedPhoneRegister.push(...await checkPhoneRegister(page,'prepared','ar',captureReturn));
  await page.goto(linkedAttendance);
  await settled();
@@ -326,7 +326,7 @@ try{
  docs.length=0; // The intentional offline reload is outside reconnect's document budget.
  state.sessionValid=false;fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('النتيجة غير معروفة · تحقّق من الحفظ الأصلي',{exact:true})).toBeVisible();
- await expect(page.locator('.toolbar-actions [role=status]')).toContainText('نتيجة الخادم غير معروفة');
+ await expect(page.locator('.workspace-connection-tools [role=status]')).toContainText('نتيجة الخادم غير معروفة');
  await expect(page.locator('.register-heading')).toContainText('محفوظ على هذا الجهاز · نتيجة الخادم غير معروفة');
  assert.equal(docs.length,0);
  const original=JSON.parse(capturedWire),counts=()=>db({action:'counts',...a,op:original.op});
@@ -460,7 +460,7 @@ try{
  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
  await db({action:'expire',...future});fixture.reconnect();await context.setOffline(false);
  await expect(page.getByText('Needs review · Original work retained',{exact:true})).toBeVisible();
- await expect(page.locator('.toolbar-actions [role=status]')).toContainText('Needs review');
+ await expect(page.locator('.workspace-connection-tools [role=status]')).toContainText('Needs review');
  await expect(page.locator('.register-heading')).toContainText('Saved on this device · Needs review');
  await expect(button('Use the online register')).toHaveCount(0);
  assert.deepEqual(await db({action:'counts',...future,op:JSON.parse(state.dispatchBodies.at(-1)).op}),{marks:0,history:0,operations:0,audit:0});

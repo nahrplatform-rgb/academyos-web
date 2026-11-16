@@ -15,10 +15,12 @@ import {build} from 'esbuild';
 import {normalWorkspaceFixture,checkNormalWorkspace} from './normal_workspace.mjs';
 import {checkEmptyOnlineRegistration} from './empty_online_registration.mjs';
 import {checkEmptyPreparedRegistration} from './empty_prepared_registration.mjs';
+import {checkDuplicateRegistration} from './duplicate_registration.mjs';
 import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 import {checkCapabilityCleanup} from './capability_cleanup.mjs';
 import {checkStartupResume} from './startup_resume.mjs';
 import {checkPublicShellSpa} from './public_shell_spa.mjs';
+import {acquireResource} from '../local/runtime.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
 const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,'docs/07-handoff/evidence/ex13b-workspace-transfer');
@@ -39,9 +41,10 @@ const inputs=[
   'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql',
   'scripts/workspace-download/test_transport.mjs','scripts/workspace-download/bridge.py',
   'scripts/workspace-download/test_boundary.py',
-  'scripts/workspace-download/normal_workspace.mjs',
+  'scripts/workspace-download/normal_workspace.mjs','scripts/workspace-download/calendar_controls.mjs',
   'scripts/workspace-download/empty_online_registration.mjs',
   'scripts/workspace-download/empty_prepared_registration.mjs',
+  'scripts/workspace-download/duplicate_registration.mjs',
   'scripts/verification/web-build.mjs','package.json',
   'scripts/workspace-download/capability_cleanup.mjs',
   'scripts/workspace-download/startup_resume.mjs',
@@ -80,6 +83,14 @@ if(process.argv.includes('--check')){
   assert.deepEqual(empty.peopleActions,['list','candidates','create','profile','list']);
   assert.equal(empty.originalIdForwarded,true);
   assert.deepEqual(empty.rpcCounts,{i2_people_v1:2,i2_candidates_v1:1,i2_profile_v1:1,i2_register_v1:1,i2_operation_v1:0});
+  assert.deepEqual(receipt.metrics.duplicateRegistration.map(d=>d.locale),['en','ar']);
+  for (const result of receipt.metrics.duplicateRegistration) {
+    assert.deepEqual(result.actions,['candidates','profile','candidates','create','profile','list']);
+    assert.equal(result.recordsAfter,result.recordsBefore+1);
+    assert.ok(result.position>0&&Math.abs(result.position-result.returnedPosition)<=2);
+    assert.equal(result.internalDocuments,0);
+    assert.equal(result.focus,'registered player');
+  }
   for(const variant of ['confirmed','lost_reply','transfer_failure','replacement_race','replacement_before_page']){
     const prepared=receipt.metrics.emptyPreparedRegistration[variant];
     assert.equal(prepared.initial.totalPlayers,0);assert.equal(prepared.final.totalPlayers,1);
@@ -92,6 +103,11 @@ if(process.argv.includes('--check')){
   assert.deepEqual(receipt.metrics.emptyPreparedRegistration.confirmed.offlineReopening,
     {serviceWorkerDocument:true,operatingRequests:0,unchangedTransferActions:['manifest']});
   assert.equal(receipt.metrics.peopleUnauthorizedCreateDenied,true);
+  assert.deepEqual(receipt.metrics.normalWorkspace.calendarControls.map(c=>c.locale),['en','ar']);
+  for(const control of receipt.metrics.normalWorkspace.calendarControls){
+    assert.equal(control.operatingReads,0);assert.equal(control.transfers,0);
+    assert.equal(control.keyboardMonth,true);assert.equal(control.filterFocus,true);assert.equal(control.coveredPeriod,true);
+  }
   assert.equal(receipt.metrics.normalWorkspace.offlineOperatingRequests,0);
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,11);
@@ -115,6 +131,8 @@ if(process.argv.includes('--check')){
   process.exit(0);
 }
 
+const verificationLease=await acquireResource(root,'browser-verification',{inherited:process.env.ACADEMYOS_BROWSER_LEASE});
+try{
 const tmp=await mkdtemp(join(tmpdir(),'academyos-workspace-transfer-'));
 const rpcName='x21_workspace_transfer_v1', stage='https://staging.academy.nahr.dev';
 const database='https://snpphkenmvmhpjstbeul.supabase.co';
@@ -737,6 +755,37 @@ try{
     metrics.emptyOnlineRegistration=await checkEmptyOnlineRegistration({page,ui:emptyUI,fixture:emptyFixture,base:local,
       rpcCalls:state.calls,observe:args=>db({action:'people_snapshot',...args}),pass});
   } finally {emptyUI.useRealPeople(false);await emptyBrowser.close();}
+  metrics.duplicateRegistration=[];
+  const duplicateBrowser=await chromium.launch();
+  try {
+    for (const locale of ['en','ar']) {
+      const fixture=await db({action:'make',size:22,unregistered:true});
+      const name=locale==='ar'?'Synthetic ليلى عادل':'Synthetic Layla Adel';
+      const seeded=await peopleRequest({action:'create',academy:fixture.academy,branch:fixture.branch,
+        op:randomUUID(),name,contact:'existing-player@example.invalid',revision:0,different:false});
+      assert.equal(seeded.status,200);
+      const existing=(await seeded.json()).data.player_id;
+      const ui=await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
+      activeNormal=ui;
+      const page=await duplicateBrowser.newPage({viewport:{width:1440,height:1000}});
+      await page.context().tracing.start({screenshots:true,snapshots:true,sources:false});
+      try {
+        metrics.duplicateRegistration.push(await checkDuplicateRegistration({page,locale,ui,fixture,base:local,name,existing,
+          rpcCalls:state.calls,observe:args=>db({action:'people_snapshot',...args})}));
+        pass('WD-27 '+locale+' retains the searched directory and saves one distinct same-name player through the signed People route');
+        await page.context().tracing.stop();
+      } catch(error) {
+        const failed=join(root,'test-results/duplicate-registration-'+locale+'-'+Date.now());await mkdir(failed,{recursive:true});
+        await page.screenshot({path:join(failed,'failure.png'),fullPage:true}).catch(()=>{});
+        const focus=await page.evaluate(()=>({tag:document.activeElement?.tagName,id:document.activeElement?.id,
+          text:document.activeElement?.textContent?.slice(0,100),visibility:document.visibilityState})).catch(()=>null);
+        await writeFile(join(failed,'failure.json'),JSON.stringify({locale,focus,error:String(error)},null,2)+'\n',{mode:0o600});
+        await page.context().tracing.stop({path:join(failed,'trace.zip')}).catch(()=>{});
+        console.error('DUPLICATE_REGISTRATION_FAILURE '+JSON.stringify({locale,artifacts:failed}));
+        throw error;
+      } finally {await page.close();}
+    }
+  } finally {await duplicateBrowser.close();}
   metrics.emptyPreparedRegistration={};
   const preparedEmptyBrowser=await chromium.launch();
   try {
@@ -785,3 +834,4 @@ try{
   for(const [key,value]of Object.entries(env))if(value===undefined)delete process.env[key];else process.env[key]=value;
   await rm(tmp,{recursive:true,force:true});
 }
+}finally{await verificationLease.release();}

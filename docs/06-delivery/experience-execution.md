@@ -1,6 +1,10 @@
 # Connected experience execution guide
 
-The DeepSeek trial and coordinator dispositions are historical EX-07 / MP-B01 evidence. Use the 9 November Sol/Terra policy below for new work and the EX tracker for priority. [AI work items](ai-work-items.csv) · [DS-001 review](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-004 corrected plan](../07-handoff/deepseek-DS-004-review-2026-11-08.md) · [DS-005 integration review](../07-handoff/deepseek-DS-005-review-2026-11-08.md)
+**14 November current checkpoint.** The [Owner Calendar and Players Operations checkpoint](../07-handoff/mp-b01-calendar-players-operations-2026-11-14.md) records the rechecked PYSA behaviors, implementation and local evidence. EX-07 / MP-B01 remains current. Use the [living continuation](continue-academyos.md) for the remaining Player field decision and Owner working-day checks.
+
+**13 November current checkpoint:** EX-07 / MP-B01 remains the single current primary. The [corrective resume packet](../07-handoff/mp-b01-corrective-resume-2026-11-13.md) now records actual real-route, original-control keyboard and device-lifecycle closures, including academy remount. Earlier incomplete-coverage notes are historical, not instructions to redo passed cases. Broad router prefetch is measured separately from zero target-task prefetch. Use the [local delivery/compact verification manual](local-development-and-verification.md) and its [execution receipt](../07-handoff/local-first-workflow-2026-11-13.md) for visible local edits and coherent checkpoints. Preserve scoped EX-11/EX-12/EX-13 and separate hosted/installed/Owner gates; do not restart EX-11 or invent a blanket Git approval gate. The tracker and latest evidence own current work; dated directions below are historical.
+
+The DeepSeek trial and coordinator dispositions are historical EX-07 / MP-B01 evidence. Use the current-client [delegation policy](../00-governance/ai-delegation-and-cost-policy.md) for new work and the EX tracker for priority. The 13 November OpenCode routing carries forward the coordinator, helper limits and evidence duties. [AI work items](ai-work-items.csv) · [DS-001 review](../07-handoff/deepseek-bcb1a78-review-2026-11-07.md) · [DS-004 corrected plan](../07-handoff/deepseek-DS-004-review-2026-11-08.md) · [DS-005 integration review](../07-handoff/deepseek-DS-005-review-2026-11-08.md)
 
 ## Version2 connected-batch execution —7November2026
 
@@ -101,7 +105,7 @@ The original nine work IDs and EX-10/EX-11 checkpoints remain, with additive EX-
 
 ## Continuation and checkpoint maintenance
 
-Apply the Sol/Terra workflow within each existing batch. Use scripts for mechanical work and one bounded Terra helper when worthwhile. Sol owns decisions, integration and shared resources. Apply the same acceptance criteria and record the checks, exact CI attempt and available usage in the existing receipt. [AI delegation and cost policy](../00-governance/ai-delegation-and-cost-policy.md)
+Apply the current-client routing within each existing batch. Use scripts for mechanical work and a bounded economical helper when worthwhile and explicitly assigned through available tools. One coordinator owns decisions, integration and shared resources. Apply the same acceptance criteria and record actual models, checks, exact CI attempt and available usage in the existing receipt. [AI delegation and cost policy](../00-governance/ai-delegation-and-cost-policy.md)
 
 1. Read the single `current` row, its latest next action, this contract and applicable evidence. Historical packets explain prior results; their old next-step text cannot override current routing.
 2. Name the bounded outcome and existing IMP/J/S/AO/AT/L/SEC joins. Reuse compatible baseline results and inspect current source; do not repeat an investigation-only checkpoint without a new question or changed evidence.

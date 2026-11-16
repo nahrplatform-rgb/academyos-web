@@ -1,5 +1,5 @@
 """I3e actual disposable PG17; no hosted identities or writes."""
-import runpy,json,uuid
+import runpy,json,uuid,os
 from pathlib import Path
 m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'publication/test_boundary.py'));Base,ROOT=m['PublicationBoundary'],m['ROOT']
 class SessionChangeBoundary(Base):
@@ -12,6 +12,9 @@ class SessionChangeBoundary(Base):
  def change(self,a,p,day,kind='move',new='2100-02-02',start='17:00',end='18:00',op=None,read=None,save=True,subject='user_owner',ok=True):
   from uuid import uuid4
   r=read or self.change_read(a,p,day);plan=r['plan'];args=f"'{a}','{p['id']}','{day}',{plan['schedule_version']},{plan['version']},"+(f"'{r['head']}'"if r['head']else'null')+f",'{kind}',"+(f"'{new}','{start}','{end}'"if kind=='move'else'null,null,null')+",'Synthetic change reason'";name='t9_save_v1'if save else't9_review_v1';args+=f",'{op or uuid4()}'"if save else'';raw=self.sql(f'select public.{name}({args})',subject,ok=ok);return json.loads(raw)if ok else raw
+ def future_program(self,a):
+  # Same weekday/date geometry as the legacy fixture, beyond the current-start guard.
+  d=self.definition();d['from']='2099-11-01';d['to']='2100-01-31';return self.ready(a,d)
  def test_session_changes_01_move_preserves_identity_and_effective_discovery(self):
   a,b,p,staff,iv,x,dates=self.fixture();before=self.change_read(a,p,dates[0]);op=str(uuid.uuid4());review=self.change(a,p,dates[0],save=False);self.assertTrue(review['reviewed']);r=self.change(a,p,dates[0],op=op,read=before);self.assertTrue(r['changed']);self.assertEqual(self.change(a,p,dates[0],op=op,read=before),r)
   after=self.change_read(a,p,dates[0]);self.assertEqual(after['plan']['day'],dates[0]);self.assertEqual(after['plan']['scheduled_day'],'2100-02-02');self.assertEqual(after['plan']['count'],1);self.assertEqual(after['plan']['capacity'],3);self.assertEqual(after['plan']['trainer']['id'],staff);self.assertEqual(len(after['history']),1);self.assertEqual(self.change_read(a,p,dates[1])['plan']['schedule_version'],1)
@@ -42,34 +45,37 @@ class SessionChangeBoundary(Base):
    a,b,p,staff,iv,x,dates=self.fixture();day=dates[0];move=self.caller('user_owner','/rpc/t9_save_v1')+f"select public.t9_save_v1('{a}','{p['id']}','{day}',1,1,null,'move','2100-02-02','17:00','18:00','Synthetic move','{uuid.uuid4()}')";cancel=self.caller('user_owner','/rpc/t9_save_v1')+f"select public.t9_save_v1('{a}','{p['id']}','{day}',1,1,null,'cancel',null,null,null,'Synthetic cancel','{uuid.uuid4()}')"
    self.observed_order(move if move_first else cancel,cancel if move_first else move);r=self.change_read(a,p,day);self.assertEqual(r['plan']['canceled'],not move_first);self.assertEqual(len(r['history']),1)
  def test_session_changes_06_unplanned_revision_and_atomic_audit_failure(self):
-  a,b=self.academy();p=self.ready(a);day='2026-11-01';r=self.change_read(a,p,day);self.assertEqual(r['plan']['version'],0)
-  # Unplanned program fixtures use near dates; choose a future destination and ensure no key rewrite.
-  self.change(a,p,day,kind='cancel');self.assertEqual(self.change_read(a,p,day)['plan']['schedule_version'],2)
+  a,b=self.academy();p=self.future_program(a);day='2099-11-01';r=self.change_read(a,p,day);self.assertEqual(r['plan']['version'],0)
+  # Unplanned future fixtures exercise the current-start guard without rewriting the original key.
+  self.assertTrue(self.change(a,p,day,kind='cancel')['changed']);self.assertEqual(self.change_read(a,p,day)['plan']['schedule_version'],2)
   a,b,p,staff,iv,x,dates=self.fixture();before=self.change_read(a,p,dates[0]);self.sql("create function academy.synthetic_change_audit_fail()returns trigger language plpgsql as $$begin if new.action like 'session.%'then raise exception 'Synthetic audit failure';end if;return new;end$$;create trigger synthetic_change_audit_fail before insert on academy.audit_events for each row execute function academy.synthetic_change_audit_fail()")
   self.addCleanup(lambda:self.sql('drop trigger synthetic_change_audit_fail on academy.audit_events'));self.change(a,p,dates[0],ok=False);self.assertEqual(self.change_read(a,p,dates[0])['plan']['schedule_version'],before['plan']['schedule_version']);self.assertEqual(len(self.change_read(a,p,dates[0])['history']),0)
  def test_session_changes_07_unplanned_planning_and_prepared_scope_stale(self):
-  a,b=self.academy();p=self.ready(a);day='2026-11-01';job=self.prepared(a,self.proposal(a,p));self.change(a,p,day,new='2027-02-02');self.assertEqual(self.mutation(a,job,'activate')['error'],'stale');self.assertEqual(self.sql(f"select count(*)from academy.date_plans where academy_id='{a}'"),'0')
+  a,b=self.academy();p=self.future_program(a);day='2099-11-01';job=self.prepared(a,json.loads(self.sql(f"select public.r7_create_v1('{a}','{p['id']}','{uuid.uuid4()}','2099-11-01','2100-01-31','{json.dumps(self.rules())}'::jsonb)",'user_owner')));self.assertTrue(self.change(a,p,day,new='2100-02-02')['changed']);self.assertEqual(self.mutation(a,job,'activate')['error'],'stale');self.assertEqual(self.sql(f"select count(*)from academy.date_plans where academy_id='{a}'"),'0')
   args=f"'{a}','{p['id']}','{day}',1,0,3,null,'{{}}','{{}}'";self.assertEqual(json.loads(self.sql(f'select public.q6_review_v2({args})','user_owner'))['error'],'stale');self.assertEqual(json.loads(self.sql(f"select public.q6_save_v2({args},'{uuid.uuid4()}')",'user_owner'))['error'],'stale')
-  args=f"'{a}','{p['id']}','{day}',2,0,3,null,'{{}}','{{}}'";r=json.loads(self.sql(f"select public.q6_save_v2({args},'{uuid.uuid4()}')",'user_owner'));self.assertNotIn('error',r);self.assertEqual(self.planning_read(a,p,day=day).count('2027-02-02'),1)
+  args=f"'{a}','{p['id']}','{day}',2,0,3,null,'{{}}','{{}}'";r=json.loads(self.sql(f"select public.q6_save_v2({args},'{uuid.uuid4()}')",'user_owner'));self.assertNotIn('error',r);self.assertEqual(self.planning_read(a,p,day=day).count('2100-02-02'),1)
  def test_session_changes_08_overlap_ending_and_retained_history_paging(self):
   a,b,p,staff,iv,x,dates=self.fixture();r=self.change(a,p,dates[0],new=dates[1],start='17:00',end='18:00');self.assertEqual(r['error'],'occupied')
   # Different program: current Trainer or roster overlap blocks the move.
   d=self.definition();d['name']='Other synthetic program';d['from']='2100-02-01';d['to']='2100-02-03';other=self.ready(a,d);otherday=self.sql(f"select min(local_date)from academy.training_dates where program_id='{other['id']}'")
   self.plan(a,other,day=otherday,trainer=staff);timing=self.change_read(a,other,otherday)['plan'];self.assertEqual(self.change(a,p,dates[0],new=otherday,start=timing['start'],end=timing['end'])['error'],'overlap');self.change(a,other,otherday,kind='cancel');self.assertTrue(self.change(a,p,dates[0],new=otherday,start=timing['start'],end=timing['end'])['changed'])
   self.sql(f"update academy.trainer_assignments set state='ended'where staff_id='{staff}'");self.assertEqual(self.change(a,p,dates[0],new='2100-02-05')['error'],'trainer_unavailable')
-  a,b=self.academy();p=self.ready(a);day='2026-11-01'
-  for i in range(26):self.change(a,p,day,new='2027-02-02',start='17:00'if i%2 else'16:00')
+  a,b=self.academy();p=self.future_program(a);day='2099-11-01'
+  for i in range(26):self.assertTrue(self.change(a,p,day,new='2100-02-02',start='17:00'if i%2 else'16:00')['changed'])
   r=self.change_read(a,p,day);self.assertEqual(len(r['history']),25);self.assertTrue(r['more']);second=json.loads(self.sql(f"select public.t9_read_v1('{a}','{p['id']}','{day}','{r['history'][-1]['id']}')",'user_owner'));self.assertEqual(len(second['history']),1);self.assertFalse(second['more']);self.assertEqual(len({h['id']for h in r['history']+second['history']}),26)
  def test_session_changes_09_bounded_large_roster_timings(self):
-  a,b=self.academy();p=self.ready(a);self.plan(a,p,capacity=1001)
-  self.sql(f"insert into academy.players(academy_id,branch_id,display_name,normalized_name)select '{a}','{b}','Synthetic '||n,'synthetic '||n from generate_series(1,1001)n;insert into academy.date_rosters(academy_id,program_id,local_date,player_id)select '{a}','{p['id']}','2026-11-01',id from academy.players where academy_id='{a}';update academy.date_plans set roster_count=1001 where program_id='{p['id']}'")
-  args=f"'{a}','{p['id']}','2026-11-01',1,1,null,'move','2027-02-02','17:00','18:00','Synthetic timing'";metrics={}
-  for name,expression in {'read':f"public.t9_read_v1('{a}','{p['id']}','2026-11-01')",'review':f'public.t9_review_v1({args})','save_rolled_back':f'public.t9_save_v1({args},gen_random_uuid())'}.items():
-   action=f'perform {expression};'
+  a,b=self.academy();p=self.future_program(a);self.plan(a,p,capacity=1001,day='2099-11-01')
+  self.sql(f"insert into academy.players(academy_id,branch_id,display_name,normalized_name)select '{a}','{b}','Synthetic '||n,'synthetic '||n from generate_series(1,1001)n;insert into academy.date_rosters(academy_id,program_id,local_date,player_id)select '{a}','{p['id']}','2099-11-01',id from academy.players where academy_id='{a}';update academy.date_plans set roster_count=1001 where program_id='{p['id']}'")
+  args=f"'{a}','{p['id']}','2099-11-01',1,1,null,'move','2100-02-02','17:00','18:00','Synthetic timing'";metrics={}
+  for name,expression in {'read':f"public.t9_read_v1('{a}','{p['id']}','2099-11-01')",'review':f'public.t9_review_v1({args})','save_rolled_back':f'public.t9_save_v1({args},gen_random_uuid())'}.items():
+   field='reviewed'if name=='review'else'changed'
+   action=f"result:={expression};"
+   if name!='read':action+=f"if result->>'{field}'is distinct from 'true'then raise exception 'Synthetic expected successful {name}: %',result;end if;"
+   else:action+="if result->'plan'is null then raise exception 'Synthetic expected plan';end if;"
    if name=='save_rolled_back':action="begin "+action+"raise exception 'Synthetic sample rollback'using errcode='PZ001';exception when sqlstate 'PZ001'then null;end;"
-   metrics[name]=json.loads(self.sql("create temporary table measured(ms double precision);do $$declare started timestamptz;begin for i in 1..50 loop started:=clock_timestamp();"+action+"insert into measured values(extract(epoch from clock_timestamp()-started)*1000);end loop;end$$;select json_build_object('samples',count(*),'p95_ms',percentile_cont(0.95)within group(order by ms),'max_ms',max(ms))from measured",'user_owner'));self.assertLess(metrics[name]['max_ms'],3000)
-  response=self.change_read(a,p,'2026-11-01');self.assertEqual(len(response['plan']['players']),25);self.assertTrue(response['plan']['more']);self.assertEqual(self.sql(f"select count(*)from academy.session_changes where academy_id='{a}'"),'0')
-  out=ROOT/'docs/07-handoff/evidence/i3e-local-2026-10-28';out.mkdir(parents=True,exist_ok=True);(out/'sql-large-roster.json').write_text(json.dumps({'scope':'Actual disposable PG17; 40-date program and1001-player roster; 50 warm samples each; save rollback; excludes HTTP/identity/provider/hosted/device/WAL/cost proof','roster':1001,'response_bytes':len(json.dumps(response).encode()),'metrics':metrics,'target_300ms_met':all(x['p95_ms']<300 for x in metrics.values())},indent=2)+'\n')
+   metrics[name]=json.loads(self.sql("create temporary table measured(ms double precision);do $$declare started timestamptz;result jsonb;begin for i in 1..50 loop started:=clock_timestamp();"+action+"insert into measured values(extract(epoch from clock_timestamp()-started)*1000);end loop;end$$;select json_build_object('samples',count(*),'p95_ms',percentile_cont(0.95)within group(order by ms),'max_ms',max(ms))from measured",'user_owner'));self.assertLess(metrics[name]['max_ms'],3000)
+  response=self.change_read(a,p,'2099-11-01');self.assertEqual(len(response['plan']['players']),25);self.assertTrue(response['plan']['more']);self.assertEqual(self.sql(f"select count(*)from academy.session_changes where academy_id='{a}'"),'0')
+  out=Path(os.environ.get('SESSION_CHANGE_EVIDENCE_DIR',ROOT/'docs/07-handoff/evidence/i3e-local-2026-10-28'));out.mkdir(parents=True,exist_ok=True);(out/'sql-large-roster.json').write_text(json.dumps({'scope':'Actual disposable PG17; 40-date program and1001-player roster; 50 warm samples each; save rollback; excludes HTTP/identity/provider/hosted/device/WAL/cost proof','roster':1001,'response_bytes':len(json.dumps(response).encode()),'metrics':metrics,'target_300ms_met':all(x['p95_ms']<300 for x in metrics.values())},indent=2)+'\n')
  def test_session_changes_10_failed_validation_and_commit_clock_rollback(self):
   a,b,p,staff,iv,x,dates=self.fixture();day=dates[0];before=self.change_read(a,p,day);original=json.loads(self.sql("select to_json(pg_get_functiondef('academy.p5_instant(timestamp without time zone,text)'::regprocedure))"))
   self.sql("create or replace function academy.p5_instant(w timestamp,z text)returns timestamptz language plpgsql stable set search_path=''as $$begin raise exception 'Synthetic validation unavailable';end$$")
@@ -81,13 +87,13 @@ class SessionChangeBoundary(Base):
  def test_session_changes_11_effective_order_original_key_paging(self):
   a,b=self.academy();programs=[]
   for i in range(3):
-   d=self.definition();d['name']='Synthetic ordering '+str(i);programs.append(self.ready(a,d))
-  p=programs[0];self.change(a,p,'2026-11-01',new='2026-11-27');self.change(a,p,'2026-11-03',kind='cancel');self.change(a,p,'2026-11-05',new='2026-11-03');rows=[];after=''
+   d=self.definition();d['from']='2099-11-01';d['to']='2100-01-31';d['name']='Synthetic ordering '+str(i);programs.append(self.ready(a,d))
+  p=programs[0];self.assertTrue(self.change(a,p,'2099-11-01',new='2099-11-27')['changed']);self.assertTrue(self.change(a,p,'2099-11-03',kind='cancel')['changed']);self.assertTrue(self.change(a,p,'2099-11-05',new='2099-11-03')['changed']);rows=[];after=''
   while True:
-   r=json.loads(self.sql(f"select public.p5_dates_v1('{a}','2026-11-01'{after})",'user_owner'));self.assertLessEqual(len(r['items']),25);rows+=r['items']
+   r=json.loads(self.sql(f"select public.p5_dates_v1('{a}','2099-11-01'{after})",'user_owner'));self.assertLessEqual(len(r['items']),25);rows+=r['items']
    if not r['more']:break
    last=r['items'][-1];after=f",'{last['date']}','{last['program_id']}'"
-  keys=[(x['scheduled_date'],x['program_id'],x['date'])for x in rows];self.assertEqual(keys,sorted(keys));self.assertEqual(len(keys),len(set(keys)));self.assertTrue(any(x['date']=='2026-11-01'and x['scheduled_date']=='2026-11-27'for x in rows));self.assertEqual(sum(x['program_id']==p['id']and x['scheduled_date']=='2026-11-03'for x in rows),2)
+  keys=[(x['scheduled_date'],x['program_id'],x['date'])for x in rows];self.assertEqual(keys,sorted(keys));self.assertEqual(len(keys),len(set(keys)));self.assertTrue(any(x['date']=='2099-11-01'and x['scheduled_date']=='2099-11-27'for x in rows));self.assertEqual(sum(x['program_id']==p['id']and x['scheduled_date']=='2099-11-03'for x in rows),2)
 if __name__=='__main__':
  import unittest
  result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(SessionChangeBoundary));raise SystemExit(not result.wasSuccessful())

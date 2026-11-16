@@ -55,6 +55,14 @@ There are four actual studio destinations: **Today, Calendar, Players and Attend
 | Scroll | Task owns its natural document/work-area flow; list/detail preserve independent position only when that task needs it | Do not make every column a scroll container by default. Verify actual overflow, pane widths, focus visibility, overlays, sticky actions and return position at zoom. Resizing alone does not solve nested scrolling. |
 | Dialogs/inspectors | Row selection updates context without moving the list. Short focused edits/confirmations use accessible dialogs; complex work stays in the main area | Focus containment/restoration, Escape, dirty protection, exact consequence/audience, optional diagnostics and native semantics. No imitation OS window controls. |
 
+### Shared layout refinement · 14 November 2026
+
+The Owner reviewed the signed-in local Calendar and Players. The desktop workspace begins with three usable regions and no separate top header. The brand/home link and the navigation collapse icon sit at the top of navigation. The academy, role, any existing branch context and workspace switch sit below. Language, appearance, connection and account stay at the bottom, with layout settings alongside them. A collapsed navigation rail retains those controls and the reopen icon. The details collapse icon sits next to its heading, and a slim rail reopens it. Neither control takes a row in the main task.
+
+Below 1280 CSS px, a compact brand and menu open the navigation drawer. An icon opens details on demand where the task has a detail panel. The navigation footer becomes the bottom utility bar, with existing Trainer and Guardian phone links above it. Icon hit areas and accessible names remain available. The footer must stay clear of the current task's bottom actions, including the Attendance save review. Connection and pending-operation feedback use the existing device state where available.
+
+Verify the signed-in working layout on the same origin, role and relevant routes as the Owner's screenshots. Actual-component fixtures can hold data, viewport, theme and locale constant for isolated regression checks. A difference between fixture and signed-in records cannot establish visual parity. [Implementation and verification](../07-handoff/mp-b01-workspace-layout-2026-11-14.md)
+
 Current implementation seams: [layout preferences](../../apps/web/src/components/workspace-layout.tsx), [theme toggle](../../apps/web/src/components/theme-toggle.tsx), existing shell/panes/controls and [Owner Today batch](../../design/operations-review/owner-today-batch.md). These are implementations to inspect and reuse, not permission to clone a parallel component system. Layout preferences persist locally; the current theme toggle retains appearance during navigation, not a proven account-synced/restart preference. Keep that limitation visible until deliberately implemented and checked.
 
 ## Connected workflow and data boundaries
@@ -96,7 +104,7 @@ The complete connected **working** review remains required across this scope. Ba
 
 ## Next execution and reconciliation receipt
 
-The [single tracker](../06-delivery/experience-execution.csv) selects EX-13 now, then the remaining EX-07 adoption. Preserve the separated role contexts and shipped Operations work. The [normal-workspace contract](../06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) governs automatic preparation and stable task behavior. Compare both presentation and continuity in each affected journey.
+The [single tracker](../06-delivery/experience-execution.csv) carries the active checkpoint. At the 14 November layout refinement, EX-07 / MP-B01 continues Operations adoption after the scoped EX-13 foundation. Preserve the separated role contexts and shipped Operations work. The [normal-workspace contract](../06-delivery/local-data-and-sync-plan.md#normal-workspace-contract--5-november-2026) governs automatic preparation and stable task behavior. Compare both presentation and continuity in each affected journey.
 
 See [the reconciliation checkpoint](../07-handoff/operations-plan-reconciliation-2026-11-04.md) for changed documents, source limits and verification. The reusable instruction stays **“Continue from the living continuation prompt.”** Its generated current priority must reflect this route.
 

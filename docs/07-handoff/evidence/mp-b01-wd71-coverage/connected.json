@@ -1,0 +1,156 @@
+{
+  "origin": "http://localhost:3100",
+  "browser": "nahr",
+  "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+  "role": "owner",
+  "contextPost": 200,
+  "selectedEmailVerified": false,
+  "playerCount": 5,
+  "profileReturn": {
+    "en": true,
+    "ar": true,
+    "originalKeyboard": true,
+    "focused": true
+  },
+  "attendance": {
+    "en": true,
+    "ar": true,
+    "rows": 2,
+    "readOnly": true,
+    "closed": true,
+    "calendarReturn": true,
+    "anchor": "2026-11-04",
+    "selectedSessionRetained": true
+  },
+  "documents": 0,
+  "writes": 0,
+  "limits": [
+    "Not the 18-player connected acceptance",
+    "No offline save/sync or staging-domain proof",
+    "Private-proposal repair happened after the browser build; no browser proof of that new repair"
+  ],
+  "laterSetup": {
+    "recordedUtc": "2026-11-16T17:24:12.747347+00:00",
+    "buildId": "k6SQlx9qZmqX6unm2i8Di",
+    "createdFictionalPlayers": 13,
+    "directoryCount": 18,
+    "program": "e85b2f9f-9ad5-477e-92df-c7dcf3943ef9",
+    "day": "2026-11-16",
+    "localTime": "19:00–20:00",
+    "timezone": "Africa/Cairo",
+    "planCapacity": 18,
+    "rosterCount": 18,
+    "trainer": "existing eligible synthetic Trainer",
+    "publication": "correctly blocked: occurrence already started",
+    "attemptedMove": "refused: current occurrence already started; no move committed",
+    "attendanceWrites": 0,
+    "limits": [
+      "No selected email verification",
+      "No complete connected Attendance save/offline proof",
+      "Earlier background session returned429 then200 with loading/retry ambiguity; new keepVisible session loaded12 programs; cause unisolated"
+    ]
+  },
+  "historicalSubsetRecordedBeforeLatestSetup": true,
+  "liveRegister": {
+    "recordedUtc": "2026-11-16T19:16:24.897039+00:00",
+    "buildId": "k6SQlx9qZmqX6unm2i8Di",
+    "selectedEmailVerified": true,
+    "identityMethod": "Normal Account / Manage account panel; intended Academy Owner primary email confirmed; no account change",
+    "program": "5d2e763b-eae2-4138-8751-41b161b8fa95",
+    "event": "f62395d1-11b0-4df3-b063-1ea6968c08a4",
+    "day": "2026-11-16",
+    "localTime": "20:00–20:30",
+    "timezone": "Africa/Cairo",
+    "rosterCount": 18,
+    "publication": "All reviewed visibility changes committed together.",
+    "profileKeyboardReturn": {
+      "en": true,
+      "ar": true,
+      "originalFocus": true
+    },
+    "calendarToPlanToAttendance": true,
+    "arabicKeyboardCalendarReturn": true,
+    "selectedSessionRetained": true,
+    "personalDevicePreparation": "Ready for offline reopening",
+    "prestartBoundary": "18 Unmarked; marking disabled; This session has not started yet.",
+    "attendanceWrites": 1,
+    "remaining": "Coherent dependency/candidate review and separate CI/preview; physical/installed and full-role coverage remain outside this local checkpoint.",
+    "beforeSaveReadback": {
+      "checkedUtc": "2026-11-16T17:56:01.073786Z",
+      "startsUtc": "2026-11-16T18:00:00Z",
+      "endsUtc": "2026-11-16T18:30:00Z",
+      "roster": 18,
+      "marks": 0,
+      "history": 0,
+      "operations": 0
+    },
+    "marks": {
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    },
+    "offlineSave": "Normal review and Save selected marks; Saved on this device · Awaiting sync",
+    "afterOfflineSaveReadback": {
+      "checkedUtc": "2026-11-16T18:03:32.281981Z",
+      "marks": 0,
+      "history": 0,
+      "operations": 0
+    },
+    "automaticReconnect": {
+      "dispatchResponses": [
+        200
+      ],
+      "manualRetry": false,
+      "replacementSave": false,
+      "ui": "Synced · Server recorded the register."
+    },
+    "afterSyncReadback": {
+      "checkedUtc": "2026-11-16T18:07:36.8013Z",
+      "present": 1,
+      "absent": 1,
+      "history": 2,
+      "operations": 1,
+      "audits": 1,
+      "original": "eb7b4293-da87-44bc-a838-77785b9e15e9"
+    },
+    "repeatReadback": {
+      "checkedUtc": "2026-11-16T18:14:50.762163Z",
+      "marks": 2,
+      "history": 2,
+      "operations": 1,
+      "original": "eb7b4293-da87-44bc-a838-77785b9e15e9"
+    },
+    "coldReopen": {
+      "pendingEnglish": "Recovered 18 rows and both pending marks with listener unavailable and tab HTTP cache disabled",
+      "syncedArabic": "Recovered 18 rows and both saved marks with listener unavailable and normal cache restored",
+      "browserRestart": false
+    },
+    "arabicTodayKeyboardReturn": true,
+    "arabicNormalAttendanceReentry": true,
+    "browserCleanup": "Tab network/cache restored, CDP detached and only own browse session deleted",
+    "runtimeAfterRestart": {
+      "instance": "37c94adc-0dda-4afc-8760-d9c0f7880bfb",
+      "sameBuild": true,
+      "arabicOnlineRead": {
+        "roster": 18,
+        "present": 1,
+        "absent": 1,
+        "unmarked": 16
+      }
+    },
+    "limits": [
+      "One tab offline emulation; no physical/installed or full-browser restart proof",
+      "Initial reload and first about:blank reopen stayed Loading sign-in. Cause unisolated; cache-disabled retry succeeded. Later server-unavailable Arabic reopen succeeded with cache restored.",
+      "First runtime stop helper timed out; subsequent inspection confirmed listener stopped and leases released. Later stop succeeded.",
+      "Dispatch response count and unique database operation observed; request body original was not extracted, so no byte-for-byte live original comparison claimed."
+    ],
+    "startupDiagnosis": {
+      "scope": "Isolated actual worker with deliberately cacheable fictional document; not current Next response-header proof",
+      "observed": "Tab CDP offline returns provider document from browser HTTP cache even with listener unavailable. Disabling tab cache or using whole-context offline returns public startup.",
+      "experimentalNoStore": "In-memory worker variant bypasses old HTTP document with listener unavailable; with listener available tab CDP still returns provider document because worker network is outside tab emulation. No product source changed.",
+      "disposition": "Browser availability blocker resolved. Normal cache-enabled origin-unavailable startup passes. Earlier tab-only CDP mixed run is diagnostic/emulation evidence, not an established product defect.",
+      "browserBlocker": "After prior session cleanup, session_new failed: browse relay did not start; status confirmed relay unreachable at 127.0.0.1:19988. No browser/provider configuration changed.",
+      "resolvedBy": "startup-recovery.json"
+    }
+  }
+}

@@ -42,7 +42,9 @@ export async function POST(req: NextRequest) {
     const root = registerWrappingKey();
     try {
       const namespace = command.action === 'prepare' ? randomUUID() : command.namespace;
-      const result = await rpc(client, 'x19_owner_register_key_v1', {
+      const keyRpc = process.env.LOCAL_REGISTER_MULTI_SCOPE_ENABLED === 'true'
+        ? 'x23_owner_register_key_v2' : 'x19_owner_register_key_v1';
+      const result = await rpc(client, keyRpc, {
         a: command.academy, ev: command.event, device: command.device, expected_subject: subject,
         act: command.action, ns: namespace, envelope: command.action === 'prepare' ? wrapRegisterKey(command,namespace,root) : null,
       });

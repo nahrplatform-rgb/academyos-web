@@ -1,6 +1,6 @@
 {
-  "source": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
-  "generatedAt": "2026-11-11T05:47:36.757Z",
+  "source": "780225b51360a63153f6fc09d47431cd5b654047",
+  "generatedAt": "2026-11-16T20:24:24.294Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -39,48 +39,49 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "5dce428f0dcf5909be0915d54659bc72b51efae4ecc63d3ac3284b69d54d7891",
+    "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
-    "apps/web/src/components/attendance-workspace.tsx": "828d0915622d4cfebc40c23841021c03dab0aceea20085734d1c1d17c560d0e0",
-    "apps/web/src/components/correction-workspace.tsx": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+    "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+    "apps/web/src/components/correction-workspace.tsx": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
-    "apps/web/src/components/development-workspace.tsx": "2c57015e29624a4af8d497b9473c5f6039a6d1218cb1e89aaf519a589b47e0b0",
-    "apps/web/src/components/experience-workspace.tsx": "5ddef223983995edbced5e8c5d2875e2d1537d87f5dae81f9cac3337ab24cdc7",
+    "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+    "apps/web/src/components/experience-workspace.tsx": "1de436a55893fd757b7f3972f1494bb536e4aae2d38329d146b200288c8a5291",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
-    "apps/web/src/components/guardian-workspace.tsx": "49cc8f18046f7e7485fa67d697586865179c8a737f15948c412f09a08308e398",
-    "apps/web/src/components/onboarding-workspace.tsx": "f1a890b419964c5a3a9844cad588ea3258f1262e6338db379268f01e9dfacd09",
+    "apps/web/src/components/guardian-workspace.tsx": "88a2ee20ad01764cfda5e4c2b49751ae513b77554750d84d7a1909db3b80962d",
+    "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
-    "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
-    "apps/web/src/components/people-workspace.tsx": "15770a315614bcbf452448f71ed7a74a4e90ce110c160ef05c0c8be1410c6221",
-    "apps/web/src/components/prepared-register-panel.tsx": "c8048b7bade2c2de0ab054fd72f563cd4f3c5c8486aabd665a01c9e9ed4f42a6",
+    "apps/web/src/components/owner-workspace-device.tsx": "f99dbeba8e59bf1dba1eccea445104dbcc1f4610055b5c653d6040703d965f2f",
+    "apps/web/src/components/people-workspace.tsx": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
+    "apps/web/src/components/prepared-register-panel.tsx": "65a71f13d922a9a2a12b1a8e670d7e524b6c1201e2eed268b8bb25669e40a5ab",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
-    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
-    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
-    "apps/web/src/components/publication-workspace.tsx": "268cf8c3556174bfd8407b4a70e4988cec9346287ac8d4aed3d383faea72293d",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "8a3b76d3ed647062dfaeb0404f9e578e80b8147743926711358e64fbf271c2c4",
+    "apps/web/src/components/program-planning-workspace.tsx": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
+    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+    "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
-    "apps/web/src/components/qr-workspace.tsx": "d2c540c7338d859889fbf68d7490c1b7dc8aa6aec63660c743148d8f2e90cd01",
+    "apps/web/src/components/qr-workspace.tsx": "7f1fb6efdaa63908aa687578e219ff40903679eb7611afec6297b8169ba48c3c",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
-    "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
-    "apps/web/src/components/session-change-workspace.tsx": "d770aebe46fd9048eeb3abd0a491aad3ccfbb70b64573978d68230c2eb74ae4e",
-    "apps/web/src/components/theme-toggle.tsx": "3e0ff7c20d98469ad76d8291b8431d3d7ca049359f1d683c61aad2bca8738ebf",
+    "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+    "apps/web/src/components/session-change-workspace.tsx": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
+    "apps/web/src/components/theme-toggle.tsx": "c3ab460e6af3898260ca52ae33d421cc504608ec08b44ca85a3cf9e6edc6c32e",
     "apps/web/src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
-    "apps/web/src/components/trainer-workspace.tsx": "16dc4e857664b4bbb0faa9cf3a6b60ae6f0936abeca026becffad5cdfcf2d93a",
+    "apps/web/src/components/trainer-workspace.tsx": "d81da7c1ce99ebb6a7a6e7e09a13fdf4c9b0126bd81136970a5d87c905b720bf",
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
     "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
     "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
-    "apps/web/src/components/workspace-panes.tsx": "5b3cf9cb18e534f136cc6670bc65cefce69f6060cd7fe9e41fa961ad701358ce",
+    "apps/web/src/components/workspace-panel-icon.tsx": "25e6d38f430db0de251d1a81cfae9811600eb4421d121ca4630fbcab908cac4f",
+    "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
-    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
+    "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/owner-session-navigation.ts": "e0210e73687ee24c36a04b70c92346e4bd58e425717695a1c211c723ab47668c",
+    "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
     "design/app-experience-review/journeys.json": "c6435c6202037a30daecd43531d250dba1ae957d4e92ae1784f1aa67c0fc9619",
@@ -90,37 +91,49 @@
     "docs/06-delivery/app-implementation-action-matrix.csv": "08915cdf6cce8371d21e6906e543c05075d5eb7a29712b0edda0e132bb80fedd",
     "docs/06-delivery/app-implementation-requirement-links.csv": "c0e8b976d404521c4405ad15f7bd36fe75f1ea393561ebaee4afc656e815f2dd",
     "docs/06-delivery/app-implementation-screen-matrix.csv": "7430ae17f3970f14b3c2a9e51851c11e35c552b81368d8b61bde04f2f16abea5",
-    "scripts/attendance/test_ui.mjs": "0676e70a87b935b442d80e5b847151cb85de3fdae2db40e08941872325f19e11",
-    "scripts/corrections/test_ui.mjs": "d7e4fe9c718310080c825743f0f15c5f5fffc038d0f9ebb086bac6d2fbb702da",
-    "scripts/development/test_ui.mjs": "74b687955c540ae0b9ae5bda91c43f4039a0cbae7a23e6b6b51d1ed8335feac5",
-    "scripts/experience-projections/test_ui.mjs": "a4858e5970f8a49cbf1e4bcec74af6ccd504a003dcb60ab4455b32e0025c7c5b",
-    "scripts/experience-review/build.mjs": "4b8b3e0c7642be31522d73180027b1afea6231ef5ece71cc17e0aa2e24bed68f",
+    "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
+    "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
+    "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
+    "scripts/corrections/test_ui.mjs": "a263af6d56d61ea651d7394568d77a8d6bf0cd7b1ee300952f525b699200b243",
+    "scripts/development/test_ui.mjs": "f9d8561c8591266f125cac6c327cf6d5d94cfa19d29859bbcbdace1ab83f6724",
+    "scripts/experience-projections/test_ui.mjs": "fcd168614bab423c66a7b2c434405941f7c55e8557b6af4ad47798f126232283",
+    "scripts/experience-review/build.mjs": "0a303f8527191954e152f8b8e5acfce89d844178267d573d808a0143a8ffa53b",
     "scripts/experience-review/capture.mjs": "12c6a4db77bf897ee10d6aa49799b88a7e0d21a8440008850f57d6ca7239c380",
-    "scripts/experience-review/collect.mjs": "0320eac9105e72e73ec53119b0fb2a91f4b1df85845031805ba02b813cfce513",
+    "scripts/experience-review/collect.mjs": "4d9b48b826ea37621a2e6393f1ed141e3f59a1759a5f078637cc53a3376dfa24",
     "scripts/experience-review/reviewer.html": "297f3b6b58448d6e030f9763077efbc19ae6291a6a3144fdc7ff6337b9e19e04",
     "scripts/experience-review/static.mjs": "6e174c24e8ac5931c6f42163cec3edbe78d7db8b663d9a52015254a1aa49da47",
     "scripts/experience-review/test.mjs": "3b12844069980d281db8cfcd9ba548efb1c3d05b75e2e07420c647c23ce9e1b8",
-    "scripts/guardian-training/test_ui.mjs": "5ec96eec6aa730e419cd230c10390ecdb08594f7fbbf9dadfd9f457661cfc71b",
-    "scripts/guardians/test_ui.mjs": "3b326fb0800baf571bb6b0b37b70788f8c105973f3aec4750c145a995f8f3959",
-    "scripts/onboarding/test_ui.mjs": "28b0544d059ec2e5d7d2c157b91413c5b9f4710dc89a6a224ecdca4e614087c0",
+    "scripts/guardian-training/test_ui.mjs": "1e77408a83adfcb65db35ab9352484008ca18ba0b5be5c7eeaa41c9003696ed2",
+    "scripts/guardians/test_ui.mjs": "a8651c26f208c5a0a6f9bd8d06084b731a7f45c97ad050d94effc6fa82f189fa",
+    "scripts/onboarding/save_followup.mjs": "d4ff1a9f52363e9f9459701b18eb38d4a049b6f399950ed84fd4857eff4be013",
+    "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
     "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
-    "scripts/people/profile_continuity.mjs": "b4b0b5f15a47c470611bad04024514e4978f3568f2e99da93b1ef88c02137ca0",
+    "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56",
     "scripts/people/test_ui.mjs": "9aa8e86940b93372c1f9353b133c2218dca7292699d1bb5c4c8363c3a8b1885f",
-    "scripts/planning/test_ui.mjs": "a67dddb9f4a8b01608bd40e8c785c86b6f986e21d0bc9689ebbcc692a8ea2fb4",
-    "scripts/program-planning/test_ui.mjs": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
-    "scripts/programs/test_ui.mjs": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
-    "scripts/publication/test_ui.mjs": "c5709b5cc49ddf7c3d682688e623305257d992d60c76b479e6d16f257e7f3e33",
-    "scripts/qr-attendance/test_ui.mjs": "904851d6b98cdb4001467d7cf7c1e3cdb2e23dc435bca0cf0a00a688c742a1e4",
-    "scripts/session-changes/test_ui.mjs": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
-    "scripts/trainers/test_ui.mjs": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
-    "scripts/workspace-layout/test_ui.mjs": "6afbe39fd7d494d7af016f8bc97e4063b726137c8e5656895ade035da02826b7"
+    "scripts/planning/save_followup.mjs": "860e621f38cd7ffee3344d99216401750182caa8dce4ebdb06ba1ada40384869",
+    "scripts/planning/test_ui.mjs": "388a2906124390de71c62cb05b53fc44dd5949fea278201a38f07ad7654c3e30",
+    "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
+    "scripts/program-planning/test_ui.mjs": "f2f0a804cbae2b89c694c2b9b58a4d997be9c075f6a84ef06ca765952268c4b4",
+    "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
+    "scripts/programs/test_ui.mjs": "020bbc95ad2f3a6c80034ab35cdf920b97cfb56c4ed8854a1dab2d1999b8afe2",
+    "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
+    "scripts/publication/test_ui.mjs": "f98883eed2afa299083fec54285e308f6a4fa02aa02c538adb62ba3c411cceea",
+    "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
+    "scripts/qr-attendance/test_ui.mjs": "e0196e2b7118a1f0b899d5aebcfb33a81d1546a7792d137acddb09eee649476b",
+    "scripts/review-decisions/publication_lifecycle.mjs": "36e8a4eeac71a30536335c5d1666e1db899332ed3e6d98bf4dc7e18f086f8352",
+    "scripts/review-decisions/save_followup.mjs": "291a9c33b83c2c914f2306714e435afb05300e4e41321af95c1349c3d97250f4",
+    "scripts/review-decisions/trainer_submission.mjs": "dc917a60bb3e20828017fff2f9fdb6586a90b605db64067598fdf38f4051bede",
+    "scripts/session-changes/save_followup.mjs": "a9f9817c470181c9609a0df0ddae9512daeabf239b97cf0d0c96e134f61a4cf9",
+    "scripts/session-changes/test_ui.mjs": "594383c942445f72e364988a9b6caea51bfc554300f4efb9c557ea7880a93111",
+    "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
+    "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "7f4ea55224590b984e7fdd5b210a248915992b7aa8464e106a3198be369d07d2",
-  "htmlSha256": "c5563ba13bdf98d45af965d57f543a437c8fda31968acdbc325536a50766a227",
-  "frames": 1329,
-  "transitions": 1321,
-  "sourceFiles": 81,
-  "sourceLiterals": 8187,
+  "capturePackSha256": "7d0ed8aa539084aff159fc9d092357fb35f10c38161bfa8f32b414eb056328e8",
+  "htmlSha256": "ae16bd9235f4da51df3e6e87dc69df82e06949b8172967d8f93f208722f052e6",
+  "frames": 1807,
+  "transitions": 2611,
+  "sourceFiles": 82,
+  "sourceLiterals": 8359,
   "journeys": [
     {
       "id": "entry",
@@ -128,67 +141,67 @@
     },
     {
       "id": "onboarding",
-      "frames": 231
+      "frames": 289
     },
     {
       "id": "people",
-      "frames": 155
+      "frames": 162
     },
     {
       "id": "guardians",
-      "frames": 44
+      "frames": 83
     },
     {
       "id": "trainers",
-      "frames": 33
+      "frames": 73
     },
     {
       "id": "programs",
-      "frames": 210
+      "frames": 240
     },
     {
       "id": "planning",
-      "frames": 66
+      "frames": 83
     },
     {
       "id": "program-planning",
-      "frames": 59
+      "frames": 87
     },
     {
       "id": "publication",
-      "frames": 55
+      "frames": 82
     },
     {
       "id": "session-changes",
-      "frames": 34
+      "frames": 63
     },
     {
       "id": "attendance",
-      "frames": 96
+      "frames": 128
     },
     {
       "id": "guardian-training",
-      "frames": 19
+      "frames": 21
     },
     {
       "id": "corrections",
-      "frames": 55
+      "frames": 97
     },
     {
       "id": "qr-attendance",
-      "frames": 47
+      "frames": 91
     },
     {
       "id": "development",
-      "frames": 77
+      "frames": 147
     },
     {
       "id": "experience-projections",
-      "frames": 68
+      "frames": 69
     },
     {
       "id": "workspace-layout",
-      "frames": 72
+      "frames": 84
     }
   ],
   "captureGaps": []

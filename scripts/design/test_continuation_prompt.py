@@ -36,6 +36,32 @@ class ContinuationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(self.rows, self.batches)
 
+    def test_resume_checkpoint_follows_active_evidence_without_changing_priority(self):
+        self.active['development_next_action'] = 'REQUIRED_CORRECTION_STILL_OPEN'
+        before = copy.deepcopy(self.rows)
+        first = self.active['evidence']
+        result = render(self.rows, self.batches)
+        self.assertTrue(f'Resume checkpoint: [{first}](../../{first})' in result,
+                        'The resume link must use the active tracker evidence')
+        self.assertEqual(before, self.rows)
+        replacement = next(path for path in (
+            'docs/07-handoff/ex15-storage-diagnostics-2026-11-13.md',
+            'docs/07-handoff/mp-b01-owner-program-return-2026-11-13.md') if path != first)
+        self.active['evidence'] = replacement
+        updated = render(self.rows, self.batches)
+        self.assertIn(f'Resume checkpoint: [{replacement}](../../{replacement})', updated)
+        self.assertNotIn(f'Resume checkpoint: [{first}](../../{first})', updated)
+        self.assertIn('REQUIRED_CORRECTION_STILL_OPEN', updated)
+        self.assertIn(f"Current priority — {self.active['work_id']}", updated)
+
+    def test_missing_or_outside_active_checkpoint_is_rejected(self):
+        for evidence in ('', 'docs/07-handoff/absent-resume-test.md',
+                         '../AGENTS.md', str(ROOT / 'AGENTS.md')):
+            with self.subTest(evidence=evidence):
+                self.active['evidence'] = evidence
+                with self.assertRaisesRegex(ValueError, 'Current checkpoint'):
+                    render(self.rows, self.batches)
+
     def test_unknown_batch_is_rejected(self):
         self.active['delivery_batch'] = 'MP-B99'
         with self.assertRaises(ValueError):
@@ -88,6 +114,17 @@ class ContinuationTests(unittest.TestCase):
         self.assertIn(f"Current priority — {next_row['work_id']}", result)
         self.assertIn(f"Delivery batch: **{next_row['delivery_batch']}", result)
         self.assertIn('MP-B14', result)
+
+    def test_local_delivery_guidance_preserves_evidence_and_release_boundaries(self):
+        result = render(self.rows, self.batches)
+        for text in ('local-development-and-verification.md', 'npm run dev',
+                     'npm run local:production', 'npm run local:verify',
+                     'not the full release gate', 'original timestamp',
+                     'live-server smoke always runs fresh',
+                     'Resolve routine corrections internally', 'promotions stay Owner-only',
+                     'all implemented journeys functional locally',
+                     'commits/pushes from this workspace', 'existing wrapping roots in server memory'):
+            self.assertIn(text, result)
 
     def test_render_does_not_mutate_tracker(self):
         before = copy.deepcopy(self.rows)

@@ -1,0 +1,16 @@
+test_development_01_roundtrip_return_review_successor_withdraw (__main__.DevelopmentBoundary.test_development_01_roundtrip_return_review_successor_withdraw) ... ok
+test_development_02_current_roles_scope_and_no_implicit_optin (__main__.DevelopmentBoundary.test_development_02_current_roles_scope_and_no_implicit_optin) ... ok
+test_development_03_replay_fence_payload_and_concurrent_versions (__main__.DevelopmentBoundary.test_development_03_replay_fence_payload_and_concurrent_versions) ... ok
+test_development_04_assignment_epoch_and_self_review (__main__.DevelopmentBoundary.test_development_04_assignment_epoch_and_self_review) ... ok
+test_development_05_atomic_failure_and_snapshot_immutability (__main__.DevelopmentBoundary.test_development_05_atomic_failure_and_snapshot_immutability) ... ok
+test_development_06_validation_session_and_boundary_grants (__main__.DevelopmentBoundary.test_development_06_validation_session_and_boundary_grants) ... ok
+test_development_07_pagination_history_retained_private (__main__.DevelopmentBoundary.test_development_07_pagination_history_retained_private) ... ok
+test_development_08_publish_rollback_and_conflicting_decisions (__main__.DevelopmentBoundary.test_development_08_publish_rollback_and_conflicting_decisions) ... ok
+test_development_095_owner_withdrawal_is_not_self_review (__main__.DevelopmentBoundary.test_development_095_owner_withdrawal_is_not_self_review) ... ok
+test_development_09_history_pages_and_original_receipt_current_authority (__main__.DevelopmentBoundary.test_development_09_history_pages_and_original_receipt_current_authority) ... ok
+test_development_10_warm_queue_scale_and_complete_pages (__main__.DevelopmentBoundary.test_development_10_warm_queue_scale_and_complete_pages) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 50.750s
+
+OK

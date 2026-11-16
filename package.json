@@ -10,7 +10,12 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "dev": "npm run dev --workspace @academyos/web",
+    "dev": "node scripts/local/workflow.mjs dev",
+    "local:preflight": "node scripts/local/workflow.mjs preflight",
+    "local:status": "node scripts/local/workflow.mjs status",
+    "local:production": "node scripts/local/workflow.mjs production",
+    "local:verify": "node scripts/local/workflow.mjs verify",
+    "local:report": "node scripts/local/workflow.mjs report",
     "build": "node scripts/verification/web-build.mjs --build",
     "start": "npm run start --workspace @academyos/web",
     "typecheck": "npm run typecheck --workspace @academyos/web",

@@ -1,0 +1,295 @@
+{
+  "status": "passed",
+  "runtime": "v24.14.0",
+  "baseline": false,
+  "planningBaseline": false,
+  "continuityBaseline": false,
+  "continuity": [
+    {
+      "locale": "en",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 844,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    },
+    {
+      "locale": "ar",
+      "calendarRequests": [
+        "owner_calendar"
+      ],
+      "calendarActionableMs": 849,
+      "syntheticDelayPerExperienceReadMs": 250,
+      "planningRequests": [
+        "read"
+      ],
+      "planBlockedByHiddenDirectory": false
+    }
+  ],
+  "localControlsBaseline": false,
+  "localControls": [
+    {
+      "view": "home",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": false,
+      "checkedRowsRetained": true
+    },
+    {
+      "view": "calendar",
+      "inputRetained": true,
+      "languageChangedUrl": false,
+      "readStarts": 1,
+      "privateRowsMasked": false,
+      "checkedRowsRetained": true
+    },
+    {
+      "view": "dated",
+      "singleLocaleClickAccepted": true,
+      "readStarts": 1
+    }
+  ],
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "d8cd0ef8dacbe3e543fdb6912bd13933c6b846f488ebb0496f4fe61d64f02665",
+    "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+    "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+    "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+    "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/src/components/experience-workspace.tsx": "76692d9e1fe34f965bed43c0c2acdc8aac46a4c5ac572aad61d37a4ebcf779c0",
+    "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "speculativeDatePrefetches": 0,
+  "routedReturn": [
+    {
+      "locale": "en",
+      "unfinished": {
+        "journey": [
+          "read",
+          "owner_home"
+        ],
+        "writes": [],
+        "documents": 0,
+        "allRouterPrefetchCount": 21,
+        "allRouterPrefetchPaths": [
+          "/en/workspace",
+          "/en/workspace/00000000-0000-4000-8000-000000000001",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace",
+          "/en/workspace/00000000-0000-4000-8000-000000000001",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/development"
+        ],
+        "taskPrefetchCount": 0,
+        "pageErrors": 0
+      },
+      "completed": {
+        "journey": [
+          "read",
+          "owner_home"
+        ],
+        "writes": [],
+        "documents": 0,
+        "allRouterPrefetchCount": 22,
+        "allRouterPrefetchPaths": [
+          "/en/workspace",
+          "/en/workspace/00000000-0000-4000-8000-000000000001",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/en/workspace",
+          "/en/workspace/00000000-0000-4000-8000-000000000001",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/en/workspace/00000000-0000-4000-8000-000000000001/calendar"
+        ],
+        "taskPrefetchCount": 0,
+        "pageErrors": 0
+      }
+    },
+    {
+      "locale": "ar",
+      "unfinished": {
+        "journey": [
+          "read",
+          "owner_home"
+        ],
+        "writes": [],
+        "documents": 0,
+        "allRouterPrefetchCount": 21,
+        "allRouterPrefetchPaths": [
+          "/ar/workspace",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/ar/workspace",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar"
+        ],
+        "taskPrefetchCount": 0,
+        "pageErrors": 0
+      },
+      "completed": {
+        "journey": [
+          "read",
+          "owner_home"
+        ],
+        "writes": [],
+        "documents": 0,
+        "allRouterPrefetchCount": 22,
+        "allRouterPrefetchPaths": [
+          "/ar/workspace",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/programs",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar",
+          "/ar/workspace",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/players",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/staff",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/development",
+          "/ar/workspace/00000000-0000-4000-8000-000000000001/calendar"
+        ],
+        "taskPrefetchCount": 0,
+        "pageErrors": 0
+      }
+    },
+    {
+      "negativeControl": "broken checked-task marker detected",
+      "journey": [
+        "read",
+        "owner_home"
+      ],
+      "documents": 0,
+      "allRouterPrefetchCount": 21,
+      "allRouterPrefetchPaths": [
+        "/en/workspace",
+        "/en/workspace/00000000-0000-4000-8000-000000000001",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/development",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/programs",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/calendar",
+        "/en/workspace",
+        "/en/workspace/00000000-0000-4000-8000-000000000001",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/players",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/staff",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections",
+        "/en/workspace/00000000-0000-4000-8000-000000000001/development"
+      ],
+      "taskPrefetchCount": 0,
+      "pageErrors": 0
+    }
+  ],
+  "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+  "results": [
+    {
+      "locale": "en",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "ar",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "en",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "ar",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "en",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    },
+    {
+      "locale": "ar",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    }
+  ],
+  "errors": []
+}

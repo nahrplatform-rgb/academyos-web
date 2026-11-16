@@ -1,6 +1,30 @@
 # Start here for builders
 
-12 November client handoff. [OpenCode project continuation](opencode-project-handoff-2026-11-12.md) records the checked publication release, the next unfinished-program return task, evidence boundaries and the reusable continuation instruction. The generated prompt and single current tracker row supply subsequent priorities. Earlier dated directions below retain their historical scope.
+16 November follow-on: [Trainer correction and feedback submission](mp-b01-trainer-submission-2026-11-16.md) retains the exact confirmed correction request on retry, with60 EN/AR cases and4 reproduced before-source gaps. The tracker owns next action.
+
+16 November follow-on: [QR credential/capture and Attendance settings follow-up](mp-b01-qr-followup-2026-11-16.md) repairs confirmed loading and reconciled read-failure recovery with96 EN/AR cases. The tracker owns next action.
+
+16 November follow-on: [Trainer/Guardian appointment confirmation and current-read recovery](mp-b01-appointment-followup-2026-11-16.md) repairs ambiguous loading status with96 EN/AR cases; the tracker owns routing.
+
+16 November follow-on: [draft-program held creation/finalization and saved-date reads](mp-b01-program-create-followup-2026-11-16.md) adds16 passing actual-component cases with no product repair. The tracker owns next action.
+
+**16 November one-session checkpoint.** [WD-71 move/cancel follow-up](mp-b01-session-change-followup-2026-11-16.md) records distinct confirmed-loading/read-failure feedback,32 component cases and11 corrected domain SQL cases. The tracker selects draft-program creation/finalization continuity. Prior checkpoint paragraphs below are retained history.
+
+**16 November Owner decision checkpoint.** [WD-71 correction/feedback result continuity](mp-b01-review-save-followup-2026-11-16.md) records the bounded feedback loading-message repair,64 component cases,22 domain SQL tests and28 routed recovery checks. The tracker selects remaining dated session-change continuity. Prior checkpoint paragraphs below are retained history.
+
+**16 November publication checkpoint.** [WD-71 publication/withdrawal confirmation](mp-b01-publication-save-followup-2026-11-16.md) records matched receipt-state repair,40 EN/AR component cases and signed Today recovery regressions. The tracker selects remaining correction/feedback Owner-decision continuity; prior planning/runtime evidence stays preserved.
+
+**16 November program activation checkpoint.** [WD-71 program-wide save/read recovery](mp-b01-program-save-followup-2026-11-16.md) repairs conflicting confirmed/private status and same-original recovery after failed context/detail reads. EN/AR held-response cases and pre-repair negative control are recorded. The tracker selects publication/withdrawal continuity next; earlier runtime and dated-plan evidence remains.
+
+**16 November WD-71 checkpoint.** [Owner dated-plan save/follow-up](mp-b01-planning-save-followup-2026-11-16.md) adds EN/AR held acknowledgement/read and same-original recovery assertions without changing application behavior. Registration, Attendance and runtime/focus evidence remain. Follow the tracker for the remaining program-wide activation slice.
+
+**15 November Calendar checkpoint.** [WD-70 Owner Calendar controls](mp-b01-calendar-controls-2026-11-15.md) records the reproduced pending-control/focus issue, its scoped repair, EN/AR online and encrypted prepared-data assertions, and separate live/hosted limits. The tracker and generated continuation select remaining WD-71 save/follow-up-read work. Existing Player decisions and Owner-only promotions remain.
+
+**Latest local-functional checkpoint.** [Owner entry, Players and Setup shortcuts](mp-b01-owner-entry-2026-11-14.md) records current local routing and People evidence. The [environment receipt](local-functional-environment-2026-11-13.md) records the local production Players and Calendar offline reads and the subsequent signed-in Attendance save, reopening and automatic sync. Wider offline and installed-device coverage remain open. Follow the [living continuation](../06-delivery/continue-academyos.md) for the current tracker action.
+
+**13 November local delivery:** use the [live development/compact verification manual](../06-delivery/local-development-and-verification.md) and [executed workflow checkpoint](local-first-workflow-2026-11-13.md). The Owner can review saved local edits continuously. Use meaningful focused checks and one coherent candidate; resolve ordinary corrections within the batch and preserve separate release/hosted/installed/acceptance gates. The EX tracker still owns the next product action.
+
+13 November final client handoff. [OpenCode project continuation](opencode-project-handoff-2026-11-12.md) reconciles the actual Git state and current checkpoint, explains the exact living-continuation instruction and records the Owner-supplied OpenCode routing/account limits. The generated prompt and single current tracker row supply subsequent priorities. Earlier dated directions below retain their historical scope.
 
 8 November current MP-B01: [Players authentication/context and first registration](mp-b01-people-auth-empty-registration-2026-11-08.md) has56scoped local workspace checks and reviewed/integrated DS-005 proof. The earlier quota interruption is provenance;do not wait for DeepSeek or rerun its brief. The tracker now routes ready development to prepared-empty/failed-transfer cases while exact-source release/hosted verification remains separate.
 

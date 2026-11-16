@@ -1,0 +1,1 @@
+PASS: review inventory and source fingerprints current; rendered coverage is separate

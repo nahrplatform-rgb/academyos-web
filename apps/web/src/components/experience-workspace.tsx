@@ -19,6 +19,12 @@ type HomeTask={id:string;title?:string;kind:'program'|'publication'|'correction'
 type Panel={tasks?:HomeTask[];state:'ready'|'unavailable';count?:number;items?:CalendarSession[];more?:boolean;item?:{id:string;title?:string;starts_at?:string;ends_at?:string;timezone?:string;date?:string;status?:string;created_at?:string}|null};
 type Home={context:ExperienceContext&{setup_required?:boolean;player_name?:string};as_of?:string;setup_required?:boolean;panels?:Record<string,Panel>};
 type Link={id:string;display_name:string;branch_name:string};
+type ViewPosition={center:number;document:number};
+type ResumeRecovery={
+ position:ViewPosition;
+ searchSelection:{start:number;end:number}|null;
+ focusRetry:boolean;
+};
 export default function ExperienceWorkspace(props:Props){
  const session=useUser(),ar=props.locale==='ar';const[authExpired,setAuthExpired]=useState(false);useEffect(()=>{if(session.isLoaded)return;const timer=setTimeout(()=>setAuthExpired(true),15000);return()=>clearTimeout(timer);},[session.isLoaded]);
  if(!session.isLoaded)return <PublicWorkspace locale={props.locale} title="AcademyOS"><p role="status">{authExpired?(ar?'تعذر تحميل تسجيل الدخول. أعد المحاولة.':'Sign-in unavailable. Retry.'):(ar?'جارٍ تحميل تسجيل الدخول…':'Loading sign-in…')}</p>{authExpired&&<Button onClick={()=>window.location.reload()}>{ar?'إعادة المحاولة':'Retry'}</Button>}</PublicWorkspace>;
@@ -41,7 +47,8 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  const[restored,setRestored]=useState(false),[selectedKey,setSelectedKey]=useState<{program:string;day:string}|null>(null);const cacheKey=`academyos:experience:${subject}:${academy}:${role}:${calendar?'calendar':'home'}`;
  const ar=locale==='ar',t=(en:string,a:string)=>ar?a:en,base=`/${locale}/workspace/${academy}`,roleBase=role==='owner'?base:`${base}/${role}`,generation=useRef(0),rowOpener=useRef<HTMLButtonElement|null>(null),selectionRef=useRef<{program:string;day:string}|null>(null),reading=useRef(false),controllers=useRef(new Set<AbortController>());
  const scene=useRef<HTMLDivElement|null>(null),taskHeader=useRef<HTMLElement|null>(null),headerContent=useRef<HTMLDivElement|null>(null),resultsRegion=useRef<HTMLDivElement|null>(null),headerContext=useRef<HTMLParagraphElement|null>(null),periodSummary=useRef<HTMLParagraphElement|null>(null),operationsSummary=useRef<HTMLElement|null>(null),taskGrid=useRef<HTMLElement|null>(null),[checkingHeight,setCheckingHeight]=useState(0),[checkingRegions,setCheckingRegions]=useState({context:0,summary:0,operationsSummary:0,tasks:0,header:0,headerWidth:0,toolbar:0});
- const scrollPosition=useRef({center:0,document:0}),pendingPosition=useRef<{center:number;document:number}|null>(null),departurePosition=useRef<{center:number;document:number}|null>(null);
+ const scrollPosition=useRef<ViewPosition>({center:0,document:0}),pendingPosition=useRef<ViewPosition|null>(null),departurePosition=useRef<ViewPosition|null>(null);
+ const resumeRecovery=useRef<ResumeRecovery|null>(null),searchInput=useRef<HTMLInputElement>(null),reloadButton=useRef<HTMLButtonElement>(null);
  const queueReturn=useRef<string|null>(null);
  const reserveGeometry=useCallback(()=>{setCheckingHeight(resultsRegion.current?.getBoundingClientRect().height??0);setCheckingRegions({headerWidth:headerContent.current?.getBoundingClientRect().width??0,header:taskHeader.current?.getBoundingClientRect().height??0,toolbar:scene.current?.querySelector('.window-toolbar')?.getBoundingClientRect().height??0,context:headerContext.current?.getBoundingClientRect().height??0,summary:periodSummary.current?.getBoundingClientRect().height??0,operationsSummary:operationsSummary.current?.getBoundingClientRect().height??0,tasks:taskGrid.current?.getBoundingClientRect().height??0});},[]);
  const rememberSelection=useCallback((value:{program:string;day:string}|null)=>{selectionRef.current=value;setSelectedKey(value);},[]);
@@ -74,7 +81,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
    if(hint)window.history.replaceState(window.history.state,'',window.location.pathname+window.location.search);
    setRestored(true);
   });
-  return()=>{live=false;};
+  return()=>{live=false;resumeRecovery.current=null;};
  },[cacheKey,rememberSelection,anchor,prepared,role,calendar]);
  useEffect(()=>{
   if(!restored)return;
@@ -90,9 +97,35 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   node?.addEventListener('scroll',track,true);window.addEventListener('scroll',track,{passive:true});window.addEventListener('pagehide',remember);
   return()=>{remember();node?.removeEventListener('scroll',track,true);window.removeEventListener('scroll',track);window.removeEventListener('pagehide',remember);};
  },[cacheKey,restored]);
- useEffect(()=>{if(busy||!restored||!pendingPosition.current)return;if(error){pendingPosition.current=null;scrollPosition.current={center:0,document:0};return;}const position=pendingPosition.current;
-  const frame=requestAnimationFrame(()=>{if(pendingPosition.current!==position)return;const center=scene.current?.querySelector<HTMLElement>('.workspace-center');if(center)center.scrollTop=position.center;window.scrollTo({top:position.document,behavior:'instant'});pendingPosition.current=null;scrollPosition.current={center:center?.scrollTop??0,document:window.scrollY};});return()=>cancelAnimationFrame(frame);
- },[busy,error,restored]);
+ useEffect(()=>{
+  if(busy||!restored)return;
+  const recovery=resumeRecovery.current;
+  if(error){
+   if(pendingPosition.current){pendingPosition.current=null;scrollPosition.current={center:0,document:0};}
+   if(recovery?.focusRetry){
+    recovery.focusRetry=false;
+    if(document.activeElement===document.body)reloadButton.current?.focus({preventScroll:true});
+   }
+   return;
+  }
+  const position=recovery?.position??pendingPosition.current;
+  if(!position)return;
+  if(recovery&&(!home||home.setup_required||accessRevoked)){resumeRecovery.current=null;return;}
+  const frame=requestAnimationFrame(()=>{
+   if((resumeRecovery.current?.position??pendingPosition.current)!==position)return;
+   const center=scene.current?.querySelector<HTMLElement>('.workspace-center');
+   if(center)center.scrollTop=position.center;
+   window.scrollTo({top:position.document,behavior:'instant'});
+   if(recovery?.searchSelection&&searchInput.current){
+    searchInput.current.focus({preventScroll:true});
+    searchInput.current.setSelectionRange(recovery.searchSelection.start,recovery.searchSelection.end);
+   }
+   resumeRecovery.current=null;
+   pendingPosition.current=null;
+   scrollPosition.current={center:center?.scrollTop??0,document:window.scrollY};
+  });
+  return()=>cancelAnimationFrame(frame);
+ },[busy,error,restored,home,accessRevoked]);
  useEffect(()=>{
   if(busy||!restored||role!=='owner'||calendar||error||!home||home.setup_required||!queueReturn.current)return;
   const id=queueReturn.current;
@@ -110,7 +143,11 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   return()=>cancelAnimationFrame(frame);
  },[busy,restored,role,calendar,error,home,cacheKey]);
  useEffect(()=>{
-  const cancelReturn=()=>{
+  const cancelReturn=(event:Event)=>{
+   const activatingRetry=event.target===reloadButton.current&&(
+    event.type==='pointerdown'||event.type==='touchstart'||(event instanceof KeyboardEvent&&(event.key==='Enter'||event.key===' '))
+   );
+   if(!activatingRetry)resumeRecovery.current=null;
    if(!queueReturn.current)return;
    queueReturn.current=null;pendingPosition.current=null;
    try{
@@ -154,11 +191,12 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   pending.add(c);
   const ticket=++generation.current;let live=true;
   const current=()=>live&&ticket===generation.current;
+  let rechecking=false;
   function loading(){
     if(!current())return;
-    const keep=resumeCheck.current&&role==='owner'&&lastChecked.current;
-    resumeCheck.current=false;reserveGeometry();setChecking(keep);setBusy(true);setError('');
-    if(!keep){lastChecked.current=false;setHome(null);setData(null);setSelected(null);setFromDevice(false);setMissingCoverage(false);}
+    rechecking=resumeCheck.current&&role==='owner'&&lastChecked.current;
+    resumeCheck.current=false;reserveGeometry();setChecking(rechecking);setBusy(true);setError('');
+    if(!rechecking){lastChecked.current=false;setHome(null);setData(null);setSelected(null);setFromDevice(false);setMissingCoverage(false);}
   }
   void(async()=>{
    try{
@@ -207,6 +245,18 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
    }catch(e){
     if(!current())return;
     const code=e instanceof ReadFailure?e.code:'unavailable';
+    if(code==='unavailable'&&rechecking){
+     // The failure masks the results. Keep only navigation coordinates for a checked retry.
+     const focused=document.activeElement,input=searchInput.current;
+     const searchSelection=input&&focused===input&&input.selectionStart!==null&&input.selectionEnd!==null
+      ?{start:input.selectionStart,end:input.selectionEnd}:null;
+     resumeRecovery.current={
+      position:{center:scene.current?.querySelector('.workspace-center')?.scrollTop??0,document:window.scrollY},
+      searchSelection,focusRetry:Boolean(focused&&(
+       resultsRegion.current?.contains(focused)||focused.closest('.workspace-detail-dialog')
+      )),
+     };
+    }else if(code!=='unavailable')resumeRecovery.current=null;
     lastChecked.current=false;setError(code);setHome(null);setData(null);setSelected(null);setFromDevice(false);
     if(code==='denied'||code==='setup_required'){
       if(approved)void remove();
@@ -241,6 +291,12 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   return()=>{live=false;};
  },[restored,calendar,role,deviceActive,device.coverage,from,view,cursor,readContext,readCalendar,applyCalendar,fromDevice,offline,needMonth]);
  function resetPeriod(day:string){rememberSelection(null);setFrom(day);setCursor(null);setPages([]);setSelected(null);}
+ function refreshView(){
+  if(approved){device.refresh();return;}
+  const recovery=resumeRecovery.current;
+  if(recovery&&document.activeElement===reloadButton.current)recovery.focusRetry=true;
+  setRevision(value=>value+1);
+ }
  const calendarHref=`${roleBase}/calendar${role==='owner'&&!calendar&&home?.context.today?`?anchor=${home.context.today}`:''}`;
  const nav:NavigationItem[]=role==='owner'?ownerNavigation(locale,academy,calendar?'calendar':'home').map(item=>item.href===`${base}/calendar`?{...item,href:calendarHref}:item):[
   {href:`${roleBase}/home`,label:t('Home','الرئيسية'),current:!calendar,module:role==='guardian'?'family':'operations'},
@@ -285,7 +341,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  };
  function taskLabel(task:HomeTask){if(task.kind==='publication')return task.title==='withdraw'?t('Review withdrawal','مراجعة سحب النشر'):t('Review publication','مراجعة النشر');if(task.title)return task.title;return ({program:t('Resume this program','متابعة هذا البرنامج'),correction:t('Review requested correction','مراجعة التصحيح المطلوب'),feedback:role==='trainer'?t('Continue feedback','متابعة الملاحظات'):t('Review submitted feedback','مراجعة الملاحظات المقدمة'),attendance:t('Open this register','فتح سجل الحضور')})[task.kind];}
  function exactTask(task:HomeTask){
-  if(task.kind==='program')return `${base}/programs/${task.id}`;
+  if(task.kind==='program')return `${base}/programs/${task.id}${ownerToday?ownerTodayTaskHint('program',task.id)??'':''}`;
   const reviewSource=ownerToday?ownerTodayReviewSource(task.id):'';
   if(task.kind==='publication')return `${base}/programs/${task.program}/publish?job=${task.id}${reviewSource}`;
   if(task.kind==='attendance')return `${base}/attendance/${task.id}${ownerToday?ownerSessionSourceSuffix('#',{returnTo:'home',attendanceTask:task.id}):''}`;
@@ -294,7 +350,7 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  }
  function todayTaskHint(task:HomeTask){
   if(!ownerToday)return undefined;
-  if(task.kind==='attendance'||task.kind==='correction'||task.kind==='publication')return ownerTodayTaskHint(task.kind,task.id)??undefined;
+  if(task.kind==='program'||task.kind==='attendance'||task.kind==='correction'||task.kind==='publication')return ownerTodayTaskHint(task.kind,task.id)??undefined;
   if(task.kind==='feedback')return ownerTodayTaskHint('development',task.id)??undefined;
   return undefined;
  }
@@ -305,9 +361,26 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
   : t('Unavailable','غير متاح');
  const sessions=calendar?data?.items:today?.items;
  const visible=sessions?.filter(i=>!filter||i.title.toLocaleLowerCase().includes(filter.toLocaleLowerCase())||i.branch.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
- const rangeStart = data?.from || (isCivilDay(displayedFrom) ? (view==='month'?monthGridStart(displayedFrom):displayedFrom) : '');
- const rangeEnd = data?.to || (rangeStart?addCivilDays(rangeStart,view==='week'?6:41):'');
- const periodLabel = rangeStart&&rangeEnd ? new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).formatRange(new Date(rangeStart+'T12:00:00Z'),new Date(rangeEnd+'T12:00:00Z')) : '';
+ const dateLocale = ar?'ar-EG':'en-GB';
+ const month = view==='month'&&isCivilDay(displayedFrom)?displayedFrom.slice(0,7):null;
+ const weekStart = data?.from || (isCivilDay(displayedFrom)?displayedFrom:'');
+ const weekEnd = data?.to || (weekStart?addCivilDays(weekStart,6):'');
+ // Render the period after restoring navigation. Node and the browser can format the same range differently.
+ const periodLabel = !ownerCalendar||!restored?'':month
+   ? new Intl.DateTimeFormat(dateLocale,{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(`${month}-01T12:00:00Z`))
+   : weekStart&&weekEnd
+     ? new Intl.DateTimeFormat(dateLocale,{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).formatRange(new Date(`${weekStart}T12:00:00Z`),new Date(`${weekEnd}T12:00:00Z`))
+     : '';
+ const weekDay = ownerCalendar?new Intl.DateTimeFormat(dateLocale,{weekday:'short',timeZone:'UTC'}):null;
+ const monthDay = ownerCalendar?new Intl.DateTimeFormat(dateLocale,{day:'numeric',month:'short',timeZone:'UTC'}):null;
+ const pageSearch = restored&&<label>{t('Search this loaded page','البحث في هذه الصفحة المحملة')}<input ref={searchInput} type="search" value={filter} onChange={e=>setFilter(e.target.value)}/></label>;
+ const periodSummaryContent = calendar&&(data||busy)&&<p ref={periodSummary} style={{minHeight:busy&&checkingRegions.summary?checkingRegions.summary:undefined}}>{data?<>
+   {!ownerCalendar&&<><bdi>{data.from} — {data.to}</bdi> · </>}
+   {formatQuantity(locale,data.total,'session')} {t('in this period','في هذه الفترة')}
+   {month&&(data.more||cursor||data.items.some(item=>!item.date.startsWith(month)))&&` · ${t('Includes surrounding dates','يشمل التواريخ المجاورة')}`}
+   {(!ownerCalendar||data.more||cursor)&&<> · {formatCount(locale,data.items.length)} {t('on this page','في هذه الصفحة')}</>}
+   {data.more&&` · ${t('More pages available','توجد صفحات أخرى')}`}
+  </>:<span aria-hidden="true">&#160;</span>}</p>;
  const title=calendar?t('Training calendar','تقويم التدريب'):role==='trainer'?t('Your day, ready','يومك جاهز'):role==='guardian'?t('Your player, connected','كل ما يخص لاعبك'):t('Academy operations','عمليات الأكاديمية');
  const selectedTime = selected && sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at);
  const ownerInspector = selected && selectedTime && <div className="operations-inspection">
@@ -327,28 +400,31 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  return <div ref={scene} className={ownerCalendar ? "owner-operations operations-calendar" : ownerToday ? "owner-operations" : undefined} onClickCapture={event=>{const anchor=event.target instanceof Element?event.target.closest('a[href]'):null;if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!(anchor instanceof HTMLAnchorElement)||anchor.target==='_blank'||anchor.getAttribute('href')?.startsWith('#'))return;const task=anchor.getAttribute('data-owner-today-task');if(ownerToday&&task){queueReturn.current=task;rememberSelection(null);}const center=scene.current?.querySelector<HTMLElement>('.workspace-center');departurePosition.current={center:center?.scrollTop??0,document:window.scrollY};}}><WorkspaceShell prefetch={prepared?false:undefined} scopeLabel={ownerToday?home?.context.branch_name:undefined} toolbarMinHeight={busy?checkingRegions.toolbar:0} locale={locale} role={role} module={role==='guardian'?'family':calendar?'training':'operations'} context={(!protectedViewGone&&home?.context.academy_name)||t('Academy workspace','مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" onNavigate={e=>{if(e.currentTarget.getAttribute('href')==='#language'){e.preventDefault();setLocale(ar?'en':'ar');}
  else if(publicOffline){e.preventDefault();const path=new URL(e.currentTarget.href);if(path.pathname.endsWith('/players')||path.pathname.endsWith('/calendar'))window.location.assign(path.href);}}}
  account={publicOffline?null:<UserButton/>} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(home&&!home.setup_required)&&!error&&!accessRevoked}/>} navigation={nav}>
- <WorkspacePanes arabic={ar} title={t('Session details','تفاصيل التدريب')} selected={!!selectedKey&&!error&&!protectedViewGone} blocked={busy} selectionKey={selectedKey?`${selectedKey.program}:${selectedKey.day}`:''} onBack={()=>{const key=selectionRef.current?`${selectionRef.current.program}:${selectionRef.current.day}`:'';rememberSelection(null);setSelected(null);requestAnimationFrame(()=>{const opener=rowOpener.current?.isConnected?rowOpener.current:document.querySelector<HTMLButtonElement>(`[data-occurrence="${CSS.escape(key)}"]`);opener?.focus({preventScroll:true});});}} inspector={selected&&!protectedViewGone?(ownerOperations?ownerInspector:<><h3>{selected.title}</h3><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).date}</p><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).time} · <bdi>{selected.timezone}</bdi></p><p>{selected.branch} · {ar?selected.sport_ar:selected.sport}</p>{role!=='guardian'&&<p>{t('Roster','قائمة اللاعبين')}: {selected.roster_count} / {selected.capacity??'—'}</p>}{selected.state==='cancelled'?<p>{t('Cancelled. Retained history stays available to the Owner.','ملغى. يبقى السجل المحفوظ متاحاً للمالك.')}</p>:<Link prefetch={false} className="button" href={destination(selected)} aria-disabled={busy} onClick={e=>{if(busy)e.preventDefault();}}>{role==='trainer'?t('Open register','فتح سجل الحضور'):t('Open player training','فتح تدريبات اللاعب')}</Link>}</>):busy&&selectedKey?<p role="status">{t('Checking current access…','جارٍ التحقق من الصلاحية الحالية…')}</p>:<div className="inspector-empty"><h3>{t('A useful next step','خطوتك التالية')}</h3><p>{t('Choose a session to see its context and open the right task.','اختر تدريباً لعرض سياقه وفتح المهمة المناسبة.')}</p></div>}>
+ <WorkspacePanes arabic={ar} title={t('Session details','تفاصيل التدريب')} selected={Boolean(ownerOperations?selected:selectedKey)&&!error&&!protectedViewGone} blocked={busy} selectionKey={selectedKey?`${selectedKey.program}:${selectedKey.day}`:''} onBack={()=>{const key=selectionRef.current?`${selectionRef.current.program}:${selectionRef.current.day}`:'';rememberSelection(null);setSelected(null);requestAnimationFrame(()=>{const opener=rowOpener.current?.isConnected?rowOpener.current:document.querySelector<HTMLButtonElement>(`[data-occurrence="${CSS.escape(key)}"]`);opener?.focus({preventScroll:true});});}} inspector={selected&&!protectedViewGone?(ownerOperations?ownerInspector:<><h3>{selected.title}</h3><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).date}</p><p>{sessionTime(locale,selected.timezone,selected.starts_at,selected.ends_at).time} · <bdi>{selected.timezone}</bdi></p><p>{selected.branch} · {ar?selected.sport_ar:selected.sport}</p>{role!=='guardian'&&<p>{t('Roster','قائمة اللاعبين')}: {selected.roster_count} / {selected.capacity??'—'}</p>}{selected.state==='cancelled'?<p>{t('Cancelled. Retained history stays available to the Owner.','ملغى. يبقى السجل المحفوظ متاحاً للمالك.')}</p>:<Link prefetch={false} className="button" href={destination(selected)} aria-disabled={busy} onClick={e=>{if(busy)e.preventDefault();}}>{role==='trainer'?t('Open register','فتح سجل الحضور'):t('Open player training','فتح تدريبات اللاعب')}</Link>}</>):busy&&selectedKey?<p role="status">{t('Checking current access…','جارٍ التحقق من الصلاحية الحالية…')}</p>:<div className="inspector-empty"><h3>{t('A useful next step','خطوتك التالية')}</h3><p>{t('Choose a session to see its context and open the right task.','اختر تدريباً لعرض سياقه وفتح المهمة المناسبة.')}</p></div>}>
  <header ref={taskHeader} style={{minHeight:busy&&checkingRegions.header?checkingRegions.header:undefined}} className="task-header"><div ref={headerContent} style={{minWidth:busy&&checkingRegions.headerWidth?`min(100%, ${checkingRegions.headerWidth}px)`:undefined}}>{!ownerOperations&&<p className="eyebrow">{role==='trainer'?t('Trainer','مدرب'):t('Guardian','ولي الأمر')}</p>}<h1>{title}</h1>{(home?.context.today||busy)&&<p ref={headerContext} style={{minHeight:busy&&checkingRegions.context?checkingRegions.context:undefined}}>{home?.context.today?<><bdi>{ownerCalendar?t('Session times follow each branch timezone.','تتبع أوقات التدريبات المنطقة الزمنية لكل فرع.'):ownerToday?new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{dateStyle:'full',timeZone:'UTC'}).format(new Date(home.context.today+'T12:00:00Z')):home.context.today}</bdi>{!ownerOperations&&<> · <bdi>{home.context.timezone}</bdi></>}</>:<span aria-hidden="true">&#160;</span>}</p>}</div><div className={ownerOperations?"operations-header-actions":undefined}>
  {ownerToday&&(home&&!home.setup_required
   ? <Link prefetch={false} className="operations-calendar-link" href={calendarHref}>{t('Open calendar','فتح التقويم')}</Link>
   : busy&&checkingRegions.operationsSummary>0&&<span aria-hidden="true" className="operations-calendar-link operations-placeholder">{t('Open calendar','فتح التقويم')}</span>)}
- <Button className="experience-reload" aria-label={ownerCalendar?t('Refresh','تحديث'):t('Reload current view','إعادة تحميل العرض الحالي')} disabled={busy||offline||accessRevoked} onClick={()=>approved?device.refresh():setRevision(x=>x+1)}>{ownerCalendar?t('Refresh','تحديث'):t('Reload current view','إعادة تحميل العرض الحالي')}</Button>
+ <Button ref={reloadButton} className="experience-reload" aria-label={ownerCalendar?t('Refresh','تحديث'):t('Reload current view','إعادة تحميل العرض الحالي')} disabled={busy||offline||accessRevoked} onClick={refreshView}>{ownerCalendar?t('Refresh','تحديث'):t('Reload current view','إعادة تحميل العرض الحالي')}</Button>
  </div></header>
  {role==='guardian'&&<section className="experience-player-picker"><label>{t('Player','اللاعب')}<Select disabled={busy} value={link} onChange={e=>{rememberSelection(null);setHome(null);setData(null);setSelected(null);setLink(e.target.value);setCursor(null);setPages([]);}}>{links.map(x=><option key={x.id} value={x.id}>{x.display_name} · {x.branch_name}</option>)}</Select></label>{moreLinks&&<Button disabled={busy} onClick={()=>setLinkAfter(links.at(-1)?.id??null)}>{t('More linked players','لاعبون مرتبطون آخرون')}</Button>}{linkAfter&&<Button disabled={busy} onClick={()=>setLinkAfter(null)}>{t('First players','أول اللاعبين')}</Button>}</section>}
  {busy&&!checkingHeight&&<p role="status">{checking?t('Checking for changes…','جارٍ التحقق من التغييرات…'):calendar?t('Loading this calendar…','جارٍ تحميل هذا التقويم…'):t('Loading your current tasks…','جارٍ تحميل مهامك الحالية…')}</p>}
- {(error||accessRevoked)&&<p role="alert">{accessRevoked||error==='denied'?t('Access is no longer available. Choose your current workspace.','لم تعد الصلاحية متاحة. اختر مساحة عملك الحالية.'):t('This view is unavailable. Refresh to try again.','هذا العرض غير متاح. حدّثه للمحاولة مجددًا.')}</p>}{error&&calendar&&!accessRevoked&&<Button disabled={busy} onClick={()=>{setCursor(null);setPages([]);currentAnchor.current='';setResolvedAnchor('');setFrom('');setRevision(x=>x+1);}}>{t('Return to the current period','العودة للفترة الحالية')}</Button>}
+ {(error||accessRevoked)&&<p role="alert">{accessRevoked||error==='denied'?t('Access is no longer available. Choose your current workspace.','لم تعد الصلاحية متاحة. اختر مساحة عملك الحالية.'):t('This view is unavailable. Refresh to try again.','هذا العرض غير متاح. حدّثه للمحاولة مجددًا.')}</p>}{error&&calendar&&!accessRevoked&&<Button disabled={busy} onClick={()=>{resumeRecovery.current=null;setCursor(null);setPages([]);currentAnchor.current='';setResolvedAnchor('');setFrom('');setRevision(x=>x+1);}}>{t('Return to the current period','العودة للفترة الحالية')}</Button>}
  {!busy&&!error&&home?.setup_required&&<section className="journey-card"><h2>{t('Finish academy setup','أكمل إعداد الأكاديمية')}</h2><p>{t('Your saved setup is ready to resume.','يمكنك استئناف الإعداد المحفوظ.')}</p><Link prefetch={false} className="button" href={base}>{t('Continue setup','متابعة الإعداد')}</Link></section>}
  {!busy&&!error&&role==='guardian'&&!links.length&&<section className="journey-card"><h2>{t('No active player links','لا ارتباطات نشطة بلاعبين')}</h2><p>{t('Ask the academy to review your invitation or current access.','اطلب من الأكاديمية مراجعة دعوتك أو صلاحيتك الحالية.')}</p></section>}
  {(home||calendar||restored)&&!home?.setup_required&&!error&&!protectedViewGone&&<div ref={resultsRegion} style={{display:'flow-root',minHeight:busy&&checkingHeight?checkingHeight:undefined}}>
  {busy&&checkingHeight>0&&<div style={{height:0,position:'sticky',top:Math.max(80,checkingRegions.toolbar+8),zIndex:1}}><p role="status" style={{margin:0,background:'var(--surface)'}}>{checking?t('Checking for changes…','جارٍ التحقق من التغييرات…'):calendar?t('Loading this calendar…','جارٍ تحميل هذا التقويم…'):t('Loading your current tasks…','جارٍ تحميل مهامك الحالية…')}</p></div>}
  {calendar&&(ownerCalendar?<section className="calendar-toolbar operations-calendar-toolbar" aria-busy={busy} aria-label={t('Calendar controls','أدوات التقويم')}>
-  <div className="journey-actions" role="group" aria-label={t('Calendar view','عرض التقويم')}><Button disabled={busy} aria-pressed={view==='week'} onClick={()=>{setView('week');setCursor(null);setPages([]);}}>{t('Week','أسبوع')}</Button><Button disabled={busy} aria-pressed={view==='month'} onClick={()=>{setView('month');setCursor(null);setPages([]);}}>{t('Month','شهر')}</Button></div>
-  <div className="journey-actions operations-period-actions" role="group" aria-label={t('Change period','تغيير الفترة')}>
-   <Button aria-label={t('Previous period','الفترة السابقة')} disabled={!displayedFrom||busy} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,-7):shiftMonth(displayedFrom,-1))}><span aria-hidden="true" className="directional">‹</span><span className="operations-period-word">{t('Previous','السابق')}</span></Button>
-   <Button disabled={busy||!home} onClick={()=>{if(home)resetPeriod(home.context.today);}}>{t('Today','اليوم')}</Button>
-   <Button aria-label={t('Next period','الفترة التالية')} disabled={!displayedFrom||busy} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,7):shiftMonth(displayedFrom,1))}><span className="operations-period-word">{t('Next','التالي')}</span><span aria-hidden="true" className="directional">›</span></Button>
+  <div className="operations-period-actions" role="group" aria-label={t('Change period','تغيير الفترة')}>
+   <Button aria-label={t('Previous period','الفترة السابقة')} disabled={!displayedFrom||(busy&&checking)} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,-7):shiftMonth(displayedFrom,-1))}><span aria-hidden="true" className="directional">‹</span></Button>
+   <h2 id="owner-calendar-period">{periodLabel||t('Sessions in this period','تدريبات هذه الفترة')}</h2>
+   <Button aria-label={t('Next period','الفترة التالية')} disabled={!displayedFrom||(busy&&checking)} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,7):shiftMonth(displayedFrom,1))}><span aria-hidden="true" className="directional">›</span></Button>
   </div>
-  <label>{t('Go to date','انتقل إلى تاريخ')}<input type="date" value={displayedFrom} disabled={busy} onChange={e=>{if(e.target.value)resetPeriod(e.target.value);}}/></label>
+  <div className="operations-calendar-views" role="group" aria-label={t('Calendar view','عرض التقويم')}><Button disabled={busy&&checking} aria-pressed={view==='week'} onClick={()=>{setView('week');setCursor(null);setPages([]);}}>{t('Week','أسبوع')}</Button><Button disabled={busy&&checking} aria-pressed={view==='month'} onClick={()=>{setView('month');setCursor(null);setPages([]);}}>{t('Month','شهر')}</Button></div>
+  <div className="operations-calendar-jump">
+   <Button disabled={busy||!home} onClick={()=>{if(home)resetPeriod(home.context.today);}}>{t('Today','اليوم')}</Button>
+   <label>{t('Go to date','انتقل إلى تاريخ')}<input type="date" value={displayedFrom} disabled={busy&&checking} onChange={e=>{if(e.target.value)resetPeriod(e.target.value);}}/></label>
+  </div>
  </section>:<section className="calendar-toolbar" aria-busy={busy}><div className="journey-actions"><Button disabled={busy} aria-pressed={view==='week'} onClick={()=>{setView('week');setCursor(null);setPages([]);}}>{t('Week','أسبوع')}</Button><Button disabled={busy} aria-pressed={view==='month'} onClick={()=>{setView('month');setCursor(null);setPages([]);}}>{t('Month','شهر')}</Button><Button disabled={!displayedFrom||busy} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,-7):shiftMonth(displayedFrom,-1))}>{t('Previous period','الفترة السابقة')}</Button><Button disabled={busy||!home} onClick={()=>{if(home)resetPeriod(home.context.today);}}>{t('Today','اليوم')}</Button><Button disabled={!displayedFrom||busy} onClick={()=>resetPeriod(view==='week'?addCivilDays(displayedFrom,7):shiftMonth(displayedFrom,1))}>{t('Next period','الفترة التالية')}</Button></div><label>{t('Go to date','انتقل إلى تاريخ')}<input type="date" value={displayedFrom} disabled={busy} onChange={e=>{if(e.target.value)resetPeriod(e.target.value);}}/></label></section>)}
  {ownerToday&&home&&<nav ref={operationsSummary} className="operations-summary" aria-label={t('Operations summary','ملخص العمليات')}>
   <a className="operations-metric" data-tone="training" href="#owner-today-schedule">
@@ -362,22 +438,25 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  </nav>}
  {ownerToday&&busy&&!home&&checkingRegions.operationsSummary>0&&
   <nav ref={operationsSummary} aria-hidden="true" className="operations-summary" style={{minHeight:checkingRegions.operationsSummary}}/>}
- <section className="experience-sessions"><header><div><h2 id={ownerToday?'owner-today-schedule':undefined} tabIndex={ownerToday?-1:undefined}>{calendar?(ownerCalendar&&periodLabel?periodLabel:t('Sessions in this period','تدريبات هذه الفترة')):t('Today’s sessions','تدريبات اليوم')}</h2>{!calendar&&!ownerToday&&today?.state==='ready'&&typeof today.count==='number'&&<p className="experience-scope-count"><bdi>{new Intl.NumberFormat(locale).format(today.count)}</bdi> {t('in your current scope','ضمن نطاقك الحالي')}</p>}</div>{!calendar&&(ownerToday?<small><bdi>{home?.context.timezone}</bdi></small>:<Link prefetch={false} href={calendarHref}>{t('Open calendar','فتح التقويم')}</Link>)}</header>
- {calendar&&(data||busy)&&<p ref={periodSummary} style={{minHeight:busy&&checkingRegions.summary?checkingRegions.summary:undefined}}>{data?<>{!ownerCalendar&&<><bdi>{data.from} — {data.to}</bdi> · </>}{formatQuantity(locale,data.total,'session')} {t('in this period','في هذه الفترة')} · {formatCount(locale,data.items.length)} {t('on this page','في هذه الصفحة')}{data.more&&` · ${t('More pages available','توجد صفحات أخرى')}`}</>:<span aria-hidden="true">&#160;</span>}</p>}
- {restored&&<label>{t('Search this loaded page','البحث في هذه الصفحة المحملة')}<input type="search" value={filter} onChange={e=>setFilter(e.target.value)}/></label>}
+ <section className="experience-sessions" aria-labelledby={ownerCalendar?'owner-calendar-period':undefined}>
+ {ownerCalendar?<div className="operations-calendar-search">{pageSearch}{periodSummaryContent}</div>:<>
+  <header><div><h2 id={ownerToday?'owner-today-schedule':undefined} tabIndex={ownerToday?-1:undefined}>{calendar?t('Sessions in this period','تدريبات هذه الفترة'):t('Today’s sessions','تدريبات اليوم')}</h2>{!calendar&&!ownerToday&&today?.state==='ready'&&typeof today.count==='number'&&<p className="experience-scope-count"><bdi>{new Intl.NumberFormat(locale).format(today.count)}</bdi> {t('in your current scope','ضمن نطاقك الحالي')}</p>}</div>{!calendar&&(ownerToday?<small><bdi>{home?.context.timezone}</bdi></small>:<Link prefetch={false} href={calendarHref}>{t('Open calendar','فتح التقويم')}</Link>)}</header>
+  {periodSummaryContent}{pageSearch}
+ </>}
  {missingCoverage&&<p role="status">{offline?t('This period is not on this device yet. Connect to prepare it.','هذه الفترة غير متاحة على هذا الجهاز بعد. اتصل بالإنترنت لتحضيرها.'):device.phase==='preparing'?t('Preparing this period on your device…','جارٍ تحضير هذه الفترة على جهازك…'):t('This period is not ready on this device. Check for changes to try again.','هذه الفترة غير جاهزة على هذا الجهاز. تحقّق من التغييرات للمحاولة مجددًا.')}</p>}
  {!missingCoverage&&!busy&&visible?.length===0&&<div className={ownerCalendar?'operations-calendar-empty':undefined}><p>{filter?t('No match on this page. Clear the search or check another page.','لا تطابق في هذه الصفحة. امسح البحث أو افحص صفحة أخرى.'):calendar&&data&&data.total>0?t('No sessions on this page. Return to the previous page.','لا تدريبات في هذه الصفحة. عُد إلى الصفحة السابقة.'):t('No sessions in this selection.','لا تدريبات ضمن هذا الاختيار.')}</p>{ownerCalendar&&filter&&<Button onClick={()=>setFilter('')}>{t('Clear search','مسح البحث')}</Button>}</div>}
  {!calendar&&home?.panels?.today?.state==='unavailable'&&<p>{(ownerToday?t('Today’s schedule is unavailable. Reload this view to try again.','جدول اليوم غير متاح. أعد تحميل العرض للمحاولة.'):t('Training view unavailable for this link. Ask the academy to review access.','عرض التدريب غير متاح لهذا الارتباط. اطلب من الأكاديمية مراجعة الصلاحية.'))}</p>}
  {ownerToday&&!!visible?.length&&<div className="operations-schedule-head" aria-hidden="true">
   <span>{t('Time','الوقت')}</span><span>{t('Session','الجلسة')}</span><span>{t('Roster','القائمة')}</span><span>{t('Schedule','الجدول')}</span>
  </div>}
- {ownerCalendar&&data&&!!visible?.length?<div className="operations-calendar-content">
+ {ownerCalendar&&weekDay&&monthDay&&data&&!!visible?.length?<div className="operations-calendar-content">
   <div className={view==='week'?'operations-week-board':'calendar-grid operations-month-board'} aria-label={view==='week'?t('Weekly calendar','التقويم الأسبوعي'):t('Monthly calendar','التقويم الشهري')}>
    {Array.from({length:view==='week'?7:42},(_,i)=>addCivilDays(data.from,i)).map(day=>{
     const items=visible.filter(item=>item.date===day);
     const dayDate=new Date(day+'T12:00:00Z');
-    return <section className={`operations-calendar-day${view==='month'?' calendar-day':''}${items.length?'':' is-empty'}${day===home?.context.today?' is-today':''}`} key={day} aria-labelledby={`calendar-day-${day}`}>
-     <header><h3 id={`calendar-day-${day}`}><span>{new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{weekday:'short',timeZone:'UTC'}).format(dayDate)}</span><bdi>{new Intl.DateTimeFormat(ar?'ar-EG':'en-GB',{day:'numeric',month:'short',timeZone:'UTC'}).format(dayDate)}</bdi></h3>{day===home?.context.today&&<span className="operations-day-today">{t('Today','اليوم')}</span>}</header>
+    const isToday=day===home?.context.today;
+    return <section className={`operations-calendar-day${view==='month'?' calendar-day':''}${month&&!day.startsWith(month)?' adjacent-month':''}${items.length?'':' is-empty'}${isToday?' is-today':''}`} key={day} aria-labelledby={`calendar-day-${day}`}>
+     <header><h3 id={`calendar-day-${day}`}><span>{weekDay.format(dayDate)}</span><bdi aria-current={isToday?'date':undefined}>{monthDay.format(dayDate)}</bdi></h3>{isToday&&<span className="operations-day-today">{t('Today','اليوم')}</span>}</header>
      <ul>{items.map(row)}</ul>
      {!items.length&&<p className="operations-day-empty">{filter?t('No matches on this page','لا تطابق في هذه الصفحة'):data.more||!!cursor?t('No sessions on this page','لا تدريبات في هذه الصفحة'):t('No sessions','لا تدريبات')}</p>}
     </section>;

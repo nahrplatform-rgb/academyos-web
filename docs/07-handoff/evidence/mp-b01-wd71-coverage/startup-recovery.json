@@ -1,0 +1,57 @@
+{
+  "recordedUtc": "2026-11-16T20:06:10.754569+00:00",
+  "scope": "Actual Nahr selected Academy Owner, existing saved synthetic event, local production build k6SQlx9qZmqX6unm2i8Di; no new writes",
+  "relayRecovery": {
+    "startedExistingRelay": true,
+    "pairedBrowsersReconnected": true,
+    "mcp": "Loaded server reports version mismatch; installed current CLI works",
+    "interface": "Current browse uses task group and explicit tab ID rather than removed session_new API",
+    "group": "mpb01-startup-recovery",
+    "allowedOrigins": [
+      "http://localhost:3100",
+      "https://immune-grizzly-7875.clerk.accounts.dev"
+    ],
+    "configurationChanged": false
+  },
+  "selectedEmailReverified": true,
+  "authenticatedDocument": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate"
+  },
+  "serverUnavailableChecks": {
+    "stop": "Verified exact owned runtime stopped",
+    "browserNetworkEmulation": false,
+    "cacheDisabled": false,
+    "englishOrdinaryReload": {
+      "publicShell": true,
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    },
+    "arabicColdEntryViaBlankDocument": {
+      "publicShell": true,
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    }
+  },
+  "serverRestored": {
+    "instance": "37c94adc-0dda-4afc-8760-d9c0f7880bfb",
+    "sameBuild": true,
+    "arabicOnlineRead": {
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    }
+  },
+  "disposition": "Browser availability blocker resolved. Normal cache-enabled origin-unavailable startup passes. Earlier tab-only CDP mixed run is diagnostic/emulation evidence, not an established product defect.",
+  "limits": [
+    "Origin-unavailable local browser test; not whole-device airplane-mode or installed-device proof",
+    "Old loaded MCP interface still needs normal client reconnect for new API discovery; current CLI browser work is operational",
+    "No new app/schema/provider configuration, save, commit, push or promotion"
+  ]
+}

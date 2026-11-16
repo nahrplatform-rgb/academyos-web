@@ -46,7 +46,11 @@ try{
   await expect.poll(()=>reads).toBe(start+1);await expect(page.locator('.experience-session')).toHaveCount(before.privateRows);
   const during=await snapshot();
   if(view==='home')await expect(page.locator('.experience-task-card').first()).toBeVisible();
-  assert.equal(await page.getByText('Fictional geometry academy',{exact:true}).evaluateAll(nodes=>nodes.some(node=>node.getClientRects().length>0)),true,'checked same-scope academy context remains visible');
+  // On narrow layouts identity lives in the closed drawer. Inspect the
+  // retained context without opening it or affecting the measured scroll.
+  const academyContext=page.locator(width>=1280?'.workspace-sidebar .sidebar-context':'.workspace-drawer .sidebar-context');
+  await expect(academyContext).toHaveText('Fictional geometry academy');
+  if(width>=1280)await expect(academyContext).toBeVisible();
   if(process.env.EX02_HEADER_BASELINE!=='1'){assert.ok(Math.abs(during.inputY-before.inputY)<=1,`loaded-page search does not move while the last checked task stays visible (${view} ${locale} ${width}: ${before.inputY} → ${during.inputY})`);assert.ok(Math.abs(during.blocks['.experience-reload'].top-before.blocks['.experience-reload'].top)<=1,'disabled reload stays in its original position');}assert.ok(during.sameCenter,'same center DOM node; no shell-remount inference');
   if(process.env.EX02_GEOMETRY_BASELINE!=='1'){
    const status=page.getByRole('status');await expect(status).toHaveCount(1);

@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-11-16T13:50:49.860726+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/qr-workspace.tsx": "7f1fb6efdaa63908aa687578e219ff40903679eb7611afec6297b8169ba48c3c",
+    "scripts/qr-attendance/test_ui.mjs": "e0196e2b7118a1f0b899d5aebcfb33a81d1546a7792d137acddb09eee649476b",
+    "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
+    "scripts/qr-attendance/test_api.mjs": "94bd45947a0eedb5f9433cb9897bf7c6203036cf640d00087254cad3a0217464",
+    "scripts/experience-review/collect.mjs": "596d40d52aab3dc8d4776ba9ebfbdd3b14030deeb1b4096816ca955d8536ee32",
+    "scripts/experience-review/build.mjs": "eefba9ac5152cb3033de65ce3a74c75eac2279207c413da0fb7be0924955c459"
+  },
+  "negativeControlSourceHash": "d2c540c7338d859889fbf68d7490c1b7dc8aa6aec63660c743148d8f2e90cd01",
+  "runtime": "Node24.14.0; actual React production/development with fictional HTTP/identity; isolated Chromium",
+  "helpers": 0,
+  "coordinator": "Current Codex; exact configured backend model and usage unavailable",
+  "checks": {
+    "componentCases": 96,
+    "componentGaps": 0,
+    "negativeControlCases": 48,
+    "negativeControlGaps": 54,
+    "existingCasesPerReactMode": 15,
+    "apiBudgetRefusals": 24,
+    "invalidBodies": 3,
+    "crossOriginDenied": true,
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "managedProduction": "verified hBxo0VSsHghQLtoX6T6_g / a8eeeace-e82a-445d-86f8-db3e7052a9bc",
+    "compiledSourceAssets": "passed",
+    "localProcesses": "dev3000/production3100 current; not signed-in readiness",
+    "normalAttendance": "retained source-current 28-check receipt; not rerun",
+    "review": {
+      "componentFamilies": 16,
+      "staticCaptures": 8,
+      "frames": 1650,
+      "transitions": 1971,
+      "captureGaps": 0,
+      "tool": "passed",
+      "freshness": "passed"
+    },
+    "canonical": {
+      "masterGeneration": "passed",
+      "continuationGeneration": "passed",
+      "executionValidator": "passed; includes20 continuation tests",
+      "implementationRegister": "passed",
+      "diffWhitespace": "passed"
+    }
+  },
+  "assertions": [
+    "Focus+Enter original control; pending original retained; zero effect before gate release",
+    "Exact academy/player/card choice/version7 or exact academy/session settings target/version7/45/30; scan exact selected sessions/code, without invented capture version",
+    "Opaque operation-only storage; same original survives lost reply/reload and clears on acknowledgement/reconciliation",
+    "Known confirmation during held current read; no false failed-read message; focus/online/visibility adds no requests while held",
+    "Read-only Load saved result after 503 and lost-reply reconciliation; no replacement command; exact protocol actions observed including failed reads",
+    "Current403 clears private player/branch and no next write; one fictional effect/version8",
+    "Existing stationary-card/stream test retained and passed; new pending read keeps stream mounted/paused"
+  ],
+  "limits": [
+    "No new SQL/domain, transactional audit, RLS or hosted verification; writers unchanged and prior receipts remain historical",
+    "Fictional HTTP state counters prove client protocol, not persisted real records, session-override propagation or database idempotency",
+    "No physical camera, installed-device, routed destination/return, delivery or Owner acceptance proof",
+    "No real staging writes, account/provider/configuration changes, commit, push or promotion"
+  ],
+  "failuresAndResolution": [
+    {
+      "failure": "Initial fixture assumed capture sends optimistic version",
+      "resolution": "Canonical capture has exact selected scope and server authority, no version field; retained card/settings version assertion"
+    },
+    {
+      "failure": "Baseline lost scan/settings reconciliation failed without Load saved result",
+      "resolution": "Reproduced missing recovery; mark follow-up read pending before all result reads"
+    },
+    {
+      "failure": "Initial read-state fix unmounted camera and reset stationary-card latch",
+      "resolution": "Retained existing stream during busy confirmed read, paused by existing lock; full camera regression passed"
+    },
+    {
+      "failure": "Protocol assertion raced context-to-sessions asynchronous transition",
+      "resolution": "Poll exact complete sequence; no action/count assertion removed"
+    }
+  ],
+  "commands": [
+    "node scripts/qr-attendance/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/qr-attendance/test_ui.mjs",
+    "QR_FOLLOWUP_ONLY=1 QR_BASELINE=1 QR_REFERENCE=test-results/wd71-qr/qr-before.tsx node scripts/qr-attendance/test_ui.mjs",
+    "node scripts/qr-attendance/test_api.mjs",
+    "npm run typecheck",
+    "npm run lint",
+    "npm test",
+    "npm run local:production -- --restart",
+    "node scripts/verification/web-build.mjs --check",
+    "npm run local:status",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "git diff --check"
+  ],
+  "ignoredLogs": "test-results/wd71-qr/",
+  "reviewArtifacts": {
+    "design/app-experience-review/manifest.json": "a07f28e4321f0093cdc991edfebecb5aa7c5c3c08f2305080878c10ec81a2375",
+    "design/app-experience-review/capture-pack.json.gz": "047631a7099aed14521d298c0f3bf488192fd498e34d2fa44f42aa8795d65993"
+  },
+  "evidenceHashes": {
+    "before-source.patch": "a162c280a5bf215074854d8ea72d4f8bd398c1ebb51e7d4bb55a40fd8a998d4c",
+    "development.json": "ff694cc910e3075b0fff66c74ba880b12a75f258dfee52dafa6de84f5be0175a",
+    "existing-development.json": "07fcfaff1040fa4c4639e2861e8ca0de2cc7c62fd2322ba44a18eab80ab8488f",
+    "existing-production.json": "07fcfaff1040fa4c4639e2861e8ca0de2cc7c62fd2322ba44a18eab80ab8488f",
+    "negative-control.json": "29cd1dd135968b1c1d8a34597878970ba9fc9474cada3285731d8791f691a85b",
+    "production.json": "ff694cc910e3075b0fff66c74ba880b12a75f258dfee52dafa6de84f5be0175a",
+    "read-failed-ar.png": "467bb02c3fd5979b379bcc75722c6f22f3531acf646ea1b613eb1e1dda068711"
+  }
+}

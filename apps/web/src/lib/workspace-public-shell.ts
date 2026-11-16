@@ -12,6 +12,9 @@ function supportedWorkspaceRoute(url:URL) {
 export async function prepareWorkspaceShell() {
   if (typeof navigator==='undefined'||!('serviceWorker' in navigator)||!globalThis.isSecureContext||
       !supportedWorkspaceRoute(new URL(location.href))) throw new Error('offline_shell_unavailable');
+  // HMR assets are deliberately mutable. The checked local offline runtime is
+  // localhost:3100; never install a cached shell over the live editing origin.
+  if(location.origin==='http://localhost:3000')throw new Error('offline_shell_unavailable');
   const registration=await navigator.serviceWorker.register('/prepared-workspace-worker.js',{scope:'/'});
   const worker=registration.installing??registration.waiting??registration.active;
   if (!worker) throw new Error('offline_shell_unavailable');

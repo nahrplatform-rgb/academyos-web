@@ -18,7 +18,7 @@ literal = dispatch['literal']
 ROUTES = {
     'x15_owner_home_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
     'p5_dates_v1', 'q6_read_v1', 'x20_register_download_v1', 'x20_register_dispatch_v1',
-    'x19_owner_register_key_v1', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
+    'x19_owner_register_key_v1', 'x23_owner_register_key_v2', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
     'c12_list_v1', 'c12_context_v1', 'c12_detail_v1', 'c12_decide_v1', 'c12_operation_v1',
     'e14_context_v1', 'e14_queue_v1', 'e14_detail_v1', 'e14_command_v1', 'e14_operation_v1',
     'p5_read_v1', 's8_owner_dates_v1', 's8_jobs_v1', 's8_read_v1', 's8_create_v1',
@@ -26,7 +26,7 @@ ROUTES = {
 }
 
 
-def seed(test):
+def seed(test, multi_scope=False):
     now = datetime.datetime.now(datetime.timezone.utc)
     # Keep today's session publishable before retiming the disposable register.
     zones = ('Africa/Cairo', 'Pacific/Kiritimati', 'America/Adak')
@@ -72,7 +72,7 @@ def seed(test):
              f"update academy.publication_events set roster_count=18,capacity=18 where id={literal(second_event)}")
     same_academy_event = {**events[1], 'academy': academy}
     events = [{**events[0], 'academy': academy}, {'event': second_event, 'academy': second}]
-    for event in events:
+    for event in events + ([same_academy_event] if multi_scope else []):
         # Disposable timing setup. Canonical dispatch still uses the real server clock.
         test.retime(event['event'], 'clock_timestamp()')
     return dict(academy=academy, otherAcademy=other, program=program['id'],
@@ -109,7 +109,7 @@ if __name__ == '__main__':
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
         dispatch['scope']['apply_bound'](test)
-        print(json.dumps({'ready': seed(test)}), flush=True)
+        print(json.dumps({'ready': seed(test, '--multi-scope' in sys.argv)}), flush=True)
         for line in sys.stdin:
             command = json.loads(line)
             if command['action'] == 'close':

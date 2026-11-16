@@ -9,6 +9,16 @@ import {spawn} from 'node:child_process';
 import {createServer} from 'node:net';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {checkCalendarControls} from './calendar_controls.mjs';
+import {checkOwnerEntry} from './owner_entry.mjs';
+import {checkSetupShortcuts} from './setup_shortcuts.mjs';
+import {checkOwnerTabResume,checkOwnerTabFocus} from './owner_tab_resume.mjs';
+const calendarControlsOnly=process.env.EX07_CALENDAR_CONTROLS_ONLY==='1';
+const calendarControlsBaseline=process.env.EX07_CALENDAR_CONTROLS_BASELINE==='1';
+const ownerEntryOnly = process.env.EX07_OWNER_ENTRY_ONLY === '1';
+const setupShortcutsOnly = process.env.EX07_SETUP_SHORTCUTS_ONLY === '1';
+const tabResumeOnly = process.env.EX07_OWNER_TAB_RESUME_ONLY === '1';
+const tabResumeBaseline = process.env.EX07_OWNER_TAB_RESUME_BASELINE === '1';
 const localControlsBaseline=process.env.EX02_LOCAL_CONTROLS_BASELINE==='1';
 const continuityBaseline=process.env.EX02_CONTINUITY_BASELINE==='1';
 const planningBaseline=process.env.EX02_PLANNING_BASELINE==='1';
@@ -17,8 +27,10 @@ const measureShell=process.env.EX02_SHELL_MEASURE==='1';
 const measureReadOwner=process.env.EX02_READ_OWNER_MEASURE==='1';
 const measureColdCalendar=process.env.EX04_COLD_MEASURE==='1';
 const root=resolve(import.meta.dirname,'../..'),fixture=await mkdtemp(join(tmpdir(),'academyos-next-routing-'));
+const tabResumeReference=process.env.EX07_OWNER_TAB_RESUME_REFERENCE;
+if(tabResumeReference&&(!tabResumeOnly||!tabResumeBaseline))throw new Error('A WD-69 reference requires the focused baseline mode');
 const evidence=resolve(process.env.UI_EVIDENCE_DIR||join(tmpdir(),'academyos-ex01-next'));
-const inputs=Object.fromEntries(await Promise.all(['apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/components/workspace-runtime.tsx','apps/web/src/lib/workspace-read-owner.ts','apps/web/src/app/[locale]/workspace/[academy]/layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
+const inputs=Object.fromEntries(await Promise.all(['scripts/navigation/owner_entry.mjs','scripts/navigation/setup_shortcuts.mjs','apps/web/src/app/[locale]/workspace/[academy]/page.tsx','apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx','apps/web/src/components/people-workspace.tsx','apps/web/src/lib/config.ts','apps/web/src/app/[locale]/workspace/page.tsx','apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx','apps/web/src/components/onboarding-workspace.tsx','apps/web/src/components/workspace-shell.tsx','apps/web/src/components/workspace-layout.tsx','apps/web/src/components/workspace-runtime.tsx','apps/web/src/lib/workspace-read-owner.ts','apps/web/src/app/[locale]/workspace/[academy]/layout.tsx','apps/web/src/app/layout.tsx','apps/web/src/components/experience-workspace.tsx','apps/web/src/components/date-planning-workspace.tsx','apps/web/src/lib/visible-resume.ts','apps/web/src/components/program-workspace.tsx','apps/web/src/components/program-planning-workspace.tsx'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
 await mkdir(evidence,{recursive:true});
 async function put(path,body){const p=join(fixture,path);await mkdir(dirname(p),{recursive:true});await writeFile(p,body);}
 await symlink(join(root,'node_modules'),join(fixture,'node_modules'),'dir');
@@ -26,8 +38,10 @@ await put('package.json',JSON.stringify({name:'academyos-isolated-next-routing',
 await put('next.config.mjs','export default {devIndicators:false};');
 await put('app/globals.css',await readFile(join(root,'apps/web/src/app/globals.css'),'utf8'));
 await put('app/layout.jsx',`import './globals.css';export default function Layout({children}){return <html lang="en"><body>{children}</body></html>}`);
-const clerk=(measureShell||measureReadOwner)?`import React from 'react';let loaded=true,subject='user_synthetic_navigation';const listeners=new Set();if(typeof window!=='undefined')window.addEventListener('fixture-identity',e=>{loaded=e.detail!==false;if(typeof e.detail==='string')subject=e.detail;listeners.forEach(f=>f())});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>loaded?subject:null,()=>subject);return {isLoaded:id!==null,user:id?{id}:undefined}}export function UserButton(){return <span>Fictional identity provider</span>}`:`import React from 'react';export function useUser(){return {isLoaded:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`;
-const bundled=await build({stdin:{contents:`export {default as Runtime} from '${root}/apps/web/src/components/workspace-runtime.tsx';export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){if(measureShell)b.onLoad({filter:/workspace-shell\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('import { useRef,','import { useEffect, useRef,');source=source.replace('export default function WorkspaceShell(props:Props){','export default function WorkspaceShell(props:Props){useEffect(()=>{const counts=window.__shellProbe??={mounts:0,unmounts:0};counts.mounts++;return()=>{counts.unmounts++;};},[]);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});if(measureReadOwner)b.onLoad({filter:/workspace-runtime\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('  const owner = useMemo',`  useEffect(()=>{const p=window.__readOwnerProbe??={mounts:0,unmounts:0};p.mounts++;return()=>{p.unmounts++;};},[]);\n  const owner = useMemo`);return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));}}]});
+const clerk=((measureShell||measureReadOwner)?`import React from 'react';let loaded=true,subject='user_synthetic_navigation';const listeners=new Set();if(typeof window!=='undefined')window.addEventListener('fixture-identity',e=>{loaded=e.detail!==false;if(typeof e.detail==='string')subject=e.detail;listeners.forEach(f=>f())});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>loaded?subject:null,()=>subject);return {isLoaded:id!==null,isSignedIn:id!==null,user:id?{id}:undefined}}export function UserButton(){return <span>Fictional identity provider</span>}`:`import React from 'react';export function useUser(){return {isLoaded:true,isSignedIn:true,user:{id:'user_synthetic_navigation'}}}export function UserButton(){return <span>Fictional routing test account</span>}`)+
+  `export function SignInButton({children}){return children}export function SignUpButton({children}){return children}`;
+if(tabResumeReference)inputs['apps/web/src/components/experience-workspace.tsx']=createHash('sha256').update(await readFile(tabResumeReference)).digest('hex');
+const bundled=await build({stdin:{contents:`export {default as Onboarding} from '${root}/apps/web/src/components/onboarding-workspace.tsx';export {default as People} from '${root}/apps/web/src/components/people-workspace.tsx';export {default as Runtime} from '${root}/apps/web/src/components/workspace-runtime.tsx';export {default as Experience} from '${root}/apps/web/src/components/experience-workspace.tsx';export {default as ProgramPlanning} from '${root}/apps/web/src/components/program-planning-workspace.tsx';export {default as Programs} from '${root}/apps/web/src/components/program-workspace.tsx';export {default as Planning} from '${root}/apps/web/src/components/date-planning-workspace.tsx';`,resolveDir:root,loader:'tsx'},tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',external:['react','react/*','next/*'],banner:{js:'"use client";'},plugins:[{name:'synthetic-identity-only',setup(b){if(measureShell)b.onLoad({filter:/workspace-shell\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('import { useRef,','import { useEffect, useRef,');source=source.replace('export default function WorkspaceShell(props:Props){','export default function WorkspaceShell(props:Props){useEffect(()=>{const counts=window.__shellProbe??={mounts:0,unmounts:0};counts.mounts++;return()=>{counts.unmounts++;};},[]);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});if(measureReadOwner)b.onLoad({filter:/workspace-runtime\.tsx$/},async args=>{let source=await readFile(args.path,'utf8');source=source.replace('  const owner = useMemo',`  useEffect(()=>{const p=window.__readOwnerProbe??={mounts:0,unmounts:0};p.mounts++;return()=>{p.unmounts++;};},[]);\n  const owner = useMemo`);return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));b.onLoad({filter:/.*/,namespace:'fixture'},()=>({contents:clerk,loader:'tsx'}));if(!baseline)b.onLoad({filter:/experience-workspace\.tsx$/},async args=>{let source=await readFile(tabResumeReference??args.path,'utf8');const marker='const item=scene.current?.querySelector<HTMLAnchorElement>(`[data-owner-today-task="${id}"]`);';if(!source.includes(marker))throw new Error('routed-return negative-control injection point missing from experience-workspace.tsx');source=source.replace(marker,'const item=globalThis.__breakProgramReturn===true?null:scene.current?.querySelector<HTMLAnchorElement>(`[data-owner-today-task="${id}"]`);');return {contents:source,loader:'tsx',resolveDir:dirname(args.path)};});}}]});
 await put('product-fixture.jsx',bundled.outputFiles[0].text);
 const academy='00000000-0000-4000-8000-000000000001',program='00000000-0000-4000-8000-000000000002',day='2026-11-01';
 {
@@ -40,9 +54,30 @@ if(measureReadOwner){
  await put(path,`import {Experience} from '${imp}';export default async function Page({params}){const p=await params;return <><Experience locale={p.locale} academy={p.academy} role="owner"/><Experience locale={p.locale} academy={p.academy} role="owner"/></>}`);
 }
 
-for(const view of ['home','calendar']){
- const path=`app/[locale]/workspace/[academy]/${view}/page.jsx`,imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
- await put(path,`import {Experience} from '${imp}';export default async function Page({params,searchParams}){const p=await params,q=await searchParams;return <Experience locale={p.locale} academy={p.academy} role="owner" calendar={${view==='calendar'}} anchor={q.anchor}/>}`);
+// Copy the real route entry points. Adapt only identity and module resolution
+// in this temporary app; these routes still parse their actual parameters.
+await put('fixture-auth.js', 'export const auth = {protect: async () => {}};');
+await put('fixture-onboarding.ts', await readFile(join(root, 'apps/web/src/lib/onboarding.ts'), 'utf8'));
+await put('fixture-config.ts', await readFile(join(root, 'apps/web/src/lib/config.ts'), 'utf8'));
+await put('fixture-experience-format.ts', await readFile(join(root, 'apps/web/src/lib/experience-format.ts'), 'utf8'));
+for (const [path, component, exported] of [
+ ['app/[locale]/workspace/page.tsx', 'OnboardingWorkspace', 'Onboarding'],
+ ['app/[locale]/workspace/[academy]/page.tsx', 'OnboardingWorkspace', 'Onboarding'],
+ ['app/[locale]/workspace/[academy]/players/page.tsx', 'PeopleWorkspace', 'People'],
+ ['app/[locale]/workspace/[academy]/home/page.tsx', 'ExperienceWorkspace', 'Experience'],
+ ['app/[locale]/workspace/[academy]/calendar/page.tsx', 'ExperienceWorkspace', 'Experience'],
+ ['app/[locale]/platform/page.tsx', 'OnboardingWorkspace', 'Onboarding'],
+]) {
+ const directory = dirname(join(fixture, path));
+ const from = file => './' + relative(directory, join(fixture, file));
+ const source = await readFile(join(root, 'apps/web/src', path), 'utf8');
+ await put(path, source
+  .replace(/(['"])@clerk\/nextjs\/server\1/, JSON.stringify(from('fixture-auth.js')))
+  .replace(new RegExp(`import ${component} from ['"]@/components/[^'"]+['"];`),
+   `import {${exported} as ${component}} from "${from('product-fixture.jsx')}";`)
+  .replace(/(['"])@\/lib\/onboarding\1/, JSON.stringify(from('fixture-onboarding')))
+  .replace("'@/lib/experience-format'", JSON.stringify(from('fixture-experience-format')))
+  .replace("'@/lib/config'", JSON.stringify(from('fixture-config'))));
 }
 {
  const path='app/[locale]/workspace/[academy]/programs/[program]/[day]/page.jsx',imp='./'+relative(dirname(join(fixture,path)),join(fixture,'product-fixture.jsx'));
@@ -58,7 +93,10 @@ for(const suffix of ['','/[program]']){
 }
 const context={academy_id:academy,academy_name:'Fictional Routing Academy',branch_name:'Main Demo Branch',branch_id:academy,timezone:'Africa/Cairo',today:day};
 const session={id:program,program,day,date:day,starts_at:day+'T15:00:00Z',ends_at:day+'T16:00:00Z',title:'Fictional Routing Session',branch:'Main Demo Branch',sport:'Football',sport_ar:'كرة القدم',timezone:'Africa/Cairo',state:'draft',published:false,capacity:18,roster_count:0};
-await put('app/api/experience/route.js',`const context=${JSON.stringify(context)},item=${JSON.stringify(session)};export async function POST(req){const b=await req.json();const first=b.action==='owner_current_calendar'?'${day}':b.from,last=b.action==='owner_current_calendar'?(b.view==='month'?'2026-12-12':'2026-11-07'):b.to;const data=b.action==='owner_home'?{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:'ready',items:[item],count:1}}}:{context,as_of:'2026-11-01T12:00:00Z',anchor:'${day}',from:first,to:last,total:1,items:[item],more:false,next:null};return Response.json({data});}`);
+await put('app/api/experience/route.js',`const context=${JSON.stringify(context)},item=${JSON.stringify(session)},programTask={id:'${program}',kind:'program'};export async function POST(req){const b=await req.json();const first=b.action==='owner_current_calendar'?'${day}':b.from,last=b.action==='owner_current_calendar'?(b.view==='month'?'2026-12-12':'2026-11-07'):b.to;const completed=globalThis.__fixtureProgramCompleted===true;const data=b.action==='owner_home'?{context,as_of:'2026-11-01T12:00:00Z',panels:{today:{state:'ready',items:[item],count:1},unfinished_programs:completed?{state:'ready',count:0}:{state:'ready',count:1,tasks:[programTask]}}}:{context,as_of:'2026-11-01T12:00:00Z',anchor:'${day}',from:first,to:last,total:1,items:[item],more:false,next:null};return Response.json({data});}`);
+await put('app/api/people/route.js', 'export function POST(){return Response.json({error:"unavailable"},{status:503});}');
+await put('app/api/onboarding/route.js', 'export function POST(){return Response.json({error:"unavailable"},{status:503});}');
+await put('app/api/fixture-state/route.js',`export async function GET(req){const value=new URL(req.url).searchParams.get('completed');if(value==='1')globalThis.__fixtureProgramCompleted=true;else if(value==='0')globalThis.__fixtureProgramCompleted=false;return Response.json({completed:globalThis.__fixtureProgramCompleted===true});}`);
 await put('app/api/planning/route.js',`const context=${JSON.stringify(context)};export async function POST(req){const b=await req.json();if(!['read','dates'].includes(b.action))return Response.json({error:'test_read_only'},{status:403});const data=b.action==='read'?{context,program:'${program}',name:'Fictional Routing Session',day:'${day}',start:'17:00',end:'18:00',timezone:'Africa/Cairo',version:0,schedule_version:1,capacity:null,trainer:null,count:0,players:[],more:false}:{items:[],more:false};return Response.json({data});}`);
 const programRecord={id:program,definition:{name:'Fictional Routing Program',from:day,to:day,rules:[{day:0,start:'17:00',end:'18:00'}]},timezone:'Africa/Cairo',state:'ready',completed:1,prepared:1,version:1,context_version:1,total:1,windows:1,failure:null,failure_date:null};
 await put('app/api/programs/route.js',`const context=${JSON.stringify({...context,sport_name:'Football',sport_name_ar:'كرة القدم',version:1})},program=${JSON.stringify(programRecord)};export async function POST(req){const b=await req.json();if(!['list','read'].includes(b.action))return Response.json({error:'test_read_only'},{status:403});return Response.json({data:b.action==='list'?{context,items:[program],more:false}:{context,program,dates:[{date:'${day}',start:'17:00',end:'18:00',utcStart:'${day}T15:00:00Z',utcEnd:'${day}T16:00:00Z'}]}});}`);
@@ -71,17 +109,57 @@ try{
  const socket=createServer();await new Promise(r=>socket.listen(0,'127.0.0.1',r));const port=socket.address().port;await new Promise(r=>socket.close(r));const origin=`http://127.0.0.1:${port}`;
  server=spawn(process.execPath,[next,'start','--port',String(port),'--hostname','127.0.0.1'],{cwd:fixture,env:{...process.env,NEXT_TELEMETRY_DISABLED:'1'}});server.stdout.on('data',s=>log+=s);server.stderr.on('data',s=>log+=s);
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(origin+'/en/workspace/'+academy+'/home')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,'isolated Next server ready');
- browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
+ browser=await chromium.launch();
+ if(calendarControlsOnly||(!ownerEntryOnly&&!setupShortcutsOnly&&!tabResumeOnly&&!baseline&&!planningBaseline&&!continuityBaseline&&!localControlsBaseline)){
+  const result=await checkCalendarControls(browser,origin,context,session,{baseline:calendarControlsBaseline,evidence});
+  const extraInputs=Object.fromEntries(await Promise.all(['scripts/navigation/test_next.mjs','scripts/navigation/calendar_controls.mjs','apps/web/src/lib/experience-format.ts','apps/web/src/app/globals.css'].map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
+  await writeFile(join(evidence,'calendar-controls.json'),JSON.stringify({runtime:process.version,inputs:{...inputs,...extraInputs},...result},null,2)+'\n');
+  if(!calendarControlsBaseline)assert.deepEqual(result.gaps,[]);
+  console.log(`WD-70 Calendar: ${result.cases.length} cases, ${result.gaps.length} gaps`);
+ }
+ if (!calendarControlsOnly && !setupShortcutsOnly && !tabResumeOnly && !baseline && !planningBaseline && !continuityBaseline && !localControlsBaseline) {
+  const ownerEntry = await checkOwnerEntry(browser, origin, context, session);
+  await writeFile(join(evidence, 'owner-entry.json'), JSON.stringify({...ownerEntry, inputs}, null, 2) + '\n');
+  assert.deepEqual(ownerEntry.gaps, [], 'WD-01 owner entry gaps');
+  console.log('PASS WD-01: 12 Owner entry, return and recovery cases in EN/AR');
+ }
+ if (!calendarControlsOnly && !ownerEntryOnly && !tabResumeOnly && !baseline && !planningBaseline && !continuityBaseline && !localControlsBaseline) {
+  const setupShortcuts = await checkSetupShortcuts(browser, origin, context, session);
+  await writeFile(join(evidence, 'setup-shortcuts.json'), JSON.stringify({...setupShortcuts, inputs}, null, 2) + '\n');
+  assert.deepEqual(setupShortcuts.gaps, [], 'WD-68 Owner setup shortcuts');
+  console.log('PASS WD-68: Owner setup shortcuts and guarded return in EN/AR');
+ }
+ if (tabResumeOnly || (measureReadOwner && !ownerEntryOnly && !setupShortcutsOnly && !baseline && !planningBaseline && !continuityBaseline && !localControlsBaseline)) {
+  const tabResume=await checkOwnerTabResume(browser,origin,context,session);
+  const tabBrowser=await chromium.launch({channel:'chromium'});
+  try{tabResume.nativeFocus=await checkOwnerTabFocus(tabBrowser,origin,context,session);}
+  finally{await tabBrowser.close();}
+  const paths=['scripts/navigation/test_next.mjs','scripts/navigation/owner_tab_resume.mjs',
+   'apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx','apps/web/src/components/workspace-panes.tsx',
+   'apps/web/src/lib/experience-format.ts','apps/web/src/app/globals.css'];
+  const extraInputs=Object.fromEntries(await Promise.all(paths.map(async path=>[path,createHash('sha256').update(await readFile(join(root,path))).digest('hex')])));
+  await writeFile(join(evidence,'owner-tab-resume.json'),JSON.stringify({
+   scope:'Next production Today and Calendar with fictional responses, controlled visibility/focus timing and a native Chromium tab focus check',
+   runtime:process.version,baseline:tabResumeBaseline,inputs:{...inputs,...extraInputs},...tabResume,
+  },null,2)+'\n');
+  if(!tabResumeBaseline)assert.deepEqual(tabResume.gaps,[],'WD-69 Owner tab-return recovery');
+  console.log(`${tabResumeBaseline?'MEASURED':'PASS'} WD-69 Owner tab return: ${tabResume.cases.length} controlled cases plus 2 native-focus cases, ${tabResume.gaps.length} recovery gaps`);
+ }
+ if (!calendarControlsOnly && !ownerEntryOnly && !setupShortcutsOnly && !tabResumeOnly) {
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],documents=[],results=[],speculativeDates=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.includes('/programs/')&&r.headers()['next-router-prefetch']==='1')speculativeDates.push(new URL(r.url()).pathname);});page.on('request',r=>{if(r.isNavigationRequest()&&r.resourceType()==='document')documents.push(new URL(r.url()).pathname)});
- // Cold-entry diagnosis uses actual product reads and a deterministic transport
- // delay. These fictional failures are not hosted permission or SQL evidence.
- if(measureColdCalendar){
-  const cold=[];
-  for(const locale of ['en','ar'])for(const scenario of ['cold','hint','invalid-hint','stored-period','cold-month','current-failure','explicit-failure','setup-required','leave-during-current']){
+ // Routinely check direct dated links for hydration errors. Run the wider
+ // delayed-transport matrix separately when inspecting cold-entry behavior.
+ if(measureColdCalendar||(!baseline&&!planningBaseline&&!continuityBaseline&&!localControlsBaseline)){
+  const cold=[],storedAnchor='2026-10-30';
+  const scenarios=measureColdCalendar
+   ? ['cold','hint','invalid-hint','stored-period','cold-month','current-failure','explicit-failure','setup-required','leave-during-current']
+   : ['hint'];
+  for(const locale of ['en','ar'])for(const scenario of scenarios){
    const ar=locale==='ar',pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),events=[],pageErrors=[];
    p.on('pageerror',e=>pageErrors.push(e.message));
    const cacheKey=`academyos:experience:user_synthetic_navigation:${academy}:owner:calendar`;
-   if(scenario==='stored-period'||scenario==='cold-month')await pc.addInitScript(({cacheKey,scenario})=>sessionStorage.setItem(cacheKey,JSON.stringify({from:scenario==='stored-period'?'2026-11-08':'',view:scenario==='cold-month'?'month':'week',filter:'',selection:null,position:{center:0,document:0}})),{cacheKey,scenario});
+   if(scenario==='stored-period'||scenario==='cold-month')await pc.addInitScript(({cacheKey,scenario,storedAnchor})=>sessionStorage.setItem(cacheKey,JSON.stringify({from:scenario==='stored-period'?storedAnchor:'',view:scenario==='cold-month'?'month':'week',filter:'',selection:null,position:{center:0,document:0}})),{cacheKey,scenario,storedAnchor});
    let releaseHome,homeStarted,fail=true;const startedHome=new Promise(r=>homeStarted=r);
    await p.route('**/api/experience',async route=>{
     const body=route.request().postDataJSON(),event={action:body.action,from:body.from??null,to:body.to??null,started:Math.round(performance.now())};events.push(event);
@@ -105,16 +183,16 @@ try{
    }else if(scenario==='setup-required'){
     await expect(p.getByRole('heading',{name:ar?'أكمل إعداد الأكاديمية':'Finish academy setup',exact:true})).toBeVisible();await expect(p.locator('.experience-session')).toHaveCount(0);assert.deepEqual(events.map(x=>x.action),['owner_current_calendar']);cold.push({locale,scenario,events});
    }else{
-    await expect(p.locator('.experience-session')).toHaveCount(1);await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();
+    await expect(p.locator('.experience-session'),`Calendar entry shows the dated session (${locale}, ${scenario})`).toHaveCount(1);await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();
     const actionableMs=Math.round(performance.now()-begin),expected=['hint','stored-period'].includes(scenario)?['owner_calendar']:['owner_current_calendar'];assert.deepEqual(events.map(x=>x.action),expected);
     if(expected.length===2)assert.ok(events[1].started-events[0].started>=250,'Calendar is serially dependent on delayed Home response');
-    const first=scenario==='stored-period'?'2026-11-08':day;if(expected[0]==='owner_calendar'){assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='stored-period'?'2026-11-14':'2026-11-07');}else{assert.equal(events.at(-1).from,null);assert.equal(events.at(-1).to,null);}
+    const first=scenario==='stored-period'?storedAnchor:day;if(expected[0]==='owner_calendar'){assert.equal(events.at(-1).from,first);assert.equal(events.at(-1).to,scenario==='stored-period'?'2026-11-05':'2026-11-07');}else{assert.equal(events.at(-1).from,null);assert.equal(events.at(-1).to,null);}
     await expect(p.getByLabel(ar?'انتقل إلى تاريخ':'Go to date',{exact:true})).toHaveValue(first);
     // Resolved anchor application must not start a second request. A real period change must.
     await p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true}).click();await expect(p.getByRole('button',{name:ar?'الفترة التالية':'Next period',exact:true})).toBeEnabled();assert.equal(events.length,2);assert.equal(events[1].action,'owner_calendar');
     cold.push({locale,scenario,initialActions:events.slice(0,1).map(x=>x.action),events,actionableMs,syntheticDelayPerReadMs:250});
    }
-   assert.deepEqual(pageErrors,[]);await pc.close();
+   assert.deepEqual(pageErrors,[],`Calendar cold entry renders without hydration errors (${locale}, ${scenario})`);await pc.close();
   }
   await writeFile(join(evidence,'cold-calendar.json'),JSON.stringify({status:'passed',inputs,scope:'actual Next production components; fictional Owner identity/read-only API; controlled 250ms transport delay; no hosted latency, SQL, service cost or backend cancellation proof',cases:cold},null,2));
  }
@@ -335,6 +413,70 @@ try{
   const leaveBefore=documents.length;page.once('dialog',d=>d.accept());await today().click();await page.waitForURL(base+'/home');await expect(page.locator('.experience-session')).toHaveCount(1);assert.equal(documents.length-leaveBefore,planningBaseline?1:0,'planning confirmed dirty exit document count');
   results.push({locale,planningCleanDocuments:planningBaseline?1:0,planningConfirmedDirtyDocuments:documents.length-leaveBefore,dirtyCancel:true,planningBaseline});
  }
- assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,continuityBaseline,continuity,localControlsBaseline,localControls,inputs,speculativeDatePrefetches:speculativeDates.length,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
+ // Real routed Owner unfinished-program return: Today task → actual Program
+ // route → actual Back to Today. Component/href cases remain narrower evidence.
+ const routedReturn=[];
+ async function routedReturnLeg(p,locale,tracked,opts={}){
+  const ar=locale==='ar',base=`${origin}/${locale}/workspace/${academy}`;
+  const taskLink=p.getByRole('link',{name:ar?'متابعة هذا البرنامج':'Resume this program',exact:true});
+  const back=p.getByRole('link',{name:ar?'العودة إلى اليوم':'Back to Today',exact:true});
+  const attention=p.getByRole('heading',{name:ar?'يحتاج انتباهك':'Needs your attention',exact:true});
+  const prefetchStart=tracked.prefetches.length,errorStart=tracked.errors.length;
+  await p.goto(base+'/home');
+  await expect(p.locator('.experience-session')).toHaveCount(1);
+  await expect(taskLink).toHaveAttribute('href',`/${locale}/workspace/${academy}/programs/${program}#program-return=${program}`);
+  const start=tracked.calls.length,docsStart=tracked.documents.length;
+  await taskLink.click();
+  await p.waitForURL(new RegExp('/programs/'+program+'#'));
+  await expect(p.getByRole('heading',{name:ar?'البرنامج المحفوظ':'Saved program',exact:true})).toBeVisible();
+  await expect(back).toHaveAttribute('href',`/${locale}/workspace/${academy}/home#program-return=${program}`);
+  if(opts.completeBeforeReturn)await p.evaluate(()=>fetch('/api/fixture-state?completed=1'));
+  await back.click();
+  await p.waitForURL(new RegExp('/'+locale+'/workspace/'+academy+'/home#program-return='));
+  if(opts.completeBeforeReturn){
+   await expect(attention).toBeFocused();
+   await expect(taskLink).toHaveCount(0);
+   await p.evaluate(()=>fetch('/api/fixture-state?completed=0'));
+  }else if(opts.negative){
+   let detected=false;
+   try{await expect(taskLink).toBeFocused({timeout:2000});}catch{detected=true;}
+   assert.equal(detected,true,'negative control: the checked-task focus assertion must fail when the task marker is broken');
+  }else{
+   await expect(taskLink).toBeFocused();
+  }
+  const journey=tracked.calls.slice(start),writes=['create','preview','step','reconcile'].filter(a=>journey.includes(a));
+  assert.deepEqual(writes,[],'routed program return creates no replacement operation');
+  assert.deepEqual(journey,['read','owner_home'],'routed return reads exactly the opened program and the returned Today');
+  assert.equal(tracked.documents.length-docsStart,0,'routed return adds no document load');
+  const prefetches=tracked.prefetches.slice(prefetchStart),pageErrors=tracked.errors.slice(errorStart);
+  const taskPrefetches=prefetches.filter(url=>new URL(url).pathname.includes('/programs/'));
+  assert.deepEqual(taskPrefetches,[],'routed return adds no speculative program-detail or dated-task prefetch');
+  assert.deepEqual(pageErrors,[],'routed return has no captured page errors');
+  return {journey,writes,documents:tracked.documents.length-docsStart,allRouterPrefetchCount:prefetches.length,allRouterPrefetchPaths:prefetches.map(url=>new URL(url).pathname),taskPrefetchCount:taskPrefetches.length,pageErrors:pageErrors.length};
+ }
+ for(const locale of ['en','ar']){
+  const pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),tracked={calls:[],documents:[],prefetches:[],errors:[]};
+  p.on('pageerror',e=>tracked.errors.push(e.message));
+  p.on('request',r=>{if(r.headers()['next-router-prefetch']==='1')tracked.prefetches.push(r.url());if(r.isNavigationRequest()&&r.resourceType()==='document')tracked.documents.push(r.url());const body=r.postData();if(body&&(r.url().includes('/api/experience')||r.url().includes('/api/programs')))tracked.calls.push(JSON.parse(body).action);});
+  const unfinished=await routedReturnLeg(p,locale,tracked);
+  const completed=await routedReturnLeg(p,locale,tracked,{completeBeforeReturn:true});
+  await p.screenshot({path:join(evidence,`routed-return-${locale}.png`),fullPage:true});
+  routedReturn.push({locale,unfinished,completed});
+  await pc.close();
+ }
+ {
+  // Negative control: a disposable bundle variant that drops the program task's
+  // checked marker must fail the checked-task focus assertion above.
+  const pc=await browser.newContext({viewport:{width:1440,height:1000}}),p=await pc.newPage(),tracked={calls:[],documents:[],prefetches:[],errors:[]};
+  p.on('pageerror',e=>tracked.errors.push(e.message));
+  p.on('request',r=>{if(r.headers()['next-router-prefetch']==='1')tracked.prefetches.push(r.url());if(r.isNavigationRequest()&&r.resourceType()==='document')tracked.documents.push(r.url());const body=r.postData();if(body&&(r.url().includes('/api/experience')||r.url().includes('/api/programs')))tracked.calls.push(JSON.parse(body).action);});
+  await p.addInitScript(()=>{globalThis.__breakProgramReturn=true;});
+  const leg=await routedReturnLeg(p,'en',tracked,{negative:true});
+  await expect(p.getByRole('heading',{name:'Needs your attention',exact:true})).toBeFocused();
+  routedReturn.push({negativeControl:'broken checked-task marker detected',journey:leg.journey,documents:leg.documents,allRouterPrefetchCount:leg.allRouterPrefetchCount,allRouterPrefetchPaths:leg.allRouterPrefetchPaths,taskPrefetchCount:leg.taskPrefetchCount,pageErrors:leg.pageErrors});
+  await pc.close();
+ }
+ assert.deepEqual(speculativeDates,[],'task links add no speculative dated-route prefetch');assert.deepEqual(errors,[]);await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'passed',runtime:process.version,baseline,planningBaseline,continuityBaseline,continuity,localControlsBaseline,localControls,inputs,speculativeDatePrefetches:speculativeDates.length,routedReturn,scope:'actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof',results,errors},null,2));console.log('PASS actual Next production navigation EN/AR, dirty guards, selection and Back/Forward');
+ }
 }catch(e){await writeFile(join(evidence,'receipt.json'),JSON.stringify({status:'failed',error:String(e),fixture},null,2));throw e;}
 finally{await browser?.close();server?.kill('SIGTERM');await writeFile(join(evidence,'next-fixture.log'),log);}

@@ -6,6 +6,7 @@ const pointer='/prepared-workspace/cache-pointer';
 const staticAsset=/^\/_next\/static\/[a-zA-Z0-9_./-]+\.(?:js|css)$/;
 const route=/^\/(en|ar)\/workspace\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/(players|calendar|attendance\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$/;
 let preparation;
+const editingOrigin=self.location.origin==='http://localhost:3000';
 
 function supported(url) {
   const match=route.exec(url.pathname);
@@ -32,7 +33,7 @@ function preparationAllowed(message,client) {
   } catch {return false;}
 }
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
-self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
+self.addEventListener('activate',event=>event.waitUntil(editingOrigin?self.registration.unregister():self.clients.claim()));
 
 async function loadPublic(path,remaining) {
   const response=await fetch(new URL(path,self.location.origin),
@@ -87,6 +88,7 @@ async function prepare() {
 }
 self.addEventListener('message',event=>{
   const client=event.source, port=event.ports[0];
+  if(editingOrigin){port?.postMessage('unavailable');return;}
   if (!port || !preparationAllowed(event.data,client)) return;
   preparation??=prepare().finally(()=>{preparation=undefined;});
   event.waitUntil(preparation.then(()=>port.postMessage('ready'),()=>port.postMessage('unavailable')));
@@ -102,6 +104,7 @@ async function cached(path) {
   }
 }
 self.addEventListener('fetch',event=>{
+  if(editingOrigin)return;
   const request=event.request, url=new URL(request.url);
   if (request.method!=='GET'||url.origin!==self.location.origin) return;
   if (request.mode==='navigate'&&supported(url)) {

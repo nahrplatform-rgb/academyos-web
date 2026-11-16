@@ -1,0 +1,928 @@
+{
+  "checkpoint": "WD-69 Owner Today and Calendar",
+  "checkoutBase": "780225b51360a63153f6fc09d47431cd5b654047",
+  "before": {
+    "scope": "Next production Today and Calendar with fictional responses, controlled visibility/focus timing and a native Chromium tab focus check",
+    "runtime": "v24.14.0",
+    "baseline": true,
+    "inputs": {
+      "scripts/navigation/owner_entry.mjs": "ca625a79f4aa9dd4b17140c68d957bff5bb29c3be2726ca6d203eb54baa9ed95",
+      "scripts/navigation/setup_shortcuts.mjs": "53f947c76a95cbe08bbc1cd0f8c59f6425993ff3026e9f1f66ff09445f4c097b",
+      "apps/web/src/app/[locale]/workspace/[academy]/page.tsx": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
+      "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+      "apps/web/src/components/people-workspace.tsx": "ff53b7d1f1f47f2b0246503ce46e7d3e653325a2eb15168e2d9b3cc5bf425bfc",
+      "apps/web/src/lib/config.ts": "549cb8148482222f7ffd637ea5c8c39f9370142929f7081361c368a9988a5153",
+      "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+      "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx": "6b4de6c8e812d9dffa8a25c41e8d31986b75418a2ec6cf0726bdb03d30b743b0",
+      "apps/web/src/components/onboarding-workspace.tsx": "d958ef7794dae0d88f9f8ca18521eb8bf73d635f361f1088bc47f87d1c50621a",
+      "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+      "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+      "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+      "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+      "apps/web/src/components/experience-workspace.tsx": "98fa19e98189fd5b5e32b1377db0fe6b55c275c9eb2f9cacdc50f95bd4720a57",
+      "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+      "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+      "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+      "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
+      "scripts/navigation/test_next.mjs": "fe5ef009895be489d43f73669bed017c94ae9a4ca3a564dfc746147194be4fff",
+      "scripts/navigation/owner_tab_resume.mjs": "16ae546dfbd68931f7eec6859cfe8d5f7d78d5a4bf2448236f9d719cee820473",
+      "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
+      "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+      "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+      "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192"
+    },
+    "cases": [
+      {
+        "view": "home",
+        "locale": "en",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "during": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "after": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": "Fictional",
+          "range": [
+            9,
+            9
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "home",
+        "locale": "ar",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "during": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "after": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": "Fictional",
+          "range": [
+            9,
+            9
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "en",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "during": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "after": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": "Fictional",
+          "range": [
+            9,
+            9
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "during": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "after": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": "Fictional",
+          "range": [
+            9,
+            9
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "H2",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "viewport": "390×720",
+        "dialogDuringCheck": true,
+        "dialogOnFailure": false,
+        "dialogWhileRetry": true,
+        "dialogAfterCurrentResult": true,
+        "calls": [
+          {
+            "action": "owner_calendar",
+            "status": 200
+          },
+          {
+            "action": "owner_calendar",
+            "status": 503
+          },
+          {
+            "action": "owner_calendar",
+            "status": 200
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      {
+        "view": "home",
+        "locale": "en",
+        "kind": "503-retry-position-or-focus"
+      },
+      {
+        "view": "home",
+        "locale": "ar",
+        "kind": "503-retry-position-or-focus"
+      },
+      {
+        "view": "calendar",
+        "locale": "en",
+        "kind": "503-retry-position-or-focus"
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "kind": "503-retry-position-or-focus"
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "kind": "selected-dialog-reopens-before-retry-authority"
+      }
+    ],
+    "nativeFocus": [
+      {
+        "view": "home",
+        "otherTabVisibility": "visible",
+        "events": [
+          {
+            "name": "blur",
+            "trusted": true
+          },
+          {
+            "name": "focus",
+            "trusted": true
+          }
+        ],
+        "resumeReads": 1,
+        "documentTransitions": 0,
+        "selected": true,
+        "focusedSearch": true
+      },
+      {
+        "view": "calendar",
+        "otherTabVisibility": "visible",
+        "events": [
+          {
+            "name": "blur",
+            "trusted": true
+          },
+          {
+            "name": "focus",
+            "trusted": true
+          }
+        ],
+        "resumeReads": 1,
+        "documentTransitions": 0,
+        "selected": true,
+        "focusedSearch": true
+      }
+    ]
+  },
+  "after": {
+    "scope": "Next production Today and Calendar with fictional responses, controlled visibility/focus timing and a native Chromium tab focus check",
+    "runtime": "v24.14.0",
+    "baseline": false,
+    "inputs": {
+      "scripts/navigation/owner_entry.mjs": "ca625a79f4aa9dd4b17140c68d957bff5bb29c3be2726ca6d203eb54baa9ed95",
+      "scripts/navigation/setup_shortcuts.mjs": "53f947c76a95cbe08bbc1cd0f8c59f6425993ff3026e9f1f66ff09445f4c097b",
+      "apps/web/src/app/[locale]/workspace/[academy]/page.tsx": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
+      "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+      "apps/web/src/components/people-workspace.tsx": "ff53b7d1f1f47f2b0246503ce46e7d3e653325a2eb15168e2d9b3cc5bf425bfc",
+      "apps/web/src/lib/config.ts": "549cb8148482222f7ffd637ea5c8c39f9370142929f7081361c368a9988a5153",
+      "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+      "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx": "6b4de6c8e812d9dffa8a25c41e8d31986b75418a2ec6cf0726bdb03d30b743b0",
+      "apps/web/src/components/onboarding-workspace.tsx": "d958ef7794dae0d88f9f8ca18521eb8bf73d635f361f1088bc47f87d1c50621a",
+      "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+      "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+      "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+      "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+      "apps/web/src/components/experience-workspace.tsx": "a796eaf48f27dde3723268a885b18391491583197c0a0a8e0ff3014b2680402a",
+      "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+      "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+      "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+      "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
+      "scripts/navigation/test_next.mjs": "fe5ef009895be489d43f73669bed017c94ae9a4ca3a564dfc746147194be4fff",
+      "scripts/navigation/owner_tab_resume.mjs": "16ae546dfbd68931f7eec6859cfe8d5f7d78d5a4bf2448236f9d719cee820473",
+      "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
+      "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+      "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+      "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192"
+    },
+    "cases": [
+      {
+        "view": "home",
+        "locale": "en",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "during": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "after": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "refresh",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "home",
+        "locale": "ar",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "during": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "after": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "refresh",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 370,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": null,
+          "month": false,
+          "rows": 5
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "en",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "during": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "after": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "refresh",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "viewport": "1440×600",
+        "before": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "during": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "after": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "failed": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "refresh",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "recovered": {
+          "scroll": 400,
+          "windowY": 0,
+          "focus": "search",
+          "filter": "Fictional",
+          "range": [
+            2,
+            6
+          ],
+          "selected": "00000000-0000-4000-8000-000000000010:2026-11-01",
+          "period": "2026-11-01",
+          "month": true,
+          "rows": 30
+        },
+        "denied": {
+          "scroll": 0,
+          "windowY": 0,
+          "focus": "BODY",
+          "filter": null,
+          "range": null,
+          "selected": null,
+          "period": null,
+          "month": false,
+          "rows": 0
+        },
+        "documentTransitions": 0,
+        "pairedReads": 1
+      },
+      {
+        "view": "calendar",
+        "locale": "ar",
+        "viewport": "390×720",
+        "dialogDuringCheck": true,
+        "dialogOnFailure": false,
+        "dialogWhileRetry": false,
+        "dialogAfterCurrentResult": true,
+        "calls": [
+          {
+            "action": "owner_calendar",
+            "status": 200
+          },
+          {
+            "action": "owner_calendar",
+            "status": 503
+          },
+          {
+            "action": "owner_calendar",
+            "status": 200
+          }
+        ]
+      }
+    ],
+    "gaps": [],
+    "nativeFocus": [
+      {
+        "view": "home",
+        "otherTabVisibility": "visible",
+        "events": [
+          {
+            "name": "blur",
+            "trusted": true
+          },
+          {
+            "name": "focus",
+            "trusted": true
+          }
+        ],
+        "resumeReads": 1,
+        "documentTransitions": 0,
+        "selected": true,
+        "focusedSearch": true
+      },
+      {
+        "view": "calendar",
+        "otherTabVisibility": "visible",
+        "events": [
+          {
+            "name": "blur",
+            "trusted": true
+          },
+          {
+            "name": "focus",
+            "trusted": true
+          }
+        ],
+        "resumeReads": 1,
+        "documentTransitions": 0,
+        "selected": true,
+        "focusedSearch": true
+      }
+    ]
+  },
+  "geometry": {
+    "cases": 20,
+    "widths": [
+      1440,
+      1024,
+      390,
+      360,
+      320
+    ],
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "temporaryClampCases": 0,
+    "harnessSha256": "dfdb05f8d084e7e91d99acd748d84f73d10801dbce0dba2be59364c28832060d",
+    "failureMasksPassed": true
+  },
+  "additionalChecks": {
+    "nextNavigation": "passed",
+    "workspaceTransferChecks": 72,
+    "disposablePostgreSQL17": 21,
+    "webUnits": 117
+  },
+  "scope": "Local Next production and isolated Chromium with fictional data. No signed-in session, hosted, physical-device or Owner acceptance claim for this checkpoint."
+}

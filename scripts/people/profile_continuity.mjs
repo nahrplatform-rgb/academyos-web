@@ -33,7 +33,8 @@ export async function checkProfileContinuity({browser,url,evidence,reactMode,bas
   await page.goto(url);await directory();
   const layout=page.locator('details.layout-menu').first(),summary=layout.locator('summary');
   const geometry=await page.locator('tbody tr').first().evaluate(row=>({rowHeight:row.getBoundingClientRect().height,
-   paddingBlock:getComputedStyle(row.firstElementChild).paddingBlock,buttonHeight:row.querySelector('button').getBoundingClientRect().height}));
+   paddingBlock:getComputedStyle(row.firstElementChild).paddingBlock,buttonHeight:row.querySelector('button').getBoundingClientRect().height,
+   firstRowTop:row.getBoundingClientRect().top,searchTop:document.querySelector('#player-search').getBoundingClientRect().top}));
   if(menuBaseline){const start=calls.length;await summary.click();await page.keyboard.press('Escape');
    const stillOpenAfterEscape=await layout.evaluate(el=>el.open);
    await page.getByRole('heading',{name:'Players',exact:true}).click();
@@ -42,6 +43,10 @@ export async function checkProfileContinuity({browser,url,evidence,reactMode,bas
    const result={menuBaseline:true,reactMode,geometry,stillOpenAfterEscape,stillOpenAfterOutside,operatingRequests:calls.length-start};
    await writeFile(resolve(evidence,'before-menu.json'),JSON.stringify(result,null,2)+'\n');return result;}
   if(!baseline){const menuStart=calls.length;
+  const directoryRegion=page.getByRole('region',{name:'Players',exact:true});
+  await expect(directoryRegion.getByRole('button',{name:'Register player',exact:true})).toBeVisible();
+  const searchBox=await nameInput().boundingBox(),registerBox=await directoryRegion.getByRole('button',{name:'Register player',exact:true}).boundingBox();
+  assert.ok(Math.abs(searchBox.y+searchBox.height-registerBox.y-registerBox.height)<=1,'Search and Register align on desktop');
   await summary.click();await expect(layout).toHaveAttribute('open','');
   await page.keyboard.press('Escape');await expect(layout).not.toHaveAttribute('open','');await expect(summary).toBeFocused();
   await summary.click();await page.getByRole('heading',{name:'Players',exact:true}).click();await expect(layout).not.toHaveAttribute('open','');
@@ -55,13 +60,14 @@ export async function checkProfileContinuity({browser,url,evidence,reactMode,bas
     const rect=await layout.locator(':scope > div').boundingBox();
     assert.ok(rect.x>=-1&&rect.x+rect.width<=width+1,`${language}${width} menu stays inside viewport`);
     await page.keyboard.press('Escape');await expect(summary).toBeFocused();
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${language}${width} directory stays within the viewport`);
    }
   }
   await page.getByRole('link',{name:'English',exact:true}).click();
   await page.getByRole('button',{name:'Dark mode',exact:true}).click();await summary.click();await page.keyboard.press('Escape');
   await expect(summary).toBeFocused();await page.getByRole('button',{name:'Light mode',exact:true}).click();
   assert.equal(calls.length,menuStart,'layout/theme/locale menu checks have zero operating requests');
-  checks.push('8px desktop rows retain44px targets;EN/AR menus fit320/360/390/768/1440 and dismiss in Charcoal');}
+  checks.push('Search and Register share the desktop controls row; 8px desktop rows retain44px targets; EN/AR directory and menus fit320/360/390/768/1440; Charcoal menu restores focus');}
   await page.locator('tbody tr').first().evaluate(el=>el.dataset.continuityProbe='checked-row');
   await page.getByRole('button',{name:'Fictional Player 17',exact:true}).scrollIntoViewIfNeeded();
   const scrollBefore=await page.locator('.workspace-center').evaluate(el=>el.scrollTop);

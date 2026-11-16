@@ -122,6 +122,14 @@ jobs:
         run: |
           node scripts/working-day/test_normal_attendance.mjs --check
           node scripts/working-day/test_normal_attendance.mjs
+          node scripts/working-day/test_additive_attendance.mjs --check
+          node scripts/working-day/test_additive_attendance.mjs
+      - name: Verify Owner device approval, storage and sync lifecycle
+        run: node scripts/working-day/test_device_lifecycle.mjs
+      - name: Verify local evidence reuse and fixture credential boundaries
+        run: |
+          node --test scripts/local/workflow.test.mjs scripts/local/runtime.test.mjs scripts/local/editor-worker.test.mjs
+          python3 -m unittest discover -s scripts/local -p 'test_runtime_keys.py'
       - name: Verify real Next task navigation and guarded return
         run: EX02_READ_OWNER_MEASURE=1 node scripts/navigation/test_next.mjs
       - name: Verify Owner return continuity and failed-read privacy fences
@@ -140,6 +148,9 @@ jobs:
         run: |
           node scripts/people/test_ui.mjs
           UI_REACT_MODE=development node scripts/people/test_ui.mjs
+          node scripts/people/registration_focus.mjs --baseline
+          node scripts/people/registration_focus.mjs
+          UI_REACT_MODE=development node scripts/people/registration_focus.mjs
       - name: Verify guardian validation, recipient gate and fail-closed budgets
         run: |
           node scripts/guardians/test_api.mjs

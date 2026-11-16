@@ -1,0 +1,42 @@
+▲ Next.js 16.4.2 (webpack)
+✓ Running next.config.mjs took 8ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.4s
+  Running TypeScript ...
+
+  We detected TypeScript in your project and created a tsconfig.json file for you.
+  Finished TypeScript in 1068ms ...
+  Collecting page data using 10 workers ...
+  Generating static pages using 10 workers (0/7) ...
+  Generating static pages using 10 workers (1/7) 
+  Generating static pages using 10 workers (3/7) 
+  Generating static pages using 10 workers (5/7) 
+✓ Generating static pages using 10 workers (7/7) in 69ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /[locale]/workspace/[academy]/calendar
+├ ƒ /[locale]/workspace/[academy]/home
+├ ƒ /[locale]/workspace/[academy]/programs
+├ ƒ /[locale]/workspace/[academy]/programs/[program]
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/[day]
+├ ƒ /[locale]/workspace/[academy]/programs/[program]/plan
+├ ƒ /[locale]/workspace/[academy]/read-probe
+├ ƒ /api/experience
+├ ƒ /api/fixture-state
+├ ƒ /api/planning
+├ ƒ /api/program-planning
+└ ƒ /api/programs
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+▲ Next.js 16.4.2
+- Local:         http://127.0.0.1:50175
+- Network:       http://127.0.0.1:50175
+✓ Ready in 80ms
+✓ Running next.config.mjs took 6ms

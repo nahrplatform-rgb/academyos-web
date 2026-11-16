@@ -85,6 +85,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
     const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
+    const directoryFocus = useRef<{ticket:number; player:string}|null>(null);
     const lifecycleTicket = useRef(0), profileTicket = useRef(0);
     const profileController=useRef<AbortController|null>(null);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
@@ -444,18 +445,23 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if (!['profile','review','saving','unknown'].includes(stage)&&document.activeElement!==searchInput.current)
             heading.current?.focus();
     }, [stage]);
+    useEffect(() => {
+        const pending=directoryFocus.current;
+        if(!pending)return;
+        if(pending.ticket!==directoryTicket.current||stage!=='directory'){directoryFocus.current=null;return;}
+        if(busy)return;
+        directoryFocus.current=null;
+        if(unavailable)return;
+        // The read finishing does not mean React has committed its new rows.
+        // Restore only after that commit, and respect a newer user focus choice.
+        if(document.activeElement===heading.current||document.activeElement===document.body)
+            (profileOpeners.current.get(pending.player)??searchInput.current)?.focus();
+    }, [stage,busy,players,unavailable]);
     useEffect(() => { if (!['form', 'duplicates', 'review', 'saving', 'unknown'].includes(stage))
         return; const guard = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ''; }; window.addEventListener('beforeunload', guard); return () => window.removeEventListener('beforeunload', guard); }, [stage]);
-    function restoreDirectoryFocus(ticket=directoryTicket.current) {
-        requestAnimationFrame(() => {
-            if(active.current&&ticket===directoryTicket.current)
-                (profileOpeners.current.get(profileId)??searchInput.current)?.focus();
-        });
-    }
     function reloadReturnedDirectory() {
-        const read=loadDirectory(undefined,null,false,!localRows);
-        const ticket=directoryTicket.current;
-        void read.then(()=>restoreDirectoryFocus(ticket));
+        void loadDirectory(undefined,null,false,!localRows);
+        directoryFocus.current={ticket:directoryTicket.current,player:profileId};
     }
     function closeProfile() {
         if (busy || stage === 'unknown' || stage === 'saving') return;
@@ -463,7 +469,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if(stage === 'form' && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) return;
         go('directory');
         if(saved||!context)reloadReturnedDirectory();
-        else restoreDirectoryFocus();
+        else directoryFocus.current={ticket:directoryTicket.current,player:profileId};
     }
     function changeSearch(value:string) {
         const nextQuery=value.normalize('NFKC').trim();
@@ -536,7 +542,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
 
       {stage === 'directory' && <><h3>{t('Working with players','إدارة اللاعبين')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
     </>;
-    const title = stage === 'profile' ? t('Players', 'اللاعبون') : stage === 'directory' ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
+    const directoryView = stage === 'directory' || stage === 'profile';
+    const title = directoryView ? t('Players', 'اللاعبون') : t('Register a player', 'تسجيل لاعب');
     return <>
     <WorkspaceShell prefetch={prepared?false:undefined} role="owner" module="people" locale={locale} context={(!protectedViewGone&&context?.academy_name)||t('Academy workspace', 'مساحة الأكاديمية')} title={title} homeHref={`/${locale}/workspace`} languageHref="#language" navigation={ownerNavigation(locale,academy,'people')} onNavigate={event => { if(publicOffline&&event.currentTarget.hash!=='#language'){event.preventDefault();const path=new URL(event.currentTarget.href);if(path.pathname.endsWith('/players')||path.pathname.endsWith('/calendar'))window.location.assign(path.href);return;} if (event.currentTarget.hash === '#language') {
         event.preventDefault();
@@ -547,9 +554,14 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
         event.preventDefault(); }} account={publicOffline?null:<UserButton />} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(context)&&!blocked}/>}>
       <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
-      <header className="task-header">      <h1 ref={heading} tabIndex={-1}>{title}</h1>{registrationTask && <ol className="people-steps" aria-label={t('Registration progress','مراحل التسجيل')}><li aria-current={stage==='form'?'step':undefined}>{t('Player details','بيانات اللاعب')}</li><li aria-current={stage==='duplicates'?'step':undefined}>{t('Duplicate check','فحص التكرار')}</li><li aria-current={['review','saving','unknown'].includes(stage)?'step':undefined}>{t('Review and save','المراجعة والحفظ')}</li></ol>}
+      <header className={directoryView?'task-header people-directory-header':'task-header'}>
+      {directoryView?<div>
+        <h1 id="people-directory-title" ref={heading} tabIndex={-1}>{title}</h1>
+        {context&&!protectedViewGone&&<p>{context.branch_name}</p>}
+      </div>:<h1 ref={heading} tabIndex={-1}>{title}</h1>}
+      {registrationTask && <ol className="people-steps" aria-label={t('Registration progress','مراحل التسجيل')}><li aria-current={stage==='form'?'step':undefined}>{t('Player details','بيانات اللاعب')}</li><li aria-current={stage==='duplicates'?'step':undefined}>{t('Duplicate check','فحص التكرار')}</li><li aria-current={['review','saving','unknown'].includes(stage)?'step':undefined}>{t('Review and save','المراجعة والحفظ')}</li></ol>}
       {!unavailable && stage !== 'profile' && stage !== 'unknown' && stage !== 'saving' && <div className="read-toolbar"><Button disabled={busy} onClick={() => { if (stage === 'directory' || stage === 'form') void loadDirectory(undefined,null,false,stage==='directory'&&!localRows); else { setDifferent(false); setStage('form'); void reviewCandidates(); } }}>{checking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : stage === 'review' || stage === 'duplicates' ? 'Recheck current state' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : stage === 'review' || stage === 'duplicates' ? 'إعادة التحقق من الحالة' : 'تحديث العرض')}</Button></div>}</header>
-      {context && !protectedViewGone && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
+      {context && !protectedViewGone && !directoryView && <p className="notice">{`${context.academy_name} · ${context.branch_name}`}</p>}
       {showSavedResult && <p className="notice" role="status">{registrationSaved}</p>}
       {((!registrationTask&&stage!=='profile')||protectedViewGone) && error && !blocked && device.phase!=='denied' && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {!registrationTask && stage !== 'profile' && notice && <p className="notice" role="status">{notice}</p>}
@@ -561,10 +573,17 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         <p>{errorText(error||'denied')}</p>
         <Button disabled={busy||profileBusy} onClick={retryBlockedView}>{error==='authentication_required'&&stage==='unknown'?t('Check original save','التحقق من الحفظ الأصلي'):error==='authentication_required'&&stage==='profile'?t('Retry loading profile','إعادة تحميل الملف'):t('Try again', 'إعادة المحاولة')}</Button>
       </section> : <>
-        {(stage === 'directory' || stage === 'profile') && <section className="journey-card people-directory">
-          <div className="section-heading"><h2>{t('Player directory', 'قائمة اللاعبين')}</h2><Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button></div>
-          <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-          <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => changeSearch(event.target.value)}/>
+        {directoryView && <section className="people-directory" aria-labelledby="people-directory-title">
+          <div className="people-directory-controls">
+            <div className="people-directory-search">
+              <div>
+                <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
+                <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => changeSearch(event.target.value)}/>
+              </div>
+              {search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
+            </div>
+            <Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button>
+          </div>
           {shortSearch && <p className="directory-search-status" role="status">{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {searchMode==='online'&&!shortSearch && <p className="directory-search-status" role="status">{previousSearchRows
             ?t('Updating results… Showing previous results.','جارٍ تحديث النتائج… تُعرض النتائج السابقة.')
@@ -577,9 +596,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             :!localRows&&onlinePage?.after?t('No players on this page. Go to the first page.','لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.')
             :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
           {context && searchMode!=='online' && !shortSearch && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
-          {search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
           <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
-          {context && !shortSearch && <><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</>}<small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+          <div className="people-directory-footer">
+            {context && !shortSearch && <div className="people-directory-pages"><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</div>}
+            <small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
+          </div>
         </section>}
 
       </>}

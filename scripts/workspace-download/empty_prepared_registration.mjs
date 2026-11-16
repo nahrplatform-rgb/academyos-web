@@ -52,7 +52,7 @@ export async function checkEmptyPreparedRegistration({browser,fixture,ui,base,tr
       const response=page.waitForResponse(reply=>reply.url()===route&&reply.request().isNavigationRequest());
       await page.reload({waitUntil:'load'});
       assert.equal((await response).fromServiceWorker(),true);
-      await expect(page.getByText('Offline',{exact:true})).toBeVisible();
+      await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^Offline$/})).toBeVisible();
       await expect(page.getByText(EMPTY,{exact:true})).toBeVisible();
       await expect(page.getByText(MISSING,{exact:true})).toHaveCount(0);
       await expect(page.getByRole('button',{name:'Register player',exact:true})).toBeDisabled();

@@ -22,7 +22,7 @@ function snapshot() {
     const account=readRegisterAccount();
     if(account?.mode!=='active')return JSON.stringify({locale});
     const context={subject:account.subject,academy};
-    const slot=event?readRegisterSlot(account.subject,academy):readWorkspaceSlot(context);
+    const slot=event?readRegisterSlot(account.subject,academy,event):readWorkspaceSlot(context);
     if(slot?.mode!=='active'||event&&'event' in slot&&slot.event!==event)return JSON.stringify({locale});
     const anchor=new URLSearchParams(location.search).get('anchor');
     return JSON.stringify({locale,academy,view,subject:account.subject,generation:account.generation,

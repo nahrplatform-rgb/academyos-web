@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs/config";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 const config: NextConfig = {
   poweredByHeader: false,
   async headers() {
@@ -23,7 +24,11 @@ const config: NextConfig = {
     ];
   },
 };
-export default withSentryConfig(config, {
+export default withSentryConfig((phase: string) => ({
+  ...config,
+  // A production rebuild must never clean files used by the live editor server.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-local" : ".next",
+}), {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
   authToken: process.env.SENTRY_AUTH_TOKEN,

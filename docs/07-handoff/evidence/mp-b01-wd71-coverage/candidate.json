@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-11-16T17:48:08.748851+00:00",
+  "baseHead": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "status": "Coherent dependency review and all14 preflight checks passed; explicit candidate selection ready for commit. CI/Preview pending.",
+  "repairs": [
+    {
+      "source": "apps/web/src/components/attendance-workspace.tsx",
+      "currentSha256": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+      "beforeDirtySourceSha256": "f98eaeb8e6d0be11afc2fd130fe98ab084cbaec537545e11491604334a37ca3a",
+      "incrementalPatch": "attendance-repair.patch"
+    },
+    {
+      "source": "apps/web/src/components/onboarding-workspace.tsx",
+      "currentSha256": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
+      "beforeDirtySourceSha256": "d958ef7794dae0d88f9f8ca18521eb8bf73d635f361f1088bc47f87d1c50621a",
+      "incrementalPatch": "onboarding-repair.patch"
+    },
+    {
+      "source": "apps/web/src/components/trainer-workspace.tsx",
+      "currentSha256": "d81da7c1ce99ebb6a7a6e7e09a13fdf4c9b0126bd81136970a5d87c905b720bf",
+      "beforeDirtySourceSha256": "291cc5f1f8ee6553808325447dbd9f82e24d60e9cdbcc03798248c966f41c84b",
+      "incrementalPatch": "trainer-repair.patch"
+    },
+    {
+      "source": "apps/web/src/components/guardian-workspace.tsx",
+      "currentSha256": "88a2ee20ad01764cfda5e4c2b49751ae513b77554750d84d7a1909db3b80962d",
+      "beforeDirtySourceSha256": "13a5ec6c5be6aaaf7a67918360ca89d265afca4383d03b66fed3150db7df9989",
+      "incrementalPatch": "guardian-repair.patch"
+    },
+    {
+      "source": "apps/web/src/components/program-planning-workspace.tsx",
+      "currentSha256": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
+      "beforeDirtySourceSha256": "17d457ab012c07c8c86aa9297e2da0dba86e2b4d0346da1a718e16ac6d492203",
+      "incrementalPatch": "program-planning-repair.patch"
+    }
+  ],
+  "tests": [
+    "scripts/attendance/test_ui.mjs",
+    "scripts/attendance/save_followup.mjs",
+    "scripts/onboarding/test_ui.mjs",
+    "scripts/onboarding/save_followup.mjs",
+    "scripts/appointments/save_followup.mjs",
+    "scripts/program-planning/save_followup.mjs",
+    "scripts/publication/save_followup.mjs"
+  ],
+  "dependencies": [
+    "Earlier uncommitted MP-B01 source, harness, local-runtime and migration work on this branch remains required.",
+    "Current component receipts exercise the complete working tree; the five incremental patches are not independently certified against clean HEAD.",
+    "Read-only verify.yml preflight, current compiled build and matching fixture receipts apply to this source state.",
+    "Browser availability and normal origin-unavailable startup comparison resolved by startup-recovery.json; complete full dependency review before candidate publication. Exact candidate CI/preview still pending."
+  ],
+  "publication": "Use the explicit reviewed path manifest. Ignored private configuration/builds/raw traces excluded; no bulk git add. Ordinary branch commit/push is authorized; exact CI/Preview follow; Owner alone promotes.",
+  "testFingerprints": {
+    "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
+    "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
+    "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
+    "scripts/onboarding/save_followup.mjs": "d4ff1a9f52363e9f9459701b18eb38d4a049b6f399950ed84fd4857eff4be013",
+    "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
+    "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
+    "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb"
+  },
+  "review": "publication-review.json"
+}

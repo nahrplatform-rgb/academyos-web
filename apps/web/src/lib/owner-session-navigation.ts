@@ -3,15 +3,22 @@ import {isCivilDay} from './experience-format';
 
 type OwnerSessionSource = {returnTo:'home'|'calendar';from?:string;attendanceTask?:string};
 const taskId=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
-type OwnerTodayTaskKind='attendance'|'correction'|'development'|'publication';
+type OwnerTodayTaskKind='attendance'|'correction'|'development'|'publication'|'program';
 
 export function ownerTodayTaskHint(kind:OwnerTodayTaskKind,id:string) {
   return taskId.test(id)?`#${kind}-return=${id}`:null;
 }
 
 export function ownerTodayReturnHint(fragment:string) {
-  const match=/^#(attendance|correction|development|publication)-return=(.+)$/.exec(fragment);
+  const match=/^#(attendance|correction|development|publication|program)-return=(.+)$/.exec(fragment);
   return match&&taskId.test(match[2])?fragment:null;
+}
+
+export function useOwnerTodayTaskSource(kind:OwnerTodayTaskKind) {
+  const fragment=useSyncExternalStore(subscribe,()=>window.location.hash,()=>'');
+  const prefix=`#${kind}-return=`;
+  const id=fragment.slice(prefix.length);
+  return fragment.startsWith(prefix)&&taskId.test(id)?id:null;
 }
 
 export function ownerTodayReviewSource(id:string) {

@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-16T19:18:09.395Z",
+  "scope": "Isolated synthetic cacheable document, actual current workspace worker; not Next/private data",
+  "observations": [
+    {
+      "case": "tab CDP offline; server available; cache enabled",
+      "body": "PROVIDER DOCUMENT"
+    },
+    {
+      "case": "tab CDP offline; server unavailable; cache enabled",
+      "body": "PROVIDER DOCUMENT"
+    },
+    {
+      "case": "tab CDP offline; server unavailable; cache disabled",
+      "body": "PUBLIC OFFLINE STARTUP"
+    },
+    {
+      "case": "context offline; server unavailable; cache enabled",
+      "body": "PUBLIC OFFLINE STARTUP"
+    }
+  ],
+  "experimentalVariant": [
+    {
+      "case": "tab CDP offline; server available; cache enabled",
+      "body": "PROVIDER DOCUMENT"
+    },
+    {
+      "case": "tab CDP offline; server unavailable; cache enabled",
+      "body": "PUBLIC OFFLINE STARTUP"
+    },
+    {
+      "case": "tab CDP offline; server unavailable; cache disabled",
+      "body": "PUBLIC OFFLINE STARTUP"
+    },
+    {
+      "case": "context offline; server unavailable; cache enabled",
+      "body": "PUBLIC OFFLINE STARTUP"
+    }
+  ],
+  "boundary": "Fictional cacheable HTTP document and actual worker only. Current authenticated Next cache headers/true offline browser acceptance not verified. No product edit."
+}

@@ -1,0 +1,862 @@
+{
+  "status": "negative-control",
+  "cases": [
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "reconcile",
+        "card",
+        "card"
+      ]
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "card_change",
+        "card"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "resolve",
+        "capture",
+        "context"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "success",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "read503",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context",
+        "context",
+        "sessions"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "lost",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "reconcile",
+        "context"
+      ]
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "denied",
+      "effects": 1,
+      "protocol": [
+        "window_change",
+        "context"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "issue",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "replace",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "revoke",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "scan",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "scan",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "academy",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "academy",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "session",
+      "locale": "en",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "success",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "read503",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "known confirmation during held current read"
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "lost",
+      "missing": "read-only saved-result recovery"
+    },
+    {
+      "kind": "session",
+      "locale": "ar",
+      "scenario": "denied",
+      "missing": "known confirmation during held current read"
+    }
+  ],
+  "scope": "Real component with fictional HTTP; no SQL, physical-camera or hosted proof"
+}

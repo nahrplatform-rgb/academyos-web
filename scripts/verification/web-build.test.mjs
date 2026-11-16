@@ -40,3 +40,15 @@ test('changed public HTML or compiled chunks reject mixed build artifacts',()=>f
 test('missing build evidence refuses to imply source freshness',()=>fixture(async root=>{
   await rm(join(root,buildReceipt));await assert.rejects(assertCurrentWebBuild(root),/Run npm run build/);
 }));
+test('changed compiled server routes and manifests reject an apparently matching static build',()=>fixture(async(root,put)=>{
+  await put('apps/web/.next/server/app/api/local-runtime/route.js','different server bundle');
+  await assert.rejects(assertCurrentWebBuild(root),/Compiled web assets differ/);
+}));
+test('new root build manifests cannot bypass compiled freshness',()=>fixture(async(root,put)=>{
+  await put('apps/web/.next/routes-manifest.json','different routes');
+  await assert.rejects(assertCurrentWebBuild(root),/Compiled web assets differ/);
+}));
+test('normal runtime route-cache writes do not masquerade as changed compiled code',()=>fixture(async(root,put)=>{
+  await put('apps/web/.next/server/route-cache/APP_PAGE/fixture/response.html','runtime-only cache');
+  await assert.doesNotReject(assertCurrentWebBuild(root));
+}));

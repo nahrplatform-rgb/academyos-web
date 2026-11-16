@@ -18,7 +18,7 @@ Do not promise access-revocation detection while a device is disconnected, guara
 | Typed local repositories | Protected records/indexes, account/environment/academy/field scope, schema and complete collection generations | No raw global store access or plaintext private localStorage |
 | Storage/key lifecycle | Existing key/slot/custody/recovery, transactions, compatible migrations and quota/eviction detection | No extra passkey/secret; do not clear old slots/originals to bypass binding conflicts |
 | Sync coordinator | Task-first preparation, one compatible in-flight owner, revision-bound transfer/checkpoint, changed/removal handling, tab leadership | No component-level duplicate full bootstrap or unbounded whole-app preload |
-| Presentation | Small working sets, local subscriptions, context, focused loading, top-bar sync state | Query-library TTL is not a durable data/authority/command contract |
+| Presentation | Small working sets, local subscriptions, context, focused loading, sync status in the navigation footer | Query-library TTL is not a durable data/authority/command contract |
 | Domain command/outbox | Approved intent, versions, original ID, atomic local acknowledgement, canonical server send/reconcile and audit | No universal arbitrary write queue, fake server Saved or new ID after unknown outcome |
 | Server/API/database | Current scope, bounded read, coherent revision, domain transactions and terminal receipt | Local presence/key never bypasses canonical permission, window or version checks |
 

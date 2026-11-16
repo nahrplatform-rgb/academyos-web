@@ -6,6 +6,7 @@ import {readWorkspaceSlot,subscribeWorkspaceSlot} from '@/lib/workspace-device-s
 import {approveWorkspaceDevice,subscribeWorkspaceCoverage,workspaceDevice} from '@/lib/workspace-device';
 import {WorkspaceTransportError} from '@/lib/workspace-client-transport';
 import {listenForVisibleResume} from '@/lib/visible-resume';
+import {inspectWorkspaceStorage,requestWorkspaceStoragePersistence,type WorkspaceStorageStatus} from '@/lib/workspace-storage';
 import {Button,StatusBadge} from './ui/controls';
 
 type Phase='preparing'|'checking'|'ready'|'paused'|'denied';
@@ -26,6 +27,7 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
   const [phase,setPhase]=useState<Phase>('preparing');
   const [progress,setProgress]=useState<{ready:number;total:number}>();
   const [shellUnavailable,setShellUnavailable]=useState(false);
+  const [storage,setStorage]=useState<WorkspaceStorageStatus>();
   const [coverage,setCoverage]=useState(0), [trigger,setTrigger]=useState(0);
   const [requested,setRequested]=useState<string>();
   const snapshot=useCallback(()=>{
@@ -76,6 +78,12 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
     try {
       const id=await armRegisterAccount(subject);
       await approveWorkspaceDevice({subject,academy},id);
+      // Fire-and-forget: storage diagnostics are advisory and must not delay or
+      // overwrite the operational phase set by the sync effect. The approve path
+      // only transitions to 'preparing'; the sync effect owns 'ready' and later.
+      void requestWorkspaceStoragePersistence()
+        .then(value=>setStorage(value))
+        .catch(()=>setStorage({supported:true,persistence:'unavailable',persisted:null}));
       setProgress(undefined);setPhase('preparing');
     } catch {setPhase('paused');}
   },[academy,offline,prepared,subject]);
@@ -95,6 +103,12 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
     if(!allowed||publicOffline)return;
     return listenForVisibleResume(refresh);
   },[allowed,publicOffline,refresh]);
+  useEffect(()=>{
+    if(!prepared||!allowed)return;
+    let live=true;
+    void inspectWorkspaceStorage().then(value=>{if(live)setStorage(value);});
+    return()=>{live=false;};
+  },[allowed,prepared]);
   useEffect(()=>{
     if(!allowed||!generation||offline)return;
     const life=new AbortController();
@@ -136,7 +150,7 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
     return ()=>{life.abort();clearTimeout(timer);};
   },[academy,allowed,anchor,generation,offline,priority,requested,subject,trigger]);
 
-  return {prepared,offline,active,approved:allowed,phase,coverage:coverage+':'+slotGeneration,progress,shellUnavailable,
+   return {prepared,offline,active,approved:allowed,phase,coverage:coverage+':'+slotGeneration,progress,shellUnavailable,storage,
     read,context,calendar,needMonth,refresh,approve,remove};
 }
 
@@ -144,7 +158,7 @@ export type OwnerWorkspaceDevice=ReturnType<typeof useOwnerWorkspaceDevice>;
 export function WorkspaceDeviceTools({device,locale,verified}:{device:OwnerWorkspaceDevice;locale:string;verified:boolean}) {
   if(!device.prepared)return null;
   const ar=locale==='ar', t=(en:string,arabic:string)=>ar?arabic:en;
-  if(device.offline)return <StatusBadge>{t('Offline','غير متصل')}</StatusBadge>;
+  if(device.offline)return <StatusBadge className="workspace-connection-status" role="status">{t('Offline','غير متصل')}</StatusBadge>;
   if(!device.approved){
     if(!verified)return null;
     return <details className="layout-menu">
@@ -158,9 +172,13 @@ export function WorkspaceDeviceTools({device,locale,verified}:{device:OwnerWorks
   const label=device.phase==='ready'?t('Online','متصل'):device.phase==='paused'?t('Sync paused','المزامنة متوقفة مؤقتاً'):
     device.phase==='checking'?t('Checking for changes','جارٍ التحقّق من التغييرات'):
     device.phase==='denied'?t('Access unavailable','الصلاحية غير متاحة'):t('Preparing your academy','جارٍ تحضير الأكاديمية');
-  return <details className="layout-menu">
+  const storageLabel=device.storage?.persistence==='granted'?t('Persistent storage granted','التخزين المستمر مفعّل'):
+    device.storage?.persistence==='not-granted'?t('Persistent storage not granted','لم تتم الموافقة على التخزين المستمر'):
+    device.storage?.persistence==='unavailable'?t('Storage status unavailable','حالة التخزين غير متاحة'):
+    device.storage?.persistence==='unsupported'?t('Persistent storage is not supported','التخزين المستمر غير مدعوم'):null;
+  return <details className="layout-menu" data-connection-menu>
     <summary>{label}</summary>
-    <div>{device.phase==='preparing'&&device.progress&&<progress aria-label={label} value={device.progress.ready} max={device.progress.total}/>}
+    <div>{storageLabel&&<p role="status">{storageLabel}{device.storage?.usage!==undefined&&device.storage?.quota!==undefined?` · ${Math.round(device.storage.usage/1024)} KB / ${Math.round(device.storage.quota/1024)} KB`:''}</p>}{device.phase==='preparing'&&device.progress&&<progress aria-label={label} value={device.progress.ready} max={device.progress.total}/>}
       {device.shellUnavailable&&<p role="status">{t('Offline reopening is unavailable. Check for changes to retry.','الفتح دون اتصال غير متاح. تحقّق من التغييرات لإعادة المحاولة.')}</p>}
       <Button onClick={device.refresh}>{t('Check for changes','تحقّق من التغييرات')}</Button>
       <Button onClick={()=>void device.remove()}>{t('Remove downloads','إزالة التنزيلات')}</Button></div>

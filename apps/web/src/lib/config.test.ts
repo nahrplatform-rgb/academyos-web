@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { validateStaging, authenticationConfigured, offlineRegisterPilotEnabled, ownerWorkspaceEnabled } from "./config";
+import { NextRequest } from "next/server";
+import { validateStaging, authenticationConfigured, offlineRegisterPilotEnabled, ownerWorkspaceEnabled, STAGING_AUTH_ORIGINS, STAGING_ORIGIN } from "./config";
 test("unconfigured authentication stays unavailable", () =>
   assert.equal(authenticationConfigured({}), false));
 test("staging rejects production and wrong service bindings", () => {
@@ -25,6 +26,24 @@ test("staging rejects production and wrong service bindings", () => {
 });
 test("staging without credentials builds safely", () =>
   assert.doesNotThrow(() => validateStaging({ APP_ENV: "staging" })));
+
+test("local production preview has one exact same-origin staging allowance", () => {
+  const origin = "http://localhost:3100";
+  assert.ok(STAGING_AUTH_ORIGINS.includes(origin));
+  assert.doesNotThrow(() => validateStaging({APP_ENV: "staging", NEXT_PUBLIC_APP_URL: origin}));
+  const request = new NextRequest(`${origin}/api/experience`, {method: "POST", headers: {origin}});
+  assert.equal(request.headers.get("origin"), origin);
+  assert.equal(request.nextUrl.origin, request.headers.get("origin"));
+  for (const other of ["http://localhost:3101", "http://127.0.0.1:3101", "https://localhost:3100", "http://example.invalid:3100"]) {
+    assert.equal(STAGING_AUTH_ORIGINS.includes(other), false);
+    assert.throws(() => validateStaging({APP_ENV: "staging", NEXT_PUBLIC_APP_URL: other}));
+  }
+});
+
+test("hosted production requires the canonical staging origin", () => {
+  assert.throws(() => validateStaging({APP_ENV: "staging", VERCEL_ENV: "production", NEXT_PUBLIC_APP_URL: "http://localhost:3100"}));
+  assert.doesNotThrow(() => validateStaging({APP_ENV: "staging", VERCEL_ENV: "production", NEXT_PUBLIC_APP_URL: STAGING_ORIGIN}));
+});
 
 
 test("prepared-register entry requires the whole staging pilot gate", () => {

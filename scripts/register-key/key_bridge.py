@@ -16,6 +16,7 @@ scope = runpy.run_path(str(ROOT / 'scripts/register-key/bound_fixture.py'))
 dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.py'))
 RPC_FIELDS = {
     RPC: ('a', 'ev', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
+    'x23_owner_register_key_v2': ('a', 'ev', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
     'x20_register_download_v1': ('a','ev','act','previous','expected','after_id','device','ns','expected_subject'),
     'x20_register_dispatch_v1': ('a','ev','marks','captured_at','op','device','ns','expected_subject'),
 }
@@ -55,6 +56,18 @@ def command_result(test, command):
             "'anon_rpc',has_function_privilege('anon','public.x19_owner_register_key_v1(uuid,uuid,uuid,text,text,uuid,text)','execute'),"
             "'authenticated_table',has_table_privilege('authenticated','academy.owner_register_keys','select'),"
             "'authenticated_insert',has_table_privilege('authenticated','academy.owner_register_keys','insert'))"))
+    if action == 'acl_v2':
+        return json.loads(test.sql(
+            "select json_build_object('rls',(select relrowsecurity from pg_class where oid='academy.owner_register_keys_v2'::regclass),"
+            "'anon_rpc',has_function_privilege('anon','public.x23_owner_register_key_v2(uuid,uuid,uuid,text,text,uuid,text)','execute'),"
+            "'authenticated_table',has_table_privilege('authenticated','academy.owner_register_keys_v2','select'),"
+            "'authenticated_insert',has_table_privilege('authenticated','academy.owner_register_keys_v2','insert'),"
+            "'primary_key',(select array_agg(a.attname order by k.ord) from pg_index i "
+            "cross join lateral unnest(i.indkey) with ordinality k(n,ord) "
+            "join pg_attribute a on a.attrelid=i.indrelid and a.attnum=k.n "
+            "where i.indrelid='academy.owner_register_keys_v2'::regclass and i.indisprimary),"
+            "'unique_scope',exists(select 1 from pg_constraint where conrelid='academy.owner_register_keys_v2'::regclass "
+            "and contype='p' and cardinality(conkey)=4))"))
     if action == 'bound_acl':
         return json.loads(test.sql(
             "select json_build_array(has_function_privilege('authenticated','public.x17_register_download_v1(uuid,uuid,text,jsonb,text,uuid)','execute'),"
@@ -67,6 +80,25 @@ def command_result(test, command):
         academy, branch, event, _, _ = test.pair()
         return {'academy': academy, 'event': event, 'branch': branch}
     academy = literal(command['academy'])
+    if action == 'second':
+        event = test.sql("select event_id from academy.publication_heads "
+                         f"where academy_id={academy} and event_id<>{literal(command['event'])} order by day limit 1")
+        assert event, 'Fixture needs another published event in the same academy'
+        test.retime(event)
+        branch = test.sql(f"select branch_id from academy.publication_events where id={literal(event)}")
+        return {'academy': command['academy'], 'event': event, 'branch': branch}
+    if action == 'inspect_v2':
+        where = f"k.academy_id={academy}"
+        if command.get('event'):
+            where += f" and k.event_id={literal(command['event'])}"
+        if command.get('device'):
+            where += f" and k.device_id={literal(command['device'])}"
+        return json.loads(test.sql(
+            "select json_build_object('rows',count(*),'fingerprint',md5(jsonb_agg(to_jsonb(k) order by k.namespace)::text),"
+            "'audit',(select count(*) from academy.audit_events ae where ae.academy_id="+academy+
+            " and ae.action='attendance.local_register_scope_prepared' and ae.operation_id in "
+            f"(select k.namespace from academy.owner_register_keys_v2 k where {where}))) "
+            f"from academy.owner_register_keys_v2 k where {where}"))
     if action == 'inspect':
         return json.loads(test.sql(
             "select json_build_object('rows',count(*),'envelope',min(wrapped_key),'audit',"
@@ -96,6 +128,7 @@ if __name__ == '__main__':
                 value = command_result(fixture, command)
                 print(json.dumps({'id': command['id'], 'value': value}), flush=True)
             except Exception as error:
+                print(f"Fixture action {command.get('action')} failed: {type(error).__name__}", file=sys.stderr, flush=True)
                 print(json.dumps({'id': command['id'], 'error': type(error).__name__}), flush=True)
 
         with ThreadPoolExecutor(max_workers=4) as executor:

@@ -16,8 +16,8 @@ const stage = 'https://staging.academy.nahr.dev';
 
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
-function pgBridge(root) {
-  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py')], {stdio: ['pipe', 'pipe', 'inherit']});
+function pgBridge(root, multiScope=false) {
+  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
   const pending = new Map();
   let ready, rejectReady, sequence = 0;
   const fixture = new Promise((resolve, reject) => {ready = resolve; rejectReady = reject;});
@@ -56,9 +56,9 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}) {
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false} = {}) {
   const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development','publication']:[])];
-  const bridge = pgBridge(root);
+  const bridge = pgBridge(root,multiScope);
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
     events: [], dispatchBodies: [], rpcs: [], limits: [],originReachable:true};
@@ -119,6 +119,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false} = {}
       define:{'process.env.APP_ENV':'"staging"','process.env.LOCAL_REGISTER_TRANSFER_ENABLED':'"true"',
         'process.env.LOCAL_REGISTER_DISPATCH_ENABLED':'"true"',
         ...(pilot?{'process.env.LOCAL_REGISTER_KEY_ENABLED':'"true"',
+          'process.env.LOCAL_REGISTER_MULTI_SCOPE_ENABLED':JSON.stringify(multiScope?'true':'false'),
           'process.env.LOCAL_REGISTER_WRAP_KEY_V1':JSON.stringify(randomBytes(32).toString('hex'))}:{})},
       plugins:[{name:'fixture-transport',setup(b){
         b.onResolve({filter:/^next\/server$/},v=>({path:require.resolve(v.path),external:true}));

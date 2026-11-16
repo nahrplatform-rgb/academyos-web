@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-11-16T14:30:32.419718+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+    "scripts/development/test_ui.mjs": "f9d8561c8591266f125cac6c327cf6d5d94cfa19d29859bbcbdace1ab83f6724",
+    "scripts/development/test_boundary.py": "b6d09a1859069a4cbdab065ade169e32b32eea5baf876d3eda809c0f924eeeb5",
+    "scripts/development/test_api.mjs": "1fe9950c45c182ca77f4c19da4172fc0c494c9b6e497109490c87d5e67ca93a4",
+    "scripts/review-decisions/publication_lifecycle.mjs": "36e8a4eeac71a30536335c5d1666e1db899332ed3e6d98bf4dc7e18f086f8352",
+    "scripts/experience-review/collect.mjs": "1d451d9328c38dc1d3e49581c88ea6bbc243759f85f3b663463b2fea8cc0fc19",
+    "scripts/experience-review/build.mjs": "3a18549bfc414680ab980810c2e86de4c101b286c96bff473fe7e576912d45e1",
+    "supabase/migrations/20261028233812_i5a_development_feedback.sql": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177"
+  },
+  "productComponentUnchangedFromPriorCheckpoint": true,
+  "componentCases": 40,
+  "sqlDomainTests": 11,
+  "checks": {
+    "api": "{\"developmentApi\":\"passed\",\"budgetFailures\":33,\"invalidBodies\":3,\"crossOriginDenied\":true,\"scope\":\"actual route; synthetic limiter/session adapters\"}",
+    "normal-check": "PASS normal Attendance and Owner task return receipt matches sources",
+    "review-build": "{\"frames\":1695,\"transitions\":2231,\"sourceFiles\":82,\"literals\":8348,\"htmlBytes\":2621090,\"captureGaps\":0}",
+    "review-test": "PASS offline whole-app review checks",
+    "review-check": "PASS: review inventory and source fingerprints current; rendered coverage is separate",
+    "master": "Updated four master-plan source/crosswalk/adoption artifacts",
+    "continuation": "Updated docs/06-delivery/continue-academyos.md",
+    "execution": "PASS: continuation prompt matches the execution tracker\nPASS master-plan generated artifacts current\nExternal PYSA checkout not required by CI;live reference-path check not executed in this mode\nPASS master plan: 21 domains,180 AO/AT,15 batches,50 PY capabilities,300 reference field rows,112 route dispositions;structural evidence only\n....................\n----------------------------------------------------------------------\nRan 20 tests in 0.040s\n\nOK\nPASS: 9 PWA joins,3 supporting packages,installed WD cases and linked governance/plans; runtime and acceptance remain separate\nPASS: 29 execution batches, 17 findings, G01\u2013G09, canonical joins, dependencies and separate evidence states; current EX-07; 86 planned/evidence-linked working-day cases across 24 WB clauses",
+    "implementation": "PASS: 68 screen IDs, 30 stable action groups, 180 preserved requirements; valid source/loading/security links and separate status fields.",
+    "master-check": "PASS master-plan generated artifacts current\nExternal PYSA checkout not required by CI;live reference-path check not executed in this mode\nPASS master plan: 21 domains,180 AO/AT,15 batches,50 PY capabilities,300 reference field rows,112 route dispositions;structural evidence only",
+    "diff-check": ""
+  },
+  "coordinator": "Current Codex; exact backend model and usage unavailable",
+  "helpers": 0,
+  "limits": [
+    "Fictional component identity/HTTP; local disposable SQL and API adapters are separate layers",
+    "No product/schema/API change, connected writes, deployment, promotion, hosted/device verification or Owner acceptance",
+    "Prior normal Attendance runtime evidence reused by current source check; not rerun or redated",
+    "WD-71/MP-B01 remain open; published-state lifecycle matrix only"
+  ]
+}
