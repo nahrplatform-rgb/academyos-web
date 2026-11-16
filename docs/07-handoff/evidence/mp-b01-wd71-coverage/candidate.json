@@ -2,7 +2,7 @@
   "timestamp": "2026-11-16T17:48:08.748851+00:00",
   "baseHead": "780225b51360a63153f6fc09d47431cd5b654047",
   "branch": "codex/onboarding-decision-design-packet",
-  "status": "Initial1321959 published; Preview READY; CI failed stale backup migration-list assertion. One-line exact-list correction and pinned backup14 passed; successor preparation. See release.json.",
+  "status": "Publishedbdd9740872af61b6ee32dc05008d1b215203ff32: exact Foundation43950874524 attempt1 passed; automatic exact-source Preview READY. Owner-only promotion pending.",
   "repairs": [
     {
       "source": "apps/web/src/components/attendance-workspace.tsx",

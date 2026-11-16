@@ -81,11 +81,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Publish successor to1321959 containing exact backup-rehearsal migration-list correction and release evidence; pinned backup14 pass, first CI43949715959 failed at stale five-migration expectation and Preview READY. Run one exact successor Foundation waiter and separately verify automatic Preview source/project/READY. Preserve connected18-player/startup/ENAR results; Owner-only promotion and MP-Q01/wider role/installed acceptance remain separate.
+Checked/pushedbdd9740872af61b6ee32dc05008d1b215203ff32: full Foundation43950874524 attempt1 passed and exact automatic Preview READY. Current connected checkpoint is ready for Owner-only promotion to staging.academy.nahr.dev; after Owner promotion verify actual staging source then targeted signed-in ENAR journeys/original recovery. Preserve local18-player/save/startup proof. MP-Q01 richer Player choices and wider role/installed/Owner acceptance remain open; no new dependent fields or promotion authority inferred.
 
 ### Separate release follow-up
 
-Owner-reported redeploy independently verified: Ready dpl_CMpqkpPt232K3opknzzmsL3L4e8t, exact aedb3adcf58b083f3463b4b2b652f720dff6604a, staging.academy.nahr.dev, created14Nov12:18:17.987UTC after corrected project settings. Normal same-invitation provider delivery and recipient Trainer acceptance verified; no new CI inferred beyond historical53-step source run. No further promotion currently requested. Pre-existing local edits and new scoped work remain uncommitted/unpushed; use one coherent later candidate. Owner-only promotion retained. Restore temporary email verification coverage at a release checkpoint after the accepted Trainer flow is safely complete; do not silently redeploy. Earlier agent-created auto-aliased releases remain recorded as instruction breaches, not Owner actions.
+Owner may promote exact checkedbdd9740872af61b6ee32dc05008d1b215203ff32 using READY https://vercel.com/academy-os2/academyos-web/2E7zKpnH9MParNtHpkUm1aeg4wpW to existing staging.academy.nahr.dev. Agent performs no promotion/live alias action. Verify resulting source and targeted real signed-in journeys separately. First1321959 CI failure preserved; final evidence/tracker bookkeeping committed locally separately from checked application source.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
