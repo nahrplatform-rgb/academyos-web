@@ -17,6 +17,7 @@ class RehearsalScope(unittest.TestCase):
             '20261104012057_owner_register_key_custody.sql',
             '20261104013632_owner_register_bound_transport.sql',
             '20261106174606_owner_register_binding_conflict.sql',
+            '20261114130000_owner_register_additive_scopes.sql',
         ])
         self.assertEqual(reviewed_migrations(self.repo, files), files)
         self.assertEqual(reviewed_migrations(self.repo, files[0]), [files[0]])

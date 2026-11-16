@@ -81,7 +81,7 @@ Product value for this batch:
 
 ### Ready development action
 
-Coherent candidate dependency/source/publication review and all14 workflow preflight checks passed; commit the explicit reviewed path set, push existing branch, then run one exact-SHA Foundation waiter and independently verify automatic Preview project/source/READY. Preserve completed connected18-player save/startup/ENAR evidence; MP-Q01 and wider role/installed/Owner acceptance remain separate.
+Publish successor to1321959 containing exact backup-rehearsal migration-list correction and release evidence; pinned backup14 pass, first CI43949715959 failed at stale five-migration expectation and Preview READY. Run one exact successor Foundation waiter and separately verify automatic Preview source/project/READY. Preserve connected18-player/startup/ENAR results; Owner-only promotion and MP-Q01/wider role/installed acceptance remain separate.
 
 ### Separate release follow-up
 

@@ -1,0 +1,51 @@
+{
+  "recordedUtc": "2026-11-16T20:28:02.716929+00:00",
+  "candidate": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+  "branch": "codex/onboarding-decision-design-packet",
+  "publication": "Pushed existing branch; exact418-file selection committed. Historical780225b also published.",
+  "ci": {
+    "commit": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+    "run_id": 43949715959,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959",
+    "run_attempt": 1,
+    "run_conclusion": "failure",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959/job/133588657766",
+    "job_conclusion": "failure",
+    "steps_passed": 13,
+    "step_count": 55,
+    "first_failed_step": "Verify backup safety with pinned runtime dependencies",
+    "verdict": "ci_failed"
+  },
+  "preview": {
+    "deployment": "dpl_DgRrCEmAkVmjhETzogsfvABPuj1s",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "sha": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+    "target": null,
+    "state": "READY",
+    "url": "https://academyos-5xn4eew52-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/DgRrCEmAkVmjhETzogsfvABPuj1s",
+    "verifiedUtc": "2026-11-16T20:28:32.461472+00:00"
+  },
+  "promotionPerformed": false,
+  "whitespace": "Initial complete diff-check surfaced preserved unified-patch context blanks and retained Next progress logs. Product/tooling/docs diff excluding exact .patch/.log artifacts passed. Artifacts kept byte-exact; no assertion or source behavior changed.",
+  "limits": [
+    "Not a CI pass until terminal receipt",
+    "Preview is separate from staging or real provider/installed acceptance",
+    "Rich Player decisions remain open"
+  ],
+  "staging": {
+    "verifiedSource": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "deployment": "dpl_CMpqkpPt232K3opknzzmsL3L4e8t",
+    "origin": "https://staging.academy.nahr.dev",
+    "state": "READY",
+    "agentPromotion": false
+  },
+  "repair": {
+    "file": "scripts/backups/test_rehearsal_scope.py",
+    "change": "Retain exact ordered migration list and add existing20261114130000 migration; no production/backup operator changes or weakened refusal checks",
+    "pinnedBackupTests": 14,
+    "result": "passed",
+    "localDependencyAttempt": "Default Python missing botocore; no pass claimed. Isolated venv installed existing hash-pinned requirements, all14 passed.",
+    "next": "Publish successor candidate and verify full Foundation again."
+  }
+}
