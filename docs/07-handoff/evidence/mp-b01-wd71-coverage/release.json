@@ -1,5 +1,5 @@
 {
-  "recordedUtc": "2026-11-16T20:54:54.026027+00:00",
+  "recordedUtc": "2026-11-16T21:31:02.048276+00:00",
   "candidate": "bdd9740872af61b6ee32dc05008d1b215203ff32",
   "branch": "codex/onboarding-decision-design-packet",
   "publication": "Pushed existing branch; exact418-file selection committed. Historical780225b also published.",
@@ -25,19 +25,24 @@
     "dashboard": "https://vercel.com/academy-os2/academyos-web/2E7zKpnH9MParNtHpkUm1aeg4wpW",
     "verifiedUtc": "2026-11-16T20:44:34.668170+00:00"
   },
-  "promotionPerformed": false,
+  "promotionPerformed": true,
   "whitespace": "Initial complete diff-check surfaced preserved unified-patch context blanks and retained Next progress logs. Product/tooling/docs diff excluding exact .patch/.log artifacts passed. Artifacts kept byte-exact; no assertion or source behavior changed.",
   "limits": [
-    "Full source-bound Foundation and automatic Preview are separate from deployed staging, installed-device and Owner acceptance.",
+    "Full source-bound Foundation, Preview and verified staging subset remain separate from installed-device, all-role and Owner acceptance.",
     "Rich Player MP-Q01 choices remain open.",
     "Final release receipt/tracker bookkeeping is local and separately committed; checked application candidate isbdd9740."
   ],
   "staging": {
-    "verifiedSource": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
-    "deployment": "dpl_CMpqkpPt232K3opknzzmsL3L4e8t",
+    "verifiedUtc": "2026-11-16T21:31:02.048276+00:00",
+    "verifiedSource": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
     "origin": "https://staging.academy.nahr.dev",
+    "url": "https://academyos-kj3ivonyp-academy-os2.vercel.app",
     "state": "READY",
-    "agentPromotion": false
+    "target": "production",
+    "agentPromotion": false,
+    "hostedReceipt": "hosted-promotion.json"
   },
   "repair": {
     "file": "scripts/backups/test_rehearsal_scope.py",
@@ -45,7 +50,7 @@
     "pinnedBackupTests": 14,
     "result": "passed",
     "localDependencyAttempt": "Default Python missing botocore; no pass claimed. Isolated venv installed existing hash-pinned requirements, all14 passed.",
-    "next": "Successor full Foundation passed. Owner may promote checkedbdd9740 using matching READY Preview; independently verify resulting staging source and targeted signed-in journeys afterward."
+    "next": "Owner promotion verified on exact successor; targeted signed-in hosted journeys passed. Continue remaining acceptance gap audit without repeating unchanged proof."
   },
   "firstCandidate": {
     "candidate": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
@@ -72,5 +77,6 @@
       "dashboard": "https://vercel.com/academy-os2/academyos-web/DgRrCEmAkVmjhETzogsfvABPuj1s",
       "verifiedUtc": "2026-11-16T20:28:32.461472+00:00"
     }
-  }
+  },
+  "promotionActor": "Owner; reported by Owner and resulting deployment/source independently verified"
 }
