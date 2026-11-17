@@ -109,17 +109,70 @@
     ]
   },
   "platform": {
-    "status": "Needs user-completed sign-in in Hieu; requested handoff returned closed twice. No signed-in Platform or Guardian proof claimed.",
-    "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content.",
-    "ownerReport": "Platform signed in",
-    "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred.",
-    "pairedProfileCrosscheck": {
-      "nahr": "Current normal workspace chooser has Academy Owner in A/B only",
-      "dokkanni": "Current normal workspace chooser has Trainer in A only",
-      "hieu": "Fresh /en/platform redirects to provider sign-in; no independently verified Platform session",
-      "configurationChanges": false,
-      "taskTabsClosed": true
-    }
+    "status": "Local Platform identity and authority independently verified in Hieu at localhost:3100; hosted staging sign-in remains separate, not a missing local profile.",
+    "verifiedUtc": "2026-11-17T09:28:46.989271+00:00",
+    "origin": "http://localhost:3100",
+    "profile": "hieu",
+    "accountVerification": "Normal Account -> Manage account shows intended nahr.platform@gmail.com; no account edits.",
+    "runtime": {
+      "mode": "production",
+      "readiness": "npm run local:status current",
+      "instance": "37c94adc-0dda-4afc-8760-d9c0f7880bfb",
+      "buildId": "k6SQlx9qZmqX6unm2i8Di",
+      "sourceHash": "7bd7ba959e4703906e756d76e3c6d7dcb5735dc6f3366662db092f2d3bd12768",
+      "scope": "Existing runtime record plus live authenticated operating API/UI; no new build or hosted source equivalence claim."
+    },
+    "admissionList": {
+      "academies": 2,
+      "awaitingAcceptance": 0,
+      "ownerAccepted": 2,
+      "deliveryToReview": 0,
+      "setup": "Both initial setups saved; provider accepted is not inbox delivery proof."
+    },
+    "journeys": [
+      "EN Academy A keyboard detail entry, explicitly focused Back control + keyboard Enter returns to original row focus.",
+      "EN Academy B pointer detail/Back returns original row focus.",
+      "AR Academy A keyboard detail entry and pointer Back retains Arabic URL and original row focus.",
+      "AR Academy B pointer detail entry, explicitly focused Back control + keyboard Enter returns original Arabic row focus."
+    ],
+    "automationCaveat": "Locator.press on Back reported focus refusal after activating return; subsequent snapshots showed list and correct row focus. Explicit focus followed by page.keyboard.press Enter independently verified both EN and AR returns. No product defect inferred from relay error.",
+    "apiReads": [
+      {
+        "route": "/api/onboarding",
+        "action": "platform",
+        "status": 200,
+        "dataPresent": true
+      },
+      {
+        "route": "/api/people",
+        "action": "list",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "status": 403,
+        "error": "denied",
+        "dataPresent": false
+      }
+    ],
+    "limits": [
+      "Local frontend with shared synthetic staging services; not hosted Platform verification.",
+      "No admission, invitation, membership, account, provider, key or product writes.",
+      "No Guardian or wider Platform commercial lifecycle, offline, device or accessibility acceptance."
+    ],
+    "correction": "Earlier checks used hosted staging while Owner screenshots and signed-in account were on localhost:3100. The coordinator mistook origin-specific sign-in for an unresolved paired profile. No further profile/sign-in request is needed for local verification.",
+    "historicalHostedCheck": {
+      "status": "Needs user-completed sign-in in Hieu; requested handoff returned closed twice. No signed-in Platform or Guardian proof claimed.",
+      "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content.",
+      "ownerReport": "Platform signed in",
+      "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred.",
+      "pairedProfileCrosscheck": {
+        "nahr": "Current normal workspace chooser has Academy Owner in A/B only",
+        "dokkanni": "Current normal workspace chooser has Trainer in A only",
+        "hieu": "Fresh /en/platform redirects to provider sign-in; no independently verified Platform session",
+        "configurationChanges": false,
+        "taskTabsClosed": true
+      }
+    },
+    "configurationChanges": false,
+    "cleanup": "Only task-owned local tab closed; existing user tabs and signed-in account preserved."
   },
   "ownerAcceptance": {
     "recordedUtc": "2026-11-17T05:38:32.944423+00:00",
