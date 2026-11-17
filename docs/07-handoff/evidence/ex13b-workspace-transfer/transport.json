@@ -24,10 +24,10 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "072e8988f3b9c897e92797c0215284cf05aed81135a4feaa6f7aa698f80e1c84",
+    "scripts/workspace-download/test_transport.mjs": "e09067fb381517492de746f8ee99a922e3d2e16d101850303a79e4a2b06b6d95",
     "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "d1814244b098d123c194ac412086c8a9baed2714a4bacbe85dfbc88d86d7e4b0",
+    "scripts/workspace-download/normal_workspace.mjs": "4224eaca26a95ea12b8c05b7fd0123f82d1c6dfee92dd88dd1f647efc64fedce",
     "scripts/workspace-download/calendar_controls.mjs": "efad0f72579cfcac27039d3c91a2cde37aa032d6ec824728474654c54a487cc4",
     "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
     "scripts/workspace-download/empty_prepared_registration.mjs": "54470e9143f8db99ca9bc60a2a51a091d3284463a60e16ba8a594daa49cbfb47",
@@ -149,7 +149,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 14.871166000000812,
+      "elapsedMs": 14.827124999999796,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -194,8 +194,9 @@
       "offlineRoutePayloadRequests": 0,
       "fullBrowserRestart": true,
       "offlineShellNavigations": 11,
+      "manifestLaunchDocuments": 2,
       "fixtureOriginDisconnected": true,
-      "newOfflineDocuments": 11,
+      "newOfflineDocuments": 13,
       "nullGotoResponses": 0,
       "coldManifestLaunch": true,
       "peopleViewRestored": true,
@@ -293,7 +294,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "06413cdb-fe1c-41c0-ac70-be1e8689aada"
+          "player_id": "b67c3411-a62f-4b73-bd6b-78a1ad96679d"
         }
       }
     },
@@ -366,7 +367,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "3106ebeb-c4b9-4600-89c1-44e0305351dd"
+              "player_id": "5eaf4f08-33b5-49fa-8d47-aad6be551ef5"
             },
             "players": 1,
             "operations": 1
@@ -408,7 +409,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "53bef5d3-883b-43e4-a68a-5f4695ca5803"
+              "player_id": "99a12a52-5c53-422d-9299-d82b3aed8f09"
             },
             "players": 1,
             "operations": 1
@@ -445,7 +446,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "3a4646d4-0982-4bdd-9924-43a845eef569"
+              "player_id": "b53543f9-3769-453e-b754-efe9c41e6a2c"
             },
             "players": 1,
             "operations": 1
@@ -485,7 +486,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "2f6ce18d-19ab-42a9-96dc-5909d1421af7"
+              "player_id": "89c83c1b-1e9e-4a02-b9aa-986c06493573"
             },
             "players": 1,
             "operations": 1
@@ -521,7 +522,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "e1392565-23a4-4b8a-b1ea-c741148a1955"
+              "player_id": "576ada88-ba7f-4430-b5ca-dcc9d5bfee9e"
             },
             "players": 1,
             "operations": 1

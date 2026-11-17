@@ -35,7 +35,10 @@
       "encryptedRepository": true,
       "fullBrowserRestart": true,
       "fixtureOriginDisconnected": true,
-      "offlineOperatingRequests": 0
+      "offlineOperatingRequests": 0,
+      "manifestLaunchDocuments": 2,
+      "totalOfflineDocuments": 13,
+      "documentCounting": "11 direct task opens plus2 manifest-chain documents;both launch documents individually observed from the service worker."
     },
     "startupRecovery": 8,
     "normalAttendanceRecovery": 28,

@@ -113,7 +113,8 @@ if(process.argv.includes('--check')){
   assert.equal(receipt.metrics.normalWorkspace.fullBrowserRestart,true);
   assert.equal(receipt.metrics.normalWorkspace.coldManifestLaunch,true);
   assert.equal(receipt.metrics.normalWorkspace.offlineShellNavigations,11);
-  assert.equal(receipt.metrics.normalWorkspace.newOfflineDocuments,11);
+  assert.equal(receipt.metrics.normalWorkspace.manifestLaunchDocuments,2);
+  assert.equal(receipt.metrics.normalWorkspace.newOfflineDocuments,13);
   assert.equal(receipt.metrics.normalWorkspace.fixtureOriginDisconnected,true);
   assert.equal(receipt.metrics.normalWorkspace.peopleViewRestored,true);
   assert.equal(receipt.metrics.normalWorkspace.localLoadingFlashes,0);

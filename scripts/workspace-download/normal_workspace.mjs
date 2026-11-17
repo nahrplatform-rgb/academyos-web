@@ -126,7 +126,7 @@ export async function normalWorkspaceFixture(root, fixture, options={}) {
 export async function checkNormalWorkspace({fixture,ui,base,profile,transferCalls,rpcCalls,db,pass,setSubject}) {
   let browser=await chromium.launchPersistentContext(profile);
   const pageErrors=[], failedRequests=[], requests=[], navigationEvents=[];
-  let offlineShellNavigations=0, nullGotoResponses=0, postRegistration=null,peopleAuthentication=null;
+  let offlineShellNavigations=0, manifestLaunchDocuments=0, nullGotoResponses=0, postRegistration=null,peopleAuthentication=null;
   const scope=(locale,route)=>`${base}/${locale}/workspace/${fixture.academy}/${route}`;
   const players=scope('en','players');
   const calendar=scope('ar','calendar?anchor=2099-11-01');
@@ -347,10 +347,17 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
     // A real browser restart, real compiled public shell and the same encrypted
     // repository: no route hint or destination component is substituted here.
+    const launchResponses=[];
+    const observeLaunch=response=>{if(response.request().isNavigationRequest())launchResponses.push(response);};
+    page.on('response',observeLaunch);
     await page.goto(base+'/en',{waitUntil:'load'});
     await page.waitForURL(players);
     await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^Offline$/})).toBeVisible();
     await expect(player(page)).toBeVisible();
+    page.off('response',observeLaunch);
+    assert.deepEqual(launchResponses.map(response=>new URL(response.url()).pathname),['/en',new URL(players).pathname]);
+    assert.ok(launchResponses.every(response=>response.fromServiceWorker()));
+    manifestLaunchDocuments=launchResponses.length;
     assert.equal(ui.calls.length,offlineStart.reads);
     assert.equal(transferCalls.length,offlineStart.transfers);
     pass('Cold manifest /en launch reaches real prepared Players and encrypted data without operating requests');
@@ -512,7 +519,8 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     pass('Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial');
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,calendarControls,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
-      offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
+      offlineShellNavigations,manifestLaunchDocuments,fixtureOriginDisconnected:true,
+      newOfflineDocuments:offlineShellNavigations+manifestLaunchDocuments,nullGotoResponses,
       coldManifestLaunch:true,
       peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration,peopleAuthentication};
   } catch (error) {
