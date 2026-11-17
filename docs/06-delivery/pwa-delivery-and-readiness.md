@@ -1,5 +1,9 @@
 # Installable PWA delivery and readiness
 
+## 17 November actual installed checkpoint
+
+[Role and installed evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#17-november-role-workflow-and-actual-mac-installation) supersedes the older not-deployed/not-executed snapshot below for this exact subset. Promoted staging sourcebdd9740 serves the manifest and icons metadata. Actual Chrome installation on macOS27.3 succeeded; the native standalone app opened the public `/en` landing, reused the intended Owner session through Sign in, and reached the real chooser/Today. Quit and OS relaunch reopened `/en`; Sign in restored the chooser. This is online Mac installation/session-reuse proof only. Repeat launch does not yet restore academy/task/locale; clean-store/expired sign-in, installed offline/save/update/storage/camera, other devices and Owner acceptance remain open. Preserve the dated historical inventory below as provenance.
+
 ## Version2 batch alignment —7November2026
 
 [Canonical master plan v2](master-plan-v2/README.md). The new master package keeps EX-14/15/16 supporting installation/lifecycle/device work alongside current MP-B01 and later affected domains. Manifest/launch work begins before all future modules; actual installed proof follows real working slices. Scope and prior PW/WD IDs remain unchanged.
