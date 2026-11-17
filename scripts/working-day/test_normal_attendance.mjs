@@ -21,7 +21,7 @@ const returnCaptures=join(root,'docs/07-handoff/evidence/mp-b01-phone-register')
 const queueCaptures=join(root,'docs/07-handoff/evidence/mp-b01-today-queue');
 const reviewCaptures=join(root,'docs/07-handoff/evidence/mp-b01-owner-reviews');
 const publicationCaptures=join(root,'docs/07-handoff/evidence/mp-b01-publication-entry');
-const sources=['apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
+const sources=['apps/web/src/components/workspace-launch.tsx','apps/web/src/lib/workspace-launch.ts','apps/web/src/lib/workspace-device-slots.ts','apps/web/src/lib/experience-format.ts','apps/web/src/lib/owner-session-navigation.ts',
   'scripts/working-day/test_normal_attendance.mjs','scripts/working-day/owner_day_return.mjs','scripts/working-day/owner_queue_return.mjs','scripts/working-day/owner_review_return.mjs','scripts/working-day/owner_publication_return.mjs','scripts/working-day/register_geometry.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx',
   'apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx',

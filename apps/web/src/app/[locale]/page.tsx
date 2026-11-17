@@ -1,6 +1,8 @@
 import Link from "next/link";
 import WorkspaceShell from "@/components/workspace-shell";
-import { authenticationConfigured } from "@/lib/config";
+import { authenticationConfigured, offlineRegisterPilotEnabled, ownerWorkspaceEnabled } from "@/lib/config";
+import {auth} from '@clerk/nextjs/server';
+import WorkspaceLaunch from '@/components/workspace-launch';
 export default async function Page({
   params,
 }: {
@@ -9,6 +11,7 @@ export default async function Page({
   const { locale } = await params;
   const ar = locale === "ar";
   const ready = authenticationConfigured(process.env);
+  const subject=ready?(await auth()).userId:null;
   const modules = ar
     ? [
         "الأكاديمية والأعضاء",
@@ -23,6 +26,8 @@ export default async function Page({
         "Evaluations & communication",
       ];
   return (
+    <WorkspaceLaunch locale={locale} subject={subject}
+      enabled={offlineRegisterPilotEnabled(process.env)||ownerWorkspaceEnabled(process.env)}>
     <WorkspaceShell locale={locale} context={ar ? "مساحة الأكاديمية" : "Academy workspace"}
       title={ar ? "البداية" : "Overview"} homeHref={`/${locale}`} languageHref={ar ? "/en" : "/ar"}
       navigation={[{ href: `/${locale}`, label: ar ? "البداية" : "Overview", current: true }]}>
@@ -89,5 +94,6 @@ export default async function Page({
               : "Foundation preview. No real academies or operational records have been added."}
           </footer>
     </WorkspaceShell>
+    </WorkspaceLaunch>
   );
 }

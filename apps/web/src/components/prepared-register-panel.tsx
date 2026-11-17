@@ -8,6 +8,7 @@ import {useRouter} from 'next/navigation';
 import {formatCount,formatQuantity} from '@/lib/experience-format';
 import {ownerSessionReturn,ownerSessionSourceSuffix,useOwnerSessionSource} from '@/lib/owner-session-navigation';
 import {prepareWorkspaceShell} from '@/lib/workspace-public-shell';
+import {rememberWorkspaceLaunch} from '@/lib/workspace-launch';
 import type {RegisterPacket} from '@/lib/local-register-codec';
 import {ownerRegisterPilot} from '@/lib/owner-register-pilot';
 import {armRegisterAccount,readRegisterAccount,rememberPreparedRegister,requireRegisterAccount,REGISTER_DRAFT_EXIT_EVENT,
@@ -70,6 +71,9 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
   },()=>null);
   const selections=Object.entries(draft);
   const hasAccess=Boolean(snapshot && current && snapshot.owner===current && snapshot.slot===slotGeneration);
+  useEffect(()=>{
+    if(normal&&hasAccess&&(offline||shellReady))rememberWorkspaceLaunch(subject);
+  },[normal,hasAccess,offline,shellReady,subject]);
   const visible=hasAccess?snapshot?.read:null;
   function show(read:Read,id:string) {
     requireRegisterAccount(subject,id);

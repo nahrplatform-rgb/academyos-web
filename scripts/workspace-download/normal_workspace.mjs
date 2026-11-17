@@ -345,6 +345,15 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await page.setViewportSize({width:390,height:844});
     search=page.locator('#player-search');
     const offlineStart={reads:ui.calls.length,transfers:transferCalls.length,attempted:requests.length};
+    // A real browser restart, real compiled public shell and the same encrypted
+    // repository: no route hint or destination component is substituted here.
+    await page.goto(base+'/en',{waitUntil:'load'});
+    await page.waitForURL(players);
+    await expect(page.locator('.workspace-dock').getByRole('status').filter({hasText:/^Offline$/})).toBeVisible();
+    await expect(player(page)).toBeVisible();
+    assert.equal(ui.calls.length,offlineStart.reads);
+    assert.equal(transferCalls.length,offlineStart.transfers);
+    pass('Cold manifest /en launch reaches real prepared Players and encrypted data without operating requests');
     await openOffline(page,calendar);
     await expect(page.getByRole('status').filter({hasText:/^غير متصل$/})).toBeVisible();
     await expect(page.locator(`[data-occurrence="${eventKey}"]`)).toBeVisible();
@@ -504,6 +513,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     return {baselinePlayersReads:before.reads,coveredPlayersRequests:0,fullProfileReads:1,coveredCalendarRequests:0,calendarControls,
       unchangedManifestRequests:1,unchangedDatasetPages:0,offlineOperatingRequests:0,offlineRoutePayloadRequests,fullBrowserRestart:true,
       offlineShellNavigations,fixtureOriginDisconnected:true,newOfflineDocuments:offlineShellNavigations,nullGotoResponses,
+      coldManifestLaunch:true,
       peopleViewRestored:true,localLoadingFlashes:0,calendarReconnectContext:true,postRegistration,peopleAuthentication};
   } catch (error) {
     console.error(JSON.stringify({url:page?.url(),body:(await page?.locator('body').innerText().catch(()=>''))?.slice(0,2400),

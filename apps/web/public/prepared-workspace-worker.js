@@ -107,7 +107,10 @@ self.addEventListener('fetch',event=>{
   if(editingOrigin)return;
   const request=event.request, url=new URL(request.url);
   if (request.method!=='GET'||url.origin!==self.location.origin) return;
-  if (request.mode==='navigate'&&supported(url)) {
+  // The stable manifest entry reuses this same public build. Never cache its
+  // network HTML: online launch can contain current authentication context.
+  const launch=/^\/(en|ar)$/.test(url.pathname)&&!url.search;
+  if (request.mode==='navigate'&&(supported(url)||launch)) {
     event.respondWith(fetch(request).catch(async()=>{
       const response=await cached(shell);
       // Keep each navigation's requested URL, including on consecutive offline opens.

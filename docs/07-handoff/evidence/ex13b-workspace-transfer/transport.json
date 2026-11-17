@@ -12,7 +12,7 @@
     "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
     "apps/web/src/lib/local-workspace-repository.ts": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
-    "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+    "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "apps/web/src/lib/workspace-device.ts": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
     "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
@@ -24,10 +24,10 @@
     "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
     "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_transport.mjs": "71402d6930ff3e4f3086c4f09ff4a275b45168e3e1f0d95c94e2dcc75eea40ea",
+    "scripts/workspace-download/test_transport.mjs": "072e8988f3b9c897e92797c0215284cf05aed81135a4feaa6f7aa698f80e1c84",
     "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
     "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
-    "scripts/workspace-download/normal_workspace.mjs": "7192b9eb026ede7fa2a4381984c721a85653f8deb62c8702842ebdafcb7bdf89",
+    "scripts/workspace-download/normal_workspace.mjs": "d1814244b098d123c194ac412086c8a9baed2714a4bacbe85dfbc88d86d7e4b0",
     "scripts/workspace-download/calendar_controls.mjs": "efad0f72579cfcac27039d3c91a2cde37aa032d6ec824728474654c54a487cc4",
     "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
     "scripts/workspace-download/empty_prepared_registration.mjs": "54470e9143f8db99ca9bc60a2a51a091d3284463a60e16ba8a594daa49cbfb47",
@@ -41,10 +41,12 @@
     "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
     "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
-    "apps/web/public/prepared-workspace-worker.js": "aa1ec38d52db8ffd4b3b3adbec120fa2acba2bce93c0fdf42002df0b0e3ff4f8",
-    "apps/web/src/lib/workspace-public-shell.ts": "ae7447c30f81106ec5604898777b9c75b9b350038eea3013b355de5f1e241cff",
-    "apps/web/src/components/prepared-workspace-startup.tsx": "8a3b76d3ed647062dfaeb0404f9e578e80b8147743926711358e64fbf271c2c4",
-    "apps/web/src/components/owner-workspace-device.tsx": "f99dbeba8e59bf1dba1eccea445104dbcc1f4610055b5c653d6040703d965f2f",
+    "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+    "apps/web/src/lib/workspace-public-shell.ts": "0ad6d6a3809deaf7c5ddedf2247e064d00392c933dac1b9f99f4fc8782cd4f41",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+    "apps/web/src/components/owner-workspace-device.tsx": "e2cf8763d6cdd48ec2057b0e172b2883933e52e6f40bb50fc191814cca48d8f9",
+    "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
+    "apps/web/src/lib/workspace-launch.ts": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
     "apps/web/src/components/people-workspace.tsx": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
@@ -93,6 +95,7 @@
     "Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection",
     "Same-tab AR Calendar retains month, period and selection through offline reload, reentry and scoped check",
     "Same-tab offline Players retains its query and permitted summary through reload",
+    "Cold manifest /en launch reaches real prepared Players and encrypted data without operating requests",
     "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
     "Reconnecting the offline document returns to verified online data and applies a changed player",
     "A confirmed registration becomes discoverable from the prepared directory without an online list read",
@@ -146,7 +149,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 15.100916999999754,
+      "elapsedMs": 14.871166000000812,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -194,6 +197,7 @@
       "fixtureOriginDisconnected": true,
       "newOfflineDocuments": 11,
       "nullGotoResponses": 0,
+      "coldManifestLaunch": true,
       "peopleViewRestored": true,
       "localLoadingFlashes": 0,
       "calendarReconnectContext": true,
@@ -254,8 +258,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "7bd7ba959e4703906e756d76e3c6d7dcb5735dc6f3366662db092f2d3bd12768",
-        "artifactHash": "1c1670e0f3737777132509435699586ca174a461cd891b8f6568cad6ea77e6ce"
+        "sourceHash": "c317834fcbccbcb3d2981d6ffe585030a5d295ede608f29391dd7a021e83455c",
+        "artifactHash": "cebcc95104ba6d8425d944f5a16f553dad574547d1c8ec82cd2bea3cf9dc59d0"
       }
     },
     "emptyOnlineRegistration": {
@@ -289,7 +293,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "7fe279db-4d62-4411-af30-e8b01e3026b1"
+          "player_id": "06413cdb-fe1c-41c0-ac70-be1e8689aada"
         }
       }
     },
@@ -362,7 +366,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "c295be76-ad71-4f92-9391-7113289eae31"
+              "player_id": "3106ebeb-c4b9-4600-89c1-44e0305351dd"
             },
             "players": 1,
             "operations": 1
@@ -404,7 +408,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "93c2769f-5c7d-4bee-aedf-609cdf37c819"
+              "player_id": "53bef5d3-883b-43e4-a68a-5f4695ca5803"
             },
             "players": 1,
             "operations": 1
@@ -441,7 +445,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "83df71bc-99a3-4a4b-ba59-589d1c973a6e"
+              "player_id": "3a4646d4-0982-4bdd-9924-43a845eef569"
             },
             "players": 1,
             "operations": 1
@@ -481,7 +485,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "7e52df50-9efc-496d-8abc-7fa2eee264ba"
+              "player_id": "2f6ce18d-19ab-42a9-96dc-5909d1421af7"
             },
             "players": 1,
             "operations": 1
@@ -517,7 +521,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "c185edb3-676f-41e9-9e6d-6d91dd3115fe"
+              "player_id": "e1392565-23a4-4b8a-b1ea-c741148a1955"
             },
             "players": 1,
             "operations": 1

@@ -45,4 +45,12 @@ export async function prepareWorkspaceShell() {
     channel.port1.onmessage=event=>finish(event.data==='ready');
     worker.postMessage({type:'prepare-workspace-public-shell',route:current.pathname+current.search},[channel.port2]);
   });
+  // Remember only after the public build is ready, and recheck the actual
+  // current account/slot/route rather than a captured asynchronous target.
+  try {
+    const {readRegisterAccount}=await import('./register-device-account');
+    const {rememberWorkspaceLaunch}=await import('./workspace-launch');
+    const account=readRegisterAccount();
+    if(account?.mode==='active')rememberWorkspaceLaunch(account.subject);
+  } catch { /* Optional route memory must not invalidate a ready public build. */ }
 }

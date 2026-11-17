@@ -9,7 +9,7 @@ import {ownerFixture} from './owner_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const receipt=join(root,'docs/07-handoff/evidence/ex07-additive-attendance.json');
-const sources=[
+const sources=['apps/web/src/components/workspace-launch.tsx','apps/web/src/lib/workspace-launch.ts','apps/web/src/lib/workspace-device-slots.ts',
  'scripts/working-day/test_additive_attendance.mjs','scripts/working-day/owner_fixture.mjs','scripts/working-day/owner_db.py',
  'scripts/register-key/bound_fixture.py','scripts/offline-register/dispatch_bridge.py',
  ...['register-download','attendance-register','experience-projections','development','qr-attendance','corrections','guardian-training','guardians','attendance','session-changes','publication','program-planning','planning','programs','trainers','people','onboarding'].map(n=>`scripts/${n}/test_boundary.py`),

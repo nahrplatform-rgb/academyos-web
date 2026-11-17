@@ -69,6 +69,9 @@ export async function checkOwnerPublicationReturn(fixture,browser,captures){
     const start=state.events.length;
     await button(t.cancel).click();await accepted;
     await expect(page.getByText(t.cancelled,{exact:true})).toBeVisible();
+    // Confirmation deliberately precedes its follow-up read. Wait for the
+    // authoritative read response before asserting the completed transport.
+    await expect.poll(()=>calls(start)).toEqual([['publication','change',200],['publication','read',200]]);
     decision=calls(start);
     assert.deepEqual(decision,[['publication','change',200],['publication','read',200]]);
    }

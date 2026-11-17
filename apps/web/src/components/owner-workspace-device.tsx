@@ -8,6 +8,7 @@ import {WorkspaceTransportError} from '@/lib/workspace-client-transport';
 import {listenForVisibleResume} from '@/lib/visible-resume';
 import {inspectWorkspaceStorage,requestWorkspaceStoragePersistence,type WorkspaceStorageStatus} from '@/lib/workspace-storage';
 import {Button,StatusBadge} from './ui/controls';
+import {rememberWorkspaceLaunch} from '@/lib/workspace-launch';
 
 type Phase='preparing'|'checking'|'ready'|'paused'|'denied';
 const empty=()=>JSON.stringify([true,null,null,null]);
@@ -56,6 +57,9 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
   const offline=prepared&&(publicOffline||!online);
   const allowed=Boolean(generation&&slot&&slot!=='cleaning');
   const active=Boolean(generation&&slot==='active');
+  useEffect(()=>{
+    if(prepared&&active&&(offline||phase==='ready')&&!shellUnavailable)rememberWorkspaceLaunch(subject);
+  },[active,anchor,offline,phase,prepared,shellUnavailable,subject,priority]);
 
   const read=useCallback((...args:Parameters<ReturnType<typeof workspaceDevice>['read']>)=>
     generation&&slot==='active'

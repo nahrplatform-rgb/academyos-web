@@ -80,6 +80,8 @@ jobs:
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
         run: |
+          node scripts/workspace-launch/test.mjs --check
+          node scripts/workspace-launch/test.mjs
           node scripts/workspace-download/test_transport.mjs --check
           WORKSPACE_TRANSFER_EVIDENCE_DIR="$RUNNER_TEMP/owner-workspace-transfer" python3 scripts/workspace-download/test_boundary.py
           node scripts/workspace-download/test_api.mjs

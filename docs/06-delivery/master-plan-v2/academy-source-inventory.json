@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "780225b51360a63153f6fc09d47431cd5b654047",
+  "source_anchor": "c151f49251e397de883c55ebc7a7f72fb3727f41",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "path": "apps/web/public/prepared-workspace-worker.js",
-      "sha256": "aa1ec38d52db8ffd4b3b3adbec120fa2acba2bce93c0fdf42002df0b0e3ff4f8",
-      "bytes": 7320
+      "sha256": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "bytes": 7547
     },
     {
       "path": "apps/web/src/app/[locale]/guardian-invitation/page.tsx",
@@ -35,8 +35,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/page.tsx",
-      "sha256": "abfa7fb7bf2480289e242e06c119839c9cbd2f40effc505509eb0f902bb972db",
-      "bytes": 3830
+      "sha256": "760afc873f14154d4f27bfd6d770fdf078d79399e8b6e2c97a0315e485860d97",
+      "bytes": 4208
     },
     {
       "path": "apps/web/src/app/[locale]/platform/page.tsx",
@@ -440,8 +440,8 @@
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
-      "sha256": "f99dbeba8e59bf1dba1eccea445104dbcc1f4610055b5c653d6040703d965f2f",
-      "bytes": 10606
+      "sha256": "e2cf8763d6cdd48ec2057b0e172b2883933e52e6f40bb50fc191814cca48d8f9",
+      "bytes": 10872
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
@@ -450,8 +450,8 @@
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
-      "sha256": "65a71f13d922a9a2a12b1a8e670d7e524b6c1201e2eed268b8bb25669e40a5ab",
-      "bytes": 31742
+      "sha256": "216a2130dc9faf741f9336b1dc7261046792240a73d84572e05aad9c51cb1784",
+      "bytes": 31958
     },
     {
       "path": "apps/web/src/components/prepared-register-session.tsx",
@@ -465,8 +465,8 @@
     },
     {
       "path": "apps/web/src/components/prepared-workspace-startup.tsx",
-      "sha256": "8a3b76d3ed647062dfaeb0404f9e578e80b8147743926711358e64fbf271c2c4",
-      "bytes": 6433
+      "sha256": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+      "bytes": 6728
     },
     {
       "path": "apps/web/src/components/program-planning-workspace.tsx",
@@ -532,6 +532,11 @@
       "path": "apps/web/src/components/ui/controls.tsx",
       "sha256": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
       "bytes": 760
+    },
+    {
+      "path": "apps/web/src/components/workspace-launch.tsx",
+      "sha256": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
+      "bytes": 1436
     },
     {
       "path": "apps/web/src/components/workspace-layout.tsx",
@@ -875,8 +880,8 @@
     },
     {
       "path": "apps/web/src/lib/register-device-account.ts",
-      "sha256": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
-      "bytes": 4788
+      "sha256": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+      "bytes": 5047
     },
     {
       "path": "apps/web/src/lib/register-device-slots.test.ts",
@@ -1004,14 +1009,19 @@
       "bytes": 4127
     },
     {
+      "path": "apps/web/src/lib/workspace-launch.ts",
+      "sha256": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
+      "bytes": 2625
+    },
+    {
       "path": "apps/web/src/lib/workspace-navigation.test.ts",
       "sha256": "8bcbdfdda7b7c822b208877d46eb045041c9d77c759d0e4be8a0fa41d329e0d8",
       "bytes": 2993
     },
     {
       "path": "apps/web/src/lib/workspace-public-shell.ts",
-      "sha256": "ae7447c30f81106ec5604898777b9c75b9b350038eea3013b355de5f1e241cff",
-      "bytes": 2769
+      "sha256": "0ad6d6a3809deaf7c5ddedf2247e064d00392c933dac1b9f99f4fc8782cd4f41",
+      "bytes": 3274
     },
     {
       "path": "apps/web/src/lib/workspace-read-owner.test.ts",
@@ -1666,7 +1676,7 @@
     }
   ],
   "counts": {
-    "source_files": 242,
+    "source_files": 244,
     "page_paths": 38,
     "api_routes": 28,
     "migrations": 32

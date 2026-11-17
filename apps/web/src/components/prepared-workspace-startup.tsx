@@ -9,12 +9,15 @@ import {readRegisterSlot} from '@/lib/register-device-slots';
 import {readWorkspaceSlot} from '@/lib/workspace-device-slots';
 import {PeopleJourney} from './people-workspace';
 import {ExperienceJourney} from './experience-workspace';
+import WorkspaceLaunch from './workspace-launch';
 
 const pathPattern=/^\/(en|ar)\/workspace\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\/(players|calendar|attendance\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}))$/;
 const opening=()=>'';
 const reentryKey='academyos.workspace-reentry.v1';
 function snapshot() {
   try {
+    const launch=/^\/(en|ar)$/.exec(location.pathname);
+    if(launch&&!location.search&&!location.hash)return JSON.stringify({locale:launch[1],launch:true});
     const match=pathPattern.exec(location.pathname);
     if(!match)return null;
     const [,locale,academy,destination,event]=match,view=event?'attendance':destination;
@@ -39,7 +42,7 @@ function subscribe(listener:()=>void) {
  * selects encrypted data. A network return re-enters the protected same URL. */
 export default function PreparedWorkspaceStartup() {
   const source=useSyncExternalStore(subscribe,snapshot,opening);
-  const scope=source?JSON.parse(source) as {locale:string;academy?:string;view?:string;subject?:string;generation?:string;event?:string;anchor?:string;original?:boolean}:null;
+  const scope=source?JSON.parse(source) as {locale:string;launch?:boolean;academy?:string;view?:string;subject?:string;generation?:string;event?:string;anchor?:string;original?:boolean}:null;
   const locale=scope?.locale??'en',ar=locale==='ar';
   useEffect(()=>{
     const match=pathPattern.exec(location.pathname);
@@ -82,6 +85,7 @@ export default function PreparedWorkspaceStartup() {
       window.removeEventListener('beforeunload',departing);
     };
   },[]);
+  if(scope?.launch)return <WorkspaceLaunch locale={locale} offline/>;
   if(source==='')return <main className="public-task" lang={locale} dir={ar?'rtl':'ltr'}>
     <p role="status">{ar?'جارٍ فتح مساحة العمل…':'Opening your workspace…'}</p>
   </main>;

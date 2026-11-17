@@ -25,6 +25,9 @@ export function readRegisterAccount(): Account | null {
 function update(account: Account | null) {
   if (account) localStorage.setItem(REGISTER_ACCOUNT_KEY,JSON.stringify(account));
   else localStorage.removeItem(REGISTER_ACCOUNT_KEY);
+  // Navigation metadata is disposable. Generation checks still reject it if
+  // removal fails; protected operations keep their existing journal.
+  if(!account||account.mode!=='active')try {localStorage.removeItem('academyos.workspace-launch.v1');} catch {}
   window.dispatchEvent(new Event(REGISTER_ACCOUNT_EVENT));
 }
 function lock<T>(work: () => T | Promise<T>) {
