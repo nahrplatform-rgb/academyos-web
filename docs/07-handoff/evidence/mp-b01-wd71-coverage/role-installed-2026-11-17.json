@@ -112,7 +112,14 @@
     "status": "Needs user-completed sign-in in Hieu; requested handoff returned closed twice. No signed-in Platform or Guardian proof claimed.",
     "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content.",
     "ownerReport": "Platform signed in",
-    "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred."
+    "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred.",
+    "pairedProfileCrosscheck": {
+      "nahr": "Current normal workspace chooser has Academy Owner in A/B only",
+      "dokkanni": "Current normal workspace chooser has Trainer in A only",
+      "hieu": "Fresh /en/platform redirects to provider sign-in; no independently verified Platform session",
+      "configurationChanges": false,
+      "taskTabsClosed": true
+    }
   },
   "ownerAcceptance": {
     "recordedUtc": "2026-11-17T05:38:32.944423+00:00",
