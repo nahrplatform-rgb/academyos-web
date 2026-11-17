@@ -110,9 +110,26 @@
   },
   "platform": {
     "status": "Needs user-completed sign-in in Hieu; requested handoff returned closed twice. No signed-in Platform or Guardian proof claimed.",
-    "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content."
+    "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content.",
+    "ownerReport": "Platform signed in",
+    "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred."
   },
-  "ownerAcceptance": "Pending explicit Owner response; historical scoped acceptance remains intact.",
+  "ownerAcceptance": {
+    "recordedUtc": "2026-11-17T05:38:32.944423+00:00",
+    "status": "accepted_scoped_workflow",
+    "ownerResponse": "Accept this scoped workflow checkpoint",
+    "scope": [
+      "Staged Owner register entry and return",
+      "EN/AR Player profile returns",
+      "Trainer request -> separate Owner rejection -> retained Trainer decision"
+    ],
+    "excludes": [
+      "Broader offline/device coverage",
+      "New Player features",
+      "Whole MP-B01/full-app acceptance"
+    ],
+    "source": "Explicit Owner answer in current Codex chat on17November2026"
+  },
   "cleanup": {
     "trainerAndOwnerTaskTabsClosed": true,
     "platformHandoffsReturnedClosed": true,
