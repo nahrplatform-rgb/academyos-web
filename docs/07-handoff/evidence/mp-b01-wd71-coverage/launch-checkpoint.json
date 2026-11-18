@@ -71,7 +71,15 @@
   "reference": "PYSA public/manifest.json starts at /; public/sw.js contains a separate attendance sync mechanism. Source/audit read only, no observed hosted launch proof; no cache/auth/retention assumptions imported. AcademyOS existing worker/repositories remain authoritative.",
   "dependencyAdvisory": {
     "observed": "Next build SecurityFatalError reported an advisory; ordinary retry completed without dependency/config/security-check changes. Read-only npm audit confirms6 moderate and0 high/critical production findings at this timestamp.",
-    "next": "Next16.4.2: GHSA-mfr8-8qww-v76h; advisory relates to use-cache through unstable_cache across root params; source search found neither pattern in apps/web/src. This is not exploitability proof or complete security review. Patch16.4.6 offered by audit; remediation remains a separate dependency follow-up.",
+    "refreshedUtc": "2026-11-18T19:40:00+00:00",
+    "cve": "CVE-2026-119790",
+    "advisoryAffected": ">= 16.3.0, <= 16.4.4",
+    "advisoryPatched": "16.4.5",
+    "installedNext": "16.4.2",
+    "publishedPatches": ["16.4.5", "16.4.6"],
+    "sourceSearch": "No unstable_cache call and no 'use cache' directive in apps/web/src or the Next configuration at f35c9ad. The advisory's stated precondition is absent from inspected application source; dependencies were not exhaustively audited for such calls, so this narrows rather than eliminates the risk.",
+    "decision": "Upgrade not performed in this checkpoint: it changes the compiled output and would need its own build, full regression, exact-candidate CI and preview before release. Dependency maintenance stays a separate tracked follow-up rather than being folded into the Calendar repair.",
+    "next": "Next16.4.2: GHSA-mfr8-8qww-v76h; advisory relates to use-cache through unstable_cache across root params; source search found neither pattern in apps/web/src. This is not exploitability proof or complete security review. Patch16.4.5 or16.4.6 is published; remediation remains a separate dependency follow-up.",
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
@@ -335,6 +343,39 @@
       "source": "https://github.com/advisories/GHSA-mfr8-8qww-v76h",
       "observed": "The installed Next build paused once at the security advisory prompt. Retrying the same build succeeded. Source search found no direct unstable_cache or use cache use in apps/web/src or the Next configuration. This search does not resolve dependency risk."
     },
-    "limits": "Real local production browser and fixture results. The Calendar date repair has not been checked in a new Foundation run or deployed. Prior staged scoped Owner acceptance remains scoped to its recorded workflows."
+    "limits": "Real local production browser and fixture results at the recorded source fingerprints. The Calendar date repair was later committed and passed its own Foundation run; see calendarRepairCandidate. Prior staged scoped Owner acceptance remains scoped to its recorded workflows."
+  },
+  "calendarRepairCandidate": {
+    "candidate": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+    "branch": "codex/onboarding-decision-design-packet",
+    "pushed": true,
+    "summary": "Records the displayed Calendar locale and anchor only after the prepared reader returns that exact range; generic launch memory leaves Calendar context to the Calendar view. No new repository, worker, command, credential or private-response cache.",
+    "ci": {
+      "run_id": 44378881128,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44378881128",
+      "run_attempt": 1,
+      "run_conclusion": "success",
+      "steps_passed": 55,
+      "step_count": 55,
+      "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44378881128/job/135065347725",
+      "watcherNote": "The first bounded waiter call returned verdict unverified after a 20-second GitHub read timeout with no partial result. The same run id was re-watched once; that call returned the 55/55 success above.",
+      "verdict": "passed"
+    },
+    "preview": {
+      "deploymentIdFromCommitStatus": "D4ZXh3EEFXTeK4zj2AQZyRyBQuCk",
+      "commitStatus": "The Vercel GitHub app status for this commit reported one success and one pending entry for that deployment.",
+      "unverified": "project, target, READY state and preview hostname",
+      "reason": "The local Vercel CLI is authenticated only to the personal Hobby scope moamenghareebs-projects. academy-os2 is not among its teams and deployment inspection was refused under that context. No provider credential was added, replaced or changed.",
+      "notAClaim": "The commit-status entry is not treated as an exact preview READY proof for this candidate."
+    },
+    "staging": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+      "deployment": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+      "state": "READY",
+      "agentPromotion": false,
+      "note": "Independent staging read predates f35c9ad. This candidate has not been promoted."
+    },
+    "next": "Owner-controlled promotion of f35c9ad to staging, then reproduce the selected Arabic week on the installed app and continue the remaining EX-16 device cases."
   }
 }
