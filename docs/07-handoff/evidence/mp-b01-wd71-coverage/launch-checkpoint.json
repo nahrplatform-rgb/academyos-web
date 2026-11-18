@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17T10:46:13.200118+00:00",
-  "status": "local_verified_candidate",
+  "status": "local_verified_repaired_candidate",
   "applicationBase": "bdd9740872af61b6ee32dc05008d1b215203ff32",
   "checkpointBase": "c151f49251e397de883c55ebc7a7f72fb3727f41",
   "scope": "EX-07/MP-B01 with EX-14/15/16; PW-02/PW-03 and partial WD-74/75; no whole installed-case completion",
@@ -59,7 +59,8 @@
   },
   "repairsFoundDuringVerification": [
     "Original candidate remembered only ready online visits; full encrypted restart test exposed prior Arabic Calendar instead of last offline Players. Fixed recording offline visits; real test then passed.",
-    "Publication return test observed Saved before supporting read status existed. Added bounded polling for the same exact change200/read200 assertion; assertions preserved and all28 cases passed."
+    "Publication return test observed Saved before supporting read status existed. Added bounded polling for the same exact change200/read200 assertion; assertions preserved and all28 cases passed.",
+    "18Nov CI dated-session return sampled [] before planning read completed. Added bounded exact planning/read200 poll, preserving the original deep equality and one-read budget. Full28 cases pass twice locally, including fresh source-bound recording; all15 workflow --check commands pass."
   ],
   "liveLocal": {
     "origin": "http://localhost:3100",
@@ -84,5 +85,58 @@
     "ownerAcceptance": "Prior explicit17Nov scoped workflow acceptance retained; this new launch behavior has no Owner acceptance.",
     "promotion": "None; prior staging bdd9740 remains separate. Candidate CI/preview to be recorded after authorized push.",
     "independentSecurity": "Deferred by Owner, not performed."
+  },
+  "candidateHistory": [
+    {
+      "candidate": "f37dc0ab81b75843a469633ee743ef15fbf08e7e",
+      "ci": {
+        "commit": "f37dc0ab81b75843a469633ee743ef15fbf08e7e",
+        "run_id": 44068480768,
+        "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44068480768",
+        "run_attempt": 1,
+        "run_conclusion": "cancelled",
+        "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44068480768/job/133988275119",
+        "job_conclusion": "cancelled",
+        "steps_passed": 30,
+        "step_count": 55,
+        "verdict": "ci_failed"
+      },
+      "disposition": "Superseded by evidence-count correction; cancellation, not assertion failure."
+    },
+    {
+      "candidate": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+      "ci": {
+        "commit": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+        "run_id": 44069908616,
+        "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44069908616",
+        "run_attempt": 1,
+        "run_conclusion": "failure",
+        "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44069908616/job/133993345662",
+        "job_conclusion": "failure",
+        "steps_passed": 27,
+        "step_count": 55,
+        "first_failed_step": "Verify normal Attendance local save, reconnect and original recovery",
+        "verdict": "ci_failed"
+      },
+      "preview": {
+        "id": "dpl_5HEDLyRFsBCkRXPzpuNAfmgBd9RR",
+        "url": "https://academyos-hlx74npka-academy-os2.vercel.app",
+        "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+        "sha": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+        "state": "READY",
+        "target": null
+      },
+      "disposition": "Not release-ready: Owner date return sampled request log before completed planning read. Exact response budget retained in bounded polling repair."
+    }
+  ],
+  "serviceInterruptions": {
+    "reportedBy": "Owner",
+    "status": 403,
+    "endpoint": "https://api.code.signor.ai/api-3/v1/responses",
+    "requestIds": [
+      "ce19d452-b648-4925-bf34-3f4cc62db4a4",
+      "b3b0f71a-2a9b-49b3-8f4d-04f04c10f6d5"
+    ],
+    "boundary": "AI service refusal; underlying cause not independently established. No provider/model/profile/MCP configuration changes or unauthorized fallback."
   }
 }

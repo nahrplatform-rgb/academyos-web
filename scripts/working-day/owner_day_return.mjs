@@ -95,6 +95,9 @@ export async function checkOwnerDayReturn(fixture, browser, captures) {
         const datedStart=state.events.length;
         await link(test.backSession).click();
         await expect(button(test.backSource)).toBeEnabled();
+        // The retained Back control can render before the fixture records the
+        // completed read. Wait for that exact response, retaining the budget.
+        await expect.poll(()=>calls(datedStart)).toEqual([['planning','read',200]]);
         datedRead=calls(datedStart);
         assert.deepEqual(datedRead,[['planning','read',200]]);
         await link(test.attendance).click();

@@ -85,7 +85,7 @@ Prepare coherent launch candidate CI/preview;after Owner-controlled promotion ve
 
 ### Separate release follow-up
 
-17Nov launch source newly locally verified;publish one coherent candidate and inspect full exact-source Foundation/READY unaliased preview. Prior staging remains Owner-promoted bdd9740872af61b6ee32dc05008d1b215203ff32. No agent promotion;new installed-launch acceptance requires Owner release and actual device proof. Current dependency audit6moderate findings remain separate,not a completed security review.
+18Nov b7af9e26257ac1769a261a0c5df8a37c7b95c963 Foundation44069908616 attempt1 failed Owner dated-return test synchronization; exact response-budget bounded poll repair locally passes28 cases. Publish repaired source-bound candidate and inspect full Foundation/READY target-null preview before Owner release. Prior staging remains Owner-promoted bdd9740872af61b6ee32dc05008d1b215203ff32;installed-launch acceptance remains open. Dependency advisory separate;no agent promotion.
 
 Scoped dependency gate: EX-12 and scoped EX-11 retained;EX-13 Owner Players/Calendar foundation routing checkpoint now passed on combined local/CI/limited hosted evidence. Wider EX-13 matrix stays assigned to supporting EX-08/05/09. Authorized normal-Attendance integration may proceed;working acceptance and external-review deferral remain separate.
 
