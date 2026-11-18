@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "c151f49251e397de883c55ebc7a7f72fb3727f41",
+  "source_anchor": "061bdc7f51791a0c18809074b04d72a4960d12bd",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -415,8 +415,8 @@
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "1de436a55893fd757b7f3972f1494bb536e4aae2d38329d146b200288c8a5291",
-      "bytes": 54155
+      "sha256": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "bytes": 54779
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
@@ -1010,8 +1010,8 @@
     },
     {
       "path": "apps/web/src/lib/workspace-launch.ts",
-      "sha256": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
-      "bytes": 2625
+      "sha256": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
+      "bytes": 3064
     },
     {
       "path": "apps/web/src/lib/workspace-navigation.test.ts",

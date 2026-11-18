@@ -186,5 +186,155 @@
       "agentPromotion": false
     },
     "next": "Owner-controlled promotion to staging, then actual installed /en, EN/AR, offline, uncovered, update and same-original reconnect checks."
+  },
+  "stagingPromotion": {
+    "ownerReported": "completed",
+    "metadataReadUtc": "2026-11-18T15:20Z",
+    "receiptUpdatedUtc": "2026-11-18T15:50:53.906403+00:00",
+    "origin": "https://staging.academy.nahr.dev",
+    "source": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "deploymentId": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "vercelTarget": "production",
+    "deploymentUrl": "https://academyos-3uur0mcbf-academy-os2.vercel.app",
+    "agentPromotion": false,
+    "verification": "Authenticated Vercel deployment lookup by the canonical staging hostname returned the matching staging alias, project, READY state and gitSource.sha.",
+    "preliminaryPublicProbe": {
+      "verifiedUtc": "2026-11-18T14:52:00+00:00",
+      "observations": [
+        "Staging root returns 307 to /en; /en returns 200 signed-out public landing.",
+        "Staging manifest start_url /en and same-origin scope are present.",
+        "Staging prepared-workspace-worker.js is byte-identical to current apps/web/public/prepared-workspace-worker.js."
+      ],
+      "supersededPriorDeploymentReference": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+      "note": "The initial asset comparison did not identify the deployment. The provider lookup supersedes the previous staging deployment reference."
+    },
+    "publicManifest": {
+      "id": "/en",
+      "startUrl": "/en",
+      "scope": "/",
+      "display": "standalone",
+      "status": 200
+    },
+    "servedWorker": {
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "registrationInNahr": "activated and controlling with no waiting or installing worker"
+    }
+  },
+  "installedMac20261118": {
+    "source": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "deploymentId": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+    "platform": "macOS 27.3 (26C5035r), Chrome 157 (reported major)",
+    "installedBundle": "com.google.Chrome.app.akhpfabkglmchhjephhjdbpdinigcjml",
+    "startUrl": "https://staging.academy.nahr.dev/en",
+    "role": "Nahr existing iCloud Academy Owner, verified through Manage account and the normal synthetic Academy A chooser",
+    "devicePreparation": "Approved Players and Calendar through Use this personal device. Observed preparation complete and persistent storage granted. This exercised the existing synthetic staging download and encrypted local storage path.",
+    "englishRelaunch": {
+      "osAppExited": true,
+      "restoredTask": "Players",
+      "visiblePlayers": 18,
+      "signInActionRequired": false
+    },
+    "arabicRelaunch": {
+      "osAppExited": true,
+      "observedStart": "/en",
+      "restoredTask": "Arabic Calendar",
+      "dateBeforeExit": "2026-11-25",
+      "dateAfterRelaunch": "2026-11-18",
+      "result": "Route and language restored. Selected week was lost. The stored URL omitted the displayed Calendar date."
+    },
+    "updateSmoke": "The same installed app used at bdd9740 remained usable on promoted 525dfc6. Its prepared owner task reopened without reinstalling. No held draft, unknown original or old/new worker transition was exercised.",
+    "attendanceAvailability": "Today displayed zero registers needing marks. No eligible synthetic Owner register was exercised in this installed session.",
+    "finalState": "Installed AcademyOS Staging left open on English Players with the same Academy Owner session and 18 rows.",
+    "regularTabDiagnostic": {
+      "chooser": "The first workspace lookup showed an unavailable alert after a status-0 request. Subsequent reads returned 200 and showed both Academy Owner workspaces without sign-in.",
+      "connectionScope": "Nahr task-owned browser tab, staging origin only. Tab offline emulation, while the Mac and installed app remained online.",
+      "covered": {
+        "date": "2026-11-18",
+        "offline": true,
+        "sessions": 5
+      },
+      "uncovered": {
+        "date": "2027-08-16",
+        "preparationNotice": true,
+        "sessionRows": 0,
+        "emptyResultClaim": false
+      },
+      "return": {
+        "date": "2026-11-18",
+        "sessions": 5
+      },
+      "limits": "Cold staging tab attempts did not produce a reliable cached-launch assertion. This pass covers open-tab offline reading and uncovered wording only.",
+      "cleanup": "Verified the scoped tab online again and closed it."
+    },
+    "remaining": "Actual installed cold offline launch in both languages, empty or uncovered stores, a controlled update retaining protected originals, and same-original register reconnect still require a device with isolated connectivity and an eligible synthetic register."
+  },
+  "calendarDateRelaunchRepair": {
+    "recordedUtc": "2026-11-18T15:50:53.906403+00:00",
+    "status": "locally verified",
+    "baseline": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "head": "061bdc7f51791a0c18809074b04d72a4960d12bd",
+    "inputs": {
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
+      "scripts/workspace-download/calendar_controls.mjs": "77939ec8ec76c364ff0f903799c2301e77fa743ee8e0e91fce884122de2f4622",
+      "scripts/workspace-launch/test.mjs": "bf04e1cc721c96ab3761ce90a43eeec8c29a59bfa4c033d290bf4d4f21373d44"
+    },
+    "behavior": "Store the displayed Calendar locale and anchor only after the prepared reader returns that exact range. Generic launch memory leaves Calendar context to the actual Calendar view. Account and active slot checks remain in the existing launch reader and writer.",
+    "preview": {
+      "origin": "http://localhost:3100",
+      "buildId": "7zO1muffbrmUlcuIqOc8H",
+      "sourceHash": "047e1ff71b789d0ae6e1ce0ee90ac5bea5d6731e790790dfffa07473032c5a98",
+      "restoredRuntimeInstance": "b9e1b092-cd54-405c-a76c-0a76edfd5896"
+    },
+    "checks": {
+      "localOwnerIdentity": "Nahr iCloud confirmed through Manage account. Existing prepared synthetic Academy A Calendar.",
+      "online": "Selected November 25 on Arabic Calendar, closed the task tab and opened a fresh /en entry. The validated Arabic route included anchor=2026-11-25 and showed four sessions.",
+      "coldOffline": "Stopped the verified local production listener and confirmed port 3100 was free. A blank task tab in scoped offline emulation opened /en and then the Arabic Calendar with the same anchor and four sessions from the cached public shell. Zero operating API requests.",
+      "uncovered": "2027-08-16 displayed the preparation notice and zero rows. The launch anchor stayed November 25. Returning to it restored four rows without operating API requests.",
+      "reconnect": "Restarted the same checked local build and restored online mode. November 25 and all four rows remained. Task tabs closed. Both local runtime modes current.",
+      "launchFixtureGroups": 9,
+      "workspaceTransportChecks": 74,
+      "preparedCalendarControls": [
+        "en",
+        "ar"
+      ],
+      "lint": true,
+      "typecheck": true,
+      "productionBuild": true,
+      "ownerStartupGroups": 8,
+      "normalAttendanceAndOwnerReturnChecks": 28,
+      "additiveAttendanceChecks": 4,
+      "unitTests": 119,
+      "preflight": {
+        "recordedUtc": "2026-11-18T16:40:00+00:00",
+        "commands": 15,
+        "passed": 15,
+        "node": "v24.14.0",
+        "staleReceipt": "scripts/working-day/test_owner_next.mjs --check rejected the previous experience-workspace.tsx hash after the Calendar repair, so that receipt no longer described current source.",
+        "repair": "The owning disposable Next/Chromium/PG17 working-day suite was rerun with --record. Its eight checks passed and the receipt now matches current source. No assertion, tolerance, expected result or receipt hash was hand-edited.",
+        "boundary": "Receipt freshness only. This preflight does not re-certify unchanged product behavior and adds no new product claim."
+      },
+      "recordedReconnection": "The disposable signed tests keep original IDs and byte-identical retries and verify one canonical attendance result per event.",
+      "factualReview": {
+        "frames": 1812,
+        "transitions": 2611,
+        "captureGaps": 0,
+        "checked": true,
+        "scope": "Fresh fictional actual-component and public-entry captures."
+      }
+    },
+    "advisory": {
+      "id": "GHSA-mfr8-8qww-v76h",
+      "lockedNext": "16.4.2",
+      "patchedVersionInAdvisory": "16.4.5",
+      "status": "Open dependency maintenance",
+      "source": "https://github.com/advisories/GHSA-mfr8-8qww-v76h",
+      "observed": "The installed Next build paused once at the security advisory prompt. Retrying the same build succeeded. Source search found no direct unstable_cache or use cache use in apps/web/src or the Next configuration. This search does not resolve dependency risk."
+    },
+    "limits": "Real local production browser and fixture results. The Calendar date repair has not been checked in a new Foundation run or deployed. Prior staged scoped Owner acceptance remains scoped to its recorded workflows."
   }
 }

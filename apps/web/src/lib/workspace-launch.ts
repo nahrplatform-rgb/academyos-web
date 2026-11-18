@@ -10,7 +10,7 @@ function target(path:unknown) {
   if(typeof path!=='string'||path.length>256)return null;
   const match=route.exec(path);
   if(!match||match[5]&&(match[3]!=='calendar'||!isCivilDay(match[6])))return null;
-  return {locale:match[1],academy:match[2],event:match[4]};
+  return {locale:match[1],academy:match[2],page:match[3],event:match[4]};
 }
 function activeSlot(subject:string,path:string) {
   const scope=target(path);
@@ -22,9 +22,17 @@ function activeSlot(subject:string,path:string) {
 
 /** A nonprivate route hint, never a membership, coverage or key grant. The
  * destination still opens its ordinary protected reader/original recovery. */
-export function rememberWorkspaceLaunch(subject:string) {
+export function rememberWorkspaceLaunch(subject:string,calendar?:{locale:string;anchor:string}) {
   try {
-    const path=location.pathname+location.search;
+    const current=location.pathname+location.search;
+    const scope=target(current);
+    if(!scope)return;
+    let path=current;
+    if(scope.page==='calendar'){
+      // Only Calendar knows which displayed period has a prepared read.
+      if(!calendar||!['en','ar'].includes(calendar.locale)||!isCivilDay(calendar.anchor))return;
+      path=`/${calendar.locale}/workspace/${scope.academy}/calendar?anchor=${calendar.anchor}`;
+    }
     const account=readRegisterAccount();
     if(!account||account.mode!=='active'||account.subject!==subject)return;
     const slot=activeSlot(subject,path);

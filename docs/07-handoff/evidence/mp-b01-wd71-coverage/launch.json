@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-17T10:30:32.960Z",
+  "date": "2026-11-18T15:35:42.678Z",
   "passed": true,
   "scope": "Isolated Chromium with actual launch/account/slot/startup/worker sources; private component stubs, no hosted/installed/data authority proof",
   "browser": "156.0.8078.4",
@@ -16,7 +16,7 @@
     "Cache stores only public shell/static assets; isolated launch performs zero operating API requests"
   ],
   "hashes": {
-    "apps/web/src/lib/workspace-launch.ts": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
+    "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
     "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
@@ -27,6 +27,6 @@
     "apps/web/src/app/[locale]/page.tsx": "760afc873f14154d4f27bfd6d770fdf078d79399e8b6e2c97a0315e485860d97",
     "apps/web/src/components/owner-workspace-device.tsx": "e2cf8763d6cdd48ec2057b0e172b2883933e52e6f40bb50fc191814cca48d8f9",
     "apps/web/src/components/prepared-register-panel.tsx": "216a2130dc9faf741f9336b1dc7261046792240a73d84572e05aad9c51cb1784",
-    "scripts/workspace-launch/test.mjs": "9630001d5c48b4d1b33bcbc9bc1373fed74fc7d5bc78576ef95b97e00388ecd3"
+    "scripts/workspace-launch/test.mjs": "bf04e1cc721c96ab3761ce90a43eeec8c29a59bfa4c033d290bf4d4f21373d44"
   }
 }

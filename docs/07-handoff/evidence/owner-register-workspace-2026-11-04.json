@@ -11,11 +11,11 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 137
+    "offlineProcessReopenMs": 128
   },
   "hashes": {
     "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
-    "apps/web/src/lib/workspace-launch.ts": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
+    "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",

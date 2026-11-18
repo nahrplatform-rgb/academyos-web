@@ -82,7 +82,7 @@ try{
   await openLaunch('/en',players);await expect(page.getByRole('heading',{name:'Fictional Players destination'})).toBeVisible();
   pass('Closed tab -> offline /en -> remembered Players through actual root worker/startup');
   await online();await page.goto(origin+calendar);
-  await page.evaluate(()=>window.test.rememberWorkspaceLaunch('user_launch'));await offline();
+  await page.evaluate(()=>window.test.rememberWorkspaceLaunch('user_launch',{locale:'ar',anchor:'2099-11-01'}));await offline();
   await openLaunch('/en',calendar);await expect(page.getByRole('heading',{name:'Fictional Calendar destination'})).toBeVisible();
   pass('English manifest entry restores Arabic Calendar and validated anchor');
   await online();await page.goto(origin+attendance);

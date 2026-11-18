@@ -12,6 +12,7 @@ import { ownerNavigation } from './owner-navigation';
 import { addCivilDays, monthGridStart, shiftMonth, sessionTime, isCivilDay, formatCount, formatQuantity } from '@/lib/experience-format';
 import {ownerTodayReturnHint,ownerTodayTaskHint,ownerTodayReviewSource,ownerSessionSourceSuffix} from '@/lib/owner-session-navigation';
 import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
+import {rememberWorkspaceLaunch} from '@/lib/workspace-launch';
 import type { CalendarCursor, CurrentCalendarProjection, CalendarProjection, CalendarSession, ExperienceContext } from '@/lib/experience-projections';
 type Role='owner'|'trainer'|'guardian';
 type Props={locale:string;academy:string;role:Role;calendar?:boolean;anchor?:string;prepared?:boolean;publicOffline?:boolean};
@@ -308,6 +309,13 @@ export function ExperienceJourney({locale:initialLocale,academy,role,calendar=fa
  const ownerToday = role === 'owner' && !calendar;
  const ownerCalendar = role === 'owner' && calendar;
  const protectedViewGone=accessRevoked||(fromDevice&&!deviceActive);
+ useEffect(()=>{
+  if(!ownerCalendar||!deviceActive||accessRevoked||!fromDevice||!data||!isCivilDay(displayedFrom))return;
+  if(!offline&&(device.phase!=='ready'||device.shellUnavailable))return;
+  const first=view==='month'?monthGridStart(displayedFrom):displayedFrom;
+  if(data.from!==first||data.to!==addCivilDays(first,view==='week'?6:41))return;
+  rememberWorkspaceLaunch(subject,{locale,anchor:displayedFrom});
+ },[ownerCalendar,deviceActive,accessRevoked,fromDevice,data,displayedFrom,offline,device.phase,device.shellUnavailable,view,subject,locale]);
  const ownerOperations = role === 'owner';
  function sessionStatus(item: CalendarSession) {
   return {draft:t('Draft','مسودة'),published:t('Published','منشور'),moved:t('Moved','منقول'),cancelled:t('Cancelled','ملغى')}[item.state];

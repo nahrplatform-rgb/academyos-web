@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-17T10:35:01.030Z",
+  "completed": "2026-11-18T15:49:19.265Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -21,7 +21,7 @@
   "scope": "Disposable Next/Chromium/IndexedDB and signed API/PG; fictional identity/provider; not hosted or installed-device proof",
   "hashes": {
     "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
-    "apps/web/src/lib/workspace-launch.ts": "059ea4288b9cbce21f769e86f5c704c365aa8bf772ae8e573c2b4043abed4a49",
+    "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "scripts/working-day/test_additive_attendance.mjs": "ff02c4bf05af013a4f4ee1bc4db6a2b0749ef736df898c9e2cc00bf255132a79",
     "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
