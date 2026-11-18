@@ -471,6 +471,17 @@
       "Not exercised in this pass: click-based date picker entry, month view, cold offline launch, empty store, protected update with pending work, same-original reconnect.",
       "Chrome-level JavaScript-from-AppleEvents and macOS accessibility/screen capture are unavailable to this client, so nothing here reads the installed app's DOM or pixels."
     ],
-    "verdict": "Repair verified at the application layer on the promoted staging source, including a cross-month period change and two fresh-launch restorations; installed-device layer still open."
+    "verdict": "Repair verified at the application layer on the promoted staging source, including a cross-month period change and two fresh-launch restorations; installed-device layer still open.",
+    "evidenceCommit": {
+      "candidate": "211167dce1618aca159be527ecbaa6a6bc35929e",
+      "branch": "codex/onboarding-decision-design-packet",
+      "run_id": 44399576601,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44399576601",
+      "run_attempt": 1,
+      "steps_passed": 55,
+      "step_count": 55,
+      "verdict": "passed",
+      "note": "Documentation and evidence only. This commit carries the retest record; the product source under test remains f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75. Later docs-only follow-ups are not recursively re-recorded."
+    }
   }
 }
