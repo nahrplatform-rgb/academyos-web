@@ -1,6 +1,6 @@
 {
   "date": "2026-11-17T10:46:13.200118+00:00",
-  "status": "local_verified_repaired_candidate",
+  "status": "checked_release_ready",
   "applicationBase": "bdd9740872af61b6ee32dc05008d1b215203ff32",
   "checkpointBase": "c151f49251e397de883c55ebc7a7f72fb3727f41",
   "scope": "EX-07/MP-B01 with EX-14/15/16; PW-02/PW-03 and partial WD-74/75; no whole installed-case completion",
@@ -83,7 +83,7 @@
     "helpers": 0,
     "model": "Current coordinator; exact configured model/usage not independently exposed; no provider/model changes.",
     "ownerAcceptance": "Prior explicit17Nov scoped workflow acceptance retained; this new launch behavior has no Owner acceptance.",
-    "promotion": "None; prior staging bdd9740 remains separate. Candidate CI/preview to be recorded after authorized push.",
+    "promotion": "None; staging bdd9740 independently reverified; checked release candidate 525dfc6 has Foundation 55/55 and READY target-null preview. Owner-only release remains separate.",
     "independentSecurity": "Deferred by Owner, not performed."
   },
   "candidateHistory": [
@@ -138,5 +138,53 @@
       "b3b0f71a-2a9b-49b3-8f4d-04f04c10f6d5"
     ],
     "boundary": "AI service refusal; underlying cause not independently established. No provider/model/profile/MCP configuration changes or unauthorized fallback."
+  },
+  "candidate": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+  "ci": {
+    "run_id": 44270356265,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44270356265",
+    "attempt": 1,
+    "verdict": "passed",
+    "steps_passed": 55,
+    "step_count": 55,
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44270356265/job/134685130466"
+  },
+  "preview": {
+    "id": "dpl_HdeAaC3rSnMusdHrDkKSPktdwFAB",
+    "url": "https://academyos-bey0g5ec7-academy-os2.vercel.app",
+    "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": null
+  },
+  "staging": {
+    "origin": "https://staging.academy.nahr.dev",
+    "sha": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": "production",
+    "agentPromotion": false
+  },
+  "releaseHandoff": {
+    "candidate": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "branch": "codex/onboarding-decision-design-packet",
+    "preview": {
+      "id": "dpl_HdeAaC3rSnMusdHrDkKSPktdwFAB",
+      "url": "https://academyos-bey0g5ec7-academy-os2.vercel.app",
+      "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+      "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+      "state": "READY",
+      "target": null
+    },
+    "staging": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+      "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+      "state": "READY",
+      "target": "production",
+      "agentPromotion": false
+    },
+    "next": "Owner-controlled promotion to staging, then actual installed /en, EN/AR, offline, uncovered, update and same-original reconnect checks."
   }
 }
