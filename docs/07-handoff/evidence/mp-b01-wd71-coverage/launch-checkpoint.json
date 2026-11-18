@@ -376,6 +376,24 @@
       "agentPromotion": false,
       "note": "Independent staging read predates f35c9ad. This candidate has not been promoted."
     },
-    "next": "Owner-controlled promotion of f35c9ad to staging, then reproduce the selected Arabic week on the installed app and continue the remaining EX-16 device cases."
+    "next": "Owner-controlled promotion of f35c9ad to staging, then reproduce the selected Arabic week on the installed app and continue the remaining EX-16 device cases.",
+    "ownerReportedPromotion": {
+      "reportedUtc": "2026-11-18T20:10:00+00:00",
+      "claim": "Owner reports f35c9ad promoted to staging.",
+      "publicCorroboration": [
+        "staging.academy.nahr.dev/en returns 200 and its manifest still declares id/start_url /en, scope / and display standalone.",
+        "The served page chunk 3dmlh_s5394h9.js contains the repaired rememberWorkspaceLaunch calendar branch: the en/ar locale guard, the civil-day anchor check and the calendar?anchor= path construction. That branch does not exist in the pre-repair bundle, so staging is serving code with the repair.",
+        "The served /prepared-workspace-worker.js SHA-256 equals the repository file 46b3719..., so worker and repository agree at this commit range."
+      ],
+      "notVerified": "Exact gitSource SHA, deployment id, project and target for staging after this promotion. The authenticated Vercel read is unavailable because no scoped token file exists yet; the previous READY triple for 525dfc6 is historical, not evidence for f35c9ad.",
+      "boundary": "Public bundle presence is strong but indirect evidence of the promoted source; it does not bind the alias to a commit SHA and is not a device or behaviour test."
+    },
+    "installedRetestBlocker": {
+      "observedUtc": "2026-11-18T20:12:00+00:00",
+      "case": "Reproduce the selected Arabic Calendar week on the installed macOS app after promotion.",
+      "blocker": "This client cannot reach the Owner browser context. The in-app browser drives separate Chromium tabs inside the OpenCode desktop app, which do not carry the verified Academy Owner Clerk session or the prepared protected register data. The shared browse relay answers 401 at localhost:19988 and no browse MCP server is registered in this client.",
+      "notDone": "No installed relaunch, no Arabic week assertion and no EX-16 device case was attempted or is claimed.",
+      "options": "Owner enables the browse MCP/profile for this client, Owner runs the relaunch steps and reports the result, or Owner supplies a scoped Vercel token so source binding is exact while the device case remains Owner-executed."
+    }
   }
 }
