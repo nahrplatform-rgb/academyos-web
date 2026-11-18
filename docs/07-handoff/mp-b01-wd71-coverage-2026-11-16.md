@@ -216,4 +216,19 @@ Read-only API reads then verified both layers exactly:
 
 Public surface agrees: `/en` returns 200 with the unchanged `/en` manifest identity, the served page chunk `3dmlh_s5394h9.js` carries the new `rememberWorkspaceLaunch` calendar branch (`en`/`ar` guard, civil-day check, `calendar?anchor=` path) that the pre-repair bundle lacks, and `/prepared-workspace-worker.js` matches the repository SHA-256. Team tokens carry no user identity, so user-level CLI commands such as `teams ls` reject them; the read-only API v6/v13 calls with the team slug are the supported path used here.
 
-The installed Arabic-week retest remains the next evidence step, and it is still blocked on the Owner browser context rather than on source binding: the in-app browser opens separate Chromium tabs without the verified Academy Owner session or prepared protected data, and the shared browse relay answers 401 at `localhost:19988` with no browse MCP registered here. No installed relaunch or EX-16 device case has been attempted, and none is claimed.
+## 18 November Calendar relaunch retest on promoted staging
+
+The 401 recorded earlier was the relay's unauthenticated HTTP surface, not its state: `browse status --json` reports the relay connected with three paired browsers (`hieu` signed out, `nahr` and `dokkanni` signed in as Academy Owner). Driving the relay's CLI directly, in the Owner's real `nahr` Chrome profile, produced the first behavioural evidence for this repair on the promoted source `f35c9ad` / `dpl_3yuuqW86QN5PnDXqzPK365GWq66v`. Reads were limited to the non-private launch path in `academyos.workspace-launch.v1`, page snapshots and rendered counts; no credential, cookie, player or register data was copied.
+
+| Case | Observed |
+|---|---|
+| Calendar opened with **no** anchor in the URL | showed `١٨–٢٤ نوفمبر ٢٠٢٦`; the key became `/ar/workspace/<academy>/calendar?anchor=2026-11-18` |
+| `الفترة التالية` clicked | showed `٢٥ نوفمبر – ١ ديسمبر ٢٠٢٦`, `٤ تدريبات`; the key became `anchor=2026-11-25` |
+| Fresh `/en` entry (A) | replaced to the Arabic `anchor=2026-11-25` week, `٤ تدريبات`, `dir=rtl` |
+| Back to the prior period, then fresh `/en` (B) | key became `anchor=2026-11-18`; the new tab replaced to that same Arabic week, `٥ تدريبات` |
+
+Case B is the control: the restored week tracked the remembered value rather than a fixed route. One protocol point mattered — with several calendar tabs open, each re-recorded its own displayed week into the single key and reads became ambiguous; the sequence above was deterministic only with one calendar tab.
+
+**The installed app is still open, and now for a measured reason.** Parking the app on the non-remembered `/trainer` route and terminating it returned to `/trainer` on relaunch, and parking on `/en` returned to `/en/workspace`: relaunch there is Chrome session restore, not the launch memory. That profile is not one of the three paired browse profiles and holds no active register account, which `rememberWorkspaceLaunch` requires, so no launch key was written in it. No installed-app relaunch assertion is claimed.
+
+Two limits stay explicit. The anchor advanced `١٨→٢٥ نوفمبر` and then stopped for `٢–٨` and `٩–١٥ ديسمبر`, which did render distinct rows; the prepared validated range appears to end at 1 December, but whether this is the guard refusing an unvalidated range or a missed update is unproven and needs a focused local reproduction. One earlier run with several tabs open recorded a `2029-03-05` week that was not reproduced under the single-tab protocol, so it counts as unresolved rather than as evidence. Click-based date entry, month view, cold offline, empty store, protected update and same-original reconnect were not exercised here.

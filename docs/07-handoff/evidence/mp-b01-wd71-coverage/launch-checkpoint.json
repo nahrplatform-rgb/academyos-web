@@ -427,5 +427,46 @@
       "recordedValue": "not recorded; never printed or committed",
       "cliNote": "Team tokens have no user identity, so user-level CLI commands such as teams ls report an invalid token. Read-only API v6/v13 calls with the team slug work and were used for this verification."
     }
+  },
+  "calendarRelaunchStagingRetest": {
+    "utc": "2026-11-18T20:36:00+00:00",
+    "target": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+      "deployment": "dpl_3yuuqW86QN5PnDXqzPK365GWq66v"
+    },
+    "method": "Owner's real Chrome profile 'nahr' (Academy Owner, Academy A b2c7920d-d467-4e9f-9a68-809ac627399e) driven through the local browse relay at 127.0.0.1:19988 with named tabs. Reads were limited to the non-private launch path in localStorage key academyos.workspace-launch.v1, page snapshots and rendered counts. No credential, cookie, player or register data was copied.",
+    "observed": [
+      {
+        "case": "records the displayed range when the URL carries no anchor",
+        "result": "/ar/.../calendar showed ١٨–٢٤ نوفمبر ٢٠٢٦ and the key became /ar/workspace/<academy>/calendar?anchor=2026-11-18"
+      },
+      {
+        "case": "anchor follows a period change",
+        "result": "clicking الفترة التالية moved to ٢٥ نوفمبر – ١ ديسمبر ٢٠٢٦ (٤ تدريبات) and the key became anchor=2026-11-25"
+      },
+      {
+        "case": "fresh launch restores the remembered week (A)",
+        "result": "a new tab at /en replaced to /ar/workspace/<academy>/calendar?anchor=2026-11-25, rendered ٢٥ نوفمبر – ١ ديسمبر ٢٠٢٦ with ٤ تدريبات, html dir=rtl"
+      },
+      {
+        "case": "fresh launch restores the remembered week (B)",
+        "result": "after returning the calendar to ١٨–٢٤ نوفمبر (٥ تدريبات) the key became anchor=2026-11-18 and a new /en tab replaced to that same anchored Arabic week with ٥ تدريبات"
+      }
+    ],
+    "protocol": "One calendar tab only. With several calendar tabs open, each re-recorded its own displayed week into the single key and competing writes made reads ambiguous; closing them and using one calendar tab made the sequence deterministic.",
+    "installedApp": {
+      "attempted": true,
+      "finding": "The installed app launch is dominated by Chrome session restore, not the launch memory. Parking the app on the non-remembered /trainer route and terminating the app (app_mode_loader) returned to /trainer on relaunch; parking it on /en returned to /en/workspace.",
+      "reason": "The installed app's Chrome profile is not among the three paired browse profiles (hieu is signed out; nahr and dokkanni are signed in) and it holds no active register account, which rememberWorkspaceLaunch requires. No launch key was written in that profile.",
+      "notClaimed": "No installed-app relaunch assertion is claimed; that layer stays open."
+    },
+    "limits": [
+      "The anchor advanced ١٨→٢٥ نوفمبر and then stopped for ٢–٨ and ٩–١٥ ديسمبر, which rendered distinct rows. The prepared validated range appears to end at 1 Dec 2026, but that is inferred: whether this is the prepared-range guard refusing an unvalidated range or a missed update is unproven and needs a focused local reproduction.",
+      "One earlier run with several tabs open recorded a 2029-03-05 week; that was not reproduced under the single-tab protocol and is treated as unresolved, not as evidence either way.",
+      "Not exercised in this pass: click-based date picker entry, month view, cold offline launch, empty store, protected update with pending work, same-original reconnect.",
+      "Chrome-level JavaScript-from-AppleEvents and macOS accessibility/screen capture are unavailable to this client, so nothing here reads the installed app's DOM or pixels."
+    ],
+    "verdict": "Repair verified at the application layer on the promoted staging source; installed-device layer still open."
   }
 }
