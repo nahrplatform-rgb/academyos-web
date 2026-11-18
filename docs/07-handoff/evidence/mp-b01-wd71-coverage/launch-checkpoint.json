@@ -76,7 +76,10 @@
     "advisoryAffected": ">= 16.3.0, <= 16.4.4",
     "advisoryPatched": "16.4.5",
     "installedNext": "16.4.2",
-    "publishedPatches": ["16.4.5", "16.4.6"],
+    "publishedPatches": [
+      "16.4.5",
+      "16.4.6"
+    ],
     "sourceSearch": "No unstable_cache call and no 'use cache' directive in apps/web/src or the Next configuration at f35c9ad. The advisory's stated precondition is absent from inspected application source; dependencies were not exhaustively audited for such calls, so this narrows rather than eliminates the risk.",
     "decision": "Upgrade not performed in this checkpoint: it changes the compiled output and would need its own build, full regression, exact-candidate CI and preview before release. Dependency maintenance stays a separate tracked follow-up rather than being folded into the Calendar repair.",
     "next": "Next16.4.2: GHSA-mfr8-8qww-v76h; advisory relates to use-cache through unstable_cache across root params; source search found neither pattern in apps/web/src. This is not exploitability proof or complete security review. Patch16.4.5 or16.4.6 is published; remediation remains a separate dependency follow-up.",
@@ -362,11 +365,14 @@
       "verdict": "passed"
     },
     "preview": {
-      "deploymentIdFromCommitStatus": "D4ZXh3EEFXTeK4zj2AQZyRyBQuCk",
-      "commitStatus": "The Vercel GitHub app status for this commit reported one success and one pending entry for that deployment.",
-      "unverified": "project, target, READY state and preview hostname",
-      "reason": "The local Vercel CLI is authenticated only to the personal Hobby scope moamenghareebs-projects. academy-os2 is not among its teams and deployment inspection was refused under that context. No provider credential was added, replaced or changed.",
-      "notAClaim": "The commit-status entry is not treated as an exact preview READY proof for this candidate."
+      "deploymentId": "D4ZXh3EEFXTeK4zj2AQZyRyBQuCk",
+      "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+      "state": "READY",
+      "target": null,
+      "project": "academyos-web (prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx)",
+      "url": "https://academyos-pgucmm8rc-academy-os2.vercel.app",
+      "verifiedVia": "Read-only Vercel API v13 deployments with the Owner-provided team-scoped token.",
+      "note": "Supersedes the earlier unverified commit-status reading; the D4ZXh3 deployment is the exact f35c9ad preview."
     },
     "staging": {
       "origin": "https://staging.academy.nahr.dev",
@@ -385,15 +391,41 @@
         "The served page chunk 3dmlh_s5394h9.js contains the repaired rememberWorkspaceLaunch calendar branch: the en/ar locale guard, the civil-day anchor check and the calendar?anchor= path construction. That branch does not exist in the pre-repair bundle, so staging is serving code with the repair.",
         "The served /prepared-workspace-worker.js SHA-256 equals the repository file 46b3719..., so worker and repository agree at this commit range."
       ],
-      "notVerified": "Exact gitSource SHA, deployment id, project and target for staging after this promotion. The authenticated Vercel read is unavailable because no scoped token file exists yet; the previous READY triple for 525dfc6 is historical, not evidence for f35c9ad.",
-      "boundary": "Public bundle presence is strong but indirect evidence of the promoted source; it does not bind the alias to a commit SHA and is not a device or behaviour test."
+      "notVerified": "Nothing outstanding for the alias binding. Device-level behaviour is a separate open case.",
+      "boundary": "Public bundle presence is strong but indirect evidence of the promoted source; it does not bind the alias to a commit SHA and is not a device or behaviour test.",
+      "verifiedVia": "Read-only Vercel API v6/v13 with the Owner-provided team-scoped token.",
+      "verified": {
+        "deploymentId": "dpl_3yuuqW86QN5PnDXqzPK365GWq66v",
+        "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+        "ref": "codex/onboarding-decision-design-packet",
+        "state": "READY",
+        "target": "production",
+        "url": "https://academyos-656qrga6h-academy-os2.vercel.app",
+        "aliases": [
+          "academyos-web.vercel.app",
+          "staging.academy.nahr.dev",
+          "academyos-web-academy-os2.vercel.app",
+          "academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app"
+        ],
+        "agentPromotion": false
+      }
     },
     "installedRetestBlocker": {
       "observedUtc": "2026-11-18T20:12:00+00:00",
       "case": "Reproduce the selected Arabic Calendar week on the installed macOS app after promotion.",
       "blocker": "This client cannot reach the Owner browser context. The in-app browser drives separate Chromium tabs inside the OpenCode desktop app, which do not carry the verified Academy Owner Clerk session or the prepared protected register data. The shared browse relay answers 401 at localhost:19988 and no browse MCP server is registered in this client.",
       "notDone": "No installed relaunch, no Arabic week assertion and no EX-16 device case was attempted or is claimed.",
-      "options": "Owner enables the browse MCP/profile for this client, Owner runs the relaunch steps and reports the result, or Owner supplies a scoped Vercel token so source binding is exact while the device case remains Owner-executed."
+      "options": "Owner enables the browse MCP/profile for this client, Owner runs the relaunch steps and reports the result, or Owner supplies a scoped Vercel token so source binding is exact while the device case remains Owner-executed.",
+      "promotionNowVerified": "The alias binding this case waited for is now verified; the blocker is only the missing Owner browser context in this client."
+    }
+  },
+  "access": {
+    "vercelReadToken": {
+      "path": "~/.config/academyos/vercel-read-token",
+      "mode": "600",
+      "scope": "AcademyOS team (academy-os2), read-only team token",
+      "recordedValue": "not recorded; never printed or committed",
+      "cliNote": "Team tokens have no user identity, so user-level CLI commands such as teams ls report an invalid token. Read-only API v6/v13 calls with the team slug work and were used for this verification."
     }
   }
 }
