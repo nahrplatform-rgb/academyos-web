@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks preserve the original across compatible updates, interrupted asset preparation, register-only rollback, an unsupported newer store and a blocked and aborted fixture upgrade. The next local check is a refused durable Attendance write with retained choices and a safe retry. Hosted cold /en, live Clerk Attendance and compatible hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks cover compatible update, interrupted assets, scoped rollback, unsupported store, blocked upgrade and refused write with same-original retry. Next local check is the WD-80 account-change boundary in a disposable installation with a pending Attendance original. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -1749,6 +1749,175 @@
       "Installed WD-79 refused durable write and independent physical quota, persistence and eviction cases",
       "Real forward schema migration, hosted cold /en, live Clerk Attendance reconnect and hosted rollback and update",
       "Wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledRefusedAttendanceWrite20261119": {
+    "status": "passed_installed_disposable_mac_refused_write_subset",
+    "verifiedAtUtc": "2026-11-19T16:52:33+00:00",
+    "testedSourceBase": "9d10c3acb1c7eda73cf8d47f483e7ee5f52fccf1",
+    "baselineApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "inputSha256": {
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "scripts/working-day/test_attendance_update.mjs": "8117ef7e6af5d15f746566f7855eedf88714af5ad233e7fbaccdf0a4bf7ee859",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3c55f1186cc0fddc0278deeb39c0817307c0d5cb3e0a3712ddda7cc4d989341e",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk with fictional Academy Owner and players"
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --refused-write",
+      "node scripts/working-day/test_attendance_update.mjs --installed --refused-write --arabic"
+    ],
+    "baseline": {
+      "panelSha256": "216a2130dc9faf741f9336b1dc7261046792240a73d84572e05aad9c51cb1784",
+      "assertedRollbackAndChoiceRetention": true,
+      "assertedVisibleFailureInsideReview": false,
+      "observed": "The warning appeared outside the open native review dialog. The alert locator inside it failed on baseline source."
+    },
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "EnMyFGVsb9idgIVKA4J7O",
+            "1HhjBeomf5FYmlIOdp6L4"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "d11e6e9c10644500175fc813e822fbabfce52ddb43058bfc944d09fdad408ddc",
+        "locale": "en",
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "writeStaged": true,
+        "transactionAborted": true,
+        "transactionCommitted": false,
+        "falseSavedAcknowledgement": false,
+        "reviewChoicesRetained": 2,
+        "failureShownInsideReview": true,
+        "originalsAfterFailure": 0,
+        "serverAfterFailure": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "reopenTiming": {
+          "workerStart": 4.4000000059604645,
+          "transferSize": 0
+        },
+        "originalUnchangedUntilReconnect": true,
+        "serverAfterReconnect": {
+          "marks": 2,
+          "history": 2,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "reconnectDocuments": 0
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "0-2jQy-8yjyuQ5V497COE",
+            "3RmJPmT7LEvz8d3ldTFJB"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "556ce8b86bfcb45bf4f0a513146899ed6cade66e2ded16c558660f877066aa6e",
+        "locale": "ar",
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "writeStaged": true,
+        "transactionAborted": true,
+        "transactionCommitted": false,
+        "falseSavedAcknowledgement": false,
+        "reviewChoicesRetained": 2,
+        "failureShownInsideReview": true,
+        "originalsAfterFailure": 0,
+        "serverAfterFailure": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "reopenTiming": {
+          "workerStart": 2.5999999940395355,
+          "transferSize": 0
+        },
+        "originalUnchangedUntilReconnect": true,
+        "serverAfterReconnect": {
+          "marks": 2,
+          "history": 2,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "reconnectDocuments": 0
+      }
+    },
+    "regressions": {
+      "launch": 9,
+      "startup": 8,
+      "normalAttendance": 28,
+      "additiveAttendance": 4,
+      "workspaceTransfer": 74,
+      "unsavedReview": {
+        "status": "passed",
+        "buildIds": [
+          "pSHqICldacMKVMYpy8AKx",
+          "T9huJ1umluguWPZeXCEiu"
+        ]
+      },
+      "blockedAbortedUpgrade": {
+        "status": "passed",
+        "buildIds": [
+          "oo731tEgD8l_Y-DEmEHxQ",
+          "8uYiyUFIObkB3hknbyT4Q"
+        ]
+      }
+    },
+    "localVerification": {
+      "typecheck": "passed",
+      "lint": "passed",
+      "unitTests": 119,
+      "productionBuild": {
+        "origin": "http://localhost:3100",
+        "buildId": "eO-iVsAPjAJFBdrjPa_w_",
+        "sourceHash": "8bdf20bbdc4248d74a9374bde8a46f6c59ef05d258fcfe4b177615eca3c9058d",
+        "artifactHash": "f51b87cb9d5945667cec94afffbefa7cb4b9021fbd3a5ea7819c2c61c245cbbc",
+        "readiness": "current"
+      },
+      "factualReview": {
+        "frames": 1812,
+        "transitions": 2611,
+        "captureGaps": 0,
+        "checks": "passed",
+        "refusalEvidence": "Standalone test receipt for the controlled abort"
+      }
+    },
+    "scope": [
+      "The fixture aborts the real strict IndexedDB transaction after the first encrypted original write is staged.",
+      "The normal installed Attendance view, local repository, public worker, signed handler and disposable PostgreSQL exercise the retry and reconnect."
+    ],
+    "stillOpen": [
+      "WD-80 account-change and retention cases and independent physical quota, persistence and eviction cases",
+      "Real forward schema migration, hosted cold launch, live Clerk Attendance reconnect and hosted rollback and update",
+      "Wider installed devices, synthetic staging activation and Owner acceptance"
     ]
   }
 }

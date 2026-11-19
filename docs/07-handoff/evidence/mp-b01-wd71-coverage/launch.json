@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-18T15:35:42.678Z",
+  "date": "2026-11-19T16:54:11.280Z",
   "passed": true,
   "scope": "Isolated Chromium with actual launch/account/slot/startup/worker sources; private component stubs, no hosted/installed/data authority proof",
   "browser": "156.0.8078.4",
@@ -26,7 +26,7 @@
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "apps/web/src/app/[locale]/page.tsx": "760afc873f14154d4f27bfd6d770fdf078d79399e8b6e2c97a0315e485860d97",
     "apps/web/src/components/owner-workspace-device.tsx": "e2cf8763d6cdd48ec2057b0e172b2883933e52e6f40bb50fc191814cca48d8f9",
-    "apps/web/src/components/prepared-register-panel.tsx": "216a2130dc9faf741f9336b1dc7261046792240a73d84572e05aad9c51cb1784",
+    "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
     "scripts/workspace-launch/test.mjs": "bf04e1cc721c96ab3761ce90a43eeec8c29a59bfa4c033d290bf4d4f21373d44"
   }
 }

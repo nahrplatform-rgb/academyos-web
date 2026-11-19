@@ -247,7 +247,16 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     void perform(async()=>{
       if (!hasAccess||!current) throw new Error('scope_changed');
       const p=pilot(current);
-      await p.capture(crypto.randomUUID(),new Date().toISOString(),selections.map(([player,value])=>({player,status:value.status,version:0})));
+      try {
+        await p.capture(crypto.randomUUID(),new Date().toISOString(),selections.map(([player,value])=>({player,status:value.status,version:0})));
+      } catch(error) {
+        if (error instanceof Error &&
+            (['AbortError','QuotaExceededError'].includes(error.name) ||
+             ['transaction_aborted','strict_storage_durability_unavailable'].includes(error.message))) {
+          throw new Error('register_capture_not_saved');
+        }
+        throw error;
+      }
       setDraft({});setReviewing(false);setConfirmed(false);
       show(await p.read(),current);
     });
@@ -280,12 +289,15 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     withdrawn:t('This session was withdrawn. Pending work can be recovered separately.','سُحب هذا التدريب. يمكن استعادة العمل المعلّق بشكل منفصل.'),
     different_registered_event:t('Another register is already prepared for this academy.','يوجد سجل آخر محضّر لهذه الأكاديمية.'),
     register_binding_conflict:t('A register is already prepared on another device or for another session. Its saved work is unchanged. You can use this register online.','يوجد سجل محضّر على جهاز آخر أو لتدريب آخر. يبقى عمله المحفوظ دون تغيير. يمكنك استخدام هذا السجل عبر الإنترنت.'),
+    register_capture_not_saved:t('Attendance could not be saved on this device. Your choices are still here.','تعذّر حفظ الحضور على هذا الجهاز. ما زالت اختياراتك موجودة.'),
     shell_unavailable:t('The register is prepared here. Reopening after browser restart is unavailable on this device.','السجل محضّر هنا. إعادة فتحه بعد تشغيل المتصفح غير متاحة على هذا الجهاز.'),
   };
+  const reviewOpen=reviewing&&hasAccess;
+  const problemAlert=problem&&<p role="alert">{messages[problem]??t('The device register is unavailable. Saved work remains protected.','سجل الجهاز غير متاح. يبقى العمل المحفوظ محمياً.')}</p>;
   const content=<section ref={region} className="attendance-theme" aria-label={t('Personal-device register','سجل الجهاز الشخصي')}>
     {!normal&&<h2>{t('Personal-device register','سجل الجهاز الشخصي')}</h2>}
     {busy&&(!normal||!page||pending)&&<p role="status">{t('Checking saved work…','جارٍ التحقق من العمل المحفوظ…')}</p>}
-    {problem&&<p role="alert">{messages[problem]??t('The device register is unavailable. Saved work remains protected.','سجل الجهاز غير متاح. يبقى العمل المحفوظ محمياً.')}</p>}
+    {!reviewOpen&&problemAlert}
     {problem==='authentication_required'&&<p><a href={`/${locale}/workspace/${academy}/attendance/${event}`}>
       {t('Sign in to continue','سجّل الدخول للمتابعة')}</a></p>}
     {notice==='shell_unavailable'&&<p role="status">{messages[notice]}</p>}{normal&&shellReady&&hasAccess&&page&&<p className="register-device-ready" role="status">{t('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال')}</p>}
@@ -333,6 +345,7 @@ export default function PreparedRegisterPanel({locale:initialLocale,scope,offlin
     </>}
     <dialog ref={dialog} className="register-dialog" aria-labelledby="prepared-review" onCancel={e=>{e.preventDefault();dismiss();}}>
       <h3 id="prepared-review">{t('Save selected marks on this device?','هل تريد حفظ العلامات المختارة على هذا الجهاز؟')}</h3>
+      {reviewOpen&&problemAlert}
       {hasAccess&&<ul>{selections.map(([id,value])=><li key={id}>{value.name} · {label(value.status)}</li>)}</ul>}
       <Button disabled={busy} onClick={dismiss}>{t('Back to editing','العودة إلى التعديل')}</Button>
       <Button disabled={busy||checking||!hasAccess||!selections.length||!page?.captureWindow.open||page.players.some(player=>!!draft[player.id]&&player.version>0)} onClick={save}>{normal?t('Save selected marks','حفظ التسجيلات المختارة'):t('Save on this device','احفظ على هذا الجهاز')}</Button>

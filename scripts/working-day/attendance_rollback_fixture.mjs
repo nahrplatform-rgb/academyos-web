@@ -207,3 +207,26 @@ export async function abortBlockedAttendanceUpgrade(holder,page,original){
   return {before,after,blocked:finished.blocked,writeStaged:finished.writeStaged,
     error:finished.error,activeOriginalReadableWhileBlocked:true};
 }
+
+export function refuseNextAttendanceCapture(page){
+  return page.evaluate(()=>{
+    const state={writeStaged:false,aborted:false,committed:false,op:null};
+    window.fixtureAttendanceCapture=state;
+    const add=IDBObjectStore.prototype.add;
+    IDBObjectStore.prototype.add=function(...args){
+      const request=add.apply(this,args);
+      if(this.name==='originals'&&this.transaction.db.name==='academyos-owner-register-v1'){
+        IDBObjectStore.prototype.add=add;
+        const transaction=this.transaction;
+        transaction.addEventListener('abort',()=>{state.aborted=true;},{once:true});
+        transaction.addEventListener('complete',()=>{state.committed=true;},{once:true});
+        request.addEventListener('success',()=>{
+          state.writeStaged=true;
+          state.op=request.result[1];
+          transaction.abort();
+        },{once:true});
+      }
+      return request;
+    };
+  });
+}

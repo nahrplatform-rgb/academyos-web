@@ -502,3 +502,17 @@ A disposable Mac installation from `cf15f40` prepared an 18-player register and 
 Two early runs reached an automatic sync attempt during setup and moved the local save to its unconfirmed state. The passing runner checks the window identity before configuring its connection state and verifies that the installed window reports offline before capture and throughout the upgrade.
 
 The pending-save, lost-reply, interrupted-download, register-only rollback and unsupported-store installed cases also passed with the adjusted runner. This links the blocked and aborted upgrade slice of WD-44. The next local check exercises a refused local Attendance write under PW-06 and WD-79. Real schema migration, hosted cold launch and live Clerk Attendance, hosted rollback and update, and wider installed-device verification remain open. The synthetic staging Attendance release still requires the Owner decision above.
+
+## 19 November installed Attendance after a refused local save
+
+In a disposable installed Chromium app, the normal Owner Attendance review held two fictional choices, Present and Absent. The fixture staged a real IndexedDB write for the encrypted save and then aborted its transaction. The baseline retained both selections and rolled back the write. Its warning appeared behind the open review dialog, where the Owner could not read it. The recorded baseline failed the assertion for an alert inside the review. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+The review now shows **Attendance could not be saved on this device. Your choices are still here.** inside the dialog. Both English and Arabic passed the same installed-app sequence with the repaired panel.
+
+- The refused attempt kept both choices visible and enabled retry. The browser recorded zero persisted originals or saved indicators, and the database recorded zero marks, history rows, operations and audit events for that attempt.
+- Retry saved the same two choices under one encrypted original. A fresh offline Attendance window reopened through the public worker with zero document bytes transferred and preserved that original.
+- Reconnect sent the original operation ID once. Disposable PostgreSQL recorded two marks, two history rows, one operation and one audit event. A subsequent live reload sent nothing further.
+
+The installed unsaved-review and blocked-upgrade regressions, 28 normal Attendance checks, eight startup checks, four additive mark checks, nine launch checks and 74 workspace transfer checks passed. The local production preview was rebuilt and checked. Typecheck, lint and 119 unit tests passed. The experience review was regenerated from 1,812 captured frames. The injected refusal is verified by the installed test.
+
+This is the controlled write-refusal slice of PW-06 and WD-79, using simulated Clerk and disposable PostgreSQL. Physical quota, persistence and eviction, a real schema migration, cold hosted launch, live Clerk Attendance, hosted rollout and wider devices remain open. The next local check is the WD-80 account-change boundary with a pending Attendance original in a disposable installation. Synthetic staging activation still requires the Owner decision above.

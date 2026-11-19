@@ -5,6 +5,7 @@
 // --rollback retires prepared Attendance while keeping the offline workspace.
 // --unsupported-store opens an Attendance database newer than the app supports.
 // --aborted-upgrade holds an older database connection while an upgrade waits and then aborts.
+// --refused-write aborts a staged Attendance save and retries the same review.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -18,7 +19,7 @@ import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
 import {
   abortBlockedAttendanceUpgrade,configureRollbackBuild,raiseFixtureAttendanceVersion,
-  rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace,
+  refuseNextAttendanceCapture,rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace,
 } from './attendance_rollback_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
@@ -29,9 +30,14 @@ const interruptAssets=process.argv.includes('--interrupted-assets');
 const rollback=process.argv.includes('--rollback');
 const unsupportedStore=process.argv.includes('--unsupported-store');
 const abortUpgrade=process.argv.includes('--aborted-upgrade');
+const refusedWrite=process.argv.includes('--refused-write');
+const locale=refusedWrite&&process.argv.includes('--arabic')?'ar':'en';
+const language=(en,ar)=>locale==='ar'?ar:en;
+const pendingLabel=language('Saved on this device · Awaiting sync','محفوظ على هذا الجهاز · بانتظار المزامنة');
+const syncedLabel=language('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.');
 const preparedWorkspace=rollback||unsupportedStore;
-const startsOnB=preparedWorkspace||abortUpgrade;
-assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade].filter(Boolean).length<=1,
+const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite].filter(Boolean).length<=1,
   'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
@@ -253,6 +259,28 @@ async function prepareUpdate(builds,firstCache,{activate=true,expected='ready'}=
   }finally{page.off('framenavigated',onNavigation);}
 }
 
+async function reviewAttendanceChoices(){
+  const roster=page.locator('.register-roster li');
+  const choices=[];
+  const reviewRows=[];
+  const labels=[language('Present','حاضر'),language('Absent','غائب')];
+  for(const [index,status] of labels.entries()){
+    const group=roster.nth(index).getByRole('group');
+    const choice=group.getByRole('button',{name:status,exact:true});
+    await choice.click();
+    choices.push(choice);
+    const player=await group.getAttribute('aria-label');
+    assert.ok(player);
+    reviewRows.push(`${player} · ${status}`);
+  }
+  const review=page.getByRole('button',{name:language('Review register','راجع الحضور'),exact:true});
+  const dialog=page.getByRole('dialog',{name:language('Save selected marks on this device?','هل تريد حفظ العلامات المختارة على هذا الجهاز؟')});
+  const save=dialog.getByRole('button',{name:language('Save selected marks','حفظ التسجيلات المختارة'),exact:true});
+  await review.press('Enter');
+  await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
+  return {choices,reviewRows,review,dialog,save};
+}
+
 async function checkUnsavedUpdate(builds,firstCache,scope){
   const saveAttempts=[];
   const observeSave=request=>{
@@ -271,24 +299,8 @@ async function checkUnsavedUpdate(builds,firstCache,scope){
   };
   browser.on('request',observeSave);
   try{
-    const roster=page.locator('.register-roster li');
-    const choices=[];
-    const reviewRows=[];
-    for(const [index,status] of ['Present','Absent'].entries()){
-      const group=roster.nth(index).getByRole('group');
-      const choice=group.getByRole('button',{name:status,exact:true});
-      await choice.click();
-      choices.push(choice);
-      const player=await group.getAttribute('aria-label');
-      assert.ok(player);
-      reviewRows.push(`${player} · ${status}`);
-    }
-    const review=page.getByRole('button',{name:'Review register',exact:true});
-    const dialog=page.getByRole('dialog',{name:'Save selected marks on this device?'});
+    const {choices,reviewRows,review,dialog,save}=await reviewAttendanceChoices();
     const back=dialog.getByRole('button',{name:'Back to editing',exact:true});
-    const save=dialog.getByRole('button',{name:'Save selected marks',exact:true});
-    await review.press('Enter');
-    await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
     await expect(back).toBeFocused();
     await page.keyboard.press('Tab');
     await expect(save).toBeFocused();
@@ -544,7 +556,7 @@ async function checkRollback({builds,firstCache,scope,url,assertOffline,rows,cou
     recoveryCalls:recovery.map(({route,action,status})=>({route,action,status}))}));
 }
 
-async function reconnectOriginal({scope,row,counts,one,earlierWires}){
+async function reconnectOriginal({scope,row,counts,one,earlierWires,expectedMarks=['present']}){
   const coldDocument=await page.evaluate(()=>performance.timeOrigin);
   fixture.state.sessionValid=false;
   const reconnectStart=fixture.state.events.length;
@@ -554,7 +566,7 @@ async function reconnectOriginal({scope,row,counts,one,earlierWires}){
   if(installedConnection){
     await setInstalledConnection(installedConnection,true);
     await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
-    await expect(page.getByText('Checking saved work…',{exact:true})).toHaveCount(0);
+    await expect(page.getByText(language('Checking saved work…','جارٍ التحقق من العمل المحفوظ…'),{exact:true})).toHaveCount(0);
     await page.evaluate(()=>window.addEventListener('online',event=>{
       document.documentElement.dataset.attendanceTestOnline=String(event.isTrusted);
     },{once:true}));
@@ -567,7 +579,7 @@ async function reconnectOriginal({scope,row,counts,one,earlierWires}){
     await expect(page.locator('html')).toHaveAttribute('data-attendance-test-online','true');
   }
   try{
-    await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
+    await expect(page.getByText(syncedLabel,{exact:true})).toBeVisible({timeout:25000});
   }catch(error){
     const afterReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
     console.error(JSON.stringify({beforeReconnect,afterReconnect,requestFailures,
@@ -588,8 +600,14 @@ async function reconnectOriginal({scope,row,counts,one,earlierWires}){
   const sent=JSON.parse(wire);
   assert.equal(sent.op,row.op);
   assert.equal(sent.event,scope.event);
-  assert.equal(sent.marks.length,1);
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(sent.marks.map(mark=>mark.status).sort(),[...expectedMarks].sort());
+  const assertSavedMarks=async()=>{
+    for(const status of ['present','absent']){
+      await expect(page.locator(`.register-roster .attendance-status.${status}`))
+        .toHaveCount(expectedMarks.filter(mark=>mark===status).length);
+    }
+  };
+  await assertSavedMarks();
   assert.deepEqual(await counts(),one);
   const confirmed=await original();
   assert.equal(confirmed.length,1);
@@ -599,11 +617,80 @@ async function reconnectOriginal({scope,row,counts,one,earlierWires}){
   assert.equal(response.status(),200);
   await expect(page.locator('body')).toHaveAttribute('data-fixture-release','b');
   await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  await assertSavedMarks();
   assert.deepEqual(fixture.state.dispatchBodies,[...earlierWires,wire]);
   assert.deepEqual(await counts(),one);
   await installedConnection?.detach();
   return reconnectCalls;
+}
+
+async function checkRefusedWrite({builds,firstCache,scope,url}){
+  const zero={marks:0,history:0,operations:0,audit:0};
+  const count=op=>fixture.db({action:'counts',...scope,op});
+  const {reviewRows,dialog,save}=await reviewAttendanceChoices();
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.rosterRows,18);
+  assert.deepEqual(await original(),[]);
+  await refuseNextAttendanceCapture(page);
+  await page.evaluate(label=>{
+    const state=window.fixtureAttendanceCapture;
+    const observer=new MutationObserver(()=>{
+      state.sawSaved||=document.body.innerText.includes(label);
+    });
+    observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+    window.stopAttendanceCaptureObservation=()=>observer.disconnect();
+  },pendingLabel);
+  await save.click();
+  await expect.poll(()=>page.evaluate(()=>window.fixtureAttendanceCapture.aborted)).toBe(true);
+  // Wait for capture's error handler to settle, then require its alert inside
+  // the open modal. A page-level alert behind the native modal isn't actionable.
+  const expectedAlert=language('Attendance could not be saved on this device. Your choices are still here.',
+    'تعذّر حفظ الحضور على هذا الجهاز. ما زالت اختياراتك موجودة.');
+  await expect(save).toBeEnabled();
+  await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
+  const failure=await page.evaluate(()=>{
+    window.stopAttendanceCaptureObservation();
+    return window.fixtureAttendanceCapture;
+  });
+  assert.ok(failure.writeStaged&&failure.aborted&&!failure.committed&&!failure.sawSaved);
+  assert.ok(failure.op);
+  assert.deepEqual(await original(),[]);
+  assert.deepEqual(await rollbackStorage(page,scope),before);
+  assert.deepEqual(await count(failure.op),zero);
+  assert.equal(fixture.state.dispatchBodies.length,0);
+  await expect(page.locator('.register-roster .attendance-status')).toHaveCount(0);
+  await expect(page.locator('.attendance-theme [role="alert"]')).toHaveCount(1);
+  console.log('PASS the aborted write retains the review and leaves the original and saved marks absent');
+  await expect(dialog.getByRole('alert')).toHaveText(expectedAlert,{timeout:4000});
+  console.log('PASS the refusal is explained inside the same review dialog');
+
+  await save.click();
+  await expect(dialog).toHaveCount(0);
+  await expect(page.getByText(pendingLabel,{exact:true})).toBeVisible();
+  const rows=await original();
+  assert.equal(rows.length,1);
+  const [row]=rows;
+  assert.deepEqual(row.active,[row.namespace,scope.event]);
+  assert.equal(row.revision,1);
+  assert.deepEqual(await count(row.op),zero);
+  await reopen(url);
+  const reopenTiming=await checkCachedDocument();
+  await expect(page.getByText(pendingLabel,{exact:true})).toBeVisible();
+  await expect(page.locator('.register-roster .attendance-status.unsaved')).toHaveCount(2);
+  assert.deepEqual(await original(),rows);
+  assert.deepEqual(await cacheState(),firstCache);
+  const committed={marks:2,history:2,operations:1,audit:1};
+  await reconnectOriginal({scope,row,counts:()=>count(row.op),one:committed,earlierWires:[],
+    expectedMarks:['present','absent']});
+  console.log('PASS retry saves both retained marks as one original and reconnect commits it once');
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale,
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,
+    writeStaged:failure.writeStaged,transactionAborted:failure.aborted,transactionCommitted:failure.committed,
+    falseSavedAcknowledgement:Boolean(failure.sawSaved),reviewChoicesRetained:reviewRows.length,
+    failureShownInsideReview:true,originalsAfterFailure:0,serverAfterFailure:zero,reopenTiming,
+    originalUnchangedUntilReconnect:true,serverAfterReconnect:committed,
+    dispatches:fixture.state.dispatchBodies.length,reconnectDocuments:0}));
 }
 
 async function checkAbortedUpgrade({builds,firstCache,scope,holder,distinctWindows,cold,rows,counts,zero,one}){
@@ -699,7 +786,7 @@ async function run(){
   });
   await new Promise(ok=>proxy.listen(0,'127.0.0.1',ok));
   origin=`http://127.0.0.1:${proxy.address().port}`;
-  const scope=fixture.data.events[0],path=`/en/workspace/${scope.academy}/attendance/${scope.event}`;
+  const scope=fixture.data.events[0],path=`/${locale}/workspace/${scope.academy}/attendance/${scope.event}`;
   const url=origin+path;
   browser=await chromium.launchPersistentContext(join(temp,'profile'),{headless:!installed});
   browser.on('requestfailed',request=>{
@@ -722,7 +809,7 @@ async function run(){
     console.log('PASS the desktop test profile opens the manifest start URL in its installed standalone window');
   }
   const button=name=>page.getByRole('button',{name,exact:true});
-  const unconfirmedMessage=loseReply?'Outcome unknown · Check the original save':'Saved on this device · Awaiting sync';
+  const unconfirmedMessage=loseReply?'Outcome unknown · Check the original save':pendingLabel;
   const expectUnconfirmed=()=>expect(page.getByText(unconfirmedMessage,{exact:true})).toBeVisible();
   const assertOffline=async()=>{
     phase='offline';
@@ -758,10 +845,10 @@ async function run(){
   assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[startsOnB?1:0]);
   await page.goto(url);
   await page.locator('.register-action-menu > summary').click();
-  await button('Use a personal-device register').click();
-  await page.getByLabel('This is my personal device',{exact:true}).check();
-  await button('Prepare register on this device').click();
-  await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
+  await button(language('Use a personal-device register','استخدم سجل الجهاز الشخصي')).click();
+  await page.getByLabel(language('This is my personal device','هذا جهازي الشخصي'),{exact:true}).check();
+  await button(language('Prepare register on this device','حضّر السجل على هذا الجهاز')).click();
+  await expect(page.getByText(language('Ready for offline reopening','جاهز لإعادة الفتح دون اتصال'),{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
   assert.equal(firstCache.isB,startsOnB);
   if(unsaved){
@@ -789,6 +876,10 @@ async function run(){
       await setInstalledConnection(connection,true);
       await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
     }
+  }
+  if(refusedWrite){
+    await checkRefusedWrite({builds,firstCache,scope,url});
+    return;
   }
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
