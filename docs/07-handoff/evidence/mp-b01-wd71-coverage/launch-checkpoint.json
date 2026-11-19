@@ -541,7 +541,7 @@
     "continuation": "docs/06-delivery/continue-academyos.md carries this state and rebuilds without drift; scripts/design/validate_experience_execution.py passes. The receipt status is now checked_release_ready_installed_cases_partial."
   },
   "installedOfflineCases20261119": {
-    "method": "Relay emulate applies CDP network conditions to one tab, so the machine network and the agent session are unaffected. Boundary: a normal Chrome tab in the same profile and origin (same worker, caches, IndexedDB, session), not the installed app window, which the relay cannot address.",
+    "method": "Relay emulate applies CDP network conditions to one tab, so the machine network and the agent session are unaffected. Boundary: a normal Chrome tab in the same profile and origin, not the installed app window, which the relay cannot address. Do not use this method for a claim about worker-side reachability: the conditions apply to the page target, while the service-worker target keeps its own network access. Use an origin that is genuinely unreachable (see genuineUnreachability20261119) for worker, cache or offline-serving claims.",
     "coldOfflineLaunch": {
       "profile": "nahr",
       "baselineOnline": "calendar 19 – 25 Nov 2026, service worker controller present",
