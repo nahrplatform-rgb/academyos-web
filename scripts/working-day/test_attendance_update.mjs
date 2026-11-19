@@ -1,5 +1,6 @@
 // Local production-mode update. --installed uses a disposable desktop app window.
 // --lost-reply starts the update with an original that committed without a reply.
+// --unsaved keeps two reviewed choices open without creating an original.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -13,6 +14,10 @@ import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
+const installed=process.argv.includes('--installed');
+const loseReply=process.argv.includes('--lost-reply');
+const unsaved=process.argv.includes('--unsaved');
+assert.ok(!(loseReply&&unsaved),'Choose either --lost-reply or --unsaved');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
 const next=join(root,'node_modules/next/dist/bin/next');
@@ -21,8 +26,6 @@ const shellPath='/prepared-workspace';
 const pointer='/prepared-workspace/cache-pointer';
 const index='academyos-workspace-public-v1:index';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
-const installed=process.argv.includes('--installed');
-const loseReply=process.argv.includes('--lost-reply');
 const installPath='/attendance-test-install';
 const installAssets=new Map();
 let fixture,browser,appB,appBExit,proxy,origin,bOrigin,page;
@@ -137,7 +140,150 @@ const cacheState=()=>page.evaluate(async({index,pointer,shellPath})=>{
   return {...ref,isB:active.includes('data-fixture-release="b"'),previousIsB:previous?.includes('data-fixture-release="b"')??null};
 },{index,pointer,shellPath});
 
-try{
+async function activateUpdate(builds,firstCache){
+  const oldDocument=await page.evaluate(()=>performance.timeOrigin);
+  const navigations=[];
+  const onNavigation=frame=>{if(frame===page.mainFrame())navigations.push(frame.url());};
+  page.on('framenavigated',onNavigation);
+  try{
+    phase='update';
+    await browser.setOffline(false);
+    assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[1]);
+    await page.evaluate(async()=>{
+      const reg=await navigator.serviceWorker.ready;
+      const old=navigator.serviceWorker.controller;
+      if(!old||!reg.active)throw Error('Expected build A to control the open document');
+      let check;
+      const changed=new Promise(ok=>{check=()=>{if(navigator.serviceWorker.controller!==old)ok();};navigator.serviceWorker.addEventListener('controllerchange',check);});
+      let timer;
+      try{
+        await Promise.race([(async()=>{
+          const updated=await reg.update();
+          await changed;
+          const worker=navigator.serviceWorker.controller;
+          // clients.claim() can deliver controllerchange during activation.
+          await new Promise((ok,no)=>{
+            const state=()=>{
+              if(worker.state==='activated'||worker.state==='redundant'){
+                worker.removeEventListener('statechange',state);
+                if(worker.state==='activated')ok();else no(Error('New controller became redundant'));
+              }
+            };
+            worker.addEventListener('statechange',state);state();
+          });
+          if(worker!==updated.active||worker===old)throw Error('Expected a newly activated controller');
+          const ask=data=>new Promise(ok=>{
+            const channel=new MessageChannel();
+            channel.port1.onmessage=event=>{channel.port1.close();ok(event.data);};
+            worker.postMessage(data,[channel.port2]);
+          });
+          if(await ask('fixture-release')!=='b')throw Error('Expected build B controller');
+          if(await ask({type:'prepare-workspace-public-shell',route:location.pathname})!=='ready')throw Error('Expected build B public assets to be staged');
+        })(),new Promise((_,no)=>{timer=setTimeout(()=>no(Error('Worker activation or shell preparation timed out')),25000);})]);
+      }finally{clearTimeout(timer);navigator.serviceWorker.removeEventListener('controllerchange',check);}
+    });
+    const secondCache=await cacheState();
+    assert.equal(secondCache.isB,true);
+    assert.notEqual(secondCache.revision,firstCache.revision);
+    assert.equal(secondCache.previous,firstCache.current);
+    assert.equal(secondCache.previousIsB,false);
+    assert.deepEqual(navigations,[]);
+    assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
+    return secondCache;
+  }finally{page.off('framenavigated',onNavigation);}
+}
+
+async function checkUnsavedUpdate(builds,firstCache,scope){
+  const saveAttempts=[];
+  const observeSave=request=>{
+    const url=new URL(request.url());
+    if(url.origin!==origin||request.method()!=='POST')return;
+    if(url.pathname==='/api/register-dispatch')saveAttempts.push('dispatch');
+    if(url.pathname==='/api/attendance'){
+      const action=request.postDataJSON()?.action;
+      if(['mark','register','reconcile'].includes(action))saveAttempts.push(action);
+    }
+  };
+  const counts=async()=>{
+    // No operation ID exists yet. Use only the event-wide counts.
+    const {marks,history,operations}=await fixture.db({action:'counts',...scope,op:scope.event});
+    return {marks,history,operations};
+  };
+  browser.on('request',observeSave);
+  try{
+    const roster=page.locator('.register-roster li');
+    const choices=[];
+    const reviewRows=[];
+    for(const [index,status] of ['Present','Absent'].entries()){
+      const group=roster.nth(index).getByRole('group');
+      const choice=group.getByRole('button',{name:status,exact:true});
+      await choice.click();
+      choices.push(choice);
+      const player=await group.getAttribute('aria-label');
+      assert.ok(player);
+      reviewRows.push(`${player} · ${status}`);
+    }
+    const review=page.getByRole('button',{name:'Review register',exact:true});
+    const dialog=page.getByRole('dialog',{name:'Save selected marks on this device?'});
+    const back=dialog.getByRole('button',{name:'Back to editing',exact:true});
+    const save=dialog.getByRole('button',{name:'Save selected marks',exact:true});
+    await review.press('Enter');
+    await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
+    await expect(back).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(save).toBeFocused();
+    assert.deepEqual(await original(),[]);
+    const serverBefore=await counts();
+    assert.deepEqual(serverBefore,{marks:0,history:0,operations:0});
+
+    const route=page.url();
+    const oldDocument=await page.evaluate(()=>performance.timeOrigin);
+    const oldWindow=installedApp?await windowId(installedApp.session,page):null;
+    const secondCache=await activateUpdate(builds,firstCache);
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
+    await expect(save).toBeFocused();
+    assert.equal(await page.locator('body').getAttribute('data-fixture-release'),null);
+    if(installedApp)assert.equal(await windowId(installedApp.session,page),oldWindow);
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+    await expect(review).toBeFocused();
+
+    async function cancelExit(prompt){
+      const result={type:prompt.type(),message:prompt.message()};
+      await prompt.dismiss();
+      return result;
+    }
+    const calendar=page.getByRole('link',{name:'Calendar',exact:true});
+    const [prompt]=await Promise.all([
+      page.waitForEvent('dialog',{timeout:5000}).then(cancelExit),
+      calendar.press('Enter'),
+    ]);
+    assert.deepEqual(prompt,{type:'confirm',message:'Discard unsaved attendance choices?'});
+    assert.equal(page.url(),route);
+    assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
+    for(const choice of choices)await expect(choice).toHaveAttribute('aria-pressed','true');
+    await review.press('Enter');
+    await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
+    const originals=await original();
+    const serverAfter=await counts();
+    assert.deepEqual(originals,[]);
+    assert.deepEqual(saveAttempts,[]);
+    assert.deepEqual(fixture.state.dispatchBodies,[]);
+    assert.deepEqual(serverAfter,serverBefore);
+    console.log('PASS build B activates without reloading or changing the two reviewed choices or focused control');
+    console.log('PASS cancelling the Calendar exit retains both choices without an original, save attempt or database change');
+    console.log(JSON.stringify({builds,cacheRevisions:[firstCache.revision,secondCache.revision],
+      client:installed?'installed standalone':'browser tab',platform:process.platform,
+      browser:browser.browser()?.version(),node:process.version,locale:'en',
+      reviewedChoices:reviewRows.length,documentUnchanged:true,reviewFocusRetained:true,
+      reviewFocusRestoredOnEscape:true,calendarExitCancelled:true,saveAttempts:saveAttempts.length,
+      protectedOriginals:originals.length,dispatches:fixture.state.dispatchBodies.length,
+      serverBefore,serverAfter}));
+  }finally{browser.off('request',observeSave);}
+}
+
+async function run(){
   const manifest=installed?await fixtureManifest():null;
   fixture=await ownerFixture(root,aDir,{pilot:true});
   const builds=await buildB();
@@ -238,6 +384,10 @@ try{
   await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
   assert.equal(firstCache.isB,false);
+  if(unsaved){
+    await checkUnsavedUpdate(builds,firstCache,scope);
+    return;
+  }
   if(!loseReply)await assertOffline();
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
@@ -275,52 +425,7 @@ try{
   console.log(loseReply?'PASS build A reopens offline with the same unknown original':
     'PASS build A reopens offline with one durably saved original and no server effect');
 
-  const oldDocument=await page.evaluate(()=>performance.timeOrigin);
-  const navigations=[];
-  page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations.push(frame.url());});
-  phase='update';
-  await browser.setOffline(false);
-  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[1]);
-  await page.evaluate(async()=>{
-    const reg=await navigator.serviceWorker.ready;
-    const old=navigator.serviceWorker.controller;
-    if(!old||!reg.active)throw Error('Expected build A to control the open document');
-    let check;
-    const changed=new Promise(ok=>{check=()=>{if(navigator.serviceWorker.controller!==old)ok();};navigator.serviceWorker.addEventListener('controllerchange',check);});
-    let timer;
-    try{
-      await Promise.race([(async()=>{
-        const updated=await reg.update();
-        await changed;
-        const worker=navigator.serviceWorker.controller;
-        // clients.claim() can deliver controllerchange during activation.
-        await new Promise((ok,no)=>{
-          const state=()=>{
-            if(worker.state==='activated'||worker.state==='redundant'){
-              worker.removeEventListener('statechange',state);
-              if(worker.state==='activated')ok();else no(Error('New controller became redundant'));
-            }
-          };
-          worker.addEventListener('statechange',state);state();
-        });
-        if(worker!==updated.active||worker===old)throw Error('Expected a newly activated controller');
-        const ask=data=>new Promise(ok=>{
-          const channel=new MessageChannel();
-          channel.port1.onmessage=event=>{channel.port1.close();ok(event.data);};
-          worker.postMessage(data,[channel.port2]);
-        });
-        if(await ask('fixture-release')!=='b')throw Error('Expected build B controller');
-        if(await ask({type:'prepare-workspace-public-shell',route:location.pathname})!=='ready')throw Error('Expected build B public assets to be staged');
-      })(),new Promise((_,no)=>{timer=setTimeout(()=>no(Error('Worker activation or shell preparation timed out')),25000);})]);
-    }finally{clearTimeout(timer);navigator.serviceWorker.removeEventListener('controllerchange',check);}
-  });
-  const secondCache=await cacheState();
-  assert.equal(secondCache.isB,true);
-  assert.notEqual(secondCache.revision,firstCache.revision);
-  assert.equal(secondCache.previous,firstCache.current);
-  assert.equal(secondCache.previousIsB,false);
-  assert.deepEqual(navigations,[]);
-  assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
+  const secondCache=await activateUpdate(builds,firstCache);
   await expectUnconfirmed();
   assert.deepEqual(await original(),rows);
   assert.deepEqual(await counts(),beforeUpdate);
@@ -398,6 +503,10 @@ try{
     originalIdPreserved:true,ciphertextUnchangedUntilSync:true,dispatches:fixture.state.dispatchBodies.length,
     ...(loseReply?{replayedOriginalBytes:true}:{}),reconnectDocuments:0,
     reconnectCalls:reconnectCalls.map(({route,action,status})=>({route,action,status}))}));
+}
+
+try{
+  await run();
 }finally{
   for(const res of held)res.destroy();
   try{

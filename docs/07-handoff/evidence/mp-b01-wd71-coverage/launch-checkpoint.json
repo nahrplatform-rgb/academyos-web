@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The existing signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Separate disposable Mac tests pass cold /en and compatible Attendance updates with a pending or already-unknown original. Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update remain open. Both synthetic academies had zero markable registers and one closed legacy binding each, and the application setting for additive staging preparation remains absent. The next independent local check is retaining unsaved Attendance choices through activation in the same open window.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac tests pass cold /en, compatible Attendance updates with pending or unknown originals, and in-place activation with unsaved choices. The next local check is recovering the last complete public shell and same pending original after an interrupted asset download. Hosted cold /en, live Clerk Attendance and a compatible hosted update remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -970,6 +970,143 @@
       "Unsaved selections across an in-place compatible update",
       "Hosted cold /en, live Clerk Attendance and compatible hosted update",
       "Schema migration, rollback, wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledUnsavedAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_unsaved_in_place_subset",
+    "verifiedAtUtc": "2026-11-19T13:18:17+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "e702de7",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsaved",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply"
+    ],
+    "testSha256": "5f5e5f74f2c3e0a32788f8f35566979fc0d7e253d54b8818bacb7b30f348de18",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "iVNgG83NV_0gB3DX2lhGX",
+          "C2ZEvpUc88lSwOeuc1PW4"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "cacheRevisions": [
+        "b6c7f28d2b84f6750cd1ecaa7386b3f0e1c601b6ccbdf9a97a06f7af13546228",
+        "821fd624369835ec5e73dd7f1232920c56c5009786e1591b6196169507e1f176"
+      ],
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "locale": "en",
+      "reviewedChoices": 2,
+      "documentUnchanged": true,
+      "reviewFocusRetained": true,
+      "reviewFocusRestoredOnEscape": true,
+      "calendarExitCancelled": true,
+      "saveAttempts": 0,
+      "protectedOriginals": 0,
+      "dispatches": 0,
+      "serverBefore": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0
+      },
+      "serverAfter": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0
+      }
+    },
+    "regressions": {
+      "pending": {
+        "builds": {
+          "ids": [
+            "OxP4Qa0nGyJot9Zb6UXCE",
+            "9jQColYSmbyLU6YjhnvyQ"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "cacheRevisions": [
+          "5ce4f7736ebf25cea431e8b350db0db5743cc95d47f75de21e1468140472d217",
+          "b8235103c957e0e5794ddba90cd8488f037716658c3d377d253dc4a7aec51045"
+        ],
+        "originalStateBeforeUpdate": "pending",
+        "dispatches": 1,
+        "serverBefore": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0
+      },
+      "lostReply": {
+        "builds": {
+          "ids": [
+            "_HkR-srKWVj2xEu2lQPni",
+            "-WZcMTMSanmqlqZMY7rgp"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "cacheRevisions": [
+          "acfae66e50d1093021a392c523f4560c1d178ee79372d847661526a43a6ac055",
+          "f6472f92e8c04fe0d03b0862537c6b65d36d6719b9039042a9c9451794fefed0"
+        ],
+        "originalStateBeforeUpdate": "unknown",
+        "dispatches": 2,
+        "serverBefore": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0,
+        "lostReplyStatus": 200,
+        "replayedOriginalBytes": true
+      }
+    },
+    "scope": [
+      "English Academy Owner Attendance in the same open standalone Chrome window",
+      "Two real review choices with retained focus and cancelled Calendar departure",
+      "Compatible worker and public asset update with separate local production builds and disposable PostgreSQL",
+      "The current case covers retained in-memory choices in an open register"
+    ],
+    "stillOpen": [
+      "Failed public-asset preparation, offline reopen of the previous complete shell and same-original recovery",
+      "Hosted cold /en, live Clerk Attendance and compatible hosted update",
+      "Interrupted schema migration, rollback, wider installed devices and Owner acceptance"
     ]
   }
 }
