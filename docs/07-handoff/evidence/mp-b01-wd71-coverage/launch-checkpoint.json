@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac tests pass cold /en, compatible Attendance updates with pending, unknown and unsaved work, and recovery from an interrupted asset download. The next local check is installed register-only rollback with the workspace and encrypted original preserved through re-enablement. Hosted cold /en, live Clerk Attendance and a compatible hosted update remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. The disposable Mac installation preserves the original across compatible updates, interrupted asset preparation and a register-only rollback. Players stays usable offline while Attendance is retired. The next local check is an installed Attendance route facing an unsupported newer store. Hosted cold /en, live Clerk Attendance, and compatible hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -1268,6 +1268,172 @@
       "Register-only capability rollback and re-enablement in an installed app",
       "Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update",
       "Interrupted schema migration, incompatible older builds, wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledRegisterRollback20261119": {
+    "status": "passed_installed_disposable_mac_register_only_rollback_subset",
+    "verifiedAtUtc": "2026-11-19T13:43:36+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "dd269b5",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --rollback",
+      "node scripts/working-day/test_attendance_update.mjs --installed --interrupted-assets",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsaved"
+    ],
+    "testSha256": "2596c1a22b34ab3f242ed3737ba31ab534a56635bf9b122d2a4d9a4307a767fa",
+    "rollbackFixtureSha256": "5e033400bbfadf537b5265afa5ecc2c4c775fc0832c6cc948a27686a9c3b4414",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "BO96l9DCAyhzrnLYGnJOq",
+          "clyMqDDVpJ9nGWsmEzyYx"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "shellRevision": "90c83b0805b4945dfed46b390f52b7892385c5aa195773b167ee53701df7041e",
+      "locale": "en",
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "registerRowsBefore": 18,
+      "registerRowsWhileDisabled": 0,
+      "registerModeWhileDisabled": "sealed",
+      "repositoryModeWhileDisabled": "quarantined",
+      "workspacePreserved": true,
+      "originalUnchangedWhileDisabled": true,
+      "originalIdPreserved": true,
+      "publicShellRetained": true,
+      "attendanceTiming": {
+        "workerStart": 2.0999999940395355,
+        "transferSize": 0
+      },
+      "playersTiming": {
+        "workerStart": 1.7000000178813934,
+        "transferSize": 0
+      },
+      "offlineApiAttempts": 0,
+      "serverBeforeRecovery": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0,
+        "audit": 0
+      },
+      "serverAfterRecovery": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "dispatches": 1,
+      "recoveryCalls": [
+        {
+          "route": "register-key",
+          "action": "recover",
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "page",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "complete",
+          "status": 200
+        }
+      ]
+    },
+    "regressions": {
+      "interruptedAssets": {
+        "buildIds": [
+          "9afHXHvMxf9U0fsQWmoku",
+          "Z2ZrXz9tEeiANyaiM7Eib"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "retryCompleted": true
+      },
+      "pending": {
+        "buildIds": [
+          "w9jWPUBh4CpxirD6MSBPt",
+          "1ul97U_tjc8qCIhcbT8iz"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1
+      },
+      "lostReply": {
+        "buildIds": [
+          "5ZDklb32r9rwRFORLj6eS",
+          "FLUTz0aFTAVtavi6_KExE"
+        ],
+        "originalIdPreserved": true,
+        "replayedOriginalBytes": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 2
+      },
+      "unsaved": {
+        "buildIds": [
+          "kFrV0sJRZrAR6Wwhk66v6",
+          "JNcFVsSXqmhbEhlTdPIr4"
+        ],
+        "reviewedChoices": 2,
+        "reviewFocusRetained": true,
+        "calendarExitCancelled": true,
+        "saveAttempts": 0
+      }
+    },
+    "scope": [
+      "Two local runtimes of the same build switched the real register setting predicates with prepared workspace enabled in both",
+      "Normal Attendance, account cleanup, public worker, prepared Players, encrypted repositories and signed Attendance recovery used their application paths",
+      "A fictional Owner session, proxy-modeled disabled private endpoints and one Players row seeded through the workspace repository bounded the scenario",
+      "Fresh connected app launch received the disabled setting before offline launch"
+    ],
+    "stillOpen": [
+      "Installed Attendance with an unsupported newer store and interrupted schema migration",
+      "Hosted cold /en, live Clerk Attendance reconnect, and hosted capability rollback and update",
+      "Wider installed devices and Owner acceptance"
     ]
   }
 }

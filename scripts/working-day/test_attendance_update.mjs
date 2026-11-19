@@ -2,6 +2,7 @@
 // --lost-reply starts the update with an original that committed without a reply.
 // --unsaved keeps two reviewed choices open without creating an original.
 // --interrupted-assets cuts a required public download before retrying preparation.
+// --rollback retires prepared Attendance while keeping the offline workspace.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -13,14 +14,16 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
+import {configureRollbackBuild,rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace} from './attendance_rollback_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const installed=process.argv.includes('--installed');
 const loseReply=process.argv.includes('--lost-reply');
 const unsaved=process.argv.includes('--unsaved');
 const interruptAssets=process.argv.includes('--interrupted-assets');
-assert.ok([loseReply,unsaved,interruptAssets].filter(Boolean).length<=1,
-  'Choose at most one of --lost-reply, --unsaved or --interrupted-assets');
+const rollback=process.argv.includes('--rollback');
+assert.ok([loseReply,unsaved,interruptAssets,rollback].filter(Boolean).length<=1,
+  'Choose at most one of --lost-reply, --unsaved, --interrupted-assets or --rollback');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
 const next=join(root,'node_modules/next/dist/bin/next');
@@ -32,10 +35,11 @@ const index=cachePrefix+'index';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 const installPath='/attendance-test-install';
 const installAssets=new Map();
-let fixture,browser,appB,appBExit,proxy,origin,bOrigin,page;
+let fixture,browser,proxy,origin,bOrigin,rollbackOrigin,page;
 let installedApp;
-let phase='a';
+let phase=rollback?'b':'a';
 let lostReplyStatus;
+const appProcesses=[];
 const held=new Set();
 const requestFailures=[];
 const env={PATH:process.env.PATH,HOME:process.env.HOME,NODE_ENV:'production',NEXT_TELEMETRY_DISABLED:'1'};
@@ -99,26 +103,34 @@ async function buildB(){
   // A diagnostic-only worker marker proves which live controller answered.
   const bBytes=aBytes+"\nself.addEventListener('message',event=>{if(event.data==='fixture-release')event.ports[0]?.postMessage('b');});\n";
   await writeFile(worker,bBytes);
-  const build=spawn(process.execPath,[next,'build','--webpack'],{cwd:bDir,env,stdio:['ignore','pipe','pipe']});
+  if(rollback)await configureRollbackBuild(root,bDir);
+  const buildEnvironment=rollback?rollbackBuildEnvironment(env,true):env;
+  const build=spawn(process.execPath,[next,'build','--webpack'],{cwd:bDir,env:buildEnvironment,stdio:['ignore','pipe','pipe']});
   let log='';
   for(const stream of [build.stdout,build.stderr])stream.on('data',chunk=>{log+=chunk;});
   assert.equal((await once(build,'close'))[0],0,log.slice(-4500));
   const ids=await Promise.all([aDir,bDir].map(dir=>readFile(join(dir,'.next/BUILD_ID'),'utf8').then(value=>value.trim())));
   assert.notEqual(...ids,'No build replacement occurred');
-  appB=spawn(process.execPath,[next,'start','--hostname','127.0.0.1','--port','0'],{cwd:bDir,env,stdio:['ignore','pipe','pipe']});
-  appBExit=once(appB,'exit');
+  bOrigin=await serveBuild(buildEnvironment);
+  if(rollback)rollbackOrigin=await serveBuild(rollbackBuildEnvironment(env,false));
+  return {ids,workerHashes:[digest(aBytes),digest(bBytes)]};
+}
+
+async function serveBuild(environment){
+  const app=spawn(process.execPath,[next,'start','--hostname','127.0.0.1','--port','0'],
+    {cwd:bDir,env:environment,stdio:['ignore','pipe','pipe']});
+  appProcesses.push({app,exit:once(app,'exit')});
   let startLog='';
-  appB.stderr.on('data',chunk=>{startLog+=chunk;});
-  bOrigin=await new Promise((done,reject)=>{
+  app.stderr.on('data',chunk=>{startLog+=chunk;});
+  return new Promise((done,reject)=>{
     const timer=setTimeout(()=>reject(Error('Build B did not start: '+startLog)),15000);
-    appB.once('exit',code=>{clearTimeout(timer);reject(Error('Build B exited: '+code+' '+startLog));});
-    appB.stdout.on('data',chunk=>{
+    app.once('exit',code=>{clearTimeout(timer);reject(Error('Build B exited: '+code+' '+startLog));});
+    app.stdout.on('data',chunk=>{
       startLog+=chunk;
       const match=startLog.match(/Local:\s+(http:\/\/127\.0\.0\.1:[1-9]\d*)/);
       if(match&&startLog.includes('Ready')){clearTimeout(timer);done(match[1]);}
     });
   });
-  return {ids,workerHashes:[digest(aBytes),digest(bBytes)]};
 }
 
 async function assetToInterrupt(){
@@ -322,6 +334,135 @@ async function checkUnsavedUpdate(builds,firstCache,scope){
   }finally{browser.off('request',observeSave);}
 }
 
+async function checkRollback({builds,firstCache,scope,url,assertOffline,rows,counts,zero,one}){
+  async function reopen(destination,onlinePhase){
+    await page.close();
+    if(onlinePhase){
+      phase=onlinePhase;
+      await browser.setOffline(false);
+    }
+    if(installedApp)page=await launchInstalled(destination);
+    else{
+      page=await browser.newPage();
+      await page.goto(destination);
+    }
+    await page.waitForURL(destination,{timeout:12000});
+  }
+  async function checkCachedDocument(){
+    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
+    const timing=await page.evaluate(()=>{
+      const [entry]=performance.getEntriesByType('navigation');
+      return {workerStart:entry.workerStart,transferSize:entry.transferSize};
+    });
+    assert.ok(timing.workerStart>0);
+    assert.equal(timing.transferSize,0);
+    return timing;
+  }
+
+  const roster=()=>page.locator('.register-roster li');
+  const playerUrl=origin+`/en/workspace/${scope.academy}/players`;
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.account.subject,'user_owner');
+  assert.equal(before.account.mode,'active');
+  assert.equal(before.workspace.mode,'active');
+  assert.equal(before.register.mode,'active');
+  assert.equal(before.rosterRows,18);
+  await reopen(url);
+  await checkCachedDocument();
+  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+  await expect(roster()).toHaveCount(18);
+  assert.deepEqual(await original(),rows);
+
+  const disablingAt=fixture.state.events.length;
+  await reopen(url,'rollback');
+  await expect(roster()).toHaveCount(18);
+  await expect.poll(async()=>(await rollbackStorage(page,scope)).register.mode).toBe('sealed');
+  await page.locator('.register-action-menu > summary').click();
+  await expect(page.getByRole('button',{name:'Use a personal-device register',exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Recover saved work',exact:true})).toHaveCount(0);
+  await expect(page.locator('.register-device-ready')).toHaveCount(0);
+  const retired=await rollbackStorage(page,scope);
+  assert.equal(retired.repositoryMode,'quarantined');
+  assert.equal(retired.rosterRows,0);
+  assert.deepEqual(retired.account,before.account);
+  assert.deepEqual(retired.workspace,before.workspace);
+  assert.equal(retired.register.device,before.register.device);
+  assert.equal(retired.register.namespace,before.register.namespace);
+  assert.deepEqual(await original(),rows);
+  assert.ok(fixture.state.events.slice(disablingAt).some(call=>
+    call.route==='attendance'&&call.action==='roster'&&call.status===200));
+  console.log('PASS disabled prepared Attendance retires its local roster while the normal signed-in roster remains usable');
+
+  await assertOffline();
+  const offlineStart=fixture.state.events.length;
+  const offlineApiAttempts=[];
+  const observeOffline=request=>{
+    const url=new URL(request.url());
+    if(url.origin===origin&&url.pathname.startsWith('/api/'))offlineApiAttempts.push(url.pathname);
+  };
+  browser.on('request',observeOffline);
+  await reopen(url);
+  const attendanceTiming=await checkCachedDocument();
+  await expect(page.getByText('This workspace has no prepared data on this device. Open it when connected.',
+    {exact:true})).toBeVisible();
+  await expect(roster()).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Review register',exact:true})).toHaveCount(0);
+  await reopen(playerUrl);
+  const playersTiming=await checkCachedDocument();
+  await expect(page.getByRole('heading',{name:'Players',exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:rollbackPlayer,exact:true})).toBeVisible();
+  browser.off('request',observeOffline);
+  assert.deepEqual(offlineApiAttempts,[]);
+  assert.equal(fixture.state.events.length,offlineStart);
+  assert.deepEqual(await cacheState(),firstCache);
+  assert.deepEqual(await original(),rows);
+  assert.deepEqual(await counts(),zero);
+  assert.equal(fixture.state.dispatchBodies.length,0);
+  console.log('PASS retired Attendance stays masked offline while Players reopens its prepared row and the original remains encrypted');
+
+  const recoveryAt=fixture.state.events.length;
+  await reopen(url,'b');
+  const recover=page.getByRole('button',{name:'Recover saved work',exact:true});
+  await expect(recover).toBeEnabled();
+  await expect(roster()).toHaveCount(0);
+  assert.deepEqual(await original(),rows);
+  await recover.click();
+  await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  const recovery=fixture.state.events.slice(recoveryAt);
+  const keyIndex=recovery.findIndex(call=>call.route==='register-key'&&call.action==='recover'&&call.status===200);
+  const dispatchIndex=recovery.findIndex(call=>call.route==='register-dispatch'&&call.status===200);
+  assert.ok(keyIndex>=0&&dispatchIndex>keyIndex,'Recover the existing key before sending the original');
+  assert.equal(fixture.state.dispatchBodies.length,1);
+  const wire=JSON.parse(fixture.state.dispatchBodies[0]);
+  assert.equal(wire.op,rows[0].op);
+  assert.equal(wire.event,scope.event);
+  assert.equal(wire.marks.length,1);
+  assert.equal(wire.marks[0].status,'present');
+  assert.deepEqual(await counts(),one);
+  const restored=await rollbackStorage(page,scope);
+  assert.equal(restored.register.mode,'active');
+  assert.equal(restored.register.namespace,before.register.namespace);
+  assert.deepEqual(restored.workspace,before.workspace);
+  const [confirmed]=await original();
+  assert.equal(confirmed.op,rows[0].op);
+  assert.equal(confirmed.active,undefined);
+  await page.reload();
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(await counts(),one);
+  assert.equal(fixture.state.dispatchBodies.length,1);
+  console.log('PASS re-enabling prepared Attendance recovers the original operation once and live reload sends nothing further');
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale:'en',
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,
+    registerRowsBefore:before.rosterRows,registerRowsWhileDisabled:retired.rosterRows,
+    registerModeWhileDisabled:retired.register.mode,repositoryModeWhileDisabled:retired.repositoryMode,
+    workspacePreserved:true,originalUnchangedWhileDisabled:true,originalIdPreserved:true,
+    publicShellRetained:true,attendanceTiming,playersTiming,offlineApiAttempts:offlineApiAttempts.length,
+    serverBeforeRecovery:zero,serverAfterRecovery:one,dispatches:fixture.state.dispatchBodies.length,
+    recoveryCalls:recovery.map(({route,action,status})=>({route,action,status}))}));
+}
+
 async function run(){
   const manifest=installed?await fixtureManifest():null;
   fixture=await ownerFixture(root,aDir,{pilot:true});
@@ -350,8 +491,14 @@ async function run(){
     const installAsset=installAssets.get(url.pathname);
     if(installAsset){res.writeHead(200,{'content-type':installAsset[0]}).end(installAsset[1]);return;}
     if(api&&req.headers.origin!==origin){res.writeHead(403).end();return;}
-    const onA=api||phase==='a';
-    const upstream=request(new URL(url.pathname+url.search,onA?fixture.origin:bOrigin),{
+    // The disabled deployment's private API gates are represented at the
+    // fixture proxy. Enabled, signed Attendance commands reach PostgreSQL.
+    if(phase==='rollback'&&url.pathname.startsWith('/api/register-')){
+      res.writeHead(503,{'content-type':'application/json','cache-control':'no-store'}).end('{"error":"unavailable"}');
+      return;
+    }
+    const upstreamOrigin=api||phase==='a'?fixture.origin:phase==='rollback'?rollbackOrigin:bOrigin;
+    const upstream=request(new URL(url.pathname+url.search,upstreamOrigin),{
       method:req.method,headers:api?{...req.headers,origin:fixture.origin}:req.headers,
     },reply=>{
       if(loseReply&&phase==='a'&&url.pathname==='/api/register-dispatch'){
@@ -430,7 +577,7 @@ async function run(){
     await expect(button('Review register')).toBeDisabled();
     return timing;
   };
-  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[0]);
+  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[rollback?1:0]);
   await page.goto(url);
   await page.locator('.register-action-menu > summary').click();
   await button('Use a personal-device register').click();
@@ -438,11 +585,12 @@ async function run(){
   await button('Prepare register on this device').click();
   await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
-  assert.equal(firstCache.isB,false);
+  assert.equal(firstCache.isB,rollback);
   if(unsaved){
     await checkUnsavedUpdate(builds,firstCache,scope);
     return;
   }
+  if(rollback)await seedRollbackWorkspace(root,page,scope);
   if(!loseReply)await assertOffline();
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
@@ -459,6 +607,10 @@ async function run(){
   const earlierWires=[...fixture.state.dispatchBodies];
   assert.deepEqual(await counts(),beforeUpdate);
   assert.equal(earlierWires.length,loseReply?1:0);
+  if(rollback){
+    await checkRollback({builds,firstCache,scope,url,assertOffline,rows,counts,zero,one});
+    return;
+  }
   if(loseReply){
     assert.equal(lostReplyStatus,200,'The canonical save must finish before dropping its reply');
     assert.equal(JSON.parse(earlierWires[0]).op,row.op);
@@ -603,8 +755,8 @@ try{
   }finally{
     await browser?.close();
     if(proxy?.listening)await new Promise(ok=>proxy.close(ok));
-    if(appB?.exitCode===null)appB.kill();
-    await appBExit;
+    for(const {app} of appProcesses)if(app.exitCode===null)app.kill();
+    await Promise.all(appProcesses.map(({exit})=>exit));
     await fixture?.close();
     await rm(temp,{recursive:true,force:true});
   }
