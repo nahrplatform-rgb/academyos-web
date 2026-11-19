@@ -552,7 +552,14 @@
       "control": "same URL back online rendered the full calendar as Academy Owner",
       "verdict": "FAILED - prepared store is not consulted offline",
       "structuralCause": "apps/web/src/components/experience-workspace.tsx:31 returns the public workspace while useUser().isLoaded is false and line 32 returns the sign-in link without session.user, both before ExperienceJourney and therefore before useOwnerWorkspaceDevice can read prepared data",
-      "repair": "not attempted: reachability of prepared data while Clerk is unresolved is an authority-gating change; the accepted contracts forbid weakening authority or exposing private data to satisfy a test. Needs an explicit decision."
+      "repair": "not attempted: reachability of prepared data while Clerk is unresolved is an authority-gating change; the accepted contracts forbid weakening authority or exposing private data to satisfy a test. Needs an explicit decision.",
+      "mechanism": {
+        "authBundleOrigin": "https://immune-grizzly-7875.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js",
+        "observed": "offline window.Clerk stays undefined, so useUser().isLoaded never becomes true and experience-workspace.tsx:31 keeps returning the public workspace",
+        "cacheEvidence": "the staging origin holds 2 caches / 27 entries and 0 entries from the Clerk origin; only academyos-workspace-public-v1 and academyos-prepared-public-v1 exist",
+        "publicOfflineGap": "publicOffline is threaded through useOwnerWorkspaceDevice and ExperienceJourney (no account control, no prefetch, /players and /calendar navigation) but no route passes it; only prepared={ownerWorkspaceEnabled(process.env)} is wired on the calendar and players pages",
+        "characterisation": "architectural: a protected route mounts Clerk, Clerk is a runtime third-party dependency and the prepared store sits behind that gate; this is a decision about where authority metadata may come from at cold start, not a one-line repair"
+      }
     },
     "emptyStore": {
       "profile": "dokkanni",

@@ -307,3 +307,17 @@ The blank is therefore about never having loaded the shell in that profile, not 
 ### Not attempted
 
 Protected update with pending work and same-original reconnect. Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass.
+
+### Why the offline gate cannot resolve: the auth bundle is third-party and uncached
+
+The failure above is not a missing prop or a transient Clerk hiccup. The page loads Clerk's browser client from a third-party origin:
+
+```
+https://immune-grizzly-7875.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js
+```
+
+Offline that request cannot succeed, `window.Clerk` stays `undefined`, so `useUser().isLoaded` never becomes true and `experience-workspace.tsx:31` keeps returning the public workspace. Measured at the same moment: the origin's two caches hold **27 entries, 0 of them from the Clerk origin** (`academyos-workspace-public-v1`, `academyos-prepared-public-v1` only). Nothing in the app's own worker could serve that script.
+
+A second, related gap: `publicOffline` is threaded through `useOwnerWorkspaceDevice` and `ExperienceJourney` (it renders without the account control, skips prefetch and allows `/players` and `/calendar` navigation), but **no route passes it**. The only `prepared` wiring is `ownerWorkspaceEnabled(process.env)` on the calendar and players pages. The offline-rendering affordance therefore exists in the component and is unreachable in the product.
+
+So cold offline launch fails for an architectural reason: a protected route mounts Clerk, Clerk is a runtime third-party dependency, and the prepared store sits behind that gate. This is a decision about where authority metadata may come from at cold start, not a one-line repair.
