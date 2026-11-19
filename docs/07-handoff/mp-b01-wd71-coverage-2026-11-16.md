@@ -346,3 +346,55 @@ The narrower, accurate defect statement: for covered offline navigations the wor
 This is option B in its smallest form and it reuses what already exists: the `/prepared-workspace` shell is static, mounts no Clerk, and `PreparedWorkspaceStartup` already fences on `readRegisterAccount()` mode `active` plus an active workspace or register slot before rendering `ExperienceJourney` or `PeopleJourney` with prepared data. It also already re-enters the protected URL when the origin is reachable (`reentryKey` plus a bounded `HEAD /prepared-workspace` probe and reload).
 
 The change is confined to the navigation branch of one 135-line worker: answer covered navigations from the cached shell instead of trying the network first, then let the shell's existing reconnect path move to the live protected route. No authority check is relaxed — an inactive account or mismatched slot still degrades to the chooser — and no third-party bundle needs to be cached.
+
+## 19 November: genuine-unreachability re-test — cold launch passes, the earlier failure was the harness
+
+The offline cases were re-run against an origin that is genuinely unreachable to the **service worker**, not merely to the page. The earlier staging runs used `browse emulate --offline`, which applies CDP network conditions to the page target; the service-worker target keeps its own network access, so the worker's `fetch(request)` still reached the live origin. That is what produced the protected HTML and the Clerk gate, and it is why the earlier cold-launch result is not product behaviour.
+
+### How the test was made honest
+
+- Local production origin `http://localhost:3100` started with `npm run local:production` (production assets, worker active; `editingOrigin` disables the worker only on `:3000`).
+- Prepared device in the `nahr` profile: `academyos.register-account.v1` mode `active`, workspace slot, launch key (`…/players`), IndexedDB `academyos-owner-workspace-v1` and `academyos-owner-register-v1`, worker registered at scope `/`.
+- Shell cache confirmed: `academyos-workspace-public-v1:index` + two `…:<uuid>` caches of 26 entries each, containing `http://localhost:3100/prepared-workspace`.
+- The origin process was then **stopped**: nothing listening on 3100 and `curl` exits 7 (connection refused). That is unreachable at the socket for every client, including the service worker.
+- A **new tab** navigated to `http://localhost:3100/en`, so no document memory from a previous page could supply the render.
+
+### Result: prepared store, cold launch — passes
+
+| Measure | Value |
+|---|---|
+| Requested | `/en` |
+| Landed | `/en/workspace/b2c7920d-…/players` (the prepared launch path) |
+| `workerStart` | 2.5 ms — the service worker handled the navigation |
+| `responseStatus` | 200 |
+| `transferSize` | **0** — nothing came from the network |
+| `encodedBodySize` | 9 009 — the prepared shell document |
+| Served HTML | the prepared shell (`#academyos-public-workspace-shell` present) |
+| Rendered | Players heading, 18 prepared players, footer `Offline` |
+
+So with the origin genuinely gone, `fetch(request)` rejects, the worker's existing `cached('/prepared-workspace')` fallback runs, and `PreparedWorkspaceStartup` applies its account and slot fences and renders the prepared workspace. **No code change is required for cold launch.**
+
+### Control: online entry is still the live protected page
+
+Same route family with the origin up: `shell:false`, `transferSize` 17 113, calendar heading `19 – 25 Nov 2026`. Online traffic never uses the shell, and the normal server-side access checks are untouched.
+
+### Reconnect returns to the live page
+
+With the shell document open and the origin reachable again, the tab was taken offline and back (`emulate --offline` true → false), which fires the `online` event the shell already listens for. `performance.timeOrigin` changed (1795072959423 → 1795073131370), so the document genuinely reloaded, and it arrived at the protected live page: `shell:false`, `transferSize` 17 040, `workerStart` 2.2 ms.
+
+### Empty stores, both meanings
+
+| Case | Result |
+|---|---|
+| Prepared device, no data for that workspace (random academy UUID, origin down) | Shell served (`transferSize` 0), honest chooser: “This workspace has no prepared data on this device. Open it when connected.” No private data. |
+| No device and no worker (profile `dokkanni`, never prepared) | No registration and no caches; `/prepared-workspace` itself renders the chooser but does not register the root worker, because registration starts from a supported workspace route via `prepareWorkspaceShell()`. Offline `/en` is the browser's blank page. Inherent to never having prepared, not a data-exposure finding. |
+
+### Correction to the previous mechanism blocks
+
+`installedOfflineCases20261119.coldOfflineLaunch.mechanism` (Clerk as cause) **and** `mechanismCorrected` (Chrome HTTP cache answering the worker's fetch) are both wrong and are marked SUPERSEDED. The recorded staging measurement refutes the cache reading by itself: `transferSize` 18 187 with `encodedBodySize` 17 887 means bytes crossed the network (a cache hit reports `transferSize` 0, as the local shell run above shows). The worker was simply not offline.
+
+### Limits kept open
+
+- **Tab-level, not installed-app.** This is a new document in a normal Chrome tab of a prepared profile. The installed PWA window at OS level was not addressed, so installed-device verification of offline/reconnect stays open.
+- **Lie-fi does not auto-retry.** When the origin is unreachable while `navigator.onLine` stays true, the shell's single mount probe fails and nothing retries until the user reloads; the prepared content is still usable. The realistic offline→online transition is covered by the `online` event and passed above.
+- **A rebuild changes the shell revision.** Each `npm run local:production` produced a new `BUILD_ID` (`Bt9XRzFFmL_5QKGvcV330` → `oFIRh5LRPDIeLzYcHx0j2` → `PqenEv9SF9C9eRO6e2ak4`), so the shell revision changes after any rebuild and the device re-prepares; protected update with pending work and same-original reconnect remain unmeasured and still need a controllable version change.

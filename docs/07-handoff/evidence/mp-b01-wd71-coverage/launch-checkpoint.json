@@ -550,7 +550,7 @@
       "localIdentityAtFailure": "register-account mode active with subject and generation; workspace slot present; IndexedDB academyos-owner-workspace-v1 present",
       "caches": "academyos-workspace-public-v1:index (1) and :<uuid> (26) only",
       "control": "same URL back online rendered the full calendar as Academy Owner",
-      "verdict": "FAILED - prepared store is not consulted offline",
+      "verdict": "SUPERSEDED - harness artifact: the page target was offline but the service-worker target kept network access, so the worker served the live protected document",
       "structuralCause": "apps/web/src/components/experience-workspace.tsx:31 returns the public workspace while useUser().isLoaded is false and line 32 returns the sign-in link without session.user, both before ExperienceJourney and therefore before useOwnerWorkspaceDevice can read prepared data",
       "repair": "not attempted: reachability of prepared data while Clerk is unresolved is an authority-gating change; the accepted contracts forbid weakening authority or exposing private data to satisfy a test. Needs an explicit decision.",
       "mechanism": {
@@ -560,14 +560,15 @@
         "publicOfflineGap": "publicOffline is threaded through useOwnerWorkspaceDevice and ExperienceJourney (no account control, no prefetch, /players and /calendar navigation) but no route passes it; only prepared={ownerWorkspaceEnabled(process.env)} is wired on the calendar and players pages",
         "characterisation": "architectural: a protected route mounts Clerk, Clerk is a runtime third-party dependency and the prepared store sits behind that gate; this is a decision about where authority metadata may come from at cold start, not a one-line repair"
       },
-      "mechanismStatus": "SUPERSEDED - the third-party Clerk bundle is the downstream symptom; see mechanismCorrected",
+      "mechanismStatus": "SUPERSEDED - both readings are refuted; Clerk was downstream of a live network fetch and no HTTP cache was involved",
       "mechanismCorrected": {
         "preparedShellCached": true,
         "cacheEvidence": "academyos-workspace-public-v1:index plus :8739ab7e-ca7e-4b3e-b1cc-03a5d06a9f11 holding https://staging.academy.nahr.dev/prepared-workspace",
         "handler": "apps/web/public/prepared-workspace-worker.js navigation branch is network-first: fetch(request).catch(()=>cached(\"/prepared-workspace\"))",
         "measurement": "offline navigation to a never-requested covered URL /en/workspace/<academy>/calendar?anchor=2026-12-20 returned workerStart=1.1ms, responseStatus=200, encodedBodySize=17887",
         "interpretation": "the service worker intercepted, its fetch was satisfied from Chrome HTTP cache with the protected page HTML, so the cached prepared-shell branch never ran; the protected tree mounted and Clerk could not load",
-        "narrowDefect": "for covered offline navigations the worker prefers a possibly-cached network response over the prepared shell it already holds, so the shell is only reachable when the network fetch fails outright"
+        "narrowDefect": "for covered offline navigations the worker prefers a possibly-cached network response over the prepared shell it already holds, so the shell is only reachable when the network fetch fails outright",
+        "status": "REFUTED - transferSize 18187 with encodedBodySize 17887 proves the worker transferred bytes over the network; a cache hit reports transferSize 0"
       },
       "recommendedRepair": {
         "option": "B (smallest form)",
@@ -575,8 +576,9 @@
         "whyReusesExisting": "/prepared-workspace is force-static, mounts no Clerk, and PreparedWorkspaceStartup already fences on readRegisterAccount() mode active plus an active workspace or register slot before rendering ExperienceJourney or PeopleJourney",
         "scope": "navigation branch of one 135-line worker",
         "authority": "no check relaxed: an inactive account or mismatched slot still degrades to the chooser; no third-party bundle cached",
-        "status": "recommended, not implemented"
-      }
+        "status": "WITHDRAWN - the controlled test passes on unchanged code, so no shell-first change is needed"
+      },
+      "supersededBy": "installedOfflineCases20261119.genuineUnreachability20261119"
     },
     "emptyStore": {
       "profile": "dokkanni",
@@ -590,6 +592,64 @@
       "protected update with pending work",
       "same-original reconnect"
     ],
-    "notAttemptedReason": "Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass."
+    "notAttemptedReason": "Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass.",
+    "genuineUnreachability20261119": {
+      "method": "Local production origin http://localhost:3100 (npm run local:production, production assets, worker active because editingOrigin disables it only on :3000). Prepared device in the nahr profile. After normal online use the origin process was stopped: nothing listened on 3100 and curl exited 7 (connection refused), so the origin is unreachable at the socket to every client including the service worker. A new tab was then navigated to /en so no document memory could supply the render.",
+      "testMethodCorrection": {
+        "why": "browse emulate --offline applies CDP network conditions to the page target only; the service-worker target keeps its own network access",
+        "effect": "the worker navigation fetch(request) still reached the live staging origin, returned the protected HTML and the page then failed to load Clerk",
+        "selfRefutingEarlierNumber": "the earlier staging run recorded transferSize 18187 with encodedBodySize 17887 on an offline navigation; network bytes crossed, so the response was not a cache hit",
+        "retired": "the CDP page-offline method is not valid evidence for a claim about worker-side reachability or cache behaviour"
+      },
+      "preparedStoreColdLaunch": {
+        "requested": "/en",
+        "landed": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+        "workerStartMs": 2.5,
+        "responseStatus": 200,
+        "transferSize": 0,
+        "encodedBodySize": 9009,
+        "servedHtml": "prepared shell - document.getElementById(\"academyos-public-workspace-shell\") present",
+        "rendered": "Players heading, 18 prepared players, footer Offline",
+        "verdict": "PASS - fetch(request) rejected with the origin gone, the existing cached(/prepared-workspace) fallback ran, and PreparedWorkspaceStartup applied its account and slot fences",
+        "codeChange": "none required"
+      },
+      "onlineControl": {
+        "shell": false,
+        "transferSize": 17113,
+        "heading": "19 – 25 Nov 2026",
+        "verdict": "PASS - online entry is still the live protected document, not the shell"
+      },
+      "reconnect": {
+        "trigger": "online event from emulate offline true -> false with the origin reachable",
+        "timeOriginBefore": 1795072959423.4,
+        "timeOriginAfter": 1795073131370.4,
+        "reloaded": true,
+        "shell": false,
+        "transferSize": 17040,
+        "workerStartMs": 2.2,
+        "verdict": "PASS - the existing reentryKey plus bounded HEAD /prepared-workspace probe reloaded into the live protected page"
+      },
+      "emptyStores": {
+        "preparedDeviceMissingWorkspaceData": {
+          "route": "/en/workspace/11111111-2222-3333-4444-555555555555/calendar with the origin down",
+          "workerStartMs": 2.1,
+          "transferSize": 0,
+          "servedHtml": "prepared shell",
+          "message": "This workspace has no prepared data on this device. Open it when connected.",
+          "verdict": "PASS - honest chooser, no private data"
+        },
+        "noDeviceOrWorker": {
+          "profile": "dokkanni",
+          "observed": "no service worker registration and no caches; /prepared-workspace itself renders the chooser but does not register the root worker because registration starts from a supported workspace route via prepareWorkspaceShell()",
+          "offlineEn": "browser blank page",
+          "verdict": "EXPECTED BOUNDARY - inherent to never having prepared; not a data-exposure finding"
+        }
+      },
+      "limits": [
+        "tab-level new document in a normal Chrome tab of a prepared profile; the installed PWA window at OS level was not addressed, so installed-device verification stays open",
+        "lie-fi: when the origin is unreachable while navigator.onLine stays true, the single mount probe fails and nothing retries until the user reloads; prepared content remains usable",
+        "each npm run local:production produced a new BUILD_ID (Bt9XRzFFmL_5QKGvcV330 -> oFIRh5LRPDIeLzYcHx0j2 -> PqenEv9SF9C9eRO6e2ak4), so the shell revision changes after a rebuild; protected update with pending work and same-original reconnect stay unmeasured"
+      ]
+    }
   }
 }
