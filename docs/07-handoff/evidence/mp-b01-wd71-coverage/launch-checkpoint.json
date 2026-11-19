@@ -539,5 +539,33 @@
     },
     "devicePreparationDiscrepancy": "The 18 November entry in this receipt records Players and Calendar prepared in this same profile. On 19 November the same origin held only Clerk keys: no register account, no slot and no launch key. The preparation was therefore absent and was redone. What removed it was not determined; no claim is made about a cause, and the 18 November preparation remains a separate dated observation rather than a contradiction to be quietly resolved.",
     "continuation": "docs/06-delivery/continue-academyos.md carries this state and rebuilds without drift; scripts/design/validate_experience_execution.py passes. The receipt status is now checked_release_ready_installed_cases_partial."
+  },
+  "installedOfflineCases20261119": {
+    "method": "Relay emulate applies CDP network conditions to one tab, so the machine network and the agent session are unaffected. Boundary: a normal Chrome tab in the same profile and origin (same worker, caches, IndexedDB, session), not the installed app window, which the relay cannot address.",
+    "coldOfflineLaunch": {
+      "profile": "nahr",
+      "baselineOnline": "calendar 19 – 25 Nov 2026, service worker controller present",
+      "navigate": "start_url /en redirected to /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-19",
+      "result": "public shell with \"Sign-in unavailable. Retry.\"; no prepared calendar or sessions",
+      "localIdentityAtFailure": "register-account mode active with subject and generation; workspace slot present; IndexedDB academyos-owner-workspace-v1 present",
+      "caches": "academyos-workspace-public-v1:index (1) and :<uuid> (26) only",
+      "control": "same URL back online rendered the full calendar as Academy Owner",
+      "verdict": "FAILED - prepared store is not consulted offline",
+      "structuralCause": "apps/web/src/components/experience-workspace.tsx:31 returns the public workspace while useUser().isLoaded is false and line 32 returns the sign-in link without session.user, both before ExperienceJourney and therefore before useOwnerWorkspaceDevice can read prepared data",
+      "repair": "not attempted: reachability of prepared data while Clerk is unresolved is an authority-gating change; the accepted contracts forbid weakening authority or exposing private data to satisfy a test. Needs an explicit decision."
+    },
+    "emptyStore": {
+      "profile": "dokkanni",
+      "state": "no register account, no launch key; register slot and layout keys only",
+      "onlineCalendar": "rendered normally as Academy Owner",
+      "offlineResult": "about:blank - blank document, no shell, no error panel, no stale data",
+      "explanation": "no service worker existed for this origin in that profile at that moment; after one online /en visit two registrations appear (/prepared-register and /) with academyos-prepared-public-v1 (17 each) and academyos-workspace-public-v1 (26 each) caches",
+      "boundary": "recorded as measured; not evidence for a device that has visited /en once, and not a data-exposure finding"
+    },
+    "notAttempted": [
+      "protected update with pending work",
+      "same-original reconnect"
+    ],
+    "notAttemptedReason": "Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass."
   }
 }

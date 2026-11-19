@@ -273,3 +273,37 @@ Cold offline launch, empty store, protected update with pending work and same-or
 The 19 November record itself is documentation only (checkpoint section, structured receipt, tracker next action and regenerated continuation). Its Foundation run `44443618633` attempt 1 passed 55/55 on `fd7a962e4a5f53ceec3c0d54dfdad0370ccbb30f`; no product source changed, so that run adds no runtime or hosted assertion.
 
 One contradiction is recorded rather than smoothed over: the 18 November entry says Players and Calendar were prepared in this same `nahr` profile, yet on 19 November that origin held only Clerk keys — no register account, no slot, no launch key. The preparation was absent by then and was redone. What removed it was not determined, and no cause is claimed; the two dated observations stand separately. The receipt headline now reads `checked_release_ready_installed_cases_partial` so a later reader is not told the installed cases are complete.
+
+## 19 November installed-device offline cases — cold launch fails, empty store is blank
+
+A controlled offline transition is possible without touching the machine's network: the relay's `emulate` applies CDP network conditions to one tab, so the Owner's connection and this agent's own session are unaffected. The boundary that matters is that this drives a **normal Chrome tab** in the same profile and origin — same service worker, same caches, same IndexedDB, same session — not the installed app window, which the relay cannot address. Installed-app offline behaviour at OS level therefore remains unmeasured.
+
+### Cold offline launch, prepared device (`nahr`)
+
+| Step | Observed |
+|---|---|
+| Baseline online | calendar rendered `19 – 25 Nov 2026`; `navigator.serviceWorker.controller` present |
+| Tab set offline | `navigator.onLine` false |
+| Navigate to start_url `/en` | redirected to `/en/workspace/<academy>/calendar?anchor=2026-11-19` |
+| Settled result | public shell with **`Sign-in unavailable. Retry.`** — no prepared calendar, no sessions |
+| Local identity at that moment | `academyos.register-account.v1` mode `active` with subject and generation; workspace slot present; IndexedDB `academyos-owner-workspace-v1` present |
+| Caches | `academyos-workspace-public-v1:index` (1) and `…:<uuid>` (26) — the public shell only |
+| Control: same URL back online | full calendar, `19 – 25 Nov 2026`, Academy Owner |
+
+**This case fails.** The prepared store is never consulted offline. The structural cause is visible in source: `apps/web/src/components/experience-workspace.tsx:31` returns the public workspace while `useUser().isLoaded` is false, and line 32 returns the sign-in link when there is no `session.user`; both run before `ExperienceJourney` and therefore before `useOwnerWorkspaceDevice` can read prepared data. Offline, Clerk cannot resolve, so after 15 s the page reports `Sign-in unavailable. Retry.`
+
+No repair was attempted. Making prepared data reachable while Clerk is unresolved is an authority-gating change, and the accepted contracts forbid weakening authority or exposing private data to satisfy a test. It needs an explicit decision and a design that keeps denial, revocation and account-fencing checks intact.
+
+### Empty store (`dokkanni`, no register account and no launch key)
+
+| Step | Observed |
+|---|---|
+| Online calendar | rendered normally as Academy Owner; `academyos.register-account.v1` and launch key both absent |
+| Offline `/en` | `about:blank` — blank document, no shell, no error panel, no stale data |
+| Why | the profile had no service worker for this origin at that point; after one online `/en` visit two registrations appear (`/prepared-register`, `/`) and both `academyos-prepared-public-v1:*` (17 each) and `academyos-workspace-public-v1:*` (26 each) caches fill |
+
+The blank is therefore about never having loaded the shell in that profile, not about prepared data leaking or failing. It is recorded as measured, with that boundary, and is not claimed as evidence about a device that has visited `/en` once.
+
+### Not attempted
+
+Protected update with pending work and same-original reconnect. Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass.
