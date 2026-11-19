@@ -7,6 +7,7 @@
 // --aborted-upgrade holds an older database connection while an upgrade waits and then aborts.
 // --refused-write aborts a staged Attendance save and retries the same review.
 // --account-change fences pending Attendance work when the signed-in account changes.
+// --sign-out verifies installed account cleanup before provider sign-out.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -33,13 +34,14 @@ const unsupportedStore=process.argv.includes('--unsupported-store');
 const abortUpgrade=process.argv.includes('--aborted-upgrade');
 const refusedWrite=process.argv.includes('--refused-write');
 const accountChange=process.argv.includes('--account-change');
-const locale=(refusedWrite||accountChange)&&process.argv.includes('--arabic')?'ar':'en';
+const signOut=process.argv.includes('--sign-out');
+const locale=(refusedWrite||accountChange||signOut)&&process.argv.includes('--arabic')?'ar':'en';
 const language=(en,ar)=>locale==='ar'?ar:en;
 const pendingLabel=language('Saved on this device · Awaiting sync','محفوظ على هذا الجهاز · بانتظار المزامنة');
 const syncedLabel=language('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.');
 const preparedWorkspace=rollback||unsupportedStore;
-const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite||accountChange;
-assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite,accountChange].filter(Boolean).length<=1,
+const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite||accountChange||signOut;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite,accountChange,signOut].filter(Boolean).length<=1,
   'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
@@ -371,9 +373,9 @@ async function reopen(destination,onlinePhase){
   await page.waitForURL(destination,{timeout:12000});
 }
 
-async function checkCachedDocument(){
-  await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
-  const timing=await page.evaluate(()=>{
+async function checkCachedDocument(tab=page){
+  await expect(tab.locator('#academyos-public-workspace-shell')).toHaveCount(1);
+  const timing=await tab.evaluate(()=>{
     const [entry]=performance.getEntriesByType('navigation');
     return {workerStart:entry.workerStart,transferSize:entry.transferSize};
   });
@@ -695,8 +697,55 @@ async function checkRefusedWrite({builds,firstCache,scope,url}){
     dispatches:fixture.state.dispatchBodies.length,reconnectDocuments:0}));
 }
 
-async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,one}){
+async function assertPrivateWorkHidden(tab){
+  await expect(tab.locator('.register-roster')).toHaveCount(0);
+  await expect(tab.getByText(pendingLabel,{exact:true})).toHaveCount(0);
+  await expect(tab.getByRole('button',{name:language('Recover saved work','استعد العمل المحفوظ'),exact:true})).toHaveCount(0);
+  await expect(tab.getByRole('button',{name:language('Retry original save','أعد محاولة الحفظ الأصلي'),exact:true})).toHaveCount(0);
+}
+
+async function recoverOriginalAfterCleanup({scope,url,subject,rows,counts,one}){
   const [row]=rows;
+  // Simulate ordinary same-account sign-in through the existing provider adapter.
+  // The route, recovery action, local keys and canonical send remain real.
+  fixture.state.subject=subject;
+  fixture.state.sessionValid=true;
+  await page.evaluate(id=>{
+    sessionStorage.removeItem('fixture-signed-out');
+    sessionStorage.setItem('fixture-subject',id);
+  },subject);
+  const recoveryAt=fixture.state.events.length;
+  await page.goto(url);
+  const recover=page.getByRole('button',{name:language('Recover saved work','استعد العمل المحفوظ'),exact:true});
+  await expect(recover).toBeEnabled();
+  await expect(page.locator('.register-roster')).toHaveCount(0);
+  assert.deepEqual(await original(),rows);
+  await recover.click();
+  await expect(page.getByText(syncedLabel,{exact:true})).toBeVisible({timeout:25000});
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  const recoveryCalls=fixture.state.events.slice(recoveryAt);
+  const keyIndex=recoveryCalls.findIndex(call=>call.route==='register-key'&&call.action==='recover'&&call.status===200);
+  const sendIndex=recoveryCalls.findIndex(call=>call.route==='register-dispatch'&&call.status===200);
+  assert.ok(keyIndex>=0&&sendIndex>keyIndex,'The permitted account recovers its existing key before sending');
+  const [wire]=fixture.state.dispatchBodies;
+  const sent=JSON.parse(wire);
+  assert.equal(sent.op,row.op);
+  assert.equal(sent.event,scope.event);
+  assert.deepEqual(sent.marks.map(mark=>mark.status),['present']);
+  assert.equal((await rollbackStorage(page,scope)).register.namespace,row.namespace);
+  const [confirmed]=await original();
+  assert.equal(confirmed.op,row.op);
+  assert.equal(confirmed.active,undefined);
+  assert.deepEqual(await counts(),one);
+  await page.reload();
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(fixture.state.dispatchBodies,[wire]);
+  assert.deepEqual(await counts(),one);
+  console.log('PASS the original account recovers and syncs exactly one original, with no repeat on reload');
+  return recoveryCalls.map(({route,action,status})=>({route,action,status}));
+}
+
+async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,one}){
   const before=await rollbackStorage(page,scope);
   assert.equal(before.account.subject,'user_owner');
   assert.equal(before.rosterRows,18);
@@ -707,14 +756,6 @@ async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,
   await expect(page.getByText(pendingLabel,{exact:true})).toBeVisible();
   assert.deepEqual(await original(),rows);
   console.log('PASS the installed Owner reopens the same pending original while the origin is offline');
-
-  const recover=page.getByRole('button',{name:language('Recover saved work','استعد العمل المحفوظ'),exact:true});
-  const assertPrivateWorkHidden=async()=>{
-    await expect(page.locator('.register-roster')).toHaveCount(0);
-    await expect(page.getByText(pendingLabel,{exact:true})).toHaveCount(0);
-    await expect(recover).toHaveCount(0);
-    await expect(page.getByRole('button',{name:language('Retry original save','أعد محاولة الحفظ الأصلي'),exact:true})).toHaveCount(0);
-  };
 
   const otherSubject='user_other_owner';
   const foreignAt=fixture.state.events.length;
@@ -741,7 +782,7 @@ async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,
     await expect.poll(()=>page.evaluate(()=>sessionStorage.getItem('fixture-subject'))).toBe(otherSubject);
     await expect(page.getByText(language('This workspace has no prepared data on this device. Open it when connected.',
       'لا توجد بيانات محضّرة لهذه المساحة على الجهاز. افتحها عند الاتصال.'),{exact:true})).toBeVisible();
-    await assertPrivateWorkHidden();
+    await assertPrivateWorkHidden(page);
     await expect.poll(async()=>(await rollbackStorage(page,scope)).account).toBeNull();
   }finally{await connection?.detach();}
 
@@ -757,7 +798,7 @@ async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,
   await page.reload();
   await expect(page.getByText(language('Reopen the workspace to verify your current account.',
     'أعد فتح مساحة العمل للتحقّق من حسابك.'),{exact:true})).toBeVisible();
-  await assertPrivateWorkHidden();
+  await assertPrivateWorkHidden(page);
   assert.equal(await page.evaluate(()=>sessionStorage.getItem('fixture-subject')),otherSubject);
   page.off('request',observeOperating);
   const foreignCalls=fixture.state.events.slice(foreignAt);
@@ -769,37 +810,7 @@ async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,
   assert.deepEqual(await original(),rows);
   console.log('PASS another signed-in account sees no private register or recovery controls, with zero operating requests');
 
-  // Simulate ordinary same-account sign-in through the existing provider adapter.
-  // The route, recovery action, local keys and canonical send remain real.
-  fixture.state.subject=before.account.subject;
-  await page.evaluate(subject=>sessionStorage.setItem('fixture-subject',subject),before.account.subject);
-  const recoveryAt=fixture.state.events.length;
-  await page.reload();
-  await expect(recover).toBeEnabled();
-  await expect(page.locator('.register-roster')).toHaveCount(0);
-  assert.deepEqual(await original(),rows);
-  await recover.click();
-  await expect(page.getByText(syncedLabel,{exact:true})).toBeVisible({timeout:25000});
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
-  const recoveryCalls=fixture.state.events.slice(recoveryAt);
-  const keyIndex=recoveryCalls.findIndex(call=>call.route==='register-key'&&call.action==='recover'&&call.status===200);
-  const sendIndex=recoveryCalls.findIndex(call=>call.route==='register-dispatch'&&call.status===200);
-  assert.ok(keyIndex>=0&&sendIndex>keyIndex,'The permitted account recovers its existing key before sending');
-  const [wire]=fixture.state.dispatchBodies;
-  const sent=JSON.parse(wire);
-  assert.equal(sent.op,row.op);
-  assert.equal(sent.event,scope.event);
-  assert.deepEqual(sent.marks.map(mark=>mark.status),['present']);
-  assert.equal((await rollbackStorage(page,scope)).register.namespace,before.register.namespace);
-  const [confirmed]=await original();
-  assert.equal(confirmed.op,row.op);
-  assert.equal(confirmed.active,undefined);
-  assert.deepEqual(await counts(),one);
-  await page.reload();
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
-  assert.deepEqual(fixture.state.dispatchBodies,[wire]);
-  assert.deepEqual(await counts(),one);
-  console.log('PASS the original account recovers and syncs exactly one original, with no repeat on reload');
+  const recoveryCalls=await recoverOriginalAfterCleanup({scope,url,subject:before.account.subject,rows,counts,one});
   console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale,reopenTiming,
     client:installed?'installed standalone':'browser tab',platform:process.platform,
     browser:browser.browser()?.version(),node:process.version,
@@ -808,8 +819,102 @@ async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,
     foreignOperatingRequests:operatingAttempts.length,foreignDispatches:0,
     originalUnchangedWhileFenced:true,originalIdPreserved:true,
     serverBeforeRecovery:zero,serverAfterRecovery:one,dispatches:fixture.state.dispatchBodies.length,
-    foreignCalls:foreignCalls.map(({route,action,status})=>({route,action,status})),
-    recoveryCalls:recoveryCalls.map(({route,action,status})=>({route,action,status}))}));
+    foreignCalls:foreignCalls.map(({route,action,status})=>({route,action,status})),recoveryCalls}));
+}
+
+async function checkSignOut({builds,firstCache,scope,url,rows,counts,zero,one,secondView,captureConnection}){
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.account.subject,'user_owner');
+  assert.equal(before.rosterRows,18);
+  assert.notEqual(secondView,page);
+  const reopened=await secondView.goto(url);
+  assert.ok(reopened?.fromServiceWorker());
+  const secondViewTiming=await checkCachedDocument(secondView);
+  for(const view of [page,secondView]){
+    await expect(view.locator('.register-roster li')).toHaveCount(18);
+    await expect(view.getByText(pendingLabel,{exact:true})).toBeVisible();
+  }
+  assert.deepEqual(await original(),rows);
+  console.log('PASS both windows show the prepared roster and pending save while the origin is offline');
+
+  // Hold the disposable provider request so the test can inspect both views
+  // and the durable state before allowing the ordinary sign-out to finish.
+  const providerUrl=origin+'/api/fixture-signout';
+  const provider=Promise.withResolvers();
+  const holdProvider=async route=>{
+    await provider.promise;
+    await route.continue();
+  };
+  await page.route(providerUrl,holdProvider);
+  const signOutAt=fixture.state.events.length;
+  const apiAttempts=[];
+  const observeApi=request=>{
+    const {origin:source,pathname}=new URL(request.url());
+    if(source===origin&&pathname.startsWith('/api/'))apiAttempts.push(pathname);
+  };
+  browser.on('request',observeApi);
+  try{
+    await page.locator('.workspace-dock').getByLabel(language('Account','الحساب'),{exact:true}).click();
+    const [signOutRequest]=await Promise.all([
+      page.waitForRequest(providerUrl,{timeout:12000}),
+      page.getByRole('button',{name:language('Sign out','تسجيل الخروج'),exact:true}).click(),
+    ]);
+    assert.equal(signOutRequest.method(),'POST');
+    assert.equal(fixture.state.subject,before.account.subject);
+    assert.deepEqual(fixture.state.events.slice(signOutAt),[]);
+    await expect(page.getByRole('heading',{name:language('Clearing downloads','مسح التنزيلات'),exact:true})).toBeVisible();
+    await expect(secondView.getByText(language('This workspace has no prepared data on this device. Open it when connected.',
+      'لا توجد بيانات محضّرة لهذه المساحة على الجهاز. افتحها عند الاتصال.'),{exact:true})).toBeVisible();
+    for(const view of [page,secondView])await assertPrivateWorkHidden(view);
+    const clearing=await rollbackStorage(page,scope);
+    assert.equal(clearing.account.mode,'ending');
+    assert.equal(clearing.register.mode,'sealed');
+    assert.equal(clearing.register.namespace,before.register.namespace);
+    assert.equal(clearing.repositoryMode,'quarantined');
+    assert.equal(clearing.rosterRows,0);
+    assert.deepEqual(await original(),rows);
+    assert.deepEqual(await counts(),zero);
+    console.log('PASS both windows mask private work and the roster clears before the provider signs out');
+
+    phase='b';
+    await browser.setOffline(false);
+    if(captureConnection)await setInstalledConnection(captureConnection,false);
+    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(true);
+    provider.resolve();
+    await page.waitForURL(origin+'/'+locale);
+    await expect(page.getByRole('heading',{name:'Fictional signed-out landing',exact:true})).toBeVisible();
+    assert.equal(fixture.state.subject,null);
+    for(const view of [page,secondView])await assertPrivateWorkHidden(view);
+    const signedOut=await rollbackStorage(page,scope);
+    assert.equal(signedOut.account,null);
+    assert.deepEqual(signedOut.register,clearing.register);
+    assert.equal(signedOut.rosterRows,0);
+    assert.deepEqual(await original(),rows);
+
+    await page.goto(url);
+    const signIn=page.getByRole('link',{name:language('Sign in again','تسجيل الدخول'),exact:true});
+    await expect(signIn).toHaveAttribute('href','/'+locale+'/sign-in');
+    await assertPrivateWorkHidden(page);
+    assert.deepEqual(apiAttempts,['/api/fixture-signout']);
+    assert.deepEqual(fixture.state.events.slice(signOutAt).map(({route,status})=>[route,status]),[['fixture-signout',200]]);
+    assert.deepEqual(fixture.state.dispatchBodies,[]);
+    assert.deepEqual(await counts(),zero);
+    console.log('PASS signed-out entry requires sign-in and sends no Attendance operation');
+  }finally{
+    provider.resolve();
+    browser.off('request',observeApi);
+    await page.unroute(providerUrl,holdProvider);
+  }
+
+  const recoveryCalls=await recoverOriginalAfterCleanup({scope,url,subject:before.account.subject,rows,counts,one});
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale,secondViewTiming,
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,distinctWindows:Boolean(installedApp),
+    rosterRowsBefore:before.rosterRows,rosterRowsBeforeProviderSignOut:0,viewsMaskedBeforeProviderSignOut:2,
+    registerSealedBeforeProviderSignOut:true,accountMarkerCleared:true,signedOutRouteRequiresSignIn:true,
+    originalUnchangedAcrossSignOut:true,originalIdPreserved:true,
+    providerSignOutCalls:1,operatingAttemptsDuringSignOut:apiAttempts.length-1,
+    serverBeforeRecovery:zero,serverAfterRecovery:one,dispatches:fixture.state.dispatchBodies.length,recoveryCalls}));
 }
 
 async function checkAbortedUpgrade({builds,firstCache,scope,holder,distinctWindows,cold,rows,counts,zero,one}){
@@ -986,13 +1091,14 @@ async function run(){
       distinctUpgradeWindows=true;
     }
   }
+  let captureConnection;
   if(!loseReply){
     await assertOffline();
     // The standalone target can still report Online after the origin is cut.
     // Keep its initial save pending until the explicit cold-launch reconnect.
     if(installedApp){
-      const connection=await browser.newCDPSession(page);
-      await setInstalledConnection(connection,true);
+      captureConnection=await browser.newCDPSession(page);
+      await setInstalledConnection(captureConnection,true);
       await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
     }
   }
@@ -1017,6 +1123,13 @@ async function run(){
   assert.equal(earlierWires.length,loseReply?1:0);
   if(accountChange){
     await checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,one});
+    return;
+  }
+  if(signOut){
+    const secondView=installedApp?installationPage:await browser.newPage();
+    try{
+      await checkSignOut({builds,firstCache,scope,url,rows,counts,zero,one,secondView,captureConnection});
+    }finally{await captureConnection?.detach();}
     return;
   }
   if(rollback){

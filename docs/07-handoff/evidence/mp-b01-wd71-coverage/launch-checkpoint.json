@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks now include refused write and WD-80 account change with unchanged encrypted work and same-ID recovery. Next is installed explicit sign-out with a pending Attendance original and a second view. The installed 30-day case, physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks also passed WD-80 account change and explicit sign-out with unchanged encrypted work and same-ID recovery. Next is the installed 30-day retention boundary with a protected Attendance original. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -2144,6 +2144,230 @@
     "stillOpen": [
       "WD-80 explicit installed sign-out, installed 30-day cleanup and the wider account/access/device matrix",
       "Physical storage persistence, quota and eviction, real forward schema migration, hosted cold launch, live Clerk Attendance, hosted rollback and update",
+      "Synthetic staging activation and Owner acceptance"
+    ]
+  },
+  "macInstalledAttendanceSignOut20261119": {
+    "status": "passed_installed_disposable_mac_explicit_sign_out_subset",
+    "verifiedAtUtc": "2026-11-19T18:20:44+00:00",
+    "testedApplicationSource": "a79575902104966634e8fdeff13eb339832d0328",
+    "inputSha256": {
+      "scripts/working-day/test_attendance_update.mjs": "3896d8c7f9ec7e02fce44ce71fe9b803d5806a0558d7bf632a2e54430ad365d1",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3c55f1186cc0fddc0278deeb39c0817307c0d5cb3e0a3712ddda7cc4d989341e",
+      "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+      "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+      "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+      "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+      "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+      "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+      "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+      "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+      "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
+      "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+      "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+      "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+      "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk in a disposable Chromium profile shared by the installed and browser windows"
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --sign-out",
+      "node scripts/working-day/test_attendance_update.mjs --installed --sign-out --arabic"
+    ],
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "Gr50DZLsJTzetmzmaFAkv",
+            "A281903OmTOxqSODtErRc"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "458d9418283873034be683b12620029324f86b4fdc01b33d0199165ea8140cc0",
+        "locale": "en",
+        "secondViewTiming": {
+          "workerStart": 0.9000000059604645,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "distinctWindows": true,
+        "rosterRowsBefore": 18,
+        "rosterRowsBeforeProviderSignOut": 0,
+        "viewsMaskedBeforeProviderSignOut": 2,
+        "registerSealedBeforeProviderSignOut": true,
+        "accountMarkerCleared": true,
+        "signedOutRouteRequiresSignIn": true,
+        "originalUnchangedAcrossSignOut": true,
+        "originalIdPreserved": true,
+        "providerSignOutCalls": 1,
+        "operatingAttemptsDuringSignOut": 0,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "MV12-SAL17OPSXKW4gYvn",
+            "vPjvqImGiJanjGUferyNH"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "eecd2c382c4f393b5d044e2ca43cc65979703c50f228e1540f744cd67dbf29ce",
+        "locale": "ar",
+        "secondViewTiming": {
+          "workerStart": 1.100000023841858,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "distinctWindows": true,
+        "rosterRowsBefore": 18,
+        "rosterRowsBeforeProviderSignOut": 0,
+        "viewsMaskedBeforeProviderSignOut": 2,
+        "registerSealedBeforeProviderSignOut": true,
+        "accountMarkerCleared": true,
+        "signedOutRouteRequiresSignIn": true,
+        "originalUnchangedAcrossSignOut": true,
+        "originalIdPreserved": true,
+        "providerSignOutCalls": 1,
+        "operatingAttemptsDuringSignOut": 0,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      }
+    },
+    "regressions": {
+      "englishAccountChange": {
+        "status": "passed",
+        "buildIds": [
+          "m2qGg2dsZwXxzn13W_j-I",
+          "KnsJ8c8FzEwi5T7SVw5aa"
+        ]
+      },
+      "sourceReceiptsCurrent": [
+        "Compiled web build",
+        "Factual experience review",
+        "Owner workspace startup",
+        "Normal Attendance and Owner task return",
+        "Additive Attendance"
+      ]
+    },
+    "runnerAdjustment": "The first run passed sign-out cleanup and the signed-out route checks. Recovery stayed disabled while the installed test target retained its forced offline signal. The final runner restores and verifies that signal before releasing the held provider request.",
+    "scope": [
+      "Ordinary Account sign-out in the installed window masks both that view and an open browser window. Both shared the prepared 18-player register before sign-out.",
+      "The held provider request establishes browser cleanup before the simulated provider receives sign-out. The fixture network returns for provider acknowledgement and same-account recovery.",
+      "The original encrypted record remains unchanged through cleanup. The signed API handler and disposable PostgreSQL commit that original once under the same account."
+    ],
+    "stillOpen": [
+      "The WD-80 installed 30-day retention case and the wider access and device matrix",
+      "Physical persistence, quota and eviction, real schema migration, hosted cold launch, live Clerk Attendance and hosted update and rollback",
       "Synthetic staging activation and Owner acceptance"
     ]
   }

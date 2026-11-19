@@ -528,3 +528,13 @@ The existing application passed this WD-80 slice in English and Arabic on a disp
 The test used a separate standalone Chromium window, a simulated Clerk identity and disposable PostgreSQL. The first run kept a locator attached to the closed window. The final runner checks both account boundaries in the reopened window. The installed Arabic write-refusal test and English blocked-upgrade test passed again. The production build, factual review and existing startup and Attendance receipts matched the current sources.
 
 Explicit sign-out, the installed 30-day retention case, physical storage limits, live Clerk Attendance and wider devices remain open. Follow the tracker for the installed sign-out check. Synthetic staging activation still requires the Owner decision above.
+
+## 19 November installed Attendance explicit sign-out
+
+The existing application passed the WD-80 sign-out sequence in English and Arabic. The Owner marked one player Present offline. Both the installed window and a separate browser window in the disposable profile showed the 18-player register and the pending save. The second window reopened through the public worker with zero document bytes transferred. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- The Owner used **Account → Sign out** in the installed window. The test paused the simulated provider request. Both windows masked the roster and the pending-save controls while the provider still held the Owner session.
+- Before that request left the browser, IndexedDB held zero downloaded roster rows and the register was sealed. The encrypted original and its ID stayed identical through sign-out. A signed-out visit to the normal Attendance route asked for sign-in. The sole API request during sign-out was the provider request, and the database recorded zero Attendance changes.
+- After simulated sign-in as the same Owner, **Recover saved work** recovered the existing key and sent the original once. Disposable PostgreSQL recorded one mark, one history row, one operation and one audit event. Reload showed the saved mark and sent nothing further.
+
+The first run passed the cleanup assertions and then left recovery disabled because the test window still reported offline. The final runner restores and checks the window's connection signal after cleanup. This checkpoint used simulated Clerk in disposable installed Chromium and PostgreSQL. The installed 30-day retention check, physical quota and eviction, live Clerk Attendance and wider devices remain open. Synthetic staging activation still requires the Owner decision above.
