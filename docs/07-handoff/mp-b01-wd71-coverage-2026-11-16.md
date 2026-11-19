@@ -269,3 +269,5 @@ Isolating the app window for a screenshot by minimising the other Chrome windows
 ### Still not exercised
 
 Cold offline launch, empty store, protected update with pending work and same-original reconnect remain open. They need a prepared store plus a controlled offline transition on the installed app; nothing in this pass should be read as covering them.
+
+The 19 November record itself is documentation only (checkpoint section, structured receipt, tracker next action and regenerated continuation). Its Foundation run `44443618633` attempt 1 passed 55/55 on `fd7a962e4a5f53ceec3c0d54dfdad0370ccbb30f`; no product source changed, so that run adds no runtime or hosted assertion.

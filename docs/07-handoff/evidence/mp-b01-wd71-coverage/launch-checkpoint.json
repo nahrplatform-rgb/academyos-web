@@ -528,6 +528,14 @@
       "protected update with pending work",
       "same-original reconnect"
     ],
-    "evidenceLimits": "Chrome JavaScript from Apple Events remains off, so the installed app DOM is still read only through window URLs and pixels; most UI cases were driven in a normal nahr tab, which shares the session and device storage but is not the installed window."
+    "evidenceLimits": "Chrome JavaScript from Apple Events remains off, so the installed app DOM is still read only through window URLs and pixels; most UI cases were driven in a normal nahr tab, which shares the session and device storage but is not the installed window.",
+    "evidenceCommit": {
+      "commit": "fd7a962e4a5f53ceec3c0d54dfdad0370ccbb30f",
+      "foundationRun": "44443618633",
+      "attempt": 1,
+      "result": "55/55 steps passed",
+      "runUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44443618633",
+      "note": "Documentation-only change: checkpoint section, structured receipt, tracker next action and generated continuation. No product source changed, so no new runtime or hosted assertion follows from this run."
+    }
   }
 }
