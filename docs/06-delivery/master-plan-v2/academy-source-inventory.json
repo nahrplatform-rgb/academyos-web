@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "0b1f400c308c36835caa3c97738f90f742400548",
+  "source_anchor": "353446963f72604e25dbd0af7b90d391fc4b6af0",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -445,8 +445,8 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
-      "bytes": 49741
+      "sha256": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
+      "bytes": 49892
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",

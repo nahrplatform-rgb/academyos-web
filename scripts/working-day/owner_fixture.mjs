@@ -193,7 +193,8 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         export{default as PreparedWorkspaceStartup}from'./apps/web/src/components/prepared-workspace-startup.tsx';`:''}`,
         resolveDir:root,loader:'tsx'},
       tsconfig:join(root,'apps/web/tsconfig.json'),bundle:true,write:false,format:'esm',jsx:'automatic',
-      external:['react','react/*','next/*'],banner:{js:'"use client";'},
+      // Keep React and its renderer together in Next's client and prerender bundles.
+      external:['react','react-dom','next/*'],banner:{js:'"use client";'},
       define:pilot?{'process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY':JSON.stringify('pk_test_'+Buffer.from('fixture.clerk.accounts.dev$').toString('base64'))}:{},
       plugins:[{name:'fictional-clerk-presentation',setup(b){
         b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'fixture'}));

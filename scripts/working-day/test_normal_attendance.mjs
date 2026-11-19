@@ -33,10 +33,10 @@ const sources=['apps/web/src/components/workspace-launch.tsx','apps/web/src/lib/
   'scripts/publication/test_boundary.py','supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql',
   'supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql',
   'supabase/migrations/20261028233812_i5a_development_feedback.sql',
-  ...['attendance-workspace','date-planning-workspace','experience-workspace','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','workspace-panel-icon','theme-toggle','register-account-context','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
+  ...['attendance-workspace','date-planning-workspace','experience-workspace','owner-workspace-device','prepared-register-panel','prepared-register-session','prepared-workspace-startup','workspace-shell','workspace-panes','workspace-panel-icon','theme-toggle','register-account-context','register-account-boundary'].map(n=>`apps/web/src/components/${n}.tsx`),
   ...['owner-register-pilot','register-session','local-register-repository','register-device-account','register-device-slots','register-original-dispatch','workspace-public-shell','register-download-coordinator'].map(n=>`apps/web/src/lib/${n}.ts`),
   'apps/web/public/prepared-workspace-worker.js','apps/web/public/prepared-register-worker.js','apps/web/src/app/globals.css',
-  'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql'];
+  'apps/web/src/app/api/register-key/route.ts','supabase/migrations/20261106174606_owner_register_binding_conflict.sql','package-lock.json'];
 const hashes=Object.fromEntries(await Promise.all(sources.map(async p=>[p,createHash('sha256').update(await readFile(join(root,p))).digest('hex')])));
 if(process.argv.includes('--check')){const d=JSON.parse(await readFile(receipt,'utf8'));assert.deepEqual(d.hashes,hashes);assert.equal(d.checks.length,expectedChecks);console.log('PASS normal Attendance and Owner task return receipt matches sources');process.exit(0);}
 const temp=await mkdtemp(join(tmpdir(),'academyos-normal-attendance-'));

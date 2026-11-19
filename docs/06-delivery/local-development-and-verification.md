@@ -109,6 +109,12 @@ Current capture capabilities differ:
 
 Trace/video collection itself does not require feeding every frame to a model. Inspect the failed step or selected visual checkpoints. Raw connected traces/logs remain ignored/private; curate a redacted receipt before sharing evidence. Keep initial failures and their repairs instead of overwriting the historical claim.
 
+### Fresh connected Owner-day check
+
+From the AcademyOS root, select the repository's Node 24 with `nvm use` if using nvm. Run `node scripts/working-day/test_normal_attendance.mjs` for a fresh isolated build and the 28 runtime checks. The fixture starts its own temporary Next app and PostgreSQL 17 database. It does not need the preview on port 3100. Run the disposable PostgreSQL fixtures serially because they share port 55441. If PostgreSQL 17 is in a different location, set `M1_POSTGRES_BIN` to its `bin` directory for the test command.
+
+`--check` compares an existing receipt against its declared inputs. Use `--record` after an affected change to run the full suite and refresh the tracked receipt. A fixture prerender error mentioning missing React can come from the test's bundling boundary even when both packages are installed. The isolated Next fixtures leave React and React DOM imports to Next so it resolves both together in the browser and prerender worker.
+
 ### Managed local runtimes — 15 November 2026
 
 Use **localhost:3000 for visible saved edits** and **localhost:3100 for the checked production/offline preview**. Both can run together: development now writes `.next-local`, while production owns `.next`. Generated development output is excluded from Git and lint. Production builds require Node 24; the local launcher selects the pinned Node/npm toolchain automatically.

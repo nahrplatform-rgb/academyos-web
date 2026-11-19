@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=eaa46cf9-135d-4039-9a00-693f6c397cd1"
+          "task": "#attendance-return=97670d5f-c65a-453f-8316-a442a382f150"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=26fe04ed-c4d8-4053-8e39-f7ec89443596"
+          "task": "#attendance-return=00f5f4b7-c6fc-4b6f-9e20-3cc6584813e1"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=eb78d325-ef8f-4966-9bcd-c75606273f4f"
+          "task": "#correction-return=ffb00f3a-dae0-4723-8f6b-d67337087571"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=cbc86177-409b-4fc9-b727-cc1e2af2700d"
+          "task": "#development-return=5509fe9d-d21a-4098-a7cc-42dc064ab7cf"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=fdd7dcf8-371a-4827-b5f9-c17e60ae0462"
+          "task": "#development-return=08912f01-a33c-4b97-b551-26191b8e7638"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=33db6ca5-8f94-4291-8105-ffd5db3bb0ae"
+          "task": "#publication-return=b0f03ff1-b633-4fd0-98dd-b182de87530a"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=13761a0f-8998-4dac-a6fe-4ed8821b4698"
+          "task": "#publication-return=aa29c742-376e-43e2-b40c-bc8d224a4af4"
         }
       },
       {
@@ -1028,13 +1028,13 @@
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/test_normal_attendance.mjs": "69620c77ef6a5641bb2715da71a587b5395d56aa0208262524b04186e085d475",
+    "scripts/working-day/test_normal_attendance.mjs": "96e33835082b96327bb80d7dd58cfb85a168bf0c731a5abc6322f1d88d98a5e6",
     "scripts/working-day/owner_day_return.mjs": "0c698c581439c3b83e564a8baf15233119ebc7dbe5ed4f3e169995e6ab466c29",
     "scripts/working-day/owner_queue_return.mjs": "6b6f0ef4fbe8a2a9f8982bbf81d3c5099cce5d7564fde9e01c005264df929e3c",
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/owner_publication_return.mjs": "ce8b032171f9c70e37ab6f1d9a3edeb618769b166fe8c0f2a0f17cef85254308",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
+    "scripts/working-day/owner_fixture.mjs": "878584280b3c9a0a57300727a710d9885e66b295deda95dfac7ab360fb7d4cdc",
     "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
@@ -1054,6 +1054,7 @@
     "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
     "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
     "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+    "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
     "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
@@ -1075,7 +1076,8 @@
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
     "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192",
     "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
-    "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a"
+    "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a",
+    "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee"
   },
   "errors": [],
   "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof"

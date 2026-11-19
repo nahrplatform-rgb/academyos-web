@@ -1,6 +1,6 @@
 {
-  "source": "0b1f400c308c36835caa3c97738f90f742400548",
-  "generatedAt": "2026-11-19T19:16:50.298Z",
+  "source": "353446963f72604e25dbd0af7b90d391fc4b6af0",
+  "generatedAt": "2026-11-19T20:14:32.305Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -55,7 +55,7 @@
     "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
-    "apps/web/src/components/people-workspace.tsx": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
+    "apps/web/src/components/people-workspace.tsx": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
     "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
@@ -129,9 +129,9 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "2a48cf215f9f52070cbc0ea657675a66c31bd21fec27757f01b0270587015ead",
-  "htmlSha256": "0f5021afee9f31310a7ca6ca7e62ef44d152825b0244a0ea9d9ff71ade9e2250",
-  "frames": 1812,
+  "capturePackSha256": "2a0b99bace7cb87e513082f96378f20d46801515e5e5c1ab6065e58758db30af",
+  "htmlSha256": "6fd80808dd24c95f20f36e17511797825731f25e72268d2b882a03ee5c7680bd",
+  "frames": 1811,
   "transitions": 2611,
   "sourceFiles": 83,
   "sourceLiterals": 8391,
@@ -170,7 +170,7 @@
     },
     {
       "id": "publication",
-      "frames": 83
+      "frames": 82
     },
     {
       "id": "session-changes",

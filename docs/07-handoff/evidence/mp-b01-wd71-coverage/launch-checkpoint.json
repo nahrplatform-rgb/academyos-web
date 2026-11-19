@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks passed WD-80 account change, explicit sign-out and 30-day retention with unchanged encrypted work until same-ID recovery. The expired original remains Needs review with zero server writes. The installed WD-76 Owner Calendar check passed in EN/AR with one held refresh, retained focus and scroll and zero fallback reads after known denial. Next is the installed WD-76 Owner Players return and profile-authority check. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks passed WD-80 account change, explicit sign-out and 30-day retention with unchanged encrypted work until same-ID recovery. The expired original remains Needs review with zero server writes. The installed WD-76 Owner Calendar check passed in EN/AR with one held refresh, retained focus and scroll and zero fallback reads after known denial. The installed WD-76 Owner Players slice passed in EN/AR on corrected source. A fresh connected local 18-player Owner-day run passed all 28 assertions after fixing the isolated React DOM bundle. Next is the scoped Git checkpoint review. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -2715,5 +2715,132 @@
       "The installed evidence covers this disposable local fixture. Hosted verification of the repair, physical storage limits and Owner acceptance remain open."
     ],
     "next": "Installed Owner Players return and full-profile authority under PW-03 / WD-76."
+  },
+  "macInstalledOwnerPlayersReturn": {
+    "date": "2026-11-19",
+    "case": "WD-76 Owner Players slice",
+    "status": "passed",
+    "command": "node scripts/workspace-download/test_transport.mjs --installed-players",
+    "basedOn": "353446963f72604e25dbd0af7b90d391fc4b6af0",
+    "compiledBuild": {
+      "node": "v24.14.0",
+      "sourceHash": "8937f13330565d8f50cae07931936b9895e9c28e65821a340156b245da9aa73c",
+      "artifactHash": "5c50a3c54f7aea2289047d885a08e6209a7324837106fdeeae5ff9599e345eb5"
+    },
+    "hashes": {
+      "apps/web/src/components/people-workspace.tsx": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
+      "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+      "apps/web/src/app/api/people/route.ts": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+      "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+      "scripts/workspace-download/installed_players.mjs": "0d7dd20f32b9aaa397df1b4bcae0cfaf512d313fe61dfb93a6f8dab52704467e",
+      "scripts/workspace-download/test_transport.mjs": "221f10553e85ee71c68cca99a363f9ce73b3d74b047c32c364df39b21e9302f1",
+      "scripts/workspace-download/normal_workspace.mjs": "4224eaca26a95ea12b8c05b7fd0123f82d1c6dfee92dd88dd1f647efc64fedce",
+      "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1"
+    },
+    "client": "installed standalone",
+    "browser": "156.0.8078.4",
+    "platform": "darwin",
+    "cases": [
+      {
+        "locale": "en",
+        "retained": {
+          "filter": "Synthetic",
+          "focused": true,
+          "range": [
+            2,
+            6
+          ],
+          "scroll": 300,
+          "rows": 25
+        },
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "resumeActions": {
+          "directory": [
+            "manifest"
+          ],
+          "summary": [
+            "manifest"
+          ]
+        },
+        "selectedSummaryRetained": true,
+        "fullProfile": {
+          "operatingActions": [
+            "profile",
+            "profile",
+            "profile"
+          ],
+          "currentDenial": 403,
+          "privateContactMasked": true,
+          "obsoleteSuccessReleased": true,
+          "obsoleteRequestAborted": true,
+          "retiredSlot": true,
+          "noBackgroundRetryAfterDenial": true
+        },
+        "documentTransitions": 0
+      },
+      {
+        "locale": "ar",
+        "retained": {
+          "filter": "Synthetic",
+          "focused": true,
+          "range": [
+            2,
+            6
+          ],
+          "scroll": 300,
+          "rows": 25
+        },
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "resumeActions": {
+          "directory": [
+            "manifest"
+          ],
+          "summary": [
+            "manifest"
+          ]
+        },
+        "selectedSummaryRetained": true,
+        "fullProfile": {
+          "operatingActions": [
+            "profile",
+            "profile",
+            "profile"
+          ],
+          "currentDenial": 403,
+          "privateContactMasked": true,
+          "obsoleteSuccessReleased": true,
+          "obsoleteRequestAborted": true,
+          "retiredSlot": true,
+          "noBackgroundRetryAfterDenial": true
+        },
+        "documentTransitions": 0
+      }
+    ],
+    "beforeRepair": {
+      "locale": "en",
+      "actions": [
+        "profile",
+        "profile",
+        "profile",
+        "list"
+      ],
+      "expected": [
+        "profile",
+        "profile",
+        "profile"
+      ]
+    },
+    "scope": [
+      "Mac standalone Chromium with disposable profile and checked production assets. Actual Players component, workspace/key and People handlers and signed disposable PostgreSQL; simulated Clerk and provider wires.",
+      "One unchanged signed manifest, zero dataset page transfers and zero People reads per measured prepared return. Full-profile contact is available through the current signed People read only.",
+      "Remaining independent device, hosted and Owner acceptance work retains its own scope."
+    ],
+    "next": "Current-source connected local 18-player Owner-day acceptance pass under EX-07 / MP-B01."
   }
 }

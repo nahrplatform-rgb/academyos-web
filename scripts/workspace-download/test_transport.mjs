@@ -24,9 +24,12 @@ import {acquireResource} from '../local/runtime.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
 const installedCalendar=process.argv.includes('--installed-calendar');
-const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,installedCalendar
-  ?'test-results/installed-calendar':'docs/07-handoff/evidence/ex13b-workspace-transfer');
-const evidence=join(directory,installedCalendar?'calendar.json':'transport.json');
+const installedPlayers=process.argv.includes('--installed-players');
+assert.ok(!(installedCalendar&&installedPlayers),'Choose one installed workspace check per run');
+const installedView=installedCalendar?'calendar':installedPlayers?'players':null;
+const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,installedView
+  ?`test-results/installed-${installedView}`:'docs/07-handoff/evidence/ex13b-workspace-transfer');
+const evidence=join(directory,`${installedView??'transport'}.json`);
 const inputs=[
   'apps/web/src/app/api/workspace-download/route.ts','apps/web/src/lib/workspace-download.ts',
   'apps/web/src/app/api/workspace-key/route.ts','apps/web/src/lib/workspace-key-server.ts',
@@ -63,15 +66,16 @@ const inputs=[
   'apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx','apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx',
 ];
 if(installedCalendar)inputs.push('scripts/workspace-download/installed_calendar.mjs');
+if(installedPlayers)inputs.push('scripts/workspace-download/installed_players.mjs');
 const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
   createHash('sha256').update(await readFile(join(root,name))).digest('hex')])));
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
-  if(installedCalendar){
+  if(installedView){
     assert.deepEqual(receipt.compiledBuild,await assertCurrentWebBuild(root));
     assert.deepEqual(receipt.result.cases.map(test=>test.locale),['en','ar']);
-    console.log('PASS installed Calendar evidence matches current sources and compiled assets');
+    console.log(`PASS installed ${installedCalendar?'Calendar':'Players'} evidence matches current sources and compiled assets`);
     process.exit(0);
   }
   assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
@@ -389,8 +393,10 @@ try{
   `,resolveDir:root},bundle:true,platform:'browser',write:false});
   const browserCalls=[], browserPageDatasets=[];
   const normalFixture=await db({action:'make',size:56,calendar:true,unregistered:true});
-  const peopleRequest=body=>peoplePost(new NextRequest(stage+'/api/people',{
+  let interceptPeople;
+  const invokePeople=body=>peoplePost(new NextRequest(stage+'/api/people',{
     method:'POST',headers:{origin:stage,'content-type':'application/json'},body:JSON.stringify(body)}));
+  const peopleRequest=body=>interceptPeople?interceptPeople(body,()=>invokePeople(body)):invokePeople(body);
   state.subject='user_unassigned';
   try {
     const op=randomUUID();
@@ -404,8 +410,8 @@ try{
   } finally {state.subject='user_owner';}
   const normal=await normalWorkspaceFixture(root,normalFixture,{
     people:peopleRequest});
-  const installed=installedCalendar?await import('./installed_calendar.mjs'):null;
-  const installation=await installed?.installedCalendarAssets(root);
+  const installed=installedView?await import(`./installed_${installedView}.mjs`):null;
+  const installation=installed?await (installedCalendar?installed.installedCalendarAssets:installed.installedPlayersAssets)(root):null;
   let activeNormal=normal;
   let intercept;
   server=createServer(async(req,res)=>{
@@ -441,13 +447,22 @@ try{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const local='http://127.0.0.1:'+server.address().port;
   if(installed){
-    const result=await installed.checkInstalledCalendar({app:installation.app,base:local,profile:join(tmp,'installed-calendar'),
+    const checkFn=installedCalendar?installed.checkInstalledCalendar:installed.checkInstalledPlayers;
+    const result=await checkFn({app:installation.app,base:local,profile:join(tmp,`installed-${installedView}`),
       makeFixture:async(locale)=>{
-        if(locale==='en')return {fixture:normalFixture,ui:normal};
-        const fixture=await db({action:'make',size:56,calendar:true,unregistered:true});
-        activeNormal=await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
+        const fixture=locale==='en'?normalFixture:await db({action:'make',size:56,calendar:true,unregistered:true});
+        activeNormal=locale==='en'?normal:await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
+        if(installedPlayers){
+          const name='Synthetic WD-76 profile',contact='wd76-profile@example.invalid';
+          const response=await peopleRequest({action:'create',academy:fixture.academy,branch:fixture.branch,
+            op:randomUUID(),name,contact,revision:0,different:false});
+          assert.equal(response.status,200,'Prepare one fictional full profile before browser tests');
+          fixture.profile={name,contact,id:(await response.json()).data.player_id};
+          activeNormal.useRealPeople();
+        }
         return {fixture,ui:activeNormal};
-      },db,transferCalls:browserCalls,rpcCalls:state.calls,setIntercept:value=>{intercept=value;},pass});
+      },db,transferCalls:browserCalls,rpcCalls:state.calls,setIntercept:value=>{intercept=value;},
+      setPeopleIntercept:value=>{interceptPeople=value;},pass});
     await mkdir(directory,{recursive:true});
     await writeFile(evidence,JSON.stringify({passed:true,hashes,compiledBuild:normal.buildProof,result},null,2)+'\n');
   }else await checkBrowserTransport();

@@ -93,6 +93,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
     const pendingView=useRef<PeopleViewContext|null>(null);
     const authenticationRequired=useRef(false);
+    const accessDenied=useRef(false);
     const [viewRestored,setViewRestored]=useState(false);
     const unavailable = blocked || device.phase==='denied';
     function errorText(code: string) {
@@ -117,6 +118,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             return;
         }
         if (['denied', 'setup_required'].includes(code)) {
+        accessDenied.current=true;
+        directoryTicket.current++;
+        cancelProfileRead();
+        if(searchPending)controllers.current.forEach(controller=>controller.abort());
+        setSearchMode(null);setBusy(false);setChecking(false);
         pendingView.current=null;
         setOnlinePage(null);
         try {sessionStorage.removeItem(viewKey);} catch {}
@@ -400,7 +406,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         const timer=setTimeout(searchDirectory,300);
         return ()=>clearTimeout(timer);
     });
-    const refreshVisible = useEffectEvent(() => { if (busy || profileBusy || document.visibilityState !== 'visible')
+    const refreshVisible = useEffectEvent(() => { if (accessDenied.current || busy || profileBusy || document.visibilityState !== 'visible')
         return; if (stage === 'directory' || stage === 'form') {
         if(!device.active)void loadDirectory(undefined,null,false,stage==='directory');
     }
@@ -421,15 +427,10 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const reloadLocal=useEffectEvent(()=>{
         if(!active.current)return;
         if(device.phase==='denied'){
-            if(searchPending){
-                directoryTicket.current++;
-                controllers.current.forEach(controller=>controller.abort());
-                setSearchMode(null);setBusy(false);
-            }
             failure(new RequestFailure('denied'));
             return;
         }
-        if(searchPending||(stage!=='directory'&&stage!=='profile'))return;
+        if(accessDenied.current||searchPending||(stage!=='directory'&&stage!=='profile'))return;
         if(localRows&&!device.active){
             setPlayers([]);setSelected(null);setContext(null);setLocalRows(false);
             if(device.offline)setMissing(true);
@@ -483,6 +484,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         setSearchMode(needsRead?(localRows&&device.active?'device':'online'):null);
     }
     function retryBlockedView() {
+        accessDenied.current=false;
         if(error==='authentication_required'&&stage==='unknown')void reconcile();
         else if(error==='authentication_required'&&stage==='profile'&&profileId)void openProfile(profileId,saved);
         else if(stage==='directory'&&saved)reloadReturnedDirectory();
