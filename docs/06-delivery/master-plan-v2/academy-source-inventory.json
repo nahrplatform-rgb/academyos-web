@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "9d10c3acb1c7eda73cf8d47f483e7ee5f52fccf1",
+  "source_anchor": "0b1f400c308c36835caa3c97738f90f742400548",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -440,8 +440,8 @@
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
-      "sha256": "e2cf8763d6cdd48ec2057b0e172b2883933e52e6f40bb50fc191814cca48d8f9",
-      "bytes": 10872
+      "sha256": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+      "bytes": 10915
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
@@ -990,8 +990,8 @@
     },
     {
       "path": "apps/web/src/lib/workspace-device.ts",
-      "sha256": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
-      "bytes": 13144
+      "sha256": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+      "bytes": 13253
     },
     {
       "path": "apps/web/src/lib/workspace-download.ts",

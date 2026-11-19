@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks passed WD-80 account change, explicit sign-out and 30-day retention with unchanged encrypted work until same-ID recovery. The expired original remains Needs review with zero server writes. Next is the installed WD-76 Owner Calendar check during a held refresh. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks passed WD-80 account change, explicit sign-out and 30-day retention with unchanged encrypted work until same-ID recovery. The expired original remains Needs review with zero server writes. The installed WD-76 Owner Calendar check passed in EN/AR with one held refresh, retained focus and scroll and zero fallback reads after known denial. Next is the installed WD-76 Owner Players return and profile-authority check. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -2572,5 +2572,148 @@
       "Real schema migration, hosted cold launch, live Clerk Attendance and hosted rollback and update",
       "Synthetic staging activation and Owner acceptance"
     ]
+  },
+  "macInstalledOwnerCalendarReturn": {
+    "date": "2026-11-19",
+    "case": "WD-76 Owner Calendar slice",
+    "status": "passed",
+    "testedBase": "0b1f400c308c36835caa3c97738f90f742400548",
+    "compiledBuild": {
+      "node": "v24.14.0",
+      "sourceHash": "87aa2d76dd7cf151ea9b244332c12f59e39c8319ce807625a54af9b49b7387f6",
+      "artifactHash": "b569fb5f40f8b364a2a52c40187af75a7351398836804da1813c75f81500443e"
+    },
+    "hashes": {
+      "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+      "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
+      "scripts/workspace-download/installed_calendar.mjs": "08ab3489656b998b70228fbd4afa012afe257478e4b80b45291887cae631f1b0",
+      "scripts/workspace-download/test_transport.mjs": "d9dd0463a76aede0a1685b65796de5aae8e27229e00c860b69848cf2a87a13b5",
+      "scripts/workspace-download/normal_workspace.mjs": "4224eaca26a95ea12b8c05b7fd0123f82d1c6dfee92dd88dd1f647efc64fedce",
+      "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1"
+    },
+    "client": "installed standalone",
+    "browser": "156.0.8078.4",
+    "platform": "darwin",
+    "cases": [
+      {
+        "locale": "en",
+        "returnEvents": [
+          {
+            "type": "blur",
+            "trusted": true,
+            "visibility": "visible"
+          },
+          {
+            "type": "focus",
+            "trusted": true,
+            "visibility": "visible"
+          }
+        ],
+        "retained": {
+          "date": "2099-11-08",
+          "month": true,
+          "filter": "Syn",
+          "selection": true,
+          "focused": true,
+          "range": [
+            1,
+            3
+          ],
+          "scroll": 300,
+          "rows": 18
+        },
+        "resumeActions": [
+          "manifest"
+        ],
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "obsolete": {
+          "cancelled": "net::ERR_ABORTED",
+          "currentWeek": "2099-11-15",
+          "changedRevisionVisible": true,
+          "oldReplyReleased": true
+        },
+        "denial": {
+          "status": 403,
+          "rows": 0,
+          "inspector": false,
+          "retiredSlot": true
+        },
+        "documentTransitions": 0,
+        "operatingReads": 0
+      },
+      {
+        "locale": "ar",
+        "returnEvents": [
+          {
+            "type": "blur",
+            "trusted": true,
+            "visibility": "visible"
+          },
+          {
+            "type": "focus",
+            "trusted": true,
+            "visibility": "visible"
+          }
+        ],
+        "retained": {
+          "date": "2099-11-08",
+          "month": true,
+          "filter": "Syn",
+          "selection": true,
+          "focused": true,
+          "range": [
+            1,
+            3
+          ],
+          "scroll": 300,
+          "rows": 18
+        },
+        "resumeActions": [
+          "manifest"
+        ],
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "obsolete": {
+          "cancelled": "net::ERR_ABORTED",
+          "currentWeek": "2099-11-15",
+          "changedRevisionVisible": true,
+          "oldReplyReleased": true
+        },
+        "denial": {
+          "status": 403,
+          "rows": 0,
+          "inspector": false,
+          "retiredSlot": true
+        },
+        "documentTransitions": 0,
+        "operatingReads": 0
+      }
+    ],
+    "baseline": {
+      "compiledBuild": {
+        "node": "v24.14.0",
+        "sourceHash": "8bdf20bbdc4248d74a9374bde8a46f6c59ef05d258fcfe4b177615eca3c9058d",
+        "artifactHash": "f51b87cb9d5945667cec94afffbefa7cb4b9021fbd3a5ea7819c2c61c245cbbc"
+      },
+      "operatingReadsAfterDenial": {
+        "en": 2,
+        "ar": 2
+      },
+      "zeroFallbackAssertionFailedBeforeRepair": "en"
+    },
+    "scope": [
+      "A separately installed disposable Chromium window was minimized and restored. Trusted blur and focus were observed. The document reported visible on both events.",
+      "Real Owner Calendar components and encrypted local coverage published by actual workspace/key Next handlers with a signed gateway and disposable PostgreSQL 17. Fictional Clerk and legacy online Calendar responses.",
+      "The signed 403 reached the fixture after its Academy Owner membership was suspended. The caller now masks the current scope before the cleanup changes the local slot.",
+      "The installed evidence covers this disposable local fixture. Hosted verification of the repair, physical storage limits and Owner acceptance remain open."
+    ],
+    "next": "Installed Owner Players return and full-profile authority under PW-03 / WD-76."
   }
 }

@@ -24,7 +24,7 @@ export function subscribeWorkspaceCoverage(){return()=>{}}
 export function workspaceDevice({subject},generation,signal){
  return {read:async()=>null,readContext:async()=>null,readCalendar:async()=>null,
   remove:async()=>{log.removes.push(generation)},
-  sync:async(month,priority,sig,onProgress)=>{log.syncs.push({month,priority,generation,subject});if(plan.hold)await new Promise(r=>plan.release=r);return {kind:plan.kind}}};
+  sync:async(month,priority,sig,onProgress,onDenied)=>{log.syncs.push({month,priority,generation,subject});if(plan.hold)await new Promise(r=>plan.release=r);if(plan.kind==='denied'&&!sig.aborted)onDenied?.();return {kind:plan.kind}}};
 }
 export function __setSlot(v){slot=v;slotListeners.forEach(f=>f())}
 export function __setSubject(s){currentSubject=s;slotListeners.forEach(f=>f())}

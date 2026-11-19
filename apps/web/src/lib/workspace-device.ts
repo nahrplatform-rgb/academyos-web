@@ -57,9 +57,10 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
         actual.device !== expected.device || actual.namespace !== expected.namespace) refuse('workspace_scope_changed');
   }
 
-  async function remove(slot: WorkspaceDeviceSlot, keepApproval: boolean) {
+  async function remove(slot: WorkspaceDeviceSlot, keepApproval: boolean, onRetire?: () => void) {
     await workspaceSlotLock(context, async () => {
       requireSlot(slot);
+      onRetire?.();
       await cleanWorkspaceSlot(context, slot, keepApproval);
     });
     publishCoverage();
@@ -121,7 +122,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
   }
 
   async function run(month: string | undefined, priority: 'people' | 'calendar', signal: AbortSignal,
-    progress?: (ready: number, total: number) => void) {
+    progress?: (ready: number, total: number) => void, onDenied?: () => void) {
     requireAccount();
     let slot = load();
     if (!slot) return {kind: 'approval_required' as const};
@@ -213,7 +214,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
       }
     } catch (error) {
       if (error instanceof WorkspaceTransportError && error.kind === 'denied') {
-        await remove(slot, false);
+        await remove(slot, false, onDenied);
         return {kind: 'denied' as const};
       }
       throw error;
@@ -279,7 +280,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
     readContext: () => local(repo=>repo.readContext()),
     readCalendar,
     async sync(month?: string, priority: 'people' | 'calendar' = 'people', request = lifetime,
-      progress?: (ready: number, total: number) => void) {
+      progress?: (ready: number, total: number) => void, onDenied?: () => void) {
       requireAccount();
       const signal = AbortSignal.any([lifetime, request]);
       signal.throwIfAborted();
@@ -287,7 +288,7 @@ export function workspaceDevice(input: WorkspaceDeviceContext, accountGeneration
       // Use a separate lock from cleanup. The account fence can cancel a held
       // request without waiting for the browser doing background preparation.
       return navigator.locks.request(`academyos.workspace-sync:${context.subject}:${context.academy}`,
-        {ifAvailable: true}, lock => lock ? run(month, priority, signal, progress) : {kind: 'following' as const});
+        {ifAvailable: true}, lock => lock ? run(month, priority, signal, progress, onDenied) : {kind: 'following' as const});
     },
     async remove() {
       requireAccount();

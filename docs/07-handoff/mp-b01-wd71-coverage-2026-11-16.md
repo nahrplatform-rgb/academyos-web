@@ -550,3 +550,19 @@ The existing application passed the WD-80 retention boundary in English and Arab
 Playwright's clock simulation hid the native navigation timing from the first run. The final test controls only the application's wall-clock reading and retains the browser's network measurements. The installed sign-out and blocked-upgrade regressions passed again.
 
 Physical storage limits, live Clerk Attendance, hosted update and wider devices remain open. The next local checkpoint is installed Owner Calendar continuity during a held refresh under WD-76. Synthetic staging activation still requires the Owner decision above.
+
+## 19 November installed Owner Calendar return
+
+WD-76 passed for the prepared Owner Calendar in English and Arabic. Each case used a separate macOS standalone Chromium window, minimized and restored through the browser. Both windows emitted trusted blur and focus while the document reported visible. The test used the actual Calendar components, workspace/key handlers and signed disposable PostgreSQL 17 transfer, with simulated Clerk and synthetic legacy Calendar reads. [Exact results and source fingerprints](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- One held signed refresh retained the covered month and date, selected session, filter text and selection, keyboard focus, 300 CSS pixels of scroll and 18 session rows. All stayed in place when the reply finished. The date and Week/Month controls were usable. The unchanged refresh used one manifest request and zero dataset pages. Covered filtering made zero operating reads or transfers.
+- The Owner moved to another covered week while an earlier signed reply was held. The next return cancelled that request and rendered a real changed Calendar revision. Releasing the older response kept the current week, filter and updated results. These transitions used the existing document.
+- A held 403 from the suspended synthetic membership masked the session rows and inspector after release and removed the prepared slot. The before-source trace recorded two fallback Calendar reads in each language. The repair publishes the signed denial to the current view before cleanup changes the slot. The same test now records zero fallback reads and zero document reloads in both languages.
+
+The first automation attempt counted cancellations from device preparation together with the held refresh. The final assertion observes the exact superseded request. A later focus timeout led to minimizing and restoring the disposable window directly, with both native events asserted.
+
+Two runs in fresh disposable profiles produced matching EN/AR evidence. All 74 workspace-transfer checks, the device approval and sync lifecycle, 119 unit tests, typecheck, lint and the local production build passed. The installed check runs with `node scripts/workspace-download/test_transport.mjs --installed-calendar` using Node 24, disposable PostgreSQL 17 and checked production assets.
+
+The factual review was regenerated from 16 component suites and 12 entry captures. Its 1,812 frames passed the source and offline review checks. The continuation, execution, implementation and master-plan validators passed. [Factual experience review](../../design/app-experience-review/AcademyOS-experience-review.html)
+
+The next local checkpoint covers installed Owner Players return, covered filtering and full-profile authority under WD-76. The scoped signed-in staging Calendar result on `cf15f40` remains part of the release record. Hosted verification of this repair, physical storage limits, live Clerk Attendance and the wider device cases remain open. The additive staging activation still requires the Owner decision above.

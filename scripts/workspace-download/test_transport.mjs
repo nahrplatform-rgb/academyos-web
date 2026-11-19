@@ -23,8 +23,10 @@ import {checkPublicShellSpa} from './public_shell_spa.mjs';
 import {acquireResource} from '../local/runtime.mjs';
 
 const root=resolve(import.meta.dirname,'../..'), require=createRequire(import.meta.url);
-const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,'docs/07-handoff/evidence/ex13b-workspace-transfer');
-const evidence=join(directory,'transport.json');
+const installedCalendar=process.argv.includes('--installed-calendar');
+const directory=process.env.WORKSPACE_TRANSFER_EVIDENCE_DIR ?? join(root,installedCalendar
+  ?'test-results/installed-calendar':'docs/07-handoff/evidence/ex13b-workspace-transfer');
+const evidence=join(directory,installedCalendar?'calendar.json':'transport.json');
 const inputs=[
   'apps/web/src/app/api/workspace-download/route.ts','apps/web/src/lib/workspace-download.ts',
   'apps/web/src/app/api/workspace-key/route.ts','apps/web/src/lib/workspace-key-server.ts',
@@ -60,11 +62,18 @@ const inputs=[
   'apps/web/src/components/workspace-shell.tsx','apps/web/src/app/[locale]/layout.tsx',
   'apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx','apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx',
 ];
+if(installedCalendar)inputs.push('scripts/workspace-download/installed_calendar.mjs');
 const hashes=Object.fromEntries(await Promise.all(inputs.map(async name=>[name,
   createHash('sha256').update(await readFile(join(root,name))).digest('hex')])));
 if(process.argv.includes('--check')){
   const receipt=JSON.parse(await readFile(evidence,'utf8'));
   assert.equal(receipt.passed,true);assert.deepEqual(receipt.hashes,hashes);
+  if(installedCalendar){
+    assert.deepEqual(receipt.compiledBuild,await assertCurrentWebBuild(root));
+    assert.deepEqual(receipt.result.cases.map(test=>test.locale),['en','ar']);
+    console.log('PASS installed Calendar evidence matches current sources and compiled assets');
+    process.exit(0);
+  }
   assert.equal(receipt.metrics.normalWorkspace.compiledBuild?.sourceHash,
     (await assertCurrentWebBuild(root)).sourceHash,'Recorded offline UI must belong to the current compiled source');
   assert.ok(receipt.checks.length>=70);
@@ -395,9 +404,12 @@ try{
   } finally {state.subject='user_owner';}
   const normal=await normalWorkspaceFixture(root,normalFixture,{
     people:peopleRequest});
+  const installed=installedCalendar?await import('./installed_calendar.mjs'):null;
+  const installation=await installed?.installedCalendarAssets(root);
   let activeNormal=normal;
   let intercept;
   server=createServer(async(req,res)=>{
+    if(installation?.serve(req,res))return;
     if(await activeNormal.serve(req,res))return;
     if(req.url==='/api/workspace-download'||req.url==='/api/workspace-key'){
       try {
@@ -428,6 +440,19 @@ try{
   });
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const local='http://127.0.0.1:'+server.address().port;
+  if(installed){
+    const result=await installed.checkInstalledCalendar({app:installation.app,base:local,profile:join(tmp,'installed-calendar'),
+      makeFixture:async(locale)=>{
+        if(locale==='en')return {fixture:normalFixture,ui:normal};
+        const fixture=await db({action:'make',size:56,calendar:true,unregistered:true});
+        activeNormal=await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
+        return {fixture,ui:activeNormal};
+      },db,transferCalls:browserCalls,rpcCalls:state.calls,setIntercept:value=>{intercept=value;},pass});
+    await mkdir(directory,{recursive:true});
+    await writeFile(evidence,JSON.stringify({passed:true,hashes,compiledBuild:normal.buildProof,result},null,2)+'\n');
+  }else await checkBrowserTransport();
+
+async function checkBrowserTransport(){
   const profile=join(tmp,'chromium');
   browser=await chromium.launchPersistentContext(profile);
   let tab=await browser.newPage();
@@ -826,6 +851,7 @@ try{
   await mkdir(directory,{recursive:true});
   await writeFile(evidence,JSON.stringify({passed:true,hashes,checks,metrics,environment:{node:process.version,
     platform:process.platform,architecture:process.arch,browser:browser.browser()?.version(),scope:'Actual workspace/key and registration-scenario People Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, baseline legacy read responses, limiter and PostgREST wire. Registration create/candidates/profile/reconcile use real People handlers; browser save IDs reach canonical RPCs. No hosted data, physical device or latency percentile claim.'}},null,2)+'\n');
+}
 }finally{
   await browser?.close();
   if(server?.listening) await new Promise(resolve=>server.close(resolve));

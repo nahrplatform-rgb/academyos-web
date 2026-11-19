@@ -1,6 +1,7 @@
 'use client';
 
 import {useCallback,useEffect,useState,useSyncExternalStore} from 'react';
+import {flushSync} from 'react-dom';
 import {armRegisterAccount,readRegisterAccount,subscribeRegisterAccount} from '@/lib/register-device-account';
 import {readWorkspaceSlot,subscribeWorkspaceSlot} from '@/lib/workspace-device-slots';
 import {approveWorkspaceDevice,subscribeWorkspaceCoverage,workspaceDevice} from '@/lib/workspace-device';
@@ -55,8 +56,8 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
   const [online,generation,slot,slotGeneration]=JSON.parse(useSyncExternalStore(subscribe,snapshot,empty)) as
     [boolean,string|null,'reserved'|'active'|'cleaning'|null,string|null];
   const offline=prepared&&(publicOffline||!online);
-  const allowed=Boolean(generation&&slot&&slot!=='cleaning');
-  const active=Boolean(generation&&slot==='active');
+  const allowed=Boolean(generation&&slot&&slot!=='cleaning'&&phase!=='denied');
+  const active=allowed&&slot==='active';
   useEffect(()=>{
     if(prepared&&active&&(offline||phase==='ready')&&!shellUnavailable)rememberWorkspaceLaunch(subject);
   },[active,anchor,offline,phase,prepared,shellUnavailable,subject,priority]);
@@ -121,15 +122,17 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
     const schedule=(delay:number)=>{timer=setTimeout(()=>void run(),delay);};
     async function run(){
       if(life.signal.aborted||document.visibilityState==='hidden')return;
+      let denied=false;
       setPhase(current=>current==='ready'||current==='checking'?'checking':'preparing');
       try {
         const result=await device.sync(requested??(anchor?anchor.slice(0,7)+'-01':undefined),priority,life.signal,(ready,total)=>{
           if(!life.signal.aborted)setProgress({ready,total});
+        },()=>{
+          denied=true;
+          // Publish the confirmed denial before the slot change can trigger fallback reads.
+          flushSync(()=>setPhase('denied'));
         });
-        // Retirement changes the slot and can cancel this effect before the
-        // confirmed refusal returns. Keep the denial visible after cleanup.
-        if(result.kind==='denied'){setPhase('denied');return;}
-        if(life.signal.aborted)return;
+        if(denied||life.signal.aborted)return;
         switch(result.kind){
           case 'current': setPhase('ready');break;
           case 'partial': case 'rebuild_required': schedule(1000);break;
@@ -137,7 +140,7 @@ export function useOwnerWorkspaceDevice({subject,academy,priority,prepared=false
           case 'approval_required': break;
         }
       } catch(error) {
-        if(life.signal.aborted)return;
+        if(denied||life.signal.aborted)return;
         if(error instanceof WorkspaceTransportError&&error.kind==='changed')schedule(1000);
         else {
           setPhase('paused');
