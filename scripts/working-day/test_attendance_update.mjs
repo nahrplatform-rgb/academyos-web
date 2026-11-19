@@ -6,6 +6,7 @@
 // --unsupported-store opens an Attendance database newer than the app supports.
 // --aborted-upgrade holds an older database connection while an upgrade waits and then aborts.
 // --refused-write aborts a staged Attendance save and retries the same review.
+// --account-change fences pending Attendance work when the signed-in account changes.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -31,13 +32,14 @@ const rollback=process.argv.includes('--rollback');
 const unsupportedStore=process.argv.includes('--unsupported-store');
 const abortUpgrade=process.argv.includes('--aborted-upgrade');
 const refusedWrite=process.argv.includes('--refused-write');
-const locale=refusedWrite&&process.argv.includes('--arabic')?'ar':'en';
+const accountChange=process.argv.includes('--account-change');
+const locale=(refusedWrite||accountChange)&&process.argv.includes('--arabic')?'ar':'en';
 const language=(en,ar)=>locale==='ar'?ar:en;
 const pendingLabel=language('Saved on this device · Awaiting sync','محفوظ على هذا الجهاز · بانتظار المزامنة');
 const syncedLabel=language('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.');
 const preparedWorkspace=rollback||unsupportedStore;
-const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite;
-assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite].filter(Boolean).length<=1,
+const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite||accountChange;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite,accountChange].filter(Boolean).length<=1,
   'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
@@ -693,6 +695,123 @@ async function checkRefusedWrite({builds,firstCache,scope,url}){
     dispatches:fixture.state.dispatchBodies.length,reconnectDocuments:0}));
 }
 
+async function checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,one}){
+  const [row]=rows;
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.account.subject,'user_owner');
+  assert.equal(before.rosterRows,18);
+
+  await reopen(url);
+  const reopenTiming=await checkCachedDocument();
+  await expect(page.locator('.register-roster li')).toHaveCount(18);
+  await expect(page.getByText(pendingLabel,{exact:true})).toBeVisible();
+  assert.deepEqual(await original(),rows);
+  console.log('PASS the installed Owner reopens the same pending original while the origin is offline');
+
+  const recover=page.getByRole('button',{name:language('Recover saved work','استعد العمل المحفوظ'),exact:true});
+  const assertPrivateWorkHidden=async()=>{
+    await expect(page.locator('.register-roster')).toHaveCount(0);
+    await expect(page.getByText(pendingLabel,{exact:true})).toHaveCount(0);
+    await expect(recover).toHaveCount(0);
+    await expect(page.getByRole('button',{name:language('Retry original save','أعد محاولة الحفظ الأصلي'),exact:true})).toHaveCount(0);
+  };
+
+  const otherSubject='user_other_owner';
+  const foreignAt=fixture.state.events.length;
+  const operatingAttempts=[];
+  const observeOperating=request=>{
+    const {origin:source,pathname}=new URL(request.url());
+    if(source===origin&&pathname.startsWith('/api/')&&pathname!=='/api/fixture-session'){
+      operatingAttempts.push(pathname);
+    }
+  };
+  page.on('request',observeOperating);
+  const connection=installedApp?await browser.newCDPSession(page):null;
+  try{
+    if(connection)await setInstalledConnection(connection,true);
+    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
+    await expect(page.getByText(language('Checking saved work…','جارٍ التحقق من العمل المحفوظ…'),{exact:true})).toHaveCount(0);
+    // The SDK now reports a different valid account with its own academy.
+    // Let the app perform its existing account cleanup on the reconnect.
+    fixture.state.subject=otherSubject;
+    fixture.state.sessionValid=false;
+    phase='b';
+    await browser.setOffline(false);
+    if(connection)await setInstalledConnection(connection,false);
+    await expect.poll(()=>page.evaluate(()=>sessionStorage.getItem('fixture-subject'))).toBe(otherSubject);
+    await expect(page.getByText(language('This workspace has no prepared data on this device. Open it when connected.',
+      'لا توجد بيانات محضّرة لهذه المساحة على الجهاز. افتحها عند الاتصال.'),{exact:true})).toBeVisible();
+    await assertPrivateWorkHidden();
+    await expect.poll(async()=>(await rollbackStorage(page,scope)).account).toBeNull();
+  }finally{await connection?.detach();}
+
+  const retired=await rollbackStorage(page,scope);
+  assert.equal(retired.register.mode,'sealed');
+  assert.equal(retired.register.namespace,before.register.namespace);
+  assert.equal(retired.repositoryMode,'quarantined');
+  assert.equal(retired.rosterRows,0);
+  assert.deepEqual(await original(),rows);
+
+  // Check the normal routed page as well as the already-open offline shell.
+  // The fixture route's original signed subject and the new SDK subject differ.
+  await page.reload();
+  await expect(page.getByText(language('Reopen the workspace to verify your current account.',
+    'أعد فتح مساحة العمل للتحقّق من حسابك.'),{exact:true})).toBeVisible();
+  await assertPrivateWorkHidden();
+  assert.equal(await page.evaluate(()=>sessionStorage.getItem('fixture-subject')),otherSubject);
+  page.off('request',observeOperating);
+  const foreignCalls=fixture.state.events.slice(foreignAt);
+  assert.deepEqual(foreignCalls.map(({route,status})=>[route,status]),[['fixture-session',200]]);
+  assert.equal(fixture.state.sessionValid,true);
+  assert.deepEqual(operatingAttempts,[]);
+  assert.deepEqual(fixture.state.dispatchBodies,[]);
+  assert.deepEqual(await counts(),zero);
+  assert.deepEqual(await original(),rows);
+  console.log('PASS another signed-in account sees no private register or recovery controls, with zero operating requests');
+
+  // Simulate ordinary same-account sign-in through the existing provider adapter.
+  // The route, recovery action, local keys and canonical send remain real.
+  fixture.state.subject=before.account.subject;
+  await page.evaluate(subject=>sessionStorage.setItem('fixture-subject',subject),before.account.subject);
+  const recoveryAt=fixture.state.events.length;
+  await page.reload();
+  await expect(recover).toBeEnabled();
+  await expect(page.locator('.register-roster')).toHaveCount(0);
+  assert.deepEqual(await original(),rows);
+  await recover.click();
+  await expect(page.getByText(syncedLabel,{exact:true})).toBeVisible({timeout:25000});
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  const recoveryCalls=fixture.state.events.slice(recoveryAt);
+  const keyIndex=recoveryCalls.findIndex(call=>call.route==='register-key'&&call.action==='recover'&&call.status===200);
+  const sendIndex=recoveryCalls.findIndex(call=>call.route==='register-dispatch'&&call.status===200);
+  assert.ok(keyIndex>=0&&sendIndex>keyIndex,'The permitted account recovers its existing key before sending');
+  const [wire]=fixture.state.dispatchBodies;
+  const sent=JSON.parse(wire);
+  assert.equal(sent.op,row.op);
+  assert.equal(sent.event,scope.event);
+  assert.deepEqual(sent.marks.map(mark=>mark.status),['present']);
+  assert.equal((await rollbackStorage(page,scope)).register.namespace,before.register.namespace);
+  const [confirmed]=await original();
+  assert.equal(confirmed.op,row.op);
+  assert.equal(confirmed.active,undefined);
+  assert.deepEqual(await counts(),one);
+  await page.reload();
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(fixture.state.dispatchBodies,[wire]);
+  assert.deepEqual(await counts(),one);
+  console.log('PASS the original account recovers and syncs exactly one original, with no repeat on reload');
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale,reopenTiming,
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,
+    rosterRowsBefore:before.rosterRows,rosterRowsAfterSwitch:retired.rosterRows,
+    registerModeAfterSwitch:retired.register.mode,accountMarkerCleared:true,
+    foreignOperatingRequests:operatingAttempts.length,foreignDispatches:0,
+    originalUnchangedWhileFenced:true,originalIdPreserved:true,
+    serverBeforeRecovery:zero,serverAfterRecovery:one,dispatches:fixture.state.dispatchBodies.length,
+    foreignCalls:foreignCalls.map(({route,action,status})=>({route,action,status})),
+    recoveryCalls:recoveryCalls.map(({route,action,status})=>({route,action,status}))}));
+}
+
 async function checkAbortedUpgrade({builds,firstCache,scope,holder,distinctWindows,cold,rows,counts,zero,one}){
   const [row]=rows;
   assert.notEqual(holder,page);
@@ -881,9 +1000,9 @@ async function run(){
     await checkRefusedWrite({builds,firstCache,scope,url});
     return;
   }
-  await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
-  await button('Review register').click();
-  await button('Save selected marks').click();
+  await page.locator('.register-options').first().getByRole('button',{name:language('Present','حاضر'),exact:true}).click();
+  await button(language('Review register','راجع الحضور')).click();
+  await button(language('Save selected marks','حفظ التسجيلات المختارة')).click();
   await expectUnconfirmed();
   const rows=await original();
   assert.equal(rows.length,1);
@@ -896,6 +1015,10 @@ async function run(){
   const earlierWires=[...fixture.state.dispatchBodies];
   assert.deepEqual(await counts(),beforeUpdate);
   assert.equal(earlierWires.length,loseReply?1:0);
+  if(accountChange){
+    await checkAccountChange({builds,firstCache,scope,url,rows,counts,zero,one});
+    return;
+  }
   if(rollback){
     await checkRollback({builds,firstCache,scope,url,assertOffline,rows,counts,zero,one});
     return;

@@ -516,3 +516,15 @@ The review now shows **Attendance could not be saved on this device. Your choice
 The installed unsaved-review and blocked-upgrade regressions, 28 normal Attendance checks, eight startup checks, four additive mark checks, nine launch checks and 74 workspace transfer checks passed. The local production preview was rebuilt and checked. Typecheck, lint and 119 unit tests passed. The experience review was regenerated from 1,812 captured frames. The injected refusal is verified by the installed test.
 
 This is the controlled write-refusal slice of PW-06 and WD-79, using simulated Clerk and disposable PostgreSQL. Physical quota, persistence and eviction, a real schema migration, cold hosted launch, live Clerk Attendance, hosted rollout and wider devices remain open. The next local check is the WD-80 account-change boundary with a pending Attendance original in a disposable installation. Synthetic staging activation still requires the Owner decision above.
+
+## 19 November installed Attendance across an account change
+
+The existing application passed this WD-80 slice in English and Arabic on a disposable Mac installation. The Owner prepared an 18-player register, marked one player Present offline and reopened the installed Attendance route with the encrypted save pending. The worker served the shell with zero document bytes transferred. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- On reconnect, simulated Clerk reported a different Academy Owner. The window showed the public boundary with the roster and recovery controls hidden. Cleanup removed the 18 downloaded rows, sealed the old register and cleared its active-account marker. The encrypted original and its ID stayed identical.
+- The normal routed page also masked the register when the current provider account differed from the route's checked subject. The only API request during the switch verified the fixture session. The app sent zero Attendance operating requests, and PostgreSQL recorded zero marks, history rows, operations and audit events.
+- After simulated sign-in as the original Owner, **Recover saved work** recovered the existing key before dispatching that exact original once. PostgreSQL recorded one mark, one history row, one operation and one audit event. Reload showed the saved mark and sent nothing further.
+
+The test used a separate standalone Chromium window, a simulated Clerk identity and disposable PostgreSQL. The first run kept a locator attached to the closed window. The final runner checks both account boundaries in the reopened window. The installed Arabic write-refusal test and English blocked-upgrade test passed again. The production build, factual review and existing startup and Attendance receipts matched the current sources.
+
+Explicit sign-out, the installed 30-day retention case, physical storage limits, live Clerk Attendance and wider devices remain open. Follow the tracker for the installed sign-out check. Synthetic staging activation still requires the Owner decision above.
