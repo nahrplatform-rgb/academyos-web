@@ -124,3 +124,86 @@ export async function raiseFixtureAttendanceVersion(page){
   assert.equal(result.olderOpenError,'VersionError');
   return result.olderOpenError;
 }
+
+export async function abortBlockedAttendanceUpgrade(holder,page,original){
+  const expectedChange={oldVersion:1,newVersion:2};
+  const before=await holder.evaluate(async()=>{
+    const request=indexedDB.open('academyos-owner-register-v1',1);
+    const db=await new Promise((resolve,reject)=>{
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+      request.onupgradeneeded=()=>request.transaction.abort();
+    });
+    const state={db,versionChange:null};
+    // Hold the old fixture connection until the requesting window reports blocked.
+    db.onversionchange=({oldVersion,newVersion})=>{state.versionChange={oldVersion,newVersion};};
+    window.fixtureAttendanceHolder=state;
+    return {version:db.version,stores:Array.from(db.objectStoreNames)};
+  });
+
+  try{
+    await page.evaluate(()=>{
+      const state={blocked:null,upgrade:null,writeStaged:false,aborted:false,opened:false,error:null};
+      window.fixtureAttendanceUpgrade=state;
+      const request=indexedDB.open('academyos-owner-register-v1',2);
+      request.onblocked=({oldVersion,newVersion})=>{state.blocked={oldVersion,newVersion};};
+      request.onupgradeneeded=({oldVersion,newVersion})=>{
+        state.upgrade={oldVersion,newVersion};
+        const transaction=request.transaction;
+        transaction.onabort=()=>{state.aborted=true;};
+        const staged=request.result.createObjectStore('fixture-aborted-upgrade');
+        const write=staged.put('uncommitted','fixture-probe');
+        write.onsuccess=()=>{
+          state.writeStaged=true;
+          transaction.abort();
+        };
+      };
+      request.onsuccess=()=>{state.opened=true;request.result.close();};
+      request.onerror=()=>{state.error=request.error.name;};
+    });
+    await page.waitForFunction(()=>{
+      const state=window.fixtureAttendanceUpgrade;
+      return state.blocked||state.opened||state.error;
+    },undefined,{timeout:12000});
+    const blocked=await page.evaluate(()=>window.fixtureAttendanceUpgrade);
+    assert.deepEqual(blocked.blocked,expectedChange);
+    assert.equal(blocked.upgrade,null);
+    assert.equal(blocked.opened,false);
+    assert.equal(blocked.error,null);
+    const held=await holder.evaluate(async({namespace,op,event})=>{
+      const {db,versionChange}=window.fixtureAttendanceHolder;
+      const read=db.transaction('originals').objectStore('originals').get([namespace,op]);
+      const row=await new Promise((resolve,reject)=>{
+        read.onsuccess=()=>resolve(read.result);
+        read.onerror=()=>reject(read.error);
+      });
+      return {version:db.version,versionChange,activeOriginal:row?.active?.[0]===namespace&&row.active[1]===event};
+    },{namespace:original.namespace,op:original.op,event:original.event});
+    assert.deepEqual(held,{version:1,versionChange:expectedChange,activeOriginal:true});
+  }finally{
+    await holder.evaluate(()=>{
+      window.fixtureAttendanceHolder.db.close();
+      delete window.fixtureAttendanceHolder;
+    });
+  }
+
+  await page.waitForFunction(()=>{
+    const state=window.fixtureAttendanceUpgrade;
+    return state.error||state.opened;
+  },undefined,{timeout:12000});
+  const finished=await page.evaluate(()=>window.fixtureAttendanceUpgrade);
+  assert.deepEqual(finished,{blocked:expectedChange,upgrade:expectedChange,
+    writeStaged:true,aborted:true,opened:false,error:'AbortError'});
+  const after=await page.evaluate(async()=>{
+    const request=indexedDB.open('academyos-owner-register-v1');
+    const db=await new Promise((resolve,reject)=>{
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+    });
+    try{return {version:db.version,stores:Array.from(db.objectStoreNames)};}
+    finally{db.close();}
+  });
+  assert.deepEqual(after,before,'The aborted transaction must leave the old version and stores intact');
+  return {before,after,blocked:finished.blocked,writeStaged:finished.writeStaged,
+    error:finished.error,activeOriginalReadableWhileBlocked:true};
+}

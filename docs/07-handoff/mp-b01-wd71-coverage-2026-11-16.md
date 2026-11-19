@@ -490,3 +490,15 @@ A disposable Mac installation from `cf15f40` prepared an 18-player register and 
 - Players still opened the prepared row offline. The Attendance and Players offline windows used the retained public shell with zero document bytes transferred.
 
 The installed register-only rollback and interrupted public download cases also passed. This covers the unsupported newer database slice of WD-83. The next local check exercises a blocked and aborted storage upgrade with a pending save in a disposable installation under WD-44. A real schema migration, hosted cold launch and live Clerk Attendance, hosted rollback and update, and wider installed-device verification remain open. The synthetic staging Attendance release still requires the Owner decision above.
+
+## 19 November installed Attendance after a blocked and aborted storage upgrade
+
+A disposable Mac installation from `cf15f40` prepared an 18-player register and captured one pending save. A separate browser window in the same profile held the existing Attendance database open. The installed window requested a higher fixture database version. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- Chromium reported a version-1-to-2 upgrade blocked. The old connection could still read the pending encrypted record. After that connection closed, the upgrade wrote a record in a temporary store and then aborted before commit. Chromium returned `AbortError`. Version 1 and its original object stores remained, with the temporary store absent.
+- A fresh installed Attendance window reopened from the worker while the origin was unreachable. It showed all 18 roster rows and the same pending encrypted original. The server still had zero Attendance marks, history rows, operations and related audit events.
+- On reconnect the app verified the fictional session and sent the same original operation ID once. PostgreSQL recorded one mark, one history row, one operation and one audit event. A subsequent live reload sent nothing further.
+
+Two early runs reached an automatic sync attempt during setup and moved the local save to its unconfirmed state. The passing runner checks the window identity before configuring its connection state and verifies that the installed window reports offline before capture and throughout the upgrade.
+
+The pending-save, lost-reply, interrupted-download, register-only rollback and unsupported-store installed cases also passed with the adjusted runner. This links the blocked and aborted upgrade slice of WD-44. The next local check exercises a refused local Attendance write under PW-06 and WD-79. Real schema migration, hosted cold launch and live Clerk Attendance, hosted rollback and update, and wider installed-device verification remain open. The synthetic staging Attendance release still requires the Owner decision above.

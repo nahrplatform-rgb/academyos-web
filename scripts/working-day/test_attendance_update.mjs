@@ -4,6 +4,7 @@
 // --interrupted-assets cuts a required public download before retrying preparation.
 // --rollback retires prepared Attendance while keeping the offline workspace.
 // --unsupported-store opens an Attendance database newer than the app supports.
+// --aborted-upgrade holds an older database connection while an upgrade waits and then aborts.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -15,7 +16,10 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
-import {configureRollbackBuild,raiseFixtureAttendanceVersion,rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace} from './attendance_rollback_fixture.mjs';
+import {
+  abortBlockedAttendanceUpgrade,configureRollbackBuild,raiseFixtureAttendanceVersion,
+  rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace,
+} from './attendance_rollback_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const installed=process.argv.includes('--installed');
@@ -24,8 +28,10 @@ const unsaved=process.argv.includes('--unsaved');
 const interruptAssets=process.argv.includes('--interrupted-assets');
 const rollback=process.argv.includes('--rollback');
 const unsupportedStore=process.argv.includes('--unsupported-store');
+const abortUpgrade=process.argv.includes('--aborted-upgrade');
 const preparedWorkspace=rollback||unsupportedStore;
-assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore].filter(Boolean).length<=1,
+const startsOnB=preparedWorkspace||abortUpgrade;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade].filter(Boolean).length<=1,
   'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
@@ -40,7 +46,7 @@ const installPath='/attendance-test-install';
 const installAssets=new Map();
 let fixture,browser,proxy,origin,bOrigin,rollbackOrigin,page;
 let installedApp;
-let phase=preparedWorkspace?'b':'a';
+let phase=startsOnB?'b':'a';
 let lostReplyStatus;
 const appProcesses=[];
 const held=new Set();
@@ -538,6 +544,102 @@ async function checkRollback({builds,firstCache,scope,url,assertOffline,rows,cou
     recoveryCalls:recovery.map(({route,action,status})=>({route,action,status}))}));
 }
 
+async function reconnectOriginal({scope,row,counts,one,earlierWires}){
+  const coldDocument=await page.evaluate(()=>performance.timeOrigin);
+  fixture.state.sessionValid=false;
+  const reconnectStart=fixture.state.events.length;
+  // A fresh standalone window may keep reporting Online while the fixture
+  // origin is cut. Exercise the browser's connection signal on that window.
+  const installedConnection=installedApp?await browser.newCDPSession(page):null;
+  if(installedConnection){
+    await setInstalledConnection(installedConnection,true);
+    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
+    await expect(page.getByText('Checking saved work…',{exact:true})).toHaveCount(0);
+    await page.evaluate(()=>window.addEventListener('online',event=>{
+      document.documentElement.dataset.attendanceTestOnline=String(event.isTrusted);
+    },{once:true}));
+  }
+  const beforeReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
+  phase='b';
+  await browser.setOffline(false);
+  if(installedConnection){
+    await setInstalledConnection(installedConnection,false);
+    await expect(page.locator('html')).toHaveAttribute('data-attendance-test-online','true');
+  }
+  try{
+    await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
+  }catch(error){
+    const afterReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
+    console.error(JSON.stringify({beforeReconnect,afterReconnect,requestFailures,
+      reconnectCalls:fixture.state.events.slice(reconnectStart).map(({route,status})=>({route,status})),
+      dispatches:fixture.state.dispatchBodies.length}));
+    throw error;
+  }
+  assert.equal(await page.evaluate(()=>performance.timeOrigin),coldDocument);
+  const reconnectCalls=fixture.state.events.slice(reconnectStart);
+  const dispatchIndex=reconnectCalls.findIndex(call=>call.route==='register-dispatch');
+  assert.ok(dispatchIndex>0);
+  const beforeSend=reconnectCalls.slice(0,dispatchIndex);
+  assert.deepEqual(beforeSend.map(call=>[call.route,call.status]),[['fixture-session',200]]);
+  assert.equal(reconnectCalls[dispatchIndex].status,200);
+  assert.equal(fixture.state.dispatchBodies.length,earlierWires.length+1);
+  const wire=fixture.state.dispatchBodies.at(-1);
+  if(loseReply)assert.equal(wire,earlierWires[0],'The retry must carry the exact original wire');
+  const sent=JSON.parse(wire);
+  assert.equal(sent.op,row.op);
+  assert.equal(sent.event,scope.event);
+  assert.equal(sent.marks.length,1);
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(await counts(),one);
+  const confirmed=await original();
+  assert.equal(confirmed.length,1);
+  assert.equal(confirmed[0].op,row.op);
+  assert.equal(confirmed[0].active,undefined);
+  const response=await page.reload();
+  assert.equal(response.status(),200);
+  await expect(page.locator('body')).toHaveAttribute('data-fixture-release','b');
+  await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
+  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+  assert.deepEqual(fixture.state.dispatchBodies,[...earlierWires,wire]);
+  assert.deepEqual(await counts(),one);
+  await installedConnection?.detach();
+  return reconnectCalls;
+}
+
+async function checkAbortedUpgrade({builds,firstCache,scope,holder,distinctWindows,cold,rows,counts,zero,one}){
+  const [row]=rows;
+  assert.notEqual(holder,page);
+  assert.equal(await page.evaluate(()=>navigator.onLine),false,'The requesting window must stay offline');
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.databaseVersion,1);
+  assert.equal(before.rosterRows,18);
+  const upgrade=await abortBlockedAttendanceUpgrade(holder,page,row);
+  assert.equal(await page.evaluate(()=>navigator.onLine),false,'The upgrade must not resume synchronization');
+  assert.deepEqual(await rollbackStorage(page,scope),before);
+  assert.deepEqual(await original(),rows);
+  assert.deepEqual(await counts(),zero);
+  assert.equal(fixture.state.dispatchBodies.length,0);
+  console.log('PASS the old window can read the original while the upgrade waits, and the abort rolls back the staged schema and write');
+
+  // Relaunch normal Attendance through the same cached version while the origin is still down.
+  const reopenTiming=await cold('b');
+  await expect(page.locator('.register-roster li')).toHaveCount(18);
+  assert.deepEqual(await rollbackStorage(page,scope),before);
+  assert.deepEqual(await original(),rows);
+  assert.deepEqual(await cacheState(),firstCache);
+  assert.deepEqual(await counts(),zero);
+  console.log('PASS installed Attendance reopens offline on the previous database version with the same pending original');
+
+  const reconnectCalls=await reconnectOriginal({scope,row,counts,one,earlierWires:[]});
+  console.log('PASS reconnect sends the retained original once and live reload sends nothing further');
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale:'en',
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,distinctWindows,upgrade,reopenTiming,
+    registerRowsPreserved:before.rosterRows,originalUnchangedUntilReconnect:true,publicShellRetained:true,
+    serverBeforeReconnect:zero,serverAfterReconnect:one,dispatches:fixture.state.dispatchBodies.length,
+    reconnectDocuments:0,reconnectCalls:reconnectCalls.map(({route,action,status})=>({route,action,status}))}));
+}
+
 async function run(){
   const manifest=installed?await fixtureManifest():null;
   fixture=await ownerFixture(root,aDir,{pilot:true});
@@ -604,7 +706,8 @@ async function run(){
     const pathname=new URL(request.url()).pathname;
     if(pathname.startsWith('/api/'))requestFailures.push({phase,path:pathname,error:request.failure()?.errorText});
   });
-  page=browser.pages()[0];
+  const installationPage=browser.pages()[0];
+  page=installationPage;
   if(manifest){
     await page.goto(origin+installPath);
     const session=await browser.browser().newBrowserCDPSession();
@@ -652,7 +755,7 @@ async function run(){
     await expect(button('Review register')).toBeDisabled();
     return timing;
   };
-  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[preparedWorkspace?1:0]);
+  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[startsOnB?1:0]);
   await page.goto(url);
   await page.locator('.register-action-menu > summary').click();
   await button('Use a personal-device register').click();
@@ -660,13 +763,33 @@ async function run(){
   await button('Prepare register on this device').click();
   await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
-  assert.equal(firstCache.isB,preparedWorkspace);
+  assert.equal(firstCache.isB,startsOnB);
   if(unsaved){
     await checkUnsavedUpdate(builds,firstCache,scope);
     return;
   }
   if(preparedWorkspace)await seedRollbackWorkspace(root,page,scope);
-  if(!loseReply)await assertOffline();
+  let upgradeHolder,distinctUpgradeWindows=false;
+  if(abortUpgrade){
+    upgradeHolder=installedApp?installationPage:await browser.newPage();
+    if(!installedApp)await upgradeHolder.goto(origin+'/en');
+    else{
+      // Check the window before applying the target's offline connection state.
+      const requestingWindow=await windowId(installedApp.session,page);
+      assert.notEqual(requestingWindow,installedApp.ordinaryWindow);
+      distinctUpgradeWindows=true;
+    }
+  }
+  if(!loseReply){
+    await assertOffline();
+    // The standalone target can still report Online after the origin is cut.
+    // Keep its initial save pending until the explicit cold-launch reconnect.
+    if(installedApp){
+      const connection=await browser.newCDPSession(page);
+      await setInstalledConnection(connection,true);
+      await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
+    }
+  }
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
   await button('Save selected marks').click();
@@ -688,6 +811,11 @@ async function run(){
   }
   if(unsupportedStore){
     await checkUnsupportedStore({builds,firstCache,scope,url,assertOffline,rows,counts,zero});
+    return;
+  }
+  if(abortUpgrade){
+    await checkAbortedUpgrade({builds,firstCache,scope,holder:upgradeHolder,distinctWindows:distinctUpgradeWindows,
+      cold,rows,counts,zero,one});
     return;
   }
   if(loseReply){
@@ -756,64 +884,7 @@ async function run(){
   assert.deepEqual(await original(),rows);
   assert.deepEqual(await counts(),beforeUpdate);
   await expect(page.locator('.register-roster li')).toHaveCount(18);
-  const bDocument=await page.evaluate(()=>performance.timeOrigin);
-  fixture.state.sessionValid=false;
-  const reconnectStart=fixture.state.events.length;
-  // A fresh standalone window may keep reporting Online while the fixture
-  // origin is cut. Exercise the browser's connection signal on that window.
-  const installedConnection=installedApp?await browser.newCDPSession(page):null;
-  if(installedConnection){
-    await setInstalledConnection(installedConnection,true);
-    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
-    await expect(page.getByText('Checking saved work…',{exact:true})).toHaveCount(0);
-    await page.evaluate(()=>window.addEventListener('online',event=>{
-      document.documentElement.dataset.attendanceTestOnline=String(event.isTrusted);
-    },{once:true}));
-  }
-  const beforeReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
-  phase='b';
-  await browser.setOffline(false);
-  if(installedConnection){
-    await setInstalledConnection(installedConnection,false);
-    await expect(page.locator('html')).toHaveAttribute('data-attendance-test-online','true');
-  }
-  try{
-    await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
-  }catch(error){
-    const afterReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
-    console.error(JSON.stringify({beforeReconnect,afterReconnect,requestFailures,
-      reconnectCalls:fixture.state.events.slice(reconnectStart).map(({route,status})=>({route,status})),
-      dispatches:fixture.state.dispatchBodies.length}));
-    throw error;
-  }
-  assert.equal(await page.evaluate(()=>performance.timeOrigin),bDocument);
-  const reconnectCalls=fixture.state.events.slice(reconnectStart);
-  const dispatchIndex=reconnectCalls.findIndex(call=>call.route==='register-dispatch');
-  assert.ok(dispatchIndex>0);
-  const beforeSend=reconnectCalls.slice(0,dispatchIndex);
-  assert.deepEqual(beforeSend.map(call=>[call.route,call.status]),[['fixture-session',200]]);
-  assert.equal(reconnectCalls[dispatchIndex].status,200);
-  assert.equal(fixture.state.dispatchBodies.length,earlierWires.length+1);
-  const wire=fixture.state.dispatchBodies.at(-1);
-  if(loseReply)assert.equal(wire,earlierWires[0],'The retry must carry the exact original wire');
-  const sent=JSON.parse(wire);
-  assert.equal(sent.op,row.op);
-  assert.equal(sent.event,scope.event);
-  assert.equal(sent.marks.length,1);
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
-  assert.deepEqual(await counts(),one);
-  const confirmed=await original();
-  assert.equal(confirmed.length,1);
-  assert.equal(confirmed[0].op,row.op);
-  assert.equal(confirmed[0].active,undefined);
-  const response=await page.reload();
-  assert.equal(response.status(),200);
-  await expect(page.locator('body')).toHaveAttribute('data-fixture-release','b');
-  await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
-  await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
-  assert.deepEqual(fixture.state.dispatchBodies,[...earlierWires,wire]);
-  assert.deepEqual(await counts(),one);
-  await installedConnection?.detach();
+  const reconnectCalls=await reconnectOriginal({scope,row,counts,one,earlierWires});
   console.log('PASS build B cold reopen and reconnect confirm one committed result for the original; live reload sends nothing further');
   console.log(JSON.stringify({builds,cacheRevisions:[firstCache.revision,secondCache.revision],
     client:installed?'installed standalone':'browser tab',platform:process.platform,
