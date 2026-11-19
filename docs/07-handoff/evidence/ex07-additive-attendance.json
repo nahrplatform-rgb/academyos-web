@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-18T15:49:19.265Z",
+  "completed": "2026-11-19T08:10:57.835Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -45,7 +45,7 @@
     "scripts/trainers/test_boundary.py": "fe702c567fb33ab781b5a6e071b3526e87f1fcae1b60c91f782cb1cc02709e96",
     "scripts/people/test_boundary.py": "12baa17f9133848a2ce88d7ad743b3f528741a6bebea7e74bd2059b9a34d319b",
     "scripts/onboarding/test_boundary.py": "c6ffec292d0fa20d784fb7df68133b214d78687fd19bede204ce7c3cd7c98e9f",
-    "package-lock.json": "0b2d7fe11be69f69dcaf62dc85ec8e195c518a6373850ba0b6c5e3e1f0232db0",
+    "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
     "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192",
     "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",

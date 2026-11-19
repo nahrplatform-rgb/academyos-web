@@ -1,11 +1,11 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "061bdc7f51791a0c18809074b04d72a4960d12bd",
+  "source_anchor": "da66967cc3120bcd03235eba722a323461227238",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
       "path": "apps/web/package.json",
-      "sha256": "ab1fe20c188bae786a692369786455e80a45457c34ac283f48a1a3839074e2cc",
+      "sha256": "daa8c6bac20a0a69df1c5f94a8e7ab341c9e84b50bb4cbcaa6d27d8c934292f6",
       "bytes": 940
     },
     {
@@ -1060,7 +1060,7 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "0b2d7fe11be69f69dcaf62dc85ec8e195c518a6373850ba0b6c5e3e1f0232db0",
+      "sha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
       "bytes": 303428
     },
     {
