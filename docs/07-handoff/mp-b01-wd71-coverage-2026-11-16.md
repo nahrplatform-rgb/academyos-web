@@ -234,3 +234,38 @@ Case B is the control: the restored week tracked the remembered value rather tha
 An intermediate reading in this pass said December weeks did not move the anchor. That was my own measurement error, not product behaviour: several calendar tabs were open, and each re-recorded its own displayed week into the one key. With a single calendar tab, `الفترة التالية` twice moved `١٨–٢٤ نوفمبر` → `٢٥ نوفمبر – ١ ديسمبر` (`٤ تدريبات`, `anchor=2026-11-25`) → `٢–٨ ديسمبر` (`٤ تدريبات`, `anchor=2026-12-02`), and a fresh `/en` tab restored `٢–٨ ديسمبر ٢٠٢٦` with `٤ تدريبات` and `dir=rtl`. The earlier claim is withdrawn rather than left open. A `2029-03-05` write seen in the same multi-tab phase was not reproduced under the single-tab protocol and counts as no evidence.
 
 Still not exercised: click-based date-picker entry, month view, cold offline launch, empty store, protected update with pending work and same-original reconnect. Chrome-level JavaScript from Apple Events and macOS accessibility/screen capture are unavailable to this client, so nothing here reads the installed app's DOM or pixels.
+
+## 19 November installed-app cases, and a correction to the relaunch claim
+
+The macOS capability this pass previously reported as unavailable is now granted. The Owner enabled `OpenCode.app` under **Privacy & Security → Device Control and Data Access** (macOS 27.3 consolidates the former Accessibility, Screen Recording and Automation lists into one per-app switch). Measured after the grant: `UI elements enabled` = `true`, System Events can read Chrome window titles, keystrokes are accepted, and `screencapture` returns real pixels. The earlier instruction pointing at a separate "Accessibility" pane was wrong for this OS version.
+
+**The installed app's profile is `nahr`.** A relay probe tab opened into the same Chrome window that held the staging workspace, and that window's avatar is the `Nahr` profile. Its device storage was empty at that point (only Clerk keys, no `academyos.register-account.v1`), which is why no launch key had ever been written there and why the earlier session restore reading was inconclusive. The app's own **Device → Use this personal device** control was used on the calendar route; the register account then became `active`, a workspace slot appeared and the launch key was written.
+
+### Warm relaunch is Chrome window restore; the stored week applies on a cold start
+
+Two relaunches under different starting states do not agree, and the difference is meaningful:
+
+| Starting state | Stored key at quit | Result |
+|---|---|---|
+| App window at `/en/…/calendar?anchor=2026-11-19` | `/ar/…/calendar?anchor=2026-11-26` | relaunched to **`/ar/…/anchor=2026-11-26`** — followed the key |
+| App window at `/ar/…/calendar?anchor=2026-11-26` | `/en/…/calendar?anchor=2026-12-09` | relaunched to **`/ar/…/anchor=2026-11-26`** — followed the window, ignoring the key |
+
+So the correct claim is narrower than the one recorded on 18 November: when the app starts at its `start_url` the remembered week is applied, and when Chrome restores the previous app window that window's URL wins. The manifest is served with `start_url: /en`, `scope: /`, `display: standalone`, matching `apps/web/src/app/manifest.ts`. The cold-start path was verified twice at application level — a fresh `/en` entry replaced to the anchored week (`2026-11-25`, later `2026-12-09`) rather than staying on the shell route.
+
+Pixel evidence for the restored window: the app window titled `AcademyOS Staging`, `dir=rtl`, heading `٢٦ نوفمبر – ٢ ديسمبر ٢٠٢٦`, `٤ تدريبات`, date field `26/11/2026`, footer `تم التحقق في ٤:١٨ م · من البيانات المحضرة على جهازك.` and the `متصل` device badge. This is a real window capture, not an inferred URL.
+
+### Month view and click-based date entry
+
+| Case | Observed |
+|---|---|
+| `Month` view on November | heading `November 2026`, full period rendered from `Sun 1 Nov`; the key kept `anchor=2026-11-19` because month view records `displayedFrom` (the day), not the grid start — expected, not a regression |
+| Typed `2026-12-09` into *Go to date* and pressed Enter | heading became `December 2026`; key became `…?anchor=2026-12-09` |
+| Fresh `/en` after that entry | replaced to `9 – 15 Dec 2026` (week view) at `anchor=2026-12-09` |
+
+### A crash I caused, and its recovery
+
+Isolating the app window for a screenshot by minimising the other Chrome windows and restoring them killed Chrome at 03:55:07 (`~/Library/Logs/DiagnosticReports/Google Chrome-2026-11-19-035507.ips`; the restore call then returned `-609 connection is invalid`). Chrome restarted to the profile picker with no windows. `--restore-last-session` returned an empty window, and the recoverable state was the **Restore pages?** bubble in the `Nahr` profile. The Owner clicked Restore; all four windows came back, including the app window. Window capture now avoids this entirely by reading window IDs through CoreGraphics rather than moving or minimising windows.
+
+### Still not exercised
+
+Cold offline launch, empty store, protected update with pending work and same-original reconnect remain open. They need a prepared store plus a controlled offline transition on the installed app; nothing in this pass should be read as covering them.

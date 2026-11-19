@@ -483,5 +483,51 @@
       "verdict": "passed",
       "note": "Documentation and evidence only. This commit carries the retest record; the product source under test remains f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75. Later docs-only follow-ups are not recursively re-recorded."
     }
+  },
+  "installedMac20261119": {
+    "accessibilityGrant": "Owner enabled OpenCode.app under Privacy & Security > Device Control and Data Access (macOS 27.3 consolidates Accessibility, Screen Recording and Automation). Measured: System Events UI elements enabled=true, Chrome window titles readable, keystrokes accepted, screencapture returns real pixels.",
+    "installedProfile": "nahr (relay probe tab landed in the same Chrome window as the staging workspace; window avatar Nahr). Device storage previously held only Clerk keys, which is why no launch key existed there and why the 18 November session-restore reading was inconclusive.",
+    "devicePreparation": "Used the app own Device > Use this personal device control on the Owner calendar route. Result: academyos.register-account.v1 mode=active, workspace slot key present, launch key written. Bounded, reversible, synthetic staging data only.",
+    "warmRelaunch": [
+      {
+        "windowAtQuit": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-19",
+        "storedKey": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-26",
+        "result": "relaunched to /ar anchor=2026-11-26 (followed the stored key)"
+      },
+      {
+        "windowAtQuit": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-26",
+        "storedKey": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-12-09",
+        "result": "relaunched to /ar anchor=2026-11-26 (followed the restored window, ignored the stored key)"
+      }
+    ],
+    "launchConclusion": "The stored week is applied when the app starts at its start_url; Chrome window restore takes precedence on a warm relaunch. Narrower than the claim recorded 18 November.",
+    "manifest": "Served manifest: start_url=/en, scope=/, display=standalone; matches apps/web/src/app/manifest.ts.",
+    "coldStartApplicationLevel": "Fresh /en entries replaced to the anchored week twice: 2026-11-25 and, after the date-picker entry, 2026-12-09 (week 9-15 Dec).",
+    "pixelEvidence": {
+      "windowTitle": "AcademyOS Staging",
+      "dir": "rtl",
+      "heading": "٢٦ نوفمبر – ٢ ديسمبر ٢٠٢٦",
+      "sessions": "٤ تدريبات",
+      "dateField": "26/11/2026",
+      "footer": "تم التحقق في ٤:١٨ م · من البيانات المحضرة على جهازك.",
+      "badge": "متصل",
+      "note": "Real window capture; not inferred from a URL."
+    },
+    "monthView": "Month view shows November 2026 from Sun 1 Nov; key retains anchor=2026-11-19 because month view records displayedFrom (the day), not the grid start. Expected behaviour, not a regression.",
+    "dateEntry": "Typed 2026-12-09 into Go to date + Enter: heading December 2026, key anchor=2026-12-09; fresh /en then restored 9-15 Dec 2026.",
+    "crashIncident": {
+      "when": "2026-11-19 03:55:07",
+      "cause": "My minimising the other Chrome windows to isolate the app window for a screenshot, then restoring them; the restore call returned -609 connection is invalid.",
+      "report": "~/Library/Logs/DiagnosticReports/Google Chrome-2026-11-19-035507.ips",
+      "recovery": "Chrome restarted to the profile picker with no windows; --restore-last-session returned an empty window; the Restore pages? bubble in Nahr recovered all four windows after the Owner clicked Restore.",
+      "prevention": "Window capture now reads CGWindowID through CoreGraphics instead of moving or minimising windows."
+    },
+    "stillOpen": [
+      "cold offline launch",
+      "empty store",
+      "protected update with pending work",
+      "same-original reconnect"
+    ],
+    "evidenceLimits": "Chrome JavaScript from Apple Events remains off, so the installed app DOM is still read only through window URLs and pixels; most UI cases were driven in a normal nahr tab, which shares the session and device storage but is not the installed window."
   }
 }
