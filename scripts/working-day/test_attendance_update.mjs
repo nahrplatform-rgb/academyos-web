@@ -1,4 +1,5 @@
-// Local production-mode update; all account, provider and database data are disposable.
+// Local production-mode update; --installed uses a disposable desktop app window.
+// All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
@@ -19,10 +20,62 @@ const shellPath='/prepared-workspace';
 const pointer='/prepared-workspace/cache-pointer';
 const index='academyos-workspace-public-v1:index';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
+const installed=process.argv.includes('--installed');
+const installPath='/attendance-test-install';
+const installAssets=new Map();
 let fixture,browser,appB,appBExit,proxy,origin,bOrigin,page;
+let installedApp;
 let phase='a';
 const held=new Set();
+const requestFailures=[];
 const env={PATH:process.env.PATH,HOME:process.env.HOME,NODE_ENV:'production',NEXT_TELEMETRY_DISABLED:'1'};
+
+async function fixtureManifest(){
+  const {default:manifest}=await import('../../apps/web/src/app/manifest.ts');
+  const name='AcademyOS Disposable Attendance Test';
+  const app={...manifest(),name,short_name:name};
+  installAssets.set(installPath,['text/html',`<!doctype html><title>${name}</title><link rel="manifest" href="/manifest.webmanifest"><h1>${name}</h1>`]);
+  installAssets.set('/manifest.webmanifest',['application/manifest+json',JSON.stringify(app)]);
+  for(const {src} of app.icons){
+    installAssets.set(src,['image/png',await readFile(join(root,'apps/web/public',src))]);
+  }
+  return app;
+}
+
+async function windowId(session,tab){
+  const target=await browser.newCDPSession(tab);
+  try {
+    const {targetInfo}=await target.send('Target.getTargetInfo');
+    return (await session.send('Browser.getWindowForTarget',{targetId:targetInfo.targetId})).windowId;
+  } finally {
+    await target.detach();
+  }
+}
+
+async function launchInstalled(url){
+  const {session,manifestId,ordinaryWindow}=installedApp;
+  const previous=new Set(browser.pages());
+  const {targetId}=await session.send('PWA.launch',url?{manifestId,url}:{manifestId});
+  const {windowId:launchWindow}=await session.send('Browser.getWindowForTarget',{targetId});
+  assert.notEqual(launchWindow,ordinaryWindow,'The installed app must open its own window');
+  let standalone;
+  // Chrome may also expose a temporary page while opening the app window.
+  await expect.poll(async()=>{
+    for(const candidate of browser.pages()){
+      if(previous.has(candidate)||candidate.isClosed())continue;
+      const matches=await candidate.evaluate(()=>matchMedia('(display-mode: standalone)').matches).catch(()=>false);
+      if(matches&&await windowId(session,candidate)===launchWindow){standalone=candidate;return true;}
+    }
+    return false;
+  },{timeout:12000,message:'Expected a newly launched standalone app window'}).toBe(true);
+  return standalone;
+}
+
+function setInstalledConnection(session,offline){
+  return session.send('Network.overrideNetworkState',{
+    offline,latency:0,downloadThroughput:-1,uploadThroughput:-1,
+  });
+}
 
 async function buildB(){
   await cp(aDir,bDir,{recursive:true,filter:path=>!['.next','node_modules','next-env.d.ts'].includes(path.slice(aDir.length+1).split('/')[0])});
@@ -82,6 +135,7 @@ const cacheState=()=>page.evaluate(async({index,pointer,shellPath})=>{
 },{index,pointer,shellPath});
 
 try{
+  const manifest=installed?await fixtureManifest():null;
   fixture=await ownerFixture(root,aDir,{pilot:true});
   const builds=await buildB();
   // Keep one browser origin across builds. API calls go through the checked
@@ -94,6 +148,8 @@ try{
     if(phase==='update'&&![workerPath,shellPath].includes(url.pathname)&&!url.pathname.startsWith('/_next/static/')){
       req.socket.destroy();return;
     }
+    const asset=installAssets.get(url.pathname);
+    if(asset){res.writeHead(200,{'content-type':asset[0]}).end(asset[1]);return;}
     if(api&&req.headers.origin!==origin){res.writeHead(403).end();return;}
     const onA=api||phase==='a';
     const upstream=request(new URL(url.pathname+url.search,onA?fixture.origin:bOrigin),{
@@ -107,8 +163,25 @@ try{
   origin=`http://127.0.0.1:${proxy.address().port}`;
   const scope=fixture.data.events[0],path=`/en/workspace/${scope.academy}/attendance/${scope.event}`;
   const url=origin+path;
-  browser=await chromium.launchPersistentContext(join(temp,'profile'));
+  browser=await chromium.launchPersistentContext(join(temp,'profile'),{headless:!installed});
+  browser.on('requestfailed',request=>{
+    const pathname=new URL(request.url()).pathname;
+    if(pathname.startsWith('/api/'))requestFailures.push({phase,path:pathname,error:request.failure()?.errorText});
+  });
   page=browser.pages()[0];
+  if(manifest){
+    await page.goto(origin+installPath);
+    const session=await browser.browser().newBrowserCDPSession();
+    const manifestId=new URL(manifest.id,origin).href;
+    const ordinaryWindow=await windowId(session,page);
+    await session.send('PWA.install',{manifestId,installUrlOrBundleUrl:origin+installPath});
+    installedApp={session,manifestId,ordinaryWindow};
+    await session.send('PWA.changeAppUserSettings',{manifestId,displayMode:'standalone'});
+    await session.send('PWA.getOsAppState',{manifestId});
+    page=await launchInstalled();
+    await page.waitForURL(origin+manifest.start_url);
+    console.log('PASS the desktop test profile opens the manifest start URL in its installed standalone window');
+  }
   const button=name=>page.getByRole('button',{name,exact:true});
   const pending=()=>expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
   const assertOffline=async()=>{
@@ -119,10 +192,22 @@ try{
   };
   const cold=async release=>{
     const old=page;
-    page=await browser.newPage();
-    await old.close();
-    const response=await page.goto(url);
-    assert.ok(response?.fromServiceWorker());
+    if(installedApp){
+      await old.close();
+      page=await launchInstalled();
+      await page.waitForURL(url,{timeout:12000});
+      const timing=await page.evaluate(()=>{
+        const [entry]=performance.getEntriesByType('navigation');
+        return {workerStart:entry.workerStart,transferSize:entry.transferSize};
+      });
+      assert.ok(timing.workerStart>0,'The relaunched document must come through the worker');
+      assert.equal(timing.transferSize,0,'The cold app launch must use cached code');
+    }else{
+      page=await browser.newPage();
+      await old.close();
+      const response=await page.goto(url);
+      assert.ok(response?.fromServiceWorker());
+    }
     await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
     assert.equal(await page.locator('body').getAttribute('data-fixture-release'),release);
     await pending();
@@ -149,6 +234,16 @@ try{
   const counts=()=>fixture.db({action:'counts',...scope,op:row.op});
   const zero={marks:0,history:0,operations:0,audit:0},one={marks:1,history:1,operations:1,audit:1};
   assert.deepEqual(await counts(),zero);
+  if(installedApp){
+    const before=fixture.state.events.length;
+    await page.close();
+    page=await launchInstalled(origin+`/en/workspace/${fixture.data.otherAcademy}/calendar`);
+    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
+    await expect(page.getByText('This workspace has no prepared data on this device. Open it when connected.',{exact:true})).toBeVisible();
+    await expect(page.locator('.register-roster, .experience-session')).toHaveCount(0);
+    assert.equal(fixture.state.events.length,before);
+    console.log('PASS an uncovered workspace in the installed app shows the public boundary with no operating reads');
+  }
   await cold(null);
   assert.deepEqual(await original(),rows);
   console.log('PASS build A reopens offline with one durably saved original and no server effect');
@@ -203,7 +298,7 @@ try{
   assert.deepEqual(await original(),rows);
   assert.deepEqual(await counts(),zero);
   assert.deepEqual(fixture.state.dispatchBodies,[]);
-  console.log('PASS build B activates in the open tab, stages its public shell, and retains build A and the unchanged original without a reload');
+  console.log('PASS build B activates in the open window, stages its public shell, and retains build A and the unchanged original without a reload');
 
   await assertOffline();
   await cold('b');
@@ -213,9 +308,33 @@ try{
   const bDocument=await page.evaluate(()=>performance.timeOrigin);
   fixture.state.sessionValid=false;
   const reconnectStart=fixture.state.events.length;
+  // A fresh standalone window may keep reporting Online while the fixture
+  // origin is cut. Exercise the browser's connection signal on that window.
+  const installedConnection=installedApp?await browser.newCDPSession(page):null;
+  if(installedConnection){
+    await setInstalledConnection(installedConnection,true);
+    await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(false);
+    await expect(page.getByText('Checking saved work…',{exact:true})).toHaveCount(0);
+    await page.evaluate(()=>window.addEventListener('online',event=>{
+      document.documentElement.dataset.attendanceTestOnline=String(event.isTrusted);
+    },{once:true}));
+  }
+  const beforeReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
   phase='b';
   await browser.setOffline(false);
-  await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
+  if(installedConnection){
+    await setInstalledConnection(installedConnection,false);
+    await expect(page.locator('html')).toHaveAttribute('data-attendance-test-online','true');
+  }
+  try{
+    await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toBeVisible({timeout:25000});
+  }catch(error){
+    const afterReconnect=await page.evaluate(()=>({online:navigator.onLine,visibility:document.visibilityState}));
+    console.error(JSON.stringify({beforeReconnect,afterReconnect,requestFailures,
+      reconnectCalls:fixture.state.events.slice(reconnectStart).map(({route,status})=>({route,status})),
+      dispatches:fixture.state.dispatchBodies.length}));
+    throw error;
+  }
   assert.equal(await page.evaluate(()=>performance.timeOrigin),bDocument);
   const reconnectCalls=fixture.state.events.slice(reconnectStart);
   const dispatchIndex=reconnectCalls.findIndex(call=>call.route==='register-dispatch');
@@ -242,17 +361,23 @@ try{
   await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
   assert.deepEqual(fixture.state.dispatchBodies,[wire]);
   assert.deepEqual(await counts(),one);
+  await installedConnection?.detach();
   console.log('PASS build B cold reopen and automatic reconnect confirm the same original exactly once; live reload does not send again');
   console.log(JSON.stringify({builds,cacheRevisions:[firstCache.revision,secondCache.revision],
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
     browser:browser.browser()?.version(),node:process.version,serverBefore:zero,serverAfter:one,
     originalIdPreserved:true,ciphertextUnchangedUntilSync:true,dispatches:1,reconnectDocuments:0,
     reconnectCalls:reconnectCalls.map(({route,action,status})=>({route,action,status}))}));
 }finally{
   for(const res of held)res.destroy();
-  await browser?.close();
-  if(proxy?.listening)await new Promise(ok=>proxy.close(ok));
-  if(appB?.exitCode===null)appB.kill();
-  await appBExit;
-  await fixture?.close();
-  await rm(temp,{recursive:true,force:true});
+  try{
+    if(installedApp)await installedApp.session.send('PWA.uninstall',{manifestId:installedApp.manifestId});
+  }finally{
+    await browser?.close();
+    if(proxy?.listening)await new Promise(ok=>proxy.close(ok));
+    if(appB?.exitCode===null)appB.kill();
+    await appBExit;
+    await fixture?.close();
+    await rm(temp,{recursive:true,force:true});
+  }
 }

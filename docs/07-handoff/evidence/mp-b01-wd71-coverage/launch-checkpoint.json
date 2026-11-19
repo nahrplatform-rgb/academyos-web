@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "Installed-app device cases still open on promoted f35c9ad: cold offline launch, empty store, protected update with pending work and same-original reconnect. Already recorded on 19 November: the app lives in the nahr profile, its device was prepared through the app's own control, month view and click-based date entry pass, a cold start at start_url /en applies the stored week, and a warm relaunch returns to Chrome's restored window URL instead. Wider device/accessibility, storage/eviction and update coverage after an exact-source release remain separate.",
+    "The actual Mac standalone disposable test verifies cold /en launch, uncovered data, a compatible pending Attendance update and same-original reconnect. The signed-in hosted app on cf15f40 still needs these cases with live Clerk and a suitable synthetic register under a controlled outage and compatible update. Preserve earlier f35c9ad Calendar relaunch evidence and keep additional devices, storage, eviction and accessibility checks open.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -701,5 +701,89 @@
     },
     "stillOpen": ["actual installed app", "live Clerk reconnect", "dirty or already-unknown work across an update", "schema migration and rollback"],
     "coordinator": "signor-cheap/gpt-6.2-sol; no helpers"
+  },
+  "macInstalledAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_subset",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorTestCheckpoint": "70bfec3",
+    "testSha256": "aef6f938e155bc3a9df2a528a217684a63bb805c5fd8ef2dae792e52fbd8b675",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "recordedAtUtc": "2026-11-19T12:37:26+00:00",
+    "command": "node scripts/working-day/test_attendance_update.mjs --installed",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "17.11",
+      "next": "16.4.6"
+    },
+    "method": "Disposable Chrome profile with actual installed standalone window and repository manifest start URL. Only the app name is distinguished for the test. The test origin rejects connections from the page and worker. The test browser emits the online event after the origin is restored.",
+    "launch": {
+      "startUrl": "/en",
+      "closedPriorWindowBeforeRelaunch": true,
+      "standaloneWindowDistinctFromRegularTab": true,
+      "coldOfflineBuilds": [
+        "a",
+        "b"
+      ],
+      "offlineTransferBytes": 0,
+      "preparedAttendancePlayers": 18,
+      "uncoveredWorkspace": "Honest unavailable state with no roster, calendar rows or operating reads"
+    },
+    "initialFailure": "Two installed runs held the local original and sent no dispatch. The new app window still reported Online when the origin was unavailable, so restoration delivered no new connection event. The repeat requires a false navigator.onLine state and a trusted browser online event before accepting automatic sync.",
+    "builds": {
+      "ids": [
+        "1MsO1NMquWohvpdx1r7Q1",
+        "B8ZPXmyfCDXSnLBDQdi9f"
+      ],
+      "workerHashes": [
+        "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+        "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+      ]
+    },
+    "cacheRevisions": [
+      "410b1d1eba70ab29e5518f4888e2b8a2f0f67a7507482af354bfaab9fbefdc8b",
+      "97a7dea3570c14d1dd58af297e491b909db8b1c603d076c17246001962119817"
+    ],
+    "serverBefore": {
+      "marks": 0,
+      "history": 0,
+      "operations": 0,
+      "audit": 0
+    },
+    "serverAfter": {
+      "marks": 1,
+      "history": 1,
+      "operations": 1,
+      "audit": 1
+    },
+    "originalIdPreserved": true,
+    "encryptedOriginalUnchangedUntilSync": true,
+    "dispatchesIncludingLiveReload": 1,
+    "reconnectDocuments": 0,
+    "reconnectCalls": [
+      {
+        "route": "fixture-session",
+        "action": null,
+        "status": 200
+      },
+      {
+        "route": "register-dispatch",
+        "action": "register",
+        "status": 200
+      },
+      {
+        "route": "fixture-session",
+        "action": null,
+        "status": 200
+      }
+    ],
+    "cleanup": "The disposable app was uninstalled and its Chrome profile and database were removed.",
+    "stillOpen": [
+      "Offline and live Clerk reconnect in the installed app on the canonical staging origin.",
+      "Compatible hosted update with an eligible synthetic register and an authorized replacement build.",
+      "Dirty or already-unknown work across an update, schema migration, rollback, other devices and Owner acceptance."
+    ],
+    "regularBrowserRegression": "The default browser-tab mode passed on the updated runner."
   }
 }
