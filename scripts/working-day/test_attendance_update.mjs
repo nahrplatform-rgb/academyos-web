@@ -1,4 +1,5 @@
-// Local production-mode update; --installed uses a disposable desktop app window.
+// Local production-mode update. --installed uses a disposable desktop app window.
+// --lost-reply starts the update with an original that committed without a reply.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -21,11 +22,13 @@ const pointer='/prepared-workspace/cache-pointer';
 const index='academyos-workspace-public-v1:index';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 const installed=process.argv.includes('--installed');
+const loseReply=process.argv.includes('--lost-reply');
 const installPath='/attendance-test-install';
 const installAssets=new Map();
 let fixture,browser,appB,appBExit,proxy,origin,bOrigin,page;
 let installedApp;
 let phase='a';
+let lostReplyStatus;
 const held=new Set();
 const requestFailures=[];
 const env={PATH:process.env.PATH,HOME:process.env.HOME,NODE_ENV:'production',NEXT_TELEMETRY_DISABLED:'1'};
@@ -154,7 +157,19 @@ try{
     const onA=api||phase==='a';
     const upstream=request(new URL(url.pathname+url.search,onA?fixture.origin:bOrigin),{
       method:req.method,headers:api?{...req.headers,origin:fixture.origin}:req.headers,
-    },reply=>{res.writeHead(reply.statusCode,reply.headers);reply.pipe(res);});
+    },reply=>{
+      if(loseReply&&phase==='a'&&url.pathname==='/api/register-dispatch'){
+        lostReplyStatus=reply.statusCode;
+        reply.once('end',()=>{
+          phase='offline';
+          res.destroy();
+        });
+        reply.resume();
+        return;
+      }
+      res.writeHead(reply.statusCode,reply.headers);
+      reply.pipe(res);
+    });
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});
     res.on('close',()=>upstream.destroy());
     req.pipe(upstream);
@@ -183,7 +198,8 @@ try{
     console.log('PASS the desktop test profile opens the manifest start URL in its installed standalone window');
   }
   const button=name=>page.getByRole('button',{name,exact:true});
-  const pending=()=>expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
+  const unconfirmedMessage=loseReply?'Outcome unknown · Check the original save':'Saved on this device · Awaiting sync';
+  const expectUnconfirmed=()=>expect(page.getByText(unconfirmedMessage,{exact:true})).toBeVisible();
   const assertOffline=async()=>{
     phase='offline';
     await browser.setOffline(true);
@@ -210,7 +226,8 @@ try{
     }
     await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
     assert.equal(await page.locator('body').getAttribute('data-fixture-release'),release);
-    await pending();
+    await expectUnconfirmed();
+    await expect(button('Review register')).toBeDisabled();
   };
   assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[0]);
   await page.goto(url);
@@ -221,11 +238,11 @@ try{
   await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
   assert.equal(firstCache.isB,false);
-  await assertOffline();
+  if(!loseReply)await assertOffline();
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
   await button('Save selected marks').click();
-  await pending();
+  await expectUnconfirmed();
   const rows=await original();
   assert.equal(rows.length,1);
   const [row]=rows;
@@ -233,7 +250,16 @@ try{
   assert.deepEqual(row.active,[row.namespace,scope.event]);
   const counts=()=>fixture.db({action:'counts',...scope,op:row.op});
   const zero={marks:0,history:0,operations:0,audit:0},one={marks:1,history:1,operations:1,audit:1};
-  assert.deepEqual(await counts(),zero);
+  const beforeUpdate=loseReply?one:zero;
+  const earlierWires=[...fixture.state.dispatchBodies];
+  assert.deepEqual(await counts(),beforeUpdate);
+  assert.equal(earlierWires.length,loseReply?1:0);
+  if(loseReply){
+    assert.equal(lostReplyStatus,200,'The canonical save must finish before dropping its reply');
+    assert.equal(JSON.parse(earlierWires[0]).op,row.op);
+    await assertOffline();
+    console.log('PASS the server committed once while the browser retained an unknown original');
+  }
   if(installedApp){
     const before=fixture.state.events.length;
     await page.close();
@@ -246,7 +272,8 @@ try{
   }
   await cold(null);
   assert.deepEqual(await original(),rows);
-  console.log('PASS build A reopens offline with one durably saved original and no server effect');
+  console.log(loseReply?'PASS build A reopens offline with the same unknown original':
+    'PASS build A reopens offline with one durably saved original and no server effect');
 
   const oldDocument=await page.evaluate(()=>performance.timeOrigin);
   const navigations=[];
@@ -294,16 +321,16 @@ try{
   assert.equal(secondCache.previousIsB,false);
   assert.deepEqual(navigations,[]);
   assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
-  await pending();
+  await expectUnconfirmed();
   assert.deepEqual(await original(),rows);
-  assert.deepEqual(await counts(),zero);
-  assert.deepEqual(fixture.state.dispatchBodies,[]);
+  assert.deepEqual(await counts(),beforeUpdate);
+  assert.deepEqual(fixture.state.dispatchBodies,earlierWires);
   console.log('PASS build B activates in the open window, stages its public shell, and retains build A and the unchanged original without a reload');
 
   await assertOffline();
   await cold('b');
   assert.deepEqual(await original(),rows);
-  assert.deepEqual(await counts(),zero);
+  assert.deepEqual(await counts(),beforeUpdate);
   await expect(page.locator('.register-roster li')).toHaveCount(18);
   const bDocument=await page.evaluate(()=>performance.timeOrigin);
   fixture.state.sessionValid=false;
@@ -342,8 +369,9 @@ try{
   const beforeSend=reconnectCalls.slice(0,dispatchIndex);
   assert.deepEqual(beforeSend.map(call=>[call.route,call.status]),[['fixture-session',200]]);
   assert.equal(reconnectCalls[dispatchIndex].status,200);
-  assert.equal(fixture.state.dispatchBodies.length,1);
-  const [wire]=fixture.state.dispatchBodies;
+  assert.equal(fixture.state.dispatchBodies.length,earlierWires.length+1);
+  const wire=fixture.state.dispatchBodies.at(-1);
+  if(loseReply)assert.equal(wire,earlierWires[0],'The retry must carry the exact original wire');
   const sent=JSON.parse(wire);
   assert.equal(sent.op,row.op);
   assert.equal(sent.event,scope.event);
@@ -359,14 +387,16 @@ try{
   await expect(page.locator('body')).toHaveAttribute('data-fixture-release','b');
   await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
   await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
-  assert.deepEqual(fixture.state.dispatchBodies,[wire]);
+  assert.deepEqual(fixture.state.dispatchBodies,[...earlierWires,wire]);
   assert.deepEqual(await counts(),one);
   await installedConnection?.detach();
-  console.log('PASS build B cold reopen and automatic reconnect confirm the same original exactly once; live reload does not send again');
+  console.log('PASS build B cold reopen and reconnect confirm one committed result for the original; live reload sends nothing further');
   console.log(JSON.stringify({builds,cacheRevisions:[firstCache.revision,secondCache.revision],
     client:installed?'installed standalone':'browser tab',platform:process.platform,
-    browser:browser.browser()?.version(),node:process.version,serverBefore:zero,serverAfter:one,
-    originalIdPreserved:true,ciphertextUnchangedUntilSync:true,dispatches:1,reconnectDocuments:0,
+    browser:browser.browser()?.version(),node:process.version,serverBefore:beforeUpdate,serverAfter:one,
+    originalStateBeforeUpdate:loseReply?'unknown':'pending',lostReplyStatus,
+    originalIdPreserved:true,ciphertextUnchangedUntilSync:true,dispatches:fixture.state.dispatchBodies.length,
+    ...(loseReply?{replayedOriginalBytes:true}:{}),reconnectDocuments:0,
     reconnectCalls:reconnectCalls.map(({route,action,status})=>({route,action,status}))}));
 }finally{
   for(const res of held)res.destroy();

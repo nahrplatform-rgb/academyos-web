@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The existing signed-in staging Mac app passed the prepared Arabic Calendar reload, uncovered week and reconnect on cf15f40. The disposable Mac install supplies separate cold /en and pending-Attendance update evidence. Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update remain open. Both existing academies had zero markable registers and one closed legacy binding each. Staging has the additive database function and needs Owner-approved activation of the application setting before a legacy binding can be left in place while preparing a new test register.",
+    "The existing signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Separate disposable Mac tests pass cold /en and compatible Attendance updates with a pending or already-unknown original. Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update remain open. Both synthetic academies had zero markable registers and one closed legacy binding each, and the application setting for additive staging preparation remains absent. The next independent local check is retaining unsaved Attendance choices through activation in the same open window.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -851,6 +851,125 @@
       "Cold /en launch in the installed staging app with a verified cutoff on the new window",
       "Installed Attendance offline save and same-original reconnect with live Clerk after approved additive preparation and a markable synthetic fixture",
       "Compatible hosted update with an authorized replacement build"
+    ]
+  },
+  "macInstalledUnknownAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_lost_reply_subset",
+    "verifiedAtUtc": "2026-11-19T13:11:26+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "40faf1c",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs"
+    ],
+    "testSha256": "2af77afaef628290e28a3802ea756e9746b73310642bd6c59aed673c0b131948",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "17.11",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "3OKE_hvbd5Wu9T8ypq68z",
+          "bJUKhz5oKoOF_Z9NLR0gb"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "cacheRevisions": [
+        "bc7b4cb374ad2b90246d189131c28194bde3ff462c45d8bd2d0200684dc5857f",
+        "070cd7ddbf9967fcc249e0b1f9e9b42289e473c4bd952cbf2ef7e0d6cfec1fa3"
+      ],
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "serverBefore": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "serverAfter": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "originalStateBeforeUpdate": "unknown",
+      "lostReplyStatus": 200,
+      "originalIdPreserved": true,
+      "ciphertextUnchangedUntilSync": true,
+      "dispatches": 2,
+      "replayedOriginalBytes": true,
+      "reconnectDocuments": 0,
+      "reconnectCalls": [
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        }
+      ]
+    },
+    "verified": [
+      "Real committed response discarded at the origin cutoff",
+      "Unknown original persisted and replacement review disabled on both offline relaunches",
+      "Compatible worker and public shell activated while the existing document and original stayed intact",
+      "Previous public shell retained",
+      "Zero new dispatches during the update or the offline reopen",
+      "One reconnect replay of the byte-identical original",
+      "One canonical mark, history row, operation and audit throughout recovery",
+      "Zero document reloads to reconcile and no resend on subsequent live reload"
+    ],
+    "initialAttempt": "With the origin left reachable after a socket drop, the fixture saw seven dispatches and one committed result. The passing method cuts the origin after the first commit to isolate one lost reply. The cause of the extra attempts was not isolated.",
+    "pendingBrowserRegression": {
+      "state": "pending",
+      "dispatches": 1,
+      "serverAfter": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      }
+    },
+    "stagingReadback": {
+      "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+      "deployment": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "domains": [
+        "staging.academy.nahr.dev",
+        "academyos-web.vercel.app"
+      ],
+      "foundationRun": 44488491323,
+      "attendanceRecoveryCheck": "success",
+      "multiScopeFlagPresent": false,
+      "approvalNeededFor": "LOCAL_REGISTER_MULTI_SCOPE_ENABLED=true on the synthetic staging release"
+    },
+    "stillOpen": [
+      "Unsaved selections across an in-place compatible update",
+      "Hosted cold /en, live Clerk Attendance and compatible hosted update",
+      "Schema migration, rollback, wider installed devices and Owner acceptance"
     ]
   }
 }
