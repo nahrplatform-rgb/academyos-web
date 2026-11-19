@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-17T10:46:13.200118+00:00",
-  "status": "checked_release_ready",
+  "date": "2026-11-19T05:32:53Z",
+  "status": "checked_release_ready_installed_cases_partial",
   "applicationBase": "bdd9740872af61b6ee32dc05008d1b215203ff32",
   "checkpointBase": "c151f49251e397de883c55ebc7a7f72fb3727f41",
   "scope": "EX-07/MP-B01 with EX-14/15/16; PW-02/PW-03 and partial WD-74/75; no whole installed-case completion",
@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "Actual installed OS launch-to-covered-route, same-context offline/reconnect/save, update/storage/eviction and wider device/accessibility checks after exact-source release.",
+    "Installed-app device cases still open on promoted f35c9ad: cold offline launch, empty store, protected update with pending work and same-original reconnect. Already recorded on 19 November: the app lives in the nahr profile, its device was prepared through the app's own control, month view and click-based date entry pass, a cold start at start_url /en applies the stored week, and a warm relaunch returns to Chrome's restored window URL instead. Wider device/accessibility, storage/eviction and update coverage after an exact-source release remain separate.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -536,6 +536,8 @@
       "result": "55/55 steps passed",
       "runUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44443618633",
       "note": "Documentation-only change: checkpoint section, structured receipt, tracker next action and generated continuation. No product source changed, so no new runtime or hosted assertion follows from this run."
-    }
+    },
+    "devicePreparationDiscrepancy": "The 18 November entry in this receipt records Players and Calendar prepared in this same profile. On 19 November the same origin held only Clerk keys: no register account, no slot and no launch key. The preparation was therefore absent and was redone. What removed it was not determined; no claim is made about a cause, and the 18 November preparation remains a separate dated observation rather than a contradiction to be quietly resolved.",
+    "continuation": "docs/06-delivery/continue-academyos.md carries this state and rebuilds without drift; scripts/design/validate_experience_execution.py passes. The receipt status is now checked_release_ready_installed_cases_partial."
   }
 }
