@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=a4f2f67e-7c7b-4b81-ab64-96f0c8e9c89e"
+          "task": "#attendance-return=edb7a9af-7ca9-41a4-b204-66697ff034d8"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=79e5bc15-94aa-4206-b9db-c93636549898"
+          "task": "#attendance-return=7f5391d4-66c4-41ff-a203-9478241864e4"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=5172ea68-91d5-4f18-8cbc-a22039f9024e"
+          "task": "#correction-return=34d77589-a60c-4a53-b9a7-a7d3822915ba"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=e550cf61-e579-4227-968c-2ffb3e1497f3"
+          "task": "#development-return=46695403-237b-4ad7-bdd7-c5b98ae5b4d4"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=0e71ed1d-0706-495f-9689-dbdcd0cc0204"
+          "task": "#development-return=5e016a91-8fdc-4f7a-890b-9f166966816b"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=34c4a776-39c5-43f0-a890-d45493181923"
+          "task": "#publication-return=f8fb6e36-2dfd-41fb-b1d8-b561f6baf329"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=3f7e271c-d68b-4ff4-b9b9-db1c0134abf2"
+          "task": "#publication-return=780e48d9-cf16-4e84-bae0-1d43b594d423"
         }
       },
       {
@@ -1028,7 +1028,7 @@
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/test_normal_attendance.mjs": "5ea258eccb2e78eb6457e4a47b7e2c6bbfde6ecfb3b424b9fec3348e789df815",
+    "scripts/working-day/test_normal_attendance.mjs": "69620c77ef6a5641bb2715da71a587b5395d56aa0208262524b04186e085d475",
     "scripts/working-day/owner_day_return.mjs": "0c698c581439c3b83e564a8baf15233119ebc7dbe5ed4f3e169995e6ab466c29",
     "scripts/working-day/owner_queue_return.mjs": "6b6f0ef4fbe8a2a9f8982bbf81d3c5099cce5d7564fde9e01c005264df929e3c",
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",

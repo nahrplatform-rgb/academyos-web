@@ -361,15 +361,42 @@ try{
  await expect(page.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
  const other=await context.newPage();await other.goto(url(b));
  await expect(other.getByText('Saved on this device · Awaiting sync',{exact:true})).toBeVisible();
- // Keep the first send held so another tab reaches the same dispatch leader.
- let releaseSend,sendEntered;const sendHold=new Promise(r=>releaseSend=r),sendSeen=new Promise(r=>sendEntered=r);
- await context.route('**/api/register-dispatch',async route=>{sendEntered();await sendHold;await route.continue();},{times:1});
- await page.route('**/api/register-download',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"unavailable"}'}),{times:1});
- const sendCount=state.dispatchBodies.length;fixture.reconnect();await context.setOffline(false);await sendSeen;releaseSend();
- await expect(page.getByText('Save confirmed; latest register unavailable. Retry reading, not saving.',{exact:true})).toBeVisible();
- await expect(other.getByText('Saved on this device · Awaiting sync',{exact:true})).toHaveCount(0);
+ // Either tab can send first. Hold that request so the other tab also tries
+ // to sync the original, and fail the confirming tab's follow-up read.
+ let releaseSend;
+ const sendHold=new Promise(resolve=>{releaseSend=resolve;});
+ await context.route('**/api/register-dispatch',async route=>{
+  await sendHold;
+  await route.continue();
+ },{times:1});
+ const sendCount=state.dispatchBodies.length;
+ let leader, follower;
+ try {
+  fixture.reconnect();
+  const [request]=await Promise.all([
+   context.waitForEvent('request',{
+    predicate:request=>request.method()==='POST'&&new URL(request.url()).pathname==='/api/register-dispatch',
+    timeout:12000,
+   }),
+   context.setOffline(false),
+  ]);
+  leader=request.frame().page();
+  assert.ok(leader===page||leader===other,'A register tab must send the original');
+  follower=leader===page?other:page;
+  await leader.route('**/api/register-download',route=>route.fulfill({status:503,json:{error:'unavailable'}}),{times:1});
+  await follower.bringToFront();
+  await follower.evaluate(()=>window.dispatchEvent(new Event('online')));
+  await expect(follower.getByText('Checking saved work…',{exact:true})).toBeVisible();
+ } finally {
+  releaseSend();
+ }
+ await expect(leader.getByText('Save confirmed; latest register unavailable. Retry reading, not saving.',{exact:true})).toBeVisible();
+ await expect(follower.getByText('Saved on this device · Awaiting sync',{exact:true})).toHaveCount(0);
  assert.equal(state.dispatchBodies.length-sendCount,1);
- await button('Retry current check').click();await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+ await button('Retry current check',leader).click();
+ await expect(leader.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+ await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
+ assert.equal(state.dispatchBodies.length-sendCount,1,'Retry must read without sending another save');
  await other.close();metrics.concurrentConfirmedSends=1;
  pass('Two normal tabs share dispatch leadership; confirmed-save read failure stays confirmed and retry reads only');
 
