@@ -480,3 +480,13 @@ Two local runtimes used the same production-mode app build from `cf15f40`, with 
 - After re-enabling prepared Attendance, **Recover saved work** verified the existing register key and sent the original operation ID once. Disposable PostgreSQL recorded one mark, one history row, one operation and one audit event. Reloading the live register sent nothing further.
 
 The interrupted-download, pending-save, lost-reply and unsaved-draft installed cases also passed with the shared runner. This links the installed register-only rollback slice of WD-83. The next local check exercises an unsupported newer Attendance database version in a disposable installation. Interrupted schema migration, hosted cold launch and live Clerk Attendance, hosted rollback and update, and wider device verification remain open. The synthetic staging Attendance release still requires the Owner decision above.
+
+## 19 November installed Attendance with a newer database version
+
+A disposable Mac installation from `cf15f40` prepared an 18-player register and captured one pending save through the normal Attendance controls. The test used fictional sign-in and one Players row seeded through the encrypted workspace repository. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- The original register reopened offline before the test raised the disposable Attendance database version from 1 to 2. The upgrade changed only the version and kept the same object stores. A direct request for version 1 returned `VersionError`.
+- Fresh connected and offline Attendance windows showed **The device register is unavailable. Saved work remains protected.** Both hid the roster and save controls. The stored roster count, register locator and encrypted original remained intact. The request observer recorded zero operating API attempts, and PostgreSQL recorded zero marks, history rows, operations and related audit events.
+- Players still opened the prepared row offline. The Attendance and Players offline windows used the retained public shell with zero document bytes transferred.
+
+The installed register-only rollback and interrupted public download cases also passed. This covers the unsupported newer database slice of WD-83. The next local check exercises a blocked and aborted storage upgrade with a pending save in a disposable installation under WD-44. A real schema migration, hosted cold launch and live Clerk Attendance, hosted rollback and update, and wider installed-device verification remain open. The synthetic staging Attendance release still requires the Owner decision above.

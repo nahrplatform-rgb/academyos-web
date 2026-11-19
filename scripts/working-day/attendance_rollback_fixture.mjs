@@ -92,7 +92,35 @@ export function rollbackStorage(page,scope){
         result(tx.objectStore('control').get(register.namespace)),
         result(tx.objectStore('rows').index('namespace').count(register.namespace)),
       ]);
-      return {account,workspace,register,rosterRows,repositoryMode:control?.mode};
+      return {account,workspace,register,rosterRows,repositoryMode:control?.mode,databaseVersion:db.version};
     }finally{db.close();}
   },scope);
+}
+
+export async function raiseFixtureAttendanceVersion(page){
+  const result=await page.evaluate(async()=>{
+    const name='academyos-owner-register-v1';
+    const open=version=>new Promise((resolve,reject)=>{
+      const request=indexedDB.open(name,version);
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+      request.onblocked=()=>reject(Error('Fixture version upgrade was blocked'));
+    });
+    const current=await open(1);
+    const stores=Array.from(current.objectStoreNames);
+    current.close();
+    // Change only the version in this disposable browser's database.
+    const newer=await open(2);
+    const newerStores=Array.from(newer.objectStoreNames);
+    const databaseVersion=newer.version;
+    newer.close();
+    let olderOpenError;
+    try{(await open(1)).close();}
+    catch(error){olderOpenError=error.name;}
+    return {databaseVersion,stores,newerStores,olderOpenError};
+  });
+  assert.equal(result.databaseVersion,2);
+  assert.deepEqual(result.newerStores,result.stores);
+  assert.equal(result.olderOpenError,'VersionError');
+  return result.olderOpenError;
 }

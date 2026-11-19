@@ -3,6 +3,7 @@
 // --unsaved keeps two reviewed choices open without creating an original.
 // --interrupted-assets cuts a required public download before retrying preparation.
 // --rollback retires prepared Attendance while keeping the offline workspace.
+// --unsupported-store opens an Attendance database newer than the app supports.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -14,7 +15,7 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {chromium,expect} from '@playwright/test';
 import {ownerFixture} from './owner_fixture.mjs';
-import {configureRollbackBuild,rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace} from './attendance_rollback_fixture.mjs';
+import {configureRollbackBuild,raiseFixtureAttendanceVersion,rollbackBuildEnvironment,rollbackPlayer,rollbackStorage,seedRollbackWorkspace} from './attendance_rollback_fixture.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const installed=process.argv.includes('--installed');
@@ -22,8 +23,10 @@ const loseReply=process.argv.includes('--lost-reply');
 const unsaved=process.argv.includes('--unsaved');
 const interruptAssets=process.argv.includes('--interrupted-assets');
 const rollback=process.argv.includes('--rollback');
-assert.ok([loseReply,unsaved,interruptAssets,rollback].filter(Boolean).length<=1,
-  'Choose at most one of --lost-reply, --unsaved, --interrupted-assets or --rollback');
+const unsupportedStore=process.argv.includes('--unsupported-store');
+const preparedWorkspace=rollback||unsupportedStore;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore].filter(Boolean).length<=1,
+  'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
 const next=join(root,'node_modules/next/dist/bin/next');
@@ -37,7 +40,7 @@ const installPath='/attendance-test-install';
 const installAssets=new Map();
 let fixture,browser,proxy,origin,bOrigin,rollbackOrigin,page;
 let installedApp;
-let phase=rollback?'b':'a';
+let phase=preparedWorkspace?'b':'a';
 let lostReplyStatus;
 const appProcesses=[];
 const held=new Set();
@@ -103,8 +106,8 @@ async function buildB(){
   // A diagnostic-only worker marker proves which live controller answered.
   const bBytes=aBytes+"\nself.addEventListener('message',event=>{if(event.data==='fixture-release')event.ports[0]?.postMessage('b');});\n";
   await writeFile(worker,bBytes);
-  if(rollback)await configureRollbackBuild(root,bDir);
-  const buildEnvironment=rollback?rollbackBuildEnvironment(env,true):env;
+  if(preparedWorkspace)await configureRollbackBuild(root,bDir);
+  const buildEnvironment=preparedWorkspace?rollbackBuildEnvironment(env,true):env;
   const build=spawn(process.execPath,[next,'build','--webpack'],{cwd:bDir,env:buildEnvironment,stdio:['ignore','pipe','pipe']});
   let log='';
   for(const stream of [build.stdout,build.stderr])stream.on('data',chunk=>{log+=chunk;});
@@ -334,30 +337,102 @@ async function checkUnsavedUpdate(builds,firstCache,scope){
   }finally{browser.off('request',observeSave);}
 }
 
+async function reopen(destination,onlinePhase){
+  await page.close();
+  if(onlinePhase){
+    phase=onlinePhase;
+    await browser.setOffline(false);
+  }
+  if(installedApp)page=await launchInstalled(destination);
+  else{
+    page=await browser.newPage();
+    await page.goto(destination);
+  }
+  await page.waitForURL(destination,{timeout:12000});
+}
+
+async function checkCachedDocument(){
+  await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
+  const timing=await page.evaluate(()=>{
+    const [entry]=performance.getEntriesByType('navigation');
+    return {workerStart:entry.workerStart,transferSize:entry.transferSize};
+  });
+  assert.ok(timing.workerStart>0);
+  assert.equal(timing.transferSize,0);
+  return timing;
+}
+
+async function checkUnsupportedStore({builds,firstCache,scope,url,assertOffline,rows,counts,zero}){
+  const roster=()=>page.locator('.register-roster li');
+  const pendingMessage='Saved on this device · Awaiting sync';
+  const unavailableMessage='The device register is unavailable. Saved work remains protected.';
+  const playersUrl=origin+`/en/workspace/${scope.academy}/players`;
+  await reopen(url);
+  await checkCachedDocument();
+  await expect(page.getByText(pendingMessage,{exact:true})).toBeVisible();
+  await expect(roster()).toHaveCount(18);
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.databaseVersion,1);
+  assert.equal(before.register.mode,'active');
+  assert.equal(before.workspace.mode,'active');
+  const olderOpenError=await raiseFixtureAttendanceVersion(page);
+  const retained={...before,databaseVersion:2};
+  assert.deepEqual(await rollbackStorage(page,scope),retained);
+  assert.deepEqual(await original(),rows);
+
+  async function checkUnavailable(){
+    await expect(page.getByRole('alert').filter({hasText:unavailableMessage})).toBeVisible();
+    await expect(roster()).toHaveCount(0);
+    await expect(page.getByRole('button',{name:'Review register',exact:true})).toHaveCount(0);
+    await expect(page.getByRole('button',{name:'Use the online register',exact:true})).toHaveCount(0);
+    await expect(page.getByText('Synced · Server recorded the register.',{exact:true})).toHaveCount(0);
+    assert.deepEqual(await rollbackStorage(page,scope),retained);
+    assert.deepEqual(await original(),rows);
+  }
+
+  const start=fixture.state.events.length;
+  const apiAttempts=[];
+  const observeApi=request=>{
+    const url=new URL(request.url());
+    if(url.origin===origin&&url.pathname.startsWith('/api/'))apiAttempts.push(url.pathname);
+  };
+  browser.on('request',observeApi);
+  try{
+    await reopen(url,'b');
+    await expect(page.locator('body')).toHaveAttribute('data-fixture-release','b');
+    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(0);
+    await checkUnavailable();
+    assert.deepEqual(await counts(),zero);
+    console.log('PASS signed-in Attendance refuses the newer database without offering a replacement save');
+
+    await assertOffline();
+    await reopen(url);
+    const attendanceTiming=await checkCachedDocument();
+    await checkUnavailable();
+    await reopen(playersUrl);
+    const playersTiming=await checkCachedDocument();
+    await expect(page.getByRole('heading',{name:'Players',exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:rollbackPlayer,exact:true})).toBeVisible();
+    assert.deepEqual(await cacheState(),firstCache);
+    assert.deepEqual(await rollbackStorage(page,scope),retained);
+    assert.deepEqual(await original(),rows);
+    assert.deepEqual(apiAttempts,[]);
+    assert.equal(fixture.state.events.length,start);
+    assert.equal(fixture.state.dispatchBodies.length,0);
+    const serverAfter=await counts();
+    assert.deepEqual(serverAfter,zero);
+    console.log('PASS offline Attendance stays masked, Players reopens, and the encrypted original stays intact');
+    console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale:'en',
+      client:installed?'installed standalone':'browser tab',platform:process.platform,
+      browser:browser.browser()?.version(),node:process.version,
+      databaseVersionBefore:before.databaseVersion,databaseVersionAfter:retained.databaseVersion,olderOpenError,
+      registerRowsPreserved:retained.rosterRows,onlineRegisterMasked:true,offlineRegisterMasked:true,
+      workspacePreserved:true,originalUnchanged:true,publicShellRetained:true,attendanceTiming,playersTiming,
+      apiAttempts:apiAttempts.length,dispatches:fixture.state.dispatchBodies.length,serverAfter}));
+  }finally{browser.off('request',observeApi);}
+}
+
 async function checkRollback({builds,firstCache,scope,url,assertOffline,rows,counts,zero,one}){
-  async function reopen(destination,onlinePhase){
-    await page.close();
-    if(onlinePhase){
-      phase=onlinePhase;
-      await browser.setOffline(false);
-    }
-    if(installedApp)page=await launchInstalled(destination);
-    else{
-      page=await browser.newPage();
-      await page.goto(destination);
-    }
-    await page.waitForURL(destination,{timeout:12000});
-  }
-  async function checkCachedDocument(){
-    await expect(page.locator('#academyos-public-workspace-shell')).toHaveCount(1);
-    const timing=await page.evaluate(()=>{
-      const [entry]=performance.getEntriesByType('navigation');
-      return {workerStart:entry.workerStart,transferSize:entry.transferSize};
-    });
-    assert.ok(timing.workerStart>0);
-    assert.equal(timing.transferSize,0);
-    return timing;
-  }
 
   const roster=()=>page.locator('.register-roster li');
   const playerUrl=origin+`/en/workspace/${scope.academy}/players`;
@@ -577,7 +652,7 @@ async function run(){
     await expect(button('Review register')).toBeDisabled();
     return timing;
   };
-  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[rollback?1:0]);
+  assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[preparedWorkspace?1:0]);
   await page.goto(url);
   await page.locator('.register-action-menu > summary').click();
   await button('Use a personal-device register').click();
@@ -585,12 +660,12 @@ async function run(){
   await button('Prepare register on this device').click();
   await expect(page.getByText('Ready for offline reopening',{exact:true})).toBeVisible({timeout:20000});
   const firstCache=await cacheState();
-  assert.equal(firstCache.isB,rollback);
+  assert.equal(firstCache.isB,preparedWorkspace);
   if(unsaved){
     await checkUnsavedUpdate(builds,firstCache,scope);
     return;
   }
-  if(rollback)await seedRollbackWorkspace(root,page,scope);
+  if(preparedWorkspace)await seedRollbackWorkspace(root,page,scope);
   if(!loseReply)await assertOffline();
   await page.locator('.register-options').first().getByRole('button',{name:'Present',exact:true}).click();
   await button('Review register').click();
@@ -609,6 +684,10 @@ async function run(){
   assert.equal(earlierWires.length,loseReply?1:0);
   if(rollback){
     await checkRollback({builds,firstCache,scope,url,assertOffline,rows,counts,zero,one});
+    return;
+  }
+  if(unsupportedStore){
+    await checkUnsupportedStore({builds,firstCache,scope,url,assertOffline,rows,counts,zero});
     return;
   }
   if(loseReply){
