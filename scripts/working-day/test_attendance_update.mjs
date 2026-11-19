@@ -1,6 +1,7 @@
 // Local production-mode update. --installed uses a disposable desktop app window.
 // --lost-reply starts the update with an original that committed without a reply.
 // --unsaved keeps two reviewed choices open without creating an original.
+// --interrupted-assets cuts a required public download before retrying preparation.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -17,14 +18,17 @@ const root=resolve(import.meta.dirname,'../..');
 const installed=process.argv.includes('--installed');
 const loseReply=process.argv.includes('--lost-reply');
 const unsaved=process.argv.includes('--unsaved');
-assert.ok(!(loseReply&&unsaved),'Choose either --lost-reply or --unsaved');
+const interruptAssets=process.argv.includes('--interrupted-assets');
+assert.ok([loseReply,unsaved,interruptAssets].filter(Boolean).length<=1,
+  'Choose at most one of --lost-reply, --unsaved or --interrupted-assets');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
 const next=join(root,'node_modules/next/dist/bin/next');
 const workerPath='/prepared-workspace-worker.js';
 const shellPath='/prepared-workspace';
 const pointer='/prepared-workspace/cache-pointer';
-const index='academyos-workspace-public-v1:index';
+const cachePrefix='academyos-workspace-public-v1:';
+const index=cachePrefix+'index';
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 const installPath='/attendance-test-install';
 const installAssets=new Map();
@@ -117,6 +121,27 @@ async function buildB(){
   return {ids,workerHashes:[digest(aBytes),digest(bBytes)]};
 }
 
+async function assetToInterrupt(){
+  const shell=await fetch(bOrigin+shellPath);
+  assert.equal(shell.status,200);
+  assert.equal(shell.headers.get('x-academyos-public-shell'),'workspace-v1');
+  const html=await shell.text();
+  assert.ok(html.includes('data-fixture-release="b"'));
+  const scripts=Array.from(html.matchAll(/<script\b([^>]*)>/gi),match=>match[1])
+    .filter(attributes=>!/\bnomodule\b/i.test(attributes))
+    .map(attributes=>attributes.match(/\ssrc="(\/_next\/static\/[a-zA-Z0-9_./-]+\.js)"/)?.[1])
+    .filter(path=>path&&!path.includes('..'));
+  assert.ok(scripts.length>1,'The failed download must follow earlier required scripts');
+  const path=scripts.at(-1);
+  const response=await fetch(bOrigin+path);
+  assert.equal(response.status,200);
+  const contentType=response.headers.get('content-type');
+  assert.ok(contentType);
+  const bytes=Buffer.from(await response.arrayBuffer());
+  assert.ok(bytes.length>1);
+  return {path,contentType,fullLength:bytes.length,partial:bytes.subarray(0,Math.min(1024,Math.floor(bytes.length/2)))};
+}
+
 const original=async()=>page.evaluate(async()=>{
   const opening=indexedDB.open('academyos-owner-register-v1');
   const db=await new Promise((ok,no)=>{opening.onsuccess=()=>ok(opening.result);opening.onerror=()=>no(opening.error);});
@@ -133,14 +158,15 @@ const original=async()=>page.evaluate(async()=>{
     }));
   }finally{db.close();}
 });
-const cacheState=()=>page.evaluate(async({index,pointer,shellPath})=>{
+const cacheState=()=>page.evaluate(async({cachePrefix,index,pointer,shellPath})=>{
   const ref=await (await (await caches.open(index)).match(pointer)).json();
   const get=async name=>name?await (await (await caches.open(name)).match(shellPath)).text():null;
   const active=await get(ref.current),previous=await get(ref.previous);
-  return {...ref,isB:active.includes('data-fixture-release="b"'),previousIsB:previous?.includes('data-fixture-release="b"')??null};
-},{index,pointer,shellPath});
+  const generations=(await caches.keys()).filter(name=>name.startsWith(cachePrefix)&&name!==index).sort();
+  return {...ref,generations,isB:active.includes('data-fixture-release="b"'),previousIsB:previous?.includes('data-fixture-release="b"')??null};
+},{cachePrefix,index,pointer,shellPath});
 
-async function activateUpdate(builds,firstCache){
+async function prepareUpdate(builds,firstCache,{activate=true,expected='ready'}={}){
   const oldDocument=await page.evaluate(()=>performance.timeOrigin);
   const navigations=[];
   const onNavigation=frame=>{if(frame===page.mainFrame())navigations.push(frame.url());};
@@ -149,46 +175,59 @@ async function activateUpdate(builds,firstCache){
     phase='update';
     await browser.setOffline(false);
     assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[1]);
-    await page.evaluate(async()=>{
+    const outcome=await page.evaluate(async activate=>{
       const reg=await navigator.serviceWorker.ready;
       const old=navigator.serviceWorker.controller;
-      if(!old||!reg.active)throw Error('Expected build A to control the open document');
+      if(!old||!reg.active)throw Error('Expected a worker to control the open document');
       let check;
-      const changed=new Promise(ok=>{check=()=>{if(navigator.serviceWorker.controller!==old)ok();};navigator.serviceWorker.addEventListener('controllerchange',check);});
+      async function activateNewWorker(){
+        const changed=new Promise(ok=>{
+          check=()=>{if(navigator.serviceWorker.controller!==old)ok();};
+          navigator.serviceWorker.addEventListener('controllerchange',check);
+        });
+        const updated=await reg.update();
+        await changed;
+        const worker=navigator.serviceWorker.controller;
+        // clients.claim() can deliver controllerchange during activation.
+        await new Promise((ok,no)=>{
+          const state=()=>{
+            if(worker.state==='activated'||worker.state==='redundant'){
+              worker.removeEventListener('statechange',state);
+              if(worker.state==='activated')ok();else no(Error('New controller became redundant'));
+            }
+          };
+          worker.addEventListener('statechange',state);state();
+        });
+        if(worker!==updated.active||worker===old)throw Error('Expected a newly activated controller');
+      }
       let timer;
       try{
-        await Promise.race([(async()=>{
-          const updated=await reg.update();
-          await changed;
+        return await Promise.race([(async()=>{
+          if(activate)await activateNewWorker();
           const worker=navigator.serviceWorker.controller;
-          // clients.claim() can deliver controllerchange during activation.
-          await new Promise((ok,no)=>{
-            const state=()=>{
-              if(worker.state==='activated'||worker.state==='redundant'){
-                worker.removeEventListener('statechange',state);
-                if(worker.state==='activated')ok();else no(Error('New controller became redundant'));
-              }
-            };
-            worker.addEventListener('statechange',state);state();
-          });
-          if(worker!==updated.active||worker===old)throw Error('Expected a newly activated controller');
+          if(worker!==reg.active||worker?.state!=='activated')throw Error('Expected the active worker to control the open document');
           const ask=data=>new Promise(ok=>{
             const channel=new MessageChannel();
             channel.port1.onmessage=event=>{channel.port1.close();ok(event.data);};
             worker.postMessage(data,[channel.port2]);
           });
           if(await ask('fixture-release')!=='b')throw Error('Expected build B controller');
-          if(await ask({type:'prepare-workspace-public-shell',route:location.pathname})!=='ready')throw Error('Expected build B public assets to be staged');
+          return ask({type:'prepare-workspace-public-shell',route:location.pathname});
         })(),new Promise((_,no)=>{timer=setTimeout(()=>no(Error('Worker activation or shell preparation timed out')),25000);})]);
-      }finally{clearTimeout(timer);navigator.serviceWorker.removeEventListener('controllerchange',check);}
-    });
+      }finally{clearTimeout(timer);if(check)navigator.serviceWorker.removeEventListener('controllerchange',check);}
+    },activate);
+    assert.equal(outcome,expected,'Unexpected result from public-shell preparation');
+    assert.deepEqual(navigations,[]);
+    assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
     const secondCache=await cacheState();
+    if(expected==='unavailable'){
+      assert.deepEqual(secondCache,firstCache,'A partial build must leave the last complete cache in place');
+      return secondCache;
+    }
     assert.equal(secondCache.isB,true);
     assert.notEqual(secondCache.revision,firstCache.revision);
     assert.equal(secondCache.previous,firstCache.current);
     assert.equal(secondCache.previousIsB,false);
-    assert.deepEqual(navigations,[]);
-    assert.equal(await page.evaluate(()=>performance.timeOrigin),oldDocument);
     return secondCache;
   }finally{page.off('framenavigated',onNavigation);}
 }
@@ -239,7 +278,7 @@ async function checkUnsavedUpdate(builds,firstCache,scope){
     const route=page.url();
     const oldDocument=await page.evaluate(()=>performance.timeOrigin);
     const oldWindow=installedApp?await windowId(installedApp.session,page):null;
-    const secondCache=await activateUpdate(builds,firstCache);
+    const secondCache=await prepareUpdate(builds,firstCache);
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole('listitem')).toHaveText(reviewRows);
     await expect(save).toBeFocused();
@@ -287,6 +326,9 @@ async function run(){
   const manifest=installed?await fixtureManifest():null;
   fixture=await ownerFixture(root,aDir,{pilot:true});
   const builds=await buildB();
+  const asset=interruptAssets?await assetToInterrupt():null;
+  const completedDownloads=new Set();
+  let interruptDownload=Boolean(asset), interruptedDownloads=0, precedingDownloads=0;
   // Keep one browser origin across builds. API calls go through the checked
   // fixture gateway, translating only this proxy's own same-origin header.
   proxy=createServer((req,res)=>{
@@ -297,8 +339,16 @@ async function run(){
     if(phase==='update'&&![workerPath,shellPath].includes(url.pathname)&&!url.pathname.startsWith('/_next/static/')){
       req.socket.destroy();return;
     }
-    const asset=installAssets.get(url.pathname);
-    if(asset){res.writeHead(200,{'content-type':asset[0]}).end(asset[1]);return;}
+    if(phase==='update'&&interruptDownload&&url.pathname===asset.path){
+      precedingDownloads=completedDownloads.size;
+      interruptedDownloads++;
+      res.writeHead(200,{'content-type':asset.contentType,'content-length':asset.fullLength,'cache-control':'no-store'});
+      // Start a valid response and then cut the connection before its advertised length.
+      res.write(asset.partial,()=>res.destroy());
+      return;
+    }
+    const installAsset=installAssets.get(url.pathname);
+    if(installAsset){res.writeHead(200,{'content-type':installAsset[0]}).end(installAsset[1]);return;}
     if(api&&req.headers.origin!==origin){res.writeHead(403).end();return;}
     const onA=api||phase==='a';
     const upstream=request(new URL(url.pathname+url.search,onA?fixture.origin:bOrigin),{
@@ -314,6 +364,9 @@ async function run(){
         return;
       }
       res.writeHead(reply.statusCode,reply.headers);
+      if(interruptAssets&&phase==='update'&&url.pathname.startsWith('/_next/static/')&&reply.statusCode===200){
+        res.once('finish',()=>completedDownloads.add(url.pathname));
+      }
       reply.pipe(res);
     });
     upstream.on('error',()=>{if(!res.headersSent)res.writeHead(503);res.end();});
@@ -354,11 +407,12 @@ async function run(){
   };
   const cold=async release=>{
     const old=page;
+    let timing;
     if(installedApp){
       await old.close();
       page=await launchInstalled();
       await page.waitForURL(url,{timeout:12000});
-      const timing=await page.evaluate(()=>{
+      timing=await page.evaluate(()=>{
         const [entry]=performance.getEntriesByType('navigation');
         return {workerStart:entry.workerStart,transferSize:entry.transferSize};
       });
@@ -374,6 +428,7 @@ async function run(){
     assert.equal(await page.locator('body').getAttribute('data-fixture-release'),release);
     await expectUnconfirmed();
     await expect(button('Review register')).toBeDisabled();
+    return timing;
   };
   assert.equal(digest(await (await fetch(origin+workerPath)).text()),builds.workerHashes[0]);
   await page.goto(url);
@@ -425,15 +480,48 @@ async function run(){
   console.log(loseReply?'PASS build A reopens offline with the same unknown original':
     'PASS build A reopens offline with one durably saved original and no server effect');
 
-  const secondCache=await activateUpdate(builds,firstCache);
+  let interruptedUpdate;
+  if(asset){
+    await prepareUpdate(builds,firstCache,{expected:'unavailable'});
+    assert.ok(interruptedDownloads>0,'The worker must request the interrupted build B asset');
+    assert.ok(precedingDownloads>0,'Other public assets must finish before the interruption');
+    assert.ok(!completedDownloads.has(asset.path));
+    await expectUnconfirmed();
+    assert.deepEqual(await original(),rows);
+    assert.deepEqual(await counts(),beforeUpdate);
+    assert.deepEqual(fixture.state.dispatchBodies,earlierWires);
+    console.log('PASS the interrupted download discards the incomplete cache without moving the active shell or touching the pending original');
+
+    await assertOffline();
+    const fallbackTiming=await cold(null);
+    await expect(page.locator('.register-roster li')).toHaveCount(18);
+    assert.deepEqual(await cacheState(),firstCache);
+    assert.deepEqual(await original(),rows);
+    const serverBeforeRetry=await counts();
+    assert.deepEqual(serverBeforeRetry,beforeUpdate);
+    assert.deepEqual(fixture.state.dispatchBodies,earlierWires);
+    console.log('PASS a new offline window opens build A with the same pending original after build B preparation fails');
+    interruptedUpdate={assetPath:asset.path,bytesBeforeCutoff:asset.partial.length,expectedBytes:asset.fullLength,
+      interruptedDownloads,precedingDownloads,outcome:'unavailable',fallbackRevision:firstCache.revision,
+      fallbackTiming,incompleteCacheRemoved:true,serverBeforeRetry,
+      dispatchesBeforeRetry:fixture.state.dispatchBodies.length};
+    interruptDownload=false;
+  }
+  const secondCache=await prepareUpdate(builds,firstCache,{activate:!asset});
+  if(asset){
+    assert.ok(completedDownloads.has(asset.path),'Retry must finish the previously interrupted asset');
+    interruptedUpdate.retryCompleted=true;
+  }
   await expectUnconfirmed();
   assert.deepEqual(await original(),rows);
   assert.deepEqual(await counts(),beforeUpdate);
   assert.deepEqual(fixture.state.dispatchBodies,earlierWires);
-  console.log('PASS build B activates in the open window, stages its public shell, and retains build A and the unchanged original without a reload');
+  console.log(asset?'PASS retry stages the complete build B shell and retains build A and the same original without reloading':
+    'PASS build B activates in the open window, stages its public shell, and retains build A and the unchanged original without a reload');
 
   await assertOffline();
-  await cold('b');
+  const updatedTiming=await cold('b');
+  if(interruptedUpdate)interruptedUpdate.updatedTiming=updatedTiming;
   assert.deepEqual(await original(),rows);
   assert.deepEqual(await counts(),beforeUpdate);
   await expect(page.locator('.register-roster li')).toHaveCount(18);
@@ -502,6 +590,7 @@ async function run(){
     originalStateBeforeUpdate:loseReply?'unknown':'pending',lostReplyStatus,
     originalIdPreserved:true,ciphertextUnchangedUntilSync:true,dispatches:fixture.state.dispatchBodies.length,
     ...(loseReply?{replayedOriginalBytes:true}:{}),reconnectDocuments:0,
+    ...(interruptedUpdate?{interruptedUpdate}:{}),
     reconnectCalls:reconnectCalls.map(({route,action,status})=>({route,action,status}))}));
 }
 
