@@ -86,7 +86,7 @@
     "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
   },
   "remaining": [
-    "The actual Mac standalone disposable test verifies cold /en launch, uncovered data, a compatible pending Attendance update and same-original reconnect. The signed-in hosted app on cf15f40 still needs these cases with live Clerk and a suitable synthetic register under a controlled outage and compatible update. Preserve earlier f35c9ad Calendar relaunch evidence and keep additional devices, storage, eviction and accessibility checks open.",
+    "The existing signed-in staging Mac app passed the prepared Arabic Calendar reload, uncovered week and reconnect on cf15f40. The disposable Mac install supplies separate cold /en and pending-Attendance update evidence. Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update remain open. Both existing academies had zero markable registers and one closed legacy binding each. Staging has the additive database function and needs Owner-approved activation of the application setting before a legacy binding can be left in place while preparing a new test register.",
     "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
     "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
   ],
@@ -785,5 +785,72 @@
       "Dirty or already-unknown work across an update, schema migration, rollback, other devices and Owner acceptance."
     ],
     "regularBrowserRegression": "The default browser-tab mode passed on the updated runner."
+  },
+  "installedStagingCalendar20261119": {
+    "status": "passed_prepared_calendar_reload_uncovered_week_and_reconnect",
+    "date": "2026-11-19",
+    "staging": {
+      "domain": "staging.academy.nahr.dev",
+      "deployment": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+      "state": "READY"
+    },
+    "client": {
+      "macOS": "27.3",
+      "chrome": "157.0.8103.79",
+      "container": "Existing AcademyOS Staging standalone Mac app",
+      "role": "Academy Owner",
+      "academy": "AcademyOS M1 Synthetic Academy",
+      "locale": "ar"
+    },
+    "cutoff": {
+      "method": "Chrome DevTools Offline on the installed Calendar window with the service-worker fetch recorded",
+      "normalReload": true,
+      "workerOriginFetch": "ERR_INTERNET_DISCONNECTED",
+      "calendarNetworkTransferBytes": 0,
+      "documentStatus": 200,
+      "documentSource": "ServiceWorker",
+      "documentResourceKB": 9.6
+    },
+    "calendar": {
+      "anchor": "2026-11-19",
+      "sessionsReopenedOffline": 5,
+      "uncoveredAnchor": "2027-11-19",
+      "uncoveredMessage": "This period is not available on this device yet. Connect to prepare it.",
+      "returnedToPreparedWeek": true,
+      "reconnect": "Normal signed-in staging Calendar reopened at the same anchor and refreshed",
+      "reconnectDocumentResourceKB": 18.3
+    },
+    "freshInstalledLaunch": {
+      "result": "A second window opened the ordinary staging document while the first window was offline",
+      "status": "cold_offline_start_url_unverified",
+      "temporaryWindowClosed": true
+    },
+    "attendanceEligibility": {
+      "method": "Read-only production-target Vercel project settings and bounded synthetic staging SQL",
+      "mainAcademy": {
+        "markableRegisters": 0,
+        "legacyBindings": 1,
+        "closedLegacyBindings": 1,
+        "legacyBoundMarkableRegisters": 0
+      },
+      "isolationAcademyB": {
+        "markableRegisters": 0,
+        "legacyBindings": 1,
+        "closedLegacyBindings": 1,
+        "legacyBoundMarkableRegisters": 0
+      },
+      "additiveKeyFunctionPresent": true,
+      "multiScopeFlagListedInVercelProjectSettings": false,
+      "sourceDefault": "Register key route selects x19 unless LOCAL_REGISTER_MULTI_SCOPE_ENABLED equals true",
+      "sameOriginalReconnect": "blocked_before_capture"
+    },
+    "restored": "Normal network conditions, original request filter, and signed-in Academy Owner Today. Closed the DevTools test window.",
+    "stagingDataWrites": 0,
+    "stillOpen": [
+      "Cold /en launch in the installed staging app with a verified cutoff on the new window",
+      "Installed Attendance offline save and same-original reconnect with live Clerk after approved additive preparation and a markable synthetic fixture",
+      "Compatible hosted update with an authorized replacement build"
+    ]
   }
 }

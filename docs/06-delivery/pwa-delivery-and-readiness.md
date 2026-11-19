@@ -2,7 +2,9 @@
 
 ## 17 November actual installed checkpoint
 
-**19 November installed Mac checkpoint.** A disposable standalone Mac install reopened prepared Attendance offline, showed the uncovered-workspace message, and synchronized the original save once after a compatible update. The installed staging app still needs a live Clerk offline and reconnect check. [Installed Attendance evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#19-november-installed-mac-attendance-checkpoint)
+**19 November signed-in staging Mac checkpoint.** On `cf15f40`, the installed Arabic Calendar reopened the prepared week offline, showed the message for an unprepared week, and returned to the same signed-in Calendar on reconnect. Hosted cold `/en` and installed Attendance save and reconnect remain open. [Staging Calendar evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#19-november-signed-in-installed-staging-calendar)
+
+**19 November disposable Mac checkpoint.** A disposable standalone Mac install reopened prepared Attendance offline, showed the uncovered-workspace message, and synchronized the original save once after a compatible update. It used a simulated Clerk session. [Installed Attendance evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#19-november-installed-mac-attendance-checkpoint)
 
 **18 November installed launch checkpoint.** Staging was independently verified on `525dfc6`. The existing Mac app restored prepared English Players and the Arabic Calendar route from its `/en` entry. The selected Arabic week was lost on staging. The locally repaired production preview preserved the week through a cold offline launch, uncovered date and reconnect. [18 November installed and local evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#18-november-confirmed-staging-release-and-installed-calendar-relaunch)
 
