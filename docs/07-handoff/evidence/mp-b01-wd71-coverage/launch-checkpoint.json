@@ -651,5 +651,55 @@
         "each npm run local:production produced a new BUILD_ID (Bt9XRzFFmL_5QKGvcV330 -> oFIRh5LRPDIeLzYcHx0j2 -> PqenEv9SF9C9eRO6e2ak4), so the shell revision changes after a rebuild; protected update with pending work and same-original reconnect stay unmeasured"
       ]
     }
+  },
+  "next1646StagingRelease20261119": {
+    "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "version": "16.4.6",
+    "promotedBy": "Owner",
+    "agentPromotion": false,
+    "deployment": {
+      "id": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+      "alias": "staging.academy.nahr.dev",
+      "target": "production",
+      "state": "READY",
+      "verification": "Exact SHA and alias independently checked via read-only Vercel API"
+    },
+    "foundation": {
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44488491323",
+      "attempt": 1,
+      "stepsPassed": 55,
+      "stepsTotal": 55,
+      "result": "success"
+    },
+    "hostedBehavior": "Owner relayed Codex verification of Next.js 16.4.6 and fresh Academy Owner Today data using the existing signed-in staging session. Not independently re-run in this session."
+  },
+  "localProtectedAttendanceUpdate20261119": {
+    "status": "passed_local_compatible_update_pending_attendance_original",
+    "testedSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "command": "node scripts/working-day/test_attendance_update.mjs",
+    "testSha256": "4be530a89e61ba850e6067bca5f8ba9a7aa8a9ecf47f55ab66227a118bbda098",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {"next": "16.4.6", "node": "24.14.0", "chromium": "156.0.8078.4", "postgresql": "17.11", "mode": "production"},
+    "scope": "PW-05 / WD-78 compatible update and pending Attendance original only. Disposable fixture using actual components, worker, repository, signed gateway and database; fictional provider/session; no staging writes or installed evidence.",
+    "builds": [
+      {"id": "EorqmZqieDQy3jXHP9RCM", "workerSha256": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3", "shellRevision": "b78d7402c613ebb48c6ff43f2fc333a8823b904baad5f0c46911c7eba02b366d"},
+      {"id": "LH_2kqdzx-n8MqdxpnaeA", "workerSha256": "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e", "shellRevision": "bdd6ba96e5f570143286caf6e2d7ec44379373cea67efbb8cfc3ef4dcc03b88e"}
+    ],
+    "beforeReconnect": {"marks": 0, "history": 0, "operations": 0, "audit": 0},
+    "afterReconnectAndLiveReload": {"marks": 1, "history": 1, "operations": 1, "audit": 1},
+    "assertions": {
+      "newControllerActivated": true,
+      "previousShellRetained": true,
+      "activationReloads": 0,
+      "newCachedShellReopenedPendingSave": true,
+      "originalIdPreserved": true,
+      "ciphertextUnchangedUntilSync": true,
+      "reconnectReloads": 0,
+      "dispatchesIncludingLiveReload": 1,
+      "operatingCallsOnReconnect": ["fixture-session 200", "register-dispatch/register 200", "fixture-session 200", "register-download/manifest 200"]
+    },
+    "stillOpen": ["actual installed app", "live Clerk reconnect", "dirty or already-unknown work across an update", "schema migration and rollback"],
+    "coordinator": "signor-cheap/gpt-6.2-sol; no helpers"
   }
 }

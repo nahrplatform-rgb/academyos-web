@@ -78,5 +78,10 @@
       "verifiedUtc": "2026-11-16T20:28:32.461472+00:00"
     }
   },
-  "promotionActor": "Owner; reported by Owner and resulting deployment/source independently verified"
+  "promotionActor": "Owner; reported by Owner and resulting deployment/source independently verified",
+  "subsequentRelease": {
+    "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "receipt": "launch-checkpoint.json#next1646StagingRelease20261119",
+    "scope": "Owner promotion, read-only exact staging deployment and Foundation verification, plus Owner-reported Codex signed-in Academy Owner Today verification"
+  }
 }
