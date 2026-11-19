@@ -321,3 +321,28 @@ Offline that request cannot succeed, `window.Clerk` stays `undefined`, so `useUs
 A second, related gap: `publicOffline` is threaded through `useOwnerWorkspaceDevice` and `ExperienceJourney` (it renders without the account control, skips prefetch and allows `/players` and `/calendar` navigation), but **no route passes it**. The only `prepared` wiring is `ownerWorkspaceEnabled(process.env)` on the calendar and players pages. The offline-rendering affordance therefore exists in the component and is unreachable in the product.
 
 So cold offline launch fails for an architectural reason: a protected route mounts Clerk, Clerk is a runtime third-party dependency, and the prepared store sits behind that gate. This is a decision about where authority metadata may come from at cold start, not a one-line repair.
+
+### Corrected mechanism: the worker's network-first fetch, not the auth bundle
+
+Recording the earlier `mechanism` block as the cause would have been wrong, so it is corrected here. The prepared shell **is** cached on staging: `academyos-workspace-public-v1:index` plus `…:8739ab7e-…` holding `https://staging.academy.nahr.dev/prepared-workspace`. The route is covered by `apps/web/public/prepared-workspace-worker.js`, whose navigation handler is network-first:
+
+```js
+if (request.mode==='navigate'&&(supported(url)||launch)) {
+  event.respondWith(fetch(request).catch(async()=>{
+    const response=await cached(shell);
+    return response?new Response(response.body,{headers:response.headers}):Response.error();
+  }));
+}
+```
+
+Measured on an offline navigation to a never-before-requested covered URL (`…/calendar?anchor=2026-12-20`): `workerStart` 1.1 ms, `responseStatus` 200, body 18 187 bytes. So the service worker **did** intercept, its `fetch(request)` was satisfied from Chrome's HTTP cache with the protected page's HTML, and the `cached('/prepared-workspace')` branch never ran. The rendered tree was therefore the protected one, and Clerk's third-party bundle failing to load is the *downstream* symptom, not the cause.
+
+That also explains the earlier `/en` result without any appeal to a missing prop: `/prepared-workspace` was in cache, but the network-first branch returned the protected document first.
+
+The narrower, accurate defect statement: for covered offline navigations the worker prefers a possibly-cached network response over the prepared shell it already holds, so the shell is reachable only when the network fetch fails outright. Since Chrome's HTTP cache normally answers, offline launch lands on the protected route and dies at the Clerk gate.
+
+### Recommended repair: serve the prepared shell first for covered navigations
+
+This is option B in its smallest form and it reuses what already exists: the `/prepared-workspace` shell is static, mounts no Clerk, and `PreparedWorkspaceStartup` already fences on `readRegisterAccount()` mode `active` plus an active workspace or register slot before rendering `ExperienceJourney` or `PeopleJourney` with prepared data. It also already re-enters the protected URL when the origin is reachable (`reentryKey` plus a bounded `HEAD /prepared-workspace` probe and reload).
+
+The change is confined to the navigation branch of one 135-line worker: answer covered navigations from the cached shell instead of trying the network first, then let the shell's existing reconnect path move to the live protected route. No authority check is relaxed — an inactive account or mismatched slot still degrades to the chooser — and no third-party bundle needs to be cached.

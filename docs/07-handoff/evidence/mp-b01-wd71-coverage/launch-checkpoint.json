@@ -559,6 +559,23 @@
         "cacheEvidence": "the staging origin holds 2 caches / 27 entries and 0 entries from the Clerk origin; only academyos-workspace-public-v1 and academyos-prepared-public-v1 exist",
         "publicOfflineGap": "publicOffline is threaded through useOwnerWorkspaceDevice and ExperienceJourney (no account control, no prefetch, /players and /calendar navigation) but no route passes it; only prepared={ownerWorkspaceEnabled(process.env)} is wired on the calendar and players pages",
         "characterisation": "architectural: a protected route mounts Clerk, Clerk is a runtime third-party dependency and the prepared store sits behind that gate; this is a decision about where authority metadata may come from at cold start, not a one-line repair"
+      },
+      "mechanismStatus": "SUPERSEDED - the third-party Clerk bundle is the downstream symptom; see mechanismCorrected",
+      "mechanismCorrected": {
+        "preparedShellCached": true,
+        "cacheEvidence": "academyos-workspace-public-v1:index plus :8739ab7e-ca7e-4b3e-b1cc-03a5d06a9f11 holding https://staging.academy.nahr.dev/prepared-workspace",
+        "handler": "apps/web/public/prepared-workspace-worker.js navigation branch is network-first: fetch(request).catch(()=>cached(\"/prepared-workspace\"))",
+        "measurement": "offline navigation to a never-requested covered URL /en/workspace/<academy>/calendar?anchor=2026-12-20 returned workerStart=1.1ms, responseStatus=200, encodedBodySize=17887",
+        "interpretation": "the service worker intercepted, its fetch was satisfied from Chrome HTTP cache with the protected page HTML, so the cached prepared-shell branch never ran; the protected tree mounted and Clerk could not load",
+        "narrowDefect": "for covered offline navigations the worker prefers a possibly-cached network response over the prepared shell it already holds, so the shell is only reachable when the network fetch fails outright"
+      },
+      "recommendedRepair": {
+        "option": "B (smallest form)",
+        "shape": "answer covered navigations from the cached prepared shell instead of trying the network first, then let the shell existing reconnect path (reentryKey plus bounded HEAD /prepared-workspace probe and reload) move to the live protected route",
+        "whyReusesExisting": "/prepared-workspace is force-static, mounts no Clerk, and PreparedWorkspaceStartup already fences on readRegisterAccount() mode active plus an active workspace or register slot before rendering ExperienceJourney or PeopleJourney",
+        "scope": "navigation branch of one 135-line worker",
+        "authority": "no check relaxed: an inactive account or mismatched slot still degrades to the chooser; no third-party bundle cached",
+        "status": "recommended, not implemented"
       }
     },
     "emptyStore": {
