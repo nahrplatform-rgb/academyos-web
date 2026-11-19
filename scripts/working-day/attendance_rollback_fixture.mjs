@@ -92,7 +92,8 @@ export function rollbackStorage(page,scope){
         result(tx.objectStore('control').get(register.namespace)),
         result(tx.objectStore('rows').index('namespace').count(register.namespace)),
       ]);
-      return {account,workspace,register,rosterRows,repositoryMode:control?.mode,databaseVersion:db.version};
+      return {account,workspace,register,rosterRows,repositoryMode:control?.mode,databaseVersion:db.version,
+        verifiedAt:control?.verifiedAt,verifiedWallAt:control?.verifiedWallAt};
     }finally{db.close();}
   },scope);
 }

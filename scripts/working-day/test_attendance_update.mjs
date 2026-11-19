@@ -8,6 +8,7 @@
 // --refused-write aborts a staged Attendance save and retries the same review.
 // --account-change fences pending Attendance work when the signed-in account changes.
 // --sign-out verifies installed account cleanup before provider sign-out.
+// --thirty-day-retention reopens a pending Attendance save across replica expiry.
 // All account, provider and database data are fictional.
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
@@ -35,13 +36,14 @@ const abortUpgrade=process.argv.includes('--aborted-upgrade');
 const refusedWrite=process.argv.includes('--refused-write');
 const accountChange=process.argv.includes('--account-change');
 const signOut=process.argv.includes('--sign-out');
-const locale=(refusedWrite||accountChange||signOut)&&process.argv.includes('--arabic')?'ar':'en';
+const thirtyDayRetention=process.argv.includes('--thirty-day-retention');
+const locale=(refusedWrite||accountChange||signOut||thirtyDayRetention)&&process.argv.includes('--arabic')?'ar':'en';
 const language=(en,ar)=>locale==='ar'?ar:en;
 const pendingLabel=language('Saved on this device · Awaiting sync','محفوظ على هذا الجهاز · بانتظار المزامنة');
 const syncedLabel=language('Synced · Server recorded the register.','تمت المزامنة · سجّل الخادم الحضور.');
 const preparedWorkspace=rollback||unsupportedStore;
-const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite||accountChange||signOut;
-assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite,accountChange,signOut].filter(Boolean).length<=1,
+const startsOnB=preparedWorkspace||abortUpgrade||refusedWrite||accountChange||signOut||thirtyDayRetention;
+assert.ok([loseReply,unsaved,interruptAssets,rollback,unsupportedStore,abortUpgrade,refusedWrite,accountChange,signOut,thirtyDayRetention].filter(Boolean).length<=1,
   'Choose one Attendance update scenario at a time');
 const temp=await mkdtemp(join(tmpdir(),'academyos-attendance-update-'));
 const aDir=join(temp,'a'),bDir=join(temp,'b');
@@ -704,8 +706,7 @@ async function assertPrivateWorkHidden(tab){
   await expect(tab.getByRole('button',{name:language('Retry original save','أعد محاولة الحفظ الأصلي'),exact:true})).toHaveCount(0);
 }
 
-async function recoverOriginalAfterCleanup({scope,url,subject,rows,counts,one}){
-  const [row]=rows;
+async function openOriginalRecovery({url,subject,rows}){
   // Simulate ordinary same-account sign-in through the existing provider adapter.
   // The route, recovery action, local keys and canonical send remain real.
   fixture.state.subject=subject;
@@ -714,12 +715,18 @@ async function recoverOriginalAfterCleanup({scope,url,subject,rows,counts,one}){
     sessionStorage.removeItem('fixture-signed-out');
     sessionStorage.setItem('fixture-subject',id);
   },subject);
-  const recoveryAt=fixture.state.events.length;
   await page.goto(url);
   const recover=page.getByRole('button',{name:language('Recover saved work','استعد العمل المحفوظ'),exact:true});
   await expect(recover).toBeEnabled();
   await expect(page.locator('.register-roster')).toHaveCount(0);
   assert.deepEqual(await original(),rows);
+  return recover;
+}
+
+async function recoverOriginalAfterCleanup({scope,url,subject,rows,counts,one}){
+  const [row]=rows;
+  const recoveryAt=fixture.state.events.length;
+  const recover=await openOriginalRecovery({url,subject,rows});
   await recover.click();
   await expect(page.getByText(syncedLabel,{exact:true})).toBeVisible({timeout:25000});
   await expect(page.locator('.register-roster .attendance-status.present')).toHaveCount(1);
@@ -915,6 +922,121 @@ async function checkSignOut({builds,firstCache,scope,url,rows,counts,zero,one,se
     originalUnchangedAcrossSignOut:true,originalIdPreserved:true,
     providerSignOutCalls:1,operatingAttemptsDuringSignOut:apiAttempts.length-1,
     serverBeforeRecovery:zero,serverAfterRecovery:one,dispatches:fixture.state.dispatchBodies.length,recoveryCalls}));
+}
+
+async function checkThirtyDayRetention({builds,firstCache,scope,url,rows,counts,zero,captureConnection}){
+  const [row]=rows;
+  const before=await rollbackStorage(page,scope);
+  assert.equal(before.rosterRows,18);
+  assert.equal(before.register.mode,'active');
+  for(const time of [before.verifiedAt,before.verifiedWallAt])assert.ok(Number.isSafeInteger(time)&&time>0);
+  const retentionDays=30;
+  const cutoff=Math.min(before.verifiedAt,before.verifiedWallAt)+retentionDays*24*60*60*1000;
+  const clockKey='fixture-attendance-verification-time';
+  // Move only the app's wall-clock reading. Keep native timers and the
+  // Navigation Timing entry intact for the worker and byte assertions.
+  await page.addInitScript(({fixtureOrigin,key})=>{
+    if(location.origin!==fixtureOrigin)return;
+    const actualNow=Date.now;
+    Date.now=()=>{
+      const current=sessionStorage.getItem(key);
+      return current===null?actualNow():Number(current);
+    };
+  },{fixtureOrigin:origin,key:clockKey});
+  const initialCalls=fixture.state.events.length;
+  const apiAttempts=[];
+  const observeApi=request=>{
+    const {origin:source,pathname}=new URL(request.url());
+    if(source===origin&&pathname.startsWith('/api/'))apiAttempts.push(pathname);
+  };
+  browser.on('request',observeApi);
+
+  async function reopenAt(time){
+    await page.evaluate(({key,time})=>sessionStorage.setItem(key,String(time)),{key:clockKey,time});
+    const response=await page.reload();
+    assert.ok(response?.fromServiceWorker());
+    assert.deepEqual(await page.evaluate(()=>({time:Date.now(),online:navigator.onLine})),{time,online:false});
+    return checkCachedDocument();
+  }
+
+  let beforeTiming,cutoffTiming;
+  try{
+    beforeTiming=await reopenAt(cutoff-1);
+    await expect(page.locator('.register-roster li')).toHaveCount(18);
+    await expect(page.getByText(pendingLabel,{exact:true})).toBeVisible();
+    assert.deepEqual(await rollbackStorage(page,scope),before);
+    assert.deepEqual(await original(),rows);
+    console.log('PASS the prepared roster and unchanged pending save reopen one millisecond before the 30-day cutoff');
+
+    cutoffTiming=await reopenAt(cutoff);
+    const verify=language('Verify access online to reopen protected work.',
+      'تحقّق من الصلاحية عبر الإنترنت لإعادة فتح العمل المحمي.');
+    await expect(page.getByRole('alert').filter({hasText:verify})).toBeVisible();
+    await expect(page.locator('.register-roster')).toHaveCount(0);
+    await expect(page.getByText(pendingLabel,{exact:true})).toHaveCount(0);
+    await expect(page.getByRole('button',{name:language('Review register','راجع الحضور'),exact:true})).toHaveCount(0);
+    const retired=await rollbackStorage(page,scope);
+    assert.equal(retired.register.mode,'sealed');
+    assert.equal(retired.register.namespace,row.namespace);
+    assert.equal(retired.repositoryMode,'quarantined');
+    assert.equal(retired.rosterRows,0);
+    assert.deepEqual(retired.account,before.account);
+    assert.deepEqual(await original(),rows);
+    assert.deepEqual(apiAttempts,[]);
+    assert.equal(fixture.state.events.length,initialCalls);
+    assert.deepEqual(await counts(),zero);
+    assert.deepEqual(await cacheState(),firstCache);
+    console.log('PASS the 30-day offline reopen masks and clears the roster while preserving the encrypted original');
+  }finally{browser.off('request',observeApi);}
+
+  // Independent controls for the replica age and the server recording window
+  // keep the existing signed deadline check in charge of the recovered save.
+  await page.evaluate(key=>sessionStorage.removeItem(key),clockKey);
+  assert.equal(await fixture.db({action:'expire',...scope}),true);
+  phase='b';
+  await browser.setOffline(false);
+  if(captureConnection)await setInstalledConnection(captureConnection,false);
+  await expect.poll(()=>page.evaluate(()=>navigator.onLine)).toBe(true);
+  const recoveryAt=fixture.state.events.length;
+  const recover=await openOriginalRecovery({url,subject:before.account.subject,rows});
+  const [deadlineReply]=await Promise.all([
+    page.waitForResponse(response=>response.url()===origin+'/api/register-dispatch'&&response.request().method()==='POST',
+      {timeout:25000}),
+    recover.click(),
+  ]);
+  assert.equal(deadlineReply.status(),200);
+  assert.deepEqual(await deadlineReply.json(),{data:{error:'window_closed'}});
+  const needsReview=page.getByText(language('Needs review · Original work retained','تحتاج مراجعة · العمل الأصلي محفوظ'),{exact:true});
+  await expect(needsReview).toBeVisible();
+  await expect(page.getByText(syncedLabel,{exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:language('Retry original save','أعد محاولة الحفظ الأصلي'),exact:true})).toHaveCount(0);
+  const recoveryCalls=fixture.state.events.slice(recoveryAt);
+  const keyIndex=recoveryCalls.findIndex(call=>call.route==='register-key'&&call.action==='recover'&&call.status===200);
+  const sendIndex=recoveryCalls.findIndex(call=>call.route==='register-dispatch'&&call.status===200);
+  assert.ok(keyIndex>=0&&sendIndex>keyIndex,'The scoped key recovery precedes the original dispatch');
+  const [wire]=fixture.state.dispatchBodies;
+  const sent=JSON.parse(wire);
+  assert.equal(sent.op,row.op);
+  assert.equal(sent.event,scope.event);
+  assert.deepEqual(sent.marks.map(mark=>mark.status),['present']);
+  const retainedRows=await original();
+  assert.equal(retainedRows.length,1);
+  assert.equal(retainedRows[0].op,row.op);
+  assert.deepEqual(retainedRows[0].active,row.active);
+  assert.deepEqual(await counts(),zero);
+  await page.reload();
+  await expect(needsReview).toBeVisible();
+  assert.deepEqual(await original(),retainedRows);
+  assert.deepEqual(fixture.state.dispatchBodies,[wire]);
+  assert.deepEqual(await counts(),zero);
+  console.log('PASS same-account recovery sends the same original once and preserves Needs review after the server deadline');
+  console.log(JSON.stringify({builds,shellRevision:firstCache.revision,locale,beforeTiming,cutoffTiming,
+    client:installed?'installed standalone':'browser tab',platform:process.platform,
+    browser:browser.browser()?.version(),node:process.version,retentionDays,checkedBeforeCutoffMs:1,
+    rosterRowsBefore:before.rosterRows,rosterRowsAtCutoff:0,registerSealedAtCutoff:true,
+    offlineApiAttempts:apiAttempts.length,originalUnchangedUntilRecovery:true,originalIdPreserved:true,
+    deadlineOutcome:'window_closed',retainedForReview:true,serverBeforeRecovery:zero,serverAfterRecovery:zero,
+    dispatches:fixture.state.dispatchBodies.length,recoveryCalls:recoveryCalls.map(({route,action,status})=>({route,action,status}))}));
 }
 
 async function checkAbortedUpgrade({builds,firstCache,scope,holder,distinctWindows,cold,rows,counts,zero,one}){
@@ -1129,6 +1251,12 @@ async function run(){
     const secondView=installedApp?installationPage:await browser.newPage();
     try{
       await checkSignOut({builds,firstCache,scope,url,rows,counts,zero,one,secondView,captureConnection});
+    }finally{await captureConnection?.detach();}
+    return;
+  }
+  if(thirtyDayRetention){
+    try{
+      await checkThirtyDayRetention({builds,firstCache,scope,url,rows,counts,zero,captureConnection});
     }finally{await captureConnection?.detach();}
     return;
   }

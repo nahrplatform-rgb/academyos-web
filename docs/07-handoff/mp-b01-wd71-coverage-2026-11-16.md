@@ -538,3 +538,15 @@ The existing application passed the WD-80 sign-out sequence in English and Arabi
 - After simulated sign-in as the same Owner, **Recover saved work** recovered the existing key and sent the original once. Disposable PostgreSQL recorded one mark, one history row, one operation and one audit event. Reload showed the saved mark and sent nothing further.
 
 The first run passed the cleanup assertions and then left recovery disabled because the test window still reported offline. The final runner restores and checks the window's connection signal after cleanup. This checkpoint used simulated Clerk in disposable installed Chromium and PostgreSQL. The installed 30-day retention check, physical quota and eviction, live Clerk Attendance and wider devices remain open. Synthetic staging activation still requires the Owner decision above.
+
+## 19 November installed Attendance at the 30-day retention cutoff
+
+The existing application passed the WD-80 retention boundary in English and Arabic. In a disposable Mac installation, the Owner marked one player Present offline. The test used the stored verification times and changed the test window's clock reading. Both offline reloads used the public worker with zero document bytes transferred and zero operating API requests. [Recorded result](evidence/mp-b01-wd71-coverage/launch-checkpoint.json)
+
+- One millisecond before the 30-day cutoff, all 18 roster rows and the pending save were visible. On the first offline reload at the cutoff, the app asked for online verification, sealed the register and cleared all 18 downloaded rows. The encrypted original remained byte-for-byte unchanged.
+- After restoring the browser clock and reconnecting as the same simulated Owner, **Recover saved work** retrieved the existing key and sent that original once. The disposable server refused the expired recording window. The app kept the original on the device as **Needs review**, and the server recorded zero marks, history rows, committed operations or audit events.
+- Reload preserved the same **Needs review** result and sent nothing further.
+
+Playwright's clock simulation hid the native navigation timing from the first run. The final test controls only the application's wall-clock reading and retains the browser's network measurements. The installed sign-out and blocked-upgrade regressions passed again.
+
+Physical storage limits, live Clerk Attendance, hosted update and wider devices remain open. The next local checkpoint is installed Owner Calendar continuity during a held refresh under WD-76. Synthetic staging activation still requires the Owner decision above.
