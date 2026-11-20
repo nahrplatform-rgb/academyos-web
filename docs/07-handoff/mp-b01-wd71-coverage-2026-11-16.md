@@ -688,3 +688,11 @@ The [private photo and encrypted backup rehearsal](mp-b01-player-decisions-2026-
 
 
 The Owner approved display and alternate name correction for the synthetic trial. The QR return works on signed-in localhost in English and Arabic and the gated correction passed local component, API and disposable database checks. The shared rollout and the remaining field and lifecycle decisions are open. [QR return and name correction evidence](mp-b01-player-decisions-2026-11-14.md#qr-return-and-approved-synthetic-name-correction--20-november)
+
+### Players profile consolidation and release reconciliation
+
+The Profile tab now mounts one private editor. The active editor guards departures and starting name correction. Closing private details resets the form, remasks private values and returns focus to Profile. Participation and Finance remain placeholders in the layout. The local People browser fixture exercises the real component with synthetic transport, including keyboard tabs, blocked navigation during an unresolved save, same-original recovery and masking. The signed transfer fixture now checks the Profile tab while retaining its authority, request-count and recovery assertions. The production build and refreshed whole-app review passed locally.
+
+The prior Foundation success belongs to `823f2de` (run `44786513210`). Run `44810596327` on `90fd1e3` stopped at the stale `globals.css` source inventory. The source inventory and experience review have been regenerated for the repaired source.
+
+Read-only provider checks resolved staging to Ready `4bedab3` and confirmed both additional migration ledger entries. The two sensitive trial settings are present on the staging target. Verify their effective behavior in the signed-in synthetic workflow after the Owner promotes a checked successor. Record archive, restore, commitment refusal, stale-version refusal, same-original recovery and private/name correction alongside the earlier exact-source trial evidence. [Staging checklist](player-lifecycle-staging-verification-2026-11-20.md)

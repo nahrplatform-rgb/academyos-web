@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=9e168193-2ece-4f40-8f93-1362b60af824"
+          "task": "#attendance-return=1f01f0dc-d744-4785-813d-0c37aa2e73ce"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=3cf9280c-e01c-4404-b91a-6332b30890df"
+          "task": "#attendance-return=13b5e487-c994-49b8-8ebb-aac47b718b17"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=f392788d-d52c-4572-885c-43f9d92fde22"
+          "task": "#correction-return=41b5f8f2-ac6b-42a2-b5a1-279b41e5943d"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=56c717a5-5eec-4cde-a895-52560a2f9dde"
+          "task": "#development-return=f013667d-5d1c-40c1-b709-77242556894c"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=e60921e5-165a-413d-9fcc-3bff98e59cd2"
+          "task": "#development-return=4203d301-0666-4a8f-abc7-c1d090a9ea49"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=73c342f0-0ab1-4e90-a48a-c97674fee87f"
+          "task": "#publication-return=ac087c42-d173-4705-8b13-177c289e0ef7"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=e40e8644-2c4e-424a-b799-ad49ff9d8160"
+          "task": "#publication-return=9fcbbdd8-abdd-4497-bde2-477193d8ec26"
         }
       },
       {
@@ -1074,7 +1074,7 @@
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
-    "apps/web/src/app/globals.css": "dd040625717faada81752c1ee9b4cac046349939b1fb0e024fff5a4fe10a269a",
+    "apps/web/src/app/globals.css": "292476519859a5f059e12cd4c4a17c14402e7fbd212e5af0db4d679d6ae5317f",
     "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
     "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a",
     "package-lock.json": "28cc985507f4813dfe9dc87c4035a5aa936f1d2f8ec8bed24999d9598071e792"

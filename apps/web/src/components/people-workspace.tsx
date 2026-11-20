@@ -109,6 +109,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
     const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
     const [profileTab,setProfileTab]=useState<ProfileTab>('profile');
+    const [privateEditorRevision,resetPrivateEditor]=useState(0);
     const [correctingNames,setCorrectingNames]=useState(false);
     const privateEditor=useRef<{canLeave:()=>boolean}>(null);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
@@ -638,6 +639,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     }
     function closePrivateDetails() {
         setProfileTab('profile');
+        resetPrivateEditor(value=>value+1);
         requestAnimationFrame(()=>document.getElementById('player-profile-tab-profile')?.focus());
     }
     const onlineSearchDisconnected=(searchOnline||archivedOnly)&&device.offline;
@@ -725,7 +727,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
               </dl>
             </section>
             {!fullProfile&&<p className="notice">{t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.')}</p>}
-            {fullProfile&&privateProfiles&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
+            {fullProfile&&privateProfiles&&profileTab==='profile'&&!correctingNames&&<PlayerPrivateDetails key={selected.id+':'+privateEditorRevision} ref={privateEditor} player={selected.id}
               storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
             {fullProfile&&nameCorrections&&selected.version!==undefined&&profileTab==='profile'&&(
               correctingNames
@@ -734,7 +736,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                     readCurrent={()=>readCorrectedNames(selected.id)}
                     onConfirmed={()=>{namesChanged.current=true;if(device.approved)device.refresh();}}
                     onFailure={failure} onClose={()=>setCorrectingNames(false)} t={t}/>
-                : <Button type="button" disabled={profileBusy} onClick={()=>setCorrectingNames(true)}>
+                : <Button type="button" disabled={profileBusy} onClick={()=>{if(canLeaveProfile())setCorrectingNames(true);}}>
                     {t('Correct player names','تعديل أسماء اللاعب')}
                   </Button>
             )}
@@ -746,8 +748,6 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
           {fullProfile&&<div hidden={profileTab!=='finance'} id="player-profile-panel-finance" role="tabpanel" aria-labelledby="player-profile-tab-finance">
             <p className="notice">{t('Billing, payments and financial records will appear here.','ستظهر هنا الفواتير والمدفوعات والسجلات المالية.')}</p>
           </div>}
-          {fullProfile&&privateProfiles&&profileTab==='profile'&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
-            storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
           {fullProfile&&<div hidden={profileTab!=='actions'} id="player-profile-panel-actions" role="tabpanel" aria-labelledby="player-profile-tab-actions"><div className="journey-actions">
             <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link>
             <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>

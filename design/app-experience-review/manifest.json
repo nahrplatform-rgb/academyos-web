@@ -1,6 +1,6 @@
 {
-  "source": "43056bcf786c502bb9db6dd3e92c426aff56ce60",
-  "generatedAt": "2026-11-20T17:45:44.478Z",
+  "source": "90fd1e3c0b640e462b1b1c616d61c9f257b7666d",
+  "generatedAt": "2026-11-20T21:04:07.167Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -40,7 +40,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx": "f534430469572641a81b4214f695b143802fbcbabe365a26aa8785f44b10a5eb",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-    "apps/web/src/app/globals.css": "dd040625717faada81752c1ee9b4cac046349939b1fb0e024fff5a4fe10a269a",
+    "apps/web/src/app/globals.css": "292476519859a5f059e12cd4c4a17c14402e7fbd212e5af0db4d679d6ae5317f",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/src/app/page.tsx": "c9a2c1e855fdb86224c93f3b7cf45ee26248eb3ba5da3bc33d89b8dd9ee5655f",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
@@ -56,7 +56,7 @@
     "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
-    "apps/web/src/components/people-workspace.tsx": "212c5d155de09c9462d841d3bb73c08644d5f6b14f8517a3ff0c769d7e5fd695",
+    "apps/web/src/components/people-workspace.tsx": "a6eadab5f88e02a43f3275b3a0e13c014715e6f4ddc39daefbc5f9621875b6dd",
     "apps/web/src/components/player-lifecycle.tsx": "955f8ad8d44f015e896c0c2e12e9fe34f156f3d073e9999a26038846d0f054f6",
     "apps/web/src/components/player-name-correction.tsx": "cf3cbcc41e63bea28145be647506757ce54522e5c899f497a9005e02f48a1d5a",
     "apps/web/src/components/player-private-details.tsx": "59e11275aa123410a9467af0be503dc9c74ce3f8f13e8793a530c0c45c484980",
@@ -114,7 +114,7 @@
     "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
     "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
     "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56",
-    "scripts/people/test_ui.mjs": "575365628449b99cf3b13f785ec57319a4f81512a9610439debb3acdef266210",
+    "scripts/people/test_ui.mjs": "7f4ee2f339421e9e55038f8be8575b83b77f793cc4b938d35f10cb7a092a6422",
     "scripts/planning/save_followup.mjs": "860e621f38cd7ffee3344d99216401750182caa8dce4ebdb06ba1ada40384869",
     "scripts/planning/test_ui.mjs": "388a2906124390de71c62cb05b53fc44dd5949fea278201a38f07ad7654c3e30",
     "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
@@ -133,12 +133,12 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "57fd65e31869832f1d1b3eced50457700451943383e38d093e32e892c2a13a3a",
-  "htmlSha256": "6b31557726bcdd0fad3c3f76e13f94291ca07d096de289449fc207582d4ad4b6",
-  "frames": 1897,
-  "transitions": 2690,
+  "capturePackSha256": "99fd83513a8a51427dc85a93cbccb6171a418546a8a0e6bb3ae3d1e233edc294",
+  "htmlSha256": "2a26dc2acc0e318eeb33a54df24761d3ba3f11d8a6a535b0b5c44a28d23d9407",
+  "frames": 1894,
+  "transitions": 2689,
   "sourceFiles": 87,
-  "sourceLiterals": 8839,
+  "sourceLiterals": 8864,
   "journeys": [
     {
       "id": "entry",
@@ -150,7 +150,7 @@
     },
     {
       "id": "people",
-      "frames": 248
+      "frames": 245
     },
     {
       "id": "guardians",

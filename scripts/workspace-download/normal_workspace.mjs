@@ -231,7 +231,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     pass('Prepared Players search retains result geometry without generic Loading feedback');
     await player(page).click();
     await expect(page.getByText('profile@example.invalid',{exact:true})).toBeVisible();
-    await expect(page.getByRole('tab',{name:'Overview',exact:true})).toHaveAttribute('aria-selected','true');
+    await expect(page.getByRole('tab',{name:'Profile',exact:true})).toHaveAttribute('aria-selected','true');
     assert.equal(ui.calls.length,before.reads+1);
     assert.equal(await page.evaluate(async()=>{
       const keys=await caches.keys();

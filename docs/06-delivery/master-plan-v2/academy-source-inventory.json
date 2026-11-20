@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "43056bcf786c502bb9db6dd3e92c426aff56ce60",
+  "source_anchor": "90fd1e3c0b640e462b1b1c616d61c9f257b7666d",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -360,8 +360,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "dd040625717faada81752c1ee9b4cac046349939b1fb0e024fff5a4fe10a269a",
-      "bytes": 100354
+      "sha256": "292476519859a5f059e12cd4c4a17c14402e7fbd212e5af0db4d679d6ae5317f",
+      "bytes": 101110
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -450,8 +450,8 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "212c5d155de09c9462d841d3bb73c08644d5f6b14f8517a3ff0c769d7e5fd695",
-      "bytes": 62295
+      "sha256": "a6eadab5f88e02a43f3275b3a0e13c014715e6f4ddc39daefbc5f9621875b6dd",
+      "bytes": 63632
     },
     {
       "path": "apps/web/src/components/player-lifecycle.tsx",
