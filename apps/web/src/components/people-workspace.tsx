@@ -44,7 +44,7 @@ type Page = {
     more: boolean;
     revision: number;
 } & Context;
-type ProfileTab = 'overview' | 'private' | 'actions';
+type ProfileTab = 'profile' | 'participation' | 'actions';
 type Stage = 'directory' | 'form' | 'duplicates' | 'review' | 'saving' | 'unknown' | 'profile';
 class RequestFailure extends Error {
     constructor(public code: string) { super(code); }
@@ -108,7 +108,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const searchQuery=search.normalize('NFKC').trim(), shortSearch=searchQuery.length===1;
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
     const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
-    const [profileTab,setProfileTab]=useState<ProfileTab>('overview');
+    const [profileTab,setProfileTab]=useState<ProfileTab>('profile');
     const [correctingNames,setCorrectingNames]=useState(false);
     const privateEditor=useRef<{canLeave:()=>boolean}>(null);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
@@ -302,7 +302,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if(!canLeaveProfile())return;
         pendingView.current=null;
         if(!device.offline){void openProfile(player.id);return;}
-        setProfileTab('overview');
+        setProfileTab('profile');
         cancelProfileRead();
         setSaved(false);setProfileId(player.id);setSelected(player);setSummaryOnly(true);go('profile');
     }
@@ -321,7 +321,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 try {recoverNames=Boolean(sessionStorage.getItem(nameStorageKey(id)));} catch {}
             }
             const recoverLifecycle=lifecycleTrial&&readPendingLifecycle(lifecycleKey)?.player===id;
-            setProfileTab(recoverLifecycle?'actions':'overview');
+            setProfileTab(recoverLifecycle?'actions':'profile');
             setCorrectingNames(recoverNames&&!recoverLifecycle);
         }
         const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
@@ -619,8 +619,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const protectedViewGone=unavailable||(localRows&&!device.active);
     const fullProfile=!summaryOnly&&!device.offline;
     const tabs: {id:ProfileTab;label:string}[]=[
-        {id:'overview',label:t('Overview','نظرة عامة')},
-        ...(privateProfiles?[{id:'private' as const,label:t('Private profile details','بيانات الملف الخاصة')}]:[]),
+        {id:'profile',label:t('Profile','الملف')},
+        {id:'participation',label:t('Participation','المشاركة')},
         {id:'actions',label:t('Actions','الإجراءات')},
     ];
     function switchProfileTab(tab:ProfileTab) {
@@ -636,8 +636,8 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         return {...updated,version:updated.version};
     }
     function closePrivateDetails() {
-        setProfileTab('overview');
-        requestAnimationFrame(()=>document.getElementById('player-profile-tab-overview')?.focus());
+        setProfileTab('profile');
+        requestAnimationFrame(()=>document.getElementById('player-profile-tab-profile')?.focus());
     }
     const onlineSearchDisconnected=(searchOnline||archivedOnly)&&device.offline;
     const alternateLabel=t('Alternate full name','الاسم الكامل البديل');
@@ -647,7 +647,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         (stage==='directory'||(stage==='profile'&&error==='authentication_required'));
     const inspector = protectedViewGone?null:<>
       {stage==='profile'&&profileBusy&&<p role="status" className={profileChecking?'visually-hidden':'notice'}>{profileChecking?t('Checking current player…','جارٍ التحقق من بيانات اللاعب…'):t('Loading profile…','جارٍ تحميل الملف…')}</p>}
-      {stage === 'profile' && selected && fullProfile && profileTab!=='private' && !correctingNames && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
+      {stage === 'profile' && selected && fullProfile && profileTab!=='participation' && !correctingNames && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
 
       {(stage === 'profile' || registrationTask) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {(stage === 'profile' || registrationTask) && notice && <p className="notice" role="status">{notice}</p>}
@@ -706,7 +706,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
               aria-selected={profileTab===tab.id} aria-controls={'player-profile-panel-'+tab.id}
               tabIndex={profileTab===tab.id?0:-1} onClick={()=>switchProfileTab(tab.id)}>{tab.label}</Button>)}
           </div>}
-          <div hidden={fullProfile&&profileTab!=='overview'} id="player-profile-panel-overview" role={fullProfile?'tabpanel':undefined} aria-labelledby={fullProfile?'player-profile-tab-overview':undefined}>
+          <div hidden={fullProfile&&profileTab!=='profile'} id="player-profile-panel-profile" role={fullProfile?'tabpanel':undefined} aria-labelledby={fullProfile?'player-profile-tab-profile':undefined}>
             <dl className="admission-properties">
               <div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>
               {fullProfile&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}
@@ -715,7 +715,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             </dl>
             {!fullProfile&&<p className="notice">{t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.')}</p>}
             {fullProfile&&selected.archived&&<p>{t('Archived','مؤرشف')}</p>}
-            {fullProfile&&nameCorrections&&selected.version!==undefined&&profileTab==='overview'&&(
+            {fullProfile&&nameCorrections&&selected.version!==undefined&&profileTab==='profile'&&(
               correctingNames
                 ? <PlayerNameCorrection key={selected.id} ref={privateEditor} player={{...selected,version:selected.version}}
                     storageKey={nameStorageKey(selected.id)} request={request}
@@ -728,10 +728,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             )}
             {fullProfile&&name&&!saved&&<Button onClick={()=>{if(canLeaveProfile())go('form');}}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}
           </div>
-          {fullProfile&&privateProfiles&&<div hidden={profileTab!=='private'} id="player-profile-panel-private" role="tabpanel" aria-labelledby="player-profile-tab-private">
-            {profileTab==='private'&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
-              storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
+          {fullProfile&&<div hidden={profileTab!=='participation'} id="player-profile-panel-participation" role="tabpanel" aria-labelledby="player-profile-tab-participation">
+            <p className="notice">{t('Sport participation, groups and schedule assignments will appear here.','ستظهر هنا مشاركات اللاعب في الرياضات والمجموعات والجدول.')}</p>
           </div>}
+          {fullProfile&&privateProfiles&&profileTab==='profile'&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
+            storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
           {fullProfile&&<div hidden={profileTab!=='actions'} id="player-profile-panel-actions" role="tabpanel" aria-labelledby="player-profile-tab-actions"><div className="journey-actions">
             <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link>
             <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>
