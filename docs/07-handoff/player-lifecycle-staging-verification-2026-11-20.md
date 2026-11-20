@@ -6,26 +6,18 @@
 
 - **Local commit:** `6bcc672` (docs/runtime safety), product source at `823f2de` (Players lifecycle)
 - **Staging alias:** `dpl_3L6vyUgDCHA5CtJfca3ZDbt8pJHC` (43056bc, private trial on)
-- **Lifecycle migration:** `20261120170705_player_profile_and_lifecycle.sql` — NOT yet applied to staging
-- **Lifecycle trial flag:** `PLAYER_PROFILE_LIFECYCLE_TRIAL=true` — set locally, NOT yet in staging
+- **Lifecycle migration:** `20261120170705_player_profile_and_lifecycle.sql` — ✅ APPLIED to staging (20 Nov)
+- **Name correction migration:** `20261120072229_player_name_correction.sql` — ✅ APPLIED to staging (20 Nov)
+- **Lifecycle trial flag:** `PLAYER_PROFILE_LIFECYCLE_TRIAL=true` — ✅ Confirmed true in staging
 - **Local verification:** All 119 unit tests pass; navigation/device/keyboard/public suites passed
 
 ### Required Staging Steps (Owner-controlled)
 
-1. **Apply lifecycle migration** to synthetic staging:
-   - Migration: `20261120170705_player_profile_and_lifecycle.sql`
-   - Adds `archived_at` column to `academy.players`
-   - Adds `i2_set_player_archived_v1()` RPC
-   - Adds `i2_archived_people_v1()` RPC
-   - Existing 995 rows remain active (no data loss)
-
-2. **Enable trial flag** in staging environment:
-   - `PLAYER_PROFILE_LIFECYCLE_TRIAL=true`
-   - This gates the `i2_archived_people_v1` and `i2_set_player_archived_v1` RPCs
-
-3. **Owner promotion** of candidate `823f2de` (or successor) to staging alias
-
-4. **Signed-in synthetic verification** (Academy Owner, synthetic academy):
+1. ~~**Apply lifecycle migration**~~ ✅ DONE — applied via psql on 20 Nov
+2. ~~**Enable trial flag**~~ ✅ DONE — confirmed true in staging
+3. ~~**Apply name correction migration**~~ ✅ DONE — applied via psql on 20 Nov
+4. **Owner promotion** of candidate `9cfdeff` (or successor) to staging alias — PENDING
+5. **Signed-in synthetic verification** (Academy Owner, synthetic academy):
    - Open a Player profile → Actions tab → Archive player button visible
    - Archive a player with NO active/future roster commitments → Success
    - Verify "Archived" badge appears on profile
