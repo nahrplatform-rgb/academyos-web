@@ -4,6 +4,8 @@
 
 ## Current working contract
 
+The table records the 7 November baseline. The 20 November decision adds one optional alternate full name at connected registration, in the full Owner profile, and in online Owner search. [Exact approval and verification](mp-b01-player-decisions-2026-11-14.md#alternate-name-implementation-and-evidence)
+
 | Layer | Verified behavior | Source |
 |---|---|---|
 | Create | One required Unicode `display_name`, up to160 characters, whitespace normalized; optional fictional `contact_email`; branch from loaded initial setup | [parser](../../apps/web/src/lib/people.ts), [SQL](../../supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql) |

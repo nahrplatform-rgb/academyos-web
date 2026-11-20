@@ -10,18 +10,23 @@ import Link from 'next/link';
 import { Button, Input } from './ui/controls';
 import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
 import {decodePeopleViewContext,type PeopleViewContext} from '@/lib/people-view-context';
+import {PlayerMemberLookup, PlayerPrivateDetails} from './player-private-details';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 type Player = {
     id: string;
     name: string;
     branch: string;
     contact?: string;
+    alternateName?: string;
+    academyMemberNumber?: string;
 };
 type Row = {
     id: string;
     display_name: string;
     branch_name: string;
     contact_email?: string;
+    alternate_name?: string;
+    academy_member_number?: string;
 };
 type Context = {
     academy_name: string;
@@ -37,11 +42,15 @@ type Stage = 'directory' | 'form' | 'duplicates' | 'review' | 'saving' | 'unknow
 class RequestFailure extends Error {
     constructor(public code: string) { super(code); }
 }
-const playerRow = (p: Row): Player => ({ id: p.id, name: p.display_name, branch: p.branch_name, contact: p.contact_email });
+const playerRow = (p: Row): Player => ({
+    id: p.id, name: p.display_name, branch: p.branch_name, contact: p.contact_email,
+    alternateName: p.alternate_name, academyMemberNumber: p.academy_member_number,
+});
 export default function PeopleWorkspace(props: {
     locale: string;
     academy: string;
     prepared?: boolean;
+    privateProfiles?: boolean;
 }) {
     const session = useUser();
     const [initializationExpired, setInitializationExpired] = useState(false);
@@ -58,12 +67,13 @@ export default function PeopleWorkspace(props: {
         return <PublicWorkspace locale={props.locale} title="AcademyOS"><p>{props.locale === 'ar' ? 'سجّل الدخول للمتابعة.' : 'Sign in to continue.'}</p></PublicWorkspace>;
     return <PeopleJourney key={`${session.user.id}:${props.academy}`} {...props} subject={session.user.id}/>;
 }
-export function PeopleJourney({ locale: initialLocale, academy, subject,prepared,publicOffline }: {
+export function PeopleJourney({ locale: initialLocale, academy, subject,prepared,publicOffline,privateProfiles }: {
     locale: string;
     academy: string;
     subject: string;
     prepared?: boolean;
     publicOffline?: boolean;
+    privateProfiles?: boolean;
 }) {
     const [locale, setLocale] = useState(initialLocale), ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
     const device=useOwnerWorkspaceDevice({subject,academy,priority:'people',prepared,publicOffline});
@@ -77,11 +87,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [more, setMore] = useState(false), [candidateMore, setCandidateMore] = useState(false), [revision, setRevision] = useState(0);
     const [onlinePage,setOnlinePage] = useState<{query: string; after?: string} | null>(null);
     const [name, setName] = useState(''), [contact, setContact] = useState(''), [search, setSearch] = useState(''), [different, setDifferent] = useState(false);
+    const [alternateName,setAlternateName]=useState('');
+    const [searchOnline,setSearchOnline]=useState(false);
     const [searchMode,setSearchMode]=useState<'device'|'online'|null>(null);
     const searchPending=searchMode!==null;
     const searchQuery=search.normalize('NFKC').trim(), shortSearch=searchQuery.length===1;
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
     const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
+    const [privatePlayer,setPrivatePlayer]=useState<string|null>(null);
+    const privateOpener=useRef<HTMLButtonElement>(null);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
     const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
@@ -134,6 +148,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         setSelected(null);
         setSaved(false);
         setName('');
+        setAlternateName('');
         setContact('');
     } }
     async function request<T>(body: Record<string, unknown>, profileRead=false): Promise<T> {
@@ -143,7 +158,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         controllers.current.add(controller);
         const timeout = setTimeout(() => controller.abort(), 15000);
         try {
-            const res = await fetch('/api/people', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: controller.signal, body: JSON.stringify({ ...body, academy }) });
+            const headers: Record<string,string> = { 'Content-Type': 'application/json' };
+            if (body.action === 'savePrivatePhoto' && typeof body.image === 'string') headers['x-academyos-photo-upload'] = '1';
+            const res = await fetch('/api/people', { method: 'POST', headers, cache: 'no-store', signal: controller.signal, body: JSON.stringify({ ...body, academy }) });
             if(!active.current||controller.signal.aborted)throw new RequestFailure('stale');
             if(res.status===401)throw new RequestFailure('authentication_required');
             const json = await res.json();
@@ -159,11 +176,13 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             if(profileController.current===controller)profileController.current=null;
         }
     }
-    async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, recheck=false) {
+    async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, recheck=false,
+        source?: { online: boolean; query: string }) {
+        const online=(source?.online??searchOnline)&&!device.offline;
         if(quiet&&authenticationRequired.current)return;
         let ticket=quiet?directoryTicket.current:++directoryTicket.current;
         let applied=!quiet;
-        const q=(pendingView.current?.search??search).normalize('NFKC').trim();
+        const q=(source?.query??pendingView.current?.search??search).normalize('NFKC').trim();
         if(!quiet){
             controllers.current.forEach(c=>c.abort());
             setChecking(recheck&&Boolean(context)&&!blocked&&!missing&&!error&&(!saved||players.length>0));
@@ -171,7 +190,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         }
         try {
             if(q.length===1&&context&&!authenticationRequired.current)return;
-            if(device.active&&!after&&!authenticationRequired.current) {
+            if(device.active&&!online&&!after&&!authenticationRequired.current) {
                 let cursor=position??pendingView.current?.position??null;
                 const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
                 const contextTask=device.context();
@@ -290,7 +309,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     function go(next: Stage) { if(next!=='profile')cancelProfileRead();pendingView.current=null;setError(''); setNotice(''); setStage(next); }
     function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage))
         return; if (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟')))
-        return; setName(''); setContact(''); go('directory'); void loadDirectory(); }
+        return; setName(''); setAlternateName(''); setContact(''); go('directory'); void loadDirectory(); }
     async function continueDraft(event: FormEvent) { event.preventDefault(); if (!name.trim()) {
         setError('invalid');
         nameInput.current?.focus();
@@ -316,11 +335,13 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         try {
             const r = await request<{
                 player_id: string;
-            }>({ action: 'create', branch: context.branch_id, op, name, contact, revision, different });
+            }>({ action: 'create', branch: context.branch_id, op, name, contact, revision, different,
+                ...(alternateName.trim()?{alternateName}: {}) });
             setSaved(true);
             setRegistrationCommitted(true);
             forget();
             setName('');
+            setAlternateName('');
             setContact('');
             if(device.approved)device.refresh();
             await openProfile(r.player_id, true);
@@ -362,6 +383,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             setSaved(true);
             setRegistrationCommitted(true);
             setName('');
+            setAlternateName('');
             setContact('');
             if(device.approved)device.refresh();
             await openProfile(r.player_id, true);
@@ -398,7 +420,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if(searchPending&&stage==='directory'&&!unavailable)void loadDirectory();
     });
     const queueSearch=useEffectEvent(()=>{
-        if(localRows&&device.active){
+        if(localRows&&device.active&&!searchOnline){
             let live=true;
             queueMicrotask(()=>{if(live)searchDirectory();});
             return ()=>{live=false;};
@@ -408,7 +430,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     });
     const refreshVisible = useEffectEvent(() => { if (accessDenied.current || busy || profileBusy || document.visibilityState !== 'visible')
         return; if (stage === 'directory' || stage === 'form') {
-        if(!device.active)void loadDirectory(undefined,null,false,stage==='directory');
+        if(!device.active||searchOnline)void loadDirectory(undefined,null,false,stage==='directory');
     }
     else if (stage === 'profile' && profileId && !summaryOnly && !device.offline)
         void openProfile(profileId,saved,true);
@@ -417,12 +439,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         initialize(); }); return () => { active.current = false; currentControllers.forEach(c => c.abort()); }; }, []);
     useEffect(()=>{if(searchPending)return queueSearch();},[searchQuery,searchPending]);
     useEffect(()=>{
-        if(!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
+        if(searchOnline||!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
             (stage!=='directory'&&(stage!=='profile'||!summaryOnly)))return;
         try {sessionStorage.setItem(viewKey,JSON.stringify({search,
             selection:stage==='profile'&&uuidPattern.test(profileId)?profileId:null,
             position:localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null} satisfies PeopleViewContext));} catch {}
-    },[prepared,viewRestored,localRows,device.active,blocked,stage,summaryOnly,profileId,search,viewKey,players]);
+    },[searchOnline,prepared,viewRestored,localRows,device.active,blocked,stage,summaryOnly,profileId,search,viewKey,players]);
     useEffect(() => listenForVisibleResume(() => refreshVisible()), []);
     const reloadLocal=useEffectEvent(()=>{
         if(!active.current)return;
@@ -430,7 +452,20 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             failure(new RequestFailure('denied'));
             return;
         }
-        if(accessDenied.current||searchPending||(stage!=='directory'&&stage!=='profile'))return;
+        if(accessDenied.current)return;
+        if(searchOnline){
+            if(device.offline){
+                setSearchOnline(false);
+                setSearch('');
+                if(stage==='directory'||stage==='profile'){
+                    setPlayers([]);setContext(null);setMore(false);
+                    if(stage==='profile'){setSelected(null);go('directory');}
+                    void loadDirectory(undefined,null,false,false,{online:false,query:''});
+                }
+            }
+            return;
+        }
+        if(searchPending||(stage!=='directory'&&stage!=='profile'))return;
         if(localRows&&!device.active){
             setPlayers([]);setSelected(null);setContext(null);setLocalRows(false);
             if(device.offline)setMissing(true);
@@ -472,6 +507,16 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if(saved||!context)reloadReturnedDirectory();
         else directoryFocus.current={ticket:directoryTicket.current,player:profileId};
     }
+    function switchSearchSource() {
+        const online=!searchOnline;
+        const query=online?search:'';
+        setSearchOnline(online);
+        setSearch(query);
+        pendingView.current=null;
+        setOnlinePage(null);
+        void loadDirectory(undefined,null,false,false,{online,query});
+        searchInput.current?.focus();
+    }
     function changeSearch(value:string) {
         const nextQuery=value.normalize('NFKC').trim();
         setSearch(value);
@@ -481,7 +526,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         controllers.current.forEach(controller=>controller.abort());
         const needsRead=nextQuery.length!==1||!context||authenticationRequired.current;
         setChecking(false);setSaved(false);setBusy(needsRead);
-        setSearchMode(needsRead?(localRows&&device.active?'device':'online'):null);
+        setSearchMode(needsRead?(localRows&&device.active&&!searchOnline?'device':'online'):null);
     }
     function retryBlockedView() {
         accessDenied.current=false;
@@ -492,6 +537,10 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     }
     const registrationTask = !['directory','profile'].includes(stage);
     const protectedViewGone=unavailable||(localRows&&!device.active);
+    const privateEditorOpen=Boolean(privateProfiles && privatePlayer && stage==='profile' && selected?.id===privatePlayer &&
+      !summaryOnly && !device.offline && !protectedViewGone);
+    const onlineSearchDisconnected=searchOnline&&device.offline;
+    const alternateLabel=t('Alternate full name','الاسم الكامل البديل');
     const previousSearchRows=searchMode==='online'&&!shortSearch&&!protectedViewGone&&Boolean(context)&&players.length>0;
     const registrationSaved=t('Registration saved','حُفظ التسجيل');
     const showSavedResult=saved&&device.phase!=='denied'&&error!=='denied'&&error!=='setup_required'&&
@@ -507,11 +556,14 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
           <form onSubmit={continueDraft}><fieldset disabled={busy}><legend>{t('Fictional player details', 'بيانات اللاعب الخيالية')}</legend>
             <label htmlFor="player-name">{t('Player display name (required)', 'اسم عرض اللاعب (مطلوب)')}</label>
             <Input ref={nameInput} id="player-name" required maxLength={160} value={name} onChange={event => setName(event.target.value)}/>
+            <label htmlFor="player-alternate-name">{t('Alternate full name (optional)', 'الاسم الكامل البديل (اختياري)')}</label>
+            <Input id="player-alternate-name" dir="auto" maxLength={160} value={alternateName} onChange={event => setAlternateName(event.target.value)}/>
             <label htmlFor="contact-email">{t('Parent/guardian contact email (optional)', 'بريد جهة اتصال ولي الأمر (اختياري)')}</label>
             <Input id="contact-email" type="email" dir="ltr" maxLength={254} value={contact} onChange={event => setContact(event.target.value)} aria-describedby="contact-help"/>
             <small id="contact-help">{t('Unverified contact only. Use @example.invalid. No parent account, invitation or child access.', 'جهة اتصال غير موثقة فقط. استخدم @example.invalid. لا حساب لولي الأمر أو دعوة أو وصول لبيانات الطفل.')}</small>
             <div className="journey-actions"><Button disabled={busy} type="submit" className="button">{t('Continue to duplicate review', 'المتابعة لمراجعة التكرار')}</Button><Button type="button" onClick={() => { if (window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) {
                 setName('');
+                setAlternateName('');
                 setContact('');
                 go('directory');
                 void loadDirectory();
@@ -520,12 +572,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         </section>}
         {stage === 'duplicates' && <section className="journey-card"><h2>{t('Review possible duplicates', 'مراجعة السجلات المتشابهة')}</h2>
           <p>{t('Matching names do not establish identity. Open an existing record, or explicitly confirm a different person. No automatic merge.', 'تشابه الاسم لا يثبت الهوية. افتح سجلاً موجوداً أو أكد أنه شخص مختلف. لا دمج تلقائياً.')}</p>
-          <div className="people-comparison"><section className="people-proposal"><h3>{t('New registration','التسجيل الجديد')}</h3><strong>{name.trim()}</strong><p>{context?.branch_name}</p><p><bdi dir="ltr">{contact || t('No contact supplied','لم تُضف جهة اتصال')}</bdi></p><span className="badge">{t('Not saved','غير محفوظ')}</span></section><section><h3>{t('Possible existing players','لاعبون موجودون محتملون')}</h3><ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul></section></div>
+          <div className="people-comparison"><section className="people-proposal"><h3>{t('New registration','التسجيل الجديد')}</h3><strong>{name.trim()}</strong>{alternateName.trim()&&<p>{alternateLabel} · <bdi>{alternateName.trim()}</bdi></p>}<p>{context?.branch_name}</p><p><bdi dir="ltr">{contact || t('No contact supplied','لم تُضف جهة اتصال')}</bdi></p><span className="badge">{t('Not saved','غير محفوظ')}</span></section><section><h3>{t('Possible existing players','لاعبون موجودون محتملون')}</h3><ul className="journey-list">{candidates.map(player => <li key={player.id}><strong>{player.name}</strong> · {player.branch} <Button disabled={busy&&(!localRows||checking)} onClick={() => selectPlayer(player)}>{t('Open existing profile', 'فتح الملف الموجود')}</Button></li>)}</ul></section></div>
           {candidateMore && <Button disabled={busy} onClick={() => void reviewCandidates(candidates.at(-1)?.id)}>{t('Next matching page (up to 25)', 'الصفحة المطابقة التالية (حتى 25)')}</Button>}<label className="people-check"><input type="checkbox" checked={different} onChange={event => setDifferent(event.target.checked)}/>{t('I reviewed these records. This is a different fictional person.', 'راجعت هذه السجلات. هذا شخص خيالي مختلف.')}</label>
           <div className="journey-actions"><Button disabled={!different || busy || candidateMore} className="button" onClick={() => go('review')}>{t('Review new registration', 'مراجعة التسجيل الجديد')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
         </section>}
         {stage === 'review' && <section className="journey-card"><h2>{t('Confirm player registration', 'تأكيد تسجيل اللاعب')}</h2>
-          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div><div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
+          <dl className="admission-properties"><div><dt>{t('Player', 'اللاعب')}</dt><dd>{name.trim()}</dd></div>{alternateName.trim()&&<div><dt>{alternateLabel}</dt><dd><bdi>{alternateName.trim()}</bdi></dd></div>}<div><dt>{t('Branch', 'الفرع')}</dt><dd>{context?.branch_name}</dd></div><div><dt>{t('Optional unverified contact', 'جهة الاتصال الاختيارية غير الموثقة')}</dt><dd><bdi dir="ltr">{contact || t('Not provided', 'لم تُضف')}</bdi></dd></div></dl>
           <p>{t('Creates one player record and optional unverified contact. No login, guardian link, enrollment or activation.', 'ينشئ سجلًا للاعب وجهة اتصال اختيارية غير موثقة إن أُضيفت. لا تسجيل دخول أو ربط ولي أمر أو اشتراك أو تفعيل.')}</p>
           <div className="journey-actions"><Button className="button" disabled={busy} onClick={() => void save()}>{t('Save registration', 'حفظ التسجيل')}</Button><Button onClick={() => go('form')}>{t('Edit draft', 'تعديل المسودة')}</Button></div>
         </section>}
@@ -536,7 +588,12 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         {stage === 'profile' && !selected && !busy && !profileBusy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
         {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
           <p role="status">{saved ? registrationSaved : summaryOnly?t('Player summary on this device','ملخص اللاعب على هذا الجهاز'):t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
-          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div><div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{summaryOnly?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div></dl>
+          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>{!summaryOnly&&!device.offline&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}<div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{summaryOnly?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div></dl>
+          {!summaryOnly && !device.offline && selected.academyMemberNumber && <dl className="admission-properties">
+            <div><dt>{t('Academy member number', 'رقم العضوية في الأكاديمية')}</dt><dd><bdi dir="ltr">{selected.academyMemberNumber}</bdi></dd></div>
+          </dl>}
+          {privateProfiles && !summaryOnly && !device.offline && <Button type="button" ref={privateOpener}
+            onClick={()=>setPrivatePlayer(selected.id)}>{t('Private profile details', 'بيانات الملف الخاصة')}</Button>}
           <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
           {summaryOnly&&<p className="notice">{device.offline?t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.'):t('Open the full profile for contact details and further actions.','افتح الملف الكامل لبيانات الاتصال والإجراءات الأخرى.')}</p>}
           {!device.offline&&!summaryOnly&&<div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>}
@@ -555,7 +612,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         guard(event);
     else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
         event.preventDefault(); }} account={publicOffline?null:<UserButton />} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(context)&&!blocked}/>}>
-      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
+      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} suspendPhoneDialog={privateEditorOpen} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
       <header className={directoryView?'task-header people-directory-header':'task-header'}>
       {directoryView?<div>
         <h1 id="people-directory-title" ref={heading} tabIndex={-1}>{title}</h1>
@@ -580,12 +637,18 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             <div className="people-directory-search">
               <div>
                 <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
-                <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={search} onChange={event => changeSearch(event.target.value)}/>
+                <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={onlineSearchDisconnected?'':search} onChange={event => changeSearch(event.target.value)}/>
               </div>
-              {search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
+              {stage==='directory'&&device.active&&!device.offline&&context&&
+                <Button disabled={busy} onClick={switchSearchSource}>{searchOnline
+                    ?t('Use downloaded directory','استخدم قائمة اللاعبين المنزّلة')
+                    :t('Search all names online','ابحث بكل الأسماء عبر الإنترنت')}</Button>}
+              {!onlineSearchDisconnected&&search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
             </div>
-            <Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button>
+            <Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setAlternateName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button>
           </div>
+          {privateProfiles && stage==='directory' && context && !device.offline && <PlayerMemberLookup
+            request={request} openProfile={openProfile} onFailure={failure} t={t}/>}
           {shortSearch && <p className="directory-search-status" role="status">{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {searchMode==='online'&&!shortSearch && <p className="directory-search-status" role="status">{previousSearchRows
             ?t('Updating results… Showing previous results.','جارٍ تحديث النتائج… تُعرض النتائج السابقة.')
@@ -598,7 +661,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             :!localRows&&onlinePage?.after?t('No players on this page. Go to the first page.','لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.')
             :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
           {context && searchMode!=='online' && !shortSearch && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
-          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!onlineSearchDisconnected&&!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
           <div className="people-directory-footer">
             {context && !shortSearch && <div className="people-directory-pages"><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</div>}
             <small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
@@ -606,6 +669,13 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         </section>}
 
       </>}
-    </WorkspacePanes></WorkspaceShell>
+    </WorkspacePanes>
+    {privateEditorOpen && privatePlayer && <PlayerPrivateDetails key={privatePlayer}
+        player={privatePlayer} storageKey={`${storageKey}:private:${privatePlayer}`} request={request}
+        onFailure={error=>{setPrivatePlayer(null);failure(error);}} onClose={()=>{
+            setPrivatePlayer(null);
+            requestAnimationFrame(()=>privateOpener.current?.focus());
+        }} t={t}/>}
+    </WorkspaceShell>
   </>;
 }

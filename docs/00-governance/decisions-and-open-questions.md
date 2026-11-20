@@ -1,5 +1,15 @@
 # Decisions and open questions
 
+## MP-Q01 alternate name at registration — 20 November 2026
+
+The Owner selected **“Add alternate name first (Recommended)”**. One optional alternate full name can be supplied when an Academy Owner registers a player online. The current Academy Owner can find the record by either name and see the alternate in the full online profile. The display name remains on rosters. Date of birth, new role visibility, edit/archive/restore and any expansion of the prepared data projection remain open. [Field decision and evidence](../07-handoff/mp-b01-player-decisions-2026-11-14.md#20-november-online-baseline-and-decision-on-the-first-fields)
+
+The [combined Players decision packet](../07-handoff/mp-b01-player-decisions-2026-11-14.md#one-owner-decision-for-the-connected-players-batch) is ready for review. Its recommendations do not change existing approvals.
+
+The Owner expanded the [common Player profile scope](../07-handoff/mp-b01-player-decisions-2026-11-14.md#owner-direction-on-common-fields-and-member-ids) to include address, national ID, school, profile photo and medical notes. The Owner also requested generated academy-wide and sport-scoped member IDs, plus support for existing academy-issued IDs. This settles inclusion, not the remaining field access, retention or ID rules. Sport-scoped issuance depends on multisport participation.
+
+The Owner subsequently replied **“approved”** to the combined existing-ID and private-field proposal for synthetic staging. Use the [approved rules](../07-handoff/mp-b01-player-decisions-2026-11-14.md#remaining-rules-for-one-owner-review): separate generated and existing IDs, academy-scoped duplicate prevention including archived players, and optional private fields on the full online Academy Owner profile with national ID masked by default. No post-archive retention period was specified. This does not authorize real-data collection, expand export or offline scope, or settle archive and restore behavior.
+
 ## Version2 focused decision dependencies —7November2026
 
 [Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package preserves decisions and later scoped approvals in this record. Its MP-Q dependencies name only the concrete unresolved field/resource/role/finance/command choices needed by a batch; do not re-ask settled overall sign-in/local-data/retention/design direction or block unrelated work. New scope rows are planning targets, not accepted rules.

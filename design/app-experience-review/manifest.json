@@ -1,6 +1,6 @@
 {
-  "source": "353446963f72604e25dbd0af7b90d391fc4b6af0",
-  "generatedAt": "2026-11-19T20:14:32.305Z",
+  "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+  "generatedAt": "2026-11-20T03:25:08.479Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -26,7 +26,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/page.tsx": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx": "27cae004bebee14addf1c4c173b4b9dca067288df813f988cfc90df0ee30f83d",
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx": "362807ca87bbf8f65214db83c0919b52c2bfd7ddacf146d631069db8375c3b02",
-    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "c24e0b103d2a8053a2925afb5ad634c7a157f64919ee84e640daf7796c8be5ef",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx": "9a62e3033a2a1d1b7f75bcff147bcc8fb175f29e6acdcb348fbb026a28c872bd",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx": "d9cc84a8073f49eea0ab11a4174eb9101f2bc83ffdace9848febe7cd2816a97a",
@@ -55,7 +55,8 @@
     "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
-    "apps/web/src/components/people-workspace.tsx": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
+    "apps/web/src/components/people-workspace.tsx": "ac3282f374633848271515c8304a691386551637700446751e077123ca4ab9d4",
+    "apps/web/src/components/player-private-details.tsx": "63e312116a32cfedbf9a6459efa167bb782a4190d2a2425be530c672ad594db7",
     "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
@@ -77,7 +78,7 @@
     "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
     "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
     "apps/web/src/components/workspace-panel-icon.tsx": "25e6d38f430db0de251d1a81cfae9811600eb4421d121ca4630fbcab908cac4f",
-    "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+    "apps/web/src/components/workspace-panes.tsx": "28f637c6b6ed95234886392ccedce94823cdbad6b156de63267f9e8d9bc9eb0e",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
     "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
@@ -110,7 +111,7 @@
     "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
     "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
     "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56",
-    "scripts/people/test_ui.mjs": "9aa8e86940b93372c1f9353b133c2218dca7292699d1bb5c4c8363c3a8b1885f",
+    "scripts/people/test_ui.mjs": "533f22999743e37e9373030069f934966cb6fb8b49226f4ac3d26a9d3de45334",
     "scripts/planning/save_followup.mjs": "860e621f38cd7ffee3344d99216401750182caa8dce4ebdb06ba1ada40384869",
     "scripts/planning/test_ui.mjs": "388a2906124390de71c62cb05b53fc44dd5949fea278201a38f07ad7654c3e30",
     "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
@@ -129,12 +130,12 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "2a0b99bace7cb87e513082f96378f20d46801515e5e5c1ab6065e58758db30af",
-  "htmlSha256": "6fd80808dd24c95f20f36e17511797825731f25e72268d2b882a03ee5c7680bd",
-  "frames": 1811,
-  "transitions": 2611,
-  "sourceFiles": 83,
-  "sourceLiterals": 8391,
+  "capturePackSha256": "288a06179cff8ff2a9e852dc2a432424655fbcf9c0e0d7428042fe8ee486cc53",
+  "htmlSha256": "0316b56bc6925bebc8d1013120cbceb64372c09f10b019f519bd01cda3b0abac",
+  "frames": 1849,
+  "transitions": 2647,
+  "sourceFiles": 84,
+  "sourceLiterals": 8612,
   "journeys": [
     {
       "id": "entry",
@@ -146,7 +147,7 @@
     },
     {
       "id": "people",
-      "frames": 162
+      "frames": 200
     },
     {
       "id": "guardians",

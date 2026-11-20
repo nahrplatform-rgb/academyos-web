@@ -10,6 +10,7 @@ from pathlib import Path
 module = runpy.run_path(str(Path(__file__).with_name('test_boundary.py')))
 WorkspaceBoundary = module['WorkspaceBoundary']
 literal = module['literal']
+ROOT = module['ROOT']
 TARGETS = {
     'x21_workspace_transfer_v1': ('a', 'device', 'ns', 'expected_subject', 'act', 'previous', 'month_anchor'),
     'x21_workspace_key_v1': ('a', 'device', 'expected_subject', 'act', 'ns', 'envelope'),
@@ -17,6 +18,7 @@ TARGETS = {
     'i2_candidates_v1': ('a', 'display_name', 'after_id'),
     'i2_profile_v1': ('a', 'player'),
     'i2_register_v1': ('a', 'branch', 'op', 'display_name', 'contact', 'reviewed_revision', 'different_person'),
+    'i2_register_v2': ('a', 'branch', 'op', 'display_name', 'contact', 'reviewed_revision', 'different_person', 'alternate_name'),
     'i2_operation_v1': ('a', 'op'),
 }
 
@@ -143,6 +145,8 @@ def main():
     try:
         WorkspaceBoundary.setUpClass()
         ready = True
+        migration, = ROOT.glob('supabase/migrations/*_player_alternate_name.sql')
+        WorkspaceBoundary.sql(migration.read_text())
         test = WorkspaceBoundary()
         print(json.dumps({'ready': True}), flush=True)
         for line in sys.stdin:

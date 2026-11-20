@@ -25,9 +25,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 254,
-    "calendarMs": 147,
-    "dateMs": 180,
+    "homeMs": 251,
+    "calendarMs": 132,
+    "dateMs": 178,
     "onlineEntry": [
       [
         "experience",
@@ -55,11 +55,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 188,
-    "selectReviewSaveMs": 758,
+    "firstPrepareMs": 203,
+    "selectReviewSaveMs": 777,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 186,
-    "originalReplayMs": 104,
+    "offlineRestartMs": 178,
+    "originalReplayMs": 106,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -80,7 +80,7 @@
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4536
+        "responseBytes": 4537
       },
       {
         "route": "planning",
@@ -234,7 +234,7 @@
     "logicalRateChecks": 36,
     "cacheEntries": 29,
     "requestBytes": 9589,
-    "responseBytes": 37173
+    "responseBytes": 37174
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
@@ -260,7 +260,7 @@
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
-    "apps/web/src/lib/onboarding-gateway.ts": "446994c75c44a18161e7d3b60eeaed85271a85f4ccabeba0cdfb91d3acf162d2",
+    "apps/web/src/lib/onboarding-gateway.ts": "cbaa08e8ddde8542fb9df30e43728bdc7a6dce1db6c017e701b0512cef974f10",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",

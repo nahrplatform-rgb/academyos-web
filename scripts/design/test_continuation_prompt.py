@@ -31,6 +31,20 @@ class ContinuationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(self.rows, self.batches)
 
+    def test_module_delivery_guide_keeps_focused_checks_and_batch_exit_separate(self):
+        result = render(self.rows, self.batches)
+        for guidance in (
+            '#module-scale-delivery--20-november-2026',
+            'Group related Owner decisions; continue independent authorized work',
+            'A completed field or control is not a delivery checkpoint.',
+            'verify affected authority, migration, transaction and original-recovery boundaries early',
+            'candidate verification when the agreed workflow is ready',
+            'Preserve required CI and the dedicated offline/PWA deferral.',
+            'Players → Schedule → Attendance/QR operating day',
+        ):
+            with self.subTest(guidance=guidance):
+                self.assertIn(guidance, result)
+
     def test_missing_release_state_is_rejected(self):
         self.active['release_follow_up'] = ''
         with self.assertRaises(ValueError):

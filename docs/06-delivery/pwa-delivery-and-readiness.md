@@ -1,6 +1,14 @@
 # Installable PWA delivery and readiness
 
-## 17 November actual installed checkpoint
+## Dedicated work deferred — 20 November 2026
+
+The Owner approved pausing dedicated offline and PWA expansion and acceptance until the agreed core app workflows are feature-complete and verifiable end to end. EX-14, EX-15 and EX-16 remain supporting packages. The existing shared implementation and its contracts remain in use. Connected work still includes relevant regressions for shared storage, permissions, keys, migrations, saving and original recovery, along with required CI checks.
+
+Resume with PW-02 clean-store installed launch and the normal return to sign-in after connectivity comes back. Then reconcile the open PW/WD cases, including actual provider-session expiry, live Clerk Attendance offline save and same-original recovery, hosted update and rollback, storage persistence and eviction, broader roles and physical devices. Use the [traceability tracker](pwa-delivery-traceability.csv) for exact cases and prerequisites. Retain completed evidence with its original source and scope. Verify the applicable cases before their MP-B13 release acceptance and before relying on offline or installed operation in an academy rollout. Staging activation and promotion retain their separate Owner decisions.
+
+## Installed checkpoints
+
+**20 November hosted cold launch checkpoint.** On `8776811`, a disposable standalone Chromium Mac app with a live Clerk Owner session opened the prepared Calendar from `/en` in English and Arabic. Both offline documents received zero network bytes while the service worker's uncached fetch was blocked. An unprepared period showed the offline notice. Returning to the prepared week and restoring connectivity reopened the same signed-in Calendar. Clean-store first launch, actual session expiry, live Attendance recovery and wider-device verification remain open. [Hosted installed evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#hosted-cold-launch-and-reconnect-passed)
 
 **19 November signed-in staging Mac checkpoint.** On `cf15f40`, the installed Arabic Calendar reopened the prepared week offline, showed the message for an unprepared week, and returned to the same signed-in Calendar on reconnect. Hosted cold `/en` and installed Attendance save and reconnect remain open. [Staging Calendar evidence](../07-handoff/mp-b01-wd71-coverage-2026-11-16.md#19-november-signed-in-installed-staging-calendar)
 
@@ -12,7 +20,7 @@
 
 ## Version2 batch alignment —7November2026
 
-[Canonical master plan v2](master-plan-v2/README.md). The new master package keeps EX-14/15/16 supporting installation/lifecycle/device work alongside current MP-B01 and later affected domains. Manifest/launch work begins before all future modules; actual installed proof follows real working slices. Scope and prior PW/WD IDs remain unchanged.
+[Canonical master plan v2](master-plan-v2/README.md). The v2 package defines EX-14/15/16 as supporting installation, lifecycle and device work for MP-B01 and later affected domains. Existing manifest and launch work retain their evidence. The 20 November decision sets the execution timing. Scope and prior PW/WD IDs remain unchanged.
 
 **Latest local repair:** [EX-07 cold-session checkpoint](../07-handoff/ex07-cold-session-repair-2026-11-06.md) adds ordinary SDK restoration without remounting the task or changing either worker,cache prefix,public protocol or local schema.17controlled normal-route cases support PW-03/04/08;exact deployment,real provider and all installed cases remain separate.
 
@@ -22,7 +30,7 @@
 
 ## Outcome, authority and separate readiness claims
 
-Develop installation alongside the existing local-data/sync and Operations redesign work. Reuse its protected repositories, scoped public shell, bounded preparation, original sender and current server authority. An installed window is another client context for the same product, not a second application, database replica design or generic offline queue. The current primary remains **EX-07 normal Attendance integration**, after the retained EX-13 foundation checkpoint; EX-14/15/16 are supporting packages.
+Use the shared local-data/sync and Operations contracts for installed delivery. Reuse its protected repositories, scoped public shell, bounded preparation, original sender and current server authority. An installed window is another client context for the same product, not a second application, database replica design or generic offline queue. The current primary is the **EX-07 Owner working day**, following the retained EX-13 foundation checkpoint. EX-14/15/16 are supporting packages.
 
 Track three independent statements: **installation ready** for a declared OS/browser/launch path; **offline coverage** for an exact role, dataset, route and command; **whole-app completion** against the master plan/redesign. None implies either other statement. Keep design, implementation, local checks, deployment, installed/hosted verification, Owner acceptance and independent review separate. Installation metadata can ship before future modules; publish its actual supported coverage honestly.
 
@@ -45,11 +53,11 @@ The source and provider snapshot is dated, not a permanent live-status assertion
 
 | Package | Scope | Timing and evidence dependency |
 |---|---|---|
-| **EX-14 · PW-01/02** | Installation identity, manifest/icons, stable launch, platform installation guidance and authentication/deep-link return | Prepare alongside current EX-07. Reuse existing navigation/role contracts; do not wait for every future module. Install-only readiness can be verified before all offline domains exist |
-| **EX-15 · PW-03/04/05/06/08** | Worker/cache ownership, safe installed startup/update, persistent storage diagnostics and shared local/save lifecycle | Coordinate with EX-07's normal Attendance integration and retained EX-13 repositories; no competing shared-file edits. Deliver compatible slices, not a replacement sync engine |
-| **EX-16 · PW-07/09 and installed evidence** | Actual OS/browser installation, launch/auth, supported offline commands, updates, camera, accessibility and measured coverage | Begin each case after its relevant working slice. Install-only cases need EX-14; data/update cases additionally need the corresponding EX-15/domain slice. Do not make all future EX-07 work a prerequisite for the first installation test |
+| **EX-14 · PW-01/02** | Installation identity, manifest/icons, stable launch, platform installation guidance and authentication/deep-link return | Dedicated work resumes after core feature completion. Reuse existing navigation and role contracts. Install-only and offline evidence keep their own criteria |
+| **EX-15 · PW-03/04/05/06/08** | Worker/cache ownership, safe installed startup/update, persistent storage diagnostics and shared local/save lifecycle | Retain affected shared-path regressions during core work. Resume dedicated compatibility, update and storage cases after core feature completion using the existing repositories |
+| **EX-16 · PW-07/09 and installed evidence** | Actual OS/browser installation, launch/auth, supported offline commands, updates, camera, accessibility and measured coverage | Resume dedicated device cases after core feature completion. Install-only cases need EX-14. Data and update cases also need the corresponding EX-15 and domain slice |
 
-The tracker retains exactly one `current` primary row. All three PWA rows use `supporting` lane/state and unique supporting orders. They accompany the affected implementation checkpoints; they neither replace Attendance nor wait until all modules are built. Future finance/settings/reporting/communications inherit the [domain adoption map](local-data-and-sync-plan.md#full-app-adoption--5-november-2026), with real typed field and command contracts when built.
+The tracker retains exactly one `current` primary row. All three PWA rows use `supporting` lane/state and unique supporting orders. During the pause their exact scope and prerequisites remain tracked. Shared regressions stay with affected core changes. Future finance/settings/reporting/communications inherit the [domain adoption map](local-data-and-sync-plan.md#full-app-adoption--5-november-2026), with real typed field and command contracts when built.
 
 ## PW-01 — installation identity and presentation
 
@@ -137,4 +145,4 @@ There is no unresolved decision to re-ask about normal sign-in, idle lock,24hour
 
 This document owns cross-platform installation/update requirements; the tracker owns current priority/status; existing local-data/domain contracts own fields and commands; WD/PW registers own planned cases/joins; receipts own observations. Governance/AGENTS, master plan/roadmap, redesign, request/performance/cost plans, acceptance/test strategy, loading/security/action/requirement joins and builder/index documents link here rather than copy a second PWA implementation plan. The structural validator checks these pointers, unique supporting packages and joins; it does not establish runtime proof.
 
-**Next implementation:** continue [EX-07 normal Attendance](../07-handoff/ex07-normal-attendance-integration-2026-11-05.md), reusing the existing Owner panel/slot/account/original sender and proving stable task/local-save/offline-reopen/automatic-same-original sync. Alongside it, scope EX-14's manifest/icons/stable-launch and EX-15's shared worker/storage compatibility packet from the inventory above. Do not edit shared startup/worker files concurrently or implement another offline engine. EX-16 records actual installed results per delivered slice. This documentation request itself authorizes no new PWA code.
+**Next dedicated case on resumption:** verify PW-02 clean-store installed launch and its normal route to sign-in when connectivity returns. EX-16 records actual installed results for each delivered slice. The [living continuation](continue-academyos.md) carries the current connected core action.

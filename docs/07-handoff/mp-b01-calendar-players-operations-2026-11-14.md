@@ -40,3 +40,18 @@ WD-02 and WD-03 have scoped local evidence. The Calendar portion of WD-04 also h
 ## Continuation
 
 Continue the already queued initial Owner handoff on the real local workspace chooser and Today routes. Check permitted entry, no membership and unavailable lookup with the [working-day criteria](../06-delivery/academy-working-day-acceptance.md), then repair any reproduced continuity gap. Use the [existing rich Player packet](mp-b01-rich-player-contract-2026-11-07.md) and 42-field PYSA reconciliation to prepare the focused MP-Q01 field and lifecycle review. Give concrete registration, profile, visibility and local-data examples before any dependent private-field or lifecycle implementation.
+
+## 20 November WD-04 ordinary web visits
+
+The local production routing fixture used the existing Owner workspace components, signed Experience handlers and disposable PostgreSQL 17 with fictional authentication. Each English and Arabic surface started in a fresh Chromium context. The second visit used a new document in that same context, with the normal browser HTTP cache and remembered date available. The comparison used ordinary online pages. The first probe timed out waiting for global network idle. The rerun waited for actionable data and counted operating requests through a bounded post-update observation window.
+
+| Surface | First visit | Repeat visit |
+|---|---|---|
+| Owner Today, EN and AR | One successful scoped `owner_home` read. The Calendar action used the current date, 20 November. | One successful scoped `owner_home` read. The current-date action stayed correct. |
+| Calendar, EN and AR | One successful scoped `owner_current_calendar` read. The browser displayed 20 November. | One successful scoped `owner_calendar` read for the previously selected 27 November–3 December week. The browser displayed 27 November. |
+
+The deliberate date change used one additional scoped Calendar read. Hydration and restored-date application each settled with the single operating read shown above. Each fresh visit transferred 209,376 bytes of first-party JavaScript and CSS across eight resources. Each repeat referenced those eight resources with zero code bytes transferred. HTML document and API requests were counted separately. These transfer sizes describe the controlled fixture on Node 24.14.0 and Chromium 156, with the browser cache enabled.
+
+On exact staging source `8776811`, an ordinary signed-in Owner tab in the existing Nahr profile opened synthetic Isolation Academy B before device preparation. Both English Today visits and both English Calendar visits produced one completed `/api/experience` response with status 200. Calendar first displayed 20 November and later restored the chosen 27 November period. The repeat displayed the date before the read completed, so the staged measurement checked the completed response separately. The staging browser profile already had a cache history. Byte comparisons come from the controlled fixture. [Staging deployment](https://vercel.com/academy-os2/academyos-web/9TKV1D6EoZHdDhK9p4XgqUCtHcV3) · [Structured result](evidence/mp-b01-calendar-players-operations-2026-11-14.json)
+
+This closes the named WD-04 ordinary online comparison. Broader performance, prepared offline reuse and installed checks retain their existing scope. Next use the current online Players workflow to ground the pending MP-Q01 registration and profile choices in the existing fields and verified lifecycle.

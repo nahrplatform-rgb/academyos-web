@@ -1,9 +1,10 @@
 """Reject unsafe migration inputs before starting a disposable restore."""
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 from backup import BackupError
-from rehearse_local import reviewed_migrations
+from rehearse_local import existing_rows, reviewed_migrations
 
 
 class RehearsalScope(unittest.TestCase):
@@ -30,6 +31,15 @@ class RehearsalScope(unittest.TestCase):
                     files + [files[0]], files[::-1]]:
             with self.subTest(paths=bad), self.assertRaises(BackupError):
                 reviewed_migrations(self.repo, bad)
+
+    def test_current_snapshot_fingerprint_includes_existing_alternate_names(self):
+        with patch("rehearse_local.command", return_value=b"{}") as command:
+            existing_rows({}, ["academy_member_number"])
+            sql = command.call_args.args[0][-1]
+            self.assertIn("to_jsonb(t)-''academy_member_number''", sql)
+            self.assertNotIn("-''alternate_name''", sql)
+            existing_rows({}, ["academy_member_number", "alternate_name"])
+            self.assertIn("-''alternate_name''", command.call_args.args[0][-1])
 
 
 if __name__ == '__main__':

@@ -14,5 +14,7 @@ export default async function Page({ params }: {
     const { locale, academy } = await params;
     if (!uuidPattern.test(academy))
         notFound();
-    return <PeopleWorkspace prepared={ownerWorkspaceEnabled(process.env)} locale={locale} academy={academy}/>;
+    return <PeopleWorkspace prepared={ownerWorkspaceEnabled(process.env)}
+        privateProfiles={process.env.APP_ENV === 'staging' && process.env.PLAYER_PRIVATE_PROFILE_TRIAL === 'true'}
+        locale={locale} academy={academy}/>;
 }

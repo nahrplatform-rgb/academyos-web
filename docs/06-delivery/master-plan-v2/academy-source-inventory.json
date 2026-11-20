@@ -1,12 +1,12 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "353446963f72604e25dbd0af7b90d391fc4b6af0",
+  "source_anchor": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
       "path": "apps/web/package.json",
-      "sha256": "daa8c6bac20a0a69df1c5f94a8e7ab341c9e84b50bb4cbcaa6d27d8c934292f6",
-      "bytes": 940
+      "sha256": "81d82a056a71f0768332ccec080c7ebc9be97f9159fc3abf692d9db0c4619cf4",
+      "bytes": 963
     },
     {
       "path": "apps/web/public/prepared-register-worker.js",
@@ -145,8 +145,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx",
-      "sha256": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
-      "bytes": 664
+      "sha256": "c24e0b103d2a8053a2925afb5ad634c7a157f64919ee84e640daf7796c8be5ef",
+      "bytes": 787
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx",
@@ -270,8 +270,8 @@
     },
     {
       "path": "apps/web/src/app/api/people/route.ts",
-      "sha256": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
-      "bytes": 2659
+      "sha256": "fc38b9d62ccec960b0054d6954aa28d299f58e97da4693ce3045681923e591db",
+      "bytes": 3598
     },
     {
       "path": "apps/web/src/app/api/planning/route.ts",
@@ -445,8 +445,13 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
-      "bytes": 49892
+      "sha256": "ac3282f374633848271515c8304a691386551637700446751e077123ca4ab9d4",
+      "bytes": 54631
+    },
+    {
+      "path": "apps/web/src/components/player-private-details.tsx",
+      "sha256": "63e312116a32cfedbf9a6459efa167bb782a4190d2a2425be530c672ad594db7",
+      "bytes": 16962
     },
     {
       "path": "apps/web/src/components/prepared-register-panel.tsx",
@@ -555,8 +560,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-panes.tsx",
-      "sha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
-      "bytes": 6723
+      "sha256": "28f637c6b6ed95234886392ccedce94823cdbad6b156de63267f9e8d9bc9eb0e",
+      "bytes": 6821
     },
     {
       "path": "apps/web/src/components/workspace-runtime.tsx",
@@ -765,8 +770,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "446994c75c44a18161e7d3b60eeaed85271a85f4ccabeba0cdfb91d3acf162d2",
-      "bytes": 4518
+      "sha256": "cbaa08e8ddde8542fb9df30e43728bdc7a6dce1db6c017e701b0512cef974f10",
+      "bytes": 4721
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
@@ -810,8 +815,8 @@
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "sha256": "4475fdd096d84e71166494e418e75e07058885d2cdbcf8f892e77cbfbeaa5ee5",
-      "bytes": 2836
+      "sha256": "6ec13ef55a21bd0be007941120779ed3746c75a53a3e150f694b4711672331d7",
+      "bytes": 5687
     },
     {
       "path": "apps/web/src/lib/planning.test.ts",
@@ -822,6 +827,11 @@
       "path": "apps/web/src/lib/planning.ts",
       "sha256": "fa53c334ccbb83cd2d57a52bba5b8ea9c6034bf209e34987a60d722a725b9cd8",
       "bytes": 3621
+    },
+    {
+      "path": "apps/web/src/lib/player-photo.ts",
+      "sha256": "2169c2fba141db9977425c9a8626afde898b47b395759e920d6e9eba233fda90",
+      "bytes": 1025
     },
     {
       "path": "apps/web/src/lib/program-planning.test.ts",
@@ -1060,8 +1070,8 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
-      "bytes": 303428
+      "sha256": "28cc985507f4813dfe9dc87c4035a5aa936f1d2f8ec8bed24999d9598071e792",
+      "bytes": 303356
     },
     {
       "path": "supabase/migrations/20261021165259_identity_baseline.sql",
@@ -1222,6 +1232,26 @@
       "path": "supabase/migrations/20261114130000_owner_register_additive_scopes.sql",
       "sha256": "b51d5a129b4991138fa794ce67b05e372a014865dc3958a905c9c8e5d3451d89",
       "bytes": 5985
+    },
+    {
+      "path": "supabase/migrations/20261119233028_player_alternate_name.sql",
+      "sha256": "18d3d31ba1778ef1612ae077674c5918ffd9e6f042eda5abd29c392fd53e4f23",
+      "bytes": 6825
+    },
+    {
+      "path": "supabase/migrations/20261120013009_player_academy_member_number.sql",
+      "sha256": "5613f1d6ced39d6681f1e4075c94053166e2551bd27b984f60b2f0d5e4f91bd0",
+      "bytes": 3170
+    },
+    {
+      "path": "supabase/migrations/20261120020740_player_private_profile_details.sql",
+      "sha256": "dba412e83d6ff96b0a652e839d89d63d7ddef343665c635c938b0a12b57a4700",
+      "bytes": 7148
+    },
+    {
+      "path": "supabase/migrations/20261120025857_player_private_photo.sql",
+      "sha256": "b65f9655b534dcb51e51f9ded20257ae4d50578b4fe0db365b6e953ce09dc473",
+      "bytes": 4109
     }
   ],
   "page_paths": [
@@ -1444,35 +1474,70 @@
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "line": 19,
+      "line": 20,
       "case_labels": [
         "list"
       ]
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "line": 29,
+      "line": 30,
       "case_labels": [
         "candidates"
       ]
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "line": 36,
+      "line": 37,
       "case_labels": [
         "profile"
       ]
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "line": 41,
+      "line": 42,
+      "case_labels": [
+        "privateProfile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 48,
+      "case_labels": [
+        "privatePhoto"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 53,
+      "case_labels": [
+        "savePrivatePhoto"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 60,
+      "case_labels": [
+        "findMember"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 69,
+      "case_labels": [
+        "savePrivateProfile"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/people.ts",
+      "line": 83,
       "case_labels": [
         "create"
       ]
     },
     {
       "path": "apps/web/src/lib/people.ts",
-      "line": 50,
+      "line": 94,
       "case_labels": [
         "reconcile"
       ]
@@ -1676,10 +1741,10 @@
     }
   ],
   "counts": {
-    "source_files": 244,
+    "source_files": 250,
     "page_paths": 38,
     "api_routes": 28,
-    "migrations": 32
+    "migrations": 36
   },
   "pwa_metadata": {
     "public_manifest_present": false,

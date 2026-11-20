@@ -409,5 +409,203 @@
     "No new staging, installed-device or Owner acceptance evidence.",
     "The scripted cold-entry delay is fixed at 250ms per read; these case timings are not hosted percentiles, costs or backend cancellation proof.",
     "PYSA is a read-only source comparison. This update preserves the current field, write and authority boundaries."
-  ]
+  ],
+  "wd04OrdinaryOnline20261120": {
+    "recordedUtc": "2026-11-19T23:22:24+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "inputs": {
+      "scripts/working-day/owner_fixture.mjs": "878584280b3c9a0a57300727a710d9885e66b295deda95dfac7ab360fb7d4cdc",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/api/experience/route.ts": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
+      "apps/web/src/lib/experience-projections.ts": "ff9b5f8ee37245ec1d3f313db9819d43dd716769f989eac1624df224a39808c4"
+    },
+    "local": {
+      "environment": "Production Next routing fixture with real signed Experience handlers, disposable PostgreSQL 17 and fictional identity",
+      "node": "24.14.0",
+      "chromium": "156.0.8078.4",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "freshAndRepeatMethod": "Separate fresh uncached context per locale and surface, then new document in same browser context and tab. Cache enabled. Ordinary online mode.",
+      "codeBoundary": "Same-origin Next static JavaScript and CSS Resource Timing transferSize, with document and operating requests counted separately.",
+      "postReadObservationMs": 750,
+      "cases": [
+        {
+          "locale": "en",
+          "surface": "home",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4552,
+            4552
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          }
+        },
+        {
+          "locale": "en",
+          "surface": "calendar",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4817,
+            4817
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_current_calendar",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-27",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_calendar",
+                "status": 200,
+                "intendedAcademy": true,
+                "from": "2026-11-27",
+                "to": "2026-12-03"
+              }
+            ]
+          },
+          "intentionalPeriodChange": {
+            "action": "owner_calendar",
+            "from": "2026-11-27",
+            "to": "2026-12-03",
+            "status": 200,
+            "intendedAcademy": true
+          }
+        },
+        {
+          "locale": "ar",
+          "surface": "home",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4844,
+            4844
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          }
+        },
+        {
+          "locale": "ar",
+          "surface": "calendar",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            5129,
+            5129
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_current_calendar",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-27",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_calendar",
+                "status": 200,
+                "intendedAcademy": true,
+                "from": "2026-11-27",
+                "to": "2026-12-03"
+              }
+            ]
+          },
+          "intentionalPeriodChange": {
+            "action": "owner_calendar",
+            "from": "2026-11-27",
+            "to": "2026-12-03",
+            "status": 200,
+            "intendedAcademy": true
+          }
+        }
+      ]
+    },
+    "hosted": {
+      "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+      "locale": "en",
+      "scope": "Ordinary signed-in Academy Owner tab in Nahr, synthetic Isolation Academy B, before device preparation",
+      "firstTodayExperienceStatuses": [
+        200
+      ],
+      "repeatTodayExperienceStatuses": [
+        200
+      ],
+      "firstCalendarExperienceStatuses": [
+        200
+      ],
+      "repeatCalendarExperienceStatuses": [
+        200
+      ],
+      "firstCalendarAnchor": "2026-11-20",
+      "repeatCalendarAnchor": "2026-11-27",
+      "taskTabClosed": true
+    },
+    "limits": [
+      "Hosted warm profile supplies a behavioral comparison. Code transfer measurements come from the controlled fixture.",
+      "The first fixture attempt waited for global network idle and timed out. Final observations wait for the actionable view and count requests through a bounded settling window.",
+      "The staged remembered date rendered before its read completed. The completed response was checked separately.",
+      "Prepared offline reuse, installed-device evidence and population performance remain separately scoped."
+    ]
+  }
 }

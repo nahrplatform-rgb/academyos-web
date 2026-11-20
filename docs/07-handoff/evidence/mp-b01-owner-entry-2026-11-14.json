@@ -338,5 +338,49 @@
       "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
     },
     "scope": "The same Owner entry assertions passed after the setup shortcut repair."
+  },
+  "freshHostedOwnerEntry20261120": {
+    "recordedUtc": "2026-11-19T23:12:27+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "origin": "https://staging.academy.nahr.dev",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "runtime": "Ordinary Chromium web tab in a freshly created disposable profile",
+    "freshAuthentication": {
+      "provider": "Clerk",
+      "locale": "ar",
+      "routeChain": [
+        "/ar",
+        "/ar/sign-in",
+        "/ar/workspace"
+      ],
+      "ownerCompletedSignIn": true
+    },
+    "enteredAcademy": "AcademyOS M1 Synthetic Academy",
+    "role": "Academy Owner",
+    "cases": [
+      {
+        "locale": "ar",
+        "direction": "rtl",
+        "chooserSelectedAuthorizedMembership": true,
+        "successfulHostedOwnerHomeRead": true,
+        "todayCalendarActionReachedCanonicalCalendar": true
+      },
+      {
+        "locale": "en",
+        "direction": "ltr",
+        "chooserSelectedAuthorizedMembership": true,
+        "successfulHostedOwnerHomeRead": true,
+        "todayCalendarActionReachedCanonicalCalendar": true
+      }
+    ],
+    "notes": [
+      "Arabic had one fresh provider authentication. Arabic and English both exercised chooser and Today in the same isolated signed-in profile.",
+      "Two valid Calendar links matched in the first assertion. The rerun targeted the header link and verified the real Calendar destination.",
+      "Existing local controlled denial, no-membership and lookup-failure evidence retains its scope. Hosted denial, device and Owner acceptance remain separate."
+    ],
+    "cleanup": {
+      "browserClosed": true,
+      "disposableProfileRemoved": true
+    }
   }
 }

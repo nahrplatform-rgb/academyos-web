@@ -82,6 +82,22 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
   await t(summary).toHaveText(text.ready,{timeout:30000});
   await t.poll(()=>page.evaluate(async()=>Boolean(await window.inspectPreparedPeople()))).toBe(true);
   await t(rows).toHaveCount(25);
+  const alias=page.getByText(fixture.profile.alternateName,{exact:true});
+  const seed={requests:operatingRequests.length,transfers:transferCalls.length};
+  await search.fill(fixture.profile.alternateName);
+  await t(rows).toHaveCount(0);
+  assert.deepEqual(operatingRequests.slice(seed.requests),[]);
+  const online=locale==='ar'?'ابحث بكل الأسماء عبر الإنترنت':'Search all names online';
+  const downloaded=locale==='ar'?'استخدم قائمة اللاعبين المنزّلة':'Use downloaded directory';
+  await button(online).click();
+  await t(rows).toHaveCount(1);
+  await t(button(fixture.profile.name)).toBeVisible();
+  await t(alias).toHaveCount(0);
+  assert.deepEqual(operatingRequests.slice(seed.requests),['list']);
+  assert.equal(transferCalls.length,seed.transfers);
+  await button(downloaded).click();
+  await t(rows).toHaveCount(25);
+  assert.deepEqual(operatingRequests.slice(seed.requests),['list']);
   const start={operating:operatingRequests.length,people:peopleCalls().length,transfers:transferCalls.length,documents};
   const filter='Synthetic';
   await search.fill('no matching synthetic player');
@@ -138,6 +154,7 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
   await t(page.getByText(text.summary,{exact:true})).toBeVisible();
   await t(page.getByText(text.privateField,{exact:true})).toBeVisible();
   await t(contact).toHaveCount(0);
+  await t(alias).toHaveCount(0);
   const selected=await snapshot();
   assert.equal(selected.selected,fixture.profile.name);
   await checkPreparedReturn(selected);
@@ -147,6 +164,7 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
   const fullRpcs=rpcCalls.length;
   await button(text.full).click();
   await t(contact).toBeVisible();
+  await t(alias).toBeVisible();
   assert.deepEqual(operatingRequests.slice(start.operating),['profile']);
   assert.deepEqual(rpcCalls.slice(fullRpcs).map(call=>call.rpc),['i2_profile_v1']);
 
@@ -192,6 +210,7 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
   assert.equal(await page.evaluate(()=>performance.timeOrigin),before.document);
   assert.deepEqual(errors,[]);
   return {locale,retained:{filter:before.filter,focused:before.focused,range:before.range,scroll:before.scroll,rows:before.rows},
+    alternateName:{downloadedMatches:0,onlineMatches:1,onlineReads:1,transfers:0,fullProfileOnly:true},
     coveredFiltering:{operatingReads:0,transfers:0},resumeActions:{directory:['manifest'],summary:['manifest']},
     selectedSummaryRetained:true,fullProfile:{operatingActions:peopleCalls().slice(start.people),currentDenial:403,
       privateContactMasked:true,obsoleteSuccessReleased:true,obsoleteRequestAborted:true,retiredSlot:true,

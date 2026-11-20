@@ -61,9 +61,11 @@ Classify writes explicitly: supported durable offline command; local draft only;
 
 ## Updates, PWA and device coverage
 
+The [20 November sequencing decision](delivery-and-verification.md#core-app-sequencing--20-november-2026) defers dedicated execution until core app feature completion. The packages and device requirements below still define the work to complete. Regressions on the shared implementation remain part of affected core changes.
+
 The current workspace worker owns root scope and the register worker its narrower scope. Inspect both and preserve public-only code shells, protected IndexedDB stores and the original sender. No competing root worker/caching plugin, private HTML/API cache or second offline database. Document code/worker/local-schema/command-envelope compatibility; update safely with dirty forms, pending originals and older active tabs. Never force a reload or reset caches to make an update succeed.
 
-EX-14 delivers manifest/icons/stable permitted launch/install guidance alongside current domain work; EX-15 covers worker/update/storage lifecycle; EX-16 verifies actual installed combinations after relevant slices. Browser and installed containers may have separate sessions, keys and data. Desktop web/PWA, iOS browser/installed and Android browser/installed need declared results. Future native clients reuse versioned domain contracts; they do not justify reimplementing money/authority/sync rules or promising guaranteed background execution.
+EX-14 owns manifest, icons, stable permitted launch and installation guidance; EX-15 covers worker/update/storage lifecycle; EX-16 verifies actual installed combinations after relevant slices. Browser and installed containers may have separate sessions, keys and data. Desktop web/PWA, iOS browser/installed and Android browser/installed need declared results. Future native clients reuse versioned domain contracts; they do not justify reimplementing money/authority/sync rules or promising guaranteed background execution.
 
 Required installed checks include normal sign-in, direct/deep launch, preparation, offline restart, reconnect/original outcome, mixed-version update, eviction/quota/storage permission, account/logout/known denial, camera/QR, EN/AR, virtual keyboards, accessibility and actual OS launch. Source emulation or a worker registration does not pass physical/installed cases. Preserve PW-01–09 and WD-72–86 planned/evidenced states.
 

@@ -10,23 +10,46 @@ import {checkChangedQuery} from './changed_query.mjs';
 const root=resolve(import.meta.dirname,'../..'),reactMode=process.env.UI_REACT_MODE==='development'?'development':'production';
 const adapter=`import React from 'react';let subject='user_A';const listeners=new Set();window.addEventListener('synthetic-session',e=>{subject=e.detail;listeners.forEach(f=>f());});export function useUser(){const id=React.useSyncExternalStore(f=>{listeners.add(f);return()=>listeners.delete(f)},()=>subject);return{isLoaded:!new URLSearchParams(location.search).has('authPending'),user:id?{id}:null}}export function UserButton(){return <span>Test account</span>}`;
 const compiled=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import Workspace from '${root}/apps/web/src/components/people-workspace.tsx';createRoot(document.getElementById('root')).render(<React.StrictMode><Workspace locale="en" academy="00000000-0000-4000-8000-000000000001"/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'synthetic-ui-only',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react';export default function Link({children,...props}){return <a {...props}>{children}</a>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':JSON.stringify(reactMode)}});
+const privateFixture=await build({stdin:{contents:`import React from 'react';import{createRoot}from'react-dom/client';import {PeopleJourney} from '${root}/apps/web/src/components/people-workspace.tsx';createRoot(document.getElementById('root')).render(<React.StrictMode><PeopleJourney locale="en" academy="00000000-0000-4000-8000-000000000001" subject="user_A" privateProfiles/></React.StrictMode>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,jsx:'automatic',format:'iife',plugins:[{name:'private-people-fixture',setup(b){b.onResolve({filter:/^@clerk\/nextjs$/},()=>({path:'clerk',namespace:'test'}));b.onResolve({filter:/^next\/link$/},()=>({path:'link',namespace:'test'}));b.onLoad({filter:/.*/,namespace:'test'},a=>({contents:a.path==='clerk'?adapter:`import React from 'react'; export default function Link(props){return <a {...props}/>}`,loader:'tsx',resolveDir:root}));}}],define:{'process.env.NODE_ENV':JSON.stringify(reactMode)}});
 const css=await readFile(root+'/apps/web/src/app/globals.css','utf8');
-const server=createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/bundle.js'?'text/javascript':'text/html');res.end(req.url==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div lang="en" dir="ltr"><div id="root"></div></div><script src="/bundle.js"></script></html>`);});
+const server=createServer((req,res)=>{const path=req.url;res.setHeader('Content-Type',path?.endsWith('.js')?'text/javascript':'text/html');res.end(path==='/private.js'?privateFixture.outputFiles[0].text:path==='/bundle.js'?compiled.outputFiles[0].text:`<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><div lang="en" dir="ltr"><div id="root"></div></div><script src="${path==='/private'?'/private.js':'/bundle.js'}"></script></html>`);});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch(),page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const academy='00000000-0000-4000-8000-000000000001',branch='00000000-0000-4000-8000-000000000002';
 let players=[{id:'00000000-0000-4000-8000-000000000010',display_name:'Alex Demo',branch_name:'Main Demo Branch',contact_email:'contact@example.invalid'}],profileFails=false,revision=1,denied=false,authMissing=false,lost=false,dropBefore=false,stale=false,creates=0,hold=false,release;
 players.push(...Array.from({length:17},(_,i)=>({id:`00000000-0000-4000-8000-${String(i+200).padStart(12,'0')}`,display_name:`Fictional Player ${i+1}`,branch_name:'Main Demo Branch'})));
 const receipts=new Map(),calls=[];let readHold=null,releaseRead;
+let privateDetails={version:0,nationalId:'000031',schoolName:'Fixture School'};
+let privatePhoto={version:0,image:null};
 await page.route('**/api/people',async route=>{const b=route.request().postDataJSON();calls.push(b);if(readHold===b.action)await new Promise(resolve=>{releaseRead=resolve;});if(authMissing){await route.fulfill({status:401,json:{error:'denied'}});return;}if(denied){await route.fulfill({status:403,json:{error:'denied'}});return;}let data;
  switch(b.action){
  case'list':{
- const matching=players.filter(p=>p.id>(b.after??'')&&p.display_name.toLowerCase().startsWith(b.query?.toLowerCase()||'')).sort((a,b)=>a.id.localeCompare(b.id));
- data={academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',items:matching.slice(0,25).map(({contact_email,...p})=>p),more:matching.length>25};break;
+ const matching=players.filter(p=>p.id>(b.after??'')&&[p.display_name,p.alternate_name].some(name=>name?.toLowerCase().startsWith(b.query?.toLowerCase()||''))).sort((a,b)=>a.id.localeCompare(b.id));
+ data={academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',items:matching.slice(0,25).map(({contact_email,alternate_name,...p})=>p),more:matching.length>25};break;
  }
- case'candidates':data={items:players.filter(p=>p.display_name.toLowerCase()===b.name.trim().toLowerCase()).map(({contact_email,...p})=>p),revision:b.name.trim().toLowerCase()==='alex demo'?revision:0,more:false};break;
- case'profile':if(profileFails){await route.fulfill({status:503,json:{error:'unavailable'}});return;}data=players.find(p=>p.id===b.player);break;
- case'create':if(dropBefore){dropBefore=false;await route.abort('failed');return;}if(hold)await new Promise(r=>{release=r;});if(stale){stale=false;await route.fulfill({status:409,json:{error:'review_required'}});return;}creates++;const p={id:`00000000-0000-4000-8000-${String(creates+100).padStart(12,'0')}`,display_name:b.name,contact_email:b.contact,branch_name:'Main Demo Branch'};players.push(p);revision++;data={player_id:p.id,version:1};receipts.set(b.op,data);if(lost){lost=false;await route.abort('failed');return;}break;
+ case'candidates':data={items:players.filter(p=>p.display_name.toLowerCase()===b.name.trim().toLowerCase()).map(({contact_email,alternate_name,...p})=>p),revision:b.name.trim().toLowerCase()==='alex demo'?revision:0,more:false};break;
+ case'profile':if(profileFails){await route.fulfill({status:503,json:{error:'unavailable'}});return;}data=players.find(p=>p.id===b.player);if(data?.alternate_name)data={...data,academy_member_number:'731'};break;
+ case'findMember':data={player_id:players.find(p=>p.alternate_name)?.id};break;
+ case'privateProfile':{
+  const {nationalId,...masked}=privateDetails;
+  data={...masked,nationalIdPresent:Boolean(nationalId),...(b.revealId?{nationalId}:{})};break;
+ }
+ case'privatePhoto':data=privatePhoto;break;
+ case'savePrivatePhoto':{
+  assert.equal(b.version,privatePhoto.version);
+  privatePhoto={version:b.version+1,image:b.image};
+  data={player_id:b.player,private_photo_version:privatePhoto.version};
+  receipts.set(b.op,data);
+  if(b.image){await route.abort('failed');return;}
+  break;
+ }
+ case'savePrivateProfile':{
+  if(b.version!==privateDetails.version){await route.fulfill({status:409,json:{error:'conflict'}});return;}
+  privateDetails={...privateDetails,...b.changes,version:b.version+1};
+  data={player_id:b.player,private_profile_version:privateDetails.version};receipts.set(b.op,data);
+  await route.abort('failed');return;
+ }
+ case'create':if(dropBefore){dropBefore=false;await route.abort('failed');return;}if(hold)await new Promise(r=>{release=r;});if(stale){stale=false;await route.fulfill({status:409,json:{error:'review_required'}});return;}creates++;const p={id:`00000000-0000-4000-8000-${String(creates+100).padStart(12,'0')}`,display_name:b.name,contact_email:b.contact,alternate_name:b.alternateName,branch_name:'Main Demo Branch'};players.push(p);revision++;data={player_id:p.id,version:1};receipts.set(b.op,data);if(lost){lost=false;await route.abort('failed');return;}break;
  case'reconcile':data=receipts.get(b.op)||{cancelled:true};break;
  default:throw new Error('Unexpected action '+b.action);
  }await route.fulfill({json:{data}});
@@ -318,8 +341,111 @@ try{
  denied=false;await page.evaluate(()=>window.dispatchEvent(new CustomEvent('synthetic-session',{detail:'user_A'})));await page.getByRole('button',{name:'Alex Demo',exact:true}).first().click();await visible('Player profile');denied=true;await page.getByRole('button',{name:/^(Refresh view|Retry current read)$/}).click();await page.getByRole('alert').waitFor();assert.equal(await page.getByText('contact@example.invalid',{exact:true}).count(),0);
  const priorRequests=calls.length,priorCreates=creates;
  const directoryReturn=await checkDirectoryReturn(`http://127.0.0.1:${server.address().port}`,evidence);
+ const alternateStart=calls.length, displayName='ليلى عادل', alternateName='Layla Adel';
+ await page.goto(url);
+ await freshForm(displayName);
+ await page.getByLabel('Alternate full name (optional)',{exact:true}).fill(alternateName);
+ await page.getByRole('link',{name:'العربية',exact:true}).click();
+ await expect(page.getByLabel('الاسم الكامل البديل (اختياري)',{exact:true})).toHaveValue(alternateName);
+ await page.getByRole('button',{name:'المتابعة لمراجعة التكرار',exact:true}).click();
+ await expect(page.getByText(alternateName,{exact:true})).toBeVisible();
+ lost=true;
+ await page.getByRole('button',{name:'حفظ التسجيل',exact:true}).click();
+ const recoverAlternate=page.getByRole('button',{name:'التحقق من الحفظ الأصلي',exact:true});
+ await recoverAlternate.click();
+ await visible(displayName);
+ await expect(page.getByText(alternateName,{exact:true})).toBeVisible();
+ const savedCalls=calls.slice(alternateStart);
+ const writes=savedCalls.filter(call=>call.action==='create');
+ assert.equal(writes.length,1);
+ assert.equal(writes[0].name,displayName);
+ assert.equal(writes[0].alternateName,alternateName);
+ assert.deepEqual(savedCalls.filter(call=>call.action==='reconcile').map(call=>call.op),[writes[0].op]);
+ const savedPlayer=savedCalls.find(call=>call.action==='profile').player;
+ await page.getByRole('button',{name:'العودة للاعبين',exact:true}).click();
+ for(const [label,query] of [['البحث عن لاعب بالاسم','ليلى'],['Find a player by name','layla']]){
+  const search=page.getByRole('textbox',{name:label,exact:true});
+  await search.fill(query);
+  const row=page.getByRole('button',{name:displayName,exact:true});
+  await expect(page.locator('.people-directory tbody tr')).toHaveCount(1);
+  await row.click();
+  await visible(displayName);
+  await expect(page.getByText(alternateName,{exact:true})).toBeVisible();
+  await expect(page.getByText(query==='ليلى'?'رقم العضوية في الأكاديمية':'Academy member number',{exact:true})).toBeVisible();
+  await expect(page.locator('dd').getByText('731',{exact:true})).toBeVisible();
+  assert.equal(calls.at(-1).player,savedPlayer);
+  if(query==='ليلى'){
+   await page.getByRole('button',{name:'العودة للاعبين',exact:true}).click();
+   await page.getByRole('link',{name:'English',exact:true}).click();
+   await expect(page.getByLabel('Find a player by name',{exact:true})).toHaveValue(query);
+  }
+ }
+ assert.equal(calls.slice(alternateStart).filter(call=>call.action==='create').length,1);
+ await page.goto(url+'/private');
+ await page.getByText('Find by member ID',{exact:true}).click();
+ await page.getByLabel('ID type',{exact:true}).selectOption('existing');
+ await page.getByLabel('Member ID',{exact:true}).fill('001');
+ await page.getByRole('button',{name:'Find player',exact:true}).click();
+ await visible(displayName);
+ assert.equal(calls.findLast(c=>c.action==='findMember').kind,'existing');
+ await page.getByRole('button',{name:'Private profile details',exact:true}).click();
+ const panel=page.getByRole('dialog',{name:'Private profile details'});
+ await expect(panel.getByText('Hidden',{exact:true})).toBeVisible();
+ await expect(panel.getByLabel('National ID',{exact:true})).toHaveCount(0);
+ await panel.getByRole('button',{name:'Reveal national ID'}).click();
+ await expect(panel.getByLabel('National ID',{exact:true})).toHaveValue('000031');
+ await panel.getByLabel('School name',{exact:true}).fill('Updated Fixture School');
+ privateDetails={...privateDetails,version:1,schoolName:'Concurrent Fixture School'};
+ await panel.getByRole('button',{name:'Save private details'}).click();
+ await expect(panel.getByRole('alert')).toContainText('The profile changed');
+ await panel.getByRole('button',{name:'Reload current details'}).click();
+ await expect(panel.getByLabel('School name')).toHaveValue('Updated Fixture School');
+ await expect(panel.getByText('Last loaded: Concurrent Fixture School')).toBeVisible();
+ const privateStart=calls.length;
+ await panel.getByRole('button',{name:'Save private details'}).click();
+ await panel.getByRole('button',{name:'Check original profile save'}).click();
+ await expect(panel.getByText('Private details saved.',{exact:true})).toBeVisible();
+ await expect(panel.getByLabel('School name')).toHaveValue('Updated Fixture School');
+ await expect(panel.getByText('Hidden',{exact:true})).toBeVisible();
+ const privateWrites=calls.slice(privateStart).filter(c=>c.action==='savePrivateProfile');
+ assert.equal(privateWrites.length,1);
+ assert.deepEqual(calls.slice(privateStart).filter(c=>c.action==='reconcile').map(c=>c.op),[privateWrites[0].op]);
+ await panel.getByRole('button',{name:'Close private details'}).click();
+ await expect(page.getByRole('button',{name:'Private profile details',exact:true})).toBeFocused();
+ await page.getByRole('link',{name:'العربية',exact:true}).click();
+ await page.getByRole('button',{name:'بيانات الملف الخاصة',exact:true}).click();
+ const arabicPrivate=page.getByRole('dialog',{name:'بيانات الملف الخاصة'});
+ await expect(arabicPrivate.getByLabel('اسم المدرسة')).toHaveValue('Updated Fixture School');
+ await expect(arabicPrivate.getByText('مخفي',{exact:true})).toBeVisible();
+ await page.setViewportSize({width:390,height:850});
+ assert.equal(await arabicPrivate.evaluate(el=>el.scrollWidth<=el.clientWidth),true);
+ await arabicPrivate.getByRole('button',{name:'تحميل صورة الملف',exact:true}).click();
+ const sharp=(await import('sharp')).default;
+ const portrait=await sharp({create:{width:32,height:32,channels:3,background:'#165c94'}}).jpeg().toBuffer();
+ await arabicPrivate.getByLabel('اختر صورة',{exact:true}).setInputFiles({name:'synthetic.jpg',mimeType:'image/jpeg',buffer:portrait});
+ const photoStart=calls.length;
+ await arabicPrivate.getByRole('button',{name:'حفظ الصورة',exact:true}).click();
+ await arabicPrivate.getByRole('button',{name:'تحقّق من حفظ الملف الأصلي',exact:true}).click();
+ const rendered=arabicPrivate.getByRole('img',{name:'صورة الملف الحالية',exact:true});
+ await expect(rendered).toBeVisible();
+ await expect.poll(()=>rendered.evaluate(el=>el.naturalWidth)).toBe(32);
+ const photoWrites=calls.slice(photoStart).filter(c=>c.action==='savePrivatePhoto');
+ assert.equal(photoWrites.length,1);
+ assert.equal(calls.slice(photoStart).find(c=>c.action==='reconcile').op,photoWrites[0].op);
+ await arabicPrivate.getByRole('button',{name:'إزالة الصورة',exact:true}).click();
+ await expect(arabicPrivate.getByLabel('اختر صورة',{exact:true})).toBeEnabled();
+ await expect(rendered).toHaveCount(0);
+ await arabicPrivate.getByRole('button',{name:'إغلاق البيانات الخاصة'}).click();
+ await page.setViewportSize({width:1440,height:1000});
+ await page.getByRole('button',{name:'بيانات الملف الخاصة',exact:true}).click();
+ await expect(arabicPrivate.getByText('مخفي',{exact:true})).toBeVisible();
+ denied=true;
+ await arabicPrivate.getByRole('button',{name:'إظهار الرقم القومي'}).click();
+ await expect(arabicPrivate).toHaveCount(0);
+ await expect(page.getByText('Updated Fixture School',{exact:true})).toHaveCount(0);
+ denied=false;
  await page.clock.install();const beforeAuthCalls=calls.length;await page.goto(`http://127.0.0.1:${server.address().port}/?authPending`);await page.getByRole('status').waitFor();await page.clock.fastForward(16000);await visible('Could not load sign-in');await expect(page.getByRole('button',{name:'Retry loading page',exact:true})).toBeVisible();assert.equal(calls.length,beforeAuthCalls);
- assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['API401 distinct from denial;EN/AR mask and one profile retry','same-account draft fields survive API401 without a create','unknown original survives401 and reconciles the same ID without a second create','held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
+ assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({reactMode,directoryResumeReads,profileResumeReads,reviewResumeReads,cases:['EN/AR alternate name saved once, profiled and found by both names','API401 distinct from denial;EN/AR mask and one profile retry','same-account draft fields survive API401 without a create','unknown original survives401 and reconciles the same ID without a second create','held checked directory/profile stay mounted for1read;initial/denial and original guards retained','single EN/AR confirmed-write/read-failure message with1read retry','18-player scoped directory and filtered-empty recovery','central duplicate comparison at3203907681440','duplicate distinction','existing profile no create','stale duplicate review','pending submission disabled','lost-response reconciliation','old cancellation notice cleared for later intent','actor switch clears state','revoked profile cleared','EN/AR draft preservation','320/360px no overflow','dirty return retains draft and clears review','confirmed write/read failure retries read without create','XSS-shaped name is literal text','short search explains minimum; debounce fetches valid query','auth initialization timeout offers retry with zero private calls'],creates,errors,scope:'Actual React component; synthetic session and HTTP responses. Database tested separately.'},null,2)+'\n');
  console.log(JSON.stringify({peopleUi:'passed',reactMode,creates:priorCreates,errors,scopedRequests:priorRequests,directoryReturn,changedQuery}));
  }
 }finally{await browser.close();await new Promise(r=>server.close(r));}

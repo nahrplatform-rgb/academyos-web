@@ -43,6 +43,14 @@ The Owner could inspect the same-name candidate and return to the preserved name
 
 This is local component, API and database evidence with a fictional identity adapter. The signed-in browser walkthrough above covers WD-01.
 
+## 20 November fresh hosted Owner entry
+
+Vercel resolved staging to Ready deployment `dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3` on `87768117ff3d93b16f7d0e8245282a3432dc5f08`. In a fresh ordinary Chromium profile, the public Arabic landing opened `/ar/sign-in`. The Owner completed the normal Clerk flow and the browser returned to `/ar/workspace`. The chooser listed AcademyOS M1 Synthetic Academy with the Academy Owner role. [Staging deployment](https://vercel.com/academy-os2/academyos-web/9TKV1D6EoZHdDhK9p4XgqUCtHcV3)
+
+The same isolated authenticated profile exercised Arabic RTL and English LTR separately. Selecting the synthetic academy loaded the real Owner Today. Each language had a successful hosted `owner_home` read and a usable **Open calendar** action. Following the header action opened the canonical localized Calendar and displayed its heading. The initial automation found two equivalent Calendar links on Today. The verification targeted the header action and reran the chooser and Today in both languages using the same signed-in profile. The disposable profile was closed and removed after verification. [WD-01 result](evidence/mp-b01-owner-entry-2026-11-14.json)
+
+Fresh authentication was exercised in Arabic. English exercised the signed-in chooser, Today and Calendar. The local controlled denial, no-membership and lookup-failure receipts still apply to their original scope. Hosted denial and Owner acceptance remain open. The next connected case measures first and repeated ordinary Today and Calendar visits under WD-04. Dedicated offline and PWA work remains deferred under the 20 November sequencing decision.
+
 ### WD-68 · Academy setup shortcuts
 
 The normal Setup → Players and Setup → Today shortcuts use guarded client navigation. EN/AR tests held the destination read and checked its visible shell and pending content. Players displayed a distinct failed read with an explicit retry. The keyboard and pointer cases each used three new documents before the change across the entry, Back and Forward sequence, then zero after it. The two destination URLs also went from three observed prefetches each per journey to zero. The required destination reads were unchanged. Setup's staff and program shortcuts share the guarded link pattern.

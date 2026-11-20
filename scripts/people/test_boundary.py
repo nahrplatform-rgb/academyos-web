@@ -185,5 +185,177 @@ class PeopleBoundary(Boundary):
   dest=ROOT/'docs/07-handoff/evidence/i2a-local-2026-10-24';dest.mkdir(parents=True,exist_ok=True)
   (dest/'sql-scale.json').write_text(json.dumps({'scope':'Disposable local PG17 function execution only; excludes HTTP, identity, limiter, cold starts and physical devices','players':1000,'sameNamePlayers':800,'measurements':metrics},indent=2)+'\n')
 
+class AlternateNameBoundary(PeopleBoundary):
+ def test_private_profile_details(self):
+  a,b=self.academy()
+  foreign,branch=self.academy('user_other_owner')
+  first=json.loads(self.register(a,b,name='First Fixture'))['player_id']
+  second=json.loads(self.register(a,b,name='Second Fixture'))['player_id']
+  third=json.loads(self.register(foreign,branch,name='Other Fixture',subject='user_other_owner'))['player_id']
+  for suffix in ('player_alternate_name','player_academy_member_number','player_private_profile_details','player_private_photo'):
+   migration,=ROOT.glob(f'supabase/migrations/*_{suffix}.sql')
+   self.sql('begin;'+migration.read_text()+'\ncommit;')
+  def read(academy,player,reveal=False,subject='user_owner',ok=True):
+   output=self.sql(f"select public.i2_private_profile_v1('{academy}','{player}',{str(reveal).lower()})",subject,ok=ok)
+   return json.loads(output) if ok else None
+  def save(academy,player,version,changes,op=None,subject='user_owner',ok=True):
+   q=f"select public.i2_save_private_profile_v1('{academy}','{player}','{op or uuid.uuid4()}',{version},{literal(json.dumps(changes))}::jsonb)"
+   output=self.sql(q,subject,ok=ok)
+   return json.loads(output) if ok else None
+  operation=str(uuid.uuid4())
+  changes={'legacyId':'  00Ref  ','schoolName':'Fixture School','address':'Fixture Address',
+           'medicalNotes':'Fixture Note','nationalId':'000031'}
+  self.assertEqual(read(a,first)['version'],0)
+  receipt=save(a,first,0,changes,operation)
+  self.assertEqual(save(a,first,0,changes,operation),receipt)
+  self.assertEqual(json.loads(self.sql(f"select public.i2_operation_v1('{a}','{operation}')",'user_owner')),receipt)
+  masked=read(a,first)
+  def lookup(kind,reference,subject='user_owner',ok=True):
+   response=self.sql(f"select public.i2_find_member_v1('{a}',{literal(kind)},{literal(reference)})",subject,ok=ok)
+   return json.loads(response)['player_id'] if ok else None
+  self.assertEqual(lookup('existing','  00ref '),first)
+  lookup('existing','00ref','user_other_owner',ok=False)
+  save(a,second,0,{'legacyId':'1'})
+  self.assertEqual(lookup('existing','1'),second)
+  generated=self.sql(f"select academy_member_number from academy.players where id='{first}'")
+  self.assertEqual(lookup('generated',generated),first)
+  self.assertIsNone(lookup('existing','missing'))
+  lookup('generated','9999999999999999999',ok=False)
+  self.assertEqual(masked['legacyId'],'00Ref')
+  self.assertEqual(masked['medicalNotes'],'Fixture Note')
+  self.assertTrue(masked['nationalIdPresent'])
+  self.assertNotIn('nationalId',masked)
+  self.assertEqual(read(a,first,True)['nationalId'],'000031')
+  read(a,first,True,'user_other_owner',ok=False)
+  save(a,first,1,{'nationalId':None},subject='user_other_owner',ok=False)
+  save(a,second,1,{'legacyId':'00ref','address':'Must not write'},ok=False)
+  self.assertEqual(read(a,second)['version'],1)
+  self.assertIsNone(read(a,second)['address'])
+  save(foreign,third,0,{'legacyId':'00ref'},subject='user_other_owner')
+  save(a,first,0,{'nationalId':None},ok=False)
+  save(a,first,1,{'unexpected':'Fixture'},ok=False)
+  direct=self.sql("select * from academy.player_private_details",'user_owner',ok=False)
+  self.assertIsNotNone(direct)
+  self.assertNotIn('Fixture Note', self.sql(f"select details from academy.audit_events where operation_id='{operation}'"))
+  original_profile=json.loads(self.sql(f"select public.i2_profile_v1('{a}','{first}')",'user_owner'))
+  self.assertFalse(set(changes)&original_profile.keys())
+  save(a,first,1,{'nationalId':None,'address':None})
+  self.assertFalse(read(a,first)['nationalIdPresent'])
+  self.assertEqual(read(a,first)['schoolName'],'Fixture School')
+  def photo_read(subject='user_owner',ok=True):
+   raw=self.sql(f"select public.i2_private_photo_v1('{a}','{first}')",subject,ok=ok)
+   return json.loads(raw) if ok else None
+  photo_op=str(uuid.uuid4())
+  def photo_save(version,image,op=None,subject='user_owner',ok=True):
+   q=f"select public.i2_save_private_photo_v1('{a}','{first}','{op or uuid.uuid4()}',{version},{literal(image) if image is not None else 'null'})"
+   raw=self.sql(q,subject,ok=ok)
+   return json.loads(raw) if ok else None
+  self.assertEqual(photo_read(),{'version':0,'image':None})
+  photo_read('user_other_owner',ok=False)
+  photo_save(0,'/9j/AA==',subject='user_other_owner',ok=False)
+  photo_save(0,'bm90IGFuIGltYWdl',ok=False)
+  receipt=photo_save(0,'/9j/AA==',photo_op)
+  self.assertEqual(photo_save(0,'/9j/AA==',photo_op),receipt)
+  self.assertEqual(json.loads(self.sql(f"select public.i2_operation_v1('{a}','{photo_op}')",'user_owner')),receipt)
+  photo_save(0,None,ok=False)
+  self.assertEqual(photo_read(),{'version':1,'image':'/9j/AA=='})
+  photo_save(1,'/9j/AQ==')
+  self.assertEqual(photo_read(),{'version':2,'image':'/9j/AQ=='})
+  photo_save(2,None)
+  self.assertEqual(photo_read(),{'version':3,'image':None})
+  self.sql("select * from academy.player_private_photos",'user_owner',ok=False)
+  self.assertNotIn('/9j/',self.sql(f"select details from academy.audit_events where operation_id='{photo_op}'"))
+
+ def test_alternate_name(self):
+  a,b=self.academy()
+  legacy_op=str(uuid.uuid4())
+  legacy=json.loads(self.register(a,b,name='Legacy Demo',op=legacy_op))
+  migration,=ROOT.glob('supabase/migrations/*_player_alternate_name.sql')
+  self.sql(migration.read_text())
+  self.assertEqual(json.loads(self.register(a,b,name='Legacy Demo',op=legacy_op)),legacy)
+
+  display='ليلى عادل'
+  alternate='Layla Adel'
+  op=str(uuid.uuid4())
+  def create(alias,subject='user_owner',operation=op,ok=True):
+   sql=f"select public.i2_register_v2('{a}','{b}','{operation}',{literal(display)},'',0,false,{literal(alias)})"
+   return self.sql(sql,subject,ok=ok)
+
+  create('x'*161,operation=str(uuid.uuid4()),ok=False)
+  create(alternate,'user_platform',ok=False)
+  created=json.loads(create('  Layla   Adel  '))
+  self.assertEqual(json.loads(create(alternate)),created)
+  create('Changed Alias',ok=False)
+  self.register(a,b,name=display,contact='',op=op,ok=False)
+  self.assertEqual(json.loads(self.sql(f"select public.i2_operation_v1('{a}','{op}')",'user_owner')),created)
+  self.assertEqual(self.sql(f"select count(*) from academy.audit_events where operation_id='{op}'"),'1')
+
+  player=created['player_id']
+  profile=f"select public.i2_profile_v1('{a}','{player}')"
+  self.assertEqual(json.loads(self.sql(profile,'user_owner'))['alternate_name'],alternate)
+  self.assertNotIn('alternate_name',json.loads(self.sql(f"select public.i2_profile_v1('{a}','{legacy['player_id']}')",'user_owner')))
+  for query in ['ليلى','ＬＡＹＬＡ']:
+   directory=f"select public.i2_people_v1('{a}',null,{literal(query)})"
+   items=json.loads(self.sql(directory,'user_owner'))['items']
+   self.assertEqual([(row['id'],row['display_name']) for row in items],[(player,display)])
+   self.assertNotIn('alternate_name',items[0])
+   self.sql(directory,'user_other_owner',ok=False)
+  self.assertEqual(self.candidates(a,alternate)['items'],[])
+  self.sql(profile,'user_other_owner',ok=False)
+  self.sql(f"select academy.i2_register_player('{a}','{b}','{op}',{literal(display)},'',0,false,'Layla')",'user_owner',ok=False)
+  self.assertEqual(self.sql(f"select count(*) from academy.players where academy_id='{a}'"),'2')
+
+ def test_generated_academy_member_numbers(self):
+  academy,b=self.academy()
+  other,other_branch=self.academy('user_other_owner')
+  original=str(uuid.uuid4())
+  existing=json.loads(self.register(academy,b,name='Existing Demo',op=original))
+  other_existing=json.loads(self.register(other,other_branch,name='Other Demo',subject='user_other_owner'))
+  for suffix in ('player_alternate_name','player_academy_member_number'):
+   migration,=ROOT.glob(f'supabase/migrations/*_{suffix}.sql')
+   self.sql('begin;'+migration.read_text()+'\ncommit;')
+  def profile(a,player,subject='user_owner',ok=True):
+   result=self.sql(f"select public.i2_profile_v1('{a}','{player}')",subject,ok=ok)
+   return json.loads(result) if ok else None
+  self.assertEqual(profile(academy,existing['player_id'])['academy_member_number'],'1')
+  self.assertEqual(profile(other,other_existing['player_id'],'user_other_owner')['academy_member_number'],'1')
+  self.assertEqual(json.loads(self.register(academy,b,name='Existing Demo',op=original)),existing)
+  profile(academy,existing['player_id'],'user_other_owner',ok=False)
+  self.sql('select * from academy.player_member_counters','user_owner',ok=False)
+  alias_id=str(uuid.uuid4())
+  def register_alias():
+   query=f"select public.i2_register_v2('{academy}','{b}','{alias_id}','New Alternate Demo','',0,false,'Alias Demo')"
+   return json.loads(self.sql(query,'user_owner'))
+  with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+   legacy_future=pool.submit(self.register,academy,b,name='New Legacy Demo')
+   alias_future=pool.submit(register_alias)
+   legacy=json.loads(legacy_future.result())
+   alias=alias_future.result()
+  self.assertEqual({profile(academy,r['player_id'])['academy_member_number'] for r in (legacy,alias)},{'2','3'})
+  self.assertEqual(register_alias(),alias)
+  self.assertEqual(self.sql(f"select last_number from academy.player_member_counters where academy_id='{academy}'"),'3')
+  rolled_back=str(uuid.uuid4())
+  self.sql('begin;'+self.caller('user_owner','/rpc/i2_register_v1')+
+   f"select public.i2_register_v1('{academy}','{b}','{rolled_back}','Aborted Demo','',0,false);rollback;")
+  self.assertEqual(self.sql(f"select last_number from academy.player_member_counters where academy_id='{academy}'"),'3')
+  self.assertEqual(self.sql(f"select count(*) from academy.people_operations where id='{rolled_back}'"),'0')
+  next_player=json.loads(self.register(academy,b,name='After Rollback Demo'))
+  self.assertEqual(profile(academy,next_player['player_id'])['academy_member_number'],'4')
+  self.sql(f"update academy.players set academy_member_number=99 where id='{existing['player_id']}'",ok=False)
+  self.assertEqual(profile(academy,existing['player_id'])['academy_member_number'],'1')
+  self.assertNotIn('academy_member_number',json.dumps(self.candidates(academy,'Existing Demo')))
+  directory=json.loads(self.sql(f"select public.i2_people_v1('{academy}')",'user_owner'))
+  self.assertNotIn('academy_member_number',json.dumps(directory))
+
 if __name__=='__main__':
- import unittest;result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(PeopleBoundary));sys.exit(not result.wasSuccessful())
+ import unittest
+ suite=unittest.defaultTestLoader.loadTestsFromTestCase(PeopleBoundary)
+ suite.addTest(AlternateNameBoundary('test_alternate_name'))
+ # The member-number rehearsal builds on the alternate-name migration. Give
+ # it a fresh database rather than applying that migration twice in one class.
+ result=unittest.TextTestRunner(verbosity=2).run(suite)
+ member_suite=unittest.TestSuite([AlternateNameBoundary('test_generated_academy_member_numbers')])
+ member_result=unittest.TextTestRunner(verbosity=2).run(member_suite)
+ profile_result=unittest.TextTestRunner(verbosity=2).run(
+  unittest.TestSuite([AlternateNameBoundary('test_private_profile_details')]))
+ sys.exit(not (result.wasSuccessful() and member_result.wasSuccessful() and profile_result.wasSuccessful()))

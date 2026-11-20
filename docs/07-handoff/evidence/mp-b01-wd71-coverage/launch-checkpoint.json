@@ -2842,5 +2842,167 @@
       "Remaining independent device, hosted and Owner acceptance work retains its own scope."
     ],
     "next": "Current-source connected local 18-player Owner-day acceptance pass under EX-07 / MP-B01."
+  },
+  "staging8776811": {
+    "recordedUtc": "2026-11-19T22:32:46+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "origin": "https://staging.academy.nahr.dev",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": "production",
+    "ownerReportedPromotion": true,
+    "agentPromotion": false,
+    "foundation": {
+      "runId": 44619786445,
+      "attempt": 1,
+      "stepsPassed": 55,
+      "stepCount": 55,
+      "evidence": "Recorded checked candidate receipt"
+    },
+    "identity": {
+      "role": "Academy Owner",
+      "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "verifiedVia": "Normal account dialog and current workspace chooser"
+    },
+    "browser": {
+      "profile": "nahr",
+      "taskGroup": "AcademyOS 8776811 Owner verification",
+      "interface": "browse CLI 0.1.5 named tab with an explicit tab ID",
+      "allowedOrigins": [
+        "https://staging.academy.nahr.dev"
+      ],
+      "taskTabClosed": true,
+      "standalone": false
+    },
+    "checks": {
+      "calendar": {
+        "locales": [
+          "en",
+          "ar"
+        ],
+        "directions": [
+          "ltr",
+          "rtl"
+        ],
+        "previousAnchor": "2026-11-13",
+        "restoredAnchor": "2026-11-20",
+        "refreshRetained": [
+          "anchor",
+          "session filter",
+          "selected session details",
+          "same document"
+        ]
+      },
+      "players": {
+        "locales": [
+          "en",
+          "ar"
+        ],
+        "matchedSyntheticPlayers": 1,
+        "refreshKeptNameFilter": true,
+        "openedSignedFullProfile": true,
+        "returnKeptResult": true,
+        "returnFocusedOriginalPlayerButton": true
+      },
+      "onlineEntry": {
+        "start": "/en",
+        "reachedSignedInPlayers": true,
+        "workerControlled": true,
+        "manifestStart": "/en",
+        "manifestScope": "/"
+      }
+    },
+    "limits": [
+      "Ordinary signed-in tab access. A live role denial or recovery was not induced in the existing Owner session.",
+      "No domain writes, account changes, staging configuration changes or deployment activity.",
+      "Cold hosted standalone launch, live Clerk Attendance recovery, hosted update and rollback, physical device coverage and Owner acceptance remain open."
+    ]
+  },
+  "hostedColdLaunchSetup8776811": {
+    "recordedUtc": "2026-11-19T22:47:02+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "existingMacApp": {
+      "signedInOwnerCalendar": true,
+      "workerSharedWithExistingPlayersTab": true,
+      "workerStateOrNetworkChanged": false,
+      "originalProgramsViewRestored": true
+    },
+    "disposableChromiumMacApp": {
+      "standaloneSeparateWindow": true,
+      "manifestStart": "/en",
+      "scopedProxyCutoffBlockedUncachedStagingRead": true,
+      "sameReadModeSucceededAfterRestore": true,
+      "ownerSignIn": "handoff pending"
+    },
+    "remaining": [
+      "Prepared signed-in Calendar",
+      "Verified service-worker fetch cutoff",
+      "Cold /en launch and same-period signed-in reconnect"
+    ]
+  },
+  "hostedColdLaunch8776811": {
+    "recordedUtc": "2026-11-19T22:59:11+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "origin": "https://staging.academy.nahr.dev",
+    "identity": "Live Clerk Academy Owner in the intended synthetic academy",
+    "runtime": "Standalone Chromium app on macOS with a disposable signed-in browser profile",
+    "networkControl": {
+      "scope": "Only the disposable browser profile",
+      "activeConnectionsClosed": true,
+      "newConnectionsBlocked": true,
+      "directUncachedServiceWorkerFetchRejected": true,
+      "restoredBeforeReconnect": true
+    },
+    "cases": [
+      {
+        "locale": "en",
+        "direction": "ltr",
+        "manifestStart": "/en",
+        "rootWorkerStartMs": 2.5,
+        "rootTransferBytes": 0,
+        "preparedCalendarTransferBytes": 0,
+        "anchor": "2026-11-20",
+        "preparedSessions": 5,
+        "uncoveredDate": "2027-11-20",
+        "uncoveredNotice": true,
+        "returnedToPreparedWeekOffline": true,
+        "reconnectedToSameSignedInCalendar": true,
+        "reconnectedRole": "owner",
+        "reconnectedTransferBytes": 18187
+      },
+      {
+        "locale": "ar",
+        "direction": "rtl",
+        "manifestStart": "/en",
+        "rootWorkerStartMs": 2.4,
+        "rootTransferBytes": 0,
+        "preparedCalendarTransferBytes": 0,
+        "anchor": "2026-11-20",
+        "preparedSessions": 5,
+        "uncoveredDate": "2027-11-20",
+        "uncoveredNotice": true,
+        "returnedToPreparedWeekOffline": true,
+        "reconnectedToSameSignedInCalendar": true,
+        "reconnectedRole": "owner",
+        "reconnectedTransferBytes": 18587
+      }
+    ],
+    "cleanup": {
+      "disposableAppUninstalled": true,
+      "disposableProfileRemoved": true,
+      "existingChromeAppPreserved": true
+    },
+    "stillOpen": [
+      "Clean-store first hosted launch",
+      "Actual provider-session expiry",
+      "Hosted authority denial and recovery",
+      "Live Clerk Attendance with a pending original",
+      "Hosted update and rollback",
+      "Wider devices",
+      "Owner acceptance"
+    ]
   }
 }

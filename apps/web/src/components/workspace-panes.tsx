@@ -5,7 +5,7 @@ import {inspectorDefault,inspectorMax,inspectorMin,useWorkspaceLayout} from './w
 import WorkspaceSeparator from './workspace-separator';
 import WorkspacePanelIcon from './workspace-panel-icon';
 /** Presentation only. Domain owns selection, data retrieval, dirty guards and recovery. */
-export default function WorkspacePanes({ children, inspector, title, arabic, selected = false, onBack, blocked = false, plain = false, selectionKey, backLabel, contextLabel, modalOnPhone = true, task = false, focusTargetId, paneActions }: { children: ReactNode; inspector: ReactNode; title: string; arabic: boolean; selected?: boolean; onBack?: () => void; blocked?: boolean; plain?: boolean; selectionKey?: string; backLabel?: string; contextLabel?: string; modalOnPhone?: boolean; task?: boolean; focusTargetId?: string; paneActions?: ReactNode }) {
+export default function WorkspacePanes({ children, inspector, title, arabic, selected = false, onBack, blocked = false, plain = false, selectionKey, backLabel, contextLabel, modalOnPhone = true, suspendPhoneDialog = false, task = false, focusTargetId, paneActions }: { children: ReactNode; inspector: ReactNode; title: string; arabic: boolean; selected?: boolean; onBack?: () => void; blocked?: boolean; plain?: boolean; selectionKey?: string; backLabel?: string; contextLabel?: string; modalOnPhone?: boolean; suspendPhoneDialog?: boolean; task?: boolean; focusTargetId?: string; paneActions?: ReactNode }) {
   const {preferences,update}=useWorkspaceLayout();
   const frame=useRef<HTMLDivElement>(null),inspectorId=useId();
   const [maximum,setMaximum]=useState(inspectorMax);
@@ -18,7 +18,7 @@ export default function WorkspacePanes({ children, inspector, title, arabic, sel
   const [phone, setPhone] = useState(false);
   useEffect(()=>{if(task||plain||!frame.current)return;const node=frame.current;const measure=()=>setMaximum(Math.max(inspectorMin,Math.min(inspectorMax,node.clientWidth-572)));const observer=new ResizeObserver(measure);observer.observe(node);measure();return()=>observer.disconnect();},[task,plain,phone]);
   useEffect(() => { if(!modalOnPhone)return; const media=window.matchMedia("(max-width: 1279px)");const update=()=>setPhone(media.matches);update();media.addEventListener("change",update);return()=>media.removeEventListener("change",update); },[modalOnPhone]);
-  useEffect(()=>{if(!task&&modalOnPhone&&phone&&(selected||contextOpen))phoneDialog.current?.showModal();else phoneDialog.current?.close();},[task,modalOnPhone,phone,selected,contextOpen]);
+  useEffect(()=>{if(!task&&modalOnPhone&&phone&&!suspendPhoneDialog&&(selected||contextOpen))phoneDialog.current?.showModal();else phoneDialog.current?.close();},[task,modalOnPhone,phone,selected,contextOpen,suspendPhoneDialog]);
   const heading = useRef<HTMLHeadingElement>(null), opener = useRef<HTMLButtonElement>(null), reveal = useRef<HTMLButtonElement>(null);
   useEffect(() => { if (selected && (task || phoneDialog.current?.open || (!phone && !preferences.detailsHidden))) (focusTargetId?document.getElementById(focusTargetId):heading.current)?.focus({preventScroll:!task}); }, [selected, selectionKey, phone, focusTargetId, task, preferences.detailsHidden]);
   useEffect(()=>{if(selected&&!task)update({detailsHidden:false});/* Selection reveals context; refresh alone never changes focus. */

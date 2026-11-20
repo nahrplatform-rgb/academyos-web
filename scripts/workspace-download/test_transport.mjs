@@ -36,6 +36,7 @@ const inputs=[
   'apps/web/src/app/api/people/route.ts','apps/web/src/lib/people.ts',
   'apps/web/src/lib/experience-format.ts',
   'supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql',
+  'supabase/migrations/20261119233028_player_alternate_name.sql',
   'apps/web/src/lib/local-workspace-codec.ts','apps/web/src/lib/local-workspace-repository.ts',
   'apps/web/src/lib/local-register-crypto.ts',
   'apps/web/src/lib/register-device-account.ts','apps/web/src/lib/workspace-device-slots.ts',
@@ -177,7 +178,7 @@ try{
     export{POST as peoplePost}from'./apps/web/src/app/api/people/route.ts';
     export{NextRequest}from'next/server';`,resolveDir:root},bundle:true,platform:'node',format:'esm',write:false,
     packages:'external',plugins:[{name:'isolated-provider-fixtures',setup(b){
-      b.onResolve({filter:/^(next\/server|@supabase\/supabase-js)$/},v=>({path:require.resolve(v.path),external:true}));
+      b.onResolve({filter:/^(next\/server|@supabase\/supabase-js|sharp)$/},v=>({path:require.resolve(v.path),external:true}));
       b.onResolve({filter:/^@clerk\/nextjs\/server$/},()=>({path:'clerk',namespace:'fixture'}));
       b.onResolve({filter:/^(\.\/rate-limit|@\/lib\/rate-limit)$/},()=>({path:'limiter',namespace:'fixture'}));
       b.onResolve({filter:/^server-only$/},()=>({path:'serverOnly',namespace:'fixture'}));
@@ -210,7 +211,7 @@ try{
   globalThis.fetch=async(input,init)=>{
     const url=new URL(String(input));assert.equal(url.origin,database);
     const target=url.pathname.replace('/rest/v1/rpc/','');
-    assert.ok([rpcName,'x21_workspace_key_v1','i2_people_v1','i2_candidates_v1','i2_profile_v1','i2_register_v1','i2_operation_v1'].includes(target));assert.equal(url.search,'');
+    assert.ok([rpcName,'x21_workspace_key_v1','i2_people_v1','i2_candidates_v1','i2_profile_v1','i2_register_v1','i2_register_v2','i2_operation_v1'].includes(target));assert.equal(url.search,'');
     assert.equal(init.method,'POST');assert.equal(init.cache,'no-store');
     const proof=new Headers(init.headers).get('x-academyos-gateway');
     assert.ok(proof);const subject=JSON.parse(proof).subject;
@@ -453,11 +454,11 @@ try{
         const fixture=locale==='en'?normalFixture:await db({action:'make',size:56,calendar:true,unregistered:true});
         activeNormal=locale==='en'?normal:await normalWorkspaceFixture(root,fixture,{people:peopleRequest});
         if(installedPlayers){
-          const name='Synthetic WD-76 profile',contact='wd76-profile@example.invalid';
+          const name='Synthetic WD-76 profile',contact='wd76-profile@example.invalid',alternateName='اسم اصطناعي بديل';
           const response=await peopleRequest({action:'create',academy:fixture.academy,branch:fixture.branch,
-            op:randomUUID(),name,contact,revision:0,different:false});
+            op:randomUUID(),name,contact,alternateName,revision:0,different:false});
           assert.equal(response.status,200,'Prepare one fictional full profile before browser tests');
-          fixture.profile={name,contact,id:(await response.json()).data.player_id};
+          fixture.profile={name,contact,alternateName,id:(await response.json()).data.player_id};
           activeNormal.useRealPeople();
         }
         return {fixture,ui:activeNormal};

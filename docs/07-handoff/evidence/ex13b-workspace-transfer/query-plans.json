@@ -5,8 +5,8 @@
     ],
     "returned_rows": 26,
     "source_rows_visited": 26,
-    "planning_ms": 0.387,
-    "execution_ms": 0.057,
+    "planning_ms": 0.54,
+    "execution_ms": 0.075,
     "shared_hit_blocks": 29,
     "shared_read_blocks": 0
   },
@@ -18,8 +18,8 @@
     ],
     "returned_rows": 1,
     "source_rows_visited": 51,
-    "planning_ms": 1.393,
-    "execution_ms": 2.99,
+    "planning_ms": 1.958,
+    "execution_ms": 3.682,
     "shared_hit_blocks": 250,
     "shared_read_blocks": 0
   },

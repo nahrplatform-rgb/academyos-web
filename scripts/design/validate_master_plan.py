@@ -110,7 +110,13 @@ def validate(reference_root=None):
     for row in player_fields:
         source = expected_player[row['reference_field_id']]
         assert row['legacy_field_key'] == source['field_key'] and row['source_evidence'] == source['legacy_evidence']
-        assert row['authority_state'] == 'Proposed/investigate only;no new field or exclusion accepted'
+        if row['reference_field_id'] in {'PF-001', 'PF-002', 'PF-003', 'PF-004'}:
+            assert row['authority_state'] == (
+                '20 Nov Owner approved one optional connected alternate full name;'
+                'individual legacy name components remain unselected'
+            )
+        else:
+            assert row['authority_state'] == 'Proposed/investigate only;no new field or exclusion accepted'
     assert {r['domain_id'] for r in caps} == dids, 'Reference investigation must address every domain,including unknowns'
     adoption = table('pysa-adoption-map.csv', 'reference_id')
     field_adoption = table('field-adoption-map.csv', 'reference_field_id')
