@@ -7,7 +7,7 @@ import {appendFile, mkdir, mkdtemp, readFile, readdir, readlink, rename, symlink
 import {dirname, delimiter, isAbsolute, join, resolve} from 'node:path';
 import {homedir} from 'node:os';
 import {fileURLToPath} from 'node:url';
-import {acquireResource,assertPortFree,readRuntime,assertRuntime,stopOwnedRuntime,localOrigins} from './runtime.mjs';
+import {acquireResource,assertPortFree,readRuntime,assertRuntime,stopOwnedRuntime,clearDevOutput,localOrigins} from './runtime.mjs';
 import {assertCurrentWebBuild} from '../verification/web-build.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
@@ -204,6 +204,8 @@ async function execute(command,argv,env,logFile,live=false,onReady){
 }
 async function main(){
   const [mode='preflight',...args]=process.argv.slice(2),tc=await toolchain();
+  const clean=args.includes('--clean');
+  if(clean&&mode!=='dev')throw new Error('--clean is only supported by npm run dev.');
   const req=createRequire(join(root,'apps/web/package.json'));
   const {combinedEnv}=req('@next/env').loadEnvConfig(join(root,'apps/web'),mode!=='production',{info(){},error(){}});
   const env={...combinedEnv,...tc.env};
@@ -237,11 +239,12 @@ async function main(){
   if(mode==='dev'||mode==='production'){
     if(readiness.missing.length&&!args.includes('--public-only'))throw new Error('Signed-in local environment incomplete: '+readiness.missing.join(', ')+'. Fill apps/web/.env.local; --public-only opens the public shell with protected routes still closed.');
     const url=localOrigins[mode];env.NEXT_PUBLIC_APP_URL=url;
-    if(args.includes('--restart'))await stopOwnedRuntime(root,mode);
+    if(clean||args.includes('--restart'))await stopOwnedRuntime(root,mode);
     const launchLease=await acquireResource(root,'server-'+mode);
     let buildLease;
     try{
     await assertPortFree(Number(new URL(url).port));
+    if(clean)await clearDevOutput(root);
     // This Next/Clerk combination normalizes its internal rewrite to localhost.
     // Use that same canonical name in the browser too: API same-origin guards
     // compare the Origin header with normalized NextURL. Prefer IPv4 loopback
@@ -260,8 +263,9 @@ async function main(){
     const runtime={instance:randomUUID(),mode,pid:process.pid,sourceHash:proof?.sourceHash??null,
       buildId:mode==='production'?(await readFile(join(root,'apps/web/.next/BUILD_ID'),'utf8')).trim():null};
     env.ACADEMYOS_LOCAL_RUNTIME=JSON.stringify(runtime);
-    await writeJsonAtomically(join(output,'runtime-'+mode+'.json'),runtime);
+    await writeJsonAtomically(join(output,'runtime-'+mode+'.json'),{...runtime,start:launchLease.start});
     console.log(JSON.stringify({mode,url:url+'/en',log:join(output,mode+'.log'),runtime:tc.version,environment:readiness,offlineRuntime,
+      ...(clean?{cleanRebuild:true,devOutput:join(root,'apps/web/.next-local')}:{}),
       publicOnly:args.includes('--public-only'),scope:'Local frontend; external services remain synthetic staging when configured.'}));
     const childArgs=['run',mode==='dev'?'dev':'start','--workspace','@academyos/web','--','--hostname','localhost','--port',mode==='dev'?'3000':'3100'];
     const result=await execute(tc.npm,childArgs,env,join(output,mode+'.log'),true,async()=>{

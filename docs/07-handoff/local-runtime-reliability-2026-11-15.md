@@ -31,3 +31,9 @@ The original historical WD-70 failure and lookup cannot be conclusively attribut
 One configured `gpt-6.1-terra` helper owned the bounded Players timing repair and then performed one read-only runtime review; peak one helper, no nested work. The coordinator owned process/build/browser operations, integration and records. Backend token/cost telemetry is unavailable; no savings claim is made.
 
 Next permitted product work remains **WD-71 Owner save/follow-up-read continuity**: reconcile the existing registration, Attendance and dated-planning evidence, then measure a still-uncovered canonical save with a held or failed follow-up while preserving confirmed receipt versus unknown original, entered context/version and the smallest authoritative reread. MP-Q01 A/B/C decisions continue to gate only their dependent new Player capabilities.
+
+## 20 November dev clean rebuild
+
+`npm run dev -- --clean` replaces the verified editing launcher and regenerates only `apps/web/.next-local`. A real HTTP 500 listener fixture verified recovery through OS process ownership; a mismatched record and an unrelated listener were refused. The live connected-mode command replaced the previous launcher on port 3000. The new instance matched the runtime record and `/en` returned 200. Port 3100 remained stopped. This is local runtime readiness, not signed-in Players write verification.
+
+The staging catalog contains the original registration function but neither the alternate-name function nor its column. See the [Players decision packet](mp-b01-player-decisions-2026-11-14.md#authorized-registration-verification). The clean rebuild did not change staging.

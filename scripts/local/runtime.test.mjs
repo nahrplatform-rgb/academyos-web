@@ -1,10 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,readFile,rm} from 'node:fs/promises';
+import {mkdir,mkdtemp,readFile,realpath,rm,symlink,writeFile} from 'node:fs/promises';
+import {execFileSync,fork} from 'node:child_process';
+import {once} from 'node:events';
 import {createServer} from 'node:net';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {acquireResource,assertPortFree,assertRuntime,readRuntime} from './runtime.mjs';
+import {acquireResource,assertPortFree,assertRuntime,clearDevOutput,readRuntime,stopOwnedRuntime} from './runtime.mjs';
+import {fileURLToPath} from 'node:url';
 
 test('overlapping launch/build owners cannot both mutate the shared resource',async()=>{
   const root=await mkdtemp(join(tmpdir(),'academyos-resource-'));
@@ -44,4 +47,77 @@ test('HTML success, a foreign instance and a stale build never count as the chec
 test('a responsive unidentified server stays distinct from an offline listener',async()=>{
   assert.deepEqual(await readRuntime('http://localhost:3000',async()=>new Response('{}',{status:404})),{status:'unidentified',http:404});
   assert.deepEqual(await readRuntime('http://localhost:3000',async()=>{throw new Error('offline');}),{status:'offline-or-unresponsive'});
+});
+
+test('a real HTTP 500 listener can be stopped only with a matching recorded dev owner',async t=>{
+  if(!['darwin','linux'].includes(process.platform))return t.skip('requires Unix process inspection');
+  try{execFileSync('lsof',['-v'],{stdio:'ignore'});}catch{return t.skip('lsof is unavailable');}
+  const root=await realpath(await mkdtemp(join(tmpdir(),'academyos-restart-')));
+  let child,closed;
+  try{
+    const path=join(root,'scripts/local/workflow.mjs');
+    await mkdir(join(root,'scripts/local'),{recursive:true});
+    await writeFile(path,`
+      import {createServer} from 'node:http';
+      import {acquireResource} from ${JSON.stringify(fileURLToPath(new URL('./runtime.mjs',import.meta.url)))};
+      const lease=await acquireResource(process.cwd(),'server-dev');
+      const server=createServer((_,res)=>{res.writeHead(500);res.end();});
+      process.once('SIGTERM',()=>server.close(async()=>{await lease.release();process.disconnect();}));
+      server.listen(0,'127.0.0.1',()=>process.send({port:server.address().port,start:lease.start}));
+    `);
+    child=fork(path,['dev'],{cwd:root,execArgv:[],stdio:['ignore','ignore','inherit','ipc']});
+    closed=once(child,'exit');
+    const {port,start}=await new Promise((resolve,reject)=>{
+      child.once('message',resolve);
+      child.once('exit',()=>reject(new Error('Fixture exited before listening')));
+      child.once('error',reject);
+    });
+    const origin='http://127.0.0.1:'+port;
+    const options={origin,read:async()=>{
+      const response=await fetch(origin+'/api/local-runtime');
+      assert.equal(response.status,500);
+      await response.arrayBuffer();
+      return {status:'unidentified',http:500};
+    }};
+    const record=join(root,'test-results/local-workflow/runtime-dev.json');
+    const runtime={mode:'dev',instance:'fixture',pid:child.pid,start};
+    await writeFile(record,JSON.stringify({...runtime,start:'wrong'}));
+    await assert.rejects(stopOwnedRuntime(root,'dev',options),/process identity changed/);
+    await writeFile(record,JSON.stringify(runtime));
+    await assert.rejects(stopOwnedRuntime(root,'dev',{origin,read:async()=>({status:'responding',runtime:{...runtime,instance:'foreign'}})}),/not serving/);
+    const foreign=createServer();
+    await new Promise(resolve=>foreign.listen(0,'127.0.0.1',resolve));
+    try{
+      await assert.rejects(stopOwnedRuntime(root,'dev',{
+        ...options,origin:'http://127.0.0.1:'+foreign.address().port,
+      }),/Cannot verify ownership/);
+      assert.equal(foreign.listening,true);
+    }finally{await new Promise(resolve=>foreign.close(resolve));}
+    await stopOwnedRuntime(root,'dev',options);
+    const exit=await closed;
+    assert.equal(exit[0],0);
+    assert.equal(exit[1],null);
+    await assertPortFree(port);
+    await stopOwnedRuntime(root,'dev',options);
+  }finally{
+    if(child&&child.exitCode===null&&child.signalCode===null){child.kill('SIGKILL');await closed;}
+    await rm(root,{recursive:true,force:true});
+  }
+});
+
+test('clean rebuild removes only the generated dev tree and refuses a symlink',async()=>{
+  const root=await realpath(await mkdtemp(join(tmpdir(),'academyos-clean-')));
+  try{
+    const web=join(root,'apps/web'),production=join(web,'.next'),dev=join(web,'.next-local');
+    await mkdir(production,{recursive:true});await mkdir(dev);
+    await writeFile(join(production,'BUILD_ID'),'keep');
+    await writeFile(join(web,'.env.local'),'fixture');
+    await clearDevOutput(root);
+    await assert.rejects(readFile(join(dev,'file')), {code:'ENOENT'});
+    assert.equal(await readFile(join(production,'BUILD_ID'),'utf8'),'keep');
+    assert.equal(await readFile(join(web,'.env.local'),'utf8'),'fixture');
+    await symlink(production,dev);
+    await assert.rejects(clearDevOutput(root),/not a real directory/);
+    assert.equal(await readFile(join(production,'BUILD_ID'),'utf8'),'keep');
+  }finally{await rm(root,{recursive:true,force:true});}
 });

@@ -4,6 +4,8 @@
 
 **Later Owner clarification:** local development is the primary working environment for all implemented journeys, including protected local data/offline commands. Editing, application use, focused/integrated tests, documentation, Git commits and pushes happen from this workspace. A successful local batch does not need a promotion before the next edit. Automatic CI/preview builds may still follow a push; canonical staging promotion stays Owner-only and belongs to a meaningful release checkpoint. [Local functional setup/evidence](../07-handoff/local-functional-environment-2026-11-13.md).
 
+During module development, use focused local checks for each changed behavior and affected authority, migration, transaction and recovery boundaries. Combine full applicable regression, captures and candidate checks when the agreed module workflow is ready. Record progress at interruptions so the next session can resume the same batch. [Module-scale delivery](master-plan-v2/delivery-and-verification.md#module-scale-delivery--20-november-2026)
+
 ## Browser sessions — 15 November 2026
 
 The Owner supplied and reported verification of the browse MCP setup on 15 November. Prefer browse MCP for interaction with the user's browser over built-in computer-use and browser plugins. Existing isolated repository fixtures continue to collect reproducible local evidence through their own browsers.
@@ -122,6 +124,8 @@ Use **localhost:3000 for visible saved edits** and **localhost:3100 for the chec
 | Action | Command |
 | --- | --- |
 | Start live editing | `npm run dev` |
+| Restart live editing with the existing generated output | `npm run dev -- --restart` |
+| Clean rebuild of live editing, including a verified unhealthy listener | `npm run dev -- --clean` |
 | Inspect both running processes/builds | `npm run local:status` |
 | First production preview | `npm run local:production` |
 | Rebuild and replace the known running production preview | `npm run local:production -- --restart` |
@@ -129,6 +133,8 @@ Use **localhost:3000 for visible saved edits** and **localhost:3100 for the chec
 | Serial protected transport/registration checks | `npm run local:verify -- --suite=transport --fresh` |
 
 The launcher refuses an occupied port **before** rebuilding or replacing its log. It records an instance ID and build identity, then checks the actual listener at `/api/local-runtime`. Restart signals only the matching recorded launcher and waits for the listener and its leases to close. An unknown listener is not killed. Root builds also refuse a running production server. Compiled freshness covers executable server bundles/manifests and public assets; Next's mutable `server/route-cache` is excluded. A current public HTML response alone is insufficient.
+
+Dev restart can recover from a failed runtime endpoint on macOS or Linux with `ps` and `lsof`. It verifies the recorded lease and process start time, the launcher command and checkout, and that the listening process belongs to that launcher. If the checks fail, it leaves the processes running. A launcher started before process identity was recorded can still restart through its healthy runtime endpoint. Clean rebuild clears only `apps/web/.next-local` after the dev lease and port are available. The production build, local credentials and browser storage are preserved.
 
 `local:verify` serializes its browser profiles, and the raw transport entry uses the same inherited lease. Standalone builds/launches also have ownership leases. A refused overlapping run is not a failed product assertion. After an unclean process death, inspect the reported PID and remove only its named generated lock when its owner is confirmed stopped; never remove protected browser stores or another active process's lease. Capture collection gives each journey its own artifact directory and a minimal credential-free fixture environment.
 
