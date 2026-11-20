@@ -578,10 +578,16 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 .people-directory-footer { display:flex; align-items:center; gap:8px 16px; flex-wrap:wrap; margin-block-start:12px; }
 .people-directory-pages { display:flex; gap:8px; flex-wrap:wrap; }
 .people-directory-footer small { color:var(--muted); }
-.player-profile-tabs { display:flex; flex-wrap:wrap; gap:4px; border-block-end:1px solid var(--line); padding-block-end:4px; margin-block:12px; }
-.player-profile-tabs [aria-selected="true"] { color:var(--accent); border-color:currentColor; }
+.player-profile-tabs { display:flex; flex-wrap:wrap; gap:0; border-block-end:2px solid var(--line); margin-block:16px 12px; padding:0; }
+.player-profile-tabs button { position:relative; padding:10px 16px; border:0; border-block-end:2px solid transparent; margin-block-end:-2px; background:transparent; color:var(--muted); font-size:14px; font-weight:500; cursor:pointer; transition:color 150ms ease, border-color 150ms ease; white-space:nowrap; }
+.player-profile-tabs button:hover { color:var(--text); }
+.player-profile-tabs button[aria-selected="true"] { color:var(--accent); border-block-end-color:var(--accent); font-weight:600; }
+.player-profile-tabs button:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; border-radius:4px; }
 .player-private-details.journey-card { margin:0; padding:0; border:0; box-shadow:none; }
 .player-private-details input { max-inline-size:100%; }
+.player-profile-section { margin-block:12px 8px; }
+.player-profile-section h3 { font-size:14px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em; margin-block:0 6px; }
+.player-profile-section dl { margin:0; }
 
 @media (max-width:767px) {
   .people-directory-search { flex-basis:100%; }

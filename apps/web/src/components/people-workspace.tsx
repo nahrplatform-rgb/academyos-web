@@ -44,7 +44,7 @@ type Page = {
     more: boolean;
     revision: number;
 } & Context;
-type ProfileTab = 'profile' | 'participation' | 'actions';
+type ProfileTab = 'profile' | 'participation' | 'finance' | 'actions';
 type Stage = 'directory' | 'form' | 'duplicates' | 'review' | 'saving' | 'unknown' | 'profile';
 class RequestFailure extends Error {
     constructor(public code: string) { super(code); }
@@ -621,6 +621,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const tabs: {id:ProfileTab;label:string}[]=[
         {id:'profile',label:t('Profile','الملف')},
         {id:'participation',label:t('Participation','المشاركة')},
+        {id:'finance',label:t('Finance','المالية')},
         {id:'actions',label:t('Actions','الإجراءات')},
     ];
     function switchProfileTab(tab:ProfileTab) {
@@ -707,14 +708,25 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
               tabIndex={profileTab===tab.id?0:-1} onClick={()=>switchProfileTab(tab.id)}>{tab.label}</Button>)}
           </div>}
           <div hidden={fullProfile&&profileTab!=='profile'} id="player-profile-panel-profile" role={fullProfile?'tabpanel':undefined} aria-labelledby={fullProfile?'player-profile-tab-profile':undefined}>
-            <dl className="admission-properties">
-              <div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>
-              {fullProfile&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}
-              {fullProfile&&selected.academyMemberNumber&&<div><dt>{t('Academy member number', 'رقم العضوية في الأكاديمية')}</dt><dd><bdi dir="ltr">{selected.academyMemberNumber}</bdi></dd></div>}
-              <div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{!fullProfile?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div>
-            </dl>
+            <section className="player-profile-section">
+              <h3>{t('Identity', 'الهوية')}</h3>
+              <dl className="admission-properties">
+                <div><dt>{t('Display name', 'اسم العرض')}</dt><dd><bdi>{selected.name}</bdi></dd></div>
+                <div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>
+                {fullProfile&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}
+                {fullProfile&&selected.academyMemberNumber&&<div><dt>{t('Academy member number', 'رقم العضوية في الأكاديمية')}</dt><dd><bdi dir="ltr">{selected.academyMemberNumber}</bdi></dd></div>}
+                {fullProfile&&selected.archived&&<div><dt>{t('Status', 'الحالة')}</dt><dd>{t('Archived', 'مؤرشف')}</dd></div>}
+              </dl>
+            </section>
+            <section className="player-profile-section">
+              <h3>{t('Contact', 'جهة الاتصال')}</h3>
+              <dl className="admission-properties">
+                <div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{!fullProfile?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div>
+              </dl>
+            </section>
             {!fullProfile&&<p className="notice">{t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.')}</p>}
-            {fullProfile&&selected.archived&&<p>{t('Archived','مؤرشف')}</p>}
+            {fullProfile&&privateProfiles&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
+              storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
             {fullProfile&&nameCorrections&&selected.version!==undefined&&profileTab==='profile'&&(
               correctingNames
                 ? <PlayerNameCorrection key={selected.id} ref={privateEditor} player={{...selected,version:selected.version}}
@@ -730,6 +742,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
           </div>
           {fullProfile&&<div hidden={profileTab!=='participation'} id="player-profile-panel-participation" role="tabpanel" aria-labelledby="player-profile-tab-participation">
             <p className="notice">{t('Sport participation, groups and schedule assignments will appear here.','ستظهر هنا مشاركات اللاعب في الرياضات والمجموعات والجدول.')}</p>
+          </div>}
+          {fullProfile&&<div hidden={profileTab!=='finance'} id="player-profile-panel-finance" role="tabpanel" aria-labelledby="player-profile-tab-finance">
+            <p className="notice">{t('Billing, payments and financial records will appear here.','ستظهر هنا الفواتير والمدفوعات والسجلات المالية.')}</p>
           </div>}
           {fullProfile&&privateProfiles&&profileTab==='profile'&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
             storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
