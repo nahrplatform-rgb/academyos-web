@@ -115,6 +115,8 @@ def validate(reference_root=None):
                 '20 Nov Owner approved one optional connected alternate full name;'
                 'individual legacy name components remain unselected'
             )
+        elif row['reference_field_id'] in {'PF-005', 'PF-036', 'PF-037'}:
+            assert row['authority_state'] == '20 Nov Owner approved this optional connected synthetic Owner profile field'
         else:
             assert row['authority_state'] == 'Proposed/investigate only;no new field or exclusion accepted'
     assert {r['domain_id'] for r in caps} == dids, 'Reference investigation must address every domain,including unknowns'

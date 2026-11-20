@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useEffectEvent, useImperativeHandle, useRef, useState, type FormEvent, type Ref } from 'react';
 import { Button, Input } from './ui/controls';
 
 type Translate = (en: string, ar: string) => string;
@@ -12,14 +12,19 @@ const fields = [
     ['medicalNotes', 'Medical notes', 'ملاحظات طبية', 500],
     ['nationalId', 'National ID', 'الرقم القومي', 80],
 ] as const;
-type Field = typeof fields[number][0];
+const extendedFields = [
+    ['dateOfBirth', 'Date of birth', 'تاريخ الميلاد', 10, 'date'],
+    ['primaryPhone', 'Primary contact phone', 'هاتف جهة الاتصال الرئيسية', 40, 'tel'],
+    ['emergencyName', 'Emergency contact name', 'اسم جهة اتصال الطوارئ', 160, 'text'],
+    ['emergencyPhone', 'Emergency contact phone', 'هاتف جهة اتصال الطوارئ', 40, 'tel'],
+] as const;
+type Field = typeof fields[number][0] | typeof extendedFields[number][0];
 type Details = Partial<Record<Field, string | null>> & { version: number; nationalIdPresent: boolean };
 type Photo = { version: number; image: string | null };
 
-export function PlayerPrivateDetails({ player, storageKey, request, onFailure, onClose, t }: {
-    player: string; storageKey: string; request: Request; onFailure: (error: unknown) => void; onClose: () => void; t: Translate;
+export function PlayerPrivateDetails({ player, storageKey, extended, request, onFailure, onClose, t, ref }: {
+    player: string; storageKey: string; extended?: boolean; request: Request; onFailure: (error: unknown) => void; onClose: () => void; t: Translate; ref?: Ref<{canLeave: () => boolean}>;
 }) {
-    const dialog = useRef<HTMLDialogElement>(null);
     const mounted = useRef(true);
     const locked = useRef(false);
     const [busy, setBusy] = useState(false);
@@ -31,16 +36,13 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
     const [conflict, setConflict] = useState(false);
     const [notice, setNotice] = useState<'saved' | 'cancelled' | 'unavailable' | null>(null);
     const dirty = Object.keys(draft).length > 0;
+    const incompleteEmergency = extended && Boolean((draft.emergencyName ?? current?.emergencyName)?.trim()) !==
+        Boolean((draft.emergencyPhone ?? current?.emergencyPhone)?.trim());
     useEffect(() => {
         mounted.current = true;
         return () => { mounted.current = false; };
     }, []);
     const initialRead = useRef(false);
-    useEffect(() => {
-        const panel = dialog.current;
-        panel?.showModal();
-        return () => { panel?.close(); };
-    }, []);
     useEffect(() => {
         if (!dirty && !file && !pending && !busy) return;
         const guard = (event: BeforeUnloadEvent) => { event.preventDefault(); };
@@ -67,7 +69,7 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
         }
     }
     async function read(reveal = false) {
-        const details = await request<Details>({ action: 'privateProfile', player, revealId: reveal });
+        const details = await request<Details>({ action: extended ? 'extendedPrivateProfile' : 'privateProfile', player, revealId: reveal });
         if (mounted.current) setCurrent(details);
         return details;
     }
@@ -83,11 +85,13 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
         initialRead.current = true;
         start();
     }, []);
+    function canLeave() {
+        if (locked.current || pending) return false;
+        return !(dirty || file) || window.confirm(t('Discard unsaved changes?', 'تجاهل التغييرات غير المحفوظة؟'));
+    }
+    useImperativeHandle(ref, () => ({canLeave}));
     function finish() {
-        if (locked.current || pending) return;
-        if ((dirty || file) && !window.confirm(t('Discard unsaved changes?', 'تجاهل التغييرات غير المحفوظة؟'))) return;
-        dialog.current?.close();
-        onClose();
+        if (canLeave()) onClose();
     }
     function forget() {
         sessionStorage.removeItem(storageKey);
@@ -106,13 +110,13 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
     }
     function save(event: FormEvent) {
         event.preventDefault();
-        if (!current || !dirty || pending || conflict) return;
+        if (!current || !dirty || pending || conflict || incompleteEmergency) return;
         void run(async () => {
             const op = crypto.randomUUID();
             sessionStorage.setItem(storageKey, op);
             setPending(op);
             try {
-                await request({ action: 'savePrivateProfile', player, op, version: current.version, changes: draft });
+                await request({ action: extended ? 'saveExtendedPrivateProfile' : 'savePrivateProfile', player, op, version: current.version, changes: draft });
             } catch (error) {
                 const code = (error as { code?: string })?.code;
                 if (code === 'conflict' || code === 'invalid' || code === 'limited') {
@@ -179,10 +183,7 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
     }
     const update = (key: Field, value: string) => setDraft(previous => ({ ...previous, [key]: value }));
 
-    return <dialog ref={dialog} className="workspace-detail-dialog" aria-label={t('Private profile details', 'بيانات الملف الخاصة')}
-            onCancel={event => { event.preventDefault(); finish(); }}>
-            <section className="journey-card">
-                <h2>{t('Private profile details', 'بيانات الملف الخاصة')}</h2>
+    return <section className="journey-card player-private-details">
                 {busy && <p role="status">{t('Working…', 'جارٍ التنفيذ…')}</p>}
                 {notice === 'saved' && <p role="status">{current ? t('Private details saved.', 'حُفظت البيانات الخاصة.') : t('Private details saved. Reload to view them.', 'حُفظت البيانات الخاصة. أعد التحميل لعرضها.')}</p>}
                 {notice === 'cancelled' && <p role="status">{t('The original save did not commit.', 'لم يكتمل الحفظ الأصلي.')}</p>}
@@ -191,7 +192,7 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
                 {pending ? <Button type="button" disabled={busy} onClick={recover}>{t('Check original profile save', 'تحقّق من حفظ الملف الأصلي')}</Button>
                     : !current ? <Button type="button" disabled={busy} onClick={() => void run(() => read().then(() => {}))}>{t('Reload private details', 'أعد تحميل البيانات الخاصة')}</Button>
                     : <form className="journey-form" onSubmit={save}>
-                        {fields.map(([key, en, ar, max]) => {
+                        {(extended ? [...fields, ...extendedFields] : fields).map(([key, en, ar, max, type]) => {
                             const masked = key === 'nationalId' && current.nationalIdPresent && current.nationalId === undefined;
                             return <div key={key}>
                                 <label htmlFor={'player-private-' + key}>{t(en, ar)}</label>
@@ -202,11 +203,12 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
                                         const next = await read(true);
                                         if (next.version !== version && dirty && mounted.current) setConflict(true);
                                     })}>{t('Reveal national ID', 'إظهار الرقم القومي')}</Button>
-                                </div> : <Input id={'player-private-' + key} dir="auto" autoComplete="off" maxLength={max}
+                                </div> : <Input id={'player-private-' + key} type={type} dir={type === 'tel' ? 'ltr' : 'auto'} autoComplete="off" maxLength={max}
                                     disabled={busy || conflict} value={draft[key] ?? current[key] ?? ''} onChange={event => update(key, event.target.value)} />}
                                 {key in draft && <small>{t('Last loaded:', 'آخر قيمة محمّلة:')} {key === 'nationalId' ? t('Hidden', 'مخفي') : current[key] || t('Not provided', 'غير متوفر')}</small>}
                             </div>;
                         })}
+                        {incompleteEmergency && <p role="status">{t('Enter both emergency contact fields, or clear both.', 'أدخل اسم جهة اتصال الطوارئ وهاتفها أو امسحهما معًا.')}</p>}
                         {conflict && <Button type="button" disabled={busy} onClick={() => void run(async () => {
                             await read();
                             if (mounted.current) {
@@ -218,7 +220,7 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
                                 setConflict(false);
                             }
                         })}>{t('Reload current details', 'أعد تحميل البيانات الحالية')}</Button>}
-                        <Button className="button" disabled={busy || !dirty || conflict}>{t('Save private details', 'حفظ البيانات الخاصة')}</Button>
+                        <Button className="button" disabled={busy || !dirty || conflict || incompleteEmergency}>{t('Save private details', 'حفظ البيانات الخاصة')}</Button>
                     </form>}
                 {!pending && current && <section aria-label={t('Profile photo','صورة الملف')}>
                     <h3>{t('Profile photo','صورة الملف')}</h3>
@@ -239,8 +241,7 @@ export function PlayerPrivateDetails({ player, storageKey, request, onFailure, o
                         </>}
                 </section>}
                 <Button type="button" disabled={busy || Boolean(pending)} onClick={finish}>{t('Close private details', 'إغلاق البيانات الخاصة')}</Button>
-            </section>
-        </dialog>;
+            </section>;
 }
 
 export function PlayerMemberLookup({ request, openProfile, onFailure, t }: {

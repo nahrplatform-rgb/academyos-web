@@ -7,7 +7,7 @@
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
     "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
-    "apps/web/src/lib/onboarding-gateway.ts": "cbaa08e8ddde8542fb9df30e43728bdc7a6dce1db6c017e701b0512cef974f10",
+    "apps/web/src/lib/onboarding-gateway.ts": "9811277acd75350799c6b48de81ebe851cdb868638f2e93f7d77cddf2480a2f6",
     "scripts/register-download/test_browser.mjs": "d8c002a524ef52144e429f130a6f86da6f960fc0d42887c521aaa916a9ce8263",
     "scripts/register-download/bridge.py": "988ec8f2979e8e39f85bbaf3f4db1dc0cda75313dd0daf404ec7f5dd183a5a31",
     "scripts/register-key/bound_fixture.py": "d8c4ff2f06ec58faf7d392cdb7fc3c72c13816e9c445c6bab33f19e92d59160b",
@@ -102,19 +102,19 @@
     "baseline1000": {
       "requests": 20,
       "rows": 1000,
-      "bytes": 213904,
-      "ms": 524.2721670074388,
+      "bytes": 213902,
+      "ms": 550.818582996726,
       "coherence": "per-row-only",
       "transport": "Direct fixture RPC; same PG/psql bridge, no API/WebCrypto"
     },
-    "prepare1000Ms": 815.0436660000014,
+    "prepare1000Ms": 889.3272499999985,
     "prepare1000": {
       "requests": 22,
       "pages": 20,
       "bytes": 228525,
       "maxResponseBytes": 11320
     },
-    "localRead1000Ms": 57.094208000002254,
+    "localRead1000Ms": 74.92304100000183,
     "manifestExplain": [
       {
         "Plan": {
@@ -125,11 +125,11 @@
           "Total Cost": 0.26,
           "Plan Rows": 1,
           "Plan Width": 32,
-          "Actual Startup Time": 16.81,
-          "Actual Total Time": 16.81,
+          "Actual Startup Time": 18.562,
+          "Actual Total Time": 18.562,
           "Actual Rows": 1,
           "Actual Loops": 1,
-          "Shared Hit Blocks": 2294,
+          "Shared Hit Blocks": 2292,
           "Shared Read Blocks": 0,
           "Shared Dirtied Blocks": 0,
           "Shared Written Blocks": 0,
@@ -152,15 +152,15 @@
           "Temp Read Blocks": 0,
           "Temp Written Blocks": 0
         },
-        "Planning Time": 0.024,
+        "Planning Time": 0.027,
         "Triggers": [],
-        "Execution Time": 16.823
+        "Execution Time": 18.577
       }
     ],
     "unchanged1000": {
       "requests": 1,
       "bytes": 1179,
-      "ms": 46.14870900000096
+      "ms": 39.824375000000146
     }
   },
   "scope": "Actual route with fictional identity/rate/PostgREST adapters -> disposable PG17 -> real Chromium WebCrypto/IndexedDB/coordinator. Local timings include fixture bridge/psql startup, not hosted percentiles, Clerk/key custody/provider quotas or independent security. No product caller, hosted migration, enablement or promotion."

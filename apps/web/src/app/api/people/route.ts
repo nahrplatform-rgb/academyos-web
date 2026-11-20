@@ -41,6 +41,13 @@ export async function POST(req: NextRequest) {
         if (['i2_private_profile_v1', 'i2_save_private_profile_v1', 'i2_find_member_v1',
             'i2_private_photo_v1','i2_save_private_photo_v1'].includes(operation.rpc) &&
             !trial) return respond({ error: 'denied' }, 403);
+        const lifecycleTrial = process.env.PLAYER_PROFILE_LIFECYCLE_TRIAL === 'true';
+        if (['i2_archived_people_v1','i2_set_player_archived_v1'].includes(operation.rpc) && !lifecycleTrial)
+            return respond({ error: 'denied' }, 403);
+        if (['i2_private_profile_v2','i2_save_private_profile_v2'].includes(operation.rpc) && !(lifecycleTrial && trial))
+            return respond({ error: 'denied' }, 403);
+        if (operation.rpc === 'i2_correct_player_names_v1' && process.env.PLAYER_NAME_CORRECTION_TRIAL !== 'true')
+            return respond({ error: 'denied' }, 403);
         if (photoUpload && operation.rpc !== 'i2_save_private_photo_v1') return respond({ error: 'invalid' }, 422);
         if (!rateLimitAllowed(await stagingLimiter(stagingRedis(), operation.mutating ? 'onboarding-entry-write' : 'onboarding-entry-read', operation.mutating ? 10 : 60).limit(rateLimitSubject(subject))))
             return respond({ error: 'limited' }, 429);

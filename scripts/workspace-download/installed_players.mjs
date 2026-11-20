@@ -149,20 +149,9 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
 
   await search.fill(fixture.profile.name);
   await t(rows).toHaveCount(1);
+  const fullRpcs=rpcCalls.length;
   await button(fixture.profile.name).click();
   await t(selectedHeading(fixture.profile.name)).toBeVisible();
-  await t(page.getByText(text.summary,{exact:true})).toBeVisible();
-  await t(page.getByText(text.privateField,{exact:true})).toBeVisible();
-  await t(contact).toHaveCount(0);
-  await t(alias).toHaveCount(0);
-  const selected=await snapshot();
-  assert.equal(selected.selected,fixture.profile.name);
-  await checkPreparedReturn(selected);
-  assert.deepEqual(operatingRequests.slice(start.operating),[],'covered returns and summary require no People requests');
-  assert.deepEqual(peopleCalls().slice(start.people),[]);
-
-  const fullRpcs=rpcCalls.length;
-  await button(text.full).click();
   await t(contact).toBeVisible();
   await t(alias).toBeVisible();
   assert.deepEqual(operatingRequests.slice(start.operating),['profile']);
@@ -180,15 +169,12 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
     await t(rows).toHaveCount(25);
     const other=rows.locator('button').first();
     const otherName=await other.innerText();
-    await other.click();
-    await t(selectedHeading(otherName)).toBeVisible();
-    await t(contact).toHaveCount(0);
     await t.poll(()=>pending.failure()?.errorText).toBe('net::ERR_ABORTED');
     await t(summary).toHaveText(text.ready);
 
     await db({action:'suspend',academy:fixture.academy});
     const [denial]=await Promise.all([page.waitForResponse(response=>new URL(response.url()).pathname==='/api/people'&&
-      response.status()===403&&response.request().postDataJSON()?.action==='profile'),button(text.full).click()]);
+      response.status()===403&&response.request().postDataJSON()?.action==='profile'),other.click()]);
     assert.notEqual(denial.request().postDataJSON().player,fixture.profile.id);
     await t(page.getByRole('alert')).toContainText(text.denied);
     await t(rows).toHaveCount(0);
@@ -211,8 +197,8 @@ async function checkPlayers({page,session,windowId,locale,fixture,ui,db,transfer
   assert.deepEqual(errors,[]);
   return {locale,retained:{filter:before.filter,focused:before.focused,range:before.range,scroll:before.scroll,rows:before.rows},
     alternateName:{downloadedMatches:0,onlineMatches:1,onlineReads:1,transfers:0,fullProfileOnly:true},
-    coveredFiltering:{operatingReads:0,transfers:0},resumeActions:{directory:['manifest'],summary:['manifest']},
-    selectedSummaryRetained:true,fullProfile:{operatingActions:peopleCalls().slice(start.people),currentDenial:403,
+    coveredFiltering:{operatingReads:0,transfers:0},resumeActions:{directory:['manifest']},
+    oneClickFullProfile:true,fullProfile:{operatingActions:peopleCalls().slice(start.people),currentDenial:403,
       privateContactMasked:true,obsoleteSuccessReleased:true,obsoleteRequestAborted:true,retiredSlot:true,
       noBackgroundRetryAfterDenial:true},documentTransitions};
 }

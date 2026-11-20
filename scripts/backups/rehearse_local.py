@@ -28,7 +28,7 @@ def reviewed_migrations(repo, migration):
     return checked
 
 
-def existing_rows(env, new_player_columns=()):
+def existing_rows(env, new_player_columns=(), player_private_additions=False):
     # Disposable restored database only. Return counts/hashes, never row values.
     return json.loads(command(["psql", "-X", "-q", "-A", "-t", "-v", "ON_ERROR_STOP=1", "-c", """
     create function pg_temp.rehearsal_rows() returns jsonb language plpgsql as $$
@@ -38,7 +38,9 @@ def existing_rows(env, new_player_columns=()):
         where n.nspname='academy' and c.relkind='r' order by c.relname
       loop
         projection := case when relation.relname='players'
-          then '(to_jsonb(t)PLAYER_ADDITIONS)::text' else 'to_jsonb(t)::text' end;
+          then '(to_jsonb(t)PLAYER_ADDITIONS)::text'
+          when relation.relname='player_private_details'
+          then '(to_jsonb(t)PRIVATE_ADDITIONS)::text' else 'to_jsonb(t)::text' end;
         execute format('select jsonb_build_object(''rows'',count(*),''sha256'',
           encode(extensions.digest(coalesce(string_agg(%1$s,E''\\n''
             order by %1$s collate "C"),''''),''sha256''),''hex'')) from academy.%2$I t',
@@ -49,8 +51,10 @@ def existing_rows(env, new_player_columns=()):
     end $$;
     select pg_temp.rehearsal_rows();
     """.replace("PLAYER_ADDITIONS", "".join(
-        f"-''{column}''" for column in ("academy_member_number", "alternate_name")
-        if column in new_player_columns))], env))
+        f"-''{column}''" for column in ("academy_member_number", "alternate_name", "archived_at")
+        if column in new_player_columns)).replace("PRIVATE_ADDITIONS", "".join(
+        f"-''{column}''" for column in ("date_of_birth", "primary_phone", "emergency_name", "emergency_phone")
+        if player_private_additions))], env))
 
 
 def rehearse(payload, migration=None, preserve_existing_rows=False, player_additions=False):
@@ -111,7 +115,10 @@ def rehearse(payload, migration=None, preserve_existing_rows=False, player_addit
                 if adding_alternate == ("alternate_name" in present):
                     raise BackupError("Alternate-name migration does not match the snapshot schema")
                 new_player_columns = ["academy_member_number"] + (["alternate_name"] if adding_alternate else [])
-            before = existing_rows(env, new_player_columns) if preserve_existing_rows else None
+            adding_lifecycle = any(path.name == "20261120170705_player_profile_and_lifecycle.sql" for path in migrations)
+            if adding_lifecycle:
+                new_player_columns.append("archived_at")
+            before = existing_rows(env, new_player_columns, adding_lifecycle) if preserve_existing_rows else None
             if migrations:
                 # One transaction for the complete reviewed release. An error
                 # cannot leave an intermediate public function/grant in place.
@@ -119,7 +126,7 @@ def rehearse(payload, migration=None, preserve_existing_rows=False, player_addit
                          *[arg for path in migrations for arg in ("-f", str(path))]], env)
             integrity = None
             if before is not None:
-                after = existing_rows(env, new_player_columns)
+                after = existing_rows(env, new_player_columns, adding_lifecycle)
                 if any(after.get(table) != fingerprint for table, fingerprint in before.items()):
                     raise BackupError("Reviewed migration changed existing academy rows")
                 integrity = {"existing_tables_checked": len(before),
@@ -142,7 +149,17 @@ def rehearse(payload, migration=None, preserve_existing_rows=False, player_addit
                     if verified != b"t":
                         raise BackupError("Player generated backfill or counters differ")
                     integrity["player_backfill_verified"] = True
-                    integrity["new_player_columns_excluded_from_fingerprint"] = new_player_columns
+                integrity["new_player_columns_excluded_from_fingerprint"] = new_player_columns
+                if adding_lifecycle:
+                    verified = command(["psql", "-X", "-At", "-v", "ON_ERROR_STOP=1", "-c", """
+                      select not exists(select from academy.players where archived_at is not null)
+                         and not exists(select from academy.player_private_details
+                           where date_of_birth is not null or primary_phone is not null
+                              or emergency_name is not null or emergency_phone is not null)
+                    """], env).strip()
+                    if verified != b"t":
+                        raise BackupError("New Player lifecycle and private values must start unset")
+                    integrity["player_lifecycle_defaults_verified"] = True
             # Fixed synthetic transaction rolls back. Restored identity values
             # and the SQL dump are never printed to the console.
             command(["psql", "-X", "-v", "ON_ERROR_STOP=1", "-f", str(repo / "supabase/tests/membership_boundary.sql")], env)

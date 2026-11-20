@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-20T03:38:52.275Z",
+  "completed": "2026-11-20T17:33:10.441Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -43,10 +43,10 @@
     "scripts/planning/test_boundary.py": "62a347561944c2f60ba6123ae5178a2eb4e56124271be7acc4c188ae5dd0d0de",
     "scripts/programs/test_boundary.py": "33123e20bdd03acea25cae264e54ceb6afdce1cc5d4703bc5646871cb731768e",
     "scripts/trainers/test_boundary.py": "fe702c567fb33ab781b5a6e071b3526e87f1fcae1b60c91f782cb1cc02709e96",
-    "scripts/people/test_boundary.py": "79a84d04564251141d2716aed034f2ac2a1a59cc06ed1218296efe68dd73b99a",
+    "scripts/people/test_boundary.py": "24ec0697a7566b4f4f7ac8dfb94e82ead886039cc4963ac7c47d973213b2eaa9",
     "scripts/onboarding/test_boundary.py": "c6ffec292d0fa20d784fb7df68133b214d78687fd19bede204ce7c3cd7c98e9f",
     "package-lock.json": "28cc985507f4813dfe9dc87c4035a5aa936f1d2f8ec8bed24999d9598071e792",
-    "apps/web/src/app/globals.css": "a4dbde435f1b6769eb83c54305c634716481dd352eda413ffd840e2d7ba41192",
+    "apps/web/src/app/globals.css": "dd040625717faada81752c1ee9b4cac046349939b1fb0e024fff5a4fe10a269a",
     "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
@@ -110,6 +110,8 @@
     "supabase/migrations/20261120013009_player_academy_member_number.sql": "5613f1d6ced39d6681f1e4075c94053166e2551bd27b984f60b2f0d5e4f91bd0",
     "supabase/migrations/20261120020740_player_private_profile_details.sql": "dba412e83d6ff96b0a652e839d89d63d7ddef343665c635c938b0a12b57a4700",
     "supabase/migrations/20261120025857_player_private_photo.sql": "b65f9655b534dcb51e51f9ded20257ae4d50578b4fe0db365b6e953ce09dc473",
+    "supabase/migrations/20261120072229_player_name_correction.sql": "3f4af22d5d3b80c60bd147aab4e0334021c3ea4210dd112bba4bcca247563fe7",
+    "supabase/migrations/20261120170705_player_profile_and_lifecycle.sql": "fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d",
     "supabase/tests/harness.sql": "90993cadc7cb58e1c339715a40002ffa7c7a8dd5099ed94afa243e466570d8f0",
     "supabase/tests/membership_boundary.sql": "88cd0b80e74373821cabdac6c0955ae23a3afb3f029ba3cb09aaa2617af0c4b4",
     "supabase/tests/onboarding_boundary.sql": "bf50f455f29622fc05643412c91b50d7fdfb9564221fbf70e942b1f8bb769a0a"

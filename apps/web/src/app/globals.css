@@ -578,6 +578,11 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
 .people-directory-footer { display:flex; align-items:center; gap:8px 16px; flex-wrap:wrap; margin-block-start:12px; }
 .people-directory-pages { display:flex; gap:8px; flex-wrap:wrap; }
 .people-directory-footer small { color:var(--muted); }
+.player-profile-tabs { display:flex; flex-wrap:wrap; gap:4px; border-block-end:1px solid var(--line); padding-block-end:4px; margin-block:12px; }
+.player-profile-tabs [aria-selected="true"] { color:var(--accent); border-color:currentColor; }
+.player-private-details.journey-card { margin:0; padding:0; border:0; box-shadow:none; }
+.player-private-details input { max-inline-size:100%; }
+
 @media (max-width:767px) {
   .people-directory-search { flex-basis:100%; }
   .people-directory .workspace-table tr { margin-block:8px; padding:6px 8px; }

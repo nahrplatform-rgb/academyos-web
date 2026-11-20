@@ -224,25 +224,21 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     });
     await search.fill('Synthetic player 55');
     await expect(page.getByText(/^1 player on this page/)).toBeVisible();
-    await player(page).click();
-    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
-    await expect(page.getByText('Player summary on this device',{exact:true})).toBeVisible();
-    await expect(page.getByText('Not included in this summary',{exact:true})).toBeVisible();
-    await expect(page.getByText('Not provided',{exact:true})).toHaveCount(0);
     assert.equal(ui.calls.length,before.reads);
     assert.equal(transferCalls.length,before.transfers);
     assert.deepEqual(await page.evaluate(()=>{window.localQueryObserver.disconnect();return window.localQueryFeedback;}),
       {loading:0,removedSummary:0});
     pass('Prepared Players search retains result geometry without generic Loading feedback');
-    await page.getByRole('button',{name:'Open full profile',exact:true}).click();
+    await player(page).click();
     await expect(page.getByText('profile@example.invalid',{exact:true})).toBeVisible();
+    await expect(page.getByRole('tab',{name:'Overview',exact:true})).toHaveAttribute('aria-selected','true');
     assert.equal(ui.calls.length,before.reads+1);
     assert.equal(await page.evaluate(async()=>{
       const keys=await caches.keys();
       const requests=(await Promise.all(keys.map(async key=>(await caches.open(key)).keys()))).flat();
       return requests.every(request=>!/\/api\/|\/en\/workspace/.test(request.url));
     }),true);
-    pass('Normal Players search and summary open use zero requests and full profile uses one online read');
+    pass('Normal Players search is local and one selection opens the full profile in one read');
     const viewKey=`academyos:people-view:user_owner:${fixture.academy}:owner:v1`;
     const recoveryKey=`academyos:people:user_owner:${fixture.academy}`;
     const storedView=await page.evaluate(key=>JSON.parse(sessionStorage.getItem(key)),viewKey);
@@ -253,11 +249,10 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await page.reload();
     await expect(online(page)).toBeVisible({timeout:30000});
     await expect(search).toHaveValue('Synthetic player 55');
-    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
-    await expect(page.getByText('profile@example.invalid',{exact:true})).toHaveCount(0);
-    assert.equal(ui.calls.length,beforeReopen.reads);
+    await expect(page.getByText('profile@example.invalid',{exact:true})).toBeVisible();
+    assert.equal(ui.calls.length,beforeReopen.reads+1);
     assert.deepEqual(transferCalls.slice(beforeReopen.transfers).map(call=>call.action),['manifest']);
-    pass('Cold normal Players restores only safe query and permitted summary without a profile read');
+    pass('Cold normal Players restores safe query and reads the current full profile once');
     const original='fc111111-1111-4111-8111-111111111111';
     await page.evaluate(({key,id})=>sessionStorage.setItem(key,id),{key:recoveryKey,id:original});
     await page.reload();
@@ -268,7 +263,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     await page.reload();
     await expect(online(page)).toBeVisible({timeout:30000});
     await expect(search).toHaveValue('Synthetic player 55');
-    await expect(page.getByRole('button',{name:'Open full profile',exact:true})).toBeVisible();
+    await expect(page.getByText('profile@example.invalid',{exact:true})).toBeVisible();
     pass('An original registration recovery reference takes precedence over saved navigation');
     await page.goto(calendar);
     await expect(online(page)).toBeVisible({timeout:30000});
@@ -459,8 +454,7 @@ export async function checkNormalWorkspace({fixture,ui,base,profile,transferCall
     const beforeSlot=await readSlot();
     assert.equal(JSON.parse(beforeSlot).mode,'active');
     await page.getByRole('button',{name:'Synthetic lost registration',exact:true}).click();
-    await page.getByRole('button',{name:'Open full profile',exact:true}).click();
-    await expect(page.getByRole('heading',{name:'Synthetic lost registration',exact:true})).toBeVisible();
+        await expect(page.getByRole('heading',{name:'Synthetic lost registration',exact:true})).toBeVisible();
     const authStart={reads:ui.calls.length,rpcs:rpcCalls.length};
     setSubject(null);
     try {

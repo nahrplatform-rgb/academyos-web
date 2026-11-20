@@ -152,6 +152,57 @@ The candidate includes the already-applied alternate-name source migration for r
 
 Check the exact published commit, Foundation run and automatic preview before any hosted migration or trial enablement. Compare the live database to the verified backup before applying, preserve the existing alternate-name migration ledger entry, apply the three pending expansions through the controlled synthetic staging release, and verify existing Player data, backfill, and exact current Owner authority. Keep the trial flag off until that database check passes. The Owner performs deployment promotion. Real-data collection remains gated on retention and signed-in trial acceptance remains open.
 
+### Exact Players candidate — 20 November
+
+Published `43056bcf786c502bb9db6dd3e92c426aff56ce60` to the existing feature PR. The local People API and 28 disposable PostgreSQL tests passed, along with all 15 Foundation freshness checks and the execution and implementation validators. The separate launcher changes remain in the working tree. The three migration files in the commit match the rehearsed source digests listed above. [PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1)
+
+Foundation run `44674905717`, attempt 1, passed all 55 steps on the exact commit. Vercel reports the automatic preview Ready with target null and the exact same commit. Its alias is confined to the feature branch. The post-check Vercel and database reads still resolve staging to `8776811` and provider migration `20261120005757`. All three rehearsed schema changes remain pending. This checkpoint performed no schema change, trial enablement or promotion. [Foundation](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44674905717) · [Vercel candidate](https://vercel.com/academy-os2/academyos-web/BukaVXJbyrsqj27goPA32CXf8bh6)
+
+### Owner-promoted Players frontend — 20 November
+
+The Owner reported promotion. Vercel independently resolved the canonical staging alias to Ready deployment `dpl_5Xwyd3YD7haYz8TmbGj6BYsimczw`, exact commit `43056bcf786c502bb9db6dd3e92c426aff56ce60`. The public process health check returned OK. [Promoted staging deployment](https://vercel.com/academy-os2/academyos-web/5Xwyd3YD7haYz8TmbGj6BYsimczw)
+
+The signed-in Academy Owner opened Players in the synthetic academy, searched online, and opened the full saved profile for an existing synthetic player. Switching to Arabic retained the profile and rendered RTL. Returning retained the search, one result and focus on the original row. The ordinary directory and profile rendered with the private trial controls hidden. The task tab was closed after the check. This was a read-only workflow check.
+
+The synthetic database ledger still ends at `20261120005757`. The academy member-number column, member counter table, private-details table and photo table are absent. The three source migrations listed above remain the next controlled database checkpoint, using the verified 20 November backup and a reconciled live baseline. Verify the backfill and current authority before enabling the private trial. New registration, private details and photo acceptance remain separate from this signed-in smoke check.
+
+### Synthetic staging Players database rollout — 20 November
+
+Reverified the encrypted backup for Actions run `44664358381` and replayed the three exact files from candidate `43056bc` in disposable PostgreSQL 17. The restored snapshot and live staging matched before rollout across 62 academy tables and 995 original rows. The combined SHA-256 fingerprint was `749cd1252de358cd92bc4c0af3467f307cf029824a731d4739eb4fcae680ba2b`.
+
+Applied the three numbered source migrations listed above, in order, as a single atomic provider migration `20261120054811` named `players_member_number_private_details_photo`. The transaction checked the known schema and original row fingerprints before and after the change. Post-commit readback reproduced the original fingerprints across all 62 tables, excluding only the new member-number column. All 22 players have positive, unique-within-academy numbers, both academy counters match, and the two existing alternate names and prior migration ledger entry were preserved. Both new private profile tables are empty.
+
+The three new tables have row security and deny direct anonymous and authenticated reads. All five new RPCs require the existing signed gateway and current Academy Owner check. Unsigned member lookup, private details, and private photo reads returned permission denied. The signed-in Owner workspace displayed the same positive member number on a full saved profile in English and Arabic RTL. The private controls stayed hidden and the task tab was closed. Signed-in private lookup, edit, and photo acceptance remain open.
+
+Staging still serves `43056bc`. No trial flag or deployment change was required for the database rollout. Prepare the synthetic-only trial setting as a separate checkpoint and preserve the Owner-controlled deployment boundary. Real-data collection remains gated on retention. [Promoted staging deployment](https://vercel.com/academy-os2/academyos-web/5Xwyd3YD7haYz8TmbGj6BYsimczw)
+
+### Synthetic Players trial setting — 20 November
+
+Verified that the existing AcademyOS Vercel project uses its Production-labelled target for synthetic staging and that target binds to the reviewed synthetic Supabase project. Verified applied schema `20261120054811` and 22 numbered players. Set the server-only `PLAYER_PRIVATE_PROFILE_TRIAL=true` on the synthetic staging target and read it back. Preview and development settings were excluded.
+
+The setting applies to the next build. The canonical staging alias still points to `dpl_5Xwyd3YD7haYz8TmbGj6BYsimczw` at exact checked commit `43056bcf786c502bb9db6dd3e92c426aff56ce60`. The Owner can redeploy that exact deployment using the current settings and the existing staging destination. Record the new live deployment ID before exercising the signed-in synthetic trial. The old deployment does not prove trial activation. [Exact staging deployment to redeploy](https://vercel.com/academy-os2/academyos-web/5Xwyd3YD7haYz8TmbGj6BYsimczw) · [Vercel environment changes](https://vercel.com/docs/environment-variables/managing-environment-variables)
+
+### Signed-in synthetic Players trial — 20 November
+
+Following the Owner redeploy, Vercel independently resolved the canonical staging alias to Ready deployment `dpl_3L6vyUgDCHA5CtJfca3ZDbt8pJHC` at exact commit `43056bcf786c502bb9db6dd3e92c426aff56ce60`. The existing signed-in Academy Owner in the synthetic academy could open the trial controls. [Live deployment](https://vercel.com/academy-os2/academyos-web/3L6vyUgDCHA5CtJfca3ZDbt8pJHC)
+
+One fictional player was registered once with an alternate name. The ordinary directory reopened the saved player by English display name and Arabic alternate name. Exact generated-number lookup passed in English. Existing-ID lookup passed in Arabic RTL using the case-insensitive match with the original leading zeros. The generated member number stayed the same through all private edits.
+
+- The full profile masked the fictional national ID by default and showed it after an explicit reveal in English and Arabic. A concurrent change advanced the hosted version. The stale UI save was refused and the draft stayed available. Reload and deliberate save kept both the concurrent value and the reviewed draft.
+- Replaying the exact original via the hosted People API returned the same version-one receipt. The Arabic UI recovered that committed original after its ID was seeded into this task tab to simulate a pending save. The UI reopened current values and cleared the pending original. PostgreSQL retained one receipt and one audit for that original. This verifies hosted replay and the recovery control. The browser did not intercept a live response. The dropped-response case retains its local fixture evidence.
+- Two generated color-card images exercised upload and replacement through the live API and were normalized to JPEG. Removal cleared the live image and left photo version 3. Signed-out private details were refused. An Owner request through the other synthetic academy could not read this player's private profile or photo or find its existing ID.
+- The task cleared the fictional private text fields and image; PostgreSQL confirmed null content. One synthetic registration, its original member number and alternate name, and the audit history remain. PostgreSQL recorded one registration audit, four versioned private text audits including the clear, and three photo audits. The task tab was closed. No real data, identity change, or additional deployment was used.
+
+The next connected Players checkpoint is the scoped decision for correcting display and alternate names with duplicate review, expected version and original-save recovery. Broader fields, archive and restore, import, real-data retention and formal Owner acceptance remain open.
+
+### One-click player profile — 20 November
+
+The staged baseline reproduced the extra stop: selecting a downloaded directory row opened the device summary even while connected. Opening the full profile and going Back worked in the signed-in staging reproduction, so the reported Back error could not be matched to a specific failure.
+
+Online selection now opens the full player profile directly in the existing side panel. Overview shows the available identity and membership information. Actions contains the QR card and Guardian appointments. The private trial opens its editable details within the same panel on demand. On narrow layouts the existing profile drawer contains the tabs. The connected directory still uses the downloaded search where available and makes one current profile read when a player is selected. Offline coverage continues to use the permitted summary. The private fields and photo remain outside the downloaded projection.
+
+Signed-in local development at localhost:3000 verified direct opening, Arabic RTL, retained filter and row focus after Back. React production and development fixtures checked keyboard tab navigation, original-save recovery, narrow private details and late profile response cancellation. The installed disposable EN/AR regression passed direct profile entry and denial fencing. Workspace transfer passed 74 checks and its 21 PostgreSQL checks passed. The revised flow has local evidence. Staging continues to serve `43056bc` with the earlier UI. [Workspace transfer evidence](evidence/ex13b-workspace-transfer/transport.json)
+
 ### Authorized registration verification
 
 20 November initial staging catalog check found the existing registration function but not the alternate-name column or function. The connected dev frontend uses that shared backend.
@@ -165,3 +216,40 @@ The first readback showed 20 existing players and 25 registration operations unc
 The combined MP-Q01 decision still gates profile corrections, new private fields, archive and restore. Reconcile any pending save through its existing original; do not submit a replacement to verify the migration.
 
 20 November: on the working tree based on `8776811`, the actual React/Chromium fixture registered a fictional player with an alternate name, dropped the save reply after the fixture committed, and asserted that the Arabic recovery control reconciled the exact original ID with only one create. The recovered profile retained the alternate name, and both searches reopened the same player. The actual API route passed with synthetic session/limiter adapters. Disposable PostgreSQL passed 26 boundary tests, including alternate-name migration compatibility, replay, profile visibility and foreign-owner refusal. The People capture was refreshed and the factual review freshness and playback checks passed. These are separate local evidence layers; no product writer, hosted deployment or full Players acceptance is claimed here.
+
+
+### QR return and approved synthetic name correction — 20 November
+
+The 404 came from the QR card linking to a standalone Player URL. The return link now opens the same player's full side panel in Players. Existing standalone links redirect there after sign-in. The signed-in synthetic Academy Owner verified the QR return and legacy link on localhost:3000 in English and Arabic, then returned to the filtered directory. The local synthetic private-profile setting was enabled so the same panel showed the approved existing academy ID, address, school name, masked national ID, medical notes and photo controls.
+
+The Owner replied **“Approve name corrections for the synthetic trial”**. The current Academy Owner can review matches for the proposed display name and correct the display and optional alternate names on the existing record. The reviewed name revision and current player version guard the save. The player ID, issued member number, branch and other fields are preserved. The same original operation returns its recorded result. The directory can find the revised record by either name, and a name with no current matches does not trigger duplicate confirmation merely because it was previously used.
+
+The real People components in English and Arabic passed in both React modes with synthetic HTTP. After the save reply was dropped, reopening the profile exposed the original operation. Its confirmed result survived a failed profile read, and retry issued one profile read. The same ID and member number remained visible, with one write. The actual API route checked the default-off setting, fixed write budget, version and field allowlist. Twenty-eight disposable PostgreSQL tests passed, including duplicate and stale refusal, Owner scope, name search, a vacated name, and one receipt and audit for exact replay. Production build, typecheck, lint and 119 unit tests passed.
+
+[The name-correction migration](../../supabase/migrations/20261120072229_player_name_correction.sql) is verified in disposable PostgreSQL. The new writer is disabled on the shared synthetic backend through the default-off server setting `PLAYER_NAME_CORRECTION_TRIAL`. The checked candidate and reconciliation with the current synthetic database come before rollout and enablement. The Owner performs promotion. Local component verification and the signed-in QR return have separate evidence. The refreshed factual experience review contains 1,873 fixture frames. Playback and source freshness checks passed.
+
+The remaining review is one decision for optional date of birth, primary phone and paired emergency contact, including who can see or edit them, the archive/restore rules and import disposition. Sport IDs depend on multisport participation. The real-data retention decision is open. Finish connected core workflows, then the app-wide UI/UX pass, then dedicated offline and PWA work with all deferred cases retained.
+
+
+The correction migration with SHA-256 `3f4af22d5d3b80c60bd147aab4e0334021c3ea4210dd112bba4bcca247563fe7` also replayed in order after the three already released Players migrations in a disposable PostgreSQL 17 restore of the verified 20 November encrypted backup. Membership checks passed. All 995 original rows across 62 tables matched on their original columns, and the generated number backfill and counters passed. The snapshot predates the synthetic private-profile trial, so compare the live schema and ledger again before rollout. [Verified backup workflow](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44664358381)
+
+All 22 workspace database checks passed, including the Players download contract through the actual correction function. Changing the display name increments the People revision once, invalidates a cursor for the old revision and returns the new display name for the same player. Changing only the alternate name leaves the People and Calendar revisions stable and keeps the alternate name out of downloaded rows.
+
+Refreshed the source-bound regression receipts after executing the affected checks. The 74 workspace transport checks, 28 normal Attendance checks, related register and working-day checks, and all 14 local Foundation freshness commands passed. The current checkout is a local checkpoint. Remote CI and rollout of the correction remain pending.
+
+
+### Approved private contact and player lifecycle — 20 November
+
+The Owner approved the connected synthetic trial for optional date of birth, primary contact phone, and paired emergency contact name and phone. The signed-in Academy Owner can view, edit, or clear these in the existing private profile. Registration stays manual. Bulk import has its own MP-Q21 workflow.
+
+The same release includes archive and restore. Archive refuses a player with an unfinished dated or published roster commitment. The active directory and planning picker exclude archived players. The Owner can find an archived profile from the Archived players filter. Restore makes the same record available for selection again. Both actions preserve its number, rosters, attendance and relationship history, and both recover through their original operation.
+
+The new profile and lifecycle controls use the default-off server setting `PLAYER_PROFILE_LIFECYCLE_TRIAL` for synthetic staging. The private editor also uses the existing private-profile trial setting. Name correction retains its own server setting. The checked frontend and live schema ledger are separate release steps. The Owner performs deployment promotion.
+
+The actual People browser fixtures passed in production and development React with synthetic HTTP. They saved and recovered the expanded details, blocked an incomplete emergency contact and an archive with roster commitments, recovered the original archive after reload, found the archived profile, and restored it in Arabic. The People API verified the trial gate and its read/write budgets. The production build, typecheck, lint, and 119 unit tests passed.
+
+All 24 workspace database cases passed, including both the new signed RPCs and the existing download contract. The archive case verifies separate dated and published commitments, rejection of new roster additions while archived, version conflict, stable member number, one audit on replay and preservation of historical rosters after restore. Private fields are omitted from the older private RPC and all directory and prepared projections.
+
+The reviewed post-correction lifecycle migration has SHA-256 `fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d`. An isolated replay of the five Players migrations preserved all 995 original rows across 62 tables in the verified 20 November backup. All existing players remained active and the new private fields started blank. The backup precedes the later hosted trial records. [Backup workflow](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44664358381)
+
+The shared regression run passed all 74 browser workspace-transfer cases and all 28 normal Attendance cases. All 14 local Foundation freshness checks and the 1,897-frame factual review passed. Read-only staging checks confirmed the current migration is still 20261120054811 and both pending writers are absent. Candidate CI and Owner promotion are tracked separately.

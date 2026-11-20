@@ -186,6 +186,55 @@ class PeopleBoundary(Boundary):
   (dest/'sql-scale.json').write_text(json.dumps({'scope':'Disposable local PG17 function execution only; excludes HTTP, identity, limiter, cold starts and physical devices','players':1000,'sameNamePlayers':800,'measurements':metrics},indent=2)+'\n')
 
 class AlternateNameBoundary(PeopleBoundary):
+ def test_player_name_correction(self):
+  academy,branch=self.academy()
+  self.academy('user_other_owner')
+  first=json.loads(self.register(academy,branch,'Original Fixture'))['player_id']
+  match=json.loads(self.register(academy,branch,'Matching Fixture'))['player_id']
+  for suffix in ('player_alternate_name','player_academy_member_number','player_private_profile_details','player_private_photo','player_name_correction'):
+   migration,=ROOT.glob(f'supabase/migrations/*_{suffix}.sql')
+   self.sql('begin;'+migration.read_text()+'\ncommit;')
+  def profile():
+   return json.loads(self.sql(f"select public.i2_profile_v1('{academy}','{first}')",'user_owner'))
+  def correct(name='Matching Fixture',alias='اسم تجريبي',version=1,revision=1,different=True,op=None,
+              subject='user_owner',role='authenticated',ok=True):
+   q=(f"select public.i2_correct_player_names_v1('{academy}','{first}','{op or uuid.uuid4()}',{version},"
+      f"{literal(name)},{literal(alias)},{revision},{str(different).lower()})")
+   output=self.sql(q,subject,role=role,ok=ok)
+   return json.loads(output) if ok else None
+  starting=profile()
+  operation=str(uuid.uuid4())
+  self.assertEqual(self.candidates(academy,'Matching Fixture')['items'][0]['id'],match)
+  correct(revision=0,ok=False)
+  correct(different=False,ok=False)
+  correct(subject='user_other_owner',ok=False)
+  correct(role='anon',ok=False)
+  self.assertEqual(profile(),starting)
+  receipt=correct(op=operation)
+  self.assertEqual(receipt,{'player_id':first,'name_version':2})
+  self.assertEqual(correct(op=operation),receipt)
+  self.assertEqual(json.loads(self.sql(f"select public.i2_operation_v1('{academy}','{operation}')",'user_owner')),receipt)
+  correct(op=operation,alias='Different payload',ok=False)
+  correct(revision=2,ok=False)
+  updated=profile()
+  self.assertEqual(updated,{**starting,'display_name':'Matching Fixture','alternate_name':'اسم تجريبي','version':2})
+  def search(query):
+   page=json.loads(self.sql(f"select public.i2_people_v1('{academy}',null,{literal(query)})",'user_owner'))
+   return {row['id'] for row in page['items']}
+  self.assertEqual(search('اسم تجريبي'),{first})
+  self.assertEqual(search('Matching Fixture'),{first,match})
+  self.assertEqual(search('Original Fixture'),set())
+  self.assertEqual(self.sql(f"select count(*) from academy.audit_events where operation_id='{operation}'"),'1')
+  self.assertNotIn('Matching Fixture',self.sql(f"select details from academy.audit_events where operation_id='{operation}'"))
+  old=self.candidates(academy,'Original Fixture')
+  self.assertEqual(old['items'],[])
+  self.assertGreater(old['revision'],0)
+  self.register(academy,branch,'Original Fixture',revision=old['revision'])
+  cleared=correct(alias='',version=2,revision=2)
+  self.assertEqual(cleared,{'player_id':first,'name_version':3})
+  self.assertNotIn('alternate_name',profile())
+  self.assertEqual(profile()['academy_member_number'],starting['academy_member_number'])
+
  def test_private_profile_details(self):
   a,b=self.academy()
   foreign,branch=self.academy('user_other_owner')
@@ -358,4 +407,6 @@ if __name__=='__main__':
  member_result=unittest.TextTestRunner(verbosity=2).run(member_suite)
  profile_result=unittest.TextTestRunner(verbosity=2).run(
   unittest.TestSuite([AlternateNameBoundary('test_private_profile_details')]))
- sys.exit(not (result.wasSuccessful() and member_result.wasSuccessful() and profile_result.wasSuccessful()))
+ correction_result=unittest.TextTestRunner(verbosity=2).run(
+  unittest.TestSuite([AlternateNameBoundary('test_player_name_correction')]))
+ sys.exit(not all(run.wasSuccessful() for run in (result,member_result,profile_result,correction_result)))

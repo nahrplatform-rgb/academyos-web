@@ -594,8 +594,165 @@ class WorkspaceBoundary(Base):
         self.assertEqual(self.sql(f"select count(*)from academy.players where academy_id='{academy}'"),'7')
 
 
+class PlayerCorrectionTransferBoundary(WorkspaceBoundary):
+    def test_corrected_name_changes_only_the_display_name_projection(self):
+        for suffix in ('player_alternate_name', 'player_academy_member_number', 'player_name_correction'):
+            migration, = ROOT.glob(f'supabase/migrations/*_{suffix}.sql')
+            self.sql('begin;' + migration.read_text() + '\ncommit;')
+
+        academy, branch = self.academy()
+        self.seed_people(academy, branch, 1)
+        player = self.sql(f"select id from academy.players where academy_id='{academy}'")
+        slot = self.key(academy)
+        manifest = self.download(academy, slot)
+        old_receipt = next(collection['receipt'] for collection in manifest['collections'] if collection['id'] == 'people')
+        before = self.revision(academy)
+
+        def correct(version, name, alternate, reviewed_revision):
+            operation = uuid.uuid4()
+            return self.sql(
+                f"select public.i2_correct_player_names_v1('{academy}','{player}','{operation}',"
+                f"{version},{literal(name)},{literal(alternate)},{reviewed_revision},false)",
+                'user_owner',
+            )
+
+        display_name = 'Corrected synthetic player'
+        correct(1, display_name, 'Trial alternate name', 0)
+        after = self.revision(academy)
+        self.assertEqual(after, {**before, 'people': before['people'] + 1})
+        stale = self.download(academy, slot, 'page', old_receipt)
+        self.assertEqual(stale, {'error': 'changed'})
+        rows = self.transfer(academy, slot)[0]
+        self.assertEqual(len(rows), 1)
+        self.assertEqual((rows[0]['id'], rows[0]['display_name']), (player, display_name))
+        self.assertNotIn('alternate_name', rows[0])
+
+        correct(2, display_name, 'Updated trial alternate name', 1)
+        self.assertEqual(self.revision(academy), after)
+        self.assertEqual(self.transfer(academy, slot)[0], rows)
+
+
+class PlayerLifecycleBoundary(WorkspaceBoundary):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        try:
+            for suffix in ('player_alternate_name', 'player_academy_member_number', 'player_private_profile_details',
+                           'player_private_photo', 'player_name_correction', 'player_profile_and_lifecycle'):
+                migration, = ROOT.glob(f'supabase/migrations/*_{suffix}.sql')
+                cls.sql('begin;' + migration.read_text() + '\ncommit;')
+        except Exception:
+            super().tearDownClass()
+            raise
+
+    def test_private_fields_save_clear_and_preserve_existing_clients(self):
+        academy, branch = self.academy()
+        player = self.person(academy, branch)
+        self.academy('user_other_owner')
+
+        def read(version=2, subject='user_owner', ok=True):
+            result = self.sql(f"select public.i2_private_profile_v{version}('{academy}','{player}')", subject, ok=ok)
+            return json.loads(result) if ok else None
+
+        def save(changes, version=0, op=None, writer=2, ok=True):
+            values = literal(json.dumps(changes))
+            result = self.sql(f"select public.i2_save_private_profile_v{writer}('{academy}','{player}',"
+                              f"'{op or uuid.uuid4()}',{version},{values}::jsonb)", 'user_owner', ok=ok)
+            return json.loads(result) if ok else None
+
+        self.assertIsNone(read()['dateOfBirth'])
+        read(subject='user_other_owner', ok=False)
+        save({'emergencyName': 'Fictional contact'}, ok=False)
+        save({'dateOfBirth': '2014-02-30'}, ok=False)
+        save({'dateOfBirth': '2099-02-01'}, ok=False)
+        save({'primaryPhone': '1234'}, ok=False)
+        save({'dateOfBirth': '2014-02-01'}, writer=1, ok=False)
+        fields = {'dateOfBirth': '2014-02-01', 'primaryPhone': '+٢٠ ١٠٠ ٠٠٠ ٠٠٠٠',
+                  'emergencyName': 'Fictional contact', 'emergencyPhone': '+20 100 000 0001'}
+        op = uuid.uuid4()
+        receipt = save(fields, op=op)
+        self.assertEqual(save(fields, op=op), receipt)
+        self.assertEqual(receipt, {'player_id': player, 'private_profile_version': 1})
+        self.assertEqual(read()['primaryPhone'], '+20 100 000 0000')
+        self.assertEqual(read()['dateOfBirth'], fields['dateOfBirth'])
+        self.assertNotIn('dateOfBirth', read(version=1))
+        self.assertNotIn('Fictional contact', self.sql(f"select details from academy.audit_events where operation_id='{op}'"))
+        save({'schoolName': 'Synthetic school'}, version=1, writer=1)
+        self.assertEqual(read()['emergencyName'], fields['emergencyName'])
+        save({'dateOfBirth': None}, version=1, ok=False)
+        save({key: None for key in fields}, version=2)
+        self.assertTrue(all(read()[key] is None for key in fields))
+        self.assertEqual(read()['schoolName'], 'Synthetic school')
+
+    def test_archive_blocks_commitments_and_restore_preserves_history(self):
+        academy, branch, program, staff, _, player, dates = self.fixture()
+        self.academy('user_other_owner')
+        day = dates[0]
+        for current_day in dates[1:]:
+            self.plan(academy, program, version=1, day=current_day, trainer=staff, remove=[player])
+        slot = self.key(academy)
+        start = self.revision(academy)
+        old_page = next(row['receipt'] for row in self.download(academy, slot)['collections'] if row['id']=='people')
+
+        def change(archived, version, op=None, subject='user_owner', ok=True):
+            result = self.sql(f"select public.i2_set_player_archived_v1('{academy}','{player}',"
+                              f"'{op or uuid.uuid4()}',{version},{str(archived).lower()})", subject, ok=ok)
+            return json.loads(result) if ok else None
+
+        def profile():
+            return json.loads(self.sql(f"select public.i2_profile_v1('{academy}','{player}')", 'user_owner'))
+
+        def listed(rpc):
+            return json.loads(self.sql(f"select public.{rpc}('{academy}',null,'Alex')", 'user_owner'))['items']
+
+        def candidates():
+            return json.loads(self.sql(f"select public.q6_candidates_v1('{academy}','{program['id']}','{dates[1]}',"
+                                       "'player','Alex')", 'user_owner'))['items']
+
+        before = profile()
+        change(True, 1, subject='user_other_owner', ok=False)
+        self.assertTrue(change(True, 1)['commitments'])
+        # The fixture's dated occurrence has ended. Give its publication
+        # snapshot an independent future end time to check both inputs.
+        self.sql(f"update academy.training_dates set starts_at=now()-interval '2 hours',ends_at=now()-interval '1 hour' "
+                 f"where program_id='{program['id']}' and local_date='{day}'")
+        publication = self.prepare_pub(academy, self.pub(academy, program, first=day, last=day))
+        self.assertEqual(self.mutate(academy, publication, 'activate')['state'], 'committed')
+        self.sql(f"update academy.publication_events set starts_at=now(),ends_at=now()+interval '1 hour' where program_id='{program['id']}'")
+        self.assertTrue(change(True, 1)['commitments'], 'A published commitment blocks independently')
+        self.sql(f"update academy.publication_events set starts_at=now()-interval '2 hours',ends_at=now()-interval '1 hour' where program_id='{program['id']}'")
+        past_roster = self.sql(f"select count(*) from academy.publication_rosters where player_id='{player}'")
+        self.assertEqual(past_roster, '1')
+
+        operation = uuid.uuid4()
+        archived = change(True, 1, operation)
+        self.assertEqual(change(True, 1, operation), archived)
+        self.assertTrue(archived['archived'])
+        self.assertEqual(profile()['academy_member_number'], before['academy_member_number'])
+        self.assertEqual(self.revision(academy)['people'], start['people']+1)
+        self.assertEqual(self.download(academy, slot, 'page', old_page), {'error':'changed'})
+        self.assertEqual(self.transfer(academy, slot)[0], [])
+        self.assertEqual(listed('i2_people_v1'), [])
+        self.assertEqual(listed('i2_archived_people_v1')[0]['id'], player)
+        self.assertEqual(candidates(), [])
+        self.sql(f"insert into academy.date_rosters values('{academy}','{program['id']}','{dates[1]}','{player}')", ok=False)
+        change(False, 1, ok=False)
+        restored = change(False, 2)
+        self.assertFalse(restored['archived'])
+        self.assertEqual(listed('i2_people_v1')[0]['id'], player)
+        self.assertEqual(listed('i2_archived_people_v1'), [])
+        self.assertEqual(candidates()[0]['id'], player)
+        self.assertEqual(self.sql(f"select count(*) from academy.date_rosters where player_id='{player}'"), '1')
+        self.assertEqual(self.sql(f"select count(*) from academy.publication_rosters where player_id='{player}'"), past_roster)
+        self.assertEqual(self.sql(f"select count(*) from academy.audit_events where operation_id='{operation}'"), '1')
+
+
 def load_tests(loader, tests, pattern):
-    return unittest.TestSuite(WorkspaceBoundary(name) for name in sorted(WorkspaceBoundary.__dict__) if name.startswith('test_workspace_'))
+    suite = unittest.TestSuite(WorkspaceBoundary(name) for name in sorted(WorkspaceBoundary.__dict__) if name.startswith('test_workspace_'))
+    suite.addTest(PlayerCorrectionTransferBoundary('test_corrected_name_changes_only_the_display_name_projection'))
+    suite.addTest(PlayerLifecycleBoundary('test_private_fields_save_clear_and_preserve_existing_clients'))
+    suite.addTest(PlayerLifecycleBoundary('test_archive_blocks_commitments_and_restore_preserves_history'))
+    return suite
 
 
 if __name__ == '__main__':
@@ -605,7 +762,9 @@ if __name__ == '__main__':
     (out / 'database.json').write_text(json.dumps({
         'passed': result.wasSuccessful(), 'tests': result.testsRun,
         'failures': len(result.failures), 'errors': len(result.errors),
-        'sources': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in [MIGRATION, 'scripts/workspace-download/test_boundary.py']},
+        'sources': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in [MIGRATION, 'scripts/workspace-download/test_boundary.py',
+            'supabase/migrations/20261120072229_player_name_correction.sql',
+            'supabase/migrations/20261120170705_player_profile_and_lifecycle.sql']},
         'scope': 'Disposable actual PostgreSQL17; synthetic identity proofs/data. No hosted schema, key custody, browser persistence or performance percentile claim.',
     }, indent=2) + '\n')
     raise SystemExit(not result.wasSuccessful())

@@ -1,6 +1,6 @@
 # Connected experience execution guide
 
-**20 November current direction.** EX-07 / MP-B01 continues the connected Owner working day. The [execution tracker](experience-execution.csv) selects the remaining ordinary web sign-in and Today evidence. Dedicated offline and PWA work is [deferred with its original cases and return point](pwa-delivery-and-readiness.md#dedicated-work-deferred--20-november-2026). Shared changes still have their applicable permission, storage and recovery regressions.
+**20 November current direction.** EX-07 / MP-B01 continues the connected Owner working day. Follow the current action in the [execution tracker](experience-execution.csv). Finish the connected core, then complete the app-wide UI/UX pass. Fix functional blockers during core delivery. Dedicated offline and PWA work follows and is [deferred with its original cases and return point](pwa-delivery-and-readiness.md#dedicated-work-deferred--20-november-2026). Shared changes still have their applicable permission, storage and recovery regressions.
 
 **14 November current checkpoint.** The [Owner Calendar and Players Operations checkpoint](../07-handoff/mp-b01-calendar-players-operations-2026-11-14.md) records the rechecked PYSA behaviors, implementation and local evidence. EX-07 / MP-B01 remains current. Use the [living continuation](continue-academyos.md) for the remaining Player field decision and Owner working-day checks.
 

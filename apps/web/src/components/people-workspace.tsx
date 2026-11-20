@@ -11,6 +11,8 @@ import { Button, Input } from './ui/controls';
 import {useOwnerWorkspaceDevice,WorkspaceDeviceTools} from './owner-workspace-device';
 import {decodePeopleViewContext,type PeopleViewContext} from '@/lib/people-view-context';
 import {PlayerMemberLookup, PlayerPrivateDetails} from './player-private-details';
+import {PlayerNameCorrection} from './player-name-correction';
+import PlayerLifecycle, {readPendingLifecycle} from './player-lifecycle';
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 type Player = {
     id: string;
@@ -19,10 +21,14 @@ type Player = {
     contact?: string;
     alternateName?: string;
     academyMemberNumber?: string;
+    version?: number;
+    archived?: boolean;
 };
 type Row = {
     id: string;
     display_name: string;
+    version?: number;
+    archived?: boolean;
     branch_name: string;
     contact_email?: string;
     alternate_name?: string;
@@ -38,19 +44,23 @@ type Page = {
     more: boolean;
     revision: number;
 } & Context;
+type ProfileTab = 'overview' | 'private' | 'actions';
 type Stage = 'directory' | 'form' | 'duplicates' | 'review' | 'saving' | 'unknown' | 'profile';
 class RequestFailure extends Error {
     constructor(public code: string) { super(code); }
 }
 const playerRow = (p: Row): Player => ({
     id: p.id, name: p.display_name, branch: p.branch_name, contact: p.contact_email,
-    alternateName: p.alternate_name, academyMemberNumber: p.academy_member_number,
+    alternateName: p.alternate_name, academyMemberNumber: p.academy_member_number, version:p.version, archived:p.archived,
 });
 export default function PeopleWorkspace(props: {
     locale: string;
     academy: string;
     prepared?: boolean;
     privateProfiles?: boolean;
+    initialPlayer?: string;
+    nameCorrections?: boolean;
+    lifecycleTrial?: boolean;
 }) {
     const session = useUser();
     const [initializationExpired, setInitializationExpired] = useState(false);
@@ -67,13 +77,16 @@ export default function PeopleWorkspace(props: {
         return <PublicWorkspace locale={props.locale} title="AcademyOS"><p>{props.locale === 'ar' ? 'سجّل الدخول للمتابعة.' : 'Sign in to continue.'}</p></PublicWorkspace>;
     return <PeopleJourney key={`${session.user.id}:${props.academy}`} {...props} subject={session.user.id}/>;
 }
-export function PeopleJourney({ locale: initialLocale, academy, subject,prepared,publicOffline,privateProfiles }: {
+export function PeopleJourney({ locale: initialLocale, academy, subject,prepared,publicOffline,privateProfiles,initialPlayer,nameCorrections,lifecycleTrial }: {
     locale: string;
     academy: string;
     subject: string;
     prepared?: boolean;
     publicOffline?: boolean;
     privateProfiles?: boolean;
+    initialPlayer?: string;
+    nameCorrections?: boolean;
+    lifecycleTrial?: boolean;
 }) {
     const [locale, setLocale] = useState(initialLocale), ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
     const device=useOwnerWorkspaceDevice({subject,academy,priority:'people',prepared,publicOffline});
@@ -89,13 +102,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const [name, setName] = useState(''), [contact, setContact] = useState(''), [search, setSearch] = useState(''), [different, setDifferent] = useState(false);
     const [alternateName,setAlternateName]=useState('');
     const [searchOnline,setSearchOnline]=useState(false);
+    const [archivedOnly,setArchivedOnly]=useState(false);
     const [searchMode,setSearchMode]=useState<'device'|'online'|null>(null);
     const searchPending=searchMode!==null;
     const searchQuery=search.normalize('NFKC').trim(), shortSearch=searchQuery.length===1;
     const [error, setError] = useState(''), [notice, setNotice] = useState(''), [busy, setBusy] = useState(true), [checking,setChecking]=useState(false), [blocked, setBlocked] = useState(false);
     const [profileBusy,setProfileBusy]=useState(false),[profileChecking,setProfileChecking]=useState(false);
-    const [privatePlayer,setPrivatePlayer]=useState<string|null>(null);
-    const privateOpener=useRef<HTMLButtonElement>(null);
+    const [profileTab,setProfileTab]=useState<ProfileTab>('overview');
+    const [correctingNames,setCorrectingNames]=useState(false);
+    const privateEditor=useRef<{canLeave:()=>boolean}>(null);
     const [profileId, setProfileId] = useState(''), [selected, setSelected] = useState<Player | null>(null), [saved, setSaved] = useState(false);
     const operation = useRef<string | null>(null), heading = useRef<HTMLHeadingElement>(null), nameInput = useRef<HTMLInputElement>(null);
     const profileOpeners = useRef(new Map<string, HTMLButtonElement>()), searchInput = useRef<HTMLInputElement>(null);
@@ -104,10 +119,13 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     const profileController=useRef<AbortController|null>(null);
     const active = useRef(true), locked = useRef(false), controllers = useRef(new Set<AbortController>()), directoryTicket = useRef(0);
     const storageKey = `academyos:people:${subject}:${academy}`;
+    const lifecycleKey = storageKey + ':lifecycle';
+    const nameStorageKey = (player:string) => `${storageKey}:names:${player}`;
     const viewKey = `academyos:people-view:${subject}:${academy}:owner:v1`;
     const pendingView=useRef<PeopleViewContext|null>(null);
     const authenticationRequired=useRef(false);
     const accessDenied=useRef(false);
+    const namesChanged=useRef(false);
     const [viewRestored,setViewRestored]=useState(false);
     const unavailable = blocked || device.phase==='denied';
     function errorText(code: string) {
@@ -177,8 +195,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         }
     }
     async function loadDirectory(after?:string, position:LocalPosition=null, quiet=false, recheck=false,
-        source?: { online: boolean; query: string }) {
-        const online=(source?.online??searchOnline)&&!device.offline;
+        source?: { online: boolean; query: string; archived?: boolean }, requestedPlayer?: string) {
+        const archived=(source?.archived??archivedOnly)&&!device.offline;
+        const online=(archived || (source?.online??searchOnline))&&!device.offline;
         if(quiet&&authenticationRequired.current)return;
         let ticket=quiet?directoryTicket.current:++directoryTicket.current;
         let applied=!quiet;
@@ -189,7 +208,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             setBusy(true);setError(authenticationRequired.current?'authentication_required':'');
         }
         try {
-            if(q.length===1&&context&&!authenticationRequired.current)return;
+            if(q.length===1&&context&&!authenticationRequired.current&&!requestedPlayer)return;
             if(device.active&&!online&&!after&&!authenticationRequired.current) {
                 let cursor=position??pendingView.current?.position??null;
                 const local=async()=>device.read('people',q.length===1?'':q,cursor??undefined);
@@ -210,6 +229,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                     if(quiet){ticket=++directoryTicket.current;applied=true;}
                     setOnlinePage(null);
                     setContext(localContext);
+                    namesChanged.current=false;
                     const rows=q.length===1?[]:localResult.rows.flatMap(row=>'display_name'in row?[playerRow(row)]:[]);
                     setPlayers(rows);
                     setMore(q.length!==1&&Boolean(localResult.next));localNext.current=q.length===1?null:localResult.next;
@@ -218,9 +238,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                     if(localResult.count>0)setRegistrationCommitted(false);
                     const restore=pendingView.current;
                     pendingView.current=null;
-                    if(restore?.selection&&!operation.current){
+                    if(requestedPlayer&&!device.offline){
+                        void openProfile(requestedPlayer);
+                    } else if(restore?.selection&&!operation.current){
                         const selected=rows.find(row=>row.id===restore.selection);
-                        if(selected){setProfileId(selected.id);setSelected(selected);setSummaryOnly(true);setSaved(false);setStage('profile');}
+                        if(selected)selectPlayer(selected);
                     }
                     setViewRestored(true);
                     return;
@@ -236,12 +258,14 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             if(quiet)return;
             if(searchPending)setSearchMode('online');
             const cursor=recheck&&onlinePage?.query===q ? onlinePage.after : after;
-            const result=await request<Page>({action:'list',query:q.length===1?'':q,...(cursor?{after:cursor}:{})});
+            const result=await request<Page>({action:archived?'archivedList':'list',query:q.length===1?'':q,...(cursor?{after:cursor}:{})});
             if(ticket!==directoryTicket.current)return;
             setOnlinePage({query:q,after:cursor});
             authenticationRequired.current=false;setError('');
+            namesChanged.current=false;
             setContext(result);setPlayers(q.length===1?[]:result.items.map(playerRow));setMore(q.length!==1&&result.more);
             setMissing(false);setLocalRows(false);setLocalUpdating(false);setBlocked(false);
+            if(requestedPlayer)void openProfile(requestedPlayer);
         } catch(e) {
             if(!quiet&&ticket===directoryTicket.current){setContext(null);setPlayers([]);setMore(false);setBlocked(true);failure(e);}
         } finally {
@@ -262,7 +286,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         setCandidateMore(result.more);
         setRevision(result.revision);
         setDifferent(false);
-        setStage(result.revision > 0 ? 'duplicates' : 'review');
+        setStage(result.items.length > 0 ? 'duplicates' : 'review');
     }
     catch (e) {
         failure(e);
@@ -271,9 +295,14 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         if (active.current)
             setBusy(false);
     } }
+    function canLeaveProfile() {
+        return privateEditor.current?.canLeave() ?? true;
+    }
     function selectPlayer(player:Player) {
+        if(!canLeaveProfile())return;
         pendingView.current=null;
-        if(!localRows){void openProfile(player.id);return;}
+        if(!device.offline){void openProfile(player.id);return;}
+        setProfileTab('overview');
         cancelProfileRead();
         setSaved(false);setProfileId(player.id);setSelected(player);setSummaryOnly(true);go('profile');
     }
@@ -286,6 +315,15 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     async function openProfile(id: string, wasSaved = false, resume=false) {
         pendingView.current=null;
         setSummaryOnly(false);
+        if(!resume){
+            let recoverNames=false;
+            if(nameCorrections){
+                try {recoverNames=Boolean(sessionStorage.getItem(nameStorageKey(id)));} catch {}
+            }
+            const recoverLifecycle=lifecycleTrial&&readPendingLifecycle(lifecycleKey)?.player===id;
+            setProfileTab(recoverLifecycle?'actions':'overview');
+            setCorrectingNames(recoverNames&&!recoverLifecycle);
+        }
         const keep=resume&&stage==='profile'&&selected?.id===id&&!blocked&&!error;
         profileController.current?.abort();
         const ticket = ++profileTicket.current;
@@ -306,8 +344,21 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     finally {
         if (active.current&&ticket===profileTicket.current){setProfileBusy(false);setProfileChecking(false);}
     } }
-    function go(next: Stage) { if(next!=='profile')cancelProfileRead();pendingView.current=null;setError(''); setNotice(''); setStage(next); }
-    function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage))
+    function go(next: Stage) {
+        if(next!=='profile'){cancelProfileRead();setCorrectingNames(false);}
+        if(next==='directory'&&initialPlayer){
+            const url=new URL(window.location.href);
+            if(url.searchParams.has('player')){
+                url.searchParams.delete('player');
+                window.history.replaceState(null,'',url);
+            }
+        }
+        pendingView.current=null;
+        setError('');
+        setNotice('');
+        setStage(next);
+    }
+    function guard(event: MouseEvent<HTMLAnchorElement>) { event.preventDefault(); if (['saving', 'unknown'].includes(stage)||!canLeaveProfile())
         return; if (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟')))
         return; setName(''); setAlternateName(''); setContact(''); go('directory'); void loadDirectory(); }
     async function continueDraft(event: FormEvent) { event.preventDefault(); if (!name.trim()) {
@@ -415,7 +466,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         try {pendingView.current=decodePeopleViewContext(sessionStorage.getItem(viewKey));} catch {}
         const saved=pendingView.current;
         if(saved){setSearch(saved.search);localSearch.current=saved.search.normalize('NFKC').trim();localPosition.current=saved.position;}
-    } void loadDirectory(); });
+    }
+    const pendingLifecycle=lifecycleTrial?readPendingLifecycle(lifecycleKey):null;
+    const requestedPlayer=operation.current?undefined:pendingLifecycle?.player??initialPlayer;
+    void loadDirectory(undefined,null,false,false,undefined,requestedPlayer);
+    });
     const searchDirectory=useEffectEvent(()=>{
         if(searchPending&&stage==='directory'&&!unavailable)void loadDirectory();
     });
@@ -440,11 +495,11 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     useEffect(()=>{if(searchPending)return queueSearch();},[searchQuery,searchPending]);
     useEffect(()=>{
         if(searchOnline||!prepared||!viewRestored||pendingView.current||!localRows||!device.active||blocked||operation.current||
-            (stage!=='directory'&&(stage!=='profile'||!summaryOnly)))return;
+            (stage!=='directory'&&stage!=='profile'))return;
         try {sessionStorage.setItem(viewKey,JSON.stringify({search,
             selection:stage==='profile'&&uuidPattern.test(profileId)?profileId:null,
             position:localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null} satisfies PeopleViewContext));} catch {}
-    },[searchOnline,prepared,viewRestored,localRows,device.active,blocked,stage,summaryOnly,profileId,search,viewKey,players]);
+    },[searchOnline,prepared,viewRestored,localRows,device.active,blocked,stage,profileId,search,viewKey,players]);
     useEffect(() => listenForVisibleResume(() => refreshVisible()), []);
     const reloadLocal=useEffectEvent(()=>{
         if(!active.current)return;
@@ -453,16 +508,21 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             return;
         }
         if(accessDenied.current)return;
-        if(searchOnline){
+        if(searchOnline||archivedOnly){
             if(device.offline){
+                setArchivedOnly(false);
                 setSearchOnline(false);
                 setSearch('');
                 if(stage==='directory'||stage==='profile'){
                     setPlayers([]);setContext(null);setMore(false);
                     if(stage==='profile'){setSelected(null);go('directory');}
-                    void loadDirectory(undefined,null,false,false,{online:false,query:''});
+                    void loadDirectory(undefined,null,false,false,{online:false,query:'',archived:false});
                 }
             }
+            return;
+        }
+        if(stage==='profile'&&summaryOnly&&profileId&&!device.offline){
+            void openProfile(profileId,saved);
             return;
         }
         if(searchPending||(stage!=='directory'&&stage!=='profile'))return;
@@ -474,7 +534,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         }
         if(device.active)void loadDirectory(undefined,localSearch.current===search.normalize('NFKC').trim()?localPosition.current:null,true);
     });
-    useEffect(()=>{if(prepared)queueMicrotask(reloadLocal);},[prepared,device.active,device.coverage,device.phase,device.offline]);
+    useEffect(()=>{if(prepared||lifecycleTrial)queueMicrotask(reloadLocal);},[prepared,lifecycleTrial,device.active,device.coverage,device.phase,device.offline]);
 
     useEffect(() => { document.documentElement.lang = locale; document.documentElement.dir = ar ? 'rtl' : 'ltr'; }, [locale, ar]);
     useEffect(() => {
@@ -500,12 +560,31 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         directoryFocus.current={ticket:directoryTicket.current,player:profileId};
     }
     function closeProfile() {
-        if (busy || stage === 'unknown' || stage === 'saving') return;
+        if (busy || stage === 'unknown' || stage === 'saving' || !canLeaveProfile()) return;
         if (stage === 'review' || stage === 'duplicates') { go('form'); return; }
         if(stage === 'form' && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))) return;
         go('directory');
-        if(saved||!context)reloadReturnedDirectory();
+        if(saved||!context||namesChanged.current)reloadReturnedDirectory();
         else directoryFocus.current={ticket:directoryTicket.current,player:profileId};
+    }
+    function switchArchiveView() {
+        const archived = !archivedOnly;
+        setArchivedOnly(archived);
+        setSearchOnline(archived);
+        setOnlinePage(null);
+        setPlayers([]);
+        setMore(false);
+        void loadDirectory(undefined,null,false,false,{online:archived,query:search,archived});
+    }
+    async function verifyLifecycle(id: string, archived: boolean) {
+        setPlayers(rows => rows.filter(row => row.id !== id));
+        namesChanged.current = true;
+        if (device.active) setSearchOnline(true);
+        if (device.approved) device.refresh();
+        const current = playerRow(await request<Row>({action:'profile',player:id}));
+        if (current.id !== id || typeof current.archived !== 'boolean') throw Error('Missing player status');
+        setSelected(current);
+        if (current.archived !== archived) setNotice(t('The current player status changed again.','تغيّرت حالة اللاعب مجددًا.'));
     }
     function switchSearchSource() {
         const online=!searchOnline;
@@ -518,6 +597,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         searchInput.current?.focus();
     }
     function changeSearch(value:string) {
+        if(stage==='profile'&&!canLeaveProfile())return;
         const nextQuery=value.normalize('NFKC').trim();
         setSearch(value);
         if(nextQuery===searchQuery)return;
@@ -537,9 +617,29 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     }
     const registrationTask = !['directory','profile'].includes(stage);
     const protectedViewGone=unavailable||(localRows&&!device.active);
-    const privateEditorOpen=Boolean(privateProfiles && privatePlayer && stage==='profile' && selected?.id===privatePlayer &&
-      !summaryOnly && !device.offline && !protectedViewGone);
-    const onlineSearchDisconnected=searchOnline&&device.offline;
+    const fullProfile=!summaryOnly&&!device.offline;
+    const tabs: {id:ProfileTab;label:string}[]=[
+        {id:'overview',label:t('Overview','نظرة عامة')},
+        ...(privateProfiles?[{id:'private' as const,label:t('Private profile details','بيانات الملف الخاصة')}]:[]),
+        {id:'actions',label:t('Actions','الإجراءات')},
+    ];
+    function switchProfileTab(tab:ProfileTab) {
+        if(tab!==profileTab&&canLeaveProfile()){setCorrectingNames(false);setProfileTab(tab);}
+    }
+    async function readCorrectedNames(id:string){
+        const updated=playerRow(await request<Row>({action:'profile',player:id}));
+        if(!Number.isInteger(updated.version)||updated.version===undefined||updated.id!==id)
+            throw Error('Missing checked player name version');
+        setSelected(updated);
+        if(localRows)void loadDirectory(undefined,localPosition.current,true);
+        else setPlayers(rows=>rows.map(row=>row.id===id?{...row,name:updated.name}:row));
+        return {...updated,version:updated.version};
+    }
+    function closePrivateDetails() {
+        setProfileTab('overview');
+        requestAnimationFrame(()=>document.getElementById('player-profile-tab-overview')?.focus());
+    }
+    const onlineSearchDisconnected=(searchOnline||archivedOnly)&&device.offline;
     const alternateLabel=t('Alternate full name','الاسم الكامل البديل');
     const previousSearchRows=searchMode==='online'&&!shortSearch&&!protectedViewGone&&Boolean(context)&&players.length>0;
     const registrationSaved=t('Registration saved','حُفظ التسجيل');
@@ -547,7 +647,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
         (stage==='directory'||(stage==='profile'&&error==='authentication_required'));
     const inspector = protectedViewGone?null:<>
       {stage==='profile'&&profileBusy&&<p role="status" className={profileChecking?'visually-hidden':'notice'}>{profileChecking?t('Checking current player…','جارٍ التحقق من بيانات اللاعب…'):t('Loading profile…','جارٍ تحميل الملف…')}</p>}
-      {stage === 'profile' && selected && !device.offline && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{summaryOnly?t('Open full profile','فتح الملف الكامل'):profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
+      {stage === 'profile' && selected && fullProfile && profileTab!=='private' && !correctingNames && <div className="read-toolbar"><Button disabled={busy||profileBusy} onClick={() => void openProfile(profileId, saved)}>{profileChecking?t('Checking…','جارٍ التحقّق…'):t(error ? 'Retry current read' : 'Refresh view', error ? 'إعادة محاولة قراءة الحالة' : 'تحديث العرض')}</Button></div>}
 
       {(stage === 'profile' || registrationTask) && error && <p className="journey-error" role="alert">{errorText(error)}</p>}
       {(stage === 'profile' || registrationTask) && notice && <p className="notice" role="status">{notice}</p>}
@@ -586,17 +686,61 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
 
         {stage === 'profile' && saved && !selected && !busy && !profileBusy && !error && <p role="status">{t('Registration confirmed; current view unavailable. Retry loading the profile without saving again.','تأكد التسجيل؛ العرض الحالي غير متاح. أعد تحميل الملف دون الحفظ مجدداً.')}</p>}
         {stage === 'profile' && !selected && !busy && !profileBusy && <Button onClick={() => void openProfile(profileId, saved)}>{t('Retry loading profile', 'إعادة تحميل الملف')}</Button>}
-        {stage === 'profile' && selected && <section className="journey-card"><h2>{selected.name}</h2>
-          <p role="status">{saved ? registrationSaved : summaryOnly?t('Player summary on this device','ملخص اللاعب على هذا الجهاز'):t('Saved player profile', 'ملف اللاعب المحفوظ')}</p>
-          <dl className="admission-properties"><div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>{!summaryOnly&&!device.offline&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}<div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{summaryOnly?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div></dl>
-          {!summaryOnly && !device.offline && selected.academyMemberNumber && <dl className="admission-properties">
-            <div><dt>{t('Academy member number', 'رقم العضوية في الأكاديمية')}</dt><dd><bdi dir="ltr">{selected.academyMemberNumber}</bdi></dd></div>
-          </dl>}
-          {privateProfiles && !summaryOnly && !device.offline && <Button type="button" ref={privateOpener}
-            onClick={()=>setPrivatePlayer(selected.id)}>{t('Private profile details', 'بيانات الملف الخاصة')}</Button>}
-          <p className="notice">{t('Saving contact details does not create guardian access. Manage appointments separately.', 'حفظ بيانات الاتصال لا يمنح صلاحية ولي أمر. أدر التعيينات بشكل منفصل.')}</p>
-          {summaryOnly&&<p className="notice">{device.offline?t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.'):t('Open the full profile for contact details and further actions.','افتح الملف الكامل لبيانات الاتصال والإجراءات الأخرى.')}</p>}
-          {!device.offline&&!summaryOnly&&<div className="journey-actions"><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link><Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>{name && !saved && <Button onClick={() => go('form')}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}</div>}
+        {stage === 'profile' && selected && <section className="journey-card">
+          <h2><bdi>{selected.name}</bdi></h2>
+          <p role="status">{saved ? registrationSaved : fullProfile?t('Saved player profile', 'ملف اللاعب المحفوظ'):t('Player summary on this device','ملخص اللاعب على هذا الجهاز')}</p>
+          {fullProfile && <div role="tablist" aria-label={t('Player profile sections','أقسام ملف اللاعب')} className="player-profile-tabs"
+            onKeyDown={event=>{
+                const tabs=Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role=tab]'));
+                const index=tabs.indexOf(document.activeElement as HTMLButtonElement);
+                let next: number;
+                if(event.key==='Home')next=0;
+                else if(event.key==='End')next=tabs.length-1;
+                else if(event.key==='ArrowRight'||event.key==='ArrowLeft')
+                    next=(index+(event.key===(ar?'ArrowLeft':'ArrowRight')?1:-1)+tabs.length)%tabs.length;
+                else return;
+                event.preventDefault();
+                tabs[next]?.focus();
+            }}>
+            {tabs.map(tab=><Button key={tab.id} type="button" role="tab" id={'player-profile-tab-'+tab.id}
+              aria-selected={profileTab===tab.id} aria-controls={'player-profile-panel-'+tab.id}
+              tabIndex={profileTab===tab.id?0:-1} onClick={()=>switchProfileTab(tab.id)}>{tab.label}</Button>)}
+          </div>}
+          <div hidden={fullProfile&&profileTab!=='overview'} id="player-profile-panel-overview" role={fullProfile?'tabpanel':undefined} aria-labelledby={fullProfile?'player-profile-tab-overview':undefined}>
+            <dl className="admission-properties">
+              <div><dt>{t('Branch', 'الفرع')}</dt><dd>{selected.branch}</dd></div>
+              {fullProfile&&selected.alternateName&&<div><dt>{alternateLabel}</dt><dd><bdi>{selected.alternateName}</bdi></dd></div>}
+              {fullProfile&&selected.academyMemberNumber&&<div><dt>{t('Academy member number', 'رقم العضوية في الأكاديمية')}</dt><dd><bdi dir="ltr">{selected.academyMemberNumber}</bdi></dd></div>}
+              <div><dt>{t('Unverified contact', 'جهة اتصال غير موثقة')}</dt><dd>{!fullProfile?t('Not included in this summary','غير متاح في هذا الملخص'):selected.contact?<bdi dir="ltr">{selected.contact}</bdi>:t('Not provided', 'لم تُضف')}</dd></div>
+            </dl>
+            {!fullProfile&&<p className="notice">{t('Connect to open the full profile.','اتصل بالإنترنت لفتح الملف الكامل.')}</p>}
+            {fullProfile&&selected.archived&&<p>{t('Archived','مؤرشف')}</p>}
+            {fullProfile&&nameCorrections&&selected.version!==undefined&&profileTab==='overview'&&(
+              correctingNames
+                ? <PlayerNameCorrection key={selected.id} ref={privateEditor} player={{...selected,version:selected.version}}
+                    storageKey={nameStorageKey(selected.id)} request={request}
+                    readCurrent={()=>readCorrectedNames(selected.id)}
+                    onConfirmed={()=>{namesChanged.current=true;if(device.approved)device.refresh();}}
+                    onFailure={failure} onClose={()=>setCorrectingNames(false)} t={t}/>
+                : <Button type="button" disabled={profileBusy} onClick={()=>setCorrectingNames(true)}>
+                    {t('Correct player names','تعديل أسماء اللاعب')}
+                  </Button>
+            )}
+            {fullProfile&&name&&!saved&&<Button onClick={()=>{if(canLeaveProfile())go('form');}}>{t('Return to registration draft', 'العودة لمسودة التسجيل')}</Button>}
+          </div>
+          {fullProfile&&privateProfiles&&<div hidden={profileTab!=='private'} id="player-profile-panel-private" role="tabpanel" aria-labelledby="player-profile-tab-private">
+            {profileTab==='private'&&<PlayerPrivateDetails key={selected.id} ref={privateEditor} player={selected.id}
+              storageKey={`${storageKey}:private:${selected.id}`} extended={lifecycleTrial} request={request} onFailure={failure} onClose={closePrivateDetails} t={t}/>}
+          </div>}
+          {fullProfile&&<div hidden={profileTab!=='actions'} id="player-profile-panel-actions" role="tabpanel" aria-labelledby="player-profile-tab-actions"><div className="journey-actions">
+            <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/card`}>{t('Player QR card', 'بطاقة QR للاعب')}</Link>
+            <Link className="button" href={`/${locale}/workspace/${academy}/players/${selected.id}/guardians`}>{t('Guardian appointments', 'دعوات أولياء الأمور')}</Link>
+          </div>
+          {profileTab==='actions'&&lifecycleTrial&&typeof selected.archived==='boolean'&&selected.version!==undefined&&
+            <PlayerLifecycle key={selected.id} player={selected.id} version={selected.version} archived={selected.archived}
+              ref={privateEditor} storageKey={lifecycleKey} request={request} t={t} onFailure={failure}
+              onConfirmed={archived=>verifyLifecycle(selected.id,archived)}/>}
+          </div>}
         </section>}
 
       {stage === 'directory' && <><h3>{t('Working with players','إدارة اللاعبين')}</h3><p>{t('Select a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.','اختر لاعباً محفوظاً لفحص ملفه. يظل التسجيل الجديد منفصلاً عن مراجعة التكرار والتأكيد.')}</p>{context && <p>{context.branch_name}</p>}</>}
@@ -610,9 +754,9 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
     }
     else if (event.currentTarget.hash === '#directory')
         guard(event);
-    else if (['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
+    else if (!canLeaveProfile() || ['saving', 'unknown'].includes(stage) || (['form', 'duplicates', 'review'].includes(stage) && !window.confirm(t('Discard this unsaved draft?', 'تجاهل المسودة غير المحفوظة؟'))))
         event.preventDefault(); }} account={publicOffline?null:<UserButton />} tools={<WorkspaceDeviceTools device={device} locale={locale} verified={Boolean(context)&&!blocked}/>}>
-      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} suspendPhoneDialog={privateEditorOpen} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
+      <WorkspacePanes task={registrationTask} arabic={ar} title={stage === 'profile' ? t('Player profile','ملف اللاعب') : t('Current task','المهمة الحالية')} inspector={inspector} selected={!protectedViewGone&&(stage === 'profile' || registrationTask)} blocked={busy || stage === 'unknown' || stage === 'saving'} onBack={closeProfile} selectionKey={stage + profileId} backLabel={stage === 'profile' ? t('Back to players','العودة للاعبين') : undefined}>
       <header className={directoryView?'task-header people-directory-header':'task-header'}>
       {directoryView?<div>
         <h1 id="people-directory-title" ref={heading} tabIndex={-1}>{title}</h1>
@@ -639,15 +783,19 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 <label htmlFor="player-search">{t('Find a player by name', 'البحث عن لاعب بالاسم')}</label>
                 <Input ref={searchInput} id="player-search" maxLength={160} disabled={busy&&stage==='profile'&&!summaryOnly} value={onlineSearchDisconnected?'':search} onChange={event => changeSearch(event.target.value)}/>
               </div>
-              {stage==='directory'&&device.active&&!device.offline&&context&&
+              {stage==='directory'&&!archivedOnly&&device.active&&!device.offline&&context&&
                 <Button disabled={busy} onClick={switchSearchSource}>{searchOnline
                     ?t('Use downloaded directory','استخدم قائمة اللاعبين المنزّلة')
                     :t('Search all names online','ابحث بكل الأسماء عبر الإنترنت')}</Button>}
               {!onlineSearchDisconnected&&search.trim() && <Button disabled={busy&&!searchPending} onClick={()=>{changeSearch('');searchInput.current?.focus();}}>{t('Clear search','مسح البحث')}</Button>}
             </div>
-            <Button disabled={busy||device.offline||!context} className="button" onClick={() => { setName(''); setAlternateName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button>
+            {lifecycleTrial&&stage==='directory'&&!device.offline&&context&&
+              <Button disabled={busy} aria-pressed={archivedOnly} onClick={switchArchiveView}>
+                {t('Archived players','اللاعبون المؤرشفون')}
+              </Button>}
+            <Button disabled={busy||device.offline||!context} className="button" onClick={() => { if(!canLeaveProfile())return; setName(''); setAlternateName(''); setContact(''); setDifferent(false); setSaved(false); operation.current = null; go('form'); }}>{t('Register player', 'تسجيل لاعب')}</Button>
           </div>
-          {privateProfiles && stage==='directory' && context && !device.offline && <PlayerMemberLookup
+          {privateProfiles && !archivedOnly && stage==='directory' && context && !device.offline && <PlayerMemberLookup
             request={request} openProfile={openProfile} onFailure={failure} t={t}/>}
           {shortSearch && <p className="directory-search-status" role="status">{t('Enter at least two characters to search.','أدخل حرفين على الأقل للبحث.')}</p>}
           {searchMode==='online'&&!shortSearch && <p className="directory-search-status" role="status">{previousSearchRows
@@ -659,23 +807,18 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
           {context && !missing && !busy && !players.length && !shortSearch && <p>{localRows&&(localUpdating||registrationCommitted)
             ?t('The downloaded directory has not updated yet. Check for changes.','لم تتحدّث قائمة اللاعبين المنزّلة بعد. تحقّق من التغييرات.')
             :!localRows&&onlinePage?.after?t('No players on this page. Go to the first page.','لا يوجد لاعبون في هذه الصفحة. انتقل إلى الصفحة الأولى.')
+            :archivedOnly&&!search.trim()?t('No archived players.','لا يوجد لاعبون مؤرشفون.')
             :search.trim()?t('No matching players. Try another name.','لا يوجد لاعبون مطابقون. جرّب اسماً آخر.'):t('No players registered yet. Register the first fictional player.','لا يوجد لاعبون مسجلون بعد. سجّل أول لاعب خيالي.')}</p>}
           {context && searchMode!=='online' && !shortSearch && (!busy||checking||(localRows&&device.active)) && <p className="directory-page-summary">{formatQuantity(locale,players.length,'player')} {t('on this page','في هذه الصفحة')}{more?t(' · More players available',' · يتوفر مزيد من اللاعبين'):''}</p>}
-          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!onlineSearchDisconnected&&!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
+          <table className="workspace-table" aria-busy={searchPending||undefined}><caption className="visually-hidden">{archivedOnly?t('Archived players','اللاعبون المؤرشفون'):t('Player directory','قائمة اللاعبين')}</caption><thead><tr><th>{t('Player','اللاعب')}</th><th>{t('Branch','الفرع')}</th></tr></thead><tbody>{!onlineSearchDisconnected&&!shortSearch && (!busy||checking||localRows||previousSearchRows) && (!localRows||device.active) && players.map(player => <tr key={player.id} className={profileId === player.id && stage === 'profile' ? 'selected' : undefined}><th scope="row"><Button ref={node => { if (node) profileOpeners.current.set(player.id,node); else profileOpeners.current.delete(player.id); }} disabled={busy&&(!localRows||checking||searchPending)} onClick={() => selectPlayer(player)}>{player.name}</Button></th><td>{player.branch}</td></tr>)}</tbody></table>
           <div className="people-directory-footer">
-            {context && !shortSearch && <div className="people-directory-pages"><Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</div>}
+            {context && !shortSearch && <div className="people-directory-pages"><Button disabled={busy} onClick={() => {if(!canLeaveProfile())return;if(stage==='profile')go('directory');setSaved(false);void loadDirectory();}}>{t('First page', 'الصفحة الأولى')}</Button>{more && <Button disabled={busy} onClick={() => {if(!canLeaveProfile())return;if(stage==='profile')go('directory');setSaved(false);void (localRows?loadDirectory(undefined,localNext.current):loadDirectory(players.at(-1)?.id));}}>{t('Next page', 'الصفحة التالية')}</Button>}</div>}
             <small>{t('Up to 25 players per page. Contact details appear only in profiles.', 'حتى 25 لاعباً في الصفحة. بيانات الاتصال في الملفات فقط.')}</small>
           </div>
         </section>}
 
       </>}
     </WorkspacePanes>
-    {privateEditorOpen && privatePlayer && <PlayerPrivateDetails key={privatePlayer}
-        player={privatePlayer} storageKey={`${storageKey}:private:${privatePlayer}`} request={request}
-        onFailure={error=>{setPrivatePlayer(null);failure(error);}} onClose={()=>{
-            setPrivatePlayer(null);
-            requestAnimationFrame(()=>privateOpener.current?.focus());
-        }} t={t}/>}
     </WorkspaceShell>
   </>;
 }

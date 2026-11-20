@@ -1,11 +1,13 @@
 {
   "passed": true,
-  "tests": 21,
+  "tests": 24,
   "failures": 0,
   "errors": 0,
   "sources": {
     "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
-    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24"
+    "scripts/workspace-download/test_boundary.py": "04ba04a628680b002a47a5c48df24831164db6b5329c37b754445de9b4bfc420",
+    "supabase/migrations/20261120072229_player_name_correction.sql": "3f4af22d5d3b80c60bd147aab4e0334021c3ea4210dd112bba4bcca247563fe7",
+    "supabase/migrations/20261120170705_player_profile_and_lifecycle.sql": "fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d"
   },
   "scope": "Disposable actual PostgreSQL17; synthetic identity proofs/data. No hosted schema, key custody, browser persistence or performance percentile claim."
 }

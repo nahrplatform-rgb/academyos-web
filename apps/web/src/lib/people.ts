@@ -1,5 +1,6 @@
 import { uuidPattern } from './onboarding';
 const privateFieldLimits = { legacyId: 80, address: 300, schoolName: 160, nationalId: 80, medicalNotes: 500 } as const;
+const extendedPrivateFields = { ...privateFieldLimits, dateOfBirth: 10, primaryPhone: 40, emergencyName: 160, emergencyPhone: 40 } as const;
 export class PeopleInputError extends Error {
 }
 export function peopleRequest(body: unknown): {
@@ -17,9 +18,10 @@ export function peopleRequest(body: unknown): {
     const a = id(b.academy), after_id = b.after == null ? null : id(b.after);
     let keys: string[], name: string, args: Record<string, unknown>;
     switch (b.action) {
+        case 'archivedList':
         case 'list':
             keys = ['action', 'academy', 'after', 'query'];
-            name = 'i2_people_v1';
+            name = b.action === 'archivedList' ? 'i2_archived_people_v1' : 'i2_people_v1';
             {
                 const query = text(b.query ?? '', 160);
                 if (query.normalize('NFKC').trim().length === 1)
@@ -39,10 +41,11 @@ export function peopleRequest(body: unknown): {
             name = 'i2_profile_v1';
             args = { a, player: id(b.player) };
             break;
+        case 'extendedPrivateProfile':
         case 'privateProfile':
             keys = ['action', 'academy', 'player', 'revealId'];
             if (b.revealId !== undefined && typeof b.revealId !== 'boolean') throw new PeopleInputError();
-            name = 'i2_private_profile_v1';
+            name = b.action === 'extendedPrivateProfile' ? 'i2_private_profile_v2' : 'i2_private_profile_v1';
             args = { a, player: id(b.player), reveal_id: b.revealId === true };
             break;
         case 'privatePhoto':
@@ -66,18 +69,40 @@ export function peopleRequest(body: unknown): {
             args = { a, id_kind: b.kind, reference };
             break;
         }
+        case 'saveExtendedPrivateProfile':
         case 'savePrivateProfile': {
+            const extended = b.action === 'saveExtendedPrivateProfile';
+            const limits = extended ? extendedPrivateFields : privateFieldLimits;
             keys = ['action', 'academy', 'player', 'op', 'version', 'changes'];
             if (!Number.isInteger(b.version) || (b.version as number) < 0 || (b.version as number) >= 2147483647 ||
                 !b.changes || typeof b.changes !== 'object' || Array.isArray(b.changes)) throw new PeopleInputError();
             const entries = Object.entries(b.changes);
             if (!entries.length) throw new PeopleInputError();
             const changes = Object.fromEntries(entries.map(([key, value]) => {
-                if (!Object.hasOwn(privateFieldLimits, key)) throw new PeopleInputError();
-                return [key, value === null ? null : text(value, privateFieldLimits[key as keyof typeof privateFieldLimits]) || null];
+                if (!Object.hasOwn(limits, key)) throw new PeopleInputError();
+                return [key, value === null ? null : text(value, (limits as Readonly<Record<string, number>>)[key]) || null];
             }));
-            name = 'i2_save_private_profile_v1';
+            name = extended ? 'i2_save_private_profile_v2' : 'i2_save_private_profile_v1';
             args = { a, player: id(b.player), op: id(b.op), expected_version: b.version, changes };
+            break;
+        }
+        case 'setArchived': {
+            keys = ['action', 'academy', 'player', 'op', 'version', 'archived'];
+            if (!Number.isInteger(b.version) || (b.version as number) < 1 || (b.version as number) >= 2147483647 ||
+                typeof b.archived !== 'boolean') throw new PeopleInputError();
+            name = 'i2_set_player_archived_v1';
+            args = { a, player: id(b.player), op: id(b.op), expected_version: b.version, archived: b.archived };
+            break;
+        }
+        case 'correctNames': {
+            keys = ['action', 'academy', 'player', 'op', 'version', 'name', 'alternateName', 'revision', 'different'];
+            const display_name = text(b.name, 160), alternate_name = text(b.alternateName ?? '', 160);
+            if (!display_name || !Number.isInteger(b.version) || (b.version as number) < 1 || (b.version as number) >= 2147483647 ||
+                !Number.isSafeInteger(b.revision) || (b.revision as number) < 0 || typeof b.different !== 'boolean')
+                throw new PeopleInputError();
+            name = 'i2_correct_player_names_v1';
+            args = { a, player: id(b.player), op: id(b.op), expected_version: b.version, display_name,
+                alternate_name, reviewed_revision: b.revision, different_person: b.different };
             break;
         }
         case 'create': {
@@ -100,5 +125,5 @@ export function peopleRequest(body: unknown): {
     }
     if (Object.keys(b).some(k => !keys.includes(k)))
         throw new PeopleInputError();
-    return { rpc: name, args, mutating: b.action === 'create' || b.action === 'reconcile' || b.action === 'savePrivateProfile' || b.action === 'savePrivatePhoto' };
+    return { rpc: name, args, mutating: b.action === 'create' || b.action === 'reconcile' || b.action === 'savePrivateProfile' || b.action === 'savePrivatePhoto' || b.action === 'correctNames' || b.action === 'setArchived' || b.action === 'saveExtendedPrivateProfile' };
 }

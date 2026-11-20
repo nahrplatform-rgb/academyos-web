@@ -37,6 +37,8 @@ const inputs=[
   'apps/web/src/lib/experience-format.ts',
   'supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql',
   'supabase/migrations/20261119233028_player_alternate_name.sql',
+  'supabase/migrations/20261120072229_player_name_correction.sql',
+  'supabase/migrations/20261120170705_player_profile_and_lifecycle.sql',
   'apps/web/src/lib/local-workspace-codec.ts','apps/web/src/lib/local-workspace-repository.ts',
   'apps/web/src/lib/local-register-crypto.ts',
   'apps/web/src/lib/register-device-account.ts','apps/web/src/lib/workspace-device-slots.ts',
