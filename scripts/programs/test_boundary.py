@@ -29,6 +29,43 @@ class ProgramBoundary(PeopleBoundary):
  def step(self,a,p,act='prepare',subject='user_owner',version=None,ok=True):
   return self.sql(f"select public.p5_step_v1('{a}','{p['id']}',{p['version'] if version is None else version},{literal(act)})",subject,ok=ok)
  def read(self,a,p,idx=0,subject='user_owner',ok=True):return self.sql(f"select public.p5_read_v1('{a}','{p['id']}',{idx})",subject,ok=ok)
+ def test_program_16_completed_setup_scopes_program_to_saved_configuration(self):
+  fixtures = [
+   ('user_owner', 'Synthetic pitch branch', 'Africa/Cairo', 'Football', 'كرة القدم'),
+   ('user_other_owner', 'Synthetic pool branch', 'Europe/Paris', 'Swimming', 'السباحة'),
+  ]
+  programs = []
+  for subject, branch, timezone, sport_en, sport_ar in fixtures:
+   academy, _, invitation, token, _ = self.create()
+   academy_id = academy['academy_id']
+   self.accept(invitation, token, subject=subject)
+   self.save(academy_id, 0, 'branch', {'name': branch, 'timezone': timezone}, subject=subject)
+   self.save(academy_id, 1, 'sport', {'label_en': sport_en, 'label_ar': sport_ar}, subject=subject)
+   self.save(academy_id, 2, 'complete', {}, subject=subject)
+   setup = json.loads(self.sql(f"select public.m1_setup_v1('{academy_id}')", subject))
+   self.assertTrue(setup['complete'])
+   program = json.loads(self.command(academy_id, subject=subject))
+   reopened = json.loads(self.read(academy_id, program, subject=subject))
+   context = reopened['context']
+   self.assertEqual(
+    (context['academy_id'], context['branch_id'], context['branch_name'], context['sport_id'],
+     context['sport_name'], context['sport_name_ar'], context['timezone']),
+    (academy_id, setup['branch']['id'], branch, setup['sport']['id'], sport_en, sport_ar, timezone),
+   )
+   stored_scope = json.loads(self.sql(
+    "select json_build_array(academy_id, branch_id, sport_id, timezone) "
+    f"from academy.training_programs where id='{program['id']}'"
+   ))
+   self.assertEqual(stored_scope, [academy_id, setup['branch']['id'], setup['sport']['id'], timezone])
+   programs.append((subject, academy_id, program))
+
+  for (subject, own_academy, _), (_, foreign_academy, foreign_program) in (programs, programs[::-1]):
+   self.sql(f"select public.m1_setup_v1('{foreign_academy}')", subject, ok=False)
+   self.save(foreign_academy, 3, 'sport', {'label_en': 'Foreign', 'label_ar': 'اختبار'},
+             subject=subject, ok=False)
+   self.read(foreign_academy, foreign_program, subject=subject, ok=False)
+   self.read(own_academy, foreign_program, subject=subject, ok=False)
+
  def test_program_01_exact_prepare_ready_projection_and_replay(self):
   a,b=self.academy();op=str(uuid.uuid4());p=json.loads(self.command(a,op=op));self.assertEqual(p['total'],40);self.assertEqual(p['windows'],4)
   self.assertEqual(json.loads(self.command(a,op=op))['id'],p['id']);d=self.definition();d['name']='Changed';self.command(a,d,op,ok=False)

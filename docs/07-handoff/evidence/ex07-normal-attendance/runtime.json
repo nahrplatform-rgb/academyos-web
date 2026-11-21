@@ -93,8 +93,8 @@
               "mode": "canonical",
               "locale": "en",
               "width": 360,
-              "firstRowTop": 428,
-              "markBottom": 552,
+              "firstRowTop": 446,
+              "markBottom": 570,
               "minimumMarkHeight": 48,
               "minimumMarkWidth": 99,
               "reviewTop": 726,
@@ -108,8 +108,8 @@
               "mode": "canonical",
               "locale": "en",
               "width": 320,
-              "firstRowTop": 428,
-              "markBottom": 552,
+              "firstRowTop": 446,
+              "markBottom": 570,
               "minimumMarkHeight": 48,
               "minimumMarkWidth": 86,
               "reviewTop": 721,
@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=02d1b9b8-731a-4b3b-85fe-40f2e2230930"
+          "task": "#attendance-return=54cac31d-e54a-423b-a970-a339da967c8f"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=8f7c590b-6b52-4450-9358-e06da8cdda97"
+          "task": "#attendance-return=a8c81896-0d29-4e60-b42e-1c1bf2c41065"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=e6432242-6e81-42c8-9710-5124545a7181"
+          "task": "#correction-return=9cb5c280-da62-46ef-bb84-f493db03081f"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=ec0b2d50-0eac-4f48-ba99-dd1343f24f67"
+          "task": "#development-return=1078a18f-adfd-454b-91d5-e9c95a36d62e"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=f5571ac6-7d98-46b2-a4e6-798e8794667b"
+          "task": "#development-return=23f8f79f-deeb-4e20-9372-803d7d9a9ca9"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=06e139f4-5b8f-4ccb-8fcd-84ac9373af9e"
+          "task": "#publication-return=e5b1e82d-6955-429a-9e36-77eb5cd0d6fa"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=8b1dc79c-c274-4f83-8c21-8915300835c5"
+          "task": "#publication-return=4d109f10-6738-462a-a579-2abdffad3ad3"
         }
       },
       {
@@ -1051,7 +1051,7 @@
     "supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
     "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
     "supabase/migrations/20261028233812_i5a_development_feedback.sql": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
-    "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+    "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
     "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
     "apps/web/src/components/experience-workspace.tsx": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",

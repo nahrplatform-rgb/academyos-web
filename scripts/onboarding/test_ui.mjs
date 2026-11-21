@@ -76,7 +76,11 @@ await page.route('**/api/onboarding',async route=>{
   if(b.step==='branch'){setup.branch={id:iv,name:b.fields.name};setup.timezone=b.fields.timezone;setup.complete=false;}
   if(b.step==='sport'){setup.sport={id:iv,...b.fields};setup.complete=false;}
   if(b.step==='complete')setup.complete=true;
-  setup.version++;data=setup;break;
+  if(b.step==='enable_sport'){
+   assert.deepEqual(b.fields,{key:'swimming'});
+   setup.sports.push({id:secondId,label_en:'Swimming',label_ar:'السباحة',catalog_key:'swimming'});
+  }else setup.version++;
+  data=setup;break;
  case'operation':data={found:receipts.has(b.op),result:receipts.get(b.op)};break;
  default:await route.fulfill({status:422,json:{error:'invalid'}});return;
  }
@@ -397,6 +401,21 @@ try{
  await (await delayedResponse).finished();await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
  assert.equal(await page.getByRole('listitem').filter({hasText:'Branch A'}).count(),0);assert.equal(await page.locator('input[value="Unsaved private A draft"]').count(),0);
  await page.getByRole('button',{name:'Edit branch and timezone',exact:true}).click();assert.equal(await page.getByLabel('Branch name',{exact:true}).inputValue(),'Branch B');
+ if(process.env.ONBOARDING_FOLLOWUP_BASELINE!=='1'){
+  await page.getByRole('button',{name:'Discard unsaved draft',exact:true}).click();
+  switched=false;
+  for(const locale of ['en','ar']){
+   const ar=locale==='ar';
+   setup.sports=[{...setup.sport,label_en:'Football',label_ar:'كرة القدم',catalog_key:'football'}];
+   await page.goto(`http://127.0.0.1:3194/?mode=setup&academy=${a}&locale=${locale}`);
+   const sports=page.getByRole('heading',{name:ar?'الرياضات المفعّلة':'Enabled sports'}).locator('..');
+   await expect(sports.getByRole('listitem')).toHaveCount(1);
+   await sports.getByRole('button',{name:ar?'تفعيل السباحة':'Enable swimming',exact:true}).click();
+   await expect(sports.getByRole('listitem')).toHaveText(ar?['كرة القدم','السباحة']:['Football','Swimming']);
+   await page.reload();
+   await expect(sports.getByRole('listitem')).toHaveCount(2);
+  }
+ }
  const followupOut=resolve(process.env.UI_EVIDENCE_DIR??'test-results/wd71-closure/onboarding');await mkdir(followupOut,{recursive:true});const followup=await checkOnboardingFollowup({browser,origin:'http://127.0.0.1:3194',out:followupOut,baseline:process.env.ONBOARDING_FOLLOWUP_BASELINE==='1'});await writeFile(resolve(followupOut,`save-followup-${reactMode}.json`),JSON.stringify(followup,null,2)+'\n');
  assert.deepEqual(errors,[]);
  const report={ui:'passed',reactMode,resumeMetrics,admissionMetrics,browserVersion:browser.version(),harnessSha256:createHash('sha256').update(await readFile(import.meta.filename)).digest('hex'),implementationSha256:Object.fromEntries(await Promise.all(['src/components/onboarding-workspace.tsx','src/components/admission-directory.tsx','src/components/timezone-select.tsx','src/components/workspace-shell.tsx','src/components/ui/controls.tsx','src/app/globals.css','src/lib/timezones.json'].map(async path=>[path,createHash('sha256').update(await readFile(root+'/apps/web/'+path)).digest('hex')]))),handoffRace:'zero early reviews; one exchange across identity resolution; failed exchange stays failed',path:'create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh',admission:'central EN/AR creation 320/390/768/1440; native review Escape/contained focus/trigger restore; lost-create receipt closes form without second create; two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details',authEntry:'EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery',phone:'EN/AR 360px no overflow',keyboardProfiles,keyboardScope:'Tab/Enter, required focus, visible outline, labeled timezone values via driver, Charcoal 44–56px desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified',revocation:'private setup removed after denial',identityRace:'delayed A response and unsaved A draft excluded after B identity change',scope:'synthetic transport/identity; not hosted security evidence'};

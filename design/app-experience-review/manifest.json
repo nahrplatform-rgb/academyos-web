@@ -1,6 +1,6 @@
 {
-  "source": "f60eae147bb1ba2563157e850879aaaba964aa64",
-  "generatedAt": "2026-11-21T00:20:24.962Z",
+  "source": "7454144c370ec5c42a99bd9fe96f52f89b653d8c",
+  "generatedAt": "2026-11-21T02:09:06.520Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -46,14 +46,14 @@
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
-    "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+    "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
     "apps/web/src/components/correction-workspace.tsx": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
     "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
     "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
     "apps/web/src/components/experience-workspace.tsx": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
     "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
     "apps/web/src/components/guardian-workspace.tsx": "88a2ee20ad01764cfda5e4c2b49751ae513b77554750d84d7a1909db3b80962d",
-    "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
+    "apps/web/src/components/onboarding-workspace.tsx": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
     "apps/web/src/components/people-workspace.tsx": "a6eadab5f88e02a43f3275b3a0e13c014715e6f4ddc39daefbc5f9621875b6dd",
@@ -65,11 +65,11 @@
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
     "apps/web/src/components/program-planning-workspace.tsx": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
-    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+    "apps/web/src/components/program-workspace.tsx": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
     "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
-    "apps/web/src/components/qr-workspace.tsx": "71cc8f93b06e0868861bc13600015029eb76bed09c5d7deb2279a6aabc0e1c15",
+    "apps/web/src/components/qr-workspace.tsx": "fc80c6980fe030c84709c32467ddcace7f46679342d6a69589fed7b768e19c76",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
     "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
     "apps/web/src/components/session-change-workspace.tsx": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
@@ -111,7 +111,7 @@
     "scripts/guardian-training/test_ui.mjs": "1e77408a83adfcb65db35ab9352484008ca18ba0b5be5c7eeaa41c9003696ed2",
     "scripts/guardians/test_ui.mjs": "a8651c26f208c5a0a6f9bd8d06084b731a7f45c97ad050d94effc6fa82f189fa",
     "scripts/onboarding/save_followup.mjs": "d4ff1a9f52363e9f9459701b18eb38d4a049b6f399950ed84fd4857eff4be013",
-    "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
+    "scripts/onboarding/test_ui.mjs": "0ced18507764e9db2845c35de5e31d89acfb193760793cddab3bb625270bb8cf",
     "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
     "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56",
     "scripts/people/test_ui.mjs": "7f4ee2f339421e9e55038f8be8575b83b77f793cc4b938d35f10cb7a092a6422",
@@ -120,7 +120,7 @@
     "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
     "scripts/program-planning/test_ui.mjs": "f2f0a804cbae2b89c694c2b9b58a4d997be9c075f6a84ef06ca765952268c4b4",
     "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
-    "scripts/programs/test_ui.mjs": "020bbc95ad2f3a6c80034ab35cdf920b97cfb56c4ed8854a1dab2d1999b8afe2",
+    "scripts/programs/test_ui.mjs": "323f2b65e626ad487b8b428325118d9c0fb4fe6fea0122f67a3a34135dabca84",
     "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
     "scripts/publication/test_ui.mjs": "f98883eed2afa299083fec54285e308f6a4fa02aa02c538adb62ba3c411cceea",
     "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
@@ -133,12 +133,12 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "8b91efcdc7ce9e6886a3b9574a2031bcc07fba11dfcef8e9616c1b79cd78d048",
-  "htmlSha256": "e730aa07a7a1a2b3fd650e217858338f5a06fc4f782769287ab42798d1de6797",
-  "frames": 1894,
-  "transitions": 2689,
+  "capturePackSha256": "78ff29cd20a3b5b0896194e0ab48d4c554543a13788f2e90161d24356e753197",
+  "htmlSha256": "98a75b2a386ad22acc416f68d44ec627f7887c728477bf0779e82a68444368ad",
+  "frames": 1929,
+  "transitions": 2716,
   "sourceFiles": 87,
-  "sourceLiterals": 8875,
+  "sourceLiterals": 8895,
   "journeys": [
     {
       "id": "entry",
@@ -146,7 +146,7 @@
     },
     {
       "id": "onboarding",
-      "frames": 289
+      "frames": 295
     },
     {
       "id": "people",
@@ -162,7 +162,7 @@
     },
     {
       "id": "programs",
-      "frames": 240
+      "frames": 268
     },
     {
       "id": "planning",
@@ -170,7 +170,7 @@
     },
     {
       "id": "program-planning",
-      "frames": 87
+      "frames": 88
     },
     {
       "id": "publication",

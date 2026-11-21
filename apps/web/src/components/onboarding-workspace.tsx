@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { listenForVisibleResume } from "@/lib/visible-resume";
+import type { EnabledSport } from "@/lib/programs";
 import TimezoneSelect from "./timezone-select";
 import WorkspacePanes from "./workspace-panes";
 import WorkspaceShell from "./workspace-shell";
@@ -10,7 +11,11 @@ import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { useEffect, useEffectEvent, useRef, useState, type FormEvent, type MouseEvent } from "react";
 
 type Membership = { membership_id: string; academy_id: string; academy_name: string; role: string };
-type Setup = { academy_id: string; name: string; version: number; complete: boolean; timezone: string | null; branch: { id: string; name: string } | null; sport: { id: string; label_en: string; label_ar: string } | null };
+type Setup = { academy_id: string; name: string; version: number; complete: boolean; timezone: string | null; branch: { id: string; name: string } | null; sport: { id: string; label_en: string; label_ar: string } | null; sports?: EnabledSport[] };
+const catalog = [
+  { key: 'football', en: 'Football', ar: 'كرة القدم' },
+  { key: 'swimming', en: 'Swimming', ar: 'السباحة' },
+] as const;
 type Context = { platform: boolean; memberships: Membership[]; more: boolean };
 type Invitation = { academy_id: string; name: string; accepted: boolean; expires_at?: string };
 type Payload = Record<string, unknown>;
@@ -249,7 +254,7 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
                 <li>{t('Branch: ', 'الفرع: ')}{setup.branch?.name ?? t('Not saved', 'لم يُحفظ')}</li>
                 <li>{t('Timezone: ', 'المنطقة الزمنية: ')}<bdi>{setup.timezone ?? t('Not saved', 'لم تُحفظ')}</bdi>
                 </li>
-                <li>{t('Sport: ', 'الرياضة: ')}{(ar ? setup.sport?.label_ar : setup.sport?.label_en) ?? t('Not saved', 'لم تُحفظ')}</li>
+                <li>{t('Initial sport: ', 'الرياضة الأولية: ')}{(ar ? setup.sport?.label_ar : setup.sport?.label_en) ?? t('Not saved', 'لم تُحفظ')}</li>
               </ol>
               <div className="journey-actions">
                 {setup.complete && <div className="journey-actions">
@@ -262,6 +267,17 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
                 <Button disabled={disabled} onClick={() => { setSportEn(setup.sport?.label_en ?? ''); setSportAr(setup.sport?.label_ar ?? ''); setEditing('sport'); }}>{t('Edit sport', 'تعديل الرياضة')}</Button>
               </div>
             </section>
+            {setup.complete && setup.sports && <section className="journey-card">
+              <h2>{t('Enabled sports', 'الرياضات المفعّلة')}</h2>
+              <ul>{setup.sports.map(sport => <li key={sport.id}>{ar ? sport.label_ar : sport.label_en}</li>)}</ul>
+              <div className="journey-actions">
+                {catalog.filter(sport => !setup.sports?.some(enabled => enabled.catalog_key === sport.key)).map(sport =>
+                  <Button key={sport.key} disabled={disabled || Boolean(editing)} onClick={() => void mutate({
+                    action: 'save', academy, version: setup.version, step: 'enable_sport', fields: { key: sport.key },
+                  })}>{t(`Enable ${sport.en.toLowerCase()}`, `تفعيل ${sport.ar}`)}</Button>
+                )}
+              </div>
+            </section>}
             {editing === 'branch' && <section className="journey-card">
               <h2>{t('Branch draft — unsaved changes', 'مسودة الفرع — تغييرات غير محفوظة')}</h2>
               <form onSubmit={e => save(e, 'branch')}>

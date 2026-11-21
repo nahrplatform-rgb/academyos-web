@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-20T23:36:14.604Z",
+  "completed": "2026-11-21T02:11:06.053Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -41,7 +41,7 @@
     "scripts/publication/test_boundary.py": "584fcbbbd2123ec35764aaad9ba864883b9983c12885c0ac93883eb9d6081926",
     "scripts/program-planning/test_boundary.py": "67f2f89a0420f2c72bfc1c8678847ce1286b9418c0bf9efb74b47fb2f055e2ef",
     "scripts/planning/test_boundary.py": "62a347561944c2f60ba6123ae5178a2eb4e56124271be7acc4c188ae5dd0d0de",
-    "scripts/programs/test_boundary.py": "33123e20bdd03acea25cae264e54ceb6afdce1cc5d4703bc5646871cb731768e",
+    "scripts/programs/test_boundary.py": "48390b2c38f903e0077e6bf5ba31eef612d62a20369f5824038bff5f616e7172",
     "scripts/trainers/test_boundary.py": "fe702c567fb33ab781b5a6e071b3526e87f1fcae1b60c91f782cb1cc02709e96",
     "scripts/people/test_boundary.py": "24ec0697a7566b4f4f7ac8dfb94e82ead886039cc4963ac7c47d973213b2eaa9",
     "scripts/onboarding/test_boundary.py": "c6ffec292d0fa20d784fb7df68133b214d78687fd19bede204ce7c3cd7c98e9f",
@@ -51,7 +51,7 @@
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/prepared-register/page.tsx": "170250bcd0199f30d82c3d22a84e81991109529a845b152dd4faa0713e1093ac",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
-    "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+    "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
     "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
@@ -112,6 +112,7 @@
     "supabase/migrations/20261120025857_player_private_photo.sql": "b65f9655b534dcb51e51f9ded20257ae4d50578b4fe0db365b6e953ce09dc473",
     "supabase/migrations/20261120072229_player_name_correction.sql": "3f4af22d5d3b80c60bd147aab4e0334021c3ea4210dd112bba4bcca247563fe7",
     "supabase/migrations/20261120170705_player_profile_and_lifecycle.sql": "fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d",
+    "supabase/migrations/20261121014923_ex17_multisport_foundation.sql": "1da8b75e0276ea9c653692ed9929889ba1b20f4c4d0e888ea5c91599878cbdb5",
     "supabase/tests/harness.sql": "90993cadc7cb58e1c339715a40002ffa7c7a8dd5099ed94afa243e466570d8f0",
     "supabase/tests/membership_boundary.sql": "88cd0b80e74373821cabdac6c0955ae23a3afb3f029ba3cb09aaa2617af0c4b4",
     "supabase/tests/onboarding_boundary.sql": "bf50f455f29622fc05643412c91b50d7fdfb9564221fbf70e942b1f8bb769a0a"

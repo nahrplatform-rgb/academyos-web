@@ -15,6 +15,7 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromiu
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const academy='00000000-0000-4000-8000-000000000001',branch='00000000-0000-4000-8000-000000000002';
 let failPreviewWindow=false,driftPreview=false;
+const swimming={id:'00000000-0000-4000-8000-000000000004',label_en:'Swimming',label_ar:'السباحة',catalog_key:'swimming'};
 let records=[],version=3,denied=false,lostCreate=false,dropBefore=false,lostStep=false,holdStep=false,releaseStep=null,readFail=false,failList=true,limitedStep=false,creates=0;
 const calls=[],operations=new Map();
 const context={academy_id:academy,academy_name:'Synthetic A',branch_id:branch,branch_name:'Main Demo Branch',sport_id:'00000000-0000-4000-8000-000000000003',sport_name:'Football',sport_name_ar:'كرة القدم',timezone:'Africa/Cairo',version};
@@ -24,7 +25,7 @@ await page.route('**/api/programs',async route=>{const b=route.request().postDat
  if(b.action==='list'&&failList){failList=false;await route.fulfill({status:503,json:{error:'unavailable'}});return;}
  if(b.action==='list')data={context:{...context,version},items:records,more:false};
  else if(b.action==='preview'){if(failPreviewWindow&&b.window===2){await route.fulfill({status:503,json:{error:'unavailable'}});return;}if(driftPreview&&b.window===1){driftPreview=false;version++;}if(b.context!==version){await route.fulfill({status:409,json:{error:'conflict'}});return;}data={dates:generated(b.definition,b.window),...counts(b.definition),receipt:{through:Math.max(b.window,b.receipt?.through??-1),digest:'a'.repeat(64),signature:'b'.repeat(64)}};}
- else if(b.action==='create'){if(dropBefore){dropBefore=false;await route.abort('failed');return;}creates++;const p={id:'00000000-0000-4000-8000-'+String(creates+200).padStart(12,'0'),definition:b.definition,timezone:'Africa/Cairo',state:'preparing',completed:0,prepared:0,version:1,context_version:version,failure:null,failure_date:null,...counts(b.definition)};records.push(p);operations.set(b.op,p);data=p;if(lostCreate){lostCreate=false;await route.abort('failed');return;}}
+ else if(b.action==='create'){if(dropBefore){dropBefore=false;await route.abort('failed');return;}creates++;const p={id:'00000000-0000-4000-8000-'+String(creates+200).padStart(12,'0'),definition:b.definition,timezone:'Africa/Cairo',state:'preparing',completed:0,prepared:0,version:1,context_version:version,failure:null,failure_date:null,...counts(b.definition)};const sport=context.sports?.find(s=>s.id===b.definition.sport_id);if(sport)Object.assign(p,{sport_id:sport.id,sport_name:sport.label_en,sport_name_ar:sport.label_ar});records.push(p);operations.set(b.op,p);data=p;if(lostCreate){lostCreate=false;await route.abort('failed');return;}}
  else if(b.action==='read'){if(readFail){readFail=false;await route.fulfill({status:503,json:{error:'unavailable'}});return;}const p=records.find(p=>p.id===b.program);data={program:p,context:{...context,version},dates:p.state==='ready'?generated(p.definition,b.window):[]};}
  else if(b.action==='reconcile')data=operations.has(b.op)?{program:operations.get(b.op)}:{cancelled:true};
  else if(b.action==='step'){if(limitedStep){limitedStep=false;await route.fulfill({status:429,json:{error:'limited'}});return;}if(holdStep)await new Promise(r=>releaseStep=r);const p=records.find(p=>p.id===b.program);if(b.version===p.version){if(b.step==='prepare'){p.prepared+=generated(p.definition,p.completed).length;p.completed++;}if(b.step==='pause')p.state='paused';if(b.step==='resume')p.state='preparing';if(b.step==='finalize')p.state='ready';p.version++;}data=p;if(lostStep){lostStep=false;await route.abort('failed');return;}}
@@ -79,5 +80,33 @@ try{
  await expect(page.getByLabel('Fictional program name',{exact:true})).toHaveValue('Retained after visible return');
  await expect(button('Save draft program')).toHaveCount(0);assert.equal(creates,writesBeforeResume,'resume invalidates signed review without replacing the draft');
  await checkProgramFollowup({browser,origin:`http://127.0.0.1:${server.address().port}`,out:evidence});
+ context.sports=[{id:context.sport_id,label_en:context.sport_name,label_ar:context.sport_name_ar,catalog_key:'football'},swimming];
+ for(const locale of ['en','ar']){
+  const ar=locale==='ar', origin=`http://127.0.0.1:${server.address().port}`;
+  const label=(en,arabic)=>ar?arabic:en;
+  await page.goto(`${origin}/?locale=${locale}`);
+  await button(label('New program','برنامج جديد')).click();
+  const picker=page.getByLabel(label('Sport','الرياضة'),{exact:true});
+  await expect(picker.locator('option:not([disabled])')).toHaveText(ar?['كرة القدم','السباحة']:['Football','Swimming']);
+  await picker.selectOption(swimming.id);
+  await page.locator('#program-name').fill('Multisport '+locale);
+  await page.locator('#program-from').fill('2026-11-01');
+  await page.locator('#program-to').fill('2026-11-01');
+  await page.getByRole('checkbox',{name:label('Sunday','الأحد'),exact:true}).check();
+  await page.locator('#program-start-0').fill('17:00');
+  await page.locator('#program-end-0').fill('18:00');
+  await button(label('Preview every date','معاينة جميع التواريخ')).click();
+  await button(label('Continue to confirmation','المتابعة إلى التأكيد')).click();
+  await page.getByRole('checkbox',{name:label('I reviewed the weekly summary, exceptions and branch timezone.','راجعت الملخص الأسبوعي والاستثناءات والمنطقة الزمنية للفرع.'),exact:true}).check();
+  await button(label('Save draft program','حفظ مسودة البرنامج')).click();
+  const saved=page.getByRole('heading',{name:label('Saved program','البرنامج المحفوظ'),exact:true});
+  await expect(saved).toBeVisible({timeout:15000});
+  const program=records.at(-1);
+  assert.equal(program.sport_id,swimming.id);
+  assert.equal(calls.filter(c=>c.action==='preview').at(-1).definition.sport_id,swimming.id);
+  await page.goto(`${origin}/?locale=${locale}&program=${program.id}`);
+  await expect(saved).toBeVisible();
+  await expect(page.getByText(label('Swimming','السباحة'),{exact:true}).first()).toBeVisible();
+ }
  assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({status:'passed',scope:'Actual product React component; synthetic identity/HTTP state adapters. Not SQL/hosted proof.',reactMode,resumeReads,creates,apiCalls:calls.length,cases:['StrictMode one initial read','failed directory is not empty and offers retry','full period and weekday times','4 automatic authoritative preview windows with carried receipts','intermediate preview failure blocks create','changed context during preview blocks create','4 preparation chunks and separate finalization','confirmation follows current language after save','confirmed ready with failed read never becomes unknown','429 stops before another chunk','ready date read','ready-only bounded date directory','lost create reply recovers incomplete original','pause/reopen/resume','pre-send fence and retained draft','lost chunk reply no duplicate dates','stale context invalidates preview','EN/AR320/360/926/1440','focus authority denial wipes draft','identity remount clears fields','Back to Today EN/AR href on unfinished program','Back to Today on completed program preserves program-return marker'],errors},null,2)+'\n');console.log('PASS: product program UI '+reactMode);
 }catch(error){await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({status:'failed',reactMode,error:String(error)},null,2)+'\n');throw error;}finally{await browser.close();await new Promise(r=>server.close(r));}

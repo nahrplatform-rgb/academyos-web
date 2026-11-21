@@ -146,10 +146,13 @@ class ContinuationTests(unittest.TestCase):
         self.assertEqual(before, self.rows)
 
     def test_worker_handoff_keeps_parent_priority_and_requires_review(self):
-        before = copy.deepcopy(self.rows)
         with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
             tasks = list(csv.DictReader(stream))
         task = next(item for item in tasks if item['task_id'] == 'DS-002')
+        self.active['execution_state'] = 'queued'
+        parent = next(row for row in self.rows if row['work_id'] == task['parent_work_id'])
+        parent['execution_state'] = 'current'
+        before = copy.deepcopy(self.rows)
         result = render(self.rows, self.batches)
         self.assertIn(f"**DS-002** ({task['status']})", result)
         self.assertIn('not Owner feature acceptance', result)

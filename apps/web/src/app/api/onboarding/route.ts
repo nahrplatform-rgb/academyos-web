@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
         data = await rpc(client, "m1_invitation_v1", { invitation_id: invitation, token, proof: await recipientProof(subject, invitation, token), accept_op: b.action === "accept" ? id(b.op) : null }); break;
       }
       case "save": {
-        if (!Number.isSafeInteger(b.version) || b.version < 0 || !["branch", "sport", "complete"].includes(b.step) || !b.fields || Array.isArray(b.fields) || typeof b.fields !== "object") throw new JourneyError("invalid", 422);
+        if (!Number.isSafeInteger(b.version) || b.version < 0 || !["branch", "sport", "complete", "enable_sport"].includes(b.step) || !b.fields || Array.isArray(b.fields) || typeof b.fields !== "object") throw new JourneyError("invalid", 422);
         data = await rpc(client, "m1_save_setup_v1", { a: id(b.academy), op: id(b.op), expected_version: b.version, step: b.step, fields: b.fields }); break;
       }
       case "revoke": case "reissue": case "retry": {

@@ -20,6 +20,26 @@ Fields: academy display/legal identity where needed, contact/branding, locale, c
 
 Journey: Owner setup/checklist → configure branch/sport → inspect effect → save → create a usable program → manage/archive with preserved history. Before changing timezone, default branch, enabled sport or resource availability, show affected future operations. Archiving cannot erase past attendance, invoices or evaluations. Configuration revisions must invalidate the projections they actually change. Platform metadata management does not imply tenant-content access.
 
+### EX-17 starting checkpoint
+
+The Owner approved football and swimming enablement, sport selection during program creation and saved-sport propagation through Schedule, Attendance and QR. The connected foundation and exact verification scope are recorded in the [EX-17 checkpoint](../../07-handoff/ex17-multisport-foundation-2026-11-21.md). Resource booking, sport-specific fields, enrollments, sport-scoped member IDs and delegated administration retain their follow-up scope.
+
+The 21 November disposable PostgreSQL onboarding suite passed all 16 cases. The current M1 flow covers initial branch, timezone, bilingual sport and setup completion, with wrong-role and foreign-academy refusal, concurrent-version checks and interrupted-write rollback. This is the starting baseline for the post-setup Owner workflow.
+
+The first connected design should follow an Owner opening a completed academy, seeing its branch and enabled sports, changing approved configuration, reopening the saved settings, and starting a program with explicit branch and sport. Check a second academy with different settings and refuse foreign-scope reads and writes. Keep one Player identity per academy and attach sport participation to that identity.
+
+Group the decisions that gate the rest of this workflow using the existing decision register.
+
+- **MP-Q02.** Confirm the first sports and resource types, who configures them, and the rules for whole facilities, independently allocatable parts, closures and history. Confirm which sport-specific fields are required, who can edit them, and whether changes affect existing records.
+- **MP-Q03.** Confirm how a player joins multiple sports and changes groups, and which overlaps should be blocked. Sport-scoped member numbers depend on the resulting participation model.
+- **MP-Q05 and MP-Q17.** Confirm whether the first administration release is Owner-only or includes scoped Manager or support access. Existing authority applies until those capabilities are approved.
+
+Use the existing branch/sport setup, membership and planning contracts to map the changes needed for the first connected workflow. Resource allocation, new delegation, and sport-dependent enrollment or field writes require the decisions above. [Decision dependencies](decision-dependencies.csv)
+
+The existing Academy setup route reads the saved initial branch, academy timezone and one bilingual sport. Saving either initial setup step reopens the setup checklist. Program creation derives branch, sport and timezone from that completed configuration and persists their IDs and timezone on the program. Post-setup configuration needs its own behavior for changes to an operating academy, including the effect on future sessions. The PYSA Owner branch actions provide a reference for scoped create, edit and archive controls. Their default-branch and field policies need AcademyOS decisions.
+
+The connected database case set up one fictional football academy in Cairo and one fictional swimming academy in Paris. Each Owner reopened the completed setup, created a draft program and read back its saved branch, sport and timezone. Both Owners were refused the other academy's setup read and sport edit, and could not reopen the other program through either academy scope. All 39 tests in the local Program boundary suite passed. This establishes the current one-sport-per-setup baseline across two academies. Enabling both sports in one academy and selecting the sport per program are still part of EX-17. [Program boundary test](../../../scripts/programs/test_boundary.py)
+
 ## D03/D04 — Platform catalog, entitlements and academy billing
 
 Keep platform merchant/ledger separate from family money and trainer earnings. Catalog fields include versioned plan identity, capabilities/limits, currency/cadence, effective interval, trial/grace/restriction definitions and academy assignment. Pricing, tax, grace and provider policy remain named choices. Invoice/proof/payment fields need amount/currency, source invoice, reference, state, reviewer, timestamps, immutable receipt/allocation/reversal and reconciliation result; no private proof URL in a broad directory.

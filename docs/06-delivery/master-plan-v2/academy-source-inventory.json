@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "f60eae147bb1ba2563157e850879aaaba964aa64",
+  "source_anchor": "7454144c370ec5c42a99bd9fe96f52f89b653d8c",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -270,8 +270,8 @@
     },
     {
       "path": "apps/web/src/app/api/onboarding/route.ts",
-      "sha256": "16d124d8dceb67ab4e9104c5b4742d97c09e9f086e76f0253cb57d50f61b7ca2",
-      "bytes": 7244
+      "sha256": "dc0446473f1fd1d87265459b13e53c8d071ab314935cee289c789ff58fc4b739",
+      "bytes": 7260
     },
     {
       "path": "apps/web/src/app/api/people/route.ts",
@@ -400,8 +400,8 @@
     },
     {
       "path": "apps/web/src/components/attendance-workspace.tsx",
-      "sha256": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
-      "bytes": 34254
+      "sha256": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
+      "bytes": 34426
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
@@ -435,8 +435,8 @@
     },
     {
       "path": "apps/web/src/components/onboarding-workspace.tsx",
-      "sha256": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
-      "bytes": 38713
+      "sha256": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
+      "bytes": 39807
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
@@ -495,8 +495,8 @@
     },
     {
       "path": "apps/web/src/components/program-workspace.tsx",
-      "sha256": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
-      "bytes": 41278
+      "sha256": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
+      "bytes": 42288
     },
     {
       "path": "apps/web/src/components/publication-workspace.tsx",
@@ -515,8 +515,8 @@
     },
     {
       "path": "apps/web/src/components/qr-workspace.tsx",
-      "sha256": "71cc8f93b06e0868861bc13600015029eb76bed09c5d7deb2279a6aabc0e1c15",
-      "bytes": 38942
+      "sha256": "fc80c6980fe030c84709c32467ddcace7f46679342d6a69589fed7b768e19c76",
+      "bytes": 39146
     },
     {
       "path": "apps/web/src/components/register-account-boundary.tsx",
@@ -865,8 +865,8 @@
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "sha256": "de96fd5dde5900193c27a8855b135ebbd13223b00b59c4b4017175ce61b3ce09",
-      "bytes": 5936
+      "sha256": "6332be80a055228a8a76bd1e1489211dbf2351a2d046b3b6cf03cf749579c77b",
+      "bytes": 6272
     },
     {
       "path": "apps/web/src/lib/publication.test.ts",
@@ -1277,6 +1277,11 @@
       "path": "supabase/migrations/20261120170705_player_profile_and_lifecycle.sql",
       "sha256": "fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d",
       "bytes": 17146
+    },
+    {
+      "path": "supabase/migrations/20261121014923_ex17_multisport_foundation.sql",
+      "sha256": "1da8b75e0276ea9c653692ed9929889ba1b20f4c4d0e888ea5c91599878cbdb5",
+      "bytes": 33865
     }
   ],
   "page_paths": [
@@ -1627,49 +1632,49 @@
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 34,
+      "line": 36,
       "case_labels": [
         "list"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 35,
+      "line": 37,
       "case_labels": [
         "dates"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 36,
+      "line": 38,
       "case_labels": [
         "preview"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 37,
+      "line": 39,
       "case_labels": [
         "create"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 38,
+      "line": 40,
       "case_labels": [
         "read"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 39,
+      "line": 41,
       "case_labels": [
         "step"
       ]
     },
     {
       "path": "apps/web/src/lib/programs.ts",
-      "line": 40,
+      "line": 42,
       "case_labels": [
         "reconcile"
       ]
@@ -1802,10 +1807,10 @@
     }
   ],
   "counts": {
-    "source_files": 255,
+    "source_files": 256,
     "page_paths": 39,
     "api_routes": 28,
-    "migrations": 38
+    "migrations": 39
   },
   "pwa_metadata": {
     "public_manifest_present": false,

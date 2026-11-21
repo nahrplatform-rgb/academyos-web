@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 263,
-    "calendarMs": 162,
-    "dateMs": 156,
+    "homeMs": 287,
+    "calendarMs": 196,
+    "dateMs": 177,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 222,
-    "selectReviewSaveMs": 776,
+    "firstPrepareMs": 205,
+    "selectReviewSaveMs": 754,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 194,
-    "originalReplayMs": 121,
+    "offlineRestartMs": 235,
+    "originalReplayMs": 125,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -684,9 +684,9 @@
     "apps/web/src/components/experience-workspace.tsx": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
     "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
     "apps/web/src/app/api/programs/route.ts": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
-    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
-    "apps/web/src/app/api/onboarding/route.ts": "16d124d8dceb67ab4e9104c5b4742d97c09e9f086e76f0253cb57d50f61b7ca2",
-    "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
+    "apps/web/src/components/program-workspace.tsx": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
+    "apps/web/src/app/api/onboarding/route.ts": "dc0446473f1fd1d87265459b13e53c8d071ab314935cee289c789ff58fc4b739",
+    "apps/web/src/components/onboarding-workspace.tsx": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
     "supabase/migrations/20261027004132_i3b_draft_session_planning.sql": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
     "apps/web/src/lib/workspace-read-owner.ts": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",

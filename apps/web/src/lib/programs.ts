@@ -1,10 +1,11 @@
 const uuidPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 export type ProgramReviewReceipt = { through: number; digest: string; signature: string };
 export type ProgramRule = { day: number; start: string; end: string };
-export type ProgramDefinition = { name: string; from: string; to: string; rules: ProgramRule[] };
-export type ProgramRecord = { id: string; definition: ProgramDefinition; timezone: string; state: 'preparing' | 'paused' | 'failed' | 'ready'; completed: number; windows: number; prepared: number; total: number; version: number; context_version: number; failure: string | null; failure_date: string | null };
+export type EnabledSport = { id: string; label_en: string; label_ar: string; catalog_key: 'football' | 'swimming' | null };
+export type ProgramDefinition = { name: string; from: string; to: string; rules: ProgramRule[]; sport_id?: string };
+export type ProgramRecord = { id: string; definition: ProgramDefinition; sport_id?: string; sport_name?: string; sport_name_ar?: string; timezone: string; state: 'preparing' | 'paused' | 'failed' | 'ready'; completed: number; windows: number; prepared: number; total: number; version: number; context_version: number; failure: string | null; failure_date: string | null };
 export type ProgramDate = { date: string; scheduledDate?:string;canceled?:boolean; start: string; end: string; utcStart: string; utcEnd: string };
-export type ProgramContext = { academy_id: string; academy_name: string; branch_id: string; branch_name: string; sport_id: string; sport_name: string; sport_name_ar: string; timezone: string; version: number };
+export type ProgramContext = { academy_id: string; academy_name: string; branch_id: string; branch_name: string; sport_id: string; sport_name: string; sport_name_ar: string; sports?: EnabledSport[]; timezone: string; version: number };
 export class ProgramInputError extends Error {}
 function object(value: unknown): Record<string, unknown> { if (!value || typeof value !== 'object' || Array.isArray(value)) throw new ProgramInputError(); return value as Record<string, unknown>; }
 function exact(value: Record<string, unknown>, keys: string[]) { if (Object.keys(value).some(key => !keys.includes(key))) throw new ProgramInputError(); }
@@ -15,13 +16,14 @@ function calendarDate(v: unknown): string {
   return v;
 }
 export function programDefinition(value: unknown): ProgramDefinition {
-  const d = object(value); exact(d, ['name', 'from', 'to', 'rules']);
+  const d = object(value); exact(d, ['name', 'from', 'to', 'rules', 'sport_id']);
   if (typeof d.name !== 'string' || !d.name.trim() || d.name.length > 160 || !Array.isArray(d.rules) || d.rules.length < 1 || d.rules.length > 7) throw new ProgramInputError();
 
   const from = calendarDate(d.from), to = calendarDate(d.to); if (to < from) throw new ProgramInputError();
   const rules = d.rules.map(value => { const r = object(value); exact(r, ['day', 'start', 'end']); const day = integer(r.day); if (day > 6 || typeof r.start !== 'string' || typeof r.end !== 'string' || !/^([01]\d|2[0-3]):[0-5]\d$/.test(r.start) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(r.end) || r.end <= r.start) throw new ProgramInputError(); return { day, start: r.start, end: r.end }; }).sort((a, b) => a.day - b.day);
   if (new Set(rules.map(r => r.day)).size !== rules.length) throw new ProgramInputError();
-  return { name: d.name.trim(), from, to, rules };
+  const sport = Object.hasOwn(d, 'sport_id') ? { sport_id: id(d.sport_id) } : {};
+  return { name: d.name.trim(), from, to, rules, ...sport };
 }
 function reviewReceipt(value: unknown): ProgramReviewReceipt {
   const r=object(value);exact(r,['through','digest','signature']);
