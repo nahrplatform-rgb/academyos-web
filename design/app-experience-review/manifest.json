@@ -1,6 +1,6 @@
 {
-  "source": "e769c48d5b388950e15234879bf752b6a0c17e16",
-  "generatedAt": "2026-11-21T03:47:25.390Z",
+  "source": "fef2d3fa92642c357546c62c74618259f5c12f94",
+  "generatedAt": "2026-11-21T04:57:13.526Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -114,7 +114,7 @@
     "scripts/onboarding/test_ui.mjs": "0ced18507764e9db2845c35de5e31d89acfb193760793cddab3bb625270bb8cf",
     "scripts/people/changed_query.mjs": "867b0f985b16d9707f6344c1f65287c016c7e9dbe9199bc4652e8955f87a554b",
     "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56",
-    "scripts/people/test_ui.mjs": "7f4ee2f339421e9e55038f8be8575b83b77f793cc4b938d35f10cb7a092a6422",
+    "scripts/people/test_ui.mjs": "16ab86b1ad37dd28372625d971c6c6dd94014d8371efac071cca67ecff99895f",
     "scripts/planning/save_followup.mjs": "860e621f38cd7ffee3344d99216401750182caa8dce4ebdb06ba1ada40384869",
     "scripts/planning/test_ui.mjs": "388a2906124390de71c62cb05b53fc44dd5949fea278201a38f07ad7654c3e30",
     "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
@@ -133,8 +133,8 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "153aed4c56b1d4b2a23131270fc359dcb8fb36c66abc70fa6ca61a5d68b64daf",
-  "htmlSha256": "24c62310210034584c82fc03c4e7d2d65b02d88f7e1418c40b1a7662c9342ca3",
+  "capturePackSha256": "0ae5df926094d06e59315bdc28220b61778ac1b9684aecd73cfc9acb8df6413a",
+  "htmlSha256": "03deae350a3b2a04d3fb6518f38b9f6ca25d76e3c821f0ade62a024190850ff6",
   "frames": 1930,
   "transitions": 2716,
   "sourceFiles": 87,
