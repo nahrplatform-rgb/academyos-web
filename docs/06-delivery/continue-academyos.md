@@ -82,11 +82,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Keep exact checked EX-21 f323df2 and approved A–D scope. Stage schema through the approved release path and verify the signed-in trial before product acceptance.
+Verify the hosted EX-21 Owner flow and prepare a verified synthetic Guardian link for the connected two-role trial. Preserve the posted history and approval boundaries.
 
 ### Separate release follow-up
 
-Foundation run 44945403012 passed 57/57 on exact f323df2; preview Ready and same source serves staging through a separate redeploy. Missing billing schema is the remaining hosted prerequisite. Any future promotion remains Owner-only.
+Serving f323df2 passed Foundation 57/57 and EX-21 schema 20261121211452 is applied. Continue signed-in verification on that deployed source. Future promotion stays Owner-only.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
@@ -103,8 +103,8 @@ Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no 
 - Design: Owner approved A–D on 21 November for the L00–L05 fictional-unit manual billing workflow. Refunds, provider and real-money rules remain open.
 - Implementation: Scoped Owner fee, bill, manual receipt, allocations and linked adjustments implemented with a separately granted Guardian statement and export.
 - Local checks: EN/AR signed disposable billing and PostgreSQL passed L01–L05, stale review refusal, original bank receipt recovery, immutable history, payer denial and paginated export. Build, lint, types, 119 units, EX-20 rerun, source-bound regression and review checks passed.
-- Deployment: Exact EX-21 f323df2 passed Foundation 57/57 and preview Ready. A separate redeploy made the same commit serve staging on dpl_GifD1YpwvdEYkddewnxN14R2EC7i. Billing schema rollout open.
-- Hosted verification: Exact staging SHA f323df2 and public /en and /ar 200 verified. Read-only staging catalog confirmed billing accounts, entries and statement function absent. Signed-in EX-21 blocked by schema; earlier EX-17 through EX-20 are separate.
+- Deployment: Checked f323df2 serves staging. Supabase applied the checked EX-21 source as 20261121211452 after verified backup 44950313559 and PostgreSQL 17 rehearsal.
+- Hosted verification: Staging schema, current gateway permissions, anonymous 401 and foreign-origin 403 verified. Signed-in Owner and payer checks remain open; zero eligible active Guardian links were found.
 - Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
