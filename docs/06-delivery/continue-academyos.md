@@ -83,7 +83,7 @@ Product value for this batch:
 
 ### Ready development action
 
-Complete the EX-19 bilingual 18-player connected browser workflow, including durable original across offline restart/reconnect, current deadline/version/permission refusals, save recovery and QR invalid/repeated/ambiguous capture. Verify one canonical Attendance result.
+Complete the connected 18-player bilingual browser journey for QR card issue/scan, Attendance reopen and correction, refusal, interrupted save recovery and canonical result readback. Include original restart/reconnect boundaries. Continue fixes within EX-19.
 
 ### Separate release follow-up
 
@@ -103,7 +103,7 @@ Policy boundary: Present/Absent and accepted Owner offline command retained;staf
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
 - Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Passed baseline 8 attendance-register, 7 Attendance, 11 corrections, 9 QR database groups, plus shared Football/Swimming attendance and QR projection/readback. Actual Attendance and QR React suites passed production/development. Full 18-player connected bilingual browser/reconnect gate remains open.
+- Local checks: Passed 8 attendance-register, 7 Attendance, 11 correction, 9 QR baseline database groups, plus connected 40-date multisport Schedule and 18-player Attendance/QR integration. Attendance and QR actual React suites passed production and development. Broader EX-19 restart/reconnect browser gate remains open.
 - Deployment: EX-18 candidate CI and combined follow-up CI pending. Staging still serves 7454144.
 - Hosted verification: No EX-18 or EX-19 signed-in hosted walkthrough yet. Owner promotion remains separate.
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
