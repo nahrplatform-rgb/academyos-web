@@ -14,4 +14,4 @@ The publication overview now uses the program's saved sport. The bilingual regre
 
 ## Release evidence
 
-The combined Schedule, Attendance and QR candidate `21aa73e` passed all 55 Foundation steps. [Foundation run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44872554943) Staging promotion remains Owner-controlled. The previously verified EX-17 candidate and its staging follow-up remain tracked separately.
+The combined Schedule, Attendance and QR candidate `21aa73e` passed all 55 Foundation steps. [Foundation run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44872554943) Vercel confirms staging serves checked combined source `21aa73e`, which passed Foundation 55/55. The signed-in Schedule walkthrough remains open. [Staging rollout](ex17-multisport-foundation-2026-11-21.md#staging-rollout).
