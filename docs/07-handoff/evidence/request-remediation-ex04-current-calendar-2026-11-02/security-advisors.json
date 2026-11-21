@@ -1,0 +1,11 @@
+{
+  "scope": "Hosted security-advisor categories after additive function; grouped categories are not counts of affected functions",
+  "reported_categories": [
+    "rls_enabled_no_policy",
+    "anon_security_definer_function_executable",
+    "authenticated_security_definer_function_executable"
+  ],
+  "new_function_reported_in": "authenticated_security_definer_function_executable",
+  "interpretation": "Intentional current-authority signed RPC architecture, with anon denied and authenticated execution proof-gated; warning retained rather than suppressed",
+  "independent_security": "open"
+}

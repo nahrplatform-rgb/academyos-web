@@ -1,0 +1,63 @@
+
+> @academyos/web@0.1.0 test
+> tsx --test src/lib/*.test.ts
+
+✔ valid signed verification event reaches only the approved provider with fixed sender and safe template (21.792916ms)
+✔ missing, tampered, wrong-key and expired signatures never send (3.242291ms)
+✔ signed foreign instance/recipient, invalid code and disabled config fail without sending (2.235875ms)
+✔ unrelated/native templates and stale original events are acknowledged without sends (0.76775ms)
+✔ provider unknown/failure and limiter timeout retain retryable truthful failure; no payload leaks (15.156084ms)
+✔ retry after unknown outcome and concurrent duplicates preserve exact provider key and message (7.076375ms)
+✔ bounded reads reject oversized bodies even without content-length, and reject unsupported media (2.821958ms)
+✔ unconfigured authentication stays unavailable (0.767583ms)
+✔ staging rejects production and wrong service bindings (0.370416ms)
+✔ staging without credentials builds safely (0.166292ms)
+✔ staging email refuses unrestricted recipients and unapproved senders (0.949792ms)
+✔ retries keep one provider idempotency key and cannot inject recipients (30.295167ms)
+✔ guardian commands reject authority injection and require explicit review inputs (1.616209ms)
+✔ actual guardian recipient and token scope is disabled by default and domain separated (0.613417ms)
+✔ guardian gateway charges recovery/accept as writes and review as read (0.430041ms)
+✔ QStash accepts only signed, unexpired, body- and URL-bound deliveries with rotation (66.72875ms)
+✔ the setup callback rejects arbitrary business jobs and extra payloads (0.42525ms)
+✔ bootstrap failure never becomes an empty membership (0.677292ms)
+✔ verified empty membership is distinct from outage (0.095417ms)
+✔ invalid payload and network failures fail closed (0.119375ms)
+✔ gateway exhaust/timeout/unavailable never signs or sends a database call (0.8715ms)
+✔ gateway spends the right actor budget and signs only outbound subject/method/path (13.883125ms)
+✔ gateway refuses alternative origins, query calls, methods and unknown RPCs before budget (0.458416ms)
+✔ exchange network budget uses only the hosted trusted IP; local ignores spoofed headers (5.226375ms)
+✔ actual Supabase transport preserves gateway denial and expected POST path (3.525458ms)
+✔ invitation secrets are reproducible per generation, opaque and hashed at rest (1.5735ms)
+✔ only current verified addresses enter subject and target bound proof (1.295166ms)
+✔ invitation handoff cookie conceals secret, rejects tampering and expires (1.302083ms)
+✔ business version conflicts remain conflicts across the HTTP boundary (0.082167ms)
+✔ people requests use only named gateways; recovery consumes write budget (1.46375ms)
+✔ people rejects unexpected privilege fields, malformed intents and non-fictional contacts (0.362291ms)
+✔ dated planning canonically binds current version, exact delta and attested action class (2.091083ms)
+✔ planning rejects injected authority, duplicate/intersecting/oversized deltas and invalid count/version (0.339333ms)
+✔ planning rejects invalid date scope, unsupported searches and incomplete cursors (0.149209ms)
+✔ program proposal keeps whole explicit period and weekday rules, canonical players and actor-bound gateway class (2.447834ms)
+✔ program proposal rejects injected authority, invalid scopes and oversized or duplicate staging edits (0.34975ms)
+✔ program definition preserves a full period and different weekday times, canonicalizes rule order (2.13525ms)
+✔ program input rejects malformed dates, duplicate weekdays, overnight and injected authority (0.363416ms)
+✔ all program calls use the existing attested read/write boundary (0.752208ms)
+✔ bounded date windows reject impossible dates, missing cursor halves and caller-controlled fields (0.138375ms)
+✔ publication and assigned schedule use fixed signed reads/writes and preserve full scope (3.349625ms)
+✔ publication rejects injected identity/audience, invalid scope and unsafe schedule cursors (1.49375ms)
+✔ a permissive Redis timeout never authorizes writes (0.493584ms)
+✔ rate limit keys do not store raw Clerk subjects (0.170542ms)
+✔ session change derives exact command with retained original identity and no injected authority (1.669541ms)
+✔ monitoring strips identity, request credentials, business payloads and free text (1.311792ms)
+✔ the fixed synthetic check remains identifiable (0.254416ms)
+✔ source-map identifiers survive while private source-map URLs are scrubbed (0.918291ms)
+✔ trainer commands reject authority injection and require explicit review inputs (0.801583ms)
+✔ actual trainer recipient and token scope is disabled by default and domain separated (0.291ms)
+✔ trainer gateway charges recovery/accept as writes and review as read (0.185167ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 351.538334

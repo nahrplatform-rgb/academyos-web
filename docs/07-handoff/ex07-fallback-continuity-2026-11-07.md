@@ -1,0 +1,38 @@
+# EX-07 fallback language and keyboard return
+
+Authorized continuation of the [register-binding repair](ex07-register-binding-repair-2026-11-06.md). Trace: IMP-J12-A01; J12-A01–A03; S28; L08; NR03/14/15/17; WB-08/11/20/21; WD-63/66/69/71. Existing Operations composition, bilingual design, permissions, original-operation recovery and save rules remain canonical. No new product decision, role grant or styling batch.
+
+## Promoted baseline and observed gap
+
+Owner-reported c36e87c promotion is independently verified at staging deployment `dpl_2mif7vY7vyTYRTnVLyw2WsUqcopP`, Ready, exact source `c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83`. Its full53-step CI success remains retained. Do not ask for or perform that promotion again.
+
+[Structured hosted evidence](evidence/ex07-normal-attendance/hosted-c36e87c-verification-2026-11-07.json) records the existing Chrome Hiếu Owner profile, fresh same-profile normal tab, automatic register reopening without Prepare/Recover, Sam Absent/Alex Present, current saved history and selected-player return. The existing Academy A different-event reservation refused preparation before transport; EN/AR explanation, online fallback and reload worked without key reset or changed access. Both server key registrations and their aggregate fingerprint,5operations,6marks,8history rows and182audit rows are unchanged before/after. No attendance write was made.
+
+That live path also exposed a language reset: choose Arabic inside preparation → Use the online register → English parent returns. Preparation owned its locale internally, while its cancel callback supplied no return context. Keyboard focus also lacked an explicit return target. A new actual-component regression reproduced the missing Arabic trigger before the fix. The first follow-on assertion incorrectly checked the document language; the existing shell scopes language/direction on `.app-scene`, so the test now checks that real accessible boundary as well as Arabic labels and focus. No domain assertion was relaxed.
+
+| Before | After | Why |
+| --- | --- | --- |
+| Preparation discards its selected language on return | Pass the selected locale to the existing online register | Keep the user's working language through a routine action |
+| Removed preparation surface loses keyboard position | Focus the original preparation trigger after returning | Keep keyboard navigation predictable without a dialog or extra step |
+
+The callback changes presentation only. Existing dirty/pending/scope/offline fallback guards remain; server authentication, key binding, data shapes, deadlines, immutable originals, workers, cache prefixes, encrypted storage schemas and cleanup are unchanged. No additional read/write or cache is introduced. Existing legacy/public startup callers do not gain an online fallback. No migration, setting, credential, infrastructure change or private enablement is required. Rollback restores the prior UI while keeping all data; it restores the observed locale/focus defect.
+
+## Verification and delivery
+
+Extend the existing20-case normal Attendance test to stay Arabic through the real fallback, retain the18-player roster, verify scoped `lang=ar`/`dir=rtl`, restore trigger focus in both locales, and reopen the same reservation online after reload. Retain all earlier original/denial/deadline/concurrency cases. Source-bound startup/working-day receipts and actual-component factual HTML are refreshed; run current type/lint/build and exact-source CI before requesting the next Owner promotion. [Current runtime receipt](evidence/ex07-normal-attendance/runtime.json) is local fictional SDK/provider evidence, not a new hosted pass.
+
+The current live server409 branch was not exercised: the existing local different-event reservation refused first, with zero key calls in the observed interval. Do not erase locators, delete a key or use another profile to bypass it. Retain the existing key/PG/CI proof and label the live HTTP409 case unexecuted. Fresh-original real-Clerk sync and installed-device proof also remain open.
+
+The history handoff still briefly replaces the roster while the existing canonical online read checks it. That broader loading issue is recorded, not fixed or closed here. Continue app-wide continuity and reproduce directory freshness before adding another refresh: current People source already calls `device.refresh()` after confirmed creation/recovery.
+
+PYSA reference remains read-only: `pysa-platform/docs/technical/SCHEDULING_AND_ATTENDANCE.md` and `lib/pwa/offline-sync.ts` support current authorization/retained originals but do not define this web return-state fix. Operations/Emil guidance favors retaining working context and restoring the initiating control; React review keeps hooks unconditional, uses existing refs and changes no shared private cache. No reference project changed.
+
+This small serial callback/test repair uses no additional helper; direct work is cheaper than another delegation brief. Prior explicitly configured Terra inventory/test contribution remains in the parent receipt. Source, local checks, CI, promotion, hosted verification and Owner acceptance remain separate. Independent external review stays deferred, nonblocking and not performed.
+
+The previous c36e87c run failed downloading the official PostgreSQL signing key, then passed on a same-source retry. The existing CI download now allows two bounded retries,15-second connection and60-second per-attempt limits, retaining the exact HTTPS source, TLS/HTTP failure checks, package signature validation, all assertions and the45-minute job limit. This replaces no test, installs no Mac runner and adds no credential or paid capacity. Download retry savings are unmeasured.
+
+Local results:20actual normal-route cases,8startup and8working-day cases passed;type/lint/build passed. Existing source-bound key/dispatch/download/workspace-transfer fingerprints remain current without rerunning unaffected suites.16actual-component capture groups and8welcome states refreshed. The corrected [Arabic phone return](evidence/ex07-normal-attendance/binding-online-return-ar-390.png) is inspected. [Structured follow-on receipt](evidence/ex07-normal-attendance/fallback-continuity-2026-11-07.json) separates local/CI success, scoped hosted proof and pending Owner acceptance.
+
+## Release handoff
+
+Code `d74b027bc84b39e2de3aae63bed5308019dd9d86` is pushed. [Exact preview deployment](https://vercel.com/academy-os2/academyos-web/9UYTFu13RkbPLN66rogC7oNhDpXi), `dpl_9UYTFu13RkbPLN66rogC7oNhDpXi`, is Ready. [Full public CI run42305821120](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42305821120), job128194736800, passed all53steps for this exact source. Preview Ready and CI success remain separate from promotion and hosted proof. The Owner subsequently promoted d74b027; independent provider lookup resolves canonical staging to Ready deployment `dpl_5f4N6UAFUZSZZxtPBfKGPaWq7NF7` for the exact checked source. [Scoped hosted proof](evidence/ex07-normal-attendance/hosted-d74b027-verification-2026-11-07.json) verifies retained Arabic/RTL and original-trigger focus, English keyboard open/return, both saved marks and no extra API responses during the observed return-action interval. [Actual Arabic capture](evidence/ex07-normal-attendance/hosted-d74b027-ar-return.jpg). No new attendance write, key reset, role change or credential step occurred. The live server409/fresh-original/installed/Owner-acceptance gaps remain; continue the separately bounded history-loading work. Post-run handoff metadata remains local until the next coordinated source checkpoint to avoid a redundant documentation-only full run.

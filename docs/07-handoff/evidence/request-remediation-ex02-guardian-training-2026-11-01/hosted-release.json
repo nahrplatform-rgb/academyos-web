@@ -1,0 +1,51 @@
+{
+  "source": "2c0a98ae77bda1d3b20fe1752caafddfc86d50f8",
+  "ci": [
+    {
+      "id": 41283858454,
+      "conclusion": "success"
+    },
+    {
+      "id": 41283853840,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_EoD51Moq9CCQHiWfWEPyr9RBKPfb",
+    "state": "Ready",
+    "durationSeconds": 41
+  },
+  "staging": {
+    "state": "Ready; exact source/staging alias verified natively",
+    "previousServing": "dpl_HQhdA1uVepcqkXsKtTcZJczRKSAi",
+    "id": "dpl_8hAmNAi7zDaXNtyFoPvf86NDEQey",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "accountCheck": "Vercel requested reauthentication; Continue with Passkey completed and deployment was created; no credential logged",
+    "durationSeconds": 56,
+    "source": "2c0a98ae77bda1d3b20fe1752caafddfc86d50f8"
+  },
+  "hosted": {
+    "date": "2026-11-01",
+    "method": "native Chrome; current Owner; read-only, no grant",
+    "observed": [
+      "exact historically ended Guardian target denied EN and AR",
+      "real tab return remained denied and private content absent",
+      "foreign academy-B with A target IDs denied",
+      "original EN Owner Home restored"
+    ],
+    "limits": [
+      "wrong actor plus ended target does not isolate recipient revocation behavior",
+      "positive Guardian resume/reconnect remains G02; links not restored",
+      "no exact hosted request counters, cost or latency percentiles",
+      "no new physical phone/accessibility/independent security evidence",
+      "initial direct address entry after closing Vercel retried; native G01 timing remains open"
+    ]
+  },
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "accessRestored": false,
+  "operatingWrites": false
+}

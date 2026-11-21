@@ -1,0 +1,53 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training#main
+					7 container
+						8 text Guardian workspaceTraining & attendance Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Guardian workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Linked players, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian
+							17 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Training & attendance, Value: 1
+							21 text Training & attendance
+						22 text Linked player
+						23 pop up button (collapsed) Linked player, Value: Synthetic Registration Demo · AcademyOS M1 Synthetic Academy, Secondary Actions: Expand
+						24 button (disabled) Previous players
+						25 button (disabled) More players
+						26 heading Synthetic Registration Demo, Value: 2
+							27 text Synthetic Registration Demo
+						28 text Synthetic Main Branch
+						29 heading 28 Oct 2026 — 3 Nov 2026, Value: 3
+							30 text 28 Oct 2026 — 3 Nov 2026
+						31 button Previous week
+						32 button Next week
+						33 toggle button List, Value: on
+						34 toggle button Week calendar, Value: off
+						35 text Session page 1 · 1 sessions on this page
+						36 toggle button Synthetic I4a Attendance Demo 28 Oct 2026 · 08:30–08:45 · Africa/Cairo Absent · Updated, Value: on
+						37 button (disabled) Previous sessions
+						38 button (disabled) More sessions
+						39 text Only published sessions for your linked player appear here. Unmarked never means Absent.
+						40 container Contextual details and actions
+							41 container
+								42 heading Session details, Value: 2
+									43 text Session details
+								44 button Back
+							45 text Synthetic Registration Demo · Synthetic Main Branch
+							46 heading Synthetic I4a Attendance Demo, Value: 3
+								47 text Synthetic I4a Attendance Demo
+							48 text Synthetic Football
+							49 text 28 Oct 2026
+							50 text 08:30–08:45 · Africa/Cairo
+							51 heading Your player’s attendance, Value: 3
+								52 text Your player’s attendance
+							53 text Absent
+							54 text Last recorded update: 28 Oct 2026 at 08:50 · Africa/Cairo
+							55 text Updated by the academy · current result shown
+							56 text For questions, contact your academy through your usual channel.
+				57 scroll bar (settable, float) 0

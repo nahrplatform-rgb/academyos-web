@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { validateStaging, authenticationConfigured } from "./config";
+import { NextRequest } from "next/server";
+import { validateStaging, authenticationConfigured, offlineRegisterPilotEnabled, ownerWorkspaceEnabled, STAGING_AUTH_ORIGINS, STAGING_ORIGIN } from "./config";
 test("unconfigured authentication stays unavailable", () =>
   assert.equal(authenticationConfigured({}), false));
 test("staging rejects production and wrong service bindings", () => {
@@ -25,3 +26,56 @@ test("staging rejects production and wrong service bindings", () => {
 });
 test("staging without credentials builds safely", () =>
   assert.doesNotThrow(() => validateStaging({ APP_ENV: "staging" })));
+
+test("local production preview has one exact same-origin staging allowance", () => {
+  const origin = "http://localhost:3100";
+  assert.ok(STAGING_AUTH_ORIGINS.includes(origin));
+  assert.doesNotThrow(() => validateStaging({APP_ENV: "staging", NEXT_PUBLIC_APP_URL: origin}));
+  const request = new NextRequest(`${origin}/api/experience`, {method: "POST", headers: {origin}});
+  assert.equal(request.headers.get("origin"), origin);
+  assert.equal(request.nextUrl.origin, request.headers.get("origin"));
+  for (const other of ["http://localhost:3101", "http://127.0.0.1:3101", "https://localhost:3100", "http://example.invalid:3100"]) {
+    assert.equal(STAGING_AUTH_ORIGINS.includes(other), false);
+    assert.throws(() => validateStaging({APP_ENV: "staging", NEXT_PUBLIC_APP_URL: other}));
+  }
+});
+
+test("hosted production requires the canonical staging origin", () => {
+  assert.throws(() => validateStaging({APP_ENV: "staging", VERCEL_ENV: "production", NEXT_PUBLIC_APP_URL: "http://localhost:3100"}));
+  assert.doesNotThrow(() => validateStaging({APP_ENV: "staging", VERCEL_ENV: "production", NEXT_PUBLIC_APP_URL: STAGING_ORIGIN}));
+});
+
+
+test("prepared-register entry requires the whole staging pilot gate", () => {
+  const enabled = {APP_ENV:"staging", LOCAL_REGISTER_PILOT_ENABLED:"true",
+    LOCAL_REGISTER_KEY_ENABLED:"true", LOCAL_REGISTER_TRANSFER_ENABLED:"true",
+    LOCAL_REGISTER_DISPATCH_ENABLED:"true", LOCAL_REGISTER_WRAP_KEY_V1:"b".repeat(64),
+    ONBOARDING_PROOF_KEY:"a".repeat(64)};
+  assert.equal(offlineRegisterPilotEnabled(enabled),true);
+  for (const field of Object.keys(enabled).filter(field=>field!=="ONBOARDING_PROOF_KEY")) {
+    assert.equal(offlineRegisterPilotEnabled({...enabled,[field]:undefined}),false);
+  }
+  assert.equal(offlineRegisterPilotEnabled({...enabled,APP_ENV:"production"}),false);
+  assert.equal(offlineRegisterPilotEnabled({...enabled,LOCAL_REGISTER_WRAP_KEY_V1:enabled.ONBOARDING_PROOF_KEY}),false);
+});
+
+test("normal Owner workspace requires its separate staging gate and wrapping root", () => {
+  const enabled = {
+    APP_ENV: "staging",
+    OWNER_WORKSPACE_PILOT_ENABLED: "true",
+    OWNER_WORKSPACE_TRANSFER_ENABLED: "true",
+    LOCAL_OWNER_WORKSPACE_KEY_ENABLED: "true",
+    LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1: "c".repeat(64),
+    LOCAL_REGISTER_WRAP_KEY_V1: "b".repeat(64),
+    ONBOARDING_PROOF_KEY: "a".repeat(64),
+  };
+  assert.equal(ownerWorkspaceEnabled(enabled), true);
+  for (const field of ["APP_ENV", "OWNER_WORKSPACE_PILOT_ENABLED", "OWNER_WORKSPACE_TRANSFER_ENABLED",
+    "LOCAL_OWNER_WORKSPACE_KEY_ENABLED", "LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1"]) {
+    assert.equal(ownerWorkspaceEnabled({...enabled, [field]: undefined}), false);
+  }
+  for (const root of [enabled.LOCAL_REGISTER_WRAP_KEY_V1, enabled.ONBOARDING_PROOF_KEY, "malformed"]) {
+    assert.equal(ownerWorkspaceEnabled({...enabled, LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1: root}), false);
+  }
+  assert.equal(ownerWorkspaceEnabled({...enabled, APP_ENV: "production"}), false);
+});

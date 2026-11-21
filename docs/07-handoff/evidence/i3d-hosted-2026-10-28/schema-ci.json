@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-10-28 Africa/Cairo",
+  "project": "snpphkenmvmhpjstbeul",
+  "migration": "20261027210954_i3d_published_trainer_schedule",
+  "sha256": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+  "private_tables_total": 38,
+  "new_tables_rls": 6,
+  "client_table_grants": 0,
+  "client_helper_grants": 0,
+  "public_rpc_count": 8,
+  "anonymous_rpc_grants": 0,
+  "publication_heads": 0,
+  "plan_fingerprint_before_after": "6afb8c027c81da1524efe2205073bbd8",
+  "membership_fingerprint_before_after": "782044fc33465ec9f7c69b93153cfbda",
+  "business_counts": {
+    "academies": 2,
+    "memberships": 4,
+    "dates": 58,
+    "plans": 41,
+    "rosters": 40
+  },
+  "source": "b2606cbd503703ddbf1d88b1c264561afe294c0d",
+  "ci_run": 40584686531,
+  "ci_conclusion": "success",
+  "preview_deployment": "dpl_9c7dCQ8hCsuNe1DgvhMbh9cgeCHk",
+  "app_staging_promotion": "Ready; functional smoke at b2606cb followed by copy-only rollout12d33f1",
+  "trainer_grant_executed": true,
+  "working_acceptance": "Moamen explicitly accepted scoped working wording/usability28Oct2026; broader quality/security gates remain open",
+  "independent_security": "pending",
+  "advisor_counts": {
+    "rls_private_no_policy": 38,
+    "anonymous_definer_callbacks": 3,
+    "authenticated_definer_rpcs": 51
+  },
+  "serving_deployment": "dpl_3qNbqJgUMz1tA92cKLcbZPhvhAV6",
+  "serving_source": "12d33f107e2fef024f7cf9a2599812f825106975",
+  "build_seconds": 65,
+  "build_warnings": 3,
+  "publication_preparation": {
+    "id": "924b3fef-eaef-4c1d-93be-e1c73fc2ec40",
+    "version": 3,
+    "state": "ready",
+    "prepared": 40,
+    "blocked": 40,
+    "publication_heads": 0
+  },
+  "hosted_checks": [
+    "Owner real API context/dates/jobs",
+    "25+15 preparation and review",
+    "reload/reopen same job",
+    "all40 unassigned targets blocked; activation disabled",
+    "foreign-academy program denial",
+    "Arabic phone360 documentWidth360",
+    "Owner identity denied Trainer schedule; no role inheritance"
+  ],
+  "authorized_trainer_test": {
+    "receipt": "trainer-test.json",
+    "restored_once": true,
+    "ended_again": true,
+    "current_published": 0
+  },
+  "final_copy_build_seconds": 62,
+  "final_copy_ci_runs": [
+    40597864126,
+    40597870132
+  ],
+  "final_copy_ci_conclusions": [
+    "success",
+    "success"
+  ],
+  "working_acceptance_date": "2026-10-28"
+}

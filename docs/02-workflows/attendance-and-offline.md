@@ -1,5 +1,19 @@
 # Attendance, corrections and offline recovery
 
+## Current register and installed integration — 6 November 2026
+
+The accepted Owner one-register policy/design now has [scoped hosted pilot evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md). Current EX-07 [normal Attendance integration](../07-handoff/ex07-normal-attendance-integration-2026-11-05.md) reuses that mechanism in the ordinary task. Earlier dated online-only/inactive descriptions below retain their historical scope; they do not reset that delivered subset or approve other offline commands.
+
+The [PWA contract](../06-delivery/pwa-delivery-and-readiness.md) carries the same atomic durable save,original ID,current server access/version/deadline checks and retained conflict/recovery into installed contexts. Keep Saved on this device separate from Synced; no universal queue or freshest-device-time overwrite. Installation does not create Trainer offline authority or cover unprepared registers. Installed launch/update/storage/concurrency cases remain planned and distinct from the existing register/browser checks; app-managed cleanup protects pending work,while destruction of its only local copy cannot be promised recoverable.
+
+## Retained first offline policy/design checkpoint —3November2026
+
+The Owner accepted the first Owner/personal-device register policy and approved its connected design: selected new marks save locally together, upload together under the original ID, retain current access/version/publication/deadline checks, and keep conflicts/refusals as Needs review. Protected pending work survives30day/logout read-copy cleanup for the same verified account. No inactivity lock or24hour read cutoff. [Accepted policy](../04-engineering/offline-edit-and-conflict-contract.md), [approved design](../06-delivery/offline-register-decision-design.md), [remaining runtime/key dependencies](../04-engineering/offline-register-runtime-readiness.md). At that3November checkpoint, app commands were online and private implementation/runtime evidence was pending; use the later current-status receipt above for subsequent delivery. Earlier general future examples below do not supersede this accepted narrow slice.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Persistent local reading/reopening of a permitted register is separate from offline capture. Current marks/corrections/QR remain online authoritative until an exact D-011/D-012 queue rule is accepted. A downloaded roster cannot grant marking authority; local pending is never server recorded. See [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Existing implemented and future boundaries are unchanged.
+
 Requirements: AO-035–046. Attendance windows, grace periods, checkout, correction authority and offline policy are D-011/D-012. The proposed first pilot is online attendance; offline is enabled only after its separate acceptance gate.
 
 ## Online attendance contract
@@ -8,7 +22,7 @@ An assigned trainer or authorized operator opens a dated session and sees an eli
 
 Attendance states and transitions must be configured explicitly: for example unmarked, present, absent, late and excused, with checkout if selected. These examples do not approve lateness calculations or absence billing. A person has one canonical attendance record per target/session; subsequent events form an audit history rather than duplicate rows.
 
-Only show “Saved” after receiving a committed server receipt. A timeout means outcome unknown. Query the operation before retrying with the same key. Invalid QR, wrong session, archived player, closed window and revoked trainer assignment produce actionable, non-success states. Manual entry must enforce the same constraints as scanning.
+Only show unqualified server “Saved” after receiving a committed server receipt. The accepted offline slice separately says “Saved on this device · Awaiting sync” after an actual durable local commit; it must never imply server recording. A timeout means outcome unknown. Query the operation before retrying with the same key. Invalid QR, wrong session, archived player, closed window and revoked trainer assignment produce actionable, non-success states. Manual entry must enforce the same constraints as scanning.
 
 ## Corrections
 
@@ -18,7 +32,7 @@ Reject a stale correction when the underlying attendance changed. Deny foreign-a
 
 ## Offline eligibility and local data
 
-Before offline enablement, decide permitted devices, lease length, data classes, max queue age, logout behavior and conflict authority. A previously authenticated, permitted trainer may prepare a minimal roster for selected sessions. Offline access is a limited local convenience, not a new server authorization. Final replay always uses current server permissions and policy.
+Before private offline enablement, finish the exact remaining device/unlock/key/data-class rules. First Owner-register conflict and protected-pending cleanup choices are already accepted; do not invent a lease or pending-expiry period. A previously authenticated, permitted trainer may prepare a minimal roster for selected sessions. Offline access is a limited local convenience, not a new server authorization. Final replay always uses current server permissions and policy.
 
 Store identity, academy, session, operation ID, payload version, payload hash, captured time and local sequence on every queued event. Cache only necessary display/roster data. Exclude financial records, identity documents, unrestricted medical information and private exports. IndexedDB durability and browser eviction must be disclosed; browser storage is not equivalent to a native secure vault. Encryption alone does not protect data from code running in a compromised signed-in browser.
 
@@ -32,7 +46,7 @@ Batch replay returns one result per operation ID, with committed receipt/version
 
 ## Reconnect and conflict handling
 
-Reauthenticate if needed, verify the original identity and academy, then replay with bounded batches and retries. One invalid item does not discard valid neighbors. If the membership was revoked, keep the local result available only under the approved retention/recovery policy; never submit it using another person's session.
+Reauthenticate if needed, verify the original identity and academy, then replay with bounded batches and retries. Separate independent commands do not silently discard one another. The accepted register is one atomic command: one failed selected mark refuses that whole register upload, retaining every selected choice for review. If the membership was revoked, keep the local result available only under the approved retention/recovery policy; never submit it using another person's session.
 
 Conflicting online/offline edits show the local intent and authoritative current value to an authorized reviewer. Do not apply “last client timestamp wins” to attendance. Device clocks may be incorrect. A committed duplicate returns the earlier receipt without creating a new attendance event. A lost response followed by another retry remains exactly one business effect.
 

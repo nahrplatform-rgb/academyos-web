@@ -1,5 +1,9 @@
 # Role journeys, interaction priorities and product language
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Show Downloading / Ready as of / Missing range / Checking changes / Locked distinctly; local pending versus server-confirmed only where explicitly implemented. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Owner directory, assigned Trainer roster and Guardian linked-child stores have different fields/access policies; no private namespace inheritance from an Owner portal.
+
 ## Owner: prepare and run an academy
 
 The owner signs in, selects the academy, sees a setup checklist grounded in saved records, configures a branch and sport, invites staff and registers a player with a verified guardian. They create a program, review generated dates and publish a session. The workspace then highlights missing trainer coverage, unresolved attendance, payment exceptions and overdue operational tasks. Every alert leads to the relevant filtered screen, preserving the selected academy and date.

@@ -1,0 +1,17 @@
+{
+  "scope": "Disposable local PostgreSQL17 function only; one link/player. Excludes HTTP, provider, cold starts, hosted contention and device performance.",
+  "measurements": [
+    {
+      "operation": "g3_links_v1",
+      "observations": 50,
+      "executionP95Ms": 4.918,
+      "responseBytes": 138
+    },
+    {
+      "operation": "g3_owner_list_v1",
+      "observations": 50,
+      "executionP95Ms": 5.001,
+      "responseBytes": 391
+    }
+  ]
+}

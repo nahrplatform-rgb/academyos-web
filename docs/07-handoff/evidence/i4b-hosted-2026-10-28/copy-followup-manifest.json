@@ -1,0 +1,7 @@
+{
+  "scope": "EN/AR presentation only; no SQL/API/authority/state changes",
+  "files": {
+    "apps/web/src/components/guardian-workspace.tsx": "d7cbe7a839183d7087414ef6732ab4a449f291e19c70911f77dc2645d402ab66",
+    "scripts/guardians/test_ui.mjs": "106918ebe4ff281dcf648aed7c5d7cd97838cb5e4efe4d70dbcec84b1c23415b"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "scope": "actual Next production;fictional40-row Calendar;read-only APIs",
+  "returnPositions": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "center": 7247,
+        "document": 0
+      },
+      "after": {
+        "center": 7247,
+        "document": 0
+      },
+      "reads": 2,
+      "historyRestored": true,
+      "heldPrivateMask": true,
+      "shortened": {
+        "center": 351,
+        "document": 0
+      },
+      "denied": true,
+      "totalReads": 5
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "center": 0,
+        "document": 3988
+      },
+      "after": {
+        "center": 0,
+        "document": 3988
+      },
+      "reads": 2,
+      "historyRestored": true,
+      "heldPrivateMask": true,
+      "shortened": {
+        "center": 0,
+        "document": 336
+      },
+      "denied": true,
+      "totalReads": 5
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "center": 7942,
+        "document": 0
+      },
+      "after": {
+        "center": 7942,
+        "document": 0
+      },
+      "reads": 2,
+      "historyRestored": true,
+      "heldPrivateMask": true,
+      "shortened": {
+        "center": 403,
+        "document": 0
+      },
+      "denied": true,
+      "totalReads": 5
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "center": 0,
+        "document": 3951
+      },
+      "after": {
+        "center": 0,
+        "document": 3951
+      },
+      "reads": 2,
+      "historyRestored": true,
+      "heldPrivateMask": true,
+      "shortened": {
+        "center": 0,
+        "document": 300
+      },
+      "denied": true,
+      "totalReads": 5
+    }
+  ]
+}

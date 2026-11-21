@@ -1,0 +1,44 @@
+[
+  {
+    "case": "Historical WD-70 returned-row focus",
+    "source": "Existing WD-70 checkpoint and transport-final.log",
+    "observation": "Expected one focused same-name row; observed zero; exact historical cause unconfirmed.",
+    "disposition": "Retained; controlled old-animation-before-commit negative control now reproduces a real vulnerability; post-commit repair passes."
+  },
+  {
+    "case": "Helper repair auth-retry regression",
+    "source": "Bounded helper full People suite report",
+    "observation": "Pending focus cleared while busy retry still had previous unavailable state.",
+    "disposition": "Wait for busy to settle; full People suite passed before integration."
+  },
+  {
+    "case": "Metadata test type error",
+    "source": "Initial build/typecheck tool output",
+    "observation": "NodeJS.ProcessEnv fixture required NODE_ENV.",
+    "disposition": "Narrow helper input to Record<string,string|undefined>; final build and typecheck pass."
+  },
+  {
+    "case": "Failed-build lease cleanup",
+    "source": "Build failure and verified stopped owner 68635",
+    "observation": "Immediate process.exit bypassed finally cleanup.",
+    "disposition": "Throw through finally; removed only the confirmed stopped generated lease."
+  },
+  {
+    "case": "Generated development output lint",
+    "source": "Tool output inspected the initial lint log before its final successful rerun; this curated observation preserves the failure.",
+    "observation": "ESLint scanned generated .next-local chunks.",
+    "disposition": "Exclude only generated output; final source lint passes."
+  },
+  {
+    "case": "Runtime-only route-cache additions",
+    "source": "Compared current artifact paths against checked build",
+    "observation": "No changed executable paths; added server/route-cache entries caused false stale result.",
+    "disposition": "Exclude that mutable cache only, retain server/manifest hashing and executed negative checks."
+  },
+  {
+    "case": "Overlapping runner launch",
+    "source": "Blocked device launch while keyboard lease was active",
+    "observation": "Second run refused before product checks; later serial device run passed.",
+    "disposition": "Ownership enforcement retained; no test assertion weakened."
+  }
+]

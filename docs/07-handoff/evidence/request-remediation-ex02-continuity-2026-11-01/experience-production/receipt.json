@@ -1,0 +1,6 @@
+{
+  "mode": "production",
+  "scope": "actual component with synthetic bounded read adapters; no hosted/database permission proof",
+  "cases": "EX-01: separated resume events coalesce; controls retained while private payload masked; selected ID restored from current projection and scoped navigation storage; missing/denied selection cleared; Owner/Trainer/Guardian home; week/month;50+5 paging authoritative55 count; filtered empty; unavailable; disabled link panel; revoked; account change; ENAR3203907681440",
+  "reads": 52
+}

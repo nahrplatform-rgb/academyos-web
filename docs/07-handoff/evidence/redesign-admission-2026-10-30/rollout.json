@@ -1,0 +1,30 @@
+{
+  "source": "72122df3804fe5ea49249dc6e145a218f87c4f53",
+  "ci_runs": [
+    40985117708,
+    40985110163
+  ],
+  "ci_status": "both exact-source runs passed",
+  "preview_candidate": "dpl_AqNdwm84AqEyLawPhFdj6MQeu8t2",
+  "staging_promotion": "Ready and Current on staging.academy.nahr.dev",
+  "hosted_verification": {
+    "result": "scoped read-only checks passed",
+    "checks": [
+      "existing Platform Owner loaded both admitted academies",
+      "English central creation with initial heading focus",
+      "Arabic central creation with localized fields",
+      "actual Chrome Arabic 200% zoom reflow",
+      "Back restored creation trigger focus",
+      "zoom reset to 100%"
+    ],
+    "limitations": [
+      "No hosted creation, email, reissue or withdrawal was performed",
+      "Both retained invitations are accepted; native pending-invitation confirmation checked with local synthetic fixtures only",
+      "Independent security, physical devices/accessibility, live latency/load/cost and Owner acceptance remain open"
+    ]
+  },
+  "owner_acceptance": "pending",
+  "no_access_grant": true,
+  "no_operating_write": true,
+  "staging_deployment": "dpl_6LA84TeRGzKZzbFmUsXLmtfQi7j4"
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "Actual signed-in academy-A Owner Chrome read-only check after navigation fix22274f0 deployed",
+  "foreignAcademy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+  "foreignSettingsDenied": true,
+  "leavingDeniedSettings": "Navigated back to academy-A exact-session scanner without an unsaved-changes dialog",
+  "limits": "One actual settings route and recovery check; not arbitrary direct API write or concurrency proof"
+}

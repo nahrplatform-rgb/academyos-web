@@ -1,0 +1,9 @@
+{
+  "migration": "20261028233812_i5a_development_feedback.sql",
+  "sha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+  "newPrivateTables": 6,
+  "newAuthenticatedRPCs": 11,
+  "seededAccountsOrOptins": 0,
+  "rehearsedFilename": "20261028202856_i5a_development_feedback.sql",
+  "historyVersion": "20261028233812"
+}

@@ -1,8 +1,36 @@
 # Cost, capacity and routine operations
 
+## Version2 cost and batch execution —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package keeps runtime/service measurements separate from AI/CI cost and source-only estimates. Consolidate coherent pushes/captures/full runs while keeping focused engineering checks. No runner purchase/Mac runner, new paid monitor or unmeasured cost/performance saving is implied.
+
+Owner-directed 6 November update: the existing repository is public for standard GitHub-hosted validation under the [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md). This avoids using the Owner's Mac as a runner and the private-repository compute allowance for those public standard jobs. Larger runners, storage, hosting, database and provider requests retain separate limits/costs. The used allowance is not reset, and private accounting resumes if visibility later changes. The [actual receipt](../07-handoff/public-repository-preparation-2026-11-06.md) separates provider settings, local checks, remote execution and remaining measurements. No paid capacity or unlimited-service promise is authorized.
+
+## PWA storage and service-cost planning — 6 November 2026
+
+Use the [PWA readiness plan](pwa-delivery-and-readiness.md) for installed measurement. Installation adds manifest/icons/public asset delivery and update checks; a separate installed storage context may legitimately repeat bounded data/key preparation. Measure per working visit, device/container and code generation, including compatible old assets, indexes, migration temporary space and protected originals. Storage estimates and persistence grants do not reserve disk space.
+
+Separate local reads and Cache Storage bytes from Vercel/CDN traffic, Clerk auth, Supabase RPC/SQL/egress and Redis limiters. Do not equate fewer screen requests with zero provider cost, multiply all provider work by every local click, or claim current quota/pricing savings without measurements. No new paid service, polling, Realtime, push provider or telemetry authorization comes from PWA planning. Optional notifications/shortcuts/background scheduling have their own scope/cost. Existing dated provider limits remain historical; this checkpoint refreshes platform requirements, not billing plans.
+
+**EX-13B local cost evidence — 5 November:** [new backend transport/query measurements](../07-handoff/ex13b-workspace-transfer-checkpoint-2026-11-05.md) separate page/RPC bytes and logical budgets from unmeasured Redis/provider charges. First-page count and conservative collection replacement costs remain. No live billing, savings or hosted-percentile claim follows from the closed transfer seam.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Budget per completed working visit and prepared coverage: first manifest+finite pages+completion; unchanged reopen with local reads and bounded auth/version checks; changed deltas or disclosed full replacement. [local-data and sync plan](local-data-and-sync-plan.md). Add disk/index/key/migration/cursor costs and interrupted work; avoid double-counting modeled savings or claiming Supabase/Redis/API work disappears. No upgrade or new telemetry authorized.
+
+## Working-day request budget overlay — 2 November2026
+
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [working-day measurement protocol](academy-working-day-acceptance.md), [service-impact evidence](../04-engineering/request-service-impact.md) and [single tracker](experience-execution.csv). EX-05 and EX-08 support each affected pilot/adoption checkpoint; EX-10 defines ownership/budgets before new coordination or preparation. No new price, allowance, paid tier or measured savings is asserted here.
+
+For a declared visit model, separate initial critical/deferred reads, navigation/return reads, visible-resume reads, post-commit invalidation, original-operation reconciliation, speculative preparation and retries. Track duplicate in-flight work and prepared results actually consumed versus wasted/evicted/re-requested. One fewer UI request does not establish one fewer SQL statement, saved backend cancellation, lower MAU or a fixed Redis reduction. Compare actual provider meters/query traces only where available; keep G01–G09 limits visible.
+
+Preparation adds cost if unused or repeated on navigation. Configure finite key/memory/row/byte/concurrency/retry budgets before enabling it, prioritize the active task and suppress obsolete speculative work. Measure representative small/large academy and ordinary/concurrent operator cases. Cache coordination may reduce work; external Redis/business caching, Realtime, private persistence and telemetry each require their own justified contract. Service limits/plan observations in dated evidence remain separate from purchase authority and current billing.
+
 This is a planning cost model, not a live billing statement. Selected staging billing observations are recorded separately in the configuration register; no fixed current-price quote is made here. Record current provider prices/limits at purchase and review after pilot load measurements. D-022 sets the actual budget; D-016 sets affordable recovery targets.
 
 ## Cost model
+
+AI development cost is separate from application runtime and customer pricing. The [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) owns model routing, context/repair overhead, the dated official-rate snapshot and bounded concurrency. It does not promise half whole-project cost or twice the five-hour allowance. Measure verified delivered work including coordinator, workers, integration and repairs; record models/effort, active peak, wall time, repair cycles and actual available usage in the batch receipt. If usage attribution or a comparable baseline is unavailable, say unmeasured. Do not infer a worker bill from account-wide limits shared by other chats. No paid telemetry, credential setup, upgrade or automatic billing polling is authorized.
 
 Monthly cost = fixed organization/seats/plans + database compute/disk/recovery + object storage/egress + hosting compute/build/bandwidth + identity usage/features + Redis commands + job deliveries/retries + email/messages + monitoring/log retention + backup copies + payment fees + applicable taxes. Distinguish customer charges from provider operating cost.
 
@@ -49,3 +77,7 @@ The [Services & Operations vision](../03-design/platform-owner-services-and-oper
 ## Journey-level retrieval and cost measurement
 
 The [experience/performance plan](../03-design/experience-performance-and-data-loading.md) and [screen/data matrix](../03-design/screen-data-loading-matrix.csv) connect task demand to query work, requests, bytes, cache commands, job/retry amplification and provider meters. Model pilot, expected scale and busy-day scenarios using declared inputs; include abandoned visits, synchronized session starts, tenant size skew and both staging/production overhead. Keep dated rate assumptions, actual charges, allocated costs and marginal task estimates separate. A lower request count or higher cache hit rate alone is not proof of lower cost.
+
+## Measured inventory and scenario continuation — 31 October2026
+
+[Whole-app service impact](../04-engineering/request-service-impact.md) separates confirmed Supabase Free/Vercel Hobby plans, aggregate provider observations, official dated allowances and modeled demand. Regional double sliding-window checks can consume8–10 Redis commands per successful single-RPC read; effective Redis plan/replication is still unknown. Do not use one HTTP evaluation as one billed command, multiply Clerk/Supabase third-party monthly users by refreshes, or charge normal navigation for daily R2 backups. The linked scenario is adjustable, not a forecast. [Build standard](request-hygiene-and-offline-standard.md) requires per-task budgets and privacy-safe measurements; no monitoring/service changes are enabled.

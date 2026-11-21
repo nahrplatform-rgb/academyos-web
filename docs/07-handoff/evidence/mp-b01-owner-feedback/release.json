@@ -1,0 +1,52 @@
+{
+  "observed_at_utc": "2026-11-07T22:33:44.371516+00:00",
+  "candidate": {
+    "commit": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+    "pushed": true,
+    "ci": {
+      "run": 42419990329,
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42419990329",
+      "status": "success",
+      "job": 128546143560,
+      "passed_steps": 53,
+      "evidence": "docs/07-handoff/evidence/mp-b01-owner-feedback/ci-d2bccb8.json"
+    },
+    "deployment_id": "dpl_3BDZC5QFq7YdVUw5RDmo1xD7nUsQ",
+    "deployment_url": "https://vercel.com/academy-os2/academyos-web/3BDZC5QFq7YdVUw5RDmo1xD7nUsQ",
+    "preview_ready": true,
+    "promotion": "Owner-only;not performed",
+    "hosted_changed_flow": "not_verified",
+    "exact_source_ready_rechecked": true,
+    "release_eligible": "Checked candidate ready for Owner-controlled staging promotion;not live"
+  },
+  "staging_observation": {
+    "host": "staging.academy.nahr.dev",
+    "deployment_id": "dpl_BhvTYmVqNpizvNh9W5iPwYZVRTds",
+    "commit": "68b6575b509698c9f380b6a5f82ea362e1f6077e",
+    "state": "READY",
+    "scope": "independently resolved deployment metadata only;not a new signed-in walkthrough"
+  },
+  "preserved_prior_fix": "1e684033586acc20c79c61ce67a049edfd74e366 included through ancestry;historical deferred promotion not re-asked",
+  "failed_ci_history": [
+    {
+      "commit": "9375085",
+      "run": 42417981253,
+      "status": "failure"
+    },
+    {
+      "commit": "641e9f5",
+      "run": 42419045300,
+      "status": "failure"
+    }
+  ],
+  "authority": "No agent promotion/alias assignment;no provider/schema/account change",
+  "git_metadata": "Post-push handoff evidence is local for the next coherent batch;no extra receipt-only CI run",
+  "preserved_prior_fix_ancestry": "git merge-base --is-ancestor passed for1e68403 ->d2bccb8",
+  "hosted_follow_up": [
+    "Verify actual promoted source and environment before UI claims",
+    "Existing isolated Owner profile:EN/AR Home/Calendar clean return retains the checked task with one current read;required/failed/denied scopes remain distinct",
+    "Players:directory/profile return,prepared summary versus full profile andlocale/focus/context",
+    "Attendance:confirmed save/read-failure versus original unknown/pending/review feedback;use authorized synthetic fixtures and preserve original recovery",
+    "Separate read-only hosted checks,authorized fault cases,physical/installed/language/accessibility/performance and Owner acceptance;do not infer untested states"
+  ]
+}

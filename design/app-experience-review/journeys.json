@@ -1,0 +1,138 @@
+[
+  {
+    "id": "entry",
+    "title": "00 · Current welcome and entry boundary",
+    "roles": "Signed-out visitor",
+    "actions": "J01",
+    "sequence": "Actual welcome → configured sign-in link / unavailable configuration. Clerk sign-in, verification and account menu are provider-owned gaps, not fabricated here.",
+    "reference": "docs/07-handoff/onboarding-m1-auth-entry.md"
+  },
+  {
+    "id": "onboarding",
+    "title": "01 · Admission → invitation → workspace → setup",
+    "roles": "Platform Owner / Academy Owner",
+    "actions": "IMP-J02-A01; IMP-J03-A01; J04",
+    "sequence": "Create synthetic academy → review appointment → invitation/account entry → accept → select workspace → branch/sport/timezone → resume",
+    "reference": "docs/07-handoff/onboarding-m1-implementation.md"
+  },
+  {
+    "id": "people",
+    "title": "02 · Player registration and duplicate review",
+    "roles": "Academy Owner",
+    "actions": "IMP-J06-A01",
+    "sequence": "Directory → fictional player name → scoped possible duplicates → review → register → reopen profile",
+    "reference": "docs/07-handoff/i2a-registration-implementation.md"
+  },
+  {
+    "id": "guardians",
+    "title": "03 · Guardian appointment and minimal access",
+    "roles": "Academy Owner / Guardian",
+    "actions": "IMP-J07-A01",
+    "sequence": "Player → review exact link → invitation → acceptance → linked name/branch → end link",
+    "reference": "docs/07-handoff/i2b-guardian-implementation.md"
+  },
+  {
+    "id": "trainers",
+    "title": "04 · Trainer appointment and minimal profile",
+    "roles": "Academy Owner / Trainer",
+    "actions": "IMP-J08-A01",
+    "sequence": "Staff → review branch scope → invitation → acceptance → own name/role/branch → end appointment",
+    "reference": "docs/07-handoff/i2c-trainer-implementation.md"
+  },
+  {
+    "id": "programs",
+    "title": "05 · Draft programs and all dated sessions",
+    "roles": "Academy Owner",
+    "actions": "IMP-J09-A01",
+    "sequence": "Programs → weekdays and different times → full-period preview → prepare → pause/resume → confirm → dated list",
+    "reference": "docs/07-handoff/i3a-program-implementation.md"
+  },
+  {
+    "id": "planning",
+    "title": "06 · Plan one date",
+    "roles": "Academy Owner",
+    "actions": "J09; J10",
+    "sequence": "Date → capacity → eligible Trainer/player candidates → roster changes → review → save → reopen",
+    "reference": "docs/07-handoff/i3b-planning-implementation.md"
+  },
+  {
+    "id": "program-planning",
+    "title": "07 · Plan a whole program atomically",
+    "roles": "Academy Owner",
+    "actions": "J09; J10",
+    "sequence": "Shared/weekday choices → preserve individual plans → review all → prepare → save all together → recovery",
+    "reference": "docs/07-handoff/i3c-program-planning-implementation.md"
+  },
+  {
+    "id": "publication",
+    "title": "08 · Publish → assigned Trainer schedule → withdraw",
+    "roles": "Academy Owner / Trainer",
+    "actions": "J09; J10",
+    "sequence": "Review future planned dates → prepare/publish together → assigned schedule → own roster → withdraw before editing",
+    "reference": "docs/07-handoff/i3d-publication-implementation.md"
+  },
+  {
+    "id": "session-changes",
+    "title": "09 · Move/cancel a dated session",
+    "roles": "Academy Owner",
+    "actions": "J09",
+    "sequence": "Private future date → old/new time and reason → conflict checks → confirm → retained history / cancellation",
+    "reference": "docs/07-handoff/i3e-session-changes-implementation.md"
+  },
+  {
+    "id": "attendance",
+    "title": "10 · Online attendance and Owner correction",
+    "roles": "Trainer / Academy Owner",
+    "actions": "IMP-J13-A01",
+    "sequence": "Authorized session → full roster → Present/Absent review → commit → Owner correction reason/history",
+    "reference": "docs/07-handoff/i4a-attendance-implementation.md"
+  },
+  {
+    "id": "guardian-training",
+    "title": "11 · Guardian linked-player schedule and attendance",
+    "roles": "Guardian",
+    "actions": "J13; J15",
+    "sequence": "Approved player → week/list/calendar → published session → own current attendance → access removed",
+    "reference": "docs/07-handoff/i4b-guardian-training-implementation.md"
+  },
+  {
+    "id": "corrections",
+    "title": "12 · Trainer requests an attendance correction",
+    "roles": "Trainer / different-account Academy Owner / Guardian",
+    "actions": "J13",
+    "sequence": "Saved mark → request/reason → Pending unchanged → Owner approve/reject → retained result/history",
+    "reference": "docs/07-handoff/i4c-attendance-correction-implementation.md"
+  },
+  {
+    "id": "qr-attendance",
+    "title": "13 · Player card, windows and automatic QR matching",
+    "roles": "Academy Owner / Trainer",
+    "actions": "J13; J14",
+    "sequence": "Issue/replace/revoke card → scan windows → scoped scanner → one match / choose simultaneous match → duplicate protection",
+    "reference": "docs/07-handoff/i4d-qr-attendance-implementation.md"
+  },
+  {
+    "id": "development",
+    "title": "14 · Reviewed development feedback and family publication",
+    "roles": "Trainer / different-account Academy Owner / Guardian",
+    "actions": "IMP-J16-A01",
+    "sequence": "Draft → submit → return/revise → publish exact snapshot → Guardian public fields → withdraw/history",
+    "reference": "docs/07-handoff/i5a-development-feedback-implementation.md"
+  },
+  {
+    "id": "experience-projections",
+    "title": "15 · Role homes and dated calendars",
+    "roles": "Academy Owner / Trainer / Guardian",
+    "actions": "J07; J08; J09; J10; J11; J12; J13; J15; J16",
+    "sequence": "Current role/link → authoritative home panels → bounded week/month → session details → existing exact task; unavailable and revoked views clear private content",
+    "reference": "docs/07-handoff/full-experience-home-calendar-contract.md"
+  },
+  {
+    "id": "workspace-layout",
+    "title": "17 · Shared adaptive layout controls and scrolling",
+    "roles": "Owner / shared presentation",
+    "actions": "J01; J06; J09; J12",
+    "sequence": "Actual shell/panes with explicitly fictional long content → independent scroll → resize/hide → compact navigation → reset → responsive dialog. Structural evidence, not domain/API permission proof.",
+    "reference": "docs/07-handoff/adaptive-workspace-layout.md"
+  }
+]

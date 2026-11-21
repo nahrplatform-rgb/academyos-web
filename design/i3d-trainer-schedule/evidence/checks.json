@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory design simulation only; not API, database, identity, atomic transaction, hosted or security proof",
+  "cases": [
+    "private dates invisible",
+    "40 dates publish together simulation",
+    "all review pages",
+    "39 assigned dates paginated for Jordan",
+    "dated-only Casey discovery",
+    "minimal names-only roster",
+    "published edit locked",
+    "withdraw before private edit and republish",
+    "appointment end clears open private view",
+    "missing coverage/conflict/started block complete set",
+    "already published preserved",
+    "12prepared0visible cancel",
+    "stale final rejection",
+    "lost reply all/none original reconciliation",
+    "unknown navigation guard",
+    "confirmed save read failure",
+    "independent loading/list/roster failures",
+    "wrong role revoked denied",
+    "EN/AR Owner and Trainer320/360/926/1440",
+    "Arabic phone Back and reopen",
+    "reload clears simulation"
+  ],
+  "errors": [],
+  "external": []
+}

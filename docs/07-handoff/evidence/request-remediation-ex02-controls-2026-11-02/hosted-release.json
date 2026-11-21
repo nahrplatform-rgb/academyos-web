@@ -1,0 +1,38 @@
+{
+  "source": "ddce60d5a144a00f14df26f147a45adc3323d38f",
+  "ci": {
+    "41361321746": "success",
+    "41361316247": "success"
+  },
+  "preview": {
+    "id": "dpl_31yf6s7JPqsyPnrAWbpY6q4BeYJG",
+    "state": "Ready",
+    "durationSeconds": 40
+  },
+  "targetDomainsReviewed": [
+    "academyos-web.vercel.app",
+    "staging.academy.nahr.dev"
+  ],
+  "providerProductionLabel": "existing staging/default environment only;no production launch",
+  "serving": {
+    "id": "dpl_4AJCCepgzWuxPAjxFDYBuTWu6BoT",
+    "url": "academyos-d2yl54u3b-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 45,
+    "alias": "staging.academy.nahr.dev"
+  },
+  "hosted": {
+    "verified": "Native Owner Home/Calendar EN/AR switched on first language click after Reload;search retained;address unchanged without #language.Dated capacity2\u21923 retained on EN\u2192AR click;dirty leave confirmation appeared.",
+    "inconclusive": "Dated Cancel/return completion interrupted by control interference and following access denial.Private form cleared;no fresh operating-write/unknown/revoked/concurrency proof.",
+    "restoration": "Explicit Home navigation recovered;normal Home and clean search restored.DevTools opened only for a page-only PNG then closed.",
+    "preexistingObservation": "Initial Home denied before deployment;existing Owner chooser/re-entry recovered.No cause inferred and no access restored.",
+    "image": "hosted-page-only-home.png;current rendered app,not a proof of held-read timing.",
+    "limits": "Built-in browser unavailable.Native controls interrupted/external UI changes;exact event sequence/counts/latency percentiles not captured.G01 remains open."
+  },
+  "accessChanges": false,
+  "operatingWrites": false,
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "accountCheck": "Vercel requested reauthentication;Continue with Passkey followed by created rebuild.No credentials recorded.",
+  "remainingHosted": "held-read exact timing/counts,dirty-return completion,positive recipient roles/concurrency/operating unknown/revocation remain open"
+}

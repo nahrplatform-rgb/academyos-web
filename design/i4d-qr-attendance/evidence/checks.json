@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory design simulation only; no camera, actual authority, persistence, server race or hosted proof",
+  "cases": [
+    "one match auto-submits without per-player confirmation; duplicate stays one mark",
+    "Owner handles simultaneous Trainers; Trainer never sees another Trainer session",
+    "overlapping windows for back-to-back player pause and mark exactly chosen occurrence",
+    "explicit selection never bypasses window or roster; early QR belongs to scan window",
+    "Absent is never overwritten by scanning",
+    "Owner default and session override are reviewed; defaults preserve explicit override",
+    "card replacement and revoke invalidate old/current codes; no account grant",
+    "revoked at save changes no mark",
+    "withdrawn at save changes no mark",
+    "closed at save changes no mark",
+    "failure at save changes no mark",
+    "lost blocks replacement until correlated recovery",
+    "lost-none blocks replacement until correlated recovery",
+    "result-failed blocks replacement until correlated recovery",
+    "camera fallback, loading failure and private denial",
+    "ENAR responsive ambiguity/settings; no overflow and dirty navigation guard"
+  ],
+  "errors": [],
+  "external": []
+}

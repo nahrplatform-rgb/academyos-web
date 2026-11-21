@@ -9,6 +9,7 @@ export const STAGING_AUTH_ORIGINS = [
   STAGING_ORIGIN,
   "https://academyos-web.vercel.app",
   "http://localhost:3000",
+  "http://localhost:3100",
   "http://127.0.0.1:3100",
 ];
 
@@ -42,6 +43,7 @@ export function validateStaging(env: Record<string, string | undefined>) {
     ![
       STAGING_ORIGIN,
       "http://localhost:3000",
+      "http://localhost:3100",
       "http://127.0.0.1:3100",
     ].includes(env.NEXT_PUBLIC_APP_URL)
   )
@@ -53,4 +55,21 @@ export function validateStaging(env: Record<string, string | undefined>) {
     throw new Error(
       "The hosted staging deployment requires its canonical origin",
     );
+}
+
+/** Product entry stays closed until the complete private pilot is authorized. */
+export function offlineRegisterPilotEnabled(env: Record<string,string|undefined>) {
+  return env.APP_ENV==='staging' && env.LOCAL_REGISTER_PILOT_ENABLED==='true' &&
+    env.LOCAL_REGISTER_KEY_ENABLED==='true' && env.LOCAL_REGISTER_TRANSFER_ENABLED==='true' &&
+    env.LOCAL_REGISTER_DISPATCH_ENABLED==='true' && /^[a-f0-9]{64}$/.test(env.LOCAL_REGISTER_WRAP_KEY_V1??'') &&
+    env.LOCAL_REGISTER_WRAP_KEY_V1!==env.ONBOARDING_PROOF_KEY;
+}
+
+
+/** Normal device workspace stays closed until its own staging activation. */
+export function ownerWorkspaceEnabled(env: Record<string,string|undefined>) {
+  const root=env.LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1;
+  return env.APP_ENV==='staging' && env.OWNER_WORKSPACE_PILOT_ENABLED==='true' &&
+    env.OWNER_WORKSPACE_TRANSFER_ENABLED==='true' && env.LOCAL_OWNER_WORKSPACE_KEY_ENABLED==='true' &&
+    /^[a-f0-9]{64}$/.test(root??'') && root!==env.ONBOARDING_PROOF_KEY && root!==env.LOCAL_REGISTER_WRAP_KEY_V1;
 }

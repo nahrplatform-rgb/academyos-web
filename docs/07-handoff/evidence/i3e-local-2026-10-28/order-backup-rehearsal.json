@@ -1,0 +1,16 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "run_id": "68835d8e-98cc-4fc0-a2c1-501742bfc7d5",
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "migration_rehearsed": "20261028014046_i3e_effective_date_order.sql",
+  "counts": {
+    "identities": 2,
+    "academies": 2,
+    "memberships": 4,
+    "private_tables_with_rls": 40
+  },
+  "hosted_storage_restore_tested": false,
+  "preliminary_name": "20261028013645_i3e_effective_date_order.sql",
+  "sha256": "d02e6134f615f9721e834c630450954c1d471cfe7d75da0ae03991a3be6ae3da"
+}

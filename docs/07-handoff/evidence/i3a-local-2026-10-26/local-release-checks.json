@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-26",
+  "scope": "Local source/PG17/product-component/route and foundation app; not hosted runtime, independent security or physical devices",
+  "sqlGroups": 38,
+  "programGroups": 13,
+  "unitTests": 43,
+  "programApiBudgetNegativeCases": 21,
+  "productReactModes": [
+    "production",
+    "development"
+  ],
+  "onboardingRegressionModes": [
+    "production",
+    "development"
+  ],
+  "backupSafetyTests": 11,
+  "build": "passed",
+  "typecheck": "passed",
+  "lint": "passed with zero warnings",
+  "foundationE2E": "8 passed",
+  "sourceSha256": {
+    "apps/web/src/components/program-workspace.tsx": "86afd88d03fa855df5be501b2a2ebc1d1ab7fbfcbb668b3c112a836d83eb6266",
+    "apps/web/src/lib/programs.ts": "19fbf7b0f59a595b45c4298b57d5b92c9e4f225a3887acb576fab60367882e0a",
+    "apps/web/src/app/api/programs/route.ts": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
+    "apps/web/src/lib/onboarding-gateway.ts": "75c56c40a4f9d23a839863e8bba0cee4620351848d8f5c9bf0c307f974305118",
+    "apps/web/src/components/onboarding-workspace.tsx": "d3defcdc4a7786a39c7dfefe775ad4d332d8b67c241e5bef4bff8e2befcc858b",
+    "apps/web/src/app/globals.css": "5892304b462d09d2098c3ba20a775fa8a5c21d7445d27e9be95d26e3f29e1475",
+    "supabase/migrations/20261026145710_i3a_draft_programs.sql": "29ebeb88e048106e09574df4d344c37acc129dccd677cd8445e5478edc48db2a"
+  },
+  "markdownTargetsChecked": 40,
+  "matrixValidation": "68 screens;30 actions;180 requirements; passed"
+}

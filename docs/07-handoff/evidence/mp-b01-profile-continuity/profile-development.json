@@ -1,0 +1,48 @@
+{
+  "reactMode": "development",
+  "baseline": false,
+  "geometry": {
+    "rowHeight": 60.5,
+    "paddingBlock": "8px",
+    "buttonHeight": 44
+  },
+  "held": {
+    "rows": 18,
+    "minimumRows": 18,
+    "blankMs": 0,
+    "centerScroll": 809,
+    "backDisabled": false
+  },
+  "scrollBefore": 809,
+  "checks": [
+    "toolbar menu closes with Escape/outside press and restores keyboard opener",
+    "8px desktop rows retain44px targets;EN/AR menus fit320/360/390/768/1440 and dismiss in Charcoal",
+    "held initial profile retains18same DOM rows/scroll;one profile read and zero list reads",
+    "EN/AR pending Back restores opener;cancelled late refusal cannot replace the task",
+    "rapid row replacement fences the cancelled profile;two intentional profile reads",
+    "typing during profile load cancels obsolete detail;one debounced directory search",
+    "failed secondary read keeps directory,clears detail;one read retry and no create",
+    "current profile401 still masks directory and detail;not role loss",
+    "current profile403 still fences all private data",
+    "360px pending detail uses native dialog;Escape returns without extra reads"
+  ],
+  "requestActions": [
+    "list",
+    "profile",
+    "profile",
+    "profile",
+    "profile",
+    "list",
+    "list",
+    "profile",
+    "profile",
+    "profile",
+    "list",
+    "profile",
+    "list",
+    "profile"
+  ],
+  "creates": 0,
+  "errors": [],
+  "scope": "Actual React/Chromium;controlled18-player HTTP transport,not database/provider/hosted proof"
+}

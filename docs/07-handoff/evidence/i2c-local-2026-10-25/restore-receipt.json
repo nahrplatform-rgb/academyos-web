@@ -1,0 +1,1 @@
+{"project": "snpphkenmvmhpjstbeul", "run_id": "be19546f-78c6-4d4a-bcdc-4a3827035bba", "database_restore_passed": true, "membership_boundary_passed": true, "migration_rehearsed": "20261025123233_i2c_synthetic_trainer_appointments.sql", "counts": {"identities": 2, "academies": 2, "memberships": 3, "private_tables_with_rls": 22}, "hosted_storage_restore_tested": false}

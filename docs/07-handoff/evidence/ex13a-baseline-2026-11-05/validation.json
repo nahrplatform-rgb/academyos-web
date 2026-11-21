@@ -1,0 +1,66 @@
+{
+  "recordedAt": "2026-11-05T00:18:20.993259+00:00",
+  "checks": [
+    {
+      "check": "15 original actual-component suites with test-only observation/delay",
+      "result": "passed",
+      "evidence": "measurement.json",
+      "scope": "Local fictional identity/API; original assertions unchanged"
+    },
+    {
+      "check": "execution routing and generated continuation freshness",
+      "result": "passed",
+      "scope": "13 execution rows;17 findings;G01-G09;71 planned/evidence-linked cases;24 WB clauses"
+    },
+    {
+      "check": "canonical implementation register",
+      "result": "passed",
+      "scope": "68 screen IDs;30 action groups;180 preserved requirements"
+    },
+    {
+      "check": "added/changed Markdown local targets and new baseline CSV joins",
+      "result": "passed",
+      "scope": "192 final staged added/changed local Markdown links;16 joined family rows"
+    },
+    {
+      "check": "new measurement launcher syntax",
+      "result": "passed",
+      "scope": "node --check; observer additionally parsed/executed by all15 suites"
+    },
+    {
+      "check": "factual review inventory-only generation",
+      "result": "passed",
+      "scope": "1189 existing frames;1163 transitions;76 source files;7494 literals;capture pack unchanged"
+    },
+    {
+      "check": "factual source/capture freshness",
+      "result": "passed",
+      "scope": "Rendered coverage and hosted parity remain separate"
+    },
+    {
+      "check": "offline review-tool browser tests",
+      "result": "passed",
+      "scope": "Review tool only; EN/AR desktop and phone screenshots inspected"
+    },
+    {
+      "check": "git diff whitespace",
+      "result": "passed",
+      "scope": "No product source/schema changes"
+    },
+    {
+      "check": "UI/SQL source against investigated cb00ab8",
+      "result": "passed",
+      "scope": "git diff --quiet cb00ab886f2278d0f3deb9a586b0c20872e672d2 -- apps/web supabase/migrations"
+    }
+  ],
+  "notRunOrNotEstablished": [
+    "New versioned Players/calendar transfer",
+    "Protected Players/calendar runtime or normal-route offline boot",
+    "New hosted writes or role restoration",
+    "Hosted before/after request volume or performance percentiles",
+    "Provider quotas/cost savings",
+    "Owner working acceptance of Players/month",
+    "Independent human security review (deferred, nonblocking)"
+  ],
+  "status": "passed_for_declared_local_documentation_and_baseline_scope"
+}

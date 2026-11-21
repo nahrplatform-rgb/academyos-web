@@ -1,5 +1,27 @@
 # Architecture and platform approach
 
+## Version2 architecture mapping —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package records current source versus proposed full-product gaps, typed sport/resource extensions, tenant boundaries and the existing local/sync/PWA architecture. It does not authorize a rewrite, new schema or competing offline engine. Keep specific canonical operations, field projections and protected original contracts.
+
+## Current local-data foundation and installed delivery — 6 November 2026
+
+The [EX-13 continuity receipt](../07-handoff/ex13b-workspace-continuity-2026-11-05.md) and [EX-11 register evidence](../07-handoff/owner-register-window-and-hosted-checkpoint-2026-11-04.md) supersede historical inactive descriptions for their declared implemented/deployed subsets. Current EX-07 integrates the ordinary Attendance task; broader domains remain partial.
+
+The [PWA contract](../06-delivery/pwa-delivery-and-readiness.md) adds installation/launch/update and actual installed evidence to this same architecture. Reuse the existing protected repositories, scopes, sync coordinator and original sender; no native rewrite, second database/cache/queue or competing root worker. Installed/browser containers may have separate auth/storage/key state. Preserve exact public-code/private-data and domain authority boundaries, same-account recovery and compatible worker/code/schema updates. This documentation checkpoint installs no library or new PWA code.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The new current target is a scoped durable local repository plus transactional coverage/indexes and a separate sync coordinator, detailed in [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Compare IndexedDB adapters for web/PWA; a query library alone cannot implement disk persistence or replication. Preserve current signed APIs/Clerk/current DB authority. No schema/SDK/store is installed here; v1 memory-only recommendations are superseded.
+
+## Earlier working-day data lifecycle — superseded proposal context,2November2026
+
+The [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [execution guide](../06-delivery/experience-execution.md) and [tracker](../06-delivery/experience-execution.csv) now make shared ownership/pilot architecture an explicit EX-10 gate before dependent adoption. EX-11 is connected operating acceptance. No framework, cache store, queue, provider or infrastructure replacement is selected by this documentation.
+
+The architecture packet must locate six different owners in actual source: identity/session; scoped persistent workspace/navigation; compatible domain read coordination; unfinished task state; original-operation reconciliation/discovery; authoritative server/data boundary. The read owner defines scoped keys, subscription lifetime, in-flight coordination, hydration/seed handoff, invalidation and accepted memory reuse. Draft fields and pending writes must not be stored inside a reusable server-result cache. Account/academy/capability/link changes invalidate incompatible work and late replies. A layout/sidebar identity label never authorizes a private read or action.
+
+Compare minimal server delivery with coordinated client reads where it removes actual waterfalls; do not move every query into a root layout or add duplicate client hydration fetches. Existing signed/current-authority operations remain canonical. Prepare likely destinations only under explicit row/byte/concurrency/waste budgets; retain existing paging/totals and avoid whole-app preloading. A focused query library versus existing primitives is an engineering choice requiring measured fit, compatibility, security and bundle/runtime/cost review. Private display age, retention, persistence and offline behaviour are dependent policy choices, not library defaults. See WB-P01–WB-P04; no values are accepted here.
+
 Status: selected stack direction with proposed implementation boundaries. Exact package versions are resolved, compatibility-tested and locked at foundation kickoff. Requirements: AO-131–160.
 
 ## System shape
@@ -8,6 +30,11 @@ Status: selected stack direction with proposed implementation boundaries. Exact 
 flowchart LR
   W[Responsive web and later native clients] --> A[AcademyOS application API]
   W --> C[Clerk identity and sessions]
+  W --> L[Scoped durable local repository - LF-v2 target]
+  L --> Y[Bounded bootstrap and change synchronization]
+  Y --> A
+  C --> U[Reviewed device-local unlock and scope lifecycle]
+  U --> L
   A --> P[PostgreSQL domain records and permissions]
   A --> S[Private object storage]
   A --> R[Upstash rate limits]

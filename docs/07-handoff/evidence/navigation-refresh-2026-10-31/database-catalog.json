@@ -1,0 +1,1419 @@
+[
+  {
+    "catalog": {
+      "tables": [
+        {
+          "relname": "academies",
+          "idx_scan": 683695,
+          "seq_scan": 89,
+          "n_dead_tup": 42,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 131
+        },
+        {
+          "relname": "attendance_history",
+          "idx_scan": 21,
+          "seq_scan": 42,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 106
+        },
+        {
+          "relname": "attendance_marks",
+          "idx_scan": 215,
+          "seq_scan": 42,
+          "n_dead_tup": 2,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 50
+        },
+        {
+          "relname": "attendance_operations",
+          "idx_scan": 5,
+          "seq_scan": 31,
+          "n_dead_tup": 0,
+          "n_live_tup": 3,
+          "schemaname": "academy",
+          "seq_tup_read": 65
+        },
+        {
+          "relname": "audit_events",
+          "idx_scan": 0,
+          "seq_scan": 133,
+          "n_dead_tup": 16,
+          "n_live_tup": 129,
+          "schemaname": "academy",
+          "seq_tup_read": 7829
+        },
+        {
+          "relname": "branches",
+          "idx_scan": 3196,
+          "seq_scan": 45,
+          "n_dead_tup": 5,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 79
+        },
+        {
+          "relname": "correction_history",
+          "idx_scan": 0,
+          "seq_scan": 25,
+          "n_dead_tup": 0,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 41
+        },
+        {
+          "relname": "correction_operations",
+          "idx_scan": 3,
+          "seq_scan": 23,
+          "n_dead_tup": 0,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 41
+        },
+        {
+          "relname": "correction_requests",
+          "idx_scan": 154,
+          "seq_scan": 30,
+          "n_dead_tup": 1,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 21
+        },
+        {
+          "relname": "date_plans",
+          "idx_scan": 1324,
+          "seq_scan": 61,
+          "n_dead_tup": 4,
+          "n_live_tup": 44,
+          "schemaname": "academy",
+          "seq_tup_read": 1894
+        },
+        {
+          "relname": "date_rosters",
+          "idx_scan": 135,
+          "seq_scan": 51,
+          "n_dead_tup": 0,
+          "n_live_tup": 43,
+          "schemaname": "academy",
+          "seq_tup_read": 1676
+        },
+        {
+          "relname": "development_access",
+          "idx_scan": 15,
+          "seq_scan": 12,
+          "n_dead_tup": 1,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 9
+        },
+        {
+          "relname": "development_assessments",
+          "idx_scan": 200,
+          "seq_scan": 17,
+          "n_dead_tup": 7,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 9
+        },
+        {
+          "relname": "development_history",
+          "idx_scan": 14,
+          "seq_scan": 12,
+          "n_dead_tup": 0,
+          "n_live_tup": 6,
+          "schemaname": "academy",
+          "seq_tup_read": 54
+        },
+        {
+          "relname": "development_operations",
+          "idx_scan": 6,
+          "seq_scan": 12,
+          "n_dead_tup": 0,
+          "n_live_tup": 6,
+          "schemaname": "academy",
+          "seq_tup_read": 60
+        },
+        {
+          "relname": "development_publications",
+          "idx_scan": 10,
+          "seq_scan": 12,
+          "n_dead_tup": 0,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 9
+        },
+        {
+          "relname": "development_submissions",
+          "idx_scan": 5,
+          "seq_scan": 11,
+          "n_dead_tup": 0,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 18
+        },
+        {
+          "relname": "guardian_invitations",
+          "idx_scan": 129,
+          "seq_scan": 42,
+          "n_dead_tup": 8,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 35
+        },
+        {
+          "relname": "guardian_links",
+          "idx_scan": 91,
+          "seq_scan": 49,
+          "n_dead_tup": 5,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 39
+        },
+        {
+          "relname": "guardian_operations",
+          "idx_scan": 4,
+          "seq_scan": 37,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 118
+        },
+        {
+          "relname": "guardian_people",
+          "idx_scan": 61,
+          "seq_scan": 45,
+          "n_dead_tup": 0,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 37
+        },
+        {
+          "relname": "guardian_training_access",
+          "idx_scan": 16,
+          "seq_scan": 28,
+          "n_dead_tup": 1,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 26
+        },
+        {
+          "relname": "identities",
+          "idx_scan": 683164,
+          "seq_scan": 56,
+          "n_dead_tup": 6,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 90
+        },
+        {
+          "relname": "initial_setup",
+          "idx_scan": 2619,
+          "seq_scan": 40,
+          "n_dead_tup": 12,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 76
+        },
+        {
+          "relname": "m1_secrets",
+          "idx_scan": 2646,
+          "seq_scan": 28,
+          "n_dead_tup": 0,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 26
+        },
+        {
+          "relname": "memberships",
+          "idx_scan": 683327,
+          "seq_scan": 114,
+          "n_dead_tup": 32,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 310
+        },
+        {
+          "relname": "operations",
+          "idx_scan": 680440,
+          "seq_scan": 42,
+          "n_dead_tup": 14,
+          "n_live_tup": 16,
+          "schemaname": "academy",
+          "seq_tup_read": 621
+        },
+        {
+          "relname": "owner_invitations",
+          "idx_scan": 114,
+          "seq_scan": 51,
+          "n_dead_tup": 14,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 92
+        },
+        {
+          "relname": "people_operations",
+          "idx_scan": 9,
+          "seq_scan": 42,
+          "n_dead_tup": 0,
+          "n_live_tup": 6,
+          "schemaname": "academy",
+          "seq_tup_read": 219
+        },
+        {
+          "relname": "planning_operations",
+          "idx_scan": 10,
+          "seq_scan": 34,
+          "n_dead_tup": 0,
+          "n_live_tup": 7,
+          "schemaname": "academy",
+          "seq_tup_read": 171
+        },
+        {
+          "relname": "platform_grants",
+          "idx_scan": 230,
+          "seq_scan": 43,
+          "n_dead_tup": 2,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 38
+        },
+        {
+          "relname": "player_name_revisions",
+          "idx_scan": 22,
+          "seq_scan": 35,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 133
+        },
+        {
+          "relname": "players",
+          "idx_scan": 126,
+          "seq_scan": 421,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 1065
+        },
+        {
+          "relname": "program_plan_operations",
+          "idx_scan": 4,
+          "seq_scan": 29,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 108
+        },
+        {
+          "relname": "program_plan_players",
+          "idx_scan": 227,
+          "seq_scan": 29,
+          "n_dead_tup": 0,
+          "n_live_tup": 3,
+          "schemaname": "academy",
+          "seq_tup_read": 81
+        },
+        {
+          "relname": "program_plan_targets",
+          "idx_scan": 71,
+          "seq_scan": 169,
+          "n_dead_tup": 15,
+          "n_live_tup": 40,
+          "schemaname": "academy",
+          "seq_tup_read": 5277
+        },
+        {
+          "relname": "program_plans",
+          "idx_scan": 171,
+          "seq_scan": 33,
+          "n_dead_tup": 5,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 28
+        },
+        {
+          "relname": "publication_events",
+          "idx_scan": 70,
+          "seq_scan": 474,
+          "n_dead_tup": 0,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 1732
+        },
+        {
+          "relname": "publication_heads",
+          "idx_scan": 570,
+          "seq_scan": 45,
+          "n_dead_tup": 1,
+          "n_live_tup": 3,
+          "schemaname": "academy",
+          "seq_tup_read": 83
+        },
+        {
+          "relname": "publication_jobs",
+          "idx_scan": 311,
+          "seq_scan": 29,
+          "n_dead_tup": 19,
+          "n_live_tup": 5,
+          "schemaname": "academy",
+          "seq_tup_read": 111
+        },
+        {
+          "relname": "publication_operations",
+          "idx_scan": 15,
+          "seq_scan": 27,
+          "n_dead_tup": 0,
+          "n_live_tup": 15,
+          "schemaname": "academy",
+          "seq_tup_read": 330
+        },
+        {
+          "relname": "publication_rosters",
+          "idx_scan": 34,
+          "seq_scan": 189,
+          "n_dead_tup": 0,
+          "n_live_tup": 3,
+          "schemaname": "academy",
+          "seq_tup_read": 520
+        },
+        {
+          "relname": "publication_targets",
+          "idx_scan": 75,
+          "seq_scan": 231,
+          "n_dead_tup": 2,
+          "n_live_tup": 44,
+          "schemaname": "academy",
+          "seq_tup_read": 9120
+        },
+        {
+          "relname": "qr_card_heads",
+          "idx_scan": 38,
+          "seq_scan": 16,
+          "n_dead_tup": 4,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 28
+        },
+        {
+          "relname": "qr_cards",
+          "idx_scan": 47,
+          "seq_scan": 17,
+          "n_dead_tup": 3,
+          "n_live_tup": 4,
+          "schemaname": "academy",
+          "seq_tup_read": 48
+        },
+        {
+          "relname": "qr_operations",
+          "idx_scan": 15,
+          "seq_scan": 18,
+          "n_dead_tup": 0,
+          "n_live_tup": 11,
+          "schemaname": "academy",
+          "seq_tup_read": 159
+        },
+        {
+          "relname": "qr_window_overrides",
+          "idx_scan": 70,
+          "seq_scan": 16,
+          "n_dead_tup": 0,
+          "n_live_tup": 0,
+          "schemaname": "academy",
+          "seq_tup_read": 0
+        },
+        {
+          "relname": "qr_window_settings",
+          "idx_scan": 270,
+          "seq_scan": 16,
+          "n_dead_tup": 1,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 14
+        },
+        {
+          "relname": "session_change_operations",
+          "idx_scan": 2,
+          "seq_scan": 27,
+          "n_dead_tup": 0,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 48
+        },
+        {
+          "relname": "session_changes",
+          "idx_scan": 16,
+          "seq_scan": 28,
+          "n_dead_tup": 0,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 46
+        },
+        {
+          "relname": "sports",
+          "idx_scan": 1255,
+          "seq_scan": 41,
+          "n_dead_tup": 2,
+          "n_live_tup": 2,
+          "schemaname": "academy",
+          "seq_tup_read": 75
+        },
+        {
+          "relname": "trainer_assignments",
+          "idx_scan": 143,
+          "seq_scan": 360,
+          "n_dead_tup": 29,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 355
+        },
+        {
+          "relname": "trainer_invitations",
+          "idx_scan": 370,
+          "seq_scan": 40,
+          "n_dead_tup": 16,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 34
+        },
+        {
+          "relname": "trainer_operations",
+          "idx_scan": 6,
+          "seq_scan": 33,
+          "n_dead_tup": 0,
+          "n_live_tup": 6,
+          "schemaname": "academy",
+          "seq_tup_read": 151
+        },
+        {
+          "relname": "trainer_people",
+          "idx_scan": 545,
+          "seq_scan": 43,
+          "n_dead_tup": 1,
+          "n_live_tup": 1,
+          "schemaname": "academy",
+          "seq_tup_read": 37
+        },
+        {
+          "relname": "training_dates",
+          "idx_scan": 805,
+          "seq_scan": 420,
+          "n_dead_tup": 40,
+          "n_live_tup": 62,
+          "schemaname": "academy",
+          "seq_tup_read": 15438
+        },
+        {
+          "relname": "training_operations",
+          "idx_scan": 5,
+          "seq_scan": 31,
+          "n_dead_tup": 0,
+          "n_live_tup": 5,
+          "schemaname": "academy",
+          "seq_tup_read": 116
+        },
+        {
+          "relname": "training_programs",
+          "idx_scan": 1065,
+          "seq_scan": 41,
+          "n_dead_tup": 8,
+          "n_live_tup": 5,
+          "schemaname": "academy",
+          "seq_tup_read": 136
+        }
+      ],
+      "indexes": [
+        {
+          "indexdef": "CREATE UNIQUE INDEX academies_pkey ON academy.academies USING btree (id)",
+          "indexname": "academies_pkey",
+          "tablename": "academies",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX attendance_history_pkey ON academy.attendance_history USING btree (id)",
+          "indexname": "attendance_history_pkey",
+          "tablename": "attendance_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX attendance_history_program_id_day_player_id_version_key ON academy.attendance_history USING btree (program_id, day, player_id, version)",
+          "indexname": "attendance_history_program_id_day_player_id_version_key",
+          "tablename": "attendance_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX attendance_history_scope ON academy.attendance_history USING btree (academy_id, event_id, player_id, version DESC)",
+          "indexname": "attendance_history_scope",
+          "tablename": "attendance_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX attendance_marks_pkey ON academy.attendance_marks USING btree (program_id, day, player_id)",
+          "indexname": "attendance_marks_pkey",
+          "tablename": "attendance_marks",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX attendance_marks_scope ON academy.attendance_marks USING btree (academy_id, event_id, player_id)",
+          "indexname": "attendance_marks_scope",
+          "tablename": "attendance_marks",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX attendance_operations_pkey ON academy.attendance_operations USING btree (actor, id)",
+          "indexname": "attendance_operations_pkey",
+          "tablename": "attendance_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX attendance_operations_scope ON academy.attendance_operations USING btree (academy_id, event_id)",
+          "indexname": "attendance_operations_scope",
+          "tablename": "attendance_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX audit_events_pkey ON academy.audit_events USING btree (id)",
+          "indexname": "audit_events_pkey",
+          "tablename": "audit_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX branches_id_academy_id_key ON academy.branches USING btree (id, academy_id)",
+          "indexname": "branches_id_academy_id_key",
+          "tablename": "branches",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX branches_pkey ON academy.branches USING btree (id)",
+          "indexname": "branches_pkey",
+          "tablename": "branches",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX correction_history_cursor ON academy.correction_history USING btree (request_id, created_at, id)",
+          "indexname": "correction_history_cursor",
+          "tablename": "correction_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX correction_history_pkey ON academy.correction_history USING btree (id)",
+          "indexname": "correction_history_pkey",
+          "tablename": "correction_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX correction_history_request_id_kind_key ON academy.correction_history USING btree (request_id, kind)",
+          "indexname": "correction_history_request_id_kind_key",
+          "tablename": "correction_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX correction_operations_pkey ON academy.correction_operations USING btree (actor, id)",
+          "indexname": "correction_operations_pkey",
+          "tablename": "correction_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX correction_assignment ON academy.correction_requests USING btree (assignment_id)",
+          "indexname": "correction_assignment",
+          "tablename": "correction_requests",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX correction_mark_version ON academy.correction_requests USING btree (event_id, player_id, base_version)",
+          "indexname": "correction_mark_version",
+          "tablename": "correction_requests",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX correction_queue ON academy.correction_requests USING btree (academy_id, created_at, id)",
+          "indexname": "correction_queue",
+          "tablename": "correction_requests",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX correction_requester ON academy.correction_requests USING btree (academy_id, requester, event_id, created_at, id)",
+          "indexname": "correction_requester",
+          "tablename": "correction_requests",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX correction_requests_pkey ON academy.correction_requests USING btree (id)",
+          "indexname": "correction_requests_pkey",
+          "tablename": "correction_requests",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX date_plans_branch ON academy.date_plans USING btree (branch_id, academy_id)",
+          "indexname": "date_plans_branch",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX date_plans_pkey ON academy.date_plans USING btree (program_id, local_date)",
+          "indexname": "date_plans_pkey",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX date_plans_program_id_local_date_academy_id_key ON academy.date_plans USING btree (program_id, local_date, academy_id)",
+          "indexname": "date_plans_program_id_local_date_academy_id_key",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX date_plans_scope_time ON academy.date_plans USING btree (academy_id, starts_at, ends_at)",
+          "indexname": "date_plans_scope_time",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX date_plans_trainer_fk ON academy.date_plans USING btree (trainer_id, academy_id)",
+          "indexname": "date_plans_trainer_fk",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX date_plans_trainer_time ON academy.date_plans USING btree (academy_id, trainer_id, starts_at, ends_at)",
+          "indexname": "date_plans_trainer_time",
+          "tablename": "date_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX date_rosters_pkey ON academy.date_rosters USING btree (program_id, local_date, player_id)",
+          "indexname": "date_rosters_pkey",
+          "tablename": "date_rosters",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX date_rosters_player_scope ON academy.date_rosters USING btree (player_id, academy_id, program_id, local_date)",
+          "indexname": "date_rosters_player_scope",
+          "tablename": "date_rosters",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_access_pkey ON academy.development_access USING btree (link_id)",
+          "indexname": "development_access_pkey",
+          "tablename": "development_access",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_assessments_pkey ON academy.development_assessments USING btree (id)",
+          "indexname": "development_assessments_pkey",
+          "tablename": "development_assessments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_assessments_program_id_day_player_id_key ON academy.development_assessments USING btree (program_id, day, player_id)",
+          "indexname": "development_assessments_program_id_day_player_id_key",
+          "tablename": "development_assessments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX development_author ON academy.development_assessments USING btree (academy_id, author, id)",
+          "indexname": "development_author",
+          "tablename": "development_assessments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX development_family ON academy.development_assessments USING btree (academy_id, player_id, id) WHERE (publication_id IS NOT NULL)",
+          "indexname": "development_family",
+          "tablename": "development_assessments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX development_queue ON academy.development_assessments USING btree (academy_id, id)",
+          "indexname": "development_queue",
+          "tablename": "development_assessments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_history_assessment_id_version_key ON academy.development_history USING btree (assessment_id, version)",
+          "indexname": "development_history_assessment_id_version_key",
+          "tablename": "development_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_history_pkey ON academy.development_history USING btree (id)",
+          "indexname": "development_history_pkey",
+          "tablename": "development_history",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_operations_pkey ON academy.development_operations USING btree (actor, id)",
+          "indexname": "development_operations_pkey",
+          "tablename": "development_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_publications_assessment_id_revision_key ON academy.development_publications USING btree (assessment_id, revision)",
+          "indexname": "development_publications_assessment_id_revision_key",
+          "tablename": "development_publications",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_publications_pkey ON academy.development_publications USING btree (id)",
+          "indexname": "development_publications_pkey",
+          "tablename": "development_publications",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX development_submissions_pkey ON academy.development_submissions USING btree (assessment_id, revision)",
+          "indexname": "development_submissions_pkey",
+          "tablename": "development_submissions",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_invitations_pkey ON academy.guardian_invitations USING btree (id)",
+          "indexname": "guardian_invitations_pkey",
+          "tablename": "guardian_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_invites_owner_cursor ON academy.guardian_invitations USING btree (academy_id, player_id, id)",
+          "indexname": "guardian_invites_owner_cursor",
+          "tablename": "guardian_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_invites_player ON academy.guardian_invitations USING btree (player_id)",
+          "indexname": "guardian_invites_player",
+          "tablename": "guardian_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_links_cursor ON academy.guardian_links USING btree (academy_id, guardian_id, id)",
+          "indexname": "guardian_links_cursor",
+          "tablename": "guardian_links",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_links_invitation_id_key ON academy.guardian_links USING btree (invitation_id)",
+          "indexname": "guardian_links_invitation_id_key",
+          "tablename": "guardian_links",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_links_one_active ON academy.guardian_links USING btree (academy_id, guardian_id, player_id) WHERE (state = 'active'::text)",
+          "indexname": "guardian_links_one_active",
+          "tablename": "guardian_links",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_links_pkey ON academy.guardian_links USING btree (id)",
+          "indexname": "guardian_links_pkey",
+          "tablename": "guardian_links",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_links_player ON academy.guardian_links USING btree (player_id)",
+          "indexname": "guardian_links_player",
+          "tablename": "guardian_links",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_operations_academy ON academy.guardian_operations USING btree (academy_id)",
+          "indexname": "guardian_operations_academy",
+          "tablename": "guardian_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_operations_pkey ON academy.guardian_operations USING btree (actor, id)",
+          "indexname": "guardian_operations_pkey",
+          "tablename": "guardian_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_people_academy_id_identity_id_key ON academy.guardian_people USING btree (academy_id, identity_id)",
+          "indexname": "guardian_people_academy_id_identity_id_key",
+          "tablename": "guardian_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_people_id_academy_id_key ON academy.guardian_people USING btree (id, academy_id)",
+          "indexname": "guardian_people_id_academy_id_key",
+          "tablename": "guardian_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_people_identity ON academy.guardian_people USING btree (identity_id)",
+          "indexname": "guardian_people_identity",
+          "tablename": "guardian_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX guardian_people_membership ON academy.guardian_people USING btree (membership_id)",
+          "indexname": "guardian_people_membership",
+          "tablename": "guardian_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_people_pkey ON academy.guardian_people USING btree (id)",
+          "indexname": "guardian_people_pkey",
+          "tablename": "guardian_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX guardian_training_access_pkey ON academy.guardian_training_access USING btree (link_id)",
+          "indexname": "guardian_training_access_pkey",
+          "tablename": "guardian_training_access",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX identities_clerk_subject_key ON academy.identities USING btree (clerk_subject)",
+          "indexname": "identities_clerk_subject_key",
+          "tablename": "identities",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX identities_pkey ON academy.identities USING btree (id)",
+          "indexname": "identities_pkey",
+          "tablename": "identities",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX initial_setup_pkey ON academy.initial_setup USING btree (academy_id)",
+          "indexname": "initial_setup_pkey",
+          "tablename": "initial_setup",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX m1_secrets_pkey ON academy.m1_secrets USING btree (purpose)",
+          "indexname": "m1_secrets_pkey",
+          "tablename": "m1_secrets",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX memberships_active_identity_idx ON academy.memberships USING btree (identity_id, academy_id) WHERE (status = 'active'::text)",
+          "indexname": "memberships_active_identity_idx",
+          "tablename": "memberships",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX memberships_identity_id_academy_id_role_key ON academy.memberships USING btree (identity_id, academy_id, role)",
+          "indexname": "memberships_identity_id_academy_id_role_key",
+          "tablename": "memberships",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX memberships_one_active_owner ON academy.memberships USING btree (academy_id) WHERE ((role = 'owner'::text) AND (status = 'active'::text))",
+          "indexname": "memberships_one_active_owner",
+          "tablename": "memberships",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX memberships_pkey ON academy.memberships USING btree (id)",
+          "indexname": "memberships_pkey",
+          "tablename": "memberships",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX operations_academy_idx ON academy.operations USING btree (academy_id, created_at)",
+          "indexname": "operations_academy_idx",
+          "tablename": "operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX operations_pkey ON academy.operations USING btree (actor, id)",
+          "indexname": "operations_pkey",
+          "tablename": "operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX invitations_queue_idx ON academy.owner_invitations USING btree (delivery, lease_until) WHERE (redeemed_at IS NULL)",
+          "indexname": "invitations_queue_idx",
+          "tablename": "owner_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX owner_invitations_academy_id_key ON academy.owner_invitations USING btree (academy_id)",
+          "indexname": "owner_invitations_academy_id_key",
+          "tablename": "owner_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX owner_invitations_pkey ON academy.owner_invitations USING btree (id)",
+          "indexname": "owner_invitations_pkey",
+          "tablename": "owner_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX people_operations_academy ON academy.people_operations USING btree (academy_id)",
+          "indexname": "people_operations_academy",
+          "tablename": "people_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX people_operations_pkey ON academy.people_operations USING btree (actor, id)",
+          "indexname": "people_operations_pkey",
+          "tablename": "people_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX planning_operations_pkey ON academy.planning_operations USING btree (actor, id)",
+          "indexname": "planning_operations_pkey",
+          "tablename": "planning_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX planning_operations_scope ON academy.planning_operations USING btree (academy_id)",
+          "indexname": "planning_operations_scope",
+          "tablename": "planning_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX platform_grants_pkey ON academy.platform_grants USING btree (subject)",
+          "indexname": "platform_grants_pkey",
+          "tablename": "platform_grants",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX player_name_revisions_pkey ON academy.player_name_revisions USING btree (academy_id, normalized_name)",
+          "indexname": "player_name_revisions_pkey",
+          "tablename": "player_name_revisions",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX players_academy_cursor ON academy.players USING btree (academy_id, id)",
+          "indexname": "players_academy_cursor",
+          "tablename": "players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX players_academy_name ON academy.players USING btree (academy_id, normalized_name, id)",
+          "indexname": "players_academy_name",
+          "tablename": "players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX players_pkey ON academy.players USING btree (id)",
+          "indexname": "players_pkey",
+          "tablename": "players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX players_tenant_key ON academy.players USING btree (id, academy_id)",
+          "indexname": "players_tenant_key",
+          "tablename": "players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX program_plan_operations_pkey ON academy.program_plan_operations USING btree (actor, id)",
+          "indexname": "program_plan_operations_pkey",
+          "tablename": "program_plan_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX program_plan_operations_scope ON academy.program_plan_operations USING btree (academy_id)",
+          "indexname": "program_plan_operations_scope",
+          "tablename": "program_plan_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX program_plan_players_pkey ON academy.program_plan_players USING btree (job_id, weekday, player_id)",
+          "indexname": "program_plan_players_pkey",
+          "tablename": "program_plan_players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX program_plan_players_scope ON academy.program_plan_players USING btree (player_id, academy_id)",
+          "indexname": "program_plan_players_scope",
+          "tablename": "program_plan_players",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX program_plan_targets_date ON academy.program_plan_targets USING btree (program_id, day, academy_id)",
+          "indexname": "program_plan_targets_date",
+          "tablename": "program_plan_targets",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX program_plan_targets_pkey ON academy.program_plan_targets USING btree (job_id, day)",
+          "indexname": "program_plan_targets_pkey",
+          "tablename": "program_plan_targets",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX program_plans_id_academy_id_key ON academy.program_plans USING btree (id, academy_id)",
+          "indexname": "program_plans_id_academy_id_key",
+          "tablename": "program_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX program_plans_pkey ON academy.program_plans USING btree (id)",
+          "indexname": "program_plans_pkey",
+          "tablename": "program_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX program_plans_scope ON academy.program_plans USING btree (academy_id, program_id, id)",
+          "indexname": "program_plans_scope",
+          "tablename": "program_plans",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_events_date ON academy.publication_events USING btree (program_id, day, academy_id)",
+          "indexname": "publication_events_date",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_events_family_time ON academy.publication_events USING btree (academy_id, starts_at, id) WHERE published",
+          "indexname": "publication_events_family_time",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_events_id_academy_id_program_id_day_key ON academy.publication_events USING btree (id, academy_id, program_id, day)",
+          "indexname": "publication_events_id_academy_id_program_id_day_key",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_events_job_id_day_key ON academy.publication_events USING btree (job_id, day)",
+          "indexname": "publication_events_job_id_day_key",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_events_pkey ON academy.publication_events USING btree (id)",
+          "indexname": "publication_events_pkey",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_events_trainer_time ON academy.publication_events USING btree (academy_id, trainer_id, starts_at, program_id, day)",
+          "indexname": "publication_events_trainer_time",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX qr_published_branch_time ON academy.publication_events USING btree (academy_id, branch_id, starts_at, id) WHERE published",
+          "indexname": "qr_published_branch_time",
+          "tablename": "publication_events",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_heads_event ON academy.publication_heads USING btree (event_id, academy_id, program_id, day)",
+          "indexname": "publication_heads_event",
+          "tablename": "publication_heads",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_heads_pkey ON academy.publication_heads USING btree (program_id, day)",
+          "indexname": "publication_heads_pkey",
+          "tablename": "publication_heads",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_jobs_id_academy_id_key ON academy.publication_jobs USING btree (id, academy_id)",
+          "indexname": "publication_jobs_id_academy_id_key",
+          "tablename": "publication_jobs",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_jobs_pkey ON academy.publication_jobs USING btree (id)",
+          "indexname": "publication_jobs_pkey",
+          "tablename": "publication_jobs",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_jobs_scope ON academy.publication_jobs USING btree (academy_id, program_id, id)",
+          "indexname": "publication_jobs_scope",
+          "tablename": "publication_jobs",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_operations_pkey ON academy.publication_operations USING btree (actor, id)",
+          "indexname": "publication_operations_pkey",
+          "tablename": "publication_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_operations_scope ON academy.publication_operations USING btree (academy_id)",
+          "indexname": "publication_operations_scope",
+          "tablename": "publication_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_rosters_pkey ON academy.publication_rosters USING btree (event_id, player_id)",
+          "indexname": "publication_rosters_pkey",
+          "tablename": "publication_rosters",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_rosters_player_event ON academy.publication_rosters USING btree (player_id, event_id)",
+          "indexname": "publication_rosters_player_event",
+          "tablename": "publication_rosters",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX publication_targets_date ON academy.publication_targets USING btree (program_id, day, academy_id)",
+          "indexname": "publication_targets_date",
+          "tablename": "publication_targets",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX publication_targets_pkey ON academy.publication_targets USING btree (job_id, day)",
+          "indexname": "publication_targets_pkey",
+          "tablename": "publication_targets",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_card_heads_pkey ON academy.qr_card_heads USING btree (academy_id, player_id)",
+          "indexname": "qr_card_heads_pkey",
+          "tablename": "qr_card_heads",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_cards_current ON academy.qr_cards USING btree (academy_id, player_id) WHERE (revoked_at IS NULL)",
+          "indexname": "qr_cards_current",
+          "tablename": "qr_cards",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_cards_id_academy_id_player_id_key ON academy.qr_cards USING btree (id, academy_id, player_id)",
+          "indexname": "qr_cards_id_academy_id_player_id_key",
+          "tablename": "qr_cards",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_cards_pkey ON academy.qr_cards USING btree (id)",
+          "indexname": "qr_cards_pkey",
+          "tablename": "qr_cards",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_cards_token_hash_key ON academy.qr_cards USING btree (token_hash)",
+          "indexname": "qr_cards_token_hash_key",
+          "tablename": "qr_cards",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_operations_pkey ON academy.qr_operations USING btree (actor, id)",
+          "indexname": "qr_operations_pkey",
+          "tablename": "qr_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX qr_operations_scope ON academy.qr_operations USING btree (academy_id, actor, context)",
+          "indexname": "qr_operations_scope",
+          "tablename": "qr_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_window_overrides_pkey ON academy.qr_window_overrides USING btree (academy_id, program_id, day)",
+          "indexname": "qr_window_overrides_pkey",
+          "tablename": "qr_window_overrides",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX qr_window_settings_pkey ON academy.qr_window_settings USING btree (academy_id)",
+          "indexname": "qr_window_settings_pkey",
+          "tablename": "qr_window_settings",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX session_change_operations_pkey ON academy.session_change_operations USING btree (actor, id)",
+          "indexname": "session_change_operations_pkey",
+          "tablename": "session_change_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX session_change_operations_scope ON academy.session_change_operations USING btree (academy_id)",
+          "indexname": "session_change_operations_scope",
+          "tablename": "session_change_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX session_changes_pkey ON academy.session_changes USING btree (id)",
+          "indexname": "session_changes_pkey",
+          "tablename": "session_changes",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX session_changes_scope ON academy.session_changes USING btree (academy_id, program_id, day, created_at DESC, id DESC)",
+          "indexname": "session_changes_scope",
+          "tablename": "session_changes",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX sports_id_academy_id_key ON academy.sports USING btree (id, academy_id)",
+          "indexname": "sports_id_academy_id_key",
+          "tablename": "sports",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX sports_pkey ON academy.sports USING btree (id)",
+          "indexname": "sports_pkey",
+          "tablename": "sports",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_assignments_branch ON academy.trainer_assignments USING btree (branch_id)",
+          "indexname": "trainer_assignments_branch",
+          "tablename": "trainer_assignments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_assignments_invitation_id_key ON academy.trainer_assignments USING btree (invitation_id)",
+          "indexname": "trainer_assignments_invitation_id_key",
+          "tablename": "trainer_assignments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_assignments_pkey ON academy.trainer_assignments USING btree (id)",
+          "indexname": "trainer_assignments_pkey",
+          "tablename": "trainer_assignments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_assignments_staff ON academy.trainer_assignments USING btree (academy_id, staff_id)",
+          "indexname": "trainer_assignments_staff",
+          "tablename": "trainer_assignments",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_invitations_academy_id_recipient_key ON academy.trainer_invitations USING btree (academy_id, recipient)",
+          "indexname": "trainer_invitations_academy_id_recipient_key",
+          "tablename": "trainer_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_invitations_pkey ON academy.trainer_invitations USING btree (id)",
+          "indexname": "trainer_invitations_pkey",
+          "tablename": "trainer_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_invitations_staff_id_key ON academy.trainer_invitations USING btree (staff_id)",
+          "indexname": "trainer_invitations_staff_id_key",
+          "tablename": "trainer_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_invites_branch ON academy.trainer_invitations USING btree (branch_id)",
+          "indexname": "trainer_invites_branch",
+          "tablename": "trainer_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_invites_owner_cursor ON academy.trainer_invitations USING btree (academy_id, id)",
+          "indexname": "trainer_invites_owner_cursor",
+          "tablename": "trainer_invitations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_operations_academy ON academy.trainer_operations USING btree (academy_id)",
+          "indexname": "trainer_operations_academy",
+          "tablename": "trainer_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_operations_pkey ON academy.trainer_operations USING btree (actor, id)",
+          "indexname": "trainer_operations_pkey",
+          "tablename": "trainer_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_people_academy_id_identity_id_key ON academy.trainer_people USING btree (academy_id, identity_id)",
+          "indexname": "trainer_people_academy_id_identity_id_key",
+          "tablename": "trainer_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_people_id_academy_id_key ON academy.trainer_people USING btree (id, academy_id)",
+          "indexname": "trainer_people_id_academy_id_key",
+          "tablename": "trainer_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_people_identity ON academy.trainer_people USING btree (identity_id)",
+          "indexname": "trainer_people_identity",
+          "tablename": "trainer_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX trainer_people_membership ON academy.trainer_people USING btree (membership_id)",
+          "indexname": "trainer_people_membership",
+          "tablename": "trainer_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX trainer_people_pkey ON academy.trainer_people USING btree (id)",
+          "indexname": "trainer_people_pkey",
+          "tablename": "trainer_people",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_dates_active_day ON academy.training_dates USING btree (program_id, scheduled_date) WHERE (NOT canceled)",
+          "indexname": "training_dates_active_day",
+          "tablename": "training_dates",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX training_dates_effective_window ON academy.training_dates USING btree (academy_id, scheduled_date, program_id)",
+          "indexname": "training_dates_effective_window",
+          "tablename": "training_dates",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_dates_pkey ON academy.training_dates USING btree (program_id, local_date)",
+          "indexname": "training_dates_pkey",
+          "tablename": "training_dates",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_dates_tenant_key ON academy.training_dates USING btree (program_id, local_date, academy_id)",
+          "indexname": "training_dates_tenant_key",
+          "tablename": "training_dates",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX training_dates_window ON academy.training_dates USING btree (academy_id, local_date, program_id)",
+          "indexname": "training_dates_window",
+          "tablename": "training_dates",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_operations_pkey ON academy.training_operations USING btree (actor, id)",
+          "indexname": "training_operations_pkey",
+          "tablename": "training_operations",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE INDEX training_programs_cursor ON academy.training_programs USING btree (academy_id, id)",
+          "indexname": "training_programs_cursor",
+          "tablename": "training_programs",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_programs_id_academy_id_key ON academy.training_programs USING btree (id, academy_id)",
+          "indexname": "training_programs_id_academy_id_key",
+          "tablename": "training_programs",
+          "schemaname": "academy"
+        },
+        {
+          "indexdef": "CREATE UNIQUE INDEX training_programs_pkey ON academy.training_programs USING btree (id)",
+          "indexname": "training_programs_pkey",
+          "tablename": "training_programs",
+          "schemaname": "academy"
+        }
+      ],
+      "policies": null,
+      "extensions": [
+        "plpgsql",
+        "pg_stat_statements",
+        "uuid-ossp",
+        "pgcrypto",
+        "supabase_vault"
+      ],
+      "connections": 13,
+      "stats_reset": "2026-10-02T18:01:15.201525+00:00",
+      "storage_objects": 0
+    }
+  }
+]

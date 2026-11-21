@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-11-04T17:44:05.026169+00:00",
+  "base_commit": "4a55353c641a63f111788686e0305db0cf8f2942",
+  "product_source_changed": false,
+  "checks": {
+    "continuation_generation_and_freshness": "passed",
+    "execution_validator": "passed:13 batches,17 findings,G01-G09,57 working-day cases;EX-11 remains current",
+    "implementation_register_validator": "passed:68 screen IDs,30 action groups,180 preserved requirements",
+    "changed_markdown_relative_links": "passed",
+    "json_receipt_syntax": "passed",
+    "factual_review_inventory_only": "passed:1189 frames,1163 transitions,76 source files",
+    "offline_factual_review_tool": "passed:review replay only,not private offline runtime",
+    "factual_review_freshness": "passed",
+    "three_public_invalid_body_probes": "passed:422/no-store;unauthenticated,not private working proof",
+    "temporary_trainer_ending": "hosted verified:ended/version17,one restore/end audit,zero key slots"
+  },
+  "retained_checks": "50a2ae1 exact-source full Foundation push/PR passed;not rerun for documentation-only changes",
+  "unexecuted": [
+    "Authenticated private preparation/download",
+    "Real Chrome cold offline/restart/local save/reconnect sync",
+    "Private conflict/deadline/logout/recovery hosted walkthrough",
+    "Hosted performance/cost percentiles",
+    "Owner working acceptance",
+    "Independent external security review deferred/nonblocking"
+  ]
+}

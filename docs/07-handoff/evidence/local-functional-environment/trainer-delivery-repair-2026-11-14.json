@@ -1,0 +1,237 @@
+{
+  "schema": 1,
+  "recordedUtc": "2026-11-14T12:04:14.754050+00:00",
+  "checkpoint": "EX-07 / MP-B01 Trainer delivery repair for local Attendance test",
+  "status": "Owner redeploy, delivery and recipient acceptance verified. Additive register scope passed local tests and scoped synthetic staging migration readback. The local production Owner offline save, close/reopen and auto-sync subsequently passed.",
+  "handoff": "docs/07-handoff/trainer-delivery-repair-2026-11-14.md",
+  "source": {
+    "apps/web/src/lib/email.ts": {
+      "sha256": "451f338052d97fec79fa11a475cdfef4cb2d4e2b4083ed6fae21b6d17ae9b63a",
+      "matches_deployed_source": true
+    },
+    "apps/web/src/lib/clerk-email.ts": {
+      "sha256": "ee49e89612d28fe27ce97fbb7eab0cdd0b96a2916c005c711ecfea8725341e11",
+      "matches_deployed_source": true
+    },
+    "apps/web/src/lib/trainers.ts": {
+      "sha256": "ce6d7e213c0f5b8c87e0a06f421df1b93694090b2085ad9292e0879b123b496a",
+      "matches_deployed_source": true
+    },
+    "apps/web/src/lib/trainer-delivery.ts": {
+      "sha256": "aafad72d88315521a01c72919828804053e6cc78cf8588962dabc117d5afb153",
+      "matches_deployed_source": true
+    },
+    "supabase/migrations/20261025123233_i2c_synthetic_trainer_appointments.sql": {
+      "sha256": "880a030259d1819ac74588f16b756faa9d6737e79ae6be2b3e3a2e1d225a8bc7",
+      "matches_deployed_source": true
+    },
+    "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql": {
+      "sha256": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+      "matches_deployed_source": true
+    }
+  },
+  "project_configuration": {
+    "project": "academyos-web",
+    "environment_target": "production-labelled synthetic staging",
+    "readback": "plaintext valid addresses and exact authorized values checked without recording them",
+    "EMAIL_ALLOWED_RECIPIENTS": {
+      "count": 1,
+      "matches_expected": true
+    },
+    "AUTH_EMAIL_ALLOWED_RECIPIENTS": {
+      "count": 2,
+      "matches_expected": true
+    },
+    "TRAINER_STAGING_RECIPIENTS": {
+      "count": 1,
+      "matches_expected": true
+    },
+    "runtime_effect": "next deployment only; not inferred from project readback",
+    "temporary_verification_scope": "existing Owner and authorized Outlook Trainer; new Gmail verification excluded until restoration"
+  },
+  "released_source": {
+    "commit": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "deployment": "dpl_21p2C6fzJDvSoZWzzMun39TutcK5",
+    "state": "READY",
+    "alias": "staging.academy.nahr.dev",
+    "uses_corrected_settings": "not yet: deployment predates correction",
+    "historical_ci": {
+      "run": "42968202542",
+      "attempt": 1,
+      "passed_steps": 53,
+      "new_run": false
+    }
+  },
+  "release_boundary_correction": {
+    "agent_created_production_deployments": [
+      "dpl_2hzouEv9gjQbjx6tJ7wJfBzRD6b1",
+      "dpl_21p2C6fzJDvSoZWzzMun39TutcK5"
+    ],
+    "automatic_alias_assignment": true,
+    "owner_performed": false,
+    "disposition": "breached Owner-only promotion instruction; prior Owner-authorized description corrected",
+    "further_deployments_in_repair_checkpoint": false
+  },
+  "invitation": {
+    "id": "460d1ea9-96da-456d-9373-597e720d405f",
+    "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "display_name": "Synthetic Offline Trainer 2026-11-14",
+    "recipient_sha256": "cb0085ec3ee14748bae091f0ae4c594b0af805c59becfc989622235d69f04a80",
+    "state": "pending",
+    "delivery": "blocked",
+    "attempts": 1,
+    "version": 1,
+    "provider_receipt": false,
+    "accepted_by": false,
+    "active_assignment": false,
+    "first_attempt_at": "2026-11-14T02:55:52.389551+00:00",
+    "expires_at": "2026-11-17T02:33:47.043572+00:00",
+    "approver_matches_intended_owner": true
+  },
+  "recovery_rehearsal": {
+    "sql": "docs/07-handoff/evidence/local-functional-environment/trainer-delivery-recovery-2026-11-14.sql",
+    "sql_sha256": "1cd5f26a3b4c2d93be70fcf5ae224612022decf19e0aa9bfb51da160c4e25fe8",
+    "checked_at": "2026-11-14T12:01:48.908737+00:00",
+    "environment": "actual synthetic staging database; rollback transaction",
+    "guarded_requeue": "passed",
+    "repeated_call_idempotence": "passed",
+    "changed_invitation_rows_in_transaction": 1,
+    "audit_rows_in_transaction": 1,
+    "non_delivery_fields_preserved": true,
+    "provider_sends": 0,
+    "committed": false,
+    "post_rollback_readback_at": "2026-11-14T12:04:14.754050+00:00",
+    "persisted_recovery_audits": 0,
+    "post_rollback_delivery": "blocked"
+  },
+  "focused_checks": {
+    "email_clerk_trainer_units": {
+      "passed": 12,
+      "runtime": "Node v24.14.0",
+      "scope": "existing local suites executed in this checkpoint before compaction; source unchanged since execution"
+    },
+    "no_send_preflight": {
+      "actual_configuration_source": true,
+      "single_authorized_recipient": "accepted",
+      "former_two_recipient_email_list": "rejected",
+      "encrypted_envelope_shaped_value": "rejected",
+      "other_trainer_recipient": "rejected",
+      "provider_sends": 0
+    }
+  },
+  "local_runtime": {
+    "url": "http://localhost:3000/en",
+    "status": "ready",
+    "runtime": "Node v24.14.0 / npm11.19.1",
+    "offline_keys": "existing protected archives recovered to process memory",
+    "fresh_signed_in_or_offline_proof": false,
+    "production": {
+      "url": "http://localhost:3100/en",
+      "server": "ready",
+      "build": "passed; compiled source/asset guard passed",
+      "sourceHash": "6aac6fce788725d54f071be139f7e5505e39ed87023eda1b8b4577b471a04508",
+      "artifactHash": "f1074247c33710b742ac1999e2a43fbb3f1514b761bfa7596ab6bd84973351d8",
+      "signed_in_offline_write_proof": false
+    }
+  },
+  "next_action": "Use the current EX-07 development action in docs/06-delivery/continue-academyos.md. The normal Trainer invitation and synthetic Attendance fixture are complete for their declared scope.",
+  "not_proved": [
+    "Deployed app use of the new additive scope implementation",
+    "Installed-device behavior",
+    "New Owner working acceptance"
+  ],
+  "product_changes": false,
+  "new_schema_or_key": false,
+  "new_commit_or_push": false,
+  "previous_uncommitted_work_preserved": true,
+  "factual_html": "No product capture input changed in this configuration/documentation repair; prior factual capture evidence retains its original scope.",
+  "documentation_validation": {
+    "execution_validator": "passed; current EX-07 and structural joins intact",
+    "master_plan_validator": "passed; generated artifacts current; structural evidence only",
+    "continuation_tests": 20,
+    "continuation_generator": "regenerated from current tracker",
+    "git_diff_check": "passed",
+    "product_runtime_claim": false
+  },
+  "owner_redeployment": {
+    "owner_reported": true,
+    "id": "dpl_CMpqkpPt232K3opknzzmsL3L4e8t",
+    "source": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "state": "READY",
+    "createdUtc": "2026-11-14T12:18:17.987Z",
+    "after_corrected_project_settings": true,
+    "canonical_alias": "staging.academy.nahr.dev",
+    "provider_runtime_verified_by": "same-original delivery accepted with provider receipt after normal UI retry"
+  },
+  "recovery_application": {
+    "checkedUtc": "2026-11-14T12:21:41.168208+00:00",
+    "committed": true,
+    "invitation_delivery_after": "queued",
+    "attempts_after": 1,
+    "version_after": 1,
+    "audit_count": 1,
+    "provider_send_in_repair": false,
+    "appliedQuerySha256": "d777419ba1bf2a6ae9928121419cfdea411b5bfd93c0c3d9986df0077c08cd27",
+    "reviewedSqlFileStillDefaultsToRollback": true
+  },
+  "normal_delivery_retry": {
+    "origin": "https://staging.academy.nahr.dev",
+    "profile": "Nahr",
+    "control": "Review delivery retry -> Confirm this operation",
+    "ui_result": "Operation confirmed; delivery pending",
+    "database_checkedUtc": "2026-11-14T12:25:02.113777+00:00",
+    "delivery": "accepted",
+    "attempts": 2,
+    "version": 1,
+    "provider_receipt": true
+  },
+  "recipient_acceptance": {
+    "owner_reported": true,
+    "database_checkedUtc": "2026-11-14T12:34:41.658416+00:00",
+    "invitation_state": "accepted",
+    "delivery": "accepted",
+    "attempts": 2,
+    "version": 2,
+    "active_trainer_assignment": true,
+    "recipient_has_owner_access": false
+  },
+  "binding_dependency": {
+    "checked": "read-only staging SQL and source; no locator/key/row reset",
+    "existing_owner_academies": [
+      {
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "event_id": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+        "day": "2026-11-04",
+        "recording_window": "closed"
+      },
+      {
+        "academy_id": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+        "event_id": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+        "day": "2026-11-06",
+        "recording_window": "closed"
+      }
+    ],
+    "contract": "docs/04-engineering/owner-register-additive-scope-contract.md",
+    "scope_expansion_verified": true,
+    "verified_scope": "Local implementation/fixtures, reviewed migration and exact live-local synthetic test; new v2 scope observed for the new event"
+  },
+  "delegation": {
+    "configured_model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peak_helpers": 1,
+    "inventory": "read-only caller/test inventory returned; coordinator checked critical boundaries",
+    "implementation_assignment": "Earlier bounded additive storage work completed; later verification-only helper supplied the opt-in Attendance runner and compact receipt",
+    "coordinator_owns": "architecture, SQL/API, callers, integration, shared records and provider operations",
+    "savings": "not measured"
+  },
+  "local_attempt": {
+    "recordedUtc": "2026-11-14T13:35:44Z",
+    "evidence": "docs/07-handoff/evidence/ex07-local-offline-attempt-2026-11-14.json",
+    "origin": "http://localhost:3100",
+    "result": "limited state followed by No active academy membership after one controlled retry",
+    "account_or_role_change": false,
+    "writes": false,
+    "classification": "Historical extension-profile attempt. Native Chrome Nahr completed the later proof."
+  },
+  "latest_local_attendance": "docs/07-handoff/evidence/ex07-local-offline-attempt-2026-11-14.json"
+}

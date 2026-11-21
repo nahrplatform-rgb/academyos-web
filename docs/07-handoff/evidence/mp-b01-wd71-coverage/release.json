@@ -1,0 +1,87 @@
+{
+  "recordedUtc": "2026-11-16T21:31:02.048276+00:00",
+  "candidate": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+  "branch": "codex/onboarding-decision-design-packet",
+  "publication": "Pushed existing branch; exact418-file selection committed. Historical780225b also published.",
+  "ci": {
+    "commit": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "run_id": 43950874524,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43950874524",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43950874524/job/133592687555",
+    "job_conclusion": "success",
+    "steps_passed": 55,
+    "step_count": 55,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deployment": "dpl_2E7zKpnH9MParNtHpkUm1aeg4wpW",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "sha": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "state": "READY",
+    "target": null,
+    "url": "https://academyos-mljyihw6u-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/2E7zKpnH9MParNtHpkUm1aeg4wpW",
+    "verifiedUtc": "2026-11-16T20:44:34.668170+00:00"
+  },
+  "promotionPerformed": true,
+  "whitespace": "Initial complete diff-check surfaced preserved unified-patch context blanks and retained Next progress logs. Product/tooling/docs diff excluding exact .patch/.log artifacts passed. Artifacts kept byte-exact; no assertion or source behavior changed.",
+  "limits": [
+    "Full source-bound Foundation, Preview and verified staging subset remain separate from installed-device, all-role and Owner acceptance.",
+    "Rich Player MP-Q01 choices remain open.",
+    "Final release receipt/tracker bookkeeping is local and separately committed; checked application candidate isbdd9740."
+  ],
+  "staging": {
+    "verifiedUtc": "2026-11-16T21:31:02.048276+00:00",
+    "verifiedSource": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "origin": "https://staging.academy.nahr.dev",
+    "url": "https://academyos-kj3ivonyp-academy-os2.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "agentPromotion": false,
+    "hostedReceipt": "hosted-promotion.json"
+  },
+  "repair": {
+    "file": "scripts/backups/test_rehearsal_scope.py",
+    "change": "Retain exact ordered migration list and add existing20261114130000 migration; no production/backup operator changes or weakened refusal checks",
+    "pinnedBackupTests": 14,
+    "result": "passed",
+    "localDependencyAttempt": "Default Python missing botocore; no pass claimed. Isolated venv installed existing hash-pinned requirements, all14 passed.",
+    "next": "Owner promotion verified on exact successor; targeted signed-in hosted journeys passed. Continue remaining acceptance gap audit without repeating unchanged proof."
+  },
+  "firstCandidate": {
+    "candidate": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+    "ci": {
+      "commit": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+      "run_id": 43949715959,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959",
+      "run_attempt": 1,
+      "run_conclusion": "failure",
+      "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959/job/133588657766",
+      "job_conclusion": "failure",
+      "steps_passed": 13,
+      "step_count": 55,
+      "first_failed_step": "Verify backup safety with pinned runtime dependencies",
+      "verdict": "ci_failed"
+    },
+    "preview": {
+      "deployment": "dpl_DgRrCEmAkVmjhETzogsfvABPuj1s",
+      "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+      "sha": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+      "target": null,
+      "state": "READY",
+      "url": "https://academyos-5xn4eew52-academy-os2.vercel.app",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/DgRrCEmAkVmjhETzogsfvABPuj1s",
+      "verifiedUtc": "2026-11-16T20:28:32.461472+00:00"
+    }
+  },
+  "promotionActor": "Owner; reported by Owner and resulting deployment/source independently verified",
+  "subsequentRelease": {
+    "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "receipt": "launch-checkpoint.json#next1646StagingRelease20261119",
+    "scope": "Owner promotion, read-only exact staging deployment and Foundation verification, plus Owner-reported Codex signed-in Academy Owner Today verification"
+  }
+}

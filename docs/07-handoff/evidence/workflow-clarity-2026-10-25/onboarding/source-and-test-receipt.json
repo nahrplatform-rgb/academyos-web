@@ -1,0 +1,151 @@
+{
+  "ui": "passed",
+  "reactMode": "production",
+  "browserVersion": "156.0.8078.4",
+  "harnessSha256": "d2c7e542913ec13ca54344ed54a57f3c4611ea6fa45204fd4bfba84dcc481808",
+  "implementationSha256": {
+    "src/components/onboarding-workspace.tsx": "bb6106b4e3c801cee161809e164e4e7db33e8a406dd4df905684582ea9335d5d",
+    "src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
+    "src/components/timezone-select.tsx": "e116e94facfd3d6b36e85a7f1edb6e29349bc324bd98a83d7361e285e758d12c",
+    "src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "src/app/globals.css": "722419c401c70dd1efec31c0d61c77bb23434e6bc76706e6b0491dab57dcc7dc",
+    "src/lib/timezones.json": "3f4d86e1bb7e60b749260489dd7cd0665550b291562e442bbf2ee922301d9e6d"
+  },
+  "handoffRace": "zero early reviews; one exchange across identity resolution; failed exchange stays failed",
+  "path": "create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh",
+  "admission": "two loaded rows; zero-read keyboard inspection; target invitation/generation; review focus; phone back focus; unknown/revoked/redeemed actions; current denial clears details",
+  "authEntry": "EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery",
+  "phone": "EN/AR 360px no overflow",
+  "keyboardProfiles": [
+    {
+      "locale": "en",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    }
+  ],
+  "keyboardScope": "Tab/Enter, required focus, visible outline, labeled timezone values via driver, compact desktop/44px phone form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified",
+  "revocation": "private setup removed after denial",
+  "identityRace": "delayed A response and unsaved A draft excluded after B identity change",
+  "scope": "synthetic transport/identity; not hosted security evidence",
+  "reviewFrames": [
+    {
+      "name": "01-admission",
+      "title": "1. Platform Owner — academy admission",
+      "description": "The real admission form, before creating the synthetic academy."
+    },
+    {
+      "name": "02-appointment-review",
+      "title": "2. Review the owner appointment",
+      "description": "Confirm the academy and intended recipient before creation."
+    },
+    {
+      "name": "03-invitation-pending",
+      "title": "3. Invitation pending",
+      "description": "Creation has returned in the synthetic transport; the owner has not accepted. Queued delivery is not inbox confirmation."
+    },
+    {
+      "name": "04-owner-invitation",
+      "title": "4. Invited Academy Owner — review invitation",
+      "description": "The real invitation view after simulated identity and handoff. Actual Clerk sign-up and email verification are not represented by this adapter."
+    },
+    {
+      "name": "05-workspace",
+      "title": "5. Choose the academy workspace",
+      "description": "The synthetic test identity has both platform and owner capabilities; real accounts only see their authorized contexts."
+    },
+    {
+      "name": "06-branch-timezone",
+      "title": "6. Branch and timezone draft",
+      "description": "A real native timezone selector, with the chosen IANA value retained even when the search has no matches."
+    },
+    {
+      "name": "07-unknown",
+      "title": "7. Interrupted response — reconcile first",
+      "description": "The test transport drops the response after committing its synthetic operation. The screen offers a status check before another save."
+    },
+    {
+      "name": "08-sport",
+      "title": "8. Sport draft — English and Arabic",
+      "description": "Review both sport labels before saving."
+    },
+    {
+      "name": "09-conflict",
+      "title": "9. Version conflict — preserve the draft",
+      "description": "The test returns a conflict. The draft remains available while the saved state can be refreshed."
+    },
+    {
+      "name": "10-complete-review",
+      "title": "10. Confirm initial setup",
+      "description": "Review the branch, bilingual sport and timezone before completing setup."
+    },
+    {
+      "name": "11-saved",
+      "title": "11. Initial setup saved",
+      "description": "The real confirmation view after reload. In this harness the saved fixture exists only in the running test process. Operational activation remains pending."
+    },
+    {
+      "name": "12-ar-phone",
+      "title": "12. Arabic phone — completed setup",
+      "description": "The same setup confirmation in Arabic/RTL at a 360px CSS viewport."
+    },
+    {
+      "name": "13-access-denied",
+      "title": "13. Access removed — private content cleared",
+      "description": "A simulated permission denial clears the previously displayed branch/sport."
+    },
+    {
+      "name": "14-admission-en-phone",
+      "title": "14. English phone — academy details",
+      "description": "Actual I1 details use only the current loaded projection. Revoked/unknown states do not offer blind retry."
+    },
+    {
+      "name": "15-admission-ar-phone",
+      "title": "15. Arabic phone — academy details",
+      "description": "Actual I1 details use only the current loaded projection. Revoked/unknown states do not offer blind retry."
+    },
+    {
+      "name": "16-admission-desktop",
+      "title": "16. Desktop — loaded list and academy details",
+      "description": "Explicit row inspection adds zero retrieval and keeps invitation changes in the named academy context."
+    },
+    {
+      "name": "clarity-admission-1440",
+      "title": "Admission at 1440px",
+      "description": "Aligned task title/refresh and directory-first layout."
+    },
+    {
+      "name": "clarity-admission-360",
+      "title": "Admission at 360px",
+      "description": "Aligned task title/refresh and directory-first layout."
+    },
+    {
+      "name": "clarity-admission-926",
+      "title": "Admission at 926px",
+      "description": "Aligned task title/refresh and directory-first layout."
+    }
+  ]
+}

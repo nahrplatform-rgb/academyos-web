@@ -1,5 +1,9 @@
 # Current state and change control
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+The Owner clarified persistent local datasets and quiet synchronization as the target. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) supersedes the unaccepted summary-only memory pilot. This is documentation/design direction; no AcademyOS persistence, change-feed endpoint, offline queue or production rollout is implemented by this checkpoint. Historical receipts remain valid, and current routing belongs to the execution tracker.
+
 Version 1.0 · 21 October 2026
 
 ## Current implementation update — 22 October 2026

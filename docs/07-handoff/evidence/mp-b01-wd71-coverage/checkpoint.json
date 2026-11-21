@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-11-16T17:48:08.742767+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/onboarding-workspace.tsx": "6cecc93e94d646edd7bdfdcf4366155b3f24a458a55fcd2df53fd466caf126bf",
+    "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+    "apps/web/src/components/trainer-workspace.tsx": "d81da7c1ce99ebb6a7a6e7e09a13fdf4c9b0126bd81136970a5d87c905b720bf",
+    "apps/web/src/components/guardian-workspace.tsx": "88a2ee20ad01764cfda5e4c2b49751ae513b77554750d84d7a1909db3b80962d",
+    "apps/web/src/components/program-planning-workspace.tsx": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
+    "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+    "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
+    "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
+    "scripts/onboarding/test_ui.mjs": "595a18fd21b22ec74502e2c6d2820136073db5524ecfb534bb64417f224f17f4",
+    "scripts/onboarding/save_followup.mjs": "d4ff1a9f52363e9f9459701b18eb38d4a049b6f399950ed84fd4857eff4be013",
+    "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
+    "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
+    "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
+    "scripts/experience-review/collect.mjs": "4d9b48b826ea37621a2e6393f1ed141e3f59a1759a5f078637cc53a3376dfa24",
+    "scripts/experience-review/build.mjs": "0a303f8527191954e152f8b8e5acfce89d844178267d573d808a0143a8ffa53b"
+  },
+  "componentReceipts": {
+    "guardians-retry-baseline.json": {
+      "cases": 0,
+      "gaps": 8,
+      "baseline": true
+    },
+    "onboarding-baseline.json": {
+      "cases": 64,
+      "gaps": 64,
+      "baseline": true
+    },
+    "onboarding-production.json": {
+      "cases": 64,
+      "gaps": 0,
+      "baseline": false
+    },
+    "onboarding-development.json": {
+      "cases": 64,
+      "gaps": 0,
+      "baseline": false
+    },
+    "trainers-production.json": {
+      "cases": 40,
+      "gaps": 0,
+      "baseline": false
+    },
+    "attendance-production.json": {
+      "cases": 16,
+      "gaps": 0,
+      "baseline": false
+    },
+    "guardians-production.json": {
+      "cases": 40,
+      "gaps": 0,
+      "baseline": false
+    },
+    "publication-production.json": {
+      "cases": 60,
+      "gaps": 0,
+      "baseline": false
+    },
+    "attendance-baseline.json": {
+      "cases": 16,
+      "gaps": 16,
+      "baseline": true
+    },
+    "program-planning-production.json": {
+      "cases": 50,
+      "gaps": 0,
+      "baseline": false
+    },
+    "program-planning-create-baseline.json": {
+      "cases": 2,
+      "gaps": 2,
+      "baseline": true
+    },
+    "program-planning-development.json": {
+      "cases": 50,
+      "gaps": 0,
+      "baseline": false
+    },
+    "attendance-development.json": {
+      "cases": 16,
+      "gaps": 0,
+      "baseline": false
+    },
+    "publication-development.json": {
+      "cases": 60,
+      "gaps": 0,
+      "baseline": false
+    },
+    "guardians-development.json": {
+      "cases": 40,
+      "gaps": 0,
+      "baseline": false
+    },
+    "trainers-development.json": {
+      "cases": 40,
+      "gaps": 0,
+      "baseline": false
+    },
+    "trainers-retry-baseline.json": {
+      "cases": 0,
+      "gaps": 8,
+      "baseline": true
+    }
+  },
+  "coordinator": "Current Codex; backend model and usage unavailable",
+  "helpers": 0,
+  "limits": [
+    "Fictional component identity and HTTP; signed fixture/PostgreSQL and connected browser are separate layers.",
+    "Five incremental repair patches compare preserved dirty source snapshots, not a clean HEAD release.",
+    "No broader feedback lifecycle cross-product, hosted/installed acceptance or full security claim.",
+    "No new schema, role, invitation send, protected key/configuration change, commit, push or promotion. Connected synthetic registration/program/planning writes are recorded separately in connected.json."
+  ]
+}

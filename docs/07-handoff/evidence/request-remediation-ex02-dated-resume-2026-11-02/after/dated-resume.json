@@ -1,0 +1,19 @@
+{
+  "scope": "actual Next production;fictional identity/read-only planning APIs;40ms separated browser signals",
+  "datedResume": [
+    {
+      "locale": "en",
+      "pairedReads": 1,
+      "dirtyPairedReads": 1,
+      "retainedCapacity": "7",
+      "distinctReturnReads": 1
+    },
+    {
+      "locale": "ar",
+      "pairedReads": 1,
+      "dirtyPairedReads": 1,
+      "retainedCapacity": "7",
+      "distinctReturnReads": 1
+    }
+  ]
+}

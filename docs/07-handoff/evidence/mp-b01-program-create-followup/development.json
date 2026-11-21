@@ -1,0 +1,137 @@
+{
+  "cases": [
+    {
+      "locale": "en",
+      "outcome": "success",
+      "original": "c6d01f36-c8b8-4b95-a613-de812eb7cc33",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "outcome": "read_failure",
+      "original": "5f09fe28-bd70-4cbb-9c73-7aa727be77b9",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "outcome": "lost_final",
+      "original": "ab94125e-e844-4f03-812a-b5ade9f4ac9c",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "outcome": "denied",
+      "original": "c222042f-9bc4-4453-a364-2afadd1575b3",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "outcome": "success",
+      "original": "482ff3a7-1ad1-4d0d-8016-0748b060c080",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "outcome": "read_failure",
+      "original": "e8a9cc28-9c1f-464a-ba83-ef0dbebb7ff3",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "outcome": "lost_final",
+      "original": "75dcb7db-6c53-4a39-b23a-2a17fbc578c6",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read",
+        "read"
+      ],
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "outcome": "denied",
+      "original": "62db187b-afb0-48f8-9075-1d5befeeb051",
+      "program": "00000000-0000-4000-8000-000000000201",
+      "creates": 1,
+      "finalizes": 1,
+      "dates": 4,
+      "sequence": [
+        "create",
+        "prepare",
+        "finalize",
+        "read"
+      ],
+      "errors": []
+    }
+  ],
+  "scope": "Real React; held fictional HTTP. Not SQL, routed-return, hosted or installed-device proof."
+}

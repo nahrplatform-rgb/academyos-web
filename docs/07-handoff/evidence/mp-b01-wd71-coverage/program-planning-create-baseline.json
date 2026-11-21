@@ -1,0 +1,162 @@
+{
+  "status": "passed",
+  "reactMode": "production",
+  "saveFollowup": {
+    "baseline": true,
+    "cases": [
+      {
+        "locale": "en",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "recoveryBlocked": true,
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "create",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "from": "2026-11-01",
+            "to": "2027-01-31",
+            "rules": {
+              "0": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              },
+              "2": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              },
+              "4": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              }
+            },
+            "op": "77bc33f4-efef-42d6-984c-6b0480292b86",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      },
+      {
+        "locale": "ar",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": false
+        },
+        "recoveryBlocked": true,
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "create",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "from": "2026-11-01",
+            "to": "2027-01-31",
+            "rules": {
+              "0": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              },
+              "2": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              },
+              "4": {
+                "capacity": 23,
+                "trainer": null,
+                "players": []
+              }
+            },
+            "op": "474d198c-24b9-4657-83dc-9031bc312f2a",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      }
+    ],
+    "gaps": [
+      {
+        "locale": "en",
+        "outcome": "read_failure",
+        "phase": "failed-read",
+        "kind": "confirmed-recovery-still-unknown-no-read-action"
+      },
+      {
+        "locale": "ar",
+        "outcome": "read_failure",
+        "phase": "failed-read",
+        "kind": "confirmed-recovery-still-unknown-no-read-action"
+      }
+    ],
+    "scope": "actual React component; fictional 40-date reviewed job and HTTP responses; no hosted/SQL activation proof"
+  },
+  "visibleOnlyReads": 1,
+  "pairedResumeReads": 1,
+  "dirtyResumeReads": 0,
+  "scope": "Actual product React; synthetic identity/HTTP adapters, not SQL or hosted proof",
+  "cases": [
+    "StrictMode coalesced bootstrap",
+    "directory failure does not hide new proposal",
+    "preserved plan current capacity",
+    "shared and weekday capacity/Trainer choices retained",
+    "40 distinct dates with bounded25/15 inspection",
+    "central task and authoritative sequential checks",
+    "pause after current check and resume",
+    "lost preparation reply stops until reconciliation",
+    "stale and blocked checks never activate",
+    "private roster edits invalidate preparation",
+    "all-or-none overlap denial",
+    "committed lost reply/reload recovery",
+    "uncommitted fence and deliberate retry",
+    "confirmed activation/read failure retries read",
+    "EN/AR320/360/926/1440",
+    "focus revocation clears data and actor remount"
+  ],
+  "activations": 5,
+  "errors": []
+}

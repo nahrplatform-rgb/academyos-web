@@ -1,0 +1,235 @@
+{
+  "scope": "Post I5a migration non-secret domain fingerprints only",
+  "priorTables": 51,
+  "changed": [],
+  "fingerprints": {
+    "sports": {
+      "hash": "335a8d7bc4076e9abe00bb91b04b0366",
+      "count": 2
+    },
+    "players": {
+      "hash": "e9495dce084694a4831655b6e3526ec5",
+      "count": 4
+    },
+    "branches": {
+      "hash": "2043514b117c5f2aad8bfa30c73bb4e1",
+      "count": 2
+    },
+    "qr_cards": {
+      "hash": "7d40b8ed9983ff518714fcd0f306d774",
+      "count": 4
+    },
+    "academies": {
+      "hash": "b9e585dd6edb15950e71915682c953cf",
+      "count": 2
+    },
+    "date_plans": {
+      "hash": "87f325138149e6a41f1c06c37597b37c",
+      "count": 44
+    },
+    "identities": {
+      "hash": "a9d299626f702d6e99b833b841e771b9",
+      "count": 2
+    },
+    "operations": {
+      "hash": "91b85142aa75d309d5cf898afefe866f",
+      "count": 16
+    },
+    "memberships": {
+      "hash": "36cddf00fc92224f0f6acdd54a170078",
+      "count": 4
+    },
+    "audit_events": {
+      "hash": "8535078101c1b20086e03b051e44a8f6",
+      "count": 119
+    },
+    "date_rosters": {
+      "hash": "5e5d8cc264d574104b28d5ad0e28c44a",
+      "count": 43
+    },
+    "initial_setup": {
+      "hash": "a2f8e3cfa086b64cf4df631318c0c1b1",
+      "count": 2
+    },
+    "program_plans": {
+      "hash": "874dd038c9d4ffc997bd04fed4f98e1a",
+      "count": 1
+    },
+    "qr_card_heads": {
+      "hash": "84997afeffb2a63e3e3b2dac198b99c9",
+      "count": 2
+    },
+    "qr_operations": {
+      "hash": "b067dc5c4e41ac06b9c7816cc29c4c78",
+      "count": 11
+    },
+    "guardian_links": {
+      "hash": "2fa4ecbb07ba7fa6bb18d60fb2cb12b2",
+      "count": 1
+    },
+    "trainer_people": {
+      "hash": "c3f4c276496821d713e8314fbbc7740f",
+      "count": 1
+    },
+    "training_dates": {
+      "hash": "d162860baeabb573607cc44d565b7ccc",
+      "count": 62
+    },
+    "guardian_people": {
+      "hash": "3371c312017e1c094c8615780375350f",
+      "count": 1
+    },
+    "platform_grants": {
+      "hash": "007397c815a590770c8d3a88a67d202d",
+      "count": 1
+    },
+    "session_changes": {
+      "hash": "bab0addb4537f992d51ec742b87595e3",
+      "count": 2
+    },
+    "attendance_marks": {
+      "hash": "3ac677b69720fda02a11376360fbf254",
+      "count": 2
+    },
+    "publication_jobs": {
+      "hash": "4954bced864f01abc4c241e40d9142fe",
+      "count": 5
+    },
+    "owner_invitations": {
+      "hash": "8098ad781e4dd6588ac4f8e5a17e4d1e",
+      "count": 2
+    },
+    "people_operations": {
+      "hash": "8e2fb1dedd4d53e9ee399179ba28198b",
+      "count": 6
+    },
+    "publication_heads": {
+      "hash": "3f487e74949ddc7539c77aca759cbaf4",
+      "count": 3
+    },
+    "training_programs": {
+      "hash": "570e0801a8e84c383c00175027476739",
+      "count": 5
+    },
+    "attendance_history": {
+      "hash": "eb90b4e9dcb73330909bdd4908928385",
+      "count": 4
+    },
+    "correction_history": {
+      "hash": "3399976698fe3dbf678bd6832edbd32c",
+      "count": 2
+    },
+    "development_access": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "publication_events": {
+      "hash": "0c65744e31b19cf3f81c9504f8218c10",
+      "count": 4
+    },
+    "qr_window_settings": {
+      "hash": "689b6c7141ec941ee628fddd67770711",
+      "count": 1
+    },
+    "trainer_operations": {
+      "hash": "2059bbb2d414673539bfdd010f6e1681",
+      "count": 6
+    },
+    "correction_requests": {
+      "hash": "162e3c02d62be89a7e750cff3eccc695",
+      "count": 1
+    },
+    "development_history": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "guardian_operations": {
+      "hash": "3810f00ed387f6cc4dbbb3dc6584db83",
+      "count": 4
+    },
+    "planning_operations": {
+      "hash": "bb7c7d6069857e112adc1f39d51027a4",
+      "count": 7
+    },
+    "publication_rosters": {
+      "hash": "90b32d2e160cb9738e93bb95c8009692",
+      "count": 3
+    },
+    "publication_targets": {
+      "hash": "c66b0d30f5a640986fad25b94e1778f1",
+      "count": 44
+    },
+    "qr_window_overrides": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "trainer_assignments": {
+      "hash": "20e91b795a8a0615fcf9d94b94ebad46",
+      "count": 1
+    },
+    "trainer_invitations": {
+      "hash": "4c137c956701ee74cfefe62c8f4b8466",
+      "count": 1
+    },
+    "training_operations": {
+      "hash": "14617732695580aabacfd5d48246c8e6",
+      "count": 5
+    },
+    "guardian_invitations": {
+      "hash": "2a03c23c6196463f272a9534f1198e07",
+      "count": 1
+    },
+    "program_plan_players": {
+      "hash": "74ce06a39d8cd1d8b3e73dad7dabf94a",
+      "count": 3
+    },
+    "program_plan_targets": {
+      "hash": "193f01ac6b871fdc45989c696d579e2a",
+      "count": 40
+    },
+    "attendance_operations": {
+      "hash": "845e8da1f80ef079c831d30d36580aa0",
+      "count": 3
+    },
+    "correction_operations": {
+      "hash": "b11c8728b04b6739b4ee43ced6859e20",
+      "count": 2
+    },
+    "player_name_revisions": {
+      "hash": "98dec5903fd3aa6629ea2d2737b9e84a",
+      "count": 4
+    },
+    "development_operations": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "publication_operations": {
+      "hash": "aa35a56f7f656d08733188aa22a1e3aa",
+      "count": 15
+    },
+    "development_assessments": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "development_submissions": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "program_plan_operations": {
+      "hash": "b70b149a2abb1a26c1661612a58b1c2d",
+      "count": 4
+    },
+    "development_publications": {
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "count": 0
+    },
+    "guardian_training_access": {
+      "hash": "d08597479a70112df8fa376aa4afa2e8",
+      "count": 1
+    },
+    "session_change_operations": {
+      "hash": "ef793b97c72f07ea4f97a864ac8d8839",
+      "count": 2
+    }
+  }
+}

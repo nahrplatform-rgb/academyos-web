@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-11-04T13:37:22.757769+00:00",
+  "scope": "Disposable PG17 only; operator SQL prepared, not executed on staging",
+  "operation": "f0e9ca53-7ecf-4c2b-aa83-47a496bfcf0b",
+  "tests_passed": 9,
+  "cases": [
+    "missing authorization",
+    "exact result/history/idempotent retry",
+    "four concurrent retries",
+    "changed A Owner refusal",
+    "changed B Owner refusal",
+    "rollback after intermediate changes",
+    "post-success drift refusal",
+    "ordinary database role denial",
+    "active Guardian link refusal"
+  ],
+  "sources": {
+    "scripts/staging/separate_synthetic_owner.sql": "1c36dffb1036b6321aefc2fb1fef05fdd7bb5ab23fc726b24a4b1f8bfef18a5e",
+    "scripts/staging/test_role_separation.py": "15ed403b70b7b1f405c9c44819485debe2600545cbdef973022d5f9f4722cba4"
+  },
+  "hosted_mutations": 0,
+  "limits": [
+    "No actual new access granted",
+    "No all-browser pending-work or current iCloud login proof",
+    "No Owner acceptance or independent human review inferred"
+  ]
+}

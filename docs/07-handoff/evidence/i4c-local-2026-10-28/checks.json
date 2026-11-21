@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "scope": "Local source/disposable SQL/synthetic HTTP and identity adapters, not hosted Trainer walkthrough or independent approval",
+  "sql": {
+    "cases": 102,
+    "duration_seconds": 310.419,
+    "skipped": 0
+  },
+  "units": 60,
+  "foundation_e2e": 15,
+  "api": {
+    "correction_limiter_failure_cases": 21,
+    "attendance_limiter_failure_cases": 12,
+    "invalid_body_and_origin_cases": "passed"
+  },
+  "react": [
+    "production",
+    "development"
+  ],
+  "regression": "actual attendance UI production/development; inherited SQL suite retained",
+  "migration": "20261028153040_i4c_attendance_correction_requests.sql",
+  "migration_preliminary_filename": "20261028144130_i4c_attendance_correction_requests.sql",
+  "limits": [
+    "independent human/security",
+    "hosted signed Trainer request/review and extended direct API/races",
+    "physical device/accessibility",
+    "cold and stable-network HTTP p95/load/WAL/cost",
+    "inherited active-Trainer replacement case"
+  ]
+}

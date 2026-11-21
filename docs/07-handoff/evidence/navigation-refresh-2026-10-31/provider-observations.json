@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-10-31",
+  "evidence_class": "sanitized observation summary from read-only provider tools and native dashboard; not billing export",
+  "supabase": {
+    "project": "academyos-staging",
+    "project_ref": "snpphkenmvmhpjstbeul",
+    "region": "eu-west-1",
+    "pg_version": "17.11",
+    "organization_plan": "free",
+    "plan_source": "get_organization read-only connector response",
+    "edge_function_count": 0,
+    "database_size_bytes": 16209587,
+    "metered_egress": null,
+    "third_party_mau": null
+  },
+  "vercel": {
+    "plan": "Hobby",
+    "plan_source": "native Chrome project/team dashboard",
+    "project": "academyos-web",
+    "window_label": "Last 30 days; Sep 30 4pm\u2013Oct 30 5pm; display timezone not verified",
+    "fast_data_transfer_display": "148.39 MB",
+    "fast_origin_transfer_display": "105.83 MB",
+    "cdn_requests_display": "27K",
+    "cdn_cpu_display": "16s",
+    "isr_reads_display": 223,
+    "function_invocations_display": "42K",
+    "function_invocations_evidence": "accessibility table read, rounded; not visible in retained screenshot crop",
+    "capture": "vercel-usage.png",
+    "alias_source_reverified": false
+  },
+  "other_effective_plans": {
+    "clerk": "unknown",
+    "redis": "unknown",
+    "qstash": "unknown",
+    "resend": "unknown",
+    "sentry": "unknown",
+    "cloudflare_r2": "unknown",
+    "github": "unknown"
+  },
+  "limits_verification_date": "2026-10-31",
+  "boundary": "No product/schema/settings writes, access grants, operating writes, telemetry enablement, deployment, commit or push. Provider meters aggregate tests/operations; no attribution to particular findings."
+}

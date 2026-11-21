@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-11-08T21:04:04.911665+00:00",
+  "run": {
+    "id": 42522403859,
+    "head_sha": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859",
+    "event": "pull_request",
+    "run_attempt": 1
+  },
+  "job": {
+    "id": 128858558178,
+    "head_sha": "9c1efd04cc4ec8329bc0671f8a26d66c50e7c453",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42522403859/job/128858558178"
+  },
+  "failed_steps": [
+    "Verify player registration UI and interrupted-save recovery"
+  ],
+  "assertion": "one selected-profile read per visible return:actual0 expected1 at scripts/people/test_ui.mjs:66",
+  "cause": "The test used Back-enabled as read-settled;Back is now intentionally cancellable while a read is pending. The subsequent focus correctly coalesced with the existing in-flight read. Await the own profile refresh control before measuring a distinct return;keep1-read expectation.",
+  "release_eligible": false
+}

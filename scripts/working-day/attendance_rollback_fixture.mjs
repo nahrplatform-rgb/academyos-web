@@ -1,0 +1,233 @@
+// These adapters apply only to the disposable Next app and its fictional data.
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {dirname,join,relative} from 'node:path';
+import {build} from 'esbuild';
+
+export const rollbackPlayer='Fictional offline workspace player';
+
+export async function configureRollbackBuild(root,dir){
+  const config=join(dir,'fixture-config.ts');
+  await writeFile(config,await readFile(join(root,'apps/web/src/lib/config.ts')));
+  const layout=join(dir,'app/[locale]/layout.jsx');
+  const route=join(dir,'app/[locale]/workspace/[academy]/attendance/[event]/page.tsx');
+  const layoutSource=await readFile(layout,'utf8');
+  const routeSource=await readFile(route,'utf8');
+  const gate='const offlineRegisterPilotEnabled=(_env: unknown)=>true;';
+  assert.ok(layoutSource.includes('enabled={true}')&&routeSource.includes(gate));
+  const imports=`import {offlineRegisterPilotEnabled,ownerWorkspaceEnabled} from '../../fixture-config';
+export const dynamic='force-dynamic';\n`;
+  await writeFile(layout,imports+layoutSource.replace('enabled={true}',
+    'enabled={offlineRegisterPilotEnabled(process.env)} workspaceEnabled={ownerWorkspaceEnabled(process.env)}'));
+  const routeImport='./'+relative(dirname(route),config.slice(0,-3));
+  await writeFile(route,routeSource.replace(gate,`import {offlineRegisterPilotEnabled} from '${routeImport}';`));
+}
+
+export function rollbackBuildEnvironment(env,registerEnabled){
+  const register=String(registerEnabled);
+  return {...env,APP_ENV:'staging',OWNER_WORKSPACE_PILOT_ENABLED:'true',
+    OWNER_WORKSPACE_TRANSFER_ENABLED:'true',LOCAL_OWNER_WORKSPACE_KEY_ENABLED:'true',
+    LOCAL_OWNER_WORKSPACE_WRAP_KEY_V1:'b'.repeat(64),
+    LOCAL_REGISTER_PILOT_ENABLED:register,LOCAL_REGISTER_KEY_ENABLED:register,
+    LOCAL_REGISTER_TRANSFER_ENABLED:register,LOCAL_REGISTER_DISPATCH_ENABLED:register,
+    LOCAL_REGISTER_WRAP_KEY_V1:'c'.repeat(64)};
+}
+
+/** Seed only a completed People download. Opening it uses the real app, worker
+ * and encrypted repository. Attendance preparation and original capture use UI. */
+export async function seedRollbackWorkspace(root,page,scope){
+  const adapter=await build({stdin:{contents:`
+    import {openLocalWorkspace} from './apps/web/src/lib/local-workspace-repository.ts';
+    import {digest} from './apps/web/src/lib/local-register-codec.ts';
+    import {readRegisterAccount} from './apps/web/src/lib/register-device-account.ts';
+    import {saveWorkspaceSlot} from './apps/web/src/lib/workspace-device-slots.ts';
+    window.seedFixturePeople=async({academy,day,name})=>{
+      const account=readRegisterAccount();
+      if(account?.subject!=='user_owner'||account.mode!=='active')throw Error('Prepare the fictional Owner register first');
+      const context={subject:account.subject,academy};
+      const device=crypto.randomUUID(),namespace=crypto.randomUUID();
+      const repo=await openLocalWorkspace({...context,device,namespace,
+        environment:'staging',epoch:1,capability:'owner-workspace-v1'});
+      try{
+        const checkedAt=Date.now(), issued=Math.floor(checkedAt/1000);
+        const row={id:crypto.randomUUID(),display_name:name,branch_id:crypto.randomUUID(),branch_name:'Fictional offline branch'};
+        const seed={v:1,a:academy,device,ns:namespace,epoch:1,scope:'a'.repeat(64),dataset:'people',
+          first:null,last:null,revision:'1',total:null,seen:0,cursor:null,acc:'b'.repeat(64),issued,phase:'seed'};
+        const receipt=payload=>({payload,signature:'c'.repeat(64)});
+        const frame=text=>'s'+new TextEncoder().encode(text).byteLength+':'+text;
+        const acc=await digest('x21-row-v1'+[seed.acc,'people',row.id,row.display_name,row.branch_id,row.branch_name].map(frame).join(''));
+        const transfer={...seed,total:1,seen:1,cursor:{id:row.id},acc,phase:'transfer'};
+        const material=btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32))));
+        await repo.activate({material,verifiedAt:checkedAt});
+        const generation=await repo.begin('people',receipt(seed));
+        await repo.append('people',generation,receipt(transfer),[row]);
+        await repo.complete('people',generation,receipt({...transfer,phase:'complete'}),checkedAt);
+        await repo.rememberContext(seed.scope,checkedAt,{academy_id:academy,academy_name:'Fictional rollback academy',
+          branch_id:row.branch_id,branch_name:row.branch_name,timezone:'UTC',today:day});
+        saveWorkspaceSlot(context,{device,namespace,generation:crypto.randomUUID(),mode:'active'});
+      }finally{repo.close();}
+    };
+  `,resolveDir:root},bundle:true,write:false});
+  await page.addScriptTag({content:adapter.outputFiles[0].text});
+  await page.evaluate(async data=>{
+    try{await window.seedFixturePeople(data);}
+    finally{delete window.seedFixturePeople;}
+  },{academy:scope.academy,day:scope.day,name:rollbackPlayer});
+}
+
+export function rollbackStorage(page,scope){
+  return page.evaluate(async({academy,event})=>{
+    const read=key=>JSON.parse(localStorage.getItem(key));
+    const account=read('academyos.register-account.v1');
+    const workspace=read(`academyos.workspace-slot.v1:user_owner:${academy}`);
+    const register=read(`academyos.register-slot.v2:user_owner:${academy}:${event}`)??read(
+      `academyos.register-slot.v1:user_owner:${academy}`);
+    const result=request=>new Promise((resolve,reject)=>{
+      request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);
+    });
+    const db=await result(indexedDB.open('academyos-owner-register-v1'));
+    try{
+      const tx=db.transaction(['control','rows']);
+      const [control,rosterRows]=await Promise.all([
+        result(tx.objectStore('control').get(register.namespace)),
+        result(tx.objectStore('rows').index('namespace').count(register.namespace)),
+      ]);
+      return {account,workspace,register,rosterRows,repositoryMode:control?.mode,databaseVersion:db.version,
+        verifiedAt:control?.verifiedAt,verifiedWallAt:control?.verifiedWallAt};
+    }finally{db.close();}
+  },scope);
+}
+
+export async function raiseFixtureAttendanceVersion(page){
+  const result=await page.evaluate(async()=>{
+    const name='academyos-owner-register-v1';
+    const open=version=>new Promise((resolve,reject)=>{
+      const request=indexedDB.open(name,version);
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+      request.onblocked=()=>reject(Error('Fixture version upgrade was blocked'));
+    });
+    const current=await open(1);
+    const stores=Array.from(current.objectStoreNames);
+    current.close();
+    // Change only the version in this disposable browser's database.
+    const newer=await open(2);
+    const newerStores=Array.from(newer.objectStoreNames);
+    const databaseVersion=newer.version;
+    newer.close();
+    let olderOpenError;
+    try{(await open(1)).close();}
+    catch(error){olderOpenError=error.name;}
+    return {databaseVersion,stores,newerStores,olderOpenError};
+  });
+  assert.equal(result.databaseVersion,2);
+  assert.deepEqual(result.newerStores,result.stores);
+  assert.equal(result.olderOpenError,'VersionError');
+  return result.olderOpenError;
+}
+
+export async function abortBlockedAttendanceUpgrade(holder,page,original){
+  const expectedChange={oldVersion:1,newVersion:2};
+  const before=await holder.evaluate(async()=>{
+    const request=indexedDB.open('academyos-owner-register-v1',1);
+    const db=await new Promise((resolve,reject)=>{
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+      request.onupgradeneeded=()=>request.transaction.abort();
+    });
+    const state={db,versionChange:null};
+    // Hold the old fixture connection until the requesting window reports blocked.
+    db.onversionchange=({oldVersion,newVersion})=>{state.versionChange={oldVersion,newVersion};};
+    window.fixtureAttendanceHolder=state;
+    return {version:db.version,stores:Array.from(db.objectStoreNames)};
+  });
+
+  try{
+    await page.evaluate(()=>{
+      const state={blocked:null,upgrade:null,writeStaged:false,aborted:false,opened:false,error:null};
+      window.fixtureAttendanceUpgrade=state;
+      const request=indexedDB.open('academyos-owner-register-v1',2);
+      request.onblocked=({oldVersion,newVersion})=>{state.blocked={oldVersion,newVersion};};
+      request.onupgradeneeded=({oldVersion,newVersion})=>{
+        state.upgrade={oldVersion,newVersion};
+        const transaction=request.transaction;
+        transaction.onabort=()=>{state.aborted=true;};
+        const staged=request.result.createObjectStore('fixture-aborted-upgrade');
+        const write=staged.put('uncommitted','fixture-probe');
+        write.onsuccess=()=>{
+          state.writeStaged=true;
+          transaction.abort();
+        };
+      };
+      request.onsuccess=()=>{state.opened=true;request.result.close();};
+      request.onerror=()=>{state.error=request.error.name;};
+    });
+    await page.waitForFunction(()=>{
+      const state=window.fixtureAttendanceUpgrade;
+      return state.blocked||state.opened||state.error;
+    },undefined,{timeout:12000});
+    const blocked=await page.evaluate(()=>window.fixtureAttendanceUpgrade);
+    assert.deepEqual(blocked.blocked,expectedChange);
+    assert.equal(blocked.upgrade,null);
+    assert.equal(blocked.opened,false);
+    assert.equal(blocked.error,null);
+    const held=await holder.evaluate(async({namespace,op,event})=>{
+      const {db,versionChange}=window.fixtureAttendanceHolder;
+      const read=db.transaction('originals').objectStore('originals').get([namespace,op]);
+      const row=await new Promise((resolve,reject)=>{
+        read.onsuccess=()=>resolve(read.result);
+        read.onerror=()=>reject(read.error);
+      });
+      return {version:db.version,versionChange,activeOriginal:row?.active?.[0]===namespace&&row.active[1]===event};
+    },{namespace:original.namespace,op:original.op,event:original.event});
+    assert.deepEqual(held,{version:1,versionChange:expectedChange,activeOriginal:true});
+  }finally{
+    await holder.evaluate(()=>{
+      window.fixtureAttendanceHolder.db.close();
+      delete window.fixtureAttendanceHolder;
+    });
+  }
+
+  await page.waitForFunction(()=>{
+    const state=window.fixtureAttendanceUpgrade;
+    return state.error||state.opened;
+  },undefined,{timeout:12000});
+  const finished=await page.evaluate(()=>window.fixtureAttendanceUpgrade);
+  assert.deepEqual(finished,{blocked:expectedChange,upgrade:expectedChange,
+    writeStaged:true,aborted:true,opened:false,error:'AbortError'});
+  const after=await page.evaluate(async()=>{
+    const request=indexedDB.open('academyos-owner-register-v1');
+    const db=await new Promise((resolve,reject)=>{
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error);
+    });
+    try{return {version:db.version,stores:Array.from(db.objectStoreNames)};}
+    finally{db.close();}
+  });
+  assert.deepEqual(after,before,'The aborted transaction must leave the old version and stores intact');
+  return {before,after,blocked:finished.blocked,writeStaged:finished.writeStaged,
+    error:finished.error,activeOriginalReadableWhileBlocked:true};
+}
+
+export function refuseNextAttendanceCapture(page){
+  return page.evaluate(()=>{
+    const state={writeStaged:false,aborted:false,committed:false,op:null};
+    window.fixtureAttendanceCapture=state;
+    const add=IDBObjectStore.prototype.add;
+    IDBObjectStore.prototype.add=function(...args){
+      const request=add.apply(this,args);
+      if(this.name==='originals'&&this.transaction.db.name==='academyos-owner-register-v1'){
+        IDBObjectStore.prototype.add=add;
+        const transaction=this.transaction;
+        transaction.addEventListener('abort',()=>{state.aborted=true;},{once:true});
+        transaction.addEventListener('complete',()=>{state.committed=true;},{once:true});
+        request.addEventListener('success',()=>{
+          state.writeStaged=true;
+          state.op=request.result[1];
+          transaction.abort();
+        },{once:true});
+      }
+      return request;
+    };
+  });
+}

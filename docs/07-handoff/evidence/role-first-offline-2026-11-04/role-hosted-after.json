@@ -1,0 +1,359 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "checked_at_utc": "2026-11-04T14:08:30.113Z",
+  "operation": "f0e9ca53-7ecf-4c2b-aa83-47a496bfcf0b",
+  "sql_sha256": "1c36dffb1036b6321aefc2fb1fef05fdd7bb5ab23fc726b24a4b1f8bfef18a5e",
+  "operating_tables_unchanged": 55,
+  "total_operating_rows_unchanged": 401,
+  "prior_audit_preserved": true,
+  "audit": {
+    "prior_count": 129,
+    "prior_digest": "06e0994607154d36481c3f2a5ef68abb",
+    "new_count": 1,
+    "matching_audits": 1,
+    "max_id": 146
+  },
+  "memberships": [
+    {
+      "id": "889717c1-c317-4544-8aad-dfb48091c9e3",
+      "subject": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "role": "owner",
+      "status": "ended"
+    },
+    {
+      "id": "e9a0266f-78cb-4bf4-8e17-4e778b3f75ce",
+      "subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+      "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "role": "guardian",
+      "status": "ended"
+    },
+    {
+      "id": "4a78b81d-1ece-43c2-bcbd-580c114adfca",
+      "subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+      "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "role": "owner",
+      "status": "active"
+    },
+    {
+      "id": "bc3dcbd0-59b6-4a49-8fea-9f128ad7bcc0",
+      "subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+      "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "role": "trainer",
+      "status": "ended"
+    },
+    {
+      "id": "67b04312-8952-4ebe-bf59-a02f0b7d93ea",
+      "subject": "user_3L5mZMvNN95teSpCPM233gzC06S",
+      "academy_id": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+      "role": "owner",
+      "status": "active"
+    }
+  ],
+  "platform_grants": [
+    {
+      "subject": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "active": true
+    }
+  ],
+  "all_tables_after": [
+    {
+      "table_name": "academies",
+      "row_count": 2,
+      "digest": "2b211d877247ec00e9a838f95e402a3b"
+    },
+    {
+      "table_name": "attendance_history",
+      "row_count": 4,
+      "digest": "bde593080096ee81bde9dc1b67cc6d03"
+    },
+    {
+      "table_name": "attendance_marks",
+      "row_count": 2,
+      "digest": "2f37f95f28e667c16532141c0deb7347"
+    },
+    {
+      "table_name": "attendance_operations",
+      "row_count": 3,
+      "digest": "14aab76f41134aba3f8d5c2d4350ebb9"
+    },
+    {
+      "table_name": "branches",
+      "row_count": 2,
+      "digest": "5488d30330030fc9669b278ec7d0da0e"
+    },
+    {
+      "table_name": "correction_history",
+      "row_count": 2,
+      "digest": "fef280632bf63ad9db13747db64bbbfa"
+    },
+    {
+      "table_name": "correction_operations",
+      "row_count": 2,
+      "digest": "9bba2720f30d6686294caaf7ca27e15a"
+    },
+    {
+      "table_name": "correction_requests",
+      "row_count": 1,
+      "digest": "c7e6ed603e8e76d07136ff094acc83c6"
+    },
+    {
+      "table_name": "date_plans",
+      "row_count": 44,
+      "digest": "576bc41beea831714f0ab10d4c315dc1"
+    },
+    {
+      "table_name": "date_rosters",
+      "row_count": 43,
+      "digest": "e2131cfbd79a77bdece6a2242f108978"
+    },
+    {
+      "table_name": "development_access",
+      "row_count": 1,
+      "digest": "b9218e6e1a4589e7da38e37e4da74cc6"
+    },
+    {
+      "table_name": "development_assessments",
+      "row_count": 1,
+      "digest": "0e21a9bb356f6a6f8aa64db31df75467"
+    },
+    {
+      "table_name": "development_history",
+      "row_count": 6,
+      "digest": "bb5e1bc7280e424516a1017f203a048e"
+    },
+    {
+      "table_name": "development_operations",
+      "row_count": 6,
+      "digest": "30de0d0f4dc449403a329fbf93b3afbb"
+    },
+    {
+      "table_name": "development_publications",
+      "row_count": 1,
+      "digest": "45adc8253be11ff4524fefa10eaa3ea4"
+    },
+    {
+      "table_name": "development_submissions",
+      "row_count": 2,
+      "digest": "e5ddcb4e08b721a649f42f7396888048"
+    },
+    {
+      "table_name": "guardian_invitations",
+      "row_count": 1,
+      "digest": "d30b6479f51ab570d170c3b1ca3848be"
+    },
+    {
+      "table_name": "guardian_links",
+      "row_count": 1,
+      "digest": "c81242e03dd956832cf1444cf5b3aa23"
+    },
+    {
+      "table_name": "guardian_operations",
+      "row_count": 4,
+      "digest": "8748df10d5e67f3390e8bb8a0c67f5b0"
+    },
+    {
+      "table_name": "guardian_people",
+      "row_count": 1,
+      "digest": "13489c5f2d79b63113c8558243b14641"
+    },
+    {
+      "table_name": "guardian_training_access",
+      "row_count": 1,
+      "digest": "b9218e6e1a4589e7da38e37e4da74cc6"
+    },
+    {
+      "table_name": "identities",
+      "row_count": 2,
+      "digest": "aa0537ada1f1a79b70d8ce3bab637fb7"
+    },
+    {
+      "table_name": "initial_setup",
+      "row_count": 2,
+      "digest": "0d8e1fcbd3e5ff4b09fb69961fc8a1b2"
+    },
+    {
+      "table_name": "operations",
+      "row_count": 16,
+      "digest": "159b16b365b1081716311940530cdb5a"
+    },
+    {
+      "table_name": "owner_invitations",
+      "row_count": 2,
+      "digest": "73bfcc63607dadeeb99e2af5fe0b7b85"
+    },
+    {
+      "table_name": "people_operations",
+      "row_count": 6,
+      "digest": "a8c7e126354697daf5f510bb408f1804"
+    },
+    {
+      "table_name": "planning_operations",
+      "row_count": 7,
+      "digest": "81b223155b86fd8ed6211717c41469d5"
+    },
+    {
+      "table_name": "platform_grants",
+      "row_count": 1,
+      "digest": "a4828cc89d0c46ed1125d5e8487a6042"
+    },
+    {
+      "table_name": "player_name_revisions",
+      "row_count": 4,
+      "digest": "0f036854bcb56a2eb3254dea46fe8b09"
+    },
+    {
+      "table_name": "players",
+      "row_count": 4,
+      "digest": "e4e9741f83024c2d2aab2a596d445abb"
+    },
+    {
+      "table_name": "program_plan_operations",
+      "row_count": 4,
+      "digest": "a8cc468867329cacccf828629374b19b"
+    },
+    {
+      "table_name": "program_plan_players",
+      "row_count": 3,
+      "digest": "e5bf9bdfce95ed78bab7705a8bf9b18d"
+    },
+    {
+      "table_name": "program_plan_targets",
+      "row_count": 40,
+      "digest": "688b7cbc2ecb1ed05ef3c270b071445f"
+    },
+    {
+      "table_name": "program_plans",
+      "row_count": 1,
+      "digest": "ec2be67458b4a5064b3acca69311596d"
+    },
+    {
+      "table_name": "publication_events",
+      "row_count": 4,
+      "digest": "8691a548eb16c21ef138f0817b0f4354"
+    },
+    {
+      "table_name": "publication_heads",
+      "row_count": 3,
+      "digest": "b8af31d8e7364a3c7d035266d8e6cd7f"
+    },
+    {
+      "table_name": "publication_jobs",
+      "row_count": 5,
+      "digest": "9626f79a04ba64eda1e1a27b11d32740"
+    },
+    {
+      "table_name": "publication_operations",
+      "row_count": 15,
+      "digest": "829b9727df90b226404eb67838a74008"
+    },
+    {
+      "table_name": "publication_rosters",
+      "row_count": 3,
+      "digest": "682c684ff5388a2c9dc34efb0d69a037"
+    },
+    {
+      "table_name": "publication_targets",
+      "row_count": 44,
+      "digest": "1ed8aeeeed93937511864389aab4e53f"
+    },
+    {
+      "table_name": "qr_card_heads",
+      "row_count": 2,
+      "digest": "42c2833e91ebc52e6afed78384ad4a0e"
+    },
+    {
+      "table_name": "qr_cards",
+      "row_count": 4,
+      "digest": "82446059c829def9cfb82021471b0e45"
+    },
+    {
+      "table_name": "qr_operations",
+      "row_count": 11,
+      "digest": "29d12a775757782b6738d96c936f9108"
+    },
+    {
+      "table_name": "qr_window_overrides",
+      "row_count": 0,
+      "digest": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table_name": "qr_window_settings",
+      "row_count": 1,
+      "digest": "34ffbf1604485e92c7a740455e6acd32"
+    },
+    {
+      "table_name": "session_change_operations",
+      "row_count": 2,
+      "digest": "3e11c033be301615fe2d708752caf235"
+    },
+    {
+      "table_name": "session_changes",
+      "row_count": 2,
+      "digest": "d6ab992276eecf35e850ef67e60211e1"
+    },
+    {
+      "table_name": "sports",
+      "row_count": 2,
+      "digest": "451a0d713db7f67cc1a092b0bd0681ac"
+    },
+    {
+      "table_name": "trainer_assignments",
+      "row_count": 1,
+      "digest": "d374a8824f38896a2c05e375f7575121"
+    },
+    {
+      "table_name": "trainer_invitations",
+      "row_count": 1,
+      "digest": "d4b567e5dd2b97d658d8c01a9f968f6d"
+    },
+    {
+      "table_name": "trainer_operations",
+      "row_count": 6,
+      "digest": "07c343b7360710bc6c4a9e2c712059bb"
+    },
+    {
+      "table_name": "trainer_people",
+      "row_count": 1,
+      "digest": "2112faa1dddf835b07ad3d1737509749"
+    },
+    {
+      "table_name": "training_dates",
+      "row_count": 62,
+      "digest": "78e42fb35763c3ebabea0a168472b050"
+    },
+    {
+      "table_name": "training_operations",
+      "row_count": 5,
+      "digest": "ad5e7d0c54f0765858e9ead0065eb2cc"
+    },
+    {
+      "table_name": "training_programs",
+      "row_count": 5,
+      "digest": "0bad3d7d9b376f7dcf34c3bd32fa8d67"
+    }
+  ],
+  "browser_verification": {
+    "gmail": {
+      "browser": "IAB original tab1",
+      "chooser": "Platform only; no active academy membership",
+      "platform": "2 admitted synthetic academies loaded",
+      "academy_a": "Access is no longer available; no tenant data",
+      "academy_b": "Access is no longer available; no tenant data"
+    },
+    "icloud": {
+      "browser": "Separate Safari Personal window; Owner completed normal sign-in",
+      "account_menu": "moamen_ghareeb@icloud.com",
+      "chooser": "Owner A and B only; no Platform link",
+      "academy_a": "Academy operations loaded after transfer",
+      "academy_b": "Academy operations loaded after transfer",
+      "platform": "Access unavailable; no admission data"
+    },
+    "limits": [
+      "Denied direct routes may retain route-derived role labels/navigation; these grant no authority.",
+      "Other native profiles were not exhaustively audited for pending journals.",
+      "Consolidated Owner acceptance and independent review are not inferred."
+    ],
+    "recorded_at_utc": "2026-11-04T14:34:28.567222+00:00"
+  }
+}

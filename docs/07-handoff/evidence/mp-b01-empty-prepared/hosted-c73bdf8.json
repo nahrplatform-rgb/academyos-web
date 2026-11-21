@@ -1,0 +1,83 @@
+{
+  "observed_at": "2026-11-08T20:25:24.663791+00:00",
+  "owner_report": "Promoted c73bdf8,8November2026;report is separate from working acceptance",
+  "source": {
+    "commit": "c73bdf89af2a1884afd284a9f4f544039947436a",
+    "deployment": "dpl_3YgnA6GxGrCGuacVPtcPkLnNx12E",
+    "url": "https://academyos-mhl6ww5di-academy-os2.vercel.app",
+    "host": "staging.academy.nahr.dev",
+    "state": "READY",
+    "provider_target": "production",
+    "target_meaning": "Existing Vercel live alias for the synthetic staging domain;not a real-data launch",
+    "verification": "read-only authenticated deployment lookup after Owner report"
+  },
+  "browser": {
+    "profile": "Hiếu",
+    "role": "Academy Owner",
+    "academy": "AcademyOS M1 Synthetic Academy",
+    "route": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+    "viewport_css_width": 1971,
+    "arabic_document_width": 1971,
+    "arabic_scroll_width": 1971,
+    "arabic_lang": "ar",
+    "arabic_direction": "rtl",
+    "device_override": false
+  },
+  "checks": [
+    {
+      "case": "Explicit reload of promoted build",
+      "result": "Four existing fictional player rows and current branch appeared after initial loading"
+    },
+    {
+      "case": "English saved profile",
+      "result": "Synthetic Registration Demo and its fictional contact appeared;one observed operating API request for opening this profile"
+    },
+    {
+      "case": "Back followed by one-character search",
+      "result": "S retained with minimum-length instruction and branch context;zero operating API requests in this narrow combined sequence"
+    },
+    {
+      "case": "Arabic switch and clear search",
+      "result": "S retained across locale switch;clearing restored the four-player list"
+    },
+    {
+      "case": "Arabic saved profile and English return",
+      "result": "Same profile and contact;Arabic lang/rtl confirmed;English switch retained selection"
+    },
+    {
+      "case": "Device menu",
+      "result": "Use this personal device offered;preparation was not enabled or reset for this check"
+    }
+  ],
+  "request_observation": {
+    "receipt": "hosted-c73bdf8-network.json",
+    "operating_api_requests_after_initial_settle": 3,
+    "successful_operating_responses": 3,
+    "document_requests_after_initial_settle": 0,
+    "coverage": "Device menu,EN profile,Back+short search,AR switch,clear,AR profile,EN switch;initial reload excluded",
+    "boundaries": "No headers,bodies,credentials or private browser storage retained;not a server SQL/query count,cost model or latency percentile"
+  },
+  "remaining_observation": "Opening the online profile briefly replaces the directory rows with a loading state;this broader continuity issue remains assigned to the next MP-B01 action.",
+  "changes": {
+    "domain_writes": false,
+    "registration_submitted": false,
+    "access_or_account_changes": false,
+    "private_device_preparation": false,
+    "cleared_storage": false,
+    "agent_promotion": false,
+    "browser_network_observation_disabled_after_check": true,
+    "older_attendance_tab_untouched": true
+  },
+  "captures": {
+    "english": "hosted-c73bdf8-en.png",
+    "arabic": "hosted-c73bdf8-ar.png",
+    "english_snapshot": "hosted-c73bdf8-en.txt",
+    "arabic_snapshot": "hosted-c73bdf8-ar.txt"
+  },
+  "limits": [
+    "Prepared-empty/changed-page/replacement-race cases remain local and CI evidence;not hosted fault reproductions.",
+    "No new registration,401/403,provider expiry,unknown operation,offline,installed,phone,200percent zoom or latency-percentile test in this hosted check.",
+    "The older hosted NR07 cause remains undiagnosed;this does not close MP-B01,the redesign or the whole app loading finding.",
+    "Owner reported promotion;new working-feature acceptance and independent security review are separate."
+  ]
+}

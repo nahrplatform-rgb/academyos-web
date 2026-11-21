@@ -1,0 +1,26 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "name": "academyos-staging",
+  "database_version": "17.11.0.003",
+  "migration": "20261102120000_owner_current_calendar.sql",
+  "apply_success": true,
+  "tables_fingerprinted": 57,
+  "secret_table_excluded": true,
+  "before_fingerprint": "fb396f3ba51b892f7c379e3ec55b084b",
+  "after_fingerprint": "fb396f3ba51b892f7c379e3ec55b084b",
+  "rows_unchanged": true,
+  "anon_execute": false,
+  "authenticated_execute": true,
+  "signed_target_present": true,
+  "function_settings": [
+    "empty search_path",
+    "statement_timeout=3s",
+    "lock_timeout=2s"
+  ],
+  "backup_workflow_run": 41446372192,
+  "restored_plaintext_removed": true,
+  "scope": "Schema/metadata and row-hash check; not hosted authorized app proof",
+  "canonical_migration": "20261102124518_owner_current_calendar.sql",
+  "provider_migration_version": "20261102124518",
+  "migration_sql_sha256": "6702ba48a13982bae37c771de8861572b51469603dd117a4385d8006748ac750"
+}

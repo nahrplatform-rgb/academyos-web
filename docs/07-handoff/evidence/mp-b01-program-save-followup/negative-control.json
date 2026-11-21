@@ -1,0 +1,450 @@
+{
+  "status": "passed",
+  "reactMode": "production",
+  "saveFollowup": {
+    "baseline": true,
+    "cases": [
+      {
+        "locale": "en",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "list"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "f0bf4a1f-7e0b-484a-9f06-839ff1259854",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "2f8e7aed-6756-4aba-b678-2825b79fa182",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": false,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": true
+        },
+        "recoveryBlocked": true,
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "change",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "version": 7,
+            "act": "activate",
+            "op": "78680ed1-4a1f-45ed-bb82-79dcb83689de",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "reconcile",
+            "op": "78680ed1-4a1f-45ed-bb82-79dcb83689de",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      },
+      {
+        "locale": "en",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "c7f466be-b4cc-4ab0-ab5e-4b40b8c6d0dc",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "outcome": "context_failure",
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "change",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "version": 7,
+            "act": "activate",
+            "op": "c25920c7-5dcf-4d1d-a594-8046d115fcf1",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "reconcile",
+            "op": "c25920c7-5dcf-4d1d-a594-8046d115fcf1",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      },
+      {
+        "locale": "ar",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "list"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "60093855-6138-45fa-aca5-4847c9c3c6d8",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "36d222a4-c9fa-4ae6-968a-63ef16f4cebd",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": false,
+          "contradictoryPrivateStatus": false,
+          "unknownAfterConfirmation": true
+        },
+        "recoveryBlocked": true,
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "change",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "version": 7,
+            "act": "activate",
+            "op": "38524caa-b6f2-497e-a375-72b2a1837d22",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "reconcile",
+            "op": "38524caa-b6f2-497e-a375-72b2a1837d22",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      },
+      {
+        "locale": "ar",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "contradictoryPrivateStatus": true,
+          "unknownAfterConfirmation": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000019",
+        "original": "d058def1-e235-4717-9a71-d209bb990832",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "outcome": "context_failure",
+        "calls": [
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "list",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "read",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "after_day": null,
+            "weekday": null,
+            "after_player": null,
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "change",
+            "job": "00000000-0000-4000-8000-000000000019",
+            "version": 7,
+            "act": "activate",
+            "op": "c429a149-3373-47a5-84f9-d6430b188eed",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "reconcile",
+            "op": "c429a149-3373-47a5-84f9-d6430b188eed",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          },
+          {
+            "action": "context",
+            "program": "00000000-0000-4000-8000-000000000002",
+            "academy": "00000000-0000-4000-8000-000000000001"
+          }
+        ],
+        "writes": 1
+      }
+    ],
+    "gaps": [
+      {
+        "locale": "en",
+        "outcome": "success",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "en",
+        "outcome": "read_failure",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "en",
+        "outcome": "lost_reply",
+        "phase": "held-read",
+        "confirmedNotice": false,
+        "contradictoryPrivateStatus": false,
+        "unknownAfterConfirmation": true
+      },
+      {
+        "locale": "en",
+        "outcome": "lost_reply",
+        "phase": "failed-read",
+        "kind": "confirmed-recovery-still-unknown-no-read-action"
+      },
+      {
+        "locale": "en",
+        "outcome": "denied_read",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "en",
+        "outcome": "context_failure",
+        "phase": "failed-context",
+        "confirmedNotice": false,
+        "readRecoveryAvailable": false
+      },
+      {
+        "locale": "ar",
+        "outcome": "success",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "ar",
+        "outcome": "read_failure",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "ar",
+        "outcome": "lost_reply",
+        "phase": "held-read",
+        "confirmedNotice": false,
+        "contradictoryPrivateStatus": false,
+        "unknownAfterConfirmation": true
+      },
+      {
+        "locale": "ar",
+        "outcome": "lost_reply",
+        "phase": "failed-read",
+        "kind": "confirmed-recovery-still-unknown-no-read-action"
+      },
+      {
+        "locale": "ar",
+        "outcome": "denied_read",
+        "phase": "held-read",
+        "confirmedNotice": true,
+        "contradictoryPrivateStatus": true,
+        "unknownAfterConfirmation": false
+      },
+      {
+        "locale": "ar",
+        "outcome": "context_failure",
+        "phase": "failed-context",
+        "confirmedNotice": false,
+        "readRecoveryAvailable": false
+      }
+    ],
+    "scope": "actual React component; fictional 40-date reviewed job and HTTP responses; no hosted/SQL activation proof"
+  },
+  "visibleOnlyReads": 1,
+  "pairedResumeReads": 1,
+  "dirtyResumeReads": 0,
+  "scope": "Actual product React; synthetic identity/HTTP adapters, not SQL or hosted proof",
+  "cases": [
+    "StrictMode coalesced bootstrap",
+    "directory failure does not hide new proposal",
+    "preserved plan current capacity",
+    "shared and weekday capacity/Trainer choices retained",
+    "40 distinct dates with bounded25/15 inspection",
+    "central task and authoritative sequential checks",
+    "pause after current check and resume",
+    "lost preparation reply stops until reconciliation",
+    "stale and blocked checks never activate",
+    "private roster edits invalidate preparation",
+    "all-or-none overlap denial",
+    "committed lost reply/reload recovery",
+    "uncommitted fence and deliberate retry",
+    "confirmed activation/read failure retries read",
+    "EN/AR320/360/926/1440",
+    "focus revocation clears data and actor remount"
+  ],
+  "activations": 5,
+  "errors": []
+}

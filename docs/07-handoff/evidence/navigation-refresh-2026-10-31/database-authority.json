@@ -1,0 +1,544 @@
+[
+  {
+    "jsonb_build_object": {
+      "rls": [
+        {
+          "relname": "academies",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "attendance_history",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "attendance_marks",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "attendance_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "audit_events",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "branches",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "correction_history",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "correction_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "correction_requests",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "date_plans",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "date_rosters",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_access",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_assessments",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_history",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_publications",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "development_submissions",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "guardian_invitations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "guardian_links",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "guardian_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "guardian_people",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "guardian_training_access",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "identities",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "initial_setup",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "m1_secrets",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "memberships",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "owner_invitations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "people_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "planning_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "platform_grants",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "player_name_revisions",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "players",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "program_plan_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "program_plan_players",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "program_plan_targets",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "program_plans",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_events",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_heads",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_jobs",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_rosters",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "publication_targets",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "qr_card_heads",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "qr_cards",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "qr_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "qr_window_overrides",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "qr_window_settings",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "session_change_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "session_changes",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "sports",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "trainer_assignments",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "trainer_invitations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "trainer_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "trainer_people",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "training_dates",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "training_operations",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        },
+        {
+          "relname": "training_programs",
+          "relrowsecurity": true,
+          "relforcerowsecurity": false,
+          "authenticated_select": false
+        }
+      ],
+      "rpc_counts": [
+        {
+          "rpc": "p5_list_v1",
+          "calls": 111,
+          "mean_ms": 28.496,
+          "total_ms": 3163.03
+        },
+        {
+          "rpc": "x15_owner_home_v1",
+          "calls": 58,
+          "mean_ms": 66.918,
+          "total_ms": 3881.23
+        },
+        {
+          "rpc": "x15_owner_calendar_v1",
+          "calls": 58,
+          "mean_ms": 27.076,
+          "total_ms": 1570.41
+        },
+        {
+          "rpc": "p5_read_v1",
+          "calls": 57,
+          "mean_ms": 18.655,
+          "total_ms": 1063.31
+        },
+        {
+          "rpc": "p5_dates_v1",
+          "calls": 39,
+          "mean_ms": 12.386,
+          "total_ms": 483.04
+        },
+        {
+          "rpc": "p5_step_v1",
+          "calls": 19,
+          "mean_ms": 6.779,
+          "total_ms": 128.8
+        },
+        {
+          "rpc": "e14_queue_v1",
+          "calls": 18,
+          "mean_ms": 7.669,
+          "total_ms": 138.05
+        },
+        {
+          "rpc": "e14_detail_v1",
+          "calls": 18,
+          "mean_ms": 41.699,
+          "total_ms": 750.58
+        },
+        {
+          "rpc": "p5_preview_v1",
+          "calls": 16,
+          "mean_ms": 17.961,
+          "total_ms": 287.37
+        },
+        {
+          "rpc": "e14_context_v1",
+          "calls": 13,
+          "mean_ms": 11.066,
+          "total_ms": 143.86
+        },
+        {
+          "rpc": "b11_links_v1",
+          "calls": 12,
+          "mean_ms": 45.59,
+          "total_ms": 547.08
+        },
+        {
+          "rpc": "e14_links_v1",
+          "calls": 6,
+          "mean_ms": 10.926,
+          "total_ms": 65.55
+        },
+        {
+          "rpc": "e14_roster_v1",
+          "calls": 6,
+          "mean_ms": 4.059,
+          "total_ms": 24.35
+        },
+        {
+          "rpc": "e14_command_v1",
+          "calls": 6,
+          "mean_ms": 31.786,
+          "total_ms": 190.71
+        },
+        {
+          "rpc": "p5_create_v1",
+          "calls": 5,
+          "mean_ms": 30.521,
+          "total_ms": 152.61
+        },
+        {
+          "rpc": "e14_family_list_v1",
+          "calls": 2,
+          "mean_ms": 4.435,
+          "total_ms": 8.87
+        },
+        {
+          "rpc": "b11_detail_v1",
+          "calls": 2,
+          "mean_ms": 3.553,
+          "total_ms": 7.11
+        },
+        {
+          "rpc": "e14_sessions_v1",
+          "calls": 2,
+          "mean_ms": 21.205,
+          "total_ms": 42.41
+        },
+        {
+          "rpc": "b11_schedule_v1",
+          "calls": 2,
+          "mean_ms": 22.516,
+          "total_ms": 45.03
+        },
+        {
+          "rpc": "e14_history_v1",
+          "calls": 2,
+          "mean_ms": 7.096,
+          "total_ms": 14.19
+        },
+        {
+          "rpc": "e14_links_v1",
+          "calls": 1,
+          "mean_ms": 0.283,
+          "total_ms": 0.28
+        },
+        {
+          "rpc": "b11_links_v1",
+          "calls": 1,
+          "mean_ms": 1.183,
+          "total_ms": 1.18
+        },
+        {
+          "rpc": "b11_detail_v1",
+          "calls": 1,
+          "mean_ms": 1.61,
+          "total_ms": 1.61
+        },
+        {
+          "rpc": "e14_target",
+          "calls": 1,
+          "mean_ms": 0.307,
+          "total_ms": 0.31
+        },
+        {
+          "rpc": "p5_create_v1",
+          "calls": 1,
+          "mean_ms": 0.717,
+          "total_ms": 0.72
+        },
+        {
+          "rpc": "p5_read_v1",
+          "calls": 1,
+          "mean_ms": 0.276,
+          "total_ms": 0.28
+        },
+        {
+          "rpc": "e14_command_v1",
+          "calls": 1,
+          "mean_ms": 5.831,
+          "total_ms": 5.83
+        },
+        {
+          "rpc": "s8_create_v1",
+          "calls": 1,
+          "mean_ms": 2.584,
+          "total_ms": 2.58
+        },
+        {
+          "rpc": "p5_dates_v1",
+          "calls": 1,
+          "mean_ms": 0.989,
+          "total_ms": 0.99
+        },
+        {
+          "rpc": "p5_list_v1",
+          "calls": 1,
+          "mean_ms": 0.502,
+          "total_ms": 0.5
+        }
+      ],
+      "publication": [
+        {
+          "pubname": "supabase_realtime",
+          "puballtables": false
+        }
+      ]
+    }
+  }
+]

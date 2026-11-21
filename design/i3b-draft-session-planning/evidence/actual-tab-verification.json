@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-27",
+  "scope": "Actual IAB local preview only; not product integration or persistence proof",
+  "url": "http://127.0.0.1:3209/",
+  "observed": [
+    "final version reloaded in actual tab",
+    "selected first Football date and opened editor",
+    "capacity2, Jordan Demo, Taylor Demo reflected in current/new review",
+    "save remains disabled until dated review acknowledgement",
+    "final screenshot saved and preview left at review"
+  ],
+  "screenshot": "actual-tab-review.png",
+  "limitations": [
+    "actual tab left unsaved for Owner review; compiled isolated browser suite separately exercises save/reopen and exceptions",
+    "reload resets this simulation; no API/database/grants/provider/deployment change"
+  ]
+}

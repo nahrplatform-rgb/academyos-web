@@ -1,0 +1,9 @@
+{
+  "apps/web/src/components/guardian-training-workspace.tsx": "2cee99ec40a01b26a91ed90f5784e9b006540563d85dc1e34fa3420d1e7be29b",
+  "apps/web/src/components/guardian-workspace.tsx": "f14546be54f207c1bddba58a5afb9b583b73fb0236b47f480af43f16567a18dd",
+  "apps/web/src/lib/guardian-training.ts": "06961c449151e16d85553bd84597f6a9b1a67d2839fc67e668447581448ef122",
+  "apps/web/src/lib/onboarding-gateway.ts": "775a1cc70e3d735a3d07eea40ca95339e93b2876662b07748b2b146af61b224b",
+  "apps/web/src/app/api/guardian-training/route.ts": "9f49c1b07da6c9de4cd45be1e7e7c6c8b7838df9c40ec4fe813e0f03e3eb5e9f",
+  "apps/web/src/app/globals.css": "f056cf1674b2cb936f74ddc288f6b0717da940ce1e1b5c60aff3c186cb42e052",
+  "supabase/migrations/20261028122658_i4b_guardian_training.sql": "57844b4f1c61b55713b5996404dae38202d1a58494c3a0e9049f280410af8441"
+}

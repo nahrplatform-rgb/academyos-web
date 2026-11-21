@@ -1,0 +1,33 @@
+
+> academyos@0.1.0 test:e2e
+> npm run test:e2e --workspace @academyos/web
+
+
+> @academyos/web@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:47221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:47231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/foundation.spec.ts:2:5 › English and Arabic starter pages truthfully show pending setup (413ms)
+  ✓   2 tests/foundation.spec.ts:19:5 › phone layout does not overflow (120ms)
+  ✓   3 tests/foundation.spec.ts:30:5 › unconfigured workspace fails closed and health is process only (72ms)
+  ✓   4 tests/foundation.spec.ts:46:5 › onboarding fails closed without identity and rejects forged callbacks (23ms)
+  ✓   5 tests/foundation.spec.ts:61:5 › Clerk email callback denies unsigned requests without exposing payload or caching (7ms)
+  ✓   6 tests/foundation.spec.ts:68:5 › guardian entry fails closed and unsigned delivery cannot send (13ms)
+  ✓   7 tests/foundation.spec.ts:78:5 › trainer entry fails closed and unsigned delivery cannot send (15ms)
+  ✓   8 tests/foundation.spec.ts:88:5 › draft program entry denies untrusted requests and an unconfigured page fails closed (6ms)
+  ✓   9 tests/foundation.spec.ts:96:5 › private dated planning rejects an untrusted caller and unconfigured access fails closed (9ms)
+  ✓  10 tests/foundation.spec.ts:102:5 › atomic program planning denies untrusted entry and unconfigured protected access (7ms)
+  ✓  11 tests/foundation.spec.ts:109:5 › publication and Trainer schedule reject untrusted entry and unconfigured access (11ms)
+  ✓  12 tests/foundation.spec.ts:115:5 › session changes deny untrusted writes and unconfigured protected entry (6ms)
+  ✓  13 tests/foundation.spec.ts:121:6 › attendance denies untrusted capture and unconfigured protected register (7ms)
+  ✓  14 tests/foundation.spec.ts:127:5 › Guardian training denies untrusted reads and unconfigured protected entry (8ms)
+  ✓  15 tests/foundation.spec.ts:133:5 › correction requests deny untrusted writes and unconfigured protected queue (5ms)
+  ✓  16 tests/foundation.spec.ts:139:5 › QR capture and card/settings routes deny untrusted or unconfigured entry (8ms)
+
+  16 passed (2.0s)

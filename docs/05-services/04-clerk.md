@@ -1,5 +1,9 @@
 # Clerk identity configuration runbook
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Keep current identity/session and explicit local unlock separate; no browser session token in the dataset or as its encryption key. Current server calls still authorize each operation. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).
+
 Selected identity provider. PostgreSQL remains the authority for academy roles and relationships. Status: setup not executed. Dependencies: approved domain/environment topology, D-002 signup and D-004 player-account policy.
 
 ## Applications and authentication policy

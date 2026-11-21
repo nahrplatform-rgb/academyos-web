@@ -1,0 +1,17 @@
+{
+  "recordedAtUTC": "2026-11-03T10:12:31.456984+00:00",
+  "ownerReply": "i dont want to create a confusion for users , it does not need for them to have passkey setup, it is confusing , the login cereditials usermail and password are sufficent , as he will use it on his own device, if his device dont support the passkey , so we dont need to make a confusion or make the process hard , so what you think ?",
+  "direction": "Ordinary AcademyOS email/password sign-in; no mandatory passkey enrollment or separate local secret for the normal personal-device journey",
+  "supersedes": "Mandatory device/passkey reopening recommendation; earlier research choice and successful diagnostic retained as history",
+  "notInferred": [
+    "Storing or deriving encryption keys from login credentials",
+    "Plaintext private storage or weaker same-account recovery",
+    "New credential,privileged access,private enablement,security approval or deployment promotion"
+  ],
+  "acceptedRulesPreserved": [
+    "No inactivity lock or24hour local-read cutoff",
+    "30day/logout read-replica cleanup",
+    "Separately protected same-account pending recovery",
+    "Atomic original-ID register sync under current server checks"
+  ]
+}

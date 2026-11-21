@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-23",
+  "layer": "Node VM model/template checks; no browser layout or provider proof",
+  "passed": 21,
+  "checks": [
+    "All domain routes generate EN and AR without exceptions",
+    "Publication blocked before submitted review and explicit audience confirmation",
+    "Family evaluation excludes private note and retains immutable publication during revision",
+    "Bill/receipt reject invalid units, over-allocation and missing review",
+    "Lost financial response preserves original receipt, allocation and unapplied units",
+    "Compensation exception blocks review; approval does not invent earned/paid amount",
+    "Scheduled plan differs from effective; claim needs staged proof and review",
+    "Recipient review creates distinct accepted/suppressed/disabled/unknown results",
+    "Partial media retry affects only failed item and expired-access recovery is explicit",
+    "Customer support projection excludes internal notes and write controls",
+    "Inventory transfer is paired and insufficient stock changes neither location",
+    "Export retains frozen scope through partial progress and failed-job retry",
+    "Privacy hold and missing subsystem evidence prevent case closure",
+    "Service inspection follows selected row; collector failure never becomes provider outage",
+    "Incident proposal and recovery require evidence and explicit review",
+    "Identity context requires ready identity; suspension clears selection",
+    "Staff changes are reviewed fixtures; no sole-owner transfer endpoint",
+    "Session change requires consequence preview and preserves history",
+    "Every generic domain state generates both languages without private projection",
+    "Import preserves per-row reconciliation and does not create duplicate rows on replay",
+    "Offline and native pages stay explicitly unavailable/later concepts"
+  ],
+  "rendered": "Pending: local browser unavailable",
+  "owner_approval": "Pending"
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>AcademyOS — Owner design studio</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./studio.css">
+  <link rel="stylesheet" href="./picker.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to workspace</a>
+  <div id="app"></div>
+  <nav class="proto-picker" aria-label="Prototype variants">
+    <span class="proto-picker-highlight" aria-hidden="true"></span>
+    <button class="proto-picker-item" data-active aria-current="true">Briefing</button>
+    <button class="proto-picker-item">Operations</button>
+  </nav>
+  <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+  <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

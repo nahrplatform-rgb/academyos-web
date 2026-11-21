@@ -1,0 +1,23 @@
+{
+  "scope": "Actual disposable PG17; 40-date program and1001-player roster; 50 warm samples each; save rollback; excludes HTTP/identity/provider/hosted/device/WAL/cost proof",
+  "roster": 1001,
+  "response_bytes": 2649,
+  "metrics": {
+    "read": {
+      "samples": 50,
+      "p95_ms": 0.7288499999999999,
+      "max_ms": 9.077
+    },
+    "review": {
+      "samples": 50,
+      "p95_ms": 161.5231,
+      "max_ms": 170.587
+    },
+    "save_rolled_back": {
+      "samples": 50,
+      "p95_ms": 163.42515,
+      "max_ms": 173.415
+    }
+  },
+  "target_300ms_met": true
+}

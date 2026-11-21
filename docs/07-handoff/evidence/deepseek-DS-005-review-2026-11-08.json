@@ -1,0 +1,54 @@
+{
+  "task": "DS-005",
+  "status": "reviewed_corrected",
+  "external_baseline_sha256": "12c756d371c9018ff92cfb4ae255c9d34031b54e8e18052e3aa92179e10b6181",
+  "reviewed_module_sha256": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
+  "helper_report_sha256": "277b80b2a0c2936d53b156040995c5958c19059e02c109d4a828e5e58d713df4",
+  "coordinator_integration": [
+    "scripts/workspace-download/bridge.py",
+    "scripts/workspace-download/test_transport.mjs"
+  ],
+  "checks": {
+    "syntax": true,
+    "two_observations_integrated": true,
+    "real_signed_disposable_boundary": true,
+    "independent_academy_total_revision": true
+  },
+  "observed": {
+    "scenario": "online empty-directory first registration",
+    "initial": {
+      "totalPlayers": 0,
+      "peopleRevision": "10"
+    },
+    "final": {
+      "totalPlayers": 1,
+      "peopleRevision": "11"
+    },
+    "peopleActions": [
+      "list",
+      "candidates",
+      "create",
+      "profile",
+      "list"
+    ],
+    "originalIdForwarded": true,
+    "rpcCounts": {
+      "i2_people_v1": 2,
+      "i2_candidates_v1": 1,
+      "i2_profile_v1": 1,
+      "i2_register_v1": 1,
+      "i2_operation_v1": 0
+    },
+    "registrationSnapshot": {
+      "operations": 1,
+      "audits": 1,
+      "players": 1,
+      "result": {
+        "version": 1,
+        "player_id": "2df4c9a2-d33d-4f41-8e6a-3b0225824b72"
+      }
+    }
+  },
+  "evidence": "docs/07-handoff/mp-b01-people-auth-empty-registration-2026-11-08.md",
+  "acceptance": "scoped local test;not hosted,parent finding complete or Owner acceptance"
+}

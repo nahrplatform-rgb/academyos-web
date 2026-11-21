@@ -1,0 +1,45 @@
+{
+  "scope": "temporary actual-component diagnostic; synthetic identity/read transport, 250ms artificial response delay; events dispatched rather than real OS lifecycle; not hosted performance",
+  "results": [
+    {
+      "case": "focus-selected-calendar",
+      "repeat": 1,
+      "during": {
+        "rows": 0,
+        "selectedTask": 0
+      },
+      "readStarts": 1,
+      "selectedAfter": 0
+    },
+    {
+      "case": "same-task-focus-visible",
+      "repeat": 1,
+      "readStarts": 1
+    },
+    {
+      "case": "separated-focus-visible-40ms",
+      "repeat": 1,
+      "readStarts": 2
+    },
+    {
+      "case": "focus-selected-calendar",
+      "repeat": 2,
+      "during": {
+        "rows": 0,
+        "selectedTask": 0
+      },
+      "readStarts": 1,
+      "selectedAfter": 0
+    },
+    {
+      "case": "same-task-focus-visible",
+      "repeat": 2,
+      "readStarts": 1
+    },
+    {
+      "case": "separated-focus-visible-40ms",
+      "repeat": 2,
+      "readStarts": 2
+    }
+  ]
+}

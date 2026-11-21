@@ -1,0 +1,4 @@
+{"role":"manager","writeStatuses":[403],"readStatuses":[403],"writeFormCleared":true,"readProjectionCleared":true}
+{"role":"trainer","writeStatuses":[403],"readStatuses":[403],"writeFormCleared":true,"readProjectionCleared":true}
+{"role":"guardian","writeStatuses":[403],"readStatuses":[403],"writeFormCleared":true,"readProjectionCleared":true}
+{"role":"player","writeStatuses":[403],"readStatuses":[403],"writeFormCleared":true,"readProjectionCleared":true}

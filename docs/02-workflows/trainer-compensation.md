@@ -1,5 +1,9 @@
 # Trainer contracts, earned compensation and payment runs
 
+## Current planning integration —7 November 2026
+
+The [canonical master plan v2](../06-delivery/master-plan-v2/README.md) and [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) govern current delivery. Preserve canonical earning/approval/payout/history outcomes and exact authority. Do not import PYSA formulas or add review at every intermediate state. The effective contract, required preparation/approval separation, recoverable original and explained statement remain; specific rate/delegation choices are still decisions.
+
 Requirements: AO-063–072. D-008 must settle formulas and contract policy; D-007 settles approvals. This is an operational compensation ledger, not an assumption that AcademyOS replaces statutory payroll or accounting.
 
 ## Contract model

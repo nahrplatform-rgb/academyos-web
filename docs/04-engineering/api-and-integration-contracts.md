@@ -1,5 +1,9 @@
 # API and integration contracts
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Add a proposed, not deployed, local-data contract family: scoped manifest; snapshot-bound cursor pages; versioned changes/removals; atomic client watermark apply. Exact family/action choices and migration history are gated by [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md). Current exact-action POST APIs/gateway/no-store/bounds remain canonical until versioned replacements are reviewed. Existing lists are insufficient proof of coherent replication or deletion propagation.
+
 This is a proposed contract catalog, not a deployed API or generated OpenAPI file. Foundation work produces the machine-readable specification and validates request/response schemas against it. Requirements: AO-149–160 plus each domain band.
 
 ## Common request and response rules

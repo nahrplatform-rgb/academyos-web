@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.'\n+ ]\n- []\n",
+  "fixture": "/var/folders/pg/dj4sr3bn5yx7gy5kk39gp03w0000gn/T/academyos-next-routing-AEVeLq"
+}

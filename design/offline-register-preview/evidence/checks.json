@@ -1,0 +1,292 @@
+{
+  "date": "2026-11-02T23:55:05.590Z",
+  "scope": "Fictional local-storage and server simulation; no private runtime/security/hosted/physical proof",
+  "browserPath": "Browser plugin not available; regular isolated Playwright QA",
+  "htmlSha256": "9029c93d69d8a7f261ab67bae4a79c8c029e68d298fc018d4d2710f193a18fe9",
+  "sourceHashes": {
+    "src/index.html": "9900cae6ee6452184d26400adf5fe1e7e755369044ff2e5b47ffcc71cdca8a9e",
+    "src/style.css": "72685af8c770729fbe07ade074fd0b7e5b609dec5033a9f347eda6e248330192",
+    "src/repository.mjs": "0f582756c9f5b09cabaa07a4f8086119b3bf1baf551dd6ee24a910c0250710cd",
+    "src/fixtures.mjs": "170df1a3e54f64dec60ae96085b659f5bbd5fc0e1013da33b8c3f6d9145c73a0",
+    "src/app.mjs": "3594f5e99400bb43bb72a929ccabeed34b9acd1fa928beb7aafd43700f3751a4"
+  },
+  "checks": [
+    {
+      "name": "Page identity, meaningful 18-player roster and explicit fictional/security boundaries",
+      "status": "passed"
+    },
+    {
+      "name": "Unsaved choices are distinct from durable work; dirty navigation and Escape preserve choices/focus",
+      "status": "passed"
+    },
+    {
+      "name": "Real IndexedDB abort rolls back both intent and local projection; choices remain unsaved",
+      "status": "passed"
+    },
+    {
+      "name": "Network-disabled local save commits exact packet, original ID, base versions and projection together; zero simulated server writes",
+      "status": "passed",
+      "marks": 2
+    },
+    {
+      "name": "Actual browser process restart retains the same complete original save, not a new operation",
+      "status": "passed"
+    },
+    {
+      "name": "Reconnect confirms the whole selected batch; unselected stays Unmarked; saved marks use existing corrections",
+      "status": "passed"
+    },
+    {
+      "name": "One competing player mark refuses the entire batch and retains Base/Local/Current comparison",
+      "status": "passed"
+    },
+    {
+      "name": "Changed roster version blocks upload, preserving the immutable original packet",
+      "status": "passed"
+    },
+    {
+      "name": "Withdrawn publication blocks the whole upload without removing local work",
+      "status": "passed"
+    },
+    {
+      "name": "Real receipt transaction abort retains local intent/projection; original receipt recovers one server effect",
+      "status": "passed"
+    },
+    {
+      "name": "Future device timestamp cannot extend the existing server recording deadline",
+      "status": "passed"
+    },
+    {
+      "name": "Committed reply loss blocks replacements; reload reconciles the original receipt with one effect",
+      "status": "passed"
+    },
+    {
+      "name": "No-receipt unknown upload retries exact original ID and bytes, without generating a replacement",
+      "status": "passed"
+    },
+    {
+      "name": "Mismatched receipt never confirms local work; exact original outcome recovers without another effect",
+      "status": "passed"
+    },
+    {
+      "name": "Logout removes replicas but retains pending identity; foreign account cannot open/send; original account recovers",
+      "status": "passed",
+      "security": "UI/scope simulation only; fictional unencrypted DB is not confidentiality proof"
+    },
+    {
+      "name": "Explicit simulated 30-day cleanup preserves pending work separately; recovered original can synchronize",
+      "status": "passed"
+    },
+    {
+      "name": "Known denial hides rows, stops upload and survives reload; same-account login cannot restore access",
+      "status": "passed"
+    },
+    {
+      "name": "Two tabs reconnect using a per-scope Web Lock and idempotent receipt; one recorded batch",
+      "status": "passed"
+    },
+    {
+      "name": "Quiet cross-tab capture/confirmation retains dirty input; stale choices cannot overwrite the saved mark",
+      "status": "passed"
+    },
+    {
+      "name": "Complete 18-player register saves all 17 new marks together and preserves the existing saved mark",
+      "status": "passed"
+    },
+    {
+      "name": "24 EN/AR dark/light viewport combinations fit 320–1440px; labelled targets, RTL and native-dialog focus return",
+      "status": "passed",
+      "layouts": 24
+    },
+    {
+      "name": "200%-equivalent 1440px reflow leaves register usable without page horizontal scrolling",
+      "status": "passed",
+      "limit": "Viewport equivalent only; physical browser zoom and mobile keyboard not claimed"
+    },
+    {
+      "name": "No app console errors, framework overlay, external asset/API requests or swallowed UI errors",
+      "status": "passed"
+    }
+  ],
+  "layouts": [
+    {
+      "locale": "en",
+      "width": 320,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 360,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 360,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 1280,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 1280,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "mode": "dark",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "mode": "light",
+      "noHorizontalOverflow": true,
+      "markTargetsAtLeast44": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": 0,
+  "capturesOutsideGit": "/var/folders/pg/dj4sr3bn5yx7gy5kk39gp03w0000gn/T/academyos-offline-register-preview",
+  "limitations": [
+    "Unencrypted fictional IndexedDB, simulated accounts and server",
+    "No Clerk/API/SQL/provider traffic or security confidentiality proof",
+    "No service worker, offline cold launch or closed-app background guarantee",
+    "No physical-device/keyboard/zoom/screen-reader/eviction/key-migration proof",
+    "No production or privileged access change"
+  ],
+  "harnessSha256": "e956fb36dd00e76ab526533226eb6b5dc754d99bd3e066358113d82ef7bccad9"
+}

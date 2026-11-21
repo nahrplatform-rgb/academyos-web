@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-19T20:05:55.916Z",
+  "passed": true,
+  "scope": "Isolated Chromium with actual launch/account/slot/startup/worker sources; private component stubs, no hosted/installed/data authority proof",
+  "browser": "156.0.8078.4",
+  "node": "v24.14.0",
+  "checks": [
+    "Closed tab -> offline /en -> remembered Players through actual root worker/startup",
+    "English manifest entry restores Arabic Calendar and validated anchor",
+    "Launch to Attendance keeps same-tab original fenced and unchanged",
+    "Wrong account/generation, unsafe URL, uncovered route, invalid date/query and changed slot are rejected",
+    "Empty/corrupt/ending/retired/removed/stale stores stay on explicit Arabic public boundary without private destination",
+    "Matching currently authenticated subject resumes its validated prepared destination online",
+    "No current authenticated subject stays public; different current subject uses normal chooser; disabled capability never resumes",
+    "Account cleanup removes disposable launch metadata without erasing the original-operation reference",
+    "Cache stores only public shell/static assets; isolated launch performs zero operating API requests"
+  ],
+  "hashes": {
+    "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
+    "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+    "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+    "apps/web/src/lib/workspace-public-shell.ts": "0ad6d6a3809deaf7c5ddedf2247e064d00392c933dac1b9f99f4fc8782cd4f41",
+    "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+    "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+    "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+    "apps/web/src/app/[locale]/page.tsx": "760afc873f14154d4f27bfd6d770fdf078d79399e8b6e2c97a0315e485860d97",
+    "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+    "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+    "scripts/workspace-launch/test.mjs": "bf04e1cc721c96ab3761ce90a43eeec8c29a59bfa4c033d290bf4d4f21373d44"
+  }
+}

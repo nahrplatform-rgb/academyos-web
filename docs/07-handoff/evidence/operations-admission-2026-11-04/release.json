@@ -1,0 +1,73 @@
+{
+  "checked_at_utc": "2026-11-04 06:10:30 UTC",
+  "checked_commit": "12b9a99c26cb446d71fcc9987572d056fc16e219",
+  "app_change_commit": "e151261547f2781e9bb4cc5400c1ebb69993cc9a",
+  "ci": [
+    {
+      "id": 41782270670,
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782270670"
+    },
+    {
+      "id": 41782261857,
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41782261857"
+    }
+  ],
+  "preview": {
+    "id": "dpl_5MPKjBS8dAvbmxReUg4jSL4darTr",
+    "state": "READY",
+    "url": "https://academyos-cio8ajjkb-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/5MPKjBS8dAvbmxReUg4jSL4darTr",
+    "authentication": "Preview page fails closed: Authentication is not configured; no signed-in new-source proof"
+  },
+  "canonical_staging": {
+    "host": "staging.academy.nahr.dev",
+    "observed_deployment": "dpl_HJ5sFEJ5uJXh954APLtwumia8R36",
+    "url": "https://academyos-gwefnesem-academy-os2.vercel.app",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/HJ5sFEJ5uJXh954APLtwumia8R36",
+    "observed_source": "12b9a99c26cb446d71fcc9987572d056fc16e219",
+    "state": "READY",
+    "provider_target": "production",
+    "target_explanation": "Existing staging project environment label, not a production launch",
+    "new_source_promoted": true,
+    "verification": "Read-only canonical alias lookup joined to exact-SHA deployment list",
+    "promotion_owner": "Owner performed; no agent promotion, passkey operation or alias mutation"
+  },
+  "superseded_candidate": {
+    "commit": "e151261547f2781e9bb4cc5400c1ebb69993cc9a",
+    "ci_failure": "Stale shared-CSS fingerprint in existing eight-case working-day receipt; regenerated through actual supported --record run, no assertion change"
+  },
+  "limitations": [
+    "Working Owner acceptance pending",
+    "Two-account role separation partial; no account mutation",
+    "Independent external review deferred/nonblocking/not performed",
+    "No full redesign or whole-finding closure",
+    "No measured hosted latency percentiles or billing savings",
+    "Hosted proof is scoped to two already-accepted fictional invitations; pending/write/security/device cases remain separately evidenced or open",
+    "Initial reload event buffer truncated; use hosted recheck/local-action counts only as exact samples"
+  ],
+  "updated_at_utc": "2026-11-04 06:47:36 UTC",
+  "before_promotion_observation": {
+    "host": "staging.academy.nahr.dev",
+    "observed_deployment": "dpl_7uNTT7sXQ3SWHh9gWhbFn9pzxGMM",
+    "observed_source": "ef73a36537228461f80aecf1084bd1429b2ebb8c",
+    "new_source_promoted": false,
+    "promotion_owner": "Owner only; no agent promotion or alias mutation"
+  },
+  "owner_reported_promotion": {
+    "date": "2026-11-04",
+    "checked_source": "12b9a99",
+    "evidence": "Owner message and three attached screenshots; not copied into repository because browser chrome contains unrelated tabs/account context",
+    "interpretation": "Promotion only, not working-feature acceptance or account-mutation authorization"
+  },
+  "hosted_verification": {
+    "evidence": "hosted.json",
+    "scope": "Existing signed-in Platform; EN/AR search/status/selection/recheck/Back; light/Charcoal and actual390CSS-px Arabic responsive view",
+    "operating_writes": 0,
+    "account_changes": 0,
+    "owner_working_acceptance": "pending"
+  }
+}

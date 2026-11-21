@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "scope": "Actual production React with synthetic identity and HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode boot once",
+    "independent dates/jobs failure recovery",
+    "private preparation and explicit final audience confirmation",
+    "committed lost reply reload/reconcile without duplicate",
+    "uncommitted fence and retry",
+    "confirmed save/read failure retries read",
+    "stale definitive response not unknown",
+    "minimal Trainer roster failure/retry",
+    "withdrawal removes open names on next read",
+    "denied appointment clears private context",
+    "new identity remount",
+    "Owner/Trainer EN/AR320/360/926/1440"
+  ],
+  "errors": [],
+  "activations": 3
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-mode="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcademyOS · Local data review</title><style>/* PREVIEW_STYLE */</style></head>
+<body>
+<a class="skip" href="#main">Skip to content / انتقل للمحتوى</a>
+<section class="review" aria-label="Design review controls">
+  <div><strong id="preview-label"></strong><p id="preview-note"></p></div>
+  <div class="review-tools"><button id="language">العربية</button><button id="mode"></button><button id="review-toggle" aria-expanded="false" aria-controls="review-controls"></button></div>
+  <div id="review-controls" hidden>
+    <label><span id="scenario-label"></span><select id="scenario"></select></label>
+    <button id="run-scenario"></button><button id="reopen"></button><button id="reset-preview"></button>
+    <p id="scenario-note"></p>
+  </div>
+</section>
+<header class="topbar"><a href="#home" class="brand"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 23 12 5h4l8 18h-5l-2-5h-6l-2 5Zm9-9h3l-1.5-4Z" fill="currentColor"/></svg>AcademyOS</a><span id="workspace-label"></span><div class="top-tools"><button id="menu" aria-expanded="false" aria-controls="navigation"></button><button id="lock"></button></div></header>
+<div class="workspace">
+  <nav id="navigation" aria-label="Workspace"></nav>
+  <main id="main" tabindex="-1">
+    <header class="task-header"><div><h1 id="page-title"></h1><p id="page-subtitle"></p></div><button id="sync" class="primary"></button></header>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <div id="content"></div>
+  </main>
+  <aside id="inspector" aria-label="Local data details"></aside>
+</div>
+<dialog id="dialog"><form method="dialog"><div id="dialog-content"></div><div id="dialog-actions"></div></form></dialog>
+<script type="module">/* PREVIEW_SCRIPT */</script>
+</body></html>

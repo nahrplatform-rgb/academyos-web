@@ -1,0 +1,45 @@
+{
+  "scope": "single bounded read-only EN Owner staging loop;fresh tab;sanitized network starts/status/timings only;no headers/bodies/identifiers retained",
+  "stages": [
+    {
+      "label": "before-calendar-entry",
+      "requests": [
+        {
+          "endpoint": "/api/experience",
+          "action": "owner_home",
+          "status": 200,
+          "responseMs": 1261
+        },
+        {
+          "endpoint": "/api/experience",
+          "action": "owner_calendar",
+          "status": 200,
+          "responseMs": 957
+        }
+      ],
+      "documentRequests": 0,
+      "truncated": false
+    },
+    {
+      "label": "before-date-entry",
+      "requests": [
+        {
+          "endpoint": "/api/planning",
+          "action": "read",
+          "status": 200,
+          "responseMs": 1061
+        },
+        {
+          "endpoint": "/api/planning",
+          "action": "dates",
+          "status": 200,
+          "responseMs": 2043
+        }
+      ],
+      "documentRequests": 0,
+      "truncated": false
+    }
+  ],
+  "limits": "Not percentiles, SQL/Redis attribution or full auth/shell trace. Baseline source uses previous serving-alias receipt, not a new app runtime fingerprint.",
+  "sourceReference": "06fbce04ee761dcf676e8640f6fa6446ed92bf51"
+}

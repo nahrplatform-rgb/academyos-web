@@ -1,0 +1,46 @@
+verify	Verify real Next task navigation and guarded return	﻿2026-11-02T08:05:46.9335800Z ##[group]Run node scripts/navigation/test_next.mjs
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:05:46.9336539Z ^[[36;1mnode scripts/navigation/test_next.mjs^[[0m
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:05:46.9367258Z shell: /usr/bin/bash -e {0}
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:05:46.9367549Z ##[endgroup]
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6920778Z node:internal/modules/run_main:107
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6921832Z     triggerUncaughtException(
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6922489Z     ^
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6923185Z 
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6923910Z ExpectError: expect(received).toEqual(expected) // deep equality
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6924589Z 
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6924907Z - Expected  - 1
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6925475Z + Received  + 1
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6925889Z 
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6926181Z   Object {
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6926726Z     "center": 0,
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6927274Z -   "document": 6086,
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6927867Z +   "document": 0,
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6928415Z   }
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6928767Z 
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6929056Z Call Log:
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6929771Z - Timeout 5000ms exceeded while waiting on the predicate
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6931293Z     at captureRawStack (/home/runner/work/academyos-web/academyos-web/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6933628Z     at callMatcherAsStep (/home/runner/work/academyos-web/academyos-web/node_modules/playwright/lib/matchers/expect.js:13316:57)
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6935499Z     at Object.toEqual (/home/runner/work/academyos-web/academyos-web/node_modules/playwright/lib/matchers/expect.js:13308:23)
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6937418Z     at /home/runner/work/academyos-web/academyos-web/scripts/navigation/test_next.mjs:128:73 {
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6938433Z   matcherResult: {
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6939010Z     pass: false,
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6939819Z     message: 'expect(received).toEqual(expected) // deep equality\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6940653Z       '\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6941216Z       '- Expected  - 1\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6941847Z       '+ Received  + 1\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6942440Z       '\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6943205Z       '  Object {\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6943877Z       '    "center": 0,\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6944595Z       '-   "document": 6086,\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6945287Z       '+   "document": 0,\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6945925Z       '  }\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6946467Z       '\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6947005Z       'Call Log:\n' +
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6947782Z       '- Timeout 5000ms exceeded while waiting on the predicate',
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6948563Z     name: 'toEqual'
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6949080Z   }
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6949572Z }
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6949963Z 
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.6950253Z Node.js v24.22.1
+verify	Verify real Next task navigation and guarded return	2026-11-02T08:06:11.7168515Z ##[error]Process completed with exit code 1.

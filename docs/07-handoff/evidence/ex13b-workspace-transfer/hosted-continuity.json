@@ -1,0 +1,164 @@
+{
+  "recorded_at": "2026-11-05T21:43:29Z",
+  "scope": "EX-13B scoped normal Owner Players continuity on the promoted build; not full-app acceptance or the whole hosted matrix",
+  "owner_report": "Promoted 1347470 to staging",
+  "deployment": {
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "state": "READY",
+    "target": "production",
+    "url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+    "inspector_url": "https://vercel.com/academy-os2/academyos-web/35UAsn5THBRHhtWLY6DuWBw3u7Br",
+    "canonical_alias": "staging.academy.nahr.dev",
+    "verification": "Read-only Vercel deployment lookup independently identifies the exact promoted source and staging alias",
+    "agent_promoted": false,
+    "schema_key_flags_reapplied": false
+  },
+  "browser": {
+    "app": "Native Google Chrome, test nahr profile on the Mac",
+    "identity": "Existing moamen_ghareeb@icloud.com Academy Owner, confirmed through the account profile",
+    "method": "Visible accessibility states and DevTools Network counters; target-tab Offline only",
+    "privacy": "No console injection, CDP attachment, HAR export, private request payload, cookie or authorization-header capture",
+    "other_tabs": "A second tab was present and was not operated or closed",
+    "viewport_and_zoom": "Existing desktop window and zoom; not a newly declared device or responsive benchmark"
+  },
+  "online_players": {
+    "fresh_promoted_document_loaded": true,
+    "directory_rows": 4,
+    "query": "Synthetic Registration",
+    "matches": 2,
+    "selected_summary": "Synthetic Registration Demo",
+    "implicit_full_profile_read": false,
+    "warm_sample": {
+      "people_api_calls": 0,
+      "workspace_download_calls": 1,
+      "workspace_status": 200,
+      "api_transferred_bytes": 1183,
+      "api_resource_bytes": 3099,
+      "all_logged_requests": 3,
+      "all_transferred_bytes": 4806,
+      "limits": "A background freshness check occurred during the sample; not attributed to the local query or summary selection"
+    },
+    "same_tab_document_reload": {
+      "query_retained": true,
+      "selected_summary_retained": true,
+      "matches": 2,
+      "open_full_profile_remains_explicit": true,
+      "people_api_calls": 0,
+      "workspace_download_calls": 1,
+      "api_transferred_bytes": 1183,
+      "api_resource_bytes": 3099,
+      "all_logged_requests": 43,
+      "all_transferred_bytes": 15337,
+      "initial_loading": "A cold authenticated document briefly showed Loading before the restored permitted view; no claim that cold authentication renders without waiting"
+    },
+    "local_feedback": "The native snapshots showed the filtered rows and count without generic local Loading; this is not a measured blank interval or percentile. The source-bound 49-case local suite separately observed zero local Loading mutations."
+  },
+  "offline_players": {
+    "en_normal_document_reload": {
+      "query_retained": true,
+      "selected_summary_retained": true,
+      "matches": 2,
+      "all_logged_requests": 23,
+      "api_requests": 0,
+      "all_transferred_bytes": 0
+    },
+    "local_controls": {
+      "clear_search_returns_four_rows": true,
+      "reenter_prefix_returns_two_rows": true,
+      "change_selection": "Synthetic Registration Demo 2",
+      "additional_api_requests": 0,
+      "offline_indicator_visible": true
+    },
+    "language_control": "Arabic labels and selected context appeared in the public offline workspace. The existing language control retained the EN URL in that state; direct AR route entry below was tested separately.",
+    "ar_normal_document_entry": {
+      "url": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+      "query_retained": true,
+      "selected_summary": "Synthetic Registration Demo 2",
+      "matches": 2,
+      "all_logged_requests": 23,
+      "api_requests": 0,
+      "all_transferred_bytes": 0
+    },
+    "limits": "Same-tab document entries are not a full browser/process restart or proof of every app route"
+  },
+  "reconnect": {
+    "manual_app_reload_or_sync": false,
+    "automatic_signed_in_ar_players_return": true,
+    "online_indicator_observed": true,
+    "query_retained": true,
+    "selected_summary": "Synthetic Registration Demo 2",
+    "matches": 2,
+    "network_sample": {
+      "people_api_calls": 0,
+      "workspace_download_calls": 1,
+      "workspace_status": 200,
+      "api_transferred_bytes": 1172,
+      "api_resource_bytes": 3099,
+      "all_logged_requests": 44,
+      "all_transferred_bytes": 16773
+    },
+    "limits": "Public offline startup re-enters the authenticated document by design. No zero-document, continuously mounted UI, provider-query count, whole-session budget or latency percentile is inferred. Request payload was not inspected."
+  },
+  "retained_calendar_proof": {
+    "receipt": "hosted-repair.json",
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "calendar_product_unchanged_in_1347470": true,
+    "scope": "Existing EN/AR offline month grids, uncovered period and later online Month/selection repeat remain prior-source evidence; not a new Calendar hosted run on 1347470",
+    "earlier_week_observation": "Cause remains unconfirmed; it did not reproduce in the isolated anchorless fixture or the subsequent live online repeat"
+  },
+  "cleanup": {
+    "no_throttling_restored": true,
+    "keep_log_restored_false": true,
+    "devtools_closed": true,
+    "final_page": "Normal Arabic Players with retained prefix and Synthetic Registration Demo 2 selected",
+    "account_role_provider_or_operating_record_changes": false
+  },
+  "not_executed_on_hosted_1347470": [
+    "Known Owner loss with a selected prepared summary, live logout/cross-profile cleanup and capability-specific rollback",
+    "Full browser/profile process restart while disconnected; the local real-browser restart evidence remains separate",
+    "Held or changed/removal transfers and their concurrent scope cases on real providers",
+    "Fresh sign-in and a new personal device; this run reused the existing approved prepared device",
+    "A new Calendar run on this promoted source",
+    "Physical phone, Safari, zoom and keyboard/accessibility matrix",
+    "Provider SQL/Redis/Auth/egress totals, full working-day budgets, blank intervals and performance percentiles",
+    "Normal-route Attendance integration and the remaining app-wide redesign/continuity"
+  ],
+  "routing": {
+    "ex13": "Scoped Owner Players/Calendar foundation checkpoint passed from the combined declared local and hosted evidence; parent findings and wider matrix remain partial",
+    "next_primary": "EX-07: integrate the approved Owner offline register into the ordinary Attendance route with original-save and recovery parity",
+    "supporting_owner": "EX-08 retains the unexecuted hosted/device/performance matrix; EX-09 retains actual custody/privacy checks; EX-05 retains provider/query measurement",
+    "no_scope_retired": true
+  },
+  "owner_acceptance": "Pending working review; promotion is not acceptance",
+  "independent_review": "Deferred by Owner, nonblocking, not performed",
+  "delegation_this_verification": {
+    "active_helpers": 0,
+    "reason": "Serial native browser/provider verification and deterministic documentation updates were cheaper and avoided shared-profile contention",
+    "previous_bounded_worker": "Retained in continuity.json; no new helper or nested work",
+    "usage_or_savings": "Unmeasured"
+  },
+  "documentation_checkpoint": {
+    "execution_validator": "Passed:13 batches,17 findings,G01-G09,71 planned/evidence-linked cases;single current EX-07",
+    "canonical_validator": "Passed:68screens,30stable action groups,180preserved requirements",
+    "continuation": "Regenerated and freshness passed;EX-07 normal Attendance handoff current;EX-13 scoped checkpoint retained",
+    "local_markdown_links": "Passed:11 changed/new Markdown files,377 local targets",
+    "json_and_generator": "Changed JSON parses;generator AST valid;exact-source and retained-gap assertions passed",
+    "factual_review": "Inventory rebuilt from unchanged capture pack;1189states,1163transitions,79sources,7696literals;offline review-tool and fingerprint/freshness checks passed",
+    "rendered_review": "Generated phone review and Arabic desktop replay inspected;gated prepared-device states still outside default pack",
+    "product_checks": "No product/UI/test input changed in this hosted/documentation batch;retain checked1347470 build/type/lint,101units,49browser/transport and16capture-suite evidence without claiming a new run",
+    "git_diff_check": "Passed before commit",
+    "promotion_required": false
+  },
+  "push_dependency_notice": {
+    "trigger": "GitHub push response reported one high default-branch Dependabot alert",
+    "alert": "https://github.com/nahrplatform-rgb/academyos-web/security/dependabot/1",
+    "observed_state": "open",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "advisory_summary": "Withdrawn Advisory: braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+    "advisory_withdrawn_at": "2026-10-23T12:53:02Z",
+    "verification": "Read-only GitHub Dependabot API;current lockfile resolves braces3.0.3 through micromatch4.0.8 and marks both development dependencies",
+    "first_patched_version": null,
+    "disposition": "Recorded the provider notice and its withdrawal/development scope;no new hosted vulnerability or whole security pass inferred,no dependency or alert dismissal/provider mutation made"
+  }
+}

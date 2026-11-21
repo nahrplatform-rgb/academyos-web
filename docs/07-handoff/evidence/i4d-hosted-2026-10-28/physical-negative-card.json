@@ -1,0 +1,30 @@
+{
+  "scope": "User-performed real Mac Chrome camera scan; no camera images stored",
+  "reportedByOwner": "Scanned card labeled Synthetic Response Drop2026-10-25; UI returned no eligible rostered session",
+  "actualUI": "No eligible rostered session matches this card now. Exact I4d event selected; camera stopped after rejection",
+  "database": {
+    "now": "2026-10-28T19:46:55.789326+00:00",
+    "roster": [
+      {
+        "name": "Synthetic Registration Demo",
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635"
+      }
+    ],
+    "closes_at": "2026-10-28T19:55:00+00:00",
+    "owner_receipts": 0,
+    "current_card_players": [
+      {
+        "name": "Synthetic Registration Demo",
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "version": 4
+      },
+      {
+        "name": "Synthetic Response Drop 2026-10-25",
+        "player": "29f7a113-cffd-455d-bef5-44995bc23cfe",
+        "version": 1
+      }
+    ]
+  },
+  "conclusion": "Current recognized non-rostered player card was correctly rejected; no positive physical scan or new Owner capture receipt established",
+  "limits": "User report, actual current UI and independent roster/time observation; no assertion about other hardware/browser models"
+}

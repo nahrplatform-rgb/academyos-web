@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-31",
+  "source": "7a6be974eaf9826f33d9ecfce4accf0e568b3a0c",
+  "initial_worktree": "clean",
+  "imported_report_sha256": "921bfd6eba43e63072e12395b7b11f7445bc3a65c19807c2575faef301202391",
+  "product_changes": false,
+  "staging_operating_writes": false,
+  "access_changes": false,
+  "deployment_changes": false,
+  "commit_or_push": false,
+  "browser": "native Google Chrome on macOS; existing synthetic academy A Owner session",
+  "network_profile": "No throttling; Disable cache unchecked; no calibrated device/network or latency distribution",
+  "connection_limit": "IAB unavailable: disabled response before and after Owner enable reply; native AX/Network UI fallback",
+  "hosted_cases": [
+    {
+      "case": "Home Open calendar",
+      "result": "document resource row observed immediately after focused click; prior devtools-to-page click triggered focus refresh without navigation"
+    },
+    {
+      "case": "Calendar Week to Month",
+      "result": "same URL; Loading your current tasks replaced task; one additional experience fetch observed"
+    },
+    {
+      "case": "Calendar selected session Open this date",
+      "result": "document resource row observed; fixed same-academy return=calendar"
+    },
+    {
+      "case": "dated task Back to calendar",
+      "result": "document resource row observed; month restored; selection absent"
+    },
+    {
+      "case": "sidebar Today",
+      "result": "home?_rsc fetch observed on transition; contrast with explicit document-navigation task links; not a complete all-request trace"
+    },
+    {
+      "case": "real tab away and return",
+      "locales": [
+        "en",
+        "ar"
+      ],
+      "result": "selected task disappeared; loading placeholder; selection remained absent after reload of calendar data"
+    }
+  ],
+  "read_duration_observations_ms": [
+    730,
+    724,
+    1230,
+    864
+  ],
+  "read_duration_limits": "opportunistic visible Network rows across different Home/calendar contexts; not independent n=4 benchmark, p75/p95, server-only timing or action-to-ready measurement",
+  "console_private_payloads_exported": false,
+  "raw_har_exported": false,
+  "remaining": [
+    "current staging alias not freshly provider-verified in this baseline",
+    "authenticated Trainer/Guardian runtime",
+    "hosted phone/zoom/screen-reader",
+    "new denial/revocation/unknown-write hosted test",
+    "complete network timeline and document identity counters",
+    "first-useful/local-feedback/CLS/performance percentiles",
+    "same-context retained-content policy and stable-layout necessity"
+  ],
+  "checks": {
+    "implementation_register": "passed 68 screens/30 actions/180 requirements",
+    "factual_review_freshness": "passed; no UI inputs changed",
+    "diff_whitespace": "passed",
+    "experience_ui_production": "passed",
+    "planning_ui_production": "passed",
+    "people_ui_production": "passed",
+    "component_probe": "6 diagnostic cases; repeatable on retained probe rerun",
+    "local_links": "checked for investigation packet"
+  }
+}

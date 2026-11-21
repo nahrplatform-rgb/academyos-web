@@ -1,0 +1,67 @@
+{
+  "source": "10bbda7c3ba3521247b696eda04b49c872721aa7",
+  "deployment": "dpl_C3PbqAmBUf4HpntLrYJ1VundMdDk",
+  "preview": "dpl_2Pq6ZW4T4mAhvvTsuArFyyrKwJGw",
+  "domain": "staging.academy.nahr.dev",
+  "ciRuns": [
+    41448095296,
+    41448085388
+  ],
+  "ci": "both success",
+  "readySeconds": 52,
+  "buildLogSeconds": 54,
+  "scope": "Signed-in existing Academy A Owner; read-only CDP summaries; no headers, tokens, response bodies or private storage copied",
+  "englishCold": {
+    "requests": [
+      "owner_current_calendar"
+    ],
+    "statuses": [
+      200
+    ],
+    "nextEnabled": true
+  },
+  "arabicCold": {
+    "requests": [
+      "owner_current_calendar"
+    ],
+    "statuses": [
+      200
+    ],
+    "nextEnabled": true
+  },
+  "month": {
+    "requests": [
+      {
+        "action": "owner_calendar",
+        "from": "2026-11-01",
+        "to": "2026-12-12"
+      }
+    ],
+    "authoritativeSessions": 26,
+    "loadedSessions": 26,
+    "range": "2026-11-01/2026-12-12"
+  },
+  "sessionReturn": {
+    "monthRetained": true,
+    "selectedOccurrenceRetained": true,
+    "noWrites": true,
+    "returnRequestCount": "not isolated from later tab/focus activity; not claimed"
+  },
+  "foreignAcademy": {
+    "requests": [
+      "owner_current_calendar",
+      "owner_current_calendar"
+    ],
+    "statuses": [
+      403,
+      403
+    ],
+    "privateRows": 0,
+    "recoveryDenied": true
+  },
+  "limitations": [
+    "No hosted latency percentiles, query/Redis/Clerk costs or backend cancellation proof",
+    "Positive Trainer/Guardian, revoked membership and setup states remain local-source/test evidence for this checkpoint",
+    "No new permission or operating writes; Owner working acceptance and independent security open"
+  ]
+}

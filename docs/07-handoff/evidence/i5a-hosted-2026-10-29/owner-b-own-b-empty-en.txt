@@ -1,0 +1,34 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development#main
+					7 container
+						8 text Academy Owner workspaceDevelopment feedback Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Academy Owner workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/programs
+							17 link Development, Value: staging.academy.nahr.dev/en/workspace/c8a4045a-a636-4bad-86f3-68f2036666f6/development
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Player development, Value: 1
+							21 text Player development
+						22 button Refresh view
+						23 text Write after a session, review the exact version, then share published feedback with the approved family.
+						24 button Assessments
+						25 button Session players
+						26 text Review filter
+						27 pop up button (collapsed) Review filter, Value: All retained assessments, Secondary Actions: Expand
+						28 heading Assessments, Value: 2
+							29 text Assessments
+						30 heading Nothing to show in this selection, Value: 3
+							31 text Nothing to show in this selection
+						32 text Choose another period or filter. Drafts are created by assigned Trainers after a published session ends.
+						33 button (disabled) Previous page
+						34 button (disabled) Next page
+						35 container Contextual details and actions
+							36 heading Feedback details, Value: 2
+								37 text Feedback details
+							38 text Choose a player or assessment to continue.

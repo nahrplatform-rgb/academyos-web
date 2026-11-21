@@ -1,0 +1,34 @@
+{
+  "as_of": "2026-10-27",
+  "functional_source": "79126a0f9a2b2344ca7f9dbcf4264176b4a35634",
+  "push_ci": {
+    "id": 40437675066,
+    "conclusion": "success"
+  },
+  "parallel_pr_ci": {
+    "id": 40437679464,
+    "conclusion": "failure",
+    "reason": "Development UI assertion counted both roster selection and confirmation checkboxes. Corrected exact accessible-name confirmation selector; additionally asserts40/40 prepared and enabled confirmation. No product behavior or business assertion relaxed."
+  },
+  "corrected_local_ui": {
+    "production": "passed",
+    "development": "passed"
+  },
+  "renamed_migration_focused_sql": {
+    "case": "test_program_planning_01_prepare_atomic_activation_preserve_and_replay",
+    "result": "passed",
+    "seconds": 2.197
+  },
+  "migration": {
+    "original_rehearsal_version": "20261027020000",
+    "applied_version": "20261027022133",
+    "sha256": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+    "sql_bytes_changed": false
+  },
+  "preview": "https://vercel.com/academy-os2/academyos-web/6e7rCK2gL1Q9KiH9o2AYf8XWUms5",
+  "serving_app_promotion": "pending",
+  "actual_owner_i3c_operation": "pending",
+  "owner_working_acceptance": "pending",
+  "browser_retry": "Local browser use is disabled in Work settings; fresh state returned no browsers after Owner enabled and requested retry",
+  "vercel_connector": "404 existing academy-os2/academyos-web"
+}

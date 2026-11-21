@@ -1,0 +1,56 @@
+{
+  "domain": "guardians",
+  "baseline": true,
+  "cases": [],
+  "gaps": [
+    {
+      "locale": "en",
+      "action": "retry",
+      "outcome": "success",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "en",
+      "action": "retry",
+      "outcome": "read_failure",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "en",
+      "action": "retry",
+      "outcome": "lost_reply",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "en",
+      "action": "retry",
+      "outcome": "denied",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "ar",
+      "action": "retry",
+      "outcome": "success",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "ar",
+      "action": "retry",
+      "outcome": "read_failure",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "ar",
+      "action": "retry",
+      "outcome": "lost_reply",
+      "missingReviewedRecipient": true
+    },
+    {
+      "locale": "ar",
+      "action": "retry",
+      "outcome": "denied",
+      "missingReviewedRecipient": true
+    }
+  ],
+  "scope": "Actual React; fictional identity/HTTP. Not database, delivery, routed or hosted proof."
+}

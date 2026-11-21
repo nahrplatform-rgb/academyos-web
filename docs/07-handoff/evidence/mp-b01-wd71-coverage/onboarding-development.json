@@ -1,0 +1,903 @@
+{
+  "cases": [
+    {
+      "locale": "en",
+      "command": "create",
+      "outcome": "success",
+      "actions": [
+        "create",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "create",
+      "outcome": "read503",
+      "actions": [
+        "create",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "create",
+      "outcome": "lost",
+      "actions": [
+        "create",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "create",
+      "outcome": "denied",
+      "actions": [
+        "create",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "revoke",
+      "outcome": "success",
+      "actions": [
+        "revoke",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "revoke",
+      "outcome": "read503",
+      "actions": [
+        "revoke",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "revoke",
+      "outcome": "lost",
+      "actions": [
+        "revoke",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "revoke",
+      "outcome": "denied",
+      "actions": [
+        "revoke",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "reissue",
+      "outcome": "success",
+      "actions": [
+        "reissue",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "reissue",
+      "outcome": "read503",
+      "actions": [
+        "reissue",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "reissue",
+      "outcome": "lost",
+      "actions": [
+        "reissue",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "reissue",
+      "outcome": "denied",
+      "actions": [
+        "reissue",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "retry",
+      "outcome": "success",
+      "actions": [
+        "retry",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "retry",
+      "outcome": "read503",
+      "actions": [
+        "retry",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "retry",
+      "outcome": "lost",
+      "actions": [
+        "retry",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "retry",
+      "outcome": "denied",
+      "actions": [
+        "retry",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "accept",
+      "outcome": "success",
+      "actions": [
+        "accept",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "accept",
+      "outcome": "read503",
+      "actions": [
+        "accept",
+        "review",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "accept",
+      "outcome": "lost",
+      "actions": [
+        "accept",
+        "review",
+        "operation",
+        "review",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "accept",
+      "outcome": "denied",
+      "actions": [
+        "accept",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "branch",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "branch",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "branch",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "branch",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "sport",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "sport",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "sport",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "sport",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "complete",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "complete",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "complete",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "complete",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "create",
+      "outcome": "success",
+      "actions": [
+        "create",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "create",
+      "outcome": "read503",
+      "actions": [
+        "create",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "create",
+      "outcome": "lost",
+      "actions": [
+        "create",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "create",
+      "outcome": "denied",
+      "actions": [
+        "create",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "revoke",
+      "outcome": "success",
+      "actions": [
+        "revoke",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "revoke",
+      "outcome": "read503",
+      "actions": [
+        "revoke",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "revoke",
+      "outcome": "lost",
+      "actions": [
+        "revoke",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "revoke",
+      "outcome": "denied",
+      "actions": [
+        "revoke",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "reissue",
+      "outcome": "success",
+      "actions": [
+        "reissue",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "reissue",
+      "outcome": "read503",
+      "actions": [
+        "reissue",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "reissue",
+      "outcome": "lost",
+      "actions": [
+        "reissue",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "reissue",
+      "outcome": "denied",
+      "actions": [
+        "reissue",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 8,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "retry",
+      "outcome": "success",
+      "actions": [
+        "retry",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "retry",
+      "outcome": "read503",
+      "actions": [
+        "retry",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "retry",
+      "outcome": "lost",
+      "actions": [
+        "retry",
+        "platform",
+        "operation",
+        "platform",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "retry",
+      "outcome": "denied",
+      "actions": [
+        "retry",
+        "platform"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "accept",
+      "outcome": "success",
+      "actions": [
+        "accept",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "accept",
+      "outcome": "read503",
+      "actions": [
+        "accept",
+        "review",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "accept",
+      "outcome": "lost",
+      "actions": [
+        "accept",
+        "review",
+        "operation",
+        "review",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "accept",
+      "outcome": "denied",
+      "actions": [
+        "accept",
+        "review"
+      ],
+      "writes": 1,
+      "version": 7,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "branch",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "branch",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "branch",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "branch",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "sport",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "sport",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "sport",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "sport",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "complete",
+      "outcome": "success",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "complete",
+      "outcome": "read503",
+      "actions": [
+        "save",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "complete",
+      "outcome": "lost",
+      "actions": [
+        "save",
+        "setup",
+        "operation",
+        "setup",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "complete",
+      "outcome": "denied",
+      "actions": [
+        "save",
+        "setup"
+      ],
+      "writes": 1,
+      "version": 8,
+      "generation": 7,
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "baseline": false,
+  "scope": "Actual M1 component; fictional identity and HTTP. No provider delivery, signed-in authentication, database or hosted proof."
+}

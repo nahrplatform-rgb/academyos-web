@@ -1,0 +1,17 @@
+{
+  "sourceBase": "c1f604b96ddcb8d2b5de1dfb9d265c58e8e2db7c",
+  "runtime": "Node26.9.0 local;CI Node24 separate",
+  "geometry": "six EN/AR 1440/1024/390 Calendar cases;active scroll600\u21920 before and600\u2192600 after;shorter/403/503 release;one visible status;one read per deliberate revalidation;no retry",
+  "units": 77,
+  "foundationE2E": 17,
+  "api": "Experience/planning actual routes:18 budget failures,3 invalid bodies,cross-origin denial each passed;synthetic session/limiter adapters",
+  "next": "actual Next production EN/AR navigation,local controls,dirty/history and busy guards passed",
+  "lint": "passed",
+  "typecheck": "passed",
+  "build": "passed",
+  "capture": "16actual-component suites plus8welcome frames passed;1047frames/1053transitions;offline tool/freshness and33theme snapshots passed",
+  "deployment": "source309dcfb pushed;both CI success;staging dpl_6cs4PbmyRkFFMMmpYyipQdZV4uoe Ready44s,exactsource/alias verified",
+  "hosted": "scoped native Owner EN/AR month/visible-return read checks passed;filter/selection and visual position retained;ENweek restored;exact held-frame proof local;denial remains open",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

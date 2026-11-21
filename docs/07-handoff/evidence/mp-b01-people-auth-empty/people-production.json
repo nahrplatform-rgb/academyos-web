@@ -1,0 +1,33 @@
+{
+  "reactMode": "production",
+  "directoryResumeReads": 1,
+  "profileResumeReads": 1,
+  "reviewResumeReads": 0,
+  "cases": [
+    "API401 distinct from denial;EN/AR mask and one profile retry",
+    "same-account draft fields survive API401 without a create",
+    "unknown original survives401 and reconciles the same ID without a second create",
+    "held checked directory/profile stay mounted for1read;initial/denial and original guards retained",
+    "single EN/AR confirmed-write/read-failure message with1read retry",
+    "18-player scoped directory and filtered-empty recovery",
+    "central duplicate comparison at3203907681440",
+    "duplicate distinction",
+    "existing profile no create",
+    "stale duplicate review",
+    "pending submission disabled",
+    "lost-response reconciliation",
+    "old cancellation notice cleared for later intent",
+    "actor switch clears state",
+    "revoked profile cleared",
+    "EN/AR draft preservation",
+    "320/360px no overflow",
+    "dirty return retains draft and clears review",
+    "confirmed write/read failure retries read without create",
+    "XSS-shaped name is literal text",
+    "short search explains minimum; debounce fetches valid query",
+    "auth initialization timeout offers retry with zero private calls"
+  ],
+  "creates": 4,
+  "errors": [],
+  "scope": "Actual React component; synthetic session and HTTP responses. Database tested separately."
+}

@@ -1,0 +1,383 @@
+{
+  "source_revision": "7a6be974eaf9826f33d9ecfce4accf0e568b3a0c",
+  "as_of": "2026-10-31",
+  "initial_working_tree": "prior uncommitted B0 report/evidence and builder link; no product modifications",
+  "current_scope": "analysis and documentation only",
+  "artifacts": [
+    {
+      "path": "baseline.json",
+      "sha256": "343bf887060597a64b6247a26355fe7647f129e43236bde531ca3a8a456f0737",
+      "bytes": 3039,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "component-diagnostic.json",
+      "sha256": "d14a568d69409409639f6160233199b93867d06c43abee75c27ace0332b1c1c4",
+      "bytes": 990,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "component-probe.mjs",
+      "sha256": "24b4acd568f3c3b86c6da8d1c024708a165e81e451e8215dd6db1caa735cff3c",
+      "bytes": 7777,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "coverage.csv",
+      "sha256": "f0d0f082518aa590d221dd44050e0e8bf9a4bac843f0de6422a212f30ae4a346",
+      "bytes": 3132,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "database-advisors.json",
+      "sha256": "23b9c254e5a8011af8040edadc8e6f7fb854e7ff5773c8af03452f936ea88289",
+      "bytes": 34174,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "database-authority.json",
+      "sha256": "3cc7aaecac32d4127d96c13c689c9ee607f6552c31102132b716d0fee1b99847",
+      "bytes": 14475,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "database-catalog.json",
+      "sha256": "56156f3c3644db722bfe43022f40f1799bfaa14197f8018b045e838b37d88c85",
+      "bytes": 54916,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "database-statistics.json",
+      "sha256": "dca5d2895b2fcd4a94c60115c5d08bc51f7a649eb3d7d54feb81a38ae6f9dc27",
+      "bytes": 7737,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "experience-ui.json",
+      "sha256": "829fa60c7173a4b1a7ed90c617c7aad1dcaa4145c1f698c76f47f17fd5002e87",
+      "bytes": 328,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "family-date-plan.json",
+      "sha256": "8d240e12ba926423c6d8ca90ec09d431c619bcce94af1db898547c7dc101bf7e",
+      "bytes": 1529,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "function-hashes.json",
+      "sha256": "5190213d20e8ec2aada7be2c9c83ae1a4af1ffcde0d8c17b99906445d6ef107f",
+      "bytes": 33427,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "hosted-ar-return-cleared.png",
+      "sha256": "3a8d240a16c52bde37308343f92d3e784b764e9590654d3ce74026ded638ba7b",
+      "bytes": 511010,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "hosted-return-cleared-calendar.png",
+      "sha256": "ff381d8302482b37c5f984729b01417abffae44a4a9a006d1d601d2da74b330a",
+      "bytes": 532206,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "hosted-selected-calendar.png",
+      "sha256": "726e1c50842a5e70871dc2fe44b63f10056dd7a3352294ea1a722994458d0ad1",
+      "bytes": 527316,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "live-read-functions.json",
+      "sha256": "ad4a3f6701188817b7c787027170303fe8fd32cc693e9e8ed11218810a7250c0",
+      "bytes": 24850,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "local-suite-logs/attendance.log",
+      "sha256": "1322d10de8159469ce9ddefa39b5a4bee37a7c812aab5213f1891df21c251e0a",
+      "bytes": 37,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/corrections.log",
+      "sha256": "3206dbf18ef7757710420826ff9d3b13718e51ba2f960f21aaa853225f8d726e",
+      "bytes": 45,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/development.log",
+      "sha256": "447ecffaab85f582a41a716ab0cfe51898dd9df813436c34276f225ea375b7d0",
+      "bytes": 52,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/guardian-training.log",
+      "sha256": "1b8a69619604147088ee9c25099e7dbba29c63131fdd0b1ad77ec88b786c487d",
+      "bytes": 35,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/guardians.log",
+      "sha256": "993af9b36312c02175b615bfd286c193917c1c0a7f6771287075495d0c155289",
+      "bytes": 94,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/onboarding.log",
+      "sha256": "fdc1b8e5e2e13092cd63d9055ab4f8b8a006a572a009fa17cf58cbb729c4c7d2",
+      "bytes": 2486,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/program-planning.log",
+      "sha256": "6c4831cc72590f7d0688f69ad09f1cf228945830c76910f15522f9b621cf4799",
+      "bytes": 43,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/programs.log",
+      "sha256": "0184fa998487ade638cc188d21b63e6444bb4c8ea413349424a64503a7d3fda1",
+      "bytes": 36,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/publication.log",
+      "sha256": "1993e98659996d4fb9dbeca075c45c5dac50c1df327ac7a0252f8d4173026296",
+      "bytes": 38,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/qr-attendance.log",
+      "sha256": "92c271f8b5ecbda0acb224eed1703c6b3e14cf5e543b541e8165b9ba8baef969",
+      "bytes": 41,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/session-changes.log",
+      "sha256": "269355bae2c894ef2f24052744ce615f2d191624aafcecd0889a97f5df01393c",
+      "bytes": 41,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/trainers.log",
+      "sha256": "8c4f5931b278d298ff49a6b8fd8e7f99f202db76f88dc0f446c1796aaf7d2319",
+      "bytes": 690,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-logs/workspace-layout.log",
+      "sha256": "96d96f108a90a173c4c3b811cc757eb6e559549b8977d1253b757ad000e418d9",
+      "bytes": 35,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/attendance-ui-production.json",
+      "sha256": "cebc1d40f9455218f31fdbb4c909f2a72e6786033713888851bb2d200c01e3d1",
+      "bytes": 765,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/attendance-visual-parity.json",
+      "sha256": "5f6072cc50ca6986e7286b507453d7c1eafecdcb5b28ca7708a4074c4ae19384",
+      "bytes": 806,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/corrections-ui-production.json",
+      "sha256": "7c267796464068921ef44edcb0defadcbd39930a47f564b1053df13c0614da6f",
+      "bytes": 877,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/development-react-production.json",
+      "sha256": "266ac0debc956f01d1aa44baee42b214257f29702a71c99484aae66c0b44d099",
+      "bytes": 1010,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/guardian-training-production-ui-production.json",
+      "sha256": "fc8b261cf6255d8b320840715254c5ef3d6411cb0b99f8b2046c264acca81c2e",
+      "bytes": 563,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/guardians-ui-receipt.json",
+      "sha256": "e0c7b1aa240c94bb5457499ac7ea4f3071d82d03bd52384fba095914e72cf62d",
+      "bytes": 922,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/program-planning-production-ui-receipt.json",
+      "sha256": "e911cd978d9c229dfa46e8a7ad4c0b24129876821cb6dd50904471b9c7417633",
+      "bytes": 960,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/programs-production-ui-receipt.json",
+      "sha256": "5da760ccf0d6565607bdb3c0ad4e3c40364f9cc046090565cbce21ea4a120ffe",
+      "bytes": 1118,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/publication-production-ui-receipt.json",
+      "sha256": "abd60d31a5656bd0967a6848a16ecc5b2fe2d7284810fbc0557207f063ac7eaa",
+      "bytes": 1026,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/redirected-i3e-local-2026-10-28-ui-production.json",
+      "sha256": "0f866cd600529bd1d4b058865e1567226375ae7d95350486c18fc1e8b8947c8b",
+      "bytes": 634,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/redirected-i4d-local-2026-10-28-ui-production.json",
+      "sha256": "c84eb4a51da27de011c2aaaafe7e33f358f86492d14a7d1c5ff45aa15daa6e93",
+      "bytes": 3741,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/trainers-ui-receipt.json",
+      "sha256": "914ef13dcdcca9343c51da0ae514e8312ff6a0538847792cc6b37036a3f51040",
+      "bytes": 771,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "local-suite-receipts/workspace-layout-receipt.json",
+      "sha256": "c9f4b119ab691687720bb55047647a061c0bb3c2195476af2073cf77d533b358",
+      "bytes": 357,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    },
+    {
+      "path": "native-network-observations.json",
+      "sha256": "8eafa7c12e8101782fe86012e6e58246192c9610245df15ae26d88d2fb3f691a",
+      "bytes": 1802,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "owner-plan.json",
+      "sha256": "04f4b948d2074aca149302a4f96dfb18012d340117fe2f4273bdcfb751ca55cc",
+      "bytes": 3342,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "people-ui.json",
+      "sha256": "f3f3add99a887e6e3a5d91057a8e3f99ddd78aa3c8be3fe31b26200352fd2004",
+      "bytes": 938,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "planning-ui.json",
+      "sha256": "d9ba23386141a38dc638235f7676b5f77b923cbe563f2488a87ad450b9d837ca",
+      "bytes": 938,
+      "layer": "focused B0 retained",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "provider-observations.json",
+      "sha256": "349e5ae93251f2fee1b9baf26dfa18dfa84459dfa0de432298e123b018307116",
+      "bytes": 1652,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "service-model.csv",
+      "sha256": "481c0539cc2517441520e735158f29eb7b2e25ed692f737d86f9dff86a3ec3fc",
+      "bytes": 526,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "source-scan.json",
+      "sha256": "9611bec33a7ba88dad23c26a84171433b13ef2e6029a3367b27071783bb9020d",
+      "bytes": 30805,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "vercel-usage.png",
+      "sha256": "9d0f36d6f15590c2614b3a36a4baa79d4e50cb76e44e07fc6e6df17b6e9d4910",
+      "bytes": 428711,
+      "layer": "whole-app extension",
+      "limitations": "see linked report; technical metadata, not operating writes"
+    },
+    {
+      "path": "whole-app-ui-suites.json",
+      "sha256": "c97755a14bc55d611b201d89ed06720925734d8fa59eb445724808e3b0060a3a",
+      "bytes": 2094,
+      "layer": "whole-app extension",
+      "limitations": "synthetic adapters, not hosted transport"
+    }
+  ],
+  "checks": {
+    "implementation_register": "passed",
+    "factual_review_freshness": "passed; no UI/capture change required",
+    "offline_review_tool": "passed",
+    "extended_production_react_suites": "13/13 passed; prior3 current-source suites retained",
+    "documentation_receipt": "documentation-checks.json"
+  },
+  "unresolved_measurements": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "provider_query_protocol": {
+    "database": "read-only catalogs/definitions/hashes/pg_stat_statements and plain EXPLAIN FORMAT JSON only; no ANALYZE, statistics reset or cache flush",
+    "owner_plan": "surrogate core: scoped training_dates/programs date filter, order, limit51; not full authenticated RPC",
+    "family_plan": "surrogate core: published publication_events computed local date filter, order starts_at/id, limit51; not full authenticated RPC",
+    "sampling": "point-in-time tiny synthetic staging; cumulative statistics include administrative/test activity",
+    "privacy": "no credentials, JWT/cookies, private request bodies or real customer/child data saved"
+  }
+}

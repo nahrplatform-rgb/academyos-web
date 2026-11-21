@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "cases": 121,
+  "scope": "Actual disposable PostgreSQL17; inherited previous111 and new10; final Owner withdrawal distinction separately retested on current migration",
+  "runtimeSeconds": 390.896,
+  "limits": "No hosted identity/HTTP, real access grants, physical devices or independent security proof"
+}

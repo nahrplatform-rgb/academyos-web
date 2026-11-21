@@ -1,0 +1,35 @@
+{
+  "kind": "correction",
+  "baseline": true,
+  "cases": [
+    {
+      "locale": "en",
+      "command": "request",
+      "outcome": "lost",
+      "gap": "Retry reads player context instead of confirmed request",
+      "actions": [
+        "correction_submit",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_list",
+        "correction_context"
+      ],
+      "writes": 1
+    },
+    {
+      "locale": "ar",
+      "command": "request",
+      "outcome": "lost",
+      "gap": "Retry reads player context instead of confirmed request",
+      "actions": [
+        "correction_submit",
+        "correction_reconcile",
+        "correction_detail",
+        "correction_list",
+        "correction_context"
+      ],
+      "writes": 1
+    }
+  ],
+  "scope": "Actual product Trainer components; fictional identity/HTTP. Not SQL persistence/audit, hosted authority, route return or family projection proof."
+}

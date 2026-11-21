@@ -1,0 +1,43 @@
+# Reference foundation refinement — 25 October 2026
+
+Owner's implementation handoff explicitly confirms the corrected original-reference foundation and authorizes bounded refinement of all implemented journeys; older design packet “pending” statements are historical. Original HTML remains unchanged. J01-A01/J02-A01/J03-A01/A02/A03/J04-A01/J06-A01/J07-A01/A02 and narrow J08-A01; scoped AO/AT joins remain in the design review journey overlay, not broad family completion. No I3.
+
+Assessment: existing compact blue tokens/native controls and I1 loaded-page table/inspection are reusable. Current shell lacks persistent contextual pane across journeys, mobile navigation occupies full width, and people/appointment flows stack oversized sections. Presentation scope: reference geometry, contextual selection/review, semantic statuses, UTC-labelled expiry, concise navigation/copy, full-width phone detail/Back/focus. No backend fields or authority changes. Interaction scope: coalesced clean return reads; drafts retained and review invalidated on return; explicit original-operation recovery; confirmed write/read-failure remains distinct. APIs/data/audit/receipts/version/candidate gates unchanged. Future features and unresolved policies remain excluded.
+
+First bounded slice: shared sidebar/center/inspector composition and existing permitted field placement. Acceptance: desktop/RTL regions, mobile list-detail Back/focus, existing selection no extra I1 read, no private-data retention after denial, no decorative controls or OS dots. Subsequent refresh changes need return-event/review/unknown/write-read-failure tests. See design/implemented-journeys-review-2026-10-25 acceptance.csv and refresh-policy.md.
+
+Security review: browser/session and current private projections affected; no API/schema/provider changes. Inspectors consume only already fetched data or existing explicit selected-detail operations; no implicit contact fetch. Hidden detail is cleared on denied current reads. Pending/unknown cannot close into replacement operations. Shared primitive is presentation only; each domain controls authority and operations. Rollback presentation/source only; no historical record restoration. No invitations/grants authorized for demonstration. Local adapter evidence, hosted rendering, deployment and owner acceptance remain separate.
+
+Status: functional presentation/interaction source implemented and locally verified. Hosted rollout and working visual acceptance recorded separately below. Imported reference/design packet and earlier foundation artifacts were supplied by the design work; preserved rather than recreated. Original HTML SHA-256 remains `6941598aa7ecfe25b8f44e5b81ba20ee4fc4acaf119626a3c92e93f08d68ccb9`.
+
+## Implemented behavior
+
+Shared presentation-only panes retain stable navigation, central task/directory, 360px desktop inspector (302px medium), RTL mirroring and phone list/detail Back. Actual loaded selection remains visible on desktop. I1 loaded-record inspection adds zero requests. People profile Back preserves the loaded directory selection; after new registration it reloads the directory once to include authoritative saved results. Appointment selection uses current loaded fields; exact recipient remains an explicit existing scoped read. No new fields, endpoints, schema, dependencies, roles or data grants.
+
+Quiet Refresh view/Retry current read are current reads only. Coalesced focus/visibility return refreshes clean views. Dirty return retains input, invalidates approval and requires rechecking. Server authority/version/generation/duplicate checks remain authoritative at each existing commit. Unknown write retains original operation and one Check original operation; navigation/replacement remains blocked. Confirmed player save with failed profile read remains confirmed; read retry never repeats create. Read failure/denial clears private projections. Account references are disclosed only on request. Separate branch/timezone, bilingual sport and completion writes remain unchanged.
+
+## Local evidence
+
+[Verification summary and source hashes](evidence/reference-refinement-2026-10-25/verification-summary.json) and [actual component journey gallery](evidence/reference-refinement-2026-10-25/index.html). Node 24.14.0: build, typecheck, lint (zero warnings), 39 unit tests and 7 foundation browser tests pass. Real component browser suites pass in production and development React: M1/I1, player, Guardian and Trainer. Cases retain original recovery/denial/identity assertions; additional checks cover dirty return, coalesced clean return, selected directory/inspector composition, 320px Arabic detail and 720px reflow (Guardian/Trainer), player 320px Back and confirmed-save/read-failure recovery. M1 EN/AR keyboard at 360/1440 retains 44px phone targets, required-field focus, one submit, selected-row Back focus and zero-read inspection. All are synthetic transport/identity tests, not actual database operations.
+
+651 relative Markdown targets checked without missing files. Matrix validation preserves 68 screens, 30 action groups and 180 canonical requirement joins. Current source mappings do not mark broader role management or catalog screens complete. Original reference unchanged. No weakened business result assertions.
+
+## Security, speed, cost and limitations
+
+No backend contract or permission policy changed, so prior scoped SQL/HTTP results remain historical evidence; this run does not promote them to a fresh hosted security audit. Inspectors create no automatic recipient detail call; existing page bounds, minimal projections, gateway budgets and no polling remain. Coalesced return has one clean-state read and no draft read, tested in Guardian adapter. This is request-count evidence, not hosted latency/cost-meter acceptance. No new provider service, paid commitment, invitation, appointment restoration or grant.
+
+Physical devices, native select/screen reader, actual 200% browser zoom, wider hosted load/races/provider meters and independent human security review retain their previous open gates. 720px viewport reflow is not proof of physical-device or browser-zoom acceptance. Working reference-refinement visual acceptance remains pending; prior narrow functional approvals are preserved. No I3 expansion.
+
+## Hosted rollout — 25 October 2026
+
+Source commit `2cbc4adc3d210928e36d91efbe18ae7a06a0f5f0` pushed on existing `codex/onboarding-decision-design-packet`; draft PR #1 updated, no merge. Vercel deployment `dpl_4nPk2T2gD1BS4AiLzhYcmJYFfpaS` READY from that exact Git revision, assigned to `staging.academy.nahr.dev`. Provider's `production` target is this existing synthetic staging project; no customer production environment launched. No environment or protection changes. GitHub Foundation checks runs `40213536265` and `40213532080` both succeeded. Deployment build was approximately 46 seconds (provider timestamps), not a page speed measurement.
+
+[Hosted read-only receipt](evidence/reference-refinement-2026-10-25/hosted-readonly.json): process health 200, unauthenticated people POST 403 denied. Bare protected-route requests produced Clerk protect-rewrite/dev-browser-missing (404 challenge/rewrite), not authenticated rendering evidence. Python's local certificate store failed verification; system curl succeeded with normal certificate verification. No bypass used. Browser tool still reports disabled despite Owner enabling and fresh connection retry, so signed-in current hosted EN/AR visual/navigation checks remain pending. No recipients/grants created as a workaround.
+
+[Connected actual-component gallery](evidence/reference-refinement-2026-10-25/index.html) is also served locally at `http://127.0.0.1:3205/`. Screens are actual compiled application components with fictional test adapters; not the in-memory design prototype and not hosted persistence proof. Working staging review begins at `https://staging.academy.nahr.dev/en/workspace`. Working visual acceptance remains pending.
+
+GitHub push reported an existing default-branch dependency alert. Read-only inspection identifies alert #1 as an open withdrawn braces advisory (transitive development dependency, no patched-version recommendation); this is not a new source dependency or a security-clearance claim. Independent security gates remain open.
+
+## Owner feedback and correction
+
+Owner subsequently reported workflow organization, intuitiveness, alignment and spacing faults. The working visual refinement is not accepted. Continue from the [workflow clarity correction](workflow-clarity-correction.md); earlier source/test/deployment records remain historical evidence, not proof of usability.

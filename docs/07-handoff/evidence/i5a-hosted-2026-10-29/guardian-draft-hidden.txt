@@ -1,0 +1,31 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development#main
+					7 container
+						8 text Guardian workspaceDevelopment feedback Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Guardian workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+							17 link Development, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/development
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Player development, Value: 1
+							21 text Player development
+						22 button Refresh view
+						23 text Published feedback for your approved linked player.
+						24 button Choose linked player
+						25 heading Published feedback, Value: 2
+							26 text Published feedback
+						27 heading Nothing to show in this selection, Value: 3
+							28 text Nothing to show in this selection
+						29 text Only currently approved development links and published feedback appear. Contact the academy if you expected access.
+						30 button (disabled) Previous page
+						31 button (disabled) Next page
+						32 container Contextual details and actions
+							33 heading Feedback details, Value: 2
+								34 text Feedback details
+							35 text Choose a player or assessment to continue.

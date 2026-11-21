@@ -1,0 +1,611 @@
+{
+  "checkpoint": "EX-07 / MP-B01",
+  "date": "2026-11-14",
+  "origin": "Local Next production, actual React and Chromium; controlled fictional identity/transport. The linked prepared-data and Attendance checks use disposable PostgreSQL where their receipts say so.",
+  "runtime": {
+    "node": "v24.14.0",
+    "chromium": "156.0.8078.4"
+  },
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "98fa19e98189fd5b5e32b1377db0fe6b55c275c9eb2f9cacdc50f95bd4720a57",
+    "apps/web/src/components/people-workspace.tsx": "ff53b7d1f1f47f2b0246503ce46e7d3e653325a2eb15168e2d9b3cc5bf425bfc",
+    "apps/web/src/app/globals.css": "4db840a0090c3b73b8f5d7b87b4e057bf6e283b5943cadae64f4b852d700ca36",
+    "scripts/navigation/test_next.mjs": "5c96c00322ebc394a66a58292451d35c10c3f77a8f1000ed1d725738a37c4749",
+    "scripts/experience-projections/test_operations_calendar.mjs": "7c056d9a01ade811949c9fa2fa9456c5b5cec5d6acd80dc4119f5bad6071aa92",
+    "scripts/people/profile_continuity.mjs": "01e9a3d739899f5090d4f15527885f7c6c913d360088d4a44ee944c3f5dabd56"
+  },
+  "calendar": {
+    "baseline": "780225b",
+    "data": "Ten matched fictional Cairo sessions, EN light 1600×1000 layout comparison; both runtime month views use the same Sunday-start window.",
+    "comparison": [
+      {
+        "source": "780225b",
+        "componentSha256": "5ddef223983995edbced5e8c5d2875e2d1537d87f5dae81f9cac3337ab24cdc7",
+        "cssSha256": "5dce428f0dcf5909be0915d54659bc72b51efae4ecc63d3ac3284b69d54d7891",
+        "initialReads": 1,
+        "localReads": 0,
+        "recheckReads": 1,
+        "selectionRetained": true,
+        "searchRetained": true,
+        "rowFocusRestored": true,
+        "structuredInspector": true,
+        "title": "25px",
+        "boardColumns": 7,
+        "bodyWidth": 1600,
+        "viewport": 1600,
+        "firstSessionTop": 536.640625,
+        "firstSessionHeight": 145.046875,
+        "navigationWidth": 220,
+        "inspectorWidth": 276,
+        "monthGeometry": {
+          "top": 470.640625,
+          "height": 1576.296875,
+          "firstSessionHeight": 112
+        },
+        "monthCaption": "1 Nov – 12 Dec 2026"
+      },
+      {
+        "source": "working-tree",
+        "componentSha256": "98fa19e98189fd5b5e32b1377db0fe6b55c275c9eb2f9cacdc50f95bd4720a57",
+        "cssSha256": "4db840a0090c3b73b8f5d7b87b4e057bf6e283b5943cadae64f4b852d700ca36",
+        "initialReads": 1,
+        "localReads": 0,
+        "recheckReads": 1,
+        "selectionRetained": true,
+        "searchRetained": true,
+        "rowFocusRestored": true,
+        "structuredInspector": true,
+        "title": "25px",
+        "boardColumns": 7,
+        "bodyWidth": 1600,
+        "viewport": 1600,
+        "firstSessionTop": 442,
+        "firstSessionHeight": 145.046875,
+        "navigationWidth": 220,
+        "inspectorWidth": 276,
+        "monthGeometry": {
+          "top": 376,
+          "height": 1110.75,
+          "firstSessionHeight": 98.171875
+        },
+        "monthCaption": "November 2026"
+      }
+    ],
+    "responsiveCombinations": 24,
+    "caseGroups": [
+      "Month caption stays on the selected month with 42 bounded days; surrounding dates are labelled and actionable; period arrows and Today each issue one read; complete results show one total",
+      "Upcoming published sessions retain Published and add Scheduled; private drafts remain Draft without Scheduled",
+      "In-place EN/AR language switch retains filter/selection with0 operating reads",
+      "Partial period days say no sessions on this page, never complete-empty; local clear search needs no read",
+      "Moved session preserves original occurrence route and effective-date hint; cancelled context has no operating date link; phone control targets >=44x48",
+      "42-cell bounded month; lost selection disappears after current read; denied clears; unavailable differs from confirmed empty; long Arabic320"
+    ],
+    "coldRouteCases": [
+      {
+        "locale": "en",
+        "scenario": "cold",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "hint",
+        "firstAction": "owner_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "invalid-hint",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "stored-period",
+        "firstAction": "owner_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "cold-month",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "current-failure",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 503,
+        "recoveryActions": [
+          "owner_current_calendar"
+        ]
+      },
+      {
+        "locale": "en",
+        "scenario": "explicit-failure",
+        "firstAction": "owner_calendar",
+        "firstStatus": 503,
+        "recoveryActions": [
+          "owner_current_calendar"
+        ]
+      },
+      {
+        "locale": "en",
+        "scenario": "setup-required",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "en",
+        "scenario": "leave-during-current",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": null
+      },
+      {
+        "locale": "ar",
+        "scenario": "cold",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "hint",
+        "firstAction": "owner_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "invalid-hint",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "stored-period",
+        "firstAction": "owner_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "cold-month",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "current-failure",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 503,
+        "recoveryActions": [
+          "owner_current_calendar"
+        ]
+      },
+      {
+        "locale": "ar",
+        "scenario": "explicit-failure",
+        "firstAction": "owner_calendar",
+        "firstStatus": 503,
+        "recoveryActions": [
+          "owner_current_calendar"
+        ]
+      },
+      {
+        "locale": "ar",
+        "scenario": "setup-required",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": 200
+      },
+      {
+        "locale": "ar",
+        "scenario": "leave-during-current",
+        "firstAction": "owner_current_calendar",
+        "firstStatus": null
+      }
+    ],
+    "routineDatedLinkCases": [
+      "en",
+      "ar"
+    ],
+    "hydrationRegression": {
+      "reproduced": "Direct EN anchor produced React 418. Development comparison showed Node rendered thin spaces around the date-range dash and Chromium rendered regular spaces.",
+      "repair": "Wait for restored navigation before rendering the formatted period. The identified direct-link states pass the current EN/AR no-page-error check."
+    },
+    "routedReturnPositions": [
+      {
+        "locale": "en",
+        "width": 1440,
+        "before": {
+          "center": 7148,
+          "document": 0
+        },
+        "after": {
+          "center": 7148,
+          "document": 0
+        },
+        "reads": 2,
+        "historyRestored": true,
+        "heldPrivateMask": true,
+        "shortened": {
+          "center": 252,
+          "document": 0
+        },
+        "denied": true,
+        "totalReads": 5
+      },
+      {
+        "locale": "en",
+        "width": 390,
+        "before": {
+          "center": 0,
+          "document": 3962
+        },
+        "after": {
+          "center": 0,
+          "document": 3962
+        },
+        "reads": 2,
+        "historyRestored": true,
+        "heldPrivateMask": true,
+        "shortened": {
+          "center": 0,
+          "document": 310
+        },
+        "denied": true,
+        "totalReads": 5
+      },
+      {
+        "locale": "ar",
+        "width": 1440,
+        "before": {
+          "center": 7844,
+          "document": 0
+        },
+        "after": {
+          "center": 7844,
+          "document": 0
+        },
+        "reads": 2,
+        "historyRestored": true,
+        "heldPrivateMask": true,
+        "shortened": {
+          "center": 304,
+          "document": 0
+        },
+        "denied": true,
+        "totalReads": 5
+      },
+      {
+        "locale": "ar",
+        "width": 390,
+        "before": {
+          "center": 0,
+          "document": 3863
+        },
+        "after": {
+          "center": 0,
+          "document": 3863
+        },
+        "reads": 2,
+        "historyRestored": true,
+        "heldPrivateMask": true,
+        "shortened": {
+          "center": 0,
+          "document": 212
+        },
+        "denied": true,
+        "totalReads": 5
+      }
+    ]
+  },
+  "players": {
+    "data": "Twelve matched fictional Cairo player records for layout; 18 players in profile continuity fixture.",
+    "comparison": [
+      {
+        "mode": "before",
+        "locale": "en",
+        "viewport": 1440,
+        "players": 12,
+        "operatingRequests": 1,
+        "firstRowTop": 564.1875,
+        "firstRowHeight": 60.5,
+        "searchTop": 435.1875,
+        "overflow": false
+      },
+      {
+        "mode": "current",
+        "locale": "en",
+        "viewport": 1440,
+        "players": 12,
+        "operatingRequests": 1,
+        "firstRowTop": 379,
+        "firstRowHeight": 60.5,
+        "searchTop": 257,
+        "overflow": false
+      },
+      {
+        "mode": "before",
+        "locale": "ar",
+        "viewport": 390,
+        "players": 12,
+        "operatingRequests": 1,
+        "firstRowTop": 619.6875,
+        "firstRowHeight": 107,
+        "searchTop": 523.6875,
+        "overflow": false
+      },
+      {
+        "mode": "current",
+        "locale": "ar",
+        "viewport": 390,
+        "players": 12,
+        "operatingRequests": 1,
+        "firstRowTop": 491,
+        "firstRowHeight": 99,
+        "searchTop": 349.5,
+        "overflow": false
+      }
+    ],
+    "uiCaseCount": 22,
+    "profileChecks": [
+      "toolbar menu closes with Escape/outside press and restores keyboard opener",
+      "Search and Register share the desktop controls row; 8px desktop rows retain44px targets; EN/AR directory and menus fit320/360/390/768/1440; Charcoal menu restores focus",
+      "held initial profile retains18same DOM rows/scroll;one profile read and zero list reads",
+      "EN/AR pending Back restores opener;cancelled late refusal cannot replace the task",
+      "rapid row replacement fences the cancelled profile;two intentional profile reads",
+      "typing during profile load cancels obsolete detail;one debounced directory search",
+      "failed secondary read keeps directory,clears detail;one read retry and no create",
+      "current profile401 still masks directory and detail;not role loss",
+      "current profile403 still fences all private data",
+      "360px pending detail uses native dialog;Escape returns without extra reads"
+    ],
+    "heldProfile": {
+      "rows": 18,
+      "minimumRows": 18,
+      "blankMs": 0,
+      "centerScroll": 555,
+      "backDisabled": false
+    }
+  },
+  "preparedWorkspace": {
+    "baselinePlayersReads": 1,
+    "coveredPlayersRequests": 0,
+    "fullProfileReads": 1,
+    "coveredCalendarRequests": 0,
+    "unchangedManifestRequests": 1,
+    "unchangedDatasetPages": 0,
+    "offlineOperatingRequests": 0,
+    "offlineRoutePayloadRequests": 0,
+    "fullBrowserRestart": true,
+    "fixtureOriginDisconnected": true,
+    "peopleViewRestored": true,
+    "localLoadingFlashes": 0,
+    "calendarReconnectContext": true
+  },
+  "linkedLocalChecks": [
+    {
+      "receipt": "owner-working-day-next-2026-11-04.json",
+      "checks": 8
+    },
+    {
+      "receipt": "ex07-normal-attendance/runtime.json",
+      "checks": 28
+    },
+    {
+      "receipt": "ex07-additive-attendance.json",
+      "checks": 4
+    },
+    {
+      "receipt": "ex13b-workspace-transfer/transport.json",
+      "checks": 70
+    }
+  ],
+  "factualHtml": {
+    "manifest": "design/app-experience-review/manifest.json",
+    "captureSuites": 16,
+    "frames": 1329,
+    "captureGaps": 0
+  },
+  "limits": [
+    "No new staging, installed-device or Owner acceptance evidence.",
+    "The scripted cold-entry delay is fixed at 250ms per read; these case timings are not hosted percentiles, costs or backend cancellation proof.",
+    "PYSA is a read-only source comparison. This update preserves the current field, write and authority boundaries."
+  ],
+  "wd04OrdinaryOnline20261120": {
+    "recordedUtc": "2026-11-19T23:22:24+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "inputs": {
+      "scripts/working-day/owner_fixture.mjs": "878584280b3c9a0a57300727a710d9885e66b295deda95dfac7ab360fb7d4cdc",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/api/experience/route.ts": "4fd764579df8b3a09618cade4a83ab84dcdaa903813fb8c9f660d8f68dfc55d3",
+      "apps/web/src/lib/experience-projections.ts": "ff9b5f8ee37245ec1d3f313db9819d43dd716769f989eac1624df224a39808c4"
+    },
+    "local": {
+      "environment": "Production Next routing fixture with real signed Experience handlers, disposable PostgreSQL 17 and fictional identity",
+      "node": "24.14.0",
+      "chromium": "156.0.8078.4",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "freshAndRepeatMethod": "Separate fresh uncached context per locale and surface, then new document in same browser context and tab. Cache enabled. Ordinary online mode.",
+      "codeBoundary": "Same-origin Next static JavaScript and CSS Resource Timing transferSize, with document and operating requests counted separately.",
+      "postReadObservationMs": 750,
+      "cases": [
+        {
+          "locale": "en",
+          "surface": "home",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4552,
+            4552
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          }
+        },
+        {
+          "locale": "en",
+          "surface": "calendar",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4817,
+            4817
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_current_calendar",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-27",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_calendar",
+                "status": 200,
+                "intendedAcademy": true,
+                "from": "2026-11-27",
+                "to": "2026-12-03"
+              }
+            ]
+          },
+          "intentionalPeriodChange": {
+            "action": "owner_calendar",
+            "from": "2026-11-27",
+            "to": "2026-12-03",
+            "status": 200,
+            "intendedAcademy": true
+          }
+        },
+        {
+          "locale": "ar",
+          "surface": "home",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            4844,
+            4844
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_home",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          }
+        },
+        {
+          "locale": "ar",
+          "surface": "calendar",
+          "htmlDocumentTransferBytesFirstAndRepeat": [
+            5129,
+            5129
+          ],
+          "first": {
+            "renderedAnchor": "2026-11-20",
+            "codeResources": 8,
+            "codeTransferBytes": 209376,
+            "operating": [
+              {
+                "action": "owner_current_calendar",
+                "status": 200,
+                "intendedAcademy": true
+              }
+            ]
+          },
+          "repeat": {
+            "renderedAnchor": "2026-11-27",
+            "codeResources": 8,
+            "codeTransferBytes": 0,
+            "operating": [
+              {
+                "action": "owner_calendar",
+                "status": 200,
+                "intendedAcademy": true,
+                "from": "2026-11-27",
+                "to": "2026-12-03"
+              }
+            ]
+          },
+          "intentionalPeriodChange": {
+            "action": "owner_calendar",
+            "from": "2026-11-27",
+            "to": "2026-12-03",
+            "status": 200,
+            "intendedAcademy": true
+          }
+        }
+      ]
+    },
+    "hosted": {
+      "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+      "locale": "en",
+      "scope": "Ordinary signed-in Academy Owner tab in Nahr, synthetic Isolation Academy B, before device preparation",
+      "firstTodayExperienceStatuses": [
+        200
+      ],
+      "repeatTodayExperienceStatuses": [
+        200
+      ],
+      "firstCalendarExperienceStatuses": [
+        200
+      ],
+      "repeatCalendarExperienceStatuses": [
+        200
+      ],
+      "firstCalendarAnchor": "2026-11-20",
+      "repeatCalendarAnchor": "2026-11-27",
+      "taskTabClosed": true
+    },
+    "limits": [
+      "Hosted warm profile supplies a behavioral comparison. Code transfer measurements come from the controlled fixture.",
+      "The first fixture attempt waited for global network idle and timed out. Final observations wait for the actionable view and count requests through a bounded settling window.",
+      "The staged remembered date rendered before its read completed. The completed response was checked separately.",
+      "Prepared offline reuse, installed-device evidence and population performance remain separately scoped."
+    ]
+  }
+}

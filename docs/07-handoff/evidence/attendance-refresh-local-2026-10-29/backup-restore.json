@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "project": "snpphkenmvmhpjstbeul",
+  "key": "staging/2026-10-29/24dccf27-abc7-4b2c-aefd-f4318bb2894f/backup.tar.age",
+  "sha256": "7251b8737c41464590bb91c2916adb0e9ed93590244c6c269b7738cc898ff279",
+  "bytes": 717160,
+  "object_count": 0,
+  "verified_at": "2026-10-29T03:56:02.040878+00:00",
+  "status": "encrypted_upload_download_verified",
+  "storage_api_credential_verified": true,
+  "restore_tested": false,
+  "github_run": 40814796768,
+  "trusted_job_digest_matched": true,
+  "payload_checksums_valid": true,
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "private_tables_with_rls": 58,
+  "migration_rehearsed": "20261029035928_attendance_register_batch.sql",
+  "scope": "Encrypted copy and disposable database restore; zero Storage objects; no hosted Storage restore"
+}

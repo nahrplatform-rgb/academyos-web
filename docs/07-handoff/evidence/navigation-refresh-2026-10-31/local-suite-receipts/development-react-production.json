@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scope": "Actual product React with synthetic identity/HTTP adapters; not hosted permissions or database proof",
+  "cases": [
+    "real component: Trainer draft/submit, different Owner return, exact publication and internal history",
+    "lost committed reply reconciles once and malformed successful response stays unknown",
+    "not committed outcome fences and retains draft input",
+    "confirmed save followed by failed refresh recovers through read without replacement",
+    "stale save preserves text while loading current version",
+    "revocation clears current text/history and malformed identity is not reused",
+    "Guardian real component has exact publication and no private fields/history; withdrawal clears it",
+    "ENAR desktop phone presentation, language preserves edits, phone Back returns list/focus",
+    "Direct home task opens its exact feedback record without a write",
+    "Direct Guardian home task reads only its published feedback"
+  ],
+  "errors": []
+}

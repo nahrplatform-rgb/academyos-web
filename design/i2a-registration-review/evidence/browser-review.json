@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-24",
+  "scope": "Manual browser checks of in-memory design model only",
+  "source_manifest": "../source-manifest.json",
+  "checked": [
+    "Same-name candidate and explicit different-person confirmation",
+    "Open existing profile without creating a record",
+    "Required name and optional example.invalid contact validation",
+    "Pending save prevents repeated submission",
+    "Lost response reconciles the original simulated result",
+    "Concurrent same-name model forces renewed review",
+    "Save failure preserves draft for retry",
+    "EN/AR language change preserves draft",
+    "Empty, unavailable and access-denied states are distinct",
+    "New registration clears previous committed draft",
+    "Keyboard moves from name to contact input"
+  ],
+  "phone": {
+    "requestedViewportWidth": 360,
+    "observedDomWidth": 400,
+    "horizontalOverflow": false,
+    "direction": "rtl",
+    "limitation": "Exact 360px and physical-device behavior remain unverified"
+  },
+  "browserErrorsAtFinalObservation": [],
+  "limitations": [
+    "No real API, SQL, authentication, authorization, concurrency or performance verification",
+    "No physical-device or screen-reader acceptance",
+    "Screenshots contain fictional data only"
+  ]
+}

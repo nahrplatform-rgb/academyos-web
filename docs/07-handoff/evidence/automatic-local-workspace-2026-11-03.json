@@ -1,0 +1,325 @@
+{
+  "date": "2026-11-03T10:46:38.798160+00:00",
+  "scope": "EX-02 existing principal/academy workspace compatibility recheck for an inactive future adapter; no product change or hosted proof",
+  "sourceBase": "b9f54ee90412993a2cd189d606b541ace4e0ff6a",
+  "harnessSha256": "5089c6dc718b3f922d6e87cc3c9e451f1e91fcd5e6e551384b6ce363bc44ed46",
+  "unitCasesPassed": 12,
+  "unitSourceHashes": {
+    "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+    "apps/web/src/lib/workspace-read-owner.test.ts": "77ce0c9d7b240f38ef454749a539a3e8476295f036bbaef8f3173e724713877e"
+  },
+  "workspace": {
+    "status": "passed",
+    "inputs": {
+      "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+      "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+      "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+      "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+      "apps/web/src/components/experience-workspace.tsx": "ed55a22cd3e720876f51be0b754a93d08881b2162099707a7cc3cef834bb5439",
+      "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
+      "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+      "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+      "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+    },
+    "scope": "actual Next production layout/client components;fictional identity and read-only API;no hosted Clerk/DB/cost proof;no private disk or settled-result cache",
+    "cases": [
+      {
+        "locale": "en",
+        "steps": [
+          {
+            "label": "home",
+            "reads": [
+              "owner_home"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "calendar",
+            "reads": [
+              "owner_home",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "date",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "return",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "different-subject",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar",
+              "owner_current_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 2,
+              "unmounts": 1
+            }
+          },
+          {
+            "label": "explicit-current-read",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar",
+              "owner_current_calendar",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 2,
+              "unmounts": 1
+            }
+          }
+        ],
+        "controlledTwoConsumersReadStarts": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "steps": [
+          {
+            "label": "home",
+            "reads": [
+              "owner_home"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "calendar",
+            "reads": [
+              "owner_home",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "date",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "return",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 1,
+              "unmounts": 0
+            }
+          },
+          {
+            "label": "different-subject",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar",
+              "owner_current_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 2,
+              "unmounts": 1
+            }
+          },
+          {
+            "label": "explicit-current-read",
+            "reads": [
+              "owner_home",
+              "owner_calendar",
+              "read",
+              "owner_calendar",
+              "owner_current_calendar",
+              "owner_calendar"
+            ],
+            "documents": 1,
+            "owner": {
+              "mounts": 2,
+              "unmounts": 1
+            }
+          }
+        ],
+        "controlledTwoConsumersReadStarts": 1,
+        "errors": []
+      }
+    ]
+  },
+  "framework": {
+    "status": "passed",
+    "runtime": "v24.14.0",
+    "baseline": false,
+    "planningBaseline": false,
+    "continuityBaseline": false,
+    "continuity": [
+      {
+        "locale": "en",
+        "calendarRequests": [
+          "owner_calendar"
+        ],
+        "calendarActionableMs": 361,
+        "syntheticDelayPerExperienceReadMs": 250,
+        "planningRequests": [
+          "read"
+        ],
+        "planBlockedByHiddenDirectory": false
+      },
+      {
+        "locale": "ar",
+        "calendarRequests": [
+          "owner_calendar"
+        ],
+        "calendarActionableMs": 848,
+        "syntheticDelayPerExperienceReadMs": 250,
+        "planningRequests": [
+          "read"
+        ],
+        "planBlockedByHiddenDirectory": false
+      }
+    ],
+    "localControlsBaseline": false,
+    "localControls": [
+      {
+        "view": "home",
+        "inputRetained": true,
+        "languageChangedUrl": false,
+        "readStarts": 1,
+        "privateRowsMasked": true
+      },
+      {
+        "view": "calendar",
+        "inputRetained": true,
+        "languageChangedUrl": false,
+        "readStarts": 1,
+        "privateRowsMasked": true
+      },
+      {
+        "view": "dated",
+        "singleLocaleClickAccepted": true,
+        "readStarts": 1
+      }
+    ],
+    "inputs": {
+      "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+      "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+      "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+      "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+      "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+      "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+      "apps/web/src/components/experience-workspace.tsx": "ed55a22cd3e720876f51be0b754a93d08881b2162099707a7cc3cef834bb5439",
+      "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
+      "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+      "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+      "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+    },
+    "speculativeDatePrefetches": 0,
+    "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+    "results": [
+      {
+        "locale": "en",
+        "documentLoadsForTaskLoop": 0,
+        "dirtyCancel": true,
+        "modifierNewTab": true,
+        "selectedIdRestored": true,
+        "browserBackForward": true
+      },
+      {
+        "locale": "ar",
+        "documentLoadsForTaskLoop": 0,
+        "dirtyCancel": true,
+        "modifierNewTab": true,
+        "selectedIdRestored": true,
+        "browserBackForward": true
+      },
+      {
+        "locale": "en",
+        "programTaskDocuments": 0,
+        "baseline": false
+      },
+      {
+        "locale": "ar",
+        "programTaskDocuments": 0,
+        "baseline": false
+      },
+      {
+        "locale": "en",
+        "planningCleanDocuments": 0,
+        "planningConfirmedDirtyDocuments": 0,
+        "dirtyCancel": true,
+        "planningBaseline": false
+      },
+      {
+        "locale": "ar",
+        "planningCleanDocuments": 0,
+        "planningConfirmedDirtyDocuments": 0,
+        "dirtyCancel": true,
+        "planningBaseline": false
+      }
+    ],
+    "errors": []
+  },
+  "limitations": [
+    "Synthetic identity/read-only transport; no Clerk/DB/Redis/hosted proof",
+    "Private repository/key lifecycle not mounted by the current product",
+    "Shell chrome remount and broader all-role findings remain open",
+    "No private preview state or new access grant; no deployment promotion"
+  ]
+}

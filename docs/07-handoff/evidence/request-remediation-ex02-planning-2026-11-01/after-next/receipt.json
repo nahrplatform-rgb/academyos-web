@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "runtime": "v26.9.0",
+  "baseline": false,
+  "planningBaseline": false,
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "40fa521386e6e750c8f94d7eb684666212d756d657d85f47fc2d806382c6fb9d",
+    "apps/web/src/components/date-planning-workspace.tsx": "1947ee6cb57dba8e77d8554f502921e05083e22f159764a42cc757d3f9da1455",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "speculativeDatePrefetches": 0,
+  "scope": "actual Next production router with product components; synthetic identity/read-only API fixtures; not hosted/auth proof",
+  "results": [
+    {
+      "locale": "en",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "ar",
+      "documentLoadsForTaskLoop": 0,
+      "dirtyCancel": true,
+      "modifierNewTab": true,
+      "selectedIdRestored": true,
+      "browserBackForward": true
+    },
+    {
+      "locale": "en",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "ar",
+      "programTaskDocuments": 0,
+      "baseline": false
+    },
+    {
+      "locale": "en",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    },
+    {
+      "locale": "ar",
+      "planningCleanDocuments": 0,
+      "planningConfirmedDirtyDocuments": 0,
+      "dirtyCancel": true,
+      "planningBaseline": false
+    }
+  ],
+  "errors": []
+}

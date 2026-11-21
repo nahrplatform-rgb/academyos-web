@@ -1,0 +1,16 @@
+{
+  "mark_count": 1,
+  "ending_audit": [
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "trainer.end",
+      "details": {
+        "state": "ended",
+        "version": 11,
+        "invitation_id": "29d99cd2-5a51-4754-986c-42b4b9c52a0a"
+      },
+      "operation_id": "7f0c8cca-8be2-47da-ab40-fd773e93aac4"
+    }
+  ],
+  "history_count": 1
+}

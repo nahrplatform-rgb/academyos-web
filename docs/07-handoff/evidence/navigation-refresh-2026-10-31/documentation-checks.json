@@ -1,0 +1,16 @@
+{
+  "as_of": "2026-10-31",
+  "source_revision": "7a6be974eaf9826f33d9ecfce4accf0e568b3a0c",
+  "results": {
+    "implementation_register": "PASS:68 screens/30 actions/180 preserved requirements",
+    "factual_review_build_check": "PASS fingerprints current; no capture changes required",
+    "offline_whole_app_review_tool": "PASS",
+    "local_markdown_links": "PASS",
+    "coverage_and_service_csv_shapes": "PASS",
+    "model_formulas": "PASS",
+    "product_schema_dependency_diff": "NONE",
+    "added_production_react_suites": "13/13 PASS; mocked identity/HTTP",
+    "baseline_suites": "3 retained same-source receipts"
+  },
+  "scope": "Documentation checks and local functional boundaries; no full all-role hosted performance/security acceptance"
+}

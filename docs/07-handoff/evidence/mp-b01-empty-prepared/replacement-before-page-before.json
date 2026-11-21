@@ -1,0 +1,47 @@
+{
+  "variant": "replacement_before_page",
+  "message": "AssertionError [ERR_ASSERTION]: a replaced local generation must retry locally,not fall through to an online directory list\n+ actual - expected\n\n  [\n    'candidates',\n    'create',\n    'profile',\n+   'list'\n  ]\n",
+  "peopleActions": [
+    "list",
+    "candidates",
+    "create",
+    "profile",
+    "list"
+  ],
+  "transferActions": [
+    "prepare",
+    "manifest",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "manifest",
+    "page",
+    "complete"
+  ],
+  "canonical": {
+    "registration": {
+      "audits": 1,
+      "result": {
+        "version": 1,
+        "player_id": "15095718-3217-43b3-a8b2-484bd9f39a28"
+      },
+      "players": 1,
+      "operations": 1
+    },
+    "totalPlayers": 1,
+    "peopleRevision": "11"
+  },
+  "text": "Skip to content\nA\nAcademyOS\nHide navigation\nSynthetic Academy / PlayersAcademy Owner\nStaging\nالعربية\nDark mode\nLayout\nOnline\n\nSynthetic Academy\n\nAcademy Owner\nSwitch workspace\n\nWorkspace\n\nToday\nAcademy setup\n\nPeople\n\nPlayers\nTrainer appointments\n\nTraining\n\nCalendar\nTraining programs\n\nAttendance\n\nSession scanner\nAttendance settings\nCorrection requests\n\nDevelopment\n\nDevelopment feedback\n\nStaging · Synthetic data only\n\nHide details\nPlayers\nRefresh view\n\nSynthetic Academy · Synthetic branch\n\nPlayer directory\nRegister player\nFind a player by name\n\n1 player on this page\n\nPlayer directory\nPlayer\tBranch\nSynthetic empty replacement_before_page\tSynthetic branch\nFirst page\nUp to 25 players per page. Contact details appear only in profiles.\nCurrent task\nWorking with players\n\nSelect a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.\n\nSynthetic branch",
+  "pageErrors": [],
+  "source_base": "5d8707f plus first-page local generation retry",
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "4d985b55f1bd1af99229b49a2eef067dc578c62b9be20c36bc12c2e2387fe0f8",
+    "apps/web/src/lib/local-workspace-repository.ts": "489f36aae0aab1a7644eab96f43edb57272791a7ce1c4f0b9a0e306e56a4e18e"
+  },
+  "mechanism": "Hold the old completion-receipt decrypt before the old page is fetched;replacement completion removes the old page. The missing old-page error originally bypasses the final generation check and causes an extra online list even with one local generation retry."
+}

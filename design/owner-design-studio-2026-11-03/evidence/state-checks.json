@@ -1,0 +1,22 @@
+[
+  {
+    "scenario": "loading",
+    "main": "Loading the fictional workspace…\n\nFinish sample load\nDesign exploration · not connected to your academy\nBriefing treatment",
+    "cleared": true
+  },
+  {
+    "scenario": "empty",
+    "main": "A quieter day at the academy.\n\nNo sessions match this sample view. Try another date or branch.\n\nReturn to sample data\nDesign exploration · not connected to your academy\nBriefing treatment",
+    "cleared": true
+  },
+  {
+    "scenario": "error",
+    "main": "This view couldn’t load.\n\nA simulated read failed. Nothing has been saved or changed.\n\nRetry this view\nDesign exploration · not connected to your academy\nBriefing treatment",
+    "cleared": true
+  },
+  {
+    "scenario": "denied",
+    "main": "Access is no longer available.\n\nThe sample clears the workspace and inspector together. A cached role must never grant access.\n\nReset access simulation\nDesign exploration · not connected to your academy\nBriefing treatment",
+    "cleared": true
+  }
+]

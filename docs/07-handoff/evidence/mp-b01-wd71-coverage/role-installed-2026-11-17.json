@@ -1,0 +1,211 @@
+{
+  "recordedUtc": "2026-11-17T05:26:53.259327+00:00",
+  "scope": "EX-07/MP-B01 with EX-14/16; IMP-J13-A01 and PW-01/02/07; synthetic hosted role workflow and actual macOS installation",
+  "testedSource": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+  "deployment": {
+    "id": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "origin": "https://staging.academy.nahr.dev",
+    "state": "READY",
+    "freshRead": true,
+    "agentPromotion": false
+  },
+  "execution": {
+    "coordinator": "Codex; exact configured model not exposed",
+    "helpers": 0,
+    "browser": "Installed browse CLI task groups/explicit tab IDs and exact allowlists; old loaded MCP session_new rejected version mismatch",
+    "native": "CUA only for Chrome install dialog, standalone app and OS relaunch",
+    "protectedConfigurationChanged": false
+  },
+  "trainer": {
+    "profile": "dokkanni",
+    "identityVerifiedThroughManageAccount": true,
+    "role": "Trainer",
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "event": "f62395d1-11b0-4df3-b063-1ea6968c08a4",
+    "homeRegisterKeyboardEntry": "passed",
+    "normalRegister": {
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    },
+    "arabicDetailKeyboardReturn": {
+      "focus": "Original Details button",
+      "roster": 18,
+      "dirtyChoices": 0
+    },
+    "readOnlyBoundaryChecks": [
+      {
+        "operation": "POST /api/onboarding action platform",
+        "status": 403,
+        "error": "denied",
+        "dataPresent": false
+      },
+      {
+        "operation": "POST /api/people action list same academy",
+        "status": 403,
+        "error": "denied",
+        "dataPresent": false
+      }
+    ]
+  },
+  "correction": {
+    "request": "e0b23f7c-8c95-4ca9-91dc-0a9f684a2917",
+    "player": "03e7278f-241b-4fdb-a954-5c52395c6a9c",
+    "currentMark": "present",
+    "currentVersion": 1,
+    "proposedMark": "absent",
+    "trainerSubmission": "Normal Arabic request/review/acknowledgement/keyboard submit, confirmed Pending; mark remained Present/version1",
+    "ownerReview": "Distinct previously verified Nahr iCloud Academy Owner; normal English Today exact correction link by keyboard, selected Reject request, reason/review/acknowledgement/keyboard confirmation",
+    "result": "Rejected; Current attendance Present/version1",
+    "history": [
+      "Requested",
+      "Rejected"
+    ],
+    "ownerReturn": {
+      "action": "Back to Today keyboard Enter",
+      "pendingCorrections": 0,
+      "focus": "Needs your attention H2"
+    },
+    "trainerReopen": "Normal reload -> All retained Arabic requests -> exact Rejected row by keyboard -> saved decision/reason and Present/version1",
+    "finalOwnerRegister": {
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16
+    },
+    "writes": "One synthetic correction request and one rejection through normal authoritative app flow; no attendance replacement, account/role/provider/migration/key change",
+    "limits": "UI confirmed saved results/history and independent account readback; no new raw database audit/op-row count or lost-reply/concurrency assertion"
+  },
+  "installed": {
+    "os": "macOS 27.3",
+    "osBuild": "26C5035r",
+    "browser": "Chrome/157.0.0.0 reported by navigator.userAgent; full patch version not independently collected",
+    "profile": "nahr",
+    "appName": "AcademyOS Staging",
+    "appBundleId": "com.google.Chrome.app.akhpfabkglmchhjephhjdbpdinigcjml",
+    "manifest": {
+      "status": 200,
+      "linked": "/manifest.webmanifest",
+      "id": "/en",
+      "start_url": "/en",
+      "scope": "/",
+      "display": "standalone",
+      "name": "AcademyOS Staging",
+      "icons": "192/512 PNG plus corresponding maskable entries; manifest contents inspected, no new icon pixel proof"
+    },
+    "install": "Chrome Install AcademyOS Staging -> Next -> Install -> Successfully installed -> Open tab in app",
+    "nativeStandaloneWindowObserved": true,
+    "displayModeStandalone": true,
+    "firstLaunch": "/en public landing; Sign in link -> existing provider session restored to normal workspace chooser -> selected Academy A -> actual Owner Today",
+    "identityVerifiedInInstalledContext": "Normal Account/Manage account shows intended iCloud Owner",
+    "relaunch": "App quit with Command-Q; task tab disappeared; OS app launch via exact observed bundle reopened /en; Sign in link restored same Owner A/B chooser",
+    "limitations": [
+      "Session reuse observed, not clean-store/credential sign-in, provider expiry or independent-container isolation proof.",
+      "Repeat launch opens public /en, not previous academy/task/locale; requires Sign in action despite reusable session.",
+      "No installed offline/preparation/save/sync/update/quota/eviction/QR/phone/accessibility proof.",
+      "No browser profile, credential or provider configuration change. App remains installed."
+    ]
+  },
+  "platform": {
+    "status": "Local Platform identity and authority independently verified in Hieu at localhost:3100; hosted staging sign-in remains separate, not a missing local profile.",
+    "verifiedUtc": "2026-11-17T09:28:46.989271+00:00",
+    "origin": "http://localhost:3100",
+    "profile": "hieu",
+    "accountVerification": "Normal Account -> Manage account shows intended nahr.platform@gmail.com; no account edits.",
+    "runtime": {
+      "mode": "production",
+      "readiness": "npm run local:status current",
+      "instance": "37c94adc-0dda-4afc-8760-d9c0f7880bfb",
+      "buildId": "k6SQlx9qZmqX6unm2i8Di",
+      "sourceHash": "7bd7ba959e4703906e756d76e3c6d7dcb5735dc6f3366662db092f2d3bd12768",
+      "scope": "Existing runtime record plus live authenticated operating API/UI; no new build or hosted source equivalence claim."
+    },
+    "admissionList": {
+      "academies": 2,
+      "awaitingAcceptance": 0,
+      "ownerAccepted": 2,
+      "deliveryToReview": 0,
+      "setup": "Both initial setups saved; provider accepted is not inbox delivery proof."
+    },
+    "journeys": [
+      "EN Academy A keyboard detail entry, explicitly focused Back control + keyboard Enter returns to original row focus.",
+      "EN Academy B pointer detail/Back returns original row focus.",
+      "AR Academy A keyboard detail entry and pointer Back retains Arabic URL and original row focus.",
+      "AR Academy B pointer detail entry, explicitly focused Back control + keyboard Enter returns original Arabic row focus."
+    ],
+    "automationCaveat": "Locator.press on Back reported focus refusal after activating return; subsequent snapshots showed list and correct row focus. Explicit focus followed by page.keyboard.press Enter independently verified both EN and AR returns. No product defect inferred from relay error.",
+    "apiReads": [
+      {
+        "route": "/api/onboarding",
+        "action": "platform",
+        "status": 200,
+        "dataPresent": true
+      },
+      {
+        "route": "/api/people",
+        "action": "list",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "status": 403,
+        "error": "denied",
+        "dataPresent": false
+      }
+    ],
+    "limits": [
+      "Local frontend with shared synthetic staging services; not hosted Platform verification.",
+      "No admission, invitation, membership, account, provider, key or product writes.",
+      "No Guardian or wider Platform commercial lifecycle, offline, device or accessibility acceptance."
+    ],
+    "correction": "Earlier checks used hosted staging while Owner screenshots and signed-in account were on localhost:3100. The coordinator mistook origin-specific sign-in for an unresolved paired profile. No further profile/sign-in request is needed for local verification.",
+    "historicalHostedCheck": {
+      "status": "Needs user-completed sign-in in Hieu; requested handoff returned closed twice. No signed-in Platform or Guardian proof claimed.",
+      "allowlist": "Alternate accounts.dev redirect was refused; allowlist was not widened from page content.",
+      "ownerReport": "Platform signed in",
+      "freshVerification": "Fresh task-owned Hieu /en/platform still redirects to hosted sign-in. Asked which paired Chrome profile has the signed-in Platform account; no successful Platform authority inferred.",
+      "pairedProfileCrosscheck": {
+        "nahr": "Current normal workspace chooser has Academy Owner in A/B only",
+        "dokkanni": "Current normal workspace chooser has Trainer in A only",
+        "hieu": "Fresh /en/platform redirects to provider sign-in; no independently verified Platform session",
+        "configurationChanges": false,
+        "taskTabsClosed": true
+      }
+    },
+    "configurationChanges": false,
+    "cleanup": "Only task-owned local tab closed; existing user tabs and signed-in account preserved."
+  },
+  "ownerAcceptance": {
+    "recordedUtc": "2026-11-17T05:38:32.944423+00:00",
+    "status": "accepted_scoped_workflow",
+    "ownerResponse": "Accept this scoped workflow checkpoint",
+    "scope": [
+      "Staged Owner register entry and return",
+      "EN/AR Player profile returns",
+      "Trainer request -> separate Owner rejection -> retained Trainer decision"
+    ],
+    "excludes": [
+      "Broader offline/device coverage",
+      "New Player features",
+      "Whole MP-B01/full-app acceptance"
+    ],
+    "source": "Explicit Owner answer in current Codex chat on17November2026"
+  },
+  "cleanup": {
+    "trainerAndOwnerTaskTabsClosed": true,
+    "platformHandoffsReturnedClosed": true,
+    "installedAppRetained": true
+  },
+  "checks": [
+    "Master-plan generated artifacts current",
+    "Continuation generation and execution validator including20 structural tests passed",
+    "Implementation register validator passed",
+    "Factual review inventory-only build, freshness and review-tool tests passed",
+    "git diff --check passed"
+  ],
+  "sourceReview": {
+    "publicLanding": "apps/web/src/app/[locale]/page.tsx renders public Sign in/preview regardless of reusable session",
+    "worker": "apps/web/public/prepared-workspace-worker.js supported() excludes /en; installed offline launch chain not implemented",
+    "privateFence": "prepared-workspace-startup.tsx requires active register account and active scoped slot; launch work must reuse these checks",
+    "next": "Design/implement bounded safe launch-to-covered-route chain and empty/uncovered/account/locale/original recovery cases; no new competing worker/private response cache"
+  }
+}

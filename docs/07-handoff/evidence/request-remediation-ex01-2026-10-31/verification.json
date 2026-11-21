@@ -1,0 +1,55 @@
+{
+  "as_of": "2026-10-31",
+  "source_base": "2788044de6a0452683c40213e4a4a532720f46e5",
+  "source_hashes": {
+    "apps/web/src/components/experience-workspace.tsx": "40fa521386e6e750c8f94d7eb684666212d756d657d85f47fc2d806382c6fb9d",
+    "apps/web/src/components/date-planning-workspace.tsx": "1947ee6cb57dba8e77d8554f502921e05083e22f159764a42cc757d3f9da1455",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/lib/visible-resume.test.ts": "d4f6cd79d99824947444d4472ea001ede6546a980c166b7cc78ec8ed7a9dae99",
+    "scripts/navigation/test_next.mjs": "7c0ba7e30aa7df2b8761249ad04c27caa7de6df8388e2a9b1e711c1f7b654bbd",
+    "scripts/experience-projections/test_ui.mjs": "56acfa79851caabfbd54aef57dae517c66f7f191d1d62f8807e2b9fce22dc037",
+    "scripts/planning/test_ui.mjs": "4e2728e7a01f86fdf496ee7f2eed4663a97418c46e9162875b30187f53eac844"
+  },
+  "checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "production_build": "passed",
+    "unit": "75 passed",
+    "foundation_e2e": "17 passed",
+    "production_component_capture_suites": "16 passed",
+    "next_production_routing": "EN/AR: zero task-loop document requests; explicit dirty cancellation; clean browser Back/Forward; middle click separate tab; selected permitted occurrence restored",
+    "resume": "one read for separated/in-flight focus/visibility test; denied or missing selected occurrence clears; no private payload persisted",
+    "factual_review_freshness": "passed",
+    "execution_validator": "9 batches,17 findings,G01-G09 passed",
+    "canonical_register_validator": "68 screens,30 actions,180 requirements passed",
+    "offline_review_tool": "passed",
+    "theme_snapshots": "33 passed; contrast scope disclosed",
+    "converted_task_prefetch": "disabled; real Next observed zero speculative dated-route prefetches",
+    "exact_source_ci": "41166052777 and41166048538 passed"
+  },
+  "local_runtime": "Node26.9.0; CI pinned24 pending",
+  "authority": "No API/DB/schema/gateway/limiter/writer/grant/provider setting changes",
+  "release_status": "app source776043f passed both Node24 CI runs; deployed/Owner read-only scoped verification recorded in hosted-release.json",
+  "limitations": [
+    "synthetic identity/API for local routing/components; not hosted DB proof",
+    "browser Back/Forward tested clean; dirty/unknown native history remains G01/EX02",
+    "other NR01-03 occurrences remain open",
+    "no performance percentile, physical device or independent security closure"
+  ],
+  "ci_history": [
+    {
+      "run": 41158249559,
+      "source": "2788044",
+      "conclusion": "success"
+    },
+    {
+      "run": 41158245377,
+      "source": "2788044",
+      "conclusion": "failure",
+      "reason": "new-tab assertion raced initial blank URL on Linux",
+      "repair": "wait for exact intended program/day URL before retaining the existing assertion; local revised test passed"
+    }
+  ],
+  "owner_acceptance": "pending",
+  "independent_security": "open"
+}

@@ -1,0 +1,39 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "run_id": "ef5522db-9163-4e7f-a780-e9a23bdafe10",
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "migration_rehearsed": "20261105003702_owner_workspace_transfer_contract.sql",
+  "migrations_rehearsed": [
+    {
+      "file": "20261105003702_owner_workspace_transfer_contract.sql",
+      "sha256": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf"
+    }
+  ],
+  "counts": {
+    "identities": 2,
+    "academies": 2,
+    "memberships": 5,
+    "private_tables_with_rls": 61
+  },
+  "existing_row_comparison": {
+    "existing_tables_checked": 59,
+    "existing_rows_checked": 605,
+    "existing_rows_preserved": true,
+    "before_sha256": "c3a9abc11ffbbeed8161fda78c682066f5eda5a7697b74d9717ce304f01100f8",
+    "after_existing_sha256": "c3a9abc11ffbbeed8161fda78c682066f5eda5a7697b74d9717ce304f01100f8",
+    "new_tables": [
+      "owner_workspace_keys",
+      "workspace_revisions"
+    ]
+  },
+  "hosted_storage_restore_tested": false,
+  "workflow_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41980102243",
+  "trusted_ciphertext_sha256": "c06edae28491b00b4ec50ca177ac40de32b744f11e1cd9183c6c4e25d52ea86c",
+  "archive_checksums_valid": true,
+  "repairs": [
+    "Initial archive inspection selected Homebrew PG14 from PATH and failed;recovered plaintext removed. Recovery and rehearsal rerun with explicit PG17.11 PATH;no provider or backup-source change."
+  ],
+  "plaintext_removed_after_rehearsal": true,
+  "rehearsal_source_sha256": "7ff8940e50b6c51e33376696e412519aa83e21dd73cc744bcae4d454498baa1a"
+}

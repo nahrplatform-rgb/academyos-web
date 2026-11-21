@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "scope": "Actual product React with synthetic identity/HTTP; not database/hosted proof",
+  "requests": 22,
+  "cases": [
+    "own corrected mark and unmarked distinction",
+    "no attendance capture controls",
+    "paged sessions/calendar coverage",
+    "player switch clears details",
+    "actual delayed fetch discarded on switch",
+    "period/detail failure and retry",
+    "EN/AR320/360/926/1440 layout",
+    "focus revalidates and denial clears private view",
+    "account remount"
+  ],
+  "errors": []
+}

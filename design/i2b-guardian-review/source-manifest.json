@@ -1,0 +1,9 @@
+{
+  "scope": "Design preview only; no API, database, login or email",
+  "sources": {
+    "design/i2b-guardian-review/review.tsx": "5c579afe1e800f6c8a038a143e403253ef0170db712186a9c422aaece5ed3125",
+    "apps/web/src/components/workspace-shell.tsx": "77677646e8239da45c90da3b0a45c40256cbe84cebc30cb27b2d8997abd320b1",
+    "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "apps/web/src/app/globals.css": "47ceb7acbd28f00fe6526385514534b7966c667733ce597db04503c75a6cf53b"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "scope": "Design preview only; no API, database, login or email",
+  "sources": {
+    "design/i2a-registration-review/review.tsx": "1599f34c390222ccac7c6fab112c0bfc4efbd6f6e72831b9fd656ff270d9ce52",
+    "apps/web/src/components/workspace-shell.tsx": "49f237d818ae463e939128d4f9a5ea1103640185f714f6fe56a05b75dea44f6a",
+    "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
+    "apps/web/src/app/globals.css": "773073bc32d73748921474dc06544a414185208ea2cdf35f45c7abf96b09bc52"
+  }
+}

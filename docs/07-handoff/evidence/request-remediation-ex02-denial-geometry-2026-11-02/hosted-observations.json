@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-02",
+  "environment": "existing AcademyOS staging",
+  "sourceContext": "c1f604b local;previous serving ddce60d deployment receipt retained;fresh alias fingerprint not yet reconciled",
+  "method": "native Chrome Network endpoint/status/time only;no headers,bodies,HAR or tokens retained",
+  "apiRows": [
+    {
+      "endpoint": "/api/experience",
+      "status": 200,
+      "elapsedMs": 1170
+    },
+    {
+      "endpoint": "/api/experience",
+      "status": 200,
+      "elapsedMs": 966
+    },
+    {
+      "endpoint": "/api/planning",
+      "status": 200,
+      "elapsedMs": 897
+    },
+    {
+      "endpoint": "/api/planning",
+      "status": 200,
+      "elapsedMs": 834
+    },
+    {
+      "endpoint": "/api/planning",
+      "status": 200,
+      "elapsedMs": 758
+    },
+    {
+      "endpoint": "/api/planning",
+      "status": "canceled",
+      "elapsedMs": 70
+    },
+    {
+      "endpoint": "/api/experience",
+      "status": 200,
+      "elapsedMs": 763
+    }
+  ],
+  "interpretation": "bounded opportunistic sample;not per-action unique-event budget,percentiles,SQL timings or proven downstream cancellation",
+  "dirtyDraft": "Agent-local capacity2→23,EN Cancel retained;AR language retained;AR Cancel retained;explicit discard returned Calendar with original filter/selected occurrence.No review/save.",
+  "identityObservation": "Earlier identity token endpoint ERR_CONNECTION_RESET console entry.No timestamp correlation with prior denial;not cause proof.",
+  "denial": "not reproduced;prior failure remains open.No auth retries,grant,cache or weakening.",
+  "cleanup": "English local Calendar presentation restored;DevTools closed;no operating write,mail or access change",
+  "limitations": [
+    "Built-in browser disabled;native controls and focus/dialog events affect reads",
+    "Failure status/body/origin/auth stage for original denial not captured",
+    "Two-academy/wrong-role/revoked/recipient/unknown operating writes not freshly executed",
+    "Physical mobile,200percent zoom,latency percentiles and server meter evidence remain open"
+  ]
+}

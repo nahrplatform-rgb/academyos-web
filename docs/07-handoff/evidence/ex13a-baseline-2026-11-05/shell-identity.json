@@ -1,0 +1,296 @@
+{
+  "scope": "actual Next production routes/product shell;diagnostic-only useEffect mount counters;fictional reactive identity;forced pending tests mechanism only;no Clerk FAPI/BAPI/token/provider measurements",
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "76aa4ab7a0dde8b0545ad4747c0c5fad7a1b30e4664984247a974ef19c21c7d0",
+    "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
+    "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+    "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+    "apps/web/src/app/[locale]/workspace/[academy]/layout.tsx": "2cbbd83a070b0bace37f99773339ff00bfea8980c4036fa6e789655e1bc9fd52",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/src/components/experience-workspace.tsx": "ad58edbb5afc2d449281d4923e071daac0da8d761a5378db6188ef9998036d9e",
+    "apps/web/src/components/date-planning-workspace.tsx": "34ec6fc6078ec79677602373928d2b9d5583a67244e236652c528e25dd5f6014",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "shellResults": [
+    {
+      "locale": "en",
+      "steps": [
+        {
+          "step": "home",
+          "counts": {
+            "mounts": 1,
+            "unmounts": 0
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home"
+          ]
+        },
+        {
+          "step": "calendar",
+          "counts": {
+            "mounts": 2,
+            "unmounts": 1
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "date",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read"
+          ]
+        },
+        {
+          "step": "date-focus",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read"
+          ]
+        },
+        {
+          "step": "local-language",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read"
+          ]
+        },
+        {
+          "step": "calendar-return",
+          "counts": {
+            "mounts": 4,
+            "unmounts": 3
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "forced-identity-pending",
+          "counts": {
+            "mounts": 5,
+            "unmounts": 4
+          },
+          "documentMarker": "same-document",
+          "identityShell": true,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "identity-ready",
+          "counts": {
+            "mounts": 6,
+            "unmounts": 5
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar",
+            "owner_calendar"
+          ]
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "steps": [
+        {
+          "step": "home",
+          "counts": {
+            "mounts": 1,
+            "unmounts": 0
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home"
+          ]
+        },
+        {
+          "step": "calendar",
+          "counts": {
+            "mounts": 2,
+            "unmounts": 1
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "date",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read"
+          ]
+        },
+        {
+          "step": "date-focus",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read"
+          ]
+        },
+        {
+          "step": "local-language",
+          "counts": {
+            "mounts": 3,
+            "unmounts": 2
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read"
+          ]
+        },
+        {
+          "step": "calendar-return",
+          "counts": {
+            "mounts": 4,
+            "unmounts": 3
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "forced-identity-pending",
+          "counts": {
+            "mounts": 5,
+            "unmounts": 4
+          },
+          "documentMarker": "same-document",
+          "identityShell": true,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar"
+          ]
+        },
+        {
+          "step": "identity-ready",
+          "counts": {
+            "mounts": 6,
+            "unmounts": 5
+          },
+          "documentMarker": "same-document",
+          "identityShell": false,
+          "shellCount": 1,
+          "documents": 1,
+          "requests": [
+            "owner_home",
+            "owner_calendar",
+            "read",
+            "read",
+            "owner_calendar",
+            "owner_calendar"
+          ]
+        }
+      ]
+    }
+  ]
+}

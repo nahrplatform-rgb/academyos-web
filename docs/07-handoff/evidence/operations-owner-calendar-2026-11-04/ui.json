@@ -1,0 +1,320 @@
+{
+  "reactMode": "production",
+  "scope": "Actual components with fictional identity/transport; reference dates/names/times/states reused; no hosted/DB/permission/cost percentile claim",
+  "baseline": "0483cdb",
+  "results": [
+    {
+      "source": "0483cdb",
+      "componentSha256": "0352bd61220edbab7a40bd02942df5c8199dee83b1250b407f13d6113970fb55",
+      "cssSha256": "944cd2b848fb59fe41668080e288968f551ac1346edc744d46d8a68c7e5a2b5c",
+      "initialReads": 1,
+      "localReads": 0,
+      "recheckReads": 1,
+      "selectionRetained": true,
+      "searchRetained": true,
+      "rowFocusRestored": true,
+      "structuredInspector": false,
+      "title": "28px",
+      "boardColumns": null,
+      "bodyWidth": 1600,
+      "viewport": 1600,
+      "firstSessionTop": 586.5,
+      "firstSessionHeight": 63,
+      "navigationWidth": 220,
+      "inspectorWidth": 276
+    },
+    {
+      "source": "working-tree",
+      "componentSha256": "ad58edbb5afc2d449281d4923e071daac0da8d761a5378db6188ef9998036d9e",
+      "cssSha256": "159974613494a26ceae18cc56dd4507b7f236fea642e224748de647ee5477386",
+      "initialReads": 1,
+      "localReads": 0,
+      "recheckReads": 1,
+      "selectionRetained": true,
+      "searchRetained": true,
+      "rowFocusRestored": true,
+      "structuredInspector": true,
+      "title": "25px",
+      "boardColumns": 7,
+      "bodyWidth": 1600,
+      "viewport": 1600,
+      "firstSessionTop": 536.640625,
+      "firstSessionHeight": 145.046875,
+      "navigationWidth": 220,
+      "inspectorWidth": 276
+    }
+  ],
+  "layouts": [
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 320,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 360,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 390,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 768,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 1280,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "width": 1600,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 320,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 360,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 390,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 768,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 1280,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "en",
+      "theme": "dark",
+      "width": 1600,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 320,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 360,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 390,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 768,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 1280,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "light",
+      "width": 1600,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 320,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 360,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 390,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 768,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1280,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    },
+    {
+      "locale": "ar",
+      "theme": "dark",
+      "width": 1600,
+      "overflow": false,
+      "selectionAndBackZeroReads": true,
+      "views": [
+        "week",
+        "month"
+      ]
+    }
+  ],
+  "cases": [
+    "In-place EN/AR language switch retains filter/selection with0 operating reads",
+    "Partial period days say no sessions on this page, never complete-empty; local clear search needs no read",
+    "Moved session preserves original occurrence route and effective-date hint; cancelled context has no operating date link; phone control targets >=44x48",
+    "42-cell bounded month; lost selection disappears after current read; denied clears; unavailable differs from confirmed empty; long Arabic320"
+  ],
+  "browser": "156.0.8078.4"
+}

@@ -1,0 +1,1473 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "saveFollowup": {
+    "baseline": false,
+    "cases": [
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "d006d490-4173-48de-afe2-40a6fb7e3b16",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "63d39998-ee10-4afa-a023-068ebcfe90a1",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "18f38798-a9a4-4f59-8853-62319c10ea32",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "574b23ff-747a-4e85-b8f7-0a36438385c0",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "7734c7cf-0418-48dc-aff7-6b989177885d",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "970c5ab5-9899-41b7-b065-27891a118553",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "f217919a-69b4-4a32-acbe-b3b355893bba",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "0b21ab5a-b257-490a-8506-110e133b79c9",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "1c579d3f-8aa1-429a-9825-85a6e60b3da0",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "fe9135ca-9b2d-4404-931d-e42b879bcc0a",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "dates",
+          "jobs",
+          "change",
+          "read",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "977d0eca-576f-461b-8fc5-58c0e084ce94",
+        "reviewedVersion": null,
+        "savedVersion": 2,
+        "writes": 2,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "975692d3-a759-40ab-b791-8843fca0f6c0",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "d8da2baa-fd06-44e9-bf31-fb71766af25d",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "33cad48e-64ad-40c9-81ea-f43f77f2474d",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "841ee0d7-686c-4112-b0cf-9b14fe9870df",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "30c30958-90b4-48a1-a1e4-7a03940f1a50",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "98282f19-6927-40d5-a552-1d691d529700",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "6fa62ef8-7938-4a6f-9c00-adc7ac815e4a",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "0046824a-50c2-48da-aeab-75fe296a43bd",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "c6ef2db5-bd1d-47a1-8fbf-3164ba9ea511",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "fb21a773-ded5-410e-a448-ff70910fa0a2",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "f3e043e7-b591-4bdd-aeb3-d9732589c22d",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "074b41bb-5744-4739-a5a2-fefd12587f72",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "282db97c-b4f4-4a57-8c48-1e8193fa9783",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "091143d9-31fa-4da0-986d-6fc6e7ac8a00",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "dates",
+          "jobs",
+          "change",
+          "read",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "d8f9a1fe-7995-43b6-9773-337362799bb6",
+        "reviewedVersion": null,
+        "savedVersion": 2,
+        "writes": 2,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "72e122f0-1554-422a-a552-5d01d0e52ef4",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "0311ccc6-80d1-49d1-889b-b02cbe45a90b",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "4df1625b-8067-4d93-b070-fd05031d035a",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "5b4f38e7-8fd4-4037-a778-141c58082055",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "aadcb8d4-5d93-4312-9f4f-a47c36142709",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "37aafcbf-cd41-49df-97c2-f36882a64642",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "572ac06c-49e9-4fbb-a6af-5ac993646c0c",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "9783b168-a6d1-406e-859c-26956ef6d675",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "activate",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "92306a49-52e3-45d6-be46-a5c0b03a3e63",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "3362d858-b19f-4a12-bf39-35b7b506274b",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "c431ea43-51e0-4b75-8a9a-e21960e502fe",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "dd0a1611-dff8-4e2b-a747-e0d3a964122e",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "e6f4e045-e6fa-4428-8968-405f71d05270",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "cancel",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "d485e7de-fd0b-4eef-9afc-7439e30ced23",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "dates",
+          "jobs",
+          "change",
+          "read",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "7ad121ef-50c4-4e38-9662-dfee6135fd96",
+        "reviewedVersion": null,
+        "savedVersion": 2,
+        "writes": 2,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "570fd9c7-f5bc-4769-a093-3053508db368",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "9e2e5c2c-620c-4b0f-b513-0f638a74163b",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "db500685-2ae3-443c-b0ca-7386b8d063c3",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "publish",
+        "act": "create",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "7d7364bd-3658-4961-a306-56a98deae44c",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "66db3e9f-1e11-4c2a-af0a-586c183b53fb",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "0e733da2-0bc2-4eff-804d-17b69e8d5314",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "4b773db5-c3aa-41cc-8e8c-fef788f9fc68",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "85c240dd-5d06-47b1-b1e8-6a75c06d866e",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "activate",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "293cf86b-80e8-4df7-9ff4-f4944854694b",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "7055bc7d-bd44-433a-97f2-115fc3624575",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "f7dfb6d9-dff5-45fc-86d3-108290b29495",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "8c6b3de0-5501-4732-b9e6-8b1dfd5991b0",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "ad67a435-7916-4fc3-b969-8a132536fef8",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "cancel",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "change",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "eb928bdc-b742-46a6-8f78-8d2cc3ac8e53",
+        "reviewedVersion": 7,
+        "savedVersion": 8,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "success",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "dates",
+          "jobs",
+          "change",
+          "read",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "4f5946d6-da56-46e2-b981-2266724c94b1",
+        "reviewedVersion": null,
+        "savedVersion": 2,
+        "writes": 2,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "read_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "d501dcd1-c123-42d1-8951-c5f734b96b31",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "lost_reply",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "1b38de1e-5388-4c11-ac6f-9228fb9925d2",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "denied_read",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "read"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "070e177f-73a2-4637-954e-2add8ba0e143",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 1,
+        "errors": []
+      },
+      {
+        "locale": "ar",
+        "kind": "withdraw",
+        "act": "create",
+        "outcome": "context_failure",
+        "held": {
+          "confirmedNotice": true,
+          "privateStatus": false,
+          "unknown": false
+        },
+        "actions": [
+          "create",
+          "reconcile",
+          "read",
+          "context",
+          "context",
+          "dates",
+          "jobs"
+        ],
+        "job": "00000000-0000-4000-8000-000000000029",
+        "original": "6d56c0d4-fea3-40a8-b82a-6cfab7af352c",
+        "reviewedVersion": null,
+        "savedVersion": 1,
+        "writes": 1,
+        "documents": 2,
+        "errors": []
+      }
+    ],
+    "gaps": [],
+    "scope": "actual publication React; fictional publish/withdraw receipts and held HTTP; SQL effects separate"
+  },
+  "scope": "Actual production React with synthetic identity and HTTP adapters; not database or hosted proof",
+  "cases": [
+    "StrictMode boot once",
+    "independent dates/jobs failure recovery",
+    "automatic bounded private preparation with authoritative version chain",
+    "pause after in-flight check and explicit resume",
+    "lost preparation reply fences continuation until reconciliation",
+    "central review with exact39/1 counts and audience",
+    "private preparation and explicit final audience confirmation",
+    "committed lost reply reload/reconcile without duplicate",
+    "uncommitted fence and retry",
+    "confirmed save/read failure retries read",
+    "stale definitive response not unknown",
+    "minimal Trainer roster failure/retry",
+    "withdrawal removes open names on next read",
+    "denied appointment clears private context",
+    "new identity remount",
+    "Owner/Trainer EN/AR320/360/926/1440",
+    "direct Today preparation uses only the checked read and offers contextual return"
+  ],
+  "errors": [],
+  "activations": 3
+}

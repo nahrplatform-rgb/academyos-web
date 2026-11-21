@@ -1,0 +1,120 @@
+{
+  "task": "DS-004",
+  "status": "reviewed_corrected",
+  "date": "2026-11-08",
+  "source_base": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "raw_reports": {
+    "docs/07-handoff/deepseek/DS-004-empty-directory-test-plan.csv": "82689a795c37fe640a2aa4209d6918af26cfd9331715040c345815a6f6da517c",
+    "docs/07-handoff/deepseek/DS-004-empty-directory-test-plan.md": "dd362aa929bc52d62209673da0c38db9b02f6d5440afa00d17bdf64d52017aa2"
+  },
+  "raw_rows": 6,
+  "columns": [
+    "case_id",
+    "initial_fixture",
+    "user_actions",
+    "expected_result",
+    "existing_test_and_lines",
+    "coverage_gap",
+    "minimal_addition",
+    "source_evidence",
+    "evidence_limit"
+  ],
+  "unique_sequential_ids": true,
+  "lf_csv": true,
+  "sources": [
+    {
+      "path": "apps/web/src/components/people-workspace.tsx",
+      "frozen_sha256": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+      "working_sha256": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+      "lines": 474,
+      "drift": false
+    },
+    {
+      "path": "scripts/workspace-download/normal_workspace.mjs",
+      "frozen_sha256": "7323cc8c3923909c559e8b2285ce444fde94231cc091ae7c5bf8e7c0f39621df",
+      "working_sha256": "7323cc8c3923909c559e8b2285ce444fde94231cc091ae7c5bf8e7c0f39621df",
+      "lines": 457,
+      "drift": false
+    },
+    {
+      "path": "scripts/workspace-download/bridge.py",
+      "frozen_sha256": "afb9f8dfb482ea5397f5c12f66c8ec2985565b2ab3925caf7d30476c3a127a0c",
+      "working_sha256": "afb9f8dfb482ea5397f5c12f66c8ec2985565b2ab3925caf7d30476c3a127a0c",
+      "lines": 155,
+      "drift": false
+    },
+    {
+      "path": "scripts/workspace-download/test_boundary.py",
+      "frozen_sha256": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
+      "working_sha256": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
+      "lines": 611,
+      "drift": false
+    },
+    {
+      "path": "apps/web/src/lib/local-workspace-repository.ts",
+      "frozen_sha256": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+      "working_sha256": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+      "lines": 426,
+      "drift": false
+    },
+    {
+      "path": "apps/web/src/lib/workspace-device.ts",
+      "frozen_sha256": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
+      "working_sha256": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
+      "lines": 298,
+      "drift": false
+    }
+  ],
+  "coordinator_extra_sources": {
+    "supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql": "1342009f1ce0b32f3559010effc7cc1bc491265930d423f422c2c449226f3eec",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "apps/web/src/app/api/people/route.ts": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "scripts/workspace-download/test_transport.mjs": "342f65d85115e82815537035c0eb5587a190f8c9675e82a50110ee18e34918d6"
+  },
+  "dispositions": {
+    "DS-004-T01": "amend_list_contract_and_call_shape",
+    "DS-004-T02": "retain_requirement_qualify_proof",
+    "DS-004-T03": "amend_revision_total_and_transfer_claims",
+    "DS-004-T04": "amend_total_and_isolation",
+    "DS-004-T05": "reproduce_before_repair",
+    "DS-004-T06": "amend_auth_denial_proof"
+  },
+  "checks": {
+    "report_format": true,
+    "frozen_hashes_match": true,
+    "working_sources_match": true,
+    "six_source_contract_dispositions": true,
+    "application_tests_run": false,
+    "database_tests_run": false,
+    "product_browser_regressions_run": false,
+    "master_plan_validator": true,
+    "canonical_implementation_validator": true,
+    "execution_validator": true,
+    "continuation_generator_tests": 17,
+    "factual_html_freshness": true,
+    "factual_html_review_tool": true,
+    "diff_whitespace": true,
+    "raw_reports_unchanged_after_review": true
+  },
+  "delegation": {
+    "external_worker": "Owner reported stopped",
+    "native_helpers_running": 0,
+    "review_by": "coordinator",
+    "next_manual_task": "DS-005 prepared;not launched",
+    "usage_and_savings": "unmeasured"
+  },
+  "limits": [
+    "Report test proposals are not runtime results.",
+    "T05 transfer failure and T06 API401 require coordinator regression.",
+    "Operation-linked players does not count the academy total.",
+    "NR07 hosted cause remains undiagnosed.",
+    "No product/schema/provider/account/Git publication/promotion in this review."
+  ],
+  "generated_artifacts": {
+    "continuation": "docs/06-delivery/continue-academyos.md",
+    "factual_html": "design/app-experience-review/AcademyOS-experience-review.html",
+    "capture_pack": "unchanged existing pack;inventory-only rebuild",
+    "runtime_acceptance_added": false
+  }
+}

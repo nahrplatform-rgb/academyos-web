@@ -1,0 +1,315 @@
+{
+  "sourceBase": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+  "runtimeReceipt": "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json",
+  "runtimeSha256": "eb8c20db6e28f21d871b9e77ae024f4d273b61893bdc2bbc3acf0b0435f0c4d0",
+  "environment": {
+    "browser": "156.0.8078.4",
+    "node": "v24.14.0",
+    "os": "darwin"
+  },
+  "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof",
+  "returns": [
+    {
+      "kind": "correction",
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "resolved": false,
+      "entry": [
+        [
+          "attendance",
+          "correction_detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "",
+        "task": "#correction-return=9c89968c-6766-4e74-a262-a92c06ad1a12"
+      },
+      "dirtyCancelPreserved": true
+    },
+    {
+      "kind": "correction",
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "resolved": true,
+      "entry": [
+        [
+          "attendance",
+          "correction_detail",
+          200
+        ]
+      ],
+      "decision": [
+        [
+          "attendance",
+          "correction_decide",
+          200
+        ],
+        [
+          "attendance",
+          "correction_detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "owner-today-attention",
+        "task": null
+      },
+      "dirtyCancelPreserved": false
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "resolved": false,
+      "entry": [
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "",
+        "task": "#development-return=4cbeb06c-c9fc-47d5-affb-e599472dc005"
+      },
+      "dirtyCancelPreserved": true
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "resolved": true,
+      "entry": [
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "decision": [
+        [
+          "development",
+          "command",
+          200
+        ],
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 0
+      },
+      "focus": {
+        "id": "owner-today-attention",
+        "task": null
+      },
+      "dirtyCancelPreserved": false
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "resolved": false,
+      "entry": [
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 31
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 31
+      },
+      "focus": {
+        "id": "",
+        "task": "#development-return=a7d5d507-4e5c-452b-8af1-f8a2d49bc4e0"
+      },
+      "dirtyCancelPreserved": true
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "resolved": true,
+      "entry": [
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "decision": [
+        [
+          "development",
+          "command",
+          200
+        ],
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "experience",
+          "owner_home",
+          200
+        ]
+      ],
+      "documents": 1,
+      "beforeScroll": {
+        "center": 0,
+        "document": 31
+      },
+      "afterScroll": {
+        "center": 0,
+        "document": 31
+      },
+      "focus": {
+        "id": "owner-today-attention",
+        "task": null
+      },
+      "dirtyCancelPreserved": false
+    }
+  ],
+  "recovery": [
+    {
+      "kind": "correction",
+      "trace": [
+        [
+          "attendance",
+          "correction_decide",
+          200
+        ],
+        [
+          "attendance",
+          "correction_reconcile",
+          200
+        ]
+      ],
+      "sameOriginal": true,
+      "noRequestBeforeExplicitRecovery": true,
+      "privatePayloadStored": false,
+      "locatorClearedAfterKnownResult": true,
+      "missingSignInRetainedOriginal": false
+    },
+    {
+      "kind": "development",
+      "trace": [
+        [
+          "development",
+          "command",
+          200
+        ],
+        [
+          "development",
+          "operation",
+          401
+        ],
+        [
+          "development",
+          "operation",
+          200
+        ]
+      ],
+      "sameOriginal": true,
+      "noRequestBeforeExplicitRecovery": true,
+      "privatePayloadStored": false,
+      "locatorClearedAfterKnownResult": true,
+      "missingSignInRetainedOriginal": true
+    },
+    {
+      "kind": "development",
+      "storageWriteRefused": true,
+      "reasonRetained": true,
+      "commands": 0,
+      "nonJsonExpiredSessionMasked": true
+    }
+  ],
+  "installedCoverage": "pending",
+  "hostedPerformance": "pending"
+}

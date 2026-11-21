@@ -1,0 +1,50 @@
+{
+  "ui": "passed",
+  "reactMode": "production",
+  "browserVersion": "156.0.8078.4",
+  "harnessSha256": "b3f714a0c7bf433313f78c84318b7e728c664af9fe1efce1cc4ed21fe2c98416",
+  "implementationSha256": {
+    "src/components/onboarding-workspace.tsx": "953d7dd82c30f45a6d06aecfe0754edd7218d42b8bede8e24890969fc80ab742",
+    "src/components/timezone-select.tsx": "91ae06c569a00095db7f1676b36b2fd9450115e76fff71d367fc78d7def04dd1",
+    "src/app/globals.css": "28395f43b36e22ef03951d5c7a67878d3fbf9eb1b091d32422a7e27064096969",
+    "src/lib/timezones.json": "3f4d86e1bb7e60b749260489dd7cd0665550b291562e442bbf2ee922301d9e6d"
+  },
+  "handoffRace": "zero early reviews; one exchange across identity resolution; failed exchange stays failed",
+  "path": "create → invitation → accept → setup → lost-response reconcile → conflict → complete → refresh",
+  "authEntry": "EN/AR sign-in and create-account return/transfer props, pending handoff disabled, failed handoff recovery",
+  "phone": "EN/AR 360px no overflow",
+  "keyboardProfiles": [
+    {
+      "locale": "en",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "invalidSubmissions": 0,
+      "pendingSubmissions": 1,
+      "confirmedVersionIncrement": 1
+    }
+  ],
+  "keyboardScope": "Tab/Enter, required focus, visible outline, labeled timezone values via driver, 44px form controls, one pending submit, confirmed heading focus; native popup/screen reader not verified",
+  "revocation": "private setup removed after denial",
+  "identityRace": "delayed A response and unsaved A draft excluded after B identity change",
+  "scope": "synthetic transport/identity; not hosted security evidence"
+}

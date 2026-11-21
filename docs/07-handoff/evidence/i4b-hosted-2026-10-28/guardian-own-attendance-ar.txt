@@ -1,0 +1,73 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+					6 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training#main
+					7 container
+						8 text التدريبات والحضورمساحة ولي الأمر نسخة تجريبية
+						9 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+						13 text مساحة ولي الأمر
+						14 container التنقل في مساحة العمل
+							15 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+							16 link اللاعبون المرتبطون, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian
+							17 link التدريبات والحضور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/guardian/training
+						18 text بيئة اختبار · بيانات اصطناعية فقط
+					19 container
+						20 heading التدريبات والحضور, Value: 1
+							21 text التدريبات والحضور
+						22 text اللاعب المرتبط
+						23 pop up button (collapsed) اللاعب المرتبط, Value: Synthetic Registration Demo · AcademyOS M1 Synthetic Academy, Secondary Actions: Expand
+						24 button (disabled) اللاعبون السابقون
+						25 button (disabled) لاعبون آخرون
+						26 heading Synthetic Registration Demo, Value: 2
+							27 text Synthetic Registration Demo
+						28 text Synthetic Main Branch
+						29 heading ٢٨ أكتوبر، ٢٠٢٦ — ٣ نوفمبر، ٢٠٢٦, Value: 3
+							30 text ٣ نوفمبر، ٢٠٢٦
+
+الأسبوع السابق
+الأسبوع التالي
+قائمة
+تقويم الأسبوع
+صفحة التدريبات 1 · 1 تدريب في هذه الصفحة
+
+
+Synthetic I4a Attendance Demo
+٢٨ أكتوبر، ٢٠٢٦ · ٠٨:٣٠ ص–٠٨:٤٥ ص · Africa/Cairo
+غائب · محدّث
+التدريبات السابقة
+تدريبات أخرى
+تظهر هنا التدريبات المنشورة للاعب المرتبط بك فقط. عدم التسجيل لا يعني الغياب.
+
+
+						31 button الأسبوع السابق
+						32 button الأسبوع التالي
+						33 toggle button قائمة, Value: on
+						34 toggle button تقويم الأسبوع, Value: off
+						35 text صفحة التدريبات 1 · 1 تدريب في هذه الصفحة
+						36 toggle button Synthetic I4a Attendance Demo ٢٨ أكتوبر، ٢٠٢٦ · ٠٨:٣٠ ص–٠٨:٤٥ ص · Africa/Cairo غائب · محدّث, Value: on
+						37 button (disabled) التدريبات السابقة
+						38 button (disabled) تدريبات أخرى
+						39 text تظهر هنا التدريبات المنشورة للاعب المرتبط بك فقط. عدم التسجيل لا يعني الغياب.
+						40 container التفاصيل والإجراءات السياقية
+							41 container
+								42 heading تفاصيل التدريب, Value: 2
+									43 text تفاصيل التدريب
+								44 button رجوع
+							45 text Synthetic Registration Demo · Synthetic Main Branch
+							46 heading Synthetic I4a Attendance Demo, Value: 3
+								47 text Synthetic I4a Attendance Demo
+							48 text كرة قدم تجريبية
+							49 text ٢٨ أكتوبر، ٢٠٢٦
+							50 text Africa/Cairo
+							51 heading حضور اللاعب المرتبط بك, Value: 3
+								52 text حضور اللاعب المرتبط بك
+							53 text غائب
+							54 text Africa/Cairo
+
+عدّلته الأكاديمية · النتيجة الحالية معروضة
+
+
+							55 text عدّلته الأكاديمية · النتيجة الحالية معروضة
+							56 text للاستفسار، تواصل مع الأكاديمية عبر وسيلتك المعتادة.
+				57 scroll bar (settable, float) 0

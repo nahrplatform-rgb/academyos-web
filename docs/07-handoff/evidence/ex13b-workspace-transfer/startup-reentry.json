@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-11-05T08:28:04.974920+00:00",
+  "source_base": "83cf2d592c4cec866052b347f1dcc3b2232390df",
+  "implementation_sha256": "0280ed0902f93a529f89fdea5fbe5e7697eed9b639bedf11319f699731534046",
+  "test_sha256": "b35cc98157fa76c04efc785ba2431e7739d9ead27cb27d1ee17b6763b49d88b3",
+  "before": {
+    "isolated_regression": "failed: expected public reachability check1;observed0",
+    "local_navigation_diagnostic": "online flag true with fixture origin disconnected;startup reload observed",
+    "limitations": "Separate CDP inspection session changed emulated connectivity;not the exact historical CI trace or physical-device proof"
+  },
+  "after": {
+    "checks_passed": 4,
+    "initial_reentry_public_probes": 1,
+    "repeated_online_extra_probes": 0,
+    "repeated_online_extra_documents": 0,
+    "next_connection_cycle_additional_probe": 1,
+    "unavailable_origin_documents": 1,
+    "late_probe_replaced_outgoing_task": false
+  },
+  "request_contract": {
+    "path": "/prepared-workspace",
+    "method": "HEAD",
+    "credentials": "omit",
+    "cache": "no-store",
+    "redirect": "error",
+    "timeout_ms": 3000,
+    "success_marker": "x-academyos-public-shell=workspace-v1",
+    "operating_api_or_database_read": false,
+    "grants_authority": false,
+    "hosted_cost_measured": false
+  },
+  "hosted": "not_executed"
+}

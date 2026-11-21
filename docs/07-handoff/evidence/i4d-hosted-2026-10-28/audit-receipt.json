@@ -1,0 +1,89 @@
+{
+  "old_mark": {
+    "status": "present",
+    "version": 3
+  },
+  "settings": {
+    "after": 30,
+    "before": 30,
+    "version": 2
+  },
+  "qr_audits": [
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "qr.window.change",
+      "details": {
+        "kind": "settings",
+        "after": 30,
+        "event": null,
+        "before": 29,
+        "version": 1
+      },
+      "operation_id": "ad8b84d7-1e4c-4bda-9878-8e005fcc1b96"
+    },
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "qr.window.change",
+      "details": {
+        "kind": "settings",
+        "after": 30,
+        "event": null,
+        "before": 30,
+        "version": 2
+      },
+      "operation_id": "57de5032-30ea-4899-9288-5df96f74099b"
+    },
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "qr.card.issue",
+      "details": {
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "version": 1
+      },
+      "operation_id": "59547af9-1ae6-445b-a189-0c360f67d56a"
+    },
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "operator.i4d.trainer.restore",
+      "details": {
+        "to": "active",
+        "from": "ended",
+        "basis": "Moamen explicit I4d temporary QR attendance Trainer test and ending authorization 28Oct2026; existing synthetic recipient only",
+        "staff_id": "562e1a3a-378c-4ea9-84ec-93b071de4670",
+        "membership_id": "bc3dcbd0-59b6-4a49-8fea-9f128ad7bcc0"
+      },
+      "operation_id": "9fdbf954-7552-4be2-989c-ff41cd4566ff"
+    },
+    {
+      "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+      "action": "attendance.record",
+      "details": {
+        "card": "59547af9-1ae6-445b-a189-0c360f67d56a",
+        "event": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+        "method": "qr",
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "version": 1
+      },
+      "operation_id": "6e02cf9c-818e-4599-a7d4-ce25972a1ade"
+    },
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "qr.card.replace",
+      "details": {
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "version": 2
+      },
+      "operation_id": "d1bf1baf-d02c-408e-bebc-8ac4d1a4d560"
+    },
+    {
+      "actor": "user_3L0kOSQNQmbTetNTefF6gqkNF64",
+      "action": "qr.card.revoke",
+      "details": {
+        "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "version": 3
+      },
+      "operation_id": "5d7fe03a-ab1a-4a52-980e-ef07344af9e9"
+    }
+  ],
+  "qr_operations": 7
+}

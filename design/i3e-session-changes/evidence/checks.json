@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Local in-memory design simulation only; no API/database/permission/DST/atomicity/hosted proof",
+  "cases": [
+    "move outside recurrence and discover effective date",
+    "retained original identity/Trainer/capacity/roster/history",
+    "other occurrence unchanged",
+    "cancel preserves history and removes actions",
+    "published withdraw before change",
+    "same-program occupied date rejection",
+    "same-day bounds",
+    "overlap/dependency/inactive/started/DST scenario blocking",
+    "stale final rejection",
+    "unknown all/none original reconciliation and navigation guard",
+    "confirmed-write/read-failure",
+    "loading/list/detail/denied states",
+    "EN/AR320/360/926/1440",
+    "discard/reopen",
+    "reload resets simulation"
+  ],
+  "errors": [],
+  "external": []
+}

@@ -1,0 +1,4 @@
+There has been no change in the accessibility tree for Window: "Shopify — AcademyOS · Staging".
+The focused UI element is 297 heading Correction details, Value: 2
+
+Contemporaneous tool observation (summary, not a reconstructed full accessibility dump): Trainer retained-request filter All retained requests; Synthetic Registration Demo; Approved; Present version3; original Absent to proposed Present version2; original request and Owner decision reasons; read-only retained result.

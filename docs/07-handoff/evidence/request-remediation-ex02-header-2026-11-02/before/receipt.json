@@ -1,0 +1,914 @@
+{
+  "status": "measured",
+  "runtime": "v26.9.0",
+  "inputs": {
+    "apps/web/src/components/experience-workspace.tsx": "d59fa156702c607b3c82672d4293ae626f1f6e0ad9088276072dab8db9ed4875",
+    "apps/web/src/components/workspace-panes.tsx": "350da2479d4a5930f36a4fc506915d6d5de23dfd188c0f5037bbc10b90e62482",
+    "apps/web/src/components/workspace-shell.tsx": "f410edc945d5b8db0f13619e784e14ea635de8c9180872f94b81cad104e49252",
+    "apps/web/src/app/globals.css": "6d12337841b0f9a95648ce91e8a4184ac14d4d17f2ea64890af9a4629755c0c7"
+  },
+  "scope": "actual production components/CSS; fictional bounded Home and40-row Calendar; native hosted not inferred",
+  "results": [
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 379,
+        "scrollHeight": 1210,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 343.09375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 328,
+        "scrollHeight": 1159,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 89.09375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 328,
+        "scrollHeight": 1210,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 394.09375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 211,
+        "scrollHeight": 1042,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 511.09375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": true
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 382,
+        "scrollHeight": 1210,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 343.59375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 331,
+        "scrollHeight": 1159,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 89.59375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 331,
+        "scrollHeight": 1210,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 394.59375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 214,
+        "scrollHeight": 1042,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 511.59375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 828,
+          "clientHeight": 828,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 828,
+          "clientHeight": 828,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": true
+    },
+    {
+      "view": "home",
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1879,
+        "clientHeight": 1879,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 2060,
+        "inputY": 571.84375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1825,
+        "clientHeight": 1825,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 2006,
+        "inputY": -20.15625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1879,
+        "clientHeight": 1879,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 2060,
+        "inputY": 571.84375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1587,
+        "clientHeight": 1587,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1768,
+        "inputY": 571.84375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 328,
+          "clientHeight": 328,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 328,
+          "clientHeight": 328,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 391,
+        "scrollHeight": 1222,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 343.09375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 340,
+        "scrollHeight": 1171,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 89.09375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 340,
+        "scrollHeight": 1222,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 394.09375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 223,
+        "scrollHeight": 1054,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 511.09375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": true
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 394,
+        "scrollHeight": 1222,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 343.59375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 340,
+        "scrollHeight": 1171,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 89.09375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 340,
+        "scrollHeight": 1222,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 397.59375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 226,
+        "scrollHeight": 1054,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 511.59375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": true
+    },
+    {
+      "view": "home",
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1774,
+        "clientHeight": 1774,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1935,
+        "inputY": 467.59375,
+        "privateRows": 5
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1720,
+        "clientHeight": 1720,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1881,
+        "inputY": -28.40625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1774,
+        "clientHeight": 1774,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1935,
+        "inputY": 467.59375,
+        "privateRows": 5
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1482,
+        "clientHeight": 1482,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1643,
+        "inputY": 467.59375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 334,
+          "clientHeight": 334,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 310,
+          "clientHeight": 310,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4011,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -76.90625,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 3960,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -106.40625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4011,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -76.90625,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 72,
+        "scrollHeight": 903,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 451.09375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4011,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -73.40625,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 3960,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -106.40625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4011,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -73.40625,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 75,
+        "scrollHeight": 903,
+        "clientHeight": 828,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 451.59375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "en",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6730,
+        "clientHeight": 6730,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6911,
+        "inputY": 248.84375,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6676,
+        "clientHeight": 6676,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6837,
+        "inputY": 173.34375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6730,
+        "clientHeight": 6730,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6911,
+        "inputY": 248.84375,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1328,
+        "clientHeight": 1328,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 1509,
+        "inputY": 248.84375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 376,
+          "clientHeight": 376,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 376,
+          "clientHeight": 376,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 1440,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4023,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -64.90625,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 3972,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -94.40625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4023,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -64.90625,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 84,
+        "scrollHeight": 915,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 451.09375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 1024,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4023,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -64.90625,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 3972,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -94.40625,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 600,
+        "scrollHeight": 4023,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": -64.90625,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 84,
+        "scrollHeight": 915,
+        "clientHeight": 831,
+        "overflowY": "auto",
+        "windowY": 0,
+        "documentHeight": 900,
+        "inputY": 451.09375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 831,
+          "clientHeight": 831,
+          "overflowY": "auto",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    },
+    {
+      "view": "calendar",
+      "locale": "ar",
+      "width": 390,
+      "before": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6721,
+        "clientHeight": 6721,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6882,
+        "inputY": 240.59375,
+        "privateRows": 40
+      },
+      "during": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6607,
+        "clientHeight": 6607,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6768,
+        "inputY": 124.59375,
+        "privateRows": 0
+      },
+      "after": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 6721,
+        "clientHeight": 6721,
+        "overflowY": "visible",
+        "windowY": 600,
+        "documentHeight": 6882,
+        "inputY": 240.59375,
+        "privateRows": 40
+      },
+      "shortened": {
+        "sameCenter": true,
+        "scrollTop": 0,
+        "scrollHeight": 1319,
+        "clientHeight": 1319,
+        "overflowY": "visible",
+        "windowY": 580,
+        "documentHeight": 1480,
+        "inputY": 260.59375,
+        "privateRows": 3
+      },
+      "failures": [
+        {
+          "failure": "unavailable",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 322,
+          "clientHeight": 322,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        },
+        {
+          "failure": "denied",
+          "sameCenter": true,
+          "scrollTop": 0,
+          "scrollHeight": 298,
+          "clientHeight": 298,
+          "overflowY": "visible",
+          "windowY": 0,
+          "documentHeight": 900,
+          "privateRows": 0
+        }
+      ],
+      "revalidationReads": 4,
+      "temporaryClamp": false
+    }
+  ],
+  "errors": []
+}

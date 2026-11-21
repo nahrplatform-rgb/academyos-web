@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "scope": "real hook component and real workspace-storage utility; fictional slot/account/sync doubles and controllable navigator.storage; not installed-device, OS quota, hosted or Owner acceptance evidence",
+  "cases": {
+    "lateReadyBeforePersistence": {
+      "phase": "ready",
+      "storage": {
+        "supported": true,
+        "persistence": "not-granted",
+        "persisted": false,
+        "usage": 2048,
+        "quota": 8192
+      },
+      "approved": true,
+      "offline": false
+    },
+    "persistenceRejected": "unavailable status, Ready kept",
+    "persistenceRefused": "not-granted status, Ready kept",
+    "unsupportedApis": "unsupported status, Ready kept",
+    "deniedSync": "denied phase",
+    "accountChange": "new mount owns state; stale released reply did not update it",
+    "academyChange": "subject:academy key remounted; old academy late reply did not update visible state",
+    "unmount": "no page errors captured after unmount and late reply; callback attempts were not observed",
+    "negativeControl": "old awaited ordering overwrote Ready with Preparing and was detected"
+  },
+  "syncs": [
+    {
+      "priority": "people",
+      "generation": 1,
+      "subject": "user_synthetic"
+    }
+  ],
+  "removes": [],
+  "approvals": 1,
+  "errors": []
+}

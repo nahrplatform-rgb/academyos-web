@@ -1,0 +1,4 @@
+There has been no change in the accessibility tree for Window: "AcademyOS · Staging".
+The focused UI element is 279 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections#language
+
+Contemporaneous tool observation summary: actual Chrome Owner Arabic approved result; current حاضر version3, موافق عليه; reasons retained. Full screenshot is authoritative visual evidence.

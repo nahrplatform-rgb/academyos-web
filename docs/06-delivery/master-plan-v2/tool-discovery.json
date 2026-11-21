@@ -1,0 +1,77 @@
+{
+  "checked_on": "2026-11-07",
+  "plugins": [
+    {
+      "name": "Figma",
+      "id": "plugin_connector_68df038e0ba48191908c8434991bbac2",
+      "installed": false
+    },
+    {
+      "name": "Product Design",
+      "id": "Plugin_fa77aec24fc08191bc6e57f377126d76",
+      "installed": false
+    },
+    {
+      "name": "Canva",
+      "id": "plugin_connector_68df33b1a2d081918778431a9cfca8ba",
+      "installed": false
+    }
+  ],
+  "local_skills": [
+    {
+      "name": "emil-design-eng",
+      "path": "/Users/moamenghareeb/.codex/skills/emil-design-eng/SKILL.md",
+      "present": true,
+      "sha256": "965cc3108047a1f68e504977ae7816c66115b202a32e7509c0b8305314839c54"
+    },
+    {
+      "name": "apple-design",
+      "path": "/Users/moamenghareeb/.codex/skills/apple-design/SKILL.md",
+      "present": true,
+      "sha256": "55b47d4d93a366206bd8efea519fd78b6f4a4e5f66900f2fcff7ddac7a82e8fa"
+    },
+    {
+      "name": "mobile-native",
+      "path": "/Users/moamenghareeb/.codex/skills/mobile-native/SKILL.md",
+      "present": true,
+      "sha256": "888b7651d66d66dbac4e72b7c554638eb19bd971d686d6cbdf030a5ef3788f55"
+    },
+    {
+      "name": "break-ui",
+      "path": "/Users/moamenghareeb/.codex/skills/break-ui/SKILL.md",
+      "present": true,
+      "sha256": "e7eec1d70ac56a04255e9c0dbe98084ea3d544cc04aaad34f32c95d6fa9dff5e"
+    },
+    {
+      "name": "prototype",
+      "path": "/Users/moamenghareeb/.codex/skills/prototype/SKILL.md",
+      "present": true,
+      "sha256": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9"
+    },
+    {
+      "name": "review-animations",
+      "path": "/Users/moamenghareeb/.codex/skills/review-animations/SKILL.md",
+      "present": true,
+      "sha256": "5f9fb98b69cace7107af8b393a4196fd42fa42d98bce0e5afc1f866ff3b8a41c"
+    },
+    {
+      "name": "animation-performance",
+      "path": "/Users/moamenghareeb/.codex/skills/animation-performance/SKILL.md",
+      "present": true,
+      "sha256": "6c60f45ab416ff3f7d7765a5427beead77fab0d82487fe610d2a298397558d0a"
+    },
+    {
+      "name": "pick-ui-library",
+      "path": "/Users/moamenghareeb/.codex/skills/pick-ui-library/SKILL.md",
+      "present": true,
+      "sha256": "675fdce308683256ed617351a9b74d23457a5fbd0a562d9831b9c764b8c5e682"
+    }
+  ],
+  "official_candidate_pages": [
+    "https://react-aria.adobe.com/quality",
+    "https://github.com/TanStack/table",
+    "https://playwright.dev/docs/accessibility-testing"
+  ],
+  "actions": "Read-only discovery only;no install/permission/purchase/upload",
+  "limits": "File presence not upstream Git revision or proof of applying a skill;plugin status is a dated observation"
+}

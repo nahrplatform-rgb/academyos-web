@@ -1,0 +1,27 @@
+{
+  "source": "127352bac3e415e628eaac858e51f5f7a5b58f46",
+  "actor": "existing Academy Owner synthetic academy A;no access changes",
+  "method": "native Chrome existing session;DevTools Network filtered /api/planning;log cleared before each real tab-away/return;no HAR/headers/cookies/body export",
+  "eventOrdering": "native observed return;exact browser signal ordering not instrumented",
+  "cases": [
+    {
+      "locale": "en",
+      "state": "saved detail",
+      "planningRequests": 1,
+      "status": 200,
+      "displayedTransferredBytes": 635,
+      "resourceSizeRounded": "0.8kB"
+    },
+    {
+      "locale": "ar",
+      "state": "unsaved edit",
+      "planningRequests": 1,
+      "status": 200,
+      "displayedTransferredBytes": 654,
+      "resourceSizeRounded": "0.8kB",
+      "retainedCapacity": "7"
+    }
+  ],
+  "cleanup": "unsaved edit discarded via Back;reopened authoritative saved plan capacity2;no Review/Save or access grant used",
+  "limitations": "one native return per locale/state;not all event orders/roles/devices;network panel displayed1of3 total requests but other requests were not classified;no backend query/Redis counts or latency percentiles inferred;unknown-operation/write recovery remains local synthetic evidence"
+}

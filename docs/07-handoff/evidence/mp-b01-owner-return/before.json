@@ -1,0 +1,81 @@
+{
+  "commit": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "os": "darwin",
+  "network": "Unthrottled loopback",
+  "cases": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "source": "calendar",
+      "players": 18,
+      "documents": 1,
+      "handoff": [
+        [
+          "planning",
+          "read",
+          200
+        ],
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "planning",
+          "read",
+          200
+        ],
+        [
+          "planning",
+          "dates",
+          200
+        ]
+      ],
+      "sourceRestored": false,
+      "sourceScroll": [
+        0,
+        0
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "source": "home",
+      "players": 18,
+      "documents": 1,
+      "handoff": [
+        [
+          "planning",
+          "read",
+          200
+        ],
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ],
+      "returned": [
+        [
+          "planning",
+          "read",
+          200
+        ],
+        [
+          "planning",
+          "dates",
+          200
+        ]
+      ],
+      "sourceRestored": false,
+      "sourceScroll": [
+        0,
+        0
+      ]
+    }
+  ]
+}

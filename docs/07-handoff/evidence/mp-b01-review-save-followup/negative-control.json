@@ -1,0 +1,389 @@
+{
+  "kind": "development",
+  "baseline": true,
+  "cases": [
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "success",
+      "original": "f32c98d8-70b2-4578-a71c-ea8a6f0d5c48",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "original": "638a7b7f-0dab-4138-87f6-720750072f14",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "original": "98475d4e-0a96-4074-a2c4-85ac52072df6",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "original": "1842481f-9779-4112-92c9-234ea103f9d7",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "success",
+      "original": "4398efd2-c7e8-4c79-a6d2-c34d80d87363",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "read_failure",
+      "original": "d0c7b96c-b781-4326-8352-b23d5916cacb",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "original": "6281cd33-5cf6-4f25-9281-616e6a2c2884",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "denied_read",
+      "original": "438d6a9f-fa76-4fce-a5ea-fcab8835722d",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "success",
+      "original": "489c88e1-0865-4ae7-82a2-6558b17dfb31",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "original": "04d4b301-14cf-40d1-9a77-2e19437f8a4c",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "original": "70cb53a7-7411-483d-a672-69a484a28bc9",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "original": "5abe7737-6d2c-4274-ba56-975b0f2d53f4",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "success",
+      "original": "ef900fee-8711-41e7-b82f-738979780e58",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "read_failure",
+      "original": "d5f35a19-9b9c-4bd1-ad4e-fe5ff2f24c80",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "original": "62f8b438-8abb-4bc4-b375-366702c013cb",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "denied_read",
+      "original": "79526b80-ffa4-405e-8698-eeb9e3349aa6",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": true,
+      "errors": []
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "success",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "return",
+      "outcome": "success",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "return",
+      "outcome": "read_failure",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "en",
+      "decision": "return",
+      "outcome": "denied_read",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "success",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "success",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "read_failure",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    },
+    {
+      "kind": "development",
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "denied_read",
+      "phase": "held-result",
+      "gap": "read-failure-before-read-completes"
+    }
+  ],
+  "scope": "Actual product React; fictional current-owner/different-author HTTP. Not hosted identity, SQL effects or route-return proof."
+}

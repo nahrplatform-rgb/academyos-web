@@ -1,0 +1,73 @@
+{
+  "source_code_commit": "9ec9d87f267392db57138e6f7f79e500f763b7c8",
+  "scope": "All thirteen read-only receipt/build guards currently declared in .github/workflows/verify.yml;not thirteen runtime reruns.",
+  "startup_runtime_cases": 8,
+  "startup_recording_command": "node scripts/working-day/test_owner_startup.mjs --record",
+  "checks": [
+    {
+      "script": "scripts/verification/web-build.mjs",
+      "exit_code": 0,
+      "output": "PASS compiled web build matches current source and assets {\n  node: 'v24.14.0',\n  sourceHash: '1b82bb19135b70eb9517c6fbdfe935f4569f6249b8bf5b61f7bf389c67fce651',\n  artifactHash: 'c5cb0b53c20b82b9672740493af78c62aa2db3be3321635db11b5b24c0476921'\n}\n"
+    },
+    {
+      "script": "scripts/experience-review/build.mjs",
+      "exit_code": 0,
+      "output": "PASS: review inventory and source fingerprints current; rendered coverage is separate\n"
+    },
+    {
+      "script": "scripts/design/build_offline_register_preview.mjs",
+      "exit_code": 0,
+      "output": "PASS offline-register preview freshness\n"
+    },
+    {
+      "script": "scripts/local-data/test_automatic_key.mjs",
+      "exit_code": 0,
+      "output": "PASS automatic-key research receipt matches its sources; private/security gates separate\n"
+    },
+    {
+      "script": "scripts/local-data/test_register_repository.mjs",
+      "exit_code": 0,
+      "output": "PASS typed local-register receipt matches sources; private activation remains closed\n"
+    },
+    {
+      "script": "scripts/local-data/test_public_shell.mjs",
+      "exit_code": 0,
+      "output": "PASS public shell receipt matches sources\n"
+    },
+    {
+      "script": "scripts/register-download/test_browser.mjs",
+      "exit_code": 0,
+      "output": "PASS download browser and PG receipts match source; private enablement/hosted/security remain open\n"
+    },
+    {
+      "script": "scripts/workspace-download/test_transport.mjs",
+      "exit_code": 0,
+      "output": "PASS workspace transfer transport evidence matches current sources\n"
+    },
+    {
+      "script": "scripts/offline-register/test_dispatch.mjs",
+      "exit_code": 0,
+      "output": "PASS Owner register dispatch evidence matches sources\n"
+    },
+    {
+      "script": "scripts/working-day/test_owner_next.mjs",
+      "exit_code": 0,
+      "output": "PASS working-day evidence matches tracked sources\n"
+    },
+    {
+      "script": "scripts/register-key/test_key.mjs",
+      "exit_code": 0,
+      "output": "PASS EX-09 key receipt source fingerprints\n"
+    },
+    {
+      "script": "scripts/working-day/test_owner_startup.mjs",
+      "exit_code": 0,
+      "output": "PASS Owner workspace startup evidence matches sources\n"
+    },
+    {
+      "script": "scripts/working-day/test_normal_attendance.mjs",
+      "exit_code": 0,
+      "output": "PASS normal Attendance receipt matches sources\n"
+    }
+  ]
+}

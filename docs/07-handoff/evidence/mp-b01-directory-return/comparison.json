@@ -1,0 +1,143 @@
+{
+  "batch": "EX-07 / MP-B01",
+  "scope": "Real People React component and Chromium with fictional actor and synthetic HTTP. EN/AR 360px authentication and 1440px paged directory. Provider-session and hosted proof are separate.",
+  "baseline": {
+    "commit": "5e837dd5ad6d3de86f6014c928249e0a2dec1637",
+    "sourceSha256": "fed184f31e9a53f9e32354149fdaa36e47106b364057907fec9eb3bf3dba3ccb",
+    "observations": {
+      "confirmedDuringReturn": false,
+      "confirmedBehindSignIn": false,
+      "arabicConfirmation": false,
+      "focusAfterRetry": false,
+      "saveActions": [
+        "candidates",
+        "create",
+        "profile",
+        "list",
+        "list"
+      ],
+      "afterProfileRecovery": {
+        "falseEmpty": true,
+        "summary": 1,
+        "actions": [
+          "profile",
+          "profile",
+          "profile"
+        ]
+      },
+      "profileReturnActions": [],
+      "resume": {
+        "requests": 1,
+        "query": "Group Demo",
+        "after": null,
+        "rows": [
+          "Group Demo 1",
+          "Group Demo 2",
+          "Group Demo 3",
+          "Group Demo 4",
+          "Group Demo 5",
+          "Group Demo 6",
+          "Group Demo 7",
+          "Group Demo 8",
+          "Group Demo 9",
+          "Group Demo 10",
+          "Group Demo 11",
+          "Group Demo 12",
+          "Group Demo 13",
+          "Group Demo 14",
+          "Group Demo 15",
+          "Group Demo 16",
+          "Group Demo 17",
+          "Group Demo 18",
+          "Group Demo 19",
+          "Group Demo 20",
+          "Group Demo 21",
+          "Group Demo 22",
+          "Group Demo 23",
+          "Group Demo 24",
+          "Group Demo 25"
+        ]
+      },
+      "refresh": {
+        "requests": 1,
+        "query": "Group Demo",
+        "after": null,
+        "rows": []
+      }
+    }
+  },
+  "candidate": {
+    "inputs": {
+      "apps/web/src/components/people-workspace.tsx": "03f2c963b9e1881f6b293d5168876b11642366591ee2e7c9e5c2ec2bdfef2b26",
+      "scripts/people/test_ui.mjs": "9ceb6855312dfb87d47d1042734959f45d8b1d1f002b9e7e9114f6fd79bdd88f"
+    },
+    "matchingReactModes": [
+      "production",
+      "development"
+    ],
+    "oneRecoveryControl": true,
+    "observations": {
+      "confirmedDuringReturn": true,
+      "confirmedBehindSignIn": true,
+      "arabicConfirmation": true,
+      "focusAfterRetry": true,
+      "saveActions": [
+        "candidates",
+        "create",
+        "profile",
+        "list",
+        "list"
+      ],
+      "afterProfileRecovery": {
+        "falseEmpty": false,
+        "summary": 0,
+        "actions": [
+          "profile",
+          "profile",
+          "profile"
+        ]
+      },
+      "profileReturnActions": [
+        "list"
+      ],
+      "resume": {
+        "requests": 1,
+        "query": "Group Demo",
+        "after": "00000000-0000-4000-8000-000000000324",
+        "rows": [
+          "Group Demo 26",
+          "Group Demo 27",
+          "Group Demo 28",
+          "Group Demo 29",
+          "Group Demo 30"
+        ]
+      },
+      "refresh": {
+        "requests": 1,
+        "query": "Group Demo",
+        "after": "00000000-0000-4000-8000-000000000324",
+        "rows": [
+          "Group Demo 26",
+          "Group Demo 27",
+          "Group Demo 28",
+          "Group Demo 29",
+          "Group Demo 30"
+        ]
+      },
+      "retryAfterDenial": [
+        [
+          "list",
+          "Group Demo",
+          null
+        ]
+      ],
+      "emptyTail": [
+        [
+          "list",
+          "Group Demo",
+          "00000000-0000-4000-8000-000000000324"
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-11-16T09:16:36.047681+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "scope": "WD-71 program-wide planning activation confirmation/recovery; no schema,writer or new business rule",
+  "runtime": "Node v24.14.0; production/development React",
+  "coordinator": "Current Codex session; exact backend model/usage not exposed",
+  "helpers": 0,
+  "inputs": {
+    "apps/web/src/components/program-planning-workspace.tsx": "17d457ab012c07c8c86aa9297e2da0dba86e2b4d0346da1a718e16ac6d492203",
+    "scripts/program-planning/test_ui.mjs": "f2f0a804cbae2b89c694c2b9b58a4d997be9c075f6a84ef06ca765952268c4b4",
+    "scripts/program-planning/save_followup.mjs": "f75f65491595b61001ca1381271cd47464f9db013351aac589f9c812dcf23c63",
+    "scripts/program-planning/test_api.mjs": "efb758e9860916117f4d112d92a97bfd3e973a7eca27c9bbfda6f0c3a0087ec8",
+    "scripts/program-planning/test_boundary.py": "67f2f89a0420f2c72bfc1c8678847ce1286b9418c0bf9efb74b47fb2f055e2ef",
+    "apps/web/src/lib/program-planning.ts": "13b41caa1d981c5d1e056e60f8d914209bf01d02c3b2099d22e2d7db2700a988",
+    "apps/web/src/app/api/program-planning/route.ts": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
+    "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "supabase/migrations/20261027022133_i3c_atomic_program_planning.sql": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+    "scripts/experience-review/collect.mjs": "026be38ae96a08fc09029645c88410b7a4a75046baa051184c23a92e196fc98b",
+    "scripts/experience-review/build.mjs": "6695edb37d311c8a2224bd9150dcc2d30fdab595afc16b297bfabde01a380b38"
+  },
+  "negativeControl": {
+    "cases": 10,
+    "detectedGaps": 12,
+    "productSourceSha256": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d",
+    "restorePatch": "before-source.patch",
+    "mode": "PROGRAM_SAVE_BASELINE=1 PROGRAM_SAVE_REFERENCE=test-results/wd71-program/before.tsx"
+  },
+  "checks": {
+    "componentCases": 20,
+    "reactModes": [
+      "production",
+      "development"
+    ],
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "scenarios": [
+      "success",
+      "read_failure",
+      "lost_reply",
+      "denied_read",
+      "context_failure"
+    ],
+    "api": {
+      "budgetFailures": 21,
+      "invalidBodies": 3,
+      "crossOriginDenied": true
+    },
+    "sql": {
+      "result": "4 passed; disposable PG17",
+      "tests": [
+        "test_program_planning_01_prepare_atomic_activation_preserve_and_replay",
+        "test_program_planning_02_injected_last_child_failure_rolls_back_every_date",
+        "test_program_planning_04_scope_current_roles_foreign_people_and_acl",
+        "test_program_planning_05_single_date_race_stale_and_cancel_fence"
+      ]
+    },
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed; managed local production rebuilt and listener identity verified",
+    "captureFamilies": 16,
+    "reviewFrames": 1417,
+    "reviewTransitions": 1387,
+    "reviewTool": "passed"
+  },
+  "failures": [
+    {
+      "kind": "new harness locale wiring",
+      "initial": "AR case looked for translated Save while test adapter always supplied locale=en",
+      "repair": "Use explicit locale query prop on fixture entry and reload; both languages then exercised directly"
+    },
+    {
+      "kind": "typecheck",
+      "initial": "optional job equality allowed null current and optional r.job to compare equal",
+      "repair": "Explicit current non-null guard before receipt snapshot update; final typecheck passed"
+    },
+    {
+      "kind": "local production restart",
+      "initial": "recorded launcher PID 73882 absent; managed restart refused",
+      "evidence": "orphan CLI PID 74054 and listener PID 74076 verified against this checkout; runtime endpoint matched old instance",
+      "recovery": "Stopped those exact orphan processes; removed only stopped server-production/web-build leases; normal managed production rebuild and start verified"
+    }
+  ],
+  "limits": [
+    "Controlled browser HTTP receipts are fictional. SQL tests separately establish the named atomicity/replay/authority/fence invariants; no browser-to-SQL activation correlation claimed.",
+    "Task browse session redirected toward sign-in and was refused by origin allowlist; no sign-in, role switch or connected activation attempted.",
+    "Whole-app WD-71,other roles,hosted fault injection,installed-device,Owner acceptance and independent security remain separate.",
+    "No commit,push,promotion,provider/model/MCP change or paid fallback."
+  ],
+  "commands": [
+    "UI_EVIDENCE_DIR=test-results/wd71-program/final node scripts/program-planning/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=test-results/wd71-program/final node scripts/program-planning/test_ui.mjs",
+    "PROGRAM_SAVE_BASELINE=1 PROGRAM_SAVE_REFERENCE=test-results/wd71-program/before.tsx UI_EVIDENCE_DIR=test-results/wd71-program/negative-control node scripts/program-planning/test_ui.mjs",
+    "node scripts/program-planning/test_api.mjs",
+    "python3 scripts/program-planning/test_boundary.py ProgramPlanningBoundary.test_program_planning_01_prepare_atomic_activation_preserve_and_replay ProgramPlanningBoundary.test_program_planning_02_injected_last_child_failure_rolls_back_every_date ProgramPlanningBoundary.test_program_planning_04_scope_current_roles_foreign_people_and_acl ProgramPlanningBoundary.test_program_planning_05_single_date_race_stale_and_cancel_fence",
+    "npm test",
+    "npm run typecheck",
+    "npm run lint",
+    "npm run local:production",
+    "npm run local:status",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/verification/web-build.mjs --check"
+  ]
+}

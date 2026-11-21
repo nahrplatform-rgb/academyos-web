@@ -1,0 +1,37 @@
+- link "انتقل إلى المحتوى":
+  - /url: "#main"
+- banner:
+  - text: مساحة مالك الأكاديمية /
+  - strong: تصحيحات الحضور
+  - generic: نسخة تجريبية
+  - link "English" [active]:
+    - /url: "#language"
+  - button "Open user menu":
+    - img "'s logo"
+- complementary:
+  - link "AcademyOS":
+    - /url: /ar/workspace
+    - generic: A
+    - text: AcademyOS
+  - paragraph: مساحة مالك الأكاديمية
+  - navigation "التنقل في مساحة العمل":
+    - link "مساحاتك":
+      - /url: /ar/workspace
+      - generic: مساحاتك
+    - link "التدريب":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+      - generic: التدريب
+    - link "طلبات التصحيح":
+      - /url: /ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/corrections
+      - generic: طلبات التصحيح
+  - paragraph: بيئة اختبار · بيانات اصطناعية فقط
+- main:
+  - heading "طلبات التصحيح" [level=1]
+  - text: تصفية الطلبات
+  - combobox "تصفية الطلبات":
+    - option "بانتظار القرار"
+    - option "كل الطلبات المحفوظة" [selected]
+  - paragraph: لا طلبات ضمن هذا الاختيار. الطلبات المعلقة لا تغير الحضور.
+  - button "الطلبات السابقة" [disabled]
+  - button "طلبات أخرى" [disabled]
+- alert

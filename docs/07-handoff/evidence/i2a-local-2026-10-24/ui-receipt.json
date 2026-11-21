@@ -1,0 +1,20 @@
+{
+  "reactMode": "development",
+  "cases": [
+    "duplicate distinction",
+    "existing profile no create",
+    "stale duplicate review",
+    "pending submission disabled",
+    "lost-response reconciliation",
+    "actor switch clears state",
+    "revoked profile cleared",
+    "EN/AR draft preservation",
+    "360px no overflow",
+    "XSS-shaped name is literal text",
+    "short search explains minimum; debounce fetches valid query",
+    "auth initialization timeout offers retry with zero private calls"
+  ],
+  "creates": 1,
+  "errors": [],
+  "scope": "Actual React component; synthetic session and HTTP responses. Database tested separately."
+}

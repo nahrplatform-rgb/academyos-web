@@ -1,0 +1,39 @@
+{
+  "source": "d74b027bc84b39e2de3aae63bed5308019dd9d86",
+  "deployment": "dpl_5f4N6UAFUZSZZxtPBfKGPaWq7NF7",
+  "canonicalHost": "staging.academy.nahr.dev",
+  "state": "READY",
+  "actor": "Existing Academy Owner;Chrome Hieu same regular profile;fresh agent tab;no credential/account/profile change",
+  "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+  "event": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+  "checks": [
+    {
+      "scenario": "Existing different-event local reservation",
+      "result": "Prepare refused before key transport;EN and AR explanation retained;no storage or key reset"
+    },
+    {
+      "scenario": "AR preparation to online register",
+      "result": "Arabic labels retained;app-scene lang=ar dir=rtl;focus on original Arabic preparation trigger;1Present/1Absent/0Unmarked;2of2saved;0unsaved"
+    },
+    {
+      "scenario": "EN keyboard open/return",
+      "result": "Enter opens preparation;Enter returns online;app-scene lang=en dir=ltr;focus on original English trigger;both saved marks retained"
+    }
+  ],
+  "network": {
+    "interval": "After initial roster completed,through preparation refusal,language changes and both online returns",
+    "apiResponses": 0,
+    "keyResponses": 0,
+    "hasMore": false,
+    "truncated": false,
+    "limit": "Not an initial-load or whole-visit request measurement;no response-body or credential capture"
+  },
+  "capture": "hosted-d74b027-ar-return.jpg",
+  "operatingWrites": 0,
+  "limits": [
+    "No live server409 branch;local different-event guard refused first",
+    "No fresh-original dispatch or installed-device test",
+    "No new provider aggregate fingerprint comparison;prior c36 proof remains historical",
+    "No full redesign,Owner acceptance,performance percentile or independent review claim"
+  ]
+}

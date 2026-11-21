@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-11-16T12:25:54.969728+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "runtime": "Node v24.14.0; production/development React; disposable PostgreSQL 17",
+  "helpers": 0,
+  "coordinator": "Current Codex session; exact backend model and usage unavailable",
+  "inputs": {
+    "apps/web/src/components/correction-workspace.tsx": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+    "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+    "scripts/corrections/test_ui.mjs": "a75639b9d30de66c51c0a6f2679902451faa6fdb3c32b8b236aba87ff14dc79d",
+    "scripts/development/test_ui.mjs": "d96ae6281ea77f4731ecfd5a10bccb219859fb09497747f11d459c29c84ee428",
+    "scripts/review-decisions/save_followup.mjs": "291a9c33b83c2c914f2306714e435afb05300e4e41321af95c1349c3d97250f4",
+    "scripts/corrections/test_api.mjs": "5ca3ff514a6f5a98aab5d570977dd538f1dd20dfe84d84572382b16d3b3e9a43",
+    "scripts/development/test_api.mjs": "1fe9950c45c182ca77f4c19da4172fc0c494c9b6e497109490c87d5e67ca93a4",
+    "scripts/corrections/test_boundary.py": "8ee86d59296a9dd5ef004328e0a71da402cdbf85d7101b6d6cee7ff6778f99b0",
+    "scripts/development/test_boundary.py": "b6d09a1859069a4cbdab065ade169e32b32eea5baf876d3eda809c0f924eeeb5",
+    "apps/web/src/lib/corrections.ts": "410fd5bc299e6356ad77e3fd31b9e854b1c1d4e956ff488bac0553eeaea0b460",
+    "apps/web/src/lib/development.ts": "e6cfe602fd4f68fcd768759e7a71de517a85cb56d62731d840d250742757e9cf",
+    "apps/web/src/app/api/attendance/route.ts": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
+    "apps/web/src/app/api/development/route.ts": "707018b4050a3eb60eac5e68100261d43878f2dde878f94739c90751a259c138",
+    "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+    "supabase/migrations/20261028233812_i5a_development_feedback.sql": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+    "scripts/experience-review/collect.mjs": "bf9f1faafa0cccfb1ded481b2b83b305c4cd5d6d32c459dc6ea443ae648213e4",
+    "scripts/experience-review/build.mjs": "0a53ef7fc45a3e661c70692b187be6e5d2c7f1e5a2ac413d908167ce18b3056d",
+    "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json": "8ca5f09bb1d28f4b8e20c45de4de08eabee44a52b47b3f2c8411854deb9a1a22",
+    "design/app-experience-review/manifest.json": "cd84bf2f5bb9c76f7f083724ea36a7a97fa818cb365e8fca561647601d50ae7d"
+  },
+  "negativeControl": {
+    "cases": 16,
+    "gaps": 16,
+    "productSourceSha256": "2c57015e29624a4af8d497b9473c5f6039a6d1218cb1e89aaf519a589b47e0b0",
+    "restorePatch": "before-source.patch",
+    "invocation": "REVIEW_SAVE_BASELINE=1 REVIEW_SAVE_REFERENCE=test-results/wd71-reviews/development-before.tsx node scripts/development/test_ui.mjs"
+  },
+  "checks": {
+    "componentCases": 64,
+    "componentFailures": 0,
+    "correctionSqlTests": 11,
+    "feedbackSqlTests": 11,
+    "apiBudgetRefusals": {
+      "correction": 21,
+      "development": 33
+    },
+    "invalidBodiesPerApi": 3,
+    "crossOriginDenial": true,
+    "workingDayChecks": 28,
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "managedProductionBuild": "passed",
+    "review": {
+      "frames": 1502,
+      "transitions": 1539,
+      "captureGaps": []
+    },
+    "reviewToolAndFreshness": "passed",
+    "masterExecutionImplementationValidators": "passed",
+    "continuationTests": 20
+  },
+  "failuresAndResolution": [
+    {
+      "failure": "Correction held-submit locator expected a disabled confirmation that actual component replaces",
+      "resolution": "Assert missing confirmation and disabled original-check guard; no product change or weakened replacement prohibition"
+    },
+    {
+      "failure": "Working-day disposable database could not bind fixed port55441 while the domain SQL suite was active",
+      "resolution": "PostgreSQL address-in-use log retained; both domain suites completed; serial working-day rerun passed28 checks and receipt check"
+    }
+  ],
+  "commands": [
+    "UI_EVIDENCE_DIR=... node scripts/corrections/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=... node scripts/corrections/test_ui.mjs",
+    "UI_EVIDENCE_DIR=... node scripts/development/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=... node scripts/development/test_ui.mjs",
+    "node scripts/corrections/test_api.mjs",
+    "node scripts/development/test_api.mjs",
+    "python3 scripts/corrections/test_boundary.py",
+    "python3 scripts/development/test_boundary.py",
+    "node scripts/working-day/test_normal_attendance.mjs --record",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "npm test",
+    "npm run typecheck",
+    "npm run lint",
+    "npm run local:production -- --restart",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "git diff --check"
+  ],
+  "limits": [
+    "New component counters describe fictional HTTP effects; actual API/SQL/routed checks establish their own named boundaries.",
+    "No live connected decisions, hosted or installed-device fault injection, Owner acceptance or external security review.",
+    "No commit, push, promotion, provider configuration, writer, schema, review role, audience, key or operation storage change."
+  ],
+  "ignoredLogs": "test-results/wd71-reviews/"
+}
