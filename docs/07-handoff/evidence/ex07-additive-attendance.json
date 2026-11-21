@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-21T02:11:06.053Z",
+  "completed": "2026-11-21T15:49:00.686Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -24,8 +24,8 @@
     "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "scripts/working-day/test_additive_attendance.mjs": "ff02c4bf05af013a4f4ee1bc4db6a2b0749ef736df898c9e2cc00bf255132a79",
-    "scripts/working-day/owner_fixture.mjs": "e41aee05e183db1c24c8250e35418a8fec3622a24f0ac752a4c4b2b1a81e0d0a",
-    "scripts/working-day/owner_db.py": "abab64af71bd6b3aeba7e6045e6cb26f61f21834f900a79dec9273f2a81097f6",
+    "scripts/working-day/owner_fixture.mjs": "2d050f79b4f0f91f8d724a25369f185e741f64a2c5e4dbafbcfc5561e366baf3",
+    "scripts/working-day/owner_db.py": "c57e39ae62546ee536917a9aa829e0c70805451874210d201495771f6edf703b",
     "scripts/register-key/bound_fixture.py": "d8c4ff2f06ec58faf7d392cdb7fc3c72c13816e9c445c6bab33f19e92d59160b",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
@@ -56,7 +56,7 @@
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
     "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
-    "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+    "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/components/workspace-panes.tsx": "28f637c6b6ed95234886392ccedce94823cdbad6b156de63267f9e8d9bc9eb0e",
     "apps/web/src/lib/owner-register-pilot.ts": "5058a94724f29ce18fa27ee68331eb5ed4145b52db767827d26d8952ae6b01ae",
     "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",

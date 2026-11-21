@@ -25,7 +25,7 @@ await page.route('**/api/programs',async route=>{const b=route.request().postDat
  if(b.action==='list'&&failList){failList=false;await route.fulfill({status:503,json:{error:'unavailable'}});return;}
  if(b.action==='list')data={context:{...context,version},items:records,more:false};
  else if(b.action==='preview'){if(failPreviewWindow&&b.window===2){await route.fulfill({status:503,json:{error:'unavailable'}});return;}if(driftPreview&&b.window===1){driftPreview=false;version++;}if(b.context!==version){await route.fulfill({status:409,json:{error:'conflict'}});return;}data={dates:generated(b.definition,b.window),...counts(b.definition),receipt:{through:Math.max(b.window,b.receipt?.through??-1),digest:'a'.repeat(64),signature:'b'.repeat(64)}};}
- else if(b.action==='create'){if(dropBefore){dropBefore=false;await route.abort('failed');return;}creates++;const p={id:'00000000-0000-4000-8000-'+String(creates+200).padStart(12,'0'),definition:b.definition,timezone:'Africa/Cairo',state:'preparing',completed:0,prepared:0,version:1,context_version:version,failure:null,failure_date:null,...counts(b.definition)};const sport=context.sports?.find(s=>s.id===b.definition.sport_id);if(sport)Object.assign(p,{sport_id:sport.id,sport_name:sport.label_en,sport_name_ar:sport.label_ar});records.push(p);operations.set(b.op,p);data=p;if(lostCreate){lostCreate=false;await route.abort('failed');return;}}
+ else if(b.action==='create'){if(dropBefore){dropBefore=false;await route.abort('failed');return;}creates++;const p={id:'00000000-0000-4000-8000-'+String(creates+200).padStart(12,'0'),definition:b.definition,timezone:'Africa/Cairo',state:'preparing',completed:0,prepared:0,version:1,context_version:version,failure:null,failure_date:null,...counts(b.definition)};const sport=context.sports?.find(s=>s.id===b.definition.sport_id)??{id:context.sport_id,label_en:context.sport_name,label_ar:context.sport_name_ar};Object.assign(p,{sport_id:sport.id,sport_name:sport.label_en,sport_name_ar:sport.label_ar});records.push(p);operations.set(b.op,p);data=p;if(lostCreate){lostCreate=false;await route.abort('failed');return;}}
  else if(b.action==='read'){if(readFail){readFail=false;await route.fulfill({status:503,json:{error:'unavailable'}});return;}const p=records.find(p=>p.id===b.program);data={program:p,context:{...context,version},dates:p.state==='ready'?generated(p.definition,b.window):[]};}
  else if(b.action==='reconcile')data=operations.has(b.op)?{program:operations.get(b.op)}:{cancelled:true};
  else if(b.action==='step'){if(limitedStep){limitedStep=false;await route.fulfill({status:429,json:{error:'limited'}});return;}if(holdStep)await new Promise(r=>releaseStep=r);const p=records.find(p=>p.id===b.program);if(b.version===p.version){if(b.step==='prepare'){p.prepared+=generated(p.definition,p.completed).length;p.completed++;}if(b.step==='pause')p.state='paused';if(b.step==='resume')p.state='preparing';if(b.step==='finalize')p.state='ready';p.version++;}data=p;if(lostStep){lostStep=false;await route.abort('failed');return;}}
@@ -107,6 +107,31 @@ try{
   await page.goto(`${origin}/?locale=${locale}&program=${program.id}`);
   await expect(saved).toBeVisible();
   await expect(page.getByText(label('Swimming','السباحة'),{exact:true}).first()).toBeVisible();
+ }
+ const previouslySaved=[records.find(p=>p.state==='ready'&&p.sport_id===context.sport_id),records.find(p=>p.sport_id===swimming.id)];
+ assert.ok(previouslySaved.every(Boolean),'fixture saved programs in both sports');
+ context.sports=[{id:context.sport_id,label_en:'Swimming',label_ar:'سباحه',catalog_key:null},swimming];
+ for(const locale of ['en','ar']){
+  await page.goto(`http://127.0.0.1:${server.address().port}/?locale=${locale}`);
+  const ar=locale==='ar';
+  await button(ar?'برنامج جديد':'New program').click();
+  const picker=page.getByLabel(ar?'الرياضة':'Sport',{exact:true});
+  await expect(picker.locator('option:not([disabled])')).toHaveText(ar
+   ?['سباحه (رياضة الأكاديمية الأصلية)','السباحة (دليل الرياضات)']
+   :['Swimming (Original academy sport)','Swimming (Sport catalog)']);
+  await expect(picker).toHaveValue(context.sport_id);
+  await picker.selectOption({label:ar?'السباحة (دليل الرياضات)':'Swimming (Sport catalog)'});
+  await expect(picker).toHaveValue(swimming.id);
+  const writesBeforeReopen=creates;
+  for(const [index,program] of previouslySaved.entries()){
+   await page.goto(`http://127.0.0.1:${server.address().port}/?locale=${locale}&program=${program.id}`);
+   await expect(page.getByRole('heading',{name:ar?'البرنامج المحفوظ':'Saved program',exact:true})).toBeVisible();
+   const storedLabel=index===0?(ar?program.sport_name_ar:program.sport_name):(ar?'السباحة':'Swimming');
+   await expect(page.getByText(storedLabel,{exact:true}).first()).toBeVisible();
+   assert.equal(calls.filter(c=>c.action==='read').at(-1).program,program.id);
+   assert.equal(program.sport_id,index===0?context.sport_id:swimming.id);
+  }
+  assert.equal(creates,writesBeforeReopen);
  }
  assert.deepEqual(errors,[]);await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({status:'passed',scope:'Actual product React component; synthetic identity/HTTP state adapters. Not SQL/hosted proof.',reactMode,resumeReads,creates,apiCalls:calls.length,cases:['StrictMode one initial read','failed directory is not empty and offers retry','full period and weekday times','4 automatic authoritative preview windows with carried receipts','intermediate preview failure blocks create','changed context during preview blocks create','4 preparation chunks and separate finalization','confirmation follows current language after save','confirmed ready with failed read never becomes unknown','429 stops before another chunk','ready date read','ready-only bounded date directory','lost create reply recovers incomplete original','pause/reopen/resume','pre-send fence and retained draft','lost chunk reply no duplicate dates','stale context invalidates preview','EN/AR320/360/926/1440','focus authority denial wipes draft','identity remount clears fields','Back to Today EN/AR href on unfinished program','Back to Today on completed program preserves program-return marker'],errors},null,2)+'\n');console.log('PASS: product program UI '+reactMode);
 }catch(error){await writeFile(resolve(evidence,'ui-receipt.json'),JSON.stringify({status:'failed',reactMode,error:String(error)},null,2)+'\n');throw error;}finally{await browser.close();await new Promise(r=>server.close(r));}

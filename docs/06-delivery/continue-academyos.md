@@ -70,33 +70,33 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-20: Family and Trainer development day
+## Current priority — EX-21: Family billing to reconciled statement
 
-Delivery batch: **MP-B05 — Family and Trainer development day**.
+Delivery batch: **MP-B06 — Family billing to reconciled statement**.
 
 Product value for this batch:
 
-- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
-- **VAL-08** — Understand own training participation and progress (Guardian and Player where authorized).
+- **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
 - **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
+- **VAL-10** — Trust scope history and recoverable results (Every permitted role).
 
 ### Ready development action
 
-Complete the distinct Trainer and Guardian workflows, current role/child/assignment visibility, publication and withdrawal, and approved development progress. Keep unapproved scales, player accounts, minor/notification rules open.
+Reconcile existing billing source and approved policy, and prepare one Family billing decision packet with concrete arithmetic and provider/manual examples before implementing dependent writes.
 
 ### Separate release follow-up
 
 No new candidate yet;one combined exact-source candidate and Owner-controlled promotion when ready
 
-Scoped dependency gate: Existing narrative approval retained;scales/Player account/minor/notification fields need exact accepted decisions;named exit: Distinct role journeys;own-child/assignment visibility;publish/withdraw/amend;useful sport-specific progress and private staff fields excluded
+Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
 Read current evidence: `docs/06-delivery/master-plan-v2/product-and-module-specifications.md`.
 
-Batch includes: Trainer Today/feedback/requests;Guardian selected child/calendar/attendance/published progress;Player/Manager scoped readiness;versioned sport metrics
+Batch includes: Plan/effective assignment;bill/receipt/allocation;provider/manual recovery;credit/refund;Guardian statement
 
-Batch exit evidence: Distinct role journeys;own-child/assignment visibility;publish/withdraw/amend;useful sport-specific progress and private staff fields excluded
+Batch exit evidence: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
-Policy boundary: Existing narrative approval retained;scales/Player account/minor/notification fields need exact accepted decisions
+Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules
 
 ## Actual delivery status for the current family
 
@@ -145,8 +145,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 10. **EX-17 — Academy setup and multi-academy/multisport administration** (checkpoint_passed; MP-B02).
 11. **EX-18 — Complete training planning and publication** (checkpoint_passed; MP-B03).
 12. **EX-19 — Complete attendance capture and review** (checkpoint_passed; MP-B04).
-13. **EX-20 — Family and Trainer development day** (current; MP-B05).
-14. **EX-21 — Family billing to reconciled statement** (queued; MP-B06).
+13. **EX-20 — Family and Trainer development day** (checkpoint_passed; MP-B05).
+14. **EX-21 — Family billing to reconciled statement** (current; MP-B06).
 15. **EX-22 — Staff attendance to Trainer earnings and payout** (queued; MP-B07).
 16. **EX-23 — Platform admission to commercial academy lifecycle** (queued; MP-B08).
 17. **EX-24 — Communications and support with delivery recovery** (queued; MP-B09).

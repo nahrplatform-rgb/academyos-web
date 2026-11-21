@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "e769c48d5b388950e15234879bf752b6a0c17e16",
+  "source_anchor": "8ab12157b1c820022595a340359d7752cc677fe6",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -95,18 +95,18 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
-      "sha256": "4565aa2fafe394330d5e5b04016c03ed34a151bc5e278f271e9bb24e74bfd89a",
-      "bytes": 532
+      "sha256": "5c91ac3d4c993a9ecd18f18ba2d0abcccef75401502500690c5390cf843d0211",
+      "bytes": 722
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
-      "sha256": "8f940e8c851f646028d6e3ffda613a0ab00758c014f5a97814aee816def3fb7b",
-      "bytes": 781
+      "sha256": "2bbb2e8753cb19e881288a4cce1851967c675bf1c201706aae0403f3f079357b",
+      "bytes": 829
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx",
-      "sha256": "c23a376da6fe9a89a1293069bdc0639d19f58d351768b5331e5c9a122eec0c27",
-      "bytes": 523
+      "sha256": "caa17ef9f0239d7069475cdd3c079fd25dd4582ffb33cefc49de47567077ba7d",
+      "bytes": 713
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx",
@@ -405,8 +405,8 @@
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
-      "sha256": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
-      "bytes": 26212
+      "sha256": "17138fda3221b5de8288884afff4d96ffec44df143a9d49af4d0566da1635314",
+      "bytes": 26250
     },
     {
       "path": "apps/web/src/components/date-planning-workspace.tsx",
@@ -415,18 +415,18 @@
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
-      "sha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
-      "bytes": 39734
+      "sha256": "95f2c6f6ab3b0a35ae0293b401d08d056a2914e5aba03d7213e0da852f991565",
+      "bytes": 40344
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
-      "bytes": 54980
+      "sha256": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
+      "bytes": 55502
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
-      "sha256": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
-      "bytes": 19470
+      "sha256": "fd30e15fbe8b025654fa2ae5d4f8e7a21213d004eee2db7a3a028e3c3c02c6f2",
+      "bytes": 19281
     },
     {
       "path": "apps/web/src/components/guardian-workspace.tsx",
@@ -495,8 +495,8 @@
     },
     {
       "path": "apps/web/src/components/program-workspace.tsx",
-      "sha256": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
-      "bytes": 42288
+      "sha256": "6adfc5a4ee12f7b8568320ed79d60a53be5fb73ccdc6c68eddde00e87b7f21a7",
+      "bytes": 42900
     },
     {
       "path": "apps/web/src/components/publication-workspace.tsx",
@@ -565,8 +565,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-navigation.ts",
-      "sha256": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
-      "bytes": 2055
+      "sha256": "ce85b90f4efac667fbe4473aab4b3a5d997276fde7614983417f442639601a5d",
+      "bytes": 2238
     },
     {
       "path": "apps/web/src/components/workspace-panel-icon.tsx",
@@ -590,8 +590,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-shell.tsx",
-      "sha256": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
-      "bytes": 12830
+      "sha256": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
+      "bytes": 13011
     },
     {
       "path": "apps/web/src/instrumentation-client.ts",

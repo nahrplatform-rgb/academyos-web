@@ -11,7 +11,7 @@ import WorkspacePanelIcon from "./workspace-panel-icon";
 type Module = 'training'|'attendance'|'people'|'development'|'family'|'operations';
 type Role = 'owner'|'trainer'|'guardian'|'platform'|'workspace';
 export type NavigationItem = { href: string; label: string; current?: boolean; group?: string; module?: Module };
-type Props = { locale: string; context: string; title: string; homeHref: string; languageHref: string; navigation: NavigationItem[]; onNavigate?: ComponentProps<typeof Link>["onClick"]; account?: ReactNode; children: ReactNode; tools?: ReactNode; module?: Module; role?: Role; toolbarMinHeight?: number; scopeLabel?: string; prefetch?: false };
+type Props = { locale: string; context: string; title: string; homeHref: string; languageHref: string; navigation: NavigationItem[]; onNavigate?: ComponentProps<typeof Link>["onClick"]; account?: ReactNode; children: ReactNode; tools?: ReactNode; module?: Module; role?: Role; toolbarMinHeight?: number; scopeLabel?: string; guardianLink?: string; prefetch?: false };
 function NavIcon({ href }: { href: string }) {
   const path = href.includes('attendance') || href.includes('register') ? 'M4 4h16v16H4z M7 12l3 3 7-7' : href.includes('program') || href.includes('schedule') || href.includes('calendar') ? 'M4 5h16v16H4z M4 10h16 M8 3v4 M16 3v4' : href.includes('players') || href.includes('guardian') || href.includes('staff') || href.includes('trainer') ? 'M16 21v-3a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v3 M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8' : href.includes('development') ? 'M20 4c-12-2-18 7-12 12s16-2 12-12 M5 21L17 9' : 'M3 10l9-7 9 7v11H3z M9 21v-8h6v8';
   return <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d={path}/></svg>;
@@ -33,7 +33,7 @@ function WorkspaceConnection({arabic,children}:{arabic:boolean;children?:ReactNo
   </div>;
 }
 /** Presentation metadata never resolves membership or grants authority. Links remain domain-owned. */
-function WorkspaceShellContent({ locale, context, title, homeHref, languageHref, navigation, onNavigate, account, children, tools, module='operations', role='workspace', toolbarMinHeight=0, scopeLabel, prefetch }: Props) {
+function WorkspaceShellContent({ locale, context, title, homeHref, languageHref, navigation, onNavigate, account, children, tools, module='operations', role='workspace', toolbarMinHeight=0, scopeLabel, guardianLink, prefetch }: Props) {
   const {preferences,update,reset}=useWorkspaceLayout();
   const navigationId = useId();
   const drawerId = useId();
@@ -67,8 +67,9 @@ function WorkspaceShellContent({ locale, context, title, homeHref, languageHref,
   const ar=locale==='ar',drawer=useRef<HTMLDialogElement>(null),opener=useRef<HTMLButtonElement>(null);
   const academy=navigation.map(item=>item.href.match(/^\/(?:en|ar)\/workspace\/([a-f0-9-]{36})(?:\/|$)/i)?.[1]).find(Boolean);
   const scopedRole=role==='owner'||role==='trainer'||role==='guardian'?role:null;
-  const menu=academy&&scopedRole?workspaceNavigation(locale,academy,scopedRole,navigation):navigation.filter(item=>item.href!==`/${locale}/workspace`);
-  const workspaceHome=academy&&scopedRole?`/${locale}/workspace/${academy}/${scopedRole==='owner'?'home':`${scopedRole}/home`}`:homeHref;
+  const menu=academy&&scopedRole?workspaceNavigation(locale,academy,scopedRole,navigation,guardianLink):navigation.filter(item=>item.href!==`/${locale}/workspace`);
+  const defaultHome=academy&&scopedRole?`/${locale}/workspace/${academy}/${scopedRole==='owner'?'home':`${scopedRole}/home`}`:homeHref;
+  const workspaceHome=scopedRole==='guardian'?menu.find(item=>item.href.split('?')[0]===defaultHome)?.href??defaultHome:defaultHome;
   const roleLabel=({owner:ar?'مالك الأكاديمية':'Academy Owner',trainer:ar?'مدرب':'Trainer',guardian:ar?'ولي أمر':'Guardian',platform:ar?'مالك المنصة':'Platform Owner',workspace:ar?'اختيار مساحة العمل':'Choose workspace'})[role];
   const switcher=<Link prefetch={prefetch} className="workspace-switch" href={`/${locale}/workspace`} onClick={e=>{onNavigate?.(e);if(!e.defaultPrevented)drawer.current?.close();}}>{ar?'تبديل مساحة العمل':'Switch workspace'}</Link>;
   const homeLabel=ar?'رئيسية مساحة العمل':'Workspace home';

@@ -27,6 +27,36 @@ ROUTES = {
 }
 
 
+FAMILY_ROUTES = {
+    'x15_trainer_home_v1', 'x15_trainer_calendar_v1', 'x15_guardian_home_v1',
+    'x15_guardian_calendar_v1', 'g3_links_v1', 'b11_links_v1', 'b11_schedule_v1',
+    'b11_detail_v1', 'e14_links_v1', 'e14_family_list_v1', 'e14_family_detail_v1',
+    'e14_sessions_v1', 'e14_roster_v1', 'e14_history_v1', 'c12_submit_v1', 'c12_history_v1',
+}
+
+
+def family_day(test):
+    academy, branch, _, staff, child, _, event, link, _ = test.family()
+    sibling = test.person(academy, branch, 'Fictional second child')
+    _, invitation, token, _, _ = test.guardian_command(academy, p=sibling)
+    sibling_link = json.loads(test.guardian_recipient(invitation, token, 'accept', str(uuid.uuid4())))['link_id']
+    test.sql(f"insert into academy.guardian_training_access values('{sibling_link}',true);"
+             f"insert into academy.development_access values('{link}',true),('{sibling_link}',true)")
+    # Keep the session ended and inside today's branch date at any UTC hour.
+    zones = ('Africa/Cairo', 'Pacific/Kiritimati', 'America/Adak')
+    zone = min(zones, key=lambda z: abs(datetime.datetime.now(ZoneInfo(z)).hour - 12))
+    test.sql(f"begin;delete from academy.publication_heads where event_id='{event}';"
+             f"update academy.publication_events set projection=jsonb_set(projection,'{{timezone}}',to_jsonb('{zone}'::text)) where id='{event}';"
+             f"insert into academy.publication_heads select academy_id,program_id,day,id from academy.publication_events where id='{event}';commit")
+    test.retime(event, "clock_timestamp()-interval '45 minutes'", "clock_timestamp()-interval '15 minutes'")
+    test.sql(f"update academy.academies set timezone='{zone}' where id='{academy}'")
+    day = test.sql(f"select (starts_at at time zone '{zone}')::date from academy.publication_events where id='{event}'")
+    assert test.mark(academy, event, child)['version'] == 1
+    duplicate = test.person(academy, branch, 'Fictional player outside the assignment')
+    return dict(academy=academy, event=event, child=child, link=link, siblingLink=sibling_link,
+                unrostered=duplicate, day=day, staff=staff)
+
+
 def seed(test, multi_scope=False):
     now = datetime.datetime.now(datetime.timezone.utc)
     # Keep today's session publishable before retiming the disposable register.
@@ -82,7 +112,7 @@ def seed(test, multi_scope=False):
 
 def rpc(test, command):
     name = command['name']
-    assert name in ROUTES
+    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES)
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
@@ -113,13 +143,25 @@ if __name__ == '__main__':
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
         dispatch['scope']['apply_bound'](test)
-        print(json.dumps({'ready': seed(test, '--multi-scope' in sys.argv)}), flush=True)
+        data = seed(test, '--multi-scope' in sys.argv)
+        if '--family-day' in sys.argv:
+            data['familyDays'] = [family_day(test), family_day(test)]
+        print(json.dumps({'ready': data}), flush=True)
         for line in sys.stdin:
             command = json.loads(line)
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] in ('dated_plan_fixture', 'second_academy_fixture'):
+                if command['action'] == 'family_day_audit' and '--family-day' in sys.argv:
+                    assessment = literal(uuid.UUID(command['assessment']))
+                    value = json.loads(test.sql(
+                        "select json_build_object('publications',"
+                        f"(select count(*) from academy.development_publications where assessment_id={assessment}),"
+                        "'submissions',"
+                        f"(select count(*) from academy.development_submissions where assessment_id={assessment}),"
+                        "'currentPublication',"
+                        f"(select publication_id from academy.development_assessments where id={assessment}))"))
+                elif command['action'] in ('dated_plan_fixture', 'second_academy_fixture'):
                     if command['action'] == 'second_academy_fixture':
                         academy, _ = test.academy()
                         test.sql(f"update academy.academies set name='Fictional second academy' where id={literal(academy)}")

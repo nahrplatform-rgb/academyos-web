@@ -1,6 +1,6 @@
 {
-  "source": "b65b36bac284b99cdf0b2554529d8d9ad070f5f0",
-  "generatedAt": "2026-11-21T05:47:28.807Z",
+  "source": "8ab12157b1c820022595a340359d7752cc677fe6",
+  "generatedAt": "2026-11-21T15:56:42.686Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -16,9 +16,9 @@
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx": "2d08fc2f98b57d4b722e797c9dffcf3fecd5bff3d3fe7c2b501b22b8a4322963",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
-    "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx": "4565aa2fafe394330d5e5b04016c03ed34a151bc5e278f271e9bb24e74bfd89a",
-    "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx": "8f940e8c851f646028d6e3ffda613a0ab00758c014f5a97814aee816def3fb7b",
-    "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx": "c23a376da6fe9a89a1293069bdc0639d19f58d351768b5331e5c9a122eec0c27",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx": "5c91ac3d4c993a9ecd18f18ba2d0abcccef75401502500690c5390cf843d0211",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx": "2bbb2e8753cb19e881288a4cce1851967c675bf1c201706aae0403f3f079357b",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx": "caa17ef9f0239d7069475cdd3c079fd25dd4582ffb33cefc49de47567077ba7d",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/page.tsx": "3b7503bdf06937b81b2c7b5111addb0fa44f2f9b7b28a727790aaeb151a6e514",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx": "197d48cabbee02b21fd4c863229c292efbaa1c31eaf7bfe7ffacf3f9e218a82e",
     "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx": "6b4de6c8e812d9dffa8a25c41e8d31986b75418a2ec6cf0726bdb03d30b743b0",
@@ -47,11 +47,11 @@
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
     "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
-    "apps/web/src/components/correction-workspace.tsx": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
+    "apps/web/src/components/correction-workspace.tsx": "17138fda3221b5de8288884afff4d96ffec44df143a9d49af4d0566da1635314",
     "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
-    "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
-    "apps/web/src/components/experience-workspace.tsx": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
-    "apps/web/src/components/guardian-training-workspace.tsx": "5852fff295e1a8ef90fe5975cacb6661a6ceb5fc65274c31f91447c9595fcdf5",
+    "apps/web/src/components/development-workspace.tsx": "95f2c6f6ab3b0a35ae0293b401d08d056a2914e5aba03d7213e0da852f991565",
+    "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
+    "apps/web/src/components/guardian-training-workspace.tsx": "fd30e15fbe8b025654fa2ae5d4f8e7a21213d004eee2db7a3a028e3c3c02c6f2",
     "apps/web/src/components/guardian-workspace.tsx": "88a2ee20ad01764cfda5e4c2b49751ae513b77554750d84d7a1909db3b80962d",
     "apps/web/src/components/onboarding-workspace.tsx": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
     "apps/web/src/components/owner-navigation.ts": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
@@ -65,7 +65,7 @@
     "apps/web/src/components/prepared-register-startup.tsx": "f819a2683a8f4090ea29f88a4fcef8454e8f18500e919299f4698e34fd7ae954",
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
     "apps/web/src/components/program-planning-workspace.tsx": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
-    "apps/web/src/components/program-workspace.tsx": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
+    "apps/web/src/components/program-workspace.tsx": "6adfc5a4ee12f7b8568320ed79d60a53be5fb73ccdc6c68eddde00e87b7f21a7",
     "apps/web/src/components/publication-workspace.tsx": "a5baabd6a3e99c2c230738f0eb584d2898bbd37084e87c08ccab429a03b3dab1",
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
@@ -79,12 +79,12 @@
     "apps/web/src/components/ui/controls.tsx": "7367530924543eb52cd5b2803c9fddfdf4eef8ca00923cb8a1ded523d611a29e",
     "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
     "apps/web/src/components/workspace-layout.tsx": "038c629443d35a2bbcf1c539265d58b819b3f11c8bdd0e7dc11dce61642cb6b7",
-    "apps/web/src/components/workspace-navigation.ts": "361afc23f34b5b6169297101cf28c9ba260759ee11259fa54b6ea77f2fa72b0c",
+    "apps/web/src/components/workspace-navigation.ts": "ce85b90f4efac667fbe4473aab4b3a5d997276fde7614983417f442639601a5d",
     "apps/web/src/components/workspace-panel-icon.tsx": "25e6d38f430db0de251d1a81cfae9811600eb4421d121ca4630fbcab908cac4f",
     "apps/web/src/components/workspace-panes.tsx": "28f637c6b6ed95234886392ccedce94823cdbad6b156de63267f9e8d9bc9eb0e",
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
-    "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+    "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
@@ -100,7 +100,7 @@
     "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
     "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
     "scripts/corrections/test_ui.mjs": "a263af6d56d61ea651d7394568d77a8d6bf0cd7b1ee300952f525b699200b243",
-    "scripts/development/test_ui.mjs": "f9d8561c8591266f125cac6c327cf6d5d94cfa19d29859bbcbdace1ab83f6724",
+    "scripts/development/test_ui.mjs": "f8bb72fa265cea047e825a137041b7a4f87f4c0f307b0ce550a5d81349a6477f",
     "scripts/experience-projections/test_ui.mjs": "fcd168614bab423c66a7b2c434405941f7c55e8557b6af4ad47798f126232283",
     "scripts/experience-review/build.mjs": "0a303f8527191954e152f8b8e5acfce89d844178267d573d808a0143a8ffa53b",
     "scripts/experience-review/capture.mjs": "12c6a4db77bf897ee10d6aa49799b88a7e0d21a8440008850f57d6ca7239c380",
@@ -120,7 +120,7 @@
     "scripts/program-planning/save_followup.mjs": "216d564a6237a2ea8da974880500666682e5b44b22780197a31665b42cca9e7a",
     "scripts/program-planning/test_ui.mjs": "f2f0a804cbae2b89c694c2b9b58a4d997be9c075f6a84ef06ca765952268c4b4",
     "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
-    "scripts/programs/test_ui.mjs": "323f2b65e626ad487b8b428325118d9c0fb4fe6fea0122f67a3a34135dabca84",
+    "scripts/programs/test_ui.mjs": "9693c78f5eefcd3a32fb6ca5f66f863287027b23ddc96024fb5886f39dae5ca2",
     "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
     "scripts/publication/test_ui.mjs": "4533dae56dc410d50c70c99f214750a95e216dddd4a15f8f29b99289e85697be",
     "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
@@ -133,12 +133,12 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "6c00e70a290ec68896b13e6af8b0ff6a75fd08e6363af3a439909fe9d5f257f0",
-  "htmlSha256": "973cfd7689f2ca076df7940161acb8d2ede67799c21655992bc3675762a9efcf",
-  "frames": 1930,
-  "transitions": 2716,
+  "capturePackSha256": "ff790a227220a30945448d24c7305905e5765ca68ab727612698304bbfc70d98",
+  "htmlSha256": "409625c0f8bb34c19a34391e411fa8e382277d536abef898fc32900b9e87326a",
+  "frames": 1940,
+  "transitions": 2722,
   "sourceFiles": 87,
-  "sourceLiterals": 8895,
+  "sourceLiterals": 8905,
   "journeys": [
     {
       "id": "entry",
@@ -162,7 +162,7 @@
     },
     {
       "id": "programs",
-      "frames": 268
+      "frames": 277
     },
     {
       "id": "planning",
@@ -198,7 +198,7 @@
     },
     {
       "id": "development",
-      "frames": 148
+      "frames": 149
     },
     {
       "id": "experience-projections",

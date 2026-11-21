@@ -12,7 +12,7 @@ const emptyFeedback=():FeedbackFields=>({strengths:'',focus:'',next:'',private:'
 type Notice=''|'retained'|'cancelled'|'confirmed_loading'|'confirmed';
 type Props={locale:string;academy:string;family?:boolean;initialEvent?:string;initialPlayer?:string;initialLink?:string;initialAssessment?:string};
 type Query=Record<string,unknown>&{action:string};
-type Listing={items:FeedbackSummary[];more:boolean};
+type Listing={items:FeedbackSummary[];more:boolean;context?:{name:string}};
 type FeedbackTarget={event:string;player:string};
 type Pending=FeedbackTarget&{operation:string};
 type OperationResult={cancelled?:boolean;operation?:string;event?:string;player?:string};
@@ -70,9 +70,9 @@ function Journey({locale:initial,academy,family=false,initialEvent,initialPlayer
   try{
    if(family){
     setRole('guardian');
-    if(initialLink&&initialAssessment){
+    if(initialLink){
      const loaded=await load({action:'family_list',link:initialLink});
-     if(loaded){
+     if(loaded&&initialAssessment){
       const currentGeneration=generation.current;
       try{
        const value=await raw<FeedbackPublication>({action:'family_detail',link:initialLink,assessment:initialAssessment});
@@ -148,9 +148,16 @@ function Journey({locale:initial,academy,family=false,initialEvent,initialPlayer
     else{showDetail(fresh);setMode('view');setReason('');}
    }
    if(publication&&family&&query){
-    const next=await raw<FeedbackPublication>({action:'family_detail',link:query.link,assessment:publication.id});
-    if(!alive.current||gen!==generation.current)return;
-    setPublication(next);
+    try{
+     const next=await raw<FeedbackPublication>({action:'family_detail',link:query.link,assessment:publication.id});
+     if(!alive.current||gen!==generation.current)return;
+     setPublication(next);
+    }catch(e){
+     if(!(e instanceof Failure)||e.code!=='denied')throw e;
+     if(!alive.current||gen!==generation.current)return;
+     // A withdrawn item and a revoked link both deny the detail. Recheck the list independently.
+     setPublication(null);setListing(null);
+    }
    }
    if(query){
     const next=await raw<Listing>(query);
@@ -280,7 +287,9 @@ function Journey({locale:initial,academy,family=false,initialEvent,initialPlayer
   &&detail.event===initialEvent&&detail.player===initialPlayer
   ?ownerTodayTaskReturn(locale,academy,'development',detail.id):null;
  const browseHref=`/${locale}/workspace/${academy}/development`;
- return <div className="development-layout"><WorkspaceShell role={family?'guardian':role==='owner'?'owner':role==='trainer'?'trainer':'workspace'} module="development" locale={locale} context={family?t('Guardian workspace','مساحة ولي الأمر'):role==='owner'?t('Academy Owner workspace','مساحة مالك الأكاديمية'):t('Trainer workspace','مساحة المدرب')} title={t('Development feedback','ملاحظات التطور')} homeHref={`/${locale}/workspace`} languageHref={`/${ar?'en':'ar'}/workspace/${academy}/${family?'guardian/':''}development`} onNavigate={e=>{if(e.currentTarget.href.includes('/development')&&e.currentTarget.getAttribute('hreflang')){e.preventDefault();setLocale(ar?'en':'ar');return;}if(!guard())e.preventDefault();}} navigation={[{href:`/${locale}/workspace`,label:t('Your workspaces','مساحاتك')},{href:`/${locale}/workspace/${academy}/${family?'guardian/training':role==='owner'?'programs':'trainer/schedule'}`,label:t('Training & attendance','التدريبات والحضور')},{href:`/${locale}/workspace/${academy}/${family?'guardian/':''}development`,label:t('Development','التطور'),current:true}]} account={<UserButton/>}>
+ const familyBase=`/${locale}/workspace/${academy}/guardian`;
+ const guardianLink=!denied&&query?.action==='family_list'&&typeof query.link==='string'?query.link:undefined;
+ return <div className="development-layout"><WorkspaceShell role={family?'guardian':role==='owner'?'owner':role==='trainer'?'trainer':'workspace'} module="development" locale={locale} context={family?t('Guardian workspace','مساحة ولي الأمر'):role==='owner'?t('Academy Owner workspace','مساحة مالك الأكاديمية'):t('Trainer workspace','مساحة المدرب')} title={t('Development feedback','ملاحظات التطور')} homeHref={`/${locale}/workspace`} languageHref={`/${ar?'en':'ar'}/workspace/${academy}/${family?'guardian/':''}development`} onNavigate={e=>{if(e.currentTarget.href.includes('/development')&&e.currentTarget.getAttribute('hreflang')){e.preventDefault();setLocale(ar?'en':'ar');return;}if(!guard())e.preventDefault();}} guardianLink={guardianLink} navigation={[{href:`/${locale}/workspace`,label:t('Your workspaces','مساحاتك')},{href:family?`${familyBase}/training`:`/${locale}/workspace/${academy}/${role==='owner'?'programs':'trainer/schedule'}`,label:t('Training & attendance','التدريبات والحضور')},{href:family?`${familyBase}/development`:browseHref,label:t('Development','التطور'),current:true}]} account={<UserButton/>}>
  <header className="task-header">
   <h1>{exactTask?t('Development feedback','ملاحظات التطور'):t('Player development','تطور اللاعبين')}</h1>
   <div className="journey-actions">
@@ -302,7 +311,10 @@ function Journey({locale:initial,academy,family=false,initialEvent,initialPlayer
  {role==='owner'&&<div className="journey-actions"><Button disabled={locked} onClick={()=>{if(guard())void load({action:'queue',scope:filter});}}>{t('Assessments','التقييمات')}</Button><Button disabled={locked} onClick={()=>{if(guard())void load({action:'sessions',from});}}>{t('Session players','لاعبو التدريب')}</Button></div>}
  {query?.action==='sessions'&&<><label>{t('First day — 14-day view','أول يوم — عرض ١٤ يوماً')}<input type="date" disabled={locked} value={from} onChange={e=>setFrom(e.target.value)}/></label><Button disabled={locked||!from} onClick={()=>{if(guard())void load({action:'sessions',from});}}>{t('Show ended sessions','عرض التدريبات المنتهية')}</Button></>}
  {query?.action==='queue'&&<label>{t('Review filter','تصفية المراجعة')}<Select disabled={locked} value={filter} onChange={e=>{if(!guard())return;setFilter(e.target.value);void load({action:'queue',scope:e.target.value});}}><option value="all">{t('All retained assessments','كل التقييمات المحفوظة')}</option><option value="submitted">{t('Awaiting my review','بانتظار مراجعتي')}</option></Select></label>}
- {query?.action==='roster'&&<Button disabled={locked} onClick={()=>{if(guard())void load({action:'sessions',from});}}>{t('Back to sessions','العودة للتدريبات')}</Button>}{query?.action==='family_list'&&<Button disabled={locked} onClick={()=>{if(guard())void load({action:'links'});}}>{t('Choose linked player','اختيار اللاعب المرتبط')}</Button>}
+ {query?.action==='roster'&&<Button disabled={locked} onClick={()=>{if(guard())void load({action:'sessions',from});}}>{t('Back to sessions','العودة للتدريبات')}</Button>}{query?.action==='family_list'&&<div className="journey-actions">
+  {listing?.context?.name&&<p dir="auto">{listing.context.name}</p>}
+  <Button disabled={locked} onClick={()=>{if(guard())void load({action:'links'});}}>{t('Choose linked player','اختيار اللاعب المرتبط')}</Button>
+ </div>}
  {!busy&&listing&&<><h2>{query?.action==='links'?t('Linked players','اللاعبون المرتبطون'):query?.action==='sessions'?t('Ended published sessions','التدريبات المنشورة المنتهية'):query?.action==='roster'?t('Session players','لاعبو التدريب'):query?.action==='family_list'?t('Published feedback','ملاحظات منشورة'):t('Assessments','التقييمات')}</h2>{listing.items.length===0?<section className="journey-card"><h3>{t('Nothing to show in this selection','لا توجد نتائج ضمن هذا الاختيار')}</h3><p>{family?t('Only currently approved development links and published feedback appear. Contact the academy if you expected access.','تظهر فقط ارتباطات التطور المعتمدة حالياً والملاحظات المنشورة. تواصل مع الأكاديمية إذا توقعت صلاحية.'):t('Choose another period or filter. Drafts are created by assigned Trainers after a published session ends.','اختر فترة أو تصفية أخرى. ينشئ المدرب المعيّن المسودة بعد انتهاء التدريب المنشور.')}</p></section>:<ul className="development-list">{listing.items.map(item=><li key={item.id}><Button data-feedback-id={item.id} disabled={locked||item.available===false} aria-pressed={detail?.player===item.id||detail?.id===item.id||publication?.id===item.id} onClick={e=>void open(item,e)}><strong>{item.name??item.title}</strong>{item.branch&&<span>{item.branch} · {item.sport}</span>}{item.starts_at&&<span>{new Date(item.starts_at).toLocaleString(ar?'ar':'en',item.timezone?{timeZone:item.timezone}:{})}</span>}{!family&&item.state!==undefined&&<span>{status(item.state)}</span>}{item.available===false&&<span>{t('Authored by a different Trainer','كتبه مدرب مختلف')}</span>}</Button></li>)}</ul>}<div className="journey-actions"><Button disabled={locked||stack.length===0} onClick={()=>{if(!guard())return;void load(stack.at(-1)!,stack.slice(0,-1));}}>{t('Previous page','الصفحة السابقة')}</Button><Button disabled={locked||!listing.more} onClick={next}>{t('Next page','الصفحة التالية')}</Button></div></>}
  </WorkspacePanes>)}
  </>}

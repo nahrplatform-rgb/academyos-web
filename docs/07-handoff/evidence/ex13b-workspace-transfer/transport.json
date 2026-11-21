@@ -53,11 +53,11 @@
     "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
     "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
     "apps/web/src/components/people-workspace.tsx": "a6eadab5f88e02a43f3275b3a0e13c014715e6f4ddc39daefbc5f9621875b6dd",
-    "apps/web/src/components/experience-workspace.tsx": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
+    "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
     "apps/web/next.config.ts": "21e3c4308afc2c431bbb658d487d77353e045897d5bd1f8f6180b1cc390d5fc9",
-    "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+    "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "629109206f2105ff6f0c01f15b923c23cada2e22c924661b225598ba7ef67c76",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
@@ -152,7 +152,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 16.022791999999754,
+      "elapsedMs": 16.018707999999606,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -262,8 +262,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "b7c0ce2b6c76095a90c22470526eb0cba6a6c3c282f004721781dd6e116ad092",
-        "artifactHash": "76660d9f2e9d7a949e5a3722be0d90128d696594d5bb20d81cfe1c575b99ec71"
+        "sourceHash": "18cbafe63ffc9858848f919effbee67c24b1905c3ce5488ed47c5c5bf16a97c2",
+        "artifactHash": "8dc83a776ec2aba695bd0a78f42b675c987cd95c6ff64c46c89c4bb22ff3fc0a"
       }
     },
     "emptyOnlineRegistration": {
@@ -297,7 +297,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "13faa200-a198-4f92-bed5-25bf2c104975"
+          "player_id": "37bc96a9-a362-4547-8d91-366c037a249a"
         }
       }
     },
@@ -370,7 +370,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "6cfeeba3-8c83-47a3-8b4c-a0a2a2e5ef88"
+              "player_id": "12c2ae83-7575-43d9-84eb-131cf5a3df5d"
             },
             "players": 1,
             "operations": 1
@@ -412,7 +412,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "246d8f6e-4618-4d45-a4d0-2fcac895a479"
+              "player_id": "d7389ed8-4e48-406d-991e-151026fac425"
             },
             "players": 1,
             "operations": 1
@@ -449,7 +449,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "52b3e55b-1e14-4da9-b506-20923d3180ea"
+              "player_id": "e86daece-9cb7-4f87-a620-aff74c53e413"
             },
             "players": 1,
             "operations": 1
@@ -489,7 +489,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "42b1c9e6-a58d-41db-b63f-1239ddec2357"
+              "player_id": "81c04f46-edee-4457-bd5c-2e4607ac5990"
             },
             "players": 1,
             "operations": 1
@@ -525,7 +525,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "dfc4fda3-8275-4e3d-84ad-5273288f5d18"
+              "player_id": "dfea7058-cb17-49d1-8666-b61e1d0b71d8"
             },
             "players": 1,
             "operations": 1
