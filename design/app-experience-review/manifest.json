@@ -1,6 +1,6 @@
 {
-  "source": "fef2d3fa92642c357546c62c74618259f5c12f94",
-  "generatedAt": "2026-11-21T04:57:13.526Z",
+  "source": "b65b36bac284b99cdf0b2554529d8d9ad070f5f0",
+  "generatedAt": "2026-11-21T05:47:28.807Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -122,7 +122,7 @@
     "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
     "scripts/programs/test_ui.mjs": "323f2b65e626ad487b8b428325118d9c0fb4fe6fea0122f67a3a34135dabca84",
     "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
-    "scripts/publication/test_ui.mjs": "45b5f62b3e70f8675b382965e67ccf86486c8ea8b2b51913ae39e65c48947d0d",
+    "scripts/publication/test_ui.mjs": "4533dae56dc410d50c70c99f214750a95e216dddd4a15f8f29b99289e85697be",
     "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
     "scripts/qr-attendance/test_ui.mjs": "579bdc3e23d1e1b24892d10db6c49d9fe0136aed1eb314ff1e110c64e4457114",
     "scripts/review-decisions/publication_lifecycle.mjs": "36e8a4eeac71a30536335c5d1666e1db899332ed3e6d98bf4dc7e18f086f8352",
@@ -133,8 +133,8 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "0ae5df926094d06e59315bdc28220b61778ac1b9684aecd73cfc9acb8df6413a",
-  "htmlSha256": "03deae350a3b2a04d3fb6518f38b9f6ca25d76e3c821f0ade62a024190850ff6",
+  "capturePackSha256": "6c00e70a290ec68896b13e6af8b0ff6a75fd08e6363af3a439909fe9d5f257f0",
+  "htmlSha256": "973cfd7689f2ca076df7940161acb8d2ede67799c21655992bc3675762a9efcf",
   "frames": 1930,
   "transitions": 2716,
   "sourceFiles": 87,
