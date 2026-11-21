@@ -57,7 +57,9 @@ try{
    const bounds=await status.boundingBox();assert.ok(bounds&&bounds.y>=0&&bounds.y+bounds.height<=900,'checking feedback stays in view at the retained scroll position');assert.ok(await status.evaluate(el=>{const r=el.getBoundingClientRect(),front=document.elementFromPoint(r.left+Math.min(16,r.width/2),r.top+r.height/2);return front===el||el.contains(front);}), 'checking feedback is not occluded by the sticky toolbar');
   }
   if(width===1440||width===320)await page.screenshot({path:join(out,`${view}-${locale}${width===320?'-320':''}-checking.png`),fullPage:width!==320});
-  held=false;release();await expect(page.locator('.experience-session')).toHaveCount(view==='home'?5:40);const after=await snapshot();
+  held=false;release();
+  await expect(page.locator('.experience-reload')).toBeEnabled();
+  await expect(page.locator('.experience-session')).toHaveCount(view==='home'?5:40);const after=await snapshot();
   if(process.env.EX02_GEOMETRY_BASELINE!=='1'){
    assert.equal(during.scrollTop,before.scrollTop,'pending same-scope check preserves rows and center scroll');
    assert.equal(during.windowY,before.windowY,'pending read preserves phone document scroll');
@@ -72,6 +74,7 @@ try{
   assert.ok(shortened.scrollHeight<before.scrollHeight,'genuinely shorter results release the temporary reservation');
   const failures=[];
   for(const failure of ['unavailable','denied']){
+   await expect(page.locator('.experience-reload')).toBeEnabled();
    phase=failure;await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
    await expect(page.getByRole('alert')).toBeVisible();await expect(page.locator('.experience-session')).toHaveCount(0);await expect(page.getByText('Fictional geometry academy',{exact:true})).toHaveCount(0);
    const result=await snapshot();assert.ok(result.scrollHeight<before.scrollHeight,'failure releases geometry; no stale result retained');
