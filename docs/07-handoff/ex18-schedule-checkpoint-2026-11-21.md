@@ -14,4 +14,4 @@ The publication overview now uses the program's saved sport. The bilingual regre
 
 ## Release evidence
 
-The connected EX-18 candidate is being verified in Foundation before its scoped staging review. Staging promotion remains Owner-controlled. The previously verified EX-17 candidate and its staging follow-up remain tracked separately.
+The combined Schedule, Attendance and QR candidate `21aa73e` passed all 55 Foundation steps. [Foundation run](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44872554943) Staging promotion remains Owner-controlled. The previously verified EX-17 candidate and its staging follow-up remain tracked separately.
