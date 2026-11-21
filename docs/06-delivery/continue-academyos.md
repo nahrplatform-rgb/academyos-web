@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md](../../docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/06-delivery/master-plan-v2/product-and-module-specifications.md](../../docs/06-delivery/master-plan-v2/product-and-module-specifications.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,42 +70,41 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-19: Complete attendance capture and review
+## Current priority — EX-20: Family and Trainer development day
 
-Delivery batch: **MP-B04 — Complete attendance capture and review**.
+Delivery batch: **MP-B05 — Family and Trainer development day**.
 
 Product value for this batch:
 
-- **VAL-04** — Finish accurate attendance with minimal interruption (Trainer and Academy Owner).
 - **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
+- **VAL-08** — Understand own training participation and progress (Guardian and Player where authorized).
 - **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
-- **VAL-10** — Trust scope history and recoverable results (Every permitted role).
 
 ### Ready development action
 
-Confirm Foundation for the combined bilingual Schedule and Attendance/QR candidate. Keep the EX-17 staging migration and signed-in walkthrough in release follow-up.
+Complete the distinct Trainer and Guardian workflows, current role/child/assignment visibility, publication and withdrawal, and approved development progress. Keep unapproved scales, player accounts, minor/notification rules open.
 
 ### Separate release follow-up
 
 No new candidate yet;one combined exact-source candidate and Owner-controlled promotion when ready
 
-Scoped dependency gate: Present/Absent and accepted Owner offline command retained;staff/late/checkout/Trainer offline only after their rules;named exit: 18-player actual working flow;one original through offline restart/reconnect;current deadline/version/permission/refusal evidence
+Scoped dependency gate: Existing narrative approval retained;scales/Player account/minor/notification fields need exact accepted decisions;named exit: Distinct role journeys;own-child/assignment visibility;publish/withdraw/amend;useful sport-specific progress and private staff fields excluded
 
-Read current evidence: `docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md`.
+Read current evidence: `docs/06-delivery/master-plan-v2/product-and-module-specifications.md`.
 
-Batch includes: Normal roster/save;canonical/local transitions;QR/ambiguity;corrections;role and expanded-state readiness; distinct connected Attendance and QR outcomes: open the scheduled roster, mark/review/save/reopen and make permitted corrections; configure a scoped QR scan window and resolve scans against the same authoritative Attendance record
+Batch includes: Trainer Today/feedback/requests;Guardian selected child/calendar/attendance/published progress;Player/Manager scoped readiness;versioned sport metrics
 
-Batch exit evidence: 18-player actual working flow;one original through offline restart/reconnect;current deadline/version/permission/refusal evidence; Attendance confirms persisted roster results, permitted corrections, refusal and interrupted save recovery; QR verifies valid/invalid/repeated scans, session and role boundaries, and canonical Attendance readback. Verify the integration without treating QR as a second ledger
+Batch exit evidence: Distinct role journeys;own-child/assignment visibility;publish/withdraw/amend;useful sport-specific progress and private staff fields excluded
 
-Policy boundary: Present/Absent and accepted Owner offline command retained;staff/late/checkout/Trainer offline only after their rules; dedicated offline and PWA evidence is deferred until the agreed core app workflows are feature-complete. The original exit criteria and dependencies remain open until evidenced
+Policy boundary: Existing narrative approval retained;scales/Player account/minor/notification fields need exact accepted decisions
 
 ## Actual delivery status for the current family
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
 - Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Passed 8 attendance-register, 7 Attendance, 11 correction, 9 QR baseline database groups, connected multisport Schedule/Attendance/QR database cases, the 18-player EN/AR connected browser workflow and separate protected restart/reconnect run, and Attendance and QR actual React suites in production and development. CI remains pending for the latest source.
-- Deployment: Earlier combined run failed in the Arabic Players reveal test. The corrected candidate requires Foundation. Staging last resolved to 7454144.
-- Hosted verification: No EX-18 or EX-19 signed-in hosted walkthrough yet. Owner promotion remains separate.
+- Local checks: Documentation structure only;new product checks not executed
+- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
@@ -145,8 +144,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 9. **EX-07 — Remaining Operations adoption and app-wide workflow continuity** (checkpoint_passed; MP-B01).
 10. **EX-17 — Academy setup and multi-academy/multisport administration** (checkpoint_passed; MP-B02).
 11. **EX-18 — Complete training planning and publication** (checkpoint_passed; MP-B03).
-12. **EX-19 — Complete attendance capture and review** (current; MP-B04).
-13. **EX-20 — Family and Trainer development day** (queued; MP-B05).
+12. **EX-19 — Complete attendance capture and review** (checkpoint_passed; MP-B04).
+13. **EX-20 — Family and Trainer development day** (current; MP-B05).
 14. **EX-21 — Family billing to reconciled statement** (queued; MP-B06).
 15. **EX-22 — Staff attendance to Trainer earnings and payout** (queued; MP-B07).
 16. **EX-23 — Platform admission to commercial academy lifecycle** (queued; MP-B08).
