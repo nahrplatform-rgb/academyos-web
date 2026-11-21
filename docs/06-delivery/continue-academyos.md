@@ -83,7 +83,7 @@ Product value for this batch:
 
 ### Ready development action
 
-Complete the connected 18-player bilingual browser journey for QR card issue/scan, Attendance reopen and correction, refusal, interrupted save recovery and canonical result readback. Include original restart/reconnect boundaries. Continue fixes within EX-19.
+Confirm Foundation for the combined bilingual Schedule and Attendance/QR candidate. Keep the EX-17 staging migration and signed-in walkthrough in release follow-up.
 
 ### Separate release follow-up
 
@@ -103,8 +103,8 @@ Policy boundary: Present/Absent and accepted Owner offline command retained;staf
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
 - Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Passed 8 attendance-register, 7 Attendance, 11 correction, 9 QR baseline database groups, plus connected 40-date multisport Schedule and 18-player Attendance/QR integration. Attendance and QR actual React suites passed production and development. Broader EX-19 restart/reconnect browser gate remains open.
-- Deployment: EX-18 candidate CI and combined follow-up CI pending. Staging still serves 7454144.
+- Local checks: Passed 8 attendance-register, 7 Attendance, 11 correction, 9 QR baseline database groups, connected multisport Schedule/Attendance/QR database cases, the 18-player EN/AR connected browser workflow and separate protected restart/reconnect run, and Attendance and QR actual React suites in production and development. CI remains pending for the latest source.
+- Deployment: Earlier combined run failed in the Arabic Players reveal test. The corrected candidate requires Foundation. Staging last resolved to 7454144.
 - Hosted verification: No EX-18 or EX-19 signed-in hosted walkthrough yet. Owner promotion remains separate.
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate

@@ -487,11 +487,17 @@ try{
  await arabicPrivate.getByRole('button',{name:'إغلاق البيانات الخاصة'}).click();
  await page.setViewportSize({width:1440,height:1000});
  await expect(arabicPrivate.getByText('مخفي',{exact:true})).toBeVisible();
- denied=true;
+ const denyReveal=async route=>{
+  const body=route.request().postDataJSON();
+  if(body.action!=='privateProfile'||!body.revealId)return route.fallback();
+  calls.push(body);
+  await route.fulfill({status:403,json:{error:'denied'}});
+ };
+ await page.route('**/api/people',denyReveal);
  await arabicPrivate.getByRole('button',{name:'إظهار الرقم القومي'}).click();
  await expect(arabicPrivate).toHaveCount(0);
  await expect(page.getByText('Updated Fixture School',{exact:true})).toHaveCount(0);
- denied=false;
+ await page.unroute('**/api/people',denyReveal);
  const correctionStart=calls.length;
  const correctedDisplay='Name Correction Match';
  players.push({id:'00000000-0000-4000-8000-000000000008',display_name:correctedDisplay,branch_name:'Main Demo Branch'});

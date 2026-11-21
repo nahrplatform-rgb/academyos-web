@@ -18,7 +18,7 @@ class ScheduleBoundary(WorkspaceBoundary):
         super().setUpClass()
         cls.sql((ROOT / 'supabase/migrations/20261121014923_ex17_multisport_foundation.sql').read_text())
 
-    def schedule_fixture(self, browser=False):
+    def schedule_fixture(self, browser=False, register_size=1):
         academy, branch = self.academy()
         self.save(academy, 3, 'enable_sport', {'key': 'football'})
         self.save(academy, 3, 'enable_sport', {'key': 'swimming'})
@@ -39,8 +39,12 @@ class ScheduleBoundary(WorkspaceBoundary):
         swim_coach = self.sql(f"select staff_id from academy.trainer_invitations where id='{invitation}'")
         player = self.person(academy, branch)
         swimmer = self.person(academy, branch, 'Swim Player')
-        self.assertEqual(json.loads(self.plan(academy, football, day=first, capacity=4,
-                                             trainer=coach, add=[player]))['version'], 1)
+        football_roster = [player] + [
+            self.person(academy, branch, f'Football Player {index}')
+            for index in range(2, register_size + 1)
+        ]
+        self.assertEqual(json.loads(self.plan(academy, football, day=first, capacity=max(4, register_size),
+                                             trainer=coach, add=football_roster))['version'], 1)
         self.assertEqual(json.loads(self.plan(academy, swimming, day=first, capacity=3,
                                              trainer=swim_coach, add=[player]))['error'], 'overlap')
         self.assertEqual(json.loads(self.plan(academy, swimming, day=first, capacity=3,
@@ -64,7 +68,7 @@ class ScheduleBoundary(WorkspaceBoundary):
         self.assertEqual(self.mutation(academy, proposal, 'activate')['state'], 'committed')
         self.assertEqual(self.sql(f"select count(*) from academy.date_plans where program_id='{football['id']}'"), '40')
         original_plan = json.loads(self.planning_read(academy, football, day=first))
-        self.assertEqual((original_plan['capacity'], original_plan['count']), (4, 1))
+        self.assertEqual((original_plan['capacity'], original_plan['count']), (max(4, register_size), register_size))
         self.assertEqual(self.schedule(academy)['items'], [])
         for program, through in [(football, last), (swimming, first)]:
             job = self.prepare_pub(academy, self.pub(academy, program, first=first, last=through))
@@ -182,12 +186,32 @@ class ScheduleBoundary(WorkspaceBoundary):
         self.assertEqual(len(self.history(academy, swimming_event, swimmer, who='user_swim_trainer')['items']), 1)
 
 
-def browser_fixture():
+def browser_fixture(attendance=False):
     ScheduleBoundary.setUpClass()
     try:
         test = ScheduleBoundary()
-        academy, football, first, proposal = test.schedule_fixture(browser=True)
-        print(json.dumps({'academy': academy, 'program': football['id'], 'day': first, 'proposal': proposal}), flush=True)
+        if attendance:
+            academy, football, _, _, event = test.schedule_fixture(register_size=18)
+            swim_event = test.schedule(academy, subject='user_swim_trainer')['items'][0]['id']
+            second = next(row['id'] for row in test.schedule(academy)['items'] if row['id'] != event)
+            start = literal(test.sql("select date_trunc('minute',clock_timestamp())")) + '::timestamptz'
+            test.retime(event, start, f"{start}+interval '10 seconds'")
+            test.retime(swim_event, start)
+            # Adjacent sessions share an eligible player and their scan windows overlap.
+            test.retime(second, f"{start}+interval '10 seconds'", f"{start}+interval '45 minutes'")
+            roster = test.roster(academy, event)
+            test.assertEqual(len(roster['players']), 18)
+            swimmer = test.roster(academy, swim_event, who='user_swim_trainer')['players'][0]['id']
+            day = test.sql(f"select (starts_at at time zone 'Africa/Cairo')::date from academy.publication_events where id='{swim_event}'")
+            shared = test.roster(academy, second)['players'][0]['id']
+            shared_name = next(player['name'] for player in roster['players'] if player['id'] == shared)
+            info = dict(academy=academy, event=event, swimEvent=swim_event, swimmer=swimmer,
+                        shared=shared, sharedName=shared_name, day=day)
+        else:
+            academy, football, first, proposal = test.schedule_fixture(browser=True)
+            info = dict(academy=academy, program=football['id'], day=first, proposal=proposal)
+        program = info.get('program')
+        print(json.dumps(info), flush=True)
         for line in sys.stdin:
             request = json.loads(line)
             rpc = request['rpc']
@@ -197,18 +221,23 @@ def browser_fixture():
                 'p5_read_v1', 'r7_list_v1', 'r7_read_v1', 'r7_change_v1',
                 's8_owner_dates_v1', 's8_jobs_v1', 's8_read_v1', 's8_create_v1', 's8_change_v1',
                 'g3_links_v1', 'x15_trainer_calendar_v1', 'x15_guardian_calendar_v1',
+                'a10_roster_v1', 'a10_register_v1', 'a10_operation_v1', 'a10_mark_v1', 'a10_history_v1',
+                'q13_context_v1', 'q13_sessions_v1', 'q13_card_v1', 'q13_card_change_v1',
+                'q13_resolve_v1', 'q13_capture_v1', 'q13_operation_v1',
             }:
                 raise ValueError(f'Unsupported Schedule fixture request: {rpc}')
             args = request['args']
-            if args['a'] != academy or args.get('p', football['id']) != football['id']:
+            if args['a'] != academy or (not attendance and args.get('p', program) != program):
                 raise ValueError('Request is outside the Schedule fixture')
             if any(not re.fullmatch('[a-z_]+', key) for key in args):
                 raise ValueError('Unsupported fixture argument')
             def encode(key, value):
                 if value is None:
                     return 'null'
-                if key in ('weekdays', 'add_ids', 'remove_ids'):
+                if key in ('weekdays', 'add_ids', 'remove_ids', 'events'):
                     return literal('{' + ','.join(map(str, value)) + '}')
+                if key == 'marks':
+                    return literal(json.dumps(value)) + '::jsonb'
                 return literal(value)
 
             arguments = ','.join(f"{key}=>{encode(key, value)}" for key, value in args.items())
@@ -226,6 +255,8 @@ def browser_fixture():
 if __name__ == '__main__':
     if sys.argv[1:] == ['--browser-fixture']:
         browser_fixture()
+    elif sys.argv[1:] == ['--attendance-browser-fixture']:
+        browser_fixture(attendance=True)
     else:
         unittest.main(defaultTest=[
             'ScheduleBoundary.test_multisport_schedule',
