@@ -1,7 +1,7 @@
 import type { NavigationItem } from './workspace-shell';
 
 /** Existing Owner-only callers select this presentation; every destination still checks authority. */
-export function ownerNavigation(locale: string, academy: string, current: 'home' | 'calendar' | 'setup' | 'people' | 'staff' | 'training' | 'scan' | 'settings' | 'corrections' | 'development' | undefined): NavigationItem[] {
+export function ownerNavigation(locale: string, academy: string, current: 'home' | 'calendar' | 'setup' | 'people' | 'staff' | 'training' | 'scan' | 'settings' | 'corrections' | 'development' | 'billing' | undefined): NavigationItem[] {
   const ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
   const base = `/${locale}/workspace/${academy}`;
   return [
@@ -15,6 +15,7 @@ export function ownerNavigation(locale: string, academy: string, current: 'home'
     { href: `${base}/attendance/scan`, label: t('Session scanner', 'ماسح الجلسات'), current: current === 'scan', group: t('Attendance', 'الحضور'), module: 'attendance' },
     { href: `${base}/attendance/settings`, label: t('Attendance settings', 'إعدادات الحضور'), current: current === 'settings', group: t('Attendance', 'الحضور'), module: 'attendance' },
     { href: `${base}/attendance/corrections`, label: t('Correction requests', 'طلبات التصحيح'), current: current === 'corrections', group: t('Attendance', 'الحضور'), module: 'attendance' },
+    { href: `${base}/billing`, label: t('Family billing', 'فواتير الأسر'), current: current === 'billing', group: t('Finance', 'المالية'), module: 'operations' },
     { href: `${base}/development`, label: t('Development feedback', 'ملاحظات التطور'), current: current === 'development', group: t('Development', 'التطور'), module: 'development' },
   ];
 }

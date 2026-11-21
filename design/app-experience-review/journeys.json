@@ -134,5 +134,13 @@
     "actions": "J01; J06; J09; J12",
     "sequence": "Actual shell/panes with explicitly fictional long content → independent scroll → resize/hide → compact navigation → reset → responsive dialog. Structural evidence, not domain/API permission proof.",
     "reference": "docs/07-handoff/adaptive-workspace-layout.md"
+  },
+  {
+    "id": "billing",
+    "title": "18 · Family billing to reconciled statement",
+    "roles": "Academy Owner / verified Guardian with a billing grant",
+    "actions": "J17-A01; J18-A01",
+    "sequence": "Scoped Academy Owner grant → effective fee → preview and issue → verified receipt → lost reply recovery → credit and allocation correction → Guardian statement, paginated CSV and revocation. Local synthetic roles and signed disposable data.",
+    "reference": "docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md"
   }
 ]

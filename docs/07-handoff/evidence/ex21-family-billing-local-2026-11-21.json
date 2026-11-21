@@ -1,0 +1,43 @@
+{
+  "recorded_at_utc": "2026-11-21T20:09:24.244571+00:00",
+  "result": "passed",
+  "runtime": "Node 24.14.0, PostgreSQL 17; isolated Next production build, synthetic identities and signed local PostgreSQL RPC bridge; shared fixture with billing opt-in, isolated port 55443 via temporary binary wrapper",
+  "source_sha256": {
+    "scripts/working-day/test_family_billing_day.mjs": "2f224f79b9093229d7a24f339e45a23177a80525ac05f6280866cd6fcfa7b508",
+    "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
+    "apps/web/src/components/billing-workspace.tsx": "5c4eb9dead66db32204b5cce3d2b5cc0a58801b2278110871942fc83f6bf9496",
+    "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx": "f737f380a3b6453ebd4697e9e1ca321c14a73e8379450750ba560d2df607ffb7",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx": "83c8f125a703a8fe6118f04e86ca2a7e2b241ae81f9aa78f5221e60d808be79c",
+    "apps/web/src/app/api/billing/route.ts": "1c5fd849047f3da46545d6c5d3052a18fdc70c7e4b6c7345e824cb43722f975d",
+    "apps/web/src/lib/billing.ts": "b9d4474c69eea98f6bed4ee6f5a04582641e7cac4af61dadd226da21d0bf92ba",
+    "apps/web/src/lib/onboarding-gateway.ts": "6ac568c0a4a6b15c3c625918c16d64447e091132df0d55ae6f6fe50c5b424c63",
+    "supabase/migrations/20261121195423_ex21_family_billing.sql": "b2ff29fd009b3a7d777e347199b8c94b50024da856f8d3f20c0e376f2bc11bee",
+    "scripts/working-day/owner_fixture.mjs": "82be7a2d0029fe7132c1b960f009e9d1eaa1f1ebbfe0dfa1acc30015fe4350af",
+    "scripts/working-day/owner_db.py": "1cf054c570da9de19490461dc1186e567128a3c372a0c3abd068845626702aab"
+  },
+  "locales": [
+    "en",
+    "ar"
+  ],
+  "assertions": [
+    "Owner UI grants payer access, assigns April and May fees, previews and issues both bills",
+    "April 60000 and May 150000 minor units; original review cannot issue a duplicate",
+    "First 90000 receipt commits before HTTP response is deliberately dropped; same original recovered, with reload before recovery in English",
+    "Original conflict on changed receipt intent; one first receipt and two allocations, two receipt audits",
+    "Second 40000 receipt and 35000 allocation; linked credit 10000 and unapply 5000; original posted entries preserved",
+    "L05 due 80000, unapplied 10000, net 130000 minor units; calculated from full source rows",
+    "Separate sibling has 20000 bill but revoked billing grant; denied statement; wrong-child bill allocation leaves no partial receipt",
+    "Unauthorized owner, ungranted child and foreign academy/link denied",
+    "More than 25 rows exported through pinned statement snapshot, every CSV row compared in order, private detail absent on all payer pages",
+    "Revoked active payer cannot read or download open cached statement",
+    "L01 through L05 totals asserted at each posted stage, in integer minor units",
+    "April covered 16–30 with due April 30; May covered 1–31 with due May 31, checked in preview and posted rows",
+    "Future unissued May 1–15 at 150000 monthly previews 72581; changing its plan makes the earlier review refuse issuance without changing posted statement",
+    "First verified receipt uses bank transfer and requires reference; second uses cash"
+  ],
+  "scope_limits": [
+    "Synthetic disposable local database and fixture-authenticated production Next components and handlers; no hosted deployment, real payment, installed device, independent security review or Owner acceptance",
+    "Refunds, provider settlement, and entire EX-21 requirements not established by this receipt",
+    "Shared fixture defaults to PostgreSQL port 55441; this run used a temporary wrapper on 55443 to avoid collision."
+  ]
+}

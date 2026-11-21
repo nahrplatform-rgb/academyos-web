@@ -27,6 +27,9 @@ ROUTES = {
 }
 
 
+BILLING_ROUTES = {'f21_players_v1','f21_payers_v1','f21_grants_v1','f21_preview_v1',
+                  'f21_command_v1','f21_operation_v1','f21_statement_v1'}
+
 FAMILY_ROUTES = {
     'x15_trainer_home_v1', 'x15_trainer_calendar_v1', 'x15_guardian_home_v1',
     'x15_guardian_calendar_v1', 'g3_links_v1', 'b11_links_v1', 'b11_schedule_v1',
@@ -54,6 +57,7 @@ def family_day(test):
     assert test.mark(academy, event, child)['version'] == 1
     duplicate = test.person(academy, branch, 'Fictional player outside the assignment')
     return dict(academy=academy, event=event, child=child, link=link, siblingLink=sibling_link,
+                **({'sibling': sibling} if '--billing' in sys.argv else {}),
                 unrostered=duplicate, day=day, staff=staff)
 
 
@@ -112,7 +116,7 @@ def seed(test, multi_scope=False):
 
 def rpc(test, command):
     name = command['name']
-    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES)
+    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES)
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
@@ -143,6 +147,13 @@ if __name__ == '__main__':
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
         dispatch['scope']['apply_bound'](test)
+        if '--billing' in sys.argv:
+            Boundary.sql((ROOT / 'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql').read_text())
+            for suffix in ('player_alternate_name','player_academy_member_number','player_private_profile_details',
+                           'player_private_photo','player_name_correction','player_profile_and_lifecycle',
+                           'ex21_family_billing'):
+                path, = (ROOT / 'supabase/migrations').glob(f'*_{suffix}.sql')
+                Boundary.sql(path.read_text())
         data = seed(test, '--multi-scope' in sys.argv)
         if '--family-day' in sys.argv:
             data['familyDays'] = [family_day(test), family_day(test)]
@@ -152,7 +163,12 @@ if __name__ == '__main__':
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] == 'family_day_audit' and '--family-day' in sys.argv:
+                if command['action'] == 'billing_audit' and '--billing' in sys.argv:
+                    link = literal(uuid.UUID(command['link']))
+                    academy = literal(uuid.UUID(command['academy']))
+                    value = json.loads(test.sql(
+                        "select json_build_object('entries',coalesce((select json_agg(json_build_object('id',id,'kind',kind,'amount',amount,'bill',bill,'source',source) order by seq) from academy.billing_entries where link=" + link + "),'[]'::json),'receiptAudits',(select count(*) from academy.audit_events where action='billing.receipt' and academy_id=" + academy + "))"))
+                elif command['action'] == 'family_day_audit' and '--family-day' in sys.argv:
                     assessment = literal(uuid.UUID(command['assessment']))
                     value = json.loads(test.sql(
                         "select json_build_object('publications',"

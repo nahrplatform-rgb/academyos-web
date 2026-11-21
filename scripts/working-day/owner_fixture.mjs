@@ -17,8 +17,8 @@ const stage = 'https://staging.academy.nahr.dev';
 
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
-function pgBridge(root, multiScope, familyDay) {
-  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
+function pgBridge(root, multiScope, familyDay, billing) {
+  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
   const pending = new Map();
   let ready, rejectReady, sequence = 0;
   const fixture = new Promise((resolve, reject) => {ready = resolve; rejectReady = reject;});
@@ -57,9 +57,9 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[])];
-  const bridge = pgBridge(root,multiScope,familyDay);
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false} = {}) {
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[])];
+  const bridge = pgBridge(root,multiScope,familyDay,billing);
   const actor = new AsyncLocalStorage();
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -110,7 +110,12 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
             return Response.json(result);
           })(DATABASE_ORIGIN+'/rest/v1/rpc/'+name,{method:'POST',body:JSON.stringify(args)});
           const result=await response.json();
-          if(result.error){const code=databaseError(result.error);throw new JourneyError(code,code==='denied'?403:code==='conflict'?409:503);}
+          if(result.error){
+            const code=databaseError(result.error), billingRpc=name.startsWith('f21_');
+            const status=code==='denied'?403:code==='conflict'||(billingRpc&&code==='review_required')?409:
+              billingRpc&&code==='invalid'?422:billingRpc&&code==='setup_required'?428:503;
+            throw new JourneyError(code,status);
+          }
           return result.data;
         }`,
       delivery: `export function dispatchInvitation(){throw new Error('Invitation delivery is outside this fixture');}
@@ -195,6 +200,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         ${datedPlan?`export{default as Program}from'./apps/web/src/components/program-workspace.tsx';
         export{default as Onboarding}from'./apps/web/src/components/onboarding-workspace.tsx';`:''}
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
+        ${billing?`export{default as Billing}from'./apps/web/src/components/billing-workspace.tsx';`:''}
         ${familyDay?`export{default as FamilyTraining}from'./apps/web/src/components/guardian-training-workspace.tsx';`:''}
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
         export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
@@ -285,6 +291,10 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
         ['development', 'DevelopmentWorkspace', 'Development', 'development-workspace'],
         ['programs/[program]/publish', 'PublicationWorkspace', 'Publication', 'publication-workspace'],
+        ...(billing ? [
+          ['billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],
+          ['guardian/billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],
+        ] : []),
         ...(familyDay ? [
           ['trainer/home', 'ExperienceWorkspace', 'Experience', 'experience-workspace'],
           ['guardian/home', 'ExperienceWorkspace', 'Experience', 'experience-workspace'],

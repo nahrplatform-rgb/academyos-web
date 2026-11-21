@@ -15,6 +15,9 @@ writes.add("i2_save_private_profile_v1");
 writes.add("i2_correct_player_names_v1");
 writes.add("i2_save_private_profile_v2");
 writes.add("i2_set_player_archived_v1");
+for (const name of ["f21_players_v1", "f21_payers_v1", "f21_grants_v1", "f21_preview_v1", "f21_statement_v1"]) reads.add(name);
+writes.add("f21_command_v1");
+writes.add("f21_operation_v1");
 
 export class GatewayError extends Error {
   constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }

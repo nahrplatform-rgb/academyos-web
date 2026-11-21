@@ -234,6 +234,10 @@ jobs:
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
         run: node scripts/working-day/test_family_development_day.mjs
+      - name: Verify connected bilingual family billing workflow
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: node scripts/working-day/test_family_billing_day.mjs
       - name: Verify adaptive layout scrolling sizing and responsive focus
         run: |
           node scripts/workspace-layout/test_ui.mjs

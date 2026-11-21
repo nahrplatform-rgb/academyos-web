@@ -82,11 +82,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Use the bilingual billing decision packet to settle A–D. Continue approved independent preparation and start the synthetic statement workflow when its dependent business rules are decided.
+Prepare the exact checked EX-21 synthetic candidate and record source-bound local, Foundation and preview receipts. Preserve scope and outstanding provider/refund choices.
 
 ### Separate release follow-up
 
-EX-21 has no release candidate. EX-20 still serves checked 5915642 on staging. Keep the signed-in EX-17 through EX-20 walkthroughs in their own tracker rows.
+Staging serves checked EX-20 5915642. Verify EX-21 schema rollout and signed-in synthetic Owner and Guardian EN/AR after the Owner promotes. Keep signed-in EX-17–20 walkthroughs separate.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
@@ -100,12 +100,12 @@ Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no 
 
 ## Actual delivery status for the current family
 
-- Design: Bilingual billing decision packet ready for Owner review. Existing financial integrity and Schedule decisions retained. Charges, corrections, collection and payer access proposals are awaiting decision.
-- Implementation: Source readiness audited. Family billing has no operating ledger or application journey in this checkout. Prototype and private bucket declaration remain separate evidence.
-- Local checks: Eight bilingual statement rows and ten acceptance examples checked. Minor-unit totals, rounding and refund states reconcile. Documentation validators passed. Product runtime remains open.
-- Deployment: EX-21 decision checkpoint only. Staging serves the separately checked EX-20 commit 5915642.
-- Hosted verification: EX-21 has no hosted billing workflow. Prior EX-20 staging alias plus public EN/AR entry rechecked. Signed-in EX-17 through EX-20 walkthroughs remain separately tracked.
-- Owner acceptance: Grouped billing decisions A–D await Owner response. Prior scoped policy approvals retained.
+- Design: Owner approved A–D on 21 November for the L00–L05 fictional-unit manual billing workflow. Refunds, provider and real-money rules remain open.
+- Implementation: Scoped Owner fee, bill, manual receipt, allocations and linked adjustments implemented with a separately granted Guardian statement and export.
+- Local checks: Signed disposable app and PostgreSQL 17 passed EN/AR L01–L05, prior-version review refusal, original bank receipt recovery, immutable history and paginated export with revoked and foreign scope denied.
+- Deployment: No EX-21 migration or promotion applied to staging; EX-20 still serves checked 5915642.
+- Hosted verification: EX-21 hosted verification open. Earlier signed-in EX-17 through EX-20 walkthroughs remain in their own tracker rows.
+- Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work

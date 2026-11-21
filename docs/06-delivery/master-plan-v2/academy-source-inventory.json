@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "8ab12157b1c820022595a340359d7752cc677fe6",
+  "source_anchor": "dca55ee9007e053affd2a0c82b4323aebf241c03",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -84,6 +84,11 @@
       "bytes": 361
     },
     {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx",
+      "sha256": "f737f380a3b6453ebd4697e9e1ca321c14a73e8379450750ba560d2df607ffb7",
+      "bytes": 531
+    },
+    {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
       "sha256": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
       "bytes": 823
@@ -92,6 +97,11 @@
       "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
       "sha256": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
       "bytes": 756
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
+      "sha256": "83c8f125a703a8fe6118f04e86ca2a7e2b241ae81f9aa78f5221e60d808be79c",
+      "bytes": 538
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
@@ -217,6 +227,11 @@
       "path": "apps/web/src/app/api/attendance/route.ts",
       "sha256": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
       "bytes": 2866
+    },
+    {
+      "path": "apps/web/src/app/api/billing/route.ts",
+      "sha256": "1c5fd849047f3da46545d6c5d3052a18fdc70c7e4b6c7345e824cb43722f975d",
+      "bytes": 2796
     },
     {
       "path": "apps/web/src/app/api/development/route.ts",
@@ -404,6 +419,11 @@
       "bytes": 34426
     },
     {
+      "path": "apps/web/src/components/billing-workspace.tsx",
+      "sha256": "5c4eb9dead66db32204b5cce3d2b5cc0a58801b2278110871942fc83f6bf9496",
+      "bytes": 40928
+    },
+    {
       "path": "apps/web/src/components/correction-workspace.tsx",
       "sha256": "17138fda3221b5de8288884afff4d96ffec44df143a9d49af4d0566da1635314",
       "bytes": 26250
@@ -440,8 +460,8 @@
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
-      "sha256": "dfccf6576253fd990ad8181cdff2469a886c627ab0f27973d2502016f53e6a95",
-      "bytes": 2549
+      "sha256": "eb275d5469885f97e209df3d47125a06c526f21ea8d5c41445779edd444efdc1",
+      "bytes": 2742
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
@@ -565,8 +585,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-navigation.ts",
-      "sha256": "ce85b90f4efac667fbe4473aab4b3a5d997276fde7614983417f442639601a5d",
-      "bytes": 2238
+      "sha256": "709d54b36f4d453ff878733a007f2db307b4f82e6e04ea22b52e65fddbe97de4",
+      "bytes": 2368
     },
     {
       "path": "apps/web/src/components/workspace-panel-icon.tsx",
@@ -612,6 +632,11 @@
       "path": "apps/web/src/lib/attendance.ts",
       "sha256": "395b93b28571d36032d93169f7fff70a017543df6c7df2ee05eb08044ca6eda3",
       "bytes": 4756
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "sha256": "b9d4474c69eea98f6bed4ee6f5a04582641e7cac4af61dadd226da21d0bf92ba",
+      "bytes": 5482
     },
     {
       "path": "apps/web/src/lib/clerk-email.test.ts",
@@ -785,8 +810,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "9811277acd75350799c6b48de81ebe851cdb868638f2e93f7d77cddf2480a2f6",
-      "bytes": 4918
+      "sha256": "6ac568c0a4a6b15c3c625918c16d64447e091132df0d55ae6f6fe50c5b424c63",
+      "bytes": 5108
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
@@ -1282,6 +1307,11 @@
       "path": "supabase/migrations/20261121014923_ex17_multisport_foundation.sql",
       "sha256": "1da8b75e0276ea9c653692ed9929889ba1b20f4c4d0e888ea5c91599878cbdb5",
       "bytes": 33865
+    },
+    {
+      "path": "supabase/migrations/20261121195423_ex21_family_billing.sql",
+      "sha256": "b2ff29fd009b3a7d777e347199b8c94b50024da856f8d3f20c0e376f2bc11bee",
+      "bytes": 23163
     }
   ],
   "page_paths": [
@@ -1296,8 +1326,10 @@
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/scan/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/home/page.tsx",
@@ -1327,6 +1359,7 @@
   ],
   "api_route_paths": [
     "apps/web/src/app/api/attendance/route.ts",
+    "apps/web/src/app/api/billing/route.ts",
     "apps/web/src/app/api/development/route.ts",
     "apps/web/src/app/api/experience/route.ts",
     "apps/web/src/app/api/guardian-training/route.ts",
@@ -1356,6 +1389,90 @@
     "apps/web/src/app/api/workspace-key/route.ts"
   ],
   "case_selector_index": [
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 57,
+      "case_labels": [
+        "players"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 58,
+      "case_labels": [
+        "payers"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 59,
+      "case_labels": [
+        "grants"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 66,
+      "case_labels": [
+        "statement"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 69,
+      "case_labels": [
+        "preview"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 72,
+      "case_labels": [
+        "operation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 79,
+      "case_labels": [
+        "grant"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 84,
+      "case_labels": [
+        "assign"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 91,
+      "case_labels": [
+        "issue"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 96,
+      "case_labels": [
+        "receipt"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 113,
+      "case_labels": [
+        "credit"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/billing.ts",
+      "line": 114,
+      "case_labels": [
+        "unapply"
+      ]
+    },
     {
       "path": "apps/web/src/lib/development.ts",
       "line": 12,
@@ -1807,10 +1924,10 @@
     }
   ],
   "counts": {
-    "source_files": 256,
-    "page_paths": 39,
-    "api_routes": 28,
-    "migrations": 39
+    "source_files": 262,
+    "page_paths": 41,
+    "api_routes": 29,
+    "migrations": 40
   },
   "pwa_metadata": {
     "public_manifest_present": false,
