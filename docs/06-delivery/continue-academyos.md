@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/06-delivery/master-plan-v2/product-and-module-specifications.md](../../docs/06-delivery/master-plan-v2/product-and-module-specifications.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md](../../docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -82,15 +82,15 @@ Product value for this batch:
 
 ### Ready development action
 
-Reconcile existing billing source and approved policy, and prepare one Family billing decision packet with concrete arithmetic and provider/manual examples before implementing dependent writes.
+Use the bilingual billing decision packet to settle A–D. Continue approved independent preparation and start the synthetic statement workflow when its dependent business rules are decided.
 
 ### Separate release follow-up
 
-EX-21 has no release candidate. EX-20 is serving checked 5915642 on staging and has a separate pending signed-in walkthrough. See the EX-17 through EX-20 rows for their individual follow-ups.
+EX-21 has no release candidate. EX-20 still serves checked 5915642 on staging. Keep the signed-in EX-17 through EX-20 walkthroughs in their own tracker rows.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
-Read current evidence: `docs/06-delivery/master-plan-v2/product-and-module-specifications.md`.
+Read current evidence: `docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md`.
 
 Batch includes: Plan/effective assignment;bill/receipt/allocation;provider/manual recovery;credit/refund;Guardian statement
 
@@ -100,12 +100,12 @@ Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no 
 
 ## Actual delivery status for the current family
 
-- Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
-- Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Documentation structure only;new product checks not executed
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
-- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
-- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
+- Design: Bilingual billing decision packet ready for Owner review. Existing financial integrity and Schedule decisions retained. Charges, corrections, collection and payer access proposals are awaiting decision.
+- Implementation: Source readiness audited. Family billing has no operating ledger or application journey in this checkout. Prototype and private bucket declaration remain separate evidence.
+- Local checks: Eight bilingual statement rows and ten acceptance examples checked. Minor-unit totals, rounding and refund states reconcile. Documentation validators passed. Product runtime remains open.
+- Deployment: EX-21 decision checkpoint only. Staging serves the separately checked EX-20 commit 5915642.
+- Hosted verification: EX-21 has no hosted billing workflow. Prior EX-20 staging alias plus public EN/AR entry rechecked. Signed-in EX-17 through EX-20 walkthroughs remain separately tracked.
+- Owner acceptance: Grouped billing decisions A–D await Owner response. Prior scoped policy approvals retained.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work
