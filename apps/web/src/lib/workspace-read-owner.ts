@@ -1,7 +1,7 @@
 export type WorkspaceCapability = 'owner' | 'trainer' | 'guardian';
 
 export class WorkspaceReadFailure extends Error {
-  constructor(public code: string) { super(code); }
+  constructor(public code: string, public status?: number) { super(code); }
 }
 
 type Subscriber = {
@@ -123,7 +123,7 @@ export class WorkspaceReadOwner {
       const value = await response.json();
       if (entry.controller.signal.aborted) throw aborted();
       if (!response.ok || value.error || value.data?.error) {
-        throw new WorkspaceReadFailure(value.error ?? value.data?.error ?? 'unavailable');
+        throw new WorkspaceReadFailure(value.error ?? value.data?.error ?? 'unavailable', response.status);
       }
       this.finish(entry, { value: value.data });
     } catch (error) {

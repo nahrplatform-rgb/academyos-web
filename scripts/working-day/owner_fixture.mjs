@@ -56,8 +56,8 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development','publication']:[])];
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false} = {}) {
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[])];
   const bridge = pgBridge(root,multiScope);
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -90,6 +90,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
       server: `import{gatewayFetch,DATABASE_ORIGIN,GatewayError}from'${root}/apps/web/src/lib/onboarding-gateway.ts';
         import{databaseError}from'${root}/apps/web/src/lib/onboarding.ts';
         export class JourneyError extends Error{constructor(code,http=503){super(code);this.code=code;this.http=http;}}
+        export function recipientProof(){throw new Error('Invitation flow is outside this fixture');}
         export async function onboardingSession(){
           const {subject,sessionValid}=globalThis.ownerDayFixture;
           if(!subject||!sessionValid)throw new JourneyError('denied',401);
@@ -109,6 +110,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           if(result.error){const code=databaseError(result.error);throw new JourneyError(code,code==='denied'?403:code==='conflict'?409:503);}
           return result.data;
         }`,
+      delivery: `export function dispatchInvitation(){throw new Error('Invitation delivery is outside this fixture');}`,
       limiter: `export const stagingRedis=()=>({}),rateLimitSubject=s=>s,rateLimitAllowed=r=>r.success;
         export function stagingLimiter(_,bucket){return{limit:async()=>{globalThis.ownerDayFixture.limits.push(bucket);return{success:true};}}}`,
     };
@@ -124,6 +126,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
       plugins:[{name:'fixture-transport',setup(b){
         b.onResolve({filter:/^next\/server$/},v=>({path:require.resolve(v.path),external:true}));
         b.onResolve({filter:/^@\/lib\/onboarding-server$/},()=>({path:'server',namespace:'fixture'}));
+        b.onResolve({filter:/^@\/lib\/onboarding-delivery$/},()=>({path:'delivery',namespace:'fixture'}));
         b.onResolve({filter:/^@\/lib\/rate-limit$/},()=>({path:'limiter',namespace:'fixture'}));
         b.onResolve({filter:/^server-only$/},()=>({path:'serverOnly',namespace:'fixture'}));
         b.onLoad({filter:/.*/,namespace:'fixture'},v=>({contents:adapters[v.path]??'',loader:'js',resolveDir:root}));
@@ -183,6 +186,8 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
       stdin:{contents:`export{default as Runtime}from'./apps/web/src/components/workspace-runtime.tsx';
         export{default as Experience}from'./apps/web/src/components/experience-workspace.tsx';
         export{default as Planning}from'./apps/web/src/components/date-planning-workspace.tsx';
+        ${datedPlan?`export{default as Program}from'./apps/web/src/components/program-workspace.tsx';
+        export{default as Onboarding}from'./apps/web/src/components/onboarding-workspace.tsx';`:''}
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
         export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
@@ -219,18 +224,20 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
               return 'fictional-fixture-token';
             }};
           }
-          export function useUser(){const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');return{isLoaded:true,user:id?{id}:null};}
+          export function useUser(){const id=useSyncExternalStore(subscribe,subject,()=> 'user_owner');return{isLoaded:true,isSignedIn:Boolean(id),user:id?{id}:null};}
           export function UserButton(){return null;}
           export function SignInButton({children}){return children;}
+          export function SignUpButton({children}){return children;}
           export function useClerk(){return{openUserProfile:()=>{},signOut:async()=>{
             const reply=await fetch('/api/fixture-signout',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});
             if(!reply.ok)throw new Error('Fixture sign-out failed');
             sessionStorage.setItem('fixture-signed-out','1');window.dispatchEvent(new Event(event));
           }}}
           `:`
-          export function useUser(){return{isLoaded:true,user:{id:'user_owner'}};}
+          export function useUser(){return{isLoaded:true,isSignedIn:true,user:{id:'user_owner'}};}
           export function UserButton(){return null;}
-          export function SignInButton({children}){return children;}`,loader:'js',resolveDir:root}));
+          export function SignInButton({children}){return children;}
+          export function SignUpButton({children}){return children;}`,loader:'js',resolveDir:root}));
       }}],
     });
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
@@ -256,6 +263,16 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     await page('programs/[program]/[day]/page.jsx',`import{Planning}from'__CLIENT__';
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
       return <Planning {...p} from={q.from} returnTo={q.return==='calendar'||q.return==='home'?q.return:undefined}/>}`);
+    if (datedPlan) await page('programs/[program]/page.jsx',`import{Program}from'__CLIENT__';
+      export default async function Page({params}){const p=await params;
+      return <Program locale={p.locale} academy={p.academy} initialProgram={p.program}/>}`);
+    if (datedPlan) {
+      const chooser = await readFile(join(root,'apps/web/src/app/[locale]/workspace/page.tsx'),'utf8');
+      await page('../page.tsx',chooser
+        .replace('import { auth } from "@clerk/nextjs/server";','const auth={protect:async()=>{}};')
+        .replace('import OnboardingWorkspace from "@/components/onboarding-workspace";',
+          "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';"));
+    }
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
     if (reviews) {
       for (const [path, localName, exportName, file] of [

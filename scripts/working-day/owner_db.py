@@ -21,7 +21,8 @@ ROUTES = {
     'x19_owner_register_key_v1', 'x23_owner_register_key_v2', 'a10_roster_v1', 'a10_history_v1', 'a10_register_v1',
     'c12_list_v1', 'c12_context_v1', 'c12_detail_v1', 'c12_decide_v1', 'c12_operation_v1',
     'e14_context_v1', 'e14_queue_v1', 'e14_detail_v1', 'e14_command_v1', 'e14_operation_v1',
-    'p5_read_v1', 's8_owner_dates_v1', 's8_jobs_v1', 's8_read_v1', 's8_create_v1',
+    'p5_read_v1', 'p5_list_v1', 'q6_review_v2', 'q6_save_v2', 'q6_operation_v1', 'm1_context_v1',
+    's8_owner_dates_v1', 's8_jobs_v1', 's8_read_v1', 's8_create_v1',
     's8_change_v1', 's8_operation_v1',
 }
 
@@ -85,7 +86,10 @@ def rpc(test, command):
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
-        encoded = 'null' if value is None else literal(json.dumps(value)) + '::jsonb' if isinstance(value, (dict, list)) else literal(value)
+        if name in ('q6_review_v2', 'q6_save_v2') and key in ('add_ids', 'remove_ids'):
+            encoded = literal('{' + ','.join(str(uuid.UUID(item)) for item in value) + '}') + '::uuid[]'
+        else:
+            encoded = 'null' if value is None else literal(json.dumps(value)) + '::jsonb' if isinstance(value, (dict, list)) else literal(value)
         args.append(f'{key}=>{encoded}')
     claims = json.dumps(dict(iss='https://immune-grizzly-7875.clerk.accounts.dev',
                              sub=command['subject'], role='authenticated'))
@@ -115,7 +119,41 @@ if __name__ == '__main__':
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] == 'queue_fixture':
+                if command['action'] in ('dated_plan_fixture', 'second_academy_fixture'):
+                    if command['action'] == 'second_academy_fixture':
+                        academy, _ = test.academy()
+                        test.sql(f"update academy.academies set name='Fictional second academy' where id={literal(academy)}")
+                        name = 'Fictional second academy session'
+                    else:
+                        academy = command['academy']
+                        name = 'Fictional dated-plan check'
+                    day = test.sql(f"select (now() at time zone timezone)::date from academy.academies where id={literal(academy)}")
+                    program = test.ready(academy, {
+                        'name': name, 'from': day, 'to': day,
+                        'rules': [{'day': (datetime.date.fromisoformat(day).weekday() + 1) % 7,
+                                   'start': '22:45', 'end': '23:45'}],
+                    })
+                    value = {'academy': academy, 'program': program['id'], 'day': day}
+                elif command['action'] == 'dated_plan_counts':
+                    academy = literal(command['academy'])
+                    value = json.loads(test.sql(
+                        f"select json_build_object('operations',(select count(*) from academy.planning_operations where academy_id={academy}),"
+                        f"'audits',(select count(*) from academy.audit_events where academy_id={academy} and action='planning.save'))"))
+                elif command['action'] == 'dated_plan_owner':
+                    academy = literal(command['academy'])
+                    subject = command['subject']
+                    assert subject in ('user_owner', 'user_other_owner')
+                    owner = literal(subject)
+                    value = test.sql(
+                        "begin;"
+                        f"update academy.memberships set status='suspended' where academy_id={academy} and role='owner' and status='active';"
+                        f"insert into academy.memberships(identity_id,academy_id,role,status) "
+                        f"select id,{academy},'owner','active' from academy.identities where clerk_subject={owner} "
+                        "on conflict (identity_id,academy_id,role) do update set status='active';"
+                        "commit;"
+                        "select i.clerk_subject from academy.memberships m join academy.identities i on i.id=m.identity_id "
+                        f"where m.academy_id={academy} and m.role='owner' and m.status='active';")
+                elif command['action'] == 'queue_fixture':
                     academy, branch, event, _, _ = dispatch['Boundary'].pair(test)
                     test.sql("insert into academy.players(academy_id,branch_id,display_name,normalized_name) "
                              f"select {literal(academy)},{literal(branch)},'Synthetic queue player '||n,"

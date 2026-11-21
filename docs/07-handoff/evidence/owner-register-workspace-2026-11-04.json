@@ -11,7 +11,7 @@
   ],
   "metrics": {
     "cachedPublicEntries": 11,
-    "offlineProcessReopenMs": 121
+    "offlineProcessReopenMs": 115
   },
   "hashes": {
     "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
@@ -20,8 +20,8 @@
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
     "scripts/working-day/test_owner_startup.mjs": "a912eb4afdc4a011f41bbe7cc8176a8897a0b473e873b20e2a82bb3a80dc0b7c",
-    "scripts/working-day/owner_fixture.mjs": "878584280b3c9a0a57300727a710d9885e66b295deda95dfac7ab360fb7d4cdc",
-    "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+    "scripts/working-day/owner_fixture.mjs": "e41aee05e183db1c24c8250e35418a8fec3622a24f0ac752a4c4b2b1a81e0d0a",
+    "scripts/working-day/owner_db.py": "abab64af71bd6b3aeba7e6045e6cb26f61f21834f900a79dec9273f2a81097f6",
     "apps/web/next.config.ts": "21e3c4308afc2c431bbb658d487d77353e045897d5bd1f8f6180b1cc390d5fc9",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
     "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",

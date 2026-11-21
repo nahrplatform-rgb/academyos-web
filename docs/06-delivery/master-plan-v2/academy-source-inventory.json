@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "90fd1e3c0b640e462b1b1c616d61c9f257b7666d",
+  "source_anchor": "f60eae147bb1ba2563157e850879aaaba964aa64",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -410,8 +410,8 @@
     },
     {
       "path": "apps/web/src/components/date-planning-workspace.tsx",
-      "sha256": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
-      "bytes": 28344
+      "sha256": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
+      "bytes": 29215
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
@@ -420,8 +420,8 @@
     },
     {
       "path": "apps/web/src/components/experience-workspace.tsx",
-      "sha256": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
-      "bytes": 54779
+      "sha256": "31ebaeb80774cfb3730de32e1c4177481b9616162741d3167794835efddcc9a0",
+      "bytes": 54980
     },
     {
       "path": "apps/web/src/components/guardian-training-workspace.tsx",
@@ -1055,8 +1055,8 @@
     },
     {
       "path": "apps/web/src/lib/workspace-read-owner.ts",
-      "sha256": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
-      "bytes": 5311
+      "sha256": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",
+      "bytes": 5352
     },
     {
       "path": "apps/web/src/lib/workspace-storage.test.ts",

@@ -16,6 +16,10 @@ const sources = [
   'scripts/experience-projections/test_boundary.py', 'scripts/offline-register/dispatch_bridge.py',
   ...['experience','planning','register-download','register-dispatch'].map(name => `apps/web/src/app/api/${name}/route.ts`),
   ...['workspace-runtime','workspace-shell','experience-workspace','date-planning-workspace'].map(name => `apps/web/src/components/${name}.tsx`),
+  'apps/web/src/app/api/programs/route.ts', 'apps/web/src/components/program-workspace.tsx',
+  'apps/web/src/app/api/onboarding/route.ts', 'apps/web/src/components/onboarding-workspace.tsx',
+  'apps/web/src/app/[locale]/workspace/page.tsx',
+  'supabase/migrations/20261027004132_i3b_draft_session_planning.sql',
   ...['workspace-read-owner','local-register-repository','local-register-crypto','local-register-codec',
     'register-download','register-download-coordinator','register-original-dispatch','onboarding-gateway','register-scope-transport'].map(name => `apps/web/src/lib/${name}.ts`),
   'apps/web/src/app/globals.css',
@@ -28,7 +32,30 @@ const hashes = Object.fromEntries(await Promise.all(sources.map(async path =>
 if (process.argv.includes('--check')) {
   const receipt = JSON.parse(await readFile(evidence, 'utf8'));
   assert.deepEqual(receipt.hashes, hashes);
-  assert.equal(receipt.checks.length, 8);
+  assert.equal(receipt.checks.length, 19);
+  assert.equal(receipt.metrics.secondaryPanelUnavailable,true);
+  assert.deepEqual(receipt.metrics.datedPlanStorage,['QuotaExceededError','SecurityError','malformed']);
+  assert.deepEqual(receipt.metrics.ownerAccess,[401,200,403,200]);
+  assert.deepEqual(receipt.metrics.datedPlanReadFailure,{
+    initialStatus:503, capacity:19, version:1, operations:1, audits:1,
+  });
+  assert.deepEqual(receipt.metrics.datedPlan, {capacity:23, operations:1, audits:1});
+  assert.deepEqual(receipt.metrics.datedPlanRecovery, [
+    {outcome:'precommit',originalMatched:true,operations:1,saveAudits:0,capacity:'23'},
+    {outcome:'lost_reply',originalMatched:true,operations:1,saveAudits:1,capacity:'24'},
+  ]);
+  assert.deepEqual(receipt.metrics.datedPlanDraft, {
+    refreshReads:1, retainedCapacity:'25', reopenedCapacity:'24', operations:0, saveAudits:0,
+  });
+  assert.deepEqual(receipt.metrics.datedPlanConflict, {
+    staleVersion:2, currentVersion:3, currentCapacity:26, draftCapacity:25, operations:1, saveAudits:1,
+  });
+  assert.deepEqual(receipt.metrics.datedPlanSecondTab, {
+    priorCapacity:26, currentCapacity:27, currentVersion:4, refreshReads:1, operations:1, saveAudits:1,
+  });
+  assert.deepEqual(receipt.metrics.academySwitch, {
+    oldResponse:200, newResponse:200, documentNavigations:0, oldSessionRendered:false,
+  });
   console.log('PASS working-day evidence matches tracked sources');
   process.exit(0);
 }
@@ -38,7 +65,7 @@ const checks = [], metrics = {};
 const pass = name => {checks.push(name);console.log('PASS '+name);};
 let fixture, browser, page;
 try {
-  fixture = await ownerFixture(root, join(temp, 'app'));
+  fixture = await ownerFixture(root, join(temp, 'app'), {datedPlan:true});
   const {origin, data, state, db, paths, registerPaths} = fixture;
   const [first, second] = data.events;
   const base = `/en/workspace/${data.academy}`, firstPath = registerPaths[0], secondPath = registerPaths[3];
@@ -237,6 +264,511 @@ try {
   await expect(page.getByText('تحتاج مراجعة',{exact:true})).toBeVisible();
   await expect(page.getByRole('region',{name:'السجل المنزّل'})).toHaveCount(0);
   assert.equal(state.dispatchBodies.length,3);
+  const draft = await db({action:'dated_plan_fixture',academy:data.academy});
+  const draftSession = page.locator(`[data-occurrence="${draft.program}:${draft.day}"]`);
+  const programPath = `${base}/programs/${draft.program}`;
+  const planCounts = () => db({action:'dated_plan_counts',academy:data.academy});
+  const baseline = await planCounts();
+  const requestStart = state.events.length;
+  await page.setViewportSize({width:1440,height:900});
+  await page.goto(origin+base+'/home');
+  await draftSession.click();
+  await expect(page.getByText('0 / —',{exact:true})).toBeVisible();
+  await link('Open this date').click();
+  await button('Plan this date').click();
+  await page.getByLabel('Capacity for this date',{exact:true}).fill('23');
+  await button('Review changes').click();
+  await page.getByRole('checkbox',{name:'I reviewed this date and these changes.',exact:true}).check();
+  const receiptPromise = page.waitForResponse(response =>
+    new URL(response.url()).pathname==='/api/planning' &&
+    response.request().postDataJSON()?.action==='save');
+  await button('Save draft plan').press('Enter');
+  const response = await receiptPromise;
+  assert.equal(response.status(),200);
+  const {data: savedPlan} = await response.json();
+  assert.deepEqual([savedPlan.program,savedPlan.day,savedPlan.version],[draft.program,draft.day,1]);
+  await expect(page.getByRole('status').filter({hasText:'Draft plan saved.'})).toBeVisible();
+  await expect(button('Plan this date')).toBeEnabled();
+  await button('Back to academy home').click();
+  await expect(draftSession).toHaveAttribute('aria-pressed','true');
+  await expect(page.getByText('0 / 23',{exact:true})).toBeVisible();
+  await link('Open calendar').and(page.locator('.operations-calendar-link')).click();
+  await draftSession.click();
+  await expect(page.getByText('0 / 23',{exact:true})).toBeVisible();
+  await page.goto(origin+programPath);
+  await link('Inspect this date').click();
+  await button('Plan this date').click();
+  await expect(page.getByLabel('Capacity for this date',{exact:true})).toHaveValue('23');
+  const writes = slice(requestStart).filter(([route,action])=>route==='planning'&&action==='save');
+  assert.deepEqual(writes,[['planning','save',200]]);
+  const after = await planCounts();
+  metrics.datedPlan = {capacity:23, operations:after.operations-baseline.operations, audits:after.audits-baseline.audits};
+  assert.deepEqual(metrics.datedPlan,{capacity:23, operations:1, audits:1});
+  pass('WD-09 saves one private dated plan and reopens it from Today, Calendar and Program');
+
+  metrics.datedPlanRecovery = [];
+  const pathsToPlan = new URL(page.url()).pathname;
+  const storageKey = `academyos:planning:user_owner:${data.academy}:${draft.program}:${draft.day}`;
+  const pendingPlan = () => page.evaluate(key=>sessionStorage.getItem(key),storageKey);
+  for (const outcome of ['precommit','lost_reply']) {
+    const commit = outcome==='lost_reply';
+    const beforeFault = await planCounts();
+    const firstRequest = state.events.length;
+    const planCalls = [];
+    let serverReceipt;
+    const interceptPlan = async route => {
+      const body = route.request().postDataJSON();
+      planCalls.push(body);
+      if (body.action!=='save') return route.continue();
+      if (commit) {
+        const upstream = await route.fetch({maxRetries:0});
+        serverReceipt = {status:upstream.status(), ...await upstream.json()};
+      }
+      await route.abort('connectionreset');
+    };
+    await page.route('**/api/planning',interceptPlan);
+    try {
+      await page.getByLabel('Capacity for this date',{exact:true}).fill('24');
+      await button('Review changes').click();
+      await page.getByRole('checkbox',{name:'I reviewed this date and these changes.',exact:true}).check();
+      await button('Save draft plan').press('Enter');
+      await expect(button('Check original operation')).toBeEnabled();
+      await expect(page.getByText('Draft plan saved. It remains private to the Owner.',{exact:true})).toHaveCount(0);
+      await expect(button('Save draft plan')).toHaveCount(0);
+      const original = planCalls.find(call=>call.action==='save').op;
+      assert.match(original,/^[0-9a-f-]{36}$/);
+      assert.equal(await pendingPlan(),original);
+      if (commit) {
+        assert.equal(serverReceipt.status,200);
+        assert.deepEqual([serverReceipt.data.program,serverReceipt.data.day,serverReceipt.data.version],
+          [draft.program,draft.day,2]);
+      }
+      const immediately = await planCounts();
+      const committed = Number(commit);
+      assert.equal(immediately.operations-beforeFault.operations,committed);
+      assert.equal(immediately.audits-beforeFault.audits,committed);
+
+      await page.reload();
+      await expect(button('Check original operation')).toBeEnabled();
+      assert.equal(new URL(page.url()).pathname,pathsToPlan);
+      assert.equal(await pendingPlan(),original);
+      assert.deepEqual(planCalls.map(call=>call.action),['review','save']);
+      const reconciliation = page.waitForResponse(reply=>
+        new URL(reply.url()).pathname==='/api/planning' &&
+        reply.request().postDataJSON()?.action==='reconcile');
+      await button('Check original operation').click();
+      const reply = await reconciliation;
+      assert.equal(reply.status(),200);
+      const {data: resolved} = await reply.json();
+      assert.deepEqual(resolved,commit?serverReceipt.data:{cancelled:true});
+      assert.equal(planCalls.find(call=>call.action==='reconcile').op,original);
+      await expect(button('Plan this date')).toBeEnabled();
+      assert.equal(await pendingPlan(),null);
+      await expect(page.getByRole('status').filter({hasText:commit?'Draft plan saved.':'The original operation did not commit'})).toBeVisible();
+      await button('Plan this date').click();
+      const capacity = commit?'24':'23';
+      await expect(page.getByLabel('Capacity for this date',{exact:true})).toHaveValue(capacity);
+      assert.deepEqual(planCalls.filter(call=>call.action!=='dates').map(call=>call.action),
+        ['review','save','reconcile','read']);
+      const final = await planCounts();
+      const operations = final.operations-beforeFault.operations;
+      const saveAudits = final.audits-beforeFault.audits;
+      assert.equal(operations,1);
+      assert.equal(saveAudits,committed);
+      assert.equal(slice(firstRequest).filter(([route,action])=>route==='planning'&&action==='save').length,committed);
+      metrics.datedPlanRecovery.push({outcome,originalMatched:true,operations,saveAudits,capacity});
+      pass(commit?'WD-12 reconciles the committed dated plan after its reply is lost':
+        'WD-11 cancels the original dated plan after a precommit failure');
+    } finally {
+      await page.unroute('**/api/planning',interceptPlan);
+    }
+  }
+  const beforeDraft = await planCounts();
+  await page.goto(origin+base+'/calendar?anchor='+draft.day);
+  await draftSession.click();
+  await link('Open this date').click();
+  await button('Plan this date').click();
+  const capacityInput = page.getByLabel('Capacity for this date',{exact:true});
+  await capacityInput.fill('25');
+  await button('Review changes').click();
+  await page.getByRole('checkbox',{name:'I reviewed this date and these changes.',exact:true}).check();
+  await expect(button('Save draft plan')).toBeEnabled();
+  const beforeResume = state.events.length;
+  await page.evaluate(()=>{
+    let visibility = 'hidden';
+    Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>visibility});
+    window.dispatchEvent(new Event('blur'));
+    document.dispatchEvent(new Event('visibilitychange'));
+    visibility = 'visible';
+    document.dispatchEvent(new Event('visibilitychange'));
+    delete document.visibilityState;
+  });
+  await expect(capacityInput).toBeEnabled();
+  await expect(capacityInput).toHaveValue('25');
+  await expect(page.getByText('Your choices are retained. Compare current state and review again.',{exact:true})).toBeVisible();
+  await expect(button('Save draft plan')).toHaveCount(0);
+  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
+  assert.deepEqual(slice(beforeResume),[['planning','read',200]]);
+  assert.equal(await pendingPlan(),null);
+
+  const datedUrl = page.url();
+  async function leaveDraft(accept) {
+    const decision = page.waitForEvent('dialog').then(async dialog=>{
+      if (accept) await dialog.accept();
+      else await dialog.dismiss();
+      return {type:dialog.type(), message:dialog.message()};
+    });
+    await button('Back to calendar').press('Enter');
+    assert.deepEqual(await decision,{type:'confirm',message:'Leave these unsaved changes?'});
+  }
+  await leaveDraft(false);
+  assert.equal(page.url(),datedUrl);
+  await expect(capacityInput).toHaveValue('25');
+  assert.deepEqual(slice(beforeResume),[['planning','read',200]]);
+  await leaveDraft(true);
+  await expect(draftSession).toHaveAttribute('aria-pressed','true');
+  await expect(page.getByText('0 / 24',{exact:true})).toBeVisible();
+  await link('Open this date').click();
+  await button('Plan this date').click();
+  await expect(capacityInput).toHaveValue('24');
+  assert.deepEqual(slice(beforeResume),[
+    ['planning','read',200],['experience','owner_calendar',200],['planning','read',200],
+  ]);
+  assert.equal(await pendingPlan(),null);
+  const afterDraft = await planCounts();
+  metrics.datedPlanDraft = {
+    refreshReads:1, retainedCapacity:'25', reopenedCapacity:'24',
+    operations:afterDraft.operations-beforeDraft.operations, saveAudits:afterDraft.audits-beforeDraft.audits,
+  };
+  assert.equal(metrics.datedPlanDraft.operations,0);
+  assert.equal(metrics.datedPlanDraft.saveAudits,0);
+  pass('WD-14 retains dated draft choices during refresh and honors both keyboard leave decisions');
+
+  const beforeConflict = await planCounts();
+  await capacityInput.fill('25');
+  await button('Review changes').click();
+  const reviewAcknowledgement = page.getByRole('checkbox',{name:'I reviewed this date and these changes.',exact:true});
+  await reviewAcknowledgement.check();
+  const savePlanButton = button('Save draft plan');
+  await expect(savePlanButton).toBeEnabled();
+  const ownerChange = subject => db({action:'dated_plan_owner',academy:data.academy,subject});
+  const planAPI = body => page.request.post(origin+'/api/planning', {
+    headers:{Origin:origin}, data:{academy:data.academy,program:draft.program,day:draft.day,...body},
+  });
+  assert.equal(await ownerChange('user_other_owner'),'user_other_owner');
+  try {
+    assert.equal((await planAPI({action:'read'})).status(),403);
+    state.subject = 'user_other_owner';
+    const current = await planAPI({action:'read'});
+    assert.equal(current.status(),200);
+    const {data: competingPlan} = await current.json();
+    assert.equal(competingPlan.version,2);
+    const competing = await planAPI({
+      action:'save',version:competingPlan.version,schedule_version:competingPlan.schedule_version,
+      capacity:26,trainer:null,add:[],remove:[],op:randomUUID(),
+    });
+    assert.equal(competing.status(),200);
+    const {data: committed} = await competing.json();
+    assert.deepEqual([committed.program,committed.day,committed.version],[draft.program,draft.day,3]);
+  } finally {
+    assert.equal(await ownerChange('user_owner'),'user_owner');
+    state.subject = 'user_owner';
+  }
+  const staleReply = page.waitForResponse(reply=>
+    new URL(reply.url()).pathname==='/api/planning' &&
+    reply.request().postDataJSON()?.action==='save');
+  await savePlanButton.press('Enter');
+  const stale = await staleReply;
+  assert.equal(stale.request().postDataJSON().version,2);
+  assert.deepEqual((await stale.json()).data,{error:'stale'});
+  await expect(page.getByRole('alert').filter({hasText:'The date plan changed.'})).toBeVisible();
+  await expect(capacityInput).toHaveValue('25');
+  await expect(savePlanButton).toHaveCount(0);
+  assert.equal(await pendingPlan(),null);
+  await button('Compare current plan').click();
+  await expect(capacityInput).toHaveValue('25');
+  await button('Review changes').click();
+  await expect(page.getByText('Current capacity: 26',{exact:true})).toBeVisible();
+  await expect(page.getByText('New capacity: 25',{exact:true})).toBeVisible();
+  await expect(reviewAcknowledgement).not.toBeChecked();
+  await expect(savePlanButton).toBeDisabled();
+  const afterConflict = await planCounts();
+  metrics.datedPlanConflict = {
+    staleVersion:2, currentVersion:3, currentCapacity:26, draftCapacity:25,
+    operations:afterConflict.operations-beforeConflict.operations,
+    saveAudits:afterConflict.audits-beforeConflict.audits,
+  };
+  assert.equal(metrics.datedPlanConflict.operations,1);
+  assert.equal(metrics.datedPlanConflict.saveAudits,1);
+  pass('WD-15 refuses the first Owner stale save and compares the second Owner committed plan');
+
+  const observer = await browser.newPage();
+  let releaseRefresh;
+  const refreshGate = new Promise(resolve=>{releaseRefresh=resolve;});
+  try {
+    const observerCalls = [];
+    let holdRefresh = false;
+    await observer.addInitScript(()=>{
+      let visibility = 'hidden';
+      Object.defineProperty(document,'visibilityState',{get:()=>visibility});
+      window.addEventListener('fixture-visible-return',()=>{
+        visibility='visible';
+        document.dispatchEvent(new Event('visibilitychange'));
+      });
+    });
+    await observer.route('**/api/planning',async route=>{
+      observerCalls.push(route.request().postDataJSON());
+      if (holdRefresh) await refreshGate;
+      await route.continue();
+    });
+    observer.on('pageerror', error=>errors.push(error.message));
+    await observer.goto(datedUrl);
+    const visibleCapacity = observer.locator('dt').filter({hasText:/^Capacity$/}).locator('+ dd');
+    await expect(visibleCapacity).toHaveText('26');
+    assert.deepEqual(observerCalls.map(call=>call.action),['read']);
+
+    const beforeSecondTab = await planCounts();
+    const latestCommit = page.waitForResponse(reply=>
+      new URL(reply.url()).pathname==='/api/planning' &&
+      reply.request().postDataJSON()?.action==='save');
+    await button('Edit choices').click();
+    await capacityInput.fill('27');
+    await button('Review changes').click();
+    await reviewAcknowledgement.check();
+    await savePlanButton.press('Enter');
+    const reply = await latestCommit;
+    assert.equal(reply.status(),200);
+    const {data: committed} = await reply.json();
+    assert.deepEqual([committed.program,committed.day,committed.version],[draft.program,draft.day,4]);
+    await expect(button('Plan this date')).toBeEnabled();
+    await expect(visibleCapacity).toHaveText('26');
+    assert.equal(observerCalls.length,1);
+
+    holdRefresh = true;
+    const beforeObserverRead = state.events.length;
+    const refreshed = observer.waitForResponse(response=>
+      new URL(response.url()).pathname==='/api/planning' &&
+      response.request().postDataJSON()?.action==='read');
+    await observer.evaluate(()=>window.dispatchEvent(new Event('fixture-visible-return')));
+    await expect.poll(()=>observerCalls.length).toBe(2);
+    assert.deepEqual(observerCalls[1],observerCalls[0]);
+    assert.equal(observerCalls[1].academy,data.academy);
+    assert.equal(observerCalls[1].program,draft.program);
+    assert.equal(observerCalls[1].day,draft.day);
+    await expect(visibleCapacity).toHaveText('26');
+    releaseRefresh();
+    const readReply = await refreshed;
+    assert.equal(readReply.status(),200);
+    const {data: updated} = await readReply.json();
+    assert.equal(updated.version,4);
+    await expect(visibleCapacity).toHaveText('27');
+    await observer.evaluate(()=>window.dispatchEvent(new Event('focus')));
+    assert.equal(observerCalls.length,2);
+    assert.deepEqual(slice(beforeObserverRead),[['planning','read',200]]);
+    assert.equal(observer.url(),datedUrl);
+    const afterSecondTab = await planCounts();
+    metrics.datedPlanSecondTab = {
+      priorCapacity:26, currentCapacity:27, currentVersion:updated.version, refreshReads:observerCalls.length-1,
+      operations:afterSecondTab.operations-beforeSecondTab.operations,
+      saveAudits:afterSecondTab.audits-beforeSecondTab.audits,
+    };
+    assert.equal(metrics.datedPlanSecondTab.operations,1);
+    assert.equal(metrics.datedPlanSecondTab.saveAudits,1);
+    pass('WD-16 refreshes only the selected dated plan in the second tab on visibility return');
+  } finally {
+    releaseRefresh();
+    await observer.close();
+  }
+  const secondAcademy = await db({action:'second_academy_fixture'});
+  const secondHome = `/en/workspace/${secondAcademy.academy}/home`;
+  const secondSession = page.locator(`[data-occurrence="${secondAcademy.program}:${secondAcademy.day}"]`);
+  let releaseOld;
+  let oldReady;
+  let oldFinished;
+  const oldResponse = new Promise(resolve=>{oldReady=resolve;});
+  const oldGate = new Promise(resolve=>{releaseOld=resolve;});
+  const oldSettled = new Promise(resolve=>{oldFinished=resolve;});
+  const holdOldHome = async route=>{
+    const body = route.request().postDataJSON();
+    if (body.academy!==data.academy || body.action!=='owner_home') return route.continue();
+    try {
+      const response = await route.fetch({maxRetries:0});
+      oldReady({status:response.status(), payload:await response.json()});
+      await oldGate;
+      await route.fulfill({response}).catch(error=>{
+        if (!/cancel|invalid interception|route is already handled/i.test(String(error))) throw error;
+      });
+    } finally {
+      oldFinished();
+    }
+  };
+  await page.route('**/api/experience',holdOldHome);
+  try {
+    await page.goto(origin+base+'/home');
+    const old = await Promise.race([oldResponse,oldSettled.then(()=>null)]);
+    assert.equal(old?.status,200);
+    assert.ok(old.payload.data.panels.today.items.some(item=>item.program===draft.program));
+    const documentCount = documents.length;
+    await link('Switch workspace').click();
+    await page.waitForURL(origin+'/en/workspace');
+    await expect(draftSession).toHaveCount(0);
+    const choice = link('Open academy').and(page.locator(`a[href="${secondHome}"]`));
+    await expect(choice).toBeVisible();
+    const currentResponse = page.waitForResponse(response=>
+      new URL(response.url()).pathname==='/api/experience' &&
+      response.request().postDataJSON()?.academy===secondAcademy.academy);
+    await choice.click();
+    const current = await currentResponse;
+    assert.equal(current.status(),200);
+    await expect(secondSession).toBeVisible();
+    assert.equal(page.url(),origin+secondHome);
+    releaseOld();
+    await oldSettled;
+    await expect(secondSession).toBeVisible();
+    await expect(draftSession).toHaveCount(0);
+    assert.equal(page.url(),origin+secondHome);
+    assert.equal(documents.length,documentCount);
+    metrics.academySwitch = {
+      oldResponse:old.status, newResponse:current.status(), documentNavigations:0, oldSessionRendered:false,
+    };
+    pass('WD-17 switches academies through the chooser while a successful old Today response is held');
+  } finally {
+    releaseOld();
+    await page.unroute('**/api/experience',holdOldHome);
+  }
+  const beforeAccess = state.events.length;
+  const reloadToday = button('Reload current view');
+  const readToday = () => reloadToday.press('Enter');
+  const accessAlert = page.locator('main').getByRole('alert');
+  state.sessionValid = false;
+  await readToday();
+  await expect(accessAlert).toHaveText('Sign in again, then reload this view.');
+  await expect(secondSession).toHaveCount(0);
+  await expect(link('Open this date')).toHaveCount(0);
+  state.sessionValid = true;
+  await readToday();
+  await expect(secondSession).toBeVisible();
+  await db({action:'role',academy:secondAcademy.academy});
+  await readToday();
+  await expect(accessAlert).toHaveText('Access is no longer available. Choose your current workspace.');
+  await expect(secondSession).toHaveCount(0);
+  await expect(link('Open this date')).toHaveCount(0);
+  assert.equal(await db({action:'dated_plan_owner',academy:secondAcademy.academy,subject:'user_owner'}),'user_owner');
+  await readToday();
+  await expect(secondSession).toBeVisible();
+  const accessReads = slice(beforeAccess);
+  metrics.ownerAccess = [401,200,403,200];
+  assert.deepEqual(accessReads,metrics.ownerAccess.map(status=>['experience','owner_home',status]));
+  pass('WD-18 masks Today on expired sign-in and revoked authority and recovers after each is restored');
+
+  const secondPlanCounts = () => db({action:'dated_plan_counts',academy:secondAcademy.academy});
+  const beforeReadFailure = await secondPlanCounts();
+  await secondSession.click();
+  const planStart = state.events.length;
+  await page.route('**/api/planning',async route=>{
+    assert.equal(route.request().postDataJSON().action,'read');
+    await route.fulfill({status:503,json:{error:'unavailable'}});
+  },{times:1});
+  const failedRead = page.waitForResponse(response=>
+    new URL(response.url()).pathname==='/api/planning' && response.status()===503);
+  await link('Open this date').click();
+  const failure = await failedRead;
+  assert.deepEqual(failure.request().postDataJSON(),{
+    academy:secondAcademy.academy, action:'read', program:secondAcademy.program, day:secondAcademy.day,
+  });
+  const loadSavedPlan = button('Load saved plan');
+  await expect(loadSavedPlan).toBeEnabled();
+  await expect(page.getByRole('alert').filter({hasText:/could not|unavailable/i})).toBeVisible();
+  await expect(button('Plan this date')).toHaveCount(0);
+  await expect(button('Save draft plan')).toHaveCount(0);
+  assert.deepEqual(slice(planStart),[]);
+  assert.deepEqual(await secondPlanCounts(),beforeReadFailure);
+
+  await loadSavedPlan.press('Enter');
+  await button('Plan this date').click();
+  await capacityInput.fill('19');
+  await button('Review changes').click();
+  await reviewAcknowledgement.check();
+  const savedAfterRetry = page.waitForResponse(response=>
+    new URL(response.url()).pathname==='/api/planning' &&
+    response.request().postDataJSON()?.action==='save');
+  await savePlanButton.press('Enter');
+  const savedReply = await savedAfterRetry;
+  assert.equal(savedReply.status(),200);
+  const {data: recoveredPlan} = await savedReply.json();
+  assert.deepEqual([recoveredPlan.program,recoveredPlan.day,recoveredPlan.version],
+    [secondAcademy.program,secondAcademy.day,1]);
+  await expect(page.getByRole('status').filter({hasText:'Draft plan saved.'})).toBeVisible();
+  await button('Plan this date').click();
+  await expect(capacityInput).toHaveValue('19');
+  assert.deepEqual(slice(planStart),[
+    ['planning','read',200],['planning','review',200],['planning','save',200],['planning','read',200],
+  ]);
+  const afterReadFailure = await secondPlanCounts();
+  metrics.datedPlanReadFailure = {
+    initialStatus:failure.status(), capacity:19, version:recoveredPlan.version,
+    operations:afterReadFailure.operations-beforeReadFailure.operations,
+    audits:afterReadFailure.audits-beforeReadFailure.audits,
+  };
+  assert.equal(metrics.datedPlanReadFailure.operations,1);
+  assert.equal(metrics.datedPlanReadFailure.audits,1);
+  pass('WD-19 recovers the dated plan after an initial read failure before allowing a save');
+  const secondPlanKey = `academyos:planning:user_owner:${secondAcademy.academy}:${secondAcademy.program}:${secondAcademy.day}`;
+  await capacityInput.fill('20');
+  await button('Review changes').click();
+  await reviewAcknowledgement.check();
+  const beforeStorage = state.events.length;
+  metrics.datedPlanStorage = [];
+  for (const fault of ['QuotaExceededError','SecurityError','malformed']) {
+    if (fault!=='QuotaExceededError') {
+      await button('Edit choices').click();
+      await capacityInput.fill('21');
+      await capacityInput.fill('20');
+      await button('Review changes').click();
+      await reviewAcknowledgement.check();
+    }
+    await page.evaluate(({key,fault})=>{
+      const method = fault==='SecurityError'?'getItem':'setItem';
+      if (fault==='malformed') sessionStorage.setItem(key,'invalid fixture reference');
+      else {
+        const original = Storage.prototype[method];
+        Storage.prototype[method] = function(name,...args){
+          if (this===sessionStorage && name===key) {
+            Storage.prototype[method]=original;
+            throw new DOMException('Fixture storage failure',fault);
+          }
+          return original.call(this,name,...args);
+        };
+      }
+    },{key:secondPlanKey,fault});
+    await savePlanButton.press('Enter');
+    await expect(page.getByRole('alert').filter({hasText:fault==='malformed'?'The recovery reference is invalid.':'Nothing was submitted.'})).toBeVisible();
+    await expect(page.getByText('New capacity: 20',{exact:true})).toBeVisible();
+    const stored = await page.evaluate(key=>sessionStorage.getItem(key),secondPlanKey);
+    assert.equal(stored,fault==='malformed'?'invalid fixture reference':null);
+    metrics.datedPlanStorage.push(fault);
+  }
+  assert.deepEqual(slice(beforeStorage),[['planning','review',200],['planning','review',200]]);
+  assert.deepEqual(await secondPlanCounts(),afterReadFailure);
+  pass('WD-20 storage refusal and malformed reference keep the review and prevent any save');
+
+  await page.route('**/api/experience',async route=>{
+    const upstream=await route.fetch();
+    assert.equal(upstream.status(),200);
+    const payload=await upstream.json();
+    payload.data.panels.feedback_reviews={state:'unavailable'};
+    await route.fulfill({response:upstream,json:payload});
+  },{times:1});
+  await page.goto(origin+secondHome);
+  await expect(secondSession).toBeVisible();
+  const feedbackPanel=page.locator('section').filter({
+    has:page.getByRole('heading',{name:'Feedback awaiting review',exact:true}),
+  }).last();
+  await expect(feedbackPanel).toContainText(/unavailable/i);
+  await secondSession.click();
+  await expect(link('Open this date')).toBeVisible();
+  metrics.secondaryPanelUnavailable=true;
+  pass('WD-21 keeps the current session actionable with an unavailable secondary panel');
   assert.deepEqual(external,[]);
   assert.deepEqual(errors,[]);
   pass('Logout removes prepared rows; only the original fictional account recovers pending work');

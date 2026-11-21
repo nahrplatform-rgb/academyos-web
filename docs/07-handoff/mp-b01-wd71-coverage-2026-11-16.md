@@ -696,3 +696,83 @@ The Profile tab now mounts one private editor. The active editor guards departur
 The prior Foundation success belongs to `823f2de` (run `44786513210`). Run `44810596327` on `90fd1e3` stopped at the stale `globals.css` source inventory. The source inventory and experience review have been regenerated for the repaired source.
 
 Read-only provider checks resolved staging to Ready `4bedab3` and confirmed both additional migration ledger entries. The two sensitive trial settings are present on the staging target. Verify their effective behavior in the signed-in synthetic workflow after the Owner promotes a checked successor. Record archive, restore, commitment refusal, stale-version refusal, same-original recovery and private/name correction alongside the earlier exact-source trial evidence. [Staging checklist](player-lifecycle-staging-verification-2026-11-20.md)
+
+Candidate `f60eae147bb1ba2563157e850879aaaba964aa64` passed all 55 Foundation steps on run `44817512467`, attempt 1. Vercel confirmed the exact preview `dpl_3aYKYcFxhidMV4u6J8BYXuAQdZYp` Ready in `academyos-web` with target unset. The live staging hostname still resolved to `4bedab3` after Foundation passed. The next release action is Owner promotion of this checked candidate to `staging.academy.nahr.dev`, followed by the signed-in synthetic Players cases. [Foundation](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44817512467) · [Vercel candidate](https://vercel.com/academy-os2/academyos-web/3aYKYcFxhidMV4u6J8BYXuAQdZYp)
+
+After the Owner reported promotion, Vercel independently resolved `staging.academy.nahr.dev` to Ready deployment `dpl_H3kcLc2rDaTBsBwWPLHayBzm6K4A` on exact source `f60eae147bb1ba2563157e850879aaaba964aa64`. The allocated browser tab reached the staging sign-in form. The signed-in synthetic Academy Owner Players cases remain open until that session is available.
+
+After sign-in, the workspace chooser showed Academy Owner for Isolation Academy B. On promoted `f60eae1`, the English browser flow registered one synthetic player with an alternate name after duplicate review, displayed the generated academy member number, and saved a reviewed alternate-name correction. It then archived the player, excluded that exact name from active search, and reopened the same player from archived search with the Archived status. The language switch retained the selected archived profile and search. Arabic restore returned the player to the active directory. A read-only database query confirmed the player was active and recorded exactly one archive and one restore audit.
+
+Arabic Profile saved a fictional school value, read it back after closing and reopening private details, and cleared it. After the QR card opened, its actual return action reopened the same Arabic profile with the corrected name and an empty school field. The synthetic player remains active with its audit history. Another tab retained its unsaved draft after the first tab saved, so a submitted stale-version refusal is still open. Current staging had no future dated or published roster commitments in Isolation Academy B for the archive refusal case. Next prepare a bounded synthetic commitment and test the refusal, then verify a submitted stale version and same-original recovery on the promoted candidate. Earlier local and hosted evidence remains scoped to its original cases and revisions.
+
+### 21 November promoted Players refusal and recovery
+
+Vercel confirmed staging still served `f60eae147bb1ba2563157e850879aaaba964aa64`. In Arabic, two signed-in Owner tabs loaded the same synthetic player in Isolation Academy B. One saved a fictional school value. Submitting the older tab's draft triggered the version-conflict message, kept the draft visible, and disabled Save until current details could be reloaded.
+
+For private-save recovery, the browser intercepted the People response after the server returned HTTP 200. The explicit connection-reset command reported that the interception ID was no longer valid. The page nevertheless showed the original-save check. With interception cleared, the actual control sent `reconcile` with the matching original operation ID. The saved value reappeared, then was cleared and confirmed empty in the UI and database.
+
+The other synthetic academy already had an active player with a qualifying roster commitment. Confirming Archive as Academy Owner produced the commitment refusal. A database read confirmed the player remained active. No new roster fixture was needed.
+
+All three remaining Players staging follow-up cases were exercised on the promoted candidate. Formal Owner acceptance, real-data retention, sport-scoped IDs and bulk import remain open in their existing scopes. EX-07 stays current for the wider MP-B01 Owner working-day exit. Reconcile the connected Today, Calendar and Attendance evidence against the existing working-day cases and take the first uncovered core case.
+
+### 21 November WD-09 dated-plan propagation
+
+The scheduling reference distinguishes private Owner planning from published Trainer and family views. The current Program date table shows schedule details and opens the selected dated plan, where capacity is read from the authoritative plan. Today and Calendar show that capacity in the selected session inspector through the existing Owner projection.
+
+In disposable Chromium, Next and PostgreSQL 17, an English Owner opened an editable future session on Today and changed its capacity from unset to 23. The keyboard save returned the exact dated target at plan version 1 and wrote one operation and one audit entry. Back restored the selected Today session and showed 0 / 23. Calendar showed the same capacity. The Program's actual Inspect this date link reopened the saved dated plan and its editor showed 23. The standalone English and Arabic dated-planning fixtures remain separate evidence for pending saves and read recovery. The shared startup and normal and additive Attendance suites also passed. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+This WD-09 result covers the local routes, actual Next handlers and disposable database with fictional identity. The staging catalog had no editable same-day future draft in either synthetic academy at inspection time. Hosted WD-09 and the full Owner working-day exit remain open. EX-07 continues with WD-11 and WD-12, pairing precommit failure with a lost reply after commit on the canonical dated-plan save path.
+
+### WD-11 and WD-12 dated-plan recovery
+
+The English Owner browser reused the WD-09 dated plan. For WD-11, Chromium cut the save request before the Next handler received it. Before reconciliation, the database had zero new operations and zero save audits. Reload retained the original ID and the selected date. The actual Check original operation control sent that ID, received a cancellation, and reopened capacity 23. There was one cancellation operation and zero new saves.
+
+For WD-12, the same handler committed capacity 24 and returned the exact version-2 receipt to the test interception. The browser received a connection reset. Reload retained the original ID and offered reconciliation before any new save. The original check returned the same receipt and reopened the date with capacity 24. The database recorded one operation and one save audit, and the transport recorded one save request reaching the handler.
+
+This evidence applies to Chromium with fictional identity, actual Next handlers and disposable PostgreSQL 17. The hosted dated-plan cases and other journey variants remain open. The next uncovered case is WD-14. Verify draft retention through a supported refresh and the existing leave choices together. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### WD-14 dated-plan draft and guarded return
+
+The English Owner opened the saved date from Calendar and reviewed an unsaved capacity of 25. A simulated visibility return followed by focus caused one signed plan read. The editor retained 25, displayed the retained-choices message and required a fresh review before saving.
+
+The real Back to calendar button opened its leave prompt when activated by keyboard. Dismissing it kept the date and capacity 25. Confirming restored the selected Calendar session and its saved capacity of 24. Reopening the date through Calendar also loaded 24. No original save ID was created, and the disposable database recorded zero new planning operations or save audits. This is local Chromium and actual handler/database evidence for the English dated-plan route. Hosted verification and other journey variants remain open. Continue with WD-15 by exercising a genuinely stale edit after a different authorized actor commits a change. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### WD-15 stale dated plan after an Owner change
+
+The English Owner reviewed capacity 25 against saved version 2. The disposable database temporarily transferred the active Owner membership to a second fictional identity. The first identity received a 403 during that interval. The second identity saved capacity 26 through the actual Next handler, producing version 3. The fixture then restored the first Owner membership before the browser submitted its existing review.
+
+The version-2 save returned the domain stale refusal and retained the capacity-25 draft. Compare current plan read the saved version. A fresh review showed current capacity 26 and proposed capacity 25, with acknowledgement required before Save. PostgreSQL recorded one planning operation and one save audit for the competing save. This is local evidence with fictional identity, real route handlers and disposable PostgreSQL 17. Hosted WD-15 remains open. Continue with WD-16 by verifying how a second tab observes a confirmed dated-plan save. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### WD-16 dated-plan refresh in a second tab
+
+Two Chromium tabs opened the same English Owner date. The first used the existing review and keyboard save to commit capacity 27 at version 4. The second still displayed capacity 26 before its controlled visibility return. It then issued one authorized read for the same academy, program and date and continued showing 26 while the response was held. Releasing the read showed 27 at the same URL. The paired focus signal added no read. PostgreSQL recorded one planning operation and one save audit.
+
+This verifies foreground refresh through the actual Next handler and disposable PostgreSQL 17 with fictional identity. Hosted behavior and cross-device synchronization remain outside this receipt. Continue with WD-17 by holding an old academy response while switching to another authorized academy and checking the displayed scope. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### WD-17 academy switch during a pending Today read
+
+The English Owner opened Today in the first fictional academy. Its signed handler returned HTTP 200 and included a session unique to that academy. Chromium held the response while the Owner used Switch workspace, loaded current memberships through the actual chooser and opened a second authorized academy. The second Today read returned HTTP 200 and rendered its own session. After the test released the intercepted response, the second session and URL remained current and the first session was absent. Both navigation steps stayed in the existing browser document.
+
+This verifies the academy-switch path in local Chromium, Next and disposable PostgreSQL 17. The fixture uses a fictional Clerk session and disables invitation delivery. Role switching and hosted WD-17 remain open. Continue with WD-18 by checking revoked access, an expired session and recovery through the normal Owner route. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### WD-18 Owner access and recovery
+
+Today now uses the HTTP status from the scoped read to distinguish expired sign-in from revoked authority. Both refusals hide the session and its dated action. The 401 asks the user to sign in again and retry. The 403 directs the user to their current workspace.
+
+The normal English Today route exercised the actual signed read sequence 401, 200, 403 and 200 in Chromium and disposable PostgreSQL 17. The fixture restored the fictional session and suspended Owner membership independently. Each retry reopened the authorized session. The shared Attendance suite independently exercised missing sign-in, account and authority fencing, and same-original recovery with one canonical result. Hosted provider renewal and WD-18 remain open. Continue with the already authorized online scope of WD-19 and retain the deferred offline cases. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json) · [Attendance receipt](evidence/ex07-normal-attendance/runtime.json)
+
+### WD-19 online dated-plan read failure
+
+The English Owner opened a session from Today. Chromium injected HTTP 503 into the first read for that exact academy, program and date. The route displayed an unavailable state and offered Load saved plan. Editing and saving were unavailable, and the database recorded no new operation or audit.
+
+The keyboard retry loaded the date through the actual signed Next handler and disposable PostgreSQL 17. Review and save set capacity 19 at version 1. The following read reopened that value, and the database recorded one operation and one audit. Hosted verification and the deferred offline and connectivity variants remain open. Continue with the authorized WD-20 storage failure and reload cases. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json)
+
+### EX-07 connected Owner working-day candidate
+
+The dated-plan save now requires a stored recovery ID before submission. Existing valid IDs route to the original check. A malformed ID, blocked storage read or quota failure prevents submission while retaining the review. The signed Chromium fixture confirmed zero save calls, operations or audits for those three faults. The same fixture retains the reload and reconciliation proof for interrupted saves with a valid ID. Complete loss of the locator and server-side discovery remain open under LF-P04.
+
+The connected fixture exercised Today, Calendar, dated planning, Program return and the 18-player register with actual Next handlers and disposable PostgreSQL. An injected unavailable feedback panel kept its unavailable label while the Today session and date link remained usable. This proves the existing panel-state rendering. It does not add independent server-side failure isolation to the combined Today read.
+
+The production navigation checks covered EN/AR entry, guarded return, focus and checked refresh. The Calendar browser checks covered filtered, partial and empty states, 24 layout combinations and the selected date action and return. Ten PostgreSQL projection checks covered current civil-day anchoring in Cairo, Adak and Kiritimati, scoped reads, permissions and bounded paging. The existing normal Attendance and workspace transfer suites passed against the combined source. The working-day receipt includes the fixture request count, signed RPC count and bytes, including controlled failures. Provider costs and hosted performance remain unmeasured.
+
+This is the connected Owner web candidate for review. Physical device and zoom coverage, complete upgrade and lost-locator recovery, hosted repeats and formal Owner acceptance remain open. Dedicated offline and PWA work follows the existing sequencing. The separate Players staging proof remains on the promoted Players source. [Working-day receipt](evidence/owner-working-day-next-2026-11-04.json) · [Attendance receipt](evidence/ex07-normal-attendance/runtime.json)
