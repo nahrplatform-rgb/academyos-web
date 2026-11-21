@@ -82,11 +82,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Prepare the exact checked EX-21 synthetic candidate and record source-bound local, Foundation and preview receipts. Preserve scope and outstanding provider/refund choices.
+Keep exact checked EX-21 f323df2 and approved A–D scope. Stage schema through the approved release path and verify the signed-in trial before product acceptance.
 
 ### Separate release follow-up
 
-Staging serves checked EX-20 5915642. Verify EX-21 schema rollout and signed-in synthetic Owner and Guardian EN/AR after the Owner promotes. Keep signed-in EX-17–20 walkthroughs separate.
+Foundation run 44945403012 passed 57/57 on exact f323df2; preview Ready and same source serves staging through a separate redeploy. Missing billing schema is the remaining hosted prerequisite. Any future promotion remains Owner-only.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
@@ -102,9 +102,9 @@ Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no 
 
 - Design: Owner approved A–D on 21 November for the L00–L05 fictional-unit manual billing workflow. Refunds, provider and real-money rules remain open.
 - Implementation: Scoped Owner fee, bill, manual receipt, allocations and linked adjustments implemented with a separately granted Guardian statement and export.
-- Local checks: Signed disposable app and PostgreSQL 17 passed EN/AR L01–L05, prior-version review refusal, original bank receipt recovery, immutable history and paginated export with revoked and foreign scope denied.
-- Deployment: No EX-21 migration or promotion applied to staging; EX-20 still serves checked 5915642.
-- Hosted verification: EX-21 hosted verification open. Earlier signed-in EX-17 through EX-20 walkthroughs remain in their own tracker rows.
+- Local checks: EN/AR signed disposable billing and PostgreSQL passed L01–L05, stale review refusal, original bank receipt recovery, immutable history, payer denial and paginated export. Build, lint, types, 119 units, EX-20 rerun, source-bound regression and review checks passed.
+- Deployment: Exact EX-21 f323df2 passed Foundation 57/57 and preview Ready. A separate redeploy made the same commit serve staging on dpl_GifD1YpwvdEYkddewnxN14R2EC7i. Billing schema rollout open.
+- Hosted verification: Exact staging SHA f323df2 and public /en and /ar 200 verified. Read-only staging catalog confirmed billing accounts, entries and statement function absent. Signed-in EX-21 blocked by schema; earlier EX-17 through EX-20 are separate.
 - Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
