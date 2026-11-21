@@ -19,9 +19,15 @@ The connected run reproduced loss of the selected child when the shared sidebar 
 
 The candidate includes the EX-17 sport selector change. The bilingual program test checks both qualified names, the original default, and read-only reopen of previously saved programs in both sports. The Owner working day, workspace startup, normal and additive Attendance, and 74 workspace transfer regression checks also passed. [EX-17 evidence](ex17-multisport-foundation-2026-11-21.md)
 
-Provider readback on 21 November confirmed that staging serves `21aa73ef2d956fb1b42299ad2f6dedc66a43d04d` and Supabase lists migration `20261121123317`. Catalog football is enabled in the original custom football academy. Catalog swimming is enabled in the original custom swimming academy. The identically named original swimming sport still has its saved program. This is provider and database evidence for the earlier release. The signed-in EX-17 multisport, EX-18 Schedule and EX-19 Attendance walkthroughs remain separate. [Staging deployment](https://vercel.com/academy-os2/academyos-web/fndeNPoTjnRK7YYsDcvy3kWzqvim)
+Initial provider readback on 21 November confirmed that staging served `21aa73ef2d956fb1b42299ad2f6dedc66a43d04d` and Supabase lists migration `20261121123317`. Catalog football is enabled in the original custom football academy. Catalog swimming is enabled in the original custom swimming academy. The identically named original swimming sport still has its saved program. This is provider and database evidence for the earlier release. The signed-in EX-17 multisport, EX-18 Schedule and EX-19 Attendance walkthroughs remain separate. [Staging deployment](https://vercel.com/academy-os2/academyos-web/fndeNPoTjnRK7YYsDcvy3kWzqvim)
 
 The current-experience review was refreshed and checked, with 1,940 captured frames and no capture gaps. Execution, implementation and continuation validators passed. [Experience review](../../design/app-experience-review/AcademyOS-experience-review.html)
+
+## Checked source and staging
+
+Commit `5915642bc9be470a41d736e284db89dba63c3c19` is on PR #1. Foundation run `44921961890` passed all 56 steps on attempt 1, including the dedicated connected EX-20 runner and the program picker regression. Vercel returned preview `dpl_43gzQ6HEUHPPMCxk5oJgrc7ZXhfe` as Ready at that exact commit with no production target. [PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1) · [Foundation](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44921961890) · [Preview](https://vercel.com/academy-os2/academyos-web/43gzQ6HEUHPPMCxk5oJgrc7ZXhfe)
+
+A later provider readback resolved `staging.academy.nahr.dev` to Ready deployment `dpl_GdxgUVyM7Nu2DfNXjDULgFedeHpC`, with the exact checked commit and the staging alias assigned. The redeploy happened outside this task. Both public locale entry paths returned HTTP 200. The migration and both catalog enablements were reconfirmed. Signed-in EN/AR Trainer, Owner and Guardian behavior, the separate EX-17 through EX-19 walkthroughs, and Owner working acceptance remain open. [Current staging deployment](https://vercel.com/academy-os2/academyos-web/GdxgUVyM7Nu2DfNXjDULgFedeHpC)
 
 ## Grouped product decisions
 

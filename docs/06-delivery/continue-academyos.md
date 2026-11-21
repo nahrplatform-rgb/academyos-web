@@ -86,7 +86,7 @@ Reconcile existing billing source and approved policy, and prepare one Family bi
 
 ### Separate release follow-up
 
-No new candidate yet;one combined exact-source candidate and Owner-controlled promotion when ready
+EX-21 has no release candidate. EX-20 is serving checked 5915642 on staging and has a separate pending signed-in walkthrough. See the EX-17 through EX-20 rows for their individual follow-ups.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
