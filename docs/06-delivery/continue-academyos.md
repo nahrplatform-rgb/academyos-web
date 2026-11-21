@@ -82,11 +82,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Complete the connected hosted EX-21 bill, verified manual receipt, allocation, original-reply recovery, linked corrections, scoped Guardian statement and CSV. Dedicated fictional player is ready; separate Guardian sign-in and invitation remain pending.
+After the Owner redeploys f323df2 with the restored verification pair, verify the separate Gmail trial sign-in and complete the approved bilingual Owner and Guardian billing workflow.
 
 ### Separate release follow-up
 
-Serving f323df2 passed Foundation 57/57; applied migration 20261121211452 rechecked. Owner bilingual entry passed. Verify staged writes and payer export with distinct temporary Guardian authority before EX-21 acceptance. Future promotion stays Owner-only.
+The restored staging verification setting is saved. Owner redeploy required for it to reach runtime. Foundation 57/57 for f323df2 and applied schema 20261121211452 remain the checked baseline.
 
 Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
 
@@ -104,7 +104,7 @@ Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no 
 - Implementation: Scoped Owner fee, bill, manual receipt, allocations and linked adjustments implemented with a separately granted Guardian statement and export.
 - Local checks: EN/AR signed disposable billing and PostgreSQL passed L01–L05, stale review refusal, original bank receipt recovery, immutable history, payer denial and paginated export. Build, lint, types, 119 units, EX-20 rerun, source-bound regression and review checks passed.
 - Deployment: Checked f323df2 serves staging. Supabase applied the checked EX-21 source as 20261121211452 after verified backup 44950313559 and PostgreSQL 17 rehearsal.
-- Hosted verification: Exact staging f323df2, migration 20261121211452 and gateway denials verified. Signed-in Owner EN/AR Player and payer lookup passed; dedicated fictional player registered in Isolation Academy B. No eligible distinct Guardian yet.
+- Hosted verification: Exact f323df2 and applied billing schema verified. Signed-in Owner EN/AR lookup passed and fictional player is saved. The Gmail/iCloud verification setting was restored in Vercel and read back. Serving staging deployment predates the change; separate Guardian sign-in and invitation remain open.
 - Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
