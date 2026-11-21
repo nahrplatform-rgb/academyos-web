@@ -18,12 +18,15 @@ const bundle = await build({
       import Changes from '${web}/components/session-change-workspace';
       import Planning from '${web}/components/date-planning-workspace';
       import Experience from '${web}/components/experience-workspace';
+      import ProgramPlanning from '${web}/components/program-planning-workspace';
+      import Publication from '${web}/components/publication-workspace';
       const [,locale,,academy,,program,day,change] = location.pathname.split('/');
       const query = new URLSearchParams(location.search);
       const props = {locale, academy, program, day};
-      createRoot(document.getElementById('root')).render(change ? <Changes {...props}/> :
+      createRoot(document.getElementById('root')).render(day === 'plan' ? <ProgramPlanning {...props}/> :
+        day === 'publish' ? <Publication {...props} mode="owner"/> : change ? <Changes {...props}/> :
         day ? <Planning {...props} from={query.get('from')} returnTo={query.get('return')}/> :
-        <Experience {...props} role="owner" calendar anchor={query.get('anchor')}/>);
+        <Experience {...props} role={query.get('role') ?? 'owner'} calendar anchor={query.get('anchor')}/>);
     `,
     resolveDir: root,
     loader: 'tsx',
@@ -49,12 +52,15 @@ const handlers = await build({
   stdin: {
     contents: `export {sessionChangeRequest} from '${web}/lib/session-changes';
       export {planningRequest} from '${web}/lib/planning';
-      export {experienceRequest} from '${web}/lib/experience-projections';`,
+      export {experienceRequest} from '${web}/lib/experience-projections';
+      export {programPlanningRequest} from '${web}/lib/program-planning';
+      export {publicationRequest} from '${web}/lib/publication';
+      export {guardianRequest} from '${web}/lib/guardians';`,
     resolveDir: root,
   },
   bundle: true, write: false, platform: 'node', format: 'esm',
 });
-const {sessionChangeRequest, planningRequest, experienceRequest} = await import(
+const {sessionChangeRequest, planningRequest, experienceRequest, programPlanningRequest, publicationRequest, guardianRequest} = await import(
   'data:text/javascript;base64,' + Buffer.from(handlers.outputFiles[0].text).toString('base64')
 );
 const css = await readFile(resolve(web, 'app/globals.css'), 'utf8');
@@ -83,7 +89,7 @@ try {
     const requests = [];
     page.on('pageerror', error => errors.push(error.message));
     try {
-      const {academy, program, day} = await next();
+      const {academy, program, day, proposal} = await next();
       let queue = Promise.resolve();
       let drop = true;
       await page.route('**/api/**', route => {
@@ -93,6 +99,9 @@ try {
             '/api/session-changes': sessionChangeRequest,
             '/api/planning': planningRequest,
             '/api/experience': experienceRequest,
+            '/api/program-planning': programPlanningRequest,
+            '/api/publication': publicationRequest,
+            '/api/guardians': guardianRequest,
           }[path];
           assert.ok(handler, `Unexpected request ${path}`);
           const body = route.request().postDataJSON();
@@ -119,6 +128,36 @@ try {
       const base = `/${locale}/workspace/${academy}`;
       const moved = '2100-02-02';
       const occurrence = page.locator(`[data-occurrence="${program}:${day}"]`);
+      await page.goto(`${origin}${base}/programs/${program}/plan`);
+      await page.getByRole('button', {name: new RegExp(proposal.slice(0, 8))}).click();
+      await page.getByRole('checkbox', {name: label(/I reviewed the summary/, /راجعت الملخص/)}).check();
+      await button('Save 39 dates together', 'حفظ 39 تاريخاً معاً').click();
+      await expect(page.getByText(label(/All reviewed date changes saved together/, /حُفظت كل تغييرات التواريخ المراجعة/))).toBeVisible();
+      const publication = `${origin}${base}/programs/${program}/publish`;
+      async function confirmVisibility(english, arabic) {
+        await button('Check visibility changes', 'فحص تغييرات الظهور').click();
+        await page.getByRole('checkbox', {name: label(/I reviewed the changes/, /راجعت التغييرات/)}).check();
+        await button(english, arabic).click();
+        await expect(page.getByText(label(/All reviewed visibility changes committed together/, /حُفظت كل تغييرات الظهور المراجعة/))).toBeVisible();
+      }
+      await page.goto(publication);
+      await button('Publish planned dates', 'نشر التواريخ المخططة').click();
+      await confirmVisibility('Publish 40 dates together', 'نشر 40 تاريخاً معاً');
+      async function verifyRoleCalendars(visible) {
+        for (const role of ['trainer', 'guardian']) {
+          await page.goto(`${origin}${base}/calendar?role=${role}&anchor=${day}`);
+          await expect(page.getByText('Football sessions', {exact: true}).first()).toBeVisible();
+          if (visible) await expect(occurrence).toBeVisible();
+          else await expect(occurrence).toHaveCount(0);
+          await expect(page.getByText('Swimming sessions', {exact: true})).toHaveCount(0);
+        }
+      }
+      await verifyRoleCalendars(true);
+      await page.goto(publication);
+      await button('Withdraw published dates', 'سحب التواريخ المنشورة').click();
+      await page.getByLabel(label('Last date', 'آخر تاريخ'), {exact: true}).fill(day);
+      await confirmVisibility('Withdraw 1 dates together', 'سحب 1 تاريخاً معاً');
+      await verifyRoleCalendars(false);
       await page.goto(`${origin}${base}/calendar?anchor=${day}`);
       await expect(page.getByText('Swimming sessions', {exact: true}).first()).toBeVisible();
       await occurrence.click();
@@ -152,7 +191,7 @@ try {
       await page.getByLabel(label('Go to date', 'انتقل إلى تاريخ'), {exact: true}).fill(moved);
       await expect(occurrence).toHaveAttribute('data-state', 'cancelled');
       assert.deepEqual(errors, []);
-      console.log(`PASS ${locale} Calendar to dated plan, move, lost reply, reconciliation, cancellation and Calendar readback`);
+      console.log(`PASS ${locale} program planning, publication, role visibility, withdrawal, move recovery and cancellation`);
     } finally {
       await page.close();
       child.stdin.end();
