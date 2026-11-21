@@ -1,0 +1,9 @@
+# EX-19 Attendance and QR checkpoint
+
+The connected disposable PostgreSQL case builds on the EX-17/18 multisport fixture. It verifies a saved football event retains its published sport projection through Trainer Attendance. The synthetic Trainer marks Present, the Owner approves a correction to Absent, history retains both outcomes, and a QR scan cannot override the current Absent state. After the Owner corrects back to Present, a QR capture replays against the same Attendance record. A swimming event has its own eligible Trainer and roster, reports its Arabic swimming projection, accepts a QR scan and reads the mark back from the canonical roster. [Connected database test](../../scripts/workspace-download/test_schedule.py)
+
+Local database baseline passed all 8 attendance-register, 7 Attendance, 11 correction, and 9 QR groups. The shared Football/Swimming schedule integration passed. Actual React browser suites passed in production and development for Attendance and QR. These UI suites use synthetic HTTP/identity adapters, so they do not claim connected database proof or hosted identity proof.
+
+Foundation passed on commit `e769c48` for the connected Schedule database test. The fuller English/Arabic Schedule browser case and Attendance/QR database extension were added afterward and still require exact-candidate CI. Staging continues to serve `7454144`. EX-17 migration and Owner promotion remain separate release work. No promotion was performed.
+
+EX-19 remains current. Its broader exit still includes the 18-player working flow, a protected original through offline restart and reconnect, current deadline/version/permission refusals, interrupted-save recovery, valid and invalid QR capture, repeated-scan idempotency, and bilingual connected browser verification. [Execution tracker](../06-delivery/experience-execution.csv)

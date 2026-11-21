@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md](../../docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md](../../docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -83,7 +83,7 @@ Product value for this batch:
 
 ### Ready development action
 
-Use the shared football/swimming database fixture to complete Attendance roster, mark, correction and refusal workflows, then verify QR valid/invalid/repeated scans and readback in EN/AR. Preserve same-original recovery and authority checks.
+Complete the EX-19 bilingual 18-player connected browser workflow, including durable original across offline restart/reconnect, current deadline/version/permission refusals, save recovery and QR invalid/repeated/ambiguous capture. Verify one canonical Attendance result.
 
 ### Separate release follow-up
 
@@ -91,7 +91,7 @@ No new candidate yet;one combined exact-source candidate and Owner-controlled pr
 
 Scoped dependency gate: Present/Absent and accepted Owner offline command retained;staff/late/checkout/Trainer offline only after their rules;named exit: 18-player actual working flow;one original through offline restart/reconnect;current deadline/version/permission/refusal evidence
 
-Read current evidence: `docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md`.
+Read current evidence: `docs/07-handoff/ex19-attendance-qr-checkpoint-2026-11-21.md`.
 
 Batch includes: Normal roster/save;canonical/local transitions;QR/ambiguity;corrections;role and expanded-state readiness; distinct connected Attendance and QR outcomes: open the scheduled roster, mark/review/save/reopen and make permitted corrections; configure a scoped QR scan window and resolve scans against the same authoritative Attendance record
 
@@ -103,9 +103,9 @@ Policy boundary: Present/Absent and accepted Owner offline command retained;staf
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
 - Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Initial 8-case registration, 7-case Attendance, 11-case correction and 9-case QR suites passed. Connected multisport attendance and QR test now checks canonical records across football and swimming.
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
-- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
+- Local checks: Passed baseline 8 attendance-register, 7 Attendance, 11 corrections, 9 QR database groups, plus shared Football/Swimming attendance and QR projection/readback. Actual Attendance and QR React suites passed production/development. Full 18-player connected bilingual browser/reconnect gate remains open.
+- Deployment: EX-18 candidate CI and combined follow-up CI pending. Staging still serves 7454144.
+- Hosted verification: No EX-18 or EX-19 signed-in hosted walkthrough yet. Owner promotion remains separate.
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
