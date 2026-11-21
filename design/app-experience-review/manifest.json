@@ -1,6 +1,6 @@
 {
-  "source": "7454144c370ec5c42a99bd9fe96f52f89b653d8c",
-  "generatedAt": "2026-11-21T02:09:06.520Z",
+  "source": "e769c48d5b388950e15234879bf752b6a0c17e16",
+  "generatedAt": "2026-11-21T03:47:25.390Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -66,7 +66,7 @@
     "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
     "apps/web/src/components/program-planning-workspace.tsx": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
     "apps/web/src/components/program-workspace.tsx": "0110fa05bf49bdb2c666a414892b03b5cde8865165a2ef7f231541016cbdcf8c",
-    "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+    "apps/web/src/components/publication-workspace.tsx": "a5baabd6a3e99c2c230738f0eb584d2898bbd37084e87c08ccab429a03b3dab1",
     "apps/web/src/components/qr-camera.tsx": "c4379109d043a481cc6330f673e9341a2611e6688edc6f18cd206cd8e6646144",
     "apps/web/src/components/qr-print-card.tsx": "f9587031fb76421a037b717ec86e8d3e347fd4e4159c7c63dbe8e81acc3b1097",
     "apps/web/src/components/qr-workspace.tsx": "fc80c6980fe030c84709c32467ddcace7f46679342d6a69589fed7b768e19c76",
@@ -122,7 +122,7 @@
     "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
     "scripts/programs/test_ui.mjs": "323f2b65e626ad487b8b428325118d9c0fb4fe6fea0122f67a3a34135dabca84",
     "scripts/publication/save_followup.mjs": "aeee40d0c78b0af5e5970732f2b25fac56ca209ac481db37fe02d20e2caf8fcb",
-    "scripts/publication/test_ui.mjs": "f98883eed2afa299083fec54285e308f6a4fa02aa02c538adb62ba3c411cceea",
+    "scripts/publication/test_ui.mjs": "45b5f62b3e70f8675b382965e67ccf86486c8ea8b2b51913ae39e65c48947d0d",
     "scripts/qr-attendance/save_followup.mjs": "10af18647c1509b2f6e979c5c8d1e0569f3aedb32ae76df8e34a79b1fa9268b6",
     "scripts/qr-attendance/test_ui.mjs": "579bdc3e23d1e1b24892d10db6c49d9fe0136aed1eb314ff1e110c64e4457114",
     "scripts/review-decisions/publication_lifecycle.mjs": "36e8a4eeac71a30536335c5d1666e1db899332ed3e6d98bf4dc7e18f086f8352",
@@ -133,9 +133,9 @@
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/workspace-layout/test_ui.mjs": "08fd3c61713076627e1d562f70d87e780c732ebce74b62132ccd45a65d9522be"
   },
-  "capturePackSha256": "78ff29cd20a3b5b0896194e0ab48d4c554543a13788f2e90161d24356e753197",
-  "htmlSha256": "98a75b2a386ad22acc416f68d44ec627f7887c728477bf0779e82a68444368ad",
-  "frames": 1929,
+  "capturePackSha256": "153aed4c56b1d4b2a23131270fc359dcb8fb36c66abc70fa6ca61a5d68b64daf",
+  "htmlSha256": "24c62310210034584c82fc03c4e7d2d65b02d88f7e1418c40b1a7662c9342ca3",
+  "frames": 1930,
   "transitions": 2716,
   "sourceFiles": 87,
   "sourceLiterals": 8895,
@@ -170,11 +170,11 @@
     },
     {
       "id": "program-planning",
-      "frames": 88
+      "frames": 87
     },
     {
       "id": "publication",
-      "frames": 82
+      "frames": 83
     },
     {
       "id": "session-changes",
@@ -198,7 +198,7 @@
     },
     {
       "id": "development",
-      "frames": 147
+      "frames": 148
     },
     {
       "id": "experience-projections",

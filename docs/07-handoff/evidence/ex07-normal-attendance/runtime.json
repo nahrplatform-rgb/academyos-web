@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=54cac31d-e54a-423b-a970-a339da967c8f"
+          "task": "#attendance-return=e0b33142-3a45-4471-baad-a1c7ecf0e85b"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=a8c81896-0d29-4e60-b42e-1c1bf2c41065"
+          "task": "#attendance-return=03a17ad0-f77d-49b6-b5d0-187fefb87f3b"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=9cb5c280-da62-46ef-bb84-f493db03081f"
+          "task": "#correction-return=70c4652e-1849-4911-bbb9-18c01648a3dd"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=1078a18f-adfd-454b-91d5-e9c95a36d62e"
+          "task": "#development-return=8611fc88-b4f9-47e8-871b-eb4233a3f8e8"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=23f8f79f-deeb-4e20-9372-803d7d9a9ca9"
+          "task": "#development-return=3b6813d4-d51c-487b-b34a-ecff006a59b0"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=e5b1e82d-6955-429a-9e36-77eb5cd0d6fa"
+          "task": "#publication-return=7bad0165-ea6f-4fa4-bee1-900b9ea3dbce"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=4d109f10-6738-462a-a579-2abdffad3ad3"
+          "task": "#publication-return=2adcda09-55d3-44bf-aa83-bed369957905"
         }
       },
       {
@@ -1042,7 +1042,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx": "01ba7db3c7a17f99bb15f2b5903396d80c905d32b7c89c1dbbdae1ef280bb97f",
     "apps/web/src/components/correction-workspace.tsx": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
     "apps/web/src/components/development-workspace.tsx": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
-    "apps/web/src/components/publication-workspace.tsx": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+    "apps/web/src/components/publication-workspace.tsx": "a5baabd6a3e99c2c230738f0eb584d2898bbd37084e87c08ccab429a03b3dab1",
     "apps/web/src/lib/publication.ts": "a01dbcd3ad8c9d9a92afe398ca856e843240c5590f27f4fd9b662b6beb8c9600",
     "apps/web/src/app/api/attendance/route.ts": "f653d31b4c733cf60736229b0c6f37f807f477ff47a2d539c18872472ee25a23",
     "apps/web/src/app/api/development/route.ts": "707018b4050a3eb60eac5e68100261d43878f2dde878f94739c90751a259c138",

@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "7454144c370ec5c42a99bd9fe96f52f89b653d8c",
+  "source_anchor": "e769c48d5b388950e15234879bf752b6a0c17e16",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -500,8 +500,8 @@
     },
     {
       "path": "apps/web/src/components/publication-workspace.tsx",
-      "sha256": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
-      "bytes": 41620
+      "sha256": "a5baabd6a3e99c2c230738f0eb584d2898bbd37084e87c08ccab429a03b3dab1",
+      "bytes": 41665
     },
     {
       "path": "apps/web/src/components/qr-camera.tsx",

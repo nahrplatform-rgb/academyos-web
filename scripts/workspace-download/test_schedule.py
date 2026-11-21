@@ -1,7 +1,9 @@
 """Connected EX-18 Schedule contract on disposable PostgreSQL."""
 import json
 from pathlib import Path
+import re
 import runpy
+import sys
 import unittest
 import uuid
 
@@ -11,7 +13,7 @@ TrainerBoundary = runpy.run_path(str(ROOT / 'scripts/trainers/test_boundary.py')
 
 
 class ScheduleBoundary(WorkspaceBoundary):
-    def test_multisport_schedule(self):
+    def schedule_fixture(self):
         academy, branch = self.academy()
         self.sql((ROOT / 'supabase/migrations/20261121014923_ex17_multisport_foundation.sql').read_text())
         self.save(academy, 3, 'enable_sport', {'key': 'football'})
@@ -73,7 +75,10 @@ class ScheduleBoundary(WorkspaceBoundary):
         family = self.calendar(academy, actor='guardian', who='user_guardian', link=link, first=first, last=first)
         self.assertEqual([row['id'] for row in family['items']], [event])
         self.assertEqual(self.change(academy, football, first)['error'], 'published_locked')
+        return academy, football, first, link, event
 
+    def test_multisport_schedule(self):
+        academy, football, first, link, event = self.schedule_fixture()
         withdrawal = self.prepare_pub(academy, self.pub(academy, football, 'withdraw', first=first, last=first))
         self.assertEqual(self.mutate(academy, withdrawal, 'activate')['state'], 'committed')
         self.assertNotIn(event, [row['id'] for row in self.schedule(academy)['items']])
@@ -114,5 +119,39 @@ class ScheduleBoundary(WorkspaceBoundary):
         self.assertEqual(self.schedule(academy, first=moved_day)['items'], [])
 
 
+def browser_fixture():
+    ScheduleBoundary.setUpClass()
+    try:
+        test = ScheduleBoundary()
+        academy, football, first, _, _ = test.schedule_fixture()
+        withdrawal = test.prepare_pub(academy, test.pub(academy, football, 'withdraw', first=first, last=first))
+        test.assertEqual(test.mutate(academy, withdrawal, 'activate')['state'], 'committed')
+        print(json.dumps({'academy': academy, 'program': football['id'], 'day': first}), flush=True)
+        for line in sys.stdin:
+            request = json.loads(line)
+            rpc = request['rpc']
+            if rpc not in {
+                't9_read_v1', 't9_review_v1', 't9_save_v1', 't9_operation_v1',
+                'q6_read_v1', 'p5_dates_v1', 'x15_owner_calendar_v1', 'x16_owner_current_calendar_v1',
+            }:
+                raise ValueError(f'Unsupported Schedule fixture request: {rpc}')
+            args = request['args']
+            if args['a'] != academy or args.get('p', football['id']) != football['id']:
+                raise ValueError('Request is outside the Schedule fixture')
+            if any(not re.fullmatch('[a-z_]+', key) for key in args):
+                raise ValueError('Unsupported fixture argument')
+            arguments = ','.join(
+                f"{key}=>{'null' if value is None else literal(value)}"
+                for key, value in args.items()
+            )
+            result = test.sql(f'select public.{rpc}({arguments})', 'user_owner')
+            print(result, flush=True)
+    finally:
+        ScheduleBoundary.tearDownClass()
+
+
 if __name__ == '__main__':
-    unittest.main(defaultTest='ScheduleBoundary.test_multisport_schedule', verbosity=2)
+    if sys.argv[1:] == ['--browser-fixture']:
+        browser_fixture()
+    else:
+        unittest.main(defaultTest='ScheduleBoundary.test_multisport_schedule', verbosity=2)

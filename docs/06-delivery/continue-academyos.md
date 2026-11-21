@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Run the connected bilingual browser workflow with shared authoritative state across planning, publication, Calendar, role discovery and one interrupted dated save. Preserve the passing connected PostgreSQL case. Then continue to Attendance and QR.
+Exercise whole-program planning, publication and withdrawal, and affected role views through the EN/AR browser on the same database. Dated move, recovery, cancellation and Calendar readback passed in both locales. Then continue to Attendance and QR.
 
 ### Separate release follow-up
 
-Foundation candidate for the connected database test. EX-18 staging review follows the complete scoped checkpoint; Owner performs promotions.
+EX-18 staging review follows the complete scoped checkpoint. EX-17 migration, Owner promotion and signed-in walkthrough tracked separately.
 
 Scoped dependency gate: No automatic fees/makeup/notifications beyond accepted rule;new recurrence/resource commands separately specified;named exit: Whole connected40-date journey;simultaneous sports;stale/conflict/unknown;retained exceptions and correct role discovery
 
@@ -102,9 +102,9 @@ Policy boundary: No automatic fees/makeup/notifications beyond accepted rule;new
 ## Actual delivery status for the current family
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
-- Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Passed 79 inherited database cases and a connected 40-date football plus swimming persistence, authority, overlap, publication and dated change case. Six browser suites passed with synthetic transport; continuous bilingual walkthrough with a shared live database remains open.
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Implementation: Publication overview displays the program sport. Connected Schedule database and dated-change browser checks added.
+- Local checks: Connected 40-date multisport database check passed. English and Arabic database-backed Calendar, move recovery, cancellation and readback passed. Separate planning, publication and role browser suites passed.
+- Deployment: Foundation passed on e769c48 for the connected database case. Later publication label and dated-change browser candidate requires separate CI.
 - Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
