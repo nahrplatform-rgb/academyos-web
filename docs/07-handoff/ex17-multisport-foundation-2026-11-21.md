@@ -15,3 +15,11 @@ The PYSA scheduling reference connects real dates with programs and provides spo
 - Local production build, lint, type checking, 119 unit tests and the 24-case existing workspace transfer suite passed. The linked PR carries exact-candidate CI evidence. [PR](https://github.com/nahrplatform-rgb/academyos-web/pull/1)
 
 The Owner handles staging promotion. Rollout requires the additive migration on staging before the signed-in walkthrough. Confirm the applied migration, exact served commit, both sports in one synthetic academy and the second academy's access refusals. The next development workflow is EX-18 Schedule after the scoped EX-17 gate, followed by Attendance and QR in tracker order.
+
+## Candidate and next workflow
+
+Foundation run 44854580720 passed all 55 steps on attempt 2 for `57a715972cc97d681ad357efa94b91a2db29dce4`. Attempt 1 timed out in the existing Arabic Players private-profile browser case. The same source passed that step on rerun. Vercel confirmed the exact preview was Ready for the same commit. The local and CI checkpoint passed. Staging migration application, Owner promotion and signed-in evidence remain open. [Foundation](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44854580720) · [Vercel preview](https://vercel.com/academy-os2/academyos-web/HY5kaVy98Mc4p5E8zLWLTqBEVp5A)
+
+EX-18 is now the primary development workflow. The initial Schedule baseline passed whole-program atomic activation and overlap refusal, publication/withdrawal/republish with immutable snapshots, and concurrent publication versus plan edit. The next connected case combines the 40-date program with simultaneous football and swimming, Calendar and role discovery, dated move and cancellation, and original-operation recovery.
+
+The inherited Schedule database suite subsequently passed all 79 cases, including all 11 session-change cases. This baseline covers existing planning, publication and dated-change contracts. The combined bilingual multisport Schedule case remains open. Staging still served `7454144` when checked against the candidate receipt.

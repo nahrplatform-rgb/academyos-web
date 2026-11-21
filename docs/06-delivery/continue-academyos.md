@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex17-multisport-foundation-2026-11-21.md](../../docs/07-handoff/ex17-multisport-foundation-2026-11-21.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md](../../docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,43 +70,43 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-17: Academy setup and multi-academy/multisport administration
+## Current priority — EX-18: Complete training planning and publication
 
-Delivery batch: **MP-B02 — Academy setup and multi-academy/multisport administration**.
+Delivery batch: **MP-B03 — Complete training planning and publication**.
 
 Product value for this batch:
 
-- **VAL-02** — Record once and find a useful player or staff profile (Academy Owner and permitted staff).
+- **VAL-01** — Understand today and the next required action (Academy Owner).
 - **VAL-03** — Plan a usable multisport day with clear resource responsibility (Academy Owner and Trainer).
-- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
+- **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
 
 ### Ready development action
 
-Complete exact-candidate CI and verify review artifacts. Once scoped EX-17 candidate passes, begin EX-18 Schedule; Attendance and QR follow in order.
+Run the connected bilingual browser workflow with shared authoritative state across planning, publication, Calendar, role discovery and one interrupted dated save. Preserve the passing connected PostgreSQL case. Then continue to Attendance and QR.
 
 ### Separate release follow-up
 
-Verify hosted preview source and readiness. Owner promotes staging. Apply the authorized migration under staging rollout rules and run the signed-in bilingual synthetic workflow.
+Foundation candidate for the connected database test. EX-18 staging review follows the complete scoped checkpoint; Owner performs promotions.
 
-Scoped dependency gate: Scoped exit: Owner enables football and swimming, saves and reopens program sport, existing programs and shared Players retained, Schedule/Attendance/QR use saved sport and foreign academy refused.
+Scoped dependency gate: No automatic fees/makeup/notifications beyond accepted rule;new recurrence/resource commands separately specified;named exit: Whole connected40-date journey;simultaneous sports;stale/conflict/unknown;retained exceptions and correct role discovery
 
-Read current evidence: `docs/07-handoff/ex17-multisport-foundation-2026-11-21.md`.
+Read current evidence: `docs/07-handoff/ex18-schedule-checkpoint-2026-11-21.md`.
 
-Batch includes: Branch/sport/resource configuration;membership/relationship scope;conditional fields;Owner administration
+Batch includes: Program details/weekday times;automatic40-date checks;roster/capacity/resource allocation;publication/withdrawal;move/cancel/history; Schedule module: create and publish sessions through the approved plan, then apply agreed changes, cancellations or withdrawal and reopen Calendar and affected role views
 
-Batch exit evidence: Two academies with different sports/settings;resource/field configuration create/edit/reopen and foreign-scope refusal
+Batch exit evidence: Whole connected40-date journey;simultaneous sports;stale/conflict/unknown;retained exceptions and correct role discovery; verify persisted session and roster, changed and cancelled states, correct Calendar and role visibility, conflict refusal and original-operation recovery in EN/AR
 
-Policy boundary: Resource booking/required fields/custom roles/retention need specific current contracts
+Policy boundary: No automatic fees/makeup/notifications beyond accepted rule;new recurrence/resource commands separately specified
 
 ## Actual delivery status for the current family
 
-- Design: Owner approved football and swimming enablement and saved program sport across Schedule, Attendance and QR. Sport enrollment, member IDs, sport fields, resources and delegation retain follow-up scope.
-- Implementation: Implemented additive Owner enablement, signed explicit program sport, saved sport reopen and Calendar/publication projections. Shared Player identity and legacy programs preserved.
-- Local checks: Passed disposable PostgreSQL upgrade and two-academy connected case, EN/AR setup and program browser fixtures, lint, production build, type checking, 119 unit tests and 24 existing workspace database cases.
-- Deployment: Exact candidate CI and preview pending; Owner promotes staging.
-- Hosted verification: EX-17 staging migration and signed-in multisport walkthrough pending.
-- Owner acceptance: Scope approved; working acceptance pending.
+- Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
+- Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
+- Local checks: Passed 79 inherited database cases and a connected 40-date football plus swimming persistence, authority, overlap, publication and dated change case. Six browser suites passed with synthetic transport; continuous bilingual walkthrough with a shared live database remains open.
+- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
+- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work
@@ -143,8 +143,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 7. **EX-11 — Persistent-local reopened working-day acceptance and role adoption gate** (checkpoint_passed; MP-B04).
 8. **EX-13 — Normal local-first Owner Players and Calendar before app-wide adoption** (checkpoint_passed; MP-B01).
 9. **EX-07 — Remaining Operations adoption and app-wide workflow continuity** (checkpoint_passed; MP-B01).
-10. **EX-17 — Academy setup and multi-academy/multisport administration** (current; MP-B02).
-11. **EX-18 — Complete training planning and publication** (queued; MP-B03).
+10. **EX-17 — Academy setup and multi-academy/multisport administration** (checkpoint_passed; MP-B02).
+11. **EX-18 — Complete training planning and publication** (current; MP-B03).
 12. **EX-19 — Complete attendance capture and review** (queued; MP-B04).
 13. **EX-20 — Family and Trainer development day** (queued; MP-B05).
 14. **EX-21 — Family billing to reconciled statement** (queued; MP-B06).

@@ -149,8 +149,10 @@ class ContinuationTests(unittest.TestCase):
         with (ROOT / 'docs/06-delivery/ai-work-items.csv').open(newline='') as stream:
             tasks = list(csv.DictReader(stream))
         task = next(item for item in tasks if item['task_id'] == 'DS-002')
-        self.active['execution_state'] = 'queued'
         parent = next(row for row in self.rows if row['work_id'] == task['parent_work_id'])
+        for row in self.rows:
+            if row['execution_lane'] == 'primary' and int(row['execution_order']) > int(parent['execution_order']):
+                row['execution_state'] = 'queued'
         parent['execution_state'] = 'current'
         before = copy.deepcopy(self.rows)
         result = render(self.rows, self.batches)
