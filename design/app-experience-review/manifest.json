@@ -1,6 +1,6 @@
 {
-  "source": "8ca12c53a8e17d7dab2d0db95a48c19556352a2d",
-  "generatedAt": "2026-11-22T07:00:01.918Z",
+  "source": "641b7cf4f232bf7a71b7a922ce1463a317fd7d68",
+  "generatedAt": "2026-11-22T07:31:07.915Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -104,9 +104,9 @@
     "docs/03-design/journey-register.csv": "bb280e45cd8596e488075190deb31f71fec164596f48fac062177a4d4256fe3f",
     "docs/03-design/screen-data-loading-matrix.csv": "37b62e15efb5eb9f2c6d480553ae05a756983965550d49c20077037bcc7c4558",
     "docs/04-engineering/journey-security-matrix.csv": "817835861f9e1f032d51ea762e0efbbb5c589451fb584b571c4eda79b3d35775",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "74dc73a8a5e0e76e280bfcf5d84f17ecbec711d37ef9abd3b68f883d2f50ac9b",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "c72c305aeb6a3f2c4c5dd3db959871b9e254806e248f8b5b89f15268713aec65",
     "docs/06-delivery/app-implementation-requirement-links.csv": "c0e8b976d404521c4405ad15f7bd36fe75f1ea393561ebaee4afc656e815f2dd",
-    "docs/06-delivery/app-implementation-screen-matrix.csv": "46730e0071a2690c927740baf1b2c03669b6f1d1db18a43c3951c74970b788ef",
+    "docs/06-delivery/app-implementation-screen-matrix.csv": "459b2900fc190221a9ae2f75ec1d0e1f5efcc296c247322feea74345ed261340",
     "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
     "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
     "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
@@ -151,7 +151,7 @@
     "supabase/migrations/20261122063506_ex22_trainer_compensation.sql": "cdf10b5ecfb9ad4b5d746460b56e8185c7c38fb2d6c9303c32fe28ea7ab30aa4"
   },
   "capturePackSha256": "3594b6e7f1afdfa9d90efd47beaac8063e2d8b30e2db39441dc58553f19f6d8f",
-  "htmlSha256": "bc31f4b5749feabfa32e97ab51784f9089451d1af5e9716b8cceea47874616a1",
+  "htmlSha256": "c2d3c2674326a0fe04acb04a06ad4ce00bebadccf941209fb756d8ee73233072",
   "frames": 2164,
   "transitions": 2925,
   "sourceFiles": 93,

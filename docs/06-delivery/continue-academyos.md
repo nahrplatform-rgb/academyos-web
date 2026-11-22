@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md](../../docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md](../../docs/07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,42 +70,43 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-22: Staff attendance to Trainer earnings and payout
+## Current priority — EX-23: Platform admission to commercial academy lifecycle
 
-Delivery batch: **MP-B07 — Staff attendance to Trainer earnings and payout**.
+Delivery batch: **MP-B08 — Platform admission to commercial academy lifecycle**.
 
 Product value for this batch:
 
 - **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
-- **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
+- **VAL-07** — Run the academy subscription and service business clearly (Platform Owner).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
+- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
 
 ### Ready development action
 
-Verify the complete approved compensation candidate. Keep the synthetic workflow evidence and promotion boundary current.
+Confirm the fictional plan, dates, quota, restriction and manual settlement policy in the worked example before implementing the connected admission-to-recovery workflow.
 
 ### Separate release follow-up
 
-Reverify staging schema and exact implementation after Owner promotion. Confirm live bilingual Owner and Trainer workflow separately.
+Staging serves checked EX-22 641b7cf with migration 20261122072433. Earlier hosted follow-ups are separate. Candidate and Owner-controlled promotion pending for EX-23.
 
-Scoped dependency gate: D-008 and exact approval/delegation policy;no import of legacy payroll formulas;named exit: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery
+Scoped dependency gate: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/production inferred;named exit: Academy/Owner setup plus correct entitlement/invoice/recovery;no private tenant-content access implied
 
-Read current evidence: `docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md`.
+Read current evidence: `docs/07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md`.
 
-Batch includes: Effective contract;staff/coverage source;earning review/request/approval;payout and Trainer statement
+Batch includes: Distinct Platform UX;admission/appointments;plan versions/entitlement;platform billing/proof;restricted/recovery state;redacted operations
 
-Batch exit evidence: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery
+Batch exit evidence: Academy/Owner setup plus correct entitlement/invoice/recovery;no private tenant-content access implied
 
-Policy boundary: D-008 and exact approval/delegation policy;no import of legacy payroll formulas
+Policy boundary: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/production inferred
 
 ## Actual delivery status for the current family
 
-- Design: Owner approved A–D on 22 November for verified coverage, effective per-session terms, explicit approval, linked corrections, manual partial payouts and private own statements.
-- Implementation: Implemented synthetic Owner attendance, terms and earning review through confirmed payout, with a private Trainer statement and own-line correction requests.
-- Local checks: Signed EN/AR connected workflow, Node 24 production build, lint, types and 119 units passed. A PostgreSQL 17 backup restore replayed EX-21 and EX-22 and preserved all 1,065 existing academy rows.
-- Deployment: EX-22 staging rollout pending. Last verified staging is EX-21 f323df2.
-- Hosted verification: EX-22 signed-in Owner and Trainer verification pending deployment.
-- Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
+- Design: M1 invite-led admission and initial setup are approved. The first fictional commercial catalog, entitlement, restriction and manual settlement choices are proposed.
+- Implementation: Existing invite-led admission and Academy Owner setup are available. Commercial plan, subscription, invoice and settlement behavior await the scoped decisions.
+- Local checks: Reviewed current admission and program source, platform billing contract and four relevant PYSA findings. Prepared the fictional worked example and verification map.
+- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
+- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work
@@ -147,8 +148,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 12. **EX-19 — Complete attendance capture and review** (checkpoint_passed; MP-B04).
 13. **EX-20 — Family and Trainer development day** (checkpoint_passed; MP-B05).
 14. **EX-21 — Family billing to reconciled statement** (checkpoint_passed; MP-B06).
-15. **EX-22 — Staff attendance to Trainer earnings and payout** (current; MP-B07).
-16. **EX-23 — Platform admission to commercial academy lifecycle** (queued; MP-B08).
+15. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
+16. **EX-23 — Platform admission to commercial academy lifecycle** (current; MP-B08).
 17. **EX-24 — Communications and support with delivery recovery** (queued; MP-B09).
 18. **EX-25 — Private media with consent and lifecycle** (queued; MP-B10).
 19. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).

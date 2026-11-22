@@ -1,0 +1,24 @@
+# EX-23 Platform admission to commercial academy lifecycle
+
+22 November 2026 · MP-B08 · Synthetic decisions for review
+
+The saved M1 approval covers invite-led synthetic admission by the Platform Owner, verified invitation acceptance, and initial branch, sport and time-zone setup by the Academy Owner. Keep that journey and the separation between Platform and Academy authority. D-009 still needs a bounded commercial decision. D-010, D-021 and D-022 retain their existing owner gates for providers, privileged support and spend. [Saved M1 approval](../00-governance/decisions-and-open-questions.md#m1-bounded-acceptance--22-october-2026) · [Platform billing contract](../02-workflows/platform-billing.md)
+
+## First synthetic proposal
+
+All dates below are illustrative local dates in Africa/Cairo. The price is in fictional units.
+
+| Choice | Recommended trial | Consequence or alternative |
+|---|---|---|
+| Catalog and activation | One versioned monthly plan at 1,000.00 after a 14-day trial. A Platform Owner explicitly assigns the version after academy setup. The plan covers up to two training programs, including drafts, and explains why a third cannot be created. Preserve assigned versions until an explicit plan change. | If the fictional price is 750.00, the first invoice and matching payment are both 750.00. A three-program plan permits the third program. Immediate billing omits the trial. |
+| Due date and restrictions | A 1 November trial start gives trial access through 14 November. Issue the invoice for 15 November through 14 December on 15 November, due 21 November, with grace through 28 November. From 29 November pause new registrations, new programs and new publications. Preserve scoped reads, already-published attendance, and the Academy Owner's billing, export and original-operation recovery paths. Guardians keep access to their own existing records. | Immediate restriction starts 22 November. Blocking attendance as well would prevent staff from recording sessions that families already see. |
+| Payment and recovery | The Academy Owner submits a synthetic full manual bank payment claim with an invoice-bound reference. The Platform Owner verifies and explicitly accepts or rejects it with a saved reason. Acceptance records one settlement and restores entitlements for the same invoiced period. Defer proof files, partial payments, refunds, real charges and gateways from this first synthetic example. | A verified 1,000.00 payment posted on 30 November leaves zero due and restores normal plan access through 14 December. A rejected claim cannot restore access. A duplicate cannot extend access. A partial-payment policy would need its own rule for restoration. |
+| Role boundaries | Platform staff see admission, plan, invoice and redacted operational status. The Academy Owner sees their academy's platform bill, payment claim and recovery status. Managers retain their already-granted operational permissions inside the academy and see the same effective entitlement. | Giving Managers payment access or enabling privileged support would require a separately approved action and audit boundary. |
+
+## Source and verification preparation
+
+- Reuse the [Platform admission route](../../apps/web/src/app/%5Blocale%5D/platform/page.tsx), onboarding workspace and current membership checks. Add a separate transactional platform ledger if the Owner approves the rules. Family billing and Trainer compensation keep their existing ledgers.
+- The current [program creation transaction](../../supabase/migrations/20261121014923_ex17_multisport_foundation.sql) already binds review, membership, scope and original-operation recovery. The proposed program limit can be exercised through that existing path. Enforce the limit at the server transaction alongside membership and role checks, including concurrent writes and recovery from an already over-limit academy. Keep entitlement rules independent of identity.
+- PYSA reference `37d8901c` records Manager reads blocked by an Owner-only entitlement guard (FND-0011), alternate approval and export paths that missed the canonical commercial rules (FND-0027 and FND-0056), and proof approval that reused an unrelated payment on a key collision (FND-0077). Use those cases to check the AcademyOS boundaries and operation identity.
+- Prepare exact EN/AR cases for invite and setup continuity, version assignment, trial and grace boundaries, quota refusal, one invoice and original claim recovered after a lost response, reasoned rejection and successful resubmission, exactly-once settlement and restored writes, historical reads, and foreign-academy and Platform-private-data refusals.
+- Record any existing restricted-state operation that requires a policy choice, including in-progress work started before restriction. Use a controlled fictional date in disposable tests. Keep real gateway, tax, geography, retention and provider access decisions explicit.
