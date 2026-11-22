@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md](../../docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md](../../docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,41 +70,41 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-21: Family billing to reconciled statement
+## Current priority — EX-22: Staff attendance to Trainer earnings and payout
 
-Delivery batch: **MP-B06 — Family billing to reconciled statement**.
+Delivery batch: **MP-B07 — Staff attendance to Trainer earnings and payout**.
 
 Product value for this batch:
 
+- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
 - **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
-- **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
 
 ### Ready development action
 
-After the Owner redeploys f323df2 with the restored verification pair, verify the separate Gmail trial sign-in and complete the approved bilingual Owner and Guardian billing workflow.
+Verify the complete approved compensation candidate. Keep the synthetic workflow evidence and promotion boundary current.
 
 ### Separate release follow-up
 
-The restored staging verification setting is saved. Owner redeploy required for it to reach runtime. Foundation 57/57 for f323df2 and applied schema 20261121211452 remain the checked baseline.
+Reverify staging schema and exact implementation after Owner promotion. Confirm live bilingual Owner and Trainer workflow separately.
 
-Scoped dependency gate: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules;named exit: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
+Scoped dependency gate: D-008 and exact approval/delegation policy;no import of legacy payroll formulas;named exit: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery
 
-Read current evidence: `docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md`.
+Read current evidence: `docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md`.
 
-Batch includes: Plan/effective assignment;bill/receipt/allocation;provider/manual recovery;credit/refund;Guardian statement
+Batch includes: Effective contract;staff/coverage source;earning review/request/approval;payout and Trainer statement
 
-Batch exit evidence: Approved arithmetic examples;one canonical financial outcome;immutable source-linked statements;full export and failure recovery
+Batch exit evidence: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery
 
-Policy boundary: D-001;D-005;D-006;D-007;D-010;D-015 before dependent writes;no invented money rules
+Policy boundary: D-008 and exact approval/delegation policy;no import of legacy payroll formulas
 
 ## Actual delivery status for the current family
 
-- Design: Owner approved A–D on 21 November for the L00–L05 fictional-unit manual billing workflow. Refunds, provider and real-money rules remain open.
-- Implementation: Scoped Owner fee, bill, manual receipt, allocations and linked adjustments implemented with a separately granted Guardian statement and export.
-- Local checks: EN/AR signed disposable billing and PostgreSQL passed L01–L05, stale review refusal, original bank receipt recovery, immutable history, payer denial and paginated export. Build, lint, types, 119 units, EX-20 rerun, source-bound regression and review checks passed.
-- Deployment: Checked f323df2 serves staging. Supabase applied the checked EX-21 source as 20261121211452 after verified backup 44950313559 and PostgreSQL 17 rehearsal.
-- Hosted verification: Exact f323df2 and applied billing schema verified. Signed-in Owner EN/AR lookup passed and fictional player is saved. The Gmail/iCloud verification setting was restored in Vercel and read back. Serving staging deployment predates the change; separate Guardian sign-in and invitation remain open.
+- Design: Owner approved A–D on 22 November for verified coverage, effective per-session terms, explicit approval, linked corrections, manual partial payouts and private own statements.
+- Implementation: Implemented synthetic Owner attendance, terms and earning review through confirmed payout, with a private Trainer statement and own-line correction requests.
+- Local checks: Signed EN/AR connected workflow, Node 24 production build, lint, types and 119 units passed. A PostgreSQL 17 backup restore replayed EX-21 and EX-22 and preserved all 1,065 existing academy rows.
+- Deployment: EX-22 staging rollout pending. Last verified staging is EX-21 f323df2.
+- Hosted verification: EX-22 signed-in Owner and Trainer verification pending deployment.
 - Owner acceptance: A–D synthetic policy approved. Working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
@@ -146,8 +146,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 11. **EX-18 — Complete training planning and publication** (checkpoint_passed; MP-B03).
 12. **EX-19 — Complete attendance capture and review** (checkpoint_passed; MP-B04).
 13. **EX-20 — Family and Trainer development day** (checkpoint_passed; MP-B05).
-14. **EX-21 — Family billing to reconciled statement** (current; MP-B06).
-15. **EX-22 — Staff attendance to Trainer earnings and payout** (queued; MP-B07).
+14. **EX-21 — Family billing to reconciled statement** (checkpoint_passed; MP-B06).
+15. **EX-22 — Staff attendance to Trainer earnings and payout** (current; MP-B07).
 16. **EX-23 — Platform admission to commercial academy lifecycle** (queued; MP-B08).
 17. **EX-24 — Communications and support with delivery recovery** (queued; MP-B09).
 18. **EX-25 — Private media with consent and lifecycle** (queued; MP-B10).

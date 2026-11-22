@@ -142,5 +142,13 @@
     "actions": "J17-A01; J18-A01",
     "sequence": "Scoped Academy Owner grant → effective fee → preview and issue → verified receipt → lost reply recovery → credit and allocation correction → Guardian statement, paginated CSV and revocation. Local synthetic roles and signed disposable data.",
     "reference": "docs/07-handoff/ex21-family-billing-readiness-2026-11-21.md"
+  },
+  {
+    "id": "trainer-compensation",
+    "title": "19 · Staff attendance to Trainer earnings and payout",
+    "roles": "Academy Owner / assigned or substitute Trainer",
+    "actions": "IMP-J19-A01",
+    "sequence": "Verify completed session coverage → apply effective terms → prepare and approve → recover original payout → reconcile private Trainer statement and post linked correction",
+    "reference": "docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md"
   }
 ]

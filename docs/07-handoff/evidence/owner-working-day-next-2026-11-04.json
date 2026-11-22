@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 269,
-    "calendarMs": 156,
-    "dateMs": 174,
+    "homeMs": 213,
+    "calendarMs": 122,
+    "dateMs": 147,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 831,
-    "selectReviewSaveMs": 749,
+    "firstPrepareMs": 218,
+    "selectReviewSaveMs": 750,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 210,
-    "originalReplayMs": 205,
+    "offlineRestartMs": 185,
+    "originalReplayMs": 109,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -153,35 +153,35 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1529
+        "responseBytes": 1517
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4537
+        "responseBytes": 4489
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4537
+        "responseBytes": 4489
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "fixture-key",
@@ -195,28 +195,28 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1194
+        "responseBytes": 1188
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 633,
         "status": 200,
-        "responseBytes": 3869
+        "responseBytes": 3863
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 672,
         "status": 200,
-        "responseBytes": 1211
+        "responseBytes": 1205
       },
       {
         "route": "register-download",
         "action": "manifest",
         "requestBytes": 208,
         "status": 200,
-        "responseBytes": 1193
+        "responseBytes": 1187
       },
       {
         "route": "register-dispatch",
@@ -237,21 +237,21 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1195
+        "responseBytes": 1189
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 634,
         "status": 200,
-        "responseBytes": 3952
+        "responseBytes": 3946
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 674,
         "status": 200,
-        "responseBytes": 1213
+        "responseBytes": 1207
       },
       {
         "route": "fixture-key",
@@ -314,14 +314,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1995
+        "responseBytes": 1977
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 727
+        "responseBytes": 715
       },
       {
         "route": "planning",
@@ -342,42 +342,42 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1993
+        "responseBytes": 1975
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5105
+        "responseBytes": 5051
       },
       {
         "route": "programs",
         "action": "read",
         "requestBytes": 126,
         "status": 200,
-        "responseBytes": 901
+        "responseBytes": 889
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
         "action": "dates",
         "requestBytes": 87,
         "status": 200,
-        "responseBytes": 5892
+        "responseBytes": 5742
       },
       {
         "route": "planning",
@@ -398,7 +398,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -426,21 +426,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5106
+        "responseBytes": 5052
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -454,21 +454,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5106
+        "responseBytes": 5052
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -489,7 +489,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -510,7 +510,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -524,7 +524,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -545,21 +545,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1993
+        "responseBytes": 1975
       },
       {
         "route": "onboarding",
@@ -587,7 +587,7 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1397
+        "responseBytes": 1399
       },
       {
         "route": "experience",
@@ -664,14 +664,14 @@
     "logicalRateChecks": 134,
     "cacheEntries": 31,
     "requestBytes": 17203,
-    "responseBytes": 83453
+    "responseBytes": 82747
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/owner_fixture.mjs": "82be7a2d0029fe7132c1b960f009e9d1eaa1f1ebbfe0dfa1acc30015fe4350af",
+    "scripts/working-day/owner_fixture.mjs": "4c0d21fcd0bd9e708c279fba58dc1a159b0e3e3250b773f3ee7c2b43af03717a",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
-    "scripts/working-day/owner_db.py": "1cf054c570da9de19490461dc1186e567128a3c372a0c3abd068845626702aab",
+    "scripts/working-day/owner_db.py": "0972684e2ce0d52337c8c1a6e9e4bff1b01b82feedfbdccd74ec3a4889083587",
     "scripts/working-day/test_owner_next.mjs": "55b9d821c7388b6e52302cbe45e0474d2643f44d21880ea3dbb285d790d8eff0",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
@@ -696,9 +696,9 @@
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
-    "apps/web/src/lib/onboarding-gateway.ts": "6ac568c0a4a6b15c3c625918c16d64447e091132df0d55ae6f6fe50c5b424c63",
+    "apps/web/src/lib/onboarding-gateway.ts": "fca7c6ba34e2f11824fccbbfcecda6c908adf76c81c693ea317a60b2713ba780",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
-    "apps/web/src/app/globals.css": "292476519859a5f059e12cd4c4a17c14402e7fbd212e5af0db4d679d6ae5317f",
+    "apps/web/src/app/globals.css": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",
     "supabase/migrations/20261104002448_owner_register_original_dispatch.sql": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e",
     "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",

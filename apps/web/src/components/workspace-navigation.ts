@@ -13,6 +13,7 @@ export function workspaceNavigation(locale: string, academy: string, role: 'owne
     {href:`${base}/${role}/calendar`,label:t('Calendar','التقويم'),module:'training'},
     {href:role==='trainer'?`${base}/trainer/schedule`:`${base}/guardian/training`,label:role==='trainer'?t('My sessions','تدريباتي'):t('Training & attendance','التدريبات والحضور'),module:'attendance'},
     ...(role==='guardian'?[{href:`${base}/guardian/billing`,label:t('Billing','الفواتير'),module:'family' as const}]:[]),
+    ...(role==='trainer'?[{href:`${base}/trainer/compensation`,label:t('My earnings','مستحقاتي'),module:'operations' as const}]:[]),
     {href:role==='trainer'?`${base}/development`:`${base}/guardian/development`,label:t('Development','التطور'),module:'development'},
   ];
   // Keep routes canonical and carry only the approved navigation hints.

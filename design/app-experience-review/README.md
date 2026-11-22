@@ -1,5 +1,7 @@
 # AcademyOS current-experience review
 
+22 November EX-22 adds the synthetic Trainer compensation journey. The review includes verified staff coverage, effective terms, explicit approval, payout recovery and the private Trainer statement. The refreshed shared phone navigation leaves the Attendance register controls reachable in English and Arabic. [EX-22 checkpoint](../../docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md)
+
 16 November WD-71 coverage checkpoint refreshes all 16 component families and eight entry variants, including private-proposal create/roster/prepare and publication create recovery. The [coverage audit](../../docs/07-handoff/mp-b01-wd71-coverage-2026-11-16.md) separates controlled assertions from connected/browser acceptance.
 
 16 November feedback amendment/withdrawal checks preserve the existing publication and original-operation rules. The development family is refreshed; other unchanged families retain their capture timestamps. [Feedback lifecycle checkpoint](../../docs/07-handoff/mp-b01-feedback-lifecycle-2026-11-16.md)

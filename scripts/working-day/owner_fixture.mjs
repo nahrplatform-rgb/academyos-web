@@ -17,8 +17,8 @@ const stage = 'https://staging.academy.nahr.dev';
 
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
-function pgBridge(root, multiScope, familyDay, billing) {
-  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
+function pgBridge(root, multiScope, familyDay, billing, compensation) {
+  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[]), ...(compensation?['--compensation']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
   const pending = new Map();
   let ready, rejectReady, sequence = 0;
   const fixture = new Promise((resolve, reject) => {ready = resolve; rejectReady = reject;});
@@ -57,9 +57,9 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[])];
-  const bridge = pgBridge(root,multiScope,familyDay,billing);
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false, compensation=false} = {}) {
+  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[])];
+  const bridge = pgBridge(root,multiScope,familyDay,billing,compensation);
   const actor = new AsyncLocalStorage();
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -111,7 +111,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           })(DATABASE_ORIGIN+'/rest/v1/rpc/'+name,{method:'POST',body:JSON.stringify(args)});
           const result=await response.json();
           if(result.error){
-            const code=databaseError(result.error), billingRpc=name.startsWith('f21_');
+            const code=databaseError(result.error), billingRpc=name.startsWith('f21_')||name.startsWith('c22_');
             const status=code==='denied'?403:code==='conflict'||(billingRpc&&code==='review_required')?409:
               billingRpc&&code==='invalid'?422:billingRpc&&code==='setup_required'?428:503;
             throw new JourneyError(code,status);
@@ -144,7 +144,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     await put('fixture-api.mjs', serverCode.outputFiles[0].text);
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
     const handlers = await import(pathToFileURL(join(temp,'fixture-api.mjs')));
-    globalThis.ownerDayFixture = Object.assign(state, {db: bridge.db, currentSubject: () => familyDay ? actor.getStore() : state.subject});
+    globalThis.ownerDayFixture = Object.assign(state, {db: bridge.db, currentSubject: () => familyDay || compensation ? actor.getStore() : state.subject});
     api = createServer(async (req, res) => {
       try {
         if (req.method !== 'POST' || req.headers.origin !== origin) {res.writeHead(403).end(); return;}
@@ -182,7 +182,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
             if (req.headers[name]) headers[name] = req.headers[name];
           }
           const request = new handlers.NextRequest(`${stage}/api/${name}`,{method:'POST',headers,body});
-          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
+          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
           reply = await actor.run(subject, () => handlers['route'+routes.indexOf(name)](request));
         }
         const output = await reply.text();
@@ -201,6 +201,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         export{default as Onboarding}from'./apps/web/src/components/onboarding-workspace.tsx';`:''}
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${billing?`export{default as Billing}from'./apps/web/src/components/billing-workspace.tsx';`:''}
+        ${compensation?`export{default as Compensation}from'./apps/web/src/components/trainer-compensation-workspace.tsx';`:''}
         ${familyDay?`export{default as FamilyTraining}from'./apps/web/src/components/guardian-training-workspace.tsx';`:''}
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
         export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
@@ -247,7 +248,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
             sessionStorage.setItem('fixture-signed-out','1');window.dispatchEvent(new Event(event));
           }}}
           `:`
-          export function useUser(){return{isLoaded:true,isSignedIn:true,user:{id:${familyDay?"typeof document==='undefined'?'user_owner':document.cookie.match(/family-day-actor=(user_[a-z_]+)/)?.[1]??'user_owner'":"'user_owner'"}}};}
+          export function useUser(){return{isLoaded:true,isSignedIn:true,user:{id:${familyDay||compensation?"typeof document==='undefined'?'user_owner':document.cookie.match(/family-day-actor=(user_[a-z_]+)/)?.[1]??'user_owner'":"'user_owner'"}}};}
           export function UserButton(){return null;}
           export function SignInButton({children}){return children;}
           export function SignUpButton({children}){return children;}`,loader:'js',resolveDir:root}));
@@ -286,11 +287,18 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';"));
     }
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
-    if (reviews) {
+    if (reviews || compensation) {
       for (const [path, localName, exportName, file] of [
-        ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
-        ['development', 'DevelopmentWorkspace', 'Development', 'development-workspace'],
-        ['programs/[program]/publish', 'PublicationWorkspace', 'Publication', 'publication-workspace'],
+        ...(reviews ? [
+          ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
+          ['development', 'DevelopmentWorkspace', 'Development', 'development-workspace'],
+          ['programs/[program]/publish', 'PublicationWorkspace', 'Publication', 'publication-workspace'],
+        ] : []),
+        ...(compensation ? [
+          ['trainer-compensation', 'TrainerCompensationWorkspace', 'Compensation', 'trainer-compensation-workspace'],
+          ['trainer/compensation', 'TrainerCompensationWorkspace', 'Compensation', 'trainer-compensation-workspace'],
+          ...(!familyDay ? [['trainer/home', 'ExperienceWorkspace', 'Experience', 'experience-workspace']] : []),
+        ] : []),
         ...(billing ? [
           ['billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],
           ['guardian/billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],

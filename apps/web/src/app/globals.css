@@ -1183,6 +1183,11 @@ input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;}
   .app-scene:is([data-workspace-role="trainer"],[data-workspace-role="guardian"]) {--workspace-dock-size:calc(108px + env(safe-area-inset-bottom));}
   .app-scene .workspace-dock .workspace-bottom-nav {
     position:static;inline-size:100%;padding:0;border-top:0;background:transparent;
+    flex-flow:row nowrap;gap:2px;margin:0;
+  }
+  .app-scene .workspace-dock .workspace-bottom-nav a {
+    flex-direction:column;gap:4px;min-width:0;min-height:48px;margin:0;padding:4px 2px;
+    font-size:11px;line-height:1.2;overflow-wrap:anywhere;
   }
   .app-scene .workspace-icon-button,.workspace-provider-account {
     inline-size:48px;min-block-size:48px;

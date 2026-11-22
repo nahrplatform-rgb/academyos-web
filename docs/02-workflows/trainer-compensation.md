@@ -6,6 +6,10 @@ The [canonical master plan v2](../06-delivery/master-plan-v2/README.md) and [fin
 
 Requirements: AO-063–072. D-008 must settle formulas and contract policy; D-007 settles approvals. This is an operational compensation ledger, not an assumption that AcademyOS replaces statutory payroll or accounting.
 
+## Approved synthetic EX-22 scope · 22 November 2026
+
+The [approved worked example](../07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md#approved-first-synthetic-workflow) selects effective per-session terms in fictional units, Owner-verified actual coverage, branch-eligible substitutes, separate preparation and approval, linked reasoned corrections and confirmed manual partial payouts. The Trainer sees their own approved statement. The broader contract below retains the additional decisions and capabilities required for later scope.
+
 ## Contract model
 
 A protected contract version records trainer, academy, currency, effective interval, compensation basis, rate or salary terms, eligible session types, substitution/coverage terms, leave treatment, rounding, adjustment rules and approver. Keep confidential terms outside general staff-directory responses. Contract changes create new versions with non-overlapping effective intervals or an explicitly approved precedence rule.

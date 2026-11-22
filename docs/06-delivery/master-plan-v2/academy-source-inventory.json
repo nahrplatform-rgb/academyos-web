@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "dca55ee9007e053affd2a0c82b4323aebf241c03",
+  "source_anchor": "8ca12c53a8e17d7dab2d0db95a48c19556352a2d",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -204,6 +204,11 @@
       "bytes": 531
     },
     {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/compensation/page.tsx",
+      "sha256": "9b28824c918965727bd3fa7e5b34745ea4bff01bc4a255af29f0de8e8955de57",
+      "bytes": 583
+    },
+    {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
       "sha256": "b3976daa09320788a0e2056f333588ca7df4020c37d1b15ebb00b1937a1b3509",
       "bytes": 522
@@ -217,6 +222,11 @@
       "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx",
       "sha256": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
       "bytes": 462
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer-compensation/page.tsx",
+      "sha256": "9831229d56fa77114fd8ccce5e7ca2413a6618172e10e5818e1dcb8fe19d40aa",
+      "bytes": 575
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/page.tsx",
@@ -349,6 +359,11 @@
       "bytes": 3273
     },
     {
+      "path": "apps/web/src/app/api/trainer-compensation/route.ts",
+      "sha256": "e9164faa5747fae632401d3b9f3c51f967dce9cf18d0c8763c5c316a5bd3aa0a",
+      "bytes": 2076
+    },
+    {
       "path": "apps/web/src/app/api/trainers/route.ts",
       "sha256": "476c9fb7af36631d3c5a223d6d3d8bfbda2d5455c9abab253d05ca07e0662e01",
       "bytes": 4919
@@ -375,8 +390,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "292476519859a5f059e12cd4c4a17c14402e7fbd212e5af0db4d679d6ae5317f",
-      "bytes": 101110
+      "sha256": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
+      "bytes": 101359
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -460,8 +475,8 @@
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
-      "sha256": "eb275d5469885f97e209df3d47125a06c526f21ea8d5c41445779edd444efdc1",
-      "bytes": 2742
+      "sha256": "f746ceb10bbc2453b7ad1c21cbab822511dd9377d3840461fc1442c648a30976",
+      "bytes": 2914
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
@@ -564,6 +579,11 @@
       "bytes": 2236
     },
     {
+      "path": "apps/web/src/components/trainer-compensation-workspace.tsx",
+      "sha256": "672c47cc98b98cf3db706c402e90f3d6101e9bf4458b2b3f7cabbf3fe7a1a591",
+      "bytes": 23289
+    },
+    {
       "path": "apps/web/src/components/trainer-workspace.tsx",
       "sha256": "d81da7c1ce99ebb6a7a6e7e09a13fdf4c9b0126bd81136970a5d87c905b720bf",
       "bytes": 32510
@@ -585,8 +605,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-navigation.ts",
-      "sha256": "709d54b36f4d453ff878733a007f2db307b4f82e6e04ea22b52e65fddbe97de4",
-      "bytes": 2368
+      "sha256": "b46a8e5724ef37286b0b3f1ceca1d0d59a6869b1ff3e79535d1e2d5ca8f05503",
+      "bytes": 2509
     },
     {
       "path": "apps/web/src/components/workspace-panel-icon.tsx",
@@ -810,8 +830,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "6ac568c0a4a6b15c3c625918c16d64447e091132df0d55ae6f6fe50c5b424c63",
-      "bytes": 5108
+      "sha256": "fca7c6ba34e2f11824fccbbfcecda6c908adf76c81c693ea317a60b2713ba780",
+      "bytes": 5199
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
@@ -1002,6 +1022,11 @@
       "path": "apps/web/src/lib/telemetry.ts",
       "sha256": "7360e7ca5793200fb22b440405e7cb85e05ec0ea1793a5e0c7365c096efe5681",
       "bytes": 2989
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "sha256": "c8e582828706b89dd7d3809120b1966acd94a48031a38cec2df613baafc2ca4c",
+      "bytes": 4917
     },
     {
       "path": "apps/web/src/lib/trainer-delivery.ts",
@@ -1312,6 +1337,11 @@
       "path": "supabase/migrations/20261121195423_ex21_family_billing.sql",
       "sha256": "b2ff29fd009b3a7d777e347199b8c94b50024da856f8d3f20c0e376f2bc11bee",
       "bytes": 23163
+    },
+    {
+      "path": "supabase/migrations/20261122063506_ex22_trainer_compensation.sql",
+      "sha256": "cdf10b5ecfb9ad4b5d746460b56e8185c7c38fb2d6c9303c32fe28ea7ab30aa4",
+      "bytes": 31017
     }
   ],
   "page_paths": [
@@ -1349,9 +1379,11 @@
     "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer/compensation/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/trainer-compensation/page.tsx",
     "apps/web/src/app/[locale]/workspace/page.tsx",
     "apps/web/src/app/page.tsx",
     "apps/web/src/app/prepared-register/page.tsx",
@@ -1383,6 +1415,7 @@
     "apps/web/src/app/api/session-changes/route.ts",
     "apps/web/src/app/api/setup/email/route.ts",
     "apps/web/src/app/api/setup/verify/route.ts",
+    "apps/web/src/app/api/trainer-compensation/route.ts",
     "apps/web/src/app/api/trainers/route.ts",
     "apps/web/src/app/api/webhooks/clerk-email/route.ts",
     "apps/web/src/app/api/workspace-download/route.ts",
@@ -1853,6 +1886,62 @@
       ]
     },
     {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 64,
+      "case_labels": [
+        "operation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 67,
+      "case_labels": [
+        "terms"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 71,
+      "case_labels": [
+        "coverage"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 80,
+      "case_labels": [
+        "prepare"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 84,
+      "case_labels": [
+        "approve"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 89,
+      "case_labels": [
+        "request"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 93,
+      "case_labels": [
+        "adjust"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 101,
+      "case_labels": [
+        "payout"
+      ]
+    },
+    {
       "path": "apps/web/src/lib/trainers.ts",
       "line": 31,
       "case_labels": [
@@ -1924,10 +2013,10 @@
     }
   ],
   "counts": {
-    "source_files": 262,
-    "page_paths": 41,
-    "api_routes": 29,
-    "migrations": 40
+    "source_files": 268,
+    "page_paths": 43,
+    "api_routes": 30,
+    "migrations": 41
   },
   "pwa_metadata": {
     "public_manifest_present": false,

@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 module = runpy.run_path(str(ROOT / 'scripts/experience-projections/test_boundary.py'))
 Boundary = module['ExperienceBoundary']
 PublicationBoundary = runpy.run_path(str(ROOT / 'scripts/publication/test_boundary.py'))['PublicationBoundary']
+TrainerBoundary = runpy.run_path(str(ROOT / 'scripts/trainers/test_boundary.py'))['TrainerBoundary']
 dispatch = runpy.run_path(str(ROOT / 'scripts/offline-register/dispatch_bridge.py'))
 literal = dispatch['literal']
 ROUTES = {
@@ -29,6 +30,7 @@ ROUTES = {
 
 BILLING_ROUTES = {'f21_players_v1','f21_payers_v1','f21_grants_v1','f21_preview_v1',
                   'f21_command_v1','f21_operation_v1','f21_statement_v1'}
+COMPENSATION_ROUTES = {'c22_context_v1', 'c22_command_v1', 'c22_operation_v1', 'x15_trainer_home_v1'}
 
 FAMILY_ROUTES = {
     'x15_trainer_home_v1', 'x15_trainer_calendar_v1', 'x15_guardian_home_v1',
@@ -59,6 +61,46 @@ def family_day(test):
     return dict(academy=academy, event=event, child=child, link=link, siblingLink=sibling_link,
                 **({'sibling': sibling} if '--billing' in sys.argv else {}),
                 unrostered=duplicate, day=day, staff=staff)
+
+
+def compensation_day(test):
+    academy, branch = test.academy()
+    trainer, _ = test.staff(academy, branch)
+    email = 'cover-fixture@example.invalid'
+    _, invite, token, _, _ = TrainerBoundary.command(test, academy, branch, email=email, name='Fictional scheduled trainer')
+    TrainerBoundary.recipient(test, invite, token, 'accept', str(uuid.uuid4()), subject='user_other_trainer', email=email)
+    other = test.sql(f"select staff_id from academy.trainer_invitations where id={literal(invite)}")
+    test.sql("insert into academy.identities(clerk_subject) values('user_manager') on conflict do nothing;"
+             "insert into academy.memberships(identity_id,academy_id,role,status) "
+             f"select id,{literal(academy)},'manager','active' from academy.identities where clerk_subject='user_manager'")
+    program = test.ready(academy, {'name': 'Fictional compensation program', 'from': '2026-11-15', 'to': '2026-11-21',
+                                   'rules': [{'day': n, 'start': '17:00', 'end': '18:00'} for n in range(7)]})
+    p, a, b, job = map(literal, (program['id'], academy, branch, uuid.uuid4()))
+    test.sql(f"insert into academy.publication_jobs(id,academy_id,program_id,actor,kind,first_date,last_date,weekdays,state) "
+             f"values({job},{a},{p},'user_owner','publish','2026-11-15','2026-11-21','{{0,1,2,3,4,5,6}}','committed')")
+    # Historical publication fixtures use the actual stored instants. The normal program editor
+    # currently creates same-day slots; the overnight boundary here exercises the compensation reader.
+    slots = [('overnight', '15', '2026-11-15 23:30+02', '2026-11-16 00:30+02', trainer, False),
+             ('cancelled', '17', '2026-11-17 17:00+02', '2026-11-17 18:00+02', trainer, True),
+             ('short', '18', '2026-11-18 17:00+02', '2026-11-18 17:45+02', trainer, False),
+             ('substitute', '20', '2026-11-20 17:00+02', '2026-11-20 18:00+02', other, False),
+             ('absent', '21', '2026-11-21 17:00+02', '2026-11-21 18:00+02', trainer, False)]
+    events = {}
+    for key, number, starts, ends, assigned, cancelled in slots:
+        day = f'2026-11-{number}'
+        event = str(uuid.uuid4())
+        d, e, s, finish, t = map(literal, (day, event, starts, ends, assigned))
+        published = 'false' if cancelled else 'true'
+        test.sql(f"update academy.training_dates set starts_at={s},ends_at={finish},canceled=not {published} "
+                 f"where program_id={p} and local_date={d};"
+                 f"insert into academy.date_plans(academy_id,program_id,local_date,branch_id,capacity,trainer_id,starts_at,ends_at) "
+                 f"values({a},{p},{d},{b},10,{t},{s},{finish});"
+                 f"insert into academy.publication_events(id,academy_id,program_id,day,job_id,published,plan_version,trainer_id,branch_id,capacity,roster_count,starts_at,ends_at,projection) "
+                 f"values({e},{a},{p},{d},{job},{published},1,{t},{b},10,0,{s},{finish},"
+                 "'{\"name\":\"Fictional compensation program\",\"timezone\":\"Africa/Cairo\"}');"
+                 f"insert into academy.publication_heads values({a},{p},{d},{e})")
+        events[key] = {'id': event, 'day': day}
+    return dict(academy=academy, trainer=trainer, other=other, events=events)
 
 
 def seed(test, multi_scope=False):
@@ -116,7 +158,7 @@ def seed(test, multi_scope=False):
 
 def rpc(test, command):
     name = command['name']
-    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES)
+    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES) or ('--compensation' in sys.argv and name in COMPENSATION_ROUTES)
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
@@ -147,23 +189,41 @@ if __name__ == '__main__':
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
         dispatch['scope']['apply_bound'](test)
-        if '--billing' in sys.argv:
+        if '--billing' in sys.argv or '--compensation' in sys.argv:
             Boundary.sql((ROOT / 'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql').read_text())
             for suffix in ('player_alternate_name','player_academy_member_number','player_private_profile_details',
                            'player_private_photo','player_name_correction','player_profile_and_lifecycle',
                            'ex21_family_billing'):
                 path, = (ROOT / 'supabase/migrations').glob(f'*_{suffix}.sql')
                 Boundary.sql(path.read_text())
+        if '--compensation' in sys.argv:
+            migration, = (ROOT / 'supabase/migrations').glob('*_ex22_trainer_compensation.sql')
+            Boundary.sql(migration.read_text())
         data = seed(test, '--multi-scope' in sys.argv)
         if '--family-day' in sys.argv:
             data['familyDays'] = [family_day(test), family_day(test)]
+        if '--compensation' in sys.argv:
+            data['compensationDays'] = [compensation_day(test), compensation_day(test)]
         print(json.dumps({'ready': data}), flush=True)
         for line in sys.stdin:
             command = json.loads(line)
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] == 'billing_audit' and '--billing' in sys.argv:
+                if command['action'] == 'compensation_audit' and '--compensation' in sys.argv:
+                    academy = literal(uuid.UUID(command['academy']))
+                    operation = literal(uuid.UUID(command['operation']))
+                    value = json.loads(test.sql(
+                        "select json_build_object('lines',(select count(*) from academy.compensation_lines where academy_id=" + academy + "),"
+                        "'payouts',(select count(*) from academy.compensation_payouts where academy_id=" + academy + "),"
+                        "'operations',(select count(*) from academy.compensation_operations where id=" + operation + "),"
+                        "'audits',(select count(*) from academy.audit_events where academy_id=" + academy + " and operation_id=" + operation + "))"))
+                elif command['action'] == 'compensation_end_trainer' and '--compensation' in sys.argv:
+                    academy = literal(uuid.UUID(command['academy']))
+                    test.sql("update academy.memberships m set status='suspended' from academy.identities i "
+                             f"where i.id=m.identity_id and i.clerk_subject='user_trainer' and m.academy_id={academy} and m.role='trainer'")
+                    value = True
+                elif command['action'] == 'billing_audit' and '--billing' in sys.argv:
                     link = literal(uuid.UUID(command['link']))
                     academy = literal(uuid.UUID(command['academy']))
                     value = json.loads(test.sql(
