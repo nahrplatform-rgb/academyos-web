@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "e36e0bb701a12bee53b5bb074117adbb791bcd0f",
+  "source_anchor": "50045c7c069fde65b71ac58e19fc4fa9d407e180",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -680,13 +680,13 @@
     },
     {
       "path": "apps/web/src/lib/clerk-email.test.ts",
-      "sha256": "6b8e199c542fd7141f0a26b055494a80c70bbcba56c5974002256fa705d50fb3",
-      "bytes": 6780
+      "sha256": "494b01dfb99d5af7ba6dfed8ff9d939b4e315f8027bed6cdeaca5ca6c8a00270",
+      "bytes": 7792
     },
     {
       "path": "apps/web/src/lib/clerk-email.ts",
-      "sha256": "ee49e89612d28fe27ce97fbb7eab0cdd0b96a2916c005c711ecfea8725341e11",
-      "bytes": 4733
+      "sha256": "ff19397918653f065c554d6af77520a9da7ba8e32637b9582ae380d421362989",
+      "bytes": 4798
     },
     {
       "path": "apps/web/src/lib/config.test.ts",

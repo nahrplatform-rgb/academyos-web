@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Verify one EX-23 candidate through Foundation and Vercel. The approved Trainer QR and payslip follow-up remains tracked under EX-22 for implementation when routed.
+EX-23 connected local verification and migration rehearsal passed on the promoted candidate. The approved Trainer QR and payslip follow-up remains tracked under EX-22 for implementation when routed.
 
 ### Separate release follow-up
 
-Candidate/preview checked at 0b84a870e81cdc3c504f761731a28fb82c05c81c. Owner-only promotion. Stage migration not rehearsed: backup run 45009193450 has no encrypted rehearsal artifact. Obtain artifact, verify digest, restore and replay migration before asking Owner to authorize staging.
+Staging promotion and schema verified. Academy Owner EN/AR plan view and access refusal verified. The current verification-email list omits the Platform Owner. Promote the three-recipient relay repair with the restored address, then verify a fresh sign-in and hosted billing.
 
 Scoped dependency gate: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/production inferred;named exit: Academy/Owner setup plus correct entitlement/invoice/recovery;no private tenant-content access implied
 
@@ -103,9 +103,9 @@ Policy boundary: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/produc
 
 - Design: Owner approved the fictional plan, trial, quota, restriction and manual settlement example on 22 November; M1 invite/setup approval retained.
 - Implementation: Local source implements versioned plan assignment, invoice, claim review, settlement and entitlement gates.
-- Local checks: EN/AR passed from fresh admission to settlement. Existing Attendance and publication restriction checks passed. Disposable SQL verified setup gating and original registration and publication boundaries. Node 24 build, experience review and shared receipt preflight passed.
-- Deployment: Candidate 0b84a870e81cdc3c504f761731a28fb82c05c81c passed Foundation 59/59; exact Vercel preview dpl_4QAGY9Tsr2SCVAuQ567gUAAMJYFb READY. Not promoted.
-- Hosted verification: EX-23 not applied to staging; current staging remains EX-22 migration 20261122072433.
+- Local checks: EN/AR passed from fresh admission to settlement. Existing Attendance and publication restriction checks passed. Disposable SQL verified setup gating and original registration and publication boundaries. Node 24 build, experience review and shared receipt preflight passed. Backup 45179076836 restored on disposable PostgreSQL 17 and the exact migration preserved all 1,137 existing rows across 78 academy tables.
+- Deployment: Owner promoted 50045c7c069fde65b71ac58e19fc4fa9d407e180. Foundation 45160193646 passed 59/59. Vercel confirmed staging.academy.nahr.dev serves Ready deployment dpl_6BMbT4W18FrfopL51EMugepB1a8o.
+- Hosted verification: Source migration 20261122075500 applied on staging as 20261123130757. Seven RLS tables and gateway grants verified. Existing academy, player, membership and family billing counts match. Academy Owner plan opened in EN/AR and Platform billing was refused for that account. Platform Owner sign-in and hosted transaction evidence are pending.
 - Owner acceptance: Fictional policy approved; working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 

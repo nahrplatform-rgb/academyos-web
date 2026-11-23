@@ -5,6 +5,7 @@ import { stagingEmailConfig } from "./email";
 
 const INSTANCE = "ins_3L0UyDYr4FD8mVDmMG6JXePE0KR";
 const MAX_BYTES = 65536;
+const MAX_VERIFICATION_RECIPIENTS = 3;
 type Dependencies = {
   env: Record<string, string | undefined>;
   allowed: (recipient: string) => Promise<boolean>;
@@ -52,7 +53,7 @@ export async function handleClerkEmail(req: Request, deps: Dependencies): Promis
     const recipient = email.to_email_address?.trim().toLowerCase();
     const allowed = (deps.env.AUTH_EMAIL_ALLOWED_RECIPIENTS ?? "").split(",").map(x => x.trim().toLowerCase()).filter(Boolean);
     const address = /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    if (allowed.length < 1 || allowed.length > 2 || new Set(allowed).size !== allowed.length || !allowed.every(x => address.test(x))) return result(503, "unavailable");
+    if (allowed.length < 1 || allowed.length > MAX_VERIFICATION_RECIPIENTS || new Set(allowed).size !== allowed.length || !allowed.every(x => address.test(x))) return result(503, "unavailable");
     if (!recipient || !allowed.includes(recipient)) return result(403, "denied");
     const code: unknown = email.data?.otp_code;
     if (email.object !== "email" || typeof email.id !== "string" || !/^ema_[A-Za-z0-9_]{1,100}$/.test(email.id) || email.delivered_by_clerk !== false || typeof code !== "string" || !/^\d{6}$/.test(code)) return result(422, "invalid");

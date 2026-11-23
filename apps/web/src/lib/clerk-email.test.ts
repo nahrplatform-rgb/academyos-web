@@ -28,6 +28,22 @@ test('missing, tampered, wrong-key and expired signatures never send', async () 
  const wrong=signed(event());wrong.headers.set('svix-signature','v1,'+Buffer.alloc(32).toString('base64'));reqs.push(wrong);
  for(const req of reqs) assert.equal((await handleClerkEmail(req,{env,allowed,transport:async()=>{throw new Error('Must not send');}})).status,401);
 });
+test('three separate approved verification recipients can receive a code', async () => {
+ const recipients = ['first@example.test', 'second@example.test', 'third@example.test'];
+ const configuration = {...env, AUTH_EMAIL_ALLOWED_RECIPIENTS: recipients.join(',')};
+ const sent: string[] = [];
+ const transport: typeof fetch = async (_url, init) => {
+  sent.push(JSON.parse(init!.body as string).to);
+  return Response.json({id:'synthetic-provider-receipt'});
+ };
+ for (const recipient of [...recipients, 'foreign@example.test']) {
+  const email = event();
+  email.data.to_email_address = recipient;
+  const response = await handleClerkEmail(signed(email), {env:configuration, allowed, transport});
+  assert.equal(response.status, recipients.includes(recipient) ? 200 : 403);
+ }
+ assert.deepEqual(sent, recipients);
+});
 test('signed foreign instance/recipient, invalid code and disabled config fail without sending', async () => {
  for(const [change,status] of [
   [(e:ReturnType<typeof event>)=>{e.instance_id='ins_other';},401],
@@ -36,7 +52,12 @@ test('signed foreign instance/recipient, invalid code and disabled config fail w
   [(e:ReturnType<typeof event>)=>{e.data.id='';},422],
   [(e:ReturnType<typeof event>)=>{e.timestamp=Date.now()+60000;},422],
  ] as const){ const e=event();change(e);let calls=0;assert.equal((await handleClerkEmail(signed(e),{env,allowed,transport:async()=>{calls++;return Response.json({id:'bad'});}})).status,status);assert.equal(calls,0); }
- for(const changes of [{APP_ENV:'production'},{AUTH_EMAIL_ALLOWED_RECIPIENTS:''},{AUTH_EMAIL_ALLOWED_RECIPIENTS:'a@example.test,b@example.test,c@example.test'},{CLERK_EMAIL_WEBHOOK_SECRET:''}]) assert.equal((await handleClerkEmail(signed(event()),{env:{...env,...changes},allowed})).status,503);
+ for(const changes of [{APP_ENV:'production'},{AUTH_EMAIL_ALLOWED_RECIPIENTS:''},{AUTH_EMAIL_ALLOWED_RECIPIENTS:'first@example.test,second@example.test,third@example.test,fourth@example.test'},{CLERK_EMAIL_WEBHOOK_SECRET:''}]) {
+  let calls = 0;
+  const transport: typeof fetch = async () => { calls++; return Response.json({id:'unexpected'}); };
+  assert.equal((await handleClerkEmail(signed(event()),{env:{...env,...changes},allowed,transport})).status,503);
+  assert.equal(calls, 0);
+ }
 });
 test('unrelated/native templates and stale original events are acknowledged without sends',async()=>{
  const cases=[{...event(),type:'user.created'}, {...event(),timestamp:Date.now()-540000}, {...event(),data:{...event().data,slug:'reset_password_code'}}, {...event(),data:{...event().data,delivered_by_clerk:true}}];
