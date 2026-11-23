@@ -87,7 +87,7 @@ Verify one EX-23 candidate through Foundation and Vercel. The approved Trainer Q
 
 ### Separate release follow-up
 
-Staging serves checked EX-22 641b7cf with migration 20261122072433. Earlier hosted follow-ups are separate. Candidate and Owner-controlled promotion pending for EX-23.
+Candidate/preview checked at 0b84a870e81cdc3c504f761731a28fb82c05c81c. Owner-only promotion. Stage migration not rehearsed: backup run 45009193450 has no encrypted rehearsal artifact. Obtain artifact, verify digest, restore and replay migration before asking Owner to authorize staging.
 
 Scoped dependency gate: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/production inferred;named exit: Academy/Owner setup plus correct entitlement/invoice/recovery;no private tenant-content access implied
 
@@ -104,8 +104,8 @@ Policy boundary: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/produc
 - Design: Owner approved the fictional plan, trial, quota, restriction and manual settlement example on 22 November; M1 invite/setup approval retained.
 - Implementation: Local source implements versioned plan assignment, invoice, claim review, settlement and entitlement gates.
 - Local checks: EN/AR passed from fresh admission to settlement. Existing Attendance and publication restriction checks passed. Disposable SQL verified setup gating and original registration and publication boundaries. Node 24 build, experience review and shared receipt preflight passed.
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
-- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
+- Deployment: Candidate 0b84a870e81cdc3c504f761731a28fb82c05c81c passed Foundation 59/59; exact Vercel preview dpl_4QAGY9Tsr2SCVAuQ567gUAAMJYFb READY. Not promoted.
+- Hosted verification: EX-23 not applied to staging; current staging remains EX-22 migration 20261122072433.
 - Owner acceptance: Fictional policy approved; working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
