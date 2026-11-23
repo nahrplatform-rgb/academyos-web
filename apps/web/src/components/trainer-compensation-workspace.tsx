@@ -205,7 +205,10 @@ function Compensation({ locale, academy, trainer = false, subject }: { locale: s
           <Button disabled={!canAct || !month} onClick={() => void command('prepare', { staff, month })}>{t('Prepare earnings', 'تجهيز المستحقات')}</Button>
         </section>}
         {run && <section><h2>{t('Earnings statement', 'كشف المستحقات')}</h2>
-          <p>{t('Status', 'الحالة')}: {statusLabel(run.status)} · {t('Total', 'الإجمالي')}: {money(run.total)} · {t('Approved', 'المعتمد')}: {money(run.approved)} · {t('Remaining', 'المتبقي')}: {money(run.payable)}</p>
+          <p>{t('Status', 'الحالة')}: {statusLabel(run.status)} · {t('Session earnings', 'مستحقات الجلسات')}: <bdi>{money(run.total)}</bdi></p>
+          {run.status === 'approved' && <p>
+            {t('Approved after corrections', 'المعتمد بعد التصحيحات')}: <bdi>{money(run.approved)}</bdi> · {t('Paid', 'المدفوع')}: <bdi>{money(run.payouts.reduce((sum, item) => sum + item.amount, 0))}</bdi> · {t('Still owed', 'المتبقي للدفع')}: <bdi>{money(run.payable)}</bdi>
+          </p>}
           {run.stale && <p role="status">{t('Attendance changed. Prepare earnings again before approval.', 'تغيّر الحضور. أعد تجهيز المستحقات قبل الاعتماد.')}</p>}
           <table><thead><tr><th>{t('Session', 'الجلسة')}</th><th>{t('Date', 'التاريخ')}</th><th>{t('Effective from', 'ساري من')}</th><th>{t('Amount', 'المبلغ')}</th></tr></thead><tbody>{run.lines.map(item => <tr key={item.id}><td>{item.name}</td><td>{item.day}</td><td>{item.start}</td><td>{money(item.amount)}</td></tr>)}</tbody></table>
           {run.adjustments.map(item => <p key={item.id}>{t('Adjustment', 'التسوية')}: {money(item.amount)}</p>)}
@@ -221,13 +224,14 @@ function Compensation({ locale, academy, trainer = false, subject }: { locale: s
               <Button disabled={!canAct || !line || !correctionReason.trim() || !Number.isSafeInteger(minor(correction, true))} onClick={() => void command('adjust', { line, amount: minor(correction, true), reason: correctionReason.trim(), ...(requestId ? { request: requestId } : {}) })}>{t('Post correction', 'ترحيل التصحيح')}</Button>
             </>}
           </section>}
-          {!trainer && run.status === 'approved' && <section><h3>{t('Record a verified payout', 'تسجيل دفعة متحقق منها')}</h3>
+          {!trainer && run.status === 'approved' && run.payable > 0 && <section><h3>{t('Record a verified payout', 'تسجيل دفعة متحقق منها')}</h3>
             <label>{t('Payout amount', 'مبلغ الدفعة')} <Input inputMode="decimal" value={payout} disabled={!canAct} onChange={e => setPayout(e.target.value)} /></label>
             <label>{t('Payout method', 'طريقة الدفع')} <Select value={method} disabled={!canAct} onChange={e => setMethod(e.target.value as 'cash' | 'bank')}><option value="cash">{t('Cash', 'نقداً')}</option><option value="bank">{t('Bank transfer', 'تحويل بنكي')}</option></Select></label>
             <label>{t('Payout date', 'تاريخ الدفع')} <Input type="date" value={date} disabled={!canAct} onChange={e => setDate(e.target.value)} /></label>
             <label>{t('Payout reference', 'مرجع الدفعة')} <Input value={reference} disabled={!canAct} onChange={e => setReference(e.target.value)} /></label>
             <label><input type="checkbox" checked={payoutVerified} disabled={!canAct} onChange={e => setPayoutVerified(e.target.checked)} /> {t('I verified this fictional payout', 'تحققت من هذه الدفعة الافتراضية')}</label>
-            <Button disabled={!canAct || !payoutVerified || !date || !Number.isSafeInteger(minor(payout)) || (method === 'bank' && !reference.trim())} onClick={() => void command('payout', { run: run.id, amount: minor(payout), method, date, reference: reference.trim() })}>{t('Record payout', 'تسجيل الدفعة')}</Button>
+            {minor(payout) > run.payable && <p role="status">{t('The payout exceeds the outstanding balance.', 'مبلغ الدفعة يتجاوز الرصيد المتبقي.')}</p>}
+            <Button disabled={!canAct || !payoutVerified || !date || !Number.isSafeInteger(minor(payout)) || minor(payout) > run.payable || (method === 'bank' && !reference.trim())} onClick={() => void command('payout', { run: run.id, amount: minor(payout), method, date, reference: reference.trim() })}>{t('Record payout', 'تسجيل الدفعة')}</Button>
           </section>}
         </section>}
       </>}

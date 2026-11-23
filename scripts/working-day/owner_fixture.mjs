@@ -17,8 +17,8 @@ const stage = 'https://staging.academy.nahr.dev';
 
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
-function pgBridge(root, multiScope, familyDay, billing, compensation) {
-  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[]), ...(compensation?['--compensation']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
+function pgBridge(root, multiScope, familyDay, billing, compensation, commerce) {
+  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[]), ...(compensation?['--compensation']:[]), ...(commerce?['--commerce']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
   const pending = new Map();
   let ready, rejectReady, sequence = 0;
   const fixture = new Promise((resolve, reject) => {ready = resolve; rejectReady = reject;});
@@ -57,9 +57,12 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false, compensation=false} = {}) {
-  const routes = ['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[])];
-  const bridge = pgBridge(root,multiScope,familyDay,billing,compensation);
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false, compensation=false, commerce=false} = {}) {
+  const previousAppEnv=process.env.APP_ENV, previousOnboardingKey=process.env.ONBOARDING_PROOF_KEY;
+  if(commerce){process.env.APP_ENV='staging';process.env.ONBOARDING_PROOF_KEY=key;}
+  const routes = [...new Set(['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[]),...(commerce?['platform-commerce','onboarding','programs','people','publication','attendance']:[])])];
+  const multiActor = familyDay || compensation || commerce;
+  const bridge = pgBridge(root,multiScope,familyDay,billing,compensation,commerce);
   const actor = new AsyncLocalStorage();
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -78,6 +81,10 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     if (api?.listening) await new Promise(resolve => api.close(resolve));
     delete globalThis.ownerDayFixture;
     await bridge.close();
+    if(commerce){
+      if(previousAppEnv===undefined)delete process.env.APP_ENV;else process.env.APP_ENV=previousAppEnv;
+      if(previousOnboardingKey===undefined)delete process.env.ONBOARDING_PROOF_KEY;else process.env.ONBOARDING_PROOF_KEY=previousOnboardingKey;
+    }
   }
   try {
     const data = await bridge.fixture;
@@ -90,9 +97,13 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     })));
     const adapters = {
       server: `import{gatewayFetch,DATABASE_ORIGIN,GatewayError}from'${root}/apps/web/src/lib/onboarding-gateway.ts';
-        import{databaseError}from'${root}/apps/web/src/lib/onboarding.ts';
+        import{databaseError,signProof,tokenHash}from'${root}/apps/web/src/lib/onboarding.ts';
         export class JourneyError extends Error{constructor(code,http=503){super(code);this.code=code;this.http=http;}}
-        export function recipientProof(){throw new Error('Invitation flow is outside this fixture');}
+        export function recipientProof(subject,invitation,token){
+          const emails = subject === 'user_owner' ? ['owner@academy.example'] :
+            subject === 'user_other_owner' ? ['other@academy.example'] : [];
+          return signProof('recipient',invitation+':'+tokenHash(token),subject,emails,'${key}');
+        }
         export async function onboardingSession(){
           const {sessionValid}=globalThis.ownerDayFixture;
           const subject=globalThis.ownerDayFixture.currentSubject();
@@ -111,9 +122,9 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           })(DATABASE_ORIGIN+'/rest/v1/rpc/'+name,{method:'POST',body:JSON.stringify(args)});
           const result=await response.json();
           if(result.error){
-            const code=databaseError(result.error), billingRpc=name.startsWith('f21_')||name.startsWith('c22_');
-            const status=code==='denied'?403:code==='conflict'||(billingRpc&&code==='review_required')?409:
-              billingRpc&&code==='invalid'?422:billingRpc&&code==='setup_required'?428:503;
+            const code=databaseError(result.error), billingRpc=name.startsWith('f21_')||name.startsWith('c22_')||${commerce};
+            const status=code==='denied'?403:code==='conflict'||code==='program_limit'||(billingRpc&&code==='review_required')?409:
+              code==='plan_restricted'?423:billingRpc&&code==='invalid'?422:billingRpc&&code==='setup_required'?428:503;
             throw new JourneyError(code,status);
           }
           return result.data;
@@ -144,7 +155,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     await put('fixture-api.mjs', serverCode.outputFiles[0].text);
     await symlink(join(root,'node_modules'),join(temp,'node_modules'),'dir');
     const handlers = await import(pathToFileURL(join(temp,'fixture-api.mjs')));
-    globalThis.ownerDayFixture = Object.assign(state, {db: bridge.db, currentSubject: () => familyDay || compensation ? actor.getStore() : state.subject});
+    globalThis.ownerDayFixture = Object.assign(state, {db: bridge.db, currentSubject: () => multiActor ? actor.getStore() : state.subject});
     api = createServer(async (req, res) => {
       try {
         if (req.method !== 'POST' || req.headers.origin !== origin) {res.writeHead(403).end(); return;}
@@ -177,17 +188,21 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           reply = Response.json({data:true});
         } else {
           if (name === 'register-dispatch') state.dispatchBodies.push(body);
-          const headers = {origin:stage,'content-type':'application/json'};
+          const headers = {origin:stage,'content-type':'application/json',...(req.headers.cookie?{cookie:req.headers.cookie}:{})};
           for (const name of ['x-academyos-original-subject','x-academyos-register-namespace','x-academyos-register-device']) {
             if (req.headers[name]) headers[name] = req.headers[name];
           }
           const request = new handlers.NextRequest(`${stage}/api/${name}`,{method:'POST',headers,body});
-          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
+          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager|platform))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
           reply = await actor.run(subject, () => handlers['route'+routes.indexOf(name)](request));
         }
         const output = await reply.text();
         Object.assign(record,{status:reply.status,responseBytes:Buffer.byteLength(output)});
-        res.writeHead(reply.status,{'content-type':'application/json','cache-control':'no-store'}).end(output);
+        const headers={'content-type':'application/json','cache-control':'no-store'};
+        const cookies=reply.headers.getSetCookie?.()??[];
+        // The handler runs with the staging origin while Chromium uses the local HTTP fixture.
+        if(cookies.length)headers['set-cookie']=cookies.map(cookie=>cookie.replace(/;\s*Secure(?=;|$)/ig,''));
+        res.writeHead(reply.status,headers).end(output);
       } catch {
         res.writeHead(503,{'content-type':'application/json','cache-control':'no-store'}).end('{"error":"unavailable"}');
       }
@@ -197,11 +212,12 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
       stdin:{contents:`export{default as Runtime}from'./apps/web/src/components/workspace-runtime.tsx';
         export{default as Experience}from'./apps/web/src/components/experience-workspace.tsx';
         export{default as Planning}from'./apps/web/src/components/date-planning-workspace.tsx';
-        ${datedPlan?`export{default as Program}from'./apps/web/src/components/program-workspace.tsx';
+        ${datedPlan||commerce?`export{default as Program}from'./apps/web/src/components/program-workspace.tsx';
         export{default as Onboarding}from'./apps/web/src/components/onboarding-workspace.tsx';`:''}
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${billing?`export{default as Billing}from'./apps/web/src/components/billing-workspace.tsx';`:''}
         ${compensation?`export{default as Compensation}from'./apps/web/src/components/trainer-compensation-workspace.tsx';`:''}
+        ${commerce?`export{default as Commerce}from'./apps/web/src/components/platform-commerce-workspace.tsx';`:''}
         ${familyDay?`export{default as FamilyTraining}from'./apps/web/src/components/guardian-training-workspace.tsx';`:''}
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
         export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
@@ -248,7 +264,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
             sessionStorage.setItem('fixture-signed-out','1');window.dispatchEvent(new Event(event));
           }}}
           `:`
-          export function useUser(){return{isLoaded:true,isSignedIn:true,user:{id:${familyDay||compensation?"typeof document==='undefined'?'user_owner':document.cookie.match(/family-day-actor=(user_[a-z_]+)/)?.[1]??'user_owner'":"'user_owner'"}}};}
+          export function useUser(){return{isLoaded:true,isSignedIn:true,user:{id:${multiActor?"typeof document==='undefined'?'user_owner':document.cookie.match(/family-day-actor=(user_[a-z_]+)/)?.[1]??'user_owner'":"'user_owner'"}}};}
           export function UserButton(){return null;}
           export function SignInButton({children}){return children;}
           export function SignUpButton({children}){return children;}`,loader:'js',resolveDir:root}));
@@ -287,7 +303,29 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';"));
     }
     const params=['en','ar'].flatMap(locale=>data.events.map(({academy,event})=>({locale,academy,event})));
-    if (reviews || compensation) {
+    if (commerce) {
+      for (const [suffix, name, exportName] of [['', 'OnboardingWorkspace', 'Onboarding'], ['commerce', 'PlatformCommerceWorkspace', 'Commerce']]) {
+        const file = join('app/[locale]/platform', suffix, 'page.tsx');
+        const route = await readFile(join(root, 'apps/web/src', file), 'utf8');
+        const entry = './' + relative(dirname(join(temp, file)), join(temp, 'fixture-client.jsx'));
+        await put(file, route
+          .replace(/import\s*\{\s*auth\s*\}\s*from ['"]@clerk\/nextjs\/server['"];/, 'const auth={protect:async()=>{}};')
+          .replace(new RegExp(`import\\s*${name}\\s*from ['"]@/components/[^'"]+['"];`), `import {${exportName} as ${name}} from '${entry}';`));
+      }
+      await put('app/[locale]/invitation/page.jsx', `import {Onboarding} from '../../../fixture-client.jsx';
+        export default async function Page({params}){
+          const {locale} = await params;
+          return <Onboarding locale={locale} mode="invitation"/>;
+        }`);
+      const academyPage=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/page.tsx'),'utf8');
+      await page('page.tsx',academyPage
+        .replace('import { auth } from "@clerk/nextjs/server";','const auth={protect:async()=>({userId:"user_owner"})};')
+        .replace('import OnboardingWorkspace from "@/components/onboarding-workspace";',
+          "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';")
+        .replace('import { uuidPattern } from "@/lib/onboarding";',
+          'const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;'));
+    }
+    if (reviews || compensation || commerce) {
       for (const [path, localName, exportName, file] of [
         ...(reviews ? [
           ['attendance/corrections', 'CorrectionWorkspace', 'Corrections', 'correction-workspace'],
@@ -299,6 +337,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           ['trainer/compensation', 'TrainerCompensationWorkspace', 'Compensation', 'trainer-compensation-workspace'],
           ...(!familyDay ? [['trainer/home', 'ExperienceWorkspace', 'Experience', 'experience-workspace']] : []),
         ] : []),
+        ...(commerce ? [['platform-plan', 'PlatformCommerceWorkspace', 'Commerce', 'platform-commerce-workspace']] : []),
         ...(billing ? [
           ['billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],
           ['guardian/billing', 'BillingWorkspace', 'Billing', 'billing-workspace'],

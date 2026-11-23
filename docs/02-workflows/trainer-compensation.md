@@ -10,11 +10,21 @@ Requirements: AO-063–072. D-008 must settle formulas and contract policy; D-00
 
 The [approved worked example](../07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md#approved-first-synthetic-workflow) selects effective per-session terms in fictional units, Owner-verified actual coverage, branch-eligible substitutes, separate preparation and approval, linked reasoned corrections and confirmed manual partial payouts. The Trainer sees their own approved statement. The broader contract below retains the additional decisions and capabilities required for later scope.
 
+## Required product direction · Trainer QR and payslips · 22 November 2026
+
+The Owner requested this combined workflow be documented. It extends, but does not replace or broaden, the accepted EX-22 per-session synthetic trial. Detailed roles, sequences, examples, decision gates and acceptance cases live in [Trainer QR attendance and payslips](../06-delivery/trainer-qr-and-payslip-requirements.md). Implementation must wait for its exact policy dependencies; this direction alone does not settle the open calculations, access, attendance or payment rules.
+
+- Trainer contracts can use **per-session**, **fixed weekly/monthly**, or **fixed plus eligible sessions**. Per-session pay is a normal choice for regular Trainers and can be the academy's common model. Earning basis is independent of weekly or monthly statement frequency and actual payout timing.
+- One authorized Attendance task should recognize Trainers and trainees. A Trainer scan records arrival, not proof of completed work, payroll coverage or permission. One arrival can associate with a visible contiguous back-to-back block; every occurrence still has its own coverage state. Substitutes use their own effective terms. Trainer QR/offline availability cannot be claimed before implementation and verification.
+- An approved statement explains its period, applicable terms, original lines, adjustments, approved amount, confirmed payout and remaining liability. Preserve immutable approved evidence and expose only the Trainer's own statement.
+
+**D-008 still needs concrete examples before calculation work:** week boundaries, effective changes, fixed-pay proration, monthly amounts allocated across weekly periods, included versus extra sessions, leave/absence/cancellation/short sessions, overnight boundaries, rounding and residual handling. Do not divide a monthly amount by four by assumption or deduct fixed pay for attendance without an approved term.
+
 ## Contract model
 
 A protected contract version records trainer, academy, currency, effective interval, compensation basis, rate or salary terms, eligible session types, substitution/coverage terms, leave treatment, rounding, adjustment rules and approver. Keep confidential terms outside general staff-directory responses. Contract changes create new versions with non-overlapping effective intervals or an explicitly approved precedence rule.
 
-Examples to decide include hourly versus per-session pay, partially attended sessions, cancellations, late substitutions, cross-midnight sessions, paid leave, unpaid leave and corrections after a run closes. The product must not guess these from PYSA behavior. Write approved examples and expected amounts before implementing the calculator.
+Other examples to decide include hourly rates, partially attended sessions, cancellations, late substitutions, cross-midnight sessions, paid leave, unpaid leave and corrections after a run closes. The product must not guess these from PYSA behavior. Write approved examples and expected amounts before implementing the calculator.
 
 ## Prepare a run
 
@@ -34,8 +44,16 @@ Corrections after approval create adjustment lines or a successor run, preservin
 
 ## Trainer experience
 
-The trainer sees their own statement, period, approved earnings, payment status and understandable line explanations. They can raise a dispute or ask for clarification through a linked case. They cannot read another trainer's rates, management notes or full academy payroll. A notification says a statement is available and links to authenticated access; it does not send private amounts to an unverified contact.
+The Trainer sees their own approved statements by weekly or monthly period, approved earnings, confirmed payouts, outstanding liability and understandable line explanations. Provide a latest-statement path and prior-period history; any download is authenticated and scoped. The Trainer can request a linked correction. They cannot read another Trainer's rates, drafts, internal reviewer notes, bank references or full academy payroll. A notification says a statement is available and links to authenticated access; it does not send private amounts to an unverified contact.
+
+## Trainer QR arrival and back-to-back sessions
+
+The target is one shared QR register for trainee cards and Trainer credentials. Authenticate the operator and credential, check current academy/branch/session scope, and distinguish identity, arrival, occurrence coverage and earning eligibility. Possessing a credential grants no permission and does not prove a session was led. Keep player QR issuance and public-card restrictions unchanged.
+
+A Trainer may scan once on arrival for a displayed contiguous block of sessions at the same branch. Preserve one source occurrence and one coverage decision per session, even when an authorized operator confirms routine coverage as one batch. A substitute names the actual Trainer and uses that person's effective contract. A later, separate block requires a new arrival. Overlap, future/cancelled/reassigned sessions, branch changes, early departure, missing evidence and substitutions that cannot be confirmed go to an explicit review/fallback. Manual entry requires the same authority, scope and a reasoned correction. Duplicate scans, concurrent operators and lost replies resolve to one original arrival and one canonical coverage per occurrence.
+
+Trainer QR/offline commands do not inherit the accepted player-register offline authority. Keep the capability online until its exact command, device, key, field, retention and replay policies are accepted and tested. A pending local scan is never presented as a confirmed arrival, covered session, earning, approved statement or payout.
 
 ## Acceptance
 
-Use two contract versions spanning a period, a mid-period substitution, overnight session, excluded absence, correction and partial payment. Test failed chunk/retry, duplicate preparation, concurrent approval, revoked preparer, manager direct approval, foreign trainer ID and historical statement consistency. Verify the sum of items equals the approved total and the sum of confirmed payments plus remaining liability equals that total after approved adjustments.
+Retain the accepted EX-22 cases and add the full [TP-01–TP-08 matrix](../06-delivery/trainer-qr-and-payslip-requirements.md#planned-acceptance-cases): all earning models with weekly and monthly statements; cross-month/year boundaries; QR arrival and a multi-session block with a substitute; duplicate, stale, concurrent and same-original recovery; exceptions; private statement history/download; and explicit offline boundary. Reconcile original earning lines, linked adjustments, confirmed payout and remaining liability against the immutable approved evidence.

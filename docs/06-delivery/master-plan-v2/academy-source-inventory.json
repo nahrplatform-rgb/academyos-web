@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "8ca12c53a8e17d7dab2d0db95a48c19556352a2d",
+  "source_anchor": "e36e0bb701a12bee53b5bb074117adbb791bcd0f",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -37,6 +37,11 @@
       "path": "apps/web/src/app/[locale]/page.tsx",
       "sha256": "760afc873f14154d4f27bfd6d770fdf078d79399e8b6e2c97a0315e485860d97",
       "bytes": 4208
+    },
+    {
+      "path": "apps/web/src/app/[locale]/platform/commerce/page.tsx",
+      "sha256": "9784a56610d1c4da6a251cf591eac8d7edc3d902c89d942c5efab749cb82630b",
+      "bytes": 485
     },
     {
       "path": "apps/web/src/app/[locale]/platform/page.tsx",
@@ -142,6 +147,11 @@
       "path": "apps/web/src/app/[locale]/workspace/[academy]/page.tsx",
       "sha256": "42a09434c0b3062d063201bdee208f9518b890a6931d5b784f6165d523047f14",
       "bytes": 534
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/platform-plan/page.tsx",
+      "sha256": "28decd2f678d564b56f205860832e86a3771dd7aeabbcd7b881df7c1a8adcb97",
+      "bytes": 604
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx",
@@ -309,6 +319,11 @@
       "bytes": 2671
     },
     {
+      "path": "apps/web/src/app/api/platform-commerce/route.ts",
+      "sha256": "b44c99a09c34b8a6644ea00dd89909ea0a277c3cb69b92a12cde1c052d3c4ea2",
+      "bytes": 2054
+    },
+    {
       "path": "apps/web/src/app/api/program-planning/route.ts",
       "sha256": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
       "bytes": 2714
@@ -470,13 +485,13 @@
     },
     {
       "path": "apps/web/src/components/onboarding-workspace.tsx",
-      "sha256": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
-      "bytes": 39807
+      "sha256": "f2c71cff59a6f43b97bba8c6a3e6951a91deed035aa5775ba16da4aea53fd795",
+      "bytes": 39906
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
-      "sha256": "f746ceb10bbc2453b7ad1c21cbab822511dd9377d3840461fc1442c648a30976",
-      "bytes": 2914
+      "sha256": "572ff652a7b8145c8b60695d365fa5276e29e897e0b59904da89cfdac49abda4",
+      "bytes": 3071
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
@@ -485,8 +500,13 @@
     },
     {
       "path": "apps/web/src/components/people-workspace.tsx",
-      "sha256": "a6eadab5f88e02a43f3275b3a0e13c014715e6f4ddc39daefbc5f9621875b6dd",
-      "bytes": 63632
+      "sha256": "5cd1a7843f90fb17e059b944ffb00168a4102151eb5544e89f0e17f8f4797f4f",
+      "bytes": 63864
+    },
+    {
+      "path": "apps/web/src/components/platform-commerce-workspace.tsx",
+      "sha256": "4781d1b05bc52f7eeabf9de5fa8d77b797b0e4bbd1bd613421904ce8da917031",
+      "bytes": 20707
     },
     {
       "path": "apps/web/src/components/player-lifecycle.tsx",
@@ -530,13 +550,13 @@
     },
     {
       "path": "apps/web/src/components/program-workspace.tsx",
-      "sha256": "6adfc5a4ee12f7b8568320ed79d60a53be5fb73ccdc6c68eddde00e87b7f21a7",
-      "bytes": 42900
+      "sha256": "f030ed1acac1d6bb21002516301fe78d1ea8b8944daf8f3522218f36c73014b5",
+      "bytes": 43360
     },
     {
       "path": "apps/web/src/components/publication-workspace.tsx",
-      "sha256": "a5baabd6a3e99c2c230738f0eb584d2898bbd37084e87c08ccab429a03b3dab1",
-      "bytes": 41665
+      "sha256": "2ac9c343dee6b5cabe903e910b896d8e742970293ac8ae843abf281dfcabd87f",
+      "bytes": 41888
     },
     {
       "path": "apps/web/src/components/qr-camera.tsx",
@@ -580,8 +600,8 @@
     },
     {
       "path": "apps/web/src/components/trainer-compensation-workspace.tsx",
-      "sha256": "672c47cc98b98cf3db706c402e90f3d6101e9bf4458b2b3f7cabbf3fe7a1a591",
-      "bytes": 23289
+      "sha256": "c81c1b9a57d9f08e01eb80e40f80eb75356ed9fdd9a5990583c024ec76da8d7c",
+      "bytes": 23815
     },
     {
       "path": "apps/web/src/components/trainer-workspace.tsx",
@@ -830,13 +850,13 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "fca7c6ba34e2f11824fccbbfcecda6c908adf76c81c693ea317a60b2713ba780",
-      "bytes": 5199
+      "sha256": "76e7dc42adc2409c574ccea84ce4ba315610a2391b6ead20128e5769697a0d24",
+      "bytes": 5290
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
-      "sha256": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
-      "bytes": 3526
+      "sha256": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
+      "bytes": 3578
     },
     {
       "path": "apps/web/src/lib/onboarding.test.ts",
@@ -845,8 +865,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding.ts",
-      "sha256": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
-      "bytes": 2287
+      "sha256": "31253ea3ce45cad0452f99cb38aa793760ac6267240f71f903c0271c965cf018",
+      "bytes": 2423
     },
     {
       "path": "apps/web/src/lib/owner-register-pilot.ts",
@@ -887,6 +907,11 @@
       "path": "apps/web/src/lib/planning.ts",
       "sha256": "fa53c334ccbb83cd2d57a52bba5b8ea9c6034bf209e34987a60d722a725b9cd8",
       "bytes": 3621
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "sha256": "25224287fb760a2687c84427912181d8c43188bbec17425af14b0e27e28cccf4",
+      "bytes": 3090
     },
     {
       "path": "apps/web/src/lib/player-photo.ts",
@@ -1342,12 +1367,18 @@
       "path": "supabase/migrations/20261122063506_ex22_trainer_compensation.sql",
       "sha256": "cdf10b5ecfb9ad4b5d746460b56e8185c7c38fb2d6c9303c32fe28ea7ab30aa4",
       "bytes": 31017
+    },
+    {
+      "path": "supabase/migrations/20261122075500_ex23_platform_commerce.sql",
+      "sha256": "ee40dd05ea4455f20198686c57328e0c0193c1b2f14b168bc3274c8003437c50",
+      "bytes": 18975
     }
   ],
   "page_paths": [
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx",
     "apps/web/src/app/[locale]/invitation/page.tsx",
     "apps/web/src/app/[locale]/page.tsx",
+    "apps/web/src/app/[locale]/platform/commerce/page.tsx",
     "apps/web/src/app/[locale]/platform/page.tsx",
     "apps/web/src/app/[locale]/service-setup/page.tsx",
     "apps/web/src/app/[locale]/sign-in/[[...sign-in]]/page.tsx",
@@ -1367,6 +1398,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/training/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/home/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/platform-plan/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/card/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/guardians/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/page.tsx",
@@ -1405,6 +1437,7 @@
     "apps/web/src/app/api/onboarding/route.ts",
     "apps/web/src/app/api/people/route.ts",
     "apps/web/src/app/api/planning/route.ts",
+    "apps/web/src/app/api/platform-commerce/route.ts",
     "apps/web/src/app/api/program-planning/route.ts",
     "apps/web/src/app/api/programs/route.ts",
     "apps/web/src/app/api/publication/route.ts",
@@ -1781,6 +1814,41 @@
       ]
     },
     {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 49,
+      "case_labels": [
+        "publish_plan"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 53,
+      "case_labels": [
+        "assign"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 59,
+      "case_labels": [
+        "issue"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 63,
+      "case_labels": [
+        "claim"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 68,
+      "case_labels": [
+        "review"
+      ]
+    },
+    {
       "path": "apps/web/src/lib/programs.ts",
       "line": 36,
       "case_labels": [
@@ -2013,10 +2081,10 @@
     }
   ],
   "counts": {
-    "source_files": 268,
-    "page_paths": 43,
-    "api_routes": 30,
-    "migrations": 41
+    "source_files": 274,
+    "page_paths": 45,
+    "api_routes": 31,
+    "migrations": 42
   },
   "pwa_metadata": {
     "public_manifest_present": false,

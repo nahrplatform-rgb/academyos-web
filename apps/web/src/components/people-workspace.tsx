@@ -135,7 +135,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
             :stage==='profile'&&saved
                 ?t('Registration saved. The profile could not load. Try again.','حُفظ التسجيل. تعذّر تحميل الملف. أعد المحاولة.')
                 :t('Could not load the current view. Try again.','تعذّر تحميل العرض الحالي. أعد المحاولة.');
-        return ({authentication_required:t('Sign in again to check these players. Saved work stays protected.','سجّل الدخول مجددًا للتحقق من بيانات اللاعبين. يبقى العمل المحفوظ محميًا.'),denied:t('These player records are unavailable to this account. Choose an available workspace.','لا تتوفر سجلات اللاعبين لهذا الحساب. اختر مساحة عمل متاحة.'),setup_required:t('Complete initial academy setup before registering players.','أكمل الإعداد الأولي قبل تسجيل اللاعبين.'),offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'),invalid:t('Check the name and fictional contact email.','تحقق من الاسم وبريد جهة الاتصال الخيالي.'),conflict:t('Operation changed or was cancelled. Check the original save.','تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'),limited:t('Too many requests. Wait before trying again.','طلبات كثيرة. انتظر قبل المحاولة.')} as Record<string,string>)[code]??t('Could not complete the request.','تعذر إكمال الطلب.');
+        return ({authentication_required:t('Sign in again to check these players. Saved work stays protected.','سجّل الدخول مجددًا للتحقق من بيانات اللاعبين. يبقى العمل المحفوظ محميًا.'),denied:t('These player records are unavailable to this account. Choose an available workspace.','لا تتوفر سجلات اللاعبين لهذا الحساب. اختر مساحة عمل متاحة.'),setup_required:t('Complete initial academy setup before registering players.','أكمل الإعداد الأولي قبل تسجيل اللاعبين.'),plan_restricted:t('Player registration is paused. Check Academy plan to restore access.','تسجيل اللاعبين متوقف مؤقتًا. راجع خطة الأكاديمية لاستعادة الوصول.'),offline:t('Connect to complete this action.','اتصل بالإنترنت لإكمال هذا الإجراء.'),invalid:t('Check the name and fictional contact email.','تحقق من الاسم وبريد جهة الاتصال الخيالي.'),conflict:t('Operation changed or was cancelled. Check the original save.','تغيرت العملية أو أُلغيت. تحقق من الحفظ الأصلي.'),limited:t('Too many requests. Wait before trying again.','طلبات كثيرة. انتظر قبل المحاولة.')} as Record<string,string>)[code]??t('Could not complete the request.','تعذر إكمال الطلب.');
     }
     function forget() { try {
         sessionStorage.removeItem(storageKey);
@@ -408,7 +408,7 @@ export function PeopleJourney({ locale: initialLocale, academy, subject,prepared
                 await reviewCandidates();
                 setNotice(t('A matching record changed. Review again before saving.', 'تغير سجل مطابق. راجع مجدداً قبل الحفظ.'));
             }
-            else if (['invalid', 'limited', 'denied', 'setup_required'].includes(code)) {
+            else if (['invalid', 'limited', 'denied', 'setup_required', 'plan_restricted'].includes(code)) {
                 forget();
                 setStage('review');
                 failure(e);

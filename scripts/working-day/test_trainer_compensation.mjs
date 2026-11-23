@@ -204,6 +204,13 @@ try {
 
     await owner.reload();
     await selectTrainer();
+    await field(owner, 'Payout amount', 'مبلغ الدفعة').fill('140.01');
+    await field(owner, 'Payout date', 'تاريخ الدفع').fill('2026-11-21');
+    await owner.getByRole('checkbox', { name: t('I verified this fictional payout', 'تحققت من هذه الدفعة الافتراضية') }).check();
+    await expect(button(owner, 'Record payout', 'تسجيل الدفعة')).toBeDisabled();
+    await expect(main(owner)).toContainText(t('The payout exceeds the outstanding balance.', 'مبلغ الدفعة يتجاوز الرصيد المتبقي.'));
+    await field(owner, 'Payout amount', 'مبلغ الدفعة').fill('140.00');
+    await expect(button(owner, 'Record payout', 'تسجيل الدفعة')).toBeEnabled();
     await combo(owner, 'Earning line', 'بند المستحقات').selectOption(posted.lines[0].id);
     await combo(owner, 'Correction request', 'طلب التصحيح').selectOption(request.id);
     await field(owner, 'Correction amount', 'مبلغ التصحيح').fill('-20');
@@ -218,7 +225,7 @@ try {
     assert.doesNotMatch(JSON.stringify(statement), /Fictional internal|Owner verified the sources/);
     await earner.reload();
     await chooseMonth(earner);
-    await expect(main(earner)).toContainText('120.00');
+    await expect(main(earner)).toContainText(t('Approved after corrections: 320.00 · Paid: 200.00 · Still owed: 120.00', 'المعتمد بعد التصحيحات: 320.00 · المدفوع: 200.00 · المتبقي للدفع: 120.00'));
     await fixture.db({ action: 'compensation_end_trainer', academy });
     await call(earner, { action: 'context', view: 'trainer', month }, 403);
     await earner.reload();

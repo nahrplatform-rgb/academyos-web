@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 213,
-    "calendarMs": 122,
-    "dateMs": 147,
+    "homeMs": 278,
+    "calendarMs": 173,
+    "dateMs": 271,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 218,
-    "selectReviewSaveMs": 750,
+    "firstPrepareMs": 207,
+    "selectReviewSaveMs": 799,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 185,
-    "originalReplayMs": 109,
+    "offlineRestartMs": 265,
+    "originalReplayMs": 108,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -349,14 +349,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1975
+        "responseBytes": 1974
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5051
+        "responseBytes": 5052
       },
       {
         "route": "programs",
@@ -669,9 +669,9 @@
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/owner_fixture.mjs": "4c0d21fcd0bd9e708c279fba58dc1a159b0e3e3250b773f3ee7c2b43af03717a",
+    "scripts/working-day/owner_fixture.mjs": "b96463c0b10464b3105a85e7017d2dba771c0186d39ff20e4051b337a23a4e45",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
-    "scripts/working-day/owner_db.py": "0972684e2ce0d52337c8c1a6e9e4bff1b01b82feedfbdccd74ec3a4889083587",
+    "scripts/working-day/owner_db.py": "cbc1fdb68aa23fdb6e30df7aab1bad22f36d90fe586627da3e56791339d7d6ac",
     "scripts/working-day/test_owner_next.mjs": "55b9d821c7388b6e52302cbe45e0474d2643f44d21880ea3dbb285d790d8eff0",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
@@ -684,9 +684,9 @@
     "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
     "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
     "apps/web/src/app/api/programs/route.ts": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
-    "apps/web/src/components/program-workspace.tsx": "6adfc5a4ee12f7b8568320ed79d60a53be5fb73ccdc6c68eddde00e87b7f21a7",
+    "apps/web/src/components/program-workspace.tsx": "f030ed1acac1d6bb21002516301fe78d1ea8b8944daf8f3522218f36c73014b5",
     "apps/web/src/app/api/onboarding/route.ts": "dc0446473f1fd1d87265459b13e53c8d071ab314935cee289c789ff58fc4b739",
-    "apps/web/src/components/onboarding-workspace.tsx": "818c9a160600c3a700cb98b51b3de06e958789afeb532a6010f5ebcb59fee20f",
+    "apps/web/src/components/onboarding-workspace.tsx": "f2c71cff59a6f43b97bba8c6a3e6951a91deed035aa5775ba16da4aea53fd795",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
     "supabase/migrations/20261027004132_i3b_draft_session_planning.sql": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
     "apps/web/src/lib/workspace-read-owner.ts": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",
@@ -696,7 +696,7 @@
     "apps/web/src/lib/register-download.ts": "6de168d7c0a23bc31321c2a8f62108330780b78ce4307895899665f0b2a89c77",
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
-    "apps/web/src/lib/onboarding-gateway.ts": "fca7c6ba34e2f11824fccbbfcecda6c908adf76c81c693ea317a60b2713ba780",
+    "apps/web/src/lib/onboarding-gateway.ts": "76e7dc42adc2409c574ccea84ce4ba315610a2391b6ead20128e5769697a0d24",
     "apps/web/src/lib/register-scope-transport.ts": "3b3ba4372118568c9ef4dd844c5a9371bb116bb68668166d7122706d585c00d5",
     "apps/web/src/app/globals.css": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
     "supabase/migrations/20261103165604_owner_register_download_contract.sql": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f",

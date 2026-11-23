@@ -30,6 +30,10 @@ ROUTES = {
 
 BILLING_ROUTES = {'f21_players_v1','f21_payers_v1','f21_grants_v1','f21_preview_v1',
                   'f21_command_v1','f21_operation_v1','f21_statement_v1'}
+COMMERCE_ROUTES = {'x23_context_v1', 'x23_command_v1', 'x23_operation_v1',
+                   'm1_context_v1', 'm1_platform_list_v1', 'm1_setup_v1', 'm1_operation_v1',
+                   'm1_create_v1', 'm1_save_setup_v1', 'm1_manage_invitation_v1', 'm1_invitation_v1',
+                   'p5_preview_v1', 'p5_create_v1', 'p5_operation_v1'}
 COMPENSATION_ROUTES = {'c22_context_v1', 'c22_command_v1', 'c22_operation_v1', 'x15_trainer_home_v1'}
 
 FAMILY_ROUTES = {
@@ -158,7 +162,7 @@ def seed(test, multi_scope=False):
 
 def rpc(test, command):
     name = command['name']
-    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES) or ('--compensation' in sys.argv and name in COMPENSATION_ROUTES)
+    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES) or ('--compensation' in sys.argv and name in COMPENSATION_ROUTES) or ('--commerce' in sys.argv and name in COMMERCE_ROUTES)
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
@@ -189,17 +193,22 @@ if __name__ == '__main__':
             Boundary.sql((ROOT / 'supabase/migrations' / filename).read_text())
         test = Boundary()
         dispatch['scope']['apply_bound'](test)
-        if '--billing' in sys.argv or '--compensation' in sys.argv:
+        if any(flag in sys.argv for flag in ('--billing', '--compensation', '--commerce')):
             Boundary.sql((ROOT / 'supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql').read_text())
             for suffix in ('player_alternate_name','player_academy_member_number','player_private_profile_details',
                            'player_private_photo','player_name_correction','player_profile_and_lifecycle',
                            'ex21_family_billing'):
                 path, = (ROOT / 'supabase/migrations').glob(f'*_{suffix}.sql')
                 Boundary.sql(path.read_text())
-        if '--compensation' in sys.argv:
+        if '--compensation' in sys.argv or '--commerce' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex22_trainer_compensation.sql')
             Boundary.sql(migration.read_text())
+        if '--commerce' in sys.argv:
+            migration, = (ROOT / 'supabase/migrations').glob('*_ex23_platform_commerce.sql')
+            Boundary.sql(migration.read_text())
         data = seed(test, '--multi-scope' in sys.argv)
+        if '--commerce' in sys.argv:
+            data['commerceAcademies'] = [data['academy'], data['otherAcademy']]
         if '--family-day' in sys.argv:
             data['familyDays'] = [family_day(test), family_day(test)]
         if '--compensation' in sys.argv:
@@ -210,7 +219,92 @@ if __name__ == '__main__':
             if command['action'] == 'close':
                 break
             try:
-                if command['action'] == 'compensation_audit' and '--compensation' in sys.argv:
+                if command['action'] == 'commerce_program_quota' and '--commerce' in sys.argv:
+                    academy = str(uuid.UUID(command['academy']))
+                    owner_subject = command.get('subject', 'user_owner')
+                    before = int(test.sql(f"select count(*) from academy.training_programs where academy_id={literal(academy)}"))
+                    definition = {'name': 'Quota approval probe '+uuid.uuid4().hex[:8],
+                                  'from': '2026-11-01', 'to': '2027-01-31',
+                                  'rules': [{'day': 0, 'start': '17:00', 'end': '18:00'}]}
+                    allowed = 0
+                    while before + allowed < 2:
+                        created = json.loads(test.command(academy, definition={**definition, 'name': definition['name']+str(allowed)}, subject=owner_subject))
+                        assert created.get('id'), created
+                        allowed += 1
+                    blocked = False
+                    try:
+                        test.command(academy, definition={**definition, 'name': definition['name']+'blocked'}, subject=owner_subject)
+                    except AssertionError as error:
+                        if 'Program plan limit reached' not in str(error):
+                            raise
+                        blocked = True
+                    total = int(test.sql(f"select count(*) from academy.training_programs where academy_id={literal(academy)}"))
+                    value = {'before': before, 'created': allowed, 'limitBlocked': blocked, 'total': total}
+                elif command['action'] == 'commerce_registration_probe' and '--commerce' in sys.argv:
+                    academy = str(uuid.UUID(command['academy']))
+                    owner_subject = command.get('subject', 'user_owner')
+                    branch = test.sql(f"select branch_id from academy.initial_setup where academy_id={literal(academy)}")
+                    before = int(test.sql(f"select count(*) from academy.players where academy_id={literal(academy)}"))
+                    registration_error = None
+                    try:
+                        test.person(academy, branch, 'Restored registration '+uuid.uuid4().hex[:8], subject=owner_subject)
+                        allowed = True
+                    except AssertionError as error:
+                        allowed = False
+                        registration_error = str(error)[:450]
+                    total = int(test.sql(f"select count(*) from academy.players where academy_id={literal(academy)}"))
+                    value = {'allowed': allowed, 'before': before, 'total': total, 'error':registration_error}
+                elif command['action'] == 'commerce_restriction_checks' and '--commerce' in sys.argv:
+                    academy = str(uuid.UUID(command['academy']))
+                    branch = test.sql(f"select branch_id from academy.initial_setup where academy_id={literal(academy)}")
+                    owner_subject = command.get('subject', 'user_owner')
+                    players_before = int(test.sql(f"select count(*) from academy.players where academy_id={literal(academy)}"))
+                    registration_blocked = False
+                    try:
+                        test.person(academy, branch, 'Restricted registration '+uuid.uuid4().hex[:8], subject=owner_subject)
+                    except AssertionError as error:
+                        if 'Academy subscription restricts new work' not in str(error):
+                            raise
+                        registration_blocked = True
+                    source_value = test.sql(f"select id from academy.publication_events where academy_id={literal(academy)} order by day limit 1")
+                    before_publications = int(test.sql(f"select count(*) from academy.publication_events where academy_id={literal(academy)}"))
+                    publication_blocked = None
+                    attendance_readable = True
+                    if source_value:
+                        source = literal(source_value)
+                        try:
+                            test.sql(
+                                "insert into academy.publication_events select (jsonb_populate_record(null::academy.publication_events, "
+                                "to_jsonb(e)||jsonb_build_object('id',gen_random_uuid(),'job_id',gen_random_uuid(),'day',e.day+100,"
+                                "'published',true,'starts_at',e.starts_at+interval '100 days','ends_at',e.ends_at+interval '100 days'))).* "
+                                f"from academy.publication_events e where e.id={source}")
+                        except AssertionError as error:
+                            if 'Academy subscription restricts new work' not in str(error):
+                                raise
+                            publication_blocked = True
+                        event = data['events'][0]['event']
+                        attendance_readable = bool(test.roster(academy, event, who='user_trainer').get('players'))
+                    else:
+                        calendar = json.loads(test.sql(f"select public.x15_owner_calendar_v1('{academy}','2026-11-29'::date,'2026-11-29'::date)", owner_subject))
+                        assert calendar.get('items') == [], calendar
+                    after_publications = int(test.sql(f"select count(*) from academy.publication_events where academy_id={literal(academy)}"))
+                    value = {'registrationBlocked': registration_blocked, 'publicationBlocked': publication_blocked,
+                             'publishedRowsBefore': before_publications, 'publishedRowsAfter': after_publications,
+                             'existingAttendanceReadable': attendance_readable,
+                             'playersBefore': players_before,
+                             'playersAfter': int(test.sql(f"select count(*) from academy.players where academy_id={literal(academy)}"))}
+                elif command['action'] == 'commerce_clock' and '--commerce' in sys.argv:
+                    day = datetime.date.fromisoformat(command['day'])
+                    test.sql("create or replace function academy.x23_now() returns timestamptz language sql stable "
+                             f"as $$ select '{day.isoformat()} 12:00+02'::timestamptz $$")
+                    value = True
+                elif command['action'] == 'commerce_audit' and '--commerce' in sys.argv:
+                    academy = literal(uuid.UUID(command['academy']))
+                    value = json.loads(test.sql(
+                        "select json_build_object('settlements',(select count(*) from academy.platform_settlements "
+                        f"where academy_id={academy}),'approvals',(select count(*) from academy.audit_events "
+                        f"where academy_id={academy} and action='platform_commerce.review'))"))
+                elif command['action'] == 'compensation_audit' and '--compensation' in sys.argv:
                     academy = literal(uuid.UUID(command['academy']))
                     operation = literal(uuid.UUID(command['operation']))
                     value = json.loads(test.sql(

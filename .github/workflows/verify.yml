@@ -242,6 +242,12 @@ jobs:
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
         run: node scripts/working-day/test_trainer_compensation.mjs
+      - name: Verify academy admission through platform settlement
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          python3 scripts/platform-commerce/test_boundary.py
+          node scripts/working-day/test_platform_commerce.mjs
       - name: Verify adaptive layout scrolling sizing and responsive focus
         run: |
           node scripts/workspace-layout/test_ui.mjs

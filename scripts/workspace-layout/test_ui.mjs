@@ -64,7 +64,10 @@ try{
   const menu=sidebar.locator('.workspace-navigation');
   assert.equal(await menu.getByRole('link',{name:ar?'تبديل مساحة العمل':'Switch workspace',exact:true}).count(),0,'Switching is outside daily task navigation');
   const targets=await menu.locator('a').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
-  assert.ok(targets.every(h=>!h.includes('/platform')),'Academy navigation never adds Platform administration');
+  assert.ok(targets.every(h => !/^\/(?:en|ar)\/platform(?:\/|$)/.test(h)), 'Academy navigation never adds Platform administration');
+  const planLinks = targets.filter(h => h.endsWith('/platform-plan'));
+  assert.deepEqual(planLinks, role === 'owner' ? [`/${ar ? 'ar' : 'en'}/workspace/00000000-0000-4000-8000-000000000001/platform-plan`] : [],
+    'Academy billing links stay in the current Academy Owner workspace');
   if(role!=='owner')assert.ok(targets.every(h=>h.includes('/'+role+'/')||role==='trainer'&&h.endsWith('/development')),'Recipient menu stays role-specific');
   const before=page.url();await sidebar.getByRole('link',{name:ar?'تبديل مساحة العمل':'Switch workspace',exact:true}).click();assert.equal(page.url(),before,'Switch respects the domain navigation guard');
   await page.getByRole('link',{name:ar?'رئيسية مساحة العمل':'Workspace home',exact:true}).click();assert.equal(page.url(),before,'Workspace brand respects the domain navigation guard');

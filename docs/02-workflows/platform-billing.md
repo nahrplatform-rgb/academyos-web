@@ -10,6 +10,8 @@ A future locally retained monthly platform-billing view remains separate from fa
 
 Requirements: AO-073–084. D-009 governs pricing, limits, trials and grace. D-010 governs provider and merchant eligibility. This domain is NAHR charging an academy for AcademyOS, with separate records from family fees.
 
+In the EX-23 fictional trial, the Academy Owner opens **Academy plan** to see the invoice, balance, due date and claim history. A pending bank claim keeps the balance due. A rejection shows the reason and reopens submission. Verified settlement updates the invoice and restores access for the approved period. Trainer pay follows its own earning, approval and payout workflow under **Finance → Trainer pay**. [EX-23 approved example and local evidence](../07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md)
+
 ## Catalog and entitlement authority
 
 Version the product catalog: plan, price, currency, billing interval, included capabilities, quotas, effective dates and grandfathering policy. A tenant subscription references the accepted catalog version and records trial/active/past-due/restricted/cancelled states according to approved rules. Do not encode customer permissions in editable display labels.

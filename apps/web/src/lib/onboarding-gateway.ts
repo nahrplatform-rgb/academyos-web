@@ -21,6 +21,9 @@ writes.add("f21_operation_v1");
 reads.add("c22_context_v1");
 writes.add("c22_command_v1");
 writes.add("c22_operation_v1");
+reads.add("x23_context_v1");
+writes.add("x23_command_v1");
+writes.add("x23_operation_v1");
 
 export class GatewayError extends Error {
   constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }

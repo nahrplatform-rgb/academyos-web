@@ -14,6 +14,8 @@ The subsequent [profile/toolbar checkpoint](../../07-handoff/mp-b01-profile-cont
 
 ## Start here
 
+The Trainer QR and payslip follow-up specifies one shared scanner, block arrival with per-session coverage, three earning models and independently selected weekly or monthly statements. It links the EX-19 and EX-22 baselines and records the calculation and attendance decisions needed to start implementation. [Requirements and acceptance cases](../trainer-qr-and-payslip-requirements.md)
+
 The [10 November Owner session return](../../07-handoff/mp-b01-owner-return-2026-11-10.md) adds exact Today and Calendar context through the 18-player Attendance journey. It records local and hosted evidence separately and carries the remaining Operations differences forward in the tracker.
 
 The [phone register and direct return checkpoint](../../07-handoff/mp-b01-phone-register-2026-11-10.md) follows the verified hosted return. It tracks one-step return and early marking controls against the Operations reference, while retaining the exact dated action and offline original.

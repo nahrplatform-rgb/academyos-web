@@ -1,8 +1,26 @@
 # EX-23 Platform admission to commercial academy lifecycle
 
-22 November 2026 · MP-B08 · Synthetic decisions for review
+22 November 2026 · MP-B08 · Approved synthetic example; local billing checkpoint
 
-The saved M1 approval covers invite-led synthetic admission by the Platform Owner, verified invitation acceptance, and initial branch, sport and time-zone setup by the Academy Owner. Keep that journey and the separation between Platform and Academy authority. D-009 still needs a bounded commercial decision. D-010, D-021 and D-022 retain their existing owner gates for providers, privileged support and spend. [Saved M1 approval](../00-governance/decisions-and-open-questions.md#m1-bounded-acceptance--22-october-2026) · [Platform billing contract](../02-workflows/platform-billing.md)
+The Owner approved the fictional example in the 22 November conversation. That approval does not cover live charges or an EX-23 staging migration or promotion.
+
+## Local billing checkpoint
+
+23 November follow-up. The EN/AR Chromium cases start with a fresh Platform Owner admission. They use the real onboarding component, invitation exchange, recipient proof and setup actions against disposable PostgreSQL with fictional verified identities. Both reject the other Owner's invitation review, then exercise the intended Owner's setup and the plan, invoice, restriction, claim recovery and settlement journey. The existing-academy case verifies the publication restriction and the current Attendance read. The database test also verifies incomplete setup refusal, one subscription on repeated assignment, registration receipt replay during restriction and publication activation after settlement. The local production build, refreshed experience review and eight refreshed release regression receipts passed.
+
+- The inherited EX-23 source is still uncommitted. The isolated browser test passed in English and Arabic using the respective Academy Owner accounts. It covered plan publication and assignment, the two-program quota, trial/due/grace/restriction dates, cross-academy refusal, rejected then resubmitted payment, original claim recovery after a lost reply, one settlement, restored registration and expiry of restored access. Existing Attendance was readable in the English case; the Arabic case checked the empty Owner calendar instead.
+- `python3 scripts/platform-commerce/test_boundary.py` and Node 24 `npm run typecheck` passed. The browser starts from academies with completed setup, so this run does not establish the full admission-to-recovery journey. Publication restriction was checked at the database insert boundary, not by completing the publication UI journey.
+- The candidate needs Foundation CI and an exact-source preview. The staging migration, Owner promotion and signed-in review follow their existing approval process.
+
+## PYSA comparison and applied improvement
+
+Read-only review at PYSA `37d8901c`: the Owner subscription workspace (`components/owner/platform-subscription-workspace.tsx`) makes the invoice status, amount, due date and payment action easy to find and keeps request history visible. AcademyOS now tells the Owner when the current invoice claim is awaiting review and hides the duplicate submission form while it is pending. The invoice balance stays due until verified settlement. A rejection with a saved reason reopens submission. The English and Arabic browser runs covered all three states and recovered a pending claim after a lost reply.
+
+The fictional workflow uses an invoice-bound bank reference and one verified settlement. Live destinations, proof files, checkout providers, add-ons and renewals need their own scope. The PYSA audit's FND-0077 is a historical local finding about mismatched proof identity, so payment review continues to use the canonical AcademyOS claim and invoice.
+
+The production-mode local build, lint, typecheck and experience review checks passed. The review now includes the bilingual platform billing and Trainer statement captures at the fixture's desktop viewport. The shared layout check verifies that only the Academy Owner has the academy-scoped plan link and that academy navigation excludes the Platform administration route.
+
+The saved M1 approval covers invite-led synthetic admission by the Platform Owner, verified invitation acceptance, and initial branch, sport and time-zone setup by the Academy Owner. Keep that journey and the separation between Platform and Academy authority. D-009 is settled only for the fictional example below. D-010, D-021 and D-022 retain their existing owner gates for providers, privileged support and spend. [Saved M1 approval](../00-governance/decisions-and-open-questions.md#m1-bounded-acceptance--22-october-2026) · [Platform billing contract](../02-workflows/platform-billing.md)
 
 ## First synthetic proposal
 

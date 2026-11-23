@@ -150,5 +150,13 @@
     "actions": "IMP-J19-A01",
     "sequence": "Verify completed session coverage → apply effective terms → prepare and approve → recover original payout → reconcile private Trainer statement and post linked correction",
     "reference": "docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md"
+  },
+  {
+    "id": "platform-commerce",
+    "title": "Platform plan and billing",
+    "roles": "Platform Owner / Academy Owner",
+    "actions": "IMP-J04-A01; IMP-J04-A02; IMP-J04-A03",
+    "sequence": "Invite and accept → save initial academy setup → assign the fictional plan → issue invoice → recover original claim → verify settlement and restored access",
+    "reference": "docs/07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md"
   }
 ]

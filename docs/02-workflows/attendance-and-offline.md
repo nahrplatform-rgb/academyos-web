@@ -30,6 +30,14 @@ A correction request records target attendance ID, old value/version, proposed v
 
 Reject a stale correction when the underlying attendance changed. Deny foreign-academy evidence/targets. A failed attendance update cannot leave an “approved” correction with unchanged attendance. Rejection records a reason and preserves the original event. Downstream payroll or billing recalculation is an explicit event with its own reconciliation status; previously posted money is adjusted, not silently rewritten.
 
+## Trainer QR arrival and back-to-back sessions
+
+The Owner's documented target is for an authorized operator to scan Trainer credentials in the same Attendance task as trainee cards. Reuse the QR experience and server authority boundaries; do not assume the player credential, player attendance record or player offline grant applies to Trainers. Trainer identity, arrival, per-session actual coverage and payroll eligibility are distinct facts. A scan records arrival only; it does not prove completed coverage or create earnings.
+
+A single arrival can associate with a displayed contiguous block of back-to-back sessions at the same branch. Preserve a separate coverage result, source occurrence and audit record for every session. A substitute names the actual Trainer; earnings use that person's effective terms. Separate returns require another arrival. Do not auto-apply a scan to overlapping, future, cancelled, reassigned or ambiguous sessions. Provide authorized manual fallback and reasoned correction, with duplicate protection, current membership/appointment/branch/session checks and recoverable originals. Exact actor/self-scan, check-in window, block/gap definition, batch confirmation, cancellation and exception rules need the linked D-012 examples.
+
+Trainer QR is a product target, not an extension of the accepted player-register offline command. Keep it online until exact D-011 device, key, fields, queue, retention and replay authority is accepted. Never represent a local pending scan as server-confirmed, attended or payable. See [Trainer QR attendance and payslips](../06-delivery/trainer-qr-and-payslip-requirements.md) for full role behavior and acceptance.
+
 ## Offline eligibility and local data
 
 Before private offline enablement, finish the exact remaining device/unlock/key/data-class rules. First Owner-register conflict and protected-pending cleanup choices are already accepted; do not invent a lease or pending-expiry period. A previously authenticated, permitted trainer may prepare a minimal roster for selected sessions. Offline access is a limited local convenience, not a new server authorization. Final replay always uses current server permissions and policy.

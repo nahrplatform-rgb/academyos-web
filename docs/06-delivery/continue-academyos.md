@@ -83,7 +83,7 @@ Product value for this batch:
 
 ### Ready development action
 
-Confirm the fictional plan, dates, quota, restriction and manual settlement policy in the worked example before implementing the connected admission-to-recovery workflow.
+Verify one EX-23 candidate through Foundation and Vercel. The approved Trainer QR and payslip follow-up remains tracked under EX-22 for implementation when routed.
 
 ### Separate release follow-up
 
@@ -101,12 +101,12 @@ Policy boundary: D-002;D-009;D-010;D-021;D-022 as applicable;no purchases/produc
 
 ## Actual delivery status for the current family
 
-- Design: M1 invite-led admission and initial setup are approved. The first fictional commercial catalog, entitlement, restriction and manual settlement choices are proposed.
-- Implementation: Existing invite-led admission and Academy Owner setup are available. Commercial plan, subscription, invoice and settlement behavior await the scoped decisions.
-- Local checks: Reviewed current admission and program source, platform billing contract and four relevant PYSA findings. Prepared the fictional worked example and verification map.
+- Design: Owner approved the fictional plan, trial, quota, restriction and manual settlement example on 22 November; M1 invite/setup approval retained.
+- Implementation: Local source implements versioned plan assignment, invoice, claim review, settlement and entitlement gates.
+- Local checks: EN/AR passed from fresh admission to settlement. Existing Attendance and publication restriction checks passed. Disposable SQL verified setup gating and original registration and publication boundaries. Node 24 build, experience review and shared receipt preflight passed.
 - Deployment: Not deployed as this new batch;retain earlier exact-source receipts
 - Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
-- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
+- Owner acceptance: Fictional policy approved; working product acceptance open.
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work

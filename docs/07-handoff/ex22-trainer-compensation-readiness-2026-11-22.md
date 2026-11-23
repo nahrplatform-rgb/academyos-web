@@ -1,5 +1,7 @@
 # EX-22 Trainer attendance, earnings and payout
 
+The expanded Trainer QR, pay models and weekly/monthly payslip workflow is tracked as a follow-up to this verified synthetic baseline. [Requirements and decision gates](../06-delivery/trainer-qr-and-payslip-requirements.md) · [Kickoff prompt](trainer-qr-and-payslip-start-prompt.md)
+
 22 November 2026 · MP-B07 · Approved synthetic workflow
 
 The synthetic workflow adds an Academy Owner record of who actually covered a session. The monthly earning review uses both that record and the effective Trainer contract. Trainers use their own approved statement and can request a correction from a posted line. [Domain coverage](../06-delivery/master-plan-v2/domain-coverage.csv) · [Trainer compensation contract](../02-workflows/trainer-compensation.md)
@@ -43,6 +45,8 @@ These amounts are fictional. Paid leave, late-cancellation compensation, varying
 - The Node 24 production build, lint, types and 119 unit tests passed. The disposable PostgreSQL 17 restore verified the encrypted [21 November backup receipt](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44950313559), replayed the reviewed EX-21 and EX-22 SQL in order, and preserved all 1,065 existing rows across 65 academy tables. The backup had zero Storage objects. EX-22 migration source SHA-256 is `cdf10b5ecfb9ad4b5d746460b56e8185c7c38fb2d6c9303c32fe28ea7ab30aa4`.
 
 ## Release status
+
+**Local PYSA comparison follow-up.** At PYSA `37d8901c`, `lib/db/trainer-finance.ts` supports fixed monthly, per-session, fixed plus session and manual contracts. The payout-slip snapshot in `lib/services/financial-documents.ts` brings period, earning lines and payout details together. AcademyOS applies that readability pattern to the private statement. It shows original session earnings, net approved after corrections, confirmed payouts and the outstanding amount. The Owner form flags an amount above the outstanding balance before submission. The local EN/AR browser test verifies the 340.00 original, 320.00 net approved, 200.00 paid and 120.00 outstanding example and the overpayment refusal. The approved per-session terms and linked correction ledger govern the example. Additional pay models need effective-date, proration and approval decisions before implementation.
 
 Candidate `641b7cf4f232bf7a71b7a922ce1463a317fd7d68` is published to [draft PR #1](https://github.com/nahrplatform-rgb/academyos-web/pull/1). [Foundation run 44996260504](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44996260504) passed **58/58** on attempt 1. The connected compensation test explicitly passed in English and Arabic. The [Ready Vercel preview](https://vercel.com/academy-os2/academyos-web/8NUtSBkMbJBm2VrJ6PeKdQ5F3udn) matches the exact commit.
 
