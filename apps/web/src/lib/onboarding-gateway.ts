@@ -19,6 +19,10 @@ for (const name of ["f21_players_v1", "f21_payers_v1", "f21_grants_v1", "f21_pre
 writes.add("f21_command_v1");
 writes.add("f21_operation_v1");
 reads.add("c22_context_v1");
+reads.add("c22_period_context_v1");
+reads.add("c22_payslip_v1");
+reads.add("c22_staff_context_v1");
+writes.add("c22_staff_command_v1");
 writes.add("c22_command_v1");
 writes.add("c22_operation_v1");
 reads.add("x23_context_v1");

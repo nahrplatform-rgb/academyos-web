@@ -1,5 +1,6 @@
 import { isCivilDay } from './experience-format';
 import { uuidPattern } from './onboarding';
+import { staffQrPattern } from './qr-attendance';
 
 export class CompensationInputError extends Error {}
 
@@ -40,16 +41,38 @@ function reason(value: unknown, optional = false, max = 300): string {
 }
 
 const amountMax = 1_000_000_000;
+function frequency(value: unknown) {
+  if (value !== 'week' && value !== 'month') throw new CompensationInputError();
+  return value;
+}
 
 export function trainerCompensationRequest(input: unknown) {
   const request = fields(input);
   const a = id(request.academy);
   const common = ['action', 'academy'];
   const command = [...common, 'operation'];
+  if (request.action === 'payslip') {
+    fields(input, [...common, 'view', 'run', 'locale']);
+    if ((request.view !== 'owner' && request.view !== 'trainer') ||
+        (request.locale !== 'en' && request.locale !== 'ar')) throw new CompensationInputError();
+    return { rpc: 'c22_payslip_v1', args: { a, v: request.view, r: id(request.run) }, locale: request.locale };
+  }
+  if (request.action === 'staff_context') {
+    fields(input, [...common, 'branch']);
+    return { rpc: 'c22_staff_context_v1', args: { a, b: id(request.branch) } };
+  }
   if (request.action === 'context') {
-    fields(input, [...common, 'view', 'month', 'staff', 'after']);
+    fields(input, [...common, 'view', 'month', 'period', 'staff', 'after']);
     if (request.view !== 'owner' && request.view !== 'trainer') throw new CompensationInputError();
     if (request.view === 'trainer' && (request.staff != null || request.after != null)) throw new CompensationInputError();
+    if (request.period !== undefined) {
+      if (request.month !== undefined) throw new CompensationInputError();
+      return {
+        rpc: 'c22_period_context_v1',
+        args: { a, v: request.view, d: day(request.period), s: request.staff == null ? null : id(request.staff),
+          after_id: request.after == null ? null : id(request.after) },
+      };
+    }
     return {
       rpc: 'c22_context_v1',
       args: { a, v: request.view, m: month(request.month), s: request.staff == null ? null : id(request.staff),
@@ -61,12 +84,55 @@ export function trainerCompensationRequest(input: unknown) {
   const act = request.action;
   let payload: Record<string, unknown>;
   switch (act) {
+    case 'staff_card':
+      fields(input, [...command, 'branch', 'staff', 'expected', 'code']);
+      if (request.code !== null && (typeof request.code !== 'string' || !staffQrPattern.test(request.code))) throw new CompensationInputError();
+      payload = { branch: id(request.branch), staff: id(request.staff), expected: request.expected == null ? null : id(request.expected), code: request.code };
+      return { rpc: 'c22_staff_command_v1', args: { a, op, act, payload } };
+    case 'staff_arrival':
+      fields(input, [...command, 'branch', 'staff', 'code', 'event', 'reason']);
+      if (request.code !== undefined && (typeof request.code !== 'string' || !staffQrPattern.test(request.code))) throw new CompensationInputError();
+      payload = request.code === undefined
+        ? { branch: id(request.branch), staff: id(request.staff), event: id(request.event), reason: reason(request.reason) }
+        : { branch: id(request.branch), code: request.code, event: request.event == null ? null : id(request.event) };
+      return { rpc: 'c22_staff_command_v1', args: { a, op, act, payload } };
+    case 'staff_verify':
+      fields(input, [...command, 'branch', 'arrival', 'coverage', 'reason']);
+      if (!Array.isArray(request.coverage) || request.coverage.length < 1 || request.coverage.length > 42) throw new CompensationInputError();
+      payload = { branch: id(request.branch), arrival: id(request.arrival), reason: reason(request.reason ?? '', true),
+        coverage: request.coverage.map(value => {
+          const entry = fields(value, ['event', 'staff', 'version']);
+          return {event: id(entry.event), staff: id(entry.staff), version: integer(entry.version, 0, Number.MAX_SAFE_INTEGER)};
+        }) };
+      return { rpc: 'c22_staff_command_v1', args: { a, op, act, payload } };
     case 'operation':
       fields(input, command);
       return { rpc: 'c22_operation_v1', args: { a, op } };
     case 'terms':
-      fields(input, [...command, 'staff', 'start', 'rate']);
-      payload = { staff: id(request.staff), start: day(request.start), rate: integer(request.rate, 1, amountMax) };
+      if (request.basis === undefined) {
+        fields(input, [...command, 'staff', 'start', 'rate']);
+        payload = { staff: id(request.staff), start: day(request.start), rate: integer(request.rate, 1, amountMax) };
+      } else {
+        fields(input, [...command, 'staff', 'start', 'end', 'rate', 'basis', 'fixed', 'fixedUnit', 'frequency']);
+        const basis = request.basis;
+        if (basis !== 'session' && basis !== 'fixed' && basis !== 'hybrid') throw new CompensationInputError();
+        const start = day(request.start);
+        const end = request.end == null ? null : day(request.end);
+        if (end && end < start) throw new CompensationInputError();
+        payload = { staff: id(request.staff), start, end, basis,
+          rate: basis === 'fixed' ? integer(request.rate ?? 0, 0, 0) : integer(request.rate, 1, amountMax),
+          fixed: basis === 'session' ? integer(request.fixed ?? 0, 0, 0) : integer(request.fixed, 1, amountMax),
+          fixedUnit: basis === 'session' ? null : frequency(request.fixedUnit),
+          frequency: request.frequency === undefined ? undefined : frequency(request.frequency) };
+      }
+      break;
+    case 'default':
+      fields(input, [...command, 'frequency']);
+      payload = { frequency: frequency(request.frequency) };
+      break;
+    case 'extra':
+      fields(input, [...command, 'event', 'staff', 'reason']);
+      payload = { event: id(request.event), staff: id(request.staff), reason: reason(request.reason) };
       break;
     case 'coverage': {
       fields(input, [...command, 'event', 'staff', 'status', 'version']);
@@ -78,8 +144,9 @@ export function trainerCompensationRequest(input: unknown) {
       break;
     }
     case 'prepare':
-      fields(input, [...command, 'staff', 'month']);
-      payload = { staff: id(request.staff), month: month(request.month) };
+      fields(input, [...command, 'staff', 'month', 'period']);
+      if (request.period !== undefined && request.month !== undefined) throw new CompensationInputError();
+      payload = { staff: id(request.staff), ...(request.period !== undefined ? { period: day(request.period) } : { month: month(request.month) }) };
       break;
     case 'approve':
       fields(input, [...command, 'run', 'review', 'reason']);

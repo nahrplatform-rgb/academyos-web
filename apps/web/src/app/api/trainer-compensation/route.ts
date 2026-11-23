@@ -3,8 +3,10 @@ import { STAGING_AUTH_ORIGINS } from '@/lib/config';
 import { GatewayError } from '@/lib/onboarding-gateway';
 import { JourneyError, onboardingSession, rpc } from '@/lib/onboarding-server';
 import { CompensationInputError, trainerCompensationRequest } from '@/lib/trainer-compensation';
+import type { Payslip } from '@/lib/trainer-payslip';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 export const maxDuration = 15;
 
 const requestLimit = 4096;
@@ -38,6 +40,15 @@ export async function POST(request: NextRequest) {
     }
 
     const command = trainerCompensationRequest(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+    if (command.locale === 'en' || command.locale === 'ar') {
+      const data = await rpc(client, command.rpc, command.args) as Payslip;
+      const { renderPayslip } = await import('@/lib/trainer-payslip');
+      const pdf = await renderPayslip(data, command.locale);
+      return new Response(Uint8Array.from(pdf), { headers: {
+        'Content-Type': 'application/pdf', 'Content-Disposition': `attachment; filename="trainer-payslip-${data.id}.pdf"`,
+        'Cache-Control': 'private, no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff',
+      } });
+    }
     return respond({ data: await rpc(client, command.rpc, command.args) });
   } catch (error) {
     if (error instanceof JourneyError || error instanceof GatewayError) return respond({ error: error.code }, error.http);

@@ -93,8 +93,8 @@
               "mode": "canonical",
               "locale": "en",
               "width": 360,
-              "firstRowTop": 428,
-              "markBottom": 552,
+              "firstRowTop": 446,
+              "markBottom": 570,
               "minimumMarkHeight": 48,
               "minimumMarkWidth": 99,
               "reviewTop": 726,
@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=fd272ce7-fb5c-4e63-ac33-cb010f6970c6"
+          "task": "#attendance-return=cf213bd2-3b05-4867-922c-06236554ba9e"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=69621a4d-4009-428f-bb92-c286e2c13711"
+          "task": "#attendance-return=3e0b5251-8732-44bd-abc9-bd388ab453a4"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=d4671371-ecba-46a4-bd9c-342ce33cb63d"
+          "task": "#correction-return=14aef87e-ac9d-4b5e-8a12-654aa5e70f8c"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=33d6f9ed-fc88-4153-93ab-2ea12edf30a2"
+          "task": "#development-return=9f1227f5-c3de-451e-ae1a-4fb58c36e598"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=aed22219-6a52-45f1-87d8-4440d6b72821"
+          "task": "#development-return=296a3894-ac6f-408c-9aa3-5cb4f3c58906"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=37cb88c2-882f-4154-ad4b-b7940f1bcc5e"
+          "task": "#publication-return=7366bb99-0267-4e13-b450-42bc77b35f22"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=2b459dc8-4ca2-4a6c-b934-08c012f6b1d2"
+          "task": "#publication-return=a25e2535-178f-4cd3-8620-002f5c4ab123"
         }
       },
       {
@@ -1034,8 +1034,8 @@
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/owner_publication_return.mjs": "ce8b032171f9c70e37ab6f1d9a3edeb618769b166fe8c0f2a0f17cef85254308",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "b96463c0b10464b3105a85e7017d2dba771c0186d39ff20e4051b337a23a4e45",
-    "scripts/working-day/owner_db.py": "cbc1fdb68aa23fdb6e30df7aab1bad22f36d90fe586627da3e56791339d7d6ac",
+    "scripts/working-day/owner_fixture.mjs": "e1f6601c61d7f86632287c5a559e4311c00358f065bf60284e59f7340cd74141",
+    "scripts/working-day/owner_db.py": "8ec5b9c054279a93eedd1de0fcd27b6d24f87a09cd6b7ad6e64cf97da0220524",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
@@ -1077,7 +1077,7 @@
     "apps/web/src/app/globals.css": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
     "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
     "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a",
-    "package-lock.json": "28cc985507f4813dfe9dc87c4035a5aa936f1d2f8ec8bed24999d9598071e792"
+    "package-lock.json": "861c5e9cf5e892a710ed20c7997bd7a9a9559b3b048cde760823979145d89cb2"
   },
   "errors": [],
   "scope": "Disposable Next/Chromium/IndexedDB/current signed API/PG;fictional Clerk/provider wire;not installed or hosted proof"

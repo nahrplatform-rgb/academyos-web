@@ -20,7 +20,7 @@
     "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
     "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
     "apps/web/src/lib/onboarding-server.ts": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
-    "apps/web/src/lib/onboarding-gateway.ts": "76e7dc42adc2409c574ccea84ce4ba315610a2391b6ead20128e5769697a0d24",
+    "apps/web/src/lib/onboarding-gateway.ts": "444117a4109239db9fee06db4f6629c90aaec89a8764b3125759d8b23be8560a",
     "apps/web/src/lib/onboarding.ts": "31253ea3ce45cad0452f99cb38aa793760ac6267240f71f903c0271c965cf018",
     "apps/web/src/lib/config.ts": "549cb8148482222f7ffd637ea5c8c39f9370142929f7081361c368a9988a5153",
     "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
@@ -56,7 +56,7 @@
     "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
     "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
     "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
-    "apps/web/next.config.ts": "21e3c4308afc2c431bbb658d487d77353e045897d5bd1f8f6180b1cc390d5fc9",
+    "apps/web/next.config.ts": "b220c7d6671948dedf8162df5b28be3c06d05322a6e59c34106afb06f7c29fb1",
     "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
     "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "629109206f2105ff6f0c01f15b923c23cada2e22c924661b225598ba7ef67c76",
@@ -152,7 +152,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 14.813624999998865,
+      "elapsedMs": 15.214334000000235,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -262,8 +262,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "4db760b44db599c9aa02b0b218289bc317e211e938a4bf82fff9c81a3d20c05e",
-        "artifactHash": "a38d9fc0f8f4c1d0b81173c7ec44b49ae301f074506a9f9d813ce22dcb4e8767"
+        "sourceHash": "7a07088cb006a3181057383a9bbaf585f9adf164a07bad9d810042a041652bb7",
+        "artifactHash": "56f91190b105432405faeedcb54761d99708f7c7661829416874d37f96be2edb"
       }
     },
     "emptyOnlineRegistration": {
@@ -297,7 +297,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "45d759f3-4736-4a07-b992-41600169ede9"
+          "player_id": "b72f84cf-bee6-44f7-a8c7-3b697de92f0a"
         }
       }
     },
@@ -370,7 +370,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "c966500c-642c-4b1c-b66b-6fde0021e5d8"
+              "player_id": "5cfff787-958b-42b7-b727-94301ca08175"
             },
             "players": 1,
             "operations": 1
@@ -412,7 +412,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "fb98801f-a85f-4051-9b9d-55898652e69e"
+              "player_id": "0fa2b52b-a88f-482f-9b7f-ee9b717a66bf"
             },
             "players": 1,
             "operations": 1
@@ -449,7 +449,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "8bf26aea-82ca-4671-8df9-f7d97b3a9bc6"
+              "player_id": "e1cae5cf-58fe-48da-a8c9-a7f12f88e2a1"
             },
             "players": 1,
             "operations": 1
@@ -489,7 +489,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "e7ed0809-acda-40ab-9aa2-99cfed479a0d"
+              "player_id": "6e4e0a6a-4a7e-44e8-9fd8-2cdc30fd302c"
             },
             "players": 1,
             "operations": 1
@@ -525,7 +525,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "59f8e582-8287-4999-a0e7-358ca6f17517"
+              "player_id": "0e657e20-9b12-4f78-830d-88a3d716e69a"
             },
             "players": 1,
             "operations": 1

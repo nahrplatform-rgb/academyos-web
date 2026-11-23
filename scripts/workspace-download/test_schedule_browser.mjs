@@ -106,6 +106,10 @@ try {
       await page.route('**/api/**', route => {
         const reply = queue.then(async () => {
           const path = new URL(route.request().url()).pathname;
+          if (path === '/api/trainer-compensation') {
+            await route.fulfill({ json: { data: { staff: [], arrivals: [], now: '2026-11-01T17:15:00Z' } } });
+            return;
+          }
           const handler = {
             '/api/session-changes': sessionChangeRequest,
             '/api/planning': planningRequest,

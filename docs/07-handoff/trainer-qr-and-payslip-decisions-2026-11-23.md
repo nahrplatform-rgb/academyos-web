@@ -2,7 +2,7 @@
 
 23 November 2026 · EX-22 / MP-B07 follow-up · Academy Owner approved A–D
 
-The Academy Owner approved A–D as proposed on 23 November. The approval covers the synthetic workflow, including the worked examples and the Owner-only online Trainer scan and coverage actions. EX-23 is current. The Trainer follow-up is ready for implementation when routed. The existing synthetic examples already settle verified per-session earnings by academy-local session start, Owner review and approval, linked corrections, and confirmed manual cash or bank payouts. [Trainer requirements and acceptance cases](../06-delivery/trainer-qr-and-payslip-requirements.md) · [EX-22 baseline](ex22-trainer-compensation-readiness-2026-11-22.md)
+The Academy Owner approved A–D as proposed on 23 November. The approval covers the synthetic workflow, including the worked examples and the Owner-only online Trainer scan and coverage actions. After the EX-23 staging settlement checkpoint, the Owner routed this follow-up ahead of EX-24 Communications. The existing synthetic examples already settle verified per-session earnings by academy-local session start, Owner review and approval, linked corrections, and confirmed manual cash or bank payouts. [Trainer requirements and acceptance cases](../06-delivery/trainer-qr-and-payslip-requirements.md) · [EX-22 baseline](ex22-trainer-compensation-readiness-2026-11-22.md)
 
 ## Approved decisions
 
@@ -80,3 +80,18 @@ Build and test on one candidate once routed. Run the existing player QR and EX-2
 ## Preparation checkpoint
 
 Local baseline on 23 November against the reconciled worktree at base `e36e0bb`. The connected Schedule and QR browser check passed in English and Arabic. It exercised the 18-player register, QR issuance, refused capture, recovery of the original after a lost reply, replay and Attendance readback. The connected EX-22 test also passed in both languages with verified coverage, effective rates, approval, payout recovery, linked correction and the Trainer's private statement. Both used disposable PostgreSQL and synthetic identity. TP-01 through TP-08 remain planned for the expanded workflow.
+
+While the coordinator verified the EX-23 settlement, one GPT-6.1 Terra helper reviewed TP-01 through TP-08 against the current source at `b04ca60`. The review confirmed that existing compensation terms and reviews are monthly and per-session, current QR capture is player-only, and Trainer PDF retrieval has no route or control. Existing compensation tests cover approval, adjustments, partial payout and lost-reply recovery. The helper made no source changes and ran no tests.
+
+The coordinator owns the period and migration contract, preserving existing monthly history and one earning per verified occurrence. Once the test inputs and expected results are clear, a bounded helper can extend the existing [compensation fixture](../../scripts/working-day/test_trainer_compensation.mjs) for TP-01 and TP-02 with fixed and hybrid terms, weekly and monthly statements, effective-date changes and residual rounding. The remaining cases exercise Trainer arrival and actual coverage through the real scanner, immutable approval and private retrieval, and the online-only boundary. [Current tracker](../06-delivery/experience-execution.csv)
+
+## 24 November local continuation result
+
+The interrupted work was recovered from the linked Codex thread and both helper outputs. The coordinator preserved the pre-existing EX-23 and EX-22 edits, then added the period/arrival/payslip implementation and reviewed the helper-owned tests.
+
+- EN/AR compensation passed on disposable PostgreSQL and Chromium, including per-session, fixed, hybrid, weekly/monthly periods, 225.81/225.80 cumulative rounding, the 550.00 December/January split, the mid-month 4,700.00 rate change, partial first periods, approval, correction, payout recovery and private PDF access.
+- Trainer QR passed through the real English Owner scanner route and signed handler: one 16:55 arrival produced the 17:00/18:00/19:00 block, completion stayed separate, the original Trainer earned 200.00, the substitute 120.00, fixed 700.00 did not depend on a scan, and hybrid pay reached 820.00. Revoked, stale, duplicate, cancelled and lost-reply cases remained fenced. Two overlapping HTTP confirmations produced one commit and one refusal; the fixture serializes SQL at its bridge, so this is not separate concurrent-transaction proof. The Arabic 390px path reported offline unavailable and disabled capture.
+- Existing player QR and Attendance readback passed in EN/AR. The refreshed experience review has no capture gaps. The local build, typecheck, lint, all Foundation --check receipts, continuation validator and master-plan validator passed.
+- The verified backup rehearsal restored locally on PostgreSQL 17 and replayed EX-23 plus 20261123175251_ex22_trainer_pay_periods.sql without changing any of 1,137 pre-existing rows across 78 tables. This was a local restore only; no hosted migration or promotion occurred.
+
+Still open: finish the combined same-register player/Trainer path and the remaining TP-07 responsive/private-content matrix, inspect the exact candidate in Foundation/Vercel, obtain any required migration authorization, and complete Owner-only promotion, signed-in hosted verification and acceptance. No completion claim is made for those layers.

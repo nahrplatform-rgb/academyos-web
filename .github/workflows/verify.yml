@@ -241,7 +241,9 @@ jobs:
       - name: Verify connected bilingual Trainer compensation workflow
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
-        run: node scripts/working-day/test_trainer_compensation.mjs
+        run: |
+          node scripts/working-day/test_trainer_compensation.mjs
+          node scripts/working-day/test_trainer_arrival.mjs
       - name: Verify academy admission through platform settlement
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin

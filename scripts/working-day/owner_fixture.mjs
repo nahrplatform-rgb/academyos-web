@@ -61,6 +61,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
   const previousAppEnv=process.env.APP_ENV, previousOnboardingKey=process.env.ONBOARDING_PROOF_KEY;
   if(commerce){process.env.APP_ENV='staging';process.env.ONBOARDING_PROOF_KEY=key;}
   const routes = [...new Set(['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[]),...(commerce?['platform-commerce','onboarding','programs','people','publication','attendance']:[])])];
+  if (compensation) routes.push('qr');
   const multiActor = familyDay || compensation || commerce;
   const bridge = pgBridge(root,multiScope,familyDay,billing,compensation,commerce);
   const actor = new AsyncLocalStorage();
@@ -196,9 +197,11 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager|platform))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
           reply = await actor.run(subject, () => handlers['route'+routes.indexOf(name)](request));
         }
-        const output = await reply.text();
-        Object.assign(record,{status:reply.status,responseBytes:Buffer.byteLength(output)});
-        const headers={'content-type':'application/json','cache-control':'no-store'};
+        const output = Buffer.from(await reply.arrayBuffer());
+        Object.assign(record,{status:reply.status,responseBytes:output.byteLength});
+        const headers={'content-type':reply.headers.get('content-type')??'application/json','cache-control':reply.headers.get('cache-control')??'no-store'};
+        const disposition=reply.headers.get('content-disposition');
+        if(disposition)headers['content-disposition']=disposition;
         const cookies=reply.headers.getSetCookie?.()??[];
         // The handler runs with the staging origin while Chromium uses the local HTTP fixture.
         if(cookies.length)headers['set-cookie']=cookies.map(cookie=>cookie.replace(/;\s*Secure(?=;|$)/ig,''));
@@ -216,7 +219,8 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         export{default as Onboarding}from'./apps/web/src/components/onboarding-workspace.tsx';`:''}
         export{default as Register}from'./scripts/working-day/owner-register.tsx';
         ${billing?`export{default as Billing}from'./apps/web/src/components/billing-workspace.tsx';`:''}
-        ${compensation?`export{default as Compensation}from'./apps/web/src/components/trainer-compensation-workspace.tsx';`:''}
+        ${compensation?`export{default as Compensation}from'./apps/web/src/components/trainer-compensation-workspace.tsx';
+        export{default as Qr}from'./apps/web/src/components/qr-workspace.tsx';`:''}
         ${commerce?`export{default as Commerce}from'./apps/web/src/components/platform-commerce-workspace.tsx';`:''}
         ${familyDay?`export{default as FamilyTraining}from'./apps/web/src/components/guardian-training-workspace.tsx';`:''}
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
@@ -333,6 +337,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           ['programs/[program]/publish', 'PublicationWorkspace', 'Publication', 'publication-workspace'],
         ] : []),
         ...(compensation ? [
+          ['attendance/scan', 'QrWorkspace', 'Qr', 'qr-workspace'],
           ['trainer-compensation', 'TrainerCompensationWorkspace', 'Compensation', 'trainer-compensation-workspace'],
           ['trainer/compensation', 'TrainerCompensationWorkspace', 'Compensation', 'trainer-compensation-workspace'],
           ...(!familyDay ? [['trainer/home', 'ExperienceWorkspace', 'Experience', 'experience-workspace']] : []),

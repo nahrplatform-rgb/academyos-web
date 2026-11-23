@@ -1,12 +1,12 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "50045c7c069fde65b71ac58e19fc4fa9d407e180",
+  "source_anchor": "b04ca603802f66eb96a598723608b8d1aaac120b",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
       "path": "apps/web/package.json",
-      "sha256": "81d82a056a71f0768332ccec080c7ebc9be97f9159fc3abf692d9db0c4619cf4",
-      "bytes": 963
+      "sha256": "9dbfe68a164db2d70c7753a56b59425fd3ef76b3c508bbabb927d0ce2bf87ec9",
+      "bytes": 999
     },
     {
       "path": "apps/web/public/prepared-register-worker.js",
@@ -375,8 +375,8 @@
     },
     {
       "path": "apps/web/src/app/api/trainer-compensation/route.ts",
-      "sha256": "e9164faa5747fae632401d3b9f3c51f967dce9cf18d0c8763c5c316a5bd3aa0a",
-      "bytes": 2076
+      "sha256": "0d6d2ddd7a697a54ff2141b745d6d602d6c95197c8157e5423b4a7ac083c840b",
+      "bytes": 2752
     },
     {
       "path": "apps/web/src/app/api/trainers/route.ts",
@@ -570,8 +570,8 @@
     },
     {
       "path": "apps/web/src/components/qr-workspace.tsx",
-      "sha256": "fc80c6980fe030c84709c32467ddcace7f46679342d6a69589fed7b768e19c76",
-      "bytes": 39146
+      "sha256": "dbd2eb3c54e1b6d2965d422ee1a52432662022bc7440ad4aa454421a3aa1a6f6",
+      "bytes": 40206
     },
     {
       "path": "apps/web/src/components/register-account-boundary.tsx",
@@ -599,9 +599,14 @@
       "bytes": 2236
     },
     {
+      "path": "apps/web/src/components/trainer-arrival-panel.tsx",
+      "sha256": "1397f94e0fbcd1787b1f72546f81f176e90dcc9531a1abe193e4c18d7ac4c8bb",
+      "bytes": 13716
+    },
+    {
       "path": "apps/web/src/components/trainer-compensation-workspace.tsx",
-      "sha256": "c81c1b9a57d9f08e01eb80e40f80eb75356ed9fdd9a5990583c024ec76da8d7c",
-      "bytes": 23815
+      "sha256": "fb16060c96872dda5b58624465d59068c893f5880c9e61338f6ae874f5a31484",
+      "bytes": 31901
     },
     {
       "path": "apps/web/src/components/trainer-workspace.tsx",
@@ -850,8 +855,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "76e7dc42adc2409c574ccea84ce4ba315610a2391b6ead20128e5769697a0d24",
-      "bytes": 5290
+      "sha256": "444117a4109239db9fee06db4f6629c90aaec89a8764b3125759d8b23be8560a",
+      "bytes": 5426
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
@@ -960,8 +965,8 @@
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "sha256": "aefe4d180ea939133b72732678f29479588765b0fbdfa03e647f81de5b99001b",
-      "bytes": 7539
+      "sha256": "1f981ce230f84464bb18b0e5a4703b2f44807d9f8e367b7924a030b58b0e198b",
+      "bytes": 7604
     },
     {
       "path": "apps/web/src/lib/rate-limit.test.ts",
@@ -1050,13 +1055,18 @@
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "sha256": "c8e582828706b89dd7d3809120b1966acd94a48031a38cec2df613baafc2ca4c",
-      "bytes": 4917
+      "sha256": "6878017398cf750233c85035568a029d555042ffaba089e9e7685435bc85c768",
+      "bytes": 9337
     },
     {
       "path": "apps/web/src/lib/trainer-delivery.ts",
       "sha256": "aafad72d88315521a01c72919828804053e6cc78cf8588962dabc117d5afb153",
       "bytes": 3896
+    },
+    {
+      "path": "apps/web/src/lib/trainer-payslip.tsx",
+      "sha256": "5aa58f34a6f863f83694809d77d685241700368e81348c1fb4347679eeb90aa8",
+      "bytes": 4854
     },
     {
       "path": "apps/web/src/lib/trainers.test.ts",
@@ -1160,8 +1170,8 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "28cc985507f4813dfe9dc87c4035a5aa936f1d2f8ec8bed24999d9598071e792",
-      "bytes": 303356
+      "sha256": "861c5e9cf5e892a710ed20c7997bd7a9a9559b3b048cde760823979145d89cb2",
+      "bytes": 321783
     },
     {
       "path": "supabase/migrations/20261021165259_identity_baseline.sql",
@@ -1372,6 +1382,11 @@
       "path": "supabase/migrations/20261122075500_ex23_platform_commerce.sql",
       "sha256": "ee40dd05ea4455f20198686c57328e0c0193c1b2f14b168bc3274c8003437c50",
       "bytes": 18975
+    },
+    {
+      "path": "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql",
+      "sha256": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51",
+      "bytes": 39294
     }
   ],
   "page_paths": [
@@ -1899,112 +1914,147 @@
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 22,
+      "line": 23,
       "case_labels": [
         "context"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 27,
+      "line": 28,
       "case_labels": [
         "sessions"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 37,
+      "line": 38,
       "case_labels": [
         "card"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 42,
+      "line": 43,
       "case_labels": [
         "card_change"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 51,
+      "line": 52,
       "case_labels": [
         "window_change"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 57,
+      "line": 58,
       "case_labels": [
         "resolve"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 58,
+      "line": 59,
       "case_labels": [
         "capture"
       ]
     },
     {
       "path": "apps/web/src/lib/qr-attendance.ts",
-      "line": 76,
+      "line": 77,
       "case_labels": [
         "reconcile"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 64,
+      "line": 87,
+      "case_labels": [
+        "staff_card"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 92,
+      "case_labels": [
+        "staff_arrival"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 99,
+      "case_labels": [
+        "staff_verify"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 108,
       "case_labels": [
         "operation"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 67,
+      "line": 111,
       "case_labels": [
         "terms"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 71,
+      "line": 129,
+      "case_labels": [
+        "default"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 133,
+      "case_labels": [
+        "extra"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/trainer-compensation.ts",
+      "line": 137,
       "case_labels": [
         "coverage"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 80,
+      "line": 146,
       "case_labels": [
         "prepare"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 84,
+      "line": 151,
       "case_labels": [
         "approve"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 89,
+      "line": 156,
       "case_labels": [
         "request"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 93,
+      "line": 160,
       "case_labels": [
         "adjust"
       ]
     },
     {
       "path": "apps/web/src/lib/trainer-compensation.ts",
-      "line": 101,
+      "line": 168,
       "case_labels": [
         "payout"
       ]
@@ -2081,10 +2131,10 @@
     }
   ],
   "counts": {
-    "source_files": 274,
+    "source_files": 277,
     "page_paths": 45,
     "api_routes": 31,
-    "migrations": 42
+    "migrations": 43
   },
   "pwa_metadata": {
     "public_manifest_present": false,

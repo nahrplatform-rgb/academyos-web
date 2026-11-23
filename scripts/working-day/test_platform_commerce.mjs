@@ -21,7 +21,6 @@ try {
   const platform = await actor('user_platform');
   const ownerPrimary = await actor('user_owner');
   const ownerSecondary = await actor('user_other_owner');
-  const setDay = day => fixture.db({ action: 'commerce_clock', day });
   async function onboardingAction(page, action, trigger, expected = 200) {
     const [response] = await Promise.all([
       page.waitForResponse(response => new URL(response.url()).pathname === '/api/onboarding' &&
@@ -40,6 +39,7 @@ try {
     { locale: 'en', existing: true },
   ].entries()) {
     let academy = fixture.data.commerceAcademies[0];
+    const setDay = day => fixture.db({ action: 'commerce_clock', day, academy });
     const ownerSubject = locale === 'ar' ? 'user_other_owner' : 'user_owner';
     const owner = locale === 'ar' ? ownerSecondary : ownerPrimary;
     const outsider = locale === 'ar' ? ownerPrimary : ownerSecondary;

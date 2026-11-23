@@ -3,6 +3,7 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 const config: NextConfig = {
   poweredByHeader: false,
+  outputFileTracingIncludes: { '/api/trainer-compensation': ['./src/assets/payslip/*.ttf'] },
   async headers() {
     return [
       {

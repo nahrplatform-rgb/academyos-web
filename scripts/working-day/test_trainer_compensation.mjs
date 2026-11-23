@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { chromium, expect } from '@playwright/test';
 import { ownerFixture } from './owner_fixture.mjs';
+import { runTrainerPayCases, runTrainerWeeklyBoundary } from './trainer_pay_cases.mjs';
 
 const root = resolve(import.meta.dirname, '../..');
 const temp = await mkdtemp(join(tmpdir(), 'academyos-ex22-'));
@@ -84,6 +85,10 @@ try {
       return original;
     }
     const context = (page, view, staff, scope) => call(page, { action: 'context', view, month, ...(staff ? { staff } : {}) }, 200, scope);
+    const periodContext = (view, selectedStaff, period, selectedAcademy = academy) => call(owner, {
+      action: 'context', view, period, ...(selectedStaff ? { staff: selectedStaff } : {}),
+    }, 200, selectedAcademy);
+    const payCall = (fields, selectedAcademy = academy) => call(owner, fields, 200, selectedAcademy);
     async function chooseMonth(page) {
       await idle(page);
       const control = field(page, 'Month', 'الشهر');
@@ -127,6 +132,11 @@ try {
     }
     const preparation = await recoverLostReply('prepare', button(owner, 'Prepare earnings', 'تجهيز المستحقات'));
     await selectTrainer();
+    const firstEarning = owner.locator('table tbody tr').first().getByRole('button');
+    await firstEarning.click();
+    await expect(button(owner, 'Back to earnings review', 'العودة إلى مراجعة المستحقات')).toBeFocused();
+    await button(owner, 'Back to earnings review', 'العودة إلى مراجعة المستحقات').click();
+    await expect(firstEarning).toBeFocused();
     assert.deepEqual(await fixture.db({ action: 'compensation_audit', academy, operation: preparation.operation }),
       { lines: 3, payouts: 0, operations: 1, audits: 1 });
     let snapshot = await context(owner, 'owner', trainer);
@@ -226,11 +236,44 @@ try {
     await earner.reload();
     await chooseMonth(earner);
     await expect(main(earner)).toContainText(t('Approved after corrections: 320.00 · Paid: 200.00 · Still owed: 120.00', 'المعتمد بعد التصحيحات: 320.00 · المدفوع: 200.00 · المتبقي للدفع: 120.00'));
+    const pdfBody = { action: 'payslip', view: 'trainer', run: approved.id, locale };
+    const [download, pdfResponse] = await Promise.all([
+      earner.waitForEvent('download'), waitAction(earner, 'payslip'),
+      button(earner, 'Download approved PDF', 'تنزيل القسيمة المعتمدة PDF').click(),
+    ]);
+    assert.equal(pdfResponse.status(), 200);
+    assert.equal(pdfResponse.headers()['content-type'], 'application/pdf');
+    assert.match(pdfResponse.headers()['cache-control'], /\bno-store\b/);
+    assert.equal(download.suggestedFilename(), `trainer-payslip-${approved.id}.pdf`);
+    const pdfPath = await download.path();
+    assert.ok(pdfPath);
+    assert.equal((await readFile(pdfPath)).subarray(0, 5).toString(), '%PDF-');
+    assert.equal(await download.failure(), null);
+    for (const page of [otherTrainer, manager, outsider]) await call(page, pdfBody, 403);
+    await call(earner, pdfBody, 403, fixture.data.otherAcademy);
     await fixture.db({ action: 'compensation_end_trainer', academy });
+    await call(earner, pdfBody, 403);
+    const ownerPdf = await owner.request.post(fixture.origin + endpoint, {
+      headers: { origin: fixture.origin }, data: { academy, ...pdfBody, view: 'owner' },
+    });
+    assert.equal(ownerPdf.status(), 200, 'owner can retrieve approved history after appointment ends');
+    assert.equal(ownerPdf.headers()['content-type'], 'application/pdf');
     await call(earner, { action: 'context', view: 'trainer', month }, 403);
     await earner.reload();
     await expect(main(earner).getByRole('alert')).toBeVisible();
     await expect(main(earner)).not.toContainText('320.00');
+    await runTrainerPayCases({
+      call: payCall,
+      context: periodContext,
+      trainer: other,
+    });
+    const weekly = fixture.data.compensationWeekly[index];
+    await runTrainerWeeklyBoundary({
+      call: fields => call(owner, fields, 200, weekly.academy),
+      context: (_view, selectedStaff, selectedPeriod) => periodContext('owner', selectedStaff, selectedPeriod, weekly.academy),
+      trainer: weekly.trainer,
+      other: weekly.other,
+    });
     console.log(`PASS ${locale} EX-22 verified attendance, effective terms, approval, payout recovery, correction and private statement`);
     await Promise.all([owner, earner, otherTrainer, manager, outsider].map(page => page.context().close()));
   }

@@ -2,6 +2,7 @@
 export class QrInputError extends Error {
 }
 export const qrCodePattern = /^aos:qr:1:[A-Za-z0-9_-]{43}$/;
+export const staffQrPattern = /^aos:staff:1:[A-Za-z0-9_-]{43}$/;
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 function id(v: unknown) {
     if (typeof v !== 'string' || !uuid.test(v))

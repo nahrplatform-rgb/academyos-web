@@ -34,7 +34,8 @@ COMMERCE_ROUTES = {'x23_context_v1', 'x23_command_v1', 'x23_operation_v1',
                    'm1_context_v1', 'm1_platform_list_v1', 'm1_setup_v1', 'm1_operation_v1',
                    'm1_create_v1', 'm1_save_setup_v1', 'm1_manage_invitation_v1', 'm1_invitation_v1',
                    'p5_preview_v1', 'p5_create_v1', 'p5_operation_v1'}
-COMPENSATION_ROUTES = {'c22_context_v1', 'c22_command_v1', 'c22_operation_v1', 'x15_trainer_home_v1'}
+COMPENSATION_ROUTES = {'c22_context_v1', 'c22_period_context_v1', 'c22_payslip_v1', 'c22_staff_context_v1', 'c22_staff_command_v1',
+                       'c22_command_v1', 'c22_operation_v1', 'x15_trainer_home_v1', 'q13_context_v1', 'q13_sessions_v1'}
 
 FAMILY_ROUTES = {
     'x15_trainer_home_v1', 'x15_trainer_calendar_v1', 'x15_guardian_home_v1',
@@ -104,7 +105,7 @@ def compensation_day(test):
                  "'{\"name\":\"Fictional compensation program\",\"timezone\":\"Africa/Cairo\"}');"
                  f"insert into academy.publication_heads values({a},{p},{d},{e})")
         events[key] = {'id': event, 'day': day}
-    return dict(academy=academy, trainer=trainer, other=other, events=events)
+    return dict(academy=academy, branch=branch, trainer=trainer, other=other, events=events)
 
 
 def seed(test, multi_scope=False):
@@ -203,6 +204,8 @@ if __name__ == '__main__':
         if '--compensation' in sys.argv or '--commerce' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex22_trainer_compensation.sql')
             Boundary.sql(migration.read_text())
+            periods, = (ROOT / 'supabase/migrations').glob('*_ex22_trainer_pay_periods.sql')
+            Boundary.sql(periods.read_text())
         if '--commerce' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex23_platform_commerce.sql')
             Boundary.sql(migration.read_text())
@@ -213,6 +216,7 @@ if __name__ == '__main__':
             data['familyDays'] = [family_day(test), family_day(test)]
         if '--compensation' in sys.argv:
             data['compensationDays'] = [compensation_day(test), compensation_day(test)]
+            data['compensationWeekly'] = [compensation_day(test), compensation_day(test)]
         print(json.dumps({'ready': data}), flush=True)
         for line in sys.stdin:
             command = json.loads(line)
@@ -295,8 +299,11 @@ if __name__ == '__main__':
                              'playersAfter': int(test.sql(f"select count(*) from academy.players where academy_id={literal(academy)}"))}
                 elif command['action'] == 'commerce_clock' and '--commerce' in sys.argv:
                     day = datetime.date.fromisoformat(command['day'])
+                    academy = literal(uuid.UUID(command['academy']))
+                    zone = test.sql(f"select timezone from academy.academies where id={academy}")
+                    noon = datetime.datetime.combine(day, datetime.time(12), ZoneInfo(zone))
                     test.sql("create or replace function academy.x23_now() returns timestamptz language sql stable "
-                             f"as $$ select '{day.isoformat()} 12:00+02'::timestamptz $$")
+                             f"as $$ select {literal(noon.isoformat())}::timestamptz $$")
                     value = True
                 elif command['action'] == 'commerce_audit' and '--commerce' in sys.argv:
                     academy = literal(uuid.UUID(command['academy']))
@@ -304,6 +311,29 @@ if __name__ == '__main__':
                         "select json_build_object('settlements',(select count(*) from academy.platform_settlements "
                         f"where academy_id={academy}),'approvals',(select count(*) from academy.audit_events "
                         f"where academy_id={academy} and action='platform_commerce.review'))"))
+                elif command['action'] == 'compensation_arrival_stage' and '--compensation' in sys.argv:
+                    # Only these seeded fictional events and the disposable clock can be changed.
+                    day = data['compensationDays'][0]
+                    stage = command['stage']
+                    assert stage in ('arrival', 'complete', 'later', 'cancel')
+                    if stage == 'cancel':
+                        event = literal(day['events']['substitute']['id'])
+                        test.sql("set session_replication_role='replica'; update academy.training_dates d set canceled=true "
+                                 f"from academy.publication_events e where e.id={event} and d.program_id=e.program_id and d.local_date=e.day; "
+                                 "set session_replication_role='origin'")
+                    if stage == 'arrival':
+                        for i, key in enumerate(('overnight', 'short', 'absent', 'substitute')):
+                            start = '2026-11-15 ' + ('17:00','18:00','19:00','22:00')[i] + '+02'
+                            event = literal(day['events'][key]['id'])
+                            test.sql(f"set session_replication_role='replica'; update academy.publication_events set starts_at={literal(start)},"
+                                     f"ends_at={literal(start)}::timestamptz+interval '1 hour',trainer_id={literal(day['trainer'])} where id={event};"
+                                     "update academy.training_dates d set starts_at=e.starts_at,ends_at=e.ends_at "
+                                     f"from academy.publication_events e where e.id={event} and d.program_id=e.program_id and d.local_date=e.day; set session_replication_role='origin'")
+                    stamp = {'arrival': '16:55', 'complete': '20:05', 'later': '22:05', 'cancel': '23:05'}[stage]
+                    test.sql("create or replace function academy.c22_clock() returns timestamptz "
+                             "language sql stable security invoker set search_path='' as "
+                             f"$$select '2026-11-15 {stamp}+02'::timestamptz$$")
+                    value = True
                 elif command['action'] == 'compensation_audit' and '--compensation' in sys.argv:
                     academy = literal(uuid.UUID(command['academy']))
                     operation = literal(uuid.UUID(command['operation']))
