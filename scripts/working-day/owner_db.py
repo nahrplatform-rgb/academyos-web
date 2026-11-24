@@ -36,6 +36,8 @@ COMMERCE_ROUTES = {'x23_context_v1', 'x23_command_v1', 'x23_operation_v1',
                    'p5_preview_v1', 'p5_create_v1', 'p5_operation_v1'}
 COMPENSATION_ROUTES = {'c22_context_v1', 'c22_period_context_v1', 'c22_payslip_v1', 'c22_staff_context_v1', 'c22_staff_command_v1',
                        'c22_command_v1', 'c22_operation_v1', 'x15_trainer_home_v1', 'q13_context_v1', 'q13_sessions_v1'}
+SUPPORT_ROUTES = {'support_list_tickets_v1', 'support_list_messages_v1', 'support_create_ticket_v1',
+                  'support_reply_v1', 'support_resolve_v1', 'support_reopen_v1', 'support_operation_v1'}
 
 FAMILY_ROUTES = {
     'x15_trainer_home_v1', 'x15_trainer_calendar_v1', 'x15_guardian_home_v1',
@@ -161,9 +163,25 @@ def seed(test, multi_scope=False):
                 dates=len(dates), events=events, players=len(players), sameAcademyEvent=same_academy_event)
 
 
+def support_fixture(test, first, second):
+    """One synthetic identity in two academies, plus a same-academy peer and an outsider."""
+    test.sql("insert into academy.identities(clerk_subject) values('user_multi'),('user_support_peer') on conflict do nothing;")
+    for academy in (first, second):
+        test.sql(f"insert into academy.memberships(identity_id,academy_id,role,status) "
+                 f"select i.id,{literal(academy)},'manager','active' from academy.identities i "
+                 f"where i.clerk_subject='user_multi' and not exists (select 1 from academy.memberships m "
+                 f"where m.identity_id=i.id and m.academy_id={literal(academy)})")
+    test.sql(f"insert into academy.memberships(identity_id,academy_id,role,status) "
+             f"select i.id,{literal(first)},'manager','active' from academy.identities i "
+             f"where i.clerk_subject='user_support_peer' and not exists (select 1 from academy.memberships m "
+             f"where m.identity_id=i.id and m.academy_id={literal(first)})")
+    return dict(multi='user_multi', peer='user_support_peer', outsider='user_platform',
+                academies=[first, second])
+
+
 def rpc(test, command):
     name = command['name']
-    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES) or ('--compensation' in sys.argv and name in COMPENSATION_ROUTES) or ('--commerce' in sys.argv and name in COMMERCE_ROUTES)
+    assert name in ROUTES or ('--family-day' in sys.argv and name in FAMILY_ROUTES) or ('--billing' in sys.argv and name in BILLING_ROUTES) or ('--compensation' in sys.argv and name in COMPENSATION_ROUTES) or ('--commerce' in sys.argv and name in COMMERCE_ROUTES) or ('--support' in sys.argv and name in SUPPORT_ROUTES)
     args = []
     for key, value in command['args'].items():
         assert re.fullmatch(r'[a-z_]+', key)
@@ -209,7 +227,12 @@ if __name__ == '__main__':
         if '--commerce' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex23_platform_commerce.sql')
             Boundary.sql(migration.read_text())
+        if '--support' in sys.argv:
+            migration, = (ROOT / 'supabase/migrations').glob('*_ex24_communications_support.sql')
+            Boundary.sql(migration.read_text())
         data = seed(test, '--multi-scope' in sys.argv)
+        if '--support' in sys.argv:
+            data['support'] = support_fixture(test, data['academy'], data['otherAcademy'])
         if '--commerce' in sys.argv:
             data['commerceAcademies'] = [data['academy'], data['otherAcademy']]
         if '--family-day' in sys.argv:

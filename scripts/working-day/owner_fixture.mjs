@@ -17,8 +17,8 @@ const stage = 'https://staging.academy.nahr.dev';
 
 const key = 'a'.repeat(64); // Matches the disposable PostgreSQL signing fixture only.
 
-function pgBridge(root, multiScope, familyDay, billing, compensation, commerce) {
-  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[]), ...(compensation?['--compensation']:[]), ...(commerce?['--commerce']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
+function pgBridge(root, multiScope, familyDay, billing, compensation, commerce, support) {
+  const child = spawn('python3', ['-u', join(root, 'scripts/working-day/owner_db.py'), ...(multiScope?['--multi-scope']:[]), ...(familyDay?['--family-day']:[]), ...(billing?['--billing']:[]), ...(compensation?['--compensation']:[]), ...(commerce?['--commerce']:[]), ...(support?['--support']:[])], {stdio: ['pipe', 'pipe', 'inherit']});
   const pending = new Map();
   let ready, rejectReady, sequence = 0;
   const fixture = new Promise((resolve, reject) => {ready = resolve; rejectReady = reject;});
@@ -57,13 +57,13 @@ async function listen(server) {
   return `http://127.0.0.1:${server.address().port}`;
 }
 
-export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false, compensation=false, commerce=false} = {}) {
+export async function ownerFixture(root, temp, {pilot=false, reviews=false, multiScope=false, datedPlan=false, familyDay=false, billing=false, compensation=false, commerce=false, support=false} = {}) {
   const previousAppEnv=process.env.APP_ENV, previousOnboardingKey=process.env.ONBOARDING_PROOF_KEY;
   if(commerce){process.env.APP_ENV='staging';process.env.ONBOARDING_PROOF_KEY=key;}
-  const routes = [...new Set(['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[]),...(commerce?['platform-commerce','onboarding','programs','people','publication','attendance']:[])])];
+  const routes = [...new Set(['experience','planning','register-download','register-dispatch',...(pilot?['register-key','attendance']:familyDay?['attendance']:[]),...(reviews?['development','publication']:[]),...(datedPlan?['programs','onboarding']:[]),...(familyDay?['guardians','guardian-training']:[]),...(billing?['billing']:[]),...(compensation?['trainer-compensation']:[]),...(commerce?['platform-commerce','onboarding','programs','people','publication','attendance']:[]),...(support?['support']:[])])];
   if (compensation) routes.push('qr');
-  const multiActor = familyDay || compensation || commerce;
-  const bridge = pgBridge(root,multiScope,familyDay,billing,compensation,commerce);
+  const multiActor = familyDay || compensation || commerce || support;
+  const bridge = pgBridge(root,multiScope,familyDay,billing,compensation,commerce,support);
   const actor = new AsyncLocalStorage();
   let api, entry, app, appClosed, log = '', origin, appOrigin;
   const state = {subject: 'user_owner', sessionValid:true, sessionRefresh:'ok', sessionRefreshes:0,
@@ -194,7 +194,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
             if (req.headers[name]) headers[name] = req.headers[name];
           }
           const request = new handlers.NextRequest(`${stage}/api/${name}`,{method:'POST',headers,body});
-          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager|platform))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
+          const subject = /(?:^|; )family-day-actor=(user_(?:owner|trainer|guardian|other_owner|other_trainer|manager|platform|multi|support_peer))(?:;|$)/.exec(req.headers.cookie ?? '')?.[1];
           reply = await actor.run(subject, () => handlers['route'+routes.indexOf(name)](request));
         }
         const output = Buffer.from(await reply.arrayBuffer());
@@ -222,6 +222,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
         ${compensation?`export{default as Compensation}from'./apps/web/src/components/trainer-compensation-workspace.tsx';
         export{default as Qr}from'./apps/web/src/components/qr-workspace.tsx';`:''}
         ${commerce?`export{default as Commerce}from'./apps/web/src/components/platform-commerce-workspace.tsx';`:''}
+        ${support?`export{default as Support}from'./apps/web/src/components/support-workspace.tsx';`:''}
         ${familyDay?`export{default as FamilyTraining}from'./apps/web/src/components/guardian-training-workspace.tsx';`:''}
         ${reviews?`export{default as Corrections}from'./apps/web/src/components/correction-workspace.tsx';
         export{default as Development}from'./apps/web/src/components/development-workspace.tsx';
@@ -361,6 +362,14 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           .replace(new RegExp(`import\\s*${localName}\\s*from\\s*'@/components/${file}';`),`import {${exportName} as ${localName}} from '__CLIENT__';`)
           .replace(/import\s*\{\s*uuidPattern\s*\}\s*from\s*'@\/lib\/onboarding';/,"const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;"));
       }
+    }
+    if (support) {
+      // Mirrors the real locale layout wrapper (lang/dir) used by the app shell.
+      const supportEntry = './' + relative(dirname(join(temp, 'app/[locale]/workspace/[academy]/support/page.tsx')), join(temp, 'fixture-client.jsx'));
+      await put('app/[locale]/workspace/[academy]/support/page.tsx', `import {Support} from '${supportEntry}';
+        export const dynamic='force-dynamic';
+        export default async function Page({params}){const p=await params;
+          return <div lang={p.locale} dir={p.locale==='ar'?'rtl':'ltr'}><Support locale={p.locale} academy={p.academy}/></div>}`);
     }
     if (pilot) {
       const eventRoute=await readFile(join(root,'apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx'),'utf8');

@@ -17,6 +17,7 @@ export function ownerNavigation(locale: string, academy: string, current: 'home'
     { href: `${base}/attendance/corrections`, label: t('Correction requests', 'طلبات التصحيح'), current: current === 'corrections', group: t('Attendance', 'الحضور'), module: 'attendance' },
     { href: `${base}/billing`, label: t('Family billing', 'فواتير الأسر'), current: current === 'billing', group: t('Finance', 'المالية'), module: 'operations' },
     { href: `${base}/trainer-compensation`, label: t('Trainer earnings', 'مستحقات المدربين'), group: t('Finance', 'المالية'), module: 'operations' },
+    { href: `${base}/support`, label: t('Support', 'الدعم'), group: t('Development', 'التطور'), module: 'operations' },
     { href: `${base}/platform-plan`, label: t('Academy plan', 'خطة الأكاديمية'), group: t('Finance', 'المالية'), module: 'operations' },
     { href: `${base}/development`, label: t('Development feedback', 'ملاحظات التطور'), current: current === 'development', group: t('Development', 'التطور'), module: 'development' },
   ];
