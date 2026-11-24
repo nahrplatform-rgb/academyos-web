@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "b04ca603802f66eb96a598723608b8d1aaac120b",
+  "source_anchor": "c9c8d21730d8d39bc8ec95cf90bbc7b0b66ad06e",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -209,6 +209,11 @@
       "bytes": 802
     },
     {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/support/page.tsx",
+      "sha256": "89a53f4d320ec6aa6daddc55a77009373d5ed9616f5df7e9f94da3ef1f11f0ec",
+      "bytes": 554
+    },
+    {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
       "sha256": "5e7f40636598396121eec6b33eeebbb2f35546a0129a02815877b18e0d46796d",
       "bytes": 531
@@ -374,6 +379,11 @@
       "bytes": 3273
     },
     {
+      "path": "apps/web/src/app/api/support/route.ts",
+      "sha256": "9a2a6b8fac3a09b9b23b56844f47fa366fc66804109813f358ab720df9bea590",
+      "bytes": 4895
+    },
+    {
       "path": "apps/web/src/app/api/trainer-compensation/route.ts",
       "sha256": "0d6d2ddd7a697a54ff2141b745d6d602d6c95197c8157e5423b4a7ac083c840b",
       "bytes": 2752
@@ -405,8 +415,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
-      "bytes": 101359
+      "sha256": "b1d05d0c0be187540a79e6bacddf24b32bd564c66da0734207dffada78f9b7db",
+      "bytes": 103286
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -490,8 +500,8 @@
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
-      "sha256": "572ff652a7b8145c8b60695d365fa5276e29e897e0b59904da89cfdac49abda4",
-      "bytes": 3071
+      "sha256": "c6293a5ef6c5121fd334d9fbc5560b870a11a66f65acdf70d8ea7dfb66117c54",
+      "bytes": 3202
     },
     {
       "path": "apps/web/src/components/owner-workspace-device.tsx",
@@ -587,6 +597,11 @@
       "path": "apps/web/src/components/session-change-workspace.tsx",
       "sha256": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
       "bytes": 18780
+    },
+    {
+      "path": "apps/web/src/components/support-workspace.tsx",
+      "sha256": "4536070167113812e998d7b9618c74cac608425ec10d75e100dbd488848af668",
+      "bytes": 14486
     },
     {
       "path": "apps/web/src/components/theme-toggle.tsx",
@@ -855,8 +870,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "444117a4109239db9fee06db4f6629c90aaec89a8764b3125759d8b23be8560a",
-      "bytes": 5426
+      "sha256": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
+      "bytes": 5677
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
@@ -1387,6 +1402,11 @@
       "path": "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql",
       "sha256": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51",
       "bytes": 39294
+    },
+    {
+      "path": "supabase/migrations/20261124125237_ex24_communications_support.sql",
+      "sha256": "809cd7d98b5dbf629149fbb999b82f27a678dcf8faa3705b6f346dc4192258f3",
+      "bytes": 14691
     }
   ],
   "page_paths": [
@@ -1425,6 +1445,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/staff/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/support/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/compensation/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/home/page.tsx",
@@ -1463,6 +1484,7 @@
     "apps/web/src/app/api/session-changes/route.ts",
     "apps/web/src/app/api/setup/email/route.ts",
     "apps/web/src/app/api/setup/verify/route.ts",
+    "apps/web/src/app/api/support/route.ts",
     "apps/web/src/app/api/trainer-compensation/route.ts",
     "apps/web/src/app/api/trainers/route.ts",
     "apps/web/src/app/api/webhooks/clerk-email/route.ts",
@@ -2131,10 +2153,10 @@
     }
   ],
   "counts": {
-    "source_files": 277,
-    "page_paths": 45,
-    "api_routes": 31,
-    "migrations": 43
+    "source_files": 281,
+    "page_paths": 46,
+    "api_routes": 32,
+    "migrations": 44
   },
   "pwa_metadata": {
     "public_manifest_present": false,
