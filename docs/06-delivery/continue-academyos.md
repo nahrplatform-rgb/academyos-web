@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md](../../docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md](../../docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,41 +70,41 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-24: Communications and support with delivery recovery
+## Current priority — EX-25: Private media with consent and lifecycle
 
-Delivery batch: **MP-B09 — Communications and support with delivery recovery**.
+Delivery batch: **MP-B10 — Private media with consent and lifecycle**.
 
 Product value for this batch:
 
-- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
 - **VAL-08** — Understand own training participation and progress (Guardian and Player where authorized).
-- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
+- **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
+- **VAL-10** — Trust scope history and recoverable results (Every permitted role).
 
 ### Ready development action
 
-Resume hosted mobile, second-member visibility and non-member refusal using the approved named browse relay and verified synthetic accounts; investigate the workspace picker separately. Do not induce a shared outage for recovery already covered by fixture.
+Decision-ready packet prepared. Present decision table to Owner. If decisions 1,2,5,7 (consent authority, consent scope, audience, storage location) are resolved, a connected implementation slice can proceed. If all 8 decisions remain open, EX-25 stays decision-ready; no implementation should begin.
 
 ### Separate release follow-up
 
-Owner promotion and approved staging migration verified. Core signed-in staging Support verified via direct entry; remaining hosted checks and Owner acceptance open.
+No new candidate yet; one combined exact-source candidate and Owner-controlled promotion when ready
 
-Scoped dependency gate: D-014;D-015;D-021;D-022;external sends require their actual authority;named exit: Exact audience/current links/preferences;duplicate/interruption/partial delivery;private internal threads
+Scoped dependency gate: D-004;D-015 and exact media/file retention/sharing;real data remains separately gated;named exit: Current field/object authorization;consent loss/expired artifact/retry;no public or automatic bulk private cache
 
-Read current evidence: `docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md`.
+Read current evidence: `docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md`.
 
-Batch includes: Recipient selection;compose/review;inbox;outbox/delivery status;ticket reply/attachment/resolve/reopen
+Batch includes: Upload/tag/consent/visibility;authorized gallery;revoke/delete/history;selected download lifecycle
 
-Batch exit evidence: Exact audience/current links/preferences;duplicate/interruption/partial delivery;private internal threads
+Batch exit evidence: Current field/object authorization;consent loss/expired artifact/retry;no public or automatic bulk private cache
 
-Policy boundary: D-014;D-015;D-021;D-022;external sends require their actual authority
+Policy boundary: D-004;D-015 and exact media/file retention/sharing;real data remains separately gated
 
 ## Actual delivery status for the current family
 
-- Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
-- Implementation: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox and delivery status are schema-only; recipient selection is unbuilt. External email/SMS/push gated on D-014. Attachments deferred (storage not available). No impersonation (D-021).
-- Local checks: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are schema-only. External email/SMS/push gated on D-014. Attachments deferred; no impersonation (D-021). 18 DB authority/idempotency/conflict cases PASSED (scripts/working-day/test_support_lifecycle.mjs, disposable PG17 + all migrations). Connected EN/AR Playwright journey PASSED (scripts/working-day/test_support_connected.mjs). 390 px touch-enabled EN/AR fixture journey also PASSED with no horizontal thread overflow; includes fixture-only peer visibility, non-member refusal and lost-response recovery. TypeScript passes; Next.js build passes.
-- Deployment: Staging serves exact b220646e4b4e0420e97242ce0e645b2fced26be1; Foundation run 45461666199 attempt 1 passed. Owner authorized exact migration source 20261124125237; applied as hosted 20261124220810 on academyos-staging. Backup run 45497685361 verified encrypted-copy digest.
-- Hosted verification: Foundation CI green for candidate SHA b220646e4b4e0420e97242ce0e645b2fced26be1. Signed-in staging workflow VERIFIED (Nahr browser profile, Academy Owner, two academies): Create, reload, reply, resolve, reopen, return all passed in EN and AR/RTL. Two-academy isolation confirmed. Language control returns to correct academy and Support view. Second-member visibility (Dokkanni/Trainer) VERIFIED: can see and read the ticket thread. Non-member refusal (Hieu/Platform Owner) VERIFIED: 403 refusal, no ticket persisted. NOT exercised on staging: mobile layout, lost-response recovery. Workspace picker hangs (pre-existing, not EX-24 specific); direct URL entry works. Owner acceptance not yet recorded.
+- Design: Operations visual authority retained; EX-25 scoping packet created. Media privacy decision MP-Q12 (D-004, D-015) is open; no implementation authorized.
+- Implementation: Planned batch; scoping packet only. No media table, API, component, or storage integration implemented. Building blocks: STORAGE_MEDIA_BUCKET env, player-photo base64 normalizer (not consent-aware), Supabase client/gateway/RLS patterns, audit events.
+- Local checks: Documentation/scoping only; no product checks executed. Decision table with 8 missing business decisions and recommended defaults prepared.
+- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
@@ -149,8 +149,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 14. **EX-21 — Family billing to reconciled statement** (checkpoint_passed; MP-B06).
 15. **EX-23 — Platform admission to commercial academy lifecycle** (checkpoint_passed; MP-B08).
 16. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
-17. **EX-24 — Communications and support with delivery recovery** (current; MP-B09).
-18. **EX-25 — Private media with consent and lifecycle** (queued; MP-B10).
+17. **EX-24 — Communications and support with delivery recovery** (checkpoint_passed; MP-B09).
+18. **EX-25 — Private media with consent and lifecycle** (current; MP-B10).
 19. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
 20. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
 21. **EX-28 — Whole release readiness and operating proof** (queued; MP-B13).
