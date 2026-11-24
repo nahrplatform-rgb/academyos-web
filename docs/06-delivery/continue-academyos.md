@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md](../../docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md](../../docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,42 +70,42 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-22: Staff attendance to Trainer earnings and payout
+## Current priority — EX-24: Communications and support with delivery recovery
 
-Delivery batch: **MP-B07 — Staff attendance to Trainer earnings and payout**.
+Delivery batch: **MP-B09 — Communications and support with delivery recovery**.
 
 Product value for this batch:
 
 - **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
-- **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
-- **VAL-10** — Trust scope history and recoverable results (Every permitted role).
+- **VAL-08** — Understand own training participation and progress (Guardian and Player where authorized).
+- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
 
 ### Ready development action
 
-Owner routed MP-B07 ahead of EX-24 after EX-23 settlement verification. Reuse TP-01–TP-08 source/test review in docs/07-handoff/trainer-qr-and-payslip-decisions-2026-11-23.md. Continue the 23 November local checkpoint in docs/07-handoff/trainer-qr-and-payslip-start-prompt.md. Close remaining TP cases and verify an exact candidate.
+Candidate ready for Owner promotion: exact SHA 672e9c3a65add0f97e6ec8c1c325717559eb08b5, Foundation CI run 45453774108 all green. After promotion, run signed-in staging Support workflow (navigate/create/reload/reply/resolve/reopen/return, EN/AR, two-academy isolation) with the approved synthetic account.
 
 ### Separate release follow-up
 
-Staging 641b7cf and migration 20261122072433 verified. Follow-up verified backup rehearsal passed; exact Foundation/Vercel candidate pending. No follow-up migration or promotion performed; signed-in verification and Owner acceptance remain open.
+No new candidate yet;one combined exact-source candidate and Owner-controlled promotion when ready
 
-Scoped dependency gate: D-008 and exact approval/delegation policy;no import of legacy payroll formulas;named exit: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery
+Scoped dependency gate: D-014;D-015;D-021;D-022;external sends require their actual authority;named exit: Exact audience/current links/preferences;duplicate/interruption/partial delivery;private internal threads
 
-Read current evidence: `docs/07-handoff/ex22-trainer-compensation-readiness-2026-11-22.md`.
+Read current evidence: `docs/07-handoff/ex24-communications-support-readiness-2026-11-24.md`.
 
-Batch includes: Effective contract;staff/coverage source;earning review/request/approval;payout and Trainer statement;Trainer QR arrival and per-occurrence coverage;three earning bases;weekly/monthly private payslips
+Batch includes: Recipient selection;compose/review;inbox;outbox/delivery status;ticket reply/attachment/resolve/reopen
 
-Batch exit evidence: Source-linked immutable earning/payout;substitution/duplicate/stale/concurrent review and original recovery;TP-01 to TP-08 in docs/06-delivery/trainer-qr-and-payslip-requirements.md
+Batch exit evidence: Exact audience/current links/preferences;duplicate/interruption/partial delivery;private internal threads
 
-Policy boundary: D-008 and exact approval/delegation policy;no import of legacy payroll formulas;D-012 staff credential/window/block/coverage;D-011 and D-015 for separately scoped offline or private artifact work
+Policy boundary: D-014;D-015;D-021;D-022;external sends require their actual authority
 
 ## Actual delivery status for the current family
 
-- Design: Owner approved the 22 November synthetic baseline and the 23 November Trainer follow-up A–D for pay periods, verified coverage, online Owner-only Trainer QR and private payslips.
-- Implementation: Implemented synthetic Owner attendance, terms and earning review through confirmed payout, with a private Trainer statement and own-line correction requests.
-- Local checks: Signed EN/AR compensation, reviewed current-source captures, shared Owner and Attendance regression receipts, Node 24 build, lint, types and 119 units passed. PostgreSQL 17 rehearsal against the 22 November post-billing backup preserved all 1,137 existing rows.
-- Deployment: 641b7cf passed Foundation 58/58. Exact candidate serves staging at dpl_3GeA1xXogEdh5qvFxnxLWA8TqDxu. Checked migration applied as 20261122072433.
-- Hosted verification: Signed-in Owner and Trainer compensation reads passed in English and Arabic. Trainer was refused the Owner route. Staged posting and recovery remain open.
-- Owner acceptance: Baseline and follow-up synthetic policy approved. Working product acceptance open.
+- Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
+- Implementation: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are in-app only. External email/SMS/push gated on D-014. Attachments deferred (storage not available). No impersonation (D-021).
+- Local checks: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are schema-only. External email/SMS/push gated on D-014. Attachments deferred; no impersonation (D-021). 18 DB authority/idempotency/conflict cases PASSED (scripts/working-day/test_support_lifecycle.mjs, disposable PG17 + all migrations): create/reply/resolve/reopen, lost-response idempotent recovery, changed-payload conflict, stale resolve/reopen refusal, cross-academy refusal, same-academy member visibility/reply, ended-membership refusal, stranger refusal, two-academy isolation, direct table denial, gateway proof required, invalid input, operations+audits recorded once per original. Connected EN/AR Playwright journey PASSED (scripts/working-day/test_support_connected.mjs): create/reload/reply/resolve/reopen/return, language-control return, two-academy switching isolation, transport-failure recovery via original operation (no duplicate), provider-failure handling, non-member 403 refusal. Fixture-authenticated (synthetic Clerk subject), not real hosted sign-in. TypeScript passes; Next.js build passes (/api/support + /workspace/[academy]/support registered).
+- Deployment: Candidate 672e9c3a65add0f97e6ec8c1c325717559eb08b5 on branch codex/onboarding-decision-design-packet. Foundation CI run 45453774108 attempt 1: all 59 steps green. Not yet deployed to staging; migration 20261124125237 not applied to shared staging (Owner-only).
+- Hosted verification: Foundation CI green for candidate SHA. Signed-in staging workflow NOT yet executed (fixture-authenticated Playwright only, not real Clerk/hosted sign-in) — reserved for after Owner promotion.
+- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work
@@ -148,8 +148,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 13. **EX-20 — Family and Trainer development day** (checkpoint_passed; MP-B05).
 14. **EX-21 — Family billing to reconciled statement** (checkpoint_passed; MP-B06).
 15. **EX-23 — Platform admission to commercial academy lifecycle** (checkpoint_passed; MP-B08).
-16. **EX-22 — Staff attendance to Trainer earnings and payout** (current; MP-B07).
-17. **EX-24 — Communications and support with delivery recovery** (queued; MP-B09).
+16. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
+17. **EX-24 — Communications and support with delivery recovery** (current; MP-B09).
 18. **EX-25 — Private media with consent and lifecycle** (queued; MP-B10).
 19. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
 20. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
