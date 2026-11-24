@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=cf213bd2-3b05-4867-922c-06236554ba9e"
+          "task": "#attendance-return=4053b56e-2d63-444a-b3c6-8cadceb78e4e"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=3e0b5251-8732-44bd-abc9-bd388ab453a4"
+          "task": "#attendance-return=35225ffe-9aee-4559-b6f0-f62799f007a6"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=14aef87e-ac9d-4b5e-8a12-654aa5e70f8c"
+          "task": "#correction-return=729191c6-1a2c-4b13-91c6-7eab6a6c0bab"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=9f1227f5-c3de-451e-ae1a-4fb58c36e598"
+          "task": "#development-return=8f5cb3b2-f993-4c15-a287-c98bc40f64ae"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=296a3894-ac6f-408c-9aa3-5cb4f3c58906"
+          "task": "#development-return=defa3bc9-f9d9-40ae-b52a-d176386c00ad"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=7366bb99-0267-4e13-b450-42bc77b35f22"
+          "task": "#publication-return=91171335-4f0b-4895-9edf-263ef5d9ff8c"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=a25e2535-178f-4cd3-8620-002f5c4ab123"
+          "task": "#publication-return=a56d1c40-d16d-4456-89f1-b88a081200a3"
         }
       },
       {
@@ -1034,8 +1034,8 @@
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/owner_publication_return.mjs": "ce8b032171f9c70e37ab6f1d9a3edeb618769b166fe8c0f2a0f17cef85254308",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "e1f6601c61d7f86632287c5a559e4311c00358f065bf60284e59f7340cd74141",
-    "scripts/working-day/owner_db.py": "8ec5b9c054279a93eedd1de0fcd27b6d24f87a09cd6b7ad6e64cf97da0220524",
+    "scripts/working-day/owner_fixture.mjs": "8a5b401c45dc7e82f52c6dc5889f670e2a6cba493a62f5b4c99288a7da95e2d6",
+    "scripts/working-day/owner_db.py": "ec871159334f350e55dcaf96e24b4e9efa4ef5b66b7f1349e6d676ad67e6d353",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
@@ -1074,7 +1074,7 @@
     "apps/web/src/lib/register-download-coordinator.ts": "ba8891c32255a9eea714479c8bb57179f44d95bccfe77ee2dfebccde15777bbe",
     "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
     "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
-    "apps/web/src/app/globals.css": "1eac3829708b4655bbe25d1c4358b0109d6cd4bf1e437b4e380e90a1ea9a4016",
+    "apps/web/src/app/globals.css": "b1d05d0c0be187540a79e6bacddf24b32bd564c66da0734207dffada78f9b7db",
     "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
     "supabase/migrations/20261106174606_owner_register_binding_conflict.sql": "f355f997945a7783770f4480995622d196eb8c39a78351cffcb4df70ff9d769a",
     "package-lock.json": "861c5e9cf5e892a710ed20c7997bd7a9a9559b3b048cde760823979145d89cb2"
