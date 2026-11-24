@@ -1,6 +1,6 @@
 {
-  "source": "8761d25bcd41e378d233ed3f2cb4eac63a38f082",
-  "generatedAt": "2026-11-24T16:59:48.560Z",
+  "source": "e494cabe621504b68b79af198b1b448c29d50c0f",
+  "generatedAt": "2026-11-24T17:11:39.592Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -110,12 +110,12 @@
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/workspace-read-owner.ts": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",
     "design/app-experience-review/journeys.json": "877d8f0cbb9063151a81cf7b2ccb26a2c50e1718bca3b1a6eaabe63b70669e04",
-    "docs/03-design/journey-register.csv": "21c0aaffe18ed460cb54f691edbfcb21901a08b531b55a90151a33a984168e84",
+    "docs/03-design/journey-register.csv": "ba7944841d9cf151a7c0d7bf526f93458cb1eb6e88c13b2c7ce734bcb813d098",
     "docs/03-design/screen-data-loading-matrix.csv": "37b62e15efb5eb9f2c6d480553ae05a756983965550d49c20077037bcc7c4558",
     "docs/04-engineering/journey-security-matrix.csv": "817835861f9e1f032d51ea762e0efbbb5c589451fb584b571c4eda79b3d35775",
-    "docs/06-delivery/app-implementation-action-matrix.csv": "a5e5ab66a23d42ba61da808d8c6e0834660a4497f55404dd60a19a591b50a499",
+    "docs/06-delivery/app-implementation-action-matrix.csv": "a0a921537a8797b37c0049a15ba62688457adc0c880d13e17211c8de0b2586e2",
     "docs/06-delivery/app-implementation-requirement-links.csv": "c0e8b976d404521c4405ad15f7bd36fe75f1ea393561ebaee4afc656e815f2dd",
-    "docs/06-delivery/app-implementation-screen-matrix.csv": "80ec049124588acd480a9565169d1fabaa7e4c002124f86d72740294eca74e04",
+    "docs/06-delivery/app-implementation-screen-matrix.csv": "80f643a2c24a312a172146fdc04b1562a630cfba401e9599c5e21b3800093acf",
     "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
     "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
     "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
@@ -163,7 +163,7 @@
     "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51"
   },
   "capturePackSha256": "0e3a22844f70280d87bfdda9c32b1d9673eeb9408f0612d3d44a13030016f773",
-  "htmlSha256": "280488329cbefbaba236d6618212c58c452ab2a980cd9a7e337e6f26fb1b14cf",
+  "htmlSha256": "88cfd9ad2fd2c41b0364d9d3b30f9c9caa9790a5825da6715df4c13a6ee39533",
   "frames": 2316,
   "transitions": 3038,
   "sourceFiles": 99,
