@@ -52,14 +52,24 @@
 - Disposable PostgreSQL test passed (isolated cluster, PG 17). Migration applied, lifecycle and cross-academy refusal verified.
 
 ### Candidate & promotion readiness
-- Exact candidate SHA: `672e9c3a65add0f97e6ec8c1c325717559eb08b5` (branch `codex/onboarding-decision-design-packet`).
-- Foundation CI: PASSED — run 45453774108, attempt 1, all 59 steps green.
-  - Link: https://github.com/nahrplatform-rgb/academyos-web/actions/runs/45453774108
-- Migration `20261124125237_ex24_communications_support.sql`: committed with candidate; NOT yet applied to shared staging (Owner-only migration authority). No migration authority check performed; do not apply before Owner confirmation.
-- Vercel preview: none found for this SHA (no GitHub deployment record; Vercel CLI only sees personal deployments 17–23 days old, unrelated to this repo). Preview verification could not be completed — report as a gap, not a pass.
+- Exact deployed SHA: `b220646e4b4e0420e97242ce0e645b2fced26be1` (branch `codex/onboarding-decision-design-packet`). [Foundation CI](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/45461666199) passed on attempt 1.
+- Owner promoted; Vercel readback confirmed `staging.academy.nahr.dev` points to READY deployment `dpl_FwJmxe71CnMqdPA6H8e71zUppMmB` for that exact SHA. This is hosted staging on Vercel's Production target, not a separate live production rollout.
+- After explicit Owner approval, the exact candidate's `20261124125237_ex24_communications_support.sql` was applied only to `academyos-staging`, recorded as hosted migration `20261124220810`. [Pre-change encrypted backup](https://github.com/nahrplatform-rgb/academyos-web/actions/runs/45497685361) passed upload/download digest verification; no restore of this copy was run.
+- Readback confirmed RLS and denied direct SELECT for `anon` and `authenticated` on all four new tables, seven RPCs executable by `authenticated` but not `anon`, and the gateway allowlist updated. Two academies, eight memberships and 326 audit events were unchanged; zero tickets at readback. Anonymous same-origin Support API request returned HTTP 401.
 - TypeScript: passes. Next.js build: passes (`/api/support` and `/workspace/[academy]/support` registered).
 - Gateway allowlist: all 7 `support_*_v1` names added to `reads`/`writes` in `onboarding-gateway.ts`; dependency coherence receipts regenerated (register-download, workspace-transfer, offline-register-dispatch, register-key, owner-working-day-next).
 - Experience-review captures: regenerated; build/test/freshness green.
-- Signed-in staging workflow: NOT exercised (fixture-authenticated Playwright only, not real Clerk/hosted sign-in). Required per exit criteria; to be run after Owner promotion.
+- Signed-in staging workflow: VERIFIED. Using Nahr browser profile (Academy Owner, signed in as the synthetic staging account). Academy 1 = "AcademyOS M1 Synthetic Academy" (b2c7920d-d467-4e9f-9a68-809ac627399e), Academy 2 = "AcademyOS M1 Isolation Academy B" (c8a4045a-a636-4bad-86f3-68f2036666f6). Both academies have owner role for this identity.
+  - Create ticket "EX24 staging verification ticket" → ticket persisted in Academy 1.
+  - Reload → ticket still in list (persisted). Click to open thread → initial message displayed.
+  - Reply "Staging reply message." → reply appeared in thread (message order correct).
+  - Resolve → status changed to "Resolved" (button changed to "Reopen").
+  - Reopen → status changed to "Reopened".
+  - Return to list → ticket still in list with "Reopened" status.
+  - Language switch EN→AR→EN → returned to correct academy and Support view; Arabic renders RTL (confirmed dir=rtl).
+  - Two-academy isolation: Academy 1 shows only its ticket; Academy 2 shows only its ticket ("EX24 isolation academy B ticket"). No cross-contamination.
+  - Keyboard activation and focus return: heading focused after create; ticket button keyboard-accessible.
+  - Workspace picker: page loaded as "Checking access and saved progress" but never resolved to show academy list. Direct URL entry to `/workspace/[academy]/support` worked correctly — normal authorization checks passed. Picker hang is a separate pre-existing issue (not EX-24 specific).
+  - NOT exercised on staging: same-academy visibility with a second signed-in account (needs Dokkanni or another account), non-member refusal (needs an account without membership), lost-response recovery (would require inducing a network failure — unsafe on staging), mobile layout (not explicitly tested).
 - Owner acceptance: not yet recorded.
 - Independent security: deferred by Owner for authorized synthetic staging; nonblocking, not performed.
