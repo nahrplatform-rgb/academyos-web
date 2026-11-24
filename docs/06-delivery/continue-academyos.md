@@ -82,11 +82,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Run the signed-in synthetic staging Support workflow (navigate/create/reload/reply/resolve/reopen/return, EN/AR, two-academy isolation) on the verified deployment and record results separately from Owner acceptance.
+Resume hosted mobile, second-member visibility and non-member refusal using the approved named browse relay and verified synthetic accounts; investigate the workspace picker separately. Do not induce a shared outage for recovery already covered by fixture.
 
 ### Separate release follow-up
 
-Owner promotion and approved staging migration verified. Signed-in staging and Owner acceptance remain open.
+Owner promotion and approved staging migration verified. Core signed-in staging Support verified via direct entry; remaining hosted checks and Owner acceptance open.
 
 Scoped dependency gate: D-014;D-015;D-021;D-022;external sends require their actual authority;named exit: Exact audience/current links/preferences;duplicate/interruption/partial delivery;private internal threads
 
@@ -101,10 +101,10 @@ Policy boundary: D-014;D-015;D-021;D-022;external sends require their actual aut
 ## Actual delivery status for the current family
 
 - Design: Operations visual authority and existing accepted workflows retained;new capability changed-state/field contracts are planned,not approved by catalog
-- Implementation: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are in-app only. External email/SMS/push gated on D-014. Attachments deferred (storage not available). No impersonation (D-021).
-- Local checks: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are schema-only. External email/SMS/push gated on D-014. Attachments deferred; no impersonation (D-021). 18 DB authority/idempotency/conflict cases PASSED (scripts/working-day/test_support_lifecycle.mjs, disposable PG17 + all migrations). Connected EN/AR Playwright journey PASSED (scripts/working-day/test_support_connected.mjs). Signed-in staging verification PASSED (Nahr browser profile, Academy Owner, two academies). TypeScript passes; Next.js build passes.
+- Implementation: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox and delivery status are schema-only; recipient selection is unbuilt. External email/SMS/push gated on D-014. Attachments deferred (storage not available). No impersonation (D-021).
+- Local checks: Implemented in-app support ticket system (create, reply, resolve, reopen) with signed gateway. Inbox/outbox/delivery status and recipient selection are schema-only. External email/SMS/push gated on D-014. Attachments deferred; no impersonation (D-021). 18 DB authority/idempotency/conflict cases PASSED (scripts/working-day/test_support_lifecycle.mjs, disposable PG17 + all migrations). Connected EN/AR Playwright journey PASSED (scripts/working-day/test_support_connected.mjs). 390 px touch-enabled EN/AR fixture journey also PASSED with no horizontal thread overflow; includes fixture-only peer visibility, non-member refusal and lost-response recovery. TypeScript passes; Next.js build passes.
 - Deployment: Staging serves exact b220646e4b4e0420e97242ce0e645b2fced26be1; Foundation run 45461666199 attempt 1 passed. Owner authorized exact migration source 20261124125237; applied as hosted 20261124220810 on academyos-staging. Backup run 45497685361 verified encrypted-copy digest.
-- Hosted verification: Foundation CI green for candidate SHA b220646e4b4e0420e97242ce0e645b2fced26be1. Signed-in staging workflow VERIFIED using Nahr browser profile (Academy Owner, synthetic staging account). Academy 1 = AcademyOS M1 Synthetic Academy (b2c7920d), Academy 2 = AcademyOS M1 Isolation Academy B (c8a4045a). Create, reload, reply, resolve, reopen, return all passed in EN and AR/RTL. Two-academy isolation confirmed: each academy shows only its own tickets. Language control returns to correct academy and Support view. NOT exercised on staging: same-academy visibility with second account, non-member refusal, lost-response recovery, mobile layout. Workspace picker hangs (pre-existing, not EX-24 specific); direct URL entry works. Owner acceptance not yet recorded.
+- Hosted verification: Foundation CI green for candidate SHA b220646e4b4e0420e97242ce0e645b2fced26be1. Signed-in staging workflow VERIFIED (Nahr browser profile, Academy Owner, two academies): Create, reload, reply, resolve, reopen, return all passed in EN and AR/RTL. Two-academy isolation confirmed. Language control returns to correct academy and Support view. Second-member visibility (Dokkanni/Trainer) VERIFIED: can see and read the ticket thread. Non-member refusal (Hieu/Platform Owner) VERIFIED: 403 refusal, no ticket persisted. NOT exercised on staging: mobile layout, lost-response recovery. Workspace picker hangs (pre-existing, not EX-24 specific); direct URL entry works. Owner acceptance not yet recorded.
 - Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
 - Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
