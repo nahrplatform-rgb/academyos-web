@@ -76,6 +76,7 @@ for (const [path, component, exported] of [
   .replace(new RegExp(`import ${component} from ['"]@/components/[^'"]+['"];`),
    `import {${exported} as ${component}} from "${from('product-fixture.jsx')}";`)
   .replace(/(['"])@\/lib\/onboarding\1/, JSON.stringify(from('fixture-onboarding')))
+  .replace('"@/lib/class-media-store"', JSON.stringify(join(root, 'apps/web/src/lib/class-media-store')))
   .replace("'@/lib/experience-format'", JSON.stringify(from('fixture-experience-format')))
   .replace("'@/lib/config'", JSON.stringify(from('fixture-config'))));
 }
