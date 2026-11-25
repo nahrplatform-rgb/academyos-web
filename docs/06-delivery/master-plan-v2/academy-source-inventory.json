@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "c9c8d21730d8d39bc8ec95cf90bbc7b0b66ad06e",
+  "source_anchor": "c905f787c38e2d63d71544585ba2b334a3592f23",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -99,6 +99,11 @@
       "bytes": 823
     },
     {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
+      "sha256": "31e31d237940134daa995cb16629aa4d33964656ec617de5db2850148be9c0c1",
+      "bytes": 833
+    },
+    {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
       "sha256": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
       "bytes": 756
@@ -180,8 +185,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx",
-      "sha256": "9a62e3033a2a1d1b7f75bcff147bcc8fb175f29e6acdcb348fbb026a28c872bd",
-      "bytes": 1274
+      "sha256": "7b73b59faf75fd92c23f343c54f3698bbaf6b2a44a5d3097fe0cc02ea331a42c",
+      "bytes": 1455
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx",
@@ -257,6 +262,11 @@
       "path": "apps/web/src/app/api/billing/route.ts",
       "sha256": "1c5fd849047f3da46545d6c5d3052a18fdc70c7e4b6c7345e824cb43722f975d",
       "bytes": 2796
+    },
+    {
+      "path": "apps/web/src/app/api/class-media/route.ts",
+      "sha256": "7f7fd20904f0f23e44daae7eedb12bf6b688b23d7ac58b8813d29a644b7ed7ac",
+      "bytes": 14155
     },
     {
       "path": "apps/web/src/app/api/development/route.ts",
@@ -464,14 +474,19 @@
       "bytes": 40928
     },
     {
+      "path": "apps/web/src/components/class-media-workspace.tsx",
+      "sha256": "247fe1cf3f958a2c7bd00fe57e8c000359f01a361f5194d28908500ae32e61fd",
+      "bytes": 32243
+    },
+    {
       "path": "apps/web/src/components/correction-workspace.tsx",
       "sha256": "17138fda3221b5de8288884afff4d96ffec44df143a9d49af4d0566da1635314",
       "bytes": 26250
     },
     {
       "path": "apps/web/src/components/date-planning-workspace.tsx",
-      "sha256": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
-      "bytes": 29215
+      "sha256": "af326c6ee6fb70fcbe5746e2aedc4d5626ef9023d25422a1cb74cb9969e6ab75",
+      "bytes": 29509
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
@@ -699,6 +714,36 @@
       "bytes": 5482
     },
     {
+      "path": "apps/web/src/lib/class-media-hosted-ops.ts",
+      "sha256": "cb034f5631d40f213cfa69657a9fd2d44c4bbd8a1563b9670d533f5dbb228690",
+      "bytes": 4471
+    },
+    {
+      "path": "apps/web/src/lib/class-media-hosted-store.ts",
+      "sha256": "0edeb350c6321e8e1dddf0e28cfd2a3cacbf72ec077b4dd1fb4bf1e57e262ff4",
+      "bytes": 3837
+    },
+    {
+      "path": "apps/web/src/lib/class-media-image.ts",
+      "sha256": "0e8d0eeef2f5ad29b93e40300d4e4e7911d32078914a9ba7e9edf12801bb5108",
+      "bytes": 8240
+    },
+    {
+      "path": "apps/web/src/lib/class-media-limits.ts",
+      "sha256": "e632706607462d0fa6c7b9c1055ad4bafb93c26c6861e71d417fc76b85060d77",
+      "bytes": 288
+    },
+    {
+      "path": "apps/web/src/lib/class-media-store.ts",
+      "sha256": "085c8f41dbd434132a06c1605f2244956ffe6e813452b309eb0ccc80a79807ac",
+      "bytes": 4705
+    },
+    {
+      "path": "apps/web/src/lib/class-media-variant.ts",
+      "sha256": "d6df723782075dc713aadc39d02e10ab8c56faf561e71ebdcd72bbbf9ebe53a2",
+      "bytes": 2619
+    },
+    {
       "path": "apps/web/src/lib/clerk-email.test.ts",
       "sha256": "494b01dfb99d5af7ba6dfed8ff9d939b4e315f8027bed6cdeaca5ca6c8a00270",
       "bytes": 7792
@@ -865,18 +910,18 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.test.ts",
-      "sha256": "f883c0a06f6fcb2cbc00272c892f558e2b4be460b3e684eec301f807340a5d0e",
-      "bytes": 7857
+      "sha256": "e8f63e9c3160ca92cb0aed8a5d63e0cf568c0f9b2e91b6819a2555de7f673a25",
+      "bytes": 8658
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
-      "bytes": 5677
+      "sha256": "7f71fa963453d1e2e2d01fdea0e2ca0d42246aeadfa5bde0b6557f7309292936",
+      "bytes": 6636
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
-      "sha256": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
-      "bytes": 3578
+      "sha256": "bc36ce9ee239582955bf5a5438ae5e724d77996f1ba0e6219d8d22be11b8f00f",
+      "bytes": 5629
     },
     {
       "path": "apps/web/src/lib/onboarding.test.ts",
@@ -885,8 +930,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding.ts",
-      "sha256": "31253ea3ce45cad0452f99cb38aa793760ac6267240f71f903c0271c965cf018",
-      "bytes": 2423
+      "sha256": "687cc6aa63dc6516edf91fa8e7ce33e79a1542bf9d0365a9ea120263e6254e6e",
+      "bytes": 2447
     },
     {
       "path": "apps/web/src/lib/owner-register-pilot.ts",
@@ -1407,6 +1452,21 @@
       "path": "supabase/migrations/20261124125237_ex24_communications_support.sql",
       "sha256": "809cd7d98b5dbf629149fbb999b82f27a678dcf8faa3705b6f346dc4192258f3",
       "bytes": 14691
+    },
+    {
+      "path": "supabase/migrations/20261124235018_ex25_synthetic_class_media.sql",
+      "sha256": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16",
+      "bytes": 20456
+    },
+    {
+      "path": "supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql",
+      "sha256": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9",
+      "bytes": 7618
+    },
+    {
+      "path": "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql",
+      "sha256": "dbb04fed60f79ed052faf2d5858905f9aaedbedeeef52010a2d428b23303b42e",
+      "bytes": 5398
     }
   ],
   "page_paths": [
@@ -1424,6 +1484,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
@@ -1460,6 +1521,7 @@
   "api_route_paths": [
     "apps/web/src/app/api/attendance/route.ts",
     "apps/web/src/app/api/billing/route.ts",
+    "apps/web/src/app/api/class-media/route.ts",
     "apps/web/src/app/api/development/route.ts",
     "apps/web/src/app/api/experience/route.ts",
     "apps/web/src/app/api/guardian-training/route.ts",
@@ -2153,10 +2215,10 @@
     }
   ],
   "counts": {
-    "source_files": 281,
-    "page_paths": 46,
-    "api_routes": 32,
-    "migrations": 44
+    "source_files": 293,
+    "page_paths": 47,
+    "api_routes": 33,
+    "migrations": 47
   },
   "pwa_metadata": {
     "public_manifest_present": false,

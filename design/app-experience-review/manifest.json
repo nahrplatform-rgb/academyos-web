@@ -1,6 +1,6 @@
 {
-  "source": "e494cabe621504b68b79af198b1b448c29d50c0f",
-  "generatedAt": "2026-11-24T17:11:39.592Z",
+  "source": "c905f787c38e2d63d71544585ba2b334a3592f23",
+  "generatedAt": "2026-11-25T10:06:42.834Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -17,6 +17,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/settings/page.tsx": "2d08fc2f98b57d4b722e797c9dffcf3fecd5bff3d3fe7c2b501b22b8a4322963",
     "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx": "f737f380a3b6453ebd4697e9e1ca321c14a73e8379450750ba560d2df607ffb7",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
+    "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx": "31e31d237940134daa995cb16629aa4d33964656ec617de5db2850148be9c0c1",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx": "83c8f125a703a8fe6118f04e86ca2a7e2b241ae81f9aa78f5221e60d808be79c",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx": "5c91ac3d4c993a9ecd18f18ba2d0abcccef75401502500690c5390cf843d0211",
@@ -33,7 +34,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/players/[player]/page.tsx": "90354055b4a8bf217ad9bef6033d0c7984feaca52c569d6d90610adf566d4902",
     "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "629109206f2105ff6f0c01f15b923c23cada2e22c924661b225598ba7ef67c76",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/change/page.tsx": "fdcbd4f71b22e74bf209dee4697d9dc7829f812f1c9b8a03ce731b694af4e54d",
-    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx": "9a62e3033a2a1d1b7f75bcff147bcc8fb175f29e6acdcb348fbb026a28c872bd",
+    "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/[day]/page.tsx": "7b73b59faf75fd92c23f343c54f3698bbaf6b2a44a5d3097fe0cc02ea331a42c",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/page.tsx": "d9cc84a8073f49eea0ab11a4174eb9101f2bc83ffdace9848febe7cd2816a97a",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/plan/page.tsx": "83b10143b649ca23722ffee3358203bf47fa3723f0c3236497a87291cbcbba94",
     "apps/web/src/app/[locale]/workspace/[academy]/programs/[program]/publish/page.tsx": "01ba7db3c7a17f99bb15f2b5903396d80c905d32b7c89c1dbbdae1ef280bb97f",
@@ -48,6 +49,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/trainer/schedule/page.tsx": "a355e826f7d63151b2a0df641f8cf4c2ad32ede422eaec0d775f6290cb7077a9",
     "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
     "apps/web/src/app/api/billing/route.ts": "1c5fd849047f3da46545d6c5d3052a18fdc70c7e4b6c7345e824cb43722f975d",
+    "apps/web/src/app/api/class-media/route.ts": "7f7fd20904f0f23e44daae7eedb12bf6b688b23d7ac58b8813d29a644b7ed7ac",
     "apps/web/src/app/api/platform-commerce/route.ts": "b44c99a09c34b8a6644ea00dd89909ea0a277c3cb69b92a12cde1c052d3c4ea2",
     "apps/web/src/app/api/trainer-compensation/route.ts": "0d6d2ddd7a697a54ff2141b745d6d602d6c95197c8157e5423b4a7ac083c840b",
     "apps/web/src/app/globals.css": "b1d05d0c0be187540a79e6bacddf24b32bd564c66da0734207dffada78f9b7db",
@@ -58,8 +60,9 @@
     "apps/web/src/components/admission-directory.tsx": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
     "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
     "apps/web/src/components/billing-workspace.tsx": "5c4eb9dead66db32204b5cce3d2b5cc0a58801b2278110871942fc83f6bf9496",
+    "apps/web/src/components/class-media-workspace.tsx": "247fe1cf3f958a2c7bd00fe57e8c000359f01a361f5194d28908500ae32e61fd",
     "apps/web/src/components/correction-workspace.tsx": "17138fda3221b5de8288884afff4d96ffec44df143a9d49af4d0566da1635314",
-    "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
+    "apps/web/src/components/date-planning-workspace.tsx": "af326c6ee6fb70fcbe5746e2aedc4d5626ef9023d25422a1cb74cb9969e6ab75",
     "apps/web/src/components/development-workspace.tsx": "95f2c6f6ab3b0a35ae0293b401d08d056a2914e5aba03d7213e0da852f991565",
     "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
     "apps/web/src/components/guardian-training-workspace.tsx": "fd30e15fbe8b025654fa2ae5d4f8e7a21213d004eee2db7a3a028e3c3c02c6f2",
@@ -101,15 +104,22 @@
     "apps/web/src/components/workspace-separator.tsx": "84057c44609389e5aab29eabfeb93192c5947f5720ac5291e9d1cf9c0614da5f",
     "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/lib/billing.ts": "b9d4474c69eea98f6bed4ee6f5a04582641e7cac4af61dadd226da21d0bf92ba",
+    "apps/web/src/lib/class-media-hosted-ops.ts": "cb034f5631d40f213cfa69657a9fd2d44c4bbd8a1563b9670d533f5dbb228690",
+    "apps/web/src/lib/class-media-hosted-store.ts": "0edeb350c6321e8e1dddf0e28cfd2a3cacbf72ec077b4dd1fb4bf1e57e262ff4",
+    "apps/web/src/lib/class-media-image.ts": "0e8d0eeef2f5ad29b93e40300d4e4e7911d32078914a9ba7e9edf12801bb5108",
+    "apps/web/src/lib/class-media-limits.ts": "e632706607462d0fa6c7b9c1055ad4bafb93c26c6861e71d417fc76b85060d77",
+    "apps/web/src/lib/class-media-store.ts": "085c8f41dbd434132a06c1605f2244956ffe6e813452b309eb0ccc80a79807ac",
+    "apps/web/src/lib/class-media-variant.ts": "d6df723782075dc713aadc39d02e10ab8c56faf561e71ebdcd72bbbf9ebe53a2",
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
-    "apps/web/src/lib/onboarding-gateway.ts": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
+    "apps/web/src/lib/onboarding-gateway.ts": "7f71fa963453d1e2e2d01fdea0e2ca0d42246aeadfa5bde0b6557f7309292936",
+    "apps/web/src/lib/onboarding-server.ts": "bc36ce9ee239582955bf5a5438ae5e724d77996f1ba0e6219d8d22be11b8f00f",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
     "apps/web/src/lib/platform-commerce.ts": "25224287fb760a2687c84427912181d8c43188bbec17425af14b0e27e28cccf4",
     "apps/web/src/lib/trainer-compensation.ts": "6878017398cf750233c85035568a029d555042ffaba089e9e7685435bc85c768",
     "apps/web/src/lib/trainer-payslip.tsx": "5aa58f34a6f863f83694809d77d685241700368e81348c1fb4347679eeb90aa8",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
     "apps/web/src/lib/workspace-read-owner.ts": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",
-    "design/app-experience-review/journeys.json": "877d8f0cbb9063151a81cf7b2ccb26a2c50e1718bca3b1a6eaabe63b70669e04",
+    "design/app-experience-review/journeys.json": "e15148f0d9e6a4dee6d3f62e49cbac4da65293be940f31700fc91a0c65cc84c9",
     "docs/03-design/journey-register.csv": "ba7944841d9cf151a7c0d7bf526f93458cb1eb6e88c13b2c7ce734bcb813d098",
     "docs/03-design/screen-data-loading-matrix.csv": "37b62e15efb5eb9f2c6d480553ae05a756983965550d49c20077037bcc7c4558",
     "docs/04-engineering/journey-security-matrix.csv": "817835861f9e1f032d51ea762e0efbbb5c589451fb584b571c4eda79b3d35775",
@@ -119,12 +129,16 @@
     "scripts/appointments/save_followup.mjs": "78e7ca3ea2dd861c0f3d639a711d89e488e4c58b4c47d75062a9fc167469c681",
     "scripts/attendance/save_followup.mjs": "442bee6321e2e0103d0942820da7d0dfb5a4ca0aa776fe079b783f3a408686d2",
     "scripts/attendance/test_ui.mjs": "839d8687f57c2c4d3f8303253a5544d1730a4a1c37725348ef6beaddc3c35c35",
+    "scripts/class-media/fixtures.mjs": "81285f9570b26ff4c2cb847c85a0ad58c07b7e3bf21319ec3953ba7693a51341",
+    "scripts/class-media/local-db.py": "55043600e58eb9fb0564160874731c85f5fd015198764cbc10da606ab08a905a",
+    "scripts/class-media/local-fixture.mjs": "f4007bf552d4b0f931393faeac25412351e8b723ce78e4a03b85d37eb7712fd1",
+    "scripts/class-media/test_connected.mjs": "d4e67db3f4bf4174d00c3041d0e918d9f4ccfbf868d3833e68e08443136c4131",
     "scripts/corrections/test_ui.mjs": "a263af6d56d61ea651d7394568d77a8d6bf0cd7b1ee300952f525b699200b243",
     "scripts/development/test_ui.mjs": "f8bb72fa265cea047e825a137041b7a4f87f4c0f307b0ce550a5d81349a6477f",
     "scripts/experience-projections/test_ui.mjs": "fcd168614bab423c66a7b2c434405941f7c55e8557b6af4ad47798f126232283",
-    "scripts/experience-review/build.mjs": "aef6b8ce7eaad68a90416b663f31c0f7bb33b4a2cf893ad960bd7f273c9909e9",
+    "scripts/experience-review/build.mjs": "eb6e79d72b0729fa0dbf77c185ce8f3eca3622d84095235a46e89da62ab607c6",
     "scripts/experience-review/capture.mjs": "e5ce5520797a666077939c81df2614dced2786cf57df51ac35ab308201766643",
-    "scripts/experience-review/collect.mjs": "1d0f9551fc1853d93f3005dceff2b9f66ee8a32b666b78b38aca952055416263",
+    "scripts/experience-review/collect.mjs": "60d0282bfc19edf663a830a4efd6c4ff94f69053efc3258b413fc548df340cb4",
     "scripts/experience-review/reviewer.html": "297f3b6b58448d6e030f9763077efbc19ae6291a6a3144fdc7ff6337b9e19e04",
     "scripts/experience-review/static.mjs": "8af968685ab9e461b5d5b912ea27fc2e576f783e85a4502acfa214950730aab6",
     "scripts/experience-review/test.mjs": "3b12844069980d281db8cfcd9ba548efb1c3d05b75e2e07420c647c23ce9e1b8",
@@ -160,14 +174,17 @@
     "supabase/migrations/20261121195423_ex21_family_billing.sql": "b2ff29fd009b3a7d777e347199b8c94b50024da856f8d3f20c0e376f2bc11bee",
     "supabase/migrations/20261122063506_ex22_trainer_compensation.sql": "cdf10b5ecfb9ad4b5d746460b56e8185c7c38fb2d6c9303c32fe28ea7ab30aa4",
     "supabase/migrations/20261122075500_ex23_platform_commerce.sql": "ee40dd05ea4455f20198686c57328e0c0193c1b2f14b168bc3274c8003437c50",
-    "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51"
+    "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51",
+    "supabase/migrations/20261124235018_ex25_synthetic_class_media.sql": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16",
+    "supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9",
+    "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "dbb04fed60f79ed052faf2d5858905f9aaedbedeeef52010a2d428b23303b42e"
   },
-  "capturePackSha256": "0e3a22844f70280d87bfdda9c32b1d9673eeb9408f0612d3d44a13030016f773",
-  "htmlSha256": "88cfd9ad2fd2c41b0364d9d3b30f9c9caa9790a5825da6715df4c13a6ee39533",
-  "frames": 2316,
-  "transitions": 3038,
-  "sourceFiles": 99,
-  "sourceLiterals": 10257,
+  "capturePackSha256": "37e32a6c552344e07135a84409ad18c4ea7152ebb4abcf9eb07029d835bd35bc",
+  "htmlSha256": "419abedd3b55131e498ff4be2ed0998571fd8996e0f0f0d64b420c5c5c4a3d88",
+  "frames": 2343,
+  "transitions": 3058,
+  "sourceFiles": 101,
+  "sourceLiterals": 10631,
   "journeys": [
     {
       "id": "entry",
@@ -239,15 +256,19 @@
     },
     {
       "id": "billing",
-      "frames": 114
+      "frames": 113
     },
     {
       "id": "trainer-compensation",
-      "frames": 122
+      "frames": 121
     },
     {
       "id": "platform-commerce",
-      "frames": 140
+      "frames": 138
+    },
+    {
+      "id": "class-media",
+      "frames": 31
     }
   ],
   "captureGaps": []

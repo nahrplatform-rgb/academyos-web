@@ -3,9 +3,26 @@ const root=resolve(import.meta.dirname,'../..'),target=resolve(root,'design/app-
 async function walk(dir){return(await Promise.all((await readdir(resolve(root,dir),{withFileTypes:true})).map(x=>x.isDirectory()?walk(dir+'/'+x.name):dir+'/'+x.name))).flat()}
 const registers=['docs/06-delivery/app-implementation-screen-matrix.csv','docs/06-delivery/app-implementation-action-matrix.csv','docs/06-delivery/app-implementation-requirement-links.csv','docs/03-design/journey-register.csv','docs/03-design/screen-data-loading-matrix.csv','docs/04-engineering/journey-security-matrix.csv'];
 const uiFiles=[...(await walk('apps/web/src/components')),...(await walk('apps/web/src/app')).filter(x=>/(?:page|layout)\.tsx$|globals\.css$/.test(x)),'apps/web/src/lib/visible-resume.ts','apps/web/src/lib/experience-format.ts','apps/web/src/lib/workspace-read-owner.ts','apps/web/src/lib/owner-session-navigation.ts'].sort();
-const connectedTests={billing:'scripts/working-day/test_family_billing_day.mjs','trainer-compensation':'scripts/working-day/test_trainer_compensation.mjs','platform-commerce':'scripts/working-day/test_platform_commerce.mjs'};
+const connectedTests={'class-media':'scripts/class-media/test_connected.mjs',billing:'scripts/working-day/test_family_billing_day.mjs','trainer-compensation':'scripts/working-day/test_trainer_compensation.mjs','platform-commerce':'scripts/working-day/test_platform_commerce.mjs'};
 const testSource=journey=>connectedTests[journey]??`scripts/${journey}/test_ui.mjs`;
 const testDependencies={
+  'class-media': [
+    'apps/web/src/app/api/class-media/route.ts',
+    'apps/web/src/lib/class-media-hosted-ops.ts',
+    'apps/web/src/lib/class-media-hosted-store.ts',
+    'apps/web/src/lib/class-media-image.ts',
+    'apps/web/src/lib/class-media-limits.ts',
+    'apps/web/src/lib/class-media-store.ts',
+    'apps/web/src/lib/class-media-variant.ts',
+    'apps/web/src/lib/onboarding-gateway.ts',
+    'apps/web/src/lib/onboarding-server.ts',
+    'scripts/class-media/fixtures.mjs',
+    'scripts/class-media/local-db.py',
+    'scripts/class-media/local-fixture.mjs',
+    'supabase/migrations/20261124235018_ex25_synthetic_class_media.sql',
+    'supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql',
+    'supabase/migrations/20261125094402_ex25_staging_storage_policy.sql',
+  ],
   'platform-commerce': [
     'apps/web/src/app/api/platform-commerce/route.ts',
     'apps/web/src/lib/platform-commerce.ts',

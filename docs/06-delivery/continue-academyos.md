@@ -82,13 +82,13 @@ Product value for this batch:
 
 ### Ready development action
 
-Decision-ready packet prepared. Present decision table to Owner. If decisions 1,2,5,7 (consent authority, consent scope, audience, storage location) are resolved, a connected implementation slice can proceed. If all 8 decisions remain open, EX-25 stays decision-ready; no implementation should begin.
+Finish EX-25 before resuming EX-26. Verify the approved class gallery and private storage transport on one exact candidate.
 
 ### Separate release follow-up
 
-No new candidate yet; one combined exact-source candidate and Owner-controlled promotion when ready
+After checked staging activation and Owner promotion, verify signed-in Owner and assigned Manager, old-link denial and stored-object deletion. Confirm the physical iPhone JPEG fallback if a device is available.
 
-Scoped dependency gate: D-004;D-015 and exact media/file retention/sharing;real data remains separately gated;named exit: Current field/object authorization;consent loss/expired artifact/retry;no public or automatic bulk private cache
+Scoped dependency gate: Synthetic staging authorized. Real child consent, family sharing, legal holds and backup or export policy remain under D-004, D-015 and MP-Q12.
 
 Read current evidence: `docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md`.
 
@@ -100,13 +100,13 @@ Policy boundary: D-004;D-015 and exact media/file retention/sharing;real data re
 
 ## Actual delivery status for the current family
 
-- Design: Operations visual authority retained; EX-25 scoping packet created. Media privacy decision MP-Q12 (D-004, D-015) is open; no implementation authorized.
-- Implementation: Planned batch; scoping packet only. No media table, API, component, or storage integration implemented. Building blocks: STORAGE_MEDIA_BUCKET env, player-photo base64 normalizer (not consent-aware), Supabase client/gateway/RLS patterns, audit events.
-- Local checks: Documentation/scoping only; no product checks executed. Decision table with 8 missing business decisions and recommended defaults prepared.
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
-- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
-- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
-- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
+- Design: The Owner approved the fictional class-staff consent and retention rules and separately authorized the synthetic staging rollout on 25 November. D-004, D-015 and MP-Q12 still govern real-data policy.
+- Implementation: Local bilingual gallery and staging-only private object transport, exact upload recovery, same-origin authorization and expiry cleanup. Staging activation and signed-in verification pending.
+- Local checks: Connected synthetic EN desktop and AR narrow-touch workflow passed with disposable PostgreSQL 17. Verified 10 classes × 10 photos, actual storage and gallery transfer, per-file recovery, privacy and true object removal. HEIC requires export as JPEG.
+- Deployment: Staging still serves the earlier checked scoping commit c905f78. The EX-25 hosted transport is under verification.
+- Hosted verification: Private empty academy-media bucket verified by readback. Encrypted staging backup 45587782357 passed. Signed-in Owner and Manager checks remain open.
+- Owner acceptance: Synthetic rules and rollout authorized. Working staging acceptance remains open.
+- Independent security: Deferred by Owner for synthetic staging. Independent review has not been performed.
 
 ## Registered scoped worker work
 

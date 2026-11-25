@@ -158,5 +158,13 @@
     "actions": "IMP-J04-A01; IMP-J04-A02; IMP-J04-A03",
     "sequence": "Invite and accept → save initial academy setup → assign the fictional plan → issue invoice → recover original claim → verify settlement and restored access",
     "reference": "docs/07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md"
+  },
+  {
+    "id": "class-media",
+    "title": "Private class photos",
+    "roles": "Academy Owner / explicitly assigned Manager",
+    "actions": "IMP-J21-A01",
+    "sequence": "Prepare synthetic photos on the device → recover the original draft → verify each depicted player's consent → publish to class staff → open → withdraw → confirm deletion and expiry",
+    "reference": "docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md"
   }
 ]

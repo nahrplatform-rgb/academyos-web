@@ -69,6 +69,13 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y postgresql-17
           fi
+      - name: Verify private class media and scoped storage lifecycle
+        env:
+          M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin
+        run: |
+          node scripts/class-media/test_image_quality.mjs
+          node scripts/class-media/test_connected.mjs
+          node scripts/class-media/test_hosted_contract.mjs
       - name: Verify inactive coherent download from current database to encrypted browser storage
         env:
           M1_POSTGRES_BIN: /usr/lib/postgresql/17/bin

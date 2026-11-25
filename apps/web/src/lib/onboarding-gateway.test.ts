@@ -52,6 +52,22 @@ test("gateway refuses alternative origins, query calls, methods and unknown RPCs
   assert.equal(gatewayRequest(url("m1_operation_v1"),post()).mutating,false);
 });
 
+test('synthetic media RPCs cannot use the hosted gateway or an external database', async () => {
+  const local = 'http://127.0.0.1:54321';
+  let sent = 0;
+  const transport = gatewayFetch('user_A', () => key, async () => true, async (_input, init) => {
+    assert.equal(init?.redirect, 'error');
+    sent++;
+    return Response.json({});
+  }, local);
+  await transport(`${local}/rest/v1/rpc/x25_query_v1`, post());
+  assert.throws(() => gatewayRequest(url('x25_command_v1'), post()), GatewayError);
+  await assert.rejects(transport(url('x25_command_v1'), post()), GatewayError);
+  await assert.rejects(transport(`${local}/rest/v1/rpc/m1_setup_v1`, post()), GatewayError);
+  assert.throws(() => gatewayRequest(url('x25_query_v1'), post(), DATABASE_ORIGIN), GatewayError);
+  assert.equal(sent, 1);
+});
+
 test("exchange network budget uses only the hosted trusted IP; local ignores spoofed headers", () => {
   const a = new Headers({"x-vercel-forwarded-for":"192.0.2.1","x-forwarded-for":"203.0.113.2"});
   const b = new Headers({"x-vercel-forwarded-for":"192.0.2.1","x-forwarded-for":"203.0.113.99"});

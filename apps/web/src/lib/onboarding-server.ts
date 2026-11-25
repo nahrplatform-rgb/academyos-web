@@ -3,7 +3,7 @@ import { auth, clerkClient } from "@clerk/nextjs/server";
 import { createClient } from "@supabase/supabase-js";
 import { databaseError, onboardingKey, signProof, tokenHash, verifiedEmails } from "./onboarding";
 
-import { gatewayFetch, GatewayError } from "./onboarding-gateway";
+import { DATABASE_ORIGIN, gatewayFetch, GatewayError, localMediaDatabaseOrigin } from "./onboarding-gateway";
 import { rateLimitAllowed, rateLimitSubject, stagingLimiter, stagingRedis } from "./rate-limit";
 
 export class JourneyError extends Error {
@@ -31,6 +31,48 @@ export async function onboardingSession() {
   const token = await session.getToken();
   if (!token) throw new JourneyError("denied", 401);
   return { subject: session.userId, client: onboardingDatabase(token, session.userId) };
+}
+
+export async function classMediaSession() {
+  const origin = localMediaDatabaseOrigin(process.env.ACADEMY_CLASS_MEDIA_DATABASE_ORIGIN);
+  const key = process.env.ACADEMY_CLASS_MEDIA_DATABASE_KEY;
+  const proof = process.env.ACADEMY_CLASS_MEDIA_PROOF_KEY;
+  if (process.env.APP_ENV !== "staging" || process.env.VERCEL || !origin || !key ||
+      !proof || !/^[0-9a-f]{64}$/.test(proof) || proof === process.env.ONBOARDING_PROOF_KEY) {
+    throw new JourneyError("denied", 403);
+  }
+  const session = await auth();
+  if (!session.userId) throw new JourneyError("denied", 401);
+  const token = await session.getToken();
+  if (!token) throw new JourneyError("denied", 401);
+  const transport = gatewayFetch(session.userId, () => proof, async () => true, fetch, origin);
+  const client = createClient(origin, key, {
+    accessToken: async () => token,
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    global: { fetch: transport },
+  });
+  return { client };
+}
+
+export async function stagingClassMediaSession() {
+  const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL !== DATABASE_ORIGIN || !key) throw new JourneyError("denied", 403);
+  const session = await auth();
+  if (!session.userId) throw new JourneyError("denied", 401);
+  const token = await session.getToken();
+  if (!token) throw new JourneyError("denied", 401);
+  const subject = session.userId;
+  const transport = gatewayFetch(subject, onboardingKey, async (write) => {
+    const result = await stagingLimiter(stagingRedis(), write ? "class-media-write" : "class-media-read", 240)
+      .limit(rateLimitSubject(subject));
+    return rateLimitAllowed(result);
+  }, fetch, undefined, true);
+  const client = createClient(DATABASE_ORIGIN, key, {
+    accessToken: async () => token,
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    global: { fetch: transport },
+  });
+  return { client, subject, token, key };
 }
 export async function rpc(client: ReturnType<typeof onboardingDatabase>, name: string, args: Record<string, unknown> = {}) {
   let data: unknown, error: { code?: string } | undefined;
