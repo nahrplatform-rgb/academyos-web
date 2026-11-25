@@ -22,7 +22,7 @@ begin
      (action='insert' and method<>'POST') or (action='delete' and method<>'DELETE') or
      action not in ('select','insert','delete') or method is null then return false; end if;
   headers := nullif(current_setting('request.headers',true),'')::jsonb;
-  if academy.m1_proof((headers->>'x-academyos-class-media')::jsonb,'class-media-storage',method||':'||object_name)
+  if academy.m1_proof((headers->>'x-academyos-class-media')::jsonb,'gateway','class-media-storage:'||method||':'||object_name)
      is distinct from subject then return false; end if;
   parts:=string_to_array(object_name,'/');
   a:=parts[3]::uuid;

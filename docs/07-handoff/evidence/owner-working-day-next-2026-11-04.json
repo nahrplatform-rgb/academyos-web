@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 270,
-    "calendarMs": 157,
-    "dateMs": 176,
+    "homeMs": 361,
+    "calendarMs": 295,
+    "dateMs": 262,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 219,
-    "selectReviewSaveMs": 766,
+    "firstPrepareMs": 323,
+    "selectReviewSaveMs": 792,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 182,
-    "originalReplayMs": 106,
+    "offlineRestartMs": 376,
+    "originalReplayMs": 220,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -153,35 +153,35 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1529
+        "responseBytes": 1517
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4536
+        "responseBytes": 4489
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 4537
+        "responseBytes": 4489
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 3007
+        "responseBytes": 2995
       },
       {
         "route": "fixture-key",
@@ -195,28 +195,28 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1194
+        "responseBytes": 1188
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 633,
         "status": 200,
-        "responseBytes": 3869
+        "responseBytes": 3863
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 672,
         "status": 200,
-        "responseBytes": 1211
+        "responseBytes": 1205
       },
       {
         "route": "register-download",
         "action": "manifest",
         "requestBytes": 208,
         "status": 200,
-        "responseBytes": 1193
+        "responseBytes": 1187
       },
       {
         "route": "register-dispatch",
@@ -237,21 +237,21 @@
         "action": "manifest",
         "requestBytes": 146,
         "status": 200,
-        "responseBytes": 1195
+        "responseBytes": 1189
       },
       {
         "route": "register-download",
         "action": "page",
         "requestBytes": 634,
         "status": 200,
-        "responseBytes": 3952
+        "responseBytes": 3946
       },
       {
         "route": "register-download",
         "action": "complete",
         "requestBytes": 674,
         "status": 200,
-        "responseBytes": 1213
+        "responseBytes": 1207
       },
       {
         "route": "fixture-key",
@@ -314,14 +314,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1994
+        "responseBytes": 1977
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 727
+        "responseBytes": 715
       },
       {
         "route": "planning",
@@ -342,42 +342,42 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1993
+        "responseBytes": 1975
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5106
+        "responseBytes": 5052
       },
       {
         "route": "programs",
         "action": "read",
         "requestBytes": 126,
         "status": 200,
-        "responseBytes": 901
+        "responseBytes": 889
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
         "action": "dates",
         "requestBytes": 87,
         "status": 200,
-        "responseBytes": 5892
+        "responseBytes": 5742
       },
       {
         "route": "planning",
@@ -398,7 +398,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -426,21 +426,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5106
+        "responseBytes": 5052
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -454,21 +454,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_calendar",
         "requestBytes": 128,
         "status": 200,
-        "responseBytes": 5106
+        "responseBytes": 5052
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -489,7 +489,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -510,7 +510,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -524,7 +524,7 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
@@ -545,21 +545,21 @@
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "planning",
         "action": "read",
         "requestBytes": 134,
         "status": 200,
-        "responseBytes": 725
+        "responseBytes": 713
       },
       {
         "route": "experience",
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1993
+        "responseBytes": 1975
       },
       {
         "route": "onboarding",
@@ -601,7 +601,7 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1398
+        "responseBytes": 1399
       },
       {
         "route": "planning",
@@ -657,14 +657,14 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1397
+        "responseBytes": 1396
       }
     ],
     "rpcCount": 67,
     "logicalRateChecks": 134,
     "cacheEntries": 31,
     "requestBytes": 17203,
-    "responseBytes": 83453
+    "responseBytes": 82747
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
@@ -682,7 +682,7 @@
     "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
     "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
     "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
-    "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
+    "apps/web/src/components/date-planning-workspace.tsx": "af326c6ee6fb70fcbe5746e2aedc4d5626ef9023d25422a1cb74cb9969e6ab75",
     "apps/web/src/app/api/programs/route.ts": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
     "apps/web/src/components/program-workspace.tsx": "f030ed1acac1d6bb21002516301fe78d1ea8b8944daf8f3522218f36c73014b5",
     "apps/web/src/app/api/onboarding/route.ts": "dc0446473f1fd1d87265459b13e53c8d071ab314935cee289c789ff58fc4b739",

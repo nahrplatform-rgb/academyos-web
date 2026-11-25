@@ -93,8 +93,8 @@
               "mode": "canonical",
               "locale": "en",
               "width": 360,
-              "firstRowTop": 446,
-              "markBottom": 570,
+              "firstRowTop": 428,
+              "markBottom": 552,
               "minimumMarkHeight": 48,
               "minimumMarkWidth": 99,
               "reviewTop": 726,
@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=4053b56e-2d63-444a-b3c6-8cadceb78e4e"
+          "task": "#attendance-return=f81b0f25-8989-49d3-880a-a2f2a3e0efb3"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=35225ffe-9aee-4559-b6f0-f62799f007a6"
+          "task": "#attendance-return=57a989e0-34ed-48c9-a664-d49d2eb962d1"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=729191c6-1a2c-4b13-91c6-7eab6a6c0bab"
+          "task": "#correction-return=4f4ff81a-511b-493e-ae41-691ceab200e7"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=8f5cb3b2-f993-4c15-a287-c98bc40f64ae"
+          "task": "#development-return=2f599843-f911-43db-b762-5ac44094381a"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=defa3bc9-f9d9-40ae-b52a-d176386c00ad"
+          "task": "#development-return=36538c39-b14e-4a52-b73f-bfc8bc115f79"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=91171335-4f0b-4895-9edf-263ef5d9ff8c"
+          "task": "#publication-return=a03cdf57-447d-4852-ba1d-a47adef1390f"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=a56d1c40-d16d-4456-89f1-b88a081200a3"
+          "task": "#publication-return=acc95797-9a7e-4f50-9b7a-002634afa0ce"
         }
       },
       {
@@ -1052,7 +1052,7 @@
     "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
     "supabase/migrations/20261028233812_i5a_development_feedback.sql": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
     "apps/web/src/components/attendance-workspace.tsx": "096cf599895990ba3862e2062154cfab4dc1621f01947a26323db8a63bf18e25",
-    "apps/web/src/components/date-planning-workspace.tsx": "b5887371b03a13be9e47515311966d78a1969a4fc552fca33e2b48bc3af4c1a1",
+    "apps/web/src/components/date-planning-workspace.tsx": "af326c6ee6fb70fcbe5746e2aedc4d5626ef9023d25422a1cb74cb9969e6ab75",
     "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
     "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
     "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",

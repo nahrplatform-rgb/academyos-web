@@ -2,7 +2,8 @@ import { randomUUID } from 'node:crypto';
 import { NextRequest, NextResponse } from 'next/server';
 import { GatewayError } from '@/lib/onboarding-gateway';
 import { uuidPattern } from '@/lib/onboarding';
-import { classMediaSession, JourneyError, rpc, stagingClassMediaSession } from '@/lib/onboarding-server';
+import { JourneyError, rpc } from '@/lib/onboarding-server';
+import { classMediaSession } from '@/lib/class-media-session';
 import { STAGING_ORIGIN } from '@/lib/config';
 import { classMediaLimits } from '@/lib/class-media-limits';
 import { HostedClassMediaStore, hostedParts, type HostedPart } from '@/lib/class-media-hosted-store';
@@ -60,13 +61,13 @@ async function scope(request: NextRequest): Promise<Scope> {
     (request.method !== 'GET' && request.headers.get('origin') !== origin) ||
     (request.headers.has('origin') && request.headers.get('origin') !== origin)) throw new JourneyError('denied', 403);
   if (academy) {
-    const actor = await stagingClassMediaSession();
+    const actor = await classMediaSession(true);
     const store = new HostedClassMediaStore(actor);
     return { client: actor.client, store, hosted: new HostedClassMediaOperations(store, (name, args) => rpc(actor.client, name, args)), academy };
   }
   const base = await localClassMediaRoot();
   if (!base) throw new JourneyError('denied', 403);
-  const { client } = await classMediaSession();
+  const { client } = await classMediaSession(false);
   return { base, client };
 }
 

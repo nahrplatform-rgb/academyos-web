@@ -8,6 +8,8 @@ const testSource=journey=>connectedTests[journey]??`scripts/${journey}/test_ui.m
 const testDependencies={
   'class-media': [
     'apps/web/src/app/api/class-media/route.ts',
+    'apps/web/src/lib/class-media-gateway.ts',
+    'apps/web/src/lib/class-media-session.ts',
     'apps/web/src/lib/class-media-hosted-ops.ts',
     'apps/web/src/lib/class-media-hosted-store.ts',
     'apps/web/src/lib/class-media-image.ts',

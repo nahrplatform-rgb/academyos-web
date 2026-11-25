@@ -35,35 +35,15 @@ writes.add("support_create_ticket_v1");
 writes.add("support_reply_v1");
 writes.add("support_resolve_v1");
 writes.add("support_reopen_v1");
-const localMediaRpc = new Map([
-  ["x25_query_v1", false], ["x25_command_v1", true], ["x25_purge_receipts_v1", true],
-  ["x25_variant_v1", true],
-  ["x25_storage_exists_v1", false],
-]);
-
-export function localMediaDatabaseOrigin(value: string | undefined) {
-  if (!value) return null;
-  try {
-    const url = new URL(value);
-    return url.origin === value && url.protocol === "http:" &&
-      url.hostname === "127.0.0.1" && url.port ? value : null;
-  } catch { return null; }
-}
 
 export class GatewayError extends Error {
   constructor(public code: "denied" | "limited" | "unavailable", public http: number) { super(code); }
 }
-export function gatewayRequest(input: string | URL | Request, init?: RequestInit, localMediaOrigin?: string, hostedMedia = false) {
+export function gatewayRequest(input: string | URL | Request, init?: RequestInit) {
   const url = new URL(typeof input === "string" || input instanceof URL ? input : input.url);
   const method = init?.method?.toUpperCase() ?? (input instanceof Request ? input.method : "GET");
-  const origin = hostedMedia || localMediaOrigin === undefined ? DATABASE_ORIGIN : localMediaDatabaseOrigin(localMediaOrigin);
-  if (url.origin !== origin || url.search || method !== "POST" || !url.pathname.startsWith("/rest/v1/rpc/")) throw new GatewayError("denied", 403);
+  if (url.origin !== DATABASE_ORIGIN || url.search || method !== "POST" || !url.pathname.startsWith("/rest/v1/rpc/")) throw new GatewayError("denied", 403);
   const name = url.pathname.slice("/rest/v1/rpc/".length);
-  if (hostedMedia || localMediaOrigin !== undefined) {
-    const mutating = localMediaRpc.get(name);
-    if (mutating === undefined) throw new GatewayError("denied", 403);
-    return { target: `${method}:/rpc/${name}`, mutating };
-  }
   let mutating = writes.has(name);
   if (name === "m1_invitation_v1" || name === "g3_invitation_v1" || name === "t4_invitation_v1") {
     if (typeof init?.body !== "string") throw new GatewayError("denied", 403);
@@ -75,9 +55,9 @@ export function gatewayRequest(input: string | URL | Request, init?: RequestInit
 
 // Server-only caller supplies the key getter and shared external limiter. No
 // proof is minted when the limiter denies, times out or throws.
-export function gatewayFetch(subject: string, key: () => string, allowed: (mutating: boolean, target: string) => Promise<boolean>, send: typeof fetch = fetch, localMediaOrigin?: string, hostedMedia = false): typeof fetch {
+export function gatewayFetch(subject: string, key: () => string, allowed: (mutating: boolean, target: string) => Promise<boolean>, send: typeof fetch = fetch): typeof fetch {
   return async (input, init) => {
-    const { target, mutating } = gatewayRequest(input, init, localMediaOrigin, hostedMedia);
+    const { target, mutating } = gatewayRequest(input, init);
     if (!await allowed(mutating, target)) throw new GatewayError("limited", 429);
     const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
     headers.set("x-academyos-gateway", JSON.stringify(signProof("gateway", target, subject, [], key())));

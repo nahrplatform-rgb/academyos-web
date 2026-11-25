@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-24T17:52:46.095Z",
+  "completed": "2026-11-25T10:17:52.205Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -118,6 +118,9 @@
     "supabase/migrations/20261122075500_ex23_platform_commerce.sql": "ee40dd05ea4455f20198686c57328e0c0193c1b2f14b168bc3274c8003437c50",
     "supabase/migrations/20261123175251_ex22_trainer_pay_periods.sql": "ef0167cc490dba3447597f94e7ed7b3cb6a370604d6e8dbd8128f251dcceea51",
     "supabase/migrations/20261124125237_ex24_communications_support.sql": "809cd7d98b5dbf629149fbb999b82f27a678dcf8faa3705b6f346dc4192258f3",
+    "supabase/migrations/20261124235018_ex25_synthetic_class_media.sql": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16",
+    "supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9",
+    "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136",
     "supabase/tests/harness.sql": "90993cadc7cb58e1c339715a40002ffa7c7a8dd5099ed94afa243e466570d8f0",
     "supabase/tests/membership_boundary.sql": "88cd0b80e74373821cabdac6c0955ae23a3afb3f029ba3cb09aaa2617af0c4b4",
     "supabase/tests/onboarding_boundary.sql": "bf50f455f29622fc05643412c91b50d7fdfb9564221fbf70e942b1f8bb769a0a"

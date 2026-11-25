@@ -38,7 +38,7 @@ Chromium 156 on arm64 macOS processed the same synthetic detailed group illustra
 
 The 2,560 px version retained more sample detail and exceeded the 2 MB starting target. Timing is a single sample per size. A 35,031,280-byte synthetic camera-style JPEG produced a 3,534,045-byte main and an 80,217-byte thumbnail in 228 ms. Browser checks also confirmed orientation correction, removal of synthetic GPS and other metadata, transparent PNG handling, unchanged original checksums, exact source size, and pixel and axis checks. These are generated group images tested in Chromium. A physical iPhone/Safari HEIC conversion remains unverified.
 
-The connected workload used ten successive ten-photo selections across ten published classes. The 100 new photos used **107,929,160 bytes** in 200 objects, including **3,369,120 thumbnail bytes**. Opening the ten galleries transferred **3,369,120 bytes of image response bodies** and fetched no larger variants. Opening one full-size photo per gallery transferred another **10,067,660 bytes**. These figures exclude HTML, headers and pre-existing test photos. The batch and transfer measurements took about 40 seconds on this machine.
+The connected workload used ten successive ten-photo selections across ten published classes. The 100 new photos used **107,929,160 bytes** in 200 objects, including **3,369,120 thumbnail bytes**. Opening the ten galleries transferred **3,369,120 bytes of image response bodies** and fetched no larger variants. Opening one full-size photo per gallery transferred another **12,098,866 bytes**. These figures exclude HTML, headers and pre-existing test photos. The batch and transfer measurements took about 40 seconds on this machine.
 
 ## Verification and release scope
 

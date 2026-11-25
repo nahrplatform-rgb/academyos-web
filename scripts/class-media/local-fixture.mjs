@@ -105,25 +105,22 @@ export async function startClassMediaFixture(temp, { hosted = false } = {}) {
             constructor(actor) { super(actor,globalThis.classMediaVerification.provider); }
           }` }));
         builder.onResolve({ filter: /^@\/lib\/onboarding-server$/ }, () => ({ path: 'onboarding', namespace: 'fixture' }));
+        builder.onResolve({ filter: /^@\/lib\/class-media-session$/ }, () => ({ path: 'onboarding', namespace: 'fixture' }));
         builder.onLoad({ filter: /^onboarding$/, namespace: 'fixture' }, () => ({ resolveDir: root, contents: `
-          import {gatewayFetch} from './apps/web/src/lib/onboarding-gateway.ts';
+          import {classMediaGateway} from './apps/web/src/lib/class-media-gateway.ts';
           import {databaseError} from './apps/web/src/lib/onboarding.ts';
           export class JourneyError extends Error { constructor(code,http=503) { super(code); this.code=code; this.http=http; } }
           export async function classMediaSession() {
             const subject=globalThis.classMediaVerification.subject();
             if (!subject) throw new JourneyError('denied',401);
-            return {client:{subject}};
-          }
-          export async function stagingClassMediaSession() {
-            const {client}=await classMediaSession();
-            return {client,subject:client.subject,token:client.subject,key:'fixture-publishable'};
+            return {client:{subject},subject,token:subject,key:'fixture-publishable'};
           }
           export async function rpc({subject},name,args) {
-            const response=await gatewayFetch(subject,()=>'${key}',async()=>true,async(url,init)=>{
+            const response=await classMediaGateway(fetchOrigin,subject,()=>'${key}',async()=>true,async(url,init)=>{
               const proof=new Headers(init.headers).get('x-academyos-gateway');
               const result=await globalThis.classMediaVerification.db({action:'rpc',name,subject,proof,args:JSON.parse(init.body)});
               return Response.json(result);
-            },fetchOrigin)(fetchOrigin+'/rest/v1/rpc/'+name,{method:'POST',body:JSON.stringify(args)});
+            })(fetchOrigin+'/rest/v1/rpc/'+name,{method:'POST',body:JSON.stringify(args)});
             const result=await response.json();
             if (result.error) {
               const code=databaseError(result.error);

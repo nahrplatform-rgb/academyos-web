@@ -3,7 +3,7 @@ import { link, mkdir, readdir, readFile, realpath, stat, unlink, writeFile } fro
 import { tmpdir } from 'node:os';
 import { join, sep } from 'node:path';
 import { uuidPattern } from './onboarding';
-import { localMediaDatabaseOrigin } from './onboarding-gateway';
+import { localMediaDatabaseOrigin } from './class-media-gateway';
 
 export type ClassMediaVariant = 'main' | 'thumbnail';
 const variants: ClassMediaVariant[] = ['main', 'thumbnail'];

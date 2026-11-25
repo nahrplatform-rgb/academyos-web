@@ -33,7 +33,7 @@ export class HostedClassMediaStore {
     const { a, e, item } = ids;
     if (![a, e, item].every(id => uuidPattern.test(id))) throw new TypeError('Invalid class media identity');
     const object = `synthetic-class-media/v1/${a}/${e}/${item}/${slot}`;
-    const signed = signProof('class-media-storage', method + ':' + object, this.actor.subject, [], onboardingKey());
+    const signed = signProof('gateway', 'class-media-storage:' + method + ':' + object, this.actor.subject, [], onboardingKey());
     const url = `${DATABASE_ORIGIN}/storage/v1/object/${method === 'GET' ? 'authenticated/' : ''}academy-media/${object}`;
     return this.send(url, {
       method, redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(10000),

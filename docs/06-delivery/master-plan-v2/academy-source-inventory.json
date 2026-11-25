@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "c905f787c38e2d63d71544585ba2b334a3592f23",
+  "source_anchor": "0f9c166ac118cce1410419daee76662fe9f41a78",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -265,8 +265,8 @@
     },
     {
       "path": "apps/web/src/app/api/class-media/route.ts",
-      "sha256": "7f7fd20904f0f23e44daae7eedb12bf6b688b23d7ac58b8813d29a644b7ed7ac",
-      "bytes": 14155
+      "sha256": "7fc12bef7f5425094ef88a88a139fa843fd42826f6ebfa807d779c89de759bb5",
+      "bytes": 14175
     },
     {
       "path": "apps/web/src/app/api/development/route.ts",
@@ -714,14 +714,24 @@
       "bytes": 5482
     },
     {
+      "path": "apps/web/src/lib/class-media-gateway.test.ts",
+      "sha256": "a1026ab93e6cab2b3920a6d3f8dd7b1a77b1de1c0a647eb2ac59f5435febc007",
+      "bytes": 1449
+    },
+    {
+      "path": "apps/web/src/lib/class-media-gateway.ts",
+      "sha256": "fafc7f45ae7584f7bbc69a52bd1b88ffd3f6fb8f713f2f2451f92a01e585101f",
+      "bytes": 1840
+    },
+    {
       "path": "apps/web/src/lib/class-media-hosted-ops.ts",
       "sha256": "cb034f5631d40f213cfa69657a9fd2d44c4bbd8a1563b9670d533f5dbb228690",
       "bytes": 4471
     },
     {
       "path": "apps/web/src/lib/class-media-hosted-store.ts",
-      "sha256": "0edeb350c6321e8e1dddf0e28cfd2a3cacbf72ec077b4dd1fb4bf1e57e262ff4",
-      "bytes": 3837
+      "sha256": "95037f1bf4a12ee1b427eddb026a21636bd784b4fa83601945d5d08076cc03a7",
+      "bytes": 3850
     },
     {
       "path": "apps/web/src/lib/class-media-image.ts",
@@ -734,9 +744,14 @@
       "bytes": 288
     },
     {
+      "path": "apps/web/src/lib/class-media-session.ts",
+      "sha256": "80b61c908123de85cc40565fb3b9dc47966730e935595af22c8b56eb03b9d5bf",
+      "bytes": 1919
+    },
+    {
       "path": "apps/web/src/lib/class-media-store.ts",
-      "sha256": "085c8f41dbd434132a06c1605f2244956ffe6e813452b309eb0ccc80a79807ac",
-      "bytes": 4705
+      "sha256": "6e222935ec755dcede2074c03a522e020e818b4c1bc3c3097a24a8caf8808ac6",
+      "bytes": 4706
     },
     {
       "path": "apps/web/src/lib/class-media-variant.ts",
@@ -910,18 +925,18 @@
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.test.ts",
-      "sha256": "e8f63e9c3160ca92cb0aed8a5d63e0cf568c0f9b2e91b6819a2555de7f673a25",
-      "bytes": 8658
+      "sha256": "f883c0a06f6fcb2cbc00272c892f558e2b4be460b3e684eec301f807340a5d0e",
+      "bytes": 7857
     },
     {
       "path": "apps/web/src/lib/onboarding-gateway.ts",
-      "sha256": "7f71fa963453d1e2e2d01fdea0e2ca0d42246aeadfa5bde0b6557f7309292936",
-      "bytes": 6636
+      "sha256": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
+      "bytes": 5677
     },
     {
       "path": "apps/web/src/lib/onboarding-server.ts",
-      "sha256": "bc36ce9ee239582955bf5a5438ae5e724d77996f1ba0e6219d8d22be11b8f00f",
-      "bytes": 5629
+      "sha256": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
+      "bytes": 3578
     },
     {
       "path": "apps/web/src/lib/onboarding.test.ts",
@@ -930,8 +945,8 @@
     },
     {
       "path": "apps/web/src/lib/onboarding.ts",
-      "sha256": "687cc6aa63dc6516edf91fa8e7ce33e79a1542bf9d0365a9ea120263e6254e6e",
-      "bytes": 2447
+      "sha256": "31253ea3ce45cad0452f99cb38aa793760ac6267240f71f903c0271c965cf018",
+      "bytes": 2423
     },
     {
       "path": "apps/web/src/lib/owner-register-pilot.ts",
@@ -1465,8 +1480,8 @@
     },
     {
       "path": "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql",
-      "sha256": "dbb04fed60f79ed052faf2d5858905f9aaedbedeeef52010a2d428b23303b42e",
-      "bytes": 5398
+      "sha256": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136",
+      "bytes": 5410
     }
   ],
   "page_paths": [
@@ -2215,7 +2230,7 @@
     }
   ],
   "counts": {
-    "source_files": 293,
+    "source_files": 296,
     "page_paths": 47,
     "api_routes": 33,
     "migrations": 47

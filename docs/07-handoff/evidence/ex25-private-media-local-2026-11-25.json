@@ -2,23 +2,26 @@
   "status": "passed",
   "scope": "Synthetic local browser and provider-contract tests; no hosted mutation or physical iPhone verification",
   "source_sha256": {
-    "apps/web/src/app/api/class-media/route.ts": "7f7fd20904f0f23e44daae7eedb12bf6b688b23d7ac58b8813d29a644b7ed7ac",
+    "apps/web/src/app/api/class-media/route.ts": "7fc12bef7f5425094ef88a88a139fa843fd42826f6ebfa807d779c89de759bb5",
     "apps/web/src/components/class-media-workspace.tsx": "247fe1cf3f958a2c7bd00fe57e8c000359f01a361f5194d28908500ae32e61fd",
+    "apps/web/src/lib/class-media-gateway.test.ts": "a1026ab93e6cab2b3920a6d3f8dd7b1a77b1de1c0a647eb2ac59f5435febc007",
+    "apps/web/src/lib/class-media-gateway.ts": "fafc7f45ae7584f7bbc69a52bd1b88ffd3f6fb8f713f2f2451f92a01e585101f",
     "apps/web/src/lib/class-media-hosted-ops.ts": "cb034f5631d40f213cfa69657a9fd2d44c4bbd8a1563b9670d533f5dbb228690",
-    "apps/web/src/lib/class-media-hosted-store.ts": "0edeb350c6321e8e1dddf0e28cfd2a3cacbf72ec077b4dd1fb4bf1e57e262ff4",
+    "apps/web/src/lib/class-media-hosted-store.ts": "95037f1bf4a12ee1b427eddb026a21636bd784b4fa83601945d5d08076cc03a7",
     "apps/web/src/lib/class-media-image.ts": "0e8d0eeef2f5ad29b93e40300d4e4e7911d32078914a9ba7e9edf12801bb5108",
     "apps/web/src/lib/class-media-limits.ts": "e632706607462d0fa6c7b9c1055ad4bafb93c26c6861e71d417fc76b85060d77",
-    "apps/web/src/lib/class-media-store.ts": "085c8f41dbd434132a06c1605f2244956ffe6e813452b309eb0ccc80a79807ac",
+    "apps/web/src/lib/class-media-session.ts": "80b61c908123de85cc40565fb3b9dc47966730e935595af22c8b56eb03b9d5bf",
+    "apps/web/src/lib/class-media-store.ts": "6e222935ec755dcede2074c03a522e020e818b4c1bc3c3097a24a8caf8808ac6",
     "apps/web/src/lib/class-media-variant.ts": "d6df723782075dc713aadc39d02e10ab8c56faf561e71ebdcd72bbbf9ebe53a2",
     "scripts/class-media/fixtures.mjs": "81285f9570b26ff4c2cb847c85a0ad58c07b7e3bf21319ec3953ba7693a51341",
     "scripts/class-media/local-db.py": "55043600e58eb9fb0564160874731c85f5fd015198764cbc10da606ab08a905a",
-    "scripts/class-media/local-fixture.mjs": "f4007bf552d4b0f931393faeac25412351e8b723ce78e4a03b85d37eb7712fd1",
+    "scripts/class-media/local-fixture.mjs": "7a07b8601dd2aa7626b7cd5c5b64d15650b39adfc7d218342add00614be2c9a9",
     "scripts/class-media/test_connected.mjs": "d4e67db3f4bf4174d00c3041d0e918d9f4ccfbf868d3833e68e08443136c4131",
     "scripts/class-media/test_hosted_contract.mjs": "25d0f9bbfb5d5fb53d3e793c6adc4d7635b3ea5ea26834d27ad150bb66d79813",
     "scripts/class-media/test_image_quality.mjs": "8ed6b34de641e115f7f63baf454ab7ab36598f3904d2c482e81e9faa3ba16f75",
     "supabase/migrations/20261124235018_ex25_synthetic_class_media.sql": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16",
     "supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9",
-    "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "dbb04fed60f79ed052faf2d5858905f9aaedbedeeef52010a2d428b23303b42e"
+    "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136"
   },
   "workload": {
     "checks": [
@@ -37,8 +40,8 @@
       "storedThumbnails": 3369120,
       "totalStored": 107929160,
       "firstViewThumbnailBodies": 3369120,
-      "tenOpenedMainBodies": 10067660,
-      "elapsedMs": 51185
+      "tenOpenedMainBodies": 12098866,
+      "elapsedMs": 39444
     },
     "environment": {
       "node": "v24.14.0",
@@ -199,7 +202,7 @@
       },
       {
         "file": "20261125094402_ex25_staging_storage_policy.sql",
-        "sha256": "dbb04fed60f79ed052faf2d5858905f9aaedbedeeef52010a2d428b23303b42e"
+        "sha256": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136"
       }
     ],
     "counts": {
