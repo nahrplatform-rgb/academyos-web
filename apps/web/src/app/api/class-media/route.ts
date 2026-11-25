@@ -207,9 +207,16 @@ export async function POST(request: NextRequest) {
     const { client } = access;
     const input = await readJson(request);
     const a = uuid(input.academy);
-    const e = uuid(input.event);
     authorizeAcademy(access, a);
     const action = input.action;
+    if (action === 'gallery') {
+      checkKeys(input, 'after');
+      if ('event' in input) throw new InvalidRequest();
+      return json({ data: await rpc(client, 'x25_query_v1', {
+        a, e: null, mode: action, target: input.after === undefined ? null : uuid(input.after),
+      }) });
+    }
+    const e = uuid(input.event);
     if (action === 'context' || action === 'recover') {
       if (action === 'context') {
         checkKeys(input);

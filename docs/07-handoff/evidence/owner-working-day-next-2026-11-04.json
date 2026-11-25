@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 361,
-    "calendarMs": 295,
-    "dateMs": 262,
+    "homeMs": 237,
+    "calendarMs": 152,
+    "dateMs": 157,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 323,
-    "selectReviewSaveMs": 792,
+    "firstPrepareMs": 202,
+    "selectReviewSaveMs": 754,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 376,
-    "originalReplayMs": 220,
+    "offlineRestartMs": 219,
+    "originalReplayMs": 111,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -657,19 +657,19 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1396
+        "responseBytes": 1397
       }
     ],
     "rpcCount": 67,
     "logicalRateChecks": 134,
     "cacheEntries": 31,
     "requestBytes": 17203,
-    "responseBytes": 82747
+    "responseBytes": 82748
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/owner_fixture.mjs": "8a5b401c45dc7e82f52c6dc5889f670e2a6cba493a62f5b4c99288a7da95e2d6",
+    "scripts/working-day/owner_fixture.mjs": "d24a1fb9188dde8aebd594d1ac028c20a77105b2f7dc8de1e799b03a25400153",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
     "scripts/working-day/owner_db.py": "ec871159334f350e55dcaf96e24b4e9efa4ef5b66b7f1349e6d676ad67e6d353",
     "scripts/working-day/test_owner_next.mjs": "55b9d821c7388b6e52302cbe45e0474d2643f44d21880ea3dbb285d790d8eff0",
@@ -686,8 +686,8 @@
     "apps/web/src/app/api/programs/route.ts": "708f17fb0de755e53df94c823103ba73de39a9f1c31452d37df152e02a612043",
     "apps/web/src/components/program-workspace.tsx": "f030ed1acac1d6bb21002516301fe78d1ea8b8944daf8f3522218f36c73014b5",
     "apps/web/src/app/api/onboarding/route.ts": "dc0446473f1fd1d87265459b13e53c8d071ab314935cee289c789ff58fc4b739",
-    "apps/web/src/components/onboarding-workspace.tsx": "f2c71cff59a6f43b97bba8c6a3e6951a91deed035aa5775ba16da4aea53fd795",
-    "apps/web/src/app/[locale]/workspace/page.tsx": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
+    "apps/web/src/components/onboarding-workspace.tsx": "e3e4eb822ff98552379788435f2f47682c9e1351cc8cb7916a8e5bfbedd12767",
+    "apps/web/src/app/[locale]/workspace/page.tsx": "6e9199654c39ec140e5a875301328b512c91fe1af29d849b9c9469dd89f2f032",
     "supabase/migrations/20261027004132_i3b_draft_session_planning.sql": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
     "apps/web/src/lib/workspace-read-owner.ts": "accc861b1a92a2d629e052e1d4248a5440d8722fec4261a71f74ded26cc6bf6b",
     "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",

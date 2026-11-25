@@ -24,9 +24,9 @@ try {
     return result.data;
   }
   const item = (await command({ action: 'reserve' }, 200)).id;
-  const url = variant => origin + '/api/class-media?' + new URLSearchParams({ academy, event, item, variant });
-  const put = async (variant, bytes, status) => {
-    const response = await fetch(url(variant), { method: 'PUT', headers: { ...headers('user_owner'), 'content-type': 'image/jpeg' }, body: bytes });
+  const url = (variant, target = item) => origin + '/api/class-media?' + new URLSearchParams({ academy, event, item: target, variant });
+  const put = async (variant, bytes, status, target = item) => {
+    const response = await fetch(url(variant, target), { method: 'PUT', headers: { ...headers('user_owner'), 'content-type': 'image/jpeg' }, body: bytes });
     assert.equal(response.status, status, JSON.stringify({ variant, reply: await response.text(), storage: fixture.providerCalls.slice(-3) }));
   };
 
@@ -63,6 +63,14 @@ try {
     assert.equal(result.headers.get('cache-control'), 'private, no-store');
     assert(Buffer.from(await result.arrayBuffer()).equals(variant === 'main' ? large : thumb));
   }
+  const staffContext = await post({ action: 'context' }, 'user_manager');
+  assert.equal(staffContext.status, 200);
+  const { data: staffGallery } = await staffContext.json();
+  assert.deepEqual(staffGallery.players, []);
+  const savedPhoto = staffGallery.items.find(photo => photo.id === item);
+  assert(savedPhoto, 'the assigned Manager can reopen a saved photo before any player tagging or consent');
+  assert.deepEqual(savedPhoto.depicted ?? [], []);
+  assert.deepEqual(savedPhoto.consented ?? [], []);
   for (const name of fixture.objects.keys()) {
     const allowed = await fixture.db({ action: 'storage', name, method: 'GET', subject: 'user_owner', proof: '{}' });
     assert.equal(allowed, false, 'direct Storage access was possible without server proof');
@@ -79,6 +87,20 @@ try {
   await command({ action: 'delete', item }, 200);
   assert.equal(fixture.objects.size, 0);
   assert.equal((await fixture.db({ action: 'counts', item })).deleted, 1);
+  const privatePhoto = (await command({ action: 'reserve' }, 200)).id;
+  await put('main', thumb, 200, privatePhoto);
+  await put('thumbnail', thumb, 200, privatePhoto);
+  await command({ action: 'finalize', item: privatePhoto }, 200);
+  await command({ action: 'withdraw', item: privatePhoto }, 403, 'user_manager');
+  for (const variant of ['main', 'thumbnail']) {
+    assert.equal((await fetch(url(variant, privatePhoto), { headers: headers('user_manager') })).status, 200);
+  }
+  await command({ action: 'withdraw', item: privatePhoto }, 200);
+  for (const variant of ['main', 'thumbnail']) {
+    assert.equal((await fetch(url(variant, privatePhoto), { headers: headers('user_manager') })).status, 403);
+  }
+  await command({ action: 'delete', item: privatePhoto }, 200);
+  assert.equal(fixture.objects.size, 0);
   console.log(JSON.stringify({ result: 'passed', bytes: large.length, source: 'real app route and Storage RLS, disposable PostgreSQL, simulated Storage HTTP', confirmedProviderWrites: fixture.providerCalls.filter(x => x.method === 'POST' && x.allowed).length }));
 } finally {
   await fixture?.close();

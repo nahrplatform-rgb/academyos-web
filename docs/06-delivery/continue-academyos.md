@@ -82,30 +82,30 @@ Product value for this batch:
 
 ### Ready development action
 
-Finish EX-25 before resuming EX-26. Verify the approved class gallery and private storage transport on one exact candidate.
+Complete the revised staff Gallery candidate checks and signed-in staging lifecycle after Owner promotion.
 
 ### Separate release follow-up
 
-After checked staging activation and Owner promotion, verify signed-in Owner and assigned Manager, old-link denial and stored-object deletion. Confirm the physical iPhone JPEG fallback if a device is available.
+After Owner promotion, verify signed-in role Galleries and tag-free save, original recovery, sparse Manager data, old-link denial, physical deletion and class and academy isolation. Physical iPhone HEIC remains open.
 
 Scoped dependency gate: Synthetic staging authorized. Real child consent, family sharing, legal holds and backup or export policy remain under D-004, D-015 and MP-Q12.
 
 Read current evidence: `docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md`.
 
-Batch includes: Upload/tag/consent/visibility;authorized gallery;revoke/delete/history;selected download lifecycle
+Batch includes: Synthetic private class photos;Owner and assigned Manager Galleries;tag-free save;withdraw/delete/history;later role Galleries and sharing phases recorded
 
-Batch exit evidence: Current field/object authorization;consent loss/expired artifact/retry;no public or automatic bulk private cache
+Batch exit evidence: Current class and object authorization;legacy restrictions;expiry;per-photo recovery;verified deletion;no public or automatic bulk private cache
 
-Policy boundary: D-004;D-015 and exact media/file retention/sharing;real data remains separately gated
+Policy boundary: D-004;D-015;MP-Q12 before real media or dependent sharing and retention policy;synthetic private staff workflow authorized
 
 ## Actual delivery status for the current family
 
-- Design: The Owner approved the fictional class-staff consent and retention rules and separately authorized the synthetic staging rollout on 25 November. D-004, D-015 and MP-Q12 still govern real-data policy.
-- Implementation: Local bilingual gallery and staging-only private object transport, exact upload recovery, same-origin authorization and expiry cleanup. Staging activation and signed-in verification pending.
+- Design: Owner directed the synthetic workflow toward private staff Galleries without mandatory per-photo player tagging or consent. Real media and family or player distribution remain policy-gated.
+- Implementation: Revised bilingual Owner and assigned Manager Galleries and tag-free staff photos implemented locally. The earlier candidate remains the staging baseline.
 - Local checks: Connected synthetic EN desktop and AR narrow-touch workflow passed with disposable PostgreSQL 17. Verified 10 classes × 10 photos, actual storage and gallery transfer, per-file recovery, privacy and true object removal. HEIC requires export as JPEG.
-- Deployment: Staging still serves the earlier checked scoping commit c905f78. The EX-25 hosted transport is under verification.
-- Hosted verification: Private empty academy-media bucket verified by readback. Encrypted staging backup 45587782357 passed. Signed-in Owner and Manager checks remain open.
-- Owner acceptance: Synthetic rules and rollout authorized. Working staging acceptance remains open.
+- Deployment: Foundation 45594075023 passed at 95b72943ce682770149697d758f23730b5b7fabc. Staging redeployment dpl_2gjkzd4ccyuif9mwWJUsHtDA6GVp serves that SHA with gallery active for Isolation Academy B.
+- Hosted verification: Staging Storage checked an older proof format than the live app signed. Hosted migration 20261125145344 aligned the formats. Readback confirmed a private bucket and three object policies. The original item later read back as published with one finalize receipt and both ready variants present in private Storage. Revised workflow and signed-in Manager verification remain open.
+- Owner acceptance: Synthetic rollout and private staff Gallery direction authorized. Working acceptance of the revised flow remains open.
 - Independent security: Deferred by Owner for synthetic staging. Independent review has not been performed.
 
 ## Registered scoped worker work

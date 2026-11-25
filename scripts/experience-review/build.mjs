@@ -24,6 +24,8 @@ const testDependencies={
     'supabase/migrations/20261124235018_ex25_synthetic_class_media.sql',
     'supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql',
     'supabase/migrations/20261125094402_ex25_staging_storage_policy.sql',
+    'supabase/migrations/20261125145344_ex25_align_staging_storage_proof.sql',
+    'supabase/migrations/20261125151806_ex25_staff_gallery.sql',
   ],
   'platform-commerce': [
     'apps/web/src/app/api/platform-commerce/route.ts',

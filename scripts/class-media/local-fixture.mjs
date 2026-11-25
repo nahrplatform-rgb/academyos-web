@@ -141,12 +141,14 @@ export async function startClassMediaFixture(temp, { hosted = false } = {}) {
         import React from 'react';
         import {createRoot} from 'react-dom/client';
         import Media from './apps/web/src/components/class-media-workspace.tsx';
+        import Gallery from './apps/web/src/components/class-media-gallery.tsx';
         import Planning from './apps/web/src/components/date-planning-workspace.tsx';
         import {prepareClassMediaImage} from './apps/web/src/lib/class-media-image.ts';
         const [,locale,,academy,mode,first,second] = location.pathname.split('/');
         window.prepareClassMediaImage=prepareClassMediaImage;
         createRoot(document.getElementById('root')).render(mode==='class-media'
-          ? <Media locale={locale} academy={academy} event={first} chunkedUploads={${hosted}}/>
+          ? <Media locale={locale} academy={academy} event={first} chunkedUploads={${hosted}} fromGallery={new URLSearchParams(location.search).get('from')==='gallery'}/>
+          : mode==='gallery' ? <Gallery locale={locale} academy={academy}/>
           : <Planning locale={locale} academy={academy} program={first} day={second} classMediaEnabled/>);
       `, resolveDir: root, loader: 'tsx' },
       tsconfig: join(root, 'apps/web/tsconfig.json'), bundle: true, write: false, format: 'iife', jsx: 'automatic',

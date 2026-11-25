@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "0f9c166ac118cce1410419daee76662fe9f41a78",
+  "source_anchor": "95b72943ce682770149697d758f23730b5b7fabc",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -100,13 +100,18 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
-      "sha256": "31e31d237940134daa995cb16629aa4d33964656ec617de5db2850148be9c0c1",
-      "bytes": 833
+      "sha256": "2ab62256afad16e86011a2e4bdfd640186721229f5f7d08ef71713e25d732526",
+      "bytes": 948
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
       "sha256": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
       "bytes": 756
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/gallery/page.tsx",
+      "sha256": "a20ae2622c216f7bc1c8e5eb35cfa805e758d0cd5e3c49429effb6ad7d8838ca",
+      "bytes": 636
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
@@ -250,8 +255,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/page.tsx",
-      "sha256": "fa2c358e54249109bb72652fe76a91a0f43badf2c9b4d3a8720f9965aa011ec0",
-      "bytes": 348
+      "sha256": "6e9199654c39ec140e5a875301328b512c91fe1af29d849b9c9469dd89f2f032",
+      "bytes": 534
     },
     {
       "path": "apps/web/src/app/api/attendance/route.ts",
@@ -265,8 +270,8 @@
     },
     {
       "path": "apps/web/src/app/api/class-media/route.ts",
-      "sha256": "7fc12bef7f5425094ef88a88a139fa843fd42826f6ebfa807d779c89de759bb5",
-      "bytes": 14175
+      "sha256": "7766165617348e9fe595ffa0f7de8fb7af8cc42f1f308db66d20ca7dc885cab2",
+      "bytes": 14473
     },
     {
       "path": "apps/web/src/app/api/development/route.ts",
@@ -474,9 +479,14 @@
       "bytes": 40928
     },
     {
+      "path": "apps/web/src/components/class-media-gallery.tsx",
+      "sha256": "83e712fe9d7b7354afd0139096f72e320c74f6dbea2ac0bec9182b0f0dfe9580",
+      "bytes": 4713
+    },
+    {
       "path": "apps/web/src/components/class-media-workspace.tsx",
-      "sha256": "247fe1cf3f958a2c7bd00fe57e8c000359f01a361f5194d28908500ae32e61fd",
-      "bytes": 32243
+      "sha256": "017583beee2eda9eed676c0e833004abc47c9d71d149220a080a005e52195d15",
+      "bytes": 30289
     },
     {
       "path": "apps/web/src/components/correction-workspace.tsx",
@@ -510,8 +520,8 @@
     },
     {
       "path": "apps/web/src/components/onboarding-workspace.tsx",
-      "sha256": "f2c71cff59a6f43b97bba8c6a3e6951a91deed035aa5775ba16da4aea53fd795",
-      "bytes": 39906
+      "sha256": "e3e4eb822ff98552379788435f2f47682c9e1351cc8cb7916a8e5bfbedd12767",
+      "bytes": 40339
     },
     {
       "path": "apps/web/src/components/owner-navigation.ts",
@@ -660,8 +670,8 @@
     },
     {
       "path": "apps/web/src/components/workspace-navigation.ts",
-      "sha256": "b46a8e5724ef37286b0b3f1ceca1d0d59a6869b1ff3e79535d1e2d5ca8f05503",
-      "bytes": 2509
+      "sha256": "f312ad2c80249b4f551cbebacacfde435ae698e0e31b4512b6ef5298f3d64203",
+      "bytes": 2639
     },
     {
       "path": "apps/web/src/components/workspace-panel-icon.tsx",
@@ -1482,6 +1492,16 @@
       "path": "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql",
       "sha256": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136",
       "bytes": 5410
+    },
+    {
+      "path": "supabase/migrations/20261125145344_ex25_align_staging_storage_proof.sql",
+      "sha256": "4388c9a127df93905cdb5d203a14f3c5212d3e7fca199b1e3d59f19389f3679b",
+      "bytes": 938
+    },
+    {
+      "path": "supabase/migrations/20261125151806_ex25_staff_gallery.sql",
+      "sha256": "0f13c51e6042aefb130c1001dd7c5efb3e106612da3094d70404377d7a6f4056",
+      "bytes": 3225
     }
   ],
   "page_paths": [
@@ -1501,6 +1521,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/gallery/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/development/page.tsx",
@@ -2230,10 +2251,10 @@
     }
   ],
   "counts": {
-    "source_files": 296,
-    "page_paths": 47,
+    "source_files": 300,
+    "page_paths": 48,
     "api_routes": 33,
-    "migrations": 47
+    "migrations": 49
   },
   "pwa_metadata": {
     "public_manifest_present": false,

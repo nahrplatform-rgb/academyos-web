@@ -8,7 +8,7 @@ import { ClassMediaImageError, prepareClassMediaImage, type PreparedClassMediaIm
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
 import { Button, Input } from './ui/controls';
 
-type Props = { locale: string; academy: string; event: string; chunkedUploads?: boolean };
+type Props = { locale: string; academy: string; event: string; chunkedUploads?: boolean; fromGallery?: boolean };
 type UploadVariant = 'main' | 'thumbnail' | 'part-0' | 'part-1' | 'part-2';
 type Player = { id: string; name: string };
 type Item = { id: string; state: 'draft' | 'published' | 'withdrawn' | 'deleting' | 'deleted'; depicted: string[]; consented: string[]; expires: string | null };
@@ -70,7 +70,7 @@ export default function ClassMediaWorkspace(props: Props) {
   return <ClassMedia key={`${user.id}:${props.academy}:${props.event}`} {...props} subject={user.id} />;
 }
 
-function ClassMedia({ locale, academy, event, subject, chunkedUploads }: Props & { subject: string }) {
+function ClassMedia({ locale, academy, event, subject, chunkedUploads, fromGallery }: Props & { subject: string }) {
   const ar = locale === 'ar';
   const t = (en: string, arabic: string) => ar ? arabic : en;
   const key = `academyos:class-media:${subject}:${academy}:${event}`;
@@ -83,8 +83,6 @@ function ClassMedia({ locale, academy, event, subject, chunkedUploads }: Props &
   const [notice, setNotice] = useState('');
   const [uploads, setUploads] = useState<Upload[]>([]);
   const [batchRunning, setBatchRunning] = useState(false);
-  const [selected, setSelected] = useState<Record<string, string[]>>({});
-  const [confirmed, setConfirmed] = useState<Record<string, boolean>>({});
   const [opened, setOpened] = useState<string | null>(null);
   const mutation = useRef(false);
   const readVersion = useRef(0);
@@ -420,28 +418,26 @@ function ClassMedia({ locale, academy, event, subject, chunkedUploads }: Props &
 
   const enabled = Boolean(context) && recoveryReady && !recoveryBlocked && !busy && !batchRunning && !pending;
   const stateName = (state: Item['state']) => ({
-    draft: t('Private draft', 'مسودة خاصة'), published: t('Published', 'منشورة'),
+    draft: t('Private photo', 'صورة خاصة'), published: t('Published', 'منشورة'),
     withdrawn: t('Withdrawn', 'مسحوبة'), deleting: t('Deletion pending', 'الحذف قيد التنفيذ'),
     deleted: t('Deleted', 'محذوفة'),
   })[state];
-  const current = (item: Item) => selected[item.id] ?? item.depicted;
-  function togglePlayer(item: Item, player: string, checked: boolean) {
-    setSelected(previous => ({ ...previous, [item.id]: checked
-      ? [...current(item), player] : current(item).filter(id => id !== player) }));
-    setConfirmed(previous => ({ ...previous, [item.id]: false }));
-  }
+  const galleryHref = `/${locale}/workspace/${academy}/gallery`;
 
   return <WorkspaceShell role={context?.role === 'owner' ? 'owner' : 'workspace'} module="people" locale={locale}
     context={context ? (context.role === 'owner' ? t('Academy Owner workspace', 'مساحة مالك الأكاديمية') : t('Manager workspace', 'مساحة المدير')) : t('Academy workspace', 'مساحة الأكاديمية')}
     title={t('Class photos', 'صور الحصة')} homeHref={`/${locale}/workspace`}
-    languageHref={`/${ar ? 'en' : 'ar'}/workspace/${academy}/class-media/${event}`}
-    navigation={[{ href: `/${locale}/workspace/${academy}/calendar`, label: t('Calendar', 'التقويم') }]} account={<UserButton />}>
+    languageHref={`/${ar ? 'en' : 'ar'}/workspace/${academy}/class-media/${event}${fromGallery ? '?from=gallery' : ''}`}
+    navigation={context ? [{ href: galleryHref, label: t('Gallery', 'المعرض') }] : []} account={<UserButton />}>
     <main className="journey-card" style={{ maxWidth: '76rem', padding: '1.5rem' }}>
       <h1>{t('Class photos', 'صور الحصة')}</h1>
       {context && <><p>{context.class.title} · <bdi>{context.class.day}</bdi></p>
-        {context.role === 'owner'
+        {fromGallery
+          ? <a href={galleryHref + '#class-' + event}>{t('Back to Gallery', 'العودة إلى المعرض')}</a>
+          : context.role === 'owner'
           ? <a href={`/${locale}/workspace/${academy}/programs/${context.class.program}/${context.class.day}`}>{t('Back to class', 'العودة إلى الحصة')}</a>
           : <a href={`/${locale}/workspace`}>{t('Back to workspaces', 'العودة إلى مساحات العمل')}</a>}
+        {!fromGallery && <p><a href={galleryHref}>{t('Open Gallery', 'فتح المعرض')}</a></p>}
       </>}
       {recoveryBlocked && <p role="alert">{errorText('recovery')}</p>}
       {error && <p role="alert">{error === 'batch_limit' ? t('Keep at most 10 prepared photos at a time. Upload or clear a selection first.', 'احتفظ بعشر صور مجهزة كحد أقصى في كل مرة. ارفع الصور أو امسح اختيارًا أولًا.') : errorText(error)}</p>}
@@ -485,33 +481,15 @@ function ClassMedia({ locale, academy, event, subject, chunkedUploads }: Props &
             {['draft', 'published'].includes(item.state) && <img src={variantUrl(academy, event, item.id, 'thumbnail')} alt={t('Class photo thumbnail', 'صورة مصغرة للحصة')} width={160} height={160} style={{ objectFit: 'contain' }} />}
             <p>{stateName(item.state)}</p>
             {['draft', 'published'].includes(item.state) && <Button disabled={!enabled} onClick={() => setOpened(item.id)}>{t('Open photo', 'فتح الصورة')}</Button>}
-            {context.role === 'owner' && ['draft', 'withdrawn'].includes(item.state) && <>
-              <fieldset><legend>{t('Players shown in this photo', 'اللاعبون الظاهرون في الصورة')}</legend>
-                {context.players.map(player => <label key={player.id} style={{ display: 'block' }}>
-                  <input type="checkbox" checked={current(item).includes(player.id)} disabled={!enabled}
-                    onChange={e => togglePlayer(item, player.id, e.currentTarget.checked)} /> {player.name}
-                </label>)}
-              </fieldset>
-              <label><input type="checkbox" checked={Boolean(confirmed[item.id])} disabled={!enabled}
-                onChange={e => {
-                  const checked = e.currentTarget.checked;
-                  setConfirmed(previous => ({ ...previous, [item.id]: checked }));
-                }} />
-                {t('I confirmed every player shown in this photo.', 'تحققت من جميع اللاعبين الظاهرين في هذه الصورة.')}</label>
-              <Button disabled={!enabled || !confirmed[item.id] || !current(item).length}
-                onClick={() => void action('tag', { item: item.id, players: current(item), confirmed: true })}>{t('Save shown players', 'حفظ اللاعبين الظاهرين')}</Button>
-              <Button disabled={!enabled || !item.depicted.length || item.depicted.some(id => !item.consented.includes(id))}
-                onClick={() => void action('publish', { item: item.id })}>{t('Publish to class staff', 'نشر لموظفي الحصة')}</Button>
-            </>}
-            {context.role === 'owner' && ['draft', 'withdrawn', 'published'].includes(item.state) && item.depicted.map(playerId => <div key={playerId}>
+            {context.role === 'owner' && item.state === 'published' && item.depicted.map(playerId => <div key={playerId}>
               <span>{context.players.find(player => player.id === playerId)?.name ?? t('Player', 'لاعب')}</span>
               <span> · {item.consented.includes(playerId) ? t('Consent recorded', 'الموافقة مسجلة') : t('Consent needed', 'الموافقة مطلوبة')}</span>
-              {(item.state !== 'published' || item.consented.includes(playerId)) && <Button disabled={!enabled}
-                onClick={() => void action('consent', { item: item.id, player: playerId, allowed: !item.consented.includes(playerId) })}>
-                {item.consented.includes(playerId) ? t('Withdraw consent', 'سحب الموافقة') : t('Record fictional consent', 'تسجيل موافقة تجريبية')}
+              {item.consented.includes(playerId) && <Button disabled={!enabled}
+                onClick={() => void action('consent', { item: item.id, player: playerId, allowed: false })}>
+                {t('Withdraw consent', 'سحب الموافقة')}
               </Button>}
             </div>)}
-            {context.role === 'owner' && item.state === 'published' && <Button disabled={!enabled}
+            {context.role === 'owner' && ['draft', 'published'].includes(item.state) && <Button disabled={!enabled}
               onClick={() => void action('withdraw', { item: item.id })}>{t('Withdraw photo', 'سحب الصورة')}</Button>}
             {context.role === 'owner' && !['deleting', 'deleted'].includes(item.state) && <Button disabled={!enabled}
               onClick={() => void action('delete', { item: item.id })}>{t('Delete photo', 'حذف الصورة')}</Button>}

@@ -51,7 +51,8 @@ def seed(test):
              "select h.academy_id,h.event_id,m.id from academy.publication_heads h "
              "join academy.memberships m on m.academy_id=h.academy_id "
              "join academy.identities i on i.id=m.identity_id where h.academy_id="
-             f"{literal(academy)} and i.clerk_subject='user_manager'")
+             f"{literal(academy)} and i.clerk_subject='user_manager' "
+             f"and h.event_id in ({literal(events[0]['id'])},{literal(events[2]['id'])})")
     assert len(events) == 10
     return dict(academy=academy, foreign=foreign, program=program['id'], players=players, events=events)
 

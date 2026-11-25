@@ -304,6 +304,7 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
       const chooser = await readFile(join(root,'apps/web/src/app/[locale]/workspace/page.tsx'),'utf8');
       await page('../page.tsx',chooser
         .replace('import { auth } from "@clerk/nextjs/server";','const auth={protect:async()=>{}};')
+        .replace('"@/lib/class-media-store"',JSON.stringify(join(root,'apps/web/src/lib/class-media-store')))
         .replace('import OnboardingWorkspace from "@/components/onboarding-workspace";',
           "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';"));
     }

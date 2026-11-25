@@ -114,17 +114,18 @@ try {
 
   const firstItem = cards(en).filter({ has: en.locator('img[src*="' + interruptedItem + '"]') });
   await expect(firstItem).toHaveCount(1);
-  await firstItem.getByRole('checkbox', { name: 'Fictional Player One' }).check();
-  await firstItem.getByRole('checkbox', { name: 'Fictional Player Two' }).check();
-  await firstItem.getByRole('checkbox', { name: 'I confirmed every player shown in this photo.' }).check();
-  await button(firstItem, 'Save shown players').click();
-  await expect(firstItem.getByRole('button', { name: 'Record fictional consent' })).toHaveCount(2);
+  await expect(button(firstItem, 'Open photo')).toBeVisible();
+  await expect(firstItem.getByRole('checkbox')).toHaveCount(0);
+
+  // Preserve the consent gate on photos published by the legacy client.
+  await action(en, first, { action: 'tag', item: interruptedItem, players, confirmed: true });
   await action(en, first, { action: 'publish', item: interruptedItem }, 409);
-  await firstItem.getByRole('button', { name: 'Record fictional consent' }).first().click();
-  await expect(firstItem.getByRole('button', { name: 'Record fictional consent' })).toHaveCount(1);
+  await action(en, first, { action: 'consent', item: interruptedItem, player: players[0], allowed: true });
   await action(en, first, { action: 'publish', item: interruptedItem }, 409);
-  await button(firstItem, 'Record fictional consent').click();
-  await button(firstItem, 'Publish to class staff').click();
+  await action(en, first, { action: 'consent', item: interruptedItem, player: players[1], allowed: true });
+  await action(en, first, { action: 'publish', item: interruptedItem });
+  await en.reload();
+  await expect(firstItem.getByText('Published', { exact: true })).toBeVisible();
   await expect(button(firstItem, 'Withdraw photo')).toBeVisible();
   await gallery(manager, first);
   await expect(input(manager)).toBeEnabled();
@@ -170,11 +171,7 @@ try {
   await button(ar, 'رفع الصور الجاهزة').tap();
   await expect(cards(ar)).toHaveCount(2);
   const card = cards(ar).first();
-  await card.getByRole('checkbox', { name: 'Fictional Player One' }).check();
-  await card.getByRole('checkbox', { name: 'تحققت من جميع اللاعبين الظاهرين في هذه الصورة.' }).check();
-  await button(card, 'حفظ اللاعبين الظاهرين').tap();
-  await button(card, 'تسجيل موافقة تجريبية').tap();
-  await button(card, 'نشر لموظفي الحصة').tap();
+  await expect(card.getByRole('checkbox')).toHaveCount(0);
   await button(card, 'فتح الصورة').tap();
   const opened = ar.getByRole('dialog').getByRole('img');
   await expect.poll(() => opened.evaluate(img => img.naturalWidth)).toBeGreaterThan(0);
@@ -187,7 +184,28 @@ try {
   await expect(ar.locator('html')).toHaveAttribute('dir', 'rtl');
   await ar.getByRole('link', { name: 'صور الحصة', exact: true }).tap();
   await expect(ar).toHaveURL(origin + '/ar/workspace/' + academy + '/class-media/' + second.id);
-  verified('Arabic narrow touch upload, tag, consent, publish, full image, withdraw and exact class return');
+  verified('Arabic narrow touch tag-free upload, full image, withdrawal and exact class return');
+
+  const galleryPath = (locale = 'en') => '/' + locale + '/workspace/' + academy + '/gallery';
+  await manager.goto(origin + galleryPath());
+  const grantedClass = manager.locator('a[href*="/class-media/' + first.id + '"]');
+  await expect(grantedClass).toBeVisible();
+  await expect(manager.locator('a[href*="/class-media/' + second.id + '"]')).toHaveCount(0);
+  await grantedClass.click();
+  await expect(manager).toHaveURL(origin + galleryPath().replace('/gallery', '/class-media/' + first.id) + '?from=gallery');
+  await expect(input(manager)).toBeEnabled();
+  await manager.getByRole('link', { name: 'Back to Gallery' }).click();
+  await expect(manager).toHaveURL(origin + galleryPath() + '#class-' + first.id);
+  await ar.getByRole('link', { name: 'فتح المعرض', exact: true }).tap();
+  await expect(ar).toHaveURL(origin + galleryPath('ar'));
+  await ar.locator('a[href*="/class-media/' + second.id + '"]').tap();
+  await ar.getByRole('link', { name: 'العودة إلى المعرض' }).tap();
+  await expect(ar).toHaveURL(origin + galleryPath('ar') + '#class-' + second.id);
+  await expect(ar.locator('html')).toHaveAttribute('dir', 'rtl');
+  await gallery(manager, second);
+  await expect(input(manager)).toHaveCount(0);
+  await expect(manager.getByRole('alert')).toBeVisible();
+  verified('Workspace Gallery opens the permitted class and returns in the original locale on English desktop and Arabic touch');
 
   const clock = instant => fixture.db({ action: 'clock', instant });
   await clock('2026-11-25T08:00:00+00:00');

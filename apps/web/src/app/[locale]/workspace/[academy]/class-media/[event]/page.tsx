@@ -6,11 +6,14 @@ import { uuidPattern } from '@/lib/onboarding';
 
 export const dynamic = 'force-dynamic';
 
-export default async function Page({ params }: { params: Promise<{ locale: string; academy: string; event: string }> }) {
+export default async function Page({ params, searchParams }: {
+  params: Promise<{ locale: string; academy: string; event: string }>;
+  searchParams: Promise<{ from?: string }>;
+}) {
   const props = await params;
   const hosted = stagingClassMediaAcademy() === props.academy;
   if (!localClassMediaEnabled() && !hosted) notFound();
   await auth.protect();
   if (!['en', 'ar'].includes(props.locale) || !uuidPattern.test(props.academy) || !uuidPattern.test(props.event)) notFound();
-  return <ClassMediaWorkspace {...props} chunkedUploads={hosted} />;
+  return <ClassMediaWorkspace {...props} chunkedUploads={hosted} fromGallery={(await searchParams).from === 'gallery'} />;
 }

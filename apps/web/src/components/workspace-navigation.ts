@@ -16,6 +16,8 @@ export function workspaceNavigation(locale: string, academy: string, role: 'owne
     ...(role==='trainer'?[{href:`${base}/trainer/compensation`,label:t('My earnings','مستحقاتي'),module:'operations' as const}]:[]),
     {href:role==='trainer'?`${base}/development`:`${base}/guardian/development`,label:t('Development','التطور'),module:'development'},
   ];
+  const gallery = existing.find(item => item.href === base + '/gallery');
+  if (role === 'owner' && gallery) items.push(gallery);
   // Keep routes canonical and carry only the approved navigation hints.
   const calendarPath=`${base}/calendar`;
   const proposed=role==='owner'?existing.find(item=>item.href.startsWith(calendarPath+'?'))?.href:undefined;

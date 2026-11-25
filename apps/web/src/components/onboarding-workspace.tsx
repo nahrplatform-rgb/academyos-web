@@ -24,7 +24,7 @@ async function request(body: Payload) {
   let res: Response; try { res = await fetch('/api/onboarding', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), cache: 'no-store', signal: AbortSignal.timeout(15000) }); } catch { throw new RequestError('unknown'); }
   const value = await res.json(); if (!res.ok) throw new RequestError(value.error ?? 'unavailable'); return value.data;
 }
-type WorkspaceProps = { locale: string; mode: 'context' | 'platform' | 'setup' | 'invitation'; academy?: string };
+type WorkspaceProps = { locale: string; mode: 'context' | 'platform' | 'setup' | 'invitation'; academy?: string; galleryAcademy?: string };
 type HandoffState = 'pending' | 'ready' | 'failed';
 export default function OnboardingWorkspace(props: WorkspaceProps) {
   return <WorkspaceHandoff key={`${props.mode}:${props.academy ?? ''}:${props.locale}`} {...props} />;
@@ -48,7 +48,7 @@ function WorkspaceHandoff(props: WorkspaceProps) {
   // Handoff lifetime follows the route; private projections still reset with identity.
   return <JourneyWorkspace key={session.user?.id ?? 'signed-out'} {...props} handoff={handoff} isLoaded={session.isLoaded} isSignedIn={Boolean(session.isSignedIn)} subject={session.user?.id} />;
 }
-function JourneyWorkspace({ locale, mode, academy, handoff, isLoaded, isSignedIn, subject }: WorkspaceProps & { handoff: HandoffState; isLoaded: boolean; isSignedIn: boolean; subject?: string }) {
+function JourneyWorkspace({ locale, mode, academy, galleryAcademy, handoff, isLoaded, isSignedIn, subject }: WorkspaceProps & { handoff: HandoffState; isLoaded: boolean; isSignedIn: boolean; subject?: string }) {
   const ar = locale === 'ar', t = (en: string, arabic: string) => ar ? arabic : en;
   const [context, setContext] = useState<Context | null>(null), [items, setItems] = useState<Academy[]>([]), [more, setMore] = useState(false), [setup, setSetup] = useState<Setup | null>(null), [invite, setInvite] = useState<Invitation | null>(null);
   const [busy, setBusy] = useState(false), [loading, setLoading] = useState(true), [requestError, setError] = useState(''), [notice, setNotice] = useState('');
@@ -227,7 +227,10 @@ let active = true; if (isLoaded && isSignedIn && exchanged) void Promise.resolve
                 {m.role === 'owner' ? <Link prefetch={false} href={`/${locale}/workspace/${m.academy_id}/home`}>{t('Open academy', 'فتح الأكاديمية')}</Link>
                   : m.role === 'guardian' ? <Link prefetch={false} href={`/${locale}/workspace/${m.academy_id}/guardian/home`}>{t('Open Guardian home', 'فتح الصفحة الرئيسية لولي الأمر')}</Link>
                   : m.role === 'trainer' ? <Link prefetch={false} href={`/${locale}/workspace/${m.academy_id}/trainer/home`}>{t('Open Trainer home', 'فتح الصفحة الرئيسية للمدرب')}</Link>
+                  : m.role === 'manager' && (galleryAcademy === 'local' || galleryAcademy === m.academy_id) ? null
                   : <span>{t('Operational workspace is not available yet.', 'المساحة التشغيلية غير متاحة بعد.')}</span>}
+                {(m.role === 'owner' || m.role === 'manager') && (galleryAcademy === 'local' || galleryAcademy === m.academy_id) &&
+                  <> {' '}<Link prefetch={false} href={`/${locale}/workspace/${m.academy_id}/gallery`}>{t('Gallery', 'المعرض')}</Link></>}
               </li>)}</ul>}
             {context.more && <Button onClick={() => void load(true)}>{t('More memberships', 'المزيد من العضويات')}</Button>}
           </>}
