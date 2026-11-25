@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=f81b0f25-8989-49d3-880a-a2f2a3e0efb3"
+          "task": "#attendance-return=4eaca6a2-6084-4961-b1b6-266e5efdec44"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=57a989e0-34ed-48c9-a664-d49d2eb962d1"
+          "task": "#attendance-return=879f8357-3cb8-4ecb-9709-97a792efc64b"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=4f4ff81a-511b-493e-ae41-691ceab200e7"
+          "task": "#correction-return=927ea4ed-4119-47a9-8504-0853144d807b"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=2f599843-f911-43db-b762-5ac44094381a"
+          "task": "#development-return=5395623a-cf85-4181-af7b-c26e8adbaf6f"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=36538c39-b14e-4a52-b73f-bfc8bc115f79"
+          "task": "#development-return=b16ec8b9-d976-4c98-898e-65873a71a339"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=a03cdf57-447d-4852-ba1d-a47adef1390f"
+          "task": "#publication-return=b49e99c6-46c1-4e59-9384-111cbe9c1260"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=acc95797-9a7e-4f50-9b7a-002634afa0ce"
+          "task": "#publication-return=ba06f24c-d724-44d5-82dd-d1f799afe03a"
         }
       },
       {
@@ -1034,7 +1034,7 @@
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/owner_publication_return.mjs": "ce8b032171f9c70e37ab6f1d9a3edeb618769b166fe8c0f2a0f17cef85254308",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "8a5b401c45dc7e82f52c6dc5889f670e2a6cba493a62f5b4c99288a7da95e2d6",
+    "scripts/working-day/owner_fixture.mjs": "d24a1fb9188dde8aebd594d1ac028c20a77105b2f7dc8de1e799b03a25400153",
     "scripts/working-day/owner_db.py": "ec871159334f350e55dcaf96e24b4e9efa4ef5b66b7f1349e6d676ad67e6d353",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
