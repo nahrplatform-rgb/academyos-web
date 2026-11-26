@@ -36,9 +36,9 @@
       "registers": 2,
       "roster": 18
     },
-    "homeMs": 237,
-    "calendarMs": 152,
-    "dateMs": 157,
+    "homeMs": 270,
+    "calendarMs": 333,
+    "dateMs": 159,
     "onlineEntry": [
       [
         "experience",
@@ -66,11 +66,11 @@
         200
       ]
     ],
-    "firstPrepareMs": 202,
-    "selectReviewSaveMs": 754,
+    "firstPrepareMs": 219,
+    "selectReviewSaveMs": 772,
     "offlinePostRequests": 0,
-    "offlineRestartMs": 219,
-    "originalReplayMs": 111,
+    "offlineRestartMs": 221,
+    "originalReplayMs": 108,
     "replay": {
       "exactWire": true,
       "marks": 18,
@@ -153,7 +153,7 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1517
+        "responseBytes": 1516
       },
       {
         "route": "experience",
@@ -314,7 +314,7 @@
         "action": "owner_home",
         "requestBytes": 72,
         "status": 200,
-        "responseBytes": 1977
+        "responseBytes": 1976
       },
       {
         "route": "planning",
@@ -664,14 +664,14 @@
     "logicalRateChecks": 134,
     "cacheEntries": 31,
     "requestBytes": 17203,
-    "responseBytes": 82748
+    "responseBytes": 82746
   },
   "hashes": {
     "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "scripts/working-day/owner_fixture.mjs": "d24a1fb9188dde8aebd594d1ac028c20a77105b2f7dc8de1e799b03a25400153",
+    "scripts/working-day/owner_fixture.mjs": "de92ef79b9ccccfc4877750b559596ea03b5318959d1c6e59f1dab7d6ae75ad8",
     "scripts/working-day/owner-register.tsx": "10d45a7cd255c458be46323a8da37cde327153e694e4260b6ff2f665ee8f01ae",
-    "scripts/working-day/owner_db.py": "ec871159334f350e55dcaf96e24b4e9efa4ef5b66b7f1349e6d676ad67e6d353",
+    "scripts/working-day/owner_db.py": "cc913d6ef432f0ad5ffc9b73c1a1e651dc767c16e75eecacc6ca90e0ad273a12",
     "scripts/working-day/test_owner_next.mjs": "55b9d821c7388b6e52302cbe45e0474d2643f44d21880ea3dbb285d790d8eff0",
     "scripts/experience-projections/test_boundary.py": "81d6bd4929b94dd0d72f45788dac8fe13a50efdfe0afa41714226cfd5c4507f6",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",

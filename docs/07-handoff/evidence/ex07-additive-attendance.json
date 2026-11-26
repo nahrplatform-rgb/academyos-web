@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-25T15:37:33.672Z",
+  "completed": "2026-11-26T13:10:13.844Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -24,8 +24,8 @@
     "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "scripts/working-day/test_additive_attendance.mjs": "ff02c4bf05af013a4f4ee1bc4db6a2b0749ef736df898c9e2cc00bf255132a79",
-    "scripts/working-day/owner_fixture.mjs": "d24a1fb9188dde8aebd594d1ac028c20a77105b2f7dc8de1e799b03a25400153",
-    "scripts/working-day/owner_db.py": "ec871159334f350e55dcaf96e24b4e9efa4ef5b66b7f1349e6d676ad67e6d353",
+    "scripts/working-day/owner_fixture.mjs": "de92ef79b9ccccfc4877750b559596ea03b5318959d1c6e59f1dab7d6ae75ad8",
+    "scripts/working-day/owner_db.py": "cc913d6ef432f0ad5ffc9b73c1a1e651dc767c16e75eecacc6ca90e0ad273a12",
     "scripts/register-key/bound_fixture.py": "d8c4ff2f06ec58faf7d392cdb7fc3c72c13816e9c445c6bab33f19e92d59160b",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
     "scripts/register-download/test_boundary.py": "f3d0634de4ccde49c05ef208c1e4cd2c377c6a605e56497eb90db3b92585aed2",
@@ -123,6 +123,7 @@
     "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136",
     "supabase/migrations/20261125145344_ex25_align_staging_storage_proof.sql": "4388c9a127df93905cdb5d203a14f3c5212d3e7fca199b1e3d59f19389f3679b",
     "supabase/migrations/20261125151806_ex25_staff_gallery.sql": "0f13c51e6042aefb130c1001dd7c5efb3e106612da3094d70404377d7a6f4056",
+    "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f",
     "supabase/tests/harness.sql": "90993cadc7cb58e1c339715a40002ffa7c7a8dd5099ed94afa243e466570d8f0",
     "supabase/tests/membership_boundary.sql": "88cd0b80e74373821cabdac6c0955ae23a3afb3f029ba3cb09aaa2617af0c4b4",
     "supabase/tests/onboarding_boundary.sql": "bf50f455f29622fc05643412c91b50d7fdfb9564221fbf70e942b1f8bb769a0a"

@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Versioned offer/agreement usage/settlement plus online quota. EX-23 reuse audit retained in handoff; no approved changes to existing version-1 agreements. Next: full candidate verification and Owner-controlled staging release.
+Phase 1a/1b implementation and disposable/connected local evidence complete. First Foundation run 45825497587 failed stale preflight receipts; owner tests rerun with --record and all 15 read-only --checks pass. Push receipt fix and rerun Foundation.
 
 ### Separate release follow-up
 
-After Foundation pass, verify exact schema migration authorization, then Owner promotion and signed-in Platform Owner and Academy Owner workflows. Owner performs promotion; report hosted tenant/role/usage and unresolved boundaries.
+Fresh Foundation and exact preview on new SHA. Then verify migration authorization and rehearsal, request Owner-only promotion, and signed-in Platform Owner/Academy Owner EN/AR workflow and tenant/role/quota boundaries.
 
 Scoped dependency gate: Phase 1a/1b implemented and local checks pass; finish coherent candidate, Foundation and hosted gates. Verify migration approval before any hosted schema apply; Phase 1c remains after app-wide UI/UX.
 
@@ -103,7 +103,7 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. No real paymen
 
 - Design: Owner adopted the frozen commercial vision and selected this stage on 26 November. Appendix A specification items remain open.
 - Implementation: Phase 1a versioned fictional offer and immutable agreement extension; Phase 1b existing online program quota and lifecycle guards. New catalog limits and future operations remain unmapped/unimplemented.
-- Local checks: Disposable PostgreSQL 17 ledger-preserving migration, version assignment, last-slot race, rollback, retry, role/academy isolation; EN/AR connected fixture through invoice, claim, verified settlement, original review recovery and quota refusal; production build, TS, ESLint, 121 units and commerce experience captures passed. Not hosted.
+- Local checks: Disposable PostgreSQL 17 version/ledger, last-slot race, rollback/retry and tenant/role isolation passed; bilingual connected fixture through manual settlement recovery and 2/2 + 3/3 quota refusal passed. Production build, TS, ESLint, 121 units, experience review, all 15 shared --check preflights, master-plan and tracker validators pass locally. Foundation run 45825497587 on 4993d45 failed at stale shared receipt preflight; owning suites regenerated receipts and all affected --checks now pass. Fresh Foundation run required on receipt-update SHA.
 - Deployment: No EX-30 migration or deployment. Staging remains exact EX-25 source 977734f; preserve EX-23 staging evidence.
 - Hosted verification: No EX-30 signed-in hosted verification. Earlier EX-23 settlement evidence is a distinct historical hosted checkpoint.
 - Owner acceptance: Frozen direction and v2 fictional terms scope approved. Product implementation acceptance open.
