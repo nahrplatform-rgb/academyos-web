@@ -46,6 +46,7 @@ export function platformCommerceRequest(input: unknown) {
   if ((act === 'publish_plan') !== (a === null)) throw new CommerceInputError();
   if (act === 'create_demo' && a !== null) throw new CommerceInputError();
   if (act === 'use_invitation' && a === null) throw new CommerceInputError();
+  if (act === 'convert_demo' && a === null) throw new CommerceInputError();
   let payload: Record<string, unknown>;
   switch (act) {
     case 'publish_plan':
@@ -82,6 +83,16 @@ export function platformCommerceRequest(input: unknown) {
       allow(command, ['token']);
       payload = { token: text(request.token, 200) };
       break;
+    case 'convert_demo':
+      allow(command, ['demoAcademy', 'verifiedEmail', 'academyName', 'language', 'sport']);
+      payload = {
+        demoAcademy: uuid(request.demoAcademy),
+        verifiedEmail: text(request.verifiedEmail, 200),
+        academyName: text(request.academyName ?? 'New Academy', 120),
+        language: text(request.language ?? 'en', 10),
+        sport: text(request.sport ?? 'football', 40),
+      };
+      break;
     default:
       throw new CommerceInputError();
   }
@@ -90,6 +101,15 @@ export function platformCommerceRequest(input: unknown) {
   }
   if (act === 'use_invitation') {
     return { rpc: 'x30_use_invitation', args: { token: payload.token } };
+  }
+  if (act === 'convert_demo') {
+    return { rpc: 'x30_convert_demo', args: {
+      demoAcademy: payload.demoAcademy,
+      verifiedEmail: payload.verifiedEmail,
+      academyName: payload.academyName,
+      language: payload.language,
+      sport: payload.sport,
+    } };
   }
   return { rpc: 'x23_command_v1', args: { a, op, act, payload } };
 }
