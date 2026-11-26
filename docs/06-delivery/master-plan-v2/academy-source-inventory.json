@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "977734fe877315ea0a6dea29d0d3067ec06e4a77",
+  "source_anchor": "45d0f3acc381806fb7790b18c95de954e70ee20c",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -102,6 +102,11 @@
       "path": "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
       "sha256": "2ab62256afad16e86011a2e4bdfd640186721229f5f7d08ef71713e25d732526",
       "bytes": 948
+    },
+    {
+      "path": "apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx",
+      "sha256": "bde0166b889b28b6e1728a8081544f993b459437778eef425906a3da4f253b6e",
+      "bytes": 625
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
@@ -464,6 +469,11 @@
       "bytes": 376
     },
     {
+      "path": "apps/web/src/components/academy-owner-commercial-workspace.tsx",
+      "sha256": "f8f3c8b93531f19b295d5406ddbbef89b545623f07e04d6f8e37bc43d2724e36",
+      "bytes": 12423
+    },
+    {
       "path": "apps/web/src/components/admission-directory.tsx",
       "sha256": "0ee94174a051df6597ccc16d8f20958a4d501cb6327b872654d3430832290a18",
       "bytes": 14913
@@ -540,8 +550,13 @@
     },
     {
       "path": "apps/web/src/components/platform-commerce-workspace.tsx",
-      "sha256": "3d58da7572329c5864c284a38ac63b65d10d55c46de961d850b8509875d6b093",
-      "bytes": 21496
+      "sha256": "f27b3ba6479f3ccaf7fdb6464751f875795486bfc7e4b11bcce27cef663ca69e",
+      "bytes": 22230
+    },
+    {
+      "path": "apps/web/src/components/platform-owner-commercial-workspace.tsx",
+      "sha256": "b7d9a4011e4982dbf6e32f9d186caef2613a0da5b60d7376610f682de597420b",
+      "bytes": 13432
     },
     {
       "path": "apps/web/src/components/player-lifecycle.tsx",
@@ -1000,8 +1015,8 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "sha256": "a985dcb580fe845a50193224971747e2cdf75db0804c6e6812d9f832622f19eb",
-      "bytes": 3242
+      "sha256": "4ca17c0e20ac542210359c2161b4ed7d9aeb03dfab705c991c2ced1ce1c07168",
+      "bytes": 5439
     },
     {
       "path": "apps/web/src/lib/player-photo.ts",
@@ -1507,6 +1522,36 @@
       "path": "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql",
       "sha256": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f",
       "bytes": 2044
+    },
+    {
+      "path": "supabase/migrations/20261127120000_ex30_dunning_management.sql",
+      "sha256": "4449cf070ee8f1535d4c4ec1882053c32d556a543ac4a5c3229642c32a18350e",
+      "bytes": 4305
+    },
+    {
+      "path": "supabase/migrations/20261128120000_ex30_demo_foundation.sql",
+      "sha256": "f123ba8c32ba323196db5a1a58dd43e12b0b5a34ad2f72191fcd3d496fa44b07",
+      "bytes": 1667
+    },
+    {
+      "path": "supabase/migrations/20261129120000_ex30_multi_academy.sql",
+      "sha256": "a1969879dddbc8d177cd2d2b86f1eaebc57ac4c371a7ffc0491b4a4b2e1ecb5c",
+      "bytes": 969
+    },
+    {
+      "path": "supabase/migrations/20261130120000_ex30_demo_rpcs.sql",
+      "sha256": "46b764b7396c8a2c0f764657d6e3c0b5b64f9b5b2f0591ee6a3dcd1e6d54c27c",
+      "bytes": 4130
+    },
+    {
+      "path": "supabase/migrations/20261201120000_ex30_offline_entitlement_contracts.sql",
+      "sha256": "67d26fd6b10050c76d5264bc41d1d32d7aad3754625a87dd8a6f93a281e4a692",
+      "bytes": 4812
+    },
+    {
+      "path": "supabase/migrations/20261202120000_ex30_demo_conversion.sql",
+      "sha256": "67970fe999e198ddb332c7a624998daad96593fd11de25bd7b80ab02b2d9c4cd",
+      "bytes": 3335
     }
   ],
   "page_paths": [
@@ -1525,6 +1570,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx",
+    "apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/gallery/page.tsx",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx",
@@ -1955,37 +2001,58 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 49,
+      "line": 52,
       "case_labels": [
         "publish_plan"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 54,
+      "line": 57,
       "case_labels": [
         "assign"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 60,
+      "line": 63,
       "case_labels": [
         "issue"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 64,
+      "line": 67,
       "case_labels": [
         "claim"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 69,
+      "line": 72,
       "case_labels": [
         "review"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 78,
+      "case_labels": [
+        "create_demo"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 82,
+      "case_labels": [
+        "use_invitation"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 86,
+      "case_labels": [
+        "convert_demo"
       ]
     },
     {
@@ -2256,10 +2323,10 @@
     }
   ],
   "counts": {
-    "source_files": 301,
-    "page_paths": 48,
+    "source_files": 310,
+    "page_paths": 49,
     "api_routes": 33,
-    "migrations": 50
+    "migrations": 56
   },
   "pwa_metadata": {
     "public_manifest_present": false,
