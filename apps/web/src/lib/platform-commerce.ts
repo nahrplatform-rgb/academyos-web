@@ -44,6 +44,8 @@ export function platformCommerceRequest(input: unknown) {
   }
 
   if ((act === 'publish_plan') !== (a === null)) throw new CommerceInputError();
+  if (act === 'create_demo' && a !== null) throw new CommerceInputError();
+  if (act === 'use_invitation' && a === null) throw new CommerceInputError();
   let payload: Record<string, unknown>;
   switch (act) {
     case 'publish_plan':
@@ -72,8 +74,36 @@ export function platformCommerceRequest(input: unknown) {
       payload = { claim: uuid(request.claim), version: positiveInteger(request.version, 2_147_483_647),
         decision: request.decision, reason: text(request.reason, 300) };
       break;
+    case 'create_demo':
+      allow(command, ['name', 'email', 'phone']);
+      payload = { name: text(request.name ?? 'Demo Academy', 120), email: request.email ? text(request.email, 200) : null, phone: request.phone ? text(request.phone, 40) : null };
+      break;
+    case 'use_invitation':
+      allow(command, ['token']);
+      payload = { token: text(request.token, 200) };
+      break;
     default:
       throw new CommerceInputError();
   }
+  if (act === 'create_demo') {
+    return { rpc: 'x30_create_demo', args: { name: payload.name, email: payload.email, phone: payload.phone } };
+  }
+  if (act === 'use_invitation') {
+    return { rpc: 'x30_use_invitation', args: { token: payload.token } };
+  }
   return { rpc: 'x23_command_v1', args: { a, op, act, payload } };
+}
+
+// Dunning management helpers
+export type DunningState = 'none' | 'grace' | 'read_only' | 'retention' | 'archived';
+
+export function dunningStateLabel(state: DunningState, locale: 'en' | 'ar'): string {
+  const labels: Record<DunningState, { en: string; ar: string }> = {
+    none: { en: 'Current', ar: 'حالية' },
+    grace: { en: 'Grace period', ar: 'فترة السماح' },
+    read_only: { en: 'Read-only', ar: 'للقراءة فقط' },
+    retention: { en: 'Retention', ar: 'احتفاظ' },
+    archived: { en: 'Archived', ar: 'مؤرشفة' },
+  };
+  return labels[state][locale];
 }

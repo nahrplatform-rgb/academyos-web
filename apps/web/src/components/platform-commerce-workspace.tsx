@@ -10,7 +10,7 @@ type Plan = { id: string; version: number; price: number; trialDays: number; pro
 type Subscription = {
   id: string; plan: string; planVersion: number; trialStart: string; trialEnd: string; periodStart: string;
   periodEnd: string; due: string; graceEnd: string; status: string; programCount: number;
-  programLimit: number; price: number;
+  programLimit: number; price: number; dunningState: string; dunningStarted: string | null; retryCount: number;
 };
 type Invoice = { id: string; amount: number; paid: number; balance: number; issuedOn: string; due: string; periodStart: string; periodEnd: string };
 type Claim = { id: string; amount: number; reference: string; state: string; version: number; submittedOn: string; reason: string | null };
@@ -182,6 +182,8 @@ function Commerce({ locale, view, academy: ownerAcademy, subject }: Props & { su
     scheduled: t('Scheduled', 'مجدولة'), trial: t('Trial', 'تجريبية'), due: t('Due', 'مستحقة'),
     grace: t('Grace period', 'فترة السماح'), restricted: t('Restricted', 'مقيدة'), active: t('Active', 'نشطة'),
     pending: t('Pending review', 'بانتظار المراجعة'), accepted: t('Accepted', 'مقبولة'), rejected: t('Rejected', 'مرفوضة'),
+    none: t('Current', 'حالية'), read_only: t('Read-only', 'للقراءة فقط'),
+    retention: t('Retention', 'احتفاظ'), archived: t('Archived', 'مؤرشفة'),
   };
   const base = platform ? `/${locale}/platform/commerce` : `/${locale}/workspace/${ownerAcademy}/platform-plan`;
   const other = platform ? `/${ar ? 'en' : 'ar'}/platform/commerce` : `/${ar ? 'en' : 'ar'}/workspace/${ownerAcademy}/platform-plan`;
@@ -228,6 +230,7 @@ function Commerce({ locale, view, academy: ownerAcademy, subject }: Props & { su
         {!platform && !context.subscription && <p>{t('No plan has been assigned to this academy yet.', 'لم تُعيَّن خطة لهذه الأكاديمية بعد.')}</p>}
         {context.subscription && <section><h2>{t('Current plan', 'الخطة الحالية')}</h2>
           <p>{t('Status', 'الحالة')}: {labels[context.subscription.status] ?? context.subscription.status}</p>
+          {context.subscription.dunningState && context.subscription.dunningState !== 'none' && <p>{t('Dunning state', 'حالة المتابعة')}: {labels[context.subscription.dunningState] ?? context.subscription.dunningState}{context.subscription.dunningStarted && <> · {t('Started', 'بدأت')}: <bdi>{context.subscription.dunningStarted}</bdi></>}{context.subscription.retryCount > 0 && <> · {t('Retries', 'المحاولات')}: {context.subscription.retryCount}</>}</p>}
           <p>{t('Monthly price', 'السعر الشهري')}: {formatMoney(context.subscription.price)}</p>
           <p>{t('Agreed offer version', 'إصدار العرض المتفق عليه')}: {context.subscription.planVersion}</p>
           <p>{t('Trial', 'الفترة التجريبية')}: <bdi>{context.subscription.trialStart} – {context.subscription.trialEnd}</bdi></p>

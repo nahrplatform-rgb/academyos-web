@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md](../../docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/06-delivery/master-plan-v2/product-and-module-specifications.md](../../docs/06-delivery/master-plan-v2/product-and-module-specifications.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,44 +70,44 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-30: Commercial & Business Operations
+## Current priority — EX-26: Reconciled reports and privacy requests
 
-Delivery batch: **MP-B15 — Commercial & Business Operations**.
+Delivery batch: **MP-B11 — Reconciled reports and privacy requests**.
 
 Product value for this batch:
 
-- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
+- **VAL-01** — Understand today and the next required action (Academy Owner).
+- **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
 - **VAL-07** — Run the academy subscription and service business clearly (Platform Owner).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
-- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
 
 ### Ready development action
 
-Phase 1a/1b implementation and disposable/connected local evidence complete. First Foundation run 45825497587 failed stale preflight receipts; owner tests rerun with --record and all 15 read-only --checks pass. Push receipt fix and rerun Foundation.
+Start EX-26 with the approved synthetic reports and privacy-review workflow. Audit existing EX-21, EX-22 and EX-23 ledgers and privacy/export foundations, then define the first connected bilingual report and privacy request candidate.
 
 ### Separate release follow-up
 
-Fresh Foundation and exact preview on new SHA. Then verify migration authorization and rehearsal, request Owner-only promotion, and signed-in Platform Owner/Academy Owner EN/AR workflow and tenant/role/quota boundaries.
+After local and CI checks, verify staging only under its existing authorization. Owner controls promotion.
 
-Scoped dependency gate: Phase 1a/1b implemented and local checks pass; finish coherent candidate, Foundation and hosted gates. Verify migration approval before any hosted schema apply; Phase 1c remains after app-wide UI/UX.
+Scoped dependency gate: D-015;D-016;cross-domain prerequisites by actual report;privacy safeguards accompany earlier slices too;named exit: Authoritative totals/full pagination;durable job and artifact outcomes;per-subsystem privacy completion
 
-Read current evidence: `docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md`.
+Read current evidence: `docs/06-delivery/master-plan-v2/product-and-module-specifications.md`.
 
-Batch includes: Frozen commercial roadmap. Start with the repository audit and Phase 1a versioned offer, academy agreement, usage visibility and verified manual settlement.
+Batch includes: Metric definitions;scope/period drilldown;complete snapshot/export;privacy export/hold/deletion workflow
 
-Batch exit evidence: One bilingual connected Phase 1a workflow with immutable agreed-version history, invoice/claim/verified settlement reconciliation and original-operation recovery; Phase 1b eligibility and usage scoped by academy, authorization before entitlement, existing action restrictions enforced transactionally, last-slot concurrency and rollback/retry demonstrated. Map unsupported metrics and future actions visibly. Record local, CI, hosted, and Owner evidence separately.
+Batch exit evidence: Authoritative totals/full pagination;durable job and artifact outcomes;per-subsystem privacy completion
 
-Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. No real payments/data, provider integrations or unsupported quota actions; Phase 1c follows app-wide UI/UX. Verify exact staging schema approval before apply; Owner promotion.
+Policy boundary: D-015;D-016;cross-domain prerequisites by actual report;privacy safeguards accompany earlier slices too
 
 ## Actual delivery status for the current family
 
-- Design: Owner adopted the frozen commercial vision and selected this stage on 26 November. Appendix A specification items remain open.
-- Implementation: Phase 1a versioned fictional offer and immutable agreement extension; Phase 1b existing online program quota and lifecycle guards. New catalog limits and future operations remain unmapped/unimplemented.
-- Local checks: Disposable PostgreSQL 17 version/ledger, last-slot race, rollback/retry and tenant/role isolation passed; bilingual connected fixture through manual settlement recovery and 2/2 + 3/3 quota refusal passed. Production build, TS, ESLint, 121 units, experience review, all 15 shared --check preflights, master-plan and tracker validators pass locally. Foundation run 45825497587 on 4993d45 failed at stale shared receipt preflight; owning suites regenerated receipts and all affected --checks now pass. Fresh Foundation run required on receipt-update SHA.
-- Deployment: No EX-30 migration or deployment. Staging remains exact EX-25 source 977734f; preserve EX-23 staging evidence.
-- Hosted verification: No EX-30 signed-in hosted verification. Earlier EX-23 settlement evidence is a distinct historical hosted checkpoint.
-- Owner acceptance: Frozen direction and v2 fictional terms scope approved. Product implementation acceptance open.
-- Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
+- Design: Owner approved the synthetic reconciliation reports and Guardian privacy-review workflow. Preparation retained for when this batch resumes.
+- Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
+- Local checks: Documentation structure only;new product checks not executed
+- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
+- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
+- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
+- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
 
 ## Registered scoped worker work
 
@@ -153,8 +153,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 16. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
 17. **EX-24 — Communications and support with delivery recovery** (checkpoint_passed; MP-B09).
 18. **EX-25 — Private media with consent and lifecycle** (checkpoint_passed; MP-B10).
-19. **EX-30 — Commercial & Business Operations** (current; MP-B15).
-20. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
+19. **EX-30 — Commercial & Business Operations** (checkpoint_passed; MP-B15).
+20. **EX-26 — Reconciled reports and privacy requests** (current; MP-B11).
 21. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
 22. **EX-28 — Whole release readiness and operating proof** (queued; MP-B13).
 23. **EX-29 — Future native and advanced channel expansion** (queued; MP-B14).
