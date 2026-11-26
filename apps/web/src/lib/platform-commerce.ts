@@ -47,6 +47,8 @@ export function platformCommerceRequest(input: unknown) {
   if (act === 'create_demo' && a !== null) throw new CommerceInputError();
   if (act === 'use_invitation' && a === null) throw new CommerceInputError();
   if (act === 'convert_demo' && a === null) throw new CommerceInputError();
+  if (act === 'apply_benefit_migration' && a === null) throw new CommerceInputError();
+  if (act === 'benefit_migrations' && a === null) throw new CommerceInputError();
   let payload: Record<string, unknown>;
   switch (act) {
     case 'publish_plan':
@@ -93,6 +95,19 @@ export function platformCommerceRequest(input: unknown) {
         sport: text(request.sport ?? 'football', 40),
       };
       break;
+    case 'apply_benefit_migration':
+      allow(command, ['academy', 'fromVersion', 'toVersion', 'benefit']);
+      payload = {
+        academy: uuid(request.academy),
+        fromVersion: positiveInteger(request.fromVersion, 100),
+        toVersion: positiveInteger(request.toVersion, 100),
+        benefit: text(request.benefit, 200),
+      };
+      break;
+    case 'benefit_migrations':
+      allow(command, ['academy']);
+      payload = { academy: uuid(request.academy) };
+      break;
     default:
       throw new CommerceInputError();
   }
@@ -110,6 +125,17 @@ export function platformCommerceRequest(input: unknown) {
       language: payload.language,
       sport: payload.sport,
     } };
+  }
+  if (act === 'apply_benefit_migration') {
+    return { rpc: 'x30_apply_benefit_migration', args: {
+      academy: payload.academy,
+      fromVersion: payload.fromVersion,
+      toVersion: payload.toVersion,
+      benefit: payload.benefit,
+    } };
+  }
+  if (act === 'benefit_migrations') {
+    return { rpc: 'x30_benefit_migrations', args: { academy: payload.academy } };
   }
   return { rpc: 'x23_command_v1', args: { a, op, act, payload } };
 }
