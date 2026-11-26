@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "95b72943ce682770149697d758f23730b5b7fabc",
+  "source_anchor": "977734fe877315ea0a6dea29d0d3067ec06e4a77",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -540,8 +540,8 @@
     },
     {
       "path": "apps/web/src/components/platform-commerce-workspace.tsx",
-      "sha256": "4781d1b05bc52f7eeabf9de5fa8d77b797b0e4bbd1bd613421904ce8da917031",
-      "bytes": 20707
+      "sha256": "3d58da7572329c5864c284a38ac63b65d10d55c46de961d850b8509875d6b093",
+      "bytes": 21496
     },
     {
       "path": "apps/web/src/components/player-lifecycle.tsx",
@@ -1000,8 +1000,8 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "sha256": "25224287fb760a2687c84427912181d8c43188bbec17425af14b0e27e28cccf4",
-      "bytes": 3090
+      "sha256": "a985dcb580fe845a50193224971747e2cdf75db0804c6e6812d9f832622f19eb",
+      "bytes": 3242
     },
     {
       "path": "apps/web/src/lib/player-photo.ts",
@@ -1502,6 +1502,11 @@
       "path": "supabase/migrations/20261125151806_ex25_staff_gallery.sql",
       "sha256": "0f13c51e6042aefb130c1001dd7c5efb3e106612da3094d70404377d7a6f4056",
       "bytes": 3225
+    },
+    {
+      "path": "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql",
+      "sha256": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f",
+      "bytes": 2044
     }
   ],
   "page_paths": [
@@ -1957,28 +1962,28 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 53,
+      "line": 54,
       "case_labels": [
         "assign"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 59,
+      "line": 60,
       "case_labels": [
         "issue"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 63,
+      "line": 64,
       "case_labels": [
         "claim"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 68,
+      "line": 69,
       "case_labels": [
         "review"
       ]
@@ -2251,10 +2256,10 @@
     }
   ],
   "counts": {
-    "source_files": 300,
+    "source_files": 301,
     "page_paths": 48,
     "api_routes": 33,
-    "migrations": 49
+    "migrations": 50
   },
   "pwa_metadata": {
     "public_manifest_present": false,

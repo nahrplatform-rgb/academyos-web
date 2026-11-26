@@ -97,14 +97,17 @@ try {
     await expect(academies).toHaveCount(1);
     await academies.selectOption(academy);
     await expect(combo(platform, 'Plan version', 'إصدار الخطة')).toBeVisible();
-    await combo(platform, 'Plan version', 'إصدار الخطة').selectOption({ index: 1 });
+    const agreedVersion = index === 1 ? 2 : 1;
+    await combo(platform, 'Plan version', 'إصدار الخطة').selectOption({ index: agreedVersion });
     await field(platform, 'Trial start', 'بداية الفترة التجريبية').fill('2026-11-01');
     await click(platform, 'assign', button(platform, 'Assign plan', 'تعيين الخطة'));
-    const quota = await fixture.db({ action: 'commerce_program_quota', academy, subject: ownerSubject });
+    const quota = await fixture.db({ action: 'commerce_program_quota', academy, subject: ownerSubject,
+      limit: agreedVersion === 2 ? 3 : 2 });
     assert.equal(quota.limitBlocked, true);
-    assert.equal(quota.total, 2);
+    assert.equal(quota.total, agreedVersion === 2 ? 3 : 2);
     await owner.goto(ownerRoute);
     await state(owner, 'Status: Trial', 'الحالة: تجريبية');
+    await state(owner, `Agreed offer version: ${agreedVersion}`, `إصدار العرض المتفق عليه: ${agreedVersion}`);
     await state(owner, '2026-11-01 – 2026-11-14', '2026-11-01 – 2026-11-14');
     await setDay('2026-11-15');
     await click(platform, 'issue', button(platform, 'Issue invoice', 'إصدار الفاتورة'));
@@ -174,7 +177,25 @@ try {
     await state(owner, 'Your payment claim is awaiting review.', 'طلب الدفع قيد المراجعة.');
     await expect(button(owner, 'Submit claim', 'تقديم الطلب')).toHaveCount(0);
     await review('accepted', 'Verified full fictional bank payment');
-    await click(platform, 'review', button(platform, 'Confirm review', 'تأكيد المراجعة'));
+    let settlementOriginal, settlementReply;
+    await platform.route(`**${endpoint}`, async route => {
+      const body = route.request().postDataJSON();
+      if (body.action !== 'review') return route.continue();
+      settlementOriginal = body.operation;
+      const upstream = await route.fetch({ maxRetries: 0 });
+      assert.equal(upstream.status(), 200);
+      settlementReply = (await upstream.json()).data;
+      await route.abort('failed');
+    });
+    await button(platform, 'Confirm review', 'تأكيد المراجعة').click();
+    await expect(platform.locator('main.journey-card').getByRole('alert'))
+      .toContainText(t('outcome is unknown', 'النتيجة غير معروفة'));
+    await platform.reload();
+    const [settlement] = await Promise.all([waitAction(platform, 'operation'),
+      button(platform, 'Check original operation', 'تحقق من العملية الأصلية').click()]);
+    assert.equal(settlement.request().postDataJSON().operation, settlementOriginal);
+    assert.deepEqual((await settlement.json()).data, settlementReply);
+    await platform.unroute(`**${endpoint}`);
     await owner.reload();
     await state(owner, 'Status: Active', 'الحالة: نشطة');
     const restoredRegistration = await fixture.db({ action: 'commerce_registration_probe', academy, subject: ownerSubject });
@@ -183,6 +204,39 @@ try {
     await state(owner, 'Balance: 0.00', 'المتبقي: 0.00');
     await expect(owner.getByText(t('Your payment claim is awaiting review.', 'طلب الدفع قيد المراجعة.'), { exact: false })).toHaveCount(0);
     assert.deepEqual(await fixture.db({ action: 'commerce_audit', academy }), { settlements: 1, approvals: 2 });
+    if (index === 0) {
+      await platform.reload();
+      await click(platform, 'publish_plan', button(platform, 'Publish version 2', 'نشر الإصدار 2'));
+      await owner.reload();
+      await state(owner, 'Agreed offer version: 1', 'إصدار العرض المتفق عليه: 1');
+      await state(owner, 'Balance: 0.00', 'المتبقي: 0.00');
+      await state(owner, 'Paid: 1000.00', 'المدفوع: 1000.00');
+    }
+    if (!existing) {
+      await owner.goto(`${fixture.origin}/${locale}/workspace/${academy}/programs`);
+      await button(owner, 'New program', 'برنامج جديد').click();
+      await owner.locator('#program-name').fill('Fictional program over quota');
+      await owner.locator('#program-from').fill('2026-11-29');
+      await owner.locator('#program-to').fill('2026-11-29');
+      await field(owner, 'Sunday', 'الأحد').check();
+      await owner.locator('#program-start-0').fill('17:00');
+      await owner.locator('#program-end-0').fill('18:00');
+      await button(owner, 'Preview every date', 'معاينة جميع التواريخ').click();
+      await button(owner, 'Continue to confirmation', 'المتابعة إلى التأكيد').click();
+      await field(owner, 'I reviewed the weekly summary, exceptions and branch timezone.',
+        'راجعت الملخص الأسبوعي والاستثناءات والمنطقة الزمنية للفرع.').check();
+      const [refusal] = await Promise.all([owner.waitForResponse(response =>
+        new URL(response.url()).pathname === '/api/programs' && response.request().postDataJSON()?.action === 'create'),
+      button(owner, 'Save draft program', 'حفظ مسودة البرنامج').click()]);
+      assert.equal(refusal.status(), 409);
+      assert.equal((await refusal.json()).error, 'program_limit');
+      await expect(owner.locator('.journey-error[role="alert"]')).toContainText(t(
+        'This academy has reached its program limit. Check Academy plan.',
+        'بلغت الأكاديمية حد البرامج. راجع خطة الأكاديمية.'));
+      await owner.goto(ownerRoute);
+      await state(owner, `Training programs: ${quota.total} / ${quota.limit}`,
+        `برامج التدريب: ${quota.total} / ${quota.limit}`);
+    }
     await setDay('2026-12-15');
     await owner.reload();
     await state(owner, 'Status: Restricted', 'الحالة: مقيدة');

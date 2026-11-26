@@ -2,7 +2,9 @@
 import json
 import runpy
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from threading import Barrier
 
 ROOT = Path(__file__).resolve().parents[2]
 fixture = runpy.run_path(str(ROOT / 'scripts/working-day/owner_db.py'))
@@ -105,8 +107,10 @@ try:
         raise AssertionError('Restricted publication activation unexpectedly succeeded')
     assert test.sql(f"select count(*) from academy.publication_heads where academy_id='{a}'") == '0'
     review_op = uid()
-    approval = cmd('review', {'claim': claim2, 'version': 1, 'decision': 'accepted', 'reason': 'Verified bank'}, op=review_op)
-    assert cmd('review', {'claim': claim2, 'version': 1, 'decision': 'accepted', 'reason': 'Verified bank'}, op=review_op) == approval
+    review = {'claim': claim2, 'version': 1, 'decision': 'accepted', 'reason': 'Verified bank'}
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        approvals = list(pool.map(lambda _: cmd('review', review, op=review_op), range(2)))
+    assert approvals[0] == approvals[1]
     statement = context('owner', 'user_owner')
     assert statement['subscription']['status'] == 'active'
     assert statement['invoice']['paid'] == 100000 and statement['invoice']['balance'] == 0
@@ -115,5 +119,100 @@ try:
     assert test.sql(f"select count(*) from academy.platform_settlements where academy_id='{a}'") == '1'
     assert test.sql(f"select count(*) from academy.audit_events where operation_id='{review_op}'") == '1'
     print('PASS EX-23 admission, setup gate, trial dates, separate authority, review and one settlement')
+
+    # Apply to a populated EX-23 ledger, then replay the original requests.
+    def ledger():
+        tables = ('plan_versions', 'subscriptions', 'invoices', 'claims', 'claim_reviews',
+                  'settlements', 'commerce_operations')
+        return {t: test.sql(f"select coalesce(jsonb_agg(to_jsonb(x) order by to_jsonb(x)::text),'[]') "
+                            f"from academy.platform_{t} x") for t in tables}
+    before_migration = ledger()
+    migration, = (ROOT / 'supabase/migrations').glob('*_ex30_versioned_monthly_offer.sql')
+    Boundary.sql(migration.read_text())
+    assert ledger() == before_migration
+    assert cmd('review', review, op=review_op) == approvals[0]
+    assert json.loads(test.sql(f"select public.x23_operation_v1('{a}','{review_op}')",
+                               'user_platform')) == approvals[0]
+    next_op = uid()
+    v2 = cmd('publish_plan', {'version': 2}, academy=None, op=next_op)['id']
+    assert cmd('publish_plan', {'version': 2}, academy=None, op=next_op)['id'] == v2
+    cmd('publish_plan', {}, academy=None, op=next_op, ok=False)
+    cmd('publish_plan', {'version': 3}, academy=None, ok=False)
+    cmd('publish_plan', {'version': 2}, academy=None, subject='user_owner', ok=False)
+    current = context('owner', 'user_owner')
+    assert current['invoice'] == statement['invoice']
+    assert current['subscription'] == dict(statement['subscription'], planVersion=1)
+    assert current['subscription']['programCount'] == 1 and current['subscription']['programLimit'] == 2
+
+    foreign, _ = test.academy('user_other_owner')
+    cmd('assign', {'plan': v2, 'start': '2026-11-16'}, academy=foreign)
+    context('owner', 'user_owner', academy=foreign, ok=False)
+    context('owner', 'user_other_owner', ok=False)
+    cmd('issue', {'subscription': sub}, academy=foreign, ok=False)
+    other = context('owner', 'user_other_owner', academy=foreign)['subscription']
+    assert (other['planVersion'], other['programCount'], other['programLimit']) == (2, 0, 3)
+
+    def create_query(number, operation, academy=a, subject='user_owner'):
+        definition = dict(test.definition(), name=f'EX30 quota {number}')
+        receipt = test.review(academy, definition, subject)
+        return f"select public.p5_create_v1('{academy}','{operation}',{payload(definition)},3,{payload(receipt)})"
+
+    first_op, second_op = uid(), uid()
+    first = create_query(1, first_op)
+    second = create_query(2, second_op)
+    # An AFTER INSERT failure occurs after the quota lock/check AND provisional
+    # business insert, but before the original receipt and audit can commit.
+    test.sql("""
+      create function academy.ex30_fixture_fail() returns trigger language plpgsql as $$
+      begin raise exception 'EX30 controlled after-insert failure' using errcode='PT499'; end $$;
+      create trigger ex30_fixture_fail after insert on academy.training_programs
+        for each row execute function academy.ex30_fixture_fail()
+    """)
+    def invoke(query, subject='user_owner'):
+        try:
+            return json.loads(test.sql(query, subject))
+        except AssertionError as failure:
+            return str(failure)
+    assert 'EX30 controlled after-insert failure' in invoke(first)
+    assert context('owner', 'user_owner')['subscription']['programCount'] == 1
+    assert test.sql(f"select count(*) from academy.training_operations where id='{first_op}'") == '0'
+    test.sql('drop trigger ex30_fixture_fail on academy.training_programs')
+    barrier = Barrier(2, timeout=10)
+    def race(query):
+        barrier.wait()
+        return invoke(query)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = list(pool.map(race, [first, second]))
+    assert sum(isinstance(r, dict) for r in results) == 1, results
+    assert any(isinstance(r, str) and 'Program plan limit reached' in r for r in results), results
+    winner_index = 0 if isinstance(results[0], dict) else 1
+    winner_query = (first, second)[winner_index]
+    assert invoke(winner_query) == results[winner_index]
+    assert test.sql(f"select count(*) from academy.training_operations where id in ('{first_op}','{second_op}')") == '1'
+    assert test.sql(f"select count(*) from academy.audit_events where action='program.create' and operation_id in ('{first_op}','{second_op}')") == '1'
+    assert context('owner', 'user_owner')['subscription']['programCount'] == 2
+    blocked = create_query(3, uid())
+    assert 'Program plan limit reached' in invoke(blocked)
+    for actor in ('user_other_owner', 'user_platform', 'user_signup'):
+        refusal = invoke(blocked, actor)
+        assert isinstance(refusal, str) and 'Program plan limit reached' not in refusal, refusal
+        assert 'Access denied' in refusal, refusal
+    assert context('owner', 'user_other_owner', academy=foreign)['subscription']['programCount'] == 0
+
+    # Retry the exact original after an injected failure with a slot available.
+    foreign_op = uid()
+    foreign_query = create_query(4, foreign_op, foreign, 'user_other_owner')
+    test.sql("create trigger ex30_fixture_fail after insert on academy.training_programs "
+             "for each row execute function academy.ex30_fixture_fail()")
+    foreign_failure = invoke(foreign_query, 'user_other_owner')
+    assert 'EX30 controlled after-insert failure' in foreign_failure, foreign_failure
+    assert context('owner', 'user_other_owner', academy=foreign)['subscription']['programCount'] == 0
+    test.sql('drop trigger ex30_fixture_fail on academy.training_programs')
+    retried = invoke(foreign_query, 'user_other_owner')
+    assert isinstance(retried, dict), retried
+    assert invoke(foreign_query, 'user_other_owner') == retried
+    assert context('owner', 'user_other_owner', academy=foreign)['subscription']['programCount'] == 1
+    assert context('owner', 'user_owner')['subscription']['programCount'] == 2
+    print('PASS EX-30 populated-ledger migration, immutable versions, same-operation settlement, quota race, rollback/retry and scope')
 finally:
     Boundary.tearDownClass()

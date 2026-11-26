@@ -1,6 +1,10 @@
 # AcademyOS subscriptions, entitlements and platform payments
 
-## Current planning integration —7 November 2026
+## Commercial baseline — 26 November 2026
+
+The [frozen commercial vision](../06-delivery/master-plan-v2/commercial-and-business-operations-vision.md) governs new platform subscription and billing work. Start EX-30 with the [Phase 1a handoff](../07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md). The EX-23 example below remains the verified fictional workflow and an input to the audit. Approved commercial terms, customer access, authority and settlement each need their own evidence before reuse.
+
+## Earlier planning integration — 7 November 2026
 
 The [canonical master plan v2](../06-delivery/master-plan-v2/README.md) and [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) govern current delivery. Provide a complete separate Platform business journey for academy plans, platform invoices, required proof/provider reconciliation, restrictions and recovery. Keep canonical controls and three money boundaries; simplify legacy ceremony without inventing commercial rules or treating tenant-private content as Platform access.
 

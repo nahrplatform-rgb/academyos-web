@@ -38,7 +38,7 @@ def validate(reference_root=None):
         assert refs(row['domain_ids']) <= dids
     batches = table('delivery-batches.csv', 'batch_id')
     bids = {r['batch_id'] for r in batches}
-    assert bids == {f'MP-B{i:02}' for i in range(15)}, 'Master batch catalog missing'
+    assert bids == {f'MP-B{i:02}' for i in range(16)}, 'Master batch catalog missing'
     graph = {r['batch_id']: refs(r['depends_on_batches']) for r in batches}
     for node, deps in graph.items():
         assert deps <= bids, (node, deps - bids)

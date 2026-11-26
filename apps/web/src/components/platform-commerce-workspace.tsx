@@ -8,7 +8,7 @@ import { Button, Input, Select } from './ui/controls';
 type View = 'platform' | 'owner';
 type Plan = { id: string; version: number; price: number; trialDays: number; programLimit: number };
 type Subscription = {
-  id: string; plan: string; trialStart: string; trialEnd: string; periodStart: string;
+  id: string; plan: string; planVersion: number; trialStart: string; trialEnd: string; periodStart: string;
   periodEnd: string; due: string; graceEnd: string; status: string; programCount: number;
   programLimit: number; price: number;
 };
@@ -174,6 +174,8 @@ function Commerce({ locale, view, academy: ownerAcademy, subject }: Props & { su
   }
 
   const allowed = Boolean(context) && recoveryReady && !recoveryBlocked && !busy && !pending;
+  const nextVersion = !context?.plans.some(item => item.version === 1) ? 1
+    : !context.plans.some(item => item.version === 2) ? 2 : null;
   const selectedClaim = context?.claims.find(claim => claim.id === claimId && claim.state === 'pending');
   const claimPending = context?.claims.some(claim => claim.state === 'pending');
   const labels: Record<string, string> = {
@@ -204,7 +206,11 @@ function Commerce({ locale, view, academy: ownerAcademy, subject }: Props & { su
         {platform && <>
           <section><h2>{t('Plan catalog', 'كتالوج الخطط')}</h2>
             {context.plans.map(item => <p key={item.id}>{t('Plan version', 'إصدار الخطة')} {item.version} · {formatMoney(item.price)} · {item.trialDays} {t('trial days', 'يوماً تجريبياً')} · {item.programLimit} {t('programs', 'برامج')}</p>)}
-            <Button disabled={!allowed || context.plans.length > 0} onClick={() => void command('publish_plan', {}, '')}>{t('Publish fictional plan', 'نشر الخطة الافتراضية')}</Button>
+            {nextVersion === 1 && <Button disabled={!allowed} onClick={() => void command('publish_plan', {}, '')}>{t('Publish fictional plan', 'نشر الخطة الافتراضية')}</Button>}
+            {nextVersion === 2 && <>
+              <p>{t('Version 2: 1,000.00 monthly · 14 trial days · 3 programs. Existing agreements stay unchanged.', 'الإصدار 2: 1,000.00 شهرياً · 14 يوماً تجريبياً · 3 برامج. تبقى الاتفاقيات الحالية دون تغيير.')}</p>
+              <Button disabled={!allowed} onClick={() => void command('publish_plan', { version: 2 }, '')}>{t('Publish version 2', 'نشر الإصدار 2')}</Button>
+            </>}
           </section>
           <label>{t('Academy', 'الأكاديمية')} <Select value={academy} disabled={!allowed} onChange={event => { setContext(null); setAcademy(event.target.value); setPlan(''); setClaimId(''); }}>
             <option value="">{t('Select an academy', 'اختر أكاديمية')}</option>
@@ -223,6 +229,7 @@ function Commerce({ locale, view, academy: ownerAcademy, subject }: Props & { su
         {context.subscription && <section><h2>{t('Current plan', 'الخطة الحالية')}</h2>
           <p>{t('Status', 'الحالة')}: {labels[context.subscription.status] ?? context.subscription.status}</p>
           <p>{t('Monthly price', 'السعر الشهري')}: {formatMoney(context.subscription.price)}</p>
+          <p>{t('Agreed offer version', 'إصدار العرض المتفق عليه')}: {context.subscription.planVersion}</p>
           <p>{t('Trial', 'الفترة التجريبية')}: <bdi>{context.subscription.trialStart} – {context.subscription.trialEnd}</bdi></p>
           <p>{t('Billing period', 'فترة الفوترة')}: <bdi>{context.subscription.periodStart} – {context.subscription.periodEnd}</bdi></p>
           <p>{t('Due date', 'تاريخ الاستحقاق')}: <bdi>{context.subscription.due}</bdi> · {t('Grace ends', 'نهاية السماح')}: <bdi>{context.subscription.graceEnd}</bdi></p>

@@ -14,6 +14,8 @@ The subsequent [profile/toolbar checkpoint](../../07-handoff/mp-b01-profile-cont
 
 ## Start here
 
+The Owner selected **Commercial & Business Operations** as the next stage on 26 November 2026, after the verified synthetic EX-25 Gallery. EX-30 / MP-B15 begins with the repository audit and Phase 1a. The [frozen vision](commercial-and-business-operations-vision.md) governs the commercial stage and the [entry handoff](../../07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md) records what to reuse, verify and carry forward.
+
 The Trainer QR and payslip follow-up specifies one shared scanner, block arrival with per-session coverage, three earning models and independently selected weekly or monthly statements. It links the EX-19 and EX-22 baselines and records the calculation and attendance decisions needed to start implementation. [Requirements and acceptance cases](../trainer-qr-and-payslip-requirements.md)
 
 The [10 November Owner session return](../../07-handoff/mp-b01-owner-return-2026-11-10.md) adds exact Today and Calendar context through the 18-player Attendance journey. It records local and hosted evidence separately and carries the remaining Operations differences forward in the tracker.
@@ -37,6 +39,7 @@ The package replaces the accumulated execution narrative in the older [implement
 | [PYSA reference audit](pysa-reference-audit.md) · [capabilities](pysa-capabilities.csv) · [fields](pysa-fields.csv) · [capability adoption](pysa-adoption-map.csv) · [field adoption](field-adoption-map.csv) · [route coverage](pysa-route-coverage.csv) | Useful legacy detail, defects, source anchors and explicit adoption/gap disposition |
 | [Reference conversations](source-conversation-review.md) · [finance simplification](finance-simplification-and-control.md) | Historical business/audit context and a deliberate finance redesign; preserve useful scope without legacy clutter |
 | [Product and module specifications](product-and-module-specifications.md) · [domain coverage](domain-coverage.csv) | Full product scope, field groups, connected workflows and implementation gaps |
+| [Commercial & Business Operations frozen vision](commercial-and-business-operations-vision.md) | Versioned agreements, entitlements, payments and treasury, metering, customer lifecycle, commercial workspaces and phased delivery |
 | [Player field reconciliation](player-field-reconciliation.csv) · [focused Player packet](../../07-handoff/mp-b01-rich-player-contract-2026-11-07.md) | All42 individual legacy create inputs, current-versus-proposed fields and exact dependent decisions; no silent scope exclusion |
 | [UI/UX and redesign](ui-ux-and-redesign.md) · [design-tool register](design-tool-register.csv) | Approved visual authority, interaction/state specifications and proportionate tools |
 | [Multisport and resources](multisport-and-resources.md) | Terminology, typed field groups, facilities, allocations and sport-specific behavior |
@@ -66,11 +69,11 @@ A working minimal registration slice is not a complete Player module. A theme to
 
 Apply [module-scale delivery](delivery-and-verification.md#module-scale-delivery--20-november-2026) across the app. Use complete **connected module outcomes** from [the batch catalog](delivery-batches.csv), with focused development checks and one coordinated full release validation when a coherent candidate is ready. Preserve critical access, transaction, migration and original-save checks close to the change. Consolidate captures and documentation at meaningful checkpoints; do not rerun unchanged whole suites after every tiny edit or request a promotion for each helper task.
 
-`EX-07` remains the current execution family, mapped first to `MP-B01` Owner working-day completion. Additive queued EX items map later batches without erasing the broader redesign obligation. The current tracker—not a dated paragraph in this file—selects the exact next action. Query and cost measurements and authority and retention work accompany affected batches. Follow the [20 November sequencing decision](delivery-and-verification.md#core-app-sequencing--20-november-2026) for dedicated offline and PWA work and shared regressions.
+The original delivery route began with `EX-07` / `MP-B01` Owner working-day completion. The tracker selects the exact next action and retains the other batches and broader redesign obligation. Query and cost measurements and authority and retention work accompany affected batches. Follow the [20 November sequencing decision](delivery-and-verification.md#core-app-sequencing--20-november-2026) for dedicated offline and PWA work and shared regressions.
 
 The Owner deferred promotion of checked `1e68403`; retain that release receipt. Development may continue on ready independent scope, and a later combined candidate can include this fix after full checks for its own exact source. Agents never promote, reassign the staging alias or operate the passkey flow. Only exact evidence can close a release or finding.
 
-## First next outcome
+## Original first outcome
 
 `MP-B01` must produce a coherent Owner day: open Today, browse Calendar, discover a Player, use a useful profile/registration workflow, open the correct register, return without losing context, and understand connection/pending outcomes. Baseline remaining initial/return/post-save reads and advance ready accepted continuity repairs. Alongside that, reconcile richer Player fields through the legacy field/pipeline inventory and one focused contract/difference packet. Newly sensitive fields or consequential behavior need their specific decisions before dependent implementation. Group connected work instead of releasing every small repair. This planning checkpoint does not start those product edits.
 

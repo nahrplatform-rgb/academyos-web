@@ -227,6 +227,8 @@ if __name__ == '__main__':
         if '--commerce' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex23_platform_commerce.sql')
             Boundary.sql(migration.read_text())
+            ex30, = (ROOT / 'supabase/migrations').glob('*_ex30_versioned_monthly_offer.sql')
+            Boundary.sql(ex30.read_text())
         if '--support' in sys.argv:
             migration, = (ROOT / 'supabase/migrations').glob('*_ex24_communications_support.sql')
             Boundary.sql(migration.read_text())
@@ -249,12 +251,14 @@ if __name__ == '__main__':
                 if command['action'] == 'commerce_program_quota' and '--commerce' in sys.argv:
                     academy = str(uuid.UUID(command['academy']))
                     owner_subject = command.get('subject', 'user_owner')
+                    limit = int(command.get('limit', 2))
+                    assert limit in (2, 3)
                     before = int(test.sql(f"select count(*) from academy.training_programs where academy_id={literal(academy)}"))
                     definition = {'name': 'Quota approval probe '+uuid.uuid4().hex[:8],
                                   'from': '2026-11-01', 'to': '2027-01-31',
                                   'rules': [{'day': 0, 'start': '17:00', 'end': '18:00'}]}
                     allowed = 0
-                    while before + allowed < 2:
+                    while before + allowed < limit:
                         created = json.loads(test.command(academy, definition={**definition, 'name': definition['name']+str(allowed)}, subject=owner_subject))
                         assert created.get('id'), created
                         allowed += 1
@@ -266,7 +270,7 @@ if __name__ == '__main__':
                             raise
                         blocked = True
                     total = int(test.sql(f"select count(*) from academy.training_programs where academy_id={literal(academy)}"))
-                    value = {'before': before, 'created': allowed, 'limitBlocked': blocked, 'total': total}
+                    value = {'before': before, 'created': allowed, 'limitBlocked': blocked, 'total': total, 'limit': limit}
                 elif command['action'] == 'commerce_registration_probe' and '--commerce' in sys.argv:
                     academy = str(uuid.UUID(command['academy']))
                     owner_subject = command.get('subject', 'user_owner')

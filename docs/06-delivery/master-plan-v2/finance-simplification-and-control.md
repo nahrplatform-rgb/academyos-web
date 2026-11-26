@@ -2,6 +2,8 @@
 
 ## Purpose and authority
 
+The [frozen commercial vision](commercial-and-business-operations-vision.md) governs the new Platform subscription and business finance stage. It distinguishes invoiced amounts, collections and bank settlement, and separates platform expenses and profitability from academy family billing and Trainer compensation. [EX-30 entry handoff](../../07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md)
+
 Owner direction on 7 November: PYSA finance was a mess and contained unnecessary work. AcademyOS must make money understandable and routine work efficient, rather than reproduce every legacy mechanism. This is a planning specification, not approval of prices, tax treatment, accounting standards, rates, refunds, merchant/provider arrangements, automated money movement or new role powers.
 
 Keep canonical **AO-047–084**, their AT cases and the three domain contracts: [family finance](../../02-workflows/family-finance.md), [Trainer compensation](../../02-workflows/trainer-compensation.md) and [platform billing](../../02-workflows/platform-billing.md). Relevant unresolved choices remain D-001/D-005–010 and [MP-Q06–10](decision-dependencies.csv). Preserve accepted separation of preparation/approval and auditable financial changes; change a rule only through its actual decision. Simpler interaction must still implement those outcomes.

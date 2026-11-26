@@ -297,6 +297,8 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
     await page('programs/[program]/[day]/page.jsx',`import{Planning}from'__CLIENT__';
       export default async function Page({params,searchParams}){const p=await params,q=await searchParams;
       return <Planning {...p} from={q.from} returnTo={q.return==='calendar'||q.return==='home'?q.return:undefined}/>}`);
+    if (commerce) await page('programs/page.jsx',`import{Program}from'__CLIENT__';
+      export default async function Page({params}){const p=await params;return <Program locale={p.locale} academy={p.academy}/>}`);
     if (datedPlan) await page('programs/[program]/page.jsx',`import{Program}from'__CLIENT__';
       export default async function Page({params}){const p=await params;
       return <Program locale={p.locale} academy={p.academy} initialProgram={p.program}/>}`);

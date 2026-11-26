@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md](../../docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md](../../docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,43 +70,44 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-25: Private media with consent and lifecycle
+## Current priority — EX-30: Commercial & Business Operations
 
-Delivery batch: **MP-B10 — Private media with consent and lifecycle**.
+Delivery batch: **MP-B15 — Commercial & Business Operations**.
 
 Product value for this batch:
 
-- **VAL-08** — Understand own training participation and progress (Guardian and Player where authorized).
-- **VAL-09** — Keep working smoothly through connection and application changes (Every permitted role).
+- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
+- **VAL-07** — Run the academy subscription and service business clearly (Platform Owner).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
+- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
 
 ### Ready development action
 
-Complete the revised staff Gallery candidate checks and signed-in staging lifecycle after Owner promotion.
+Versioned offer/agreement usage/settlement plus online quota. EX-23 reuse audit retained in handoff; no approved changes to existing version-1 agreements. Next: full candidate verification and Owner-controlled staging release.
 
 ### Separate release follow-up
 
-After Owner promotion, verify signed-in role Galleries and tag-free save, original recovery, sparse Manager data, old-link denial, physical deletion and class and academy isolation. Physical iPhone HEIC remains open.
+After Foundation pass, verify exact schema migration authorization, then Owner promotion and signed-in Platform Owner and Academy Owner workflows. Owner performs promotion; report hosted tenant/role/usage and unresolved boundaries.
 
-Scoped dependency gate: Synthetic staging authorized. Real child consent, family sharing, legal holds and backup or export policy remain under D-004, D-015 and MP-Q12.
+Scoped dependency gate: Phase 1a/1b implemented and local checks pass; finish coherent candidate, Foundation and hosted gates. Verify migration approval before any hosted schema apply; Phase 1c remains after app-wide UI/UX.
 
-Read current evidence: `docs/07-handoff/ex25-private-media-consent-lifecycle-scoping-2026-11-25.md`.
+Read current evidence: `docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md`.
 
-Batch includes: Synthetic private class photos;Owner and assigned Manager Galleries;tag-free save;withdraw/delete/history;later role Galleries and sharing phases recorded
+Batch includes: Frozen commercial roadmap. Start with the repository audit and Phase 1a versioned offer, academy agreement, usage visibility and verified manual settlement.
 
-Batch exit evidence: Current class and object authorization;legacy restrictions;expiry;per-photo recovery;verified deletion;no public or automatic bulk private cache
+Batch exit evidence: One bilingual connected Phase 1a workflow with immutable agreed-version history, invoice/claim/verified settlement reconciliation and original-operation recovery; Phase 1b eligibility and usage scoped by academy, authorization before entitlement, existing action restrictions enforced transactionally, last-slot concurrency and rollback/retry demonstrated. Map unsupported metrics and future actions visibly. Record local, CI, hosted, and Owner evidence separately.
 
-Policy boundary: D-004;D-015;MP-Q12 before real media or dependent sharing and retention policy;synthetic private staff workflow authorized
+Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. No real payments/data, provider integrations or unsupported quota actions; Phase 1c follows app-wide UI/UX. Verify exact staging schema approval before apply; Owner promotion.
 
 ## Actual delivery status for the current family
 
-- Design: Owner directed the synthetic workflow toward private staff Galleries without mandatory per-photo player tagging or consent. Real media and family or player distribution remain policy-gated.
-- Implementation: Revised bilingual Owner and assigned Manager Galleries and tag-free staff photos implemented locally. The earlier candidate remains the staging baseline.
-- Local checks: Connected synthetic EN desktop and AR narrow-touch workflow passed with disposable PostgreSQL 17. Verified 10 classes × 10 photos, actual storage and gallery transfer, per-file recovery, privacy and true object removal. HEIC requires export as JPEG.
-- Deployment: Foundation 45594075023 passed at 95b72943ce682770149697d758f23730b5b7fabc. Staging redeployment dpl_2gjkzd4ccyuif9mwWJUsHtDA6GVp serves that SHA with gallery active for Isolation Academy B.
-- Hosted verification: Staging Storage checked an older proof format than the live app signed. Hosted migration 20261125145344 aligned the formats. Readback confirmed a private bucket and three object policies. The original item later read back as published with one finalize receipt and both ready variants present in private Storage. Revised workflow and signed-in Manager verification remain open.
-- Owner acceptance: Synthetic rollout and private staff Gallery direction authorized. Working acceptance of the revised flow remains open.
-- Independent security: Deferred by Owner for synthetic staging. Independent review has not been performed.
+- Design: Owner adopted the frozen commercial vision and selected this stage on 26 November. Appendix A specification items remain open.
+- Implementation: Phase 1a versioned fictional offer and immutable agreement extension; Phase 1b existing online program quota and lifecycle guards. New catalog limits and future operations remain unmapped/unimplemented.
+- Local checks: Disposable PostgreSQL 17 ledger-preserving migration, version assignment, last-slot race, rollback, retry, role/academy isolation; EN/AR connected fixture through invoice, claim, verified settlement, original review recovery and quota refusal; production build, TS, ESLint, 121 units and commerce experience captures passed. Not hosted.
+- Deployment: No EX-30 migration or deployment. Staging remains exact EX-25 source 977734f; preserve EX-23 staging evidence.
+- Hosted verification: No EX-30 signed-in hosted verification. Earlier EX-23 settlement evidence is a distinct historical hosted checkpoint.
+- Owner acceptance: Frozen direction and v2 fictional terms scope approved. Product implementation acceptance open.
+- Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 
 ## Registered scoped worker work
 
@@ -130,6 +131,7 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 - **MP-B12 — Inventory quantity and movement day**. Tracker family: EX-27; dependencies: MP-B02. Scope/exit/policy: `docs/06-delivery/master-plan-v2/delivery-batches.csv`.
 - **MP-B13 — Whole release readiness and operating proof**. Tracker family: EX-28; dependencies: MP-B05; MP-B06; MP-B07; MP-B08; MP-B09; MP-B10; MP-B11; MP-B12. Scope/exit/policy: `docs/06-delivery/master-plan-v2/delivery-batches.csv`.
 - **MP-B14 — Future native and advanced channel expansion**. Tracker family: EX-29; dependencies: MP-B13. Scope/exit/policy: `docs/06-delivery/master-plan-v2/delivery-batches.csv`.
+- **MP-B15 — Commercial & Business Operations**. Tracker family: EX-30; dependencies: MP-B08; MP-B10. Scope/exit/policy: `docs/06-delivery/master-plan-v2/delivery-batches.csv`.
 
 ## Ordered primary checkpoint routing
 
@@ -150,11 +152,12 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 15. **EX-23 — Platform admission to commercial academy lifecycle** (checkpoint_passed; MP-B08).
 16. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
 17. **EX-24 — Communications and support with delivery recovery** (checkpoint_passed; MP-B09).
-18. **EX-25 — Private media with consent and lifecycle** (current; MP-B10).
-19. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
-20. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
-21. **EX-28 — Whole release readiness and operating proof** (queued; MP-B13).
-22. **EX-29 — Future native and advanced channel expansion** (queued; MP-B14).
+18. **EX-25 — Private media with consent and lifecycle** (checkpoint_passed; MP-B10).
+19. **EX-30 — Commercial & Business Operations** (current; MP-B15).
+20. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
+21. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
+22. **EX-28 — Whole release readiness and operating proof** (queued; MP-B13).
+23. **EX-29 — Future native and advanced channel expansion** (queued; MP-B14).
 
 Supporting packages accompany the affected outcome; they are not a second current queue:
 

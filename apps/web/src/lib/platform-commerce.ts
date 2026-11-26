@@ -47,8 +47,9 @@ export function platformCommerceRequest(input: unknown) {
   let payload: Record<string, unknown>;
   switch (act) {
     case 'publish_plan':
-      allow(command);
-      payload = {};
+      allow(command, ['version']);
+      if (request.version !== undefined && request.version !== 2) throw new CommerceInputError();
+      payload = request.version === 2 ? { version: 2 } : {};
       break;
     case 'assign':
       allow(command, ['plan', 'start']);
