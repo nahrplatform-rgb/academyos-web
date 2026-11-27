@@ -152,7 +152,7 @@
       "rows": 1000,
       "searchSlices": 4,
       "pagesScanned": 40,
-      "elapsedMs": 15.23516699999891,
+      "elapsedMs": 14.930333000000246,
       "operatingRequests": 0
     },
     "workspaceDevice": {
@@ -262,8 +262,8 @@
       },
       "compiledBuild": {
         "node": "v24.14.0",
-        "sourceHash": "40c517cb5d6f1bf7c564e259448db4afcf0a00f4a69f47bf745ea784ca7e2d40",
-        "artifactHash": "79781bed4a03f2f1d061379c86994dfba6c4bc1e3a39f8d30c98bdacc3808875"
+        "sourceHash": "ee50332c2ecb2074440a07d7aac12e9ca77f376cdcd6c1898e0c65c667661068",
+        "artifactHash": "dabb55ca4735ff8a968a737f7206e47a11e73ba2f5697735e09c9198db7250ea"
       }
     },
     "emptyOnlineRegistration": {
@@ -297,7 +297,7 @@
         "players": 1,
         "result": {
           "version": 1,
-          "player_id": "b0f65448-b8dd-4bc8-bae8-8b002c8805b3"
+          "player_id": "7aab8757-68cb-4f04-a706-af41779bc51e"
         }
       }
     },
@@ -370,7 +370,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "cea20ea0-ab4e-4076-b067-9cf1fd994937"
+              "player_id": "e6882941-8102-4f70-b809-ff43c9a02b8f"
             },
             "players": 1,
             "operations": 1
@@ -412,7 +412,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "67477fe0-d6d5-401a-a132-ca1592131e4c"
+              "player_id": "a14e210f-3428-44f0-b999-5967ad054b14"
             },
             "players": 1,
             "operations": 1
@@ -449,7 +449,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "0aaa98ce-80f9-45e4-b7c6-10d2d3f389fb"
+              "player_id": "f72c91da-4f54-4e8d-b4b0-7c163ad0f098"
             },
             "players": 1,
             "operations": 1
@@ -489,7 +489,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "340d49b8-dc86-49c9-92bd-611895177457"
+              "player_id": "9863054a-cdf7-4fcb-aad2-68e732e935bf"
             },
             "players": 1,
             "operations": 1
@@ -525,7 +525,7 @@
             "audits": 1,
             "result": {
               "version": 1,
-              "player_id": "5abd19b0-00d0-4cd5-942c-8028b279a93d"
+              "player_id": "c9435441-2dca-4516-a30d-f68c788511da"
             },
             "players": 1,
             "operations": 1
