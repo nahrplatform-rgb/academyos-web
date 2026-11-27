@@ -46,7 +46,15 @@ const result = await build({
 const { POST } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
 
 function request(origin = staging, marker = testKind, body, host = staging) {
-  return new Request(`${host}${path}`, { method: 'POST', headers: { Origin: origin, [header]: marker }, body });
+  return new Request(`${host}${path}`, { method: 'POST', headers: { Origin: origin, [header]: marker }, body, duplex: 'half' });
+}
+
+function streamedRequest(bytes) {
+  return request(staging, testKind, new ReadableStream({ start(controller) {
+    controller.enqueue(new Uint8Array());
+    if (bytes) controller.enqueue(new TextEncoder().encode(bytes));
+    controller.close();
+  } }));
 }
 
 process.env.APP_ENV = 'production';
@@ -56,13 +64,14 @@ assert.equal((await POST(request(staging, testKind, undefined, 'https://other.ex
 assert.equal((await POST(request('https://other.example.test'))).status, 403);
 assert.equal((await POST(request(staging, ''))).status, 403);
 assert.equal((await POST(request(staging, testKind, '{"to":"other@example.test"}'))).status, 422);
+assert.equal((await POST(streamedRequest('unexpected'))).status, 422);
 assert.deepEqual([trial.sessions, trial.authority, trial.sends], [0, 0, 0]);
 assert.equal((await POST(request())).status, 401);
 trial.role = 'academy';
-assert.equal((await POST(request())).status, 403);
+assert.equal((await POST(streamedRequest())).status, 403);
 assert.deepEqual([trial.sessions, trial.authority, trial.sends], [2, 1, 0]);
 trial.role = 'platform';
-const accepted = await POST(request());
+const accepted = await POST(streamedRequest());
 assert.equal(accepted.status, 200);
 assert.equal(accepted.headers.get('cache-control'), 'no-store');
 assert.deepEqual(await accepted.json(), { status: 'accepted', id: 'fictional-receipt' });

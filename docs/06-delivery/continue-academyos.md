@@ -87,7 +87,7 @@ Verify the one approved fictional billing notification on promoted staging throu
 
 ### Separate release follow-up
 
-9e90350 is live on staging. Notification candidate e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875 has a Ready preview and Foundation 46076496092 passed 60/60. Owner promotion requested. Optional organization migration awaits exact approval and backup rehearsal.
+Owner promoted e8a382f. Hosted empty POST failed before delivery. Publish the locally checked request repair and verify its Foundation and preview before Owner promotion. Optional organization migration awaits exact approval and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
@@ -104,7 +104,7 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic auth
 - Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
 - Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1d has the staging-only fictional billing delivery action. Phase 1h uses existing memberships and a locally rehearsed optional organization field. Scheduler, provider, demo and later workspace work remain open.
 - Local checks: Disposable PostgreSQL proves EX-23 recovery, v1/v2 continuity, scoped quotas, last-slot race and rollback/replay, plus single-identity dual-academy isolation and scoped commercial audit.
-- Deployment: Staging deployment dpl_7um6SACq4CGDKpB2tJbXrrd2ejLU serves 9e90350 (Foundation 46058411920). Hosted migration 20261126140813 only at last schema readback.
+- Deployment: Staging deployment dpl_6kRFQpLq1JtpMGPpH4LuMCtgk2ZX serves e8a382f (Foundation 46076496092). Hosted migration 20261126140813 only at last schema readback.
 - Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows.
 - Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
 - Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.

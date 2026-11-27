@@ -13,9 +13,23 @@ export async function POST(request: Request) {
   if (request.headers.get("origin") !== STAGING_ORIGIN ||
       request.headers.get("x-academyos-billing-test") !== "fictional-payment-failure")
     return new Response(null, { status: 403, headers });
-  if (request.body) return new Response(null, { status: 422, headers });
-
   try {
+    const reader = request.body?.getReader();
+    if (reader) {
+      // Next.js can supply a stream for a POST with zero bytes.
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (value.byteLength > 0) {
+            void reader.cancel().catch(() => {});
+            return new Response(null, { status: 422, headers });
+          }
+        }
+      } finally {
+        reader.releaseLock();
+      }
+    }
     const { client } = await onboardingSession();
     // The existing RPC requires an active Platform Owner grant at the database.
     await rpc(client, "m1_platform_list_v1", { after_id: "ffffffff-ffff-ffff-ffff-ffffffffffff" });

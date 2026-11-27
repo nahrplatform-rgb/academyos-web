@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875",
+  "source_anchor": "1f15dc24a1f3dbe9fae32bb145a7e25e13f49235",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -345,8 +345,8 @@
     },
     {
       "path": "apps/web/src/app/api/platform-commerce/billing-notification-test/route.ts",
-      "sha256": "ffc941418280cc57d254d0a31dc531a0eed6a13f8acdbc1f4f3e2b6589ce384a",
-      "bytes": 1571
+      "sha256": "0ff1a752f321e81717f70dc19b0263739c9fb5785db0df582888196c8db31c3e",
+      "bytes": 1980
     },
     {
       "path": "apps/web/src/app/api/platform-commerce/route.ts",
