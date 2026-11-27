@@ -87,7 +87,7 @@ Verify the one approved fictional billing notification on promoted staging throu
 
 ### Separate release follow-up
 
-Owner promoted e8a382f. Hosted empty POST failed before delivery. Publish the locally checked request repair and verify its Foundation and preview before Owner promotion. Optional organization migration awaits exact approval and backup rehearsal.
+Owner promoted e8a382f. Hosted empty POST failed before delivery. Repair f01e5b7e0fba8e1cdaed1f9ec9391323f0c91859 passed Foundation 46082280931 60/60 and has a Ready preview. Owner promotion requested. Optional organization migration awaits exact approval and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
