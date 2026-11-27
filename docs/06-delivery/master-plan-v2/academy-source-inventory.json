@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "3a383ee7c21d8f0ea430ed39d5d4e3a0721dac60",
+  "source_anchor": "5967f35efa02cf7df2e808786a55623d8b2922ac",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -1575,8 +1575,8 @@
     },
     {
       "path": "supabase/migrations/20261201120000_ex30_offline_entitlement_contracts.sql",
-      "sha256": "67d26fd6b10050c76d5264bc41d1d32d7aad3754625a87dd8a6f93a281e4a692",
-      "bytes": 4812
+      "sha256": "7a99923f2bb355ca27b44c67646c385c48b6256a20843c7f5865bd4b0a73a990",
+      "bytes": 4775
     },
     {
       "path": "supabase/migrations/20261202120000_ex30_demo_conversion.sql",
