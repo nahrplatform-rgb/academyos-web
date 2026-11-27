@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Confirm Egypt Paymob test-mode recurring integration, failed-payment simulation, and approved test notification delivery. Connect Phase 1d scheduler and recovery once those inputs are confirmed. Resume signed-in Academy Owner quota checks when the Nahr session is available.
+Verify the one approved fictional billing notification on promoted staging through the Platform Owner action. Obtain Paymob confirmation of Egypt Test Mode MIGS MOTO eligibility, decline simulation, Day 0/3/5 behavior and per-attempt identifiers. Use a renewal-invoice identity for the Phase 1d scheduler and recovery.
 
 ### Separate release follow-up
 
-Owner promotion. Pending signed-in Academy Owner write and refusal. Optional organization migration awaits exact approval and staging-backup rehearsal.
+9e90350 is live on staging. The fictional billing notification candidate needs Owner promotion after Foundation and preview. Optional organization migration awaits exact approval and staging-backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
@@ -102,10 +102,10 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic auth
 ## Actual delivery status for the current family
 
 - Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
-- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1h uses existing academy memberships and a locally rehearsed optional organization field. Later provider, collections, demo and workspace work remains open.
+- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1d has the staging-only fictional billing delivery action. Phase 1h uses existing memberships and a locally rehearsed optional organization field. Scheduler, provider, demo and later workspace work remain open.
 - Local checks: Disposable PostgreSQL proves EX-23 recovery, v1/v2 continuity, scoped quotas, last-slot race and rollback/replay, plus single-identity dual-academy isolation and scoped commercial audit.
-- Deployment: Staging deployment dpl_CtroRcLuTijSc51ecfy36aEZ3ngu serves 968bd8d (Foundation 46045472017). Hosted migration 20261126140813 only.
-- Hosted verification: Prior Nahr and Hieu synthetic settlement on 501b937. Verified both ledger balances and Hieu EN/AR on 968bd8d. Fresh Academy Owner usage writes and at-limit refusal remain open.
+- Deployment: Staging deployment dpl_7um6SACq4CGDKpB2tJbXrrd2ejLU serves 9e90350 (Foundation 46058411920). Hosted migration 20261126140813 only at last schema readback.
+- Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows.
 - Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
 - Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 

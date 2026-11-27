@@ -1,6 +1,6 @@
 {
-  "source": "a5ccf380e5f5a673f31a3573564b5290e7fcd37f",
-  "generatedAt": "2026-11-27T17:12:58.871Z",
+  "source": "9e90350500fec30abf86197dbba827cafce8b01c",
+  "generatedAt": "2026-11-27T22:17:49.448Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -194,7 +194,7 @@
     "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f"
   },
   "capturePackSha256": "43e88b21514c379382daf541e3acf4dfa3d883be193ebfeeae25bca8c1f8dd1e",
-  "htmlSha256": "7ea802075f265aedc079e4a1c9e0b2bf4d71aeb2b154e0047f91512f6de647e5",
+  "htmlSha256": "5b018f39e969d2382ac708557d54b10f23b3ded1df6e05c6cdd5b482c562ee4a",
   "frames": 2340,
   "transitions": 3077,
   "sourceFiles": 110,

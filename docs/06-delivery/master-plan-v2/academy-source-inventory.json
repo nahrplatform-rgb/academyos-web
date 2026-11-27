@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "968bd8dea14602a5c05e88f225e3d577922119d4",
+  "source_anchor": "9e90350500fec30abf86197dbba827cafce8b01c",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -342,6 +342,11 @@
       "path": "apps/web/src/app/api/planning/route.ts",
       "sha256": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7",
       "bytes": 2671
+    },
+    {
+      "path": "apps/web/src/app/api/platform-commerce/billing-notification-test/route.ts",
+      "sha256": "ffc941418280cc57d254d0a31dc531a0eed6a13f8acdbc1f4f3e2b6589ce384a",
+      "bytes": 1571
     },
     {
       "path": "apps/web/src/app/api/platform-commerce/route.ts",
@@ -759,6 +764,16 @@
       "bytes": 4756
     },
     {
+      "path": "apps/web/src/lib/billing-notification-test-delivery.test.ts",
+      "sha256": "5bc7358ec0023ec8cdd84b8daf6bae3b356af0b18a18231a4c3beb7fc81645c3",
+      "bytes": 2922
+    },
+    {
+      "path": "apps/web/src/lib/billing-notification-test-delivery.ts",
+      "sha256": "6d9c2a4229181d319b08c57079e68d7cb0f1e4bb83c848721df30229a00ad1fa",
+      "bytes": 2146
+    },
+    {
       "path": "apps/web/src/lib/billing.ts",
       "sha256": "b9d4474c69eea98f6bed4ee6f5a04582641e7cac4af61dadd226da21d0bf92ba",
       "bytes": 5482
@@ -855,8 +870,8 @@
     },
     {
       "path": "apps/web/src/lib/email.ts",
-      "sha256": "451f338052d97fec79fa11a475cdfef4cb2d4e2b4083ed6fae21b6d17ae9b63a",
-      "bytes": 2327
+      "sha256": "5e610b946ba4a56fbd8c86e02f0be304afa7e90917ebbfb6ff38571e085439c7",
+      "bytes": 2596
     },
     {
       "path": "apps/web/src/lib/experience-format.test.ts",
@@ -1662,6 +1677,7 @@
     "apps/web/src/app/api/onboarding/route.ts",
     "apps/web/src/app/api/people/route.ts",
     "apps/web/src/app/api/planning/route.ts",
+    "apps/web/src/app/api/platform-commerce/billing-notification-test/route.ts",
     "apps/web/src/app/api/platform-commerce/route.ts",
     "apps/web/src/app/api/platform-commerce-webhook/route.ts",
     "apps/web/src/app/api/program-planning/route.ts",
@@ -2392,9 +2408,9 @@
     }
   ],
   "counts": {
-    "source_files": 318,
+    "source_files": 321,
     "page_paths": 49,
-    "api_routes": 34,
+    "api_routes": 35,
     "migrations": 57
   },
   "pwa_metadata": {
