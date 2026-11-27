@@ -83,30 +83,30 @@ Product value for this batch:
 
 ### Ready development action
 
-Complete the full commercial vision. Do not start EX-26 until all phases are implemented and verified or recorded as external dependencies.
+Confirm Egypt Paymob test-mode recurring integration, failed-payment simulation, and approved test notification delivery. Connect Phase 1d scheduler and recovery once those inputs are confirmed. Resume signed-in Academy Owner quota checks when the Nahr session is available.
 
 ### Separate release follow-up
 
-EX-30 remains active. EX-26 queued. Owner working acceptance separate.
+Owner promotion. Pending signed-in Academy Owner write and refusal. Optional organization migration awaits exact approval and staging-backup rehearsal.
 
-Scoped dependency gate: Reconcile source and EX-23 evidence before implementation. Verify providers before their integrations. Phase 1c remains scheduled after the app-wide UI/UX pass.
+Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
 Read current evidence: `docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md`.
 
-Batch includes: Frozen commercial roadmap. Start with the repository audit and Phase 1a versioned offer, academy agreement, usage visibility and verified manual settlement.
+Batch includes: Versioned offers and settlement; online entitlement enforcement; offline entitlements after app-wide UI/UX; collections; provider verification; demo; academy scope and audit; both Owner workspaces; conversion and later growth.
 
-Batch exit evidence: One bilingual connected Phase 1a workflow with immutable agreed-version history, invoice/claim/verified settlement reconciliation and original-operation recovery; Phase 1b eligibility and usage scoped by academy, authorization before entitlement, existing action restrictions enforced transactionally, last-slot concurrency and rollback/retry demonstrated. Map unsupported metrics and future actions visibly. Record local, CI, hosted, and Owner evidence separately.
+Batch exit evidence: Connected bilingual workflow and authority, scope, transaction, original recovery and history assertions for each active milestone. Capture the exact source, PostgreSQL, Foundation, staging and Owner evidence. Document the dependency for each remaining milestone.
 
-Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. No real payments/data, provider integrations or unsupported quota actions; Phase 1c follows app-wide UI/UX. Verify exact staging schema approval before apply; Owner promotion.
+Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic authority. Verify Paymob before integration. Whop deferred. Phase 1c follows app-wide UI/UX. Exact staging migration approval and Owner-only promotion.
 
 ## Actual delivery status for the current family
 
-- Design: Owner adopted the frozen commercial vision and selected this stage on 26 November. Appendix A specification items remain open.
-- Implementation: Repository audit and Phase 1a are next. EX-23 verified fictional platform commerce is the reuse baseline.
-- Local checks: Planning and routing checks only for EX-30. Scope new product checks during the audit.
-- Deployment: No EX-30 deployment. Retain exact EX-23 and EX-25 release evidence.
-- Hosted verification: Staging migration 20261126140813 verified on 501b937. Hieu Platform Owner and Nahr Academy Owner EN/AR workflow passed: version-2 assignment, one invoice, one accepted claim, one settlement, 0.00 due; existing version-1 ledger unchanged.
-- Owner acceptance: Frozen direction and synthetic rollout approved. Signed-in workflow verified; formal Owner working acceptance remains open.
+- Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
+- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1h uses existing academy memberships and a locally rehearsed optional organization field. Later provider, collections, demo and workspace work remains open.
+- Local checks: Disposable PostgreSQL proves EX-23 recovery, v1/v2 continuity, scoped quotas, last-slot race and rollback/replay, plus single-identity dual-academy isolation and scoped commercial audit.
+- Deployment: Staging deployment dpl_CtroRcLuTijSc51ecfy36aEZ3ngu serves 968bd8d (Foundation 46045472017). Hosted migration 20261126140813 only.
+- Hosted verification: Prior Nahr and Hieu synthetic settlement on 501b937. Verified both ledger balances and Hieu EN/AR on 968bd8d. Fresh Academy Owner usage writes and at-limit refusal remain open.
+- Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
 - Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 
 ## Registered scoped worker work

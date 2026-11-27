@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "5967f35efa02cf7df2e808786a55623d8b2922ac",
+  "source_anchor": "968bd8dea14602a5c05e88f225e3d577922119d4",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -350,8 +350,8 @@
     },
     {
       "path": "apps/web/src/app/api/platform-commerce-webhook/route.ts",
-      "sha256": "52ef4421c9de7bef8787a3b623b6b134f3fd13bc45eb43d6cb959fcd437e9f5d",
-      "bytes": 794
+      "sha256": "0f5d5b4edb408470143ee6cf4c2d6f34ebfcfd9a8268e85787533499300f79ad",
+      "bytes": 553
     },
     {
       "path": "apps/web/src/app/api/program-planning/route.ts",
@@ -1044,6 +1044,11 @@
       "bytes": 3621
     },
     {
+      "path": "apps/web/src/lib/platform-commerce-webhook.test.ts",
+      "sha256": "0f09e259c62fb5fb6e21f0967187f218c3cbd0b9dc8724b00667787231650e3d",
+      "bytes": 980
+    },
+    {
       "path": "apps/web/src/lib/platform-commerce.ts",
       "sha256": "fa9fe4e07dd5335fd0bc4a26c84f99c6145fa378dfac08d75cafc8b3bd77b01c",
       "bytes": 6475
@@ -1565,8 +1570,8 @@
     },
     {
       "path": "supabase/migrations/20261129120000_ex30_multi_academy.sql",
-      "sha256": "a1969879dddbc8d177cd2d2b86f1eaebc57ac4c371a7ffc0491b4a4b2e1ecb5c",
-      "bytes": 969
+      "sha256": "57c5e317ef96f1cd64e26eb119b5d8e23b29b987548cda78e2e43197685a3a40",
+      "bytes": 271
     },
     {
       "path": "supabase/migrations/20261130120000_ex30_demo_rpcs.sql",
@@ -2387,7 +2392,7 @@
     }
   ],
   "counts": {
-    "source_files": 317,
+    "source_files": 318,
     "page_paths": 49,
     "api_routes": 34,
     "migrations": 57

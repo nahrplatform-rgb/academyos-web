@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-27T17:53:18.351Z",
+  "completed": "2026-11-27T19:39:18.971Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -126,7 +126,7 @@
     "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f",
     "supabase/migrations/20261127120000_ex30_dunning_management.sql": "4449cf070ee8f1535d4c4ec1882053c32d556a543ac4a5c3229642c32a18350e",
     "supabase/migrations/20261128120000_ex30_demo_foundation.sql": "f123ba8c32ba323196db5a1a58dd43e12b0b5a34ad2f72191fcd3d496fa44b07",
-    "supabase/migrations/20261129120000_ex30_multi_academy.sql": "a1969879dddbc8d177cd2d2b86f1eaebc57ac4c371a7ffc0491b4a4b2e1ecb5c",
+    "supabase/migrations/20261129120000_ex30_multi_academy.sql": "57c5e317ef96f1cd64e26eb119b5d8e23b29b987548cda78e2e43197685a3a40",
     "supabase/migrations/20261130120000_ex30_demo_rpcs.sql": "46b764b7396c8a2c0f764657d6e3c0b5b64f9b5b2f0591ee6a3dcd1e6d54c27c",
     "supabase/migrations/20261201120000_ex30_offline_entitlement_contracts.sql": "7a99923f2bb355ca27b44c67646c385c48b6256a20843c7f5865bd4b0a73a990",
     "supabase/migrations/20261202120000_ex30_demo_conversion.sql": "67970fe999e198ddb332c7a624998daad96593fd11de25bd7b80ab02b2d9c4cd",

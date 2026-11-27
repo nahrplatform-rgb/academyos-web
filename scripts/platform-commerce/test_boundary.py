@@ -214,5 +214,46 @@ try:
     assert context('owner', 'user_other_owner', academy=foreign)['subscription']['programCount'] == 1
     assert context('owner', 'user_owner')['subscription']['programCount'] == 2
     print('PASS EX-30 populated-ledger migration, immutable versions, same-operation settlement, quota race, rollback/retry and scope')
+
+    memberships = test.sql("select jsonb_agg(to_jsonb(m) order by m.id) from academy.memberships m")
+    pre_organization_ledger = ledger()
+    organization_migration, = (ROOT / 'supabase/migrations').glob('*_ex30_multi_academy.sql')
+    Boundary.sql(organization_migration.read_text())
+    assert ledger() == pre_organization_ledger
+    assert test.sql("select jsonb_agg(to_jsonb(m) order by m.id) from academy.memberships m") == memberships
+    assert test.sql("select count(organization_id) from academy.academies") == '0'
+    # Admit the same verified identity through the normal flow for a second academy.
+    second_academy, _ = test.academy('user_owner')
+    second_op = uid()
+    second_agreement = cmd('assign', {'plan': v2, 'start': '2026-11-01'},
+                           academy=second_academy, op=second_op)
+    second_invoice = cmd('issue', {'subscription': second_agreement['id']},
+                         academy=second_academy)['id']
+    # Sharing organization metadata confers no additional membership.
+    test.sql(f"update academy.academies set organization_id='{uid()}' "
+             f"where id in ('{a}','{second_academy}','{foreign}')")
+    other_view = context('owner', 'user_owner', academy=second_academy)
+    original_view = context('owner', 'user_owner')
+    assert (other_view['subscription']['planVersion'], other_view['subscription']['programCount'],
+            other_view['subscription']['programLimit']) == (2, 0, 3)
+    assert other_view['invoice']['id'] == second_invoice and other_view['invoice']['balance'] == 100000
+    assert (original_view['subscription']['planVersion'], original_view['subscription']['programCount'],
+            original_view['subscription']['programLimit']) == (1, 2, 2)
+    assert original_view['invoice']['id'] == invoice and original_view['invoice']['balance'] == 0
+    cmd('claim', {'invoice': second_invoice, 'amount': 100000, 'reference': 'Wrong academy'},
+        subject='user_owner', ok=False)
+    assert test.sql(f"select count(*) from academy.platform_claims where invoice_id='{second_invoice}'") == '0'
+    context('owner', 'user_other_owner', academy=second_academy, ok=False)
+    context('owner', 'user_owner', academy=foreign, ok=False)
+    test.sql(f"select public.x23_operation_v1('{a}','{second_op}')", 'user_platform', ok=False)
+    assert test.sql("""
+      select count(*) from academy.platform_commerce_operations o where (
+        select count(*) from academy.audit_events e
+        where e.operation_id = o.id and e.actor = o.actor
+          and e.academy_id is not distinct from o.academy_id
+          and e.action = 'platform_commerce.' || coalesce(o.result->>'action', 'cancel')
+      ) <> 1
+    """) == '0'
+    print('PASS EX-30 one verified Owner with two independent agreements, quota reads, invoices and scoped audit')
 finally:
     Boundary.tearDownClass()
