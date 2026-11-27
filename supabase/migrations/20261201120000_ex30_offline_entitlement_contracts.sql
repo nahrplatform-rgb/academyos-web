@@ -12,7 +12,7 @@ create table if not exists academy.platform_entitlement_snapshots (
   entitlements jsonb not null,
   cached_at timestamptz not null default now(),
   ttl_hours integer not null default 24,
-  expires_at timestamptz not null generated always as (cached_at + (ttl_hours || ' hours')::interval) stored
+  expires_at timestamptz not null default (now() + interval '24 hours')
 );
 
 create index if not exists platform_entitlement_snapshots_academy
