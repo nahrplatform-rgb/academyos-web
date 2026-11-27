@@ -16,7 +16,6 @@ export default function DemoConversionFlow({ locale, demoAcademyId, onConverted 
   const t = (en: string, arabic: string) => ar ? arabic : en;
   const [step, setStep] = useState<'verify' | 'details' | 'converting' | 'done'>('verify');
   const [email, setEmail] = useState('');
-  const [verified, setVerified] = useState(false);
   const [academyName, setAcademyName] = useState('');
   const [language, setLanguage] = useState(locale);
   const [sport, setSport] = useState('football');
@@ -28,7 +27,6 @@ export default function DemoConversionFlow({ locale, demoAcademyId, onConverted 
     try {
       // Send verification email (simulated for synthetic trial)
       // In production, this would send a magic link or OTP
-      setVerified(true);
       setStep('details');
     } catch (e) {
       setError(e instanceof Error ? e.message : 'unavailable');

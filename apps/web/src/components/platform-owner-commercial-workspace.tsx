@@ -1,7 +1,7 @@
 'use client';
 
 import { UserButton, useUser } from '@clerk/nextjs';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
 import { Button, Input, Select } from './ui/controls';
 
@@ -14,7 +14,6 @@ type Claim = { id: string; amount: number; reference: string; state: string; ver
 type Context = { role: string; academies: Academy[]; plans: Plan[]; subscription: Subscription | null; invoice: Invoice | null; claims: Claim[] };
 type Props = { locale: Locale };
 
-const formatMoney = (amount: number) => (amount / 100).toFixed(2);
 
 async function api<T>(body: Record<string, unknown>): Promise<T> {
   const response = await fetch('/api/platform-commerce', {
@@ -35,10 +34,10 @@ export default function PlatformOwnerCommercialWorkspace({ locale }: Props) {
     <p role={isLoaded ? 'alert' : 'status'}>{isLoaded ? t('Please sign in.', 'يرجى تسجيل الدخول.') : t('Loading…', 'جارٍ التحميل…')}</p>
   </PublicWorkspace>;
 
-  return <Commerce locale={locale} subject={user.id} />;
+  return <Commerce key={user.id} locale={locale} />;
 }
 
-function Commerce({ locale, subject }: { locale: Locale; subject: string }) {
+function Commerce({ locale }: Props) {
   const ar = locale === 'ar';
   const t = (en: string, arabic: string) => ar ? arabic : en;
   const [academy, setAcademy] = useState('');
@@ -48,12 +47,10 @@ function Commerce({ locale, subject }: { locale: Locale; subject: string }) {
   const [notice, setNotice] = useState('');
   const [plan, setPlan] = useState('');
   const [start, setStart] = useState('');
-  const [reference, setReference] = useState('');
   const [claimId, setClaimId] = useState('');
   const [decision, setDecision] = useState<'accepted' | 'rejected'>('accepted');
   const [reviewReason, setReviewReason] = useState('');
   const [verified, setVerified] = useState(false);
-  const [version, setVersion] = useState(2);
 
   const load = useCallback(async () => {
     setBusy(true); setError('');
@@ -98,7 +95,7 @@ function Commerce({ locale, subject }: { locale: Locale; subject: string }) {
           <Button disabled={busy} onClick={async () => {
             setBusy(true);
             try {
-              await api({ action: 'publish_plan', operation: crypto.randomUUID(), version });
+              await api({ action: 'publish_plan', operation: crypto.randomUUID(), version: 2 });
               setNotice(t('Plan published.', 'تم نشر الخطة.'));
               await load();
             } catch (e) { setError(e instanceof Error ? e.message : 'unavailable'); }

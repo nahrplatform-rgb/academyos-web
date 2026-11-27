@@ -1,9 +1,9 @@
 'use client';
 
 import { UserButton, useUser } from '@clerk/nextjs';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import WorkspaceShell, { PublicWorkspace } from './workspace-shell';
-import { Button, Input, Select } from './ui/controls';
+import { Button, Input } from './ui/controls';
 
 type Locale = 'en' | 'ar';
 type Plan = { id: string; version: number; price: number; trialDays: number; programLimit: number; storageLimit: number; playerLimit: number };
@@ -18,8 +18,6 @@ type Claim = { id: string; amount: number; reference: string; state: string; ver
 type Context = { role: string; academies: { id: string; name: string; setup: boolean }[]; plans: Plan[]; subscription: Subscription | null; invoice: Invoice | null; claims: Claim[]; entitlements: { features: string[]; limits: Record<string, number>; usage: Record<string, number> } };
 type Props = { locale: Locale; academy: string };
 
-const uuid = /^[a-f\d]{8}-[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/i;
-const formatMoney = (amount: number) => (amount / 100).toFixed(2);
 
 async function api<T>(body: Record<string, unknown>): Promise<T> {
   const response = await fetch('/api/platform-commerce', {
@@ -40,10 +38,10 @@ export default function AcademyOwnerCommercialWorkspace({ locale, academy }: Pro
     <p role={isLoaded ? 'alert' : 'status'}>{isLoaded ? t('Please sign in.', 'يرجى تسجيل الدخول.') : t('Loading…', 'جارٍ التحميل…')}</p>
   </PublicWorkspace>;
 
-  return <Commerce locale={locale} academy={academy} subject={user.id} />;
+  return <Commerce locale={locale} key={user.id + ":" + academy} academy={academy} />;
 }
 
-function Commerce({ locale, academy, subject }: { locale: Locale; academy: string; subject: string }) {
+function Commerce({ locale, academy }: Props) {
   const ar = locale === 'ar';
   const t = (en: string, arabic: string) => ar ? arabic : en;
   const [context, setContext] = useState<Context | null>(null);

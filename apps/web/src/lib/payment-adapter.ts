@@ -57,13 +57,7 @@ export function getPaymentAdapter(provider: PaymentProvider): PaymentAdapter {
 
 // Paymob adapter (Egypt)
 class PaymobAdapter implements PaymentAdapter {
-  async createPayment(input: {
-    invoiceId: string;
-    amount: number;
-    currency: string;
-    academyId: string;
-    description: string;
-  }): Promise<{ providerPaymentId: string; redirectUrl: string | null }> {
+  async createPayment(): Promise<{ providerPaymentId: string; redirectUrl: string | null }> {
     // TODO: Implement Paymob integration
     // 1. Create Paymob order
     // 2. Create payment key
@@ -71,7 +65,7 @@ class PaymobAdapter implements PaymentAdapter {
     throw new Error('Paymob adapter not yet implemented');
   }
 
-  async getPaymentStatus(providerPaymentId: string): Promise<{
+  async getPaymentStatus(): Promise<{
     status: 'pending' | 'paid' | 'failed' | 'refunded' | 'disputed';
     amount: number;
     currency: string;
@@ -81,17 +75,17 @@ class PaymobAdapter implements PaymentAdapter {
     throw new Error('Paymob adapter not yet implemented');
   }
 
-  async refund(input: { providerPaymentId: string; amount: number; reason: string }): Promise<{ refundId: string; status: string }> {
+  async refund(): Promise<{ refundId: string; status: string }> {
     throw new Error('Paymob adapter not yet implemented');
   }
 
-  verifyWebhookSignature(payload: string, signature: string, secret: string): boolean {
+  verifyWebhookSignature(): boolean {
     // Paymob uses HMAC-SHA512 with the secret
     // Implementation: compute HMAC-SHA512(payload, secret) and compare with signature
     return false; // TODO: Implement
   }
 
-  parseWebhook(payload: unknown): {
+  parseWebhook(): {
     eventType: 'payment_success' | 'payment_failed' | 'subscription_cancelled' | 'refund_issued' | 'chargeback';
     providerPaymentId: string;
     invoiceId: string | null;
@@ -107,20 +101,14 @@ class PaymobAdapter implements PaymentAdapter {
 
 // Whop adapter (International)
 class WhopAdapter implements PaymentAdapter {
-  async createPayment(input: {
-    invoiceId: string;
-    amount: number;
-    currency: string;
-    academyId: string;
-    description: string;
-  }): Promise<{ providerPaymentId: string; redirectUrl: string | null }> {
+  async createPayment(): Promise<{ providerPaymentId: string; redirectUrl: string | null }> {
     // TODO: Implement Whop integration
     // 1. Create Whop checkout session
     // 2. Return session ID and redirect URL
     throw new Error('Whop adapter not yet implemented');
   }
 
-  async getPaymentStatus(providerPaymentId: string): Promise<{
+  async getPaymentStatus(): Promise<{
     status: 'pending' | 'paid' | 'failed' | 'refunded' | 'disputed';
     amount: number;
     currency: string;
@@ -130,17 +118,17 @@ class WhopAdapter implements PaymentAdapter {
     throw new Error('Whop adapter not yet implemented');
   }
 
-  async refund(input: { providerPaymentId: string; amount: number; reason: string }): Promise<{ refundId: string; status: string }> {
+  async refund(): Promise<{ refundId: string; status: string }> {
     throw new Error('Whop adapter not yet implemented');
   }
 
-  verifyWebhookSignature(payload: string, signature: string, secret: string): boolean {
+  verifyWebhookSignature(): boolean {
     // Whop uses HMAC-SHA256 with the secret
     // Implementation: compute HMAC-SHA256(payload, secret) and compare with signature
     return false; // TODO: Implement
   }
 
-  parseWebhook(payload: unknown): {
+  parseWebhook(): {
     eventType: 'payment_success' | 'payment_failed' | 'subscription_cancelled' | 'refund_issued' | 'chargeback';
     providerPaymentId: string;
     invoiceId: string | null;

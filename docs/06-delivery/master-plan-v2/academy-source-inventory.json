@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "a16dd508b9de62df5fbacaa413667662141a20cf",
+  "source_anchor": "3a383ee7c21d8f0ea430ed39d5d4e3a0721dac60",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -475,8 +475,8 @@
     },
     {
       "path": "apps/web/src/components/academy-owner-commercial-workspace.tsx",
-      "sha256": "f8f3c8b93531f19b295d5406ddbbef89b545623f07e04d6f8e37bc43d2724e36",
-      "bytes": 12423
+      "sha256": "08a33a73afd661efe19905787dddacd5dedcd5dcd6bd3b46b9c45af258e81eaa",
+      "bytes": 12350
     },
     {
       "path": "apps/web/src/components/admission-directory.tsx",
@@ -495,8 +495,8 @@
     },
     {
       "path": "apps/web/src/components/change-preview-screen.tsx",
-      "sha256": "8f979901c32aabee3e1950dc88afcb5ca0c297d879ec6100b105e688d72d2fc2",
-      "bytes": 2614
+      "sha256": "18edddafe3d086fab68287897143df0d009f7bcc72575c333b1dd9e105168ad1",
+      "bytes": 2580
     },
     {
       "path": "apps/web/src/components/class-media-gallery.tsx",
@@ -520,8 +520,8 @@
     },
     {
       "path": "apps/web/src/components/demo-conversion-flow.tsx",
-      "sha256": "73cabaaf7bfe65a9759193d8a3a313679aaf4c0e285187c9f7e9cb146bc54343",
-      "bytes": 4919
+      "sha256": "785699fca02d74b388fad2eec0634a1b19b7fec7edb91112f31c29ca6d544943",
+      "bytes": 4843
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
@@ -545,8 +545,8 @@
     },
     {
       "path": "apps/web/src/components/mrr-dashboard.tsx",
-      "sha256": "62991624a0cc61eeb60eed5147d657c693d296464e9898b5ad065f412777accb",
-      "bytes": 5106
+      "sha256": "076bd58a9fafbe99c65d2f7cc77c11152b0bf929d4db4423b581a8b111d11026",
+      "bytes": 5242
     },
     {
       "path": "apps/web/src/components/onboarding-workspace.tsx",
@@ -570,8 +570,8 @@
     },
     {
       "path": "apps/web/src/components/plan-change-acceptance.tsx",
-      "sha256": "ca3ea9bd48973740c74f705178644263653529a91f38e74e37627e353209cf52",
-      "bytes": 3421
+      "sha256": "62ac3ab9dff3771771c0bea2512f5aca3b0510b86159273e3ec63fd23d9ceb0b",
+      "bytes": 3414
     },
     {
       "path": "apps/web/src/components/platform-commerce-workspace.tsx",
@@ -580,8 +580,8 @@
     },
     {
       "path": "apps/web/src/components/platform-owner-commercial-workspace.tsx",
-      "sha256": "b7d9a4011e4982dbf6e32f9d186caef2613a0da5b60d7376610f682de597420b",
-      "bytes": 13432
+      "sha256": "f228059e3e46a372134b58054d940095ebcee67815de433de6ec0b8d39d12332",
+      "bytes": 13362
     },
     {
       "path": "apps/web/src/components/player-lifecycle.tsx",
@@ -1010,8 +1010,8 @@
     },
     {
       "path": "apps/web/src/lib/payment-adapter.ts",
-      "sha256": "3b1c85207f00aeb9972c9081a18429c49100b8ddb948cb0edd0ff96f85596f97",
-      "bytes": 5054
+      "sha256": "05cf0cb24a68cf99b5a0e129504c48cc65fe27471a7a4f3b87912f5fdc984bfa",
+      "bytes": 4486
     },
     {
       "path": "apps/web/src/lib/people-view-context.test.ts",

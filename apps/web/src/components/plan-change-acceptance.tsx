@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, Input } from './ui/controls';
+import { Button } from './ui/controls';
 
 type Locale = 'en' | 'ar';
 
