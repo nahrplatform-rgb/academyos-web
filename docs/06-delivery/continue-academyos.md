@@ -18,7 +18,7 @@ For interaction with the user's browser, follow the [15 November browse session 
 
 ## Resume after compaction, interruption or a failed request
 
-Resume checkpoint: [docs/06-delivery/master-plan-v2/product-and-module-specifications.md](../../docs/06-delivery/master-plan-v2/product-and-module-specifications.md). The tracker still owns the single current priority.
+Resume checkpoint: [docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md](../../docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md). The tracker still owns the single current priority.
 
 Reread the current Owner request, this checkpoint's required acceptance cases and the actual changed source/Git before acting. A summary cannot waive required acceptance cases. Correct conflicting completion claims before regenerating another handoff. Preserve verified checkpoints and existing edits; a missing harness leaves its required case open while independent permitted work continues.
 
@@ -70,44 +70,44 @@ For CI, run `python3 scripts/verification/wait_for_candidate.py --commit "$candi
 
 Retain historical DeepSeek outputs and coordinator reviews in `docs/06-delivery/ai-work-items.csv`. A worker report or coordinator review is not Owner feature acceptance or closure of its parent finding. Use the current-client delegation policy for new assignments and the EX tracker for current priority. See `docs/00-governance/ai-delegation-and-cost-policy.md`.
 
-## Current priority — EX-26: Reconciled reports and privacy requests
+## Current priority — EX-30: Commercial & Business Operations
 
-Delivery batch: **MP-B11 — Reconciled reports and privacy requests**.
+Delivery batch: **MP-B15 — Commercial & Business Operations**.
 
 Product value for this batch:
 
-- **VAL-01** — Understand today and the next required action (Academy Owner).
-- **VAL-06** — Understand and reconcile the right money story (Academy Owner Guardian and Trainer).
+- **VAL-05** — Delegate routine work while retaining accountable control (Academy Owner and Platform Owner).
 - **VAL-07** — Run the academy subscription and service business clearly (Platform Owner).
 - **VAL-10** — Trust scope history and recoverable results (Every permitted role).
+- **VAL-11** — Operate resources services and stock without hidden manual work (Academy Owner and Platform Owner).
 
 ### Ready development action
 
-Start EX-26 with the approved synthetic reports and privacy-review workflow. Audit existing EX-21, EX-22 and EX-23 ledgers and privacy/export foundations, then define the first connected bilingual report and privacy request candidate.
+Complete the full commercial vision. Do not start EX-26 until all phases are implemented and verified or recorded as external dependencies.
 
 ### Separate release follow-up
 
-After local and CI checks, verify staging only under its existing authorization. Owner controls promotion.
+EX-30 remains active. EX-26 queued. Owner working acceptance separate.
 
-Scoped dependency gate: D-015;D-016;cross-domain prerequisites by actual report;privacy safeguards accompany earlier slices too;named exit: Authoritative totals/full pagination;durable job and artifact outcomes;per-subsystem privacy completion
+Scoped dependency gate: Reconcile source and EX-23 evidence before implementation. Verify providers before their integrations. Phase 1c remains scheduled after the app-wide UI/UX pass.
 
-Read current evidence: `docs/06-delivery/master-plan-v2/product-and-module-specifications.md`.
+Read current evidence: `docs/07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md`.
 
-Batch includes: Metric definitions;scope/period drilldown;complete snapshot/export;privacy export/hold/deletion workflow
+Batch includes: Frozen commercial roadmap. Start with the repository audit and Phase 1a versioned offer, academy agreement, usage visibility and verified manual settlement.
 
-Batch exit evidence: Authoritative totals/full pagination;durable job and artifact outcomes;per-subsystem privacy completion
+Batch exit evidence: One bilingual connected Phase 1a workflow with immutable agreed-version history, invoice/claim/verified settlement reconciliation and original-operation recovery; Phase 1b eligibility and usage scoped by academy, authorization before entitlement, existing action restrictions enforced transactionally, last-slot concurrency and rollback/retry demonstrated. Map unsupported metrics and future actions visibly. Record local, CI, hosted, and Owner evidence separately.
 
-Policy boundary: D-015;D-016;cross-domain prerequisites by actual report;privacy safeguards accompany earlier slices too
+Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. No real payments/data, provider integrations or unsupported quota actions; Phase 1c follows app-wide UI/UX. Verify exact staging schema approval before apply; Owner promotion.
 
 ## Actual delivery status for the current family
 
-- Design: Owner approved the synthetic reconciliation reports and Guardian privacy-review workflow. Preparation retained for when this batch resumes.
-- Implementation: Planned batch;not implemented by the master-plan documentation;reuse current qualified source and preserve unbuilt scope
-- Local checks: Documentation structure only;new product checks not executed
-- Deployment: Not deployed as this new batch;retain earlier exact-source receipts
-- Hosted verification: Not executed for this batch;prior qualified hosted/device evidence remains separate
-- Owner acceptance: Master planning requested;existing scoped approvals retained;new working acceptance not recorded
-- Independent security: Deferred by Owner for authorized synthetic staging;nonblocking,not performed;production/real-data authority separate
+- Design: Owner adopted the frozen commercial vision and selected this stage on 26 November. Appendix A specification items remain open.
+- Implementation: Repository audit and Phase 1a are next. EX-23 verified fictional platform commerce is the reuse baseline.
+- Local checks: Planning and routing checks only for EX-30. Scope new product checks during the audit.
+- Deployment: No EX-30 deployment. Retain exact EX-23 and EX-25 release evidence.
+- Hosted verification: Staging migration 20261126140813 verified on 501b937. Hieu Platform Owner and Nahr Academy Owner EN/AR workflow passed: version-2 assignment, one invoice, one accepted claim, one settlement, 0.00 due; existing version-1 ledger unchanged.
+- Owner acceptance: Frozen direction and synthetic rollout approved. Signed-in workflow verified; formal Owner working acceptance remains open.
+- Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 
 ## Registered scoped worker work
 
@@ -153,8 +153,8 @@ Source: `docs/06-delivery/ai-work-items.csv`; the EX tracker still owns the sole
 16. **EX-22 — Staff attendance to Trainer earnings and payout** (checkpoint_passed; MP-B07).
 17. **EX-24 — Communications and support with delivery recovery** (checkpoint_passed; MP-B09).
 18. **EX-25 — Private media with consent and lifecycle** (checkpoint_passed; MP-B10).
-19. **EX-30 — Commercial & Business Operations** (checkpoint_passed; MP-B15).
-20. **EX-26 — Reconciled reports and privacy requests** (current; MP-B11).
+19. **EX-30 — Commercial & Business Operations** (current; MP-B15).
+20. **EX-26 — Reconciled reports and privacy requests** (queued; MP-B11).
 21. **EX-27 — Inventory quantity and movement day** (queued; MP-B12).
 22. **EX-28 — Whole release readiness and operating proof** (queued; MP-B13).
 23. **EX-29 — Future native and advanced channel expansion** (queued; MP-B14).

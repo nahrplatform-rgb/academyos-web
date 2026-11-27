@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "45d0f3acc381806fb7790b18c95de954e70ee20c",
+  "source_anchor": "a16dd508b9de62df5fbacaa413667662141a20cf",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -349,6 +349,11 @@
       "bytes": 2054
     },
     {
+      "path": "apps/web/src/app/api/platform-commerce-webhook/route.ts",
+      "sha256": "52ef4421c9de7bef8787a3b623b6b134f3fd13bc45eb43d6cb959fcd437e9f5d",
+      "bytes": 794
+    },
+    {
       "path": "apps/web/src/app/api/program-planning/route.ts",
       "sha256": "02aceb2d6a3351b336e8c2eb72576946b09c86b77dd82194d0e65b04c8a83dc2",
       "bytes": 2714
@@ -489,6 +494,11 @@
       "bytes": 40928
     },
     {
+      "path": "apps/web/src/components/change-preview-screen.tsx",
+      "sha256": "8f979901c32aabee3e1950dc88afcb5ca0c297d879ec6100b105e688d72d2fc2",
+      "bytes": 2614
+    },
+    {
       "path": "apps/web/src/components/class-media-gallery.tsx",
       "sha256": "83e712fe9d7b7354afd0139096f72e320c74f6dbea2ac0bec9182b0f0dfe9580",
       "bytes": 4713
@@ -507,6 +517,11 @@
       "path": "apps/web/src/components/date-planning-workspace.tsx",
       "sha256": "af326c6ee6fb70fcbe5746e2aedc4d5626ef9023d25422a1cb74cb9969e6ab75",
       "bytes": 29509
+    },
+    {
+      "path": "apps/web/src/components/demo-conversion-flow.tsx",
+      "sha256": "73cabaaf7bfe65a9759193d8a3a313679aaf4c0e285187c9f7e9cb146bc54343",
+      "bytes": 4919
     },
     {
       "path": "apps/web/src/components/development-workspace.tsx",
@@ -529,6 +544,11 @@
       "bytes": 32196
     },
     {
+      "path": "apps/web/src/components/mrr-dashboard.tsx",
+      "sha256": "62991624a0cc61eeb60eed5147d657c693d296464e9898b5ad065f412777accb",
+      "bytes": 5106
+    },
+    {
       "path": "apps/web/src/components/onboarding-workspace.tsx",
       "sha256": "e3e4eb822ff98552379788435f2f47682c9e1351cc8cb7916a8e5bfbedd12767",
       "bytes": 40339
@@ -547,6 +567,11 @@
       "path": "apps/web/src/components/people-workspace.tsx",
       "sha256": "5cd1a7843f90fb17e059b944ffb00168a4102151eb5544e89f0e17f8f4797f4f",
       "bytes": 63864
+    },
+    {
+      "path": "apps/web/src/components/plan-change-acceptance.tsx",
+      "sha256": "ca3ea9bd48973740c74f705178644263653529a91f38e74e37627e353209cf52",
+      "bytes": 3421
     },
     {
       "path": "apps/web/src/components/platform-commerce-workspace.tsx",
@@ -984,6 +1009,11 @@
       "bytes": 3498
     },
     {
+      "path": "apps/web/src/lib/payment-adapter.ts",
+      "sha256": "3b1c85207f00aeb9972c9081a18429c49100b8ddb948cb0edd0ff96f85596f97",
+      "bytes": 5054
+    },
+    {
       "path": "apps/web/src/lib/people-view-context.test.ts",
       "sha256": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
       "bytes": 1272
@@ -1015,8 +1045,8 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "sha256": "4ca17c0e20ac542210359c2161b4ed7d9aeb03dfab705c991c2ced1ce1c07168",
-      "bytes": 5439
+      "sha256": "fa9fe4e07dd5335fd0bc4a26c84f99c6145fa378dfac08d75cafc8b3bd77b01c",
+      "bytes": 6475
     },
     {
       "path": "apps/web/src/lib/player-photo.ts",
@@ -1552,6 +1582,11 @@
       "path": "supabase/migrations/20261202120000_ex30_demo_conversion.sql",
       "sha256": "67970fe999e198ddb332c7a624998daad96593fd11de25bd7b80ab02b2d9c4cd",
       "bytes": 3335
+    },
+    {
+      "path": "supabase/migrations/20261203120000_ex30_benefit_migrations.sql",
+      "sha256": "f46833cf33a04ffc8c890d928ae40469a508767c5faa33094f59bcb66932c0a3",
+      "bytes": 2888
     }
   ],
   "page_paths": [
@@ -1623,6 +1658,7 @@
     "apps/web/src/app/api/people/route.ts",
     "apps/web/src/app/api/planning/route.ts",
     "apps/web/src/app/api/platform-commerce/route.ts",
+    "apps/web/src/app/api/platform-commerce-webhook/route.ts",
     "apps/web/src/app/api/program-planning/route.ts",
     "apps/web/src/app/api/programs/route.ts",
     "apps/web/src/app/api/publication/route.ts",
@@ -1873,6 +1909,20 @@
       ]
     },
     {
+      "path": "apps/web/src/lib/payment-adapter.ts",
+      "line": 49,
+      "case_labels": [
+        "paymob"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/payment-adapter.ts",
+      "line": 51,
+      "case_labels": [
+        "whop"
+      ]
+    },
+    {
       "path": "apps/web/src/lib/people.ts",
       "line": 21,
       "case_labels": [
@@ -2001,58 +2051,72 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 52,
+      "line": 54,
       "case_labels": [
         "publish_plan"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 57,
+      "line": 59,
       "case_labels": [
         "assign"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 63,
+      "line": 65,
       "case_labels": [
         "issue"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 67,
+      "line": 69,
       "case_labels": [
         "claim"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 72,
+      "line": 74,
       "case_labels": [
         "review"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 78,
+      "line": 80,
       "case_labels": [
         "create_demo"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 82,
+      "line": 84,
       "case_labels": [
         "use_invitation"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 86,
+      "line": 88,
       "case_labels": [
         "convert_demo"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 98,
+      "case_labels": [
+        "apply_benefit_migration"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 107,
+      "case_labels": [
+        "benefit_migrations"
       ]
     },
     {
@@ -2323,10 +2387,10 @@
     }
   ],
   "counts": {
-    "source_files": 310,
+    "source_files": 317,
     "page_paths": 49,
-    "api_routes": 33,
-    "migrations": 56
+    "api_routes": 34,
+    "migrations": 57
   },
   "pwa_metadata": {
     "public_manifest_present": false,
