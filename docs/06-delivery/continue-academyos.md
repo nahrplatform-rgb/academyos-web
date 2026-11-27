@@ -87,7 +87,7 @@ Verify the one approved fictional billing notification on promoted staging throu
 
 ### Separate release follow-up
 
-9e90350 is live on staging. The fictional billing notification candidate needs Owner promotion after Foundation and preview. Optional organization migration awaits exact approval and staging-backup rehearsal.
+9e90350 is live on staging. Notification candidate e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875 has a Ready preview and Foundation 46076496092 passed 60/60. Owner promotion requested. Optional organization migration awaits exact approval and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 

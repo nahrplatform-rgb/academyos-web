@@ -1,6 +1,6 @@
 {
-  "source": "9e90350500fec30abf86197dbba827cafce8b01c",
-  "generatedAt": "2026-11-27T22:17:49.448Z",
+  "source": "e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875",
+  "generatedAt": "2026-11-27T22:44:12.974Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -18,7 +18,7 @@
     "apps/web/src/app/[locale]/workspace/[academy]/billing/page.tsx": "f737f380a3b6453ebd4697e9e1ca321c14a73e8379450750ba560d2df607ffb7",
     "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed",
     "apps/web/src/app/[locale]/workspace/[academy]/class-media/[event]/page.tsx": "2ab62256afad16e86011a2e4bdfd640186721229f5f7d08ef71713e25d732526",
-    "apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx": "bde0166b889b28b6e1728a8081544f993b459437778eef425906a3da4f253b6e",
+    "apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx": "a42c59ecb30fd176af4ec23f5521ab7231b79f6037ad2928ec2ae2c59bfb41f9",
     "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx": "de87ec0609ab2ce72daa98c55ca56ba1c0958dfbb8f8b3e35c5c36a471ba6983",
     "apps/web/src/app/[locale]/workspace/[academy]/gallery/page.tsx": "a20ae2622c216f7bc1c8e5eb35cfa805e758d0cd5e3c49429effb6ad7d8838ca",
     "apps/web/src/app/[locale]/workspace/[academy]/guardian/billing/page.tsx": "83c8f125a703a8fe6118f04e86ca2a7e2b241ae81f9aa78f5221e60d808be79c",
@@ -177,9 +177,9 @@
     "scripts/session-changes/test_ui.mjs": "594383c942445f72e364988a9b6caea51bfc554300f4efb9c557ea7880a93111",
     "scripts/trainers/test_ui.mjs": "1a927ad2f3b1a69e6af8e459e3e5a95b82436532659e90d3dd5fcccf9d327be6",
     "scripts/working-day/owner_db.py": "cc913d6ef432f0ad5ffc9b73c1a1e651dc767c16e75eecacc6ca90e0ad273a12",
-    "scripts/working-day/owner_fixture.mjs": "de92ef79b9ccccfc4877750b559596ea03b5318959d1c6e59f1dab7d6ae75ad8",
+    "scripts/working-day/owner_fixture.mjs": "c2fd5ea9b6fc2f4d871748c57c3c2bd8c3fb29de9cf57d2e9ff5a53423ed2dc5",
     "scripts/working-day/test_family_billing_day.mjs": "2f224f79b9093229d7a24f339e45a23177a80525ac05f6280866cd6fcfa7b508",
-    "scripts/working-day/test_platform_commerce.mjs": "8f97a2810fa49d3de0c8a315dcfd6a9f09176ca6b5c580ce4a97175ac1c421de",
+    "scripts/working-day/test_platform_commerce.mjs": "361011b42e97aa070475ca700fbb67c9a3d7f0f12a538c0c6bbbd74caec20f01",
     "scripts/working-day/test_trainer_compensation.mjs": "625b56863910819a5af58dbbb7f601fe07be56823f0d02058695aa1807636de7",
     "scripts/workspace-layout/test_ui.mjs": "9c760a3f664e8291e66bfd4b6274da9242204f1bd3865d2fbedae6b8edfdd588",
     "supabase/migrations/20261121195423_ex21_family_billing.sql": "b2ff29fd009b3a7d777e347199b8c94b50024da856f8d3f20c0e376f2bc11bee",
@@ -193,12 +193,12 @@
     "supabase/migrations/20261125151806_ex25_staff_gallery.sql": "0f13c51e6042aefb130c1001dd7c5efb3e106612da3094d70404377d7a6f4056",
     "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f"
   },
-  "capturePackSha256": "43e88b21514c379382daf541e3acf4dfa3d883be193ebfeeae25bca8c1f8dd1e",
-  "htmlSha256": "5b018f39e969d2382ac708557d54b10f23b3ded1df6e05c6cdd5b482c562ee4a",
-  "frames": 2340,
+  "capturePackSha256": "87c06ce7229d22b0219cb3be9ae07b415bb08eccd8ddec985ae77608f41a1db3",
+  "htmlSha256": "0dbc1b26db9db070caad523dc6f36125c75277f428df24ba1ba06abf16236b3c",
+  "frames": 2359,
   "transitions": 3077,
   "sourceFiles": 110,
-  "sourceLiterals": 11380,
+  "sourceLiterals": 11377,
   "journeys": [
     {
       "id": "entry",
@@ -270,15 +270,15 @@
     },
     {
       "id": "billing",
-      "frames": 102
+      "frames": 108
     },
     {
       "id": "trainer-compensation",
-      "frames": 109
+      "frames": 121
     },
     {
       "id": "platform-commerce",
-      "frames": 166
+      "frames": 167
     },
     {
       "id": "class-media",

@@ -332,6 +332,11 @@ export async function ownerFixture(root, temp, {pilot=false, reviews=false, mult
           "import {Onboarding as OnboardingWorkspace} from '__CLIENT__';")
         .replace('import { uuidPattern } from "@/lib/onboarding";',
           'const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;'));
+      const commercialEntry = await readFile(join(root, 'apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx'), 'utf8');
+      await page('commercial/page.tsx', commercialEntry
+        .replace("import { auth } from '@clerk/nextjs/server';", 'const auth={protect:async()=>{}};')
+        .replace("import { uuidPattern } from '@/lib/onboarding';",
+          'const uuidPattern=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;'));
     }
     if (reviews || compensation || commerce) {
       for (const [path, localName, exportName, file] of [

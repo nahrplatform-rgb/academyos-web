@@ -91,6 +91,7 @@ try {
       await expect(owner.getByRole('heading', { name: t('Initial setup saved', 'حُفظ الإعداد الأولي'), exact: true })).toBeVisible();
     }
     const ownerRoute = `${fixture.origin}/${locale}/workspace/${academy}/platform-plan`;
+    const commercialEntry = `${fixture.origin}/${locale}/workspace/${academy}/commercial`;
     await platform.goto(platformRoute);
     if (!index) await click(platform, 'publish_plan', button(platform, 'Publish fictional plan', 'نشر الخطة الافتراضية'));
     const academies = platform.getByRole('combobox', {name:t('Academy','الأكاديمية'),exact:true});
@@ -105,7 +106,8 @@ try {
       limit: agreedVersion === 2 ? 3 : 2 });
     assert.equal(quota.limitBlocked, true);
     assert.equal(quota.total, agreedVersion === 2 ? 3 : 2);
-    await owner.goto(ownerRoute);
+    await owner.goto(commercialEntry);
+    assert.equal(owner.url(), ownerRoute);
     await state(owner, 'Status: Trial', 'الحالة: تجريبية');
     await state(owner, `Agreed offer version: ${agreedVersion}`, `إصدار العرض المتفق عليه: ${agreedVersion}`);
     await state(owner, '2026-11-01 – 2026-11-14', '2026-11-01 – 2026-11-14');
@@ -128,7 +130,8 @@ try {
     assert.equal(restricted.publicationBlocked, existing ? true : null);
     assert.equal(restricted.playersAfter, restricted.playersBefore);
     if (existing) assert.equal(restricted.existingAttendanceReadable, true);
-    await outsider.goto(ownerRoute);
+    await outsider.goto(commercialEntry);
+    assert.equal(outsider.url(), ownerRoute);
     await expect(outsider.locator('main.journey-card').getByRole('alert')).toContainText(t('Access is unavailable', 'الصلاحية غير متاحة'));
     await expect(outsider.getByText('1000.00', { exact: false })).toHaveCount(0);
 

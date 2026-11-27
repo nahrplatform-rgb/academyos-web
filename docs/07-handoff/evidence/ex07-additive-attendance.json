@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "completed": "2026-11-27T19:39:18.971Z",
+  "completed": "2026-11-27T22:50:18.517Z",
   "checks": [
     "Preparing another event preserves the first pending original and creates an independent second original",
     "Both exact normal URLs reopen from the worker offline with the same protected originals and roster",
@@ -24,7 +24,7 @@
     "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
     "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
     "scripts/working-day/test_additive_attendance.mjs": "ff02c4bf05af013a4f4ee1bc4db6a2b0749ef736df898c9e2cc00bf255132a79",
-    "scripts/working-day/owner_fixture.mjs": "de92ef79b9ccccfc4877750b559596ea03b5318959d1c6e59f1dab7d6ae75ad8",
+    "scripts/working-day/owner_fixture.mjs": "c2fd5ea9b6fc2f4d871748c57c3c2bd8c3fb29de9cf57d2e9ff5a53423ed2dc5",
     "scripts/working-day/owner_db.py": "cc913d6ef432f0ad5ffc9b73c1a1e651dc767c16e75eecacc6ca90e0ad273a12",
     "scripts/register-key/bound_fixture.py": "d8c4ff2f06ec58faf7d392cdb7fc3c72c13816e9c445c6bab33f19e92d59160b",
     "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",

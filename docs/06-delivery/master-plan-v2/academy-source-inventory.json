@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "9e90350500fec30abf86197dbba827cafce8b01c",
+  "source_anchor": "e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -105,8 +105,8 @@
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/commercial/page.tsx",
-      "sha256": "bde0166b889b28b6e1728a8081544f993b459437778eef425906a3da4f253b6e",
-      "bytes": 625
+      "sha256": "a42c59ecb30fd176af4ec23f5521ab7231b79f6037ad2928ec2ae2c59bfb41f9",
+      "bytes": 506
     },
     {
       "path": "apps/web/src/app/[locale]/workspace/[academy]/development/page.tsx",

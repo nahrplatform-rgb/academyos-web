@@ -93,8 +93,8 @@
               "mode": "canonical",
               "locale": "en",
               "width": 360,
-              "firstRowTop": 428,
-              "markBottom": 552,
+              "firstRowTop": 446,
+              "markBottom": 570,
               "minimumMarkHeight": 48,
               "minimumMarkWidth": 99,
               "reviewTop": 726,
@@ -244,7 +244,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=aab1fc32-7903-42a0-b9f4-ede7e59dd223"
+          "task": "#attendance-return=007cd2ca-52c1-405b-840d-a3582dd93702"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -326,7 +326,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#attendance-return=d3944bfe-6e74-4c51-9b3e-121100efa231"
+          "task": "#attendance-return=9b023b74-7131-417b-a271-2f86cd3fdd51"
         },
         "dirtyCancelPreservedChoice": true,
         "heldReturnMasksUncheckedQueue": true
@@ -453,7 +453,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#correction-return=bea16fe9-efbf-4df0-8f2c-f938fe402e3b"
+          "task": "#correction-return=922c8ab2-bbfb-460e-a89f-d53a378cf331"
         },
         "dirtyCancelPreserved": true
       },
@@ -535,7 +535,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=a39974b9-3333-4a7d-b251-f162443fdb3e"
+          "task": "#development-return=ce2e65e3-245e-4e5b-90f1-1c2ee4e68cd5"
         },
         "dirtyCancelPreserved": true
       },
@@ -617,7 +617,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#development-return=7173b3dd-7db8-4be7-a394-128ded3716e3"
+          "task": "#development-return=71fe76bd-693e-4662-bee9-fb3f6b8c0ec7"
         },
         "dirtyCancelPreserved": true
       },
@@ -754,7 +754,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=23947708-ae39-4c77-b491-51497d64c40b"
+          "task": "#publication-return=cdc3f728-4db8-4d54-82fc-dd681b684f34"
         }
       },
       {
@@ -787,7 +787,7 @@
         },
         "focus": {
           "id": "",
-          "task": "#publication-return=47f55181-3690-4983-af4d-16568e76d4a2"
+          "task": "#publication-return=0f82b9aa-4067-4b13-bd79-ace76e5b6c8d"
         }
       },
       {
@@ -1034,7 +1034,7 @@
     "scripts/working-day/owner_review_return.mjs": "12589131eaf0d5e1a8b0dab11a1b760371efe9ffa5f930ba9f26d85577906cae",
     "scripts/working-day/owner_publication_return.mjs": "ce8b032171f9c70e37ab6f1d9a3edeb618769b166fe8c0f2a0f17cef85254308",
     "scripts/working-day/register_geometry.mjs": "3b0c6155c078722e461c052f2f5a78fde876fc4fc9c9c4f2aeafffbd2e4a46d9",
-    "scripts/working-day/owner_fixture.mjs": "de92ef79b9ccccfc4877750b559596ea03b5318959d1c6e59f1dab7d6ae75ad8",
+    "scripts/working-day/owner_fixture.mjs": "c2fd5ea9b6fc2f4d871748c57c3c2bd8c3fb29de9cf57d2e9ff5a53423ed2dc5",
     "scripts/working-day/owner_db.py": "cc913d6ef432f0ad5ffc9b73c1a1e651dc767c16e75eecacc6ca90e0ad273a12",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
     "apps/web/src/app/[locale]/workspace/[academy]/attendance/corrections/page.tsx": "7c8c07f629daae46c2e5de5db69f9e53b15530afee10869d8b5ae9b46d120150",
