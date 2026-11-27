@@ -43,6 +43,8 @@ export default function MrrDashboard({ locale }: Props) {
     } finally { setBusy(false); }
   }, []);
 
+  // Loading remote dashboard data is an external synchronization effect.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { void load(); }, [load]);
 
   if (!data) return <p role="status">{t('Loading…', 'جارٍ التحميل…')}</p>;

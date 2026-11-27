@@ -64,6 +64,8 @@ function Commerce({ locale, academy, subject }: { locale: Locale; academy: strin
     } finally { setBusy(false); }
   }, [academy]);
 
+  // Loading remote commercial context is an external synchronization effect.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { void load(); }, [load]);
 
   const labels: Record<string, string> = {
