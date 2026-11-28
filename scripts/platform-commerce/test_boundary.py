@@ -257,6 +257,30 @@ try:
     """) == '0'
     print('PASS EX-30 one verified Owner with two independent agreements, quota reads, invoices and scoped audit')
 
+    Boundary.sql((ROOT / 'supabase/migrations/20261128120000_ex30_demo_foundation.sql').read_text())
+    Boundary.sql((ROOT / 'supabase/migrations/20261128140000_ex30_demo_gateway_paths.sql').read_text())
+    Boundary.sql((ROOT / 'supabase/migrations/20261130120000_ex30_demo_rpcs.sql').read_text())
+    demo = json.loads(test.sql(
+        "select public.x30_create_demo('Prospect Demo','prospect@example.invalid','+201000000000')",
+        'user_platform'))
+    demo_academy = demo['academyId']
+    token_hash = demo['tokenHash']
+    assert test.sql(f"select account_type from academy.academies where id='{demo_academy}'") == 'demo'
+    assert test.sql(f"select count(*) from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == '1'
+    test.sql(f"select public.x30_create_demo('Denied Demo',null,null)", 'user_other_owner', ok=False)
+    redeemed = json.loads(test.sql(
+        f"select public.x30_use_invitation('{token_hash}')", 'user_owner'))
+    assert redeemed['academyId'] == demo_academy
+    test.sql(f"select public.x30_use_invitation('{token_hash}')", 'user_owner', ok=False)
+    test.sql("select public.x30_use_invitation('not-a-token')", 'user_owner', ok=False)
+    test.sql(f"select public.x30_hold_demo('{demo_academy}')", 'user_platform')
+    assert test.sql(f"select held_at is not null from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == 't'
+    test.sql(f"select public.x30_delete_demo('{demo_academy}')", 'user_owner', ok=False)
+    test.sql(f"select public.x30_delete_demo('{demo_academy}')", 'user_platform')
+    assert test.sql(f"select deleted_at is not null from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == 't'
+    assert test.sql(f"select name like '%(deleted)' from academy.academies where id='{demo_academy}'") == 't'
+    print('PASS EX-30 demo foundation creation, single-use invitation, lifecycle controls and Platform Owner scope')
+
     before_paymob = ledger()
     migration, = (ROOT / 'supabase/migrations').glob('*_ex30_paymob_test_renewal.sql')
     Boundary.sql(migration.read_text())

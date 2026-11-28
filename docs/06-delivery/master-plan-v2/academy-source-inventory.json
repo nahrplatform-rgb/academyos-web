@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "c52abd18a8f6019c30de9ff4dfd0fedd82f2b56d",
+  "source_anchor": "18dca0d8d0efa99362f3218d97000224288ee423",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -1594,6 +1594,11 @@
       "bytes": 1667
     },
     {
+      "path": "supabase/migrations/20261128140000_ex30_demo_gateway_paths.sql",
+      "sha256": "66450147396458e5ad8459680dee83adc521953f541b32e84bd131e89c808d96",
+      "bytes": 603
+    },
+    {
       "path": "supabase/migrations/20261129120000_ex30_multi_academy.sql",
       "sha256": "57c5e317ef96f1cd64e26eb119b5d8e23b29b987548cda78e2e43197685a3a40",
       "bytes": 271
@@ -2418,10 +2423,10 @@
     }
   ],
   "counts": {
-    "source_files": 323,
+    "source_files": 324,
     "page_paths": 49,
     "api_routes": 35,
-    "migrations": 58
+    "migrations": 59
   },
   "pwa_metadata": {
     "public_manifest_present": false,

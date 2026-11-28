@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Obtain Egypt Test Mode MIGS MOTO and 3DS enrollment integrations and confirm how the account can schedule a single automatic renewal with retries omitted. Wire the verified invoice binding and signed callback, then prove enrollment and one renewal against the merchant test account.
+Complete provider-free demo foundation follow-up with verified prospect ownership and fictional invitation delivery boundaries, then continue the Academy Owner and Platform Owner commercial workspace milestones. Keep conversion verification, Paymob, Whop, retries and dunning deferred until their dependencies are settled.
 
 ### Separate release follow-up
 
-Staging f01e5b7 still serves the checked commercial trial. Paymob hosted verification needs merchant MOTO and enrollment setup, checked callback wiring, and exact migration approval with backup rehearsal. The fictional notification is deferred with dunning.
+Staging f01e5b7 remains unchanged. Demo foundation is local synthetic evidence only. Paymob hosted verification, provider setup, conversion proof and any later staging migration require their existing approvals and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
@@ -102,8 +102,8 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic auth
 ## Actual delivery status for the current family
 
 - Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
-- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1e has local Paymob enrollment evidence checks and a private renewal settlement path. The hosted Paymob callback is inactive. Phase 1d retries and dunning are deferred. Phase 1h uses existing memberships and a locally rehearsed optional organization field.
-- Local checks: EX-23 and Phase 1a and 1b regressions passed. Synthetic signed enrollment and renewal observations reconcile through test inquiry and history to one settlement in PostgreSQL 17. Concurrent replay, audit rollback, failed renewal review and populated-ledger migration checks passed.
+- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1g demo foundation creation, single-use invitation redemption and lifecycle controls pass locally. Phase 1e has local Paymob enrollment evidence checks and a private renewal settlement path. The hosted Paymob callback is inactive. Phase 1d retries and dunning are deferred. Phase 1h uses existing memberships and a locally rehearsed optional organization field.
+- Local checks: EX-23 and Phase 1a and 1b regressions passed. Demo foundation creation, invalid and reused invitation refusal, hold/delete lifecycle and Platform Owner scope passed in disposable PostgreSQL 17. Synthetic signed enrollment and renewal observations reconcile through test inquiry and history to one settlement. Concurrent replay, audit rollback, failed renewal review and populated-ledger migration checks passed.
 - Deployment: Staging deployment dpl_QAsHuvUfK1r1TYBdyMYSTkkrZiaR serves f01e5b7 (Foundation 46082280931). Hosted migration 20261126140813 only at last schema readback.
 - Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows. On f01e5b7 Nahr received 403 on the notification action and Hieu received 503 with a different mailbox configured.
 - Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
