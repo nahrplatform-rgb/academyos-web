@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "18dca0d8d0efa99362f3218d97000224288ee423",
+  "source_anchor": "a41cbd6f0298b6b823b68420720e7f7684392a94",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -1609,6 +1609,11 @@
       "bytes": 4130
     },
     {
+      "path": "supabase/migrations/20261130150000_ex30_demo_invitation_safety.sql",
+      "sha256": "da1917bdb53e1c6e052ab1fba6a3715908c3f54db4c4d59f2fa65e8a491eecea",
+      "bytes": 1307
+    },
+    {
       "path": "supabase/migrations/20261201120000_ex30_offline_entitlement_contracts.sql",
       "sha256": "7a99923f2bb355ca27b44c67646c385c48b6256a20843c7f5865bd4b0a73a990",
       "bytes": 4775
@@ -2423,10 +2428,10 @@
     }
   ],
   "counts": {
-    "source_files": 324,
+    "source_files": 325,
     "page_paths": 49,
     "api_routes": 35,
-    "migrations": 59
+    "migrations": 60
   },
   "pwa_metadata": {
     "public_manifest_present": false,

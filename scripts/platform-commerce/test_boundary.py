@@ -260,6 +260,7 @@ try:
     Boundary.sql((ROOT / 'supabase/migrations/20261128120000_ex30_demo_foundation.sql').read_text())
     Boundary.sql((ROOT / 'supabase/migrations/20261128140000_ex30_demo_gateway_paths.sql').read_text())
     Boundary.sql((ROOT / 'supabase/migrations/20261130120000_ex30_demo_rpcs.sql').read_text())
+    Boundary.sql((ROOT / 'supabase/migrations/20261130150000_ex30_demo_invitation_safety.sql').read_text())
     demo = json.loads(test.sql(
         "select public.x30_create_demo('Prospect Demo','prospect@example.invalid','+201000000000')",
         'user_platform'))
@@ -273,6 +274,18 @@ try:
     assert redeemed['academyId'] == demo_academy
     test.sql(f"select public.x30_use_invitation('{token_hash}')", 'user_owner', ok=False)
     test.sql("select public.x30_use_invitation('not-a-token')", 'user_owner', ok=False)
+    race_demo = json.loads(test.sql(
+        "select public.x30_create_demo('Race Demo','race@example.invalid',null)", 'user_platform'))
+    race_token = race_demo['tokenHash']
+    def redeem_race(subject):
+        try:
+            return ('ok', json.loads(test.sql(
+                f"select public.x30_use_invitation('{race_token}')", subject)))
+        except AssertionError:
+            return ('refused', None)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        race_results = list(pool.map(redeem_race, ('user_owner', 'user_other_owner')))
+    assert sorted(result[0] for result in race_results) == ['ok', 'refused']
     test.sql(f"select public.x30_hold_demo('{demo_academy}')", 'user_platform')
     assert test.sql(f"select held_at is not null from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == 't'
     test.sql(f"select public.x30_delete_demo('{demo_academy}')", 'user_owner', ok=False)
