@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "1f15dc24a1f3dbe9fae32bb145a7e25e13f49235",
+  "source_anchor": "c52abd18a8f6019c30de9ff4dfd0fedd82f2b56d",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -1029,6 +1029,11 @@
       "bytes": 4486
     },
     {
+      "path": "apps/web/src/lib/paymob-renewal.ts",
+      "sha256": "adc2c10454f4605d2f8060a6d2e0300434a1eb6e6bc95f3db3681a192dff1637",
+      "bytes": 9822
+    },
+    {
       "path": "apps/web/src/lib/people-view-context.test.ts",
       "sha256": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
       "bytes": 1272
@@ -1577,6 +1582,11 @@
       "path": "supabase/migrations/20261127120000_ex30_dunning_management.sql",
       "sha256": "4449cf070ee8f1535d4c4ec1882053c32d556a543ac4a5c3229642c32a18350e",
       "bytes": 4305
+    },
+    {
+      "path": "supabase/migrations/20261128010958_ex30_paymob_test_renewal.sql",
+      "sha256": "d6b21456c345a5ee52f42206aa4e46fe72fff600014a1f671a1f6f0b9d2d0dd9",
+      "bytes": 8693
     },
     {
       "path": "supabase/migrations/20261128120000_ex30_demo_foundation.sql",
@@ -2408,10 +2418,10 @@
     }
   ],
   "counts": {
-    "source_files": 321,
+    "source_files": 323,
     "page_paths": 49,
     "api_routes": 35,
-    "migrations": 57
+    "migrations": 58
   },
   "pwa_metadata": {
     "public_manifest_present": false,

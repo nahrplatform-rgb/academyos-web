@@ -1,6 +1,7 @@
 """Disposable PostgreSQL checks for the approved fictional platform trial."""
 import json
 import runpy
+import subprocess
 import uuid
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -255,5 +256,98 @@ try:
       ) <> 1
     """) == '0'
     print('PASS EX-30 one verified Owner with two independent agreements, quota reads, invoices and scoped audit')
+
+    before_paymob = ledger()
+    migration, = (ROOT / 'supabase/migrations').glob('*_ex30_paymob_test_renewal.sql')
+    Boundary.sql(migration.read_text())
+    after_paymob = ledger()
+    for table, previous_rows in before_paymob.items():
+        rows = json.loads(after_paymob[table])
+        if table == 'settlements':
+            for row in rows:
+                assert row.pop('paymob_test_transaction_id') is None
+        assert rows == json.loads(previous_rows), table
+    renewal = uid()
+    wire = json.loads(subprocess.check_output(
+        ['node', '--import', 'tsx', str(ROOT / 'scripts/platform-commerce/test_paymob_renewal.mjs'), renewal],
+        cwd=ROOT, text=True,
+    ))
+    renewal_binding = wire['binding']
+    assert renewal_binding['invoiceReference'] == renewal and renewal_binding['amountMinor'] == 100000
+    merchant = int(renewal_binding['merchantId'])
+    paymob_subscription = int(renewal_binding['subscriptionId'])
+    integration = int(renewal_binding['integrationId'])
+    initial_transaction = int(renewal_binding['enrollmentTransactionId'])
+    test.sql(f"""
+      insert into academy.platform_invoices
+        (id,academy_id,subscription_id,amount,issued_on,due_on,period_start,period_end,created_by)
+      values ('{renewal}','{a}','{sub}',100000,'2026-12-15','2026-12-15','2026-12-15','2027-01-14','fixture');
+      insert into academy.platform_paymob_test_renewals
+        values ('{renewal}',{merchant},{paymob_subscription},{integration},{initial_transaction});
+    """)
+    assert context('owner', 'user_owner')['invoice']['id'] == invoice
+    cmd('claim', {'invoice': renewal, 'amount': 100000, 'reference': 'Renewal'},
+        subject='user_owner', ok=False)
+
+    def paymob_query(observation, academy=a, amount=100000):
+        assert observation['invoiceReference'] == renewal
+        stamp = literal(observation['paidAt']) if 'paidAt' in observation else 'null'
+        return (f"select academy.x30_record_paymob_test_renewal('{academy}','{renewal}',"
+                f"{merchant},{paymob_subscription},{integration},{int(observation['transactionId'])},"
+                f"{amount},{literal(observation['status'])},"
+                f"{literal(observation['occurredAt'])},{stamp})")
+
+    callback = wire['callback']
+    for role in ('anon', 'authenticated'):
+        test.sql(f"set role {role}; {paymob_query(callback)}", ok=False)
+    test.sql(paymob_query(dict(callback, transactionId=initial_transaction)), ok=False)
+    test.sql(paymob_query(callback, academy=foreign), ok=False)
+    test.sql(paymob_query(callback, amount=100001), ok=False)
+    test.sql(paymob_query(dict(callback, occurredAt='2026-12-14T20:00:00Z')), ok=False)
+    pending = json.loads(test.sql(paymob_query(wire['pending'])))
+    assert pending['status'] == 'pending'
+    declined = json.loads(test.sql(paymob_query(wire['declined'])))
+    assert declined['status'] == 'review_required' and declined['id'] != pending['id']
+    assert json.loads(test.sql(paymob_query(dict(wire['declined'], status='pending')))) == declined
+    assert test.sql(f"select count(*) from academy.platform_settlements where invoice_id='{renewal}'") == '0'
+    test.sql("""
+      create function academy.fixture_refuse_paymob_audit() returns trigger language plpgsql as $$
+      begin
+        if new.action='platform_commerce.paymob_settled' then
+          raise exception 'Fixture failure after settlement insert';
+        end if;
+        return new;
+      end $$;
+      create trigger fixture_refuse_paymob_audit before insert on academy.audit_events
+        for each row execute function academy.fixture_refuse_paymob_audit();
+    """)
+    test.sql(paymob_query(callback), ok=False)
+    assert test.sql(f"select count(*) from academy.platform_settlements where invoice_id='{renewal}'") == '0'
+    assert test.sql(f"select status from academy.platform_paymob_test_transactions where id='{pending['id']}'") == 'pending'
+    test.sql("drop trigger fixture_refuse_paymob_audit on academy.audit_events;")
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        saved = list(pool.map(lambda observation: json.loads(test.sql(paymob_query(observation))),
+                              (callback, wire['inquiry'])))
+    assert saved == [dict(pending, status='settled')] * 2
+    assert json.loads(test.sql(paymob_query(wire['declined']))) == declined
+    assert json.loads(test.sql(paymob_query(wire['pending']))) == saved[0]
+    conflicting = dict(wire['pending'], status='review_required')
+    assert json.loads(test.sql(paymob_query(conflicting))) == dict(pending, status='review_required')
+    assert json.loads(test.sql(paymob_query(conflicting))) == dict(pending, status='review_required')
+    assert json.loads(test.sql(paymob_query(callback))) == saved[0]
+    assert json.loads(test.sql(paymob_query(wire['competing'])))['status'] == 'review_required'
+    assert test.sql(f"""
+      select count(*) from academy.platform_settlements
+      where invoice_id='{renewal}' and amount=100000 and claim_id is null
+        and paymob_test_transaction_id='{saved[0]['id']}'
+    """) == '1'
+    assert test.sql(f"select count(*) from academy.audit_events where operation_id='{pending['id']}' "
+                    "and action='platform_commerce.paymob_settled'") == '1'
+    assert test.sql(f"select count(*) from academy.audit_events where operation_id='{pending['id']}' "
+                    "and action='platform_commerce.paymob_settlement_conflict'") == '1'
+    assert context('owner', 'user_owner')['invoice'] == original_view['invoice']
+    assert cmd('review', review, op=review_op) == approvals[0]
+    print('PASS EX-30 Paymob test migration, renewal scope, unresolved events and concurrent one-settlement replay')
 finally:
     Boundary.tearDownClass()
