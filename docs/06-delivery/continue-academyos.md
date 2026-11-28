@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Complete provider-free demo foundation follow-up with verified prospect ownership and fictional invitation delivery boundaries, then continue the Academy Owner and Platform Owner commercial workspace milestones. Keep conversion verification, Paymob, Whop, retries and dunning deferred until their dependencies are settled.
+Continue provider-free Academy Owner and Platform Owner workspace completion against the synthetic delivery boundary. Keep demo conversion blocked until verified email proof exists, and keep Paymob, Whop, retries, dunning and offline entitlement work deferred.
 
 ### Separate release follow-up
 
-Staging f01e5b7 remains unchanged. Demo foundation is local synthetic evidence only. Paymob hosted verification, provider setup, conversion proof and any later staging migration require their existing approvals and backup rehearsal.
+Staging 958cdaf remains unchanged. The combined demo-delivery candidate is local only until Owner authorizes a separate promotion and migration. Paymob hosted verification, provider setup, conversion proof and any later staging migration require their existing approvals and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
@@ -102,10 +102,10 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic auth
 ## Actual delivery status for the current family
 
 - Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
-- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1g demo foundation creation, single-use invitation redemption and lifecycle controls pass locally. Phase 1e has local Paymob enrollment evidence checks and a private renewal settlement path. The hosted Paymob callback is inactive. Phase 1d retries and dunning are deferred. Phase 1h uses existing memberships and a locally rehearsed optional organization field.
-- Local checks: EX-23 and Phase 1a and 1b regressions passed. Demo foundation creation, invalid and reused invitation refusal, concurrent single-use redemption, hold/delete lifecycle and Platform Owner scope passed in disposable PostgreSQL 17. Synthetic signed enrollment and renewal observations reconcile through test inquiry and history to one settlement. Concurrent replay, audit rollback, failed renewal review and populated-ledger migration checks passed.
-- Deployment: Staging deployment dpl_QAsHuvUfK1r1TYBdyMYSTkkrZiaR serves f01e5b7 (Foundation 46082280931). Hosted migration 20261126140813 only at last schema readback.
-- Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows. On f01e5b7 Nahr received 403 on the notification action and Hieu received 503 with a different mailbox configured.
+- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1g now includes Platform Owner-owned synthetic invitation delivery records, failure and lost-response recovery boundaries, and active/held/deleted lifecycle controls. Phase 1e has local Paymob enrollment evidence checks and a private renewal settlement path. The hosted Paymob callback is inactive. Phase 1d retries and dunning are deferred. Phase 1h uses existing memberships and a locally rehearsed optional organization field.
+- Local checks: EX-23, Phase 1a and 1b regressions passed. Demo creation now queues a synthetic_email delivery record. Platform Owner-only delivery preparation and status transitions pass, failed delivery retry and lost-response recovery are idempotent, undelivered invitations are refused, concurrent redemption remains single-use, and active/held/deleted lifecycle controls plus multi-academy audit boundaries pass in disposable PostgreSQL 17. Synthetic signed enrollment and renewal observations reconcile through test inquiry and history to one settlement. Concurrent replay, audit rollback, failed renewal review and populated-ledger migration checks passed.
+- Deployment: Staging remains unchanged at deployment dpl_A5fAKMn12pMGUtKsQKXtbi2c7NLz serving exact source 958cdaf9f34e7131191a4f1c884dd13da092c7c0 (Foundation 46109871167). Hosted migration 20261126140813 only at last schema readback.
+- Hosted verification: No hosted verification for this batch and no staging migration or promotion performed. Existing signed-in EX-30 settlement and bilingual workspace evidence remains separate. Staging source and migration state are retained read-only.
 - Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
 - Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 

@@ -37,7 +37,7 @@ export function platformCommerceRequest(input: unknown) {
   }
 
   const op = uuid(request.operation);
-  const act = request.action;
+  const act = typeof request.action === 'string' ? request.action : '';
   if (act === 'operation') {
     allow(command);
     return { rpc: 'x23_operation_v1', args: { a, op } };
@@ -47,6 +47,7 @@ export function platformCommerceRequest(input: unknown) {
   if (act === 'create_demo' && a !== null) throw new CommerceInputError();
   if (act === 'use_invitation' && a === null) throw new CommerceInputError();
   if (act === 'convert_demo' && a === null) throw new CommerceInputError();
+  if (['prepare_demo_delivery', 'set_demo_delivery'].includes(act) && a !== null) throw new CommerceInputError();
   if (act === 'apply_benefit_migration' && a === null) throw new CommerceInputError();
   if (act === 'benefit_migrations' && a === null) throw new CommerceInputError();
   let payload: Record<string, unknown>;
@@ -85,6 +86,19 @@ export function platformCommerceRequest(input: unknown) {
       allow(command, ['token']);
       payload = { token: text(request.token, 200) };
       break;
+    case 'prepare_demo_delivery':
+      allow(command, ['invitation']);
+      payload = { invitation: uuid(request.invitation) };
+      break;
+    case 'set_demo_delivery':
+      allow(command, ['invitation', 'status', 'providerMessageId', 'failureCode']);
+      if (!['sent', 'failed', 'lost', 'recovered'].includes(request.status as string)) throw new CommerceInputError();
+      payload = {
+        invitation: uuid(request.invitation), status: request.status,
+        providerMessageId: request.providerMessageId === undefined ? null : text(request.providerMessageId, 200),
+        failureCode: request.failureCode === undefined ? null : text(request.failureCode, 120),
+      };
+      break;
     case 'convert_demo':
       allow(command, ['demoAcademy', 'verifiedEmail', 'academyName', 'language', 'sport']);
       payload = {
@@ -116,6 +130,15 @@ export function platformCommerceRequest(input: unknown) {
   }
   if (act === 'use_invitation') {
     return { rpc: 'x30_use_invitation', args: { token: payload.token } };
+  }
+  if (act === 'prepare_demo_delivery') {
+    return { rpc: 'x30_prepare_demo_delivery', args: { invitation: payload.invitation } };
+  }
+  if (act === 'set_demo_delivery') {
+    return { rpc: 'x30_set_demo_delivery', args: {
+      invitation: payload.invitation, status: payload.status, operation: op,
+      providerMessageId: payload.providerMessageId, failureCode: payload.failureCode,
+    } };
   }
   if (act === 'convert_demo') {
     return { rpc: 'x30_convert_demo', args: {

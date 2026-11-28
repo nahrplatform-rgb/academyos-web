@@ -1,6 +1,6 @@
 {
-  "source": "e8a382f33c12b9ce2e9f3e03dc8dcadcdc258875",
-  "generatedAt": "2026-11-27T22:44:12.974Z",
+  "source": "958cdaf9f34e7131191a4f1c884dd13da092c7c0",
+  "generatedAt": "2026-11-28T06:36:20.808Z",
   "inputs": {
     "apps/web/src/app/[locale]/guardian-invitation/page.tsx": "7c511243f57c235e15ae8c70550dc098cf3e63bf3753665356ac0f5d4c626479",
     "apps/web/src/app/[locale]/invitation/page.tsx": "5fb4f9047c15cce66a5fd7866182dfe9d58192e50191893ed0199e033969338f",
@@ -125,7 +125,7 @@
     "apps/web/src/lib/onboarding-gateway.ts": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
     "apps/web/src/lib/onboarding-server.ts": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
     "apps/web/src/lib/owner-session-navigation.ts": "539b53276dd368dfbf12ab0a06ad4b29743b5236cf4e4f8d9a31c0914abdb584",
-    "apps/web/src/lib/platform-commerce.ts": "fa9fe4e07dd5335fd0bc4a26c84f99c6145fa378dfac08d75cafc8b3bd77b01c",
+    "apps/web/src/lib/platform-commerce.ts": "40d3abea4dfc00727cc910388b2f73c6fab92bc2356c96cd779856009b5e25d0",
     "apps/web/src/lib/trainer-compensation.ts": "6878017398cf750233c85035568a029d555042ffaba089e9e7685435bc85c768",
     "apps/web/src/lib/trainer-payslip.tsx": "5aa58f34a6f863f83694809d77d685241700368e81348c1fb4347679eeb90aa8",
     "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
@@ -193,9 +193,9 @@
     "supabase/migrations/20261125151806_ex25_staff_gallery.sql": "0f13c51e6042aefb130c1001dd7c5efb3e106612da3094d70404377d7a6f4056",
     "supabase/migrations/20261126120047_ex30_versioned_monthly_offer.sql": "56bd2bfd98fd505a8853f99990aa7192271ffe990469818f067f0051c7d8c24f"
   },
-  "capturePackSha256": "87c06ce7229d22b0219cb3be9ae07b415bb08eccd8ddec985ae77608f41a1db3",
-  "htmlSha256": "0dbc1b26db9db070caad523dc6f36125c75277f428df24ba1ba06abf16236b3c",
-  "frames": 2359,
+  "capturePackSha256": "1aae1da5ee7d30735d5334a21a94cc114ae921d526e20dfc0ec439d3967c74d4",
+  "htmlSha256": "62e3ac56081ac0e82a0e92bbc23ff63b5ca253edbfdefa7448fa97f2fc8c6447",
+  "frames": 2377,
   "transitions": 3077,
   "sourceFiles": 110,
   "sourceLiterals": 11377,
@@ -206,7 +206,7 @@
     },
     {
       "id": "onboarding",
-      "frames": 295
+      "frames": 298
     },
     {
       "id": "people",
@@ -214,11 +214,11 @@
     },
     {
       "id": "guardians",
-      "frames": 83
+      "frames": 86
     },
     {
       "id": "trainers",
-      "frames": 73
+      "frames": 77
     },
     {
       "id": "programs",
@@ -270,7 +270,7 @@
     },
     {
       "id": "billing",
-      "frames": 108
+      "frames": 109
     },
     {
       "id": "trainer-compensation",
@@ -278,7 +278,7 @@
     },
     {
       "id": "platform-commerce",
-      "frames": 167
+      "frames": 174
     },
     {
       "id": "class-media",

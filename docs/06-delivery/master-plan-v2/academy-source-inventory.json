@@ -1,6 +1,6 @@
 {
   "purpose": "Safe inspected-source metadata, not complete semantic reachability or runtime proof",
-  "source_anchor": "a41cbd6f0298b6b823b68420720e7f7684392a94",
+  "source_anchor": "958cdaf9f34e7131191a4f1c884dd13da092c7c0",
   "anchor_rule": "Keep the inspected source base while selected file hashes are unchanged; docs commits do not fabricate a new product baseline",
   "files": [
     {
@@ -1070,8 +1070,8 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "sha256": "fa9fe4e07dd5335fd0bc4a26c84f99c6145fa378dfac08d75cafc8b3bd77b01c",
-      "bytes": 6475
+      "sha256": "40d3abea4dfc00727cc910388b2f73c6fab92bc2356c96cd779856009b5e25d0",
+      "bytes": 7727
     },
     {
       "path": "apps/web/src/lib/player-photo.ts",
@@ -1627,6 +1627,16 @@
       "path": "supabase/migrations/20261203120000_ex30_benefit_migrations.sql",
       "sha256": "f46833cf33a04ffc8c890d928ae40469a508767c5faa33094f59bcb66932c0a3",
       "bytes": 2888
+    },
+    {
+      "path": "supabase/migrations/20261204120000_ex30_demo_delivery.sql",
+      "sha256": "b568cbf5311d8b4996352da7ebe9920c28f0d1f6ac3fd467363642b72bdea774",
+      "bytes": 5053
+    },
+    {
+      "path": "supabase/migrations/20261204121000_ex30_demo_delivery_gateway.sql",
+      "sha256": "723dd8d66d61bedda7945883262b4484c99e2cfdf49abf957a63a6730dccf4e7",
+      "bytes": 2031
     }
   ],
   "page_paths": [
@@ -2092,70 +2102,84 @@
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 54,
+      "line": 55,
       "case_labels": [
         "publish_plan"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 59,
+      "line": 60,
       "case_labels": [
         "assign"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 65,
+      "line": 66,
       "case_labels": [
         "issue"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 69,
+      "line": 70,
       "case_labels": [
         "claim"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 74,
+      "line": 75,
       "case_labels": [
         "review"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 80,
+      "line": 81,
       "case_labels": [
         "create_demo"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 84,
+      "line": 85,
       "case_labels": [
         "use_invitation"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 88,
+      "line": 89,
+      "case_labels": [
+        "prepare_demo_delivery"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 93,
+      "case_labels": [
+        "set_demo_delivery"
+      ]
+    },
+    {
+      "path": "apps/web/src/lib/platform-commerce.ts",
+      "line": 102,
       "case_labels": [
         "convert_demo"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 98,
+      "line": 112,
       "case_labels": [
         "apply_benefit_migration"
       ]
     },
     {
       "path": "apps/web/src/lib/platform-commerce.ts",
-      "line": 107,
+      "line": 121,
       "case_labels": [
         "benefit_migrations"
       ]
@@ -2428,10 +2452,10 @@
     }
   ],
   "counts": {
-    "source_files": 325,
+    "source_files": 327,
     "page_paths": 49,
     "api_routes": 35,
-    "migrations": 60
+    "migrations": 62
   },
   "pwa_metadata": {
     "public_manifest_present": false,

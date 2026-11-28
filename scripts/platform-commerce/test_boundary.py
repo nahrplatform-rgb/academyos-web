@@ -261,6 +261,8 @@ try:
     Boundary.sql((ROOT / 'supabase/migrations/20261128140000_ex30_demo_gateway_paths.sql').read_text())
     Boundary.sql((ROOT / 'supabase/migrations/20261130120000_ex30_demo_rpcs.sql').read_text())
     Boundary.sql((ROOT / 'supabase/migrations/20261130150000_ex30_demo_invitation_safety.sql').read_text())
+    Boundary.sql((ROOT / 'supabase/migrations/20261204120000_ex30_demo_delivery.sql').read_text())
+    Boundary.sql((ROOT / 'supabase/migrations/20261204121000_ex30_demo_delivery_gateway.sql').read_text())
     demo = json.loads(test.sql(
         "select public.x30_create_demo('Prospect Demo','prospect@example.invalid','+201000000000')",
         'user_platform'))
@@ -268,6 +270,17 @@ try:
     token_hash = demo['tokenHash']
     assert test.sql(f"select account_type from academy.academies where id='{demo_academy}'") == 'demo'
     assert test.sql(f"select count(*) from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == '1'
+    delivery = json.loads(test.sql(f"select row_to_json(x) from (select id, status, channel, attempts from academy.platform_demo_deliveries where invitation_id='{demo['invitationId']}') x"))
+    assert delivery['status'] == 'queued' and delivery['channel'] == 'synthetic_email' and delivery['attempts'] == 0
+    test.sql(f"select public.x30_prepare_demo_delivery('{demo['invitationId']}')", 'user_other_owner', ok=False)
+    sent_op = uid()
+    sent = json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{demo['invitationId']}','sent','{sent_op}','synthetic-{sent_op}',null)",
+        'user_platform'))
+    assert sent['status'] == 'sent' and sent['attempts'] == 1 and sent['channel'] == 'synthetic_email'
+    assert json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{demo['invitationId']}','sent','{sent_op}','synthetic-{sent_op}',null)",
+        'user_platform')) == sent
     test.sql(f"select public.x30_create_demo('Denied Demo',null,null)", 'user_other_owner', ok=False)
     redeemed = json.loads(test.sql(
         f"select public.x30_use_invitation('{token_hash}')", 'user_owner'))
@@ -277,6 +290,8 @@ try:
     race_demo = json.loads(test.sql(
         "select public.x30_create_demo('Race Demo','race@example.invalid',null)", 'user_platform'))
     race_token = race_demo['tokenHash']
+    race_send_op = uid()
+    test.sql(f"select public.x30_set_demo_delivery('{race_demo['invitationId']}','sent','{race_send_op}',null,null)", 'user_platform')
     def redeem_race(subject):
         try:
             return ('ok', json.loads(test.sql(
@@ -292,6 +307,39 @@ try:
     test.sql(f"select public.x30_delete_demo('{demo_academy}')", 'user_platform')
     assert test.sql(f"select deleted_at is not null from academy.platform_demo_lifecycle where academy_id='{demo_academy}'") == 't'
     assert test.sql(f"select name like '%(deleted)' from academy.academies where id='{demo_academy}'") == 't'
+    failed_demo = json.loads(test.sql(
+        "select public.x30_create_demo('Failed Delivery Demo','failed@example.invalid',null)", 'user_platform'))
+    failed_op = uid()
+    failed = json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{failed_demo['invitationId']}','failed','{failed_op}',null,'synthetic_decline')",
+        'user_platform'))
+    assert failed['status'] == 'failed' and failed['attempts'] == 0
+    prepared = json.loads(test.sql(
+        f"select public.x30_prepare_demo_delivery('{failed_demo['invitationId']}')", 'user_platform'))
+    assert prepared['status'] == 'queued'
+    failed_retry_op = uid()
+    failed_retry = json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{failed_demo['invitationId']}','sent','{failed_retry_op}','synthetic-retry-{failed_retry_op}',null)",
+        'user_platform'))
+    assert failed_retry['status'] == 'sent' and failed_retry['attempts'] == 1
+    lost_demo = json.loads(test.sql(
+        "select public.x30_create_demo('Lost Delivery Demo','lost@example.invalid',null)", 'user_platform'))
+    lost_op = uid()
+    lost = json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{lost_demo['invitationId']}','lost','{lost_op}',null,'timeout')",
+        'user_platform'))
+    assert lost['status'] == 'lost'
+    test.sql(f"select public.x30_use_invitation('{lost_demo['tokenHash']}')", 'user_owner', ok=False)
+    recover_op = uid()
+    recovered = json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{lost_demo['invitationId']}','recovered','{recover_op}','synthetic-retry-{recover_op}',null)",
+        'user_platform'))
+    assert recovered['status'] == 'recovered' and recovered['attempts'] == 1
+    assert json.loads(test.sql(
+        f"select public.x30_set_demo_delivery('{lost_demo['invitationId']}','recovered','{recover_op}','synthetic-retry-{recover_op}',null)",
+        'user_platform')) == recovered
+    assert json.loads(test.sql(
+        f"select public.x30_use_invitation('{lost_demo['tokenHash']}')", 'user_owner'))['academyId'] == lost_demo['academyId']
     print('PASS EX-30 demo foundation creation, single-use invitation, lifecycle controls and Platform Owner scope')
 
     before_paymob = ledger()
