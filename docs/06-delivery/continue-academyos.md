@@ -83,11 +83,11 @@ Product value for this batch:
 
 ### Ready development action
 
-Verify the one approved fictional billing notification on promoted staging through the Platform Owner action. Obtain Paymob confirmation of Egypt Test Mode MIGS MOTO eligibility, decline simulation, Day 0/3/5 behavior and per-attempt identifiers. Use a renewal-invoice identity for the Phase 1d scheduler and recovery.
+Confirm Egypt Test Mode MIGS MOTO and 3DS enrollment integration IDs. Validate initial card enrollment, one automatic renewal, signed callbacks, transaction inquiry and subscription history. Match provider identity to the billing cycle and prove one settlement across callback and inquiry.
 
 ### Separate release follow-up
 
-Owner promoted e8a382f. Hosted empty POST failed before delivery. Repair f01e5b7e0fba8e1cdaed1f9ec9391323f0c91859 passed Foundation 46082280931 60/60 and has a Ready preview. Owner promotion requested. Optional organization migration awaits exact approval and backup rehearsal.
+Owner promoted f01e5b7 and live source verified. The separate fictional email awaits a billing-specific recipient configuration decision. Paymob renewal awaits merchant MOTO confirmation. Optional organization migration awaits exact approval and backup rehearsal.
 
 Scoped dependency gate: Phase 1c follows app-wide UI/UX. Whop deferred by Owner. Later staging migrations need exact approval and backup rehearsal. Keep EX-26 queued.
 
@@ -102,10 +102,10 @@ Policy boundary: D-009; D-010; D-015; D-021; D-022 as applicable. Synthetic auth
 ## Actual delivery status for the current family
 
 - Design: Frozen vision adopted 26 November. Appendix A questions are tracked in the EX-30 handoff.
-- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1d has the staging-only fictional billing delivery action. Phase 1h uses existing memberships and a locally rehearsed optional organization field. Scheduler, provider, demo and later workspace work remain open.
+- Implementation: Phase 1a and scoped Phase 1b implemented. Phase 1d retries and dunning are deferred. Phase 1e enrollment and automatic renewal are the active Paymob checkpoint. Phase 1h uses existing memberships and a locally rehearsed optional organization field.
 - Local checks: Disposable PostgreSQL proves EX-23 recovery, v1/v2 continuity, scoped quotas, last-slot race and rollback/replay, plus single-identity dual-academy isolation and scoped commercial audit.
-- Deployment: Staging deployment dpl_6kRFQpLq1JtpMGPpH4LuMCtgk2ZX serves e8a382f (Foundation 46076496092). Hosted migration 20261126140813 only at last schema readback.
-- Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows.
+- Deployment: Staging deployment dpl_QAsHuvUfK1r1TYBdyMYSTkkrZiaR serves f01e5b7 (Foundation 46082280931). Hosted migration 20261126140813 only at last schema readback.
+- Hosted verification: Nahr and Hieu synthetic settlement on 501b937. On 968bd8d both ledger balances and Hieu EN/AR reconfirmed. Nahr verified v1/v2, two eligible drafts to 3/3, bilingual fourth-draft refusal and zero partial rows. On f01e5b7 Nahr received 403 on the notification action and Hieu received 503 with a different mailbox configured.
 - Owner acceptance: Frozen direction and synthetic rollout approved. Formal Owner working acceptance remains open.
 - Independent security: No new independent review. Existing synthetic staging and live-launch review rules apply.
 
