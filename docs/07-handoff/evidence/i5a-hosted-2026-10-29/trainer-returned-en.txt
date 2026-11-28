@@ -1,0 +1,50 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development#main
+					7 container
+						8 text Trainer workspaceDevelopment feedback Staging
+						9 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Trainer workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+							17 link Development, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Player development, Value: 1
+							21 text Player development
+						22 button Refresh view
+						23 text Write after a session, review the exact version, then share published feedback with the approved family. Operation confirmed. Reloading the current saved result. Confirmed operation: 9697b4c9-1f39-451e-aa10-42fd6ccd32ef
+						24 button Back to sessions
+						25 heading Session players, Value: 2
+							26 text Session players
+						27 toggle button Synthetic Registration Demo Changes requested, Value: on
+						28 button (disabled) Previous page
+						29 button (disabled) Next page
+						30 container Contextual details and actions
+							31 container
+								32 heading Feedback details, Value: 2
+									33 text Feedback details
+								34 button Back
+							35 heading Synthetic Registration Demo, Value: 3
+								36 text Synthetic Registration Demo
+							37 text Synthetic I4d QR Attendance Demo · Synthetic Main Branch · Synthetic Football
+							38 text 10/28/2026, 10:10:00 PM · Africa/Cairo
+							39 text Changes requested · Revision 2
+							40 text Internal review reason
+							41 text PRIVATE SYNTHETIC REVIEW: make the next-step practice count explicit.
+							42 heading Strengths, Value: 3
+								43 text Strengths
+							44 text Synthetic feedback: controlled short passes during the fictional drill.
+							45 heading Improvement focus, Value: 3
+								46 text Improvement focus
+							47 text Synthetic feedback: improve the first touch before passing.
+							48 heading Next steps, Value: 3
+								49 text Next steps
+							50 text Synthetic feedback: practise five short passes in the next fictional drill.
+							51 text Private staff note
+							52 text PRIVATE SYNTHETIC STAFF NOTE — excluded from the Guardian publication.
+							53 button Continue draft
+							54 button Internal revision history

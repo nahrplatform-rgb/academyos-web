@@ -1,0 +1,35 @@
+{
+  "scope": "documentation and continuation tooling only; no new operating/hosted case run",
+  "source_base": "ab8de80",
+  "execution_batches": 11,
+  "current_priority": "EX-10",
+  "retained_findings": 17,
+  "measurement_gaps": "G01-G09",
+  "canonical_screens": 68,
+  "canonical_actions": 30,
+  "preserved_requirements": 180,
+  "working_behavior_clauses": 24,
+  "working_day_cases": 32,
+  "planned_cases": 31,
+  "future_role_cases": 1,
+  "new_runtime_cases_executed": 0,
+  "local_markdown_targets_checked": 561,
+  "markdown_anchor_or_external_link_semantics_verified": false,
+  "routing_checks": {
+    "explicit_current_derived": true,
+    "multiple_current_rejected": true,
+    "synthetic_advance_derived_next_heading_and_action": true,
+    "unrecorded_skip_rejected": true,
+    "repository_route_advanced_by_test": false
+  },
+  "preservation_checks": {
+    "prior_nine_delivery_states_retained": true,
+    "prior_action_approval_runtime_fields_retained": true,
+    "loading_bounds_policy_measured_evidence_retained": true,
+    "app_schema_source_unchanged": true
+  },
+  "private_policy_status": "WB-P01-P04 proposed, not accepted/enabled",
+  "owner_working_acceptance": "not_requested_for_unimplemented_working_day_pilot",
+  "independent_security": "open",
+  "review_scope": "inventory-only from unchanged real-component pack; no new runtime capture"
+}

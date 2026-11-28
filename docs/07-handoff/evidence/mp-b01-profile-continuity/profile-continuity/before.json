@@ -1,0 +1,16 @@
+{
+  "reactMode": "production",
+  "baseline": true,
+  "held": {
+    "rows": 0,
+    "minimumRows": 0,
+    "blankMs": 280.0999999642372,
+    "centerScroll": 0,
+    "backDisabled": true
+  },
+  "scrollBefore": 961,
+  "requests": [
+    "profile"
+  ],
+  "scope": "Synthetic held response;not latency percentile"
+}

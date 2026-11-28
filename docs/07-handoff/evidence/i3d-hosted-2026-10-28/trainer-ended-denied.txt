@@ -1,0 +1,31 @@
+Window: "Shopify — AcademyOS · Staging", App: Safari.
+0 standard window Shopify — AcademyOS · Staging, ID: SafariWindow?IsSecure=true&UUID=CFDC26F0-FD7B-4E7B-94FE-EF4E3D54E645, Secondary Actions: Raise
+	1 split group
+		2 splitter (disabled, settable, float) -1
+		3 tab group
+			4 scroll area
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#main
+					7 container
+						8 text Trainer workspaceTrainer schedule Staging
+						9 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Trainer workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Staff profile, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer
+							17 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Your training schedule, Value: 1
+							21 text Your training schedule
+						22 text Access unavailable. Check your account and workspace.
+						23 button Check current schedule
+						24 container Contextual details and actions
+							25 heading Session details, Value: 2
+								26 text Session details
+							27 text Access unavailable. Check your account and workspace.
+							28 text Access unavailable. Check your account and workspace.
+	29 

@@ -1,5 +1,9 @@
 # Pre-development checklist and progressive readiness gates
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Before local-data work, read [local-data and sync plan](local-data-and-sync-plan.md) and the working-behaviour/acceptance/execution records. Define fields/device unlock/scope/retention and bootstrap/change/recovery contracts before storing private records; prepare a local-first changed-state review. Do not continue the superseded summary-only policy question or install a cache library as the complete solution.
+
 All boxes start unchecked. Owner: Moamen / named NAHR technical lead to confirm. Documentation is prepared; account configuration and application verification have not been performed by this task.
 
 ## Gate A — ready to begin foundation implementation

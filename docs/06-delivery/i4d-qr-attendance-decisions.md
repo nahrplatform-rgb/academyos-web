@@ -1,0 +1,54 @@
+# I4d — revocable player QR and exact-session attendance
+
+28 October2026. **Owner accepted card/settings rules and explicitly approved the connected design for implementation on28October2026.** I4a manual attendance, I4b Guardian view and I4c request/review working wording/usability are accepted for their bounded scopes. [I4c receipt](../07-handoff/i4c-attendance-correction-implementation.md). This packet advances the remaining QR/manual parity requirement without retiring offline, wider roles or other roadmap stages.
+
+## Outcome and traceability
+
+Owner opens an existing fictional player → issues a card → can print/save it for synthetic testing → can revoke or replace it. Assigned Trainer or Academy Owner selects a branch and authorized session scope → starts scanner or enters a card code → a unique eligible match automatically records Present → an ambiguous match pauses for one-session choice → reopens the same canonical attendance/history. Manual Present/Absent and correction paths remain available.
+
+J06 card lifecycle association, J12-A01/A02/A03 / IMP-J12-A01 / S18/S28 / L05/L08 / SEC-J06/SEC-J12; scoped AO-018/035/036/042/045 and matching acceptance cases. Existing matrix coverage is not whole-requirement closure. [Engineering preparation](../04-engineering/i4d-qr-attendance-preparation.md), [attendance workflow](../02-workflows/attendance-and-offline.md), [people workflow](../02-workflows/academy-people-and-onboarding.md). New D-012 QR validity and D-003 credential authority below remain proposed.
+
+## Design direction and remaining card recommendations
+
+| Choice | Recommendation and consequence |
+|---|---|
+| Who issues cards? | Current Academy Owner issues, revokes or replaces one player card in that academy. One currently valid card per player. No Trainer issuance, Manager powers, player login or public card page. |
+| Card validity | Card remains valid until explicitly revoked or replaced. Replacement invalidates the previous code atomically; no automatic expiry in this first slice. Old attendance/history remain. This card-validity recommendation still needs explicit acceptance; no legacy expiry default is imported. |
+| Meaning of a card | It identifies a fictional registered player for a currently authorized scanner. Possession grants no login, academy membership, Guardian access or attendance authority. A copied card cannot prove physical presence; the operator checks the matched player. |
+| Session and actor | Accepted direction for design: current assigned Trainer sees only their assigned published occurrences; Owner can choose published occurrences within one branch. Automatic mode matches the scanned player against selected, currently eligible occurrences. Exactly one match auto-submits; multiple matches require explicit selection for this scan only; zero matches save nothing. A visible specific-session selector remains available. No academy-general untargeted mark, auto-mark-all, drop-in or staff check-in. |
+| Marking | Accepted direction for design: a unique authorized eligible match auto-submits Present with no per-player confirmation. One in-flight operation; show matched name/session and confirmed result before rearming. Ambiguity pauses for a one-scan choice. Unmarked→Present uses canonical attendance/history/receipt; existing Present shows Already recorded without another mark. Existing Absent goes to the accepted correction path; scanning cannot overwrite it. Manual Absent remains explicit. |
+| Revocation and concurrency | Recheck card, session, roster and current actor authority at commit, including after review. Revoked/replaced code denies new capture; competing replacement/revoke/record serialize with one truthful outcome. Original committed receipts remain reconcilable only under current actor/session authority. |
+| Card delivery | Owner-only authenticated card display and local print/save for fictional staging data. No email, Guardian card exposure, public links, bulk cards, real children or account grants. Camera is optional; explicit camera permission and code entry/manual fallback are part of the design. |
+
+Accepted scanning-window direction for design: Owner-configurable minutes before session start and after session end, default30/30, academy defaults plus explicit session override. Use saved branch timezone/server time. QR capture can therefore begin before session start; this is a distinct new QR-arrival rule, not an accidental relaxation of the existing manual operation. Manual recording/correction retains start through24 hours after effective end. Choosing a session cannot bypass its QR window. Current settings must be rechecked at commit, and existing explicit session overrides remain when academy defaults change. Numeric upper limits, default propagation to future sessions and settings audit/recovery must be settled in the connected review before implementation; the preview is not authority for unbounded settings. Present/Absent and Owner/direct or Trainer/request corrections retain their accepted authority. No late/excused/check-out, biometric/physical-presence guarantee, notifications, fees, offline storage or retention schedule is introduced.
+
+## Existing implementation and reuse
+
+Inspected current `attendance-workspace.tsx`, `lib/attendance.ts`, I4a canonical migration and I4c implementation/receipts. `/api/attendance` currently accepts bounded roster/history/mark/reconcile and correction commands, with current identity through the signed gateway. No player QR credential table, issuance/revocation operation, decoder or camera scanner exists. `academy.players` currently has no archive state or archive operation; do not pretend an archive test is possible on this model. Verify current player membership in the exact published roster; any future archive lifecycle must block both manual and QR capture through their shared eligibility contract before shipping that lifecycle. Deleted/missing/foreign targets deny today.
+
+Reuse compact-blue shell, three panes/phone list-detail, exact occurrence identity, complete roster coverage, review for credential/settings changes, version checks, current-authority reads, immutable history and original-operation recovery. Add credential lifecycle and resolution around the existing canonical attendance contract; avoid a second mark ledger, attendance status or independent scanner policy.
+
+## PYSA read-only reference inspected —28 October2026
+
+Local `/Users/moamenghareeb/Pro Youth Football Academy`; source-only observation, no legacy account/provider/live test or changes. Relevant paths:
+
+- `platform-description/PYSA-current-surface-reference.md`: member/staff/Guardian QR surfaces, session-scoped Trainer scanner, absent general-scanner onboarding link and FND-0045 eligibility mismatch.
+- `pysa-platform/components/attendance/qr-scanner.tsx`: camera/decoder readiness, selected session/branch, actionable errors, manual search fallback and duplicate-feedback pattern. Preserve session-first context, camera recovery and per-player result. Its unrestricted general/drop-in and IndexedDB branches are not accepted AcademyOS policy. The newly selected bounded automatic matching direction is constrained to actor-authorized selected published sessions within one branch. In-memory recently-scanned suppression is a convenience, not duplicate-write protection.
+- `pysa-platform/actions/attendance.ts`, `resolveMemberFromQr` and QR/manual writers: current academy/card/player lookup, active/revoked/expired card checks and roster/window selection are useful boundaries. Current source supports both structured signed cards and legacy member/salt credentials; neither format or compatibility authority is imported.
+- `pysa-platform/lib/utils/qr-card.ts`: HMAC card format and timing-safe comparison; also contains fallback signing-secret selection and broad HTTPS parsing. AcademyOS should use a strict versioned credential format and dedicated random credentials, without copying key material, fallback secrets or accepting arbitrary websites as identity.
+- `engineering-audit/03-evidence/database/EV-0070-archived-attendance-sql.md`: fresh general manual marks for archived targets persisted in actual disposable SQL. Avoid eligibility divergence between scanner and manual path.
+- `EV-0071-attendance-helper-authority.md`: synthetic supplied helper roles could exceed current Trainer authority; real camera/card/Auth/HTTP not proved. Every public boundary and commit must resolve current authority, including direct requests.
+
+Useful behaviors are preserved in the ongoing ledger; source presence does not establish hosted QR behavior or remediation of PYSA defects.
+
+## Next gates
+
+Owner reviews remaining card/settings choices → connected EN/AR phone/desktop prototype, credential lifecycle and scanner/failure/recovery design → separate design approval → real implementation/database/negative/concurrency tests → protected staging demonstration and working acceptance. Camera hardware/browser permission and physical scan proof remain distinct from a typed code or decoder fixture. No account restoration or camera permission is inferred from policy/design approval.
+
+## Connected review preparation —28October2026
+
+Owner asked to reduce manual actions and handle simultaneous sessions/Trainers. Source review confirmed PYSA auto-submits after detection. Owner then proposed percentage/fixed/configurable windows and session selection; after the recommendation of Owner-configurable30-before/30-after defaults, unique-match automation and visible selection, responded “good”. This records that design direction only. [Connected design](i4d-qr-attendance-design-contract.md) and [local preview](../../design/i4d-qr-attendance/README.md) cover simultaneous sessions, back-to-back ambiguity, settings, credential lifecycle and failure/recovery. Card authority/lifetime recommendations and remaining settings choices are labeled proposed; design review cannot silently turn them into implemented or accepted permissions.
+
+## Explicit implementation authorization —28October2026
+
+Moamen selected “Accept these card and settings rules” and “Approve this connected design for implementation”. Current Owner-only one valid card, revoke/replace invalidation, valid-until-revoked/replaced, integer0–180 margins with30/30 defaults and preserved explicit overrides are accepted. Automatic actor-scoped unique-session Present and ambiguity selection follow the accepted direction. Earlier proposed/pending language above is historical; no hosted grant or independent/physical-camera/working acceptance is inferred.

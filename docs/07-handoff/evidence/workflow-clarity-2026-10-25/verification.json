@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": "passed, zero warnings",
+    "unit": "39 passed",
+    "foundation_e2e": "7 passed",
+    "component_ui": "M1, People, Guardian and Trainer each production/development passed"
+  },
+  "new_regressions": [
+    "Admission title is inside padded task header at 1440/926/360px",
+    "926px directory has full width before selection",
+    "No unsolicited Guardian/Trainer form at entry",
+    "Closing 926px appointment draft focuses live Invite control after refresh",
+    "Reopening retains exact draft",
+    "Original-operation and confirmed-write/read-failure behavior retained",
+    "Player inspector heading focus is not overridden by parent heading",
+    "Player Back restores live row after profile loading"
+  ],
+  "source_sha256": {
+    "apps/web/src/app/globals.css": "1db2f2b89510b61ea6d27c8dd809b02a2ecb31766aaeba6855f76d269eb80c2b",
+    "apps/web/src/components/workspace-panes.tsx": "897063f088ac7713ccad420affbc759a608c387750b692e4e54e221c3ee3c6b3",
+    "apps/web/src/components/onboarding-workspace.tsx": "bb6106b4e3c801cee161809e164e4e7db33e8a406dd4df905684582ea9335d5d",
+    "apps/web/src/components/people-workspace.tsx": "c782338debc51dd35a2cb08f8bfca8ff01ec4f4e121a29857d46242b0c657172",
+    "apps/web/src/components/workspace-shell.tsx": "ea97217c92e15056433c4726ac5639d99356f35041e239b0f2350ce15c4b7a8f",
+    "apps/web/src/components/trainer-workspace.tsx": "22a550b6ad0f66ce3dd3fae4e0e85579f6813d3509571ff9c324cc6f15dd200b",
+    "apps/web/src/components/guardian-workspace.tsx": "8d84579d647a8d637fc50ef8495016f3909e2f8015bc928cd1f66f1be293dfe6",
+    "apps/web/src/components/admission-directory.tsx": "2fa1a8ea747efdea9bc6d22c609eef5c1be303dcb55a2156609e4d14ec0e68d5",
+    "scripts/onboarding/test_ui.mjs": "d2c7e542913ec13ca54344ed54a57f3c4611ea6fa45204fd4bfba84dcc481808",
+    "scripts/people/test_ui.mjs": "2559d722f781a06ee0ba7f7c3bdb241d458aa54b7a8a04d72c269c16749bcae3",
+    "scripts/guardians/test_ui.mjs": "ff7f9b99c5392ab2f2170e8ffcfe22c6860253ef4907edc77958884f118a63f7",
+    "scripts/trainers/test_ui.mjs": "2f5b6b7e5632dbed62130cfd81c7f5e03b948c2a7d88170139eb32561c928e5c"
+  },
+  "scope": "Actual React components with synthetic identity and HTTP adapters. No fresh hosted grants, SQL or security audit.",
+  "capture_scope": "Initial M1/gallery captures from base correction f8919bc; follow-up changes player focus and current Owner appointment scope. Updated domain tests pass with final source hashes here."
+}

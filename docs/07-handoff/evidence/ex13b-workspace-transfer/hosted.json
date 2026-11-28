@@ -1,0 +1,151 @@
+{
+  "recorded_at": "2026-11-05T14:56:24.635Z",
+  "client_timezone": "Africa/Cairo",
+  "owner_report": "Promoted7ddc6f1 to staging",
+  "deployment": {
+    "source": "7ddc6f1332ef310914412a4ba91a344534801782",
+    "id": "dpl_7mzikqR7YMPwTaTFF7Dun76jYa36",
+    "state": "READY",
+    "target": "production",
+    "url": "academyos-njbz5wgx0-academy-os2.vercel.app",
+    "canonical_alias": "staging.academy.nahr.dev",
+    "agent_promoted": false
+  },
+  "browser": {
+    "surface": "Native Chrome test nahr profile",
+    "identity": "Existing dedicated iCloud Academy Owner;verified in Clerk profile",
+    "zoom_percent": 80,
+    "device": "Mac desktop;not physical phone/tablet",
+    "devtools": "Native Network/Application/Sources only;no console script injection,credential export or HAR export"
+  },
+  "preparation": {
+    "server_before": {
+      "workspace_keys": 0,
+      "calendar_windows": {
+        "2026-10": 9,
+        "2026-11": 29,
+        "2026-12": 24
+      },
+      "permitted_people": 4,
+      "preparation_audits": 0
+    },
+    "server_after": {
+      "workspace_keys": 1,
+      "preparation_audits": 1
+    },
+    "visible_people_before_preparation": 4,
+    "visible_people_after_preparation": 4,
+    "api_requests": {
+      "workspace_key": 1,
+      "workspace_download": 9,
+      "total": 10,
+      "status": "all200",
+      "network_filtered_transferred_bytes": 8238,
+      "network_filtered_resource_bytes": 38994,
+      "all_requests_in_sample": 13,
+      "limits": "One manual native sample;includes only filtered API calls in byte totals;not all-session/auth/provider counts or a percentile"
+    },
+    "ui_after_first_preparation": {
+      "data_phase": "Online",
+      "public_shell_warning": "Offline reopening is unavailable. Check for changes to retry."
+    },
+    "retained_register_evidence": "Existing dedicated register worker and one protected original record remained visible;not a byte-comparison or sync retest"
+  },
+  "failure": {
+    "kind": "public_shell_spa_caller_route",
+    "observed_visible_route": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+    "observed_worker_window_client_url": "https://staging.academy.nahr.dev/en/sign-in",
+    "message": "prepare-workspace-public-shell",
+    "source_guard": "prepared-workspace-worker.js lines74\u201376 at7ddc6f1 rejects the initial sign-in Client.url",
+    "native_observation": "Temporary breakpoint at message guard exposed WindowClient.url;the expected legacy string message and port arrived. No workspace cache before normal-route reload.",
+    "diagnostic_limit": "Pausing the worker temporarily delayed reads and produced Sync paused;that pause is excluded from product latency/failure attribution. Worker resumed and temporary breakpoint removed."
+  },
+  "public_http_checks": {
+    "worker_status": 200,
+    "worker_sha256": "8ff71436d6fa948ca1468d1a61a9c80f43c56305f2d00b8aa5565eeaeac5b404",
+    "shell_status": 200,
+    "shell_marker": "workspace-v1",
+    "literal_dom_marker": true,
+    "accepted_assets": 21,
+    "assets_all_200_and_expected_mime": true,
+    "decoded_asset_bytes": 1155858,
+    "transferred_asset_bytes": 358669,
+    "request_seconds_sum": 8.109997,
+    "max_request_seconds": 0.49738,
+    "limits": "Separate unauthenticated curl probes with three concurrent requests;not browser bootstrap cost, latency percentile or code-cache proof"
+  },
+  "manual_reload_diagnostic": {
+    "normal_players_document_reload": true,
+    "workspace_public_cache_entries": 22,
+    "warning_cleared": true,
+    "players_visible": 4,
+    "not_a_delivered_workflow": "Manual reload only isolated the cause;routine sign-in/SPA entry still needs the code repair"
+  },
+  "local_regression": {
+    "file": "scripts/workspace-download/public_shell_spa.mjs",
+    "before": "Confirmed real WindowClient URL stays sign-in after History API navigation;old source times out offline_shell_unavailable",
+    "scope": "Fictional isolated Chromium;no private data/provider calls",
+    "after": "Four focused cases and full44-check transport/browser suite passed;build,types,lint and99units passed;both exact86d7fac CI runs passed and automatic Preview Ready;repaired-source hosted test awaits Owner promotion",
+    "negative_messages": 14,
+    "metrics": {
+      "spaClientUrlRetained": true,
+      "publicEntries": 3,
+      "invalidMessages": 14,
+      "offlineAssets": 2,
+      "legacyNormalRoute": true
+    },
+    "source_hashes": {
+      "apps/web/public/prepared-workspace-worker.js": "6f319e1cb36593217079172efb18924ea74815d2bd07e8a774e041a61265214c",
+      "apps/web/src/lib/workspace-public-shell.ts": "36e66633aedc5f13f4aba4e6e00aacdb2e856022bee5667647cff330df79744e",
+      "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
+      "scripts/workspace-download/test_transport.mjs": "9b78736b3c5629a0b34cc89b681c1ef7519eecb7308d54f3415a9f712a969931"
+    },
+    "public_route_hint_is_authority": false,
+    "private_api_cache_added": false
+  },
+  "remaining": [
+    "Owner promotion of checked86d7fac code build",
+    "Signed-in SPA-entry retest without manual reload",
+    "Warm search/selection/week-month request counts",
+    "Normal EN/AR offline reload/reconnect and uncovered coverage",
+    "Authority/logout/capability rollback,device/accessibility and percentile/provider gaps",
+    "Cold Players search/selection continuity"
+  ],
+  "independent_review": "Deferred by Owner;nonblocking;not performed",
+  "delegation": {
+    "peak_helpers": 1,
+    "model": "gpt-6.1-terra",
+    "reasoning": "high",
+    "scope": "Source observation map and one isolated SPA browser regression file;no provider/user-browser/Git/nested work",
+    "coordinator": "Hosted browser/provider observations,architecture,production fix,integration and evidence",
+    "savings": "unmeasured"
+  },
+  "repair_delivery": {
+    "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+    "ci": [
+      {
+        "id": 42052062395,
+        "event": "push",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052062395"
+      },
+      {
+        "id": 42052074810,
+        "event": "pull_request",
+        "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42052074810"
+      }
+    ],
+    "preview": {
+      "id": "dpl_AGn4QPxJSaYPdTo471QabnbTfWWo",
+      "state": "READY",
+      "target": null,
+      "url": "https://academyos-p9mv4ecn2-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/AGn4QPxJSaYPdTo471QabnbTfWWo"
+    },
+    "staging_before_repair": "7ddc6f1;Ready;Owner-controlled promotion pending",
+    "agent_promoted": false
+  }
+}

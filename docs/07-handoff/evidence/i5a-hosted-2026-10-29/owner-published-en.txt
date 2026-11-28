@@ -1,0 +1,66 @@
+					19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						20 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development#main
+						21 container
+							22 text Academy Owner workspace Development feedback Staging
+							23 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							24 pop up button Open user menu
+						25 container
+							26 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+							27 text Academy Owner workspace
+							28 container Workspace navigation
+								29 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+								30 link Training & attendance, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/programs
+								31 link Development, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+							32 text Staging · Synthetic data only
+						33 container
+							34 heading Player development, Value: 1
+								35 text Player development
+							36 button Refresh view
+							37 text Write after a session, review the exact version, then share published feedback with the approved family.
+							38 text Operation confirmed. Reloading the current saved result.
+							39 container
+								40 text Confirmed operation :  282e1948-2c42-4f13-b3a0-afccd1a6b487
+							41 button Assessments
+							42 button Session players
+							43 container
+								44 text Review filter
+								45 pop up button Review filter, Value: All retained assessments
+									46 (selected) All retained assessments
+							47 heading Assessments, Value: 2
+								48 text Assessments
+							49 content list
+								50 toggle button Synthetic Registration Demo Published, Value: 1
+									51 text Synthetic Registration Demo
+									52 text Published
+							53 button (disabled) Previous page
+							54 button (disabled) Next page
+							55 container Contextual details and actions
+								56 container
+									57 heading Feedback details, Value: 2
+										58 text Feedback details
+									59 button Back
+								60 heading Synthetic Registration Demo, Value: 3
+									61 text Synthetic Registration Demo
+								62 container
+									63 text Synthetic I4d QR Attendance Demo  ·  Synthetic Main Branch  ·  Synthetic Football
+								64 container
+									65 text 10/28/2026, 10:10:00 PM  ·  Africa/Cairo
+								66 container
+									67 text Published  ·  Revision 2
+								68 text Family currently sees published revision 2.
+								69 container
+									70 heading Strengths, Value: 3
+										71 text Strengths
+									72 text Synthetic feedback: controlled short passes during the fictional drill.
+								73 container
+									74 heading Improvement focus, Value: 3
+										75 text Improvement focus
+									76 text Synthetic feedback: improve the first touch before passing.
+								77 container
+									78 heading Next steps, Value: 3
+										79 text Next steps
+									80 text Synthetic revised feedback: practise ten short passes, then check first touch in the next fictional drill.
+								81 container
+									82 text Private staff note PRIVATE SYNTHETIC STAFF NOTE — excluded from the Guardian publication.
+								83 button Withdraw publication
+								84 button Internal revision history

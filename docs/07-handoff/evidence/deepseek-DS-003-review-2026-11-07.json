@@ -1,0 +1,99 @@
+{
+  "task": "DS-003",
+  "status": "reviewed_corrected",
+  "source_base": "3be2d4168bef1f58c5664f5daf3f038b6c602459",
+  "raw_reports": {
+    "docs/07-handoff/deepseek/DS-003-attendance-copy-state-audit.csv": "29a99f46c1d92a2f8ace426ef2fd6866b27e1ad31b3bdbcc18a038d27ebc53d2",
+    "docs/07-handoff/deepseek/DS-003-attendance-copy-state-audit.md": "74ac80c9b96655045a8512aaa77f9ef64f2005e7c853c1337479230b31f3d387"
+  },
+  "raw_rows": 83,
+  "unique_sequential_ids": true,
+  "columns": [
+    "item_id",
+    "journey",
+    "state_or_control",
+    "locale",
+    "source_file",
+    "source_line",
+    "current_text",
+    "assessment",
+    "suggested_text",
+    "reason",
+    "evidence_limit"
+  ],
+  "worker_assessments": {
+    "ok": 38,
+    "minor": 18,
+    "issue": 23,
+    "not_found": 3,
+    "decision_needed": 1
+  },
+  "baseline_source_hashes": {
+    "apps/web/src/components/attendance-workspace.tsx": "de8e4d472eb46338bec4b3fde5519d8d485863f6373c7f422c19d121d3e34c17",
+    "apps/web/src/components/prepared-register-panel.tsx": "7849631b47c8140885e299db475954249c26257373e0875f2d725edeb3ab786c",
+    "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c"
+  },
+  "coordinator_dispositions": {
+    "retain_source_copy": 38,
+    "defer_optional_copy": 5,
+    "amend_authority_copy": 2,
+    "adopt_original_save_copy": 4,
+    "amend_timing_proposal": 2,
+    "reject_removed_original_guidance": 1,
+    "adopt_storage_copy": 2,
+    "adopt_read_scoped_failure": 1,
+    "amend_unknown_copy": 1,
+    "adopt_read_state_copy": 1,
+    "defer_connected_vocabulary": 1,
+    "retain_result_state_control": 1,
+    "correct_anchor_and_count": 2,
+    "amend_total_count_scope": 2,
+    "retain_distinct_dirty_guards": 3,
+    "adopt_count_format": 1,
+    "retain_scope_limit": 2,
+    "correct_absence_claim": 1,
+    "amend_local_server_distinction": 2,
+    "correct_already_distinct_review": 2,
+    "defer_qualified_count_copy": 1,
+    "adopt_arabic_contradiction_fix": 1,
+    "defer_legacy_copy": 1,
+    "engineering_lookup_not_policy_gate": 1,
+    "amend_revocation_guidance": 1,
+    "retain_connection_qualification": 1,
+    "defer_connection_hint": 1,
+    "retain_connection_sync_pair": 1,
+    "amend_sync_promise": 1
+  },
+  "anchor_corrections": [
+    "C43/C44:line320 belongs to prepared-register-panel.tsx"
+  ],
+  "corrections": [
+    "C56 includes in-app native window.confirm as well as beforeunload",
+    "C60/C61 already distinguish needs_review;unknown was collapsed with normal pending",
+    "C73 actual cleanup producer checked;no invented business-decision gate",
+    "C10/C11 no authoritative online before-versus-after reason",
+    "C06/C07/C74 reauthentication is not permission restoration"
+  ],
+  "helper": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "task": "ds003_source_review",
+    "peak_helpers": 1,
+    "external_DS003": "Owner reported stopped before native review",
+    "scope": "read-only source/report checks;no nested/file/provider/publish",
+    "usage_savings": "unmeasured"
+  },
+  "limits": [
+    "Native helper/source review is not independent human security review",
+    "Raw reports immutable;83rows are not83unique bugs",
+    "Local implementation adoption separately evidenced;no deployment/hosted/Owner claim"
+  ],
+  "report_line_endings": [
+    {
+      "path": "docs/07-handoff/deepseek/DS-003-attendance-copy-state-audit.csv",
+      "returned_sha256": "29a99f46c1d92a2f8ace426ef2fd6866b27e1ad31b3bdbcc18a038d27ebc53d2",
+      "repository_sha256": "06d896715e2dae9c938458374c858150366441af31ed3cf8f111d80477ab07c6",
+      "change": "CRLF to LF only;all CSV cells and record order equal"
+    }
+  ]
+}

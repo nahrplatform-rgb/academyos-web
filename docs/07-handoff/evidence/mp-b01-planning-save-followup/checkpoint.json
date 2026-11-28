@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-11-16T08:30:13.158765+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "scope": "WD-71 Owner dated-planning evidence only; no application source change",
+  "runtime": "Node v24.14.0; production/development React",
+  "models": {
+    "coordinator": "Current Codex session; exact backend model and usage not exposed",
+    "helpers": 0
+  },
+  "inputs": {
+    "apps/web/src/components/date-planning-workspace.tsx": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+    "apps/web/src/components/workspace-panes.tsx": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+    "apps/web/src/lib/workspace-read-owner.ts": "2df2e2a347acbde5d447a5d846e359b1a4603bd19faf3fa4019ced9e71198f6d",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "scripts/planning/test_ui.mjs": "388a2906124390de71c62cb05b53fc44dd5949fea278201a38f07ad7654c3e30",
+    "scripts/planning/save_followup.mjs": "860e621f38cd7ffee3344d99216401750182caa8dce4ebdb06ba1ada40384869",
+    "scripts/planning/test_api.mjs": "8c8c8126d0cbb44c631e534a1494dcedc975d2f799d1a2b3224df1ab64e98eec",
+    "scripts/planning/test_boundary.py": "62a347561944c2f60ba6123ae5178a2eb4e56124271be7acc4c188ae5dd0d0de",
+    "scripts/experience-review/build.mjs": "348eb814d0c374c4f45d176db83f07507fd2b4e798adc5040312bbfed4592794",
+    "scripts/experience-review/collect.mjs": "88fa771718c904096c6fb6669c4616dcb4489b6b97ed236307afdcb0bcd1a0fd",
+    "apps/web/src/app/api/planning/route.ts": "4f239804c562b1a85229d087f606b4c8be8ee726f4cb9ce5ad1069d259e2cdd7",
+    "apps/web/src/lib/planning.ts": "fa53c334ccbb83cd2d57a52bba5b8ea9c6034bf209e34987a60d722a725b9cd8",
+    "supabase/migrations/20261027004132_i3b_draft_session_planning.sql": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072"
+  },
+  "verification": {
+    "actualComponentCases": 12,
+    "api": {
+      "budgetFailures": 18,
+      "invalidBodies": 3,
+      "crossOriginDenied": true
+    },
+    "sql": {
+      "tests": [
+        "test_planning_01_atomic_save_reopen_review_deltas_and_history",
+        "test_planning_04_scope_roles_staff_ending_and_direct_denial",
+        "test_planning_05_fence_fingerprint_and_rollback"
+      ],
+      "result": "3 passed; disposable PostgreSQL17"
+    },
+    "factualReview": {
+      "frames": 1406,
+      "transitions": 1363,
+      "reviewTool": "passed",
+      "captures": "planning family refreshed; other unchanged-source families retained"
+    },
+    "compiledBuild": "unchanged application source and compiled assets verified current"
+  },
+  "failures": [
+    {
+      "kind": "new test wiring",
+      "firstRun": "ReferenceError: origin is not defined at test_ui.mjs:64",
+      "repair": "Pass fixture server origin explicitly to helper; both React modes subsequently passed",
+      "productChange": false
+    },
+    {
+      "kind": "local runtime",
+      "initial": "dev runtime unresponsive; managed restart refused mismatched/unresponsive listener",
+      "observed": "recorded launcher PID 69876 absent; Next CLI PID 69915 and listener PID 69918 belonged to this checkout",
+      "recovery": "Stopped only verified orphan Next processes; removed only stopped server-dev lease; normal managed dev restarted; both origins current"
+    }
+  ],
+  "limits": [
+    "Held HTTP success/reconciliation is a synthetic adapter; database tests separately establish their named canonical invariants. No end-to-end browser-to-SQL correlation is claimed for these new cases.",
+    "No hosted fault injection, connected write, installed-device or Owner acceptance.",
+    "No product repair or whole-app WD-71 closure. Existing registration and Attendance evidence retains original timestamps.",
+    "No commit, push, promotion, provider/configuration change or paid fallback."
+  ],
+  "commands": [
+    "UI_EVIDENCE_DIR=test-results/wd71-planning/final node scripts/planning/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=test-results/wd71-planning/final node scripts/planning/test_ui.mjs",
+    "node scripts/planning/test_api.mjs",
+    "python3 scripts/planning/test_boundary.py PlanningBoundary.test_planning_01_atomic_save_reopen_review_deltas_and_history PlanningBoundary.test_planning_04_scope_roles_staff_ending_and_direct_denial PlanningBoundary.test_planning_05_fence_fingerprint_and_rollback",
+    "node scripts/experience-review/collect.mjs planning",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/verification/web-build.mjs --check"
+  ]
+}

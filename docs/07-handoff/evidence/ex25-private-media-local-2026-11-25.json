@@ -1,0 +1,248 @@
+{
+  "status": "passed",
+  "scope": "Synthetic local browser and provider-contract tests; no hosted mutation or physical iPhone verification",
+  "source_sha256": {
+    "apps/web/src/app/api/class-media/route.ts": "7fc12bef7f5425094ef88a88a139fa843fd42826f6ebfa807d779c89de759bb5",
+    "apps/web/src/components/class-media-workspace.tsx": "247fe1cf3f958a2c7bd00fe57e8c000359f01a361f5194d28908500ae32e61fd",
+    "apps/web/src/lib/class-media-gateway.test.ts": "a1026ab93e6cab2b3920a6d3f8dd7b1a77b1de1c0a647eb2ac59f5435febc007",
+    "apps/web/src/lib/class-media-gateway.ts": "fafc7f45ae7584f7bbc69a52bd1b88ffd3f6fb8f713f2f2451f92a01e585101f",
+    "apps/web/src/lib/class-media-hosted-ops.ts": "cb034f5631d40f213cfa69657a9fd2d44c4bbd8a1563b9670d533f5dbb228690",
+    "apps/web/src/lib/class-media-hosted-store.ts": "95037f1bf4a12ee1b427eddb026a21636bd784b4fa83601945d5d08076cc03a7",
+    "apps/web/src/lib/class-media-image.ts": "0e8d0eeef2f5ad29b93e40300d4e4e7911d32078914a9ba7e9edf12801bb5108",
+    "apps/web/src/lib/class-media-limits.ts": "e632706607462d0fa6c7b9c1055ad4bafb93c26c6861e71d417fc76b85060d77",
+    "apps/web/src/lib/class-media-session.ts": "80b61c908123de85cc40565fb3b9dc47966730e935595af22c8b56eb03b9d5bf",
+    "apps/web/src/lib/class-media-store.ts": "6e222935ec755dcede2074c03a522e020e818b4c1bc3c3097a24a8caf8808ac6",
+    "apps/web/src/lib/class-media-variant.ts": "d6df723782075dc713aadc39d02e10ab8c56faf561e71ebdcd72bbbf9ebe53a2",
+    "scripts/class-media/fixtures.mjs": "81285f9570b26ff4c2cb847c85a0ad58c07b7e3bf21319ec3953ba7693a51341",
+    "scripts/class-media/local-db.py": "55043600e58eb9fb0564160874731c85f5fd015198764cbc10da606ab08a905a",
+    "scripts/class-media/local-fixture.mjs": "7a07b8601dd2aa7626b7cd5c5b64d15650b39adfc7d218342add00614be2c9a9",
+    "scripts/class-media/test_connected.mjs": "d4e67db3f4bf4174d00c3041d0e918d9f4ccfbf868d3833e68e08443136c4131",
+    "scripts/class-media/test_hosted_contract.mjs": "25d0f9bbfb5d5fb53d3e793c6adc4d7635b3ea5ea26834d27ad150bb66d79813",
+    "scripts/class-media/test_image_quality.mjs": "8ed6b34de641e115f7f63baf454ab7ab36598f3904d2c482e81e9faa3ba16f75",
+    "supabase/migrations/20261124235018_ex25_synthetic_class_media.sql": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16",
+    "supabase/migrations/20261125094228_ex25_hosted_variant_protocol.sql": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9",
+    "supabase/migrations/20261125094402_ex25_staging_storage_policy.sql": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136"
+  },
+  "workload": {
+    "checks": [
+      "Mixed batch with corrupt and HEIC fallback, per-file failure, successful sibling, original recovery after reload and retry only the incomplete item",
+      "Publication requires consent for both pictured players, old URLs deny both variants after current membership or consent loss, and deletion removes both objects",
+      "Arabic narrow touch upload, tag, consent, publish, full image, withdraw and exact class return",
+      "Assigned Manager can upload a draft, exact main byte ceiling precedes decoding and thumbnails have an independent cap",
+      "24-hour reservation and seven-day draft boundaries, physical cleanup and 90-day receipt expiry",
+      "Ten classes of ten, 100 thumbnails before ten selected full downloads, and 30-day publication expiry"
+    ],
+    "workload": {
+      "classes": 10,
+      "photos": 100,
+      "objects": 200,
+      "storedMain": 104560040,
+      "storedThumbnails": 3369120,
+      "totalStored": 107929160,
+      "firstViewThumbnailBodies": 3369120,
+      "tenOpenedMainBodies": 12098866,
+      "elapsedMs": 39444
+    },
+    "environment": {
+      "node": "v24.14.0",
+      "browser": "156.0.8078.4",
+      "platform": "darwin",
+      "arch": "arm64"
+    }
+  },
+  "image_quality": {
+    "browser": "156.0.8078.4",
+    "viewport": "1280 \u00d7 900 emulated desktop",
+    "fixture": "procedurally generated group-style illustration with fine fabric detail and texture",
+    "assertions": [
+      "JPEG, PNG, WebP inputs through browser",
+      "EXIF rotation and GPS fixture stripped",
+      "output metadata stripped",
+      "transparent output retained",
+      "original bytes unchanged",
+      "40,000,000-byte boundary",
+      "pixel and axis limits before decoding",
+      "HEIC export fallback",
+      "oversized synthetic camera input"
+    ],
+    "measurements": {
+      "group-2048": {
+        "sourceBytes": 8734283,
+        "mainBytes": 1408358,
+        "thumbnailBytes": 53115,
+        "source": {
+          "type": "image/jpeg",
+          "width": 3600,
+          "height": 2400
+        },
+        "width": 2048,
+        "height": 1365,
+        "thumbnailWidth": 384,
+        "thumbnailHeight": 256,
+        "outputType": "image/jpeg",
+        "elapsedMs": 154,
+        "originalUnchanged": true,
+        "viewAt1280": {
+          "meanAbsoluteError": 5.692,
+          "rootMeanSquareError": 7.428
+        }
+      },
+      "group-2560": {
+        "sourceBytes": 8734283,
+        "mainBytes": 2195423,
+        "thumbnailBytes": 53115,
+        "source": {
+          "type": "image/jpeg",
+          "width": 3600,
+          "height": 2400
+        },
+        "width": 2560,
+        "height": 1707,
+        "thumbnailWidth": 384,
+        "thumbnailHeight": 256,
+        "outputType": "image/jpeg",
+        "elapsedMs": 110,
+        "originalUnchanged": true,
+        "viewAt1280": {
+          "meanAbsoluteError": 3.056,
+          "rootMeanSquareError": 3.899
+        }
+      },
+      "rotated-2560": {
+        "sourceBytes": 225152,
+        "mainBytes": 277098,
+        "thumbnailBytes": 35282,
+        "source": {
+          "type": "image/jpeg",
+          "width": 1200,
+          "height": 800
+        },
+        "width": 800,
+        "height": 1200,
+        "thumbnailWidth": 256,
+        "thumbnailHeight": 384,
+        "outputType": "image/jpeg",
+        "elapsedMs": 14,
+        "originalUnchanged": true
+      },
+      "alpha-2560": {
+        "sourceBytes": 7012,
+        "mainBytes": 1150,
+        "thumbnailBytes": 792,
+        "source": {
+          "type": "image/png",
+          "width": 640,
+          "height": 480
+        },
+        "width": 640,
+        "height": 480,
+        "thumbnailWidth": 384,
+        "thumbnailHeight": 288,
+        "outputType": "image/webp",
+        "elapsedMs": 30,
+        "originalUnchanged": true
+      },
+      "webp-2560": {
+        "sourceBytes": 5226812,
+        "mainBytes": 2150534,
+        "thumbnailBytes": 51942,
+        "source": {
+          "type": "image/webp",
+          "width": 3600,
+          "height": 2400
+        },
+        "width": 2560,
+        "height": 1707,
+        "thumbnailWidth": 384,
+        "thumbnailHeight": 256,
+        "outputType": "image/webp",
+        "elapsedMs": 900,
+        "originalUnchanged": true
+      },
+      "camera-2560": {
+        "sourceBytes": 35031280,
+        "mainBytes": 3534045,
+        "thumbnailBytes": 80217,
+        "source": {
+          "type": "image/jpeg",
+          "width": 4000,
+          "height": 3000
+        },
+        "width": 2560,
+        "height": 1920,
+        "thumbnailWidth": 384,
+        "thumbnailHeight": 288,
+        "outputType": "image/jpeg",
+        "elapsedMs": 228,
+        "originalUnchanged": true
+      }
+    }
+  },
+  "staging_transport_contract": {
+    "result": "passed",
+    "bytes": 9920676,
+    "source": "real app route and Storage RLS, disposable PostgreSQL, simulated Storage HTTP",
+    "confirmedProviderWrites": 5
+  },
+  "backup_workflow": 45587782357,
+  "restore_rehearsal": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "172b1774-a564-42d4-a289-8d27cc18c0d2",
+    "database_restore_passed": true,
+    "membership_boundary_passed": true,
+    "migration_rehearsed": null,
+    "migrations_rehearsed": [
+      {
+        "file": "20261124235018_ex25_synthetic_class_media.sql",
+        "sha256": "2111b5ab48c477836ecd24305d33e5468d5432272ac6fc5c9327d6c148717e16"
+      },
+      {
+        "file": "20261125094228_ex25_hosted_variant_protocol.sql",
+        "sha256": "b67d97fa051f40962906efb461d630a9f3248e2ecf33387813c3f2470781c0a9"
+      },
+      {
+        "file": "20261125094402_ex25_staging_storage_policy.sql",
+        "sha256": "fa14d15a4d6f50e6df9413f175a337fe9c54794981156d8ce647840a48a05136"
+      }
+    ],
+    "counts": {
+      "identities": 4,
+      "academies": 2,
+      "memberships": 8,
+      "private_tables_with_rls": 100
+    },
+    "existing_row_comparison": {
+      "existing_tables_checked": 93,
+      "existing_rows_checked": 1204,
+      "existing_rows_preserved": true,
+      "before_sha256": "1876aba2457058755abb110f5e1eaae8cd48701e3398443b0c5e8c09da687ccc",
+      "after_existing_sha256": "1876aba2457058755abb110f5e1eaae8cd48701e3398443b0c5e8c09da687ccc",
+      "new_tables": [
+        "class_media_audit",
+        "class_media_consents",
+        "class_media_items",
+        "class_media_manager_grants",
+        "class_media_operations",
+        "class_media_tags",
+        "class_media_variants"
+      ],
+      "new_player_columns_excluded_from_fingerprint": []
+    },
+    "hosted_storage_restore_tested": false
+  },
+  "genuine_heic_fallback": {
+    "status": "passed",
+    "fixture": "synthetic 1200\u00d7900 HEIC generated by macOS sips",
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "browser": "Chromium 156, 390px touch emulation",
+    "original_checksum_unchanged": true
+  },
+  "review_capture": {
+    "status": "passed",
+    "frames": 2343,
+    "capture_gaps": 0
+  }
+}

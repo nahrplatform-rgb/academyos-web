@@ -1,6 +1,20 @@
 # AcademyOS subscriptions, entitlements and platform payments
 
+## Commercial baseline — 26 November 2026
+
+The [frozen commercial vision](../06-delivery/master-plan-v2/commercial-and-business-operations-vision.md) governs new platform subscription and billing work. Start EX-30 with the [Phase 1a handoff](../07-handoff/ex30-commercial-and-business-operations-entry-2026-11-26.md). The EX-23 example below remains the verified fictional workflow and an input to the audit. Approved commercial terms, customer access, authority and settlement each need their own evidence before reuse.
+
+## Earlier planning integration — 7 November 2026
+
+The [canonical master plan v2](../06-delivery/master-plan-v2/README.md) and [finance simplification specification](../06-delivery/master-plan-v2/finance-simplification-and-control.md) govern current delivery. Provide a complete separate Platform business journey for academy plans, platform invoices, required proof/provider reconciliation, restrictions and recovery. Keep canonical controls and three money boundaries; simplify legacy ceremony without inventing commercial rules or treating tenant-private content as Platform access.
+
+## Local-data planning boundary —LF-v2,2November2026
+
+A future locally retained monthly platform-billing view remains separate from family finance and trainer compensation. Current provider/ledger facts and payment authority are server-only; no offline purchase, subscription activation, refund or entitlement approval follows from cached data. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
 Requirements: AO-073–084. D-009 governs pricing, limits, trials and grace. D-010 governs provider and merchant eligibility. This domain is NAHR charging an academy for AcademyOS, with separate records from family fees.
+
+In the EX-23 fictional trial, the Academy Owner opens **Academy plan** to see the invoice, balance, due date and claim history. A pending bank claim keeps the balance due. A rejection shows the reason and reopens submission. Verified settlement updates the invoice and restores access for the approved period. Trainer pay follows its own earning, approval and payout workflow under **Finance → Trainer pay**. [EX-23 approved example and local evidence](../07-handoff/ex23-platform-commercial-lifecycle-readiness-2026-11-22.md)
 
 ## Catalog and entitlement authority
 

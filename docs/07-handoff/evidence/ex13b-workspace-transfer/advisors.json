@@ -1,0 +1,3217 @@
+{
+  "cli": "2.90.0",
+  "scope": "Disposable PostgreSQL17 with unapplied workspace migration; local TLS certificate, explicit private fixture CA; not hosted or independent human review",
+  "source_sha256": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+  "exit_code": 0,
+  "elapsed_seconds": 0.102,
+  "initial_local_connection_attempt": {
+    "status": "unavailable",
+    "reason": "CLI required TLS for explicit database URL; first plain local fixture refused TLS"
+  },
+  "result": [
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.attendance_history` has a foreign key `attendance_history_event_id_academy_id_program_id_day_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "attendance_history",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "attendance_history_event_id_academy_id_program_id_day_fkey",
+        "fkey_columns": [
+          3,
+          2,
+          4,
+          5
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_attendance_history_attendance_history_event_id_academy_id_program_id_day_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.attendance_marks` has a foreign key `attendance_marks_event_id_academy_id_program_id_day_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "attendance_marks",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "attendance_marks_event_id_academy_id_program_id_day_fkey",
+        "fkey_columns": [
+          5,
+          1,
+          2,
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_attendance_marks_attendance_marks_event_id_academy_id_program_id_day_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.attendance_marks` has a foreign key `attendance_marks_player_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "attendance_marks",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "attendance_marks_player_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          1
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_attendance_marks_attendance_marks_player_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.attendance_operations` has a foreign key `attendance_operations_event_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "attendance_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "attendance_operations_event_id_fkey",
+        "fkey_columns": [
+          4
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_attendance_operations_attendance_operations_event_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.audit_events` has a foreign key `audit_events_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "audit_events",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "audit_events_academy_id_fkey",
+        "fkey_columns": [
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_audit_events_audit_events_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.branches` has a foreign key `branches_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "branches",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "branches_academy_id_fkey",
+        "fkey_columns": [
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_branches_branches_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.correction_operations` has a foreign key `correction_operations_event_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "correction_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "correction_operations_event_id_fkey",
+        "fkey_columns": [
+          4
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_correction_operations_correction_operations_event_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.correction_requests` has a foreign key `correction_requests_event_id_academy_id_program_id_day_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "correction_requests_event_id_academy_id_program_id_day_fkey",
+        "fkey_columns": [
+          3,
+          2,
+          4,
+          5
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_correction_requests_correction_requests_event_id_academy_id_program_id_day_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.correction_requests` has a foreign key `correction_requests_program_id_day_player_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "correction_requests_program_id_day_player_id_fkey",
+        "fkey_columns": [
+          4,
+          5,
+          6
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_correction_requests_correction_requests_program_id_day_player_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.date_rosters` has a foreign key `date_rosters_program_id_local_date_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "date_rosters",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "date_rosters_program_id_local_date_academy_id_fkey",
+        "fkey_columns": [
+          2,
+          3,
+          1
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_date_rosters_date_rosters_program_id_local_date_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_assignment_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_assignment_id_fkey",
+        "fkey_columns": [
+          9
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_assignment_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_event_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_event_id_fkey",
+        "fkey_columns": [
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_event_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_player_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_player_id_fkey",
+        "fkey_columns": [
+          6
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_player_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_program_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_program_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_program_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_publication_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_publication_id_fkey",
+        "fkey_columns": [
+          16
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_publication_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_assessments` has a foreign key `development_assessments_staff_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_assessments_staff_id_fkey",
+        "fkey_columns": [
+          8
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_assessments_development_assessments_staff_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_operations` has a foreign key `development_operations_event_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_operations_event_id_fkey",
+        "fkey_columns": [
+          4
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_operations_development_operations_event_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.development_operations` has a foreign key `development_operations_player_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "development_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "development_operations_player_id_fkey",
+        "fkey_columns": [
+          5
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_development_operations_development_operations_player_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.guardian_links` has a foreign key `guardian_links_guardian_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "guardian_links",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "guardian_links_guardian_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_guardian_links_guardian_links_guardian_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.initial_setup` has a foreign key `initial_setup_branch_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "initial_setup",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "initial_setup_branch_id_academy_id_fkey",
+        "fkey_columns": [
+          2,
+          1
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_initial_setup_initial_setup_branch_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.initial_setup` has a foreign key `initial_setup_sport_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "initial_setup",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "initial_setup_sport_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          1
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_initial_setup_initial_setup_sport_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.owner_invitations` has a foreign key `owner_invitations_created_by_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "owner_invitations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "owner_invitations_created_by_fkey",
+        "fkey_columns": [
+          7
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_owner_invitations_owner_invitations_created_by_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.owner_register_keys` has a foreign key `owner_register_keys_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "owner_register_keys",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "owner_register_keys_academy_id_fkey",
+        "fkey_columns": [
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_owner_register_keys_owner_register_keys_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.owner_register_keys` has a foreign key `owner_register_keys_event_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "owner_register_keys",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "owner_register_keys_event_id_fkey",
+        "fkey_columns": [
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_owner_register_keys_owner_register_keys_event_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.players` has a foreign key `players_branch_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "players",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "players_branch_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_players_players_branch_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.program_plan_players` has a foreign key `program_plan_players_job_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "program_plan_players",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "program_plan_players_job_id_academy_id_fkey",
+        "fkey_columns": [
+          1,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_program_plan_players_program_plan_players_job_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.program_plan_targets` has a foreign key `program_plan_targets_job_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "program_plan_targets",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "program_plan_targets_job_id_academy_id_fkey",
+        "fkey_columns": [
+          1,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_program_plan_targets_program_plan_targets_job_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.program_plans` has a foreign key `program_plans_program_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "program_plans",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "program_plans_program_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_program_plans_program_plans_program_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.publication_events` has a foreign key `publication_events_job_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "publication_events_job_id_academy_id_fkey",
+        "fkey_columns": [
+          5,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_publication_events_publication_events_job_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.publication_events` has a foreign key `publication_events_trainer_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "publication_events_trainer_id_academy_id_fkey",
+        "fkey_columns": [
+          8,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_publication_events_publication_events_trainer_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.publication_jobs` has a foreign key `publication_jobs_program_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "publication_jobs",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "publication_jobs_program_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_publication_jobs_publication_jobs_program_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.publication_targets` has a foreign key `publication_targets_job_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "publication_targets",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "publication_targets_job_id_academy_id_fkey",
+        "fkey_columns": [
+          1,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_publication_targets_publication_targets_job_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.qr_card_heads` has a foreign key `qr_card_heads_card_id_academy_id_player_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "qr_card_heads",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "qr_card_heads_card_id_academy_id_player_id_fkey",
+        "fkey_columns": [
+          4,
+          1,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_qr_card_heads_qr_card_heads_card_id_academy_id_player_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.qr_cards` has a foreign key `qr_cards_player_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "qr_cards",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "qr_cards_player_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_qr_cards_qr_cards_player_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.qr_window_overrides` has a foreign key `qr_window_overrides_program_id_day_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "qr_window_overrides",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "qr_window_overrides_program_id_day_fkey",
+        "fkey_columns": [
+          2,
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_qr_window_overrides_qr_window_overrides_program_id_day_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.session_changes` has a foreign key `session_changes_program_id_day_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "session_changes",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "session_changes_program_id_day_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          4,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_session_changes_session_changes_program_id_day_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.sports` has a foreign key `sports_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "sports",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "sports_academy_id_fkey",
+        "fkey_columns": [
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_sports_sports_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.trainer_assignments` has a foreign key `trainer_assignments_branch_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "trainer_assignments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "trainer_assignments_branch_id_academy_id_fkey",
+        "fkey_columns": [
+          5,
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_trainer_assignments_trainer_assignments_branch_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.trainer_assignments` has a foreign key `trainer_assignments_staff_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "trainer_assignments",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "trainer_assignments_staff_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_trainer_assignments_trainer_assignments_staff_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.trainer_invitations` has a foreign key `trainer_invitations_branch_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "trainer_invitations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "trainer_invitations_branch_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_trainer_invitations_trainer_invitations_branch_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.trainer_invitations` has a foreign key `trainer_invitations_staff_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "trainer_invitations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "trainer_invitations_staff_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_trainer_invitations_trainer_invitations_staff_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.training_dates` has a foreign key `training_dates_program_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "training_dates",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "training_dates_program_id_academy_id_fkey",
+        "fkey_columns": [
+          1,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_training_dates_training_dates_program_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.training_operations` has a foreign key `training_operations_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "training_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "training_operations_academy_id_fkey",
+        "fkey_columns": [
+          3
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_training_operations_training_operations_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.training_operations` has a foreign key `training_operations_program_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "training_operations",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "training_operations_program_id_fkey",
+        "fkey_columns": [
+          5
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_training_operations_training_operations_program_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.training_programs` has a foreign key `training_programs_branch_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "training_programs",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "training_programs_branch_id_academy_id_fkey",
+        "fkey_columns": [
+          3,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_training_programs_training_programs_branch_id_academy_id_fkey"
+    },
+    {
+      "name": "unindexed_foreign_keys",
+      "title": "Unindexed foreign keys",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+      "detail": "Table `academy.training_programs` has a foreign key `training_programs_sport_id_academy_id_fkey` without a covering index. This can lead to suboptimal query performance.",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+      "metadata": {
+        "name": "training_programs",
+        "type": "table",
+        "schema": "academy",
+        "fkey_name": "training_programs_sport_id_academy_id_fkey",
+        "fkey_columns": [
+          4,
+          2
+        ]
+      },
+      "cache_key": "unindexed_foreign_keys_academy_training_programs_training_programs_sport_id_academy_id_fkey"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `operations_academy_idx` on table `academy.operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_operations_operations_academy_idx"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `invitations_queue_idx` on table `academy.owner_invitations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "owner_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_owner_invitations_invitations_queue_idx"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `players_academy_cursor` on table `academy.players` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "players",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_players_players_academy_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `players_academy_name` on table `academy.players` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "players",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_players_players_academy_name"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `people_operations_academy` on table `academy.people_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "people_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_people_operations_people_operations_academy"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `training_programs_cursor` on table `academy.training_programs` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "training_programs",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_training_programs_training_programs_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `training_dates_window` on table `academy.training_dates` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "training_dates",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_training_dates_training_dates_window"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_invites_owner_cursor` on table `academy.guardian_invitations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_invitations_guardian_invites_owner_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_invites_player` on table `academy.guardian_invitations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_invitations_guardian_invites_player"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_links_player` on table `academy.guardian_links` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_links",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_links_guardian_links_player"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_links_cursor` on table `academy.guardian_links` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_links",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_links_guardian_links_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_people_identity` on table `academy.guardian_people` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_people_guardian_people_identity"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_people_membership` on table `academy.guardian_people` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_people_guardian_people_membership"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `guardian_operations_academy` on table `academy.guardian_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "guardian_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_guardian_operations_guardian_operations_academy"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_invites_owner_cursor` on table `academy.trainer_invitations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_invitations_trainer_invites_owner_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_invites_branch` on table `academy.trainer_invitations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_invitations_trainer_invites_branch"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_assignments_staff` on table `academy.trainer_assignments` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_assignments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_assignments_trainer_assignments_staff"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_assignments_branch` on table `academy.trainer_assignments` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_assignments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_assignments_trainer_assignments_branch"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_people_identity` on table `academy.trainer_people` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_people_trainer_people_identity"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_people_membership` on table `academy.trainer_people` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_people_trainer_people_membership"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `trainer_operations_academy` on table `academy.trainer_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "trainer_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_trainer_operations_trainer_operations_academy"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `date_plans_scope_time` on table `academy.date_plans` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "date_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_date_plans_date_plans_scope_time"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `date_plans_trainer_time` on table `academy.date_plans` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "date_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_date_plans_date_plans_trainer_time"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `date_plans_branch` on table `academy.date_plans` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "date_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_date_plans_date_plans_branch"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `date_plans_trainer_fk` on table `academy.date_plans` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "date_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_date_plans_date_plans_trainer_fk"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `date_rosters_player_scope` on table `academy.date_rosters` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "date_rosters",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_date_rosters_date_rosters_player_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `planning_operations_scope` on table `academy.planning_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "planning_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_planning_operations_planning_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `program_plans_scope` on table `academy.program_plans` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "program_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_program_plans_program_plans_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `program_plan_players_scope` on table `academy.program_plan_players` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "program_plan_players",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_program_plan_players_program_plan_players_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `program_plan_targets_date` on table `academy.program_plan_targets` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "program_plan_targets",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_program_plan_targets_program_plan_targets_date"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `program_plan_operations_scope` on table `academy.program_plan_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "program_plan_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_program_plan_operations_program_plan_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_jobs_scope` on table `academy.publication_jobs` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_jobs",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_jobs_publication_jobs_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_events_trainer_time` on table `academy.publication_events` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_events_publication_events_trainer_time"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_events_date` on table `academy.publication_events` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_events_publication_events_date"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_heads_event` on table `academy.publication_heads` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_heads",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_heads_publication_heads_event"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_targets_date` on table `academy.publication_targets` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_targets",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_targets_publication_targets_date"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_operations_scope` on table `academy.publication_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_operations_publication_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `training_dates_effective_window` on table `academy.training_dates` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "training_dates",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_training_dates_training_dates_effective_window"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `session_changes_scope` on table `academy.session_changes` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "session_changes",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_session_changes_session_changes_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `session_change_operations_scope` on table `academy.session_change_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "session_change_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_session_change_operations_session_change_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `attendance_marks_scope` on table `academy.attendance_marks` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "attendance_marks",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_attendance_marks_attendance_marks_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `attendance_history_scope` on table `academy.attendance_history` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "attendance_history",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_attendance_history_attendance_history_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `attendance_operations_scope` on table `academy.attendance_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "attendance_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_attendance_operations_attendance_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_rosters_player_event` on table `academy.publication_rosters` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_rosters",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_rosters_publication_rosters_player_event"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `publication_events_family_time` on table `academy.publication_events` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_events_publication_events_family_time"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `correction_mark_version` on table `academy.correction_requests` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_correction_requests_correction_mark_version"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `correction_queue` on table `academy.correction_requests` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_correction_requests_correction_queue"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `correction_requester` on table `academy.correction_requests` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_correction_requests_correction_requester"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `correction_assignment` on table `academy.correction_requests` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_correction_requests_correction_assignment"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `correction_history_cursor` on table `academy.correction_history` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "correction_history",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_correction_history_correction_history_cursor"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `qr_published_branch_time` on table `academy.publication_events` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_publication_events_qr_published_branch_time"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `qr_operations_scope` on table `academy.qr_operations` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "qr_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_qr_operations_qr_operations_scope"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `development_queue` on table `academy.development_assessments` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_development_assessments_development_queue"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `development_author` on table `academy.development_assessments` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_development_assessments_development_author"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `development_family` on table `academy.development_assessments` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_development_assessments_development_family"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `owner_workspace_keys_academy` on table `academy.owner_workspace_keys` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "owner_workspace_keys",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_owner_workspace_keys_owner_workspace_keys_academy"
+    },
+    {
+      "name": "unused_index",
+      "title": "Unused Index",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "PERFORMANCE"
+      ],
+      "description": "Detects if an index has never been used and may be a candidate for removal.",
+      "detail": "Index `training_dates_workspace_cursor` on table `academy.training_dates` has not been used",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+      "metadata": {
+        "name": "training_dates",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "unused_index_academy_training_dates_training_dates_workspace_cursor"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.academies` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "academies",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_academies"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.attendance_history` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "attendance_history",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_attendance_history"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.attendance_marks` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "attendance_marks",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_attendance_marks"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.attendance_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "attendance_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_attendance_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.audit_events` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "audit_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_audit_events"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.branches` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "branches",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_branches"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.correction_history` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "correction_history",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_correction_history"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.correction_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "correction_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_correction_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.correction_requests` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "correction_requests",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_correction_requests"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.date_plans` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "date_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_date_plans"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.date_rosters` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "date_rosters",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_date_rosters"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_access` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_access",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_access"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_assessments` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_assessments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_assessments"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_history` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_history",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_history"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_publications` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_publications",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_publications"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.development_submissions` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "development_submissions",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_development_submissions"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.guardian_invitations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "guardian_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_guardian_invitations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.guardian_links` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "guardian_links",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_guardian_links"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.guardian_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "guardian_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_guardian_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.guardian_people` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "guardian_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_guardian_people"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.guardian_training_access` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "guardian_training_access",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_guardian_training_access"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.identities` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "identities",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_identities"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.initial_setup` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "initial_setup",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_initial_setup"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.m1_secrets` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "m1_secrets",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_m1_secrets"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.memberships` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "memberships",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_memberships"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.owner_invitations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "owner_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_owner_invitations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.owner_register_keys` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "owner_register_keys",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_owner_register_keys"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.owner_workspace_keys` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "owner_workspace_keys",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_owner_workspace_keys"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.people_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "people_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_people_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.planning_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "planning_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_planning_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.platform_grants` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "platform_grants",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_platform_grants"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.player_name_revisions` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "player_name_revisions",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_player_name_revisions"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.players` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "players",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_players"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.program_plan_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "program_plan_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_program_plan_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.program_plan_players` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "program_plan_players",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_program_plan_players"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.program_plan_targets` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "program_plan_targets",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_program_plan_targets"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.program_plans` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "program_plans",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_program_plans"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_events` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_events",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_events"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_heads` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_heads",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_heads"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_jobs` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_jobs",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_jobs"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_rosters` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_rosters",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_rosters"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.publication_targets` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "publication_targets",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_publication_targets"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.qr_card_heads` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "qr_card_heads",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_qr_card_heads"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.qr_cards` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "qr_cards",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_qr_cards"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.qr_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "qr_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_qr_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.qr_window_overrides` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "qr_window_overrides",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_qr_window_overrides"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.qr_window_settings` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "qr_window_settings",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_qr_window_settings"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.session_change_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "session_change_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_session_change_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.session_changes` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "session_changes",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_session_changes"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.sports` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "sports",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_sports"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.trainer_assignments` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "trainer_assignments",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_trainer_assignments"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.trainer_invitations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "trainer_invitations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_trainer_invitations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.trainer_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "trainer_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_trainer_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.trainer_people` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "trainer_people",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_trainer_people"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.training_dates` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "training_dates",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_training_dates"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.training_operations` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "training_operations",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_training_operations"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.training_programs` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "training_programs",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_training_programs"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table `academy.workspace_revisions` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "name": "workspace_revisions",
+        "type": "table",
+        "schema": "academy"
+      },
+      "cache_key": "rls_enabled_no_policy_academy_workspace_revisions"
+    }
+  ],
+  "status": "completed",
+  "disposition": {
+    "counts_by_level": {
+      "INFO": 164
+    },
+    "new_object_findings": 4,
+    "warning_or_error_count": 0,
+    "new_object_review": [
+      {
+        "cache_key": "unused_index_academy_owner_workspace_keys_owner_workspace_keys_academy",
+        "disposition": "Retained: fresh disposable schema has no workload; foreign-key/cursor index purpose is deliberate and separate populated query-plan evidence is recorded."
+      },
+      {
+        "cache_key": "unused_index_academy_training_dates_training_dates_workspace_cursor",
+        "disposition": "Retained: fresh disposable schema has no workload; foreign-key/cursor index purpose is deliberate and separate populated query-plan evidence is recorded."
+      },
+      {
+        "cache_key": "rls_enabled_no_policy_academy_owner_workspace_keys",
+        "disposition": "Retained: direct table access deliberately denied; protected RPC authority and negative ACL checks apply, not client table policies."
+      },
+      {
+        "cache_key": "rls_enabled_no_policy_academy_workspace_revisions",
+        "disposition": "Retained: direct table access deliberately denied; protected RPC authority and negative ACL checks apply, not client table policies."
+      }
+    ],
+    "existing_info_findings": 160,
+    "existing_info_followup": "EX-05 scoped measurement of legacy foreign keys/indexes; no blanket index removal or unrelated migration in this checkpoint. Empty-fixture unused-index data is not production usage evidence.",
+    "security_review": "Automated local catalog lint only; independent review remains deferred, not passed."
+  }
+}

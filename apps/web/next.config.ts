@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs/config";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 const config: NextConfig = {
   poweredByHeader: false,
+  outputFileTracingIncludes: { '/api/trainer-compensation': ['./src/assets/payslip/*.ttf'] },
   async headers() {
     return [
       {
@@ -12,10 +14,22 @@ const config: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
         ],
       },
+      { source: "/prepared-workspace", headers: [{ key: "X-AcademyOS-Public-Shell", value: "workspace-v1" }] },
+      { source: "/prepared-register", headers: [{ key: "X-AcademyOS-Public-Shell", value: "register-v1" }] },
+      { source: "/api/webhooks/clerk-email", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
+      { source: "/:locale/invitation", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
+      ...["/:locale/trainer-invitation", "/:locale/workspace/:academy/staff", "/:locale/workspace/:academy/trainer"].map(source => ({ source, headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] })),
+      { source: "/:locale/guardian-invitation", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
+      { source: "/:locale/workspace/:academy/guardian", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
+      { source: "/:locale/workspace/:academy/players/:player/guardians", headers: [{ key: "Referrer-Policy", value: "no-referrer" }, { key: "Cache-Control", value: "no-store" }] },
     ];
   },
 };
-export default withSentryConfig(config, {
+export default withSentryConfig((phase: string) => ({
+  ...config,
+  // A production rebuild must never clean files used by the live editor server.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-local" : ".next",
+}), {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
   authToken: process.env.SENTRY_AUTH_TOKEN,

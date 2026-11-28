@@ -1,0 +1,292 @@
+{
+  "date": "2026-11-06",
+  "implementationCommit": "3c34923e8ab4318387f905d6ff167d59ef8d30e8",
+  "status": "offline_capture_and_cold_reopen_passed;automatic_reconnect_failed;manual_same_account_recovery_committed_once",
+  "method": {
+    "browser": "Regular Chrome Hiếu on Mac;Owner email verified through existing account UI",
+    "zoom": "80%;exact viewport/browser/OS versions not measured",
+    "network": "Visible DevTools Offline + Disable cache=1 for capture/cold reload;No throttling and ordinary cache restored afterward;only test tab disconnected",
+    "evidence": "Native CUA AX/screenshot observations plus separately labelled privileged read-only SQL;no HAR,cookie,credential or key exported",
+    "limits": "One two-player synthetic register;not a full process restart,real installed context,latency percentile,all-role proof or Owner acceptance"
+  },
+  "fixture": {
+    "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+    "branch": "aab4559c-33dc-49de-a0ee-e028fcd8922c",
+    "program": "64a50169-5916-415f-9c77-4e834f25ae67",
+    "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+    "name": "Synthetic EX07 B Normal Register",
+    "startsAt": "2026-11-06T09:15:00Z",
+    "endsAt": "2026-11-06T09:45:00Z",
+    "deadline": "2026-11-07T09:45:00Z",
+    "players": [
+      {
+        "id": "059e0073-7804-455f-b172-8d7d804c8c62",
+        "name": "Synthetic EX07 B Sam",
+        "mark": "absent"
+      },
+      {
+        "id": "21a73edd-d2b6-4d34-b67d-76d2dc73118e",
+        "name": "Synthetic EX07 B Alex",
+        "mark": "present"
+      }
+    ],
+    "setup": "Canonical signed-in Owner registration/duplicate review,program creation,plan and publication. Temporary accepted-state Trainer is an explicitly audited operator synthetic fixture,not normal invitation acceptance or delivery proof;ended before capture."
+  },
+  "beforeCapture": {
+    "marks": 0,
+    "B_slot": {
+      "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+      "device": "32da70cb-5f8c-4c31-8914-22dc5b519dfb",
+      "namespace": "d61e4504-ddc7-43bf-8768-56b39f8f95a1"
+    },
+    "trainer": {
+      "version": 2,
+      "attempts": 0,
+      "delivery": "blocked",
+      "assignment": "ended",
+      "membership": "ended"
+    },
+    "checked_at": "2026-11-06T09:15:24.286372+00:00",
+    "operations": 0,
+    "old_key_fingerprint": "4c98fc308d645528909c89b1a0a4c36c9dc62255776046bda1091c1ce3af3b55"
+  },
+  "offlineServer": {
+    "checked_at": "2026-11-06 09:19:10.789488+00",
+    "marks": 0,
+    "history": 0,
+    "operations": 0
+  },
+  "observations": [
+    {
+      "id": "B01",
+      "status": "passed_scoped",
+      "action": "Capture Sam Absent and Alex Present offline through normal review/save",
+      "result": "Saved on this device;1pending save,1Present1Absent0Unmarked;0filtered operating requests. Server marks/history/operations still0 at09:19:10UTC."
+    },
+    {
+      "id": "B02",
+      "status": "passed_scoped",
+      "action": "Cold native Reload at the normal Attendance URL while Offline and Disable cache=1",
+      "result": "Public Workspace fallback retained2rows and pending original;0filtered operating API calls;25total entries,0transferred bytes,1087291resource bytes;native Network Load186ms/DOMContentLoaded81ms are single resource timing samples,not task latency percentiles."
+    },
+    {
+      "id": "B03",
+      "status": "failed",
+      "action": "Return test tab to No throttling;do not click Retry",
+      "result": "Automatic POST /api/register-dispatch returned401 in1.35s,449transferred bytes. UI replaced private rows with Current account access changed. Sign in again to recover protected work. No successful server save at09:23:24UTC. This was not a passed automatic-sync test."
+    },
+    {
+      "id": "B04",
+      "status": "passed_after_manual_recovery",
+      "action": "Explicit same normal URL navigation online,then Recover saved work",
+      "result": "Normal signed-in document resumed the existing account without a credential prompt. Recover saved work reopened the same protected original;UI Synced;canonical result1operation,2marks,2history,1attendance.register audit. No new register capture/replacement save. No byte-level comparison of the failed HTTP body was exported."
+    },
+    {
+      "id": "B05",
+      "status": "passed_scoped",
+      "action": "In-place Arabic after server confirmation",
+      "result": "RTL normal shell,1Present1Absent0Unmarked,Synced translated,2/2fromdevice. Not a new cold AR write or installed test."
+    }
+  ],
+  "failedReconnectServer": [
+    {
+      "checked_at": "2026-11-06 09:23:24.182343+00",
+      "marks": 0,
+      "history": 0,
+      "operations": 0
+    }
+  ],
+  "manualRecoveryServerCount": [
+    {
+      "checked_at": "2026-11-06 09:24:49.672509+00",
+      "marks": 2,
+      "history": 2,
+      "operations": 1
+    }
+  ],
+  "finalServer": {
+    "B_marks": [
+      {
+        "player": "059e0073-7804-455f-b172-8d7d804c8c62",
+        "status": "absent",
+        "version": 1
+      },
+      {
+        "player": "21a73edd-d2b6-4d34-b67d-76d2dc73118e",
+        "status": "present",
+        "version": 1
+      }
+    ],
+    "B_history": [
+      {
+        "id": "3dd85632-d9b6-4634-a5cb-7468f158726a",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "player": "059e0073-7804-455f-b172-8d7d804c8c62",
+        "status": "absent",
+        "version": 1,
+        "actor_role": "owner",
+        "captured_at": "2026-11-06T09:17:44.141+00:00",
+        "received_at": "2026-11-06T09:24:41.827524+00:00",
+        "before_status": null
+      },
+      {
+        "id": "fbe9bc5b-299f-45a8-aecc-8e1a727d53d5",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "player": "21a73edd-d2b6-4d34-b67d-76d2dc73118e",
+        "status": "present",
+        "version": 1,
+        "actor_role": "owner",
+        "captured_at": "2026-11-06T09:17:44.141+00:00",
+        "received_at": "2026-11-06T09:24:41.831895+00:00",
+        "before_status": null
+      }
+    ],
+    "checked_at": "2026-11-06T09:29:19.99926+00:00",
+    "B_operations": [
+      {
+        "id": "713d9a93-d0a4-48b8-974b-b570aebaa76b",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "result": {
+          "op": "713d9a93-d0a4-48b8-974b-b570aebaa76b",
+          "kind": "register",
+          "count": 2,
+          "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179"
+        },
+        "created_at": "2026-11-06T09:24:41.832208+00:00",
+        "fingerprint": "ee59090f273d11f2c1942823262c0764347e4e5042dfe60f1b6872f02776cde3"
+      }
+    ],
+    "B_save_audits": [
+      {
+        "id": 202,
+        "action": "attendance.register",
+        "details": {
+          "count": 2,
+          "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179"
+        },
+        "created_at": "2026-11-06T09:24:41.788782+00:00",
+        "operation_id": "713d9a93-d0a4-48b8-974b-b570aebaa76b"
+      }
+    ],
+    "A_old_register": {
+      "marks": 2,
+      "history": 2,
+      "operations": [
+        "045f09c7-1c3f-45d4-96f0-2642d3ba79f8"
+      ]
+    },
+    "B_trial_ending": {
+      "state": "ended",
+      "delivery": "blocked",
+      "membership_status": "ended",
+      "invitation_version": 2
+    },
+    "operator_audits": [
+      {
+        "id": 188,
+        "action": "operator.ex07.B.trainer.setup",
+        "created_at": "2026-11-06T09:02:59.851678+00:00",
+        "operation_id": "f7f346ba-0abf-4e6f-b747-050c9e9c8d9c"
+      },
+      {
+        "id": 201,
+        "action": "operator.ex07.B.trainer.end",
+        "created_at": "2026-11-06T09:15:23.860712+00:00",
+        "operation_id": "1fbeddc5-96a1-4b5d-8bd1-860a697184cc"
+      }
+    ],
+    "A_old_key_sha256": "4c98fc308d645528909c89b1a0a4c36c9dc62255776046bda1091c1ce3af3b55",
+    "role_memberships": [
+      {
+        "id": "4a78b81d-1ece-43c2-bcbd-580c114adfca",
+        "role": "owner",
+        "status": "active",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e"
+      },
+      {
+        "id": "4ff087df-8874-4468-969e-862d97aaaee6",
+        "role": "trainer",
+        "status": "ended",
+        "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6"
+      },
+      {
+        "id": "67b04312-8952-4ebe-bf59-a02f0b7d93ea",
+        "role": "owner",
+        "status": "active",
+        "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6"
+      },
+      {
+        "id": "889717c1-c317-4544-8aad-dfb48091c9e3",
+        "role": "owner",
+        "status": "ended",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e"
+      }
+    ],
+    "A_unused_register": {
+      "marks": 0,
+      "history": 0,
+      "operations": 0
+    }
+  },
+  "finalRoles": {
+    "checked_at": "2026-11-06T09:29:34.006618+00:00",
+    "active_trial_roles": [
+      {
+        "role": "owner",
+        "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+        "subject": "user_3L5mZMvNN95teSpCPM233gzC06S"
+      },
+      {
+        "role": "owner",
+        "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "subject": "user_3L5mZMvNN95teSpCPM233gzC06S"
+      }
+    ],
+    "active_owner_counts": [
+      {
+        "count": 1,
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e"
+      },
+      {
+        "count": 1,
+        "academy_id": "c8a4045a-a636-4bad-86f3-68f2036666f6"
+      }
+    ]
+  },
+  "keyCardinality": {
+    "constraint": "academy.owner_register_keys PRIMARY KEY(subject,academy_id);existing event AND device must match",
+    "observed": "Fresh Hiếu profile attempted A event41b88d68 and register-key returned403 while current Owner remained active;UI incorrectly reported access changed",
+    "correction": "A new browser profile does not provide another server registration for the same Owner/academy. No A slot/key/original was replaced or deleted.",
+    "source": "supabase/migrations/20261104012057_owner_register_key_custody.sql"
+  },
+  "additionalObservation": {
+    "finding": "NR07",
+    "status": "open;exact cause not diagnosed",
+    "result": "After each B registration confirmed,prepared Players directory still said0players/No players registered yet. Canonical planning search and SQL returned both newly registered players;current projection invalidation/completeness must be traced,not claimed fixed."
+  },
+  "rejectedRehearsal": {
+    "result": "Attempt to temporarily restore Gmail Owner alongside iCloud Owner rejected by memberships_one_active_owner in rehearsal;no apply or ownership change. Retained scripts terminate ROLLBACK and are marked rejected.",
+    "files": [
+      "operator-owner-restore.sql",
+      "operator-owner-end.sql"
+    ]
+  },
+  "engineeringDiagnosis": {
+    "observed": "Public cold fallback automatic dispatch401;normal signed-in recovery succeeded with existing same account/current Owner.",
+    "source": "prepared-workspace page is public/static outside locale ClerkProvider;prepared-workspace-startup mounts panel without auth refresh;registerOriginalDispatch maps401denied to scope_lost;ownerRegisterPilot cleans replica on authority loss.",
+    "limit": "The exact cookie/token expiry was not inspected. Missing/expired provider session is distinct from demonstrated role revocation. No provider configuration failure or specific JWT contents are claimed.",
+    "testBlindSpot": "owner_fixture API uses global state.subject independent of real cookie/session expiry;Clerk hooks are fictional. Existing12controlled cases do not prove real Clerk session refresh after cold reopening."
+  },
+  "next": "EX-07 repair bounded provider-session readiness and typed unauthenticated response without replacing original or reloading active task;add independent expired-session regression and real-provider hosted proof. Then truthful global pilot key/slot conflict/online fallback and post-registration local projection invalidation before remaining Operations adoption.",
+  "sourceChanges": false,
+  "ownerAcceptance": "pending",
+  "independentReview": "deferred;nonblocking;not performed",
+  "delegation": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "peakActiveHelpers": 1,
+    "scope": "Read-only test fixture/coverage gap inventory;no edits/browser/provider/full suites/nested spawning/Git",
+    "coordinator": "All account/provider/browser/recovery and evidence decisions",
+    "savings": "unmeasured"
+  }
+}

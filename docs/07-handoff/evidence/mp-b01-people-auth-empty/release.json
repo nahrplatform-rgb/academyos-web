@@ -1,0 +1,58 @@
+{
+  "observed_date": "2026-11-08",
+  "candidate": {
+    "commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "pushed": true,
+    "ci": {
+      "id": 42471548556,
+      "head_sha": "6d9d3f675a1433c488926f46024d738de66b0491",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42471548556",
+      "event": "pull_request",
+      "run_attempt": 1,
+      "job": 128703257199,
+      "passed_steps": 53,
+      "evidence": "docs/07-handoff/evidence/mp-b01-people-auth-empty/ci-6d9d3f6.json"
+    },
+    "preview": {
+      "id": "dpl_4HqzqjfgT72BjYtrB8maMhhZApUB",
+      "url": "https://academyos-99r5vkliw-academy-os2.vercel.app",
+      "dashboard": "https://vercel.com/academy-os2/academyos-web/4HqzqjfgT72BjYtrB8maMhhZApUB",
+      "state": "READY",
+      "target": "preview",
+      "exact_source_ready_rechecked": true,
+      "api_target": null
+    },
+    "promotion": "Owner reported completed;exact live alias/source independently verified8November2026",
+    "hosted_changed_flow": "Scoped signed-in EN/AR positive Players profile/short-search/branch/draft/return checks passed;hosted401/provider-expiry/negative/write/offline/installed states not exercised",
+    "release_eligible": "Exact checked source released by Owner;limited hosted evidence recorded,not whole-family closure or working acceptance"
+  },
+  "staging_before": {
+    "commit": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+    "deployment": "dpl_Fq3E8v18NmPE7TRFECwG36fwXxMT",
+    "scope": "read-only deployment/source metadata;not a signed-in flow pass"
+  },
+  "preserved_ancestry": "d2bccb8 includes earlier deferred1e68403;no old promotion re-asked",
+  "existing_default_branch_alert": {
+    "number": 1,
+    "state": "open",
+    "package": "braces",
+    "advisory": "GHSA-vfj7-8cjw-p6xm",
+    "withdrawn_at": "2026-10-23T12:53:02Z",
+    "manifest_changed_by_batch": false,
+    "scope": "Existing withdrawn advisory metadata;not a full security review or newly remediated dependency."
+  },
+  "git_metadata": "Post-push CI/release handoff remains local for next coherent checkpoint;no metadata-only extra CI push.",
+  "staging_final": {
+    "deployment": "dpl_BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "state": "READY",
+    "host": "staging.academy.nahr.dev",
+    "target": "production",
+    "observed_at": "2026-11-08T10:48:41.912Z",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/BArbhWZBUzqPu8hFbNCwr5ZKUo3X",
+    "scope": "Read-only exact-source/alias metadata;positive signed-in flow is separately recorded in hosted.json;no agent promotion."
+  },
+  "hosted_receipt": "docs/07-handoff/evidence/mp-b01-people-auth-empty/hosted.json"
+}

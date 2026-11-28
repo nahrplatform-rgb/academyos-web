@@ -1,0 +1,21 @@
+{
+  "scope": "PYSA local source/description/audit only; no source mutation or live verification",
+  "files": [
+    {
+      "path": "/Users/moamenghareeb/Pro Youth Football Academy/pysa-platform/lib/query/query-client.ts",
+      "sha256": "57e52567734960eaf9e8e8eb8781c3ab7bf0fd2a983ffe6645bbcdb8711e3d3b"
+    },
+    {
+      "path": "/Users/moamenghareeb/Pro Youth Football Academy/pysa-platform/components/manager/schedule/schedule-calendar.tsx",
+      "sha256": "f12465ce87edf6d901ca2b301f829f3395dc8ed581ea2eac1f5f25959bfdbe51"
+    },
+    {
+      "path": "/Users/moamenghareeb/Pro Youth Football Academy/platform-description/PYSA-current-surface-reference.md",
+      "sha256": "6cf7929c31859ca334f19b738a5bc1406b80b3cb70db3e0e9c5bc81c2bcb007e"
+    },
+    {
+      "path": "/Users/moamenghareeb/Pro Youth Football Academy/engineering-audit/01-audit-coverage/workflows-reviewed.md",
+      "sha256": "5f1aba93f7dea2092bb8ce79484f229c16b3cba746931c8544079c7681bf10d9"
+    }
+  ]
+}

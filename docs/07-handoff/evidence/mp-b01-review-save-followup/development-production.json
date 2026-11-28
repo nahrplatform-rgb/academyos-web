@@ -1,0 +1,260 @@
+{
+  "kind": "development",
+  "baseline": false,
+  "cases": [
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "success",
+      "original": "8428ec09-0d87-4c35-b886-ede341d003b3",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "original": "45e84f94-f0f7-4f8d-b7e3-8a1bb576f2ad",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "original": "ffd75158-0666-41a1-b6d7-43f2a19638d5",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "original": "c76de650-98dc-4f76-8baf-caca615af8c2",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "success",
+      "original": "b6a5b21e-f0e7-4a2f-b492-528f4fe1eccd",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "read_failure",
+      "original": "2d8603e7-8b73-40b2-9a09-0844e3f9bdf2",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "original": "311a1b03-91d7-4c1a-83cf-3ddcdfc64547",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "decision": "return",
+      "outcome": "denied_read",
+      "original": "6e1e6c38-f166-4ace-a196-f05279ebdbb8",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "success",
+      "original": "20c92f48-cf59-4eb9-a576-7d41d508eb68",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "read_failure",
+      "original": "e0df69fd-b3a5-469c-9fee-75b974f8361f",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "lost_reply",
+      "original": "246ba257-e36a-49e4-8254-a955d9532fb7",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "publish",
+      "outcome": "denied_read",
+      "original": "e725f1c1-bd17-4361-b035-e0ffa6853122",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "success",
+      "original": "55232643-b674-487f-8be5-4b43763383ae",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "read_failure",
+      "original": "456e1603-5516-44ec-9bbb-3dffeab6b575",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "lost_reply",
+      "original": "61d91457-a7bc-4319-9612-a78a06f8d0fe",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "decision": "return",
+      "outcome": "denied_read",
+      "original": "5fd65d17-b9c9-4c1e-bd8d-7107d61ac116",
+      "reviewedVersion": 7,
+      "resultVersion": 8,
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "prematureFailure": false,
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "scope": "Actual product React; fictional current-owner/different-author HTTP. Not hosted identity, SQL effects or route-return proof."
+}

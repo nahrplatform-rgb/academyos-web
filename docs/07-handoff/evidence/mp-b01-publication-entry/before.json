@@ -1,0 +1,66 @@
+{
+  "source": "47d1eb08a860fb2c5d1a84e98eab52aea05fe696",
+  "scope": "Real Next, Chromium and signed publication reads through disposable PG17. Fresh synthetic preparation fixtures. Browser observation is read-only.",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "cases": [
+    {
+      "locale": "en",
+      "state": "ready",
+      "entry": [
+        [
+          "publication",
+          "context",
+          200
+        ],
+        [
+          "publication",
+          "dates",
+          200
+        ],
+        [
+          "publication",
+          "jobs",
+          200
+        ],
+        [
+          "publication",
+          "read",
+          200
+        ]
+      ],
+      "documents": 1,
+      "heldDatesDeferredExactJob": true,
+      "returnToToday": false
+    },
+    {
+      "locale": "ar",
+      "state": "preparing",
+      "entry": [
+        [
+          "publication",
+          "context",
+          200
+        ],
+        [
+          "publication",
+          "dates",
+          200
+        ],
+        [
+          "publication",
+          "jobs",
+          200
+        ],
+        [
+          "publication",
+          "read",
+          200
+        ]
+      ],
+      "documents": 1,
+      "heldDatesDeferredExactJob": true,
+      "returnToToday": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "checkedCommit": "013e6f7bca14640c707718ae2e8a47004847dd72",
+  "workflow": "Foundation checks",
+  "jobs": [
+    {
+      "id": 41747650982,
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41747650982"
+    },
+    {
+      "id": 41747660054,
+      "event": "pull_request",
+      "conclusion": "success",
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/41747660054"
+    }
+  ],
+  "automaticVercelStatusReportedByGitHub": {
+    "state": "success",
+    "url": "https://vercel.com/academy-os2/academyos-web/7wGzgzZTQUG87cmU65nSLrAZ9d7L"
+  },
+  "delivery": {
+    "hostedMigrationApplied": false,
+    "dispatchEnabled": false,
+    "stagingAliasIndependentlyVerified": false,
+    "promotionPerformed": false,
+    "hostedPrivateVerification": "pending",
+    "workingOwnerAcceptance": "pending",
+    "independentSecurity": "open"
+  },
+  "localEvidence": "offline-register-dispatch-2026-11-04.json",
+  "nextCheckpoint": "EX-11"
+}

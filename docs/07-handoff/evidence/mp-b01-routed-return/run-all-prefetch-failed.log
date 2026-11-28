@@ -1,0 +1,68 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: routed return adds no speculative router prefetch
++ actual - expected
+
++ [
++   'http://127.0.0.1:50036/en/workspace?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/players?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/staff?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/programs?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/development?_rsc=1y0HVLSL_GDCH-Ea',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/programs?_rsc=DyTILVZIwkK3SAmG',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?anchor=2026-11-01&_rsc=DyTILVZIwkK3SAmG',
++   'http://127.0.0.1:50036/en/workspace?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/players?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/staff?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/development?_rsc=l7LhCrbrQ6oyMMfP',
++   'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?_rsc=n3RPaylKig-AB4cZ'
++ ]
+- []
+
+    at routedReturnLeg (file:///Users/moamenghareeb/AcademyOS/scripts/navigation/test_next.mjs:375:10)
+    at async file:///Users/moamenghareeb/AcademyOS/scripts/navigation/test_next.mjs:383:20 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    'http://127.0.0.1:50036/en/workspace?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/players?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/staff?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/programs?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/development?_rsc=1y0HVLSL_GDCH-Ea',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/programs?_rsc=DyTILVZIwkK3SAmG',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?anchor=2026-11-01&_rsc=DyTILVZIwkK3SAmG',
+    'http://127.0.0.1:50036/en/workspace?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/players?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/staff?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/scan?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/settings?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/attendance/corrections?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/development?_rsc=l7LhCrbrQ6oyMMfP',
+    'http://127.0.0.1:50036/en/workspace/00000000-0000-4000-8000-000000000001/calendar?_rsc=n3RPaylKig-AB4cZ'
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.14.0
+real 16.78
+user 19.39
+sys 3.45

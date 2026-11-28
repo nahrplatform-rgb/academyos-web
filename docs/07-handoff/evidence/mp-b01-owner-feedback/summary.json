@@ -1,0 +1,122 @@
+{
+  "source_base": "3be2d4168bef1f58c5664f5daf3f038b6c602459",
+  "working_source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+    "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
+    "apps/web/src/components/attendance-workspace.tsx": "90cfd38923892fc836d911bec6a6d472d85463be937c3e70cdec00735070b041",
+    "apps/web/src/components/prepared-register-panel.tsx": "f6914a4b82191ddd3c700ab73330280deff05200803cfb971d8c525b2cbcf9ef",
+    "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+    "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+    "apps/web/src/lib/experience-format.test.ts": "f8dc26228da2d53f37c94ce42d5bec0c59837151f26f5ed2e7bc7504a6fff032"
+  },
+  "authorized_scope": "EX-07 / MP-B01;existing WB07/09/10/20 rules;no fields/schema/provider/role change",
+  "owner_resume": {
+    "cases": 20,
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "widths": [
+      1440,
+      1024,
+      390,
+      360,
+      320
+    ],
+    "home_rows_before_during": 0,
+    "home_rows_after_during": 5,
+    "calendar_rows_before_during": 0,
+    "calendar_rows_after_during": 40,
+    "reads_per_deliberate_revalidation_before_after": [
+      1,
+      1
+    ],
+    "each_case_checks": 4,
+    "checks": [
+      "normal",
+      "shorter-current-result",
+      "unavailable",
+      "denied"
+    ],
+    "failure_and_denial_private_rows": 0,
+    "temporary_geometry_clamps": 0
+  },
+  "local_checks": {
+    "workspace_transfer": {
+      "checks": 53,
+      "receipt": "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json"
+    },
+    "normal_attendance": {
+      "checks": 23,
+      "receipt": "docs/07-handoff/evidence/ex07-normal-attendance/runtime.json"
+    },
+    "owner_startup": {
+      "checks": 8,
+      "receipt": "docs/07-handoff/evidence/owner-register-workspace-2026-11-04.json"
+    },
+    "app_units": 103,
+    "calendar_operations_layouts": 24,
+    "component_capture_suites": 16,
+    "production_build_types_lint": "passed",
+    "actual_next_navigation": "passed;EN/AR internal documents0,dirty guards,selection and Back/Forward",
+    "factual_review": "16capture suites/static/factual build/offline tool passed;finalpost-CI tracking-only inventory regenerated",
+    "structural": "master with actual PYSA path/line checks;implementation;execution;17continuation tests;source-bound transport/startup/normal-Attendance freshness pass",
+    "working_day": 8,
+    "compiled_build_guard": 4,
+    "actual_next_ci_variant": "EX02_READ_OWNER_MEASURE=1 passed;2locales;one shared owner/no additional document throughHome-Calendar-date-return;current reads and identity masks;concurrent readersdeduplicate"
+  },
+  "request_limits": {
+    "canonical_people_directory_resume": 1,
+    "canonical_people_profile_resume": 1,
+    "prepared_filter_and_summary": 0,
+    "prepared_full_profile": 1,
+    "prepared_calendar_controls": 0,
+    "locale_change": 0,
+    "prepared_unchanged_dataset_pages": 0
+  },
+  "runtime_limits": [
+    "Fictional identity/provider wire and scoped adapters or disposable PG17",
+    "No hosted/installed, real expired-Clerk or physical-device evidence",
+    "No native Arabic or screen-reader acceptance",
+    "No production, new data/command/field policy, service-quota saving or performance percentile claim",
+    "Parent NR and EX/MP completion remain open;Owner-only promotion separate"
+  ],
+  "compiled_runtime_correction": {
+    "failed_candidate": "93750850b85ebf67ae33e0cd78fe7b156bd29f39",
+    "failed_ci": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42417981253",
+    "failure": "Cold offline public shell displayed current uncovered-period copy but assertion expected old copy;local prior run mixed older compiled shell with current bundled source",
+    "correction": "Fresh root build with unchanged-input and artifact hashes;fixture and receipt checks reject missing/stale/mixed build;four negative/match tests;53transfer and8working-day cases rerun",
+    "product_changes": "none beyond9375085;verification tooling/source receipt correction",
+    "compiled_proof": {
+      "node": "v24.14.0",
+      "sourceHash": "39707b3012476fde0494734ac57ed537dc26e54a6ece0b6459e096b10149a794",
+      "artifactHash": "06cecb0ead5b6aa5ed10473f06c3ba45cb415c8baa58acdeccca20d3657ba1c7"
+    }
+  },
+  "ci_history": [
+    {
+      "commit": "9375085",
+      "run": 42417981253,
+      "status": "failed",
+      "step": "workspace transfer",
+      "cause": "outdated uncovered-period text plus earlier local mixed compiled/source evidence;corrected with source/artifact guard"
+    },
+    {
+      "commit": "641e9f5",
+      "run": 42419045300,
+      "status": "failed",
+      "step": "real Next read-owner variant",
+      "cause": "probe still used Home Reload current view label on Calendar;currentroute labels now exact;allidentity andrequest assertions kept",
+      "local_exact_variant": "passed after correction"
+    }
+  ],
+  "final_candidate": {
+    "commit": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+    "ci": 42419990329,
+    "passed_steps": 53,
+    "preview_ready": true,
+    "promotion": "Owner pending",
+    "staging_source": "68b6575 confirmed independently",
+    "receipt": "docs/07-handoff/evidence/mp-b01-owner-feedback/release.json"
+  }
+}

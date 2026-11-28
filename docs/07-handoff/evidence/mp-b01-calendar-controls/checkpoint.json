@@ -1,0 +1,59 @@
+{
+  "scope": "Owner Calendar WD-70 local checkpoint; existing modified workspace preserved; no commit, push, promotion or hosted acceptance",
+  "date": "2026-11-15T17:46:19.620296+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "runtime": "Node v24.14.0",
+  "helpers": 0,
+  "model": "Current Codex coordinator; exact backend model and usage not exposed; no provider changes or paid fallback",
+  "checks": {
+    "online": "EN/AR actual Next production routes; latest selection after held obsolete responses; page filter zero reads; partial page wording; denial mask",
+    "prepared": [
+      {
+        "locale": "en",
+        "operatingReads": 0,
+        "transfers": 0,
+        "keyboardMonth": true,
+        "filterFocus": true,
+        "coveredPeriod": true
+      },
+      {
+        "locale": "ar",
+        "operatingReads": 0,
+        "transfers": 0,
+        "keyboardMonth": true,
+        "filterFocus": true,
+        "coveredPeriod": true
+      }
+    ],
+    "transport_count": 73,
+    "units": 117,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "review": "1390 actual-component frames; review-tool browser checks and freshness passed",
+    "navigation": "combined real Next route suite with WD-01/68/69/70 passed"
+  },
+  "limits": [
+    "Browser abort/cancellation and UI latest-result assertions do not prove backend SQL cancellation or service cost.",
+    "One concurrent broader-suite run failed the existing duplicate-registration returned-row focus assertion at duplicate_registration.mjs:98; earlier and serial runs passed unchanged. Cause unconfirmed; failure retained separately.",
+    "Live browser on localhost:3000 showed workspace lookup failure; identity/role could not be verified. No signed-in Calendar claim.",
+    "No new staging, installed-device, Owner acceptance or independent security evidence."
+  ],
+  "failure": {
+    "script": "scripts/workspace-download/duplicate_registration.mjs:98",
+    "assertion": "new same-name row receives focus after Back to players",
+    "expected": 1,
+    "actual": 0,
+    "timeout_ms": 5000,
+    "serial_rerun": "passed unchanged"
+  },
+  "source": {
+    "apps/web/src/components/experience-workspace.tsx": "1de436a55893fd757b7f3972f1494bb536e4aae2d38329d146b200288c8a5291",
+    "scripts/navigation/calendar_controls.mjs": "2f46d0632404f80f1a765277f6f88920108f96d9ac7a58eb0ceb9a4db6995d1c",
+    "scripts/navigation/test_next.mjs": "8ad668a9c72f2eae723ed87eea98fa7cf47f0c79fc7a63a755a24b9fa06ce077",
+    "scripts/workspace-download/calendar_controls.mjs": "efad0f72579cfcac27039d3c91a2cde37aa032d6ec824728474654c54a487cc4",
+    "scripts/workspace-download/normal_workspace.mjs": "7192b9eb026ede7fa2a4381984c721a85653f8deb62c8702842ebdafcb7bdf89",
+    "scripts/workspace-download/test_transport.mjs": "c99df1c236ed22af4eedab4f87f14d155c23cf6912e5bd1998451b168e1f3029"
+  }
+}

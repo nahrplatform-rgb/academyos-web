@@ -1,0 +1,23 @@
+{
+  "scope": "Local exact source checks; no hardware, hosted capture, independent audit or load acceptance",
+  "database_cases": 111,
+  "unit_cases": 63,
+  "react_cases_per_mode": 14,
+  "foundation_e2e_cases": 16,
+  "api_negative_budget_cases": 24,
+  "invalid_api_cases": 3,
+  "cross_origin_denied": true,
+  "lint": "passed",
+  "production_build": "passed",
+  "typecheck": "passed",
+  "register_validation": "68 screens,30 action groups,180 requirements; passed",
+  "physical_camera": "not executed",
+  "hosted_capture": "pending",
+  "ci": {
+    "commit": "1370d2d37e8f850024f139c281df0c12491e896f",
+    "push_run": 40747885009,
+    "pull_request_run": 40747898989,
+    "both_conclusion": "success",
+    "scope": "Foundation workflow includes local units/API/React/decoder/E2E;111 PG17 suite was run locally, not in this workflow"
+  }
+}

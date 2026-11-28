@@ -1,0 +1,13 @@
+{
+  "commit": "13219597762c2f6e9c536e6f7f7633c88586ad4a",
+  "run_id": 43949715959,
+  "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959",
+  "run_attempt": 1,
+  "run_conclusion": "failure",
+  "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/43949715959/job/133588657766",
+  "job_conclusion": "failure",
+  "steps_passed": 13,
+  "step_count": 55,
+  "first_failed_step": "Verify backup safety with pinned runtime dependencies",
+  "verdict": "ci_failed"
+}

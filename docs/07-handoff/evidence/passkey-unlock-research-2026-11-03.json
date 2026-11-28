@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-03T09:24:05.029Z",
+  "scope": "Isolated virtual-authenticator mechanism experiment;not physical device,real account,app implementation,security audit or private enablement",
+  "ownerDirection": "Investigate device/passkey unlocking first;no separate local-passphrase acceptance inferred",
+  "conclusion": "Not ready for private enablement;recovery case unresolved",
+  "browser": "156.0.8078.4",
+  "scriptSha256": "728a7bf7cd0d0ebc7901cc594f99bac0f4d7fdeca79cb6017d07108a4e8083b2",
+  "checks": [
+    {
+      "name": "Disposable Chromium virtual authenticator reports PRF for newly created fictional credential",
+      "status": "passed",
+      "browser": "156.0.8078.4"
+    },
+    {
+      "name": "PRF-derived wrapping key seals a random data key; real IDB envelope contains no fictional name/status plaintext",
+      "status": "passed"
+    },
+    {
+      "name": "Page reload then network-disabled virtual-authenticator unlock decrypts original persisted envelope with no request",
+      "status": "passed",
+      "notClaimed": "No browser process restart, physical authenticator, offline cold shell or server/account proof"
+    },
+    {
+      "name": "Different owner/academy derivation and authenticated binding cannot decrypt the original envelope",
+      "status": "passed"
+    },
+    {
+      "name": "Tampered wrapped-key ciphertext is refused without clearing the original envelope",
+      "status": "passed"
+    },
+    {
+      "name": "Another virtual passkey cannot unwrap the original data key",
+      "status": "passed"
+    },
+    {
+      "name": "Actually aborted virtual touch request preserves the envelope; next permitted ceremony reopens it offline",
+      "status": "passed"
+    },
+    {
+      "name": "Original-key recovery after failed virtual user verification",
+      "status": "failed",
+      "expected": "After restoring virtual verification and explicit page reopen, decrypt the original envelope",
+      "actual": "NotAllowedError persists;root cause unconfirmed;not a physical-device result",
+      "errorName": "Error"
+    },
+    {
+      "name": "Ordinary virtual passkey without PRF is explicitly unsupported for this encryption mechanism; no silent fallback",
+      "status": "passed"
+    }
+  ],
+  "caseFailures": [
+    {
+      "name": "Original-key recovery after failed virtual user verification",
+      "status": "failed",
+      "expected": "After restoring virtual verification and explicit page reopen, decrypt the original envelope",
+      "actual": "NotAllowedError persists;root cause unconfirmed;not a physical-device result",
+      "errorName": "Error"
+    }
+  ],
+  "requests": [
+    "<isolated-loopback-origin>/",
+    "<isolated-loopback-origin>/",
+    "<isolated-loopback-origin>/"
+  ],
+  "noRealCredentialOrAccount": true,
+  "noPrivateOrPrfKeyMaterialRecorded": true,
+  "limitations": [
+    "Virtual authenticator and injected user verification only",
+    "No actual macOS Touch ID,iCloud Keychain,Windows Hello,iOS/Android or browser/provider compatibility proof",
+    "No browser process restart paired with physical key;reload only",
+    "No cold offline boot,known-revocation,account-verification or server transport proof",
+    "Not independent crypto/security review;XSS/unlocked-runtime risks remain",
+    "No passkey recovery,loss,backup or export policy accepted"
+  ]
+}

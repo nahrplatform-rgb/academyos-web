@@ -1,0 +1,18 @@
+{
+  "scope": "Public deployed CSS asset verification only; no signed-in layout or write proof",
+  "origin": "https://staging.academy.nahr.dev",
+  "checks": {
+    ".register-phone-nav": true,
+    ".workspace-detail-dialog": true,
+    ".register-avatar": true,
+    ".register-summary": true,
+    ".register-primary": true
+  },
+  "styles": [
+    {
+      "path": "/_next/static/immutable/chunks/2rb1-zod37y1a.css",
+      "bytes": 36577,
+      "sha256": "4e9e6129a5d4fe56b7909f72e4830ddbfa8a37cfa9bd3f1de140af38aa8407a8"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "Fictional offline-register changed-state preview; no private app implementation or hosted/security proof",
+  "sources": {
+    "src/index.html": "9900cae6ee6452184d26400adf5fe1e7e755369044ff2e5b47ffcc71cdca8a9e",
+    "src/style.css": "72685af8c770729fbe07ade074fd0b7e5b609dec5033a9f347eda6e248330192",
+    "src/repository.mjs": "0f582756c9f5b09cabaa07a4f8086119b3bf1baf551dd6ee24a910c0250710cd",
+    "src/fixtures.mjs": "170df1a3e54f64dec60ae96085b659f5bbd5fc0e1013da33b8c3f6d9145c73a0",
+    "src/app.mjs": "3594f5e99400bb43bb72a929ccabeed34b9acd1fa928beb7aafd43700f3751a4"
+  },
+  "htmlSha256": "9029c93d69d8a7f261ab67bae4a79c8c029e68d298fc018d4d2710f193a18fe9"
+}

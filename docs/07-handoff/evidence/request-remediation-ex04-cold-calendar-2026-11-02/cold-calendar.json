@@ -1,0 +1,418 @@
+{
+  "status": "passed",
+  "inputs": {
+    "apps/web/src/components/workspace-shell.tsx": "cf916d10ee9e360e008cb314c15e567098fb13880ef18f3098d26c763a075407",
+    "apps/web/src/components/workspace-layout.tsx": "fab0a32ba8d4f7f840e0e9fffb07a75b3b63431618bcb435c4a8dd87d4dd1800",
+    "apps/web/src/app/layout.tsx": "e7671cf991113fba77d09280af2648bdb568761e3c3c1ab926b787719224e86b",
+    "apps/web/src/components/experience-workspace.tsx": "a1c8cc3123002c5542388a7511c34b481070f3cfec0c33027f13b177bc84e01d",
+    "apps/web/src/components/date-planning-workspace.tsx": "caa608bd214c267a7a0106f2d92aff9fcaa75bfd66b04f69b9d4268031fd2092",
+    "apps/web/src/lib/visible-resume.ts": "ddc8154998e4e537e08eee4e00a9ddbad62946dc00d09b9b62c4309dd56576a6",
+    "apps/web/src/components/program-workspace.tsx": "8a4389123b2a01f931116d505dbabcc40e517ae4333d60c2c889939cb3ad85db",
+    "apps/web/src/components/program-planning-workspace.tsx": "ea73b435f215f7cc95037836105a3c1dc833335ea4afb4385c6322326814230d"
+  },
+  "scope": "actual Next production components; fictional Owner identity/read-only API; controlled 250ms transport delay; no hosted latency, SQL, service cost or backend cancellation proof",
+  "cases": [
+    {
+      "locale": "en",
+      "scenario": "cold",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 4769,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 5059,
+          "status": 200
+        }
+      ],
+      "actionableMs": 929,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "hint",
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 5728,
+          "status": 200
+        }
+      ],
+      "actionableMs": 380,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "invalid-hint",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 6131,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 6413,
+          "status": 200
+        }
+      ],
+      "actionableMs": 872,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "stored-period",
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 7043,
+          "status": 200
+        }
+      ],
+      "actionableMs": 355,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "cold-month",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 7434,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-12-12",
+          "started": 7713,
+          "status": 200
+        }
+      ],
+      "actionableMs": 867,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "en",
+      "scenario": "home-failure",
+      "failedActions": [
+        "owner_home"
+      ],
+      "recoveryActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 8348,
+          "status": 503
+        },
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 8707,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 8980,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "en",
+      "scenario": "calendar-failure",
+      "failedActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "recoveryActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 9623,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 9904,
+          "status": 503
+        },
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 10503,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 10762,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "en",
+      "scenario": "setup-required",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 11469,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "scenario": "leave-during-home",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 11910,
+          "releasedAfterDeparture": true
+        }
+      ],
+      "scope": "departure releases held fixture response; no database cancellation claim"
+    },
+    {
+      "locale": "ar",
+      "scenario": "cold",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 12081,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 12366,
+          "status": 200
+        }
+      ],
+      "actionableMs": 913,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "hint",
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 13040,
+          "status": 200
+        }
+      ],
+      "actionableMs": 405,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "invalid-hint",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 13502,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 13771,
+          "status": 200
+        }
+      ],
+      "actionableMs": 927,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "stored-period",
+      "events": [
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-08",
+          "to": "2026-11-14",
+          "started": 14478,
+          "status": 200
+        }
+      ],
+      "actionableMs": 407,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "cold-month",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 14908,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-12-12",
+          "started": 15190,
+          "status": 200
+        }
+      ],
+      "actionableMs": 894,
+      "syntheticDelayPerReadMs": 250
+    },
+    {
+      "locale": "ar",
+      "scenario": "home-failure",
+      "failedActions": [
+        "owner_home"
+      ],
+      "recoveryActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 15848,
+          "status": 503
+        },
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 16224,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 16508,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "ar",
+      "scenario": "calendar-failure",
+      "failedActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "recoveryActions": [
+        "owner_home",
+        "owner_calendar"
+      ],
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 17208,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 17486,
+          "status": 503
+        },
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 18086,
+          "status": 200
+        },
+        {
+          "action": "owner_calendar",
+          "from": "2026-11-01",
+          "to": "2026-11-07",
+          "started": 18360,
+          "status": 200
+        }
+      ],
+      "privateRowsOnFailure": 0
+    },
+    {
+      "locale": "ar",
+      "scenario": "setup-required",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 19048,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "scenario": "leave-during-home",
+      "events": [
+        {
+          "action": "owner_home",
+          "from": null,
+          "to": null,
+          "started": 19489,
+          "releasedAfterDeparture": true
+        }
+      ],
+      "scope": "departure releases held fixture response; no database cancellation claim"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "task": "DS-005",
+  "date": "2026-11-08",
+  "status": "in_review",
+  "external_stop": "Owner reported quota exhausted;one output written",
+  "module": {
+    "path": "scripts/workspace-download/empty_online_registration.mjs",
+    "lines": 116,
+    "sha256": "12c756d371c9018ff92cfb4ae255c9d34031b54e8e18052e3aa92179e10b6181",
+    "unchanged_by_coordinator": true
+  },
+  "worker_report": {
+    "path": "docs/07-handoff/deepseek/DS-005-empty-online-registration.md",
+    "exists": false
+  },
+  "syntax_check": {
+    "command": "node --check scripts/workspace-download/empty_online_registration.mjs",
+    "passed": true,
+    "owner": "coordinator"
+  },
+  "integration": "observer/runner not implemented or executed by this checkpoint",
+  "runtime_test_pass": false,
+  "coordinator_next": "existing Players401-versus-denial regression then isolated empty registration integration",
+  "new_helpers_launched": 0,
+  "publication_or_promotion": false
+}

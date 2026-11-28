@@ -1,0 +1,84 @@
+{
+  "source": "78126d1f84c0e28fd918c03027bf3bf37b05f7d3",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "scope": "Real Next, Chromium and signed handlers through disposable PG17. Fictional identity, limiter and database transport adapters.",
+  "cases": [
+    {
+      "kind": "correction",
+      "entry": [
+        [
+          "attendance",
+          "correction_list",
+          200
+        ],
+        [
+          "attendance",
+          "correction_context",
+          200
+        ]
+      ],
+      "toExactReview": [
+        [
+          "attendance",
+          "correction_list",
+          200
+        ],
+        [
+          "attendance",
+          "correction_context",
+          200
+        ],
+        [
+          "attendance",
+          "correction_detail",
+          200
+        ]
+      ],
+      "returnToToday": false
+    },
+    {
+      "kind": "development",
+      "entry": [
+        [
+          "development",
+          "context",
+          200
+        ],
+        [
+          "development",
+          "queue",
+          200
+        ],
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "toExactReview": [
+        [
+          "development",
+          "context",
+          200
+        ],
+        [
+          "development",
+          "queue",
+          200
+        ],
+        [
+          "development",
+          "detail",
+          200
+        ]
+      ],
+      "returnToToday": false,
+      "lostReply": {
+        "committedPublicationVisibleAfterReload": true,
+        "recoveryControlAfterReload": false,
+        "locatorStored": false
+      }
+    }
+  ]
+}

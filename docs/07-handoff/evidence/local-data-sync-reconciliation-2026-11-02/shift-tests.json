@@ -1,0 +1,305 @@
+{
+  "scope": "Isolated SwiftCore copy;synthetic transports/temp files/injected keys;not AcademyOS or new native/hosted proof",
+  "referenceCommit": "1239e2c7ffcbbd608295303dff2aae400e11af35",
+  "filter": "EncryptedEditJournalTests|JournalSessionControllerTests|ProtectedPeriodStoreTests|AdjacentPeriodPrefetchTests|OwnDownloadVersionsTests|PersonalScheduleDownloadTests|DurableAssignmentNotesTests|DurableScheduleEditorTests[./]test(UncertainSend|DifferentAuthoritativeValue|CompleteBaseline|WholeScheduleAndOwnProfile|DiskFailure|DeleteReceipt|WholeBulkSync)",
+  "selected": 55,
+  "passed": 54,
+  "skipped": 1,
+  "failed": 0,
+  "skipReason": "Explicit disposable hosted fixture required",
+  "hostedCredentialsProvided": false,
+  "referenceBuildDirectoryUsed": false,
+  "logSha256": "58557665041b25b88ae332f9de83a424fd4ea959f936b7dd75f4c73bbe3ba597",
+  "cases": [
+    {
+      "suite": "AdjacentPeriodPrefetchTests",
+      "test": "testCachedEmptyMonthSkippedAndUnknownMonthReopensOffline",
+      "status": "passed"
+    },
+    {
+      "suite": "AdjacentPeriodPrefetchTests",
+      "test": "testCancellationDuringFetchDoesNotWriteOrFetchNextMonth",
+      "status": "passed"
+    },
+    {
+      "suite": "AdjacentPeriodPrefetchTests",
+      "test": "testFailedOrForeignReadCannotCreateEmptyCoverage",
+      "status": "passed"
+    },
+    {
+      "suite": "AdjacentPeriodPrefetchTests",
+      "test": "testSessionChangesWhileFetchingDiscardLateResponse",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testBackgroundDuringResponseRetainsPendingForSafeRetry",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testConflictKeepsBothVersionsAndExplicitKeepMineRebases",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testEditDuringInFlightSaveIsNotOverwritten",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testInvalidServerReceiptRetainsPendingWrite",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testLocalPersistenceFailureNeverAcknowledgesSave",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testLogoutPurgesDownloadedNotesButRetainsOwnerPending",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testLostResponseRetriesExactWriteAndDoesNotDuplicate",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testMonthDownloadCachesBodiesAndRemoteDeletion",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testOfflineSaveRemoveAndEncryptedRestartLeaveScheduleUnchanged",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testOverlappingMonthRefreshIsNotDropped",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testRevokedSessionRejectsLocalWritesAndForeignScope",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testScheduleMutationPreservesNoteFormatAndPendingText",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testUnknownEmptyDateLearnsTombstoneRevisionBeforeFirstWrite",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableAssignmentNotesTests",
+      "test": "testUseAccountConflictResolutionClearsOnlyLocalPendingNote",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testCompleteBaselineSaveBulkDeleteAndReopenWithoutFetch",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testDeleteReceiptPersistsTombstoneAndCannotLoseConcurrentRefreshEdit",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testDifferentAuthoritativeValueHoldsPendingAndLocalProjection",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testDiskFailureNeverAcknowledgesEditOrChangesProjection",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testUncertainSendRetainsExactPacketAndRetriesAfterReopen",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testWholeBulkSyncPreservesLaterEditAndRefreshes",
+      "status": "passed"
+    },
+    {
+      "suite": "DurableScheduleEditorTests",
+      "test": "testWholeScheduleAndOwnProfileRestoreForUnvisitedMonthWithoutTransport",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testAccountEnvironmentBindingAndWrongKeyRejectCopiedCiphertext",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testDamagedAndUnsupportedFilesFailClosedWithoutReplacement",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testEncryptedReopenPreservesRecordAndImmutableOperation",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testFailedWriteLeavesDurableStateAndPendingQueueUnchanged",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testInvalidBatchAndConflictingOperationIDAreAllOrNothing",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testOlderAcknowledgementAndReplayCannotOverwriteOrResurrect",
+      "status": "passed"
+    },
+    {
+      "suite": "EncryptedEditJournalTests",
+      "test": "testSeparateActorsDoNotLoseConcurrentEdits",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testChangedAccountSessionAndLostAuthorityCloseAccess",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testCleanupFailureClosesAccessBlocksUnlockAndAllowsLogoutRetry",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testDelayedUnlockCannotRestoreAccessAfterLogout",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testFiveMinuteMonotonicIdleBoundaryAndActivityCannotReviveExpiredAccess",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testInactiveCoversWithoutLockAndBackgroundRequiresUnlock",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testLockClosesAccessAndReopenRetainsPending",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testLogoutPurgesCachePreservesPendingAndReceipts",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testQueuedSaveCannotWriteAfterLogoutCacheCleanup",
+      "status": "passed"
+    },
+    {
+      "suite": "JournalSessionControllerTests",
+      "test": "testReadAlreadyDecodedBeforeLockCannotReturnPrivateSnapshot",
+      "status": "passed"
+    },
+    {
+      "suite": "OwnDownloadVersionsTests",
+      "test": "testCompletedFeatureDigestsPersistIndependentlyWithoutMarkingOthersComplete",
+      "status": "passed"
+    },
+    {
+      "suite": "OwnDownloadVersionsTests",
+      "test": "testOpaqueMetadataIsOwnerBoundAndRejectsUnknownOrMalformedFeatures",
+      "status": "passed"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testAccessClosingStopsBeforeCheckpointAndNeverReplacesCompleteJournal",
+      "status": "passed"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testCorruptCheckpointIsHeldRatherThanTreatedAsAnEmptyDownload",
+      "status": "passed"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testEmptyAndUnauthorizedOrRedirectedResponses",
+      "status": "passed"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testHostedInterruptResumeImportIfProvided",
+      "status": "skipped"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testInterruptedPagesReopenResumeAndImportMoreThanTenThousandEvents",
+      "status": "passed"
+    },
+    {
+      "suite": "PersonalScheduleDownloadTests",
+      "test": "testRejectsForeignMissingReorderedOrContinuallyChangingPages",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testAdminWorkingRequestIsActorBoundDurableAndNeverReplaced",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testEncryptedReopenEmptyCoverageAndLogoutClear",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testForeignOrInvalidProfileCannotReplaceValidIdentity",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testOwnProfileReopensWithoutAnyMonthFileAndNeverStoresScheduleRows",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testWrongKeyFailsAndScopeCannotEscapeStaging",
+      "status": "passed"
+    },
+    {
+      "suite": "ProtectedPeriodStoreTests",
+      "test": "testWrongOwnerAndTamperFailWithoutReplacingData",
+      "status": "passed"
+    }
+  ],
+  "sourceTestHashes": {
+    "ios/ShiftCore/Tests/ShiftCoreTests/ProtectedPeriodStoreTests.swift": "feed2c0cb210386daa0d768e8d6005c1d68c7a3f5431e7b343c573b83bdbb057",
+    "ios/ShiftCore/Tests/ShiftCoreTests/EncryptedEditJournalTests.swift": "ab9bc87c2bbdb36e239eaf74f0cbdeee9a02e302e080fd2913c0d8173788da39",
+    "ios/ShiftCore/Tests/ShiftCoreTests/DurableScheduleEditorTests.swift": "4621709c78ec0d3fe118d9a0ed2127ecf5d6bc10c2f8c8b3bee26ff2d82963fb",
+    "ios/ShiftCore/Tests/ShiftCoreTests/OwnDownloadVersionsTests.swift": "77853075cdba4f40f4e5ed8d506089d2224d67ea63f67805288f2959fda3ebfb",
+    "ios/ShiftCore/Tests/ShiftCoreTests/PersonalScheduleDownloadTests.swift": "3fdb5ee9f293d6c5255b246aec35241d5e21f9ad15409c829bf7aee70a00f8a5",
+    "ios/ShiftCore/Tests/ShiftCoreTests/JournalSessionControllerTests.swift": "24d6ffc405d5800d3f1059e274d2fea7d71db603cfa7be5b8740510f236562be",
+    "ios/ShiftCore/Tests/ShiftCoreTests/AdjacentPeriodPrefetchTests.swift": "175e4bc1e0d45a77bb59ef4ebd6a26aec5504f009c9a85c97ae316eb715b14da",
+    "ios/ShiftCore/Tests/ShiftCoreTests/DurableAssignmentNotesTests.swift": "a752330e35ff424cb064707e872636ad30cc079b1d2b17e4b8eeace8c823fdbd"
+  },
+  "referenceExistingDirtyPaths": [
+    " M scripts/ios-renewal/auto_release.py",
+    " M scripts/ios-renewal/test_auto_release.py",
+    " M supabase/.temp/cli-latest"
+  ]
+}

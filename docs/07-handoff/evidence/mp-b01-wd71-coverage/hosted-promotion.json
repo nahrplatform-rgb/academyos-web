@@ -1,0 +1,79 @@
+{
+  "recordedUtc": "2026-11-16T21:31:02.048276+00:00",
+  "source": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+  "origin": "https://staging.academy.nahr.dev",
+  "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+  "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+  "state": "READY",
+  "ownerReportedPromotion": true,
+  "agentPromotion": false,
+  "identity": {
+    "selectedAccountVerifiedThroughManageAccount": true,
+    "currentRole": "Academy Owner",
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e"
+  },
+  "browser": {
+    "profile": "nahr",
+    "taskGroup": "mpb01-promoted-check",
+    "tab": 1819005636,
+    "allowedOrigins": [
+      "https://staging.academy.nahr.dev",
+      "https://immune-grizzly-7875.clerk.accounts.dev"
+    ],
+    "interface": "Installed current browse CLI; loaded MCP interface mismatch retained, no configuration change",
+    "taskTabClosed": true
+  },
+  "cases": [
+    {
+      "id": "today-register-return-en",
+      "entry": "Real Today published session link, keyboard Enter",
+      "destination": "Actual canonical Attendance for f62395d1-11b0-4df3-b063-1ea6968c08a4",
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16,
+      "return": "Back to Today by keyboard",
+      "focus": "Original published-session Open register link",
+      "result": "passed"
+    },
+    {
+      "id": "calendar-date-register-return-ar",
+      "entry": "Calendar selected published session; Open this date by keyboard, then Open attendance",
+      "destination": "Actual dated planning and canonical Attendance",
+      "date": "2026-11-16",
+      "roster": 18,
+      "present": 1,
+      "absent": 1,
+      "unmarked": 16,
+      "return": "Arabic Back to calendar by keyboard after locale switch",
+      "retained": "Selected session and week 16-22 November",
+      "focus": "Session details heading",
+      "result": "passed"
+    },
+    {
+      "id": "player-profile-return-ar",
+      "entry": "Selected Player06 by keyboard; actual saved profile loaded",
+      "return": "Arabic Back to players by keyboard",
+      "directoryRows": 18,
+      "focus": "Original Player06 button",
+      "result": "passed"
+    },
+    {
+      "id": "player-profile-return-en",
+      "entry": "Dock English switch; selected Player06 by keyboard; actual Saved player profile status loaded",
+      "return": "English Back to players by keyboard",
+      "directoryRows": 18,
+      "focus": "Original Player06 button",
+      "profileClosed": true,
+      "localeNote": "Local locale switch rendered English while route remained /ar; no claim of separate /en Player direct entry",
+      "result": "passed"
+    }
+  ],
+  "writesPerformed": false,
+  "limits": [
+    "Hosted saved-result readback and named returns only; no new dispatch, pending-original reconciliation, provider-session expiry or cold offline save exercised on staging.",
+    "Local production/shared-service offline and original-operation proof remains in connected.json and startup-recovery.json; storage/key parity with staging is not assumed.",
+    "EN Calendar return, AR Today return, phone, installed launch, wider roles, full visual parity and Owner acceptance are not established by this hosted subset.",
+    "Rich Player MP-Q01 A/B/C remain proposals."
+  ]
+}

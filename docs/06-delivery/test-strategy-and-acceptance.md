@@ -1,5 +1,35 @@
 # Test strategy, evidence and formal acceptance
 
+## Version2 validation cadence —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package delivery/verification specification defines edit-level focused checks, coherent batch regressions/factual refresh and consolidated release/working review. Required assertions and close-to-change authority/transaction/recovery checks remain. The Owner performs promotions; deferred external review and untested combinations remain explicit.
+
+## Actual installed-web verification — 6 November 2026
+
+The [PWA delivery contract](pwa-delivery-and-readiness.md) and [PW/WD traceability](pwa-delivery-traceability.csv) add a supporting installed track. Source/static manifest validation and normal browser tests support it; actual OS installation/launch, independent authentication/storage, covered offline entry, original save/reconnect, update/migration, quota/account cleanup, camera and EN/AR/keyboard/zoom/device checks are separately recorded. WD-72–86 remain planned. No synthetic install click, Lighthouse result, desktop emulation or existing service worker establishes a physical installed pass.
+
+Run relevant existing domain/authority/concurrency/recovery checks without weakening them, plus the installed cases for each delivered slice. Keep no-device and unsupported combinations explicit rather than blocking unrelated metadata/Attendance work. The execution validator checks supporting lanes, canonical PW joins and plan pointers; it validates structure, not runtime/Owner/security evidence. This docs-only batch runs structural/link/factual freshness checks, not invented new product suites.
+
+**Current continuity gate:** EX-13 checks ordinary Owner Players/Calendar setup, warm reuse, offline reopening and sync. EX-07 extends the same continuity checks to all implemented pages and common actions and integrates normal-route Owner Attendance. Separate actual document loads, in-app masking, request counts and save outcomes. [Acceptance protocol and cases](academy-working-day-acceptance.md#normal-workspace-acceptance--5-november-2026).
+
+The [AI delegation/cost policy](../00-governance/ai-delegation-and-cost-policy.md) applies to delegated implementation and checks. Preserve meaningful assertions and actual evidence; the coordinator verifies returned diffs and combined results. Isolate fixtures/ports, serialize stateful builds/captures/measurements when needed, and do not duplicate full suites across agents without cause. Record model/effort, active peak, ownership, repair cycles and measured or unavailable usage. A second AI is not an independent human audit, and the existing nonblocking staging review deferral remains unchanged.
+
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
+**Operations fidelity — 4 November 2026:** follow the [selected reference](../03-design/operations-design-reference.md) and [full redesign](full-experience-redesign.md). Compare equivalent role/data/locale/theme/viewport, layout/density, type, spacing, meaningful colours, actual controls, focus, return and recovery. Record adaptations and unresolved differences; token tests/replays do not prove full working-app parity. Supporting EX-12 [role cases](staging-role-separation-plan.md) are planned, not executed. Preserve earlier functional approvals, engineering security checks and actual EX-09/EX-11 evidence requirements. Independent human/external review is deferred and nonblocking for authorized staging under SDR-01; do not wait for its signature or mark it passed.
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Use [local-data and sync plan](local-data-and-sync-plan.md) with the extended working-day cases. Required new scenarios: persistent cross-reload data, coherent/resumed bootstrap, no unchanged full redownload, deletion/epoch/cursor handling, local index coverage, key/quota/eviction, multi-tab leadership and version upgrades. Keep synthetic core/native reference/browser emulation/physical/API/DB/hosted/Owner/security evidence separate.
+
+## Connected operating acceptance — 2 November2026
+
+Use the [working-behaviour contract](../03-design/academy-working-behavior-contract.md), [EX-11 working-day specification](academy-working-day-acceptance.md), [working-day case register](academy-working-day-cases.csv) and [single tracker](experience-execution.csv). The new case IDs are execution coverage, not new AO/AT business requirements or evidence that tests ran. Current-source architecture and dependent WB-P decisions are prepared in EX-10. Existing tests/evidence and per-journey approvals remain; all separate gates below remain mandatory.
+
+Validate cold and repeated visits, direct links, Home→Calendar→session/register→Back→People/review,18-player/40-date volume, focus/reconnect, dirty/unknown/confirmed-read-failed states, concurrency, paging, account/scope changes, denied/revoked access and applicable version/storage failures. Match source/role/data/view/locale/profile across before/after. Wait for semantic task completion, not a route announcer or old row. Record visible blank/blocked time, retained context/input, authoritative outcomes, requests/bytes/speculative waste and measured service/query costs separately. No request-count-only or skeleton-only acceptance.
+
+Measurement is part of every affected implementation batch, not deferred until EX-08 at the end. Declare local/fixture/hosted/physical limits and actual sample sizes; targets are not measured percentiles. Owner acceptance of the working-day subset is separate from approval of a preview or policy. Do not manufacture positive role coverage through an unapproved access restoration. Remaining roles/device/load/independent-security checks stay open explicitly.
+
 The [requirements matrix](requirements-traceability.csv) defines 180 planned requirements and acceptance scenarios. The [audit mapping](audit-to-requirements.csv) carries all 89 referenced PYSA findings into preventive AcademyOS requirements. Neither file claims tests have run.
 
 ## Evidence layers

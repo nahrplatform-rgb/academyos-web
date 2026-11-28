@@ -1,0 +1,190 @@
+{
+  "source": "12b9a99c26cb446d71fcc9987572d056fc16e219",
+  "entry": {
+    "locale": "en",
+    "loadedAcademies": 2,
+    "filterCounts": {
+      "all": 2,
+      "awaitingAcceptance": 0,
+      "ownerAccepted": 2,
+      "deliveryReview": 0
+    },
+    "status": 200,
+    "observedOnboardingRequests": 1,
+    "exactTotalRequests": null,
+    "networkCaptureComplete": false,
+    "limitation": "Initial reload event buffer was truncated; one200 request/response observed, not a complete initial-request total. Later local/recheck intervals are untruncated."
+  },
+  "cases": [
+    {
+      "case": "EN awaiting status empty,clear,Isolation search,select B",
+      "onboardingRequests": 0,
+      "passed": true
+    },
+    {
+      "case": "EN explicit recheck",
+      "searchRetained": "Isolation",
+      "selectedAcademyRetained": "AcademyOS M1 Isolation Academy B",
+      "focusedHeading": true,
+      "onboardingRequests": 1,
+      "status": 200,
+      "passed": true
+    },
+    {
+      "case": "EN Back restores row and search",
+      "focusId": "admission-academy-c8a4045a-a636-4bad-86f3-68f2036666f6",
+      "onboardingRequests": 0,
+      "passed": true
+    },
+    {
+      "case": "AR language navigation",
+      "onboardingRequests": 1,
+      "passed": true
+    },
+    {
+      "case": "AR search and select A",
+      "onboardingRequests": 0,
+      "passed": true
+    },
+    {
+      "case": "AR explicit recheck",
+      "focusId": "admission-detail-heading",
+      "search": "Synthetic",
+      "selected": "AcademyOS M1 Synthetic Academy",
+      "onboardingRequests": 1,
+      "responseStatuses": [
+        200
+      ],
+      "passed": true,
+      "documentDirAttribute": ""
+    },
+    {
+      "case": "AR responsive details",
+      "viewportRequested": {
+        "width": 312,
+        "height": 675
+      },
+      "cssViewport": {
+        "height": 844,
+        "mainDirection": "rtl",
+        "pageWidth": 390,
+        "width": 390
+      },
+      "passed": true
+    },
+    {
+      "case": "AR phone Back, retained search/focus and Charcoal alternative",
+      "focusId": "admission-academy-b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "search": "Synthetic",
+      "onboardingRequests": 0,
+      "passed": true
+    },
+    {
+      "case": "Restore EN light/default viewport",
+      "onboardingRequests": 1,
+      "passed": true
+    }
+  ],
+  "checkedAtUtc": "2026-11-04T06:45:58.171Z",
+  "origin": "https://staging.academy.nahr.dev",
+  "browser": "Existing signed-in in-app browser; real configured staging identity and gateway",
+  "desktopCssViewport": {
+    "width": 1529,
+    "height": 1224
+  },
+  "desktopTitleSize": "25px",
+  "operationsRootPresent": true,
+  "recheckPresentation": "Existing checking/masking state remains; still-permitted selection/search/focus restore after successful read",
+  "privacy": "Only counts, fictional academy display names, route/element IDs and response status recorded; no headers, tokens, request bodies or recipient emails saved",
+  "restrictions": {
+    "operatingWrites": 0,
+    "invitationsSent": 0,
+    "roleChanges": 0,
+    "agentPromotions": 0,
+    "privateActivation": false
+  },
+  "limits": [
+    "No hosted before/after baseline or p75/p95/CLS measured",
+    "No SQL,Redis,billing or egress counters captured",
+    "Both live invitations accepted; pending/delivery-failure and write/recovery cases retain local-only proof",
+    "No separate iCloud session,role cleanup,private offline,physical-phone,screen-reader or 200percent zoom proof",
+    "Owner report is promotion only; new working-feature acceptance pending",
+    "Initial reload event buffer truncated; exact total entry requests unmeasured, one observed200 pair only"
+  ],
+  "networkIntervals": [
+    {
+      "name": "entry",
+      "truncated": true,
+      "hasMore": false,
+      "requestCount": 1,
+      "responseStatuses": [
+        200
+      ]
+    },
+    {
+      "name": "EN local interactions",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 0,
+      "responseStatuses": []
+    },
+    {
+      "name": "EN recheck",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 1,
+      "responseStatuses": [
+        200
+      ]
+    },
+    {
+      "name": "EN Back",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 0,
+      "responseStatuses": []
+    },
+    {
+      "name": "AR entry",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 1,
+      "responseStatuses": [
+        200
+      ]
+    },
+    {
+      "name": "AR search/select",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 0,
+      "responseStatuses": []
+    },
+    {
+      "name": "AR recheck",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 1,
+      "responseStatuses": [
+        200
+      ]
+    },
+    {
+      "name": "AR responsive/Back/theme",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 0,
+      "responseStatuses": []
+    },
+    {
+      "name": "EN restore",
+      "truncated": false,
+      "hasMore": false,
+      "requestCount": 1,
+      "responseStatuses": [
+        200
+      ]
+    }
+  ],
+  "rtlNote": "The html dir attribute is empty; main computed direction is rtl, as measured at the phone breakpoint. Refresh pass refers to selected/search/focus restoration."
+}

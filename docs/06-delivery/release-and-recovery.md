@@ -1,5 +1,17 @@
 # Release, incident response and recovery
 
+## Version2 release batching —7November2026
+
+[Canonical master plan v2](master-plan-v2/README.md). The new master package separates development_next_action from release_follow_up. Retain checked1e68403 and its deferred promotion; a later combined source requires its own exact checks and preserved supersession evidence. No agent promotion/alias action or production authority is added. Keep rollback/code-worker-schema/original compatibility.
+
+The 6 November Owner-authorized [public repository/CI policy](../00-governance/public-repository-and-ci-policy.md) separates source publication and free standard hosted validation from runtime release. Retain exact-commit checks and Owner-only staging promotions. One full feature-PR run replaces redundant push/PR copies when the prepared workflow is present; a green public check is not hosted, installed or security acceptance. Read the [publication receipt](../07-handoff/public-repository-preparation-2026-11-06.md) for actual settings, exposure limits and later-private checks.
+
+## Installed PWA updates and recovery — 6 November 2026
+
+Apply the [PWA delivery/readiness contract](pwa-delivery-and-readiness.md#pw-05--service-worker-and-update-ownership) to each changed installed release. Record manifest identity/launch, worker controller/public cache revision, code/protocol and protected repository schema compatibility alongside the existing source/configuration/migration evidence. Test an open older client, dirty input, pending/unknown original, interrupted update and rollback/forward repair. Retain compatible assets and protected pending work; no blanket prefix/store wipe or unconditional focus/controllerchange reload.
+
+An Owner promotion changes the hosted build, not every already installed client instantaneously. Verify each declared installed combination after the relevant release and keep unsupported devices/current old clients explicit. Persistence is not a backup guarantee; OS/user destruction of the only unsynced copy is not recoverable by promising a server restore. Owner-only promotions and current synthetic authority remain unchanged. This planning update performs no PWA install, release, cache deletion or migration.
+
 ## Release record
 
 Each release records scope/requirements, commit, package lock, migration set, configuration changes, affected providers, test evidence, known issues, rollback/forward-fix strategy, operator and owner decision. Staging acceptance, production deployment and formal business acceptance are distinct records.

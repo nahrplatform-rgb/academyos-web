@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "recordedUtc": "2026-11-13T15:44:00Z",
+  "checkpoint": "EX-07 / MP-B01 local production offline reopen",
+  "status": "passed_for_declared_scope",
+  "origin": "http://localhost:3100",
+  "account_scope": "Existing Nahr Chrome Owner session; AcademyOS M1 Synthetic Academy; synthetic records only",
+  "setup": {
+    "mode": "local production build",
+    "browser": "Native Chrome with DevTools Network throttling; server availability was controlled locally",
+    "server": "Prepared while connected, then local production server stopped before the clean offline reopen; restarted for reconnect",
+    "credentials_or_roles_changed": false,
+    "storage_or_pending_work_cleared": false
+  },
+  "observed": {
+    "connected_preparation": "Owner opened Device and prepared the personal workspace on the canonical localhost:3100 origin",
+    "players_offline": {
+      "route": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+      "connection_label": "غير متصل",
+      "records": 4,
+      "names_seen": [
+        "Synthetic Response Drop 2026-10-25",
+        "Synthetic Race 2026-10-25",
+        "Synthetic Registration Demo 2",
+        "Synthetic Registration Demo"
+      ]
+    },
+    "calendar_offline": {
+      "route": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar",
+      "connection_label": "غير متصل",
+      "month": "2026-11",
+      "sessions_in_period": 30,
+      "months_observed_before_clean_trial": {
+        "2026-10": 10,
+        "2026-11": 30,
+        "2026-12": 24
+      }
+    },
+    "reconnect": {
+      "network_mode_restored": true,
+      "route": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+      "connection_label": "متصل",
+      "records": 4,
+      "context_retained": true
+    },
+    "phone_state": "The protected workspace fixture asserts visible Offline / غير متصل status at 390px for EN Players and AR Calendar; the connection badge now has explicit status semantics and a phone display override."
+  },
+  "request_observation": "The clean cold offline browser path displayed cached permitted records while the local server was unavailable; no new server request was used to render those offline rows. This receipt does not claim a complete network trace for every browser asset.",
+  "not_proven": [
+    "Offline Attendance save, original-operation dispatch or same-original reconciliation",
+    "Offline edits for finance, settings, Guardian, Trainer or unbuilt modules",
+    "Installed OS/PWA eviction, quota, update or device matrix",
+    "Hosted/deployed behavior, production data or Owner acceptance",
+    "Independent security review"
+  ],
+  "related_evidence": [
+    "docs/07-handoff/local-functional-environment-2026-11-13.md",
+    "docs/07-handoff/evidence/ex13b-workspace-transfer/transport.json",
+    "scripts/workspace-download/normal_workspace.mjs",
+    "test-results/local-workflow/origin-fix/result.json"
+  ],
+  "authority": "No account, role, database schema, hosted setting, key, promotion or deployment was changed."
+}

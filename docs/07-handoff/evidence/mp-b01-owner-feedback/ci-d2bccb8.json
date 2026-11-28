@@ -1,0 +1,330 @@
+{
+  "commit": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "run": 42419990329,
+  "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42419990329",
+  "job": 128546143560,
+  "status": "completed",
+  "conclusion": "success",
+  "passedSteps": 53,
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1
+    },
+    {
+      "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2
+    },
+    {
+      "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3
+    },
+    {
+      "name": "Run npm install --global npm@11.19.1",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4
+    },
+    {
+      "name": "Run npm ci",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5
+    },
+    {
+      "name": "Run npm run lint",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6
+    },
+    {
+      "name": "Run npm run build",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7
+    },
+    {
+      "name": "Run npm run typecheck",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 8
+    },
+    {
+      "name": "Run npm test",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 9
+    },
+    {
+      "name": "Check implementation and experience execution traceability",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 10
+    },
+    {
+      "name": "Check living experience-review freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 11
+    },
+    {
+      "name": "Verify backup safety with pinned runtime dependencies",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 12
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 13
+    },
+    {
+      "name": "Verify fictional offline-register review freshness and browser recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 14
+    },
+    {
+      "name": "Verify no-extra-credential local key mechanism with fictional authority",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 15
+    },
+    {
+      "name": "Verify inactive typed Owner register storage and original recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 16
+    },
+    {
+      "name": "Verify public offline-code updates and failed-build recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 17
+    },
+    {
+      "name": "Install disposable PostgreSQL 17 test runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 18
+    },
+    {
+      "name": "Verify inactive coherent download from current database to encrypted browser storage",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 19
+    },
+    {
+      "name": "Verify closed Owner workspace transfer and protected repository",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 20
+    },
+    {
+      "name": "Verify prepared staging role transaction and protected root backup tooling",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 21
+    },
+    {
+      "name": "Verify inactive Owner original dispatch and restart recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 22
+    },
+    {
+      "name": "Verify connected fictional Owner working day",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 23
+    },
+    {
+      "name": "Verify inactive register key, registered transport and browser lifecycle",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 24
+    },
+    {
+      "name": "Verify gated Owner workspace startup and account cleanup",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 25
+    },
+    {
+      "name": "Verify normal Attendance local save, reconnect and original recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 26
+    },
+    {
+      "name": "Verify real Next task navigation and guarded return",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 27
+    },
+    {
+      "name": "Verify Owner return continuity and failed-read privacy fences",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 28
+    },
+    {
+      "name": "Verify offline experience-review navigation and boundaries",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 29
+    },
+    {
+      "name": "Verify onboarding API budgets before provider calls",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 30
+    },
+    {
+      "name": "Verify synthetic onboarding UI interaction and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 31
+    },
+    {
+      "name": "Verify scoped player API validation and fail-closed budgets",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 32
+    },
+    {
+      "name": "Verify player registration UI and interrupted-save recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 33
+    },
+    {
+      "name": "Verify guardian validation, recipient gate and fail-closed budgets",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 34
+    },
+    {
+      "name": "Verify guardian appointment UI and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 35
+    },
+    {
+      "name": "Verify trainer validation, delivery and fail-closed budgets",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 36
+    },
+    {
+      "name": "Verify trainer appointment UI and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 37
+    },
+    {
+      "name": "Verify draft program API boundaries and interrupted preparation",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 38
+    },
+    {
+      "name": "Verify private dated planning API and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 39
+    },
+    {
+      "name": "Verify atomic program planning API and actual UI recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 40
+    },
+    {
+      "name": "Verify session-change requests and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 41
+    },
+    {
+      "name": "Verify publication boundaries and role-specific recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 42
+    },
+    {
+      "name": "Verify attendance API and actual register recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 43
+    },
+    {
+      "name": "Verify Guardian training read boundary and actual UI recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 44
+    },
+    {
+      "name": "Verify correction request and decision API and recovery",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 45
+    },
+    {
+      "name": "Verify QR card/windows/automatic capture and local decoder",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 46
+    },
+    {
+      "name": "Run npm run test:e2e",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 47
+    },
+    {
+      "name": "Development feedback API and actual React recovery contracts",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 48
+    },
+    {
+      "name": "Verify role-home and calendar read API and UI",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 49
+    },
+    {
+      "name": "Verify adaptive layout scrolling sizing and responsive focus",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 50
+    },
+    {
+      "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 99
+    },
+    {
+      "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 100
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 101
+    }
+  ],
+  "scope": "Exact-source unprivileged GitHub-hosted regression;not Owner promotion/hosted/installed/working acceptance"
+}

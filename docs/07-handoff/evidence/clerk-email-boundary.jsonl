@@ -1,0 +1,5 @@
+{"case":"unsigned","status":401,"outcome":"denied","noStore":true,"noReferrer":true}
+{"case":"signed-native-ignored","status":200,"outcome":"ignored","noStore":true,"noReferrer":true}
+{"case":"signed-unapproved-recipient","status":403,"outcome":"denied","noStore":true,"noReferrer":true}
+{"case":"signed-wrong-instance","status":401,"outcome":"denied","noStore":true,"noReferrer":true}
+{"case":"signed-expired-original","status":200,"outcome":"expired","noStore":true,"noReferrer":true}

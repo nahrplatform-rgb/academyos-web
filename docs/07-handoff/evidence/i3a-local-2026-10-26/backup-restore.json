@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "github_run": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40335930574",
+  "source": "a475dadda5294510e43c7a64c14f29603bfa8748",
+  "receipt_digest_verified_against_trusted_run": true,
+  "backup": {
+    "format": 1,
+    "project": "snpphkenmvmhpjstbeul",
+    "key": "staging/2026-10-26/3bdca27f-8c86-426f-8600-056a21ca1a99/backup.tar.age",
+    "sha256": "ded3ff7adc069f2f0c60361765d39bcf455e7e5272ceb7a935781152efa72b99",
+    "bytes": 317704,
+    "object_count": 0,
+    "verified_at": "2026-10-26T14:03:36.594930+00:00",
+    "status": "encrypted_upload_download_verified",
+    "storage_api_credential_verified": true,
+    "restore_tested": false
+  },
+  "recovery": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "3bdca27f-8c86-426f-8600-056a21ca1a99",
+    "checksums_valid": true,
+    "objects": 0,
+    "database_restore_tested": false
+  },
+  "rehearsal": {
+    "project": "snpphkenmvmhpjstbeul",
+    "run_id": "3bdca27f-8c86-426f-8600-056a21ca1a99",
+    "database_restore_passed": true,
+    "membership_boundary_passed": true,
+    "migration_rehearsed": "20261026145710_i3a_draft_programs.sql",
+    "counts": {
+      "identities": 2,
+      "academies": 2,
+      "memberships": 4,
+      "private_tables_with_rls": 25
+    },
+    "hosted_storage_restore_tested": false
+  },
+  "plaintext_removed": true,
+  "migrationSha256": "29ebeb88e048106e09574df4d344c37acc129dccd677cd8445e5478edc48db2a"
+}

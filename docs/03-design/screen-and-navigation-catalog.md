@@ -1,5 +1,11 @@
 # Screen catalog and information architecture
 
+## Local-data planning boundary —LF-v2,2November2026
+
+Normal route entry should query the compatible permitted local repository, not redownload each screen. Catalog screen presence does not prove storage/coverage/offline support; new changed-state coverage maps through the loading matrix and50case working-day register. See [the canonical plan](../06-delivery/local-data-and-sync-plan.md). Current implementation/evidence and earlier business approvals are unchanged.
+
+Implementation mapping: [the app screen register](../06-delivery/app-implementation-screen-matrix.csv) joins this catalog to source designs, actions, requirements, shared components and separate delivery statuses. S59–S68 there are proposed additive design IDs; this link does not silently approve or renumber them. See [the implementation plan](../06-delivery/app-implementation-plan.md).
+
 Requirements: AO-117–130 and the domain requirements linked from each workflow. Routes below are proposed product contracts; they are not implemented routes. Localized pages use `/{locale}` and academy pages include `/a/{academyId}`. The server validates every context.
 
 ## Global and platform screens

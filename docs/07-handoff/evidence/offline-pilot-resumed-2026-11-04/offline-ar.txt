@@ -1,0 +1,13 @@
+~							652 heading سجل الحضور المحضّر, Value: 1
+~								653 text سجل الحضور المحضّر
+~							654 container سجل الجهاز الشخصي
+~								655 heading سجل الجهاز الشخصي, Value: 2
+~									656 text سجل الجهاز الشخصي
+~									662 text 2  /  2 محمّلون من هذا الجهاز
+~											667 toggle button (disabled) حاضر, Value: 0
+~											668 toggle button (disabled) غائب, Value: 0
+~											669 toggle button (disabled) لم يُسجّل, Value: 1
+~											673 toggle button (disabled) حاضر, Value: 0
+~											674 toggle button (disabled) غائب, Value: 0
+~											675 toggle button (disabled) لم يُسجّل, Value: 1
+~								676 button (disabled) راجع الحضور

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "reactMode": "development",
+  "scope": "Actual product React component; synthetic identity/HTTP adapters, not SQL/provider/hosted proof",
+  "saves": 5,
+  "apiCalls": 60,
+  "cases": [
+    "StrictMode coalesced critical read and independent dated list",
+    "phone Back and same-date pointer reopen with current-authority reread",
+    "scoped candidate failure retains intent",
+    "review save and roster removal",
+    "capacity conflict blocks confirmation",
+    "lost committed reply/reload recovers original once",
+    "no-commit cancellation retains fields",
+    "confirmed save read failure retries read",
+    "stale compare retains intent",
+    "ended Trainer explicit unassign and no eligible candidate",
+    "EN/AR320/360/926/1440",
+    "focus revocation clears private data",
+    "identity remount clears intent",
+    "published label and edit lock; withdrawn private plan unlocked"
+  ],
+  "errors": []
+}

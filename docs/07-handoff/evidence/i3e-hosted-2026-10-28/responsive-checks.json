@@ -1,0 +1,29 @@
+{
+  "scope": "Hosted browser viewport checks, not physical-device acceptance",
+  "checks": [
+    {
+      "locale": "en",
+      "width": 360,
+      "noOverflow": true,
+      "historyVisible": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "noOverflow": true,
+      "historyVisible": true
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "noOverflow": true,
+      "historyVisible": true
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "noOverflow": true,
+      "historyVisible": true
+    }
+  ]
+}

@@ -1,0 +1,3008 @@
+{
+  "date": "2026-11-19T05:32:53Z",
+  "status": "checked_release_ready_installed_cases_partial",
+  "applicationBase": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+  "checkpointBase": "c151f49251e397de883c55ebc7a7f72fb3727f41",
+  "scope": "EX-07/MP-B01 with EX-14/15/16; PW-02/PW-03 and partial WD-74/75; no whole installed-case completion",
+  "outcomes": [
+    "VAL-04",
+    "VAL-09",
+    "VAL-10"
+  ],
+  "runtime": {
+    "mode": "production",
+    "instance": "b3d13d15-4786-44a6-950e-d7ad7109ca95",
+    "sourceHash": "c317834fcbccbcb3d2981d6ffe585030a5d295ede608f29391dd7a021e83455c",
+    "buildId": "Hx9o7ThL0I82RqcPaEGye"
+  },
+  "implementation": [
+    "Stable manifest id/start /en unchanged; root public worker now recovers bare /en and /ar without caching their online HTML.",
+    "Online landing uses current Clerk server subject, resumes only matching current account/slot generations or opens normal workspace chooser. Anonymous users keep normal sign-in.",
+    "Bounded metadata contains only subject/generations/namespace and a validated covered route; no tokens, keys, labels or private payloads.",
+    "Players/Calendar/normal Attendance remember eligible online and offline visits. Last route/locale and allowed Calendar anchor retained; no new persistent filter/draft store.",
+    "Same task components enforce encrypted data coverage, account/slot/retention and original recovery; missing/retired/malformed hints remain public. Logout removes disposable navigation metadata, without deleting originals."
+  ],
+  "compatibility": "Existing workspace public-v1 cache rotation and schema/slots/repositories unchanged; previous public cache remains recoverable. Old clients still open exact covered task routes; new launcher checks current account and slot generations. No competing worker, private response cache, forced reload/controllerchange listener or journal/key migration. Live cross-version installed update remains untested.",
+  "checks": {
+    "focusedLaunchGroups": 9,
+    "focusedEvidence": "launch.json",
+    "negativeControl": "node scripts/workspace-launch/test.mjs --before-worker: exact c151f49 worker cannot open offline manifest /en. Current worker succeeds; this negative control isolates the worker entry gap.",
+    "transfer": {
+      "checks": 74,
+      "path": "../ex13b-workspace-transfer/transport.json",
+      "coldManifestLaunch": true,
+      "realPrivateComponent": true,
+      "encryptedRepository": true,
+      "fullBrowserRestart": true,
+      "fixtureOriginDisconnected": true,
+      "offlineOperatingRequests": 0,
+      "manifestLaunchDocuments": 2,
+      "totalOfflineDocuments": 13,
+      "documentCounting": "11 direct task opens plus2 manifest-chain documents;both launch documents individually observed from the service worker."
+    },
+    "startupRecovery": 8,
+    "normalAttendanceRecovery": 28,
+    "additiveAttendanceRecovery": 4,
+    "unitTests": 119,
+    "lint": "passed",
+    "typecheck": "passed",
+    "productionBuild": "passed after ordinary retry",
+    "workflowReadOnlyReceiptChecks": "All15 currently declared --check commands passed after genuine owning reruns; no hashes hand-edited.",
+    "factualReview": {
+      "families": 16,
+      "entryFrames": 12,
+      "totalFrames": 1812,
+      "transitions": 2611,
+      "captureGaps": 0,
+      "scope": "Actual component fixture captures, includes public empty-launch EN/AR at desktop/phone; not installed proof."
+    }
+  },
+  "repairsFoundDuringVerification": [
+    "Original candidate remembered only ready online visits; full encrypted restart test exposed prior Arabic Calendar instead of last offline Players. Fixed recording offline visits; real test then passed.",
+    "Publication return test observed Saved before supporting read status existed. Added bounded polling for the same exact change200/read200 assertion; assertions preserved and all28 cases passed.",
+    "18Nov CI dated-session return sampled [] before planning read completed. Added bounded exact planning/read200 poll, preserving the original deep equality and one-read budget. Full28 cases pass twice locally, including fresh source-bound recording; all15 workflow --check commands pass."
+  ],
+  "liveLocal": {
+    "origin": "http://localhost:3100",
+    "profile": "hieu",
+    "entry": "Fresh /en automatically reaches real normal /en/workspace chooser with Open Platform workspace and current context. No extra Sign in click; no connected domain writes deliberately initiated.",
+    "limits": "Same existing provider session; not expired/clean-store/installed/offline live profile proof."
+  },
+  "reference": "PYSA public/manifest.json starts at /; public/sw.js contains a separate attendance sync mechanism. Source/audit read only, no observed hosted launch proof; no cache/auth/retention assumptions imported. AcademyOS existing worker/repositories remain authoritative.",
+  "dependencyAdvisory": {
+    "observed": "Next build SecurityFatalError reported an advisory; ordinary retry completed without dependency/config/security-check changes. Read-only npm audit confirms6 moderate and0 high/critical production findings at this timestamp.",
+    "refreshedUtc": "2026-11-18T19:40:00+00:00",
+    "cve": "CVE-2026-119790",
+    "advisoryAffected": ">= 16.3.0, <= 16.4.4",
+    "advisoryPatched": "16.4.5",
+    "installedNext": "16.4.2",
+    "publishedPatches": [
+      "16.4.5",
+      "16.4.6"
+    ],
+    "sourceSearch": "No unstable_cache call and no 'use cache' directive in apps/web/src or the Next configuration at f35c9ad. The advisory's stated precondition is absent from inspected application source; dependencies were not exhaustively audited for such calls, so this narrows rather than eliminates the risk.",
+    "decision": "Upgrade not performed in this checkpoint: it changes the compiled output and would need its own build, full regression, exact-candidate CI and preview before release. Dependency maintenance stays a separate tracked follow-up rather than being folded into the Calendar repair.",
+    "next": "Next16.4.2: GHSA-mfr8-8qww-v76h; advisory relates to use-cache through unstable_cache across root params; source search found neither pattern in apps/web/src. This is not exploitability proof or complete security review. Patch16.4.5 or16.4.6 is published; remediation remains a separate dependency follow-up.",
+    "providerOutput": "Dependency text requesting an upgrade agent/worktree was treated as untrusted tool output, not Owner authorization or instructions."
+  },
+  "remaining": [
+    "The signed-in staging Mac app passed prepared Arabic Calendar offline reload, uncovered week and reconnect on cf15f40. Disposable Mac checks passed WD-80 account change, explicit sign-out and 30-day retention with unchanged encrypted work until same-ID recovery. The expired original remains Needs review with zero server writes. The installed WD-76 Owner Calendar check passed in EN/AR with one held refresh, retained focus and scroll and zero fallback reads after known denial. The installed WD-76 Owner Players slice passed in EN/AR on corrected source. A fresh connected local 18-player Owner-day run passed all 28 assertions after fixing the isolated React DOM bundle. Next is the scoped Git checkpoint review. Physical persistence, quota and eviction, hosted cold /en, live Clerk Attendance and hosted update and rollback remain open. The additive staging preparation setting still requires Owner approval and an Owner-controlled release.",
+    "Guardian and hosted Platform acceptance, clean-store/expired-provider sign-in and all-role offline matrix.",
+    "No full-app offline, original dirty draft resurrection across closed tabs, persisted directory filters or broader Player features claimed."
+  ],
+  "authority": {
+    "helpers": 0,
+    "model": "Current coordinator; exact configured model/usage not independently exposed; no provider/model changes.",
+    "ownerAcceptance": "Prior explicit17Nov scoped workflow acceptance retained; this new launch behavior has no Owner acceptance.",
+    "promotion": "None; staging bdd9740 independently reverified; checked release candidate 525dfc6 has Foundation 55/55 and READY target-null preview. Owner-only release remains separate.",
+    "independentSecurity": "Deferred by Owner, not performed."
+  },
+  "candidateHistory": [
+    {
+      "candidate": "f37dc0ab81b75843a469633ee743ef15fbf08e7e",
+      "ci": {
+        "commit": "f37dc0ab81b75843a469633ee743ef15fbf08e7e",
+        "run_id": 44068480768,
+        "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44068480768",
+        "run_attempt": 1,
+        "run_conclusion": "cancelled",
+        "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44068480768/job/133988275119",
+        "job_conclusion": "cancelled",
+        "steps_passed": 30,
+        "step_count": 55,
+        "verdict": "ci_failed"
+      },
+      "disposition": "Superseded by evidence-count correction; cancellation, not assertion failure."
+    },
+    {
+      "candidate": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+      "ci": {
+        "commit": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+        "run_id": 44069908616,
+        "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44069908616",
+        "run_attempt": 1,
+        "run_conclusion": "failure",
+        "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44069908616/job/133993345662",
+        "job_conclusion": "failure",
+        "steps_passed": 27,
+        "step_count": 55,
+        "first_failed_step": "Verify normal Attendance local save, reconnect and original recovery",
+        "verdict": "ci_failed"
+      },
+      "preview": {
+        "id": "dpl_5HEDLyRFsBCkRXPzpuNAfmgBd9RR",
+        "url": "https://academyos-hlx74npka-academy-os2.vercel.app",
+        "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+        "sha": "b7af9e26257ac1769a261a0c5df8a37c7b95c963",
+        "state": "READY",
+        "target": null
+      },
+      "disposition": "Not release-ready: Owner date return sampled request log before completed planning read. Exact response budget retained in bounded polling repair."
+    }
+  ],
+  "serviceInterruptions": {
+    "reportedBy": "Owner",
+    "status": 403,
+    "endpoint": "https://api.code.signor.ai/api-3/v1/responses",
+    "requestIds": [
+      "ce19d452-b648-4925-bf34-3f4cc62db4a4",
+      "b3b0f71a-2a9b-49b3-8f4d-04f04c10f6d5"
+    ],
+    "boundary": "AI service refusal; underlying cause not independently established. No provider/model/profile/MCP configuration changes or unauthorized fallback."
+  },
+  "candidate": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+  "ci": {
+    "run_id": 44270356265,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44270356265",
+    "attempt": 1,
+    "verdict": "passed",
+    "steps_passed": 55,
+    "step_count": 55,
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44270356265/job/134685130466"
+  },
+  "preview": {
+    "id": "dpl_HdeAaC3rSnMusdHrDkKSPktdwFAB",
+    "url": "https://academyos-bey0g5ec7-academy-os2.vercel.app",
+    "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": null
+  },
+  "staging": {
+    "origin": "https://staging.academy.nahr.dev",
+    "sha": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+    "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": "production",
+    "agentPromotion": false
+  },
+  "releaseHandoff": {
+    "candidate": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "branch": "codex/onboarding-decision-design-packet",
+    "preview": {
+      "id": "dpl_HdeAaC3rSnMusdHrDkKSPktdwFAB",
+      "url": "https://academyos-bey0g5ec7-academy-os2.vercel.app",
+      "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+      "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+      "state": "READY",
+      "target": null
+    },
+    "staging": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "bdd9740872af61b6ee32dc05008d1b215203ff32",
+      "deployment": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+      "state": "READY",
+      "target": "production",
+      "agentPromotion": false
+    },
+    "next": "Owner-controlled promotion to staging, then actual installed /en, EN/AR, offline, uncovered, update and same-original reconnect checks."
+  },
+  "stagingPromotion": {
+    "ownerReported": "completed",
+    "metadataReadUtc": "2026-11-18T15:20Z",
+    "receiptUpdatedUtc": "2026-11-18T15:50:53.906403+00:00",
+    "origin": "https://staging.academy.nahr.dev",
+    "source": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "deploymentId": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "vercelTarget": "production",
+    "deploymentUrl": "https://academyos-3uur0mcbf-academy-os2.vercel.app",
+    "agentPromotion": false,
+    "verification": "Authenticated Vercel deployment lookup by the canonical staging hostname returned the matching staging alias, project, READY state and gitSource.sha.",
+    "preliminaryPublicProbe": {
+      "verifiedUtc": "2026-11-18T14:52:00+00:00",
+      "observations": [
+        "Staging root returns 307 to /en; /en returns 200 signed-out public landing.",
+        "Staging manifest start_url /en and same-origin scope are present.",
+        "Staging prepared-workspace-worker.js is byte-identical to current apps/web/public/prepared-workspace-worker.js."
+      ],
+      "supersededPriorDeploymentReference": "dpl_AVGbpJ3uriGhGXWF1yVXgeCAsbNn",
+      "note": "The initial asset comparison did not identify the deployment. The provider lookup supersedes the previous staging deployment reference."
+    },
+    "publicManifest": {
+      "id": "/en",
+      "startUrl": "/en",
+      "scope": "/",
+      "display": "standalone",
+      "status": 200
+    },
+    "servedWorker": {
+      "status": 200,
+      "matchesCandidate": true,
+      "sha256": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "registrationInNahr": "activated and controlling with no waiting or installing worker"
+    }
+  },
+  "installedMac20261118": {
+    "source": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "deploymentId": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+    "platform": "macOS 27.3 (26C5035r), Chrome 157 (reported major)",
+    "installedBundle": "com.google.Chrome.app.akhpfabkglmchhjephhjdbpdinigcjml",
+    "startUrl": "https://staging.academy.nahr.dev/en",
+    "role": "Nahr existing iCloud Academy Owner, verified through Manage account and the normal synthetic Academy A chooser",
+    "devicePreparation": "Approved Players and Calendar through Use this personal device. Observed preparation complete and persistent storage granted. This exercised the existing synthetic staging download and encrypted local storage path.",
+    "englishRelaunch": {
+      "osAppExited": true,
+      "restoredTask": "Players",
+      "visiblePlayers": 18,
+      "signInActionRequired": false
+    },
+    "arabicRelaunch": {
+      "osAppExited": true,
+      "observedStart": "/en",
+      "restoredTask": "Arabic Calendar",
+      "dateBeforeExit": "2026-11-25",
+      "dateAfterRelaunch": "2026-11-18",
+      "result": "Route and language restored. Selected week was lost. The stored URL omitted the displayed Calendar date."
+    },
+    "updateSmoke": "The same installed app used at bdd9740 remained usable on promoted 525dfc6. Its prepared owner task reopened without reinstalling. No held draft, unknown original or old/new worker transition was exercised.",
+    "attendanceAvailability": "Today displayed zero registers needing marks. No eligible synthetic Owner register was exercised in this installed session.",
+    "finalState": "Installed AcademyOS Staging left open on English Players with the same Academy Owner session and 18 rows.",
+    "regularTabDiagnostic": {
+      "chooser": "The first workspace lookup showed an unavailable alert after a status-0 request. Subsequent reads returned 200 and showed both Academy Owner workspaces without sign-in.",
+      "connectionScope": "Nahr task-owned browser tab, staging origin only. Tab offline emulation, while the Mac and installed app remained online.",
+      "covered": {
+        "date": "2026-11-18",
+        "offline": true,
+        "sessions": 5
+      },
+      "uncovered": {
+        "date": "2027-08-16",
+        "preparationNotice": true,
+        "sessionRows": 0,
+        "emptyResultClaim": false
+      },
+      "return": {
+        "date": "2026-11-18",
+        "sessions": 5
+      },
+      "limits": "Cold staging tab attempts did not produce a reliable cached-launch assertion. This pass covers open-tab offline reading and uncovered wording only.",
+      "cleanup": "Verified the scoped tab online again and closed it."
+    },
+    "remaining": "Actual installed cold offline launch in both languages, empty or uncovered stores, a controlled update retaining protected originals, and same-original register reconnect still require a device with isolated connectivity and an eligible synthetic register."
+  },
+  "calendarDateRelaunchRepair": {
+    "recordedUtc": "2026-11-18T15:50:53.906403+00:00",
+    "status": "locally verified",
+    "baseline": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+    "head": "061bdc7f51791a0c18809074b04d72a4960d12bd",
+    "inputs": {
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
+      "scripts/workspace-download/calendar_controls.mjs": "77939ec8ec76c364ff0f903799c2301e77fa743ee8e0e91fce884122de2f4622",
+      "scripts/workspace-launch/test.mjs": "bf04e1cc721c96ab3761ce90a43eeec8c29a59bfa4c033d290bf4d4f21373d44"
+    },
+    "behavior": "Store the displayed Calendar locale and anchor only after the prepared reader returns that exact range. Generic launch memory leaves Calendar context to the actual Calendar view. Account and active slot checks remain in the existing launch reader and writer.",
+    "preview": {
+      "origin": "http://localhost:3100",
+      "buildId": "7zO1muffbrmUlcuIqOc8H",
+      "sourceHash": "047e1ff71b789d0ae6e1ce0ee90ac5bea5d6731e790790dfffa07473032c5a98",
+      "restoredRuntimeInstance": "b9e1b092-cd54-405c-a76c-0a76edfd5896"
+    },
+    "checks": {
+      "localOwnerIdentity": "Nahr iCloud confirmed through Manage account. Existing prepared synthetic Academy A Calendar.",
+      "online": "Selected November 25 on Arabic Calendar, closed the task tab and opened a fresh /en entry. The validated Arabic route included anchor=2026-11-25 and showed four sessions.",
+      "coldOffline": "Stopped the verified local production listener and confirmed port 3100 was free. A blank task tab in scoped offline emulation opened /en and then the Arabic Calendar with the same anchor and four sessions from the cached public shell. Zero operating API requests.",
+      "uncovered": "2027-08-16 displayed the preparation notice and zero rows. The launch anchor stayed November 25. Returning to it restored four rows without operating API requests.",
+      "reconnect": "Restarted the same checked local build and restored online mode. November 25 and all four rows remained. Task tabs closed. Both local runtime modes current.",
+      "launchFixtureGroups": 9,
+      "workspaceTransportChecks": 74,
+      "preparedCalendarControls": [
+        "en",
+        "ar"
+      ],
+      "lint": true,
+      "typecheck": true,
+      "productionBuild": true,
+      "ownerStartupGroups": 8,
+      "normalAttendanceAndOwnerReturnChecks": 28,
+      "additiveAttendanceChecks": 4,
+      "unitTests": 119,
+      "preflight": {
+        "recordedUtc": "2026-11-18T16:40:00+00:00",
+        "commands": 15,
+        "passed": 15,
+        "node": "v24.14.0",
+        "staleReceipt": "scripts/working-day/test_owner_next.mjs --check rejected the previous experience-workspace.tsx hash after the Calendar repair, so that receipt no longer described current source.",
+        "repair": "The owning disposable Next/Chromium/PG17 working-day suite was rerun with --record. Its eight checks passed and the receipt now matches current source. No assertion, tolerance, expected result or receipt hash was hand-edited.",
+        "boundary": "Receipt freshness only. This preflight does not re-certify unchanged product behavior and adds no new product claim."
+      },
+      "recordedReconnection": "The disposable signed tests keep original IDs and byte-identical retries and verify one canonical attendance result per event.",
+      "factualReview": {
+        "frames": 1812,
+        "transitions": 2611,
+        "captureGaps": 0,
+        "checked": true,
+        "scope": "Fresh fictional actual-component and public-entry captures."
+      }
+    },
+    "advisory": {
+      "id": "GHSA-mfr8-8qww-v76h",
+      "lockedNext": "16.4.2",
+      "patchedVersionInAdvisory": "16.4.5",
+      "status": "Open dependency maintenance",
+      "source": "https://github.com/advisories/GHSA-mfr8-8qww-v76h",
+      "observed": "The installed Next build paused once at the security advisory prompt. Retrying the same build succeeded. Source search found no direct unstable_cache or use cache use in apps/web/src or the Next configuration. This search does not resolve dependency risk."
+    },
+    "limits": "Real local production browser and fixture results at the recorded source fingerprints. The Calendar date repair was later committed and passed its own Foundation run; see calendarRepairCandidate. Prior staged scoped Owner acceptance remains scoped to its recorded workflows."
+  },
+  "calendarRepairCandidate": {
+    "candidate": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+    "branch": "codex/onboarding-decision-design-packet",
+    "pushed": true,
+    "summary": "Records the displayed Calendar locale and anchor only after the prepared reader returns that exact range; generic launch memory leaves Calendar context to the Calendar view. No new repository, worker, command, credential or private-response cache.",
+    "ci": {
+      "run_id": 44378881128,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44378881128",
+      "run_attempt": 1,
+      "run_conclusion": "success",
+      "steps_passed": 55,
+      "step_count": 55,
+      "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44378881128/job/135065347725",
+      "watcherNote": "The first bounded waiter call returned verdict unverified after a 20-second GitHub read timeout with no partial result. The same run id was re-watched once; that call returned the 55/55 success above.",
+      "verdict": "passed"
+    },
+    "preview": {
+      "deploymentId": "D4ZXh3EEFXTeK4zj2AQZyRyBQuCk",
+      "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+      "state": "READY",
+      "target": null,
+      "project": "academyos-web (prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx)",
+      "url": "https://academyos-pgucmm8rc-academy-os2.vercel.app",
+      "verifiedVia": "Read-only Vercel API v13 deployments with the Owner-provided team-scoped token.",
+      "note": "Supersedes the earlier unverified commit-status reading; the D4ZXh3 deployment is the exact f35c9ad preview."
+    },
+    "staging": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "525dfc60fa310a1ab3cdcaa7f326ec4bf91c419c",
+      "deployment": "dpl_CGBtg3irjxenx9xQXo6BNzbeXDbX",
+      "state": "READY",
+      "agentPromotion": false,
+      "note": "Independent staging read predates f35c9ad. This candidate has not been promoted."
+    },
+    "next": "Owner-controlled promotion of f35c9ad to staging, then reproduce the selected Arabic week on the installed app and continue the remaining EX-16 device cases.",
+    "ownerReportedPromotion": {
+      "reportedUtc": "2026-11-18T20:10:00+00:00",
+      "claim": "Owner reports f35c9ad promoted to staging.",
+      "publicCorroboration": [
+        "staging.academy.nahr.dev/en returns 200 and its manifest still declares id/start_url /en, scope / and display standalone.",
+        "The served page chunk 3dmlh_s5394h9.js contains the repaired rememberWorkspaceLaunch calendar branch: the en/ar locale guard, the civil-day anchor check and the calendar?anchor= path construction. That branch does not exist in the pre-repair bundle, so staging is serving code with the repair.",
+        "The served /prepared-workspace-worker.js SHA-256 equals the repository file 46b3719..., so worker and repository agree at this commit range."
+      ],
+      "notVerified": "Nothing outstanding for the alias binding. Device-level behaviour is a separate open case.",
+      "boundary": "Public bundle presence is strong but indirect evidence of the promoted source; it does not bind the alias to a commit SHA and is not a device or behaviour test.",
+      "verifiedVia": "Read-only Vercel API v6/v13 with the Owner-provided team-scoped token.",
+      "verified": {
+        "deploymentId": "dpl_3yuuqW86QN5PnDXqzPK365GWq66v",
+        "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+        "ref": "codex/onboarding-decision-design-packet",
+        "state": "READY",
+        "target": "production",
+        "url": "https://academyos-656qrga6h-academy-os2.vercel.app",
+        "aliases": [
+          "academyos-web.vercel.app",
+          "staging.academy.nahr.dev",
+          "academyos-web-academy-os2.vercel.app",
+          "academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app"
+        ],
+        "agentPromotion": false
+      }
+    },
+    "installedRetestBlocker": {
+      "observedUtc": "2026-11-18T20:12:00+00:00",
+      "case": "Reproduce the selected Arabic Calendar week on the installed macOS app after promotion.",
+      "blocker": "This client cannot reach the Owner browser context. The in-app browser drives separate Chromium tabs inside the OpenCode desktop app, which do not carry the verified Academy Owner Clerk session or the prepared protected register data. The shared browse relay answers 401 at localhost:19988 and no browse MCP server is registered in this client.",
+      "notDone": "No installed relaunch, no Arabic week assertion and no EX-16 device case was attempted or is claimed.",
+      "options": "Owner enables the browse MCP/profile for this client, Owner runs the relaunch steps and reports the result, or Owner supplies a scoped Vercel token so source binding is exact while the device case remains Owner-executed.",
+      "promotionNowVerified": "The alias binding this case waited for is now verified; the blocker is only the missing Owner browser context in this client."
+    }
+  },
+  "access": {
+    "vercelReadToken": {
+      "path": "~/.config/academyos/vercel-read-token",
+      "mode": "600",
+      "scope": "AcademyOS team (academy-os2), read-only team token",
+      "recordedValue": "not recorded; never printed or committed",
+      "cliNote": "Team tokens have no user identity, so user-level CLI commands such as teams ls report an invalid token. Read-only API v6/v13 calls with the team slug work and were used for this verification."
+    }
+  },
+  "calendarRelaunchStagingRetest": {
+    "utc": "2026-11-18T20:36:00+00:00",
+    "target": {
+      "origin": "https://staging.academy.nahr.dev",
+      "sha": "f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75",
+      "deployment": "dpl_3yuuqW86QN5PnDXqzPK365GWq66v"
+    },
+    "method": "Owner's real Chrome profile 'nahr' (Academy Owner, Academy A b2c7920d-d467-4e9f-9a68-809ac627399e) driven through the local browse relay at 127.0.0.1:19988 with named tabs. Reads were limited to the non-private launch path in localStorage key academyos.workspace-launch.v1, page snapshots and rendered counts. No credential, cookie, player or register data was copied.",
+    "observed": [
+      {
+        "case": "records the displayed range when the URL carries no anchor",
+        "result": "/ar/.../calendar showed ١٨–٢٤ نوفمبر ٢٠٢٦ and the key became /ar/workspace/<academy>/calendar?anchor=2026-11-18"
+      },
+      {
+        "case": "anchor follows a period change",
+        "result": "clicking الفترة التالية moved to ٢٥ نوفمبر – ١ ديسمبر ٢٠٢٦ (٤ تدريبات) and the key became anchor=2026-11-25"
+      },
+      {
+        "case": "fresh launch restores the remembered week (A)",
+        "result": "a new tab at /en replaced to /ar/workspace/<academy>/calendar?anchor=2026-11-25, rendered ٢٥ نوفمبر – ١ ديسمبر ٢٠٢٦ with ٤ تدريبات, html dir=rtl"
+      },
+      {
+        "case": "fresh launch restores the remembered week (B)",
+        "result": "after returning the calendar to ١٨–٢٤ نوفمبر (٥ تدريبات) the key became anchor=2026-11-18 and a new /en tab replaced to that same anchored Arabic week with ٥ تدريبات"
+      },
+      {
+        "case": "anchor follows a period change across the month boundary",
+        "result": "a single calendar tab clicked الفترة التالية twice: ١٨–٢٤ نوفمبر → ٢٥ نوفمبر – ١ ديسمبر (٤ تدريبات, anchor=2026-11-25) → ٢–٨ ديسمبر (٤ تدريبات) and the key became anchor=2026-12-02; a new /en tab then restored ٢–٨ ديسمبر ٢٠٢٦ with ٤ تدريبات and dir=rtl"
+      }
+    ],
+    "protocol": "One calendar tab only. With several calendar tabs open, each re-recorded its own displayed week into the single key and competing writes made reads ambiguous; closing them and using one calendar tab made the sequence deterministic.",
+    "installedApp": {
+      "attempted": true,
+      "finding": "The installed app launch is dominated by Chrome session restore, not the launch memory. Parking the app on the non-remembered /trainer route and terminating the app (app_mode_loader) returned to /trainer on relaunch; parking it on /en returned to /en/workspace.",
+      "reason": "The installed app's Chrome profile is not among the three paired browse profiles (hieu is signed out; nahr and dokkanni are signed in) and it holds no active register account, which rememberWorkspaceLaunch requires. No launch key was written in that profile.",
+      "notClaimed": "No installed-app relaunch assertion is claimed; that layer stays open."
+    },
+    "limits": [
+      "An earlier sequence in this same pass reported that December weeks did not move the anchor. That reading was wrong: several calendar tabs were open at once, each re-recording its own displayed week into the single key. With one calendar tab the cross-month change recorded and restored correctly, as above. The earlier claim is withdrawn here rather than kept as an open question.",
+      "One 2029-03-05 write seen during the same multi-tab phase was not reproduced under the single-tab protocol and is not treated as evidence.",
+      "Not exercised in this pass: click-based date picker entry, month view, cold offline launch, empty store, protected update with pending work, same-original reconnect.",
+      "Chrome-level JavaScript-from-AppleEvents and macOS accessibility/screen capture are unavailable to this client, so nothing here reads the installed app's DOM or pixels."
+    ],
+    "verdict": "Repair verified at the application layer on the promoted staging source, including a cross-month period change and two fresh-launch restorations; installed-device layer still open.",
+    "evidenceCommit": {
+      "candidate": "211167dce1618aca159be527ecbaa6a6bc35929e",
+      "branch": "codex/onboarding-decision-design-packet",
+      "run_id": 44399576601,
+      "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44399576601",
+      "run_attempt": 1,
+      "steps_passed": 55,
+      "step_count": 55,
+      "verdict": "passed",
+      "note": "Documentation and evidence only. This commit carries the retest record; the product source under test remains f35c9adf3eb9a71d64f5a3120d21a3d5b9364a75. Later docs-only follow-ups are not recursively re-recorded."
+    }
+  },
+  "installedMac20261119": {
+    "accessibilityGrant": "Owner enabled OpenCode.app under Privacy & Security > Device Control and Data Access (macOS 27.3 consolidates Accessibility, Screen Recording and Automation). Measured: System Events UI elements enabled=true, Chrome window titles readable, keystrokes accepted, screencapture returns real pixels.",
+    "installedProfile": "nahr (relay probe tab landed in the same Chrome window as the staging workspace; window avatar Nahr). Device storage previously held only Clerk keys, which is why no launch key existed there and why the 18 November session-restore reading was inconclusive.",
+    "devicePreparation": "Used the app own Device > Use this personal device control on the Owner calendar route. Result: academyos.register-account.v1 mode=active, workspace slot key present, launch key written. Bounded, reversible, synthetic staging data only.",
+    "warmRelaunch": [
+      {
+        "windowAtQuit": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-19",
+        "storedKey": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-26",
+        "result": "relaunched to /ar anchor=2026-11-26 (followed the stored key)"
+      },
+      {
+        "windowAtQuit": "/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-26",
+        "storedKey": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-12-09",
+        "result": "relaunched to /ar anchor=2026-11-26 (followed the restored window, ignored the stored key)"
+      }
+    ],
+    "launchConclusion": "The stored week is applied when the app starts at its start_url; Chrome window restore takes precedence on a warm relaunch. Narrower than the claim recorded 18 November.",
+    "manifest": "Served manifest: start_url=/en, scope=/, display=standalone; matches apps/web/src/app/manifest.ts.",
+    "coldStartApplicationLevel": "Fresh /en entries replaced to the anchored week twice: 2026-11-25 and, after the date-picker entry, 2026-12-09 (week 9-15 Dec).",
+    "pixelEvidence": {
+      "windowTitle": "AcademyOS Staging",
+      "dir": "rtl",
+      "heading": "٢٦ نوفمبر – ٢ ديسمبر ٢٠٢٦",
+      "sessions": "٤ تدريبات",
+      "dateField": "26/11/2026",
+      "footer": "تم التحقق في ٤:١٨ م · من البيانات المحضرة على جهازك.",
+      "badge": "متصل",
+      "note": "Real window capture; not inferred from a URL."
+    },
+    "monthView": "Month view shows November 2026 from Sun 1 Nov; key retains anchor=2026-11-19 because month view records displayedFrom (the day), not the grid start. Expected behaviour, not a regression.",
+    "dateEntry": "Typed 2026-12-09 into Go to date + Enter: heading December 2026, key anchor=2026-12-09; fresh /en then restored 9-15 Dec 2026.",
+    "crashIncident": {
+      "when": "2026-11-19 03:55:07",
+      "cause": "My minimising the other Chrome windows to isolate the app window for a screenshot, then restoring them; the restore call returned -609 connection is invalid.",
+      "report": "~/Library/Logs/DiagnosticReports/Google Chrome-2026-11-19-035507.ips",
+      "recovery": "Chrome restarted to the profile picker with no windows; --restore-last-session returned an empty window; the Restore pages? bubble in Nahr recovered all four windows after the Owner clicked Restore.",
+      "prevention": "Window capture now reads CGWindowID through CoreGraphics instead of moving or minimising windows."
+    },
+    "stillOpen": [
+      "cold offline launch",
+      "empty store",
+      "protected update with pending work",
+      "same-original reconnect"
+    ],
+    "evidenceLimits": "Chrome JavaScript from Apple Events remains off, so the installed app DOM is still read only through window URLs and pixels; most UI cases were driven in a normal nahr tab, which shares the session and device storage but is not the installed window.",
+    "evidenceCommit": {
+      "commit": "fd7a962e4a5f53ceec3c0d54dfdad0370ccbb30f",
+      "foundationRun": "44443618633",
+      "attempt": 1,
+      "result": "55/55 steps passed",
+      "runUrl": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44443618633",
+      "note": "Documentation-only change: checkpoint section, structured receipt, tracker next action and generated continuation. No product source changed, so no new runtime or hosted assertion follows from this run."
+    },
+    "devicePreparationDiscrepancy": "The 18 November entry in this receipt records Players and Calendar prepared in this same profile. On 19 November the same origin held only Clerk keys: no register account, no slot and no launch key. The preparation was therefore absent and was redone. What removed it was not determined; no claim is made about a cause, and the 18 November preparation remains a separate dated observation rather than a contradiction to be quietly resolved.",
+    "continuation": "docs/06-delivery/continue-academyos.md carries this state and rebuilds without drift; scripts/design/validate_experience_execution.py passes. The receipt status is now checked_release_ready_installed_cases_partial."
+  },
+  "installedOfflineCases20261119": {
+    "method": "Relay emulate applies CDP network conditions to one tab, so the machine network and the agent session are unaffected. Boundary: a normal Chrome tab in the same profile and origin, not the installed app window, which the relay cannot address. Do not use this method for a claim about worker-side reachability: the conditions apply to the page target, while the service-worker target keeps its own network access. Use an origin that is genuinely unreachable (see genuineUnreachability20261119) for worker, cache or offline-serving claims.",
+    "coldOfflineLaunch": {
+      "profile": "nahr",
+      "baselineOnline": "calendar 19 – 25 Nov 2026, service worker controller present",
+      "navigate": "start_url /en redirected to /en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/calendar?anchor=2026-11-19",
+      "result": "public shell with \"Sign-in unavailable. Retry.\"; no prepared calendar or sessions",
+      "localIdentityAtFailure": "register-account mode active with subject and generation; workspace slot present; IndexedDB academyos-owner-workspace-v1 present",
+      "caches": "academyos-workspace-public-v1:index (1) and :<uuid> (26) only",
+      "control": "same URL back online rendered the full calendar as Academy Owner",
+      "verdict": "SUPERSEDED - harness artifact: the page target was offline but the service-worker target kept network access, so the worker served the live protected document",
+      "structuralCause": "apps/web/src/components/experience-workspace.tsx:31 returns the public workspace while useUser().isLoaded is false and line 32 returns the sign-in link without session.user, both before ExperienceJourney and therefore before useOwnerWorkspaceDevice can read prepared data",
+      "repair": "not attempted: reachability of prepared data while Clerk is unresolved is an authority-gating change; the accepted contracts forbid weakening authority or exposing private data to satisfy a test. Needs an explicit decision.",
+      "mechanism": {
+        "authBundleOrigin": "https://immune-grizzly-7875.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js",
+        "observed": "offline window.Clerk stays undefined, so useUser().isLoaded never becomes true and experience-workspace.tsx:31 keeps returning the public workspace",
+        "cacheEvidence": "the staging origin holds 2 caches / 27 entries and 0 entries from the Clerk origin; only academyos-workspace-public-v1 and academyos-prepared-public-v1 exist",
+        "publicOfflineGap": "publicOffline is threaded through useOwnerWorkspaceDevice and ExperienceJourney (no account control, no prefetch, /players and /calendar navigation) but no route passes it; only prepared={ownerWorkspaceEnabled(process.env)} is wired on the calendar and players pages",
+        "characterisation": "architectural: a protected route mounts Clerk, Clerk is a runtime third-party dependency and the prepared store sits behind that gate; this is a decision about where authority metadata may come from at cold start, not a one-line repair"
+      },
+      "mechanismStatus": "SUPERSEDED - both readings are refuted; Clerk was downstream of a live network fetch and no HTTP cache was involved",
+      "mechanismCorrected": {
+        "preparedShellCached": true,
+        "cacheEvidence": "academyos-workspace-public-v1:index plus :8739ab7e-ca7e-4b3e-b1cc-03a5d06a9f11 holding https://staging.academy.nahr.dev/prepared-workspace",
+        "handler": "apps/web/public/prepared-workspace-worker.js navigation branch is network-first: fetch(request).catch(()=>cached(\"/prepared-workspace\"))",
+        "measurement": "offline navigation to a never-requested covered URL /en/workspace/<academy>/calendar?anchor=2026-12-20 returned workerStart=1.1ms, responseStatus=200, encodedBodySize=17887",
+        "interpretation": "the service worker intercepted, its fetch was satisfied from Chrome HTTP cache with the protected page HTML, so the cached prepared-shell branch never ran; the protected tree mounted and Clerk could not load",
+        "narrowDefect": "for covered offline navigations the worker prefers a possibly-cached network response over the prepared shell it already holds, so the shell is only reachable when the network fetch fails outright",
+        "status": "REFUTED - transferSize 18187 with encodedBodySize 17887 proves the worker transferred bytes over the network; a cache hit reports transferSize 0"
+      },
+      "recommendedRepair": {
+        "option": "B (smallest form)",
+        "shape": "answer covered navigations from the cached prepared shell instead of trying the network first, then let the shell existing reconnect path (reentryKey plus bounded HEAD /prepared-workspace probe and reload) move to the live protected route",
+        "whyReusesExisting": "/prepared-workspace is force-static, mounts no Clerk, and PreparedWorkspaceStartup already fences on readRegisterAccount() mode active plus an active workspace or register slot before rendering ExperienceJourney or PeopleJourney",
+        "scope": "navigation branch of one 135-line worker",
+        "authority": "no check relaxed: an inactive account or mismatched slot still degrades to the chooser; no third-party bundle cached",
+        "status": "WITHDRAWN - the controlled test passes on unchanged code, so no shell-first change is needed"
+      },
+      "supersededBy": "installedOfflineCases20261119.genuineUnreachability20261119"
+    },
+    "emptyStore": {
+      "profile": "dokkanni",
+      "state": "no register account, no launch key; register slot and layout keys only",
+      "onlineCalendar": "rendered normally as Academy Owner",
+      "offlineResult": "about:blank - blank document, no shell, no error panel, no stale data",
+      "explanation": "no service worker existed for this origin in that profile at that moment; after one online /en visit two registrations appear (/prepared-register and /) with academyos-prepared-public-v1 (17 each) and academyos-workspace-public-v1 (26 each) caches",
+      "boundary": "recorded as measured; not evidence for a device that has visited /en once, and not a data-exposure finding"
+    },
+    "notAttempted": [
+      "protected update with pending work",
+      "same-original reconnect"
+    ],
+    "notAttemptedReason": "Both need a controllable worker version change and an eligible session with a markable register; neither was staged in this pass.",
+    "genuineUnreachability20261119": {
+      "method": "Local production origin http://localhost:3100 (npm run local:production, production assets, worker active because editingOrigin disables it only on :3000). Prepared device in the nahr profile. After normal online use the origin process was stopped: nothing listened on 3100 and curl exited 7 (connection refused), so the origin is unreachable at the socket to every client including the service worker. A new tab was then navigated to /en so no document memory could supply the render.",
+      "testMethodCorrection": {
+        "why": "browse emulate --offline applies CDP network conditions to the page target only; the service-worker target keeps its own network access",
+        "effect": "the worker navigation fetch(request) still reached the live staging origin, returned the protected HTML and the page then failed to load Clerk",
+        "selfRefutingEarlierNumber": "the earlier staging run recorded transferSize 18187 with encodedBodySize 17887 on an offline navigation; network bytes crossed, so the response was not a cache hit",
+        "retired": "the CDP page-offline method is not valid evidence for a claim about worker-side reachability or cache behaviour"
+      },
+      "preparedStoreColdLaunch": {
+        "requested": "/en",
+        "landed": "/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players",
+        "workerStartMs": 2.5,
+        "responseStatus": 200,
+        "transferSize": 0,
+        "encodedBodySize": 9009,
+        "servedHtml": "prepared shell - document.getElementById(\"academyos-public-workspace-shell\") present",
+        "rendered": "Players heading, 18 prepared players, footer Offline",
+        "verdict": "PASS - fetch(request) rejected with the origin gone, the existing cached(/prepared-workspace) fallback ran, and PreparedWorkspaceStartup applied its account and slot fences",
+        "codeChange": "none required"
+      },
+      "onlineControl": {
+        "shell": false,
+        "transferSize": 17113,
+        "heading": "19 – 25 Nov 2026",
+        "verdict": "PASS - online entry is still the live protected document, not the shell"
+      },
+      "reconnect": {
+        "trigger": "online event from emulate offline true -> false with the origin reachable",
+        "timeOriginBefore": 1795072959423.4,
+        "timeOriginAfter": 1795073131370.4,
+        "reloaded": true,
+        "shell": false,
+        "transferSize": 17040,
+        "workerStartMs": 2.2,
+        "verdict": "PASS - the existing reentryKey plus bounded HEAD /prepared-workspace probe reloaded into the live protected page"
+      },
+      "emptyStores": {
+        "preparedDeviceMissingWorkspaceData": {
+          "route": "/en/workspace/11111111-2222-3333-4444-555555555555/calendar with the origin down",
+          "workerStartMs": 2.1,
+          "transferSize": 0,
+          "servedHtml": "prepared shell",
+          "message": "This workspace has no prepared data on this device. Open it when connected.",
+          "verdict": "PASS - honest chooser, no private data"
+        },
+        "noDeviceOrWorker": {
+          "profile": "dokkanni",
+          "observed": "no service worker registration and no caches; /prepared-workspace itself renders the chooser but does not register the root worker because registration starts from a supported workspace route via prepareWorkspaceShell()",
+          "offlineEn": "browser blank page",
+          "verdict": "EXPECTED BOUNDARY - inherent to never having prepared; not a data-exposure finding"
+        }
+      },
+      "limits": [
+        "tab-level new document in a normal Chrome tab of a prepared profile; the installed PWA window at OS level was not addressed, so installed-device verification stays open",
+        "lie-fi: when the origin is unreachable while navigator.onLine stays true, the single mount probe fails and nothing retries until the user reloads; prepared content remains usable",
+        "each npm run local:production produced a new BUILD_ID (Bt9XRzFFmL_5QKGvcV330 -> oFIRh5LRPDIeLzYcHx0j2 -> PqenEv9SF9C9eRO6e2ak4), so the shell revision changes after a rebuild; protected update with pending work and same-original reconnect stay unmeasured"
+      ]
+    }
+  },
+  "next1646StagingRelease20261119": {
+    "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "version": "16.4.6",
+    "promotedBy": "Owner",
+    "agentPromotion": false,
+    "deployment": {
+      "id": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+      "alias": "staging.academy.nahr.dev",
+      "target": "production",
+      "state": "READY",
+      "verification": "Exact SHA and alias independently checked via read-only Vercel API"
+    },
+    "foundation": {
+      "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/44488491323",
+      "attempt": 1,
+      "stepsPassed": 55,
+      "stepsTotal": 55,
+      "result": "success"
+    },
+    "hostedBehavior": "Owner relayed Codex verification of Next.js 16.4.6 and fresh Academy Owner Today data using the existing signed-in staging session. Not independently re-run in this session."
+  },
+  "localProtectedAttendanceUpdate20261119": {
+    "status": "passed_local_compatible_update_pending_attendance_original",
+    "testedSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "command": "node scripts/working-day/test_attendance_update.mjs",
+    "testSha256": "4be530a89e61ba850e6067bca5f8ba9a7aa8a9ecf47f55ab66227a118bbda098",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {"next": "16.4.6", "node": "24.14.0", "chromium": "156.0.8078.4", "postgresql": "17.11", "mode": "production"},
+    "scope": "PW-05 / WD-78 compatible update and pending Attendance original only. Disposable fixture using actual components, worker, repository, signed gateway and database; fictional provider/session; no staging writes or installed evidence.",
+    "builds": [
+      {"id": "EorqmZqieDQy3jXHP9RCM", "workerSha256": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3", "shellRevision": "b78d7402c613ebb48c6ff43f2fc333a8823b904baad5f0c46911c7eba02b366d"},
+      {"id": "LH_2kqdzx-n8MqdxpnaeA", "workerSha256": "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e", "shellRevision": "bdd6ba96e5f570143286caf6e2d7ec44379373cea67efbb8cfc3ef4dcc03b88e"}
+    ],
+    "beforeReconnect": {"marks": 0, "history": 0, "operations": 0, "audit": 0},
+    "afterReconnectAndLiveReload": {"marks": 1, "history": 1, "operations": 1, "audit": 1},
+    "assertions": {
+      "newControllerActivated": true,
+      "previousShellRetained": true,
+      "activationReloads": 0,
+      "newCachedShellReopenedPendingSave": true,
+      "originalIdPreserved": true,
+      "ciphertextUnchangedUntilSync": true,
+      "reconnectReloads": 0,
+      "dispatchesIncludingLiveReload": 1,
+      "operatingCallsOnReconnect": ["fixture-session 200", "register-dispatch/register 200", "fixture-session 200", "register-download/manifest 200"]
+    },
+    "stillOpen": ["actual installed app", "live Clerk reconnect", "dirty or already-unknown work across an update", "schema migration and rollback"],
+    "coordinator": "signor-cheap/gpt-6.2-sol; no helpers"
+  },
+  "macInstalledAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_subset",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorTestCheckpoint": "70bfec3",
+    "testSha256": "aef6f938e155bc3a9df2a528a217684a63bb805c5fd8ef2dae792e52fbd8b675",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "recordedAtUtc": "2026-11-19T12:37:26+00:00",
+    "command": "node scripts/working-day/test_attendance_update.mjs --installed",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "17.11",
+      "next": "16.4.6"
+    },
+    "method": "Disposable Chrome profile with actual installed standalone window and repository manifest start URL. Only the app name is distinguished for the test. The test origin rejects connections from the page and worker. The test browser emits the online event after the origin is restored.",
+    "launch": {
+      "startUrl": "/en",
+      "closedPriorWindowBeforeRelaunch": true,
+      "standaloneWindowDistinctFromRegularTab": true,
+      "coldOfflineBuilds": [
+        "a",
+        "b"
+      ],
+      "offlineTransferBytes": 0,
+      "preparedAttendancePlayers": 18,
+      "uncoveredWorkspace": "Honest unavailable state with no roster, calendar rows or operating reads"
+    },
+    "initialFailure": "Two installed runs held the local original and sent no dispatch. The new app window still reported Online when the origin was unavailable, so restoration delivered no new connection event. The repeat requires a false navigator.onLine state and a trusted browser online event before accepting automatic sync.",
+    "builds": {
+      "ids": [
+        "1MsO1NMquWohvpdx1r7Q1",
+        "B8ZPXmyfCDXSnLBDQdi9f"
+      ],
+      "workerHashes": [
+        "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+        "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+      ]
+    },
+    "cacheRevisions": [
+      "410b1d1eba70ab29e5518f4888e2b8a2f0f67a7507482af354bfaab9fbefdc8b",
+      "97a7dea3570c14d1dd58af297e491b909db8b1c603d076c17246001962119817"
+    ],
+    "serverBefore": {
+      "marks": 0,
+      "history": 0,
+      "operations": 0,
+      "audit": 0
+    },
+    "serverAfter": {
+      "marks": 1,
+      "history": 1,
+      "operations": 1,
+      "audit": 1
+    },
+    "originalIdPreserved": true,
+    "encryptedOriginalUnchangedUntilSync": true,
+    "dispatchesIncludingLiveReload": 1,
+    "reconnectDocuments": 0,
+    "reconnectCalls": [
+      {
+        "route": "fixture-session",
+        "action": null,
+        "status": 200
+      },
+      {
+        "route": "register-dispatch",
+        "action": "register",
+        "status": 200
+      },
+      {
+        "route": "fixture-session",
+        "action": null,
+        "status": 200
+      }
+    ],
+    "cleanup": "The disposable app was uninstalled and its Chrome profile and database were removed.",
+    "stillOpen": [
+      "Offline and live Clerk reconnect in the installed app on the canonical staging origin.",
+      "Compatible hosted update with an eligible synthetic register and an authorized replacement build.",
+      "Dirty or already-unknown work across an update, schema migration, rollback, other devices and Owner acceptance."
+    ],
+    "regularBrowserRegression": "The default browser-tab mode passed on the updated runner."
+  },
+  "installedStagingCalendar20261119": {
+    "status": "passed_prepared_calendar_reload_uncovered_week_and_reconnect",
+    "date": "2026-11-19",
+    "staging": {
+      "domain": "staging.academy.nahr.dev",
+      "deployment": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+      "state": "READY"
+    },
+    "client": {
+      "macOS": "27.3",
+      "chrome": "157.0.8103.79",
+      "container": "Existing AcademyOS Staging standalone Mac app",
+      "role": "Academy Owner",
+      "academy": "AcademyOS M1 Synthetic Academy",
+      "locale": "ar"
+    },
+    "cutoff": {
+      "method": "Chrome DevTools Offline on the installed Calendar window with the service-worker fetch recorded",
+      "normalReload": true,
+      "workerOriginFetch": "ERR_INTERNET_DISCONNECTED",
+      "calendarNetworkTransferBytes": 0,
+      "documentStatus": 200,
+      "documentSource": "ServiceWorker",
+      "documentResourceKB": 9.6
+    },
+    "calendar": {
+      "anchor": "2026-11-19",
+      "sessionsReopenedOffline": 5,
+      "uncoveredAnchor": "2027-11-19",
+      "uncoveredMessage": "This period is not available on this device yet. Connect to prepare it.",
+      "returnedToPreparedWeek": true,
+      "reconnect": "Normal signed-in staging Calendar reopened at the same anchor and refreshed",
+      "reconnectDocumentResourceKB": 18.3
+    },
+    "freshInstalledLaunch": {
+      "result": "A second window opened the ordinary staging document while the first window was offline",
+      "status": "cold_offline_start_url_unverified",
+      "temporaryWindowClosed": true
+    },
+    "attendanceEligibility": {
+      "method": "Read-only production-target Vercel project settings and bounded synthetic staging SQL",
+      "mainAcademy": {
+        "markableRegisters": 0,
+        "legacyBindings": 1,
+        "closedLegacyBindings": 1,
+        "legacyBoundMarkableRegisters": 0
+      },
+      "isolationAcademyB": {
+        "markableRegisters": 0,
+        "legacyBindings": 1,
+        "closedLegacyBindings": 1,
+        "legacyBoundMarkableRegisters": 0
+      },
+      "additiveKeyFunctionPresent": true,
+      "multiScopeFlagListedInVercelProjectSettings": false,
+      "sourceDefault": "Register key route selects x19 unless LOCAL_REGISTER_MULTI_SCOPE_ENABLED equals true",
+      "sameOriginalReconnect": "blocked_before_capture"
+    },
+    "restored": "Normal network conditions, original request filter, and signed-in Academy Owner Today. Closed the DevTools test window.",
+    "stagingDataWrites": 0,
+    "stillOpen": [
+      "Cold /en launch in the installed staging app with a verified cutoff on the new window",
+      "Installed Attendance offline save and same-original reconnect with live Clerk after approved additive preparation and a markable synthetic fixture",
+      "Compatible hosted update with an authorized replacement build"
+    ]
+  },
+  "macInstalledUnknownAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_lost_reply_subset",
+    "verifiedAtUtc": "2026-11-19T13:11:26+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "40faf1c",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs"
+    ],
+    "testSha256": "2af77afaef628290e28a3802ea756e9746b73310642bd6c59aed673c0b131948",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "17.11",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "3OKE_hvbd5Wu9T8ypq68z",
+          "bJUKhz5oKoOF_Z9NLR0gb"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "cacheRevisions": [
+        "bc7b4cb374ad2b90246d189131c28194bde3ff462c45d8bd2d0200684dc5857f",
+        "070cd7ddbf9967fcc249e0b1f9e9b42289e473c4bd952cbf2ef7e0d6cfec1fa3"
+      ],
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "serverBefore": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "serverAfter": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "originalStateBeforeUpdate": "unknown",
+      "lostReplyStatus": 200,
+      "originalIdPreserved": true,
+      "ciphertextUnchangedUntilSync": true,
+      "dispatches": 2,
+      "replayedOriginalBytes": true,
+      "reconnectDocuments": 0,
+      "reconnectCalls": [
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        }
+      ]
+    },
+    "verified": [
+      "Real committed response discarded at the origin cutoff",
+      "Unknown original persisted and replacement review disabled on both offline relaunches",
+      "Compatible worker and public shell activated while the existing document and original stayed intact",
+      "Previous public shell retained",
+      "Zero new dispatches during the update or the offline reopen",
+      "One reconnect replay of the byte-identical original",
+      "One canonical mark, history row, operation and audit throughout recovery",
+      "Zero document reloads to reconcile and no resend on subsequent live reload"
+    ],
+    "initialAttempt": "With the origin left reachable after a socket drop, the fixture saw seven dispatches and one committed result. The passing method cuts the origin after the first commit to isolate one lost reply. The cause of the extra attempts was not isolated.",
+    "pendingBrowserRegression": {
+      "state": "pending",
+      "dispatches": 1,
+      "serverAfter": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      }
+    },
+    "stagingReadback": {
+      "commit": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+      "deployment": "dpl_Hp3U3vaMnmBPkEJfKx4P52iE6ni9",
+      "domains": [
+        "staging.academy.nahr.dev",
+        "academyos-web.vercel.app"
+      ],
+      "foundationRun": 44488491323,
+      "attendanceRecoveryCheck": "success",
+      "multiScopeFlagPresent": false,
+      "approvalNeededFor": "LOCAL_REGISTER_MULTI_SCOPE_ENABLED=true on the synthetic staging release"
+    },
+    "stillOpen": [
+      "Unsaved selections across an in-place compatible update",
+      "Hosted cold /en, live Clerk Attendance and compatible hosted update",
+      "Schema migration, rollback, wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledUnsavedAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_unsaved_in_place_subset",
+    "verifiedAtUtc": "2026-11-19T13:18:17+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "e702de7",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsaved",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply"
+    ],
+    "testSha256": "5f5e5f74f2c3e0a32788f8f35566979fc0d7e253d54b8818bacb7b30f348de18",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "iVNgG83NV_0gB3DX2lhGX",
+          "C2ZEvpUc88lSwOeuc1PW4"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "cacheRevisions": [
+        "b6c7f28d2b84f6750cd1ecaa7386b3f0e1c601b6ccbdf9a97a06f7af13546228",
+        "821fd624369835ec5e73dd7f1232920c56c5009786e1591b6196169507e1f176"
+      ],
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "locale": "en",
+      "reviewedChoices": 2,
+      "documentUnchanged": true,
+      "reviewFocusRetained": true,
+      "reviewFocusRestoredOnEscape": true,
+      "calendarExitCancelled": true,
+      "saveAttempts": 0,
+      "protectedOriginals": 0,
+      "dispatches": 0,
+      "serverBefore": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0
+      },
+      "serverAfter": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0
+      }
+    },
+    "regressions": {
+      "pending": {
+        "builds": {
+          "ids": [
+            "OxP4Qa0nGyJot9Zb6UXCE",
+            "9jQColYSmbyLU6YjhnvyQ"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "cacheRevisions": [
+          "5ce4f7736ebf25cea431e8b350db0db5743cc95d47f75de21e1468140472d217",
+          "b8235103c957e0e5794ddba90cd8488f037716658c3d377d253dc4a7aec51045"
+        ],
+        "originalStateBeforeUpdate": "pending",
+        "dispatches": 1,
+        "serverBefore": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0
+      },
+      "lostReply": {
+        "builds": {
+          "ids": [
+            "_HkR-srKWVj2xEu2lQPni",
+            "-WZcMTMSanmqlqZMY7rgp"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "cacheRevisions": [
+          "acfae66e50d1093021a392c523f4560c1d178ee79372d847661526a43a6ac055",
+          "f6472f92e8c04fe0d03b0862537c6b65d36d6719b9039042a9c9451794fefed0"
+        ],
+        "originalStateBeforeUpdate": "unknown",
+        "dispatches": 2,
+        "serverBefore": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0,
+        "lostReplyStatus": 200,
+        "replayedOriginalBytes": true
+      }
+    },
+    "scope": [
+      "English Academy Owner Attendance in the same open standalone Chrome window",
+      "Two real review choices with retained focus and cancelled Calendar departure",
+      "Compatible worker and public asset update with separate local production builds and disposable PostgreSQL",
+      "The current case covers retained in-memory choices in an open register"
+    ],
+    "stillOpen": [
+      "Failed public-asset preparation, offline reopen of the previous complete shell and same-original recovery",
+      "Hosted cold /en, live Clerk Attendance and compatible hosted update",
+      "Interrupted schema migration, rollback, wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledInterruptedAttendanceUpdate20261119": {
+    "status": "passed_installed_disposable_mac_interrupted_assets_subset",
+    "verifiedAtUtc": "2026-11-19T13:31:37+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "9dc6d33",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --interrupted-assets",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsaved"
+    ],
+    "testSha256": "1f3d56e72e19d1eb8647f6223e3866339d971fe7fdced066ede0f9a28c7e2137",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "meanDlxTeZi5dNvmfuMSD",
+          "YpkRtNs6jk6U4VOwp47PA"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "cacheRevisions": [
+        "03102496e45f9d7a54d96eae8cfd6c9d6fe412b48cfc8f84bdd059f033b2b2e0",
+        "43aa9ff746203a08a2d85525f48f744e51b74be6cf60313f40fdfc9c3363b36e"
+      ],
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "serverBefore": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0,
+        "audit": 0
+      },
+      "serverAfter": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "originalStateBeforeUpdate": "pending",
+      "originalIdPreserved": true,
+      "ciphertextUnchangedUntilSync": true,
+      "dispatches": 1,
+      "reconnectDocuments": 0,
+      "interruptedUpdate": {
+        "assetPath": "/_next/static/chunks/webpack-44364b5fa6850170.js",
+        "bytesBeforeCutoff": 1024,
+        "expectedBytes": 3326,
+        "interruptedDownloads": 1,
+        "precedingDownloads": 1,
+        "outcome": "unavailable",
+        "fallbackRevision": "03102496e45f9d7a54d96eae8cfd6c9d6fe412b48cfc8f84bdd059f033b2b2e0",
+        "fallbackTiming": {
+          "workerStart": 3.2999999821186066,
+          "transferSize": 0
+        },
+        "incompleteCacheRemoved": true,
+        "serverBeforeRetry": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "dispatchesBeforeRetry": 0,
+        "retryCompleted": true,
+        "updatedTiming": {
+          "workerStart": 3.4000000059604645,
+          "transferSize": 0
+        }
+      },
+      "reconnectCalls": [
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        }
+      ]
+    },
+    "regressions": {
+      "pending": {
+        "buildIds": [
+          "ZOAaHkGqkgaR5e49tojE8",
+          "yzUCoPDrrjo1dqTxXss-n"
+        ],
+        "originalIdPreserved": true,
+        "dispatches": 1,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0
+      },
+      "lostReply": {
+        "buildIds": [
+          "xntuWe5NhOE3DDYHlt4Eq",
+          "hb6eVbgBPmYJE1U0xfuI1"
+        ],
+        "originalIdPreserved": true,
+        "replayedOriginalBytes": true,
+        "dispatches": 2,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "reconnectDocuments": 0
+      },
+      "unsaved": {
+        "buildIds": [
+          "tTMbDk0mmIAeb1AjCZ5Cx",
+          "iNItHqWtSL9_ddc1aSyRU"
+        ],
+        "reviewedChoices": 2,
+        "reviewFocusRetained": true,
+        "calendarExitCancelled": true,
+        "documentUnchanged": true,
+        "saveAttempts": 0
+      }
+    },
+    "scope": [
+      "English Academy Owner Attendance and two compatible production-mode builds in a disposable app",
+      "Real partial HTTP response while the browser worker stages the public shell, followed by complete origin cutoff for offline launch",
+      "The harness explicitly requests worker preparation and retry. The pending original and database are checked through the real application path."
+    ],
+    "stillOpen": [
+      "Register-only capability rollback and re-enablement in an installed app",
+      "Hosted cold /en, live Clerk Attendance reconnect and a compatible hosted update",
+      "Interrupted schema migration, incompatible older builds, wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledRegisterRollback20261119": {
+    "status": "passed_installed_disposable_mac_register_only_rollback_subset",
+    "verifiedAtUtc": "2026-11-19T13:43:36+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "dd269b5",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --rollback",
+      "node scripts/working-day/test_attendance_update.mjs --installed --interrupted-assets",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsaved"
+    ],
+    "testSha256": "2596c1a22b34ab3f242ed3737ba31ab534a56635bf9b122d2a4d9a4307a767fa",
+    "rollbackFixtureSha256": "5e033400bbfadf537b5265afa5ecc2c4c775fc0832c6cc948a27686a9c3b4414",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "BO96l9DCAyhzrnLYGnJOq",
+          "clyMqDDVpJ9nGWsmEzyYx"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "shellRevision": "90c83b0805b4945dfed46b390f52b7892385c5aa195773b167ee53701df7041e",
+      "locale": "en",
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "registerRowsBefore": 18,
+      "registerRowsWhileDisabled": 0,
+      "registerModeWhileDisabled": "sealed",
+      "repositoryModeWhileDisabled": "quarantined",
+      "workspacePreserved": true,
+      "originalUnchangedWhileDisabled": true,
+      "originalIdPreserved": true,
+      "publicShellRetained": true,
+      "attendanceTiming": {
+        "workerStart": 2.0999999940395355,
+        "transferSize": 0
+      },
+      "playersTiming": {
+        "workerStart": 1.7000000178813934,
+        "transferSize": 0
+      },
+      "offlineApiAttempts": 0,
+      "serverBeforeRecovery": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0,
+        "audit": 0
+      },
+      "serverAfterRecovery": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "dispatches": 1,
+      "recoveryCalls": [
+        {
+          "route": "register-key",
+          "action": "recover",
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "page",
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "complete",
+          "status": 200
+        }
+      ]
+    },
+    "regressions": {
+      "interruptedAssets": {
+        "buildIds": [
+          "9afHXHvMxf9U0fsQWmoku",
+          "Z2ZrXz9tEeiANyaiM7Eib"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "retryCompleted": true
+      },
+      "pending": {
+        "buildIds": [
+          "w9jWPUBh4CpxirD6MSBPt",
+          "1ul97U_tjc8qCIhcbT8iz"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1
+      },
+      "lostReply": {
+        "buildIds": [
+          "5ZDklb32r9rwRFORLj6eS",
+          "FLUTz0aFTAVtavi6_KExE"
+        ],
+        "originalIdPreserved": true,
+        "replayedOriginalBytes": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 2
+      },
+      "unsaved": {
+        "buildIds": [
+          "kFrV0sJRZrAR6Wwhk66v6",
+          "JNcFVsSXqmhbEhlTdPIr4"
+        ],
+        "reviewedChoices": 2,
+        "reviewFocusRetained": true,
+        "calendarExitCancelled": true,
+        "saveAttempts": 0
+      }
+    },
+    "scope": [
+      "Two local runtimes of the same build switched the real register setting predicates with prepared workspace enabled in both",
+      "Normal Attendance, account cleanup, public worker, prepared Players, encrypted repositories and signed Attendance recovery used their application paths",
+      "A fictional Owner session, proxy-modeled disabled private endpoints and one Players row seeded through the workspace repository bounded the scenario",
+      "Fresh connected app launch received the disabled setting before offline launch"
+    ],
+    "stillOpen": [
+      "Installed Attendance with an unsupported newer store and interrupted schema migration",
+      "Hosted cold /en, live Clerk Attendance reconnect, and hosted capability rollback and update",
+      "Wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledUnsupportedAttendanceStore20261119": {
+    "status": "passed_installed_disposable_mac_unsupported_store_subset",
+    "verifiedAtUtc": "2026-11-19T13:53:00+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "a9e270a",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsupported-store",
+      "node scripts/working-day/test_attendance_update.mjs --installed --rollback",
+      "node scripts/working-day/test_attendance_update.mjs --installed --interrupted-assets"
+    ],
+    "testSha256": "370ae686a07a9e6d91851ef22e3991e5d99be294abf9d7e94e5451b2cdfeb064",
+    "rollbackFixtureSha256": "06efb86696427e17cc17e47f09102e8f69f19d9a52229be2959f1c5cf8c10f64",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "QG83vqVbA0MAVUbp8trsL",
+          "Zsw-VWAgBXdQPQqNopjrc"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "shellRevision": "347f13f278e6bbcbc6567a921fb1274f99ff1a861a6a75579866cdae734a21ac",
+      "locale": "en",
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "databaseVersionBefore": 1,
+      "databaseVersionAfter": 2,
+      "olderOpenError": "VersionError",
+      "registerRowsPreserved": 18,
+      "onlineRegisterMasked": true,
+      "offlineRegisterMasked": true,
+      "workspacePreserved": true,
+      "originalUnchanged": true,
+      "publicShellRetained": true,
+      "attendanceTiming": {
+        "workerStart": 2.399999976158142,
+        "transferSize": 0
+      },
+      "playersTiming": {
+        "workerStart": 3.4000000059604645,
+        "transferSize": 0
+      },
+      "apiAttempts": 0,
+      "dispatches": 0,
+      "serverAfter": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0,
+        "audit": 0
+      }
+    },
+    "regressions": {
+      "rollback": {
+        "buildIds": [
+          "A87_7AcaGizrqeMi_Gynx",
+          "X5S5I5snOZ0lqBrRkgsHS"
+        ],
+        "workspacePreserved": true,
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        }
+      },
+      "interruptedAssets": {
+        "buildIds": [
+          "r4ECtiGNtZ7uSjbl-Hl5G",
+          "JItiImplEr4lhnYnei6CI"
+        ],
+        "retryCompleted": true,
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        }
+      }
+    },
+    "scope": [
+      "Version increased only inside a disposable Chromium profile. The app code and object stores retained their existing shapes.",
+      "The direct older-open probe observed VersionError. The normal connected and offline Attendance routes showed the unavailable warning and masked the roster.",
+      "The Owner used normal Attendance controls to prepare and save. The People check uses one row seeded through the real encrypted workspace repository."
+    ],
+    "stillOpen": [
+      "Blocked and aborted fixture storage upgrade and actual forward schema migration",
+      "Hosted cold /en, live Clerk Attendance reconnect and hosted capability rollback and update",
+      "Wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledAbortedAttendanceUpgrade20261119": {
+    "status": "passed_installed_disposable_mac_blocked_aborted_upgrade_subset",
+    "verifiedAtUtc": "2026-11-19T14:05:09+00:00",
+    "testedApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "priorCheckpoint": "f01dab9",
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --aborted-upgrade",
+      "node scripts/working-day/test_attendance_update.mjs --installed",
+      "node scripts/working-day/test_attendance_update.mjs --installed --lost-reply",
+      "node scripts/working-day/test_attendance_update.mjs --installed --interrupted-assets",
+      "node scripts/working-day/test_attendance_update.mjs --installed --rollback",
+      "node scripts/working-day/test_attendance_update.mjs --installed --unsupported-store"
+    ],
+    "testSha256": "bb33f63989ac431f09395bb5455aac60dd46e6bc2bd4680a2fbd024c38ec7a89",
+    "rollbackFixtureSha256": "b83459c2cfc257437e552440f5bc49ecd8a9cf5f39e63f137a275e2861af53cd",
+    "lockfileSha256": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "(Homebrew)",
+      "next": "16.4.6",
+      "session": "Fictional Clerk"
+    },
+    "installedWindowResult": {
+      "builds": {
+        "ids": [
+          "2SulXWICZ3Gg3mKXi7Vrr",
+          "8rxpsHCzbwVfsy_upGioA"
+        ],
+        "workerHashes": [
+          "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+          "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+        ]
+      },
+      "shellRevision": "ae75293bb97c63f176e7182e46ce42f51f01e213530c49d90dd50b2a8885a862",
+      "locale": "en",
+      "client": "installed standalone",
+      "platform": "darwin",
+      "browser": "156.0.8078.4",
+      "node": "v24.14.0",
+      "distinctWindows": true,
+      "upgrade": {
+        "before": {
+          "version": 1,
+          "stores": [
+            "control",
+            "heads",
+            "imports",
+            "keys",
+            "originals",
+            "rows"
+          ]
+        },
+        "after": {
+          "version": 1,
+          "stores": [
+            "control",
+            "heads",
+            "imports",
+            "keys",
+            "originals",
+            "rows"
+          ]
+        },
+        "blocked": {
+          "oldVersion": 1,
+          "newVersion": 2
+        },
+        "writeStaged": true,
+        "error": "AbortError",
+        "activeOriginalReadableWhileBlocked": true
+      },
+      "reopenTiming": {
+        "workerStart": 2.2999999821186066,
+        "transferSize": 0
+      },
+      "registerRowsPreserved": 18,
+      "originalUnchangedUntilReconnect": true,
+      "publicShellRetained": true,
+      "serverBeforeReconnect": {
+        "marks": 0,
+        "history": 0,
+        "operations": 0,
+        "audit": 0
+      },
+      "serverAfterReconnect": {
+        "marks": 1,
+        "history": 1,
+        "operations": 1,
+        "audit": 1
+      },
+      "dispatches": 1,
+      "reconnectDocuments": 0,
+      "reconnectCalls": [
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-dispatch",
+          "action": "register",
+          "status": 200
+        },
+        {
+          "route": "fixture-session",
+          "action": null,
+          "status": 200
+        },
+        {
+          "route": "register-download",
+          "action": "manifest",
+          "status": 200
+        }
+      ]
+    },
+    "regressions": {
+      "pending": {
+        "buildIds": [
+          "ukmcAB7iwGOsUxCsp0p3C",
+          "AqX31mCnTCfy5A4KA8rzu"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1
+      },
+      "lostReply": {
+        "buildIds": [
+          "05bY03GpKCvBbH2CCqYAr",
+          "e_W1iMlip7drkJT4brmV0"
+        ],
+        "originalIdPreserved": true,
+        "replayedOriginalBytes": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 2
+      },
+      "interruptedAssets": {
+        "buildIds": [
+          "1j0b8HqURHYzkhXMkQL8o",
+          "VBsnztFRPuSEDV359z2VH"
+        ],
+        "originalIdPreserved": true,
+        "serverAfter": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "retryCompleted": true
+      },
+      "rollback": {
+        "buildIds": [
+          "35eJRIWpIFI0BDPYIfX64",
+          "MRRlH0LTqNuvpx4ivd_Je"
+        ],
+        "originalIdPreserved": true,
+        "workspacePreserved": true,
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1
+      },
+      "unsupportedStore": {
+        "buildIds": [
+          "wPGDxxf8Hvbv5-wRgRma2",
+          "awEQx8bJLHaOdYzFE4bR0"
+        ],
+        "originalUnchanged": true,
+        "workspacePreserved": true,
+        "apiAttempts": 0,
+        "dispatches": 0,
+        "serverAfter": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        }
+      }
+    },
+    "runnerAdjustment": {
+      "earlyAttempts": 2,
+      "observed": "The original revision advanced into an unconfirmed dispatch state during the initial test setup.",
+      "verifiedCorrection": "Check the window identity first and require the installed window to report offline before capture and through the blocked and aborted upgrade."
+    },
+    "scope": [
+      "One normal browser window held the old database connection in the same disposable profile as the installed app.",
+      "Native IndexedDB blocked and versionchange events preceded the abort of a staged temporary object store and write.",
+      "Actual cached Attendance reopened with the unchanged original and recovered through the signed fixture gateway and disposable database."
+    ],
+    "stillOpen": [
+      "Installed WD-79 refused durable write and independent physical quota, persistence and eviction cases",
+      "Real forward schema migration, hosted cold /en, live Clerk Attendance reconnect and hosted rollback and update",
+      "Wider installed devices and Owner acceptance"
+    ]
+  },
+  "macInstalledRefusedAttendanceWrite20261119": {
+    "status": "passed_installed_disposable_mac_refused_write_subset",
+    "verifiedAtUtc": "2026-11-19T16:52:33+00:00",
+    "testedSourceBase": "9d10c3acb1c7eda73cf8d47f483e7ee5f52fccf1",
+    "baselineApplicationSource": "cf15f40ece1e65b75fbe12857c059fd0ae9ac532",
+    "inputSha256": {
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "scripts/working-day/test_attendance_update.mjs": "8117ef7e6af5d15f746566f7855eedf88714af5ad233e7fbaccdf0a4bf7ee859",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3c55f1186cc0fddc0278deeb39c0817307c0d5cb3e0a3712ddda7cc4d989341e",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk with fictional Academy Owner and players"
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --refused-write",
+      "node scripts/working-day/test_attendance_update.mjs --installed --refused-write --arabic"
+    ],
+    "baseline": {
+      "panelSha256": "216a2130dc9faf741f9336b1dc7261046792240a73d84572e05aad9c51cb1784",
+      "assertedRollbackAndChoiceRetention": true,
+      "assertedVisibleFailureInsideReview": false,
+      "observed": "The warning appeared outside the open native review dialog. The alert locator inside it failed on baseline source."
+    },
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "EnMyFGVsb9idgIVKA4J7O",
+            "1HhjBeomf5FYmlIOdp6L4"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "d11e6e9c10644500175fc813e822fbabfce52ddb43058bfc944d09fdad408ddc",
+        "locale": "en",
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "writeStaged": true,
+        "transactionAborted": true,
+        "transactionCommitted": false,
+        "falseSavedAcknowledgement": false,
+        "reviewChoicesRetained": 2,
+        "failureShownInsideReview": true,
+        "originalsAfterFailure": 0,
+        "serverAfterFailure": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "reopenTiming": {
+          "workerStart": 4.4000000059604645,
+          "transferSize": 0
+        },
+        "originalUnchangedUntilReconnect": true,
+        "serverAfterReconnect": {
+          "marks": 2,
+          "history": 2,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "reconnectDocuments": 0
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "0-2jQy-8yjyuQ5V497COE",
+            "3RmJPmT7LEvz8d3ldTFJB"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "556ce8b86bfcb45bf4f0a513146899ed6cade66e2ded16c558660f877066aa6e",
+        "locale": "ar",
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "writeStaged": true,
+        "transactionAborted": true,
+        "transactionCommitted": false,
+        "falseSavedAcknowledgement": false,
+        "reviewChoicesRetained": 2,
+        "failureShownInsideReview": true,
+        "originalsAfterFailure": 0,
+        "serverAfterFailure": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "reopenTiming": {
+          "workerStart": 2.5999999940395355,
+          "transferSize": 0
+        },
+        "originalUnchangedUntilReconnect": true,
+        "serverAfterReconnect": {
+          "marks": 2,
+          "history": 2,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "reconnectDocuments": 0
+      }
+    },
+    "regressions": {
+      "launch": 9,
+      "startup": 8,
+      "normalAttendance": 28,
+      "additiveAttendance": 4,
+      "workspaceTransfer": 74,
+      "unsavedReview": {
+        "status": "passed",
+        "buildIds": [
+          "pSHqICldacMKVMYpy8AKx",
+          "T9huJ1umluguWPZeXCEiu"
+        ]
+      },
+      "blockedAbortedUpgrade": {
+        "status": "passed",
+        "buildIds": [
+          "oo731tEgD8l_Y-DEmEHxQ",
+          "8uYiyUFIObkB3hknbyT4Q"
+        ]
+      }
+    },
+    "localVerification": {
+      "typecheck": "passed",
+      "lint": "passed",
+      "unitTests": 119,
+      "productionBuild": {
+        "origin": "http://localhost:3100",
+        "buildId": "eO-iVsAPjAJFBdrjPa_w_",
+        "sourceHash": "8bdf20bbdc4248d74a9374bde8a46f6c59ef05d258fcfe4b177615eca3c9058d",
+        "artifactHash": "f51b87cb9d5945667cec94afffbefa7cb4b9021fbd3a5ea7819c2c61c245cbbc",
+        "readiness": "current"
+      },
+      "factualReview": {
+        "frames": 1812,
+        "transitions": 2611,
+        "captureGaps": 0,
+        "checks": "passed",
+        "refusalEvidence": "Standalone test receipt for the controlled abort"
+      }
+    },
+    "scope": [
+      "The fixture aborts the real strict IndexedDB transaction after the first encrypted original write is staged.",
+      "The normal installed Attendance view, local repository, public worker, signed handler and disposable PostgreSQL exercise the retry and reconnect."
+    ],
+    "stillOpen": [
+      "WD-80 account-change and retention cases and independent physical quota, persistence and eviction cases",
+      "Real forward schema migration, hosted cold launch, live Clerk Attendance reconnect and hosted rollback and update",
+      "Wider installed devices, synthetic staging activation and Owner acceptance"
+    ]
+  },
+  "macInstalledAttendanceAccountChange20261119": {
+    "status": "passed_installed_disposable_mac_account_change_subset",
+    "verifiedAtUtc": "2026-11-19T17:13:02+00:00",
+    "testedApplicationSource": "83ec14d98fdfd053353b7d921a0739ecb5d3d8c5",
+    "inputSha256": {
+      "scripts/working-day/test_attendance_update.mjs": "089cd74e65c1427b2b73cd1afc2d9a03914470d2816fd0cea1594065688cc2ca",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3c55f1186cc0fddc0278deeb39c0817307c0d5cb3e0a3712ddda7cc4d989341e",
+      "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+      "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+      "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+      "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+      "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+      "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+      "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+      "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+      "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
+      "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+      "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk identities from different synthetic academies"
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --account-change",
+      "node scripts/working-day/test_attendance_update.mjs --installed --account-change --arabic"
+    ],
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "I7NLDzJBPywu5V9K6IS3W",
+            "uUTBPq_WpxXwRUtuMoeC0"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "c94ff5e791879bfc32a15178599d9118445c931ddc77ada9bf220a78953c7d2d",
+        "locale": "en",
+        "reopenTiming": {
+          "workerStart": 2.399999976158142,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "rosterRowsBefore": 18,
+        "rosterRowsAfterSwitch": 0,
+        "registerModeAfterSwitch": "sealed",
+        "accountMarkerCleared": true,
+        "foreignOperatingRequests": 0,
+        "foreignDispatches": 0,
+        "originalUnchangedWhileFenced": true,
+        "originalIdPreserved": true,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "foreignCalls": [
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          }
+        ],
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "UyyfuaC4d-0snh4CTJRIu",
+            "js16kNMvWPQ21UNMy5ZMN"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "64dea974f7bc8f641f9bdd0159d359643171dd6b632ed9365ada5bbc2ab9b346",
+        "locale": "ar",
+        "reopenTiming": {
+          "workerStart": 2.0999999940395355,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "rosterRowsBefore": 18,
+        "rosterRowsAfterSwitch": 0,
+        "registerModeAfterSwitch": "sealed",
+        "accountMarkerCleared": true,
+        "foreignOperatingRequests": 0,
+        "foreignDispatches": 0,
+        "originalUnchangedWhileFenced": true,
+        "originalIdPreserved": true,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "foreignCalls": [
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          }
+        ],
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      }
+    },
+    "regressions": {
+      "arabicRefusedWrite": {
+        "status": "passed",
+        "buildIds": [
+          "edgdyn2EucqC3zBElf7JV",
+          "mYKYPXiRUDvYLnqJhchrl"
+        ]
+      },
+      "englishBlockedUpgrade": {
+        "status": "passed",
+        "buildIds": [
+          "XkYPjhYhPSDstdPAV2BKT",
+          "JB0hTaSu7uEMILu6Xmy-u"
+        ]
+      },
+      "existingSourceReceipts": [
+        "Compiled web build",
+        "Factual experience review",
+        "Owner workspace startup",
+        "Normal Attendance and Owner task return",
+        "Additive Attendance"
+      ]
+    },
+    "runnerAdjustment": "One early run referenced the closed window after standalone relaunch. The final runner builds its locators in the new window and retains every assertion.",
+    "scope": [
+      "A new disposable standalone Chromium window reopened the prepared Owner Attendance route from the worker while the fixture origin was unreachable. The runner verified offline connection state before triggering reconnect.",
+      "After an account change reported by the simulated SDK, the public shell and a fresh protected route both masked the old roster and recovery controls. The protected route fixture anchors the original subject to exercise the mismatch condition.",
+      "The signed API handler and disposable PostgreSQL accepted the original once after the matching account used the real recovery control."
+    ],
+    "stillOpen": [
+      "WD-80 explicit installed sign-out, installed 30-day cleanup and the wider account/access/device matrix",
+      "Physical storage persistence, quota and eviction, real forward schema migration, hosted cold launch, live Clerk Attendance, hosted rollback and update",
+      "Synthetic staging activation and Owner acceptance"
+    ]
+  },
+  "macInstalledAttendanceSignOut20261119": {
+    "status": "passed_installed_disposable_mac_explicit_sign_out_subset",
+    "verifiedAtUtc": "2026-11-19T18:20:44+00:00",
+    "testedApplicationSource": "a79575902104966634e8fdeff13eb339832d0328",
+    "inputSha256": {
+      "scripts/working-day/test_attendance_update.mjs": "3896d8c7f9ec7e02fce44ce71fe9b803d5806a0558d7bf632a2e54430ad365d1",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3c55f1186cc0fddc0278deeb39c0817307c0d5cb3e0a3712ddda7cc4d989341e",
+      "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+      "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+      "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+      "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+      "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+      "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+      "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+      "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+      "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
+      "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+      "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+      "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+      "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk in a disposable Chromium profile shared by the installed and browser windows"
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --sign-out",
+      "node scripts/working-day/test_attendance_update.mjs --installed --sign-out --arabic"
+    ],
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "Gr50DZLsJTzetmzmaFAkv",
+            "A281903OmTOxqSODtErRc"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "458d9418283873034be683b12620029324f86b4fdc01b33d0199165ea8140cc0",
+        "locale": "en",
+        "secondViewTiming": {
+          "workerStart": 0.9000000059604645,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "distinctWindows": true,
+        "rosterRowsBefore": 18,
+        "rosterRowsBeforeProviderSignOut": 0,
+        "viewsMaskedBeforeProviderSignOut": 2,
+        "registerSealedBeforeProviderSignOut": true,
+        "accountMarkerCleared": true,
+        "signedOutRouteRequiresSignIn": true,
+        "originalUnchangedAcrossSignOut": true,
+        "originalIdPreserved": true,
+        "providerSignOutCalls": 1,
+        "operatingAttemptsDuringSignOut": 0,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "MV12-SAL17OPSXKW4gYvn",
+            "vPjvqImGiJanjGUferyNH"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "eecd2c382c4f393b5d044e2ca43cc65979703c50f228e1540f744cd67dbf29ce",
+        "locale": "ar",
+        "secondViewTiming": {
+          "workerStart": 1.100000023841858,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "distinctWindows": true,
+        "rosterRowsBefore": 18,
+        "rosterRowsBeforeProviderSignOut": 0,
+        "viewsMaskedBeforeProviderSignOut": 2,
+        "registerSealedBeforeProviderSignOut": true,
+        "accountMarkerCleared": true,
+        "signedOutRouteRequiresSignIn": true,
+        "originalUnchangedAcrossSignOut": true,
+        "originalIdPreserved": true,
+        "providerSignOutCalls": 1,
+        "operatingAttemptsDuringSignOut": 0,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 1,
+          "history": 1,
+          "operations": 1,
+          "audit": 1
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          },
+          {
+            "route": "fixture-session",
+            "action": null,
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "manifest",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "page",
+            "status": 200
+          },
+          {
+            "route": "register-download",
+            "action": "complete",
+            "status": 200
+          }
+        ]
+      }
+    },
+    "regressions": {
+      "englishAccountChange": {
+        "status": "passed",
+        "buildIds": [
+          "m2qGg2dsZwXxzn13W_j-I",
+          "KnsJ8c8FzEwi5T7SVw5aa"
+        ]
+      },
+      "sourceReceiptsCurrent": [
+        "Compiled web build",
+        "Factual experience review",
+        "Owner workspace startup",
+        "Normal Attendance and Owner task return",
+        "Additive Attendance"
+      ]
+    },
+    "runnerAdjustment": "The first run passed sign-out cleanup and the signed-out route checks. Recovery stayed disabled while the installed test target retained its forced offline signal. The final runner restores and verifies that signal before releasing the held provider request.",
+    "scope": [
+      "Ordinary Account sign-out in the installed window masks both that view and an open browser window. Both shared the prepared 18-player register before sign-out.",
+      "The held provider request establishes browser cleanup before the simulated provider receives sign-out. The fixture network returns for provider acknowledgement and same-account recovery.",
+      "The original encrypted record remains unchanged through cleanup. The signed API handler and disposable PostgreSQL commit that original once under the same account."
+    ],
+    "stillOpen": [
+      "The WD-80 installed 30-day retention case and the wider access and device matrix",
+      "Physical persistence, quota and eviction, real schema migration, hosted cold launch, live Clerk Attendance and hosted update and rollback",
+      "Synthetic staging activation and Owner acceptance"
+    ]
+  },
+  "macInstalledAttendanceThirtyDayRetention20261119": {
+    "status": "passed_installed_disposable_mac_thirty_day_retention_subset",
+    "verifiedAtUtc": "2026-11-19T18:33:53+00:00",
+    "testedApplicationSource": "23cf180724e0dbc8c88cd79f2ae6a0d159b79d95",
+    "inputSha256": {
+      "scripts/working-day/test_attendance_update.mjs": "454cba1be7a51a0f0d19bdbf97a3a0db057a64c7c96421e5e2b4e52c0e2ad425",
+      "scripts/working-day/attendance_rollback_fixture.mjs": "3f4451beeb18d382b5d86e6a472662ebe0d93b56c5697e08556012bcc8d998f5",
+      "scripts/working-day/owner_fixture.mjs": "1e0f6488e0d240679398d0ed0ea15e1c8a1d77caaa07e42689a789fa8f801977",
+      "scripts/working-day/owner_db.py": "91124a3a0e63d543097b49154bef64d8148969cd7e49da899a0b81343bd676f9",
+      "apps/web/src/app/[locale]/workspace/[academy]/attendance/[event]/page.tsx": "996d8350b59b0d2b1ed7f070274ab02afef0eb543c558b0bc10a6fbf15c11364",
+      "apps/web/src/components/attendance-workspace.tsx": "00836814969d85db81898d47f7a3eb446b3486d482341f39f60c18126357ba63",
+      "apps/web/src/components/prepared-register-panel.tsx": "9f4e3c9a5c19dcb7cb7724f3194ff00ce8b14d19d82664d72b458bb3861f4041",
+      "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+      "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+      "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+      "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+      "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+      "apps/web/src/lib/register-original-dispatch.ts": "c78d9c6f1f4e63387c362c2b0ac2e1749b0a9e23f75522aa8503f159b9eed36f",
+      "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+      "apps/web/src/app/api/register-key/route.ts": "c61454155c8fc7dd2d2088e0feb30bcaf6d766f43b636ef0211a674bac49c7fb",
+      "apps/web/src/app/api/register-dispatch/route.ts": "6f07ba272ab8f1b6ff575f8292569d8ca6bbd492f0720dc3890a5bd3d805d0b0",
+      "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+      "package-lock.json": "47fc722a30c7382ce2ab1f049f9482d828434fb6d384df24b59a6538ccfefcee",
+      "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+      "apps/web/src/components/workspace-shell.tsx": "2f9deaeb262731fa9db4564c53824282d896353682bc322239d24b8721a554b6",
+      "scripts/offline-register/dispatch_bridge.py": "4a281f1842a98a4e2e3fb210e7968c042bbdb0c8f15645670213f776f5d9f12b",
+      "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+      "supabase/migrations/20261104013632_owner_register_bound_transport.sql": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9",
+      "supabase/migrations/20261029035928_attendance_register_batch.sql": "16f2e35ce52afeadceb24904d0594ff61e1fa72346c1fe0d91417e305aa8b7c5"
+    },
+    "environment": {
+      "macOS": "27.3",
+      "chromium": "156.0.8078.4",
+      "node": "v24.14.0",
+      "postgres": "pg_ctl (PostgreSQL) 17.11 (Homebrew)",
+      "next": "16.4.6",
+      "session": "Simulated Clerk in disposable installed Chromium",
+      "time": "App wall-clock reading controlled at minus one millisecond and exactly at thirty days. Fixture server recording window expired independently."
+    },
+    "commands": [
+      "node scripts/working-day/test_attendance_update.mjs --installed --thirty-day-retention",
+      "node scripts/working-day/test_attendance_update.mjs --installed --thirty-day-retention --arabic"
+    ],
+    "installedResults": {
+      "en": {
+        "builds": {
+          "ids": [
+            "qd0af_NqutOk4fu4QDAjx",
+            "slb12OE61NrK45MDYaSYp"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "05a9552332774b4f3a48834fe674af368006f858edcf4a6dfc7cd89d50814c9f",
+        "locale": "en",
+        "beforeTiming": {
+          "workerStart": 0.7999999821186066,
+          "transferSize": 0
+        },
+        "cutoffTiming": {
+          "workerStart": 0.5,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "retentionDays": 30,
+        "checkedBeforeCutoffMs": 1,
+        "rosterRowsBefore": 18,
+        "rosterRowsAtCutoff": 0,
+        "registerSealedAtCutoff": true,
+        "offlineApiAttempts": 0,
+        "originalUnchangedUntilRecovery": true,
+        "originalIdPreserved": true,
+        "deadlineOutcome": "window_closed",
+        "retainedForReview": true,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          }
+        ]
+      },
+      "ar": {
+        "builds": {
+          "ids": [
+            "2-dnXTMSgn9xbLn3gh_yC",
+            "2CgANDt-2avNCsljH7LKX"
+          ],
+          "workerHashes": [
+            "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+            "764849b4d5e6840da5ffee208e204770da2f4edb8129c5ff3f7c1fa6f455718e"
+          ]
+        },
+        "shellRevision": "542228899a1fce9a9c3885e7776bfa60af31770b75e674ff832992da3ee63653",
+        "locale": "ar",
+        "beforeTiming": {
+          "workerStart": 1.0999999940395355,
+          "transferSize": 0
+        },
+        "cutoffTiming": {
+          "workerStart": 0.5,
+          "transferSize": 0
+        },
+        "client": "installed standalone",
+        "platform": "darwin",
+        "browser": "156.0.8078.4",
+        "node": "v24.14.0",
+        "retentionDays": 30,
+        "checkedBeforeCutoffMs": 1,
+        "rosterRowsBefore": 18,
+        "rosterRowsAtCutoff": 0,
+        "registerSealedAtCutoff": true,
+        "offlineApiAttempts": 0,
+        "originalUnchangedUntilRecovery": true,
+        "originalIdPreserved": true,
+        "deadlineOutcome": "window_closed",
+        "retainedForReview": true,
+        "serverBeforeRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "serverAfterRecovery": {
+          "marks": 0,
+          "history": 0,
+          "operations": 0,
+          "audit": 0
+        },
+        "dispatches": 1,
+        "recoveryCalls": [
+          {
+            "route": "register-key",
+            "action": "recover",
+            "status": 200
+          },
+          {
+            "route": "register-dispatch",
+            "action": "register",
+            "status": 200
+          }
+        ]
+      }
+    },
+    "regressions": {
+      "englishSignOut": {
+        "status": "passed",
+        "buildIds": [
+          "Avc1wmYC9d4kJniNjsHKI",
+          "T9rpupSigr2iIDg6sflwe"
+        ]
+      },
+      "englishBlockedUpgrade": {
+        "status": "passed",
+        "buildIds": [
+          "GhZJCgMe10anFRzPOZwIF",
+          "nYkK3wvG7RnDhGK2ShplR"
+        ]
+      },
+      "sourceReceiptsCurrent": [
+        "Compiled web build",
+        "Factual experience review",
+        "Owner workspace startup",
+        "Normal Attendance and Owner task return",
+        "Additive Attendance"
+      ]
+    },
+    "runnerAdjustment": "The first test clock replaced native performance timing and hid the navigation entry. The verified runner controls only the app wall-clock reading and keeps native timing and timers.",
+    "scope": [
+      "Both checked reloads occurred in a disposable standalone installed window while the fixture origin was unreachable. The 18 downloaded rows remained readable just before the cutoff and were sealed and removed at the cutoff.",
+      "The encrypted original and the account marker remained stable until explicit same-account recovery. The public shell stayed available.",
+      "The existing signed handler sent the same original once and returned window_closed. The client kept Needs review across live reload and PostgreSQL recorded zero effects."
+    ],
+    "stillOpen": [
+      "Physical persistence, quota and eviction and the wider installed access, role and device matrix",
+      "Real schema migration, hosted cold launch, live Clerk Attendance and hosted rollback and update",
+      "Synthetic staging activation and Owner acceptance"
+    ]
+  },
+  "macInstalledOwnerCalendarReturn": {
+    "date": "2026-11-19",
+    "case": "WD-76 Owner Calendar slice",
+    "status": "passed",
+    "testedBase": "0b1f400c308c36835caa3c97738f90f742400548",
+    "compiledBuild": {
+      "node": "v24.14.0",
+      "sourceHash": "87aa2d76dd7cf151ea9b244332c12f59e39c8319ce807625a54af9b49b7387f6",
+      "artifactHash": "b569fb5f40f8b364a2a52c40187af75a7351398836804da1813c75f81500443e"
+    },
+    "hashes": {
+      "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+      "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+      "apps/web/src/components/experience-workspace.tsx": "e44b2bcee83df6b24d03191d8ae27f759643a403d69244727205d0fbb5d4d787",
+      "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
+      "scripts/workspace-download/installed_calendar.mjs": "08ab3489656b998b70228fbd4afa012afe257478e4b80b45291887cae631f1b0",
+      "scripts/workspace-download/test_transport.mjs": "d9dd0463a76aede0a1685b65796de5aae8e27229e00c860b69848cf2a87a13b5",
+      "scripts/workspace-download/normal_workspace.mjs": "4224eaca26a95ea12b8c05b7fd0123f82d1c6dfee92dd88dd1f647efc64fedce",
+      "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1"
+    },
+    "client": "installed standalone",
+    "browser": "156.0.8078.4",
+    "platform": "darwin",
+    "cases": [
+      {
+        "locale": "en",
+        "returnEvents": [
+          {
+            "type": "blur",
+            "trusted": true,
+            "visibility": "visible"
+          },
+          {
+            "type": "focus",
+            "trusted": true,
+            "visibility": "visible"
+          }
+        ],
+        "retained": {
+          "date": "2099-11-08",
+          "month": true,
+          "filter": "Syn",
+          "selection": true,
+          "focused": true,
+          "range": [
+            1,
+            3
+          ],
+          "scroll": 300,
+          "rows": 18
+        },
+        "resumeActions": [
+          "manifest"
+        ],
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "obsolete": {
+          "cancelled": "net::ERR_ABORTED",
+          "currentWeek": "2099-11-15",
+          "changedRevisionVisible": true,
+          "oldReplyReleased": true
+        },
+        "denial": {
+          "status": 403,
+          "rows": 0,
+          "inspector": false,
+          "retiredSlot": true
+        },
+        "documentTransitions": 0,
+        "operatingReads": 0
+      },
+      {
+        "locale": "ar",
+        "returnEvents": [
+          {
+            "type": "blur",
+            "trusted": true,
+            "visibility": "visible"
+          },
+          {
+            "type": "focus",
+            "trusted": true,
+            "visibility": "visible"
+          }
+        ],
+        "retained": {
+          "date": "2099-11-08",
+          "month": true,
+          "filter": "Syn",
+          "selection": true,
+          "focused": true,
+          "range": [
+            1,
+            3
+          ],
+          "scroll": 300,
+          "rows": 18
+        },
+        "resumeActions": [
+          "manifest"
+        ],
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "obsolete": {
+          "cancelled": "net::ERR_ABORTED",
+          "currentWeek": "2099-11-15",
+          "changedRevisionVisible": true,
+          "oldReplyReleased": true
+        },
+        "denial": {
+          "status": 403,
+          "rows": 0,
+          "inspector": false,
+          "retiredSlot": true
+        },
+        "documentTransitions": 0,
+        "operatingReads": 0
+      }
+    ],
+    "baseline": {
+      "compiledBuild": {
+        "node": "v24.14.0",
+        "sourceHash": "8bdf20bbdc4248d74a9374bde8a46f6c59ef05d258fcfe4b177615eca3c9058d",
+        "artifactHash": "f51b87cb9d5945667cec94afffbefa7cb4b9021fbd3a5ea7819c2c61c245cbbc"
+      },
+      "operatingReadsAfterDenial": {
+        "en": 2,
+        "ar": 2
+      },
+      "zeroFallbackAssertionFailedBeforeRepair": "en"
+    },
+    "scope": [
+      "A separately installed disposable Chromium window was minimized and restored. Trusted blur and focus were observed. The document reported visible on both events.",
+      "Real Owner Calendar components and encrypted local coverage published by actual workspace/key Next handlers with a signed gateway and disposable PostgreSQL 17. Fictional Clerk and legacy online Calendar responses.",
+      "The signed 403 reached the fixture after its Academy Owner membership was suspended. The caller now masks the current scope before the cleanup changes the local slot.",
+      "The installed evidence covers this disposable local fixture. Hosted verification of the repair, physical storage limits and Owner acceptance remain open."
+    ],
+    "next": "Installed Owner Players return and full-profile authority under PW-03 / WD-76."
+  },
+  "macInstalledOwnerPlayersReturn": {
+    "date": "2026-11-19",
+    "case": "WD-76 Owner Players slice",
+    "status": "passed",
+    "command": "node scripts/workspace-download/test_transport.mjs --installed-players",
+    "basedOn": "353446963f72604e25dbd0af7b90d391fc4b6af0",
+    "compiledBuild": {
+      "node": "v24.14.0",
+      "sourceHash": "8937f13330565d8f50cae07931936b9895e9c28e65821a340156b245da9aa73c",
+      "artifactHash": "5c50a3c54f7aea2289047d885a08e6209a7324837106fdeeae5ff9599e345eb5"
+    },
+    "hashes": {
+      "apps/web/src/components/people-workspace.tsx": "f452fd34251cbac76eb5839f433602a7848dcae21f0bc2c32d20d7137bfb2851",
+      "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+      "apps/web/src/app/api/people/route.ts": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+      "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+      "scripts/workspace-download/installed_players.mjs": "0d7dd20f32b9aaa397df1b4bcae0cfaf512d313fe61dfb93a6f8dab52704467e",
+      "scripts/workspace-download/test_transport.mjs": "221f10553e85ee71c68cca99a363f9ce73b3d74b047c32c364df39b21e9302f1",
+      "scripts/workspace-download/normal_workspace.mjs": "4224eaca26a95ea12b8c05b7fd0123f82d1c6dfee92dd88dd1f647efc64fedce",
+      "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1"
+    },
+    "client": "installed standalone",
+    "browser": "156.0.8078.4",
+    "platform": "darwin",
+    "cases": [
+      {
+        "locale": "en",
+        "retained": {
+          "filter": "Synthetic",
+          "focused": true,
+          "range": [
+            2,
+            6
+          ],
+          "scroll": 300,
+          "rows": 25
+        },
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "resumeActions": {
+          "directory": [
+            "manifest"
+          ],
+          "summary": [
+            "manifest"
+          ]
+        },
+        "selectedSummaryRetained": true,
+        "fullProfile": {
+          "operatingActions": [
+            "profile",
+            "profile",
+            "profile"
+          ],
+          "currentDenial": 403,
+          "privateContactMasked": true,
+          "obsoleteSuccessReleased": true,
+          "obsoleteRequestAborted": true,
+          "retiredSlot": true,
+          "noBackgroundRetryAfterDenial": true
+        },
+        "documentTransitions": 0
+      },
+      {
+        "locale": "ar",
+        "retained": {
+          "filter": "Synthetic",
+          "focused": true,
+          "range": [
+            2,
+            6
+          ],
+          "scroll": 300,
+          "rows": 25
+        },
+        "coveredFiltering": {
+          "operatingReads": 0,
+          "transfers": 0
+        },
+        "resumeActions": {
+          "directory": [
+            "manifest"
+          ],
+          "summary": [
+            "manifest"
+          ]
+        },
+        "selectedSummaryRetained": true,
+        "fullProfile": {
+          "operatingActions": [
+            "profile",
+            "profile",
+            "profile"
+          ],
+          "currentDenial": 403,
+          "privateContactMasked": true,
+          "obsoleteSuccessReleased": true,
+          "obsoleteRequestAborted": true,
+          "retiredSlot": true,
+          "noBackgroundRetryAfterDenial": true
+        },
+        "documentTransitions": 0
+      }
+    ],
+    "beforeRepair": {
+      "locale": "en",
+      "actions": [
+        "profile",
+        "profile",
+        "profile",
+        "list"
+      ],
+      "expected": [
+        "profile",
+        "profile",
+        "profile"
+      ]
+    },
+    "scope": [
+      "Mac standalone Chromium with disposable profile and checked production assets. Actual Players component, workspace/key and People handlers and signed disposable PostgreSQL; simulated Clerk and provider wires.",
+      "One unchanged signed manifest, zero dataset page transfers and zero People reads per measured prepared return. Full-profile contact is available through the current signed People read only.",
+      "Remaining independent device, hosted and Owner acceptance work retains its own scope."
+    ],
+    "next": "Current-source connected local 18-player Owner-day acceptance pass under EX-07 / MP-B01."
+  },
+  "staging8776811": {
+    "recordedUtc": "2026-11-19T22:32:46+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "origin": "https://staging.academy.nahr.dev",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "project": "prj_QDy8WrfhTAAp2lyu2wtKowd2nVyx",
+    "state": "READY",
+    "target": "production",
+    "ownerReportedPromotion": true,
+    "agentPromotion": false,
+    "foundation": {
+      "runId": 44619786445,
+      "attempt": 1,
+      "stepsPassed": 55,
+      "stepCount": 55,
+      "evidence": "Recorded checked candidate receipt"
+    },
+    "identity": {
+      "role": "Academy Owner",
+      "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+      "verifiedVia": "Normal account dialog and current workspace chooser"
+    },
+    "browser": {
+      "profile": "nahr",
+      "taskGroup": "AcademyOS 8776811 Owner verification",
+      "interface": "browse CLI 0.1.5 named tab with an explicit tab ID",
+      "allowedOrigins": [
+        "https://staging.academy.nahr.dev"
+      ],
+      "taskTabClosed": true,
+      "standalone": false
+    },
+    "checks": {
+      "calendar": {
+        "locales": [
+          "en",
+          "ar"
+        ],
+        "directions": [
+          "ltr",
+          "rtl"
+        ],
+        "previousAnchor": "2026-11-13",
+        "restoredAnchor": "2026-11-20",
+        "refreshRetained": [
+          "anchor",
+          "session filter",
+          "selected session details",
+          "same document"
+        ]
+      },
+      "players": {
+        "locales": [
+          "en",
+          "ar"
+        ],
+        "matchedSyntheticPlayers": 1,
+        "refreshKeptNameFilter": true,
+        "openedSignedFullProfile": true,
+        "returnKeptResult": true,
+        "returnFocusedOriginalPlayerButton": true
+      },
+      "onlineEntry": {
+        "start": "/en",
+        "reachedSignedInPlayers": true,
+        "workerControlled": true,
+        "manifestStart": "/en",
+        "manifestScope": "/"
+      }
+    },
+    "limits": [
+      "Ordinary signed-in tab access. A live role denial or recovery was not induced in the existing Owner session.",
+      "No domain writes, account changes, staging configuration changes or deployment activity.",
+      "Cold hosted standalone launch, live Clerk Attendance recovery, hosted update and rollback, physical device coverage and Owner acceptance remain open."
+    ]
+  },
+  "hostedColdLaunchSetup8776811": {
+    "recordedUtc": "2026-11-19T22:47:02+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "existingMacApp": {
+      "signedInOwnerCalendar": true,
+      "workerSharedWithExistingPlayersTab": true,
+      "workerStateOrNetworkChanged": false,
+      "originalProgramsViewRestored": true
+    },
+    "disposableChromiumMacApp": {
+      "standaloneSeparateWindow": true,
+      "manifestStart": "/en",
+      "scopedProxyCutoffBlockedUncachedStagingRead": true,
+      "sameReadModeSucceededAfterRestore": true,
+      "ownerSignIn": "handoff pending"
+    },
+    "remaining": [
+      "Prepared signed-in Calendar",
+      "Verified service-worker fetch cutoff",
+      "Cold /en launch and same-period signed-in reconnect"
+    ]
+  },
+  "hostedColdLaunch8776811": {
+    "recordedUtc": "2026-11-19T22:59:11+00:00",
+    "source": "87768117ff3d93b16f7d0e8245282a3432dc5f08",
+    "deployment": "dpl_9TKV1D6EoZHdDhK9p4XgqUCtHcV3",
+    "origin": "https://staging.academy.nahr.dev",
+    "identity": "Live Clerk Academy Owner in the intended synthetic academy",
+    "runtime": "Standalone Chromium app on macOS with a disposable signed-in browser profile",
+    "networkControl": {
+      "scope": "Only the disposable browser profile",
+      "activeConnectionsClosed": true,
+      "newConnectionsBlocked": true,
+      "directUncachedServiceWorkerFetchRejected": true,
+      "restoredBeforeReconnect": true
+    },
+    "cases": [
+      {
+        "locale": "en",
+        "direction": "ltr",
+        "manifestStart": "/en",
+        "rootWorkerStartMs": 2.5,
+        "rootTransferBytes": 0,
+        "preparedCalendarTransferBytes": 0,
+        "anchor": "2026-11-20",
+        "preparedSessions": 5,
+        "uncoveredDate": "2027-11-20",
+        "uncoveredNotice": true,
+        "returnedToPreparedWeekOffline": true,
+        "reconnectedToSameSignedInCalendar": true,
+        "reconnectedRole": "owner",
+        "reconnectedTransferBytes": 18187
+      },
+      {
+        "locale": "ar",
+        "direction": "rtl",
+        "manifestStart": "/en",
+        "rootWorkerStartMs": 2.4,
+        "rootTransferBytes": 0,
+        "preparedCalendarTransferBytes": 0,
+        "anchor": "2026-11-20",
+        "preparedSessions": 5,
+        "uncoveredDate": "2027-11-20",
+        "uncoveredNotice": true,
+        "returnedToPreparedWeekOffline": true,
+        "reconnectedToSameSignedInCalendar": true,
+        "reconnectedRole": "owner",
+        "reconnectedTransferBytes": 18587
+      }
+    ],
+    "cleanup": {
+      "disposableAppUninstalled": true,
+      "disposableProfileRemoved": true,
+      "existingChromeAppPreserved": true
+    },
+    "stillOpen": [
+      "Clean-store first hosted launch",
+      "Actual provider-session expiry",
+      "Hosted authority denial and recovery",
+      "Live Clerk Attendance with a pending original",
+      "Hosted update and rollback",
+      "Wider devices",
+      "Owner acceptance"
+    ]
+  }
+}

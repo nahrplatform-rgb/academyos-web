@@ -1,0 +1,35 @@
+--- apps/web/src/components/publication-workspace.tsx
++++ apps/web/src/components/publication-workspace.tsx
+@@ -97,9 +97,9 @@
+    if(storedOriginal(key)?.op!==original.op)throw new Failure('storage');
+   }catch{throw new Failure('storage');}
+   setPending(original);
+-  let result:{job:string;state:PublicationJob['state'];version:number};
+-  try{
+-   result=await api.call<{job:string;state:PublicationJob['state'];version:number}>({...body,op:original.op});
++  let result:{job:string};
++  try{
++   result=await api.call<{job:string}>({...body,op:original.op});
+    if(!result?.job||!uuidPattern.test(result.job))throw new Failure('unavailable');
+   }catch(e){
+    const code=e instanceof Failure?e.code:'unavailable';
+@@ -108,17 +108,14 @@
+    fail(e);return;
+   }
+   forget(original);
+-  setJob(current=>current&&current.job===result.job?{...current,state:result.state,version:result.version}:current);
+   setNotice(body.act==='activate'?'committed':'updated');
+   await readResult(result.job);
+  }
+  async function reconcile(){
+   if(!pending)return;
+-  const result=await api.call<{cancelled?:boolean;job?:string;state?:PublicationJob['state'];version?:number}>({action:'reconcile',op:pending.op});
++  const result=await api.call<{cancelled?:boolean;job?:string}>({action:'reconcile',op:pending.op});
+   if(!result?.cancelled&&(!result?.job||!uuidPattern.test(result.job)))throw new Failure('unavailable');
+-  forget(pending);setNotice(result.cancelled?'cancelled':result.state==='committed'?'committed':'confirmed');setDenied(false);
+-  const state=result.state,version=result.version;
+-  if(result.job&&state&&version!==undefined)setJob(current=>current&&current.job===result.job?{...current,state,version}:current);
++  forget(pending);setNotice(result.cancelled?'cancelled':'confirmed');setDenied(false);
+   if(result.cancelled&&!pending.job&&record&&from&&to&&weekdays.length){setStage('scope');return;}
+   const id=result.cancelled?(pending.job??initialJob):result.job;
+   if(id)await readResult(id);

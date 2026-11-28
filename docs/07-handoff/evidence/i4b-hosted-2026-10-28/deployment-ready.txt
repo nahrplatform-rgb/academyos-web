@@ -1,0 +1,136 @@
+HTML content academyos-web – Deployment Overview, URL: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG
+						22 container
+							23 link Skip to content, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG#geist-skip-nav
+							24 container
+								25 container
+									26 link AcademyOS Hobby, Value: vercel.com/academy-os2
+									27 button
+									28 button Find F
+									29 container
+										30 link Overview, Value: vercel.com/academy-os2/academyos-web
+										31 link Deployments, Value: vercel.com/academy-os2/academyos-web/deployments
+										32 link Logs, Value: vercel.com/academy-os2/academyos-web/logs
+										33 link Analytics, Value: vercel.com/academy-os2/academyos-web/analytics
+										34 link Speed Insights, Value: vercel.com/academy-os2/academyos-web/speed-insights
+										35 link Observability, Value: vercel.com/academy-os2/academyos-web/observability
+										36 link Firewall, Value: vercel.com/academy-os2/academyos-web/firewall
+										37 link CDN, Value: vercel.com/academy-os2/academyos-web/cdn
+										38 link Environment Variables, Value: vercel.com/academy-os2/academyos-web/settings/environment-variables
+										39 link Domains, Value: vercel.com/academy-os2/academyos-web/settings/domains
+										40 link Connect, Value: vercel.com/academy-os2/academyos-web/connect
+										41 link Integrations, Value: vercel.com/academy-os2/academyos-web/settings/integrations
+										42 link Storage, Value: vercel.com/academy-os2/academyos-web/stores
+										43 link Flags, Value: vercel.com/academy-os2/academyos-web/flags
+										44 link Agent, Value: vercel.com/academy-os2/academyos-web/agent
+										45 link AI Gateway, Value: vercel.com/academy-os2/academyos-web/ai-gateway
+										46 link Sandboxes, Value: vercel.com/academy-os2/academyos-web/sandboxes
+										47 link Workflows, Value: vercel.com/academy-os2/academyos-web/workflows
+										48 link Images, Value: vercel.com/academy-os2/academyos-web/images
+										49 link Daemons, Value: vercel.com/academy-os2/academyos-web/daemons
+										50 link Usage, Value: vercel.com/academy-os2/academyos-web/usage
+										51 link Support, Value: vercel.com/academy-os2/academyos-web/support
+										52 link Settings, Value: vercel.com/academy-os2/academyos-web/settings
+									53 pop up button Avatar for nahrplatform-rgb AcademyOS
+									54 pop up button notifications
+								55 container
+									56 link academyos-web, Value: vercel.com/academy-os2/academyos-web
+									57 button
+									58 link Back to team view, Value: vercel.com/academy-os2/~/deployments
+								59 container Breadcrumb
+									60 link Deployments, Value: vercel.com/academy-os2/academyos-web/deployments
+									61 container
+										62 text 9zz8dnGPB
+										63 button Copy ID
+								64 button Vercel Agent is available on Pro
+								65 container
+									66 container
+										67 link Deployment, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG
+										68 link Logs, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG/logs
+										69 link Resources, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG/resources
+										70 link Source, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG/source
+										71 link Open Graph, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG/og
+									72 heading Deployment Details, Value: 3
+										73 text Deployment Details
+									74 button Share
+									75 link Logs, Value: vercel.com/academy-os2/academyos-web/logs?deploymentIds=dpl_9zz8dnGPBNaaym8CHvVnXb9MAXFG
+									76 link Visit, Value: academyos-nv235ijo9-academy-os2.vercel.app/
+									77 pop up button Visit with
+										78 image
+									79 pop up button Deployment Actions
+										80 image
+									81 link Visit Deployment, Value: academyos-nv235ijo9-academy-os2.vercel.app/
+									82 text Created
+									83 image nahrplatform-rgb Avatar
+									84 text nahrplatform-rgb 9m ago Status
+									85 container This deployment is ready.
+										86 text Ready
+										87 link Latest, Value: vercel.com/academy-os2/academyos-web/deployments?filterBranch=codex%2Fonboarding-decision-design-packet
+									88 text Duration
+									89 container Oct 28, 2026, 3:50:29 PM GMT+3
+										90 text 1m 2s
+										91 text 7m ago
+									92 text Environment
+									93 image
+									94 link Production, Value: vercel.com/academy-os2/academyos-web/settings/environments/production
+									95 text Domains
+									96 image
+									97 link staging.academy.nahr.dev, Value: staging.academy.nahr.dev/
+									98 container
+										99 text + 2
+									100 image
+									101 link academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app, Value: academyos-web-git-codex-onboarding-decision-f44568-academy-os2.vercel.app/
+									102 image
+									103 link academyos-nv235ijo9-academy-os2.vercel.app, Value: academyos-nv235ijo9-academy-os2.vercel.app/
+									104 text Source
+									105 image
+									106 link codex/onboarding-decision-design-packet, Help: Git Branch, Value: github.com/nahrplatform-rgb/academyos-web/tree/codex/onboarding-decision-design-packet
+									107 image
+									108 link ac7ed0a Implement scoped Guardian published training and own attendance reads, Help: Git Commit, Value: github.com/nahrplatform-rgb/academyos-web/commit/ac7ed0a643842d8a768e779e5a514d7275735288
+									109 button Deployment Settings 2 Recommendations
+									110 heading Build Logs 3 build warnings 1m 2s, Value: 2
+										111 container
+											112 text Build Logs
+											113 button 3 build warnings
+											114 text 1m 2s
+											115 image
+									116 heading Deployment Summary Resources, Value: 2
+										117 container
+											118 text Deployment Summary
+											119 link Resources, Value: vercel.com/academy-os2/academyos-web/9zz8dnGPBNaaym8CHvVnXb9MAXFG/resources
+											120 image
+									121 heading Deployment Checks, Value: 2
+										122 container
+											123 text Deployment Checks
+											124 image
+									125 heading Assigning Custom Domains, Value: 2
+										126 container
+											127 text Assigning Custom Domains
+											128 image
+									129 link Runtime Logs View and debug runtime logs & errors, Value: vercel.com/academy-os2/academyos-web/logs
+									130 link Observability Monitor app health & performance, Value: vercel.com/academy-os2/academyos-web/observability/serverless-functions
+									131 link Speed Insights Not Enabled Performance metrics from real users, Value: vercel.com/academy-os2/academyos-web/speed-insights
+									132 link Web Analytics Not Enabled Analyze visitors & traffic in real-time, Value: vercel.com/academy-os2/academyos-web/analytics
+							133 text academyos-web – Deployment Overview – Vercel
+			134 pop up button Tab search
+			135 container
+				136 tab group
+					137 tab (selected, settable, boolean) academyos-web – Deployment Overview, Value: on
+						138 button Close
+					139 tab (settable, boolean) AcademyOS · Staging, Value: off
+						140 button Close
+			141 button New Tab
+			142 container
+				143 button Open Gemini in Chrome
+	144 menu button Window sharing
+145 menu bar
+	146 Chrome
+	147 File
+	148 Edit
+	149 View
+	150 History
+	151 Bookmarks
+	152 Profiles
+	153 Tab
+	154 Window
+	155 Help
+

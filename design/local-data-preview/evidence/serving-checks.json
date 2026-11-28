@@ -1,0 +1,28 @@
+{
+  "scope": "Loopback preview server only; no real account or operating API",
+  "htmlSha256": "9e3b0a77b2359267d8459d8989810152a3a7d1f3b7a05bce39b9681914dcf150",
+  "allowedPreview": 200,
+  "rejected": [
+    {
+      "path": "/.env",
+      "status": 404
+    },
+    {
+      "path": "/AGENTS.md",
+      "status": 404
+    },
+    {
+      "path": "/api/experience",
+      "status": 404
+    },
+    {
+      "path": "/docs/06-delivery/experience-execution.csv",
+      "status": 404
+    }
+  ],
+  "rejectedPost": 405,
+  "csp": "connect-src none; no repository file serving",
+  "dialogMethod": "Native method=dialog cancellation works with serving CSP",
+  "runtimeErrors": [],
+  "automaticUserBrowserOpening": "CUA reports Local browser use is disabled in Work settings; provide clickable URL; no settings change requested"
+}

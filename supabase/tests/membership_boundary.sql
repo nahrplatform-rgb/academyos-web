@@ -5,6 +5,21 @@ insert into academy.academies(name) values('Synthetic A'),('Synthetic B');
 insert into academy.memberships(identity_id,academy_id,role,status)
 select i.id,a.id,'owner','active' from academy.identities i cross join academy.academies a
 where (i.clerk_subject='user_a' and a.name='Synthetic A') or (i.clerk_subject='user_b' and a.name='Synthetic B');
+-- Current restored databases require the signed gateway; legacy foundation-only
+-- fixtures predate that boundary. Mint test-only proof in this rolled-back
+-- privileged fixture, never replace or disable the restored verifier.
+do $$ declare k text; stamp text; target text:='POST:/rpc/my_academy_memberships_v1'; signature text; begin
+ if to_regclass('academy.m1_secrets') is not null then
+  select secret into k from academy.m1_secrets where purpose='onboarding';
+  if k is not null then
+   stamp:=floor(extract(epoch from clock_timestamp()))::bigint::text;
+   signature:=encode(extensions.hmac('gateway'||E'\n'||target||E'\nuser_a\n'||stamp||E'\n',k,'sha256'),'hex');
+   perform set_config('request.method','POST',true);
+   perform set_config('request.path','/rpc/my_academy_memberships_v1',true);
+   perform set_config('request.headers',jsonb_build_object('x-academyos-gateway',jsonb_build_object('purpose','gateway','target',target,'subject','user_a','issued',stamp::bigint,'emails','','signature',signature)::text)::text,true);
+  end if;
+ end if;
+end $$;
 set local role authenticated;
 select set_config('request.jwt.claims','{"iss":"https://immune-grizzly-7875.clerk.accounts.dev","sub":"user_a","role":"authenticated"}',true);
 do $$ declare first_id uuid; second_id uuid; begin

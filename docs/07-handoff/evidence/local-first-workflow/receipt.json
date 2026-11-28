@@ -1,0 +1,347 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-13T14:21:20.631288+00:00",
+  "checkpoint": "EX-07 / MP-B01; supporting EX-15 / PW-06",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "working_tree": "Uncommitted and includes pre-existing product/test/design/docs edits; this is not a committed candidate.",
+  "status": "Locally verified workflow/tooling and declared synthetic corrective cases only; no new hosted/installed/Owner acceptance.",
+  "source_sha256": {
+    "scripts/local/workflow.mjs": "fc3770d74d29869b6467eb0a96bcfc239643277ea217199f320bd81880c5fa0f",
+    "scripts/local/workflow.test.mjs": "011b7b22312650fdb9204afa82ca51a60fe7310bdeb3c590ba488d8b326bbb75",
+    "scripts/local/smoke.mjs": "a95b8ca4572118e1b2f847d3f0b95db1efae95f2d6fbb10c99a3ca2af20ec781",
+    "scripts/navigation/test_next.mjs": "1c488622e6f45915a3097f6888074ca457d64af421f05cd2f28cfc8a28e6d0ad",
+    "scripts/experience-projections/test_ui.mjs": "fcd168614bab423c66a7b2c434405941f7c55e8557b6af4ad47798f126232283",
+    "scripts/working-day/test_device_lifecycle.mjs": "dd3affb423d253a18cc0742588bb3bebf20f48dabb7125dab8f4c033d644e9e5",
+    "apps/web/src/components/owner-workspace-device.tsx": "3125612c3f82c99a55d9fa25af226cb3d3971c657dc63ab219f69cad943335c6",
+    "apps/web/src/lib/workspace-storage.ts": "1301d838d02432b21dc0ac958e818a1156376b8ac28874e507a1e3135797b7e7",
+    "apps/web/src/components/workspace-runtime.tsx": "4bdb9e604dec9319e8ad1ee6675925d405a7083b57c3f326c8825233d1c5b5b1",
+    "apps/web/src/components/experience-workspace.tsx": "76692d9e1fe34f965bed43c0c2acdc8aac46a4c5ac572aad61d37a4ebcf779c0",
+    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+    ".github/workflows/verify.yml": "7d4c8fb732e969275cfd03dcdada9bb98917194b5f756225160f1a7138fed2f9",
+    "package.json": "483cc5d33c1e85cc3e455d639caaddd5c22fe16e0e32ae62059df3aed4ef47d6",
+    "scripts/design/build_continuation_prompt.py": "037cc71740fff756cf83b0cb98aea4e9b6749405f41ca2f64db3788acdf81d7e",
+    "scripts/design/test_continuation_prompt.py": "474b119507d65d2ed02c7be986015b15bb3379bda91c44d58fc5acd274586b1a"
+  },
+  "suites": [
+    {
+      "suite": "navigation",
+      "status": "passed",
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "source": {
+        "sha256": "f2974210f57114c2ba1fd7b49704bed17daa82a621e483543f9d5851e24c1af9",
+        "files": 238
+      },
+      "sourceStable": true,
+      "durationMs": 21936,
+      "completed": "2026-11-13T14:18:49.110Z",
+      "requiredReceiptPresent": true,
+      "local_artifacts": "test-results/local-workflow/2026-11-13T14-18-27-145Z-navigation/artifacts",
+      "artifact_hashes": {
+        "continuity-date-ar.png": "c14563d645768f09d70e580260a97bdc39985a6c7c863a7547028195281b2957",
+        "continuity-date-en.png": "c4a72e66a818f53273cb32ee7ee82c77de7046584fa2b0015a850219d95fbefa",
+        "dated-resume.json": "77a9051b850509eed62f81c9bb95ef69bb3fc5d413e08a8906ccaf6e38f5c5a3",
+        "local-controls-calendar.png": "07311aa6ac6924533e68bd62da8fded9ebac2bd518d68d8a0c46912f97ffa418",
+        "local-controls-home.png": "47a53fb04fb98577cbb388f259f1e7da20115cda17bd191b88ec01899444e201",
+        "next-calendar-ar.png": "0e7c5a76df1b429adfbfca2589f79b0eae7c105287e89617c3e2b443676fb509",
+        "next-calendar-en.png": "05f17e8d50615686b0c573789c72ca8f8bb053e9f538e4f02cdc3d2e797f6b03",
+        "next-fixture.log": "f069bed6b2a0a742c2ba6d313483997424736caff900480b69bf593c59456dcd",
+        "read-owner-calendar-ar.png": "28888739d4ea845a7397f71f2c73d3c51b3d85b6e5c5a7cddf75c41fea71140e",
+        "read-owner-calendar-en.png": "a6f9c1150d244dea45d332bab030e85100eecb6a1c14bc665edb9f0ed309f96f",
+        "receipt.json": "dbe432b26abbfca6c70becabf382827808ac16091850b836d60bf87f92868065",
+        "return-positions.json": "6b51429a1ca452dfb9fd832e520b589012926dc8635040ff1056bf7244f8dd73",
+        "routed-return-ar.png": "0f0c203772beb0f47c2600207ff6754062faa0eca37ae1f9ecbb129a849dc6d1",
+        "routed-return-en.png": "fe8294fb5dc88da230c24b0531fa9061a493fa3d7b8bc8cbfdd65f5d3e4bce71",
+        "workspace-read-owner.json": "042f6b0ac79e8bdba75e82d9e200532582bda496a62596773bfd761a07e1dd24"
+      },
+      "scope": "Local real-component/router fixtures; fictional identity/external adapters; no hosted/installed/Owner proof.",
+      "routed_returns": [
+        {
+          "locale": "en",
+          "unfinished": {
+            "journey": [
+              "read",
+              "owner_home"
+            ],
+            "writes": [],
+            "documents": 0,
+            "allRouterPrefetchCount": 21,
+            "taskPrefetchCount": 0,
+            "pageErrors": 0
+          },
+          "completed": {
+            "journey": [
+              "read",
+              "owner_home"
+            ],
+            "writes": [],
+            "documents": 0,
+            "allRouterPrefetchCount": 22,
+            "taskPrefetchCount": 0,
+            "pageErrors": 0
+          }
+        },
+        {
+          "locale": "ar",
+          "unfinished": {
+            "journey": [
+              "read",
+              "owner_home"
+            ],
+            "writes": [],
+            "documents": 0,
+            "allRouterPrefetchCount": 21,
+            "taskPrefetchCount": 0,
+            "pageErrors": 0
+          },
+          "completed": {
+            "journey": [
+              "read",
+              "owner_home"
+            ],
+            "writes": [],
+            "documents": 0,
+            "allRouterPrefetchCount": 22,
+            "taskPrefetchCount": 0,
+            "pageErrors": 0
+          }
+        }
+      ],
+      "negative_control": [
+        "broken checked-task marker detected"
+      ]
+    },
+    {
+      "suite": "device",
+      "status": "passed",
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "source": {
+        "sha256": "f2974210f57114c2ba1fd7b49704bed17daa82a621e483543f9d5851e24c1af9",
+        "files": 238
+      },
+      "sourceStable": true,
+      "durationMs": 2522,
+      "completed": "2026-11-13T14:18:51.658Z",
+      "requiredReceiptPresent": true,
+      "local_artifacts": "test-results/local-workflow/2026-11-13T14-18-49-113Z-device/artifacts",
+      "artifact_hashes": {
+        "device-denied.png": "2112f3b7d37bc58f3b6128c74b698a326a9b0b7555c2ca14863b76e95f304b8e",
+        "device-old-ordering.png": "b25b54335ba8894f48618a54c12f9a2fdd1c5bf233c801a3e9f63be322d582f6",
+        "receipt.json": "d7fb8c9810ac9f0de4e4c314fba1bf15c7039f77030f14ad2238c674a93863fc"
+      },
+      "scope": "Local real-component/router fixtures; fictional identity/external adapters; no hosted/installed/Owner proof.",
+      "cases": {
+        "lateReadyBeforePersistence": {
+          "phase": "ready",
+          "storage": {
+            "supported": true,
+            "persistence": "not-granted",
+            "persisted": false,
+            "usage": 2048,
+            "quota": 8192
+          },
+          "approved": true,
+          "offline": false
+        },
+        "persistenceRejected": "unavailable status, Ready kept",
+        "persistenceRefused": "not-granted status, Ready kept",
+        "unsupportedApis": "unsupported status, Ready kept",
+        "deniedSync": "denied phase",
+        "accountChange": "new mount owns state; stale released reply did not update it",
+        "academyChange": "subject:academy key remounted; old academy late reply did not update visible state",
+        "unmount": "no page errors captured after unmount and late reply; callback attempts were not observed",
+        "negativeControl": "old awaited ordering overwrote Ready with Preparing and was detected"
+      },
+      "captured_errors": []
+    },
+    {
+      "suite": "keyboard",
+      "status": "passed",
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "source": {
+        "sha256": "f2974210f57114c2ba1fd7b49704bed17daa82a621e483543f9d5851e24c1af9",
+        "files": 238
+      },
+      "sourceStable": true,
+      "durationMs": 4785,
+      "completed": "2026-11-13T14:18:56.479Z",
+      "requiredReceiptPresent": true,
+      "local_artifacts": "test-results/local-workflow/2026-11-13T14-18-51-664Z-keyboard/artifacts",
+      "artifact_hashes": {
+        "guardian-home-ar-1440.png": "292b97ea4db17ead40e87130656567acf67d2437acd2b5364ee00b287fd2b554",
+        "guardian-home-ar-390.png": "62953c325392287087edd1914ea1b0389f7833ed58a06e0265a69d2c4d0e8a3e",
+        "guardian-home-en-1440.png": "89c95fc51aa1977003e5c85d86bb6ac060dd5832a4fde9e48d41924c78caf253",
+        "guardian-home-en-390.png": "7b3dd584691c65a67f1ac77bdfc2188512b7330d951ff38c67224a5d4f4cf2a8",
+        "guardian-home-en-dark-1440.png": "53660ee5c7af728adebf88e0ba5c26f010f7f32563a6672795409d2b58664f6c",
+        "owner-calendar-en-1440.png": "c5a4c496cae625f70a9f13bf3cacd9c08095113eb07951a71f9de3ba9b026c5d",
+        "owner-home-ar-1440.png": "59293c27845621615490bcc2f63d4cbb4ab47798cc2f5f7e9dcf5dbca1773f53",
+        "owner-home-ar-390.png": "34793ca0f9e34f0a27cbd69e56e296c823e91296e3aaf88e318660b40bbeb251",
+        "owner-home-en-1440.png": "638ece52be8daab971b08b7c666a77cf5616695a8272d9b65d832fcf7098222a",
+        "owner-home-en-390.png": "edd7ac4a4b74309d57a25ceca3351daf336bb0612053b38b3b9d342313e31d18",
+        "owner-home-en-dark-1440.png": "f00bc1e844784ef473f73fc364af7b07ef979001765e8fb0b86adcf367b1ae5f",
+        "receipt.json": "6f5cc12d3d3dbb167000e9c62563257e7d116e0fd9c027c18a23792e19090433",
+        "trainer-home-ar-1440.png": "ba769badcf3cbbd96a0f3ba7b82151554977d4f0d66f20db65c1bcec88a52eba",
+        "trainer-home-ar-390.png": "7b1c39325b052f4c747f943d48c3a0de7fc7cfdc5d9884604a4ab00d0da61810",
+        "trainer-home-en-1440.png": "23c97570a43318cdb8d46f5da19cc0e524ece6e58731436ab447cb0024bc2a2c",
+        "trainer-home-en-390.png": "1759d404e89e502ee72512b6f5720fff98179bb6b4ef36ab258c966b15bbe06f",
+        "trainer-home-en-dark-1440.png": "7a0f5cdbd7fa3266320cf838388471e6f67337499e9a9cbdac243a37741e791d"
+      },
+      "scope": "Local real-component/router fixtures; fictional identity/external adapters; no hosted/installed/Owner proof.",
+      "cases": "EX-01: separated resume events coalesce; last checked Owner task retained only during bounded clean resume;initial/failed/denied/scope-change data fenced; selected ID restored from current projection and scoped navigation storage; missing/denied selection cleared; Owner/Trainer/Guardian home; week/month;50+5 paging authoritative55 count; filtered empty; unavailable; disabled link panel; revoked; account change; ENAR3203907681440; unfinished-program link keyboard focus+Enter activation and destination focus",
+      "react_mode": "production"
+    },
+    {
+      "suite": "public",
+      "status": "passed",
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "source": {
+        "sha256": "f2974210f57114c2ba1fd7b49704bed17daa82a621e483543f9d5851e24c1af9",
+        "files": 238
+      },
+      "sourceStable": true,
+      "durationMs": 2968,
+      "completed": "2026-11-13T14:20:21.113Z",
+      "requiredReceiptPresent": true,
+      "local_artifacts": "test-results/local-workflow/2026-11-13T14-20-18-122Z-public/artifacts",
+      "artifact_hashes": {
+        "public-ar-phone.png": "5eb3590084f904794b74d32660cd0d1bbff1a1c85ba6d72ae8c3efc8b017759e",
+        "public-ar.png": "07e7af93043c202774a8f4356c87c51d9dd466e94cf328892f17230f8abc3e93",
+        "public-en.png": "2727dc65704d70ddd3e44a912db4761328a71629d9139a4f560215153267f274",
+        "receipt.json": "8474a22ff4a963bb3ccd53a0a28a297814ad3b8bf81a96040cdb941c35b957f3",
+        "trace.zip": "ebe27e98158bed66b432deac6502cb6f73e3da803097c842553cf302d45a3842"
+      },
+      "scope": "Actual local public frontend; no signed-in/data/hosted proof.",
+      "results": [
+        {
+          "locale": "en",
+          "status": 200,
+          "elapsedMs": 1963,
+          "workspaceLanguage": "en",
+          "documentLanguage": "en"
+        },
+        {
+          "locale": "ar",
+          "status": 200,
+          "elapsedMs": 175,
+          "workspaceLanguage": "ar",
+          "documentLanguage": "en"
+        }
+      ],
+      "fence": {
+        "status": 307,
+        "kind": "anonymous access redirected or refused; signed-in flow not tested"
+      },
+      "captures": {
+        "trace": "trace.zip",
+        "video": null,
+        "screenshots": [
+          "public-en.png",
+          "public-ar.png",
+          "public-ar-phone.png"
+        ]
+      },
+      "captured_errors": [],
+      "origin": "http://127.0.0.1:3100"
+    }
+  ],
+  "other_results": {
+    "tooling_units": {
+      "passed": 7,
+      "failed": 0,
+      "runtime": "v24.14.0"
+    },
+    "continuation_units": {
+      "passed": 20,
+      "failed": 0
+    },
+    "root_production_build": "Passed via owning local:production launcher; fresh production frontend is running.",
+    "compiled_source_asset_guard": "Passed against current app source/assets; no signed release attestation.",
+    "documentation": [
+      "execution/master/continuation/PWA validators passed",
+      "implementation-register validator passed",
+      "factual HTML source freshness check passed for unchanged product inputs",
+      "git diff --check passed before receipt creation; final check recorded in Markdown"
+    ],
+    "development_public_smoke": {
+      "status": "passed",
+      "durationMs": 2574,
+      "completed": "2026-11-13T14:23:18.811Z",
+      "local_artifacts": "test-results/local-workflow/2026-11-13T14-23-16-213Z-public/artifacts",
+      "artifact_hashes": {
+        "public-ar-phone.png": "3d6571bdfa82246514b5e375ef863b6fd64a7a2578ecabb36883577aa36502b8",
+        "public-ar.png": "2bb5c35fcf0daffc6ffc2b2e86820871a6fe852c756dc8a63a51aae0edf004e7",
+        "public-en.png": "5563f6c362581e27e80dd295e3431a91c58d96c1430531aff3d1326590c7f915",
+        "receipt.json": "0cecdae9a171d4c4d0437785c85bc543681a655568201fb2a6b382bd9794906e",
+        "trace.zip": "22c8ee58b87273050fc41c7b6f531aa301deabc4a6ce4cce9bdcb4c6c7425273"
+      },
+      "origin": "http://localhost:3000",
+      "results": [
+        {
+          "locale": "en",
+          "status": 200,
+          "elapsedMs": 1360,
+          "workspaceLanguage": "en",
+          "documentLanguage": "en"
+        },
+        {
+          "locale": "ar",
+          "status": 200,
+          "elapsedMs": 200,
+          "workspaceLanguage": "ar",
+          "documentLanguage": "en"
+        }
+      ],
+      "fence": {
+        "status": 307,
+        "kind": "anonymous access redirected or refused; signed-in flow not tested"
+      },
+      "scope": "Actual EN/AR public frontend,phone and anonymous redirect after final launcher restart; no signed-in data proof"
+    },
+    "product_scope_fingerprint_check": "Five affected existing component/runtime/storage hashes unchanged from the inspected checkpoint."
+  },
+  "reuse_demonstration": {
+    "command": "npm run local:verify -- --suite=corrective",
+    "result": "navigation and device reused, original completion timestamps retained; no fixture execution",
+    "original_completed": {
+      "navigation": "2026-11-13T14:18:49.110Z",
+      "device": "2026-11-13T14:18:51.658Z"
+    }
+  },
+  "environment": {
+    "core_settings_present": true,
+    "presence_is_connectivity_proof": false,
+    "backend": "Existing synthetic staging services, not local database",
+    "offline_wrapping_keys_present": false,
+    "private_settings_ignored": true,
+    "hosted_key_rotated": false
+  },
+  "execution": {
+    "coordinator": "Codex, actual model/provider runtime telemetry unavailable in tool interface",
+    "helper_requested_model": "gpt-6.1-terra",
+    "helper_requested_effort": "medium",
+    "maximum_concurrent_helpers": 1,
+    "nested_helpers": 0,
+    "independent_runtime_model_confirmation": false,
+    "token_or_credit_savings": "not measured"
+  },
+  "limits": [
+    "No actual signed-in local user or connected database write exercised by the public smoke",
+    "No private offline parity; wrapping roots absent",
+    "No new remote CI,commit,push,candidate,promotion,hosted,installed or Owner acceptance proof",
+    "Arabic app-scene lang/dir verified; document root remains en and broader accessibility is not proven",
+    "21/22 broad router-prefetch requests are not zero; actual database/Redis/hosting cost unmeasured",
+    "Dependency lockfiles are fingerprinted, not all installed dependency contents; receipt is not signed",
+    "Unmount means no captured page errors; callback attempts were not observed"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "scope": "Disposable PG17:1001 same-time own published sessions;40 warm SQL reads; excludes hosted/network/device/cost proof",
+  "metrics": {
+    "samples": 40,
+    "p95_ms": 6.065549999999997,
+    "max_ms": 11.615
+  },
+  "unique_events": 1001
+}

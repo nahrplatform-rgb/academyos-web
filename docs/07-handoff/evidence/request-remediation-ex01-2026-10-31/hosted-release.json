@@ -1,0 +1,65 @@
+{
+  "source": "776043f8149694c1bb8a54b8ca169456c6cc7594",
+  "ci": [
+    {
+      "id": 41166052777,
+      "conclusion": "success"
+    },
+    {
+      "id": 41166048538,
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_HotJFajeG258n5ewjFg7ujDHt1DE",
+    "ready": true,
+    "duration_display": "33s"
+  },
+  "staging": {
+    "id": "dpl_H98x3MWLTJXXdfSjpG3Zz8KoC4Gm",
+    "ready": true,
+    "duration_display": "43s",
+    "domain": "staging.academy.nahr.dev",
+    "provider_environment_label": "Production; existing staging project/domains only",
+    "source_verified_in_native_dashboard": true
+  },
+  "hosted": {
+    "environment": "native Chrome/macOS existing Owner session; synthetic academy A; uncalibrated desktop, browser version not collected",
+    "home_calendar_date_return_en": "completed; Month, loaded-page search and selected occurrence retained",
+    "month_view_change": "selected occurrence returned from current permitted projection",
+    "tab_return_en": "real about:blank tab then close; Month/search/selection retained",
+    "date_return_ar": "completed after a retried action; retained Month/search/selection on Arabic route",
+    "tab_return_ar": "real about:blank tab then close; Month/search/selection retained",
+    "foreign_academy_route": "known second-academy route denied; no prior session payload shown; restored A afterward",
+    "final_state": "academy A English Calendar, Month, Synthetic I3a filter and selected1November occurrence"
+  },
+  "limitations": [
+    "one Arabic click coincided with revalidation and required retry; precise event/click/network chronology not measured; remains G01/EX-02",
+    "zero document transitions measured only in isolated real Next fixture; native hosted document/network counts not captured",
+    "no positive Trainer/Guardian hosted access restored",
+    "Owner working acceptance, independent security, device/accessibility and load/cost percentiles remain open"
+  ],
+  "operating_changes": "none: no saved plan/attendance, invitation, access restoration, schema/API/provider configuration or telemetry setting change; only allowed browser navigation preferences changed",
+  "artifacts": [
+    {
+      "path": "hosted-ar-resumed.jpg",
+      "sha256": "fe7f1bb67a8b307980fae689264374f0250334fcb2389ed06c015723c8121b78"
+    },
+    {
+      "path": "hosted-en-resumed.jpg",
+      "sha256": "64a60fbe93163c77b89caa2b4e081d01a39789ae87b3d476a1258bfa594029fa"
+    },
+    {
+      "path": "hosted-en-selected.jpg",
+      "sha256": "9991836d52f80406141a29913eb5e4eed750d9ebbc550a57a705505f166e96a6"
+    },
+    {
+      "path": "hosted-foreign-denied.jpg",
+      "sha256": "8ee6b8c7a5cebefd2c6c55e95106230f8d3fc73fa0af0efe6fccd0e058dbbd77"
+    },
+    {
+      "path": "staging-deployment.jpg",
+      "sha256": "b9db631a04dbcda289999019fc54e03f348a228755f28fa0916b4359bd39dc94"
+    }
+  ]
+}

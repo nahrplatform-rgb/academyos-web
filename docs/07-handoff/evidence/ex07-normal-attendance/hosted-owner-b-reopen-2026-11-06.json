@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-06",
+  "source": "52d04a26caec158a1081a74f867a46ea9a60e044",
+  "deployment": "dpl_DABkJ8QGUSmhkWs2VihYfRs1UStx",
+  "profile": "Chrome Hiếu",
+  "role": "existing iCloud Academy Owner B",
+  "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+  "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+  "agentObserved": {
+    "ordinaryClerkSession": "loaded same Owner;provider token200 observed",
+    "keyRecovery": 200,
+    "readCopyPreparation": "manifest/page/completion200 after historical quarantine;no attendance write",
+    "marks": {
+      "Sam": "absent",
+      "Alex": "present"
+    },
+    "loaded": 2,
+    "unsaved": 0,
+    "localFilterSelection": "no operatingAPI read observed;provider token response did occur",
+    "coldPageOnlyEmulation": "Sign-in unavailable;worker isolation unreliable;not classified as confirmed product regression",
+    "finalView": "Offline;normal register;both marks;0unsaved",
+    "restoreTestEmulation": "CDP unavailable while browser control resolving a document response;no further browser action",
+    "screenshot": "hosted-owner-b-offline-2026-11-06.jpg"
+  },
+  "ownerReported": {
+    "procedure": "DevTools Network Offline,reload normal attendance,then No throttling",
+    "result": "Both marks reopen and reconnect"
+  },
+  "mutations": {
+    "attendanceWrites": 0,
+    "rolesChanged": 0,
+    "keysDeleted": 0,
+    "storageCleared": false,
+    "originalFabricated": false
+  },
+  "limits": [
+    "Final reconnect state is Owner-reported;agent final DOM saysOffline",
+    "No new-original real-Clerk dispatch test",
+    "No installed mode,all-role or request-percentile claim",
+    "Network ledger observation intervals not a complete provider quota measurement"
+  ],
+  "acceptance": "bounded test report;not whole-journey redesign acceptance"
+}

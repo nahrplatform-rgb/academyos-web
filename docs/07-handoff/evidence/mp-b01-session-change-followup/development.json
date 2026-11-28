@@ -1,0 +1,295 @@
+{
+  "baseline": false,
+  "cases": [
+    {
+      "locale": "en",
+      "kind": "move",
+      "outcome": "success",
+      "original": "7c213a4e-5b1a-4217-90d5-cbee31c9332d",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "move",
+      "outcome": "read_failure",
+      "original": "72a98408-3a65-43b2-a843-202aae191caa",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "move",
+      "outcome": "lost_reply",
+      "original": "bab7015c-24bd-4738-aba0-3ba33afe0111",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "reconcile",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "move",
+      "outcome": "denied_read",
+      "original": "c660eb20-1732-4baf-a508-20ba7a61fa1b",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "cancel",
+      "outcome": "success",
+      "original": "18e722e7-2bf8-4840-98cb-6ae52bb53c4f",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "cancel",
+      "outcome": "read_failure",
+      "original": "7f728c40-a9fc-40fb-88c4-040ba4098413",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "cancel",
+      "outcome": "lost_reply",
+      "original": "f59f348f-9ccf-4f08-ba22-f402c3c42e28",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "reconcile",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "kind": "cancel",
+      "outcome": "denied_read",
+      "original": "d4e96aab-6449-4239-9be3-4854e8f9fc6f",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "move",
+      "outcome": "success",
+      "original": "caf92ca0-24dc-41b6-a27b-caebf1ee2927",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "move",
+      "outcome": "read_failure",
+      "original": "891c519a-d134-4a41-a332-abb1e7350244",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "move",
+      "outcome": "lost_reply",
+      "original": "054b9086-e339-4867-b0d7-a8db556e68e2",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "reconcile",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "move",
+      "outcome": "denied_read",
+      "original": "eec94730-9a7a-4d86-afb0-856087750ad8",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "cancel",
+      "outcome": "success",
+      "original": "b5e00efa-c7b3-4528-bb13-1f7c75c0ae5a",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "cancel",
+      "outcome": "read_failure",
+      "original": "bc73cfc7-068c-4967-960f-7f2db80989bf",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "cancel",
+      "outcome": "lost_reply",
+      "original": "760998e7-21f6-41d8-8e2b-0f4a13fb3d7c",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read",
+        "reconcile",
+        "read",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "kind": "cancel",
+      "outcome": "denied_read",
+      "original": "be778e95-f069-4f17-9543-4166eb3be0a0",
+      "reviewedPlanVersion": 7,
+      "reviewedScheduleVersion": 3,
+      "resultPlanVersion": 8,
+      "resultScheduleVersion": 4,
+      "actions": [
+        "save",
+        "read"
+      ],
+      "writes": 1,
+      "conflictingFailure": false,
+      "errors": []
+    }
+  ],
+  "gaps": [],
+  "scope": "Actual product React; fictional Owner/HTTP, not routed return, live identity or database atomicity proof."
+}

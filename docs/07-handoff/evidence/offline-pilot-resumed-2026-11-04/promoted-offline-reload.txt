@@ -1,0 +1,72 @@
+0 standard window AcademyOS · Prepared register - Google Chrome - test nahr, URL: staging.academy.nahr.dev/prepared-register, Secondary Actions: Raise
+	1 container AcademyOS · Prepared register - Google Chrome - test nahr, URL: staging.academy.nahr.dev/prepared-register
+					9 text field (settable) Address and search bar, Value: staging.academy.nahr.dev/prepared-register, Placeholder: Ask Google or type a URL
+									43 container Network panel
+														59 checkbox Disable cache, Value: 1
+														60 text Disable cache
+													61 pop up button Throttling, Value: Presets: Offline
+													78 pop up button Show only/hide requests
+																111 cell https://staging.academy.nahr.dev/prepared-register
+																119 cell Served from ServiceWorker, resource size: 6.8 kB
+																124 cell https://staging.academy.nahr.dev/prepared-register
+																	132 link prepared-register-worker.js:92, Help: https://staging.academy.nahr.dev/prepared-register-worker.js:92
+																134 cell 0.0 kB transferred over network, resource size: 0.0 kB
+																139 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/1bvhme25315xp.css
+																	146 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																148 cell Served from ServiceWorker, resource size: 81.4 kB
+																153 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/3rwrcorcvpecm.js
+																	160 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																162 cell Served from ServiceWorker, resource size: 2.1 kB
+																167 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/2x_g2o51fatoc.js
+																	174 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																176 cell Served from ServiceWorker, resource size: 32.9 kB
+																181 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/0dq6iyppbsrbs.js
+																	188 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																190 cell Served from ServiceWorker, resource size: 34.7 kB
+																195 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/1wqcw_0f3s5mw.js
+																	202 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																204 cell Served from ServiceWorker, resource size: 145 kB
+																209 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/2rlc0jwp7fyft.js
+																	216 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																218 cell Served from ServiceWorker, resource size: 130 kB
+																223 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/28h6uulb4udft.js
+																	230 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																232 cell Served from ServiceWorker, resource size: 45.1 kB
+																237 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/2zm3wr6_wfizb.js
+																	244 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																246 cell Served from ServiceWorker, resource size: 34.9 kB
+																251 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/2ema9-g60xpz5.js
+																	258 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																260 cell Served from ServiceWorker, resource size: 208 kB
+																265 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/turbopack-2x27e_cqao23g.js
+																	272 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																274 cell Served from ServiceWorker, resource size: 10.4 kB
+																279 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/29p0px4h5nudw.js
+																	286 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																288 cell Served from ServiceWorker, resource size: 14.1 kB
+																293 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/20yr3kwlq9omk.js
+																	300 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																302 cell Served from ServiceWorker, resource size: 8.1 kB
+																307 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/0oygdo8cph9gt.js
+																	314 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																316 cell Served from ServiceWorker, resource size: 22.4 kB
+																321 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/34ijjlop-iif7.js
+																	328 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																330 cell Served from ServiceWorker, resource size: 41.7 kB
+																335 cell https://staging.academy.nahr.dev/_next/static/immutable/chunks/2vuycsaotm892.js
+																	342 link prepared-register:1, Help: https://staging.academy.nahr.dev/prepared-register
+																344 cell Served from ServiceWorker, resource size: 8.4 kB
+																	357 link 1wqcw_0f3s5mw.js:13, Help: https://staging.academy.nahr.dev/_next/static/immutable/chunks/1wqcw_0f3s5mw.js:13
+																359 cell 0.0 kB transferred over network, resource size: 0.0 kB
+													363 container 18 requests
+														364 text 18 requests
+													365 container 0 B transferred over network
+														366 text 0 B transferred
+					377 HTML content AcademyOS · Prepared register, URL: staging.academy.nahr.dev/prepared-register
+							379 heading Prepared attendance register, Value: 1
+								380 text Prepared attendance register
+									389 text 2  /  2 loaded from this device
+										392 text Synthetic Response Drop 2026-10-25 Absent
+										394 text Synthetic Registration Demo Present
+								395 button (disabled) Review register
+The focused UI element is 377 HTML content AcademyOS · Prepared register, URL: staging.academy.nahr.dev/prepared-register

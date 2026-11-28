@@ -1,0 +1,36 @@
+HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036#main
+					7 container
+						8 text Academy workspaceTraining · Attendance Staging
+						9 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/attendance/4f204959-b23e-42ac-8b68-858409972036#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Academy workspace
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						17 text Staging · Synthetic data only
+					18 container
+						19 heading Session attendance, Value: 1
+							20 text Session attendance
+						21 heading Synthetic I4a Attendance Demo, Value: 2
+							22 text Synthetic I4a Attendance Demo
+						23 text Synthetic Main Branch · Africa/Cairo 28 Oct 2026 at 08:30 — 28 Oct 2026 at 08:45 Recording closes: 29 Oct 2026 at 08:45 Recording window closed or not open yet. This register is read-only. 0 saved · 1 unmarked · 1 total Unmarked never means Absent.
+						24 link Back to session, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						25 text Showing 1–1 of 1 players
+						26 toggle button Synthetic Registration Demo · Unmarked, Value: on
+						27 button (disabled) Previous players
+						28 button (disabled) Next players
+						29 container Contextual details and actions
+							30 container
+								31 heading Player attendance, Value: 2
+									32 text Player attendance
+								33 button Back
+							34 heading Synthetic Registration Demo, Value: 2
+								35 text Synthetic Registration Demo
+							36 text Synthetic I4a Attendance Demo · 2026-10-28
+							37 text Synthetic Main Branch · Africa/Cairo
+							38 text 28 Oct 2026 at 08:30 — 28 Oct 2026 at 08:45
+							39 text Unmarked
+							40 button View history

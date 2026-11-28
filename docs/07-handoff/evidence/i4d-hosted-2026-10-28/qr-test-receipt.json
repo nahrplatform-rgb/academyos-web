@@ -1,0 +1,112 @@
+{
+  "authorization": "Moamen explicitly authorized this temporary QR attendance test and ending28Oct2026",
+  "source": "1370d2d37e8f850024f139c281df0c12491e896f",
+  "deployment": "dpl_7VTqnvB3cNZaRop9hnYDdrQaF1s2",
+  "method": "Actual Chrome Owner and separate Safari Trainer UI; typed-card fallback, no physical camera permission or scan",
+  "before": {
+    "now": "2026-10-28T18:54:41.873771+00:00",
+    "guardian": {
+      "state": "ended"
+    },
+    "assignment": {
+      "state": "ended"
+    },
+    "invitation": {
+      "state": "accepted",
+      "version": 9
+    },
+    "membership": {
+      "role": "trainer",
+      "status": "ended"
+    },
+    "other_memberships": "c844bbace5bf0e80f027c6572b45d7b3"
+  },
+  "capture": {
+    "now": "2026-10-28T19:00:57.889454+00:00",
+    "event": {
+      "id": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+      "ends_at": "2026-10-28T19:25:00+00:00",
+      "trainer": "562e1a3a-378c-4ea9-84ec-93b071de4670",
+      "published": true,
+      "starts_at": "2026-10-28T19:10:00+00:00",
+      "roster_count": 1
+    },
+    "marks": [
+      {
+        "day": "2026-10-28",
+        "status": "present",
+        "version": 1,
+        "event_id": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+        "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "program_id": "48fc9e2f-c3b6-439d-b868-68f9778eab33"
+      }
+    ],
+    "history": [
+      {
+        "id": "6e02cf9c-818e-4599-a7d4-ce25972a1ade",
+        "day": "2026-10-28",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "reason": null,
+        "status": "present",
+        "version": 1,
+        "event_id": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+        "player_id": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "actor_role": "trainer",
+        "program_id": "48fc9e2f-c3b6-439d-b868-68f9778eab33",
+        "captured_at": "2026-10-28T19:00:24.446207+00:00",
+        "received_at": "2026-10-28T19:00:24.446207+00:00",
+        "before_status": null
+      }
+    ],
+    "receipts": [
+      {
+        "id": "6e02cf9c-818e-4599-a7d4-ce25972a1ade",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "result": {
+          "kind": "scan",
+          "name": "Synthetic Registration Demo",
+          "event": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+          "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "status": "present",
+          "already": false,
+          "version": 1
+        }
+      },
+      {
+        "id": "0056d9d5-67a8-4bc0-9bfc-df8c8d24b762",
+        "actor": "user_3L5mZMvNN95teSpCPM233gzC06S",
+        "result": {
+          "kind": "scan",
+          "name": "Synthetic Registration Demo",
+          "event": "51af9691-8c61-4847-8b7e-c2cb5c9a64d3",
+          "player": "95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635",
+          "status": "present",
+          "already": true,
+          "version": 1
+        }
+      }
+    ]
+  },
+  "after": {
+    "now": "2026-10-28T19:04:30.82268+00:00",
+    "membership": "ended",
+    "active_cards": 0,
+    "card_version": 3,
+    "active_trainers": 0,
+    "guardian_optins": 0,
+    "other_memberships": "c844bbace5bf0e80f027c6572b45d7b3",
+    "invitation_version": 11
+  },
+  "observations": {
+    "settings": "Owner29/30 save then30/30 restore, version2",
+    "card": "Owner issued v1, replaced v2, revoked v3; real private SVG rendered; raw codes held only in local tool memory and then cleared",
+    "unique": "Automatic mode included both current published Trainer sessions; old session outside window, new session unique; early QR mark19:00:24UTC before19:10UTC start",
+    "duplicate": "Two actor-scoped QR receipts, one canonical mark and one attendance history",
+    "invalidation": "Replaced old code and revoked replacement both returned current card-unavailable in real Trainer UI",
+    "ending": "Normal Owner trainer.end path; fallback prepared but not executed; next Trainer refresh cleared private names/sessions",
+    "screenshots": "Native background app captures are reduced distorted Stage Manager thumbnails; not full visual/device proof. In-app browser bridge reports browser.user unavailable; actual AX and independent DB observations are retained.",
+    "remaining": "Physical camera/print/device/accessibility, hosted full ambiguity/simultaneous Trainer/direct API/races, HTTP/burst/WAL/cost, independent human security, working acceptance"
+  }
+}

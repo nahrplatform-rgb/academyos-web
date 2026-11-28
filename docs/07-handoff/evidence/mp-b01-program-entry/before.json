@@ -1,0 +1,64 @@
+{
+  "source": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+  "scope": "Read-only browser interaction with the current Next program and Today routes, signed handlers and disposable PostgreSQL 17. No hosted data.",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "cases": [
+    {
+      "locale": "en",
+      "state": "preparing",
+      "width": 1440,
+      "height": 900,
+      "total": 40,
+      "prepared": 0,
+      "entry": [
+        [
+          "programs",
+          "read",
+          200
+        ]
+      ],
+      "documents": 1,
+      "returnToToday": false,
+      "legacyBack": {
+        "view": "programs list",
+        "route": "exact program remains in URL",
+        "reads": [
+          [
+            "programs",
+            "list",
+            200
+          ]
+        ]
+      }
+    },
+    {
+      "locale": "ar",
+      "state": "paused",
+      "width": 390,
+      "height": 844,
+      "total": 40,
+      "prepared": 12,
+      "entry": [
+        [
+          "programs",
+          "read",
+          200
+        ]
+      ],
+      "documents": 1,
+      "returnToToday": false,
+      "legacyBack": {
+        "view": "programs list",
+        "route": "exact program remains in URL",
+        "reads": [
+          [
+            "programs",
+            "list",
+            200
+          ]
+        ]
+      }
+    }
+  ]
+}

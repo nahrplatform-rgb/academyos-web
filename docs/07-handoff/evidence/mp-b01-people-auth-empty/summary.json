@@ -1,0 +1,150 @@
+{
+  "batch": "MP-B01",
+  "execution": "EX-07",
+  "date": "2026-11-08",
+  "source_base": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "state": "committed_pushed_CI_passed_Owner_promoted_exact_staging_source_verified;scoped_signed_in_EN_AR_positive_checks_passed",
+  "outcomes": [
+    "VAL-02",
+    "VAL-09"
+  ],
+  "canonical_work": [
+    "IMP-J06-A01"
+  ],
+  "findings": [
+    "NR07",
+    "NR14",
+    "NR15",
+    "NR17"
+  ],
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "d5bd99d0cbc52f5793da78daca6377f1be243ae7ecba32f9244d63a7a05e9d36",
+    "scripts/people/test_ui.mjs": "afd19da627f5c8f0a52c31a558b861c166554b7882774466ce385328f270caa2",
+    "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
+    "scripts/workspace-download/normal_workspace.mjs": "2724be8814f00bbf110400a40c62dfe025d6ad0b7826e3271beafba86211b08d",
+    "scripts/workspace-download/test_transport.mjs": "2d3398ff18b1ff98d3d5d68803905e480941aadc8788f7cdaa4df8078701aa3f",
+    "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f"
+  },
+  "baseline": "before.json",
+  "handoff_failure": "handoff-regression.json",
+  "component_receipts": [
+    "people-production.json",
+    "people-development.json"
+  ],
+  "screenshots": [
+    "authentication-required-en.png",
+    "authentication-required-ar-360.png"
+  ],
+  "workspace_receipt": "docs/07-handoff/evidence/mp-b01-people-auth-empty/transport-6d9d3f6.json",
+  "workspace_checks": 56,
+  "people_authentication": {
+    "expiredServerSession": true,
+    "browserSubjectUnchanged": true,
+    "namespaceRetained": true,
+    "maskedDuringFailure": true,
+    "peopleActions": [
+      "profile",
+      "profile",
+      "profile"
+    ],
+    "domainRpcs": [
+      "i2_profile_v1"
+    ]
+  },
+  "empty_online_registration": {
+    "scenario": "online empty-directory first registration",
+    "initial": {
+      "totalPlayers": 0,
+      "peopleRevision": "10"
+    },
+    "final": {
+      "totalPlayers": 1,
+      "peopleRevision": "11"
+    },
+    "peopleActions": [
+      "list",
+      "candidates",
+      "create",
+      "profile",
+      "list"
+    ],
+    "originalIdForwarded": true,
+    "rpcCounts": {
+      "i2_people_v1": 2,
+      "i2_candidates_v1": 1,
+      "i2_profile_v1": 1,
+      "i2_register_v1": 1,
+      "i2_operation_v1": 0
+    },
+    "registrationSnapshot": {
+      "operations": 1,
+      "audits": 1,
+      "players": 1,
+      "result": {
+        "version": 1,
+        "player_id": "2df4c9a2-d33d-4f41-8e6a-3b0225824b72"
+      }
+    }
+  },
+  "compiled_build": {
+    "node": "v24.14.0",
+    "sourceHash": "a0dabe06461b25fcfd0ba83af836fce9eecc65ce92c9515be74fb208bde37a62",
+    "artifactHash": "cc51f5df35ed370cbcbe8d72d16852dfb0eb4144fa80d24a272cccaa75bd8f55"
+  },
+  "checks": {
+    "production_component": true,
+    "development_component": true,
+    "units": 103,
+    "build": true,
+    "typescript": true,
+    "lint": true,
+    "actual_component_capture_families": 16,
+    "welcome_entry_captures": 8,
+    "factual_review_and_docs": true,
+    "continuation_generator_tests": 17,
+    "build_source_asset_guard_tests": 4,
+    "canonical_execution_validators": true
+  },
+  "helper": {
+    "external": "DeepSeek quota interrupted original116line module",
+    "native_model": "gpt-6.1-terra",
+    "native_effort": "medium",
+    "peak_active": 1,
+    "owned_paths": [
+      "scripts/workspace-download/empty_online_registration.mjs",
+      "docs/07-handoff/deepseek/DS-005-empty-online-registration.md"
+    ],
+    "usage_and_savings": "unmeasured",
+    "provider_runtime_publish_actions": false
+  },
+  "limits": [
+    "Scoped signed-in EN/AR positive Players states verified on staging;hosted fault injections and installed/device matrix remain untested.",
+    "No real Clerk expiration/refresh proof;server session is independently removed in a fictional provider adapter.",
+    "No service quota saving or latency percentile claimed.",
+    "Prepared-empty first save/lost reply and failed people-transfer remain separate next tests.",
+    "NR07 hosted zero-player symptom remains undiagnosed.",
+    "No migration,field,write rule,key,account or provider change;promotion performed by Owner,not agent."
+  ],
+  "live_before": {
+    "observed_date": "2026-11-08",
+    "method": "read-only Vercel get_deployment for staging.academy.nahr.dev",
+    "id": "dpl_Fq3E8v18NmPE7TRFECwG36fwXxMT",
+    "url": "academyos-88zpsunao-academy-os2.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "source_sha": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+    "branch": "codex/onboarding-decision-design-packet",
+    "limits": "Deployment/source metadata only;no signed-in flow or Owner-report inferred;no release action by agent."
+  },
+  "implementation_commit": "6d9d3f675a1433c488926f46024d738de66b0491",
+  "ci": {
+    "run": 42471548556,
+    "job": 128703257199,
+    "passed_steps": 53,
+    "source_sha": "6d9d3f675a1433c488926f46024d738de66b0491",
+    "receipt": "ci-6d9d3f6.json"
+  },
+  "release_receipt": "release.json",
+  "hosted_receipt": "hosted.json",
+  "hosted_positive_cases": 6
+}

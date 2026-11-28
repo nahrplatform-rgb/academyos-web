@@ -1,0 +1,53 @@
+{
+  "pre": {
+    "dates": 61,
+    "heads": 2,
+    "marks": 1,
+    "plans": 43,
+    "history": 2,
+    "memberships": 4,
+    "link_fingerprint": "8ba82cc536f2b3ee1b8ffca3e8414181",
+    "mark_fingerprint": "906c80b494bb91d44582ff69d1d98e08",
+    "membership_fingerprint": "9bb2da9be0272f4ed25ccacb28dbc5fe"
+  },
+  "post": {
+    "snapshot": {
+      "dates": 61,
+      "heads": 2,
+      "marks": 1,
+      "plans": 43,
+      "history": 2,
+      "memberships": 4,
+      "link_fingerprint": "8ba82cc536f2b3ee1b8ffca3e8414181",
+      "mark_fingerprint": "906c80b494bb91d44582ff69d1d98e08",
+      "membership_fingerprint": "9bb2da9be0272f4ed25ccacb28dbc5fe"
+    },
+    "version": "20261028122658"
+  },
+  "gate": [
+    {
+      "optins": 0,
+      "rls": true,
+      "authenticated_read": false,
+      "anon_write": false
+    }
+  ],
+  "advisors": [
+    {
+      "name": "rls_enabled_no_policy",
+      "level": "INFO",
+      "count": 44
+    },
+    {
+      "name": "anon_security_definer_function_executable",
+      "level": "WARN",
+      "count": 3
+    },
+    {
+      "name": "authenticated_security_definer_function_executable",
+      "level": "WARN",
+      "count": 64
+    }
+  ],
+  "scope": "Actual staging migration/aggregate/ACL observations only; no Guardian access enabled or signed-in projection proof"
+}

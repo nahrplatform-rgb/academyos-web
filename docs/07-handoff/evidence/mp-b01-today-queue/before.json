@@ -1,0 +1,35 @@
+{
+  "commit": "ce5a3247889b9afa275bd42e2b71eecc2d48ee6d",
+  "node": "v24.14.0",
+  "browser": "156.0.8078.4",
+  "cases": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "players": 18,
+      "returnOffered": false,
+      "fragment": false,
+      "entryCalls": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "players": 18,
+      "returnOffered": false,
+      "fragment": false,
+      "entryCalls": [
+        [
+          "attendance",
+          "roster",
+          200
+        ]
+      ]
+    }
+  ]
+}

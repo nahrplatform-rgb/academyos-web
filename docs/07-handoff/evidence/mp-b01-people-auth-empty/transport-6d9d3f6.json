@@ -1,0 +1,281 @@
+{
+  "passed": true,
+  "hashes": {
+    "apps/web/src/app/api/workspace-download/route.ts": "b18eef0fd34eaf68731d8535fe4f1f2a8897e2270e9a17b55d313e8e7a9c771f",
+    "apps/web/src/lib/workspace-download.ts": "0bfe6bf52ff4d238d8e2ac063ae344039697e08dd8cc5503b6b9edaba7fd16af",
+    "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
+    "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
+    "apps/web/src/app/api/people/route.ts": "0469245ddc3bea07445c695cc199432dfa5692ee2d9d281259652bf4dd5a7588",
+    "apps/web/src/lib/people.ts": "4475fdd096d84e71166494e418e75e07058885d2cdbcf8f892e77cbfbeaa5ee5",
+    "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+    "supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql": "1342009f1ce0b32f3559010effc7cc1bc491265930d423f422c2c449226f3eec",
+    "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
+    "apps/web/src/lib/local-workspace-repository.ts": "2a752b297c6a84ab070de021c1c76efe2516fdda6002f6ce19b929392fdb9e0b",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/register-device-account.ts": "5324806829f173f53fca21e7728544809e6b8095a5737d7e58eb8610dcdbe75e",
+    "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+    "apps/web/src/lib/workspace-device.ts": "3f224da37a278c5e445edfcda9d6de29313dde165d60b8ddac93e2a92d42e0d7",
+    "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
+    "apps/web/src/lib/onboarding-server.ts": "577a4e4f671a0ba6ab8848d4ce28566a0a55c49c3fda90303651573d3eed53c5",
+    "apps/web/src/lib/onboarding-gateway.ts": "705b76c2d787cf48710ceaf79b6e8d97a047f1f51d90d090332b01d587aa17b6",
+    "apps/web/src/lib/onboarding.ts": "49d6c71cf94fdf9713e58cd3edfae384febd28a72805dfd1f00202c4b801125f",
+    "apps/web/src/lib/config.ts": "abf3610ecf814d136d69600e2096105521d155996a25f9ccacf4d63f4a691bd5",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+    "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
+    "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/workspace-download/test_transport.mjs": "2d3398ff18b1ff98d3d5d68803905e480941aadc8788f7cdaa4df8078701aa3f",
+    "scripts/workspace-download/bridge.py": "c34a97ddfccf1e869ab8ce9b8affe5047f897d773e4eae6f749c4ce371c8dfb1",
+    "scripts/workspace-download/test_boundary.py": "021318ec8665b4d92177558752e632d17803ba16788806bfb754b3ce3c1dfb24",
+    "scripts/workspace-download/normal_workspace.mjs": "2724be8814f00bbf110400a40c62dfe025d6ad0b7826e3271beafba86211b08d",
+    "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
+    "scripts/verification/web-build.mjs": "44beda1bfb838f5149ef84942f3033b736639a721a6f4bc8b34a3caaa13503ca",
+    "package.json": "7229c534ef4cc67947312f268402721ce84e0a82ac4671c3435e8f7ba82dfcc3",
+    "scripts/workspace-download/capability_cleanup.mjs": "b8c8d8f1a6dae85afeb198b907d8f3eadea1b38ada178be1f936e5d7be4273ad",
+    "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
+    "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+    "apps/web/src/components/register-account-context.tsx": "34196b6868e0f79776e155f3235365eb220ec4bb93bd273b789f3ddb248765f3",
+    "apps/web/src/lib/register-device-slots.ts": "6ea483cb85e21be0c11caf283e11f6df8d237524b865ecf88a24734c093cc17c",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/public/prepared-workspace-worker.js": "f408673175bb989fc8397cf1d73900faca18c552a72e241c0cb54eb50d17da6d",
+    "apps/web/src/lib/workspace-public-shell.ts": "793bae50dd7ce7fe90128248965b801adc2e6d64c1b7653dfc86be9a10d257c8",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "e58ca98e57191a465b9953455fdd9a9b19bdbb3d17c0107fe6d124158dd2353d",
+    "apps/web/src/components/owner-workspace-device.tsx": "41cb886f9d37a7afc1fbb727542a41b351ace36ddbe0c9450b919ffdbcd7069e",
+    "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+    "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
+    "apps/web/src/components/people-workspace.tsx": "d5bd99d0cbc52f5793da78daca6377f1be243ae7ecba32f9244d63a7a05e9d36",
+    "apps/web/src/components/experience-workspace.tsx": "dc4f52253990bb53dc1226d7be67681aa740cb6a1b2ee98870d0895abd048356",
+    "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/next.config.ts": "d4a582a2980b711c1f2702477158be9754155d5c44bc63fef502e6d167db5461",
+    "apps/web/src/components/workspace-shell.tsx": "7ad46e3375faf01a7a130e5576b0214bb1ad7888ee77abd590556e5aa288274b",
+    "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "109c552ad7ff8f87ee8102cf0f82fb61588a755b221a3113e7cab8256951158d",
+    "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
+  },
+  "checks": [
+    "Closed default performs zero authentication, limiter and database calls",
+    "Actual SDK, gateway HMAC and PostgreSQL return one manifest, three bounded pages and a coherent completion",
+    "Each transfer phase uses one entry budget, one gateway read budget and one RPC, independent of row count",
+    "An unchanged manifest retains the collection revision and scope without fetching a dataset page",
+    "Changed projection refuses the old chain and a modified signature is rejected by the database",
+    "Account mismatch and a timed-out gateway budget refuse the read before PostgreSQL",
+    "Current PostgreSQL authority denies a Platform-only account and a suspended Academy Owner",
+    "All observed wire packets stay within the declared request and response limits",
+    "Actual key route and signed database binding reuse one wrapped key and deny foreign origin, wrong actor, namespace and wrapping root",
+    "The real People handler refuses an unassigned signed caller without a registration receipt or audit",
+    "Actual row hash rejects tampering and a failed checkpoint write rolls back its encrypted page without publishing partial data",
+    "Two tabs cannot advance the same checkpoint twice and a browser process restart resumes at the saved page",
+    "A complete 1000-player directory searches in bounded encrypted slices with zero operating requests or readable name indexes",
+    "An unchanged verified manifest refreshes completed coverage in one request with no dataset pages or replayed timestamp extension",
+    "Changed Calendar publishes one verified replacement and removes older overlap while rejecting a late stale completion",
+    "Missing staged ciphertext cannot finalize and the previous completed generation remains readable",
+    "Thirty-day cleanup physically removes expired context and dataset ciphertext and a key release cannot extend it",
+    "Opening an expired workspace removes encrypted context before any private read or network check",
+    "Retiring the namespace removes read ciphertext and its browser key and fences late work in a second tab",
+    "A suspended Owner cannot receive workspace key material from the real signed database boundary",
+    "Explicit device approval gates requests, one leader owns transport, and the next tab resumes its saved page after cancellation",
+    "Reopening compatible coverage checks one manifest and serves directory and Calendar interactions without further requests",
+    "A changed scope retires old coverage before rebuilding and a Calendar entry downloads its current month first",
+    "An absent session and an HTML edge refusal preserve coverage while verified Owner denial retires the slot and its data",
+    "A bounded pass checkpoints 12 pages and renews only the expired receipt before continuing its prefix",
+    "Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network",
+    "Normal Owner Players opens before device preparation and switches to the protected directory",
+    "Prepared Players search retains result geometry without generic Loading feedback",
+    "Normal Players search and summary open use zero requests and full profile uses one online read",
+    "Cold normal Players restores only safe query and permitted summary without a profile read",
+    "An original registration recovery reference takes precedence over saved navigation",
+    "Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection",
+    "Same-tab AR Calendar retains month, period and selection through offline reload, reentry and scoped check",
+    "Same-tab offline Players retains its query and permitted summary through reload",
+    "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
+    "Reconnecting the offline document returns to verified online data and applies a changed player",
+    "A confirmed registration becomes discoverable from the prepared directory without an online list read",
+    "The original browser save ID replays through the real People handler with one player, receipt and audit",
+    "A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row",
+    "Players API401 masks private content without retiring prepared data;one same-account profile retry restores it",
+    "Logout removes prepared coverage from the normal offline route before another verified preparation",
+    "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
+    "Online genuine-empty entry shows zero players and one list without filtered-empty, missing or denial states",
+    "First confirmed online registration returns to a discovered single player",
+    "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
+    "Workspace-only rollback masks failed cleanup, retries it and preserves the live register, exact pending original and signed-in account",
+    "Re-enabling a capability finishes its interrupted retirement before any new preparation",
+    "Register-only rollback preserves workspace data and protected originals recover byte-identically after the register capability returns",
+    "A connection restored before public startup mounts retries the normal URL once without a reload loop",
+    "A later offline/online cycle clears the public reentry guard and permits the next recovery",
+    "A browser reporting online with an unavailable origin retains the public workspace without reloading it",
+    "A late public reachability response cannot replace an outgoing task navigation",
+    "Real WindowClient URL remains sign-in after history navigation",
+    "SPA preparation caches only public shell and assets",
+    "Malformed and unsupported messages ignored; legacy normal route accepted",
+    "Public assets available offline to the SPA document"
+  ],
+  "metrics": {
+    "initialPeople": {
+      "players": 56,
+      "pages": 3,
+      "apiRequests": 5,
+      "limiterChecks": 10,
+      "requestBytes": 3305,
+      "responseBytes": 15442
+    },
+    "peopleUnauthorizedCreateDenied": true,
+    "localDirectory": {
+      "rows": 1000,
+      "searchSlices": 4,
+      "pagesScanned": 40,
+      "elapsedMs": 13.316624999999476,
+      "operatingRequests": 0
+    },
+    "workspaceDevice": {
+      "firstRequests": [
+        "prepare",
+        "manifest",
+        "page"
+      ],
+      "interruptedAt": 25,
+      "renewedAt": 300,
+      "pagesPerPass": 12,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "coveredLocalRequests": 0
+    },
+    "normalWorkspace": {
+      "baselinePlayersReads": 1,
+      "coveredPlayersRequests": 0,
+      "fullProfileReads": 1,
+      "coveredCalendarRequests": 0,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "offlineOperatingRequests": 0,
+      "offlineRoutePayloadRequests": 0,
+      "fullBrowserRestart": true,
+      "offlineShellNavigations": 11,
+      "fixtureOriginDisconnected": true,
+      "newOfflineDocuments": 11,
+      "nullGotoResponses": 0,
+      "peopleViewRestored": true,
+      "localLoadingFlashes": 0,
+      "calendarReconnectContext": true,
+      "postRegistration": {
+        "peopleCalls": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "page",
+          "page",
+          "complete"
+        ],
+        "realPeopleHandler": true,
+        "originalIdForwarded": true,
+        "replay": {
+          "sameResult": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1
+        },
+        "lostReply": {
+          "peopleCalls": [
+            "candidates",
+            "create",
+            "reconcile",
+            "profile"
+          ],
+          "originalIdReconciled": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1,
+          "transferActions": [
+            "manifest",
+            "page",
+            "page",
+            "page",
+            "complete"
+          ]
+        }
+      },
+      "peopleAuthentication": {
+        "expiredServerSession": true,
+        "browserSubjectUnchanged": true,
+        "namespaceRetained": true,
+        "maskedDuringFailure": true,
+        "peopleActions": [
+          "profile",
+          "profile",
+          "profile"
+        ],
+        "domainRpcs": [
+          "i2_profile_v1"
+        ]
+      },
+      "compiledBuild": {
+        "node": "v24.14.0",
+        "sourceHash": "a0dabe06461b25fcfd0ba83af836fce9eecc65ce92c9515be74fb208bde37a62",
+        "artifactHash": "cc51f5df35ed370cbcbe8d72d16852dfb0eb4144fa80d24a272cccaa75bd8f55"
+      }
+    },
+    "emptyOnlineRegistration": {
+      "scenario": "online empty-directory first registration",
+      "initial": {
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "peopleActions": [
+        "list",
+        "candidates",
+        "create",
+        "profile",
+        "list"
+      ],
+      "originalIdForwarded": true,
+      "rpcCounts": {
+        "i2_people_v1": 2,
+        "i2_candidates_v1": 1,
+        "i2_profile_v1": 1,
+        "i2_register_v1": 1,
+        "i2_operation_v1": 0
+      },
+      "registrationSnapshot": {
+        "operations": 1,
+        "audits": 1,
+        "players": 1,
+        "result": {
+          "version": 1,
+          "player_id": "2df4c9a2-d33d-4f41-8e6a-3b0225824b72"
+        }
+      }
+    },
+    "capabilityCleanup": {
+      "workspaceRollbackPreservesRegister": true,
+      "registerRollbackPreservesWorkspace": true,
+      "pendingOriginalUnchanged": true,
+      "failedCleanupRetried": true,
+      "supersededCleanupFenced": true,
+      "providerSignOuts": 0
+    },
+    "publicShellSpa": {
+      "spaClientUrlRetained": true,
+      "publicEntries": 3,
+      "invalidMessages": 14,
+      "offlineAssets": 2,
+      "legacyNormalRoute": true
+    }
+  },
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "browser": "156.0.8078.4",
+    "scope": "Actual workspace/key and registration-scenario People Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, baseline legacy read responses, limiter and PostgREST wire. Registration create/candidates/profile/reconcile use real People handlers; browser save IDs reach canonical RPCs. No hosted data, physical device or latency percentile claim."
+  }
+}

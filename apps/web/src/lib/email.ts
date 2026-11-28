@@ -39,19 +39,30 @@ export async function sendStagingSetupEmail(
   const release = env.VERCEL_GIT_COMMIT_SHA;
   if (!release || !/^[a-f0-9]{40}$/.test(release))
     throw new Error("A verified deployment release is required");
+  return sendStagingEmail(config, `academyos-staging-setup/${release}`, {
+    subject: "[AcademyOS staging] Service verification",
+    text: "This is the AcademyOS staging email setup test. No academy invitation or account permission has been created.",
+  }, transport);
+}
+
+export async function sendStagingEmail(
+  config: ReturnType<typeof stagingEmailConfig>,
+  idempotencyKey: string,
+  message: { subject: string; text: string },
+  transport: typeof fetch = fetch,
+) {
   const response = await transport("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${config.key}`,
       "Content-Type": "application/json",
-      "Idempotency-Key": `academyos-staging-setup/${release}`,
+      "Idempotency-Key": idempotencyKey,
     },
     body: JSON.stringify({
       from: config.from,
       reply_to: config.reply_to,
       to: config.to,
-      subject: "[AcademyOS staging] Service verification",
-      text: "This is the AcademyOS staging email setup test. No academy invitation or account permission has been created.",
+      ...message,
     }),
     signal: AbortSignal.timeout(10000),
     cache: "no-store",
@@ -59,11 +70,8 @@ export async function sendStagingSetupEmail(
   if (!response.ok)
     throw new Error("The email provider did not accept the test");
   const result: unknown = await response.json();
-  if (
-    !result ||
-    typeof result !== "object" ||
-    typeof (result as { id?: unknown }).id !== "string"
-  )
+  const id = result && typeof result === "object" && "id" in result ? result.id : undefined;
+  if (typeof id !== "string" || !id)
     throw new Error("Invalid email receipt");
-  return { accepted: true, id: (result as { id: string }).id };
+  return { accepted: true, id };
 }

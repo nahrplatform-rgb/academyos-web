@@ -1,0 +1,94 @@
+{
+  "timestamp": "2026-11-16T12:46:13.910258+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "runtime": "Node24.14.0; production/development React; disposable PostgreSQL17",
+  "helpers": 0,
+  "coordinator": "Current Codex session; exact backend model and usage unavailable",
+  "inputs": {
+    "apps/web/src/components/session-change-workspace.tsx": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
+    "scripts/session-changes/save_followup.mjs": "a9f9817c470181c9609a0df0ddae9512daeabf239b97cf0d0c96e134f61a4cf9",
+    "scripts/session-changes/test_ui.mjs": "594383c942445f72e364988a9b6caea51bfc554300f4efb9c557ea7880a93111",
+    "scripts/session-changes/test_boundary.py": "456fd594a5f7e54658ae2b943946a2878fde3507357496d5a995b4dbba242a36",
+    "scripts/session-changes/test_api.mjs": "929c96f22c712c981840c02f74fc4e4e31af212577cf879e9d540ad416d5bb16",
+    "scripts/experience-review/collect.mjs": "7e38f780b920fc020fa377c028ab76bf92599a6f95010c742164d82dd58c8a93",
+    "scripts/experience-review/build.mjs": "22fed9398c1f8a0d7f69dafff86f73ea3dbaa390d6d4c7137971d8e2b04533dc",
+    "design/app-experience-review/manifest.json": "463c29c91efec3de61410482ac6fc3487d696a2cd9f68dee35b037dd59d4c722"
+  },
+  "negativeControl": {
+    "cases": 16,
+    "gaps": 8,
+    "productSourceSha256": "d770aebe46fd9048eeb3abd0a491aad3ccfbb70b64573978d68230c2eb74ae4e",
+    "restorePatch": "before-source.patch",
+    "invocation": "SESSION_CHANGE_BASELINE=1 SESSION_CHANGE_REFERENCE=test-results/wd71-session-changes/before.tsx node scripts/session-changes/test_ui.mjs"
+  },
+  "checks": {
+    "componentCases": 32,
+    "componentGaps": 0,
+    "sqlTests": 11,
+    "apiBudgetRefusals": 12,
+    "invalidBodies": 3,
+    "crossOriginDenial": true,
+    "units": 119,
+    "typecheck": "passed",
+    "lint": "passed",
+    "managedProductionBuild": "passed",
+    "workingDayEvidence": "Retained28-check receipt passes --check; not rerun this checkpoint",
+    "review": {
+      "frames": 1530,
+      "transitions": 1627,
+      "captureGaps": 0,
+      "families": 16,
+      "staticCaptures": 8
+    },
+    "reviewToolAndFreshness": "passed",
+    "masterExecutionImplementationValidators": "passed",
+    "continuationTests": 20
+  },
+  "assertions": [
+    "Held save: keyboard confirmation disabled and no premature success or effect",
+    "Held follow-up: confirmation retained; no contradictory generic error",
+    "Failed read: read-only retry binds original occurrence; no replacement command",
+    "Lost reply: original survives reload and is reconciled once before read retry",
+    "Current403 masks private content and recovery controls",
+    "Exact academy/program/day/plan7/schedule3/head/reason and one fictional effect per case"
+  ],
+  "failuresAndResolution": [
+    {
+      "failure": "Initial SQL run:3 failures and1 error from past November1 fixtures",
+      "resolution": "Future2099-2100 fixture dates preserve weekday geometry; setup and timing blocks assert successful review/change; current-start production guards retained"
+    },
+    {
+      "failure": "Trainer result locator searched inspector rather than actual main region",
+      "resolution": "Corrected fixture locator; review/history assertions retained"
+    }
+  ],
+  "commands": [
+    "node scripts/session-changes/test_ui.mjs",
+    "UI_REACT_MODE=development node scripts/session-changes/test_ui.mjs",
+    "node scripts/session-changes/test_api.mjs",
+    "python3 scripts/session-changes/test_boundary.py",
+    "npm test",
+    "npm run typecheck",
+    "npm run lint",
+    "npm run local:production -- --restart",
+    "node scripts/working-day/test_normal_attendance.mjs --check",
+    "node scripts/experience-review/collect.mjs",
+    "node scripts/experience-review/static.mjs",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "git diff --check"
+  ],
+  "limits": [
+    "HTTP effect counters are fictional adapter observations; API/SQL have separate scoped proof",
+    "No hosted/installed-device/Owner acceptance or external security review",
+    "No commit/push/promotion or connected session changes",
+    "Full inherited SQL suite not run"
+  ],
+  "ignoredLogs": "test-results/wd71-session-changes/"
+}

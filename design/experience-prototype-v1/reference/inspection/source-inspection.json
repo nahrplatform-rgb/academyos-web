@@ -1,0 +1,1054 @@
+{
+  "recorded_date": "2026-10-23",
+  "method": "Local Chromium headless via installed Playwright; copied unchanged reference opened by file URL; HTTP(S) blocked",
+  "viewport": {
+    "width": 1536,
+    "height": 950
+  },
+  "tokens": {
+    ":root": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "height": "950px",
+      "minHeight": "0px",
+      "width": "1536px",
+      "minWidth": "0px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(219, 228, 240)",
+      "display": "block"
+    },
+    "body": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "950px",
+      "minHeight": "0px",
+      "width": "1536px",
+      "minWidth": "760px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "block"
+    },
+    ".window": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "903px",
+      "minHeight": "650px",
+      "width": "1496px",
+      "minWidth": "auto",
+      "padding": "0px",
+      "borderRadius": "13px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "display": "flex"
+    },
+    ".topbar": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "43px",
+      "minHeight": "43px",
+      "width": "1494px",
+      "minWidth": "auto",
+      "padding": "0px 12px 0px 17px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "flex"
+    },
+    ".sidebar": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "858px",
+      "minHeight": "0px",
+      "width": "218px",
+      "minWidth": "auto",
+      "padding": "18px 10px 11px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "flex"
+    },
+    ".main-inner": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "858px",
+      "minHeight": "100%",
+      "width": "916px",
+      "minWidth": "0px",
+      "padding": "20px 24px 36px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "flex"
+    },
+    "h1": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "22px",
+      "fontWeight": "755",
+      "lineHeight": "25.3px",
+      "letterSpacing": "-0.65px",
+      "height": "25.2969px",
+      "minHeight": "0px",
+      "width": "374.516px",
+      "minWidth": "0px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "block"
+    },
+    "h3": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "11px",
+      "fontWeight": "730",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "13px",
+      "minHeight": "0px",
+      "width": "323px",
+      "minWidth": "0px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "block"
+    },
+    ".btn": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "10px",
+      "fontWeight": "650",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "height": "27px",
+      "minHeight": "27px",
+      "width": "181px",
+      "minWidth": "0px",
+      "padding": "0px 10px",
+      "borderRadius": "6px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "display": "inline-flex"
+    },
+    ".btn.primary": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "11px",
+      "fontWeight": "650",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "height": "31px",
+      "minHeight": "31px",
+      "width": "134.703px",
+      "minWidth": "auto",
+      "padding": "0px 11px",
+      "borderRadius": "6px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(7, 91, 234)",
+      "display": "flex"
+    },
+    ".btn.small": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "10px",
+      "fontWeight": "650",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "height": "27px",
+      "minHeight": "27px",
+      "width": "181px",
+      "minWidth": "0px",
+      "padding": "0px 10px",
+      "borderRadius": "6px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "display": "inline-flex"
+    },
+    ".nav-item": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "520",
+      "lineHeight": "normal",
+      "letterSpacing": "normal",
+      "height": "34px",
+      "minHeight": "34px",
+      "width": "195px",
+      "minWidth": "0px",
+      "padding": "7px 10px",
+      "borderRadius": "6px",
+      "color": "rgb(64, 82, 109)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "flex"
+    },
+    ".data-table": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "448.375px",
+      "minHeight": "0px",
+      "width": "868px",
+      "minWidth": "0px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "table"
+    },
+    ".data-table th": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "10.5px",
+      "fontWeight": "650",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "32px",
+      "minHeight": "0px",
+      "width": "43px",
+      "minWidth": "0px",
+      "padding": "7px 10px",
+      "borderRadius": "8px 0px 0px",
+      "color": "rgb(130, 145, 165)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "table-cell"
+    },
+    ".data-table td": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "15.6px",
+      "letterSpacing": "-0.13px",
+      "height": "69px",
+      "minHeight": "0px",
+      "width": "43px",
+      "minWidth": "0px",
+      "padding": "10px",
+      "borderRadius": "8px 0px 0px 8px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(234, 242, 255)",
+      "display": "table-cell"
+    },
+    ".status": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "10px",
+      "fontWeight": "640",
+      "lineHeight": "13px",
+      "letterSpacing": "-0.13px",
+      "height": "23px",
+      "minHeight": "0px",
+      "width": "107.844px",
+      "minWidth": "0px",
+      "padding": "5px 9px",
+      "borderRadius": "6px",
+      "color": "rgb(198, 107, 10)",
+      "backgroundColor": "rgb(255, 240, 223)",
+      "display": "inline-flex"
+    },
+    ".inspector": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "lineHeight": "normal",
+      "letterSpacing": "-0.13px",
+      "height": "858px",
+      "minHeight": "auto",
+      "width": "360px",
+      "minWidth": "auto",
+      "padding": "19px 18px 0px",
+      "borderRadius": "0px",
+      "color": "rgb(23, 41, 65)",
+      "backgroundColor": "rgb(252, 253, 255)",
+      "display": "flex"
+    },
+    ".subtitle": {
+      "fontFamily": "-apple-system, \"system-ui\", \"SF Pro Display\", \"SF Pro Text\", \"Segoe UI\", Arial, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "17.4px",
+      "letterSpacing": "-0.13px",
+      "height": "17.3906px",
+      "minHeight": "0px",
+      "width": "374.516px",
+      "minWidth": "0px",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "color": "rgb(123, 137, 158)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "display": "block"
+    },
+    "variables": {
+      "bg": "#dbe4f0",
+      "window": "#fff",
+      "sidebar": "#f3f6fb",
+      "surface": "#fff",
+      "subtle": "#f8fafd",
+      "hover": "#f2f6fc",
+      "line": "#e7ecf2",
+      "line2": "#dce4ed",
+      "ink": "#172941",
+      "muted": "#73839b",
+      "blue": "#075bee",
+      "blue-hover": "#004edb",
+      "blue-soft": "#e8f0ff",
+      "orange": "#c16a11",
+      "orange-soft": "#fff2e5",
+      "red": "#d23f45",
+      "red-soft": "#fff0f1",
+      "green": "#16835b",
+      "green-soft": "#e7f7ef",
+      "shadow": "0 24px 70px rgba(17,35,59,.26)"
+    }
+  },
+  "rolePages": {
+    "platform": [
+      {
+        "id": "overview",
+        "label": "Overview"
+      },
+      {
+        "id": "requests",
+        "label": "Requests"
+      },
+      {
+        "id": "academies",
+        "label": "Academies"
+      },
+      {
+        "id": "subscriptions",
+        "label": "Subscriptions"
+      },
+      {
+        "id": "platformFinance",
+        "label": "Platform billing"
+      },
+      {
+        "id": "services",
+        "label": "Service operations"
+      },
+      {
+        "id": "support",
+        "label": "Support cases"
+      },
+      {
+        "id": "audit",
+        "label": "Access & audit"
+      }
+    ],
+    "owner": [
+      {
+        "id": "ownerHome",
+        "label": "Home"
+      },
+      {
+        "id": "setup",
+        "label": "Setup checklist"
+      },
+      {
+        "id": "branches",
+        "label": "Branches"
+      },
+      {
+        "id": "programs",
+        "label": "Programs"
+      },
+      {
+        "id": "schedule",
+        "label": "Schedule"
+      },
+      {
+        "id": "people",
+        "label": "Players & families"
+      },
+      {
+        "id": "staff",
+        "label": "Staff & access"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance"
+      },
+      {
+        "id": "evaluations",
+        "label": "Evaluations"
+      },
+      {
+        "id": "familyFinance",
+        "label": "Family finance"
+      },
+      {
+        "id": "compensation",
+        "label": "Trainer compensation"
+      },
+      {
+        "id": "communications",
+        "label": "Communications"
+      },
+      {
+        "id": "inventory",
+        "label": "Inventory"
+      },
+      {
+        "id": "reports",
+        "label": "Reports"
+      },
+      {
+        "id": "privacy",
+        "label": "Privacy requests"
+      }
+    ],
+    "manager": [
+      {
+        "id": "managerHome",
+        "label": "Today & coverage"
+      },
+      {
+        "id": "setup",
+        "label": "Setup"
+      },
+      {
+        "id": "branches",
+        "label": "Branches"
+      },
+      {
+        "id": "programs",
+        "label": "Programs"
+      },
+      {
+        "id": "schedule",
+        "label": "Schedule"
+      },
+      {
+        "id": "people",
+        "label": "Players & families"
+      },
+      {
+        "id": "staff",
+        "label": "Staff & access"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance"
+      },
+      {
+        "id": "evaluations",
+        "label": "Evaluations"
+      },
+      {
+        "id": "communications",
+        "label": "Communications"
+      },
+      {
+        "id": "inventory",
+        "label": "Inventory"
+      },
+      {
+        "id": "reports",
+        "label": "Reports"
+      }
+    ],
+    "trainer": [
+      {
+        "id": "today",
+        "label": "Today"
+      },
+      {
+        "id": "attendance",
+        "label": "Attendance"
+      },
+      {
+        "id": "evaluations",
+        "label": "Evaluations"
+      },
+      {
+        "id": "communications",
+        "label": "Messages"
+      }
+    ],
+    "guardian": [
+      {
+        "id": "guardianHome",
+        "label": "Home"
+      },
+      {
+        "id": "guardianSchedule",
+        "label": "Schedule"
+      },
+      {
+        "id": "guardianProgress",
+        "label": "Published progress"
+      },
+      {
+        "id": "guardianPayments",
+        "label": "Payments"
+      },
+      {
+        "id": "communications",
+        "label": "Messages"
+      },
+      {
+        "id": "guardianConsent",
+        "label": "Consent requests"
+      }
+    ],
+    "player": [
+      {
+        "id": "playerHome",
+        "label": "Home"
+      },
+      {
+        "id": "guardianSchedule",
+        "label": "Schedule"
+      },
+      {
+        "id": "guardianProgress",
+        "label": "Published progress"
+      }
+    ]
+  },
+  "viewChecks": [
+    {
+      "role": "platform",
+      "id": "overview",
+      "label": "Overview",
+      "heading": "Platform overview",
+      "renderedTextCharacters": 912,
+      "buttons": 6,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "requests",
+      "label": "Requests",
+      "heading": "Requests",
+      "renderedTextCharacters": 978,
+      "buttons": 7,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "academies",
+      "label": "Academies",
+      "heading": "Academies",
+      "renderedTextCharacters": 568,
+      "buttons": 8,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "subscriptions",
+      "label": "Subscriptions",
+      "heading": "Subscriptions & plans",
+      "renderedTextCharacters": 868,
+      "buttons": 10,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "platformFinance",
+      "label": "Platform billing",
+      "heading": "Platform billing",
+      "renderedTextCharacters": 737,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "services",
+      "label": "Service operations",
+      "heading": "Service health",
+      "renderedTextCharacters": 1064,
+      "buttons": 7,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "support",
+      "label": "Support cases",
+      "heading": "Support cases",
+      "renderedTextCharacters": 526,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "platform",
+      "id": "audit",
+      "label": "Access & audit",
+      "heading": "Platform access & audit",
+      "renderedTextCharacters": 609,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "ownerHome",
+      "label": "Home",
+      "heading": "Academy home",
+      "renderedTextCharacters": 750,
+      "buttons": 6,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "setup",
+      "label": "Setup checklist",
+      "heading": "Academy setup",
+      "renderedTextCharacters": 784,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "branches",
+      "label": "Branches",
+      "heading": "Branches",
+      "renderedTextCharacters": 447,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "programs",
+      "label": "Programs",
+      "heading": "Programs",
+      "renderedTextCharacters": 705,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "schedule",
+      "label": "Schedule",
+      "heading": "Schedule",
+      "renderedTextCharacters": 925,
+      "buttons": 16,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "people",
+      "label": "Players & families",
+      "heading": "Players & families",
+      "renderedTextCharacters": 1011,
+      "buttons": 3,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "staff",
+      "label": "Staff & access",
+      "heading": "Staff & access",
+      "renderedTextCharacters": 484,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "attendance",
+      "label": "Attendance",
+      "heading": "Attendance",
+      "renderedTextCharacters": 699,
+      "buttons": 27,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "evaluations",
+      "label": "Evaluations",
+      "heading": "Evaluations",
+      "renderedTextCharacters": 664,
+      "buttons": 4,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "familyFinance",
+      "label": "Family finance",
+      "heading": "Family finance",
+      "renderedTextCharacters": 720,
+      "buttons": 4,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "compensation",
+      "label": "Trainer compensation",
+      "heading": "Trainer compensation",
+      "renderedTextCharacters": 519,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "communications",
+      "label": "Communications",
+      "heading": "Communications",
+      "renderedTextCharacters": 613,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "inventory",
+      "label": "Inventory",
+      "heading": "Inventory",
+      "renderedTextCharacters": 434,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "reports",
+      "label": "Reports",
+      "heading": "Reports",
+      "renderedTextCharacters": 478,
+      "buttons": 4,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "owner",
+      "id": "privacy",
+      "label": "Privacy requests",
+      "heading": "Privacy requests",
+      "renderedTextCharacters": 453,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "managerHome",
+      "label": "Today & coverage",
+      "heading": "Today & coverage",
+      "renderedTextCharacters": 789,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "setup",
+      "label": "Setup",
+      "heading": "Academy setup",
+      "renderedTextCharacters": 784,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "branches",
+      "label": "Branches",
+      "heading": "Branches",
+      "renderedTextCharacters": 447,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "programs",
+      "label": "Programs",
+      "heading": "Programs",
+      "renderedTextCharacters": 705,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "schedule",
+      "label": "Schedule",
+      "heading": "Schedule",
+      "renderedTextCharacters": 925,
+      "buttons": 16,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "people",
+      "label": "Players & families",
+      "heading": "Players & families",
+      "renderedTextCharacters": 1011,
+      "buttons": 3,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "staff",
+      "label": "Staff & access",
+      "heading": "Staff & access",
+      "renderedTextCharacters": 484,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "attendance",
+      "label": "Attendance",
+      "heading": "Attendance",
+      "renderedTextCharacters": 699,
+      "buttons": 27,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "evaluations",
+      "label": "Evaluations",
+      "heading": "Evaluations",
+      "renderedTextCharacters": 664,
+      "buttons": 4,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "communications",
+      "label": "Communications",
+      "heading": "Communications",
+      "renderedTextCharacters": 613,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "inventory",
+      "label": "Inventory",
+      "heading": "Inventory",
+      "renderedTextCharacters": 434,
+      "buttons": 1,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "manager",
+      "id": "reports",
+      "label": "Reports",
+      "heading": "Reports",
+      "renderedTextCharacters": 478,
+      "buttons": 4,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "trainer",
+      "id": "today",
+      "label": "Today",
+      "heading": "Today",
+      "renderedTextCharacters": 673,
+      "buttons": 4,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "trainer",
+      "id": "attendance",
+      "label": "Attendance",
+      "heading": "Attendance",
+      "renderedTextCharacters": 699,
+      "buttons": 27,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "trainer",
+      "id": "evaluations",
+      "label": "Evaluations",
+      "heading": "Evaluations",
+      "renderedTextCharacters": 664,
+      "buttons": 4,
+      "inspector": true,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "trainer",
+      "id": "communications",
+      "label": "Messages",
+      "heading": "Communications",
+      "renderedTextCharacters": 613,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "guardianHome",
+      "label": "Home",
+      "heading": "Family home",
+      "renderedTextCharacters": 594,
+      "buttons": 5,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "guardianSchedule",
+      "label": "Schedule",
+      "heading": "Schedule",
+      "renderedTextCharacters": 323,
+      "buttons": 0,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "guardianProgress",
+      "label": "Published progress",
+      "heading": "Published progress",
+      "renderedTextCharacters": 393,
+      "buttons": 0,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "guardianPayments",
+      "label": "Payments",
+      "heading": "Payments & receipts",
+      "renderedTextCharacters": 414,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "communications",
+      "label": "Messages",
+      "heading": "Communications",
+      "renderedTextCharacters": 613,
+      "buttons": 1,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "guardian",
+      "id": "guardianConsent",
+      "label": "Consent requests",
+      "heading": "Consent & relationships",
+      "renderedTextCharacters": 416,
+      "buttons": 0,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "player",
+      "id": "playerHome",
+      "label": "Home",
+      "heading": "My training",
+      "renderedTextCharacters": 516,
+      "buttons": 3,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "player",
+      "id": "guardianSchedule",
+      "label": "Schedule",
+      "heading": "Schedule",
+      "renderedTextCharacters": 323,
+      "buttons": 0,
+      "inspector": false,
+      "horizontalOverflow": false
+    },
+    {
+      "role": "player",
+      "id": "guardianProgress",
+      "label": "Published progress",
+      "heading": "Published progress",
+      "renderedTextCharacters": 393,
+      "buttons": 0,
+      "inspector": false,
+      "horizontalOverflow": false
+    }
+  ],
+  "defects": {
+    "inspectorClose": {
+      "before": 1,
+      "after": 1,
+      "hidden": false
+    },
+    "directoryContext": {
+      "role": "owner",
+      "academy": "nor",
+      "header": "Riverside Academy\nAcademy\nRiverside · Owner",
+      "heading": "Academy home\n\nRiverside Sports Academy · academy-wide decisions\n\nOpen schedule"
+    },
+    "setupShortcut": {
+      "completed": [
+        "Academy details",
+        "Add main branch",
+        "Configure sports"
+      ],
+      "modal": null
+    },
+    "calendarStatic": {
+      "sessionDataCount": 4,
+      "newSessionRendered": false,
+      "calendarButtons": 4
+    },
+    "serviceInspector": {
+      "table": "Service\tCondition\tQuality / usage\tAffected capability\t\n\nHosting\nObserved 2 min ago\n\tHealthy\t99.98%\tPlatform web access\t\n\n\nDatabase\nObserved 3 min ago\n\tHealthy\t99.95%\tAcademy records\t\n\n\nAuthentication\nObserved 5 min ago\n\tDegraded\t99.21%\tInvitations and sign-in\t\n\n\nPrivate files\nObserved 6 min ago\n\tHealthy\t99.99%\tAuthorized documents\t\n\n\nEmail service\nObserved 8 min ago\n\tUnavailable\tUnavailable\tNotifications and owner invitations\t\n\n\nBackground jobs\nObserved 3 min ago\n\tHealthy\t99.9%\tScheduled tasks\t\n\n\nRate limiting\nObserved 1 min ago\n\tHealthy\t100%\tRequest protection\t\n\n\nError monitoring\nLast seen 34 min ago\n\tUnknown\tData stale\tMonitoring evidence\t\n\n\nBackups\nObserved 2 hours ago\n\tHealthy\tLast backup succeeded\tRestore not verified\t",
+      "inspector": "INSPECTOR\nEmail service\nExample observations · not live\nUnknown\nObservation\nEnvironment\ndemo-production\nLast checked\n8 min ago\nData freshness\nObserved · 8 min\nAffected features\nInvitations, email notices\nSpending status\nBudget warning ≠ hard cap\nProvider outage and monitoring collection failure are distinct causes. Controlled actions need authority.\nOpen incident"
+    },
+    "roster": {
+      "actualRows": 8,
+      "declared": "INSPECTOR\nAttendance status\n\nAssigned session · 8 players\n\nSaved on server\nSave evidence\nServer-confirmed marks\n2\nUnsaved edits\n0\nAll roster loaded?\nYes · 8 total\nBulk changes\nVisible vs entire roster separated\nOffline support is a planned capability, not implemented by this prototype.\nSave attendance"
+    },
+    "phone390": {
+      "viewport": 390,
+      "bodyWidth": 760,
+      "documentWidth": 760,
+      "sidebarWidth": 162,
+      "inspectorDisplay": null
+    }
+  },
+  "errors": [],
+  "requests": [
+    "file:///Users/moamenghareeb/AcademyOS/design/experience-prototype-v1/reference/AcademyOS_MacOS_Reference_Matched.html"
+  ],
+  "outboundRequests": []
+}

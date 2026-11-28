@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "scope": "Actual disposable PostgreSQL17; synthetic data, no hosted access. Includes 1000 marks, rollback, replay/fence, stale mixed set, roles/tenant/branch denial, deadline and observed concurrency."
+}

@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-11-16T13:01:21.218115+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "inputs": {
+    "apps/web/src/components/program-workspace.tsx": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+    "scripts/programs/test_ui.mjs": "020bbc95ad2f3a6c80034ab35cdf920b97cfb56c4ed8854a1dab2d1999b8afe2",
+    "scripts/programs/save_followup.mjs": "a45445679d449a96d64448fc487506bfe3f0a471defdaae64f82a2338666ca79",
+    "scripts/programs/test_api.mjs": "b12a098d0d426e432b4420e356a9314c998fde450029b3b5fab490ac2d89c395",
+    "scripts/experience-review/collect.mjs": "c361241c11cf93e5c2bdae315832fc12a5c6989cd1b75b6c7cde7bff6eda578b",
+    "scripts/experience-review/build.mjs": "a4754b90049c878cae9b17bd4fc72b27718e7cc8bbea3fdada0e0a073ce34440",
+    "design/app-experience-review/manifest.json": "1e411f145e9c404157c39492e6a351937554a8569f18239452f8aa3807007a01"
+  },
+  "helpers": 0,
+  "coordinator": "Current Codex; exact backend model and usage unavailable",
+  "checks": {
+    "componentCases": 16,
+    "componentErrors": 0,
+    "apiBudgetRefusals": 21,
+    "invalidBodies": 3,
+    "crossOriginDenied": true,
+    "review": {
+      "frames": 1554,
+      "transitions": 1707,
+      "captureGaps": 0,
+      "programsRecaptured": true,
+      "otherFamilies": "Retained unchanged capture pack with original timestamps",
+      "toolAndFreshness": "passed"
+    },
+    "validators": "Master/execution/implementation and20 continuation tests pass",
+    "runtime": "Compiled build current; dev3000/production3100 current, not signed-in readiness"
+  },
+  "scope": "Actual ProgramWorkspace and actual API route with fictional identity/HTTP/session/limiter adapters. Existing SQL evidence retained; no new SQL execution.",
+  "productChange": false,
+  "negativeControl": "No defect or regression repair claimed; no before variant required",
+  "assertions": [
+    "Exact preview definition/context3/window0/receipt through0; one private original create",
+    "Held create: no effect or ready claim, disabled Recording request; focus+Enter submission",
+    "Held finalization: four prepared dates but no ready badge or saved table; exact program/version2 original retained",
+    "Held read: zero date rows or extra focus/visibility requests",
+    "Confirmed ready with read503: Load saved dates retries only same program/window",
+    "Lost final reply+reload: no bootstrap read, same step locator; first failed recovery retains original and second recovery reads ready result",
+    "Current403 follow-up removes private program/branch/date and recovery controls",
+    "One create, prepare(version1), finalize(version2), four fictional dates; no replacement",
+    "Exact EN/AR occurrence links and times/timezone; no page errors"
+  ],
+  "commands": [
+    "UI_EVIDENCE_DIR=test-results/wd71-program-create node scripts/programs/test_ui.mjs",
+    "UI_REACT_MODE=development UI_EVIDENCE_DIR=test-results/wd71-program-create node scripts/programs/test_ui.mjs",
+    "node scripts/programs/test_api.mjs",
+    "node scripts/experience-review/collect.mjs programs",
+    "python3 scripts/design/build_master_plan.py",
+    "python3 scripts/design/build_continuation_prompt.py",
+    "node scripts/experience-review/build.mjs",
+    "node scripts/experience-review/test.mjs",
+    "node scripts/experience-review/build.mjs --check",
+    "python3 scripts/design/validate_experience_execution.py",
+    "python3 scripts/design/validate_implementation_register.py",
+    "node scripts/verification/web-build.mjs --check",
+    "npm run local:status",
+    "git diff --check"
+  ],
+  "limits": [
+    "Fictional effect/date counters do not prove SQL atomicity or current hosted identity",
+    "No routed journey or return, physical/installed-device, hosted, Owner acceptance or independent review proof",
+    "No app source, schema, writer, provider, account, key or operation locator change; no connected writes",
+    "Existing full92-day40-date preview/chunk/pause/resume cases rerun in both modes; new held matrix deliberately uses one window/four dates"
+  ],
+  "logs": "test-results/wd71-program-create/",
+  "visual": "Selected AR390 recovered-date result inspected; failure assertions are behavioral, screenshots show recovered state",
+  "failuresAndResolution": [
+    {
+      "failure": "CSV writer default CRLF flagged as trailing whitespace",
+      "resolution": "Restored LF without altering unrelated row content"
+    }
+  ],
+  "evidence": {
+    "production.json": "dd10dd1ca78df3e4080f79a6d90bccb5adddf7e67ca431e362244dfe8498bcad",
+    "development.json": "0982d1e7d2f30696457812a63b22770755fe51e18ff3718a9845a5a0e9a4666b",
+    "development-ar-recovered.png": "0e380edc357951e72d2213ce1253731c03123c21abb45da29c822af9a45bc55e",
+    "production-ar-recovered.png": "0e380edc357951e72d2213ce1253731c03123c21abb45da29c822af9a45bc55e"
+  }
+}

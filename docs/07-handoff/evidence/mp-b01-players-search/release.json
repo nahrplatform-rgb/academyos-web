@@ -1,0 +1,55 @@
+{
+  "commit": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+  "ci": {
+    "commit": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+    "run_id": 42574730746,
+    "run_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42574730746",
+    "run_attempt": 1,
+    "run_conclusion": "success",
+    "job_url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42574730746/job/129019773879",
+    "job_conclusion": "success",
+    "steps_passed": 53,
+    "step_count": 53,
+    "verdict": "passed"
+  },
+  "preview": {
+    "deploymentId": "dpl_BUAZYmFbFDoesJZbeM8JbnLXFSJr",
+    "commit": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+    "project": "academyos-web",
+    "state": "READY",
+    "dashboard": "https://vercel.com/academy-os2/academyos-web/BUAZYmFbFDoesJZbeM8JbnLXFSJr"
+  },
+  "promotion": "Canonical staging alias independently verified",
+  "signedInVerification": {
+    "date": "2026-11-10",
+    "scope": "Read-only synthetic Academy B Owner in Chrome",
+    "locales": [
+      "en",
+      "ar"
+    ],
+    "checks": {
+      "initialRows": 2,
+      "minimumLengthHint": true,
+      "previousRowsVisibleDuringSearch": true,
+      "previousRowActionsPaused": true,
+      "matchingRows": 1,
+      "rowsAfterClear": 2,
+      "focusAfterClear": "search input"
+    },
+    "hostedRequestCountsMeasured": false
+  },
+  "OwnerAcceptance": "pending working review",
+  "previousVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_AKBdytKRozd6Ygd2KDYVz6YRwdQB",
+    "commit": "5a7bebc29ba156d3cced28b6f780f6ebc56458b8",
+    "state": "READY"
+  },
+  "lastVerifiedStaging": {
+    "domain": "staging.academy.nahr.dev",
+    "deploymentId": "dpl_Amei3x4jNEJbg3GTAmwjQJCk83yh",
+    "commit": "b0e9ffc8ebf211489728a7a544cbac465cb44bec",
+    "state": "READY",
+    "checkedDate": "2026-11-10"
+  }
+}

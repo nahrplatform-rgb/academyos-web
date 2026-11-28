@@ -1,0 +1,140 @@
+{
+  "recorded_at": "2026-11-05T01:39:40.211747+00:00",
+  "source_base": "0b36bc4d2c3f032666bdd82595eb2c55ad03bc40",
+  "profile": {
+    "node": "24.14.0",
+    "postgres": "17.11 Homebrew",
+    "platform": "macOS arm64; disposable loopback SQL and Chromium fixtures"
+  },
+  "checks": [
+    {
+      "command": "npm run lint",
+      "status": "passed",
+      "scope": "Node24; no lint errors"
+    },
+    {
+      "command": "npm run build",
+      "status": "passed",
+      "scope": "Node24 production build; no staging rollout"
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "passed",
+      "scope": "Node24"
+    },
+    {
+      "command": "npm test",
+      "status": "passed",
+      "scope": "97 unit tests"
+    },
+    {
+      "command": "python3 scripts/workspace-download/test_boundary.py",
+      "status": "passed",
+      "scope": "21 disposable PG17 cases; canonical R7 rollback/activation and T9 move/cancel included"
+    },
+    {
+      "command": "node scripts/workspace-download/test_api.mjs",
+      "status": "passed",
+      "scope": "Actual handler with synthetic adapters; strict pre-provider boundaries"
+    },
+    {
+      "command": "node scripts/workspace-download/test_transport.mjs",
+      "status": "passed",
+      "scope": "8 actual SDK/gateway/PG transport assertions; Node24"
+    },
+    {
+      "command": "node scripts/offline-register/test_dispatch.mjs",
+      "status": "passed",
+      "scope": "17 existing dispatch/browser recovery checks; regenerated actual evidence"
+    },
+    {
+      "command": "node scripts/register-key/test_key.mjs --record",
+      "status": "passed",
+      "scope": "15 current key/authority/lifecycle checks; regenerated actual evidence"
+    },
+    {
+      "command": "node scripts/register-download/test_browser.mjs",
+      "status": "passed",
+      "scope": "20 current transfer/browser checks; regenerated actual evidence"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_next.mjs --record",
+      "status": "passed",
+      "scope": "8 actual Next/Chromium/PG working-day assertions; fictional authority/wire"
+    },
+    {
+      "command": "node scripts/working-day/test_owner_startup.mjs --check",
+      "status": "passed",
+      "scope": "Freshness only; unchanged startup inputs; no repeat of prior suite"
+    },
+    {
+      "command": "Existing dispatch/key/download/working-day --check",
+      "status": "passed",
+      "scope": "Source-bound receipts match the changed gateway"
+    },
+    {
+      "command": "python3 scripts/design/validate_implementation_register.py",
+      "status": "passed",
+      "scope": "68 screens;30 action groups;180 preserved requirements"
+    },
+    {
+      "command": "python3 scripts/design/validate_experience_execution.py",
+      "status": "passed",
+      "scope": "13 batches;17 findings;G01-G09;71 planned/evidence-linked cases;current EX-13"
+    },
+    {
+      "command": "node scripts/experience-review/build.mjs --inventory-only",
+      "status": "passed",
+      "scope": "Unchanged capture inputs;1189frames/1163transitions"
+    },
+    {
+      "command": "node scripts/experience-review/build.mjs --check",
+      "status": "passed",
+      "scope": "Review inventory/source fingerprints current"
+    },
+    {
+      "command": "node scripts/experience-review/test.mjs",
+      "status": "passed",
+      "scope": "Offline review-tool navigation/ENAR/390px; not product acceptance"
+    },
+    {
+      "command": "supabase db advisors --db-url <disposable TLS fixture> --type all --level info",
+      "status": "completed",
+      "scope": "0 WARN/ERROR;164 INFO;4 new-object notices dispositioned;160 legacy INFO assigned to EX-05"
+    },
+    {
+      "command": "New Python syntax and git diff --check",
+      "status": "passed",
+      "scope": "No operating data or credentials in output"
+    },
+    {
+      "command": "Changed-document local-link check",
+      "status": "passed",
+      "scope": "585 local links resolve; no web pages fetched"
+    }
+  ],
+  "repairs": [
+    "Reserved SQL alias corrected",
+    "Calendar parity normalizes equal UTC instants",
+    "Replay freezes original capture time; changed capture remains a conflict",
+    "Successor-Owner fixture preserves one-active-Owner constraint",
+    "Shared local PG port collision rerun serially",
+    "Busy Calendar query bounds date candidates before display joins",
+    "Plan test requires actual key seek and bounded row work, allowing a legitimate PK choice",
+    "Advisor rerun with local TLS and explicit fixture CA after plain fixture refused TLS"
+  ],
+  "delivery": {
+    "migration": "not applied hosted",
+    "transfer_flag": "closed by default; no provider setting changed",
+    "normal_ui": "unchanged; no refresh-fix claim",
+    "staging": "prior cb00ab8 retained; no promotion",
+    "ci": "new commit not pushed at this validation capture; later release receipt is separate",
+    "independent_security": "deferred by Owner; not performed"
+  },
+  "unmeasured": [
+    "Real workspace key custody/protected browser dataset repository",
+    "Normal Players/Calendar offline boot/quiet sync/context/requests",
+    "Whole-app no-flash acceptance",
+    "Hosted device/performance percentiles and service query/Redis/Clerk/billing costs"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "All docs Markdown/CSV except historical evidence blobs plus AGENTS/root and design READMEs;depth labels distinguish scan from close review",
+  "filesScanned": 238,
+  "markdownFiles": 225,
+  "csvFiles": 13,
+  "currentChanged": 60,
+  "v1Superseded": 4,
+  "localMarkdownTargetsChecked": 1627,
+  "linkLimit": "Local target existence only;not external URL or anchor semantics;pre-existing gaps distinguished",
+  "missingTargets": [],
+  "newMissingTargets": []
+}

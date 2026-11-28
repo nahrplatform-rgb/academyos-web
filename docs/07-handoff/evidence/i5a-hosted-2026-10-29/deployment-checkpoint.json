@@ -1,0 +1,18 @@
+{
+  "source": "93f10e41f73e07eb2feac6d0ffe3c7b876e378fe",
+  "deployment": "dpl_E7VBaoYESZazgY6LkWf16Wb2Dv5J",
+  "url": "academyos-6jwl85snt-academy-os2.vercel.app",
+  "domain": "staging.academy.nahr.dev",
+  "state": "Ready",
+  "pushCI": 40788829950,
+  "pullRequestCI": 40788837138,
+  "bothCI": "success",
+  "environment": "Existing synthetic staging; provider production slot is not commercial launch",
+  "unauthenticatedApi": {
+    "status": 401,
+    "result": {
+      "error": "denied"
+    }
+  },
+  "ownerBrowser": "Real signed-in Owner A current role; empty assessment queue loaded"
+}

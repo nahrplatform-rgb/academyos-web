@@ -1,0 +1,28 @@
+{
+  "scope": "One actual signed-in Owner cold-navigation smoke on existing browser/network; no sustained p95/device or provider SQL proof; payloads, cookies and tokens excluded",
+  "truncated": false,
+  "hasMore": false,
+  "requests": [
+    {
+      "status": 200,
+      "headersMs": 1374.0859999961685,
+      "cacheControl": "no-store",
+      "durationMs": 1372.2970000017085,
+      "transferBytes": 813
+    },
+    {
+      "status": 200,
+      "headersMs": 1894.1730000005919,
+      "cacheControl": "no-store",
+      "durationMs": 1893.566999999166,
+      "transferBytes": 399
+    },
+    {
+      "status": 200,
+      "headersMs": 1528.0640000055428,
+      "cacheControl": "no-store",
+      "durationMs": 1530.240000000049,
+      "transferBytes": 315
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "recordedUtc": "2026-11-16T20:23:22.924044+00:00",
+  "baseHead": "780225b51360a63153f6fc09d47431cd5b654047",
+  "status": "reviewed coherent dependency candidate; commit and exact CI/preview pending",
+  "scope": [
+    "Owner working-day continuity, Operations shell/Calendar/Players and confirmed-save follow-up recovery",
+    "Additive protected register scopes, original preservation and signed boundary fixtures",
+    "Managed local development/production runtime, encrypted archive recovery, manifest/icons and advisory storage diagnostics",
+    "Actual component/signed-route/disposable database checks, factual capture pack and canonical handoffs"
+  ],
+  "sourceReview": "Targeted source, tooling, assertion and dependency review against HEAD; prior incremental repair patches and source-bound results retained. File inventory is not an exhaustive security or visual review.",
+  "orientationCorrections": [
+    "Removed inferred next-intl dependency",
+    "Removed unverified local migration archive count and nonportable inventory"
+  ],
+  "preflight": {
+    "timestamp": "2026-11-16T20:15:14.812699+00:00",
+    "results": [
+      {
+        "command": "node scripts/verification/web-build.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-0.log"
+      },
+      {
+        "command": "node scripts/design/build_offline_register_preview.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-1.log"
+      },
+      {
+        "command": "node scripts/local-data/test_automatic_key.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-2.log"
+      },
+      {
+        "command": "node scripts/local-data/test_register_repository.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-3.log"
+      },
+      {
+        "command": "node scripts/local-data/test_public_shell.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-4.log"
+      },
+      {
+        "command": "node scripts/register-download/test_browser.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-5.log"
+      },
+      {
+        "command": "node scripts/workspace-download/test_transport.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-6.log"
+      },
+      {
+        "command": "node scripts/offline-register/test_dispatch.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-7.log"
+      },
+      {
+        "command": "node scripts/working-day/test_owner_next.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-8.log"
+      },
+      {
+        "command": "node scripts/register-key/test_key.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-9.log"
+      },
+      {
+        "command": "node scripts/working-day/test_owner_startup.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-10.log"
+      },
+      {
+        "command": "node scripts/working-day/test_normal_attendance.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-11.log"
+      },
+      {
+        "command": "node scripts/working-day/test_additive_attendance.mjs --check",
+        "exit": 0,
+        "log": "publish-preflight-12.log"
+      },
+      {
+        "command": "node scripts/experience-review/build.mjs --check",
+        "exit": 0,
+        "log": "observed directly"
+      }
+    ]
+  },
+  "additionalVerification": {
+    "localToolingAndBuildTests": 23,
+    "privateArchiveTests": 6,
+    "allPassed": true
+  },
+  "publicationScan": {
+    "scanner": "Official checksum-verified Gitleaks 8.30.1; default rules and max decode depth 2",
+    "selection": "Explicit changed/untracked source/evidence set copied without ignored files",
+    "matches": 24,
+    "sha256Metadata": 22,
+    "proseOrStatus": 2,
+    "confirmedCredentials": 0,
+    "limits": "Bounded pattern scan; not independent review or exhaustive image/compressed-content inspection. Ignored configuration/builds/raw connected traces are excluded from publication."
+  },
+  "excluded": [
+    "Ignored private settings, encrypted/decrypted key material, build/cache outputs, test-results and raw connected traces",
+    "No provider/profile/model/MCP setting or live staging alias changes"
+  ],
+  "authority": "Ordinary commit/push on existing branch and automatic Preview only. Owner performs promotion.",
+  "delegation": {
+    "helpers": 0,
+    "modelAndUsage": "Exact backend model and usage not exposed"
+  },
+  "next": "Commit explicit reviewed path list; push existing PR source; one exact candidate Foundation waiter and separate Preview project/SHA/READY check."
+}

@@ -1,0 +1,18 @@
+{
+  "status": "proposal",
+  "source_base": "57663983df50c3c8e39b5b2a35b81225b5f34f23",
+  "sha256": {
+    "README.md": "f1217f3273e90b41295aa6f3ce5a9f49919b8d295868544465d0807a2ae3d1bf",
+    "app.js": "f4958891f3fd518b579370e6b62983491ebf64d9528c6bd687f5317a816fe950",
+    "data.js": "5506f7911eedb82ae3286475d7002db191417a52558b156014dca1ba10695f38",
+    "evidence/calendar-ar-phone.png": "781a112feafc9b6ad4e18dadd1eb2aab112e9a7a2a5c7d129122280aed53967d",
+    "evidence/home-ar-320.png": "2cb54fc6ca358c3515c5c543ce07a1de727721913f830cef6ef54e3f79150ab5",
+    "evidence/home-ar-phone.png": "d626c060b088919ab7ef270729530d2806d20e601caf4b491f5ffd5e35e1b48d",
+    "evidence/layout-checks.json": "f91b85c9b65dc1680d08095dd7d5462754027cda63e5fbf7ba67a06d90053566",
+    "evidence/state-checks.json": "04b83bacfc44827f4dbe96743af9620d6a815d0813fed459105a9bfd6537a551",
+    "index.html": "1ca9e8ab32f33acdccd9db9b58fead4ffd3f0e5be1c870bd75265d48c793463e",
+    "picker.css": "f292574d26d73a6a95b5f36e1c09182ae135a9f5b2e5c89cf3716942aa40f993",
+    "studio.css": "9ffef817edc3448c86f7c5525f9db913c6b34ae43d09dad16960b61ce106c14d",
+    "verification.md": "e52b56782e4823037e4fe8032efd3e81c22f79490e2c5d31c10bc8829630791d"
+  }
+}

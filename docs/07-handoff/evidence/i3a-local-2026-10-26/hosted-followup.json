@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26",
+  "deployed_source": "43c5457ec826c9ec1a582b3960676529721e47f0",
+  "staging_deployment": "dpl_4bveybUBb6ekYBvNrT9EqXQDJNZk",
+  "deployment_duration_seconds": 38,
+  "domain": "staging.academy.nahr.dev",
+  "application_environment": "staging",
+  "ci_passed": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/40377696582",
+  "duplicate_branch_run": "40377708621 still running at observation; no success inferred",
+  "checks": [
+    "actual existing Owner session; no new grant or invitation",
+    "existing ready40-date program reopened after updated deployment",
+    "window2 saved dates loaded",
+    "Draft dates next window opens matching program window2",
+    "EN/AR 1440 and360 screenshots",
+    "DOM horizontal extent equals viewport at1440 and360",
+    "retained notice translation regression passed in local actual React production/development; not re-created as a hosted write"
+  ],
+  "local_followup": [
+    "typecheck pass",
+    "lint pass",
+    "build pass",
+    "both program React suites pass",
+    "implementation CSV integrity pass",
+    "prototype document/reference integrity pass",
+    "changed handoff/plan local links pass"
+  ],
+  "not_proven": [
+    "physical devices and screen reader",
+    "hosted multi-account direct API and write revocation/concurrency",
+    "declared-network p95 and sustained load/cost",
+    "independent human security audit",
+    "Owner working-feature acceptance"
+  ],
+  "warnings": [
+    "Existing Vercel cache-dir/install-scripts/Sentry navigation instrumentation warnings retained",
+    "GitHub default-branch alert1 remains open; provider title identifies a withdrawn braces advisory; no dependency change made"
+  ],
+  "source_sha256": {
+    "apps/web/src/components/program-workspace.tsx": "92e006a0678798df5d0029c5ed5600d40c5304d5b0d9b9e1125b5db8e02ced70",
+    "scripts/programs/test_ui.mjs": "87a0aec59f79fd18736197b37364413151273fadc0f2e30a08fa1ad68b16a21d",
+    "supabase/migrations/20261026181240_i3a_draft_programs.sql": "29ebeb88e048106e09574df4d344c37acc129dccd677cd8445e5478edc48db2a"
+  }
+}

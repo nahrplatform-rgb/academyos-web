@@ -1,5 +1,9 @@
 # Supabase database and storage configuration runbook
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Local replicas require reviewed current-scope manifest/snapshot/change contracts; no direct broad table access, service-role shortcut, public private-response caching or unmeasured hash scan. No new schema/RLS/SDK change in this checkpoint. Follow [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md).
+
 Selected PostgreSQL and private storage provider. Status: not provisioned or configured by this task. Use stable supported products; do not adopt alpha/beta database variants merely because they appear in the catalog.
 
 ## Projects, organization and region

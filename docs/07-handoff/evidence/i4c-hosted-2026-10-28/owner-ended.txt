@@ -1,0 +1,98 @@
+Window: "AcademyOS · Staging", App: Google Chrome.
+0 standard window AcademyOS · Staging - Google Chrome - Nahr, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff, Secondary Actions: Raise
+	1 container AcademyOS · Staging - Google Chrome - Nahr, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+		2 container
+			3 toolbar
+				4 button Back
+				5 button (disabled) Forward
+				6 button Reload
+				7 container
+					8 pop up button View site information
+					9 text field (settable) Address and search bar, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff, Placeholder: Ask Google or type a URL
+					10 button Bookmark this tab
+				11 container
+					12 pop up button iCloud Passwords
+Has access to this site
+					13 pop up button Take Webpage Screenshots Entirely - FireShot
+Wants access to this site
+					14 pop up button Extensions
+				15 button Nahr
+				16 pop up button Chrome
+			17 container
+				18 scroll area
+					19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+						20 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff#main
+						21 container
+							22 text Academy workspace Trainer appointments Staging
+							23 link العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+							24 pop up button Open user menu
+						25 container
+							26 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+							27 text Academy workspace
+							28 container Workspace navigation
+								29 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+								30 link Trainer appointments, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff
+								31 link Initial setup, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e
+							32 text Staging · Synthetic data only
+						33 container
+							34 heading Trainer appointments, Value: 1
+								35 text Trainer appointments
+							36 button Refresh view
+							37 text Synthetic Main Branch Trainer appointments Synthetic staging only. No real staff data. Operation confirmed. Current saved state is shown below.
+							38 heading Saved appointments, Value: 2
+								39 text Saved appointments
+							40 button Invite trainer
+							41 table Saved appointments
+								42 text Saved appointments
+								43 row
+									44 column header
+										45 text Appointment
+									46 column header
+										47 text Current state
+									48 column header
+										49 text Actions
+								50 row
+									51 row header
+										52 button Casey Demo
+										53 text Synthetic Main Branch
+									54 cell
+										55 text m***@icloud.com
+										56 text Trainer appointment ended
+										57 text Provider accepted; inbox unverified
+										58 container
+											59 text 28/10/2026, 14:57:11  UTC
+									60 cell
+										61 button Inspect exact recipient
+							62 container Contextual details and actions
+								63 heading Appointment details, Value: 2
+									64 text Appointment details
+								65 text Select an appointment to review its scope or end access. Exact recipient details load only when explicitly inspected.
+			66 pop up button Tab search
+			67 container
+				68 tab group
+					69 tab (settable, boolean) academyos-web – Deployment Overview, Value: off
+						70 button Close
+					71 tab (settable, boolean) AcademyOS · Staging, Value: off
+						72 button Close
+					73 tab (settable, boolean) Table Editor | academyos-staging | nahrplatform-rgb's Org | Supabase, Value: off
+						74 button Close
+					75 tab (settable, boolean) GitHub, Value: off
+						76 button Close
+					77 tab (selected, settable, boolean) AcademyOS · Staging, Value: on
+						78 button Close
+			79 button New Tab
+			80 button Open Gemini in Chrome
+	81 menu button Window sharing
+82 menu bar
+	83 Chrome
+	84 File
+	85 Edit
+	86 View
+	87 History
+	88 Bookmarks
+	89 Profiles
+	90 Tab
+	91 Window
+	92 Help
+
+The focused UI element is 19 HTML content AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/staff

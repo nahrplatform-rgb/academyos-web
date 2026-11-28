@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-25",
+  "source": "9c6e3ae001048ddbb1bf0376e7e99335a82efce8",
+  "deployment": "dpl_3Ce1wV8Ko3Q1JpFahNG7tUyW9bV4",
+  "ci": {
+    "40188329771": "success",
+    "40188326750": "success"
+  },
+  "owner_player_to_appointment_read": "passed",
+  "recipient_gate_configured": false,
+  "unauthorized_recipient_rejected": true,
+  "after_denial": {
+    "guardian_people": 0,
+    "guardian_invitations": 0,
+    "guardian_links": 0,
+    "guardian_operations": 0,
+    "memberships": 2,
+    "players": 4
+  },
+  "live_arabic_draft_switch": "passed on d68faa8: recipient draft and explicit checkbox retained with no discard dialog",
+  "not_proven": [
+    "remaining hosted direct-API/field/replay/recovery/concurrency cases",
+    "independent human security review",
+    "full hosted workload/provider meters",
+    "physical device/screen reader"
+  ],
+  "latest_source": "d68faa8ce0e0758710ef561a79b569962cf66323",
+  "latest_deployment": {
+    "id": "dpl_9UAU5MdQPh6VjSeLt4174GYxkwiT",
+    "state": "READY",
+    "canonical_alias": "staging.academy.nahr.dev"
+  },
+  "intermediate_ci": {
+    "40189111213": "success",
+    "40189107751": "success"
+  },
+  "latest_ci": {
+    "40190277910": "success",
+    "40190273493": "success"
+  },
+  "public_invitation": {
+    "http": 200,
+    "referrer_policy": "no-referrer",
+    "cache": "private/no-store"
+  },
+  "postfix_signed_in_browser": "Passed after desktop restart: Owner and Safari recipient EN/AR views",
+  "actual_recipient_authorization": "Executed one authorized Owner appointment to approved iCloud recipient; recipient acceptance pending",
+  "final_counts": {
+    "players": 4,
+    "memberships": 3,
+    "guardian_links": 1,
+    "active_guardian_links": 0,
+    "guardian_people": 1,
+    "guardian_operations": 3,
+    "guardian_invitations": 1
+  },
+  "browser_restored": "2026-10-25 after desktop restart",
+  "authorized_invitation": {
+    "id": "21851334-f69c-4b0c-8fe3-73c8dbe80254",
+    "state": "accepted",
+    "delivery": "accepted",
+    "attempts": 1,
+    "provider_recorded": true,
+    "send_deployment": "dpl_69ajYGPisiGPVYfJPHk1gGYFZt6x",
+    "memberships_after_send": 2,
+    "links_after_send": 0,
+    "version_after_end": 3,
+    "links_after_accept": 1,
+    "memberships_after_accept": 3
+  },
+  "restoration": {
+    "ordinary_email_destination": "restored in project config",
+    "new_guardian_recipient_gate": "closed, empty value",
+    "deployment": "dpl_8bWgT5xGcZiDvAoqseCYx7ZZbe3X",
+    "ready": true,
+    "original_destination_verified": true,
+    "guardian_gate_empty_verified": true
+  },
+  "hosted_recipient_checks": {
+    "identity": "separate recipient Safari session",
+    "minimal_visible_fields": [
+      "player display name",
+      "branch name"
+    ],
+    "english": "passed",
+    "arabic": "passed",
+    "owner_management_route": "denied",
+    "academy_B_guardian_route": "denied even though same identity is Owner in B",
+    "ended_link_refresh": "player absent; active-link selector empty",
+    "direct_selected_link_http": "not separately captured; local SQL case passed"
+  },
+  "ended_link": {
+    "id": "3eec2f21-b0d1-4cf7-89cd-84fd829f69c3",
+    "state": "ended",
+    "active_links": 0,
+    "private_reason_recorded": true,
+    "end_timestamp_recorded": true,
+    "appointment_audits": 1,
+    "acceptance_audits": 1,
+    "ending_audits": 1
+  },
+  "working_acceptance": {
+    "owner": "Moamen",
+    "date": "2026-10-25",
+    "decision": "Accept the working guardian journey",
+    "scope": "working wording/usability only"
+  }
+}

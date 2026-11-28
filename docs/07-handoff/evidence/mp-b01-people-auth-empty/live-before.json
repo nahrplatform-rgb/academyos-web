@@ -1,0 +1,11 @@
+{
+  "observed_date": "2026-11-08",
+  "method": "read-only Vercel get_deployment for staging.academy.nahr.dev",
+  "id": "dpl_Fq3E8v18NmPE7TRFECwG36fwXxMT",
+  "url": "academyos-88zpsunao-academy-os2.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "source_sha": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "branch": "codex/onboarding-decision-design-packet",
+  "limits": "Deployment/source metadata only;no signed-in flow or Owner-report inferred;no release action by agent."
+}

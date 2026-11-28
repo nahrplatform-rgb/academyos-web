@@ -1,0 +1,337 @@
+{
+  "cases": [
+    {
+      "locale": "en",
+      "command": "amend",
+      "outcome": "success",
+      "actions": [
+        "command",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "amend",
+      "outcome": "detail503",
+      "actions": [
+        "command",
+        "detail",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "amend",
+      "outcome": "list503",
+      "actions": [
+        "command",
+        "detail",
+        "roster",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "amend",
+      "outcome": "lost",
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "amend",
+      "outcome": "denied",
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "withdraw",
+      "outcome": "success",
+      "actions": [
+        "command",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "withdraw",
+      "outcome": "detail503",
+      "actions": [
+        "command",
+        "detail",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "withdraw",
+      "outcome": "list503",
+      "actions": [
+        "command",
+        "detail",
+        "queue",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "withdraw",
+      "outcome": "lost",
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "command": "withdraw",
+      "outcome": "denied",
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "amend",
+      "outcome": "success",
+      "actions": [
+        "command",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "amend",
+      "outcome": "detail503",
+      "actions": [
+        "command",
+        "detail",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "amend",
+      "outcome": "list503",
+      "actions": [
+        "command",
+        "detail",
+        "roster",
+        "detail",
+        "roster"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "amend",
+      "outcome": "lost",
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "amend",
+      "outcome": "denied",
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "draft",
+      "version": 8,
+      "revision": 4,
+      "publicationRetained": true,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "withdraw",
+      "outcome": "success",
+      "actions": [
+        "command",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "withdraw",
+      "outcome": "detail503",
+      "actions": [
+        "command",
+        "detail",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "withdraw",
+      "outcome": "list503",
+      "actions": [
+        "command",
+        "detail",
+        "queue",
+        "detail",
+        "queue"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "withdraw",
+      "outcome": "lost",
+      "actions": [
+        "command",
+        "operation",
+        "detail",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    },
+    {
+      "locale": "ar",
+      "command": "withdraw",
+      "outcome": "denied",
+      "actions": [
+        "command",
+        "detail"
+      ],
+      "writes": 1,
+      "state": "withdrawn",
+      "version": 8,
+      "revision": 3,
+      "publicationRetained": false,
+      "errors": []
+    }
+  ],
+  "scope": "Actual feedback component with fictional identity/HTTP; client protocol and presentation only. SQL publication/history/authority are separate; no hosted or route-return claim."
+}

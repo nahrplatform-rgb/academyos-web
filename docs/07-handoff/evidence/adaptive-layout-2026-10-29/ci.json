@@ -1,0 +1,32 @@
+{
+  "source": "df27fdb8194ecdebbb011f5c5eb89434b97efedc",
+  "runs": [
+    40975903392,
+    40975897827
+  ],
+  "conclusion": "success",
+  "earlier_source": "9e64f388a43505f6c1e2e31406c44f45f3626607",
+  "earlier_failed_run": 40961606445,
+  "fix": "stable working-list DOM across breakpoint branches; original admission focus assertions retained",
+  "staging_rebuild": "dpl_94Nwwzuvxa2RiqUi1uqGL9Q481Db",
+  "hosted": {
+    "date": "2026-10-30",
+    "environment": "existing staging only",
+    "result": "scoped read-only checks passed",
+    "checks": [
+      "Owner Home EN/AR",
+      "keyboard inspector resize including RTL",
+      "hide/show and compact preference reload",
+      "Reset layout restores expanded navigation and 336px inspector",
+      "actual Chrome 200% zoom drawer/details reflow; reset to 100%",
+      "People profile selection and return focus",
+      "retained closed attendance read without writes",
+      "month calendar center scroll with stable navigation and selected inspector"
+    ],
+    "limits": [
+      "Hosted attendance fixture has one player; long roster and independent long inspector verified locally only",
+      "No positive Trainer/Guardian hosted access restoration",
+      "Independent security, physical-device/accessibility, live performance/load/cost and Owner acceptance remain open"
+    ]
+  }
+}

@@ -1,0 +1,481 @@
+{
+  "recordedAt": "2026-11-05T00:07:59.603437+00:00",
+  "sourceHead": "43c0c9f4fbac24e6a6bc3c56d02782d2c47a4fcb",
+  "productSource": "cb00ab886f2278d0f3deb9a586b0c20872e672d2",
+  "productSourceMatchesInvestigatedStaging": true,
+  "profile": {
+    "node": "v26.9.0",
+    "os": "darwin",
+    "arch": "arm64",
+    "readDelayMs": 100
+  },
+  "scope": "Local actual React component fixtures; fictional identity/API. Read responses held100ms; original assertions unchanged. Entire-suite counters include intentional resets. Not per-user, provider, Next-navigation or latency evidence.",
+  "families": [
+    {
+      "family": "attendance",
+      "recordedAt": "2026-11-05T00:03:00.502Z",
+      "source": "scripts/attendance/test_ui.mjs",
+      "sha256": "791f74ee3452a8d71b414b46b68c06afbe6b00988168566a24e9372920f876ee",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 6,
+      "requestCountsAcrossEntireSuite": {
+        "/api/attendance:roster": 17,
+        "/api/attendance:register": 5,
+        "/api/attendance:reconcile": 3,
+        "/api/attendance:history": 2,
+        "/api/attendance:mark": 1
+      },
+      "heldReadSamples": 19,
+      "localInteractions": 52,
+      "lifecycleSignals": 3,
+      "traceSha256": "e51137925eef25a5fc9dc7ff9af29b17a0b4d32c889212cefa7d1663f4e337af"
+    },
+    {
+      "family": "corrections",
+      "recordedAt": "2026-11-05T00:03:10.083Z",
+      "source": "scripts/corrections/test_ui.mjs",
+      "sha256": "45a0028665122e9c04230469bab74da39a8797c7f8d99f89291cd6090d37f413",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 8,
+      "requestCountsAcrossEntireSuite": {
+        "/api/attendance:correction_list": 21,
+        "/api/attendance:correction_context": 7,
+        "/api/attendance:correction_submit": 5,
+        "/api/attendance:correction_reconcile": 4,
+        "/api/attendance:correction_detail": 16,
+        "/api/attendance:correction_decide": 5,
+        "/api/attendance:correction_history": 1
+      },
+      "heldReadSamples": 45,
+      "localInteractions": 66,
+      "lifecycleSignals": 6,
+      "traceSha256": "dffe232d42dfe6366d1fb6016631e03b8f950990058e043deeee70de073fd66f"
+    },
+    {
+      "family": "development",
+      "recordedAt": "2026-11-05T00:03:50.663Z",
+      "source": "scripts/development/test_ui.mjs",
+      "sha256": "fe9380e34b3c431b5919a2287b5d45da18457ee3c6a616fa01e62e68066c57a0",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 22,
+      "requestCountsAcrossEntireSuite": {
+        "/api/development:context": 20,
+        "/api/development:sessions": 16,
+        "/api/development:roster": 26,
+        "/api/development:detail": 38,
+        "/api/development:command": 16,
+        "/api/development:operation": 4,
+        "/api/development:queue": 8,
+        "/api/development:history": 1,
+        "/api/development:links": 1,
+        "/api/development:family_list": 2,
+        "/api/development:family_detail": 3
+      },
+      "heldReadSamples": 115,
+      "localInteractions": 131,
+      "lifecycleSignals": 8,
+      "traceSha256": "fb118fbb0fea48b9596ab8f4b3f9839aea34b1ae6a048e7bc2adc05f41c66d4f"
+    },
+    {
+      "family": "experience-projections",
+      "recordedAt": "2026-11-05T00:04:05.185Z",
+      "source": "scripts/experience-projections/test_ui.mjs",
+      "sha256": "dfa7b216f213fa39afe3e2fdcecd2864c1fc53360f6852dde90da9e53f35c20b",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 42,
+      "requestCountsAcrossEntireSuite": {
+        "/api/experience:owner_home": 14,
+        "/api/experience:owner_calendar": 14,
+        "/api/experience:owner_current_calendar": 2,
+        "/api/experience:trainer_home": 11,
+        "/api/guardians:links": 11,
+        "/api/experience:guardian_home": 11
+      },
+      "heldReadSamples": 63,
+      "localInteractions": 23,
+      "lifecycleSignals": 3,
+      "traceSha256": "41255e324b9c563bb652cafce7c5c751205d2595ab3c6af9d3bfe9118248e7f8"
+    },
+    {
+      "family": "guardian-training",
+      "recordedAt": "2026-11-05T00:03:27.763Z",
+      "source": "scripts/guardian-training/test_ui.mjs",
+      "sha256": "5ec96eec6aa730e419cd230c10390ecdb08594f7fbbf9dadfd9f457661cfc71b",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 2,
+      "requestCountsAcrossEntireSuite": {
+        "/api/guardian-training:links": 10,
+        "/api/guardian-training:schedule": 15,
+        "/api/guardian-training:detail": 10
+      },
+      "heldReadSamples": 35,
+      "localInteractions": 20,
+      "lifecycleSignals": 6,
+      "traceSha256": "3294823fb3a46255255568af25da2e5aa4b50f53cef604b83a3c9c80592c063d"
+    },
+    {
+      "family": "guardians",
+      "recordedAt": "2026-11-05T00:03:11.718Z",
+      "source": "scripts/guardians/test_ui.mjs",
+      "sha256": "3b326fb0800baf571bb6b0b37b70788f8c105973f3aec4750c145a995f8f3959",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 6,
+      "requestCountsAcrossEntireSuite": {
+        "/api/guardians:owner-list": 10,
+        "/api/guardians:appoint": 2,
+        "/api/guardians:operation": 2,
+        "/api/guardians:exchange": 1,
+        "/api/guardians:review": 2,
+        "/api/guardians:accept": 1,
+        "/api/guardians:links": 7,
+        "/api/guardians:end": 1
+      },
+      "heldReadSamples": 19,
+      "localInteractions": 40,
+      "lifecycleSignals": 9,
+      "traceSha256": "c3e434d01b48f6a2863180b1cffaf2b37bac0a647d918eaa40a4ca23406a9a03",
+      "explicitResumeMetrics": {
+        "resumeMetrics": {
+          "cleanPairedReads": 1,
+          "laterFocusReads": 1,
+          "unknownReturnRequests": 0,
+          "dirtyReturnRequests": 0
+        }
+      }
+    },
+    {
+      "family": "onboarding",
+      "recordedAt": "2026-11-05T00:02:55.734Z",
+      "source": "scripts/onboarding/test_ui.mjs",
+      "sha256": "28b0544d059ec2e5d7d2c157b91413c5b9f4710dc89a6a224ecdca4e614087c0",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 60,
+      "requestCountsAcrossEntireSuite": {
+        "/api/onboarding:exchange": 6,
+        "/api/onboarding:review": 3,
+        "/api/onboarding:platform": 72,
+        "/api/onboarding:create": 1,
+        "/api/onboarding:operation": 2,
+        "/api/onboarding:reissue": 1,
+        "/api/onboarding:accept": 1,
+        "/api/onboarding:context": 1,
+        "/api/onboarding:setup": 21,
+        "/api/onboarding:save": 9
+      },
+      "heldReadSamples": 97,
+      "localInteractions": 154,
+      "lifecycleSignals": 56,
+      "traceSha256": "8d218b94c07d7f02a01120dbdaa86811e9bb71514b02f0e7aedc90f2823f6425"
+    },
+    {
+      "family": "people",
+      "recordedAt": "2026-11-05T00:03:06.163Z",
+      "source": "scripts/people/test_ui.mjs",
+      "sha256": "956705b25cf32ea30ea44a37207663b189d30f29700e0d5c14f6267dad1c7d60",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 2,
+      "requestCountsAcrossEntireSuite": {
+        "/api/people:list": 10,
+        "/api/people:profile": 9,
+        "/api/people:candidates": 9,
+        "/api/people:create": 5,
+        "/api/people:reconcile": 3
+      },
+      "heldReadSamples": 28,
+      "localInteractions": 51,
+      "lifecycleSignals": 9,
+      "traceSha256": "8c7b1c5388e7c07548c7d4a3528000097acec8e96e3d48028f1f17aa85b08394",
+      "explicitResumeMetrics": {
+        "directoryResumeReads": 1,
+        "profileResumeReads": 1,
+        "reviewResumeReads": 0
+      }
+    },
+    {
+      "family": "planning",
+      "recordedAt": "2026-11-05T00:04:07.057Z",
+      "source": "scripts/planning/test_ui.mjs",
+      "sha256": "a67dddb9f4a8b01608bd40e8c785c86b6f986e21d0bc9689ebbcc692a8ea2fb4",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 14,
+      "requestCountsAcrossEntireSuite": {
+        "/api/planning:read": 25,
+        "/api/planning:dates": 12,
+        "/api/planning:candidates": 6,
+        "/api/planning:review": 11,
+        "/api/planning:save": 7,
+        "/api/planning:reconcile": 2
+      },
+      "heldReadSamples": 54,
+      "localInteractions": 72,
+      "lifecycleSignals": 7,
+      "traceSha256": "529c0d90c8c18aa3e7c26d52d3df561ec52b3b9921b4e13c59e23e5789b66527"
+    },
+    {
+      "family": "program-planning",
+      "recordedAt": "2026-11-05T00:04:25.635Z",
+      "source": "scripts/program-planning/test_ui.mjs",
+      "sha256": "3327e8005c2a85ecb5f8b2067f98359870a4ac541d159f27b3835ad08ad4a24e",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 2,
+      "requestCountsAcrossEntireSuite": {
+        "/api/program-planning:context": 3,
+        "/api/program-planning:list": 37,
+        "/api/program-planning:create": 11,
+        "/api/program-planning:read": 43,
+        "/api/program-planning:change": 29,
+        "/api/program-planning:candidates": 3,
+        "/api/program-planning:reconcile": 3
+      },
+      "heldReadSamples": 86,
+      "localInteractions": 86,
+      "lifecycleSignals": 7,
+      "traceSha256": "6350f62549dfc6b5397d286f10ccf0b3fe607de8fa41885716ba492665bb539c"
+    },
+    {
+      "family": "programs",
+      "recordedAt": "2026-11-05T00:03:53.762Z",
+      "source": "scripts/programs/test_ui.mjs",
+      "sha256": "36dee8bc141fb5e6c20c73d6ce838159b2c1e70653fd1a4c33c4835582430e2d",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 3,
+      "requestCountsAcrossEntireSuite": {
+        "/api/programs:list": 29,
+        "/api/programs:preview": 41,
+        "/api/programs:create": 7,
+        "/api/programs:step": 33,
+        "/api/programs:read": 12,
+        "/api/programs:dates": 2,
+        "/api/programs:reconcile": 2
+      },
+      "heldReadSamples": 43,
+      "localInteractions": 208,
+      "lifecycleSignals": 4,
+      "traceSha256": "ecd8cac77d0836db3916ba5bfa0f2cf19780e91dc988c070d09d8c67dbc88459"
+    },
+    {
+      "family": "publication",
+      "recordedAt": "2026-11-05T00:02:48.076Z",
+      "source": "scripts/publication/test_ui.mjs",
+      "sha256": "a41d775d6a2a56594f202cecd792581d94f48f4b3f15d11febd7840893f9b427",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 4,
+      "requestCountsAcrossEntireSuite": {
+        "/api/publication:context": 3,
+        "/api/publication:dates": 29,
+        "/api/publication:jobs": 29,
+        "/api/publication:create": 8,
+        "/api/publication:read": 29,
+        "/api/publication:change": 20,
+        "/api/publication:reconcile": 3,
+        "/api/publication:schedule": 4,
+        "/api/publication:roster": 3
+      },
+      "heldReadSamples": 97,
+      "localInteractions": 54,
+      "lifecycleSignals": 2,
+      "traceSha256": "8df6bba3d3259cd02a363ee11c34c2a7061ae46f67c12a3699d2584358e9f6d3"
+    },
+    {
+      "family": "qr-attendance",
+      "recordedAt": "2026-11-05T00:03:22.127Z",
+      "source": "scripts/qr-attendance/test_ui.mjs",
+      "sha256": "904851d6b98cdb4001467d7cf7c1e3cdb2e23dc435bca0cf0a00a688c742a1e4",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 53,
+      "requestCountsAcrossEntireSuite": {
+        "/api/qr:context": 60,
+        "/api/qr:sessions": 23,
+        "/api/qr:resolve": 11,
+        "/api/qr:capture": 10,
+        "/api/qr:reconcile": 5,
+        "/api/qr:card": 6,
+        "/api/qr:card_change": 3,
+        "/api/qr:window_change": 1
+      },
+      "heldReadSamples": 89,
+      "localInteractions": 59,
+      "lifecycleSignals": 0,
+      "traceSha256": "8f94bad5ab2dc37257d293a866e2daba275952a723087e6d5c97ac44015d5f7c"
+    },
+    {
+      "family": "session-changes",
+      "recordedAt": "2026-11-05T00:02:54.314Z",
+      "source": "scripts/session-changes/test_ui.mjs",
+      "sha256": "98ac165ec59e0e77997f422c7cf7a3d8a59b92fc67ff57dee11add612546acca",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 3,
+      "requestCountsAcrossEntireSuite": {
+        "/api/session-changes:read": 12,
+        "/api/session-changes:review": 11,
+        "/api/session-changes:save": 5,
+        "/api/session-changes:reconcile": 2
+      },
+      "heldReadSamples": 23,
+      "localInteractions": 58,
+      "lifecycleSignals": 3,
+      "traceSha256": "77848c409c1762b8b0a595e4f2019fbcb7fd42720e77786cab620febded43954"
+    },
+    {
+      "family": "trainers",
+      "recordedAt": "2026-11-05T00:03:16.581Z",
+      "source": "scripts/trainers/test_ui.mjs",
+      "sha256": "1f7359ba3edb058dc2987b62e3ea558d59b0dc4f6fd4b3659b5ece37e6322a12",
+      "harnessHashes": {
+        "scripts/navigation/measure_refresh_families.mjs": "6eaab4f7e81e6bd69708600dace6d269c17c613b26cfa7376927d1a5722512e8",
+        "scripts/navigation/refresh_trace.mjs": "364d4ae20b36cc9c5029b1ff79debd98938c7d2384c62815c12684e376d3a7f0"
+      },
+      "passed": true,
+      "code": 0,
+      "browser": "156.0.8078.4",
+      "observedDocumentEntries": 6,
+      "requestCountsAcrossEntireSuite": {
+        "/api/trainers:owner-list": 8,
+        "/api/trainers:appoint": 1,
+        "/api/trainers:operation": 1,
+        "/api/trainers:exchange": 1,
+        "/api/trainers:review": 2,
+        "/api/trainers:accept": 1,
+        "/api/trainers:profile": 7,
+        "/api/trainers:end": 1
+      },
+      "heldReadSamples": 17,
+      "localInteractions": 23,
+      "lifecycleSignals": 8,
+      "traceSha256": "1953dd69230b97213ad12a52e746d32f5da92deeb9021f40210fdda75ba9f0f9",
+      "explicitResumeMetrics": {
+        "resumeMetrics": {
+          "cleanPairedReads": 1,
+          "laterFocusReads": 1,
+          "unknownReturnRequests": 0,
+          "dirtyReturnRequests": 0
+        }
+      }
+    }
+  ],
+  "passedFamilies": 15,
+  "heldReadObservations": 830,
+  "trace": {
+    "path": "component-traces.jsonl.gz",
+    "sha256": "98688f77dc34a747884c78a0273fc0148c77aff5eb68ac99c8ee93078ece285b",
+    "uncompressedSha256": "0814747710ad7c3fab432d61cd850a9b8ee574e7419ec11c16b1f135e1bda3b0",
+    "bytes": 64378,
+    "uncompressedBytes": 1131058
+  },
+  "priorReceipts": [
+    {
+      "path": "next-routing.json",
+      "sha256": "b82685503352878ddc414b77c62436adeeb75ce572ebfb863c375469f0da335a",
+      "rerunAtThisCheckpoint": false
+    },
+    {
+      "path": "read-owner.json",
+      "sha256": "58d4dbdaaa92573c68caeb4d1aa258aa0ba54609145b0b8529467c525b36183f",
+      "rerunAtThisCheckpoint": false
+    },
+    {
+      "path": "geometry.json.gz",
+      "sha256": "f027d664c6bc68d522ec438604505a1ce205dd16951ac247cd4f697d9e58b688",
+      "rerunAtThisCheckpoint": false
+    },
+    {
+      "path": "shell-identity.json",
+      "sha256": "ad1ae0e69cb1387bb8d3d8d794a71eb5aeaf7f44d98a04e1b36157fb960fefba",
+      "rerunAtThisCheckpoint": false
+    },
+    {
+      "path": "optional-cold-open.json",
+      "sha256": "2b326f81ac31c95a3e277bf2ae8d06b23722bae3e906ff050f11afcd1ef2e89a",
+      "rerunAtThisCheckpoint": false
+    },
+    {
+      "path": "attendance-prior.json",
+      "sha256": "cebc1d40f9455218f31fdbb4c909f2a72e6786033713888851bb2d200c01e3d1",
+      "rerunAtThisCheckpoint": false
+    }
+  ]
+}

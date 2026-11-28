@@ -1,0 +1,32 @@
+{
+  "project": "snpphkenmvmhpjstbeul",
+  "run_id": "8deed34e-4cf6-4e9b-a726-8dc81cfedcf5",
+  "database_restore_passed": true,
+  "membership_boundary_passed": true,
+  "migration_rehearsed": null,
+  "migrations_rehearsed": [
+    {
+      "file": "20261103165604_owner_register_download_contract.sql",
+      "sha256": "cccffc24ea98b037e1f7a9494c56542f3ae3fa443efdd142e6459b7adaf88e3f"
+    },
+    {
+      "file": "20261104002448_owner_register_original_dispatch.sql",
+      "sha256": "e020220399eee61f633c54e14579e8c2ca9c75855eeeedc07507d9a7f7644b8e"
+    },
+    {
+      "file": "20261104012057_owner_register_key_custody.sql",
+      "sha256": "8bb0528c58446a9afec48adc04f3191d98aa1abbdedd787f45918067bfca1af1"
+    },
+    {
+      "file": "20261104013632_owner_register_bound_transport.sql",
+      "sha256": "54d03017e60533250831966a69aece16bbd968540289b21c777fa98b52c697e9"
+    }
+  ],
+  "counts": {
+    "identities": 2,
+    "academies": 2,
+    "memberships": 4,
+    "private_tables_with_rls": 59
+  },
+  "hosted_storage_restore_tested": false
+}

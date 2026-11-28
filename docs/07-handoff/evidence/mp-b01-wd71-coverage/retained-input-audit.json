@@ -1,0 +1,186 @@
+[
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-planning-save-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T08:30:13.158765+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/date-planning-workspace.tsx",
+        "retainedSha256": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+        "currentSha256": "f90e1e133de007dae619acd57bc6bc3020fc75923727c0fc3f70dfe27a94e5ec",
+        "matches": true
+      },
+      {
+        "path": "apps/web/src/components/workspace-panes.tsx",
+        "retainedSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "currentSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261027004132_i3b_draft_session_planning.sql",
+        "retainedSha256": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
+        "currentSha256": "12dc7e8c47a41d5b5e93fd4ee36fcf942ba2bc3e3af922ff084d58e87e9a6072",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-program-create-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T13:01:21.218115+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/program-workspace.tsx",
+        "retainedSha256": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+        "currentSha256": "4f28903b16039eba511d21f0d90499005e07de233a7c1f83ad2e27aa6a77f022",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-program-save-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T09:16:36.047681+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/program-planning-workspace.tsx",
+        "retainedSha256": "17d457ab012c07c8c86aa9297e2da0dba86e2b4d0346da1a718e16ac6d492203",
+        "currentSha256": "18cc9a44536a23164eac4b782eed5a04b50146db1cafed6f5e8352823ad7e4ba",
+        "matches": false
+      },
+      {
+        "path": "apps/web/src/components/workspace-panes.tsx",
+        "retainedSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "currentSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261027022133_i3c_atomic_program_planning.sql",
+        "retainedSha256": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+        "currentSha256": "371e448760cf17fab4d0b040e210784467982b72b3d834b9896034e2b34efcbc",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof.",
+    "supersededBy": "mp-b01-wd71-coverage/checkpoint.json: later private-create recovery repair; current five-command matrices apply; earlier timestamp retained."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-publication-save-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T12:01:46.083220+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/publication-workspace.tsx",
+        "retainedSha256": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+        "currentSha256": "95d64b7c459db64653ab5396708e94b0860512a95132a634835f237af13b8dd2",
+        "matches": true
+      },
+      {
+        "path": "apps/web/src/components/workspace-panes.tsx",
+        "retainedSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "currentSha256": "fa49aa23061e0fadff587e7041b2ed5afbb3b835f363adc8049ecf1cca37ff9c",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261027210954_i3d_published_trainer_schedule.sql",
+        "retainedSha256": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+        "currentSha256": "eecf0fdecded0736035908c32ff55c058e8c68a934870ba9a5e7e18fff86d493",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-session-change-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T12:46:13.910258+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/session-change-workspace.tsx",
+        "retainedSha256": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
+        "currentSha256": "1089797c82633e9cd719d8be2bc59366eebe360eddb66238f18a813f04d81f34",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-review-save-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T12:25:54.969728+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/correction-workspace.tsx",
+        "retainedSha256": "ee4514dac05954e43ec92258abd20026534d8869ed87806f1e830fa93371c30c",
+        "currentSha256": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
+        "matches": false
+      },
+      {
+        "path": "apps/web/src/components/development-workspace.tsx",
+        "retainedSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "currentSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261028153040_i4c_attendance_correction_requests.sql",
+        "retainedSha256": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+        "currentSha256": "74826fc23c2a682ab67713723e6793bee50b75654bf2069235228a163277ca8c",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261028233812_i5a_development_feedback.sql",
+        "retainedSha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+        "currentSha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-trainer-submission/checkpoint.json",
+    "originalTimestamp": "2026-11-16T14:14:42.450884+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/correction-workspace.tsx",
+        "retainedSha256": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
+        "currentSha256": "9201f4d90feb79bbc953234e9455b7b923c2f8613227e986ebddf8b19655b304",
+        "matches": true
+      },
+      {
+        "path": "apps/web/src/components/development-workspace.tsx",
+        "retainedSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "currentSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-feedback-lifecycle/checkpoint.json",
+    "originalTimestamp": "2026-11-16T14:30:32.419718+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/development-workspace.tsx",
+        "retainedSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "currentSha256": "ef354e4e2bc05705e0dd0f5b30cd021a9654c1d78369c1ede16f52f846fee369",
+        "matches": true
+      },
+      {
+        "path": "supabase/migrations/20261028233812_i5a_development_feedback.sql",
+        "retainedSha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+        "currentSha256": "bdea901b8f6464721ede36bb6e7a1b65e2f70722bc5acb508d334f93529fa177",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  },
+  {
+    "receipt": "docs/07-handoff/evidence/mp-b01-qr-followup/checkpoint.json",
+    "originalTimestamp": "2026-11-16T13:50:49.860726+00:00",
+    "productInputs": [
+      {
+        "path": "apps/web/src/components/qr-workspace.tsx",
+        "retainedSha256": "7f1fb6efdaa63908aa687578e219ff40903679eb7611afec6297b8169ba48c3c",
+        "currentSha256": "7f1fb6efdaa63908aa687578e219ff40903679eb7611afec6297b8169ba48c3c",
+        "matches": true
+      }
+    ],
+    "scope": "Only listed product/migration fingerprints checked; changed review tooling does not redate retained runtime proof."
+  }
+]

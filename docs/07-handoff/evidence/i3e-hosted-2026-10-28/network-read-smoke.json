@@ -1,0 +1,12 @@
+{
+  "scope": "One actual signed-in navigation, ordinary connection; no credential/header payloads persisted; not p95 or controlled-network/device acceptance",
+  "complete": true,
+  "requests": [
+    {
+      "status": 200,
+      "cache_control": "no-store",
+      "duration_ms": 926,
+      "transfer_bytes": 874
+    }
+  ]
+}

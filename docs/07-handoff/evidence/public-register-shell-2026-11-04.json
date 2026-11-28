@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-04T19:39:03.575Z",
+  "scope": "Isolated headless Chromium, actual public shell client and worker, fictional loopback builds; not hosted or private register proof",
+  "passed": true,
+  "checks": [
+    {
+      "name": "First preparation stores complete public build A",
+      "status": "passed"
+    },
+    {
+      "name": "Unchanged preparation fetches HTML only and retains pointer",
+      "status": "passed"
+    },
+    {
+      "name": "Failed changed build preserves complete A and removes candidate",
+      "status": "passed"
+    },
+    {
+      "name": "Successful build B switches revision and retains complete A",
+      "status": "passed"
+    },
+    {
+      "name": "Offline navigation serves B and prior A asset remains available",
+      "status": "passed"
+    },
+    {
+      "name": "Cache and loopback traffic contain only expected public resources and no credentials",
+      "status": "passed"
+    }
+  ],
+  "browser": "156.0.8078.4",
+  "node": "v26.9.0",
+  "hashes": {
+    "apps/web/public/prepared-register-worker.js": "d94703075e35f5356f34c0441d72799b92ebea0373412a02edcdbe6cca61af4f",
+    "apps/web/src/lib/register-public-shell.ts": "b4ca915bfbeb01544989d34d934abfc4a9910d1b3a5d0f359fc415af6bbb6797",
+    "scripts/local-data/test_public_shell.mjs": "93fabe42aff5283826827d05ddb18cf5873ee9b64b84a79a0bc46292c50870e2"
+  }
+}

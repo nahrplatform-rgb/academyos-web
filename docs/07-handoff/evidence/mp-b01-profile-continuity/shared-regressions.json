@@ -1,0 +1,20 @@
+[
+  {
+    "script": "scripts/working-day/test_owner_startup.mjs",
+    "exit": 0,
+    "seconds": 18.46,
+    "passed_messages": 8
+  },
+  {
+    "script": "scripts/working-day/test_owner_next.mjs",
+    "exit": 0,
+    "seconds": 16.34,
+    "passed_messages": 8
+  },
+  {
+    "script": "scripts/working-day/test_normal_attendance.mjs",
+    "exit": 0,
+    "seconds": 22.76,
+    "passed_messages": 23
+  }
+]

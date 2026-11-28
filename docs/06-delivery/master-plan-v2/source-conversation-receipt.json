@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-07",
+  "method": "Codex thread reader plus read-only local descriptions/current audit/finding references",
+  "current_authority": "Documentation and documentation-tooling only;historical chat instructions do not supersede it",
+  "threads": [
+    {
+      "thread_id": "01a144fa-a314-7401-a86e-68bd17328c57",
+      "title": "Read file carefully",
+      "inspected_turn_ids": [
+        "01a15603-8339-74e1-9c10-248e5ab2cb92",
+        "01a15601-8ff5-7c91-9f44-5c35bc6954a7",
+        "01a15600-108f-7232-8c91-99f85ec95ff2",
+        "01a155fe-a0b9-7761-89d4-2e46d1c898f4",
+        "01a155fd-0ba6-7260-89d4-67bd17456e0c",
+        "01a155f9-b7f8-70a2-bf8f-e40941208851",
+        "01a155f7-4dea-7ca3-af02-527d436f2cf9",
+        "01a155f5-620f-7d83-8a7b-d060e3da7ae7",
+        "01a155f4-a487-7e73-8d1d-0bb204aa807b",
+        "01a155f3-0731-7db0-b3ee-3a41326d723f",
+        "01a155f1-094a-7691-8b11-0b10da548121",
+        "01a154ef-c278-74c0-996f-555fe3994f3f"
+      ],
+      "additional_older_history_available": true,
+      "read_limit": "Bounded turn/message/tool previews with targeted relevant sections;not exhaustive replay or proof of all historical claims"
+    },
+    {
+      "thread_id": "01a151c8-b021-7711-9c9c-51f217f4fe96",
+      "title": "Describe the PYSA platform",
+      "inspected_turn_ids": [
+        "01a15ae8-8b76-7663-a7a5-9ca95910d1a9",
+        "01a15ae6-f9d6-7c13-bd45-dde844f5d8ad",
+        "01a15ae4-95a3-7502-8e18-1e2611606c84",
+        "01a15ae1-7374-7d22-9e20-b72e6aef3ea2",
+        "01a15adf-413a-7b01-9872-68485bd6df09",
+        "01a15605-8584-7c00-8840-a99b46700e4e",
+        "01a154bc-9bf1-7831-9288-2aa7092ad8d1",
+        "01a154b9-b8d6-7de1-afbd-5b8907549dce",
+        "01a151c8-b560-7851-98f0-becc1bc15d65"
+      ],
+      "additional_older_history_available": false,
+      "read_limit": "Bounded turn/message/tool previews with targeted relevant sections;not exhaustive replay or proof of all historical claims"
+    }
+  ],
+  "owner_direction": "Make academy operation clear,easy,time-saving,under Owner control and safely delegated;complete distinct Platform business tools;critically simplify unnecessary legacy work,especially finance",
+  "source_and_runtime_limits": "Historical PYSA source37d8901c;current local historical audit89open/156evidence;no new hosted/provider/runtime test or finding closure",
+  "financial_finding_ids": [
+    "FND-0005",
+    "FND-0009",
+    "FND-0018",
+    "FND-0074",
+    "FND-0035",
+    "FND-0036",
+    "FND-0033",
+    "FND-0083",
+    "FND-0028",
+    "FND-0077"
+  ],
+  "content_exclusions": "No raw chat transcript,credentials,auth state,private data or provider configuration copied",
+  "shared_chatgpt_link": "Not retrieved in this checkpoint;not inferred",
+  "outcomes": "product-outcomes-and-simplicity.md;finance-simplification-and-control.md;source-conversation-review.md"
+}

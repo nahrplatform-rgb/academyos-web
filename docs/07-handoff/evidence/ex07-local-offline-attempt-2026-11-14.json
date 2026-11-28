@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "recordedUtc": "2026-11-14T16:11:14Z",
+  "checkpoint": "EX-07 / MP-B01 normal Owner register in local production",
+  "status": "passed_scoped_live_local_owner_attendance_offline_save_close_reopen_reconnect",
+  "origin": "http://localhost:3100",
+  "utc_session": {
+    "event": "30ef0d4c-153f-4bdd-8b29-2460fbb1bed1",
+    "program": "1eb8403a-e227-40ae-8e2f-8dded96494eb",
+    "original_day": "2026-11-15",
+    "displayed_day": "2026-11-14",
+    "start": "2026-11-14T16:00:00Z",
+    "end": "2026-11-14T17:00:00Z",
+    "recording_deadline": "2026-11-15T17:00:00Z",
+    "timezone": "Africa/Cairo",
+    "synthetic_roster": 4,
+    "additive_bindings_observed_for_exact_event": 1
+  },
+  "observations": [
+    "Native Chrome Nahr, existing Academy A Owner. Separate extension-controlled profile returned no active membership and was excluded.",
+    "With the local server unavailable, planning reported Outcome uncertain. After the server restarted, the normal Check original operation action confirmed cancellation and a read-only scoped check found zero effective plans before a replacement was made.",
+    "Normal planning saved one checked date and retained all current validation. The unpublished occurrence moved via the ordinary audited session-change action; the four fictional players, eligible Trainer and capacity were retained. Publication review made just that date visible to the assigned Trainer.",
+    "The ordinary English Attendance URL reopened with all four roster rows from this device. The server recording window opened at the actual session start. Chrome DevTools set just the test tab to Offline.",
+    "Saved one Present and one Absent together; both remaining players stayed Unmarked. UI showed Saved on this device · Awaiting sync. Both selections reopened after a normal offline reload.",
+    "First cold navigation from a second throttled tab stalled at Loading sign-in while the localhost listener was running. Normal reload showed the protected records. The full reason for that initial difference was not isolated.",
+    "Stopped only the known local production listener and checked that the port refused connections. After the original save tab closed, unloaded the replacement tab to about:blank, then reopened the exact ordinary URL in one offline navigation; both marks rendered without Prepare or Recover.",
+    "After starting local production from the same checked source and awaiting HTTP readiness, restored No throttling. One observed /api/register-dispatch fetch returned HTTP 200 automatically; no retry or second save was requested. DevTools comparison matched the sent reference to the committed operation. Both marks reopened on the ordinary Arabic route after sync."
+  ],
+  "aggregate_readback": {
+    "after_offline_save": {
+      "checked_utc": "2026-11-14 16:00:42.638236+00",
+      "present": 0,
+      "absent": 0,
+      "history": 0,
+      "operations": 0,
+      "register_audits": 0
+    },
+    "after_close_reopen_while_offline": {
+      "checked_utc": "2026-11-14 16:02:48.455497+00",
+      "present": 0,
+      "absent": 0,
+      "history": 0,
+      "operations": 0,
+      "register_audits": 0
+    },
+    "after_automatic_sync": {
+      "checked_utc": "2026-11-14 16:05:08.517338+00",
+      "present": 1,
+      "absent": 1,
+      "history": 2,
+      "operations": 1,
+      "register_audits": 1,
+      "captured_utc": "2026-11-14 16:00:35.614+00",
+      "received_utc": "2026-11-14 16:04:56.575199+00",
+      "single_committed_original": true
+    },
+    "after_online_arabic_reopen": {
+      "checked_utc": "2026-11-14 16:06:52.392387+00",
+      "present": 1,
+      "absent": 1,
+      "history": 2,
+      "operations": 1,
+      "register_audits": 1,
+      "single_committed_original": true
+    }
+  },
+  "browser_evidence": {
+    "profile": "Native Chrome Nahr",
+    "sandboxing": "Chrome DevTools Network Offline for test tabs plus local listener stopped for cold proof",
+    "actual_close_and_reopen": "Original tab closed, a clean document reopened on the exact normal Attendance path while the server was stopped",
+    "entire_browser_restart": false,
+    "reconnect_dispatch_requests": 1,
+    "reconnect_status": 200,
+    "request_reference_matches_database": true,
+    "before_after_original_byte_equivalence": "Verified in isolated fixture; the live comparison covered sent reference and committed operation only"
+  },
+  "fixture_and_tooling": {
+    "command": "npm run local:verify -- --suite=attendance",
+    "canonical_fixture": "docs/07-handoff/evidence/ex07-additive-attendance.json",
+    "runtime": {
+      "node": "v24.14.0",
+      "npm": "11.19.1"
+    },
+    "passed_cases": 4,
+    "duration_ms": 16585,
+    "completed_utc": "2026-11-14T15:52:34.085Z",
+    "reused_same_input_on_second_run": true,
+    "tooling_unit_tests": 10,
+    "measurement_scope": "Local run wall time. No model token, provider compute or whole-app request saving estimated.",
+    "manual": "docs/06-delivery/local-development-and-verification.md"
+  },
+  "evidence_boundary": {
+    "environment": "local production frontend using configured synthetic staging services",
+    "account_or_role_change": false,
+    "synthetic_database_write": true,
+    "provider_send": false,
+    "promotion": false,
+    "separate": [
+      "Disposable Chromium relaunch with byte-identical original and one committed result",
+      "Hosted verification of later code",
+      "Installed-device and OS restart/eviction",
+      "Whole-app offline, performance, security and Owner acceptance"
+    ]
+  },
+  "next_action": "Continue EX-07 / MP-B01 with the previously queued Calendar and Players Operations composition/density work. Start with Calendar: compare the working and approved reference at equivalent data, locale and viewport, record concrete differences, then verify one coherent local slice while preserving offline reads, selection/return, permissions, dirty input and original recovery. Use the focused browser harness and compact receipt. Keep Rich Player MP-Q01 and hosted/installed/Owner evidence separate.",
+  "previous_checkpoint": "docs/07-handoff/local-functional-environment-2026-11-13.md",
+  "related_evidence": [
+    "docs/07-handoff/trainer-delivery-repair-2026-11-14.md",
+    "docs/07-handoff/evidence/ex07-additive-attendance.json"
+  ],
+  "historical_profile_attempt": {
+    "schema": 1,
+    "recordedUtc": "2026-11-14T14:21:20Z",
+    "checkpoint": "EX-07 / MP-B01 local production fresh-session attempt",
+    "status": "blocked_before_session_selection_by_current_browser_identity_after_controlled_retries",
+    "origin": "http://localhost:3100",
+    "server": {
+      "command": "npm run local:production",
+      "runtime": "Node v24.14.0 / npm 11.19.1",
+      "state": "ready",
+      "offline_keys": "existing protected archives recovered into process memory"
+    },
+    "observations": [
+      "The local production workspace opened at /en/workspace.",
+      "The first workspace read returned the declared limited state (HTTP 429 presentation).",
+      "After one controlled retry, the workspace returned No active academy membership.",
+      "The attached Chrome profile was not an eligible Academy Owner context for this local origin; no email, password, role, account switch or invitation action was entered.",
+      "No planning save, publication, register preparation, attendance mark, offline write or server reconciliation was attempted in this attempt.",
+      "After the Owner reported the profile ready, the controlled Chrome tab still exposed the Hiếu profile and the workspace remained without an active academy membership.",
+      "A refresh, a 60-second wait and one further controlled retry produced the same no-membership result; no session or write was attempted."
+    ],
+    "evidence_boundary": {
+      "environment": "local production frontend using configured synthetic staging services",
+      "account_change": false,
+      "database_write": false,
+      "provider_send": false,
+      "promotion": false,
+      "offline_claim": false
+    },
+    "previous_checkpoint": "docs/07-handoff/local-functional-environment-2026-11-13.md",
+    "related_evidence": [
+      "docs/07-handoff/trainer-delivery-repair-2026-11-14.md",
+      "docs/07-handoff/evidence/ex07-additive-attendance.json"
+    ],
+    "owner_reported_profile_ready": true,
+    "controlled_browser_profile": "Hiếu (the profile exposed to Browser control)",
+    "superseded_by": "The native Nahr Chrome local production observation below used the correct Owner identity.",
+    "suggested_action_at_the_time": "Attach the already-authorized Academy Owner browser profile to localhost:3100, verify its current academy membership, then continue the fresh in-window fictional session through normal planning/publication and run Attendance disconnect-save-close/reopen-reconnect with original-operation reconciliation. Do not retry from the empty-membership profile or change roles to bypass this boundary."
+  },
+  "factual_html": {
+    "path": "design/app-experience-review/AcademyOS-experience-review.html",
+    "frames": 1329,
+    "transitions": 1323,
+    "journeys": 17,
+    "capture_gaps": 0,
+    "archive_sha256": "616270e142b36a23fd40ef55099052825c631615abc8b53b1bdb77802bd3f27b",
+    "html_sha256": "f101a106c0cb73465fb5ef85fb75bfe8aae2bd027be9d1f441b85f84d3f9ce21",
+    "verification": "All 16 runtime capture groups and the entry route recaptured; freshness and reviewer browser checks passed. Fictional route captures, separate from signed-in proof."
+  }
+}

@@ -1,0 +1,27 @@
+test_10_reissue_invalidates_old_secret_and_revoked_grant (<run_path>.SessionChangeBoundary.test_10_reissue_invalidates_old_secret_and_revoked_grant) ... ok
+test_people_05_pagination_normalization_and_stale_review (<run_path>.SessionChangeBoundary.test_people_05_pagination_normalization_and_stale_review) ... ok
+test_planning_06_concurrent_cross_date_conflict (<run_path>.SessionChangeBoundary.test_planning_06_concurrent_cross_date_conflict) ... ok
+test_planning_07_bounded_roster_and_candidates (<run_path>.SessionChangeBoundary.test_planning_07_bounded_roster_and_candidates) ... ok
+test_program_08_bounded_directories_and_date_cursor (<run_path>.SessionChangeBoundary.test_program_08_bounded_directories_and_date_cursor) ... ok
+test_program_planning_02_injected_last_child_failure_rolls_back_every_date (<run_path>.SessionChangeBoundary.test_program_planning_02_injected_last_child_failure_rolls_back_every_date) ... ok
+test_program_planning_05_single_date_race_stale_and_cancel_fence (<run_path>.SessionChangeBoundary.test_program_planning_05_single_date_race_stale_and_cancel_fence) ... ok
+test_program_planning_07_large_roster_pagination_revision_and_ended_trainer (<run_path>.SessionChangeBoundary.test_program_planning_07_large_roster_pagination_revision_and_ended_trainer) ... ok
+test_program_planning_10_large_date_roster_product_and_audit_failure (<run_path>.SessionChangeBoundary.test_program_planning_10_large_date_roster_product_and_audit_failure) ... ok
+test_publication_05_dated_only_assignment_and_bounded_snapshot_roster (<run_path>.SessionChangeBoundary.test_publication_05_dated_only_assignment_and_bounded_snapshot_roster) ... ok
+test_publication_07_started_dates_missing_plan_and_raw_guard (<run_path>.SessionChangeBoundary.test_publication_07_started_dates_missing_plan_and_raw_guard) ... ok
+test_session_changes_01_move_preserves_identity_and_effective_discovery (<run_path>.SessionChangeBoundary.test_session_changes_01_move_preserves_identity_and_effective_discovery) ... ok
+test_session_changes_02_cancel_locks_and_releases_occupancy (<run_path>.SessionChangeBoundary.test_session_changes_02_cancel_locks_and_releases_occupancy) ... ok
+test_session_changes_03_stale_occupied_failed_audit_and_fence (<run_path>.SessionChangeBoundary.test_session_changes_03_stale_occupied_failed_audit_and_fence) ... ok
+test_session_changes_04_roles_scope_acl_and_actual_timezone (<run_path>.SessionChangeBoundary.test_session_changes_04_roles_scope_acl_and_actual_timezone) ... ok
+test_session_changes_05_observed_move_edit_publish_cancel_orders (<run_path>.SessionChangeBoundary.test_session_changes_05_observed_move_edit_publish_cancel_orders) ... ok
+test_session_changes_06_unplanned_revision_and_atomic_audit_failure (<run_path>.SessionChangeBoundary.test_session_changes_06_unplanned_revision_and_atomic_audit_failure) ... ok
+test_session_changes_07_unplanned_planning_and_prepared_scope_stale (<run_path>.SessionChangeBoundary.test_session_changes_07_unplanned_planning_and_prepared_scope_stale) ... ok
+test_session_changes_08_overlap_ending_and_retained_history_paging (<run_path>.SessionChangeBoundary.test_session_changes_08_overlap_ending_and_retained_history_paging) ... ok
+test_session_changes_09_bounded_large_roster_timings (<run_path>.SessionChangeBoundary.test_session_changes_09_bounded_large_roster_timings) ... ok
+test_session_changes_10_failed_validation_and_commit_clock_rollback (<run_path>.SessionChangeBoundary.test_session_changes_10_failed_validation_and_commit_clock_rollback) ... ok
+test_session_changes_11_effective_order_original_key_paging (<run_path>.SessionChangeBoundary.test_session_changes_11_effective_order_original_key_paging) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 52.014s
+
+OK

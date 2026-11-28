@@ -1,0 +1,198 @@
+{
+  "scope": "Local runtime ownership and connected synthetic Owner verification; no release or installed acceptance",
+  "date": "2026-11-15T18:56:49.960035+00:00",
+  "head": "780225b51360a63153f6fc09d47431cd5b654047",
+  "branch": "codex/onboarding-decision-design-packet",
+  "checks": {
+    "navigation": {
+      "status": "passed",
+      "completed": "2026-11-15T18:39:58.774Z",
+      "durationMs": 37032,
+      "sourceStable": true,
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "signature": "5381fb646e66ea0f6601f4dd29a2d4c01abe1ab3427c604410701039e60efeff",
+      "receipt": "test-results/local-workflow/latest-navigation.json",
+      "artifacts": "test-results/local-workflow/2026-11-15T18-39-21-650Z-navigation-BfXOgT/artifacts"
+    },
+    "device": {
+      "status": "passed",
+      "completed": "2026-11-15T18:38:41.123Z",
+      "durationMs": 2714,
+      "sourceStable": true,
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "signature": "f6c91d82a19248d77be718770992fa92e9d569108cd971cb08b5d090550167b4",
+      "receipt": "test-results/local-workflow/latest-device.json",
+      "artifacts": "test-results/local-workflow/2026-11-15T18-38-38-368Z-device-l63Mpl/artifacts"
+    },
+    "keyboard": {
+      "status": "passed",
+      "completed": "2026-11-15T18:38:00.930Z",
+      "durationMs": 4793,
+      "sourceStable": true,
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "signature": "296e679ae5197535817b2d35b74b6a679222db5876724f5d7ee75f49fb12938e",
+      "receipt": "test-results/local-workflow/latest-keyboard.json",
+      "artifacts": "test-results/local-workflow/2026-11-15T18-37-56-098Z-keyboard-Fr4Brd/artifacts"
+    },
+    "transport": {
+      "status": "passed",
+      "completed": "2026-11-15T18:46:25.008Z",
+      "durationMs": 42386,
+      "sourceStable": true,
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "signature": "6f97266bbc795643755cd807ef1681216c5c20367b95cbcfafd33a78ef6e231f",
+      "receipt": "test-results/local-workflow/latest-transport.json",
+      "artifacts": "test-results/local-workflow/2026-11-15T18-45-42-557Z-transport-fVkbHg/artifacts",
+      "count": 73,
+      "duplicateLocales": [
+        "en",
+        "ar"
+      ]
+    },
+    "public": {
+      "status": "passed",
+      "completed": "2026-11-15T18:47:04.201Z",
+      "durationMs": 2070,
+      "sourceStable": true,
+      "runtime": {
+        "node": "v24.14.0",
+        "npm": "11.19.1"
+      },
+      "signature": "994049f0eca179e26eed896303e5b6783d03e438dc38f04b1cad311f2ab98ba5",
+      "receipt": "test-results/local-workflow/latest-public.json",
+      "artifacts": "test-results/local-workflow/2026-11-15T18-47-02-080Z-public-312ZvD/artifacts"
+    },
+    "units": {
+      "status": "passed",
+      "count": 119,
+      "log": "test-results/local-workflow/reliability-units.log"
+    },
+    "tooling": {
+      "status": "passed",
+      "count": 23,
+      "log": "test-results/local-workflow/reliability-tooling.log"
+    },
+    "typecheck": {
+      "status": "passed",
+      "log": "test-results/local-workflow/reliability-typecheck.log"
+    },
+    "lint": {
+      "status": "passed",
+      "log": "test-results/local-workflow/reliability-lint.log"
+    },
+    "review-tool": {
+      "status": "passed",
+      "log": "test-results/local-workflow/reliability-review-tool.log",
+      "assertion": "PASS offline whole-app review checks"
+    },
+    "review-freshness": {
+      "status": "passed",
+      "log": "test-results/local-workflow/reliability-review-freshness.log"
+    },
+    "factualReview": {
+      "status": "passed",
+      "families": 16,
+      "entryVariants": 8,
+      "frames": 1390,
+      "tool": "scripts/experience-review/test.mjs",
+      "freshness": "scripts/experience-review/build.mjs --check"
+    },
+    "documentation": {
+      "status": "passed",
+      "continuationTests": 20,
+      "validators": [
+        "validate_experience_execution.py",
+        "validate_implementation_register.py",
+        "validate_master_plan.py",
+        "PWA structural joins",
+        "git diff --check"
+      ],
+      "scope": "Structural consistency only; runtime assertions recorded separately."
+    }
+  },
+  "runtime": {
+    "dev": {
+      "instance": "0cb2c939-fd9f-448c-97ec-2ba074fe7a70",
+      "mode": "dev",
+      "sourceHash": null,
+      "buildId": null
+    },
+    "production": {
+      "instance": "5c652724-3744-4b1d-9440-a86c5938e88e",
+      "mode": "production",
+      "sourceHash": "85b4a3f2fdbfa538834fcab2fdba655efc2554136a46b4d3e51073e3516b428f",
+      "buildId": "JJGrT5oAHyzzmbo0V4ts0"
+    }
+  },
+  "connected": {
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "role": "owner",
+    "lookupStatuses": {
+      "http://localhost:3000": 200,
+      "http://localhost:3100": 200
+    },
+    "ui": [
+      "development EN Calendar Month/date enabled",
+      "production EN Calendar and Players",
+      "production AR Players"
+    ],
+    "registration": {
+      "name": "Synthetic Runtime Focus Proof 2026-11-15",
+      "operation": "49ff86ba-401f-4bc1-bf58-8e71c8355ee7",
+      "player": "fe2f0c35-6d01-4f68-9cca-c97cc2f692b6",
+      "createStatus": 200,
+      "before": 4,
+      "after": 5,
+      "focusedRowsAfterReturn": 1,
+      "documentLoadsOnReturn": 0,
+      "enterOpenedCorrectProfile": true,
+      "retainedSyntheticRecord": true,
+      "emailProvided": false
+    },
+    "identityScope": "Canonical signed-in membership and visible Owner workspace; no named email-identity assertion is based on browser-profile labels.",
+    "screenshots": [
+      "owner-ar-production.png"
+    ]
+  },
+  "source": {
+    "apps/web/src/components/people-workspace.tsx": "d6eb5b16464650f255a24f23e2cd4c9f068e493d0451f0f9b72c1fe07407249c",
+    "scripts/people/registration_focus.mjs": "284115c2a03ed964ba4b02006076f2ae50c7b594a6229b3d1aa034746c7b86d0",
+    "apps/web/next.config.ts": "21e3c4308afc2c431bbb658d487d77353e045897d5bd1f8f6180b1cc390d5fc9",
+    "apps/web/tsconfig.json": "885b4b5ab96977ebf1c0b711c45fef8182196ef0ff5325124d3fb35c2707bfba",
+    "apps/web/eslint.config.mjs": "6d897b5cea1efb518018c95a454c1c725ce0db97662e5c79f24adddf117031f7",
+    "apps/web/src/lib/workspace-public-shell.ts": "ae7447c30f81106ec5604898777b9c75b9b350038eea3013b355de5f1e241cff",
+    "apps/web/public/prepared-workspace-worker.js": "aa1ec38d52db8ffd4b3b3adbec120fa2acba2bce93c0fdf42002df0b0e3ff4f8",
+    "apps/web/src/lib/local-runtime.ts": "48405a2438dbc8d6ce0f08211cf49b7102930561b7c73350377603633ea2b765",
+    "apps/web/src/lib/local-runtime.test.ts": "d85053a06b44ea80fc152083331381d361d1190b65da8fcbc58851ffd39f8cec",
+    "apps/web/src/app/api/local-runtime/route.ts": "516d820d7474ac4690268b02dfa791a5efab16d5fe2f1b0278472004aaaa019c",
+    "scripts/local/runtime.mjs": "db00efc6dcd0b19c06ea15797834f04b7c189e3ca96d99d92ad30542beb0f9db",
+    "scripts/local/runtime.test.mjs": "0b4c54e2663e64ca90ca605951148aca0d3d1bb976ed8b9510a314f7084b3fc8",
+    "scripts/local/editor-worker.test.mjs": "e47212a696c70a8a9901e01af4873fc29448abb4a45f8bc1089a13a6389034c1",
+    "scripts/local/connected-checkpoint.mjs": "a8012e7da18e9a7f39fb6cf16a67fc86e72b094566f99e82f3cec2ec5d45a94f",
+    "scripts/local/workflow.mjs": "fa591fa52e98c86d3f5ade270788e88c1ea17c7e723ed2a32807bb12e73ec214",
+    "scripts/local/workflow.test.mjs": "bd5f19e5ccbb3fb8e0b39b8f66b85c175e43a2794da75f53f2ea865dcb877963",
+    "scripts/workspace-download/test_transport.mjs": "71402d6930ff3e4f3086c4f09ff4a275b45168e3e1f0d95c94e2dcc75eea40ea",
+    "scripts/verification/web-build.mjs": "3d234f949ded13bd1eb836b666ca88bb1e6f1bf418d6d04dd2e188fc25c88fd2",
+    "scripts/verification/web-build.test.mjs": "0dbb2223a13a3083a64b700aaf7511ac97ed3ce8c34f3c6e66f1e898b44e9f30",
+    "scripts/experience-review/collect.mjs": "a0b83a3ef1d1e6dafee92416bf8c4e4f9b32312526b5ec76e5a52ebd686d23da",
+    ".github/workflows/verify.yml": "48b22f5b5d9b1fa49042c31ef0ba7b46bf0970fe4a4a803881163c966a2ed9ae"
+  },
+  "limits": [
+    "Original historical WD-70 focus failure and workspace lookup lack conclusive old-cause evidence. A controlled focus timing vulnerability was reproduced and repaired.",
+    "Local frontend used existing synthetic staging services; no staging-domain rollout or installed-device acceptance.",
+    "No commit, push, promotion, account/role/provider configuration change or independent human security review.",
+    "Backend model/token/cost telemetry unavailable; one configured Terra helper and one coordinator."
+  ]
+}

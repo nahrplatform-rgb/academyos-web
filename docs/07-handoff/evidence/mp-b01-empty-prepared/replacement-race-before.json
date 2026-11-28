@@ -1,0 +1,44 @@
+{
+  "variant": "replacement_race",
+  "message": "AssertionError [ERR_ASSERTION]: a replaced local generation must retry locally,not fall through to an online directory list\n+ actual - expected\n\n  [\n    'candidates',\n    'create',\n    'profile',\n+   'list'\n  ]\n",
+  "peopleActions": [
+    "list",
+    "candidates",
+    "create",
+    "profile",
+    "list"
+  ],
+  "transferActions": [
+    "prepare",
+    "manifest",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "page",
+    "complete",
+    "manifest",
+    "page",
+    "complete"
+  ],
+  "canonical": {
+    "registration": {
+      "audits": 1,
+      "result": {
+        "version": 1,
+        "player_id": "a8a62955-e958-45ea-a2f9-66887dc35b05"
+      },
+      "players": 1,
+      "operations": 1
+    },
+    "totalPlayers": 1,
+    "peopleRevision": "11"
+  },
+  "text": "Skip to content\nA\nAcademyOS\nHide navigation\nSynthetic Academy / PlayersAcademy Owner\nStaging\nالعربية\nDark mode\nLayout\nOnline\n\nSynthetic Academy\n\nAcademy Owner\nSwitch workspace\n\nWorkspace\n\nToday\nAcademy setup\n\nPeople\n\nPlayers\nTrainer appointments\n\nTraining\n\nCalendar\nTraining programs\n\nAttendance\n\nSession scanner\nAttendance settings\nCorrection requests\n\nDevelopment\n\nDevelopment feedback\n\nStaging · Synthetic data only\n\nHide details\nPlayers\nRefresh view\n\nSynthetic Academy · Synthetic branch\n\nPlayer directory\nRegister player\nFind a player by name\n\n1 player on this page\n\nPlayer directory\nPlayer\tBranch\nSynthetic empty replacement_race\tSynthetic branch\nFirst page\nUp to 25 players per page. Contact details appear only in profiles.\nCurrent task\nWorking with players\n\nSelect a saved player to inspect their profile. New registration keeps duplicate review and confirmation separate.\n\nSynthetic branch",
+  "pageErrors": [],
+  "application_source": "5d8707fd8d60043078b48b128acb60206e3e0469",
+  "people_source_sha256": "9059622fce25f819481a7efabb7b084106bc10fcc4df6db15ea10990110a229c",
+  "mechanism": "Hold one actual old completed workspace-page decrypt,complete the real replacement,then release the read;the generation fence rejects the obsolete read and the People caller falls through to an extra online list."
+}

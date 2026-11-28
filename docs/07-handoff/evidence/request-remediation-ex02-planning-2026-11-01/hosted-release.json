@@ -1,0 +1,59 @@
+{
+  "source": "6bc18da7bde92836c22cdd60f9f1a88065b7db46",
+  "ci": [
+    {
+      "id": 41253013033,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 41253007588,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "preview": {
+    "id": "dpl_6jDsjhcb4xcgZvuWzmEVBpgmxoue",
+    "state": "Ready",
+    "durationSeconds": 33
+  },
+  "staging": {
+    "state": "Ready; existing staging alias verified",
+    "previousServing": "dpl_2mWcnCFdXxfgvEvfWFrkegmUwVHg",
+    "domainsReviewed": [
+      "academyos-web.vercel.app",
+      "staging.academy.nahr.dev"
+    ],
+    "id": "dpl_2UvAG1MXZUf6KzhZTs4912fzChZk",
+    "durationSeconds": 38,
+    "source": "6bc18da7bde92836c22cdd60f9f1a88065b7db46",
+    "accountCheck": "Owner completed Touch ID; exact-source rebuild and alias verified"
+  },
+  "hosted": {
+    "date": "2026-11-01",
+    "method": "native signed-in Chrome, existing synthetic academy Owner; no operating saves or access grants",
+    "observed": [
+      "EN clean Back to programs reached directory",
+      "clean browser-history return reached planning",
+      "EN unsaved capacity7 Today exit Cancel retains value",
+      "real tab return retains unsaved capacity7",
+      "AR language switch and dirty-exit Cancel retain capacity7",
+      "confirmed exit discards only agent-entered unsaved test input and reaches Today",
+      "existing saved f6479b53 snapshot shows40 dates,39 changes and1 preserved individual plan in AR",
+      "saved preparation survives real tab return",
+      "mismatched academy/program route denied without previous private plan",
+      "original EN Owner Home restored"
+    ],
+    "limits": [
+      "native controls provide no precise document/RSC/API counters or latency percentiles",
+      "not a physical phone or calibrated CSS viewport audit",
+      "no new hosted unknown-write, concurrency, revocation or all-role grant test",
+      "native dirty browser Back still open",
+      "remaining cross-app findings and independent security open"
+    ]
+  },
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open",
+  "accessRestored": false,
+  "operatingWrites": false
+}

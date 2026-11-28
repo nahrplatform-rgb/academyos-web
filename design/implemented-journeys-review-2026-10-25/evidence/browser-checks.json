@@ -1,0 +1,1442 @@
+[
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "قبول الأكاديميات",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admissions",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تفاصيل الأكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admission",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "قبول أكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admit",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة القبول",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admit-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "revoke-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إعادة إصدار دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "reissue-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "owner-invitation",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مساحات عملك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "workspaces",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إعداد الأكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعديل الفرع والمنطقة الزمنية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-branch",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعديل الرياضة",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-sport",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة الإعداد",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "أكاديميتك جاهزة",
+    "locale": "ar",
+    "overflow": false,
+    "route": "ready",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "اللاعبون",
+    "locale": "ar",
+    "overflow": false,
+    "route": "players",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تسجيل لاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "register",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة اللاعبين المتشابهين",
+    "locale": "ar",
+    "overflow": false,
+    "route": "duplicates",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة تسجيل اللاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "player-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "ملف اللاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "player",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيينات ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-appointments",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيين ولي أمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-draft",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-invitation",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "اللاعب المرتبط بك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-view",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إنهاء وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-end",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تأكيد إنهاء وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-end-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "انتهى وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-ended",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيينات المدربين",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainers",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيين مدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-draft",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-invitation",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "ملفك الوظيفي",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-view",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إنهاء وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-end",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تأكيد إنهاء وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-end-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "انتهى وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-ended",
+    "scenario": "normal",
+    "width": 1600
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "قبول الأكاديميات",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admissions",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تفاصيل الأكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admission",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "قبول أكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admit",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة القبول",
+    "locale": "ar",
+    "overflow": false,
+    "route": "admit-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "revoke-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إعادة إصدار دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "reissue-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة المالك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "owner-invitation",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مساحات عملك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "workspaces",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إعداد الأكاديمية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعديل الفرع والمنطقة الزمنية",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-branch",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعديل الرياضة",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-sport",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة الإعداد",
+    "locale": "ar",
+    "overflow": false,
+    "route": "setup-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "أكاديميتك جاهزة",
+    "locale": "ar",
+    "overflow": false,
+    "route": "ready",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "اللاعبون",
+    "locale": "ar",
+    "overflow": false,
+    "route": "players",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تسجيل لاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "register",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة اللاعبين المتشابهين",
+    "locale": "ar",
+    "overflow": false,
+    "route": "duplicates",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة تسجيل اللاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "player-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "ملف اللاعب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "player",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيينات ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-appointments",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيين ولي أمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-draft",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-invitation",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "اللاعب المرتبط بك",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-view",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إنهاء وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-end",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تأكيد إنهاء وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-end-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "انتهى وصول ولي الأمر",
+    "locale": "ar",
+    "overflow": false,
+    "route": "guardian-ended",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيينات المدربين",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainers",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تعيين مدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-draft",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "دعوة المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-invitation",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "ملفك الوظيفي",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-view",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "إنهاء وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-end",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "تأكيد إنهاء وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-end-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "مراجعة إلغاء دعوة المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "rtl",
+    "focusedHeading": true,
+    "h1": "انتهى وصول المدرب",
+    "locale": "ar",
+    "overflow": false,
+    "route": "trainer-ended",
+    "scenario": "normal",
+    "width": 433
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy admission",
+    "locale": "en",
+    "overflow": false,
+    "route": "admissions",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy details",
+    "locale": "en",
+    "overflow": false,
+    "route": "admission",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Admit an academy",
+    "locale": "en",
+    "overflow": false,
+    "route": "admit",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review admission",
+    "locale": "en",
+    "overflow": false,
+    "route": "admit-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "revoke-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review reissuing Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "reissue-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "owner-invitation",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your workspaces",
+    "locale": "en",
+    "overflow": false,
+    "route": "workspaces",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy setup",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Edit branch and timezone",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-branch",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Edit sport",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-sport",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review setup",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your academy is ready",
+    "locale": "en",
+    "overflow": false,
+    "route": "ready",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Players",
+    "locale": "en",
+    "overflow": false,
+    "route": "players",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Register a player",
+    "locale": "en",
+    "overflow": false,
+    "route": "register",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review matching players",
+    "locale": "en",
+    "overflow": false,
+    "route": "duplicates",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review player registration",
+    "locale": "en",
+    "overflow": false,
+    "route": "player-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Player profile",
+    "locale": "en",
+    "overflow": false,
+    "route": "player",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian appointments",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-appointments",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Appoint a guardian",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-draft",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-invitation",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your linked player",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-view",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "End guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-end",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Confirm ending guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-end-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking guardian invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian access ended",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-ended",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer appointments",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainers",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Appoint a Trainer",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-draft",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-invitation",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your staff profile",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-view",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "End Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-end",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Confirm ending Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-end-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking Trainer invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer access ended",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-ended",
+    "scenario": "normal",
+    "width": 1138
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy admission",
+    "locale": "en",
+    "overflow": false,
+    "route": "admissions",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy details",
+    "locale": "en",
+    "overflow": false,
+    "route": "admission",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Admit an academy",
+    "locale": "en",
+    "overflow": false,
+    "route": "admit",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review admission",
+    "locale": "en",
+    "overflow": false,
+    "route": "admit-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "revoke-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review reissuing Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "reissue-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Owner invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "owner-invitation",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your workspaces",
+    "locale": "en",
+    "overflow": false,
+    "route": "workspaces",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Academy setup",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Edit branch and timezone",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-branch",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Edit sport",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-sport",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review setup",
+    "locale": "en",
+    "overflow": false,
+    "route": "setup-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your academy is ready",
+    "locale": "en",
+    "overflow": false,
+    "route": "ready",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Players",
+    "locale": "en",
+    "overflow": false,
+    "route": "players",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Register a player",
+    "locale": "en",
+    "overflow": false,
+    "route": "register",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review matching players",
+    "locale": "en",
+    "overflow": false,
+    "route": "duplicates",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review player registration",
+    "locale": "en",
+    "overflow": false,
+    "route": "player-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Player profile",
+    "locale": "en",
+    "overflow": false,
+    "route": "player",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian appointments",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-appointments",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Appoint a guardian",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-draft",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-invitation",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your linked player",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-view",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "End guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-end",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Confirm ending guardian access",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-end-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking guardian invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-revoke-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Guardian access ended",
+    "locale": "en",
+    "overflow": false,
+    "route": "guardian-ended",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer appointments",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainers",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Appoint a Trainer",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-draft",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-invitation",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Your staff profile",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-view",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "End Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-end",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Confirm ending Trainer access",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-end-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Review revoking Trainer invitation",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-revoke-review",
+    "scenario": "normal",
+    "width": 400
+  },
+  {
+    "dir": "ltr",
+    "focusedHeading": true,
+    "h1": "Trainer access ended",
+    "locale": "en",
+    "overflow": false,
+    "route": "trainer-ended",
+    "scenario": "normal",
+    "width": 400
+  }
+]

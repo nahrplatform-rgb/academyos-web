@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-11-04T17:20:23.289569Z",
+  "source": "Hosted read-only checkpoint after guarded SDR-06 ending",
+  "project": "academyos-staging",
+  "casey": {"membership": "ended", "assignment": "ended", "invitation_version": 17},
+  "restore_operation": "ea5a7131-46c0-4707-8b3a-bc2ef567dc71",
+  "restore_audits": 1,
+  "end_operation": "5fc74565-6e64-4294-9cc6-2c693752528a",
+  "end_audits": 1,
+  "private_key_slots": 0,
+  "active_owner_counts": {"b2c7920d-d467-4e9f-9a68-809ac627399e": 1, "c8a4045a-a636-4bad-86f3-68f2036666f6": 1},
+  "active_tenant_personas": {"gmail": [], "icloud": ["Academy A Owner", "Academy B Owner"]},
+  "fixtures": [
+    {"id": "39bd1d36-2022-4ad3-bb4c-8207c53c9477", "name": "Synthetic EX11 Offline Register 4 November", "program_state": "ready", "starts_at": "2026-11-04T16:00:00Z", "ends_at": "2026-11-04T17:00:00Z", "timezone": "Africa/Cairo", "capacity": 2, "roster_count": 2, "plan_version": 1, "trainer_id": "562e1a3a-378c-4ea9-84ec-93b071de4670", "publication_events": 0},
+    {"id": "d6937a29-10dd-4881-a48a-350f6cb2c924", "name": "Synthetic EX11 Offline Register 19:00", "program_state": "ready", "starts_at": "2026-11-04T17:00:00Z", "ends_at": "2026-11-04T18:00:00Z", "timezone": "Africa/Cairo", "saved_plan": false, "publication_events": 0}
+  ],
+  "publication_job": {"id": "51759d01-365d-44bc-a692-533887b9ab1c", "state": "ready", "version": 2, "prepared": true, "problem": "started", "cancel_confirmed": false},
+  "limitations": ["No authenticated private download or offline sync proof", "Reconcile browser cancellation original on return", "No new Platform-grant measurement", "No percentile or all-role closure"]
+}

@@ -1,0 +1,2 @@
+import{auth}from'@clerk/nextjs/server';import{notFound}from'next/navigation';import QrWorkspace from'@/components/qr-workspace';
+export default async function Page({params,searchParams}:{params:Promise<{locale:string;academy:string}>;searchParams:Promise<{event?:string;day?:string}>}){await auth.protect();const p=await params,q=await searchParams;if(!/^[a-f0-9-]{36}$/i.test(p.academy)||q.event&&!/^[a-f0-9-]{36}$/i.test(q.event)||q.day&&!/^\d{4}-\d\d-\d\d$/.test(q.day))notFound();return <QrWorkspace {...p} view="scan" event={q.event} day={q.day}/>}

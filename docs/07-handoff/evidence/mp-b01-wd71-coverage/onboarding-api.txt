@@ -1,0 +1,2 @@
+onboarding.unavailable { phase: 'rate-limit' }
+{"apiBudget":"passed","cases":15,"providerCallsOnDeniedEntry":0,"cookieOnDeniedExchange":false,"scope":"actual route; synthetic limiter/session/provider adapters"}

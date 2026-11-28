@@ -1,0 +1,30 @@
+The following is a diff from the previous accessibility tree for Window: "Iman Gadzhi — AcademyOS · Staging" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 36
+~							30 text ٣ نوفمبر، ٢٠٢٦
+
+الأسبوع السابق
+الأسبوع التالي
+قائمة
+تقويم الأسبوع
+يعرض التقويم تدريبات هذه الصفحة. تصفح كل الصفحات لتغطية الفترة كاملة.
+
+٢٨ أكتوبر، ٢٠٢٦ · 1
+٢٩ أكتوبر، ٢٠٢٦ · 0
+٣٠ أكتوبر، ٢٠٢٦ · 0
+٣١ أكتوبر، ٢٠٢٦ · 0
+١ نوفمبر، ٢٠٢٦ · 0
+٢ نوفمبر، ٢٠٢٦ · 0
+٣ نوفمبر، ٢٠٢٦ · 0
+عرض الأسبوع كاملاً
+صفحة التدريبات 1 · 1 تدريب في هذه الصفحة
+
+لا تدريبات ضمن هذا الاختيار في هذه الصفحة. راجع الصفحات الأخرى.
+
+التدريبات السابقة
+تدريبات أخرى
+تظهر هنا التدريبات المنشورة للاعب المرتبط بك فقط. عدم التسجيل لا يعني الغياب.
+
+
+~						98 toggle button ٢٩ أكتوبر، ٢٠٢٦ · 0, Value: on
+~						35 text صفحة التدريبات 1 · 1 تدريب في هذه الصفحة لا تدريبات ضمن هذا الاختيار في هذه الصفحة. راجع الصفحات الأخرى.
+The focused UI element is 98 toggle button ٢٩ أكتوبر، ٢٠٢٦ · 0, Value: on

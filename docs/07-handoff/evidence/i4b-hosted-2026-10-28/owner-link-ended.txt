@@ -1,0 +1,51 @@
+Browser tab: 1, Title: "AcademyOS · Staging", URL: "https://staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians".
+1 AXWebArea AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians
+	2 link Description: Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians#main
+	3 container
+		4 text Academy workspace Guardian appointments Staging
+		5 link Description: العربية, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians
+		6 pop up button (collapsed) Description: Open user menu, Secondary Actions: Expand
+			7 image 's logo
+	8 container
+		9 link Description: AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+		10 text Academy workspace
+		11 container Workspace navigation
+			12 link Description: Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+			13 link Description: Guardian appointments, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians
+			14 link Description: Players, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players
+		15 text Staging · Synthetic data only
+	16 container main
+		17 container
+			18 heading Guardian appointments, Value: 1
+				19 text Guardian appointments
+			20 button Refresh view
+		21 text Synthetic Registration Demo
+		22 text Synthetic Main Branch
+		23 text Synthetic staging only. No real family evidence.
+		24 text Operation confirmed. Current saved state is shown below.
+		25 container
+			26 heading Saved appointments, Value: 2
+				27 text Saved appointments
+			28 button Invite guardian
+			29 table Saved appointments
+				30 text Saved appointments
+				31 row
+					32 cell
+						33 text Appointment
+					34 cell
+						35 text Current state
+					36 cell
+						37 text Actions
+				38 row
+					39 cell
+						40 button m***@icloud.com
+							41 text m***@icloud.com
+					42 cell
+						43 text Link ended
+						44 text Provider accepted; inbox unverified
+						45 container
+							46 text 28/10/2026, 12:05:19  UTC
+					47 cell
+						48 button Inspect exact recipient
+
+The focused UI element is 1 AXWebArea AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/players/95aa8c84-ea5a-41b5-bb9a-7dbfeedbd635/guardians

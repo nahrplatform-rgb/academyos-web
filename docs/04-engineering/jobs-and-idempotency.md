@@ -1,5 +1,9 @@
 # Durable work, retries and idempotency
 
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Durable local reads and server job outboxes are separate. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) keeps current online operation identity/reconciliation and requires transactionally retained original intent before any later approved offline upload. No generic offline queue, per-item replacement ID or background retry of unknown financial/role/publication commands is authorized.
+
 Requirements: AO-149–160 and domain-specific retry cases. Proposed transport: QStash, with PostgreSQL owning job state. The transport can change without changing business identity or completion rules.
 
 ## Operation ledger

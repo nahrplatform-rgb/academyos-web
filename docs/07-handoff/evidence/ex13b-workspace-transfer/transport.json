@@ -1,0 +1,576 @@
+{
+  "passed": true,
+  "hashes": {
+    "apps/web/src/app/api/workspace-download/route.ts": "b18eef0fd34eaf68731d8535fe4f1f2a8897e2270e9a17b55d313e8e7a9c771f",
+    "apps/web/src/lib/workspace-download.ts": "0bfe6bf52ff4d238d8e2ac063ae344039697e08dd8cc5503b6b9edaba7fd16af",
+    "apps/web/src/app/api/workspace-key/route.ts": "b193dfb7e1a326397423eebddc11d0928bb1625a9254474cc690abed0f19620f",
+    "apps/web/src/lib/workspace-key-server.ts": "832cdbecd5c05d185d294a105dbcf604474774f33c145d01c639c787e48d07a0",
+    "apps/web/src/app/api/people/route.ts": "d29ce5f7afb6131005813e6c48fca95deeb9d1595242e9c477abb9445435c180",
+    "apps/web/src/lib/people.ts": "dc3d3e7165ff5fac507a37fbded3d603b3b2d911ea27523c4123c3bf071b3df5",
+    "apps/web/src/lib/experience-format.ts": "93e7163b4738af1762646d11911b7cbea72926942a5963349c0083b48d79ff18",
+    "supabase/migrations/20261024100827_i2a_synthetic_player_registration.sql": "1342009f1ce0b32f3559010effc7cc1bc491265930d423f422c2c449226f3eec",
+    "supabase/migrations/20261119233028_player_alternate_name.sql": "18d3d31ba1778ef1612ae077674c5918ffd9e6f042eda5abd29c392fd53e4f23",
+    "supabase/migrations/20261120072229_player_name_correction.sql": "3f4af22d5d3b80c60bd147aab4e0334021c3ea4210dd112bba4bcca247563fe7",
+    "supabase/migrations/20261120170705_player_profile_and_lifecycle.sql": "fba6301f752cd0fd7968bec05348907da154fe6b35fbac2f1932eded360a8c4d",
+    "apps/web/src/lib/local-workspace-codec.ts": "35f72065fc19dddc40dc7f4f2b91911b649e66003bd8ff43120a7f18db40cc10",
+    "apps/web/src/lib/local-workspace-repository.ts": "1b631e85415527d375db25d598602b92bf23d507b5a881cf7acef26ee84ac0b4",
+    "apps/web/src/lib/local-register-crypto.ts": "7f28afc9610f700d25bb94f98e0964b5025506a10aad460f04b513c79ecc04fb",
+    "apps/web/src/lib/register-device-account.ts": "ea0cbc927aba2eed3f712c1b15889a07d0a5ecd7b0e2a65e9fbe9bad731f32c6",
+    "apps/web/src/lib/workspace-device-slots.ts": "20c96cd521a16ed901cf469d23aea99cd1474f1bd61f81cad8de8621bf5cb8b5",
+    "apps/web/src/lib/workspace-device.ts": "224c9828a70f788369a3b923f689d34c2aff3bd0d862804b82fd12753b83443f",
+    "apps/web/src/lib/workspace-client-transport.ts": "3599bf5fad8bfa9fa7a3316423f05e1a1463d96cb552adc6a57b836114c41e6a",
+    "apps/web/src/lib/onboarding-server.ts": "9167f3d3a55344f03f6d2f3f30084230c85c73e64529f1b1ce91fa19cf886cc3",
+    "apps/web/src/lib/onboarding-gateway.ts": "145aee541e779566d3fc68cca13df3b7d64d97b00077f13c745547c4a9a8e368",
+    "apps/web/src/lib/onboarding.ts": "31253ea3ce45cad0452f99cb38aa793760ac6267240f71f903c0271c965cf018",
+    "apps/web/src/lib/config.ts": "549cb8148482222f7ffd637ea5c8c39f9370142929f7081361c368a9988a5153",
+    "apps/web/src/lib/local-register-codec.ts": "75bd2ba32ebf8da06ce43bdcfe7e6075d7042f7a50957a3592557d5832f66462",
+    "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
+    "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
+    "supabase/migrations/20261105003702_owner_workspace_transfer_contract.sql": "6a0055045cdb9f0b72e6b08797af96b66425c2b8ea3ce7ce1ad067a59b8a5cdf",
+    "scripts/workspace-download/test_transport.mjs": "731a327c1e436b9cf7092df78cc72b4cc0ef430b00aa11e1120817756e4faca0",
+    "scripts/workspace-download/bridge.py": "9fd802f972570a0e3d0089e854e457c5cf6c64421fa6750c542e73a8e4197ef4",
+    "scripts/workspace-download/test_boundary.py": "04ba04a628680b002a47a5c48df24831164db6b5329c37b754445de9b4bfc420",
+    "scripts/workspace-download/normal_workspace.mjs": "3fc0cb092837e91ea5a8e2da5b1005d942cde3196e582e9bf72eddef5b4d31c0",
+    "scripts/workspace-download/calendar_controls.mjs": "77939ec8ec76c364ff0f903799c2301e77fa743ee8e0e91fce884122de2f4622",
+    "scripts/workspace-download/empty_online_registration.mjs": "aa475ecd1fc48623e9ee6ba0fca6712072db207dd910f3a9bbd747e48110886f",
+    "scripts/workspace-download/empty_prepared_registration.mjs": "54470e9143f8db99ca9bc60a2a51a091d3284463a60e16ba8a594daa49cbfb47",
+    "scripts/workspace-download/duplicate_registration.mjs": "448847783a4991017eeb5bbea678130fbf67c4ee0cb1b42a7c30c4b3ea1df4ae",
+    "scripts/verification/web-build.mjs": "3d234f949ded13bd1eb836b666ca88bb1e6f1bf418d6d04dd2e188fc25c88fd2",
+    "package.json": "20d5e1336952b114f0b438e811f937505dcc8a48e6aa674521f498b52c5a8d14",
+    "scripts/workspace-download/capability_cleanup.mjs": "03826a637bcd36175f368b70eb41a07079e87ebe9025b9f00ec329403b99a37a",
+    "scripts/workspace-download/startup_resume.mjs": "3675283534d1daaace0e35945255098fa57a891663aeaa1889e197cfe340ec5e",
+    "scripts/workspace-download/public_shell_spa.mjs": "f0885bae589a35eda453e9c6a8ea68e687f1451ec653d3a34472a5c810ae133a",
+    "apps/web/src/components/register-account-boundary.tsx": "f07c1c9bca87dd528afeb95189eeca85d3c746a69cc26466c728f88a48a49a29",
+    "apps/web/src/components/register-account-context.tsx": "644c347e5089db45905f2e45f051ec64ff7cb04149904acabccaffb858e43395",
+    "apps/web/src/lib/register-device-slots.ts": "2ada83a4af5cf13626c8d2666163dee20230d0fc9868eb8f4814c47bb82be632",
+    "apps/web/src/lib/local-register-repository.ts": "cbf50fdf3f8175e610a8532ce635ca6c804b3e295ebcc8c120666ec6b2c4349e",
+    "apps/web/public/prepared-workspace-worker.js": "46b3719173d6dd8ea04bc63f4210d1e14352f39ffaaa5ed6f149441018258df3",
+    "apps/web/src/lib/workspace-public-shell.ts": "0ad6d6a3809deaf7c5ddedf2247e064d00392c933dac1b9f99f4fc8782cd4f41",
+    "apps/web/src/components/prepared-workspace-startup.tsx": "04c416d069081f5a8709eef12fef1270c16733d7811953a23509ccc5c2b5d1a8",
+    "apps/web/src/components/owner-workspace-device.tsx": "b807056297ced436322d70ac6edab1a3e21296570d4ab0fc4bbbc086f7b10ebf",
+    "apps/web/src/components/workspace-launch.tsx": "1d7ddc363573d2b063f95f426744a7886bce1345e251288f05c35f2c4b4de1d9",
+    "apps/web/src/lib/workspace-launch.ts": "cfcdf09033bba47a75a20b78c8834def92b7e7bc23e31c5f32f80e7d88674c73",
+    "apps/web/src/components/prepared-register-session.tsx": "0d22aacd0fa1d5e37bc7266814577eca583e0eafb9cfb8bd955452c82d8a400c",
+    "apps/web/src/lib/register-session.ts": "b03b3136e633bebf75e746245f84f306812e3ec62591e4a7cd2a7a9717bcef32",
+    "apps/web/src/components/people-workspace.tsx": "5cd1a7843f90fb17e059b944ffb00168a4102151eb5544e89f0e17f8f4797f4f",
+    "apps/web/src/components/experience-workspace.tsx": "a8c1c012df8978d422e3b4055b70e17cb5c8b683ff323d2f5da9ff3e83abb6ef",
+    "apps/web/src/app/prepared-workspace/page.tsx": "07adeda8bf4da5cd0b6c0f6d2edbce9c3d68e4a2c222d75c12fbc8e07d609924",
+    "apps/web/src/app/layout.tsx": "4336afbc00cb7fcbd55a3a67210b6b0b570676fe386462428f15fc0e1a3823c1",
+    "apps/web/next.config.ts": "b220c7d6671948dedf8162df5b28be3c06d05322a6e59c34106afb06f7c29fb1",
+    "apps/web/src/components/workspace-shell.tsx": "0535e7f5131a187a99354fd6c772d69ad49b8aebc477bb1a602250c80df39cfe",
+    "apps/web/src/app/[locale]/layout.tsx": "e21e753f79eb6e3003b1af7fc74e76db3a116563dbce788e0025757b1f38705e",
+    "apps/web/src/app/[locale]/workspace/[academy]/players/page.tsx": "629109206f2105ff6f0c01f15b923c23cada2e22c924661b225598ba7ef67c76",
+    "apps/web/src/app/[locale]/workspace/[academy]/calendar/page.tsx": "af02196a7dbc200f0ddad4d7ccead5b7667fc0536cbef3417199dff92c2e41ed"
+  },
+  "checks": [
+    "Closed default performs zero authentication, limiter and database calls",
+    "Actual SDK, gateway HMAC and PostgreSQL return one manifest, three bounded pages and a coherent completion",
+    "Each transfer phase uses one entry budget, one gateway read budget and one RPC, independent of row count",
+    "An unchanged manifest retains the collection revision and scope without fetching a dataset page",
+    "Changed projection refuses the old chain and a modified signature is rejected by the database",
+    "Account mismatch and a timed-out gateway budget refuse the read before PostgreSQL",
+    "Current PostgreSQL authority denies a Platform-only account and a suspended Academy Owner",
+    "All observed wire packets stay within the declared request and response limits",
+    "Actual key route and signed database binding reuse one wrapped key and deny foreign origin, wrong actor, namespace and wrapping root",
+    "The real People handler refuses an unassigned signed caller without a registration receipt or audit",
+    "Actual row hash rejects tampering and a failed checkpoint write rolls back its encrypted page without publishing partial data",
+    "Two tabs cannot advance the same checkpoint twice and a browser process restart resumes at the saved page",
+    "A complete 1000-player directory searches in bounded encrypted slices with zero operating requests or readable name indexes",
+    "An unchanged verified manifest refreshes completed coverage in one request with no dataset pages or replayed timestamp extension",
+    "Changed Calendar publishes one verified replacement and removes older overlap while rejecting a late stale completion",
+    "Missing staged ciphertext cannot finalize and the previous completed generation remains readable",
+    "Thirty-day cleanup physically removes expired context and dataset ciphertext and a key release cannot extend it",
+    "Opening an expired workspace removes encrypted context before any private read or network check",
+    "Retiring the namespace removes read ciphertext and its browser key and fences late work in a second tab",
+    "A suspended Owner cannot receive workspace key material from the real signed database boundary",
+    "Explicit device approval gates requests, one leader owns transport, and the next tab resumes its saved page after cancellation",
+    "Reopening compatible coverage checks one manifest and serves directory and Calendar interactions without further requests",
+    "A changed scope retires old coverage before rebuilding and a Calendar entry downloads its current month first",
+    "An absent session and an HTML edge refusal preserve coverage while verified Owner denial retires the slot and its data",
+    "A bounded pass checkpoints 12 pages and renews only the expired receipt before continuing its prefix",
+    "Shared logout fences a withheld first key reply, clears all workspace slots and completes without waiting for the network",
+    "Normal Owner Players opens before device preparation and switches to the protected directory",
+    "Prepared Players search retains result geometry without generic Loading feedback",
+    "Normal Players search is local and one selection opens the full profile in one read",
+    "Cold normal Players restores safe query and reads the current full profile once",
+    "An original registration recovery reference takes precedence over saved navigation",
+    "WD-70 prepared Calendar filter, Week/Month and period controls make zero operating or transfer requests in EN/AR",
+    "Covered Calendar view change sends zero requests and an unchanged check downloads zero pages, retaining selection",
+    "Same-tab AR Calendar retains month, period and selection through offline reload, reentry and scoped check",
+    "Same-tab offline Players retains its query and permitted summary through reload",
+    "Cold manifest /en launch reaches real prepared Players and encrypted data without operating requests",
+    "Full Chromium restart opens EN Players and AR Calendar at normal offline URLs with zero service requests, and shows uncovered dates",
+    "Reconnecting the offline document returns to verified online data and applies a changed player",
+    "A confirmed registration becomes discoverable from the prepared directory without an online list read",
+    "The original browser save ID replays through the real People handler with one player, receipt and audit",
+    "A lost committed registration reply reconciles the browser original through the real API and returns to its prepared row",
+    "Players API401 masks private content without retiring prepared data;one same-account profile retry restores it",
+    "Logout removes prepared coverage from the normal offline route before another verified preparation",
+    "Verified authority loss retires prepared coverage and the worker preserves an online HTTP denial",
+    "Online genuine-empty entry shows zero players and one list without filtered-empty, missing or denial states",
+    "First confirmed online registration returns to a discovered single player",
+    "WD-27 en retains the searched directory and saves one distinct same-name player through the signed People route",
+    "WD-27 ar retains the searched directory and saves one distinct same-name player through the signed People route",
+    "Prepared empty confirmed: a completed zero-row head renders empty,not missing coverage",
+    "A completed empty directory reopens at its normal offline URL and reconnects without another directory read",
+    "Prepared empty confirmed: first registration is discoverable with one original,one audit and no online list",
+    "Prepared empty lost_reply: a completed zero-row head renders empty,not missing coverage",
+    "Prepared empty lost_reply: first registration is discoverable with one original,one audit and no online list",
+    "Prepared empty transfer_failure: a completed zero-row head renders empty,not missing coverage",
+    "A failed changed-directory transfer retains its old head and pending state through reload without claiming no registration",
+    "Prepared empty transfer_failure: first registration is discoverable with one original,one audit and no online list",
+    "Prepared empty replacement_race: a completed zero-row head renders empty,not missing coverage",
+    "A directory read replacement_race retries the new local generation without an online list",
+    "Prepared empty replacement_race: first registration is discoverable with one original,one audit and no online list",
+    "Prepared empty replacement_before_page: a completed zero-row head renders empty,not missing coverage",
+    "A directory read replacement_before_page retries the new local generation without an online list",
+    "Prepared empty replacement_before_page: first registration is discoverable with one original,one audit and no online list",
+    "A superseded gate-off cleanup cannot retire a newly re-enabled capability while queued behind the account lock",
+    "Workspace-only rollback masks failed cleanup, retries it and preserves the live register, exact pending original and signed-in account",
+    "Re-enabling a capability finishes its interrupted retirement before any new preparation",
+    "Register-only rollback preserves workspace data and protected originals recover byte-identically after the register capability returns",
+    "A connection restored before public startup mounts retries the normal URL once without a reload loop",
+    "A later offline/online cycle clears the public reentry guard and permits the next recovery",
+    "A browser reporting online with an unavailable origin retains the public workspace without reloading it",
+    "A late public reachability response cannot replace an outgoing task navigation",
+    "Real WindowClient URL remains sign-in after history navigation",
+    "SPA preparation caches only public shell and assets",
+    "Malformed and unsupported messages ignored; legacy normal route accepted",
+    "Public assets available offline to the SPA document"
+  ],
+  "metrics": {
+    "initialPeople": {
+      "players": 56,
+      "pages": 3,
+      "apiRequests": 5,
+      "limiterChecks": 10,
+      "requestBytes": 3305,
+      "responseBytes": 15442
+    },
+    "peopleUnauthorizedCreateDenied": true,
+    "localDirectory": {
+      "rows": 1000,
+      "searchSlices": 4,
+      "pagesScanned": 40,
+      "elapsedMs": 15.305207999999766,
+      "operatingRequests": 0
+    },
+    "workspaceDevice": {
+      "firstRequests": [
+        "prepare",
+        "manifest",
+        "page"
+      ],
+      "interruptedAt": 25,
+      "renewedAt": 300,
+      "pagesPerPass": 12,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "coveredLocalRequests": 0
+    },
+    "normalWorkspace": {
+      "baselinePlayersReads": 1,
+      "coveredPlayersRequests": 0,
+      "fullProfileReads": 1,
+      "coveredCalendarRequests": 0,
+      "calendarControls": [
+        {
+          "locale": "en",
+          "operatingReads": 0,
+          "transfers": 0,
+          "keyboardMonth": true,
+          "filterFocus": true,
+          "coveredPeriod": true
+        },
+        {
+          "locale": "ar",
+          "operatingReads": 0,
+          "transfers": 0,
+          "keyboardMonth": true,
+          "filterFocus": true,
+          "coveredPeriod": true
+        }
+      ],
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "offlineOperatingRequests": 0,
+      "offlineRoutePayloadRequests": 0,
+      "fullBrowserRestart": true,
+      "offlineShellNavigations": 11,
+      "manifestLaunchDocuments": 2,
+      "fixtureOriginDisconnected": true,
+      "newOfflineDocuments": 13,
+      "nullGotoResponses": 0,
+      "coldManifestLaunch": true,
+      "peopleViewRestored": true,
+      "localLoadingFlashes": 0,
+      "calendarReconnectContext": true,
+      "postRegistration": {
+        "peopleCalls": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "page",
+          "page",
+          "complete"
+        ],
+        "realPeopleHandler": true,
+        "originalIdForwarded": true,
+        "replay": {
+          "sameResult": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1
+        },
+        "lostReply": {
+          "peopleCalls": [
+            "candidates",
+            "create",
+            "reconcile",
+            "profile"
+          ],
+          "originalIdReconciled": true,
+          "operations": 1,
+          "audits": 1,
+          "players": 1,
+          "transferActions": [
+            "manifest",
+            "page",
+            "page",
+            "page",
+            "complete"
+          ]
+        }
+      },
+      "peopleAuthentication": {
+        "expiredServerSession": true,
+        "browserSubjectUnchanged": true,
+        "namespaceRetained": true,
+        "maskedDuringFailure": true,
+        "peopleActions": [
+          "profile",
+          "profile",
+          "profile"
+        ],
+        "domainRpcs": [
+          "i2_profile_v1"
+        ]
+      },
+      "compiledBuild": {
+        "node": "v24.14.0",
+        "sourceHash": "f182f97b0c532feb3d3f9d10f6c1c12d19e11679313483cdb5d8b68c11e2f627",
+        "artifactHash": "85b88fac270b51d752fbd6cdba90c6e0c26ce5a86664fe1bbae1dcebaeb711d3"
+      }
+    },
+    "emptyOnlineRegistration": {
+      "scenario": "online empty-directory first registration",
+      "initial": {
+        "totalPlayers": 0,
+        "peopleRevision": "10"
+      },
+      "final": {
+        "totalPlayers": 1,
+        "peopleRevision": "11"
+      },
+      "peopleActions": [
+        "list",
+        "candidates",
+        "create",
+        "profile",
+        "list"
+      ],
+      "originalIdForwarded": true,
+      "rpcCounts": {
+        "i2_people_v1": 2,
+        "i2_candidates_v1": 1,
+        "i2_profile_v1": 1,
+        "i2_register_v1": 1,
+        "i2_operation_v1": 0
+      },
+      "registrationSnapshot": {
+        "operations": 1,
+        "audits": 1,
+        "players": 1,
+        "result": {
+          "version": 1,
+          "player_id": "9745a0a8-2777-4164-8efe-923642ccc05f"
+        }
+      }
+    },
+    "duplicateRegistration": [
+      {
+        "locale": "en",
+        "position": 731,
+        "returnedPosition": 731,
+        "actions": [
+          "candidates",
+          "profile",
+          "candidates",
+          "create",
+          "profile",
+          "list"
+        ],
+        "rpcActions": [
+          "i2_candidates_v1",
+          "i2_profile_v1",
+          "i2_candidates_v1",
+          "i2_register_v1",
+          "i2_profile_v1",
+          "i2_people_v1"
+        ],
+        "internalDocuments": 0,
+        "recordsBefore": 23,
+        "recordsAfter": 24,
+        "operation": 1,
+        "audit": 1,
+        "focus": "registered player"
+      },
+      {
+        "locale": "ar",
+        "position": 738,
+        "returnedPosition": 738,
+        "actions": [
+          "candidates",
+          "profile",
+          "candidates",
+          "create",
+          "profile",
+          "list"
+        ],
+        "rpcActions": [
+          "i2_candidates_v1",
+          "i2_profile_v1",
+          "i2_candidates_v1",
+          "i2_register_v1",
+          "i2_profile_v1",
+          "i2_people_v1"
+        ],
+        "internalDocuments": 0,
+        "recordsBefore": 23,
+        "recordsAfter": 24,
+        "operation": 1,
+        "audit": 1,
+        "focus": "registered player"
+      }
+    ],
+    "emptyPreparedRegistration": {
+      "confirmed": {
+        "variant": "confirmed",
+        "initial": {
+          "registration": null,
+          "totalPlayers": 0,
+          "peopleRevision": "10"
+        },
+        "final": {
+          "registration": {
+            "audits": 1,
+            "result": {
+              "version": 1,
+              "player_id": "5f27a168-26e6-4f98-91c2-02a9ac2a6694"
+            },
+            "players": 1,
+            "operations": 1
+          },
+          "totalPlayers": 1,
+          "peopleRevision": "11"
+        },
+        "offlineReopening": {
+          "serviceWorkerDocument": true,
+          "operatingRequests": 0,
+          "unchangedTransferActions": [
+            "manifest"
+          ]
+        },
+        "peopleActions": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "complete"
+        ],
+        "originalIdForwarded": true,
+        "originalReconciled": false,
+        "oneCanonicalResult": true,
+        "pageErrors": []
+      },
+      "lost_reply": {
+        "variant": "lost_reply",
+        "initial": {
+          "registration": null,
+          "totalPlayers": 0,
+          "peopleRevision": "10"
+        },
+        "final": {
+          "registration": {
+            "audits": 1,
+            "result": {
+              "version": 1,
+              "player_id": "e0cd9efa-2bca-4f54-b2d0-c227ee420f97"
+            },
+            "players": 1,
+            "operations": 1
+          },
+          "totalPlayers": 1,
+          "peopleRevision": "11"
+        },
+        "offlineReopening": null,
+        "peopleActions": [
+          "candidates",
+          "create",
+          "reconcile",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "complete"
+        ],
+        "originalIdForwarded": true,
+        "originalReconciled": true,
+        "oneCanonicalResult": true,
+        "pageErrors": []
+      },
+      "transfer_failure": {
+        "variant": "transfer_failure",
+        "initial": {
+          "registration": null,
+          "totalPlayers": 0,
+          "peopleRevision": "10"
+        },
+        "final": {
+          "registration": {
+            "audits": 1,
+            "result": {
+              "version": 1,
+              "player_id": "b45a3e67-e1ba-488e-9b92-061c0c3abfe3"
+            },
+            "players": 1,
+            "operations": 1
+          },
+          "totalPlayers": 1,
+          "peopleRevision": "11"
+        },
+        "offlineReopening": null,
+        "peopleActions": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "manifest",
+          "page",
+          "manifest",
+          "page",
+          "complete"
+        ],
+        "originalIdForwarded": true,
+        "originalReconciled": false,
+        "oneCanonicalResult": true,
+        "pageErrors": []
+      },
+      "replacement_race": {
+        "variant": "replacement_race",
+        "initial": {
+          "registration": null,
+          "totalPlayers": 0,
+          "peopleRevision": "10"
+        },
+        "final": {
+          "registration": {
+            "audits": 1,
+            "result": {
+              "version": 1,
+              "player_id": "51fa1a7f-fd8c-42c9-9f72-1f1126b5f780"
+            },
+            "players": 1,
+            "operations": 1
+          },
+          "totalPlayers": 1,
+          "peopleRevision": "11"
+        },
+        "offlineReopening": null,
+        "peopleActions": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "complete"
+        ],
+        "originalIdForwarded": true,
+        "originalReconciled": false,
+        "oneCanonicalResult": true,
+        "pageErrors": []
+      },
+      "replacement_before_page": {
+        "variant": "replacement_before_page",
+        "initial": {
+          "registration": null,
+          "totalPlayers": 0,
+          "peopleRevision": "10"
+        },
+        "final": {
+          "registration": {
+            "audits": 1,
+            "result": {
+              "version": 1,
+              "player_id": "7e508b93-0056-4749-8c73-a606c3932cf5"
+            },
+            "players": 1,
+            "operations": 1
+          },
+          "totalPlayers": 1,
+          "peopleRevision": "11"
+        },
+        "offlineReopening": null,
+        "peopleActions": [
+          "candidates",
+          "create",
+          "profile"
+        ],
+        "transferActions": [
+          "manifest",
+          "page",
+          "complete"
+        ],
+        "originalIdForwarded": true,
+        "originalReconciled": false,
+        "oneCanonicalResult": true,
+        "pageErrors": []
+      }
+    },
+    "capabilityCleanup": {
+      "workspaceRollbackPreservesRegister": true,
+      "registerRollbackPreservesWorkspace": true,
+      "pendingOriginalUnchanged": true,
+      "failedCleanupRetried": true,
+      "supersededCleanupFenced": true,
+      "providerSignOuts": 0
+    },
+    "publicShellSpa": {
+      "spaClientUrlRetained": true,
+      "publicEntries": 3,
+      "invalidMessages": 14,
+      "offlineAssets": 2,
+      "legacyNormalRoute": true
+    }
+  },
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "browser": "156.0.8078.4",
+    "scope": "Actual workspace/key and registration-scenario People Next POST, Supabase SDK and signed gateway to disposable PostgreSQL17. Actual workspace key wrapping, Chromium WebCrypto/IndexedDB, normal route components and production-built public offline shell. Fictional Clerk, baseline legacy read responses, limiter and PostgREST wire. Registration create/candidates/profile/reconcile use real People handlers; browser save IDs reach canonical RPCs. No hosted data, physical device or latency percentile claim."
+  }
+}

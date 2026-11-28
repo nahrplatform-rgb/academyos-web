@@ -1,5 +1,31 @@
 # AcademyOS experience, performance and data-loading plan
 
+## Version2 connected data/experience batches —7November2026
+
+[Canonical master plan v2](../06-delivery/master-plan-v2/README.md). The new master package integrates request/freshness/local/sync behavior with real module UI and larger delivery batches. Preserve measured versus estimated budgets and existing current authority. Focused checks remain during edits; actual percentiles/provider costs and installed evidence stay separately assigned.
+
+## Installed launch and update measurement — 6 November 2026
+
+The [PWA delivery contract](../06-delivery/pwa-delivery-and-readiness.md) adds installed-container measurements to the current loading matrix, not a new data layer. Declare OS/browser/version, actual installed vs tab mode, cold/warm store, worker/code/schema generation, network and permitted dataset. Measure first OS launch and normal sign-in/useful-first preparation, repeat local launch, warm navigation/return, original save/reconnect and code/schema update. A separately stored installed app can need another legitimate first download.
+
+Retain existing useful-task/local-feedback/read/CLS targets on a declared profile; no new percentile pass is claimed. Track blank intervals, geometry/focus/input, public asset/CDN bytes, protected coverage/index/key storage and API/RPC/provider work separately. Root scope does not imply every route is prepared. PWA cache/update costs include retained compatible generations, not only the active shell. Actual mobile safe area/keyboard/camera/accessibility behavior needs hardware; an install event or desktop emulation is not proof.
+
+**Normal-workspace performance:** Measure browser document navigation, in-app clearing and operating requests separately for each applicable route/action. Pair cold entry with repeat launch, warm navigation, tab return and saves. Compatible local actions should have zero operating requests. Online-only workflows retain the same continuity standard. [Current acceptance cases](../06-delivery/academy-working-day-acceptance.md#normal-workspace-acceptance--5-november-2026).
+
+**Latest Owner review/role direction — 4 November 2026:** [Current staging policy](../00-governance/staging-delivery-and-review-policy.md) defers independent human/external security review without blocking any currently authorized synthetic staging work, including otherwise-authorized private offline activation. Keep actual engineering checks, access/configuration authority and separate acceptance. Follow [the dedicated-role plan](../06-delivery/staging-role-separation-plan.md): distinct Platform Owner and Academy Owner accounts/journeys first, controlled cleanup preserving history; no account/data mutation is authorized or executed by this documentation update. Earlier external-review prerequisites below are superseded, not marked passed.
+
+**Operations adoption — 4 November 2026:** the [current design reference](operations-design-reference.md) governs presentation and connected task fidelity. Every affected batch still declares read ownership, bounds, freshness, invalidation, initial/revalidation behavior and before/after request evidence. Denser screens do not authorize extra bootstrap, chart queries, unbounded preload or fixture-backed metrics. Preserve the current server and original-operation boundaries; online visual adoption and private local-data activation have separate gates under the [execution tracker](../06-delivery/experience-execution.csv).
+
+## Persistent local data and synchronization — LF-v2,2November2026
+
+Separate durable local repository queries from transient query memory, online authorization and background synchronization. [local-data and sync plan](../06-delivery/local-data-and-sync-plan.md) replaces the summary-only candidate. Required profiles now include first preparation, compatible reopen, unchanged manifest, sparse changes/full replacement, interrupted page resume, index query and storage failure. Existing numerical speed/row/byte limits and historical measurements stay intact; do not claim local-first performance from native reference timings.
+
+## Current working-day contract — 2 November2026
+
+Read the [behaviour/data-lifecycle contract](academy-working-behavior-contract.md), [working-day acceptance and measurement protocol](../06-delivery/academy-working-day-acceptance.md), [planned cases](../06-delivery/academy-working-day-cases.csv) and [single execution tracker](../06-delivery/experience-execution.csv). EX-10 makes actual ownership/state/budget design and dependent choices explicit; EX-11 demonstrates the connected result. Shared coordination is prepared earlier, with EX-05/EX-08 measurement alongside every affected batch.
+
+The existing progressive-loading and five-dimension rules remain. Distinguish code/assets, private query results, authority, navigation state, unfinished input and original-operation recovery. Define cold entry, first navigation, warm return, visible resume, post-save invalidation and denial separately. A route prefetch is not a prepared private API projection; a warm memory result is not a current permission grant. WB-P01–WB-P04 govern pending concrete freshness/preparation/memory/durability choices; proposed values anywhere in this pack are not enabled defaults. Keep first-useful measurements inclusive of required identity/context, and separate interaction acknowledgement from commit. Existing numerical targets below remain targets on declared profiles, not measured results.
+
 Updated 22 October 2026. Status: **owner-requested planning direction; proposed budgets and implementation defaults await first-slice measurement and review.** No new caching, telemetry, database policy, provider plan or application behavior is implemented by this document.
 
 ## One product design problem
@@ -167,3 +193,7 @@ No checklist or document proves universal speed, zero defects or production capa
 ## Engineering and security accountability
 
 The [engineering charter](../00-governance/engineering-charter.md) and [journey security gates](../04-engineering/journey-security-review.md) govern implementation of this plan. Caching, prefetch, exports, query optimization and telemetry changes require relevant isolation/revocation/field/privacy checks. Faster loading or cheaper retrieval cannot compensate for a failed security boundary.
+
+## Source-grounded continuation — 31 October2026
+
+Use the [request/loading/offline addendum](../06-delivery/request-hygiene-and-offline-standard.md) and [service-impact analysis](../04-engineering/request-service-impact.md) with every loading-matrix row. They define one scoped projection owner, coordinated resume, retained nonprivate task geometry, current-authority writes, explicit offline capability, candidate freshness ranges and concrete regression gates. Proposed TTL/private persistence is not automatically accepted. The focused Owner runtime baseline is extended by whole-app source/local/catalog evidence, with all-role hosted and percentile gaps assigned explicitly. No product behavior changed.

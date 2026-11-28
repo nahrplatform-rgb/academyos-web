@@ -1,0 +1,20 @@
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+					6 link انتقل إلى المحتوى, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development#main
+					7 container
+						8 text ملاحظات التطورمساحة المدرب نسخة تجريبية
+						9 link English, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/ar/workspace
+						13 text مساحة المدرب
+						14 container التنقل في مساحة العمل
+							15 link مساحاتك, Value: staging.academy.nahr.dev/ar/workspace
+							16 link التدريبات والحضور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+							17 link التطور, Value: staging.academy.nahr.dev/ar/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/development
+						18 text بيئة اختبار · بيانات اصطناعية فقط
+					19 container
+						20 heading تطور اللاعبين, Value: 1
+							21 text تطور اللاعبين
+						22 button تحديث العرض
+						23 text اكتب بعد التدريب وراجع الإصدار بالتحديد ثم شارك المنشور مع الأسرة المعتمدة. Operation confirmed. Reloading the current saved result. 9697b4c9-1f39-451e-aa10-42fd6ccd32ef
+

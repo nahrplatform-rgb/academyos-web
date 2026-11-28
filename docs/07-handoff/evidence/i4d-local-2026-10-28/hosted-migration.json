@@ -1,0 +1,161 @@
+{
+  "tables": [
+    {
+      "rls": true,
+      "name": "qr_card_heads",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "name": "qr_cards",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "name": "qr_operations",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "name": "qr_window_overrides",
+      "insert": false,
+      "select": false
+    },
+    {
+      "rls": true,
+      "name": "qr_window_settings",
+      "insert": false,
+      "select": false
+    }
+  ],
+  "functions": [
+    {
+      "anon": false,
+      "name": "q13_capture_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_card_change_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_card_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_context_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_matches",
+      "config": [
+        "search_path=\"\""
+      ],
+      "schema": "academy",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "name": "q13_operation_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_player",
+      "config": [
+        "search_path=\"\""
+      ],
+      "schema": "academy",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "name": "q13_resolve_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_scope",
+      "config": [
+        "search_path=\"\""
+      ],
+      "schema": "academy",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "name": "q13_sessions_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    },
+    {
+      "anon": false,
+      "name": "q13_window",
+      "config": [
+        "search_path=\"\""
+      ],
+      "schema": "academy",
+      "authenticated": false
+    },
+    {
+      "anon": false,
+      "name": "q13_window_change_v1",
+      "config": [
+        "search_path=\"\"",
+        "statement_timeout=3s",
+        "lock_timeout=2s"
+      ],
+      "schema": "public",
+      "authenticated": true
+    }
+  ],
+  "migration": "20261028184008"
+}

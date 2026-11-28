@@ -1,0 +1,48 @@
+[
+  {
+    "QUERY PLAN": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 1.11,
+          "Total Cost": 1.11,
+          "Plan Rows": 1,
+          "Plan Width": 24,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 1.11,
+              "Total Cost": 1.11,
+              "Plan Rows": 1,
+              "Plan Width": 24,
+              "Sort Key": [
+                "starts_at",
+                "id"
+              ],
+              "Plans": [
+                {
+                  "Node Type": "Seq Scan",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Relation Name": "publication_events",
+                  "Alias": "e",
+                  "Startup Cost": 0,
+                  "Total Cost": 1.1,
+                  "Plan Rows": 1,
+                  "Plan Width": 24,
+                  "Filter": "(published AND (academy_id = 'b2c7920d-d467-4e9f-9a68-809ac627399e'::uuid) AND (((starts_at AT TIME ZONE (projection ->> 'timezone'::text)))::date >= '2026-11-01'::date) AND (((starts_at AT TIME ZONE (projection ->> 'timezone'::text)))::date <= '2026-12-12'::date))"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

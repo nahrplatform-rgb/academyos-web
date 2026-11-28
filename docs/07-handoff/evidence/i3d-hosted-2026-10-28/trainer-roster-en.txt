@@ -1,0 +1,66 @@
+Window: "Shopify — AcademyOS · Staging", App: Safari.
+0 standard window Shopify — AcademyOS · Staging, ID: SafariWindow?IsSecure=true&UUID=CFDC26F0-FD7B-4E7B-94FE-EF4E3D54E645, Secondary Actions: Raise
+	1 split group
+		2 splitter (disabled, settable, float) -1
+		3 tab group
+			4 scroll area
+				5 HTML content Description: AcademyOS · Staging, URL: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+					6 link Skip to content, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#main
+					7 container
+						8 text Casey DemoTrainer schedule Staging
+						9 link العربية, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule#language
+						10 pop up button Open user menu
+					11 container
+						12 link AcademyOS, Value: staging.academy.nahr.dev/en/workspace
+						13 text Casey Demo
+						14 container Workspace navigation
+							15 link Your workspaces, Value: staging.academy.nahr.dev/en/workspace
+							16 link Staff profile, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer
+							17 link Training, Value: staging.academy.nahr.dev/en/workspace/b2c7920d-d467-4e9f-9a68-809ac627399e/trainer/schedule
+						18 text Staging · Synthetic data only
+					19 container
+						20 heading Your training schedule, Value: 1
+							21 text Your training schedule
+						22 text Casey Demo · Synthetic Main Branch · Africa/Cairo
+						23 toggle button Today, Value: off
+						24 toggle button Upcoming dates, Value: on
+						25 container
+							26 text First date of seven-day view
+							27 date time area First date of seven-day view, Value: 28/10/2026
+								28 container
+									29 stepper (settable, float) day, Value: 28
+									30 text /
+									31 stepper (settable, float) month, Value: 10
+									32 text /
+									33 stepper (settable, float) year, Value: 2026
+						34 button Show dates
+						35 table 2026-10-28 — 2026-11-03
+							36 text 2026-10-28 — 2026-11-03
+							37 row (selectable) Date / program
+Time / places
+							38 row (selectable)
+								39 cell (selectable) Synthetic I3a Full-period Demo · 2026-11-01, Value: Synthetic Main Branch · Synthetic Football
+								40 cell (selectable) 17:00
+–
+18:00
+1/2
+						41 text Only your current published dated assignments. No attendance or evaluation actions yet.
+						42 container Contextual details and actions
+							43 container
+								44 heading Session details, Value: 2
+									45 text Session details
+								46 button Back
+							47 heading Synthetic I3a Full-period Demo, Value: 3
+								48 text Synthetic I3a Full-period Demo
+							49 text 2026-11-01 · 17:00–18:00
+							50 text Synthetic Main Branch · Synthetic Football · Africa/Cairo
+							51 heading Dated roster, Value: 3
+								52 text Dated roster
+							53 text 1/2 places
+							54 content list
+								55 container Synthetic Registration Demo
+									56 text • Synthetic Registration Demo
+							57 text Display names only. No contact details or player profiles.
+							58 button First roster page
+							59 text Read-only session. Attendance is not available in this slice.
+	60 

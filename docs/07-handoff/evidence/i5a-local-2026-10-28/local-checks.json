@@ -1,0 +1,28 @@
+{
+  "scope": "Local source and isolated test adapters only; hosted/independent gates separate",
+  "units": {
+    "passed": 70
+  },
+  "api": {
+    "budgetFailureCases": 33,
+    "bodyAndOriginDenials": "passed"
+  },
+  "react": {
+    "productionCases": 8,
+    "developmentCases": 8
+  },
+  "foundationE2E": {
+    "passed": 17
+  },
+  "lint": "passed",
+  "typecheck": "passed",
+  "build": "passed",
+  "sqlFull": {
+    "passed": 121,
+    "runtimeSeconds": 390.896
+  },
+  "sqlFinalMigration": {
+    "passed": 11,
+    "runtimeSeconds": 46.826
+  }
+}

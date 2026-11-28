@@ -1,0 +1,204 @@
+{
+  "schema": 2,
+  "recordedUtc": "2026-11-14T12:34:41.658416+00:00",
+  "checkpoint": "EX-07 / MP-B01 local production Attendance eligibility",
+  "status": "Trainer accepted; additive register scope prerequisite before local offline write",
+  "origin": "http://localhost:3100",
+  "academy": "AcademyOS M1 Synthetic Academy",
+  "program": {
+    "id": "724b517e-57ef-40c7-99d6-a3905210000b",
+    "name": "Synthetic Offline Attendance Future 2026-11-20",
+    "date": "2026-11-20",
+    "time": "18:00–19:00 Africa/Cairo",
+    "capacity": 18,
+    "players": 4,
+    "state": "saved draft; not published"
+  },
+  "current_repair_receipt": "docs/07-handoff/evidence/local-functional-environment/trainer-delivery-repair-2026-11-14.json",
+  "current_handoff": "docs/07-handoff/trainer-delivery-repair-2026-11-14.md",
+  "trainer_eligibility": {
+    "id": "460d1ea9-96da-456d-9373-597e720d405f",
+    "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "display_name": "Synthetic Offline Trainer 2026-11-14",
+    "recipient_sha256": "cb0085ec3ee14748bae091f0ae4c594b0af805c59becfc989622235d69f04a80",
+    "state": "accepted",
+    "delivery": "accepted",
+    "attempts": 2,
+    "version": 2,
+    "provider_receipt": true,
+    "accepted_by": true,
+    "active_assignment": true,
+    "first_attempt_at": "2026-11-14T02:55:52.389551+00:00",
+    "expires_at": "2026-11-17T02:33:47.043572+00:00",
+    "approver_matches_intended_owner": true
+  },
+  "remote_configuration": {
+    "project": "academyos-web",
+    "environment_target": "production-labelled synthetic staging",
+    "readback": "plaintext valid addresses and exact authorized values checked without recording them",
+    "EMAIL_ALLOWED_RECIPIENTS": {
+      "count": 1,
+      "matches_expected": true
+    },
+    "AUTH_EMAIL_ALLOWED_RECIPIENTS": {
+      "count": 2,
+      "matches_expected": true
+    },
+    "TRAINER_STAGING_RECIPIENTS": {
+      "count": 1,
+      "matches_expected": true
+    },
+    "runtime_effect": "next deployment only; not inferred from project readback",
+    "temporary_verification_scope": "existing Owner and authorized Outlook Trainer; new Gmail verification excluded until restoration"
+  },
+  "current_deployment": {
+    "owner_reported": true,
+    "id": "dpl_CMpqkpPt232K3opknzzmsL3L4e8t",
+    "source": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+    "state": "READY",
+    "createdUtc": "2026-11-14T12:18:17.987Z",
+    "after_corrected_project_settings": true,
+    "canonical_alias": "staging.academy.nahr.dev",
+    "provider_runtime_verified_by": "same-original delivery accepted with provider receipt after normal UI retry"
+  },
+  "release_boundary_correction": {
+    "agent_created_production_deployments": [
+      "dpl_2hzouEv9gjQbjx6tJ7wJfBzRD6b1",
+      "dpl_21p2C6fzJDvSoZWzzMun39TutcK5"
+    ],
+    "automatic_alias_assignment": true,
+    "owner_performed": false,
+    "disposition": "breached Owner-only promotion instruction; prior Owner-authorized description corrected",
+    "further_deployments_in_repair_checkpoint": false
+  },
+  "next_requirement": "Continue EX-07/MP-B01 additive per-register/installation storage contract and local implementation/testing, retaining legacy keys and originals. Trainer delivery/acceptance is closed. After safe scope support, use a fresh eligible fictional session for the actual local offline save/reopen/sync. No promotion currently requested.",
+  "not_done": [
+    "No local offline Attendance write/sync",
+    "No additive scope implementation/application proven",
+    "No publication/Attendance change in this delivery checkpoint",
+    "No new Git push or Owner working acceptance"
+  ],
+  "recording_window_note": "The20November18:00 draft is not attendance-eligible on14November. Use a fresh in-window fictional session after normal Trainer acceptance; never retime a closed session.",
+  "superseded_snapshot": {
+    "warning": "Historical record only. Its queued-only, no-remote-change, preserved-recipient and Owner-authorized-deployment claims were superseded/corrected by the current repair. Not current authority.",
+    "snapshot": {
+      "schema": 1,
+      "recordedUtc": "2026-11-14T02:54:22Z",
+      "checkpoint": "EX-07 / MP-B01 local production Attendance eligibility",
+      "status": "blocked_by_owner_release_and_recipient_acceptance",
+      "origin": "http://localhost:3100",
+      "academy": "AcademyOS M1 Synthetic Academy",
+      "program": {
+        "id": "724b517e-57ef-40c7-99d6-a3905210000b",
+        "name": "Synthetic Offline Attendance Future 2026-11-20",
+        "date": "2026-11-20",
+        "time": "18:00–19:00 Africa/Cairo",
+        "capacity": 18,
+        "players": 4,
+        "state": "saved draft; not published"
+      },
+      "observed": [
+        "Normal Owner program creation and bounded date checking succeeded.",
+        "Four existing fictional players were selected in the normal planning flow.",
+        "Trainer search for Casey and Synthetic returned no eligible people.",
+        "The saved plan remained owner-only and publication could not proceed without an eligible Trainer assignment.",
+        "The normal Owner invitation flow returned the explicit recipient-approval boundary and did not create a new invitation.",
+        "The Platform Owner approval surface was unavailable to the current signed-in account; no alternate identity was entered.",
+        "After exact Owner authorization, the normal local Trainer appointment flow created Synthetic Offline Trainer 2026-11-14 in Synthetic Main Branch for the masked Outlook test recipient; the appointment is awaiting recipient acceptance and delivery remains queued/not sent after one normal retry.",
+        "The exact authorized mailbox was appended to the existing staging Production TRAINER_STAGING_RECIPIENTS, EMAIL_ALLOWED_RECIPIENTS and AUTH_EMAIL_ALLOWED_RECIPIENTS variables while preserving their prior recipient values. The current deployment still has the previous configuration; a new checked deployment must be promoted before queued delivery can be retried.",
+        "Owner-authorized same-source deployment dpl_2hzouEv9gjQbjx6tJ7wJfBzRD6b1 (aedb3ad) reached READY and Vercel reports staging.academy.nahr.dev assigned to it. The normal local delivery retry still reports queued/not sent; the new deployment has no /api/jobs/trainers runtime callback in the checked window.",
+        "Hosted Academy Owner retry opened in the Nahr Chrome profile but redirected to the Clerk sign-in page. No password, verification code or saved credential was entered; the local Academy Owner session and data remain intact."
+      ],
+      "not_done": [
+        "No publication",
+        "No Trainer access or membership change",
+        "No attendance write",
+        "No role, account, database schema, key or deployment change",
+        "No new invitation or Trainer access was created",
+        "Recipient verification/acceptance and Trainer profile access",
+        "Publication of the 20 November draft and connected Attendance write",
+        "Local allowlists are configured only in ignored apps/web/.env.local; no remote staging environment or deployment was changed",
+        "Hosted delivery retry and recipient verification/acceptance"
+      ],
+      "next_requirement": "Complete normal Academy Owner sign-in in the hosted retry tab, reopen Trainer appointments and retry delivery. Then the Outlook recipient must complete normal verification/acceptance. Do not enter credentials/codes in chat or claim acceptance before the UI and backend state agree.",
+      "trainer_eligibility": {
+        "existing_assignment": "Casey Demo exists but is ended",
+        "search": "No eligible people returned in the normal Academy A staff/plan search",
+        "invitation_attempt": "Normal invite review refused creation because the recipient was not separately approved for synthetic staging",
+        "recipient": "moamen_ghareeb@icloud.com",
+        "access_change": false,
+        "authorized_local_invitation": {
+          "display_name": "Synthetic Offline Trainer 2026-11-14",
+          "branch": "Synthetic Main Branch",
+          "recipient": "masked Outlook test mailbox (exact address is held only in ignored local configuration)",
+          "state": "awaiting recipient acceptance",
+          "delivery": "queued; current deployment not yet using the updated remote allowlists",
+          "created_through": "normal Academy Owner Trainer appointments flow"
+        }
+      },
+      "platform_approval": {
+        "route": "/ar/platform",
+        "observed": "Platform Owner surface displayed access unavailable for the current signed-in account",
+        "action": "No sign-in switch or role change attempted",
+        "required_next": "Use the separately authenticated Platform Owner identity or an already-approved synthetic Trainer recipient.",
+        "separate_session": {
+          "origin": "http://localhost:3000",
+          "route": "/en/platform",
+          "role_surface": "Platform Owner",
+          "status": "loaded",
+          "observed": "Academy admission loaded with two admitted synthetic academies; both showed Owner accepted, Provider accepted and Initial setup saved.",
+          "trainer_approval_control": "not_present_on_normal_platform_surface",
+          "action": "Read-only observation only; no invitation, recipient allowlist, membership, assignment or role change.",
+          "required_next": "Use an already-approved synthetic Trainer through the normal workflow. Do not bypass the closed TRAINER_STAGING_RECIPIENTS gate or create a new recipient."
+        }
+      },
+      "current_account": {
+        "email": "moamen_ghareeb@icloud.com",
+        "role": "Academy Owner",
+        "evidence": "Normal AcademyOS Account panel",
+        "platform_route": "Access unavailable for this account"
+      },
+      "local_configuration": {
+        "recipient_allowlists": "Exact authorized mailbox added only to ignored local TRAINER_STAGING_RECIPIENTS, EMAIL_ALLOWED_RECIPIENTS and AUTH_EMAIL_ALLOWED_RECIPIENTS; no remote promotion/configuration."
+      },
+      "remote_configuration": {
+        "target": "existing synthetic staging Production environment",
+        "updated_variables": [
+          "TRAINER_STAGING_RECIPIENTS",
+          "EMAIL_ALLOWED_RECIPIENTS",
+          "AUTH_EMAIL_ALLOWED_RECIPIENTS"
+        ],
+        "change": "preserved existing recipients and appended the exact authorized Outlook test mailbox",
+        "secret_values": "not recorded",
+        "deployment_effect": "applies only to a new deployment; current deployment remains unchanged",
+        "promotion": "Owner-only and still pending",
+        "deployment": {
+          "id": "dpl_2hzouEv9gjQbjx6tJ7wJfBzRD6b1",
+          "source": "aedb3adcf58b083f3463b4b2b652f720dff6604a",
+          "state": "READY",
+          "staging_alias": "staging.academy.nahr.dev",
+          "promotion": "Owner-authorized same-source production deployment; alias verified by Vercel"
+        }
+      }
+    }
+  },
+  "binding_dependency": {
+    "checked": "read-only staging SQL and source; no locator/key/row reset",
+    "existing_owner_academies": [
+      {
+        "academy_id": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+        "event_id": "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+        "day": "2026-11-04",
+        "recording_window": "closed"
+      },
+      {
+        "academy_id": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+        "event_id": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+        "day": "2026-11-06",
+        "recording_window": "closed"
+      }
+    ],
+    "contract": "docs/04-engineering/owner-register-additive-scope-contract.md",
+    "scope_expansion_verified": false
+  }
+}

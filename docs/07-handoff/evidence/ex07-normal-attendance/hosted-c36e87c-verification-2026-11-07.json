@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-07",
+  "code": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+  "deployment": {
+    "id": "dpl_2mif7vY7vyTYRTnVLyw2WsUqcopP",
+    "state": "READY",
+    "sha": "c36e87ca5ace6d75f265fdb65fb1d9aee3ee3c83",
+    "url": "academyos-13ldq4sti-academy-os2.vercel.app"
+  },
+  "identity": "Existing signed-in iCloud Academy Owner;Chrome Hiếu;same regular profile",
+  "normalRead": {
+    "academy": "c8a4045a-a636-4bad-86f3-68f2036666f6",
+    "event": "484cd1a8-60a3-4f8b-82d6-d8d5054e6179",
+    "freshSameProfileTab": true,
+    "prepareRequired": false,
+    "recoverRequired": false,
+    "marks": {
+      "Sam": "absent",
+      "Alex": "present"
+    },
+    "unsaved": 0,
+    "history": "Unmarked → Absent · Academy Owner;6Nov11:24",
+    "returnSelection": "Sam retained",
+    "operatingResponseInterval": [
+      {
+        "path": "/api/attendance",
+        "status": 200
+      },
+      {
+        "path": "/api/attendance",
+        "status": 200
+      },
+      {
+        "path": "/api/register-download",
+        "status": 200
+      }
+    ],
+    "intervalTruncated": false
+  },
+  "clientConflict": {
+    "academy": "b2c7920d-d467-4e9f-9a68-809ac627399e",
+    "events": [
+      "ace0f058-0413-4f7b-b8b9-1cfcdbd91ac6",
+      "4f204959-b23e-42ac-8b68-858409972036"
+    ],
+    "result": "different_registered_event before transport;EN/AR explanation and online fallback work;reload remains online",
+    "keyRequests": 0,
+    "networkIntervalTruncated": false,
+    "server409": "Not exercised live;existing different-event local reservation refused first;covered by source-bound local/CI/PG and deployed function hash"
+  },
+  "preserved": {
+    "key_fingerprint": "unchanged before/after",
+    "registrations": 2,
+    "operations": 5,
+    "marks": 6,
+    "history": 8,
+    "audit": 182
+  },
+  "mutations": {
+    "attendanceWrites": 0,
+    "keyReset": false,
+    "storageCleared": false,
+    "rolesChanged": 0,
+    "newProfile": false
+  },
+  "observedGaps": [
+    {
+      "id": "fallback-locale",
+      "result": "Switch preparation to Arabic then use online register:returnsEnglish;fixed follow-on required"
+    },
+    {
+      "id": "history-loading",
+      "result": "Canonical online history handoff/read temporarily masks roster and changes initial frame context;wider continuity finding remains open"
+    }
+  ],
+  "limits": [
+    "No fresh-original real-Clerk sync",
+    "No new physical offline restart or installed-device claim",
+    "No live wrong-role/revocation test in this interval",
+    "Confirmed original client bytes not independently read;local/CI preservation assertions retained"
+  ],
+  "captures": [
+    "hosted-c36e87c-owner-b-history-en.jpg",
+    "hosted-c36e87c-owner-b-retained-en.jpg",
+    "hosted-c36e87c-local-conflict-en.jpg",
+    "hosted-c36e87c-local-conflict-ar.jpg",
+    "hosted-c36e87c-online-fallback-en.jpg"
+  ],
+  "captureNote": "Conflict EN/AR captures share ace0event;online fallback image is4f204event. Locale regression is witnessed by the ace0DOM transition,not a fabricated same-event image pair."
+}

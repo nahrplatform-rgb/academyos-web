@@ -1,0 +1,27 @@
+{
+  "reactMode": "development",
+  "creates": 1,
+  "accepts": 1,
+  "ends": 1,
+  "errors": [],
+  "cases": [
+    "explicit Owner confirmation",
+    "language switch preserves draft without discard dialog",
+    "pending submit disabled",
+    "commit response loss and recovery",
+    "pre-send cancellation fence",
+    "stale cancellation notice reset",
+    "explicit exact-recipient inspection",
+    "fragment removed once in StrictMode",
+    "recipient acceptance",
+    "minimal guardian projection",
+    "EN/AR320/360px no overflow; 720px reflow",
+    "coalesced clean return and draft retention",
+    "end access empty state",
+    "unavailable read never implies empty family",
+    "denial clears player",
+    "identity switch clears private projection",
+    "opaque operation-only session storage"
+  ],
+  "scope": "Actual React/shared controls; synthetic session and transport. Separate SQL tests enforce actual policy."
+}

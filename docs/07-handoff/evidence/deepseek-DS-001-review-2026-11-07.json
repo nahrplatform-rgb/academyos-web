@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-07",
+  "task_id": "DS-001",
+  "parent": "EX-07 / MP-B01",
+  "reviewed_source": "bcb1a7863116b88a3d2bb5299d0fb3317a7d25da",
+  "original_changed_paths_reviewed": 13,
+  "product_implementation_changed": false,
+  "hosted_database_or_account_changes": false,
+  "promotions": false,
+  "test_repairs": [
+    "Actual People Next handler/parser/SDK/signed gateway in registration scenarios",
+    "Browser original ID reaches canonical RPC;no fixture replacement ID",
+    "Original replay and committed-but-unavailable-response reconciliation",
+    "One player/receipt/audit;unassigned caller writes none"
+  ],
+  "policy_document_repairs": [
+    "42individual field proposals;no silent scope exclusion",
+    "Unicode name and unverified-contact facts corrected",
+    "Rich permitted profile/local target retained",
+    "No automatic new-promotion requirement for diagnosis",
+    "Only concrete dependent MP-Q choices block their new commands"
+  ],
+  "local_checks": {
+    "transport_cases": 53,
+    "node": "v24.14.0",
+    "database": "disposable PostgreSQL17",
+    "people_api": "passed15budgetFailures/3invalidBodies/crossOrigin",
+    "continuation_contract_tests": 17,
+    "master_external_reference_canonical_execution_factual": "passed",
+    "source_fresh_receipt": "passed"
+  },
+  "new_source_ci": {
+    "source": "3be2d4168bef1f58c5664f5daf3f038b6c602459",
+    "pushed": true,
+    "run_id": 42381781289,
+    "job_id": 128430747012,
+    "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42381781289",
+    "conclusion": "success",
+    "successful_steps": 53,
+    "total_steps": 53,
+    "boundary": "Automated synthetic/source checks;not hosted,installed,Owner or independent security acceptance",
+    "post_push_receipt": "Retained locally for next coherent batch;no extra commit/push to record its own result"
+  },
+  "hosted_NR07": "Open;not reproduced or fixed by these local cases;zero-player first-registration coverage remains separate",
+  "field_policy": "Proposed/investigate only;no new field/role/write/retention acceptance",
+  "DS_002": "ready_for_handoff;two isolated source-audit reports;no launch by coordinator;review before adoption",
+  "helper": {
+    "model": "gpt-6.1-terra",
+    "effort": "medium",
+    "scope": "read-only42field/reference fact review",
+    "observed_active_peak": 1,
+    "nested": 0,
+    "usage_savings": "not measured"
+  },
+  "receipt": "docs/07-handoff/deepseek-bcb1a78-review-2026-11-07.md"
+}

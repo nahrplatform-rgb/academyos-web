@@ -1,0 +1,177 @@
+{
+  "recorded_at": "2026-11-05T20:29:18.238660+00:00",
+  "source_base": "197bb0048030ea0e1dd8f198bb11f5535f36c663",
+  "scope": "EX-13B bounded Players navigation/local feedback and Calendar reconnect regression",
+  "source_hashes": {
+    "apps/web/src/components/people-workspace.tsx": "2d0bb9ecd3ccc66670caebda3c4a70e07f90aaec6bb267b9fd861ec8b0788015",
+    "apps/web/src/lib/people-view-context.ts": "660e6fb79808aedab76ab6e3ad90d2c90c1d14053ee5772c4582c554bb13586c",
+    "apps/web/src/lib/people-view-context.test.ts": "00dbd427c73b6c2c4d1905db8ce370d23775c0dfcee3234c296626f8cfc4f2b1",
+    "scripts/workspace-download/normal_workspace.mjs": "f2ab07c64a3fdc355d349fe70db0909a97badac29874c3f2443a6d9bc137c40a",
+    "scripts/workspace-download/test_transport.mjs": "05fe6dbf35eb8c89958ebcaea6b0b752539653decbc3685f6f682010f9c36f29"
+  },
+  "changes": [
+    "Personal-device Players keeps only a validated per-tab filter,selected UUID and local page position;restores summary from current permitted local rows",
+    "Local queries use a cancellable microtask instead of online300ms debounce;existing results/count geometry stays visible without generic Loading",
+    "Unknown original registration reference takes precedence and keeps its separate key",
+    "Known authority loss removes the navigation hint and announces the error outside the hidden private inspector",
+    "Same-tab anchorless AR Calendar offline/reentry/context regression added;Calendar product source unchanged"
+  ],
+  "local_checks": {
+    "transport_browser_cases": 49,
+    "metrics": {
+      "baselinePlayersReads": 1,
+      "coveredPlayersRequests": 0,
+      "fullProfileReads": 1,
+      "coveredCalendarRequests": 0,
+      "unchangedManifestRequests": 1,
+      "unchangedDatasetPages": 0,
+      "offlineOperatingRequests": 0,
+      "offlineRoutePayloadRequests": 0,
+      "fullBrowserRestart": true,
+      "offlineShellNavigations": 11,
+      "fixtureOriginDisconnected": true,
+      "newOfflineDocuments": 11,
+      "nullGotoResponses": 0,
+      "peopleViewRestored": true,
+      "localLoadingFlashes": 0,
+      "calendarReconnectContext": true
+    },
+    "build": "passed",
+    "types": "passed",
+    "lint": "passed",
+    "units": 101,
+    "capture_suites": 16,
+    "legacy_people_development": {
+      "result": "passed",
+      "scoped_requests": 36,
+      "fictional_creates": 3,
+      "runtime_errors": [],
+      "receipt": "people-development/ui-receipt.json",
+      "scope": "Existing actual React legacy UI,development mode;not live server writes"
+    },
+    "factual_html": {
+      "result": "passed",
+      "captured_states": 1189,
+      "transitions": 1163,
+      "source_files": 79,
+      "source_literals": 7696,
+      "review_tool": "passed",
+      "freshness": "passed",
+      "screens_inspected": [
+        "people-development/directory-en-18.png",
+        "people-development/draft-ar-360.png"
+      ],
+      "limit": "Legacy actual-component captures;gated prepared states use separate browser assertions"
+    },
+    "execution_and_implementation_validators": "passed;13batches,17findings,71planned/evidence-linked cases;68screens/30actions/180requirements",
+    "changed_markdown_links": "10 changed/new documents;valid local targets",
+    "git_diff_check": "passed"
+  },
+  "iterations": [
+    {
+      "kind": "lint",
+      "observation": "Calling local refresh synchronously in an effect violated the existing React cascading-state rule",
+      "repair": "Use a cancellable microtask;retain immediate local scheduling and no300ms debounce"
+    },
+    {
+      "kind": "new_test_scope",
+      "observation": "A new assertion incorrectly expected per-tab navigation to survive creation of a fresh tab after full browser restart",
+      "repair": "Test same-tab offline reload explicitly;retain and strengthen fresh-tab reset plus existing persistent-dataset restart assertions"
+    },
+    {
+      "kind": "negative_ui",
+      "observation": "Selected-summary access loss hid the existing error announcement with its private inspector",
+      "repair": "Place the alert in main view when that inspector is masked;retain all authority/refusal assertions and assert hint removal"
+    },
+    {
+      "kind": "evidence_destination",
+      "observation": "Standalone legacy UI run used its historical default output path",
+      "repair": "Preserved all7 current generated artifacts under this checkpoint and restored the exact known historical files from clean HEAD;future standalone runs set UI_EVIDENCE_DIR"
+    }
+  ],
+  "evidence_limits": [
+    "Fictional Clerk/legacy HTTP bridge;actual Postgres,SDK,signed gateway,WebCrypto,IndexedDB and production public offline shell",
+    "No local timing percentile,hosted fix or full matrix pass inferred from observer0Loading and zero operating requests",
+    "Native late Week observation remains unconfirmed;anchorless same-tab fixture passes,not proof of native cause",
+    "Navigation is per tab;datasets and protected originals retain their distinct durable policies",
+    "Scoped native EN/AR Players continuity on promoted1347470 is recorded in hosted-continuity.json; remaining hosted/device/performance matrix stays open"
+  ],
+  "deployment": "Owner-promoted1347470 independently verified Ready on canonical staging; scoped native EN/AR Players continuity passed; broader hosted matrix and working acceptance remain open",
+  "independent_review": "Deferred by Owner,nonblocking,not performed",
+  "owner_acceptance": "pending working review",
+  "reference_scope": "PYSA member-list direct loaded-set filtering and local selected IDs inspected;AcademyOS prefix semantics,complete dataset proof and privacy rules retained",
+  "delivery": {
+    "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+    "ci": [
+      {
+        "id": 42109504375,
+        "event": "push",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "status": "completed",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109504375"
+      },
+      {
+        "id": 42109517422,
+        "event": "pull_request",
+        "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+        "status": "completed",
+        "result": "success",
+        "url": "https://github.com/nahrplatform-rgb/academyos-web/actions/runs/42109517422"
+      }
+    ],
+    "preview": {
+      "id": "dpl_Ez85kxkPEz4VDNYbCGntnsYXowTd",
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "state": "READY",
+      "url": "https://academyos-9ye7zxwfn-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/Ez85kxkPEz4VDNYbCGntnsYXowTd"
+    },
+    "owner_promotion": "Owner reported Promoted1347470 to staging; independently verified exact source and canonical alias",
+    "new_people_ui_hosted": "Scoped EN/AR search/summary retention, offline document entries and automatic reconnect passed; live denial not run",
+    "staging_before_promotion": {
+      "id": "dpl_FybLg1odEtcfDWnB7LrBgfouFwDR",
+      "source": "86d7facbebb89bb418fba61c5634cb7c158101c4",
+      "state": "READY"
+    },
+    "staging_after_promotion": {
+      "source": "134747037b6b0bfa8fb5bf68ad8c4a08e70d0029",
+      "id": "dpl_35UAsn5THBRHhtWLY6DuWBw3u7Br",
+      "state": "READY",
+      "target": "production",
+      "url": "https://academyos-cvl4kexyq-academy-os2.vercel.app",
+      "inspector_url": "https://vercel.com/academy-os2/academyos-web/35UAsn5THBRHhtWLY6DuWBw3u7Br",
+      "canonical_alias": "staging.academy.nahr.dev",
+      "verification": "Read-only Vercel deployment lookup independently identifies the exact promoted source and staging alias",
+      "agent_promoted": false,
+      "schema_key_flags_reapplied": false
+    },
+    "prepromotion_documentation_checks": {
+      "generated_continuation": "At the checked-code handoff: EX-13 was current; latest routing follows hosted-continuity.json and the regenerated tracker",
+      "execution_and_canonical": "passed",
+      "factual_inventory_tool_and_freshness": "passed",
+      "changed_markdown_links": 5,
+      "git_diff_check": "passed",
+      "product_or_test_change_since_checked1347470": false
+    },
+    "hosted_checkpoint_documentation": {
+      "execution_validator": "Passed:13 batches,17 findings,G01-G09,71 planned/evidence-linked cases;single current EX-07",
+      "canonical_validator": "Passed:68screens,30stable action groups,180preserved requirements",
+      "continuation": "Regenerated and freshness passed;EX-07 normal Attendance handoff current;EX-13 scoped checkpoint retained",
+      "local_markdown_links": "Passed:11 changed/new Markdown files,377 local targets",
+      "json_and_generator": "Changed JSON parses;generator AST valid;exact-source and retained-gap assertions passed",
+      "factual_review": "Inventory rebuilt from unchanged capture pack;1189states,1163transitions,79sources,7696literals;offline review-tool and fingerprint/freshness checks passed",
+      "rendered_review": "Generated phone review and Arabic desktop replay inspected;gated prepared-device states still outside default pack",
+      "product_checks": "No product/UI/test input changed in this hosted/documentation batch;retain checked1347470 build/type/lint,101units,49browser/transport and16capture-suite evidence without claiming a new run",
+      "git_diff_check": "Passed before commit",
+      "promotion_required": false
+    }
+  },
+  "hosted_continuity": "hosted-continuity.json",
+  "routing_checkpoint": {
+    "ex13": "Scoped Owner Players/Calendar foundation checkpoint passed from the combined declared local and hosted evidence; parent findings and wider matrix remain partial",
+    "next_primary": "EX-07: integrate the approved Owner offline register into the ordinary Attendance route with original-save and recovery parity",
+    "supporting_owner": "EX-08 retains the unexecuted hosted/device/performance matrix; EX-09 retains actual custody/privacy checks; EX-05 retains provider/query measurement",
+    "no_scope_retired": true
+  }
+}

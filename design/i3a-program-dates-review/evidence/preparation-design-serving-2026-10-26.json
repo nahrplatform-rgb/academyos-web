@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-10-26T13:38:29.496327+00:00",
+  "scope": "Design simulation only; no product/API/database/worker or hosted security evidence",
+  "served_assets_match_disk": true,
+  "assets": {
+    "app.css?v=8235d99c06f1": "cb9f0f25f5588edb5ae3c39acce6603b8021a76c5faea02aeb3859de042e6d16",
+    "review.js?v=8235d99c06f1": "390f5b4b475710f36111a34cff87a758e5936134d5937e97864b3d3627beaa66"
+  },
+  "local_test_receipt": "verification.json",
+  "actual_iab": {
+    "scenario": "Preparation paused after first window",
+    "period": [
+      "2026-11-01",
+      "2027-01-31"
+    ],
+    "weekday_times": {
+      "Sunday": "17:00\u201318:00",
+      "Tuesday": "19:00\u201320:00",
+      "Thursday": "18:00\u201319:00"
+    },
+    "prepared_dates": 12,
+    "expected_dates": 40,
+    "completed_windows": 1,
+    "total_windows": 4,
+    "ready": false,
+    "resume_visible": true,
+    "central_definition_visible": true
+  },
+  "screenshot": "18-user-tab-preparation-paused-2026-10-26.png",
+  "automation_limit": "IAB locator selectOption changed displayed option without reliably committing React scenario; selected through native popup instead and verified the resulting paused state. Prior normal-ready run was not pause proof."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": "Design simulation; no product API, database, authority or atomic activation proof",
+  "cases": [
+    "whole period40 / preserved1 / changes39",
+    "weekday-specific capacity3",
+    "all39 simulated together",
+    "single-date capacity edit preserves program",
+    "all preserved no apply",
+    "conflicts block complete save",
+    "12prepared0saved resume and cancellation",
+    "stale/ended final validation zerochanges",
+    "lost reply all or none reconciliation",
+    "unknown navigation guard",
+    "EN/AR320/360/926/1440",
+    "reload resets simulation"
+  ],
+  "errors": [],
+  "external": []
+}

@@ -1,0 +1,71 @@
+{
+  "commands": 13,
+  "passed": 13,
+  "results": [
+    {
+      "script": "scripts/verification/web-build.mjs",
+      "exit": 0,
+      "output": "PASS compiled web build matches current source and assets {\n  node: 'v24.14.0',\n  sourceHash: '20db9ba95ce0bd940dd077f119fb86bacbed7d8a99a10db98a7740f624c49592',\n  artifactHash: 'b53be04e39b0e13a2c2e1a2c9c3d075e54e844096f26243e3f8b13c3b194b2c3'\n}\n"
+    },
+    {
+      "script": "scripts/experience-review/build.mjs",
+      "exit": 0,
+      "output": "PASS: review inventory and source fingerprints current; rendered coverage is separate\n"
+    },
+    {
+      "script": "scripts/design/build_offline_register_preview.mjs",
+      "exit": 0,
+      "output": "PASS offline-register preview freshness\n"
+    },
+    {
+      "script": "scripts/local-data/test_automatic_key.mjs",
+      "exit": 0,
+      "output": "PASS automatic-key research receipt matches its sources; private/security gates separate\n"
+    },
+    {
+      "script": "scripts/local-data/test_register_repository.mjs",
+      "exit": 0,
+      "output": "PASS typed local-register receipt matches sources; private activation remains closed\n"
+    },
+    {
+      "script": "scripts/local-data/test_public_shell.mjs",
+      "exit": 0,
+      "output": "PASS public shell receipt matches sources\n"
+    },
+    {
+      "script": "scripts/register-download/test_browser.mjs",
+      "exit": 0,
+      "output": "PASS download browser and PG receipts match source; private enablement/hosted/security remain open\n"
+    },
+    {
+      "script": "scripts/workspace-download/test_transport.mjs",
+      "exit": 0,
+      "output": "PASS workspace transfer transport evidence matches current sources\n"
+    },
+    {
+      "script": "scripts/offline-register/test_dispatch.mjs",
+      "exit": 0,
+      "output": "PASS Owner register dispatch evidence matches sources\n"
+    },
+    {
+      "script": "scripts/working-day/test_owner_next.mjs",
+      "exit": 0,
+      "output": "PASS working-day evidence matches tracked sources\n"
+    },
+    {
+      "script": "scripts/register-key/test_key.mjs",
+      "exit": 0,
+      "output": "PASS EX-09 key receipt source fingerprints\n"
+    },
+    {
+      "script": "scripts/working-day/test_owner_startup.mjs",
+      "exit": 0,
+      "output": "PASS Owner workspace startup evidence matches sources\n"
+    },
+    {
+      "script": "scripts/working-day/test_normal_attendance.mjs",
+      "exit": 0,
+      "output": "PASS normal Attendance receipt matches sources\n"
+    }
+  ]
+}

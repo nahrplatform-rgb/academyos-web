@@ -1,0 +1,45 @@
+# WD-71 · Trainer correction requests and development submissions
+
+16 November 2026 · EX-07 / MP-B01 · J13-A01/A02/A03 / IMP-J13-A01 · J16-A01–A06 / IMP-J16-A01 · S29/S31/S32 · L08/L10 · SEC-J13/SEC-J16 · WB-09/10/11/12/20/24 · VAL-01/05/09. Prior [QR checkpoint](mp-b01-qr-followup-2026-11-16.md) and [Owner decision checkpoint](mp-b01-review-save-followup-2026-11-16.md) remain retained.
+
+Trainer correction retry now retains the exact confirmed request after a failed result read. Previously it could return to the player's context instead of opening the saved request, both after direct acknowledgement and after lost-reply reconciliation. The receipt target stays in a component ref until its detail and supporting list finish, and clears on explicit selection reset or current denial. Canonical operations, storage locators, versions, authority, reason fields, attendance and approval rules are unchanged.
+
+The existing feedback component passes draft-save/submission held-read cases without a product change. This checkpoint adds proof; it does not turn a submitted revision into a family publication.
+
+## Request and accepted contract
+
+The living continuation selected Trainer WD-71 correction request and development-feedback submission. Accepted [correction design](../06-delivery/i4c-attendance-correction-design-contract.md), [implementation](i4c-attendance-correction-implementation.md), [feedback design](../06-delivery/i5a-development-feedback-design-contract.md), [decisions](../06-delivery/i5a-development-feedback-decisions.md) and [implementation](i5a-development-feedback-implementation.md) retain current exact-session Trainer authority, reason/review, one original, canonical server checks and separate Owner decisions. Pending correction leaves attendance unchanged; feedback submission freezes the revision for Owner review without publication. No new business field, role, offline command or review step is introduced. Clear read-only recovery reduces ambiguous repeated work; elapsed-time savings are unmeasured.
+
+| Before | After | Why |
+| --- | --- | --- |
+| Confirmed correction detail fails; Retry reads the player's context, or bootstraps list/context after reload/reconciliation. | Retry reads the exact confirmed request and its existing supporting list. | Recover the acknowledged operation without another submission or a context-only substitute. |
+| Feedback draft and submission already retain their exact target. | No product change; held detail/list reads and recovery are now executed in EN/AR. | Preserve useful behavior and distinguish tested coverage from repairs. |
+
+No geometry/type/spacing/colour change. Arabic390px correction read-failure detail was inspected: known saved result and read retry, with private detail masked. This remains the existing Operations presentation, not a full visual-parity claim. One receipt ref reuses existing state/lock/read functions; no effect, listener, dependency or server call type added. Identity/academy/event/player remount still scopes component memory; denial clears private data and the target.
+
+## Executed component evidence
+
+[Source fingerprints and checkpoint](evidence/mp-b01-trainer-submission/checkpoint.json) · [helper](../../scripts/review-decisions/trainer_submission.mjs) · correction [production](evidence/mp-b01-trainer-submission/correction-production.json)/[development](evidence/mp-b01-trainer-submission/correction-development.json) · feedback [production](evidence/mp-b01-trainer-submission/development-production.json)/[development](evidence/mp-b01-trainer-submission/development-development.json).
+
+**60 cases**: correction request, feedback draft save and feedback submission × EN1440/AR390 × success/detail503/supporting-list503/lost reply/current403 × production/development React. Each runs actual product React with fictional current Trainer identity/HTTP. The existing full component suites and Owner held matrices also execute. New cases enter the Trainer session/player task; this is component navigation, not a real Next destination-and-return claim.
+
+- Focus+Enter sends the exact academy/event/player/version7, reviewed reason or all four feedback fields and selected content language. The held command shows its actual disabled/original guard, retains an opaque locator and has zero fictional effects. Paired focus/online/visibility events add no requests while held.
+- Acknowledgement clears the original and shows known-confirmation loading during the held current read, with no premature read-failure message. A503 in either detail or supporting list offers read-only recovery. The active recovery control receives focus and Enter; no replacement command occurs.
+- Lost reply retains the same locator across same-path reload. No bootstrap or signal refresh occurs while unknown. Explicit reconciliation uses that original, then held/failed current read and read-only retry. Feedback reload has no former list query, so it reads only the exact event/player. Correction retains the confirmed request ID even with no selected detail after reload.
+- Current403 clears private player/staff content and removes the unknown-original action. This is fictional client denial, not a new server/RLS proof.
+- Exact sequences are asserted, including failed reads and the existing supporting list. Correction success: `submit → request detail → list`; feedback success: `command → detail → roster`. Detail/list failures retry their applicable read sequence. Lost feedback: `command → operation → detail503 → detail`; lost correction: `submit → reconcile → detail503 → exact request detail → list`.
+- One fictional operation/effect per case, zero page errors. Correction remains Pending while Present/version7 stays unchanged. Feedback ends draft/submitted version8 with exact fields and no fictional publication. These HTTP-state counters do not prove SQL persistence, audit atomicity, concurrent idempotency or actual family visibility.
+
+Four production-mode negative controls run the same helper against the exact pre-repair correction source: direct-detail503 and lost-reply/detail503 in EN/AR. All four detect the wrong context read. [Direct-read baseline](evidence/mp-b01-trainer-submission/correction-baseline-read.json), [lost-reply baseline](evidence/mp-b01-trainer-submission/correction-baseline-lost.json) and reverse patch/hash preserve that evidence. Reference substitution requires explicit baseline mode; normal runs assert the exact saved-request read sequence. Baseline tests intentionally record the defect; they are not passes of repaired behavior.
+
+## Verification and boundaries
+
+Actual API tests pass21 correction and33 feedback budget refusals, three invalid bodies per domain and cross-origin denial with fictional session/limiter adapters.119 units, typecheck, lint, managed local production rebuild/restart and compiled source/assets checks pass on Node24.14.0. Dev3000 and production3100 are process-current, not independently signed-in proof. Standalone domain writers/SQL are unchanged; their prior transaction/authority receipts retain historical timestamps.
+
+The normal Attendance/Owner return suite passed all28 checks in an actual owning `--record` run and its `--check` passes. Its signed Next/API/disposable-PG evidence is separate from the new fictional HTTP matrix. All16 component families plus eight static captures were refreshed. The factual review has1683 frames/2181 transitions with zero capture gaps; review-tool and source-freshness checks pass. Counts describe captured states, not exhaustive acceptance. Master/continuation generation, execution validation (including20 continuation tests), implementation-register validation and diff whitespace checks pass.
+
+Read-only PYSA `actions/performance.ts`, EV-0029 evaluation workflow/source review and EV-0024 correction partial-failure evidence were revisited. Atomic reviewed snapshots and exact actor/academy derivation are useful; split writes, stale-authority assumptions and mock interleavings do not become AcademyOS policy or hosted evidence. PYSA remains unchanged. Initial harness corrections addressed accessible-label hints, duplicate status/retry locations and context-versus-detail schema separation; required exact-target and keyboard assertions remain.
+
+One coordinator, zero helpers; exact backend model/usage unavailable. No connected staging writes, provider/configuration/account/key changes, commit, push, promotion, physical/installed-device or hosted proof, Owner acceptance or independent human security review. External review remains deferred, not passed. WD-71 remains evidence-linked, with remaining commands and role/device/hosted acceptance open.
+
+Next permitted connected work: remaining WD-71 feedback amendment and Owner withdrawal follow-up reads. Reconcile the accepted immutable-publication/history/current-authority behavior; test held command, confirmed detail/list failure, original recovery and denial in EN/AR; repair only reproduced defects. MP-Q01 A/B/C remain dependent new-Player decisions.

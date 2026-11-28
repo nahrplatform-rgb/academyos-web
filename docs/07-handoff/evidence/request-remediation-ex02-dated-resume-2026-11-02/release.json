@@ -1,0 +1,27 @@
+{
+  "source": "127352bac3e415e628eaac858e51f5f7a5b58f46",
+  "ci": {
+    "41437451195": "success",
+    "41437442051": "success"
+  },
+  "preview": {
+    "id": "dpl_4wRogvRYaDkakfZ89e27ZEnVFRRy",
+    "url": "academyos-gwxq88uxo-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 39,
+    "sourceVerified": true,
+    "method": "existing native authenticated dashboard"
+  },
+  "staging": {
+    "id": "dpl_46SQeUGWGxVr3i5ugARk3nWcCHdj",
+    "url": "academyos-ho0t743wm-academy-os2.vercel.app",
+    "state": "Ready",
+    "durationSeconds": 48,
+    "sourceVerified": true,
+    "aliasVerified": "staging.academy.nahr.dev",
+    "method": "native authenticated dashboard after userTouchID;detail48s/build log49s"
+  },
+  "hosted": "Owner native EN saved-detail and AR dirty tab-return each1planning200;capacity7 retained then discarded;saved2 rechecked;no operating save",
+  "ownerAcceptance": "pending",
+  "independentSecurity": "open"
+}

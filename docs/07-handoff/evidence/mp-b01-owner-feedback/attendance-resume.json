@@ -1,0 +1,84 @@
+{
+  "scope": "Actual React with fictional held resume transport;not hosted or database evidence",
+  "resumeContinuity": [
+    {
+      "lang": "en",
+      "width": 1440,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 420,
+      "heldScroll": 420,
+      "rosterRequests": 1,
+      "outcome": "passed"
+    },
+    {
+      "lang": "ar",
+      "width": 1440,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 420,
+      "heldScroll": 420,
+      "rosterRequests": 1,
+      "outcome": "passed"
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 0,
+      "heldScroll": 0,
+      "rosterRequests": 1,
+      "outcome": "passed"
+    },
+    {
+      "lang": "ar",
+      "width": 390,
+      "rows": 18,
+      "sameNode": true,
+      "beforeScroll": 0,
+      "heldScroll": 0,
+      "rosterRequests": 1,
+      "outcome": "passed"
+    }
+  ],
+  "unselectedResume": [
+    {
+      "lang": "en",
+      "width": 1440,
+      "beforeTop": 63,
+      "heldTop": 63,
+      "rosterReads": 1,
+      "rows": 18
+    },
+    {
+      "lang": "ar",
+      "width": 1440,
+      "beforeTop": 70,
+      "heldTop": 70,
+      "rosterReads": 1,
+      "rows": 18
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "beforeTop": 288.25,
+      "heldTop": 288.25,
+      "rosterReads": 1,
+      "rows": 18
+    },
+    {
+      "lang": "ar",
+      "width": 390,
+      "beforeTop": 269.5,
+      "heldTop": 269.5,
+      "rosterReads": 1,
+      "rows": 18
+    }
+  ],
+  "dirtyGuard": "passed;0calls",
+  "changedResult": "passed;Sam current mark appears",
+  "failedRead": "passed;existing mask and canonical retry",
+  "authentication": "passed;401isnotroleloss,maskeduntilsuccessfulread",
+  "denial": "passed;private roster cleared"
+}

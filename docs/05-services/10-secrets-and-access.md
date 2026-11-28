@@ -18,6 +18,8 @@ Do not map staging to every preview without examining trust: unreviewed branches
 
 ## Local and CI handling
 
+The Owner-authorized public repository follows the [public CI/publication policy](../00-governance/public-repository-and-ci-policy.md). Public source does not expose GitHub environment-secret values by itself; outside PR code must never receive them. Restrict privileged backups to the trusted main environment, keep ordinary checks read-only and fixture-based, inspect logs/artifacts, and use private vulnerability reporting. The current monitor endpoint is configured with `BACKUP_MONITOR_URL`; historical public telemetry capabilities are retained exposure, not revoked credentials or evidence of genuine backups.
+
 Prefer ephemeral injection into the intended process. If a local file is necessary, keep it ignored, access-restricted and nonproduction. Do not source untrusted `.env` text as shell code. Do not paste values into chat, README, screenshots, terminal command arguments or issue reports. Public-prefix variables must contain public configuration only.
 
 CI should use no production secrets for ordinary PR checks. Production deployment/migration jobs receive only their required credentials after the enforced release gate. Inspect third-party action access and artifact contents. Redaction is defense in depth, not permission to log sensitive data.

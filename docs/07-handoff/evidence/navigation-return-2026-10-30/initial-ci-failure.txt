@@ -1,0 +1,26 @@
+verify	Verify correction request and decision API and recovery	﻿2026-10-30T17:32:21.3220027Z ##[group]Run node scripts/corrections/test_api.mjs
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.3220499Z ^[[36;1mnode scripts/corrections/test_api.mjs^[[0m
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.3220876Z ^[[36;1mnode scripts/corrections/test_ui.mjs^[[0m
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.3221611Z ^[[36;1mUI_REACT_MODE=development node scripts/corrections/test_ui.mjs^[[0m
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.3252266Z shell: /usr/bin/bash -e {0}
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.3252603Z ##[endgroup]
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:21.4753933Z {"correctionApi":"passed","budgetFailures":21,"invalidBodies":3,"crossOriginDenied":true,"scope":"actual route; synthetic limiter/session adapters"}
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:26.4693513Z PASS actual correction product UI production
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1077448Z node:internal/modules/run_main:107
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1078362Z     triggerUncaughtException(
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1078868Z     ^
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1079174Z 
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1081744Z locator.click: Timeout 30000ms exceeded.
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1092375Z Call log:
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1093218Z   - waiting for getByRole('button', { name: 'Review decision', exact: true })
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1094136Z 
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1094965Z     at ownerReview (/home/runner/work/academyos-web/academyos-web/scripts/corrections/test_ui.mjs:23:151)
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1096376Z     at async file:///home/runner/work/academyos-web/academyos-web/scripts/corrections/test_ui.mjs:28:71 {
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1097378Z   log: [
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1098203Z     "  - waiting for getByRole('button', { name: 'Review decision', exact: true })"
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1099064Z   ],
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1099565Z   name: 'TimeoutError'
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1100081Z }
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1100427Z 
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1100751Z Node.js v24.22.1
+verify	Verify correction request and decision API and recovery	2026-10-30T17:32:59.1352740Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,12 @@
+{
+  "stage": "before",
+  "source_base": "d2bccb8c9475dac9f7c4d1210b33655ae8320008",
+  "people_source_sha256": "5d9d0d46b9c20e865708a85d578177ff7c05844402cd0760adf0ac2ee59b91a0",
+  "command": "UI_EVIDENCE_DIR=/tmp/academyos-mpb01-people-auth-20261108/before node scripts/people/test_ui.mjs",
+  "exit_code": 1,
+  "failure": "Expected Sign-in required heading was absent after HTTP401;actual ARIA snapshot showed Access unavailable and role-denial copy.",
+  "observed_request": "profile read;fictional401 response while browser identity remained user_A",
+  "scope": "Actual React component;synthetic identity/HTTP. No prepared-store or hosted result is claimed for this baseline.",
+  "timing_or_service_cost": "not measured",
+  "baseline_harness_hash": "not captured before later test additions;do not infer the final driver hash"
+}
